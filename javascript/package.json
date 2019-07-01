@@ -1,0 +1,30 @@
+{
+  "name": "spoonacular_api",
+  "version": "1.0",
+  "description": "The_spoonacular_Nutrition_Recipe_and_Food_API_allows_you_to_access_over_380000_recipes_thousands_of_ingredients_80000_food_products_and_100000_menu_items__Our_food_ontology_and_semantic_recipe_search_engine_makes_it_possible_to_search_for_recipes_using_natural_language_queries_such_as_gluten_free_brownies_without_sugar_or_low_fat_vegan_cupcakes__You_can_automatically_calculate_the_nutritional_information_for_any_recipe_analyze_recipe_costs_visualize_ingredient_lists_find_recipes_for_whats_in_your_fridge_find_recipes_based_on_special_diets_nutritional_requirements_or_favorite_ingredients_classify_recipes_into_types_and_cuisines_convert_ingredient_amounts_or_even_compute_an_entire_meal_plan__With_our_powerful_API_you_can_create_many_kinds_of_food_and_especially_nutrition_apps_Special_diets_dietary_requirements_currently_available_include_vegan_vegetarian_pescetarian_gluten_free_grain_free_dairy_free_high_protein_whole_30_low_sodium_low_carb_Paleo_ketogenic_FODMAP_and_Primal_",
+  "license": "spoonacular API Terms",
+  "main": "dist/com.spoonacular.client/index.js",
+  "scripts": {
+    "build": "babel src -d dist",
+    "prepack": "npm run build",
+    "test": "mocha --compilers js:babel-core/register --recursive"
+  },
+  "browser": {
+    "fs": false
+  },
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "superagent": "3.7.0"
+  },
+  "devDependencies": {
+    "babel-core": "6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "expect.js": "^0.3.1",
+    "mocha": "^5.2.0",
+    "sinon": "^7.2.0"
+  },
+  "files": [
+    "dist"
+  ]
+}

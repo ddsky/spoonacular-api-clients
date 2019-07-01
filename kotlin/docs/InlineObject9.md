@@ -1,0 +1,10 @@
+
+# InlineObject9
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**text** | **kotlin.String** | The text in which food items such as dish names and ingredients should be detected in. | 
+
+
+
