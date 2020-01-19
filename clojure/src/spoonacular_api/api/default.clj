@@ -43,7 +43,7 @@
 
 (defn-spec analyze-recipe-instructions-with-http-info any?
   "Analyze Recipe Instructions
-  Extract ingredients and equipment from the recipe instruction steps."
+  Extract ingredients and equipment from the recipe's instructions."
   [instructions string?]
   (check-required-params instructions)
   (call-api "/recipes/analyzeInstructions" :post
@@ -57,7 +57,7 @@
 
 (defn-spec analyze-recipe-instructions any?
   "Analyze Recipe Instructions
-  Extract ingredients and equipment from the recipe instruction steps."
+  Extract ingredients and equipment from the recipe's instructions."
   [instructions string?]
   (let [res (:data (analyze-recipe-instructions-with-http-info instructions))]
     (if (:decode-models *api-context*)
@@ -67,7 +67,7 @@
 
 (defn-spec autocomplete-ingredient-search-with-http-info any?
   "Autocomplete Ingredient Search
-  Autocomplete a search for an ingredient."
+  Autocomplete the entry of an ingredient."
   ([query string?, ] (autocomplete-ingredient-search-with-http-info query nil))
   ([query string?, {:keys [number metaInformation intolerances]} (s/map-of keyword? any?)]
    (check-required-params query)
@@ -82,7 +82,7 @@
 
 (defn-spec autocomplete-ingredient-search any?
   "Autocomplete Ingredient Search
-  Autocomplete a search for an ingredient."
+  Autocomplete the entry of an ingredient."
   ([query string?, ] (autocomplete-ingredient-search query nil))
   ([query string?, optional-params any?]
    (let [res (:data (autocomplete-ingredient-search-with-http-info query optional-params))]
@@ -145,7 +145,7 @@
 
 (defn-spec autocomplete-recipe-search-with-http-info any?
   "Autocomplete Recipe Search
-  Autocomplete a partial input to possible recipe names."
+  Autocomplete a partial input to suggest possible recipe names."
   ([query string?, ] (autocomplete-recipe-search-with-http-info query nil))
   ([query string?, {:keys [number]} (s/map-of keyword? any?)]
    (check-required-params query)
@@ -160,7 +160,7 @@
 
 (defn-spec autocomplete-recipe-search any?
   "Autocomplete Recipe Search
-  Autocomplete a partial input to possible recipe names."
+  Autocomplete a partial input to suggest possible recipe names."
   ([query string?, ] (autocomplete-recipe-search query nil))
   ([query string?, optional-params any?]
    (let [res (:data (autocomplete-recipe-search-with-http-info query optional-params))]
@@ -195,7 +195,7 @@
 
 (defn-spec classify-grocery-product-with-http-info any?
   "Classify Grocery Product
-  Given a grocery product title, this endpoint allows you to detect what basic ingredient it is."
+  This endpoint allows you to match a packaged food to a basic category, e.g. a specific brand of milk to the category milk."
   ([inline-object-8 inline-object-8, ] (classify-grocery-product-with-http-info inline-object-8 nil))
   ([inline-object-8 inline-object-8, {:keys [locale]} (s/map-of keyword? any?)]
    (check-required-params inline-object-8)
@@ -211,7 +211,7 @@
 
 (defn-spec classify-grocery-product any?
   "Classify Grocery Product
-  Given a grocery product title, this endpoint allows you to detect what basic ingredient it is."
+  This endpoint allows you to match a packaged food to a basic category, e.g. a specific brand of milk to the category milk."
   ([inline-object-8 inline-object-8, ] (classify-grocery-product inline-object-8 nil))
   ([inline-object-8 inline-object-8, optional-params any?]
    (let [res (:data (classify-grocery-product-with-http-info inline-object-8 optional-params))]
@@ -222,7 +222,7 @@
 
 (defn-spec classify-grocery-product-bulk-with-http-info any?
   "Classify Grocery Product Bulk
-  Given a set of product jsons, get back classified products."
+  Provide a set of product jsons, get back classified products."
   ([body any?, ] (classify-grocery-product-bulk-with-http-info body nil))
   ([body any?, {:keys [locale]} (s/map-of keyword? any?)]
    (check-required-params body)
@@ -238,7 +238,7 @@
 
 (defn-spec classify-grocery-product-bulk any?
   "Classify Grocery Product Bulk
-  Given a set of product jsons, get back classified products."
+  Provide a set of product jsons, get back classified products."
   ([body any?, ] (classify-grocery-product-bulk body nil))
   ([body any?, optional-params any?]
    (let [res (:data (classify-grocery-product-bulk-with-http-info body optional-params))]
@@ -273,7 +273,7 @@
 
 (defn-spec create-recipe-card-with-http-info any?
   "Create Recipe Card
-  Create Recipe Card."
+  Generate a recipe card for a recipe."
   ([title string?, ^File image any?, ingredients string?, instructions string?, readyInMinutes float?, servings float?, mask string?, backgroundImage string?, ] (create-recipe-card-with-http-info title image ingredients instructions readyInMinutes servings mask backgroundImage nil))
   ([title string?, ^File image any?, ingredients string?, instructions string?, readyInMinutes float?, servings float?, mask string?, backgroundImage string?, {:keys [author backgroundColor fontColor source]} (s/map-of keyword? any?)]
    (check-required-params title image ingredients instructions readyInMinutes servings mask backgroundImage)
@@ -288,7 +288,7 @@
 
 (defn-spec create-recipe-card any?
   "Create Recipe Card
-  Create Recipe Card."
+  Generate a recipe card for a recipe."
   ([title string?, ^File image any?, ingredients string?, instructions string?, readyInMinutes float?, servings float?, mask string?, backgroundImage string?, ] (create-recipe-card title image ingredients instructions readyInMinutes servings mask backgroundImage nil))
   ([title string?, ^File image any?, ingredients string?, instructions string?, readyInMinutes float?, servings float?, mask string?, backgroundImage string?, optional-params any?]
    (let [res (:data (create-recipe-card-with-http-info title image ingredients instructions readyInMinutes servings mask backgroundImage optional-params))]
@@ -299,7 +299,7 @@
 
 (defn-spec detect-food-in-text-with-http-info any?
   "Detect Food in Text
-  Detect ingredients and dishes in texts. This task is also called Named Entity Recognition (NER). In our case the entities are foods. Either dishes, such as pizza and cheeseburger or ingredients, such as cucumber and almonds."
+  Take any text and find all mentions of food contained within it. This task is also called Named Entity Recognition (NER). In this case, the entities are foods. Either dishes, such as pizza or cheeseburger, or ingredients, such as cucumber or almonds."
   [text string?]
   (check-required-params text)
   (call-api "/food/detect" :post
@@ -313,7 +313,7 @@
 
 (defn-spec detect-food-in-text any?
   "Detect Food in Text
-  Detect ingredients and dishes in texts. This task is also called Named Entity Recognition (NER). In our case the entities are foods. Either dishes, such as pizza and cheeseburger or ingredients, such as cucumber and almonds."
+  Take any text and find all mentions of food contained within it. This task is also called Named Entity Recognition (NER). In this case, the entities are foods. Either dishes, such as pizza or cheeseburger, or ingredients, such as cucumber or almonds."
   [text string?]
   (let [res (:data (detect-food-in-text-with-http-info text))]
     (if (:decode-models *api-context*)
@@ -323,7 +323,7 @@
 
 (defn-spec extract-recipe-from-website-with-http-info any?
   "Extract Recipe from Website
-  Get an analyzed breakdown of a recipe's instructions. Each step is enriched with the ingredients and the equipment that is used."
+  This endpoint lets you extract recipe data such as title, ingredients, and instructions from any properly formatted Website."
   ([url string?, ] (extract-recipe-from-website-with-http-info url nil))
   ([url string?, {:keys [forceExtraction]} (s/map-of keyword? any?)]
    (check-required-params url)
@@ -338,7 +338,7 @@
 
 (defn-spec extract-recipe-from-website any?
   "Extract Recipe from Website
-  Get an analyzed breakdown of a recipe's instructions. Each step is enriched with the ingredients and the equipment that is used."
+  This endpoint lets you extract recipe data such as title, ingredients, and instructions from any properly formatted Website."
   ([url string?, ] (extract-recipe-from-website url nil))
   ([url string?, optional-params any?]
    (let [res (:data (extract-recipe-from-website-with-http-info url optional-params))]
@@ -352,7 +352,7 @@
   Generate a meal plan with three meals per day (breakfast, lunch, and dinner)."
   ([] (generate-meal-plan-with-http-info nil))
   ([{:keys [timeFrame targetCalories diet exclude]} (s/map-of keyword? any?)]
-   (call-api "/recipes/mealplans/generate" :get
+   (call-api "/mealplanner/generate" :get
              {:path-params   {}
               :header-params {}
               :query-params  {"timeFrame" timeFrame "targetCalories" targetCalories "diet" diet "exclude" exclude }
@@ -374,7 +374,7 @@
 
 (defn-spec get-a-random-food-joke-with-http-info any?
   "Get a Random Food Joke
-  Get a random joke that includes or is about food."
+  Get a random joke that is related to food. Caution: this is an endpoint for adults!"
   []
   (call-api "/food/jokes/random" :get
             {:path-params   {}
@@ -387,7 +387,7 @@
 
 (defn-spec get-a-random-food-joke any?
   "Get a Random Food Joke
-  Get a random joke that includes or is about food."
+  Get a random joke that is related to food. Caution: this is an endpoint for adults!"
   []
   (let [res (:data (get-a-random-food-joke-with-http-info))]
     (if (:decode-models *api-context*)
@@ -397,7 +397,7 @@
 
 (defn-spec get-analyzed-recipe-instructions-with-http-info any?
   "Get Analyzed Recipe Instructions
-  Get an analyzed breakdown of a recipe's instructions. Each step is enriched with the ingredients and the equipment that is used."
+  Get an analyzed breakdown of a recipe's instructions. Each step is enriched with the ingredients and equipment required."
   ([id float?, ] (get-analyzed-recipe-instructions-with-http-info id nil))
   ([id float?, {:keys [stepBreakdown]} (s/map-of keyword? any?)]
    (check-required-params id)
@@ -412,7 +412,7 @@
 
 (defn-spec get-analyzed-recipe-instructions any?
   "Get Analyzed Recipe Instructions
-  Get an analyzed breakdown of a recipe's instructions. Each step is enriched with the ingredients and the equipment that is used."
+  Get an analyzed breakdown of a recipe's instructions. Each step is enriched with the ingredients and equipment required."
   ([id float?, ] (get-analyzed-recipe-instructions id nil))
   ([id float?, optional-params any?]
    (let [res (:data (get-analyzed-recipe-instructions-with-http-info id optional-params))]
@@ -447,7 +447,7 @@
 
 (defn-spec get-conversation-suggests-with-http-info any?
   "Get Conversation Suggests
-  This endpoint returns suggestions for things the user can say or ask the chat bot."
+  This endpoint returns suggestions for things the user can say or ask the chatbot."
   ([query string?, ] (get-conversation-suggests-with-http-info query nil))
   ([query string?, {:keys [number]} (s/map-of keyword? any?)]
    (check-required-params query)
@@ -462,7 +462,7 @@
 
 (defn-spec get-conversation-suggests any?
   "Get Conversation Suggests
-  This endpoint returns suggestions for things the user can say or ask the chat bot."
+  This endpoint returns suggestions for things the user can say or ask the chatbot."
   ([query string?, ] (get-conversation-suggests query nil))
   ([query string?, optional-params any?]
    (let [res (:data (get-conversation-suggests-with-http-info query optional-params))]
@@ -473,7 +473,7 @@
 
 (defn-spec get-dish-pairing-for-wine-with-http-info any?
   "Get Dish Pairing for Wine
-  Get a dish that goes well with a given wine."
+  Find a dish that goes well with a given wine."
   [wine string?]
   (check-required-params wine)
   (call-api "/food/wine/dishes" :get
@@ -487,7 +487,7 @@
 
 (defn-spec get-dish-pairing-for-wine any?
   "Get Dish Pairing for Wine
-  Get a dish that goes well with a given wine."
+  Find a dish that goes well with a given wine."
   [wine string?]
   (let [res (:data (get-dish-pairing-for-wine-with-http-info wine))]
     (if (:decode-models *api-context*)
@@ -495,10 +495,10 @@
        res)))
 
 
-(defn-spec get-food-information-with-http-info any?
-  "Get Food Information
-  Get information about a certain food (ingredient)."
-  ([id float?, ] (get-food-information-with-http-info id nil))
+(defn-spec get-ingredient-information-with-http-info any?
+  "Get Ingredient Information
+  Use an ingredient id to get all available information about an ingredient, such as its image and supermarket aisle."
+  ([id float?, ] (get-ingredient-information-with-http-info id nil))
   ([id float?, {:keys [amount unit]} (s/map-of keyword? any?)]
    (check-required-params id)
    (call-api "/food/ingredients/{id}/information" :get
@@ -510,12 +510,12 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn-spec get-food-information any?
-  "Get Food Information
-  Get information about a certain food (ingredient)."
-  ([id float?, ] (get-food-information id nil))
+(defn-spec get-ingredient-information any?
+  "Get Ingredient Information
+  Use an ingredient id to get all available information about an ingredient, such as its image and supermarket aisle."
+  ([id float?, ] (get-ingredient-information id nil))
   ([id float?, optional-params any?]
-   (let [res (:data (get-food-information-with-http-info id optional-params))]
+   (let [res (:data (get-ingredient-information-with-http-info id optional-params))]
      (if (:decode-models *api-context*)
         (st/decode any? res st/string-transformer)
         res))))
@@ -571,7 +571,7 @@
 
 (defn-spec get-menu-item-information-with-http-info any?
   "Get Menu Item Information
-  Get information about a certain menu item."
+  Use a menu item id to get all available information about a menu item, such as nutrition."
   [id float?]
   (check-required-params id)
   (call-api "/food/menuItems/{id}" :get
@@ -585,7 +585,7 @@
 
 (defn-spec get-menu-item-information any?
   "Get Menu Item Information
-  Get information about a certain menu item."
+  Use a menu item id to get all available information about a menu item, such as nutrition."
   [id float?]
   (let [res (:data (get-menu-item-information-with-http-info id))]
     (if (:decode-models *api-context*)
@@ -595,7 +595,7 @@
 
 (defn-spec get-product-information-with-http-info any?
   "Get Product Information
-  Get information about a packaged food product."
+  Use a product id to get full information about a product, such as ingredients, nutrition, etc."
   [id float?]
   (check-required-params id)
   (call-api "/food/products/{id}" :get
@@ -609,7 +609,7 @@
 
 (defn-spec get-product-information any?
   "Get Product Information
-  Get information about a packaged food product."
+  Use a product id to get full information about a product, such as ingredients, nutrition, etc."
   [id float?]
   (let [res (:data (get-product-information-with-http-info id))]
     (if (:decode-models *api-context*)
@@ -642,7 +642,7 @@
 
 (defn-spec get-random-recipes-with-http-info any?
   "Get Random Recipes
-  Find random (popular) recipes."
+  Find random (popular) recipes. If you need to filter recipes by diet, nutrition etc. you might want to consider using the complex recipe search endpoint and set the sort request parameter to random."
   ([] (get-random-recipes-with-http-info nil))
   ([{:keys [limitLicense tags number]} (s/map-of keyword? any?)]
    (call-api "/recipes/random" :get
@@ -656,7 +656,7 @@
 
 (defn-spec get-random-recipes any?
   "Get Random Recipes
-  Find random (popular) recipes."
+  Find random (popular) recipes. If you need to filter recipes by diet, nutrition etc. you might want to consider using the complex recipe search endpoint and set the sort request parameter to random."
   ([] (get-random-recipes nil))
   ([optional-params any?]
    (let [res (:data (get-random-recipes-with-http-info optional-params))]
@@ -691,7 +691,7 @@
 
 (defn-spec get-recipe-information-with-http-info any?
   "Get Recipe Information
-  Get information about a recipe."
+  Use a recipe id to get full information about a recipe, such as ingredients, nutrition, diet and allergen information, etc."
   ([id float?, ] (get-recipe-information-with-http-info id nil))
   ([id float?, {:keys [includeNutrition]} (s/map-of keyword? any?)]
    (check-required-params id)
@@ -706,7 +706,7 @@
 
 (defn-spec get-recipe-information any?
   "Get Recipe Information
-  Get information about a recipe."
+  Use a recipe id to get full information about a recipe, such as ingredients, nutrition, diet and allergen information, etc."
   ([id float?, ] (get-recipe-information id nil))
   ([id float?, optional-params any?]
    (let [res (:data (get-recipe-information-with-http-info id optional-params))]
@@ -717,7 +717,7 @@
 
 (defn-spec get-recipe-information-bulk-with-http-info any?
   "Get Recipe Information Bulk
-  Get information about multiple recipes at once. That is equivalent of calling the Get Recipe Information endpoint multiple times but is faster."
+  Get information about multiple recipes at once. This is equivalent to calling the Get Recipe Information endpoint multiple times, but faster."
   ([ids string?, ] (get-recipe-information-bulk-with-http-info ids nil))
   ([ids string?, {:keys [includeNutrition]} (s/map-of keyword? any?)]
    (check-required-params ids)
@@ -732,7 +732,7 @@
 
 (defn-spec get-recipe-information-bulk any?
   "Get Recipe Information Bulk
-  Get information about multiple recipes at once. That is equivalent of calling the Get Recipe Information endpoint multiple times but is faster."
+  Get information about multiple recipes at once. This is equivalent to calling the Get Recipe Information endpoint multiple times, but faster."
   ([ids string?, ] (get-recipe-information-bulk ids nil))
   ([ids string?, optional-params any?]
    (let [res (:data (get-recipe-information-bulk-with-http-info ids optional-params))]
@@ -765,8 +765,8 @@
        res)))
 
 
-(defn-spec get-recipe-nutrition-by-id-with-http-info any?
-  "Get Recipe Nutrition by ID
+(defn-spec get-recipe-nutrition-widget-by-id-with-http-info any?
+  "Get Recipe Nutrition Widget by ID
   Get a recipe's nutrition widget data."
   [id float?]
   (check-required-params id)
@@ -779,11 +779,11 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn-spec get-recipe-nutrition-by-id any?
-  "Get Recipe Nutrition by ID
+(defn-spec get-recipe-nutrition-widget-by-id any?
+  "Get Recipe Nutrition Widget by ID
   Get a recipe's nutrition widget data."
   [id float?]
-  (let [res (:data (get-recipe-nutrition-by-id-with-http-info id))]
+  (let [res (:data (get-recipe-nutrition-widget-by-id-with-http-info id))]
     (if (:decode-models *api-context*)
        (st/decode any? res st/string-transformer)
        res)))
@@ -841,7 +841,7 @@
 
 (defn-spec get-wine-description-with-http-info any?
   "Get Wine Description
-  Get the description of a certain wine, e.g. \"malbec\", \"riesling\", or \"merlot\"."
+  Get a simple description of a certain wine, e.g. \"malbec\", \"riesling\", or \"merlot\"."
   [wine string?]
   (check-required-params wine)
   (call-api "/food/wine/description" :get
@@ -855,7 +855,7 @@
 
 (defn-spec get-wine-description any?
   "Get Wine Description
-  Get the description of a certain wine, e.g. \"malbec\", \"riesling\", or \"merlot\"."
+  Get a simple description of a certain wine, e.g. \"malbec\", \"riesling\", or \"merlot\"."
   [wine string?]
   (let [res (:data (get-wine-description-with-http-info wine))]
     (if (:decode-models *api-context*)
@@ -891,7 +891,7 @@
 
 (defn-spec get-wine-recommendation-with-http-info any?
   "Get Wine Recommendation
-  Get a specific wine recommendation (concrete product) for a given wine, e.g. \"merlot\"."
+  Get a specific wine recommendation (concrete product) for a given wine type, e.g. \"merlot\"."
   ([wine string?, ] (get-wine-recommendation-with-http-info wine nil))
   ([wine string?, {:keys [maxPrice minRating number]} (s/map-of keyword? any?)]
    (check-required-params wine)
@@ -906,7 +906,7 @@
 
 (defn-spec get-wine-recommendation any?
   "Get Wine Recommendation
-  Get a specific wine recommendation (concrete product) for a given wine, e.g. \"merlot\"."
+  Get a specific wine recommendation (concrete product) for a given wine type, e.g. \"merlot\"."
   ([wine string?, ] (get-wine-recommendation wine nil))
   ([wine string?, optional-params any?]
    (let [res (:data (get-wine-recommendation-with-http-info wine optional-params))]
@@ -917,7 +917,7 @@
 
 (defn-spec guess-nutrition-by-dish-name-with-http-info any?
   "Guess Nutrition by Dish Name
-  Guess the macro nutrients of a dish given its title."
+  Estimate the macronutrients of a dish based on its title."
   [title string?]
   (check-required-params title)
   (call-api "/recipes/guessNutrition" :get
@@ -931,7 +931,7 @@
 
 (defn-spec guess-nutrition-by-dish-name any?
   "Guess Nutrition by Dish Name
-  Guess the macro nutrients of a dish given its title."
+  Estimate the macronutrients of a dish based on its title."
   [title string?]
   (let [res (:data (guess-nutrition-by-dish-name-with-http-info title))]
     (if (:decode-models *api-context*)
@@ -1042,7 +1042,7 @@
 
 (defn-spec search-grocery-products-with-http-info any?
   "Search Grocery Products
-  Search packaged food products such as frozen pizza and snickers bars."
+  Search packaged food products, such as frozen pizza or Greek yogurt."
   ([query string?, ] (search-grocery-products-with-http-info query nil))
   ([query string?, {:keys [minCalories maxCalories minCarbs maxCarbs minProtein maxProtein minFat maxFat offset number]} (s/map-of keyword? any?)]
    (check-required-params query)
@@ -1057,7 +1057,7 @@
 
 (defn-spec search-grocery-products any?
   "Search Grocery Products
-  Search packaged food products such as frozen pizza and snickers bars."
+  Search packaged food products, such as frozen pizza or Greek yogurt."
   ([query string?, ] (search-grocery-products query nil))
   ([query string?, optional-params any?]
    (let [res (:data (search-grocery-products-with-http-info query optional-params))]
@@ -1068,7 +1068,7 @@
 
 (defn-spec search-grocery-products-by-upc-with-http-info any?
   "Search Grocery Products by UPC
-  Get information about a food product given its UPC."
+  Get information about a packaged food using its UPC."
   [upc float?]
   (check-required-params upc)
   (call-api "/food/products/upc/{upc}" :get
@@ -1082,7 +1082,7 @@
 
 (defn-spec search-grocery-products-by-upc any?
   "Search Grocery Products by UPC
-  Get information about a food product given its UPC."
+  Get information about a packaged food using its UPC."
   [upc float?]
   (let [res (:data (search-grocery-products-by-upc-with-http-info upc))]
     (if (:decode-models *api-context*)
@@ -1092,7 +1092,7 @@
 
 (defn-spec search-menu-items-with-http-info any?
   "Search Menu Items
-  Search over 115,000 menu items from over 800 fast food and chain restaurants such as McDonalds Big Mac or Starbucks Mocha."
+  Search over 115,000 menu items from over 800 fast food and chain restaurants. For example, McDonald's Big Mac or Starbucks Mocha."
   ([query string?, ] (search-menu-items-with-http-info query nil))
   ([query string?, {:keys [minCalories maxCalories minCarbs maxCarbs minProtein maxProtein minFat maxFat offset number]} (s/map-of keyword? any?)]
    (check-required-params query)
@@ -1107,7 +1107,7 @@
 
 (defn-spec search-menu-items any?
   "Search Menu Items
-  Search over 115,000 menu items from over 800 fast food and chain restaurants such as McDonalds Big Mac or Starbucks Mocha."
+  Search over 115,000 menu items from over 800 fast food and chain restaurants. For example, McDonald's Big Mac or Starbucks Mocha."
   ([query string?, ] (search-menu-items query nil))
   ([query string?, optional-params any?]
    (let [res (:data (search-menu-items-with-http-info query optional-params))]
@@ -1144,7 +1144,7 @@
 
 (defn-spec search-recipes-by-ingredients-with-http-info any?
   "Search Recipes by Ingredients
-  Find recipes that use as many of the given ingredients as possible and have as little as possible missing ingredients. This is a \"what's in your fridge\" API endpoint."
+  Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don't currently have (post shopping)."
   ([ingredients string?, ] (search-recipes-by-ingredients-with-http-info ingredients nil))
   ([ingredients string?, {:keys [number limitLicense ranking ignorePantry]} (s/map-of keyword? any?)]
    (check-required-params ingredients)
@@ -1159,7 +1159,7 @@
 
 (defn-spec search-recipes-by-ingredients any?
   "Search Recipes by Ingredients
-  Find recipes that use as many of the given ingredients as possible and have as little as possible missing ingredients. This is a \"what's in your fridge\" API endpoint."
+  Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don't currently have (post shopping)."
   ([ingredients string?, ] (search-recipes-by-ingredients ingredients nil))
   ([ingredients string?, optional-params any?]
    (let [res (:data (search-recipes-by-ingredients-with-http-info ingredients optional-params))]
@@ -1170,7 +1170,7 @@
 
 (defn-spec search-recipes-by-nutrients-with-http-info any?
   "Search Recipes by Nutrients
-  Find a set of recipes that adhere to the given nutritional limits. All the returned recipes will have macro nutrients within the calories, protein, fat, and carbohydrate limits."
+  Find a set of recipes that adhere to the given nutritional limits. You may set limits for macronutrients (calories, protein, fat, and carbohydrate) and/or many micronutrients."
   ([] (search-recipes-by-nutrients-with-http-info nil))
   ([{:keys [minCarbs maxCarbs minProtein maxProtein minCalories maxCalories minFat maxFat minAlcohol maxAlcohol minCaffeine maxCaffeine minCopper maxCopper minCalcium maxCalcium minCholine maxCholine minCholesterol maxCholesterol minFluoride maxFluoride minSaturatedFat maxSaturatedFat minVitaminA maxVitaminA minVitaminC maxVitaminC minVitaminD maxVitaminD minVitaminE maxVitaminE minVitaminK maxVitaminK minVitaminB1 maxVitaminB1 minVitaminB2 maxVitaminB2 minVitaminB5 maxVitaminB5 minVitaminB3 maxVitaminB3 minVitaminB6 maxVitaminB6 minVitaminB12 maxVitaminB12 minFiber maxFiber minFolate maxFolate minFolicAcid maxFolicAcid minIodine maxIodine minIron maxIron minMagnesium maxMagnesium minManganese maxManganese minPhosphorus maxPhosphorus minPotassium maxPotassium minSelenium maxSelenium minSodium maxSodium minSugar maxSugar minZinc maxZinc offset number random limitLicense]} (s/map-of keyword? any?)]
    (call-api "/recipes/findByNutrients" :get
@@ -1184,7 +1184,7 @@
 
 (defn-spec search-recipes-by-nutrients any?
   "Search Recipes by Nutrients
-  Find a set of recipes that adhere to the given nutritional limits. All the returned recipes will have macro nutrients within the calories, protein, fat, and carbohydrate limits."
+  Find a set of recipes that adhere to the given nutritional limits. You may set limits for macronutrients (calories, protein, fat, and carbohydrate) and/or many micronutrients."
   ([] (search-recipes-by-nutrients nil))
   ([optional-params any?]
    (let [res (:data (search-recipes-by-nutrients-with-http-info optional-params))]
@@ -1195,14 +1195,14 @@
 
 (defn-spec search-recipes-complex-with-http-info any?
   "Search Recipes Complex
-  Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: Since this method combines searching by query, by ingredients, and by nutrients in one endpoint."
+  Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint."
   ([query string?, ] (search-recipes-complex-with-http-info query nil))
-  ([query string?, {:keys [cuisine excludeCuisine diet intolerances equipment includeIngredients excludeIngredients type instructionsRequired fillIngredients addRecipeInformation author tags titleMatch sort sortDirection minCarbs maxCarbs minProtein maxProtein minCalories maxCalories minFat maxFat minAlcohol maxAlcohol minCaffeine maxCaffeine minCopper maxCopper minCalcium maxCalcium minCholine maxCholine minCholesterol maxCholesterol minFluoride maxFluoride minSaturatedFat maxSaturatedFat minVitaminA maxVitaminA minVitaminC maxVitaminC minVitaminD maxVitaminD minVitaminE maxVitaminE minVitaminK maxVitaminK minVitaminB1 maxVitaminB1 minVitaminB2 maxVitaminB2 minVitaminB5 maxVitaminB5 minVitaminB3 maxVitaminB3 minVitaminB6 maxVitaminB6 minVitaminB12 maxVitaminB12 minFiber maxFiber minFolate maxFolate minFolicAcid maxFolicAcid minIodine maxIodine minIron maxIron minMagnesium maxMagnesium minManganese maxManganese minPhosphorus maxPhosphorus minPotassium maxPotassium minSelenium maxSelenium minSodium maxSodium minSugar maxSugar minZinc maxZinc offset number limitLicense]} (s/map-of keyword? any?)]
+  ([query string?, {:keys [cuisine excludeCuisine diet intolerances equipment includeIngredients excludeIngredients type instructionsRequired fillIngredients addRecipeInformation author tags titleMatch maxReadyTime ignorePantry sort sortDirection minCarbs maxCarbs minProtein maxProtein minCalories maxCalories minFat maxFat minAlcohol maxAlcohol minCaffeine maxCaffeine minCopper maxCopper minCalcium maxCalcium minCholine maxCholine minCholesterol maxCholesterol minFluoride maxFluoride minSaturatedFat maxSaturatedFat minVitaminA maxVitaminA minVitaminC maxVitaminC minVitaminD maxVitaminD minVitaminE maxVitaminE minVitaminK maxVitaminK minVitaminB1 maxVitaminB1 minVitaminB2 maxVitaminB2 minVitaminB5 maxVitaminB5 minVitaminB3 maxVitaminB3 minVitaminB6 maxVitaminB6 minVitaminB12 maxVitaminB12 minFiber maxFiber minFolate maxFolate minFolicAcid maxFolicAcid minIodine maxIodine minIron maxIron minMagnesium maxMagnesium minManganese maxManganese minPhosphorus maxPhosphorus minPotassium maxPotassium minSelenium maxSelenium minSodium maxSodium minSugar maxSugar minZinc maxZinc offset number limitLicense]} (s/map-of keyword? any?)]
    (check-required-params query)
    (call-api "/recipes/complexSearch" :get
              {:path-params   {}
               :header-params {}
-              :query-params  {"query" query "cuisine" cuisine "excludeCuisine" excludeCuisine "diet" diet "intolerances" intolerances "equipment" equipment "includeIngredients" includeIngredients "excludeIngredients" excludeIngredients "type" type "instructionsRequired" instructionsRequired "fillIngredients" fillIngredients "addRecipeInformation" addRecipeInformation "author" author "tags" tags "titleMatch" titleMatch "sort" sort "sortDirection" sortDirection "minCarbs" minCarbs "maxCarbs" maxCarbs "minProtein" minProtein "maxProtein" maxProtein "minCalories" minCalories "maxCalories" maxCalories "minFat" minFat "maxFat" maxFat "minAlcohol" minAlcohol "maxAlcohol" maxAlcohol "minCaffeine" minCaffeine "maxCaffeine" maxCaffeine "minCopper" minCopper "maxCopper" maxCopper "minCalcium" minCalcium "maxCalcium" maxCalcium "minCholine" minCholine "maxCholine" maxCholine "minCholesterol" minCholesterol "maxCholesterol" maxCholesterol "minFluoride" minFluoride "maxFluoride" maxFluoride "minSaturatedFat" minSaturatedFat "maxSaturatedFat" maxSaturatedFat "minVitaminA" minVitaminA "maxVitaminA" maxVitaminA "minVitaminC" minVitaminC "maxVitaminC" maxVitaminC "minVitaminD" minVitaminD "maxVitaminD" maxVitaminD "minVitaminE" minVitaminE "maxVitaminE" maxVitaminE "minVitaminK" minVitaminK "maxVitaminK" maxVitaminK "minVitaminB1" minVitaminB1 "maxVitaminB1" maxVitaminB1 "minVitaminB2" minVitaminB2 "maxVitaminB2" maxVitaminB2 "minVitaminB5" minVitaminB5 "maxVitaminB5" maxVitaminB5 "minVitaminB3" minVitaminB3 "maxVitaminB3" maxVitaminB3 "minVitaminB6" minVitaminB6 "maxVitaminB6" maxVitaminB6 "minVitaminB12" minVitaminB12 "maxVitaminB12" maxVitaminB12 "minFiber" minFiber "maxFiber" maxFiber "minFolate" minFolate "maxFolate" maxFolate "minFolicAcid" minFolicAcid "maxFolicAcid" maxFolicAcid "minIodine" minIodine "maxIodine" maxIodine "minIron" minIron "maxIron" maxIron "minMagnesium" minMagnesium "maxMagnesium" maxMagnesium "minManganese" minManganese "maxManganese" maxManganese "minPhosphorus" minPhosphorus "maxPhosphorus" maxPhosphorus "minPotassium" minPotassium "maxPotassium" maxPotassium "minSelenium" minSelenium "maxSelenium" maxSelenium "minSodium" minSodium "maxSodium" maxSodium "minSugar" minSugar "maxSugar" maxSugar "minZinc" minZinc "maxZinc" maxZinc "offset" offset "number" number "limitLicense" limitLicense }
+              :query-params  {"query" query "cuisine" cuisine "excludeCuisine" excludeCuisine "diet" diet "intolerances" intolerances "equipment" equipment "includeIngredients" includeIngredients "excludeIngredients" excludeIngredients "type" type "instructionsRequired" instructionsRequired "fillIngredients" fillIngredients "addRecipeInformation" addRecipeInformation "author" author "tags" tags "titleMatch" titleMatch "maxReadyTime" maxReadyTime "ignorePantry" ignorePantry "sort" sort "sortDirection" sortDirection "minCarbs" minCarbs "maxCarbs" maxCarbs "minProtein" minProtein "maxProtein" maxProtein "minCalories" minCalories "maxCalories" maxCalories "minFat" minFat "maxFat" maxFat "minAlcohol" minAlcohol "maxAlcohol" maxAlcohol "minCaffeine" minCaffeine "maxCaffeine" maxCaffeine "minCopper" minCopper "maxCopper" maxCopper "minCalcium" minCalcium "maxCalcium" maxCalcium "minCholine" minCholine "maxCholine" maxCholine "minCholesterol" minCholesterol "maxCholesterol" maxCholesterol "minFluoride" minFluoride "maxFluoride" maxFluoride "minSaturatedFat" minSaturatedFat "maxSaturatedFat" maxSaturatedFat "minVitaminA" minVitaminA "maxVitaminA" maxVitaminA "minVitaminC" minVitaminC "maxVitaminC" maxVitaminC "minVitaminD" minVitaminD "maxVitaminD" maxVitaminD "minVitaminE" minVitaminE "maxVitaminE" maxVitaminE "minVitaminK" minVitaminK "maxVitaminK" maxVitaminK "minVitaminB1" minVitaminB1 "maxVitaminB1" maxVitaminB1 "minVitaminB2" minVitaminB2 "maxVitaminB2" maxVitaminB2 "minVitaminB5" minVitaminB5 "maxVitaminB5" maxVitaminB5 "minVitaminB3" minVitaminB3 "maxVitaminB3" maxVitaminB3 "minVitaminB6" minVitaminB6 "maxVitaminB6" maxVitaminB6 "minVitaminB12" minVitaminB12 "maxVitaminB12" maxVitaminB12 "minFiber" minFiber "maxFiber" maxFiber "minFolate" minFolate "maxFolate" maxFolate "minFolicAcid" minFolicAcid "maxFolicAcid" maxFolicAcid "minIodine" minIodine "maxIodine" maxIodine "minIron" minIron "maxIron" maxIron "minMagnesium" minMagnesium "maxMagnesium" maxMagnesium "minManganese" minManganese "maxManganese" maxManganese "minPhosphorus" minPhosphorus "maxPhosphorus" maxPhosphorus "minPotassium" minPotassium "maxPotassium" maxPotassium "minSelenium" minSelenium "maxSelenium" maxSelenium "minSodium" minSodium "maxSodium" maxSodium "minSugar" minSugar "maxSugar" maxSugar "minZinc" minZinc "maxZinc" maxZinc "offset" offset "number" number "limitLicense" limitLicense }
               :form-params   {}
               :content-types []
               :accepts       ["application/json"]
@@ -1210,7 +1210,7 @@
 
 (defn-spec search-recipes-complex any?
   "Search Recipes Complex
-  Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: Since this method combines searching by query, by ingredients, and by nutrients in one endpoint."
+  Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint."
   ([query string?, ] (search-recipes-complex query nil))
   ([query string?, optional-params any?]
    (let [res (:data (search-recipes-complex-with-http-info query optional-params))]
@@ -1221,7 +1221,7 @@
 
 (defn-spec search-site-content-with-http-info any?
   "Search Site Content
-  Search spoonacular's site content. You'll be able to find everything that you could also find using the search suggests on spoonacular.com. This is a suggest API so you can send partial strings as queries."
+  Search spoonacular's site content. You'll be able to find everything that you could also find using the search suggestions on spoonacular.com. This is a suggest API so you can send partial strings as queries."
   [query string?]
   (check-required-params query)
   (call-api "/food/site/search" :get
@@ -1235,7 +1235,7 @@
 
 (defn-spec search-site-content any?
   "Search Site Content
-  Search spoonacular's site content. You'll be able to find everything that you could also find using the search suggests on spoonacular.com. This is a suggest API so you can send partial strings as queries."
+  Search spoonacular's site content. You'll be able to find everything that you could also find using the search suggestions on spoonacular.com. This is a suggest API so you can send partial strings as queries."
   [query string?]
   (let [res (:data (search-site-content-with-http-info query))]
     (if (:decode-models *api-context*)
@@ -1245,7 +1245,7 @@
 
 (defn-spec summarize-recipe-with-http-info any?
   "Summarize Recipe
-  Summarize the recipe in a short text."
+  Automatically generate a short description that summarizes key information about the recipe."
   [id float?]
   (check-required-params id)
   (call-api "/recipes/{id}/summary" :get
@@ -1259,7 +1259,7 @@
 
 (defn-spec summarize-recipe any?
   "Summarize Recipe
-  Summarize the recipe in a short text."
+  Automatically generate a short description that summarizes key information about the recipe."
   [id float?]
   (let [res (:data (summarize-recipe-with-http-info id))]
     (if (:decode-models *api-context*)
@@ -1269,7 +1269,7 @@
 
 (defn-spec talk-to-chatbot-with-http-info any?
   "Talk to Chatbot
-  This endpoint can be used to have a conversation about food with the spoonacular chat bot. Use the \"Get Conversation Suggests\" endpoint to show your user what he or she can say."
+  This endpoint can be used to have a conversation about food with the spoonacular chatbot. Use the \"Get Conversation Suggests\" endpoint to show your user what he or she can say."
   ([text string?, ] (talk-to-chatbot-with-http-info text nil))
   ([text string?, {:keys [contextId]} (s/map-of keyword? any?)]
    (check-required-params text)
@@ -1284,7 +1284,7 @@
 
 (defn-spec talk-to-chatbot any?
   "Talk to Chatbot
-  This endpoint can be used to have a conversation about food with the spoonacular chat bot. Use the \"Get Conversation Suggests\" endpoint to show your user what he or she can say."
+  This endpoint can be used to have a conversation about food with the spoonacular chatbot. Use the \"Get Conversation Suggests\" endpoint to show your user what he or she can say."
   ([text string?, ] (talk-to-chatbot text nil))
   ([text string?, optional-params any?]
    (let [res (:data (talk-to-chatbot-with-http-info text optional-params))]
@@ -1347,7 +1347,7 @@
 
 (defn-spec visualize-menu-item-nutrition-by-id-with-http-info any?
   "Visualize Menu Item Nutrition by ID
-  Visualize a menu items' nutrition data."
+  Visualize a menu item's nutritional information as HTML including CSS."
   ([id float?, ] (visualize-menu-item-nutrition-by-id-with-http-info id nil))
   ([id float?, {:keys [defaultCss]} (s/map-of keyword? any?)]
    (check-required-params id)
@@ -1362,7 +1362,7 @@
 
 (defn-spec visualize-menu-item-nutrition-by-id string?
   "Visualize Menu Item Nutrition by ID
-  Visualize a menu items' nutrition data."
+  Visualize a menu item's nutritional information as HTML including CSS."
   ([id float?, ] (visualize-menu-item-nutrition-by-id id nil))
   ([id float?, optional-params any?]
    (let [res (:data (visualize-menu-item-nutrition-by-id-with-http-info id optional-params))]
@@ -1399,7 +1399,7 @@
 
 (defn-spec visualize-product-nutrition-by-id-with-http-info any?
   "Visualize Product Nutrition by ID
-  Visualize a grocery product's nutritional information."
+  Visualize a product's nutritional information as HTML including CSS."
   ([id float?, ] (visualize-product-nutrition-by-id-with-http-info id nil))
   ([id float?, {:keys [defaultCss]} (s/map-of keyword? any?)]
    (check-required-params id)
@@ -1414,7 +1414,7 @@
 
 (defn-spec visualize-product-nutrition-by-id string?
   "Visualize Product Nutrition by ID
-  Visualize a grocery product's nutritional information."
+  Visualize a product's nutritional information as HTML including CSS."
   ([id float?, ] (visualize-product-nutrition-by-id id nil))
   ([id float?, optional-params any?]
    (let [res (:data (visualize-product-nutrition-by-id-with-http-info id optional-params))]
@@ -1477,7 +1477,7 @@
 
 (defn-spec visualize-recipe-nutrition-with-http-info any?
   "Visualize Recipe Nutrition
-  Visualize a recipe's nutrition data."
+  Visualize a recipe's nutritional information as HTML including CSS"
   ([ingredientList string?, servings float?, ] (visualize-recipe-nutrition-with-http-info ingredientList servings nil))
   ([ingredientList string?, servings float?, {:keys [defaultCss showBacklink]} (s/map-of keyword? any?)]
    (check-required-params ingredientList servings)
@@ -1492,7 +1492,7 @@
 
 (defn-spec visualize-recipe-nutrition string?
   "Visualize Recipe Nutrition
-  Visualize a recipe's nutrition data."
+  Visualize a recipe's nutritional information as HTML including CSS"
   ([ingredientList string?, servings float?, ] (visualize-recipe-nutrition ingredientList servings nil))
   ([ingredientList string?, servings float?, optional-params any?]
    (let [res (:data (visualize-recipe-nutrition-with-http-info ingredientList servings optional-params))]
@@ -1503,7 +1503,7 @@
 
 (defn-spec visualize-recipe-nutrition-by-id-with-http-info any?
   "Visualize Recipe Nutrition by ID
-  Visualize a recipe's nutritional information."
+  Visualize a recipe's nutritional information as HTML including CSS."
   ([id float?, ] (visualize-recipe-nutrition-by-id-with-http-info id nil))
   ([id float?, {:keys [defaultCss]} (s/map-of keyword? any?)]
    (check-required-params id)
@@ -1518,7 +1518,7 @@
 
 (defn-spec visualize-recipe-nutrition-by-id string?
   "Visualize Recipe Nutrition by ID
-  Visualize a recipe's nutritional information."
+  Visualize a recipe's nutritional information as HTML including CSS."
   ([id float?, ] (visualize-recipe-nutrition-by-id id nil))
   ([id float?, optional-params any?]
    (let [res (:data (visualize-recipe-nutrition-by-id-with-http-info id optional-params))]

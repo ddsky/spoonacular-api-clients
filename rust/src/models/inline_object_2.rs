@@ -20,7 +20,7 @@ pub struct InlineObject2 {
     /// The number of servings.
     #[serde(rename = "servings")]
     pub servings: f32,
-    /// Either \"grid\" or \"list\" as visualization of the equipment.
+    /// How to visualize the equipment, either \"grid\" or \"list\".
     #[serde(rename = "view")]
     pub view: Option<String>,
     /// Whether the default CSS should be added to the response.

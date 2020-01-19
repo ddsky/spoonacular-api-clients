@@ -28,7 +28,7 @@
 /* The number of servings. 
  */
 @property(nonatomic) NSNumber* servings;
-/* Either \"grid\" or \"list\" as visualization of the equipment. [optional]
+/* How to visualize the equipment, either \"grid\" or \"list\". [optional]
  */
 @property(nonatomic) NSString* view;
 /* Whether the default CSS should be added to the response. [optional]

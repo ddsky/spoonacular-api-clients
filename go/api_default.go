@@ -118,9 +118,9 @@ func (a *DefaultApiService) AnalyzeARecipeSearchQuery(ctx context.Context, q str
 
 /*
 DefaultApiService Analyze Recipe Instructions
-Extract ingredients and equipment from the recipe instruction steps.
+Extract ingredients and equipment from the recipe&#39;s instructions.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param instructions The instructions text.
+ * @param instructions The instructions to be analyzed.
 @return map[string]interface{}
 */
 func (a *DefaultApiService) AnalyzeRecipeInstructions(ctx context.Context, instructions string) (map[string]interface{}, *http.Response, error) {
@@ -206,13 +206,13 @@ func (a *DefaultApiService) AnalyzeRecipeInstructions(ctx context.Context, instr
 
 /*
 DefaultApiService Autocomplete Ingredient Search
-Autocomplete a search for an ingredient.
+Autocomplete the entry of an ingredient.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param query The query - a partial or full ingredient name.
+ * @param query The partial or full ingredient name.
  * @param optional nil or *AutocompleteIngredientSearchOpts - Optional Parameters:
  * @param "Number" (optional.Float32) -  The number of results to return (between 1 and 100).
  * @param "MetaInformation" (optional.Bool) -  Whether to return more meta information about the ingredients.
- * @param "Intolerances" (optional.Bool) -  A comma-separated list of intolerances. All found ingredients must not cause problems for people with one of the given tolerances. See a full list of supported intolerances.
+ * @param "Intolerances" (optional.Bool) -  A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
 @return map[string]interface{}
 */
 
@@ -510,7 +510,7 @@ func (a *DefaultApiService) AutocompleteProductSearch(ctx context.Context, query
 
 /*
 DefaultApiService Autocomplete Recipe Search
-Autocomplete a partial input to possible recipe names.
+Autocomplete a partial input to suggest possible recipe names.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param query The query to be autocompleted.
  * @param optional nil or *AutocompleteRecipeSearchOpts - Optional Parameters:
@@ -698,11 +698,11 @@ func (a *DefaultApiService) ClassifyCuisine(ctx context.Context, title string, i
 
 /*
 DefaultApiService Classify Grocery Product
-Given a grocery product title, this endpoint allows you to detect what basic ingredient it is.
+This endpoint allows you to match a packaged food to a basic category, e.g. a specific brand of milk to the category milk.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param inlineObject8
  * @param optional nil or *ClassifyGroceryProductOpts - Optional Parameters:
- * @param "Locale" (optional.String) -  The locale of the returned category, supported is en_US and en_GB.
+ * @param "Locale" (optional.String) -  The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).
 @return map[string]interface{}
 */
 
@@ -797,11 +797,11 @@ func (a *DefaultApiService) ClassifyGroceryProduct(ctx context.Context, inlineOb
 
 /*
 DefaultApiService Classify Grocery Product Bulk
-Given a set of product jsons, get back classified products.
+Provide a set of product jsons, get back classified products.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body
  * @param optional nil or *ClassifyGroceryProductBulkOpts - Optional Parameters:
- * @param "Locale" (optional.String) -  The locale of the returned category, supported is en_US and en_GB.
+ * @param "Locale" (optional.String) -  The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).
 @return map[string]interface{}
 */
 
@@ -990,20 +990,20 @@ func (a *DefaultApiService) ConvertAmounts(ctx context.Context, ingredientName s
 
 /*
 DefaultApiService Create Recipe Card
-Create Recipe Card.
+Generate a recipe card for a recipe.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param title The title of the recipe.
  * @param image The binary image of the recipe as jpg.
  * @param ingredients The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
  * @param instructions The instructions to make the recipe. One step per line (separate lines with \\\\n).
  * @param readyInMinutes The number of minutes it takes to get the recipe on the table.
- * @param servings The number of servings that you can make from the ingredients.
- * @param mask The mask to put over the recipe image (\\\"ellipseMask\\\", \\\"diamondMask\\\", \\\"diamondMask\\\", \\\"starMask\\\", \\\"heartMask\\\", \\\"potMask\\\", \\\"fishMask\\\").
+ * @param servings The number of servings the recipe makes.
+ * @param mask The mask to put over the recipe image (\\\"ellipseMask\\\", \\\"diamondMask\\\", \\\"starMask\\\", \\\"heartMask\\\", \\\"potMask\\\", \\\"fishMask\\\").
  * @param backgroundImage The background image (\\\"none\\\",\\\"background1\\\", or \\\"background2\\\").
  * @param optional nil or *CreateRecipeCardOpts - Optional Parameters:
  * @param "Author" (optional.String) -  The author of the recipe.
- * @param "BackgroundColor" (optional.String) -  The background color on the recipe card as a hex-string.
- * @param "FontColor" (optional.String) -  The font color on the recipe card as a hex-string.
+ * @param "BackgroundColor" (optional.String) -  The background color for the recipe card as a hex-string.
+ * @param "FontColor" (optional.String) -  The font color for the recipe card as a hex-string.
  * @param "Source" (optional.String) -  The source of the recipe.
 @return map[string]interface{}
 */
@@ -1124,9 +1124,9 @@ func (a *DefaultApiService) CreateRecipeCard(ctx context.Context, title string, 
 
 /*
 DefaultApiService Detect Food in Text
-Detect ingredients and dishes in texts. This task is also called Named Entity Recognition (NER). In our case the entities are foods. Either dishes, such as pizza and cheeseburger or ingredients, such as cucumber and almonds.
+Take any text and find all mentions of food contained within it. This task is also called Named Entity Recognition (NER). In this case, the entities are foods. Either dishes, such as pizza or cheeseburger, or ingredients, such as cucumber or almonds.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param text The text in which food items such as dish names and ingredients should be detected in.
+ * @param text The text in which food items, such as dish names and ingredients, should be detected in.
 @return map[string]interface{}
 */
 func (a *DefaultApiService) DetectFoodInText(ctx context.Context, text string) (map[string]interface{}, *http.Response, error) {
@@ -1212,11 +1212,11 @@ func (a *DefaultApiService) DetectFoodInText(ctx context.Context, text string) (
 
 /*
 DefaultApiService Extract Recipe from Website
-Get an analyzed breakdown of a recipe&#39;s instructions. Each step is enriched with the ingredients and the equipment that is used.
+This endpoint lets you extract recipe data such as title, ingredients, and instructions from any properly formatted Website.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param url The URL of the recipe page.
  * @param optional nil or *ExtractRecipeFromWebsiteOpts - Optional Parameters:
- * @param "ForceExtraction" (optional.Bool) -  If true, the extraction will be triggered no matter whether we know the recipe already. Use that only if information is missing as this operation is slower.
+ * @param "ForceExtraction" (optional.Bool) -  If true, the extraction will be triggered whether we already know the recipe or not. Use this only if information is missing as this operation is slower.
 @return map[string]interface{}
 */
 
@@ -1338,7 +1338,7 @@ func (a *DefaultApiService) GenerateMealPlan(ctx context.Context, localVarOption
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/recipes/mealplans/generate"
+	localVarPath := a.client.cfg.BasePath + "/mealplanner/generate"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1421,7 +1421,7 @@ func (a *DefaultApiService) GenerateMealPlan(ctx context.Context, localVarOption
 
 /*
 DefaultApiService Get a Random Food Joke
-Get a random joke that includes or is about food.
+Get a random joke that is related to food. Caution: this is an endpoint for adults!
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 @return map[string]interface{}
 */
@@ -1507,7 +1507,7 @@ func (a *DefaultApiService) GetARandomFoodJoke(ctx context.Context) (map[string]
 
 /*
 DefaultApiService Get Analyzed Recipe Instructions
-Get an analyzed breakdown of a recipe&#39;s instructions. Each step is enriched with the ingredients and the equipment that is used.
+Get an analyzed breakdown of a recipe&#39;s instructions. Each step is enriched with the ingredients and equipment required.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The recipe id.
  * @param optional nil or *GetAnalyzedRecipeInstructionsOpts - Optional Parameters:
@@ -1607,7 +1607,7 @@ func (a *DefaultApiService) GetAnalyzedRecipeInstructions(ctx context.Context, i
 DefaultApiService Get Comparable Products
 Find comparable products to the given one.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param upc The UPC of the product for that you want to find comparable products.
+ * @param upc The UPC of the product for which you want to find comparable products.
 @return map[string]interface{}
 */
 func (a *DefaultApiService) GetComparableProducts(ctx context.Context, upc float32) (map[string]interface{}, *http.Response, error) {
@@ -1693,7 +1693,7 @@ func (a *DefaultApiService) GetComparableProducts(ctx context.Context, upc float
 
 /*
 DefaultApiService Get Conversation Suggests
-This endpoint returns suggestions for things the user can say or ask the chat bot.
+This endpoint returns suggestions for things the user can say or ask the chatbot.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param query A (partial) query from the user. The endpoint will return if it matches topics it can talk about.
  * @param optional nil or *GetConversationSuggestsOpts - Optional Parameters:
@@ -1791,9 +1791,9 @@ func (a *DefaultApiService) GetConversationSuggests(ctx context.Context, query s
 
 /*
 DefaultApiService Get Dish Pairing for Wine
-Get a dish that goes well with a given wine.
+Find a dish that goes well with a given wine.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param wine The name of the wine that should be paired, e.g. \"merlot\", \"riesling\", or \"malbec\".
+ * @param wine The type of wine that should be paired, e.g. \"merlot\", \"riesling\", or \"malbec\".
 @return map[string]interface{}
 */
 func (a *DefaultApiService) GetDishPairingForWine(ctx context.Context, wine string) (map[string]interface{}, *http.Response, error) {
@@ -1878,22 +1878,22 @@ func (a *DefaultApiService) GetDishPairingForWine(ctx context.Context, wine stri
 }
 
 /*
-DefaultApiService Get Food Information
-Get information about a certain food (ingredient).
+DefaultApiService Get Ingredient Information
+Use an ingredient id to get all available information about an ingredient, such as its image and supermarket aisle.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param id The id of the food / ingredient.
- * @param optional nil or *GetFoodInformationOpts - Optional Parameters:
- * @param "Amount" (optional.Float32) -  The amount of that food.
+ * @param id The ingredient id.
+ * @param optional nil or *GetIngredientInformationOpts - Optional Parameters:
+ * @param "Amount" (optional.Float32) -  The amount of this ingredient.
  * @param "Unit" (optional.String) -  The unit for the given amount.
 @return map[string]interface{}
 */
 
-type GetFoodInformationOpts struct {
+type GetIngredientInformationOpts struct {
 	Amount optional.Float32
 	Unit optional.String
 }
 
-func (a *DefaultApiService) GetFoodInformation(ctx context.Context, id float32, localVarOptionals *GetFoodInformationOpts) (map[string]interface{}, *http.Response, error) {
+func (a *DefaultApiService) GetIngredientInformation(ctx context.Context, id float32, localVarOptionals *GetIngredientInformationOpts) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHttpMethod   = strings.ToUpper("Get")
 		localVarPostBody     interface{}
@@ -2158,7 +2158,7 @@ func (a *DefaultApiService) GetIngredientSubstitutesByID(ctx context.Context, id
 
 /*
 DefaultApiService Get Menu Item Information
-Get information about a certain menu item.
+Use a menu item id to get all available information about a menu item, such as nutrition.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The menu item id.
 @return map[string]interface{}
@@ -2246,9 +2246,9 @@ func (a *DefaultApiService) GetMenuItemInformation(ctx context.Context, id float
 
 /*
 DefaultApiService Get Product Information
-Get information about a packaged food product.
+Use a product id to get full information about a product, such as ingredients, nutrition, etc.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param id The id of the packaged food product.
+ * @param id The id of the packaged food.
 @return map[string]interface{}
 */
 func (a *DefaultApiService) GetProductInformation(ctx context.Context, id float32) (map[string]interface{}, *http.Response, error) {
@@ -2420,11 +2420,11 @@ func (a *DefaultApiService) GetRandomFoodTrivia(ctx context.Context) (map[string
 
 /*
 DefaultApiService Get Random Recipes
-Find random (popular) recipes.
+Find random (popular) recipes. If you need to filter recipes by diet, nutrition etc. you might want to consider using the complex recipe search endpoint and set the sort request parameter to random.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *GetRandomRecipesOpts - Optional Parameters:
- * @param "LimitLicense" (optional.Bool) -  Whether the recipes should have an open license that allows for displaying with proper attribution.
- * @param "Tags" (optional.String) -  The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must adhere to.
+ * @param "LimitLicense" (optional.Bool) -  Whether the recipes should have an open license that allows display with proper attribution.
+ * @param "Tags" (optional.String) -  The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have.
  * @param "Number" (optional.Float32) -  The number of random recipes to be returned (between 1 and 100).
 @return map[string]interface{}
 */
@@ -2614,11 +2614,11 @@ func (a *DefaultApiService) GetRecipeEquipmentByID(ctx context.Context, id float
 
 /*
 DefaultApiService Get Recipe Information
-Get information about a recipe.
+Use a recipe id to get full information about a recipe, such as ingredients, nutrition, diet and allergen information, etc.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The id of the recipe.
  * @param optional nil or *GetRecipeInformationOpts - Optional Parameters:
- * @param "IncludeNutrition" (optional.Bool) -  Include nutrition data to the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
+ * @param "IncludeNutrition" (optional.Bool) -  Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
 @return map[string]interface{}
 */
 
@@ -2712,7 +2712,7 @@ func (a *DefaultApiService) GetRecipeInformation(ctx context.Context, id float32
 
 /*
 DefaultApiService Get Recipe Information Bulk
-Get information about multiple recipes at once. That is equivalent of calling the Get Recipe Information endpoint multiple times but is faster.
+Get information about multiple recipes at once. This is equivalent to calling the Get Recipe Information endpoint multiple times, but faster.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param ids A comma-separated list of recipe ids.
  * @param optional nil or *GetRecipeInformationBulkOpts - Optional Parameters:
@@ -2897,13 +2897,13 @@ func (a *DefaultApiService) GetRecipeIngredientsByID(ctx context.Context, id flo
 }
 
 /*
-DefaultApiService Get Recipe Nutrition by ID
+DefaultApiService Get Recipe Nutrition Widget by ID
 Get a recipe&#39;s nutrition widget data.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The recipe id.
 @return map[string]interface{}
 */
-func (a *DefaultApiService) GetRecipeNutritionByID(ctx context.Context, id float32) (map[string]interface{}, *http.Response, error) {
+func (a *DefaultApiService) GetRecipeNutritionWidgetByID(ctx context.Context, id float32) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHttpMethod   = strings.ToUpper("Get")
 		localVarPostBody     interface{}
@@ -3076,7 +3076,7 @@ func (a *DefaultApiService) GetRecipePriceBreakdownByID(ctx context.Context, id 
 DefaultApiService Get Similar Recipes
 Find recipes which are similar to the given one.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param id The id of the source recipe to which similar recipes should be found.
+ * @param id The id of the source recipe for which similar recipes should be found.
  * @param optional nil or *GetSimilarRecipesOpts - Optional Parameters:
  * @param "Number" (optional.Float32) -  The number of random recipes to be returned (between 1 and 100).
 @return map[string]interface{}
@@ -3172,7 +3172,7 @@ func (a *DefaultApiService) GetSimilarRecipes(ctx context.Context, id float32, l
 
 /*
 DefaultApiService Get Wine Description
-Get the description of a certain wine, e.g. \&quot;malbec\&quot;, \&quot;riesling\&quot;, or \&quot;merlot\&quot;.
+Get a simple description of a certain wine, e.g. \&quot;malbec\&quot;, \&quot;riesling\&quot;, or \&quot;merlot\&quot;.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param wine The name of the wine that should be paired, e.g. \"merlot\", \"riesling\", or \"malbec\".
 @return map[string]interface{}
@@ -3358,9 +3358,9 @@ func (a *DefaultApiService) GetWinePairing(ctx context.Context, food string, loc
 
 /*
 DefaultApiService Get Wine Recommendation
-Get a specific wine recommendation (concrete product) for a given wine, e.g. \&quot;merlot\&quot;.
+Get a specific wine recommendation (concrete product) for a given wine type, e.g. \&quot;merlot\&quot;.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param wine The name of the wine to get a specific product recommendation for.
+ * @param wine The type of wine to get a specific product recommendation for.
  * @param optional nil or *GetWineRecommendationOpts - Optional Parameters:
  * @param "MaxPrice" (optional.Float32) -  The maximum price for the specific wine recommendation in USD.
  * @param "MinRating" (optional.Float32) -  The minimum rating of the recommended wine between 0 and 1. For example, 0.8 equals 4 out of 5 stars.
@@ -3466,7 +3466,7 @@ func (a *DefaultApiService) GetWineRecommendation(ctx context.Context, wine stri
 
 /*
 DefaultApiService Guess Nutrition by Dish Name
-Guess the macro nutrients of a dish given its title.
+Estimate the macronutrients of a dish based on its title.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param title The title of the dish.
 @return map[string]interface{}
@@ -3745,7 +3745,7 @@ func (a *DefaultApiService) ParseIngredients(ctx context.Context, ingredientList
 DefaultApiService Quick Answer
 Answer a nutrition related natural language question.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param q The nutrition-related question.
+ * @param q The nutrition related question.
 @return map[string]interface{}
 */
 func (a *DefaultApiService) QuickAnswer(ctx context.Context, q string) (map[string]interface{}, *http.Response, error) {
@@ -3836,10 +3836,10 @@ Find recipe and other food related videos.
  * @param query The search query.
  * @param optional nil or *SearchFoodVideosOpts - Optional Parameters:
  * @param "Type_" (optional.String) -  The type of the recipes. See a full list of supported meal types.
- * @param "Cuisine" (optional.String) -  The cuisine(s) of the recipes. One or more comma separated. See a full list of supported cuisines.
- * @param "Diet" (optional.String) -  The diet to which the recipes must be compliant. See a full list of supported diets.
- * @param "IncludeIngredients" (optional.String) -  A comma-separated list of ingredients that should/must be contained in the recipe.
- * @param "ExcludeIngredients" (optional.String) -  A comma-separated list of ingredients or ingredient types that must not be contained in the recipes.
+ * @param "Cuisine" (optional.String) -  The cuisine(s) of the recipes. One or more, comma separated. See a full list of supported cuisines.
+ * @param "Diet" (optional.String) -  The diet for which the recipes must be suitable. See a full list of supported diets.
+ * @param "IncludeIngredients" (optional.String) -  A comma-separated list of ingredients that the recipes should contain.
+ * @param "ExcludeIngredients" (optional.String) -  A comma-separated list of ingredients or ingredient types that the recipes must not contain.
  * @param "MinLength" (optional.Float32) -  Minimum video length in seconds.
  * @param "MaxLength" (optional.Float32) -  Maximum video length in seconds.
  * @param "Offset" (optional.Float32) -  The number of results to skip (between 0 and 900).
@@ -3969,18 +3969,18 @@ func (a *DefaultApiService) SearchFoodVideos(ctx context.Context, query string, 
 
 /*
 DefaultApiService Search Grocery Products
-Search packaged food products such as frozen pizza and snickers bars.
+Search packaged food products, such as frozen pizza or Greek yogurt.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param query The search query.
  * @param optional nil or *SearchGroceryProductsOpts - Optional Parameters:
- * @param "MinCalories" (optional.Float32) -  The minimum number of calories the product must have.
- * @param "MaxCalories" (optional.Float32) -  The maximum number of calories the product can have.
- * @param "MinCarbs" (optional.Float32) -  The minimum number of carbohydrates in grams the product must have.
- * @param "MaxCarbs" (optional.Float32) -  The maximum number of carbohydrates in grams the product can have.
- * @param "MinProtein" (optional.Float32) -  The minimum number of protein in grams the product must have.
- * @param "MaxProtein" (optional.Float32) -  The maximum number of protein in grams the product can have.
- * @param "MinFat" (optional.Float32) -  The minimum number of fat in grams the product must have.
- * @param "MaxFat" (optional.Float32) -  The maximum number of fat in grams the product can have.
+ * @param "MinCalories" (optional.Float32) -  The minimum amount of calories the product must have.
+ * @param "MaxCalories" (optional.Float32) -  The maximum amount of calories the product can have.
+ * @param "MinCarbs" (optional.Float32) -  The minimum amount of carbohydrates in grams the product must have.
+ * @param "MaxCarbs" (optional.Float32) -  The maximum amount of carbohydrates in grams the product can have.
+ * @param "MinProtein" (optional.Float32) -  The minimum amount of protein in grams the product must have.
+ * @param "MaxProtein" (optional.Float32) -  The maximum amount of protein in grams the product can have.
+ * @param "MinFat" (optional.Float32) -  The minimum amount of fat in grams the product must have.
+ * @param "MaxFat" (optional.Float32) -  The maximum amount of fat in grams the product can have.
  * @param "Offset" (optional.Float32) -  The offset number for paging (between 0 and 990).
  * @param "Number" (optional.Float32) -  The number of expected results (between 1 and 100).
 @return map[string]interface{}
@@ -4112,7 +4112,7 @@ func (a *DefaultApiService) SearchGroceryProducts(ctx context.Context, query str
 
 /*
 DefaultApiService Search Grocery Products by UPC
-Get information about a food product given its UPC.
+Get information about a packaged food using its UPC.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param upc The product's UPC.
 @return map[string]interface{}
@@ -4200,18 +4200,18 @@ func (a *DefaultApiService) SearchGroceryProductsByUPC(ctx context.Context, upc 
 
 /*
 DefaultApiService Search Menu Items
-Search over 115,000 menu items from over 800 fast food and chain restaurants such as McDonalds Big Mac or Starbucks Mocha.
+Search over 115,000 menu items from over 800 fast food and chain restaurants. For example, McDonald&#39;s Big Mac or Starbucks Mocha.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param query The search query.
  * @param optional nil or *SearchMenuItemsOpts - Optional Parameters:
- * @param "MinCalories" (optional.Float32) -  The minimum number of calories the menu item must have.
- * @param "MaxCalories" (optional.Float32) -  The maximum number of calories the menu item can have.
- * @param "MinCarbs" (optional.Float32) -  The minimum number of carbohydrates in grams the menu item must have.
- * @param "MaxCarbs" (optional.Float32) -  The maximum number of carbohydrates in grams the menu item can have.
- * @param "MinProtein" (optional.Float32) -  The minimum number of protein in grams the menu item must have.
- * @param "MaxProtein" (optional.Float32) -  The maximum number of protein in grams the menu item can have.
- * @param "MinFat" (optional.Float32) -  The minimum number of fat in grams the menu item must have.
- * @param "MaxFat" (optional.Float32) -  The maximum number of fat in grams the menu item can have.
+ * @param "MinCalories" (optional.Float32) -  The minimum amount of calories the menu item must have.
+ * @param "MaxCalories" (optional.Float32) -  The maximum amount of calories the menu item can have.
+ * @param "MinCarbs" (optional.Float32) -  The minimum amount of carbohydrates in grams the menu item must have.
+ * @param "MaxCarbs" (optional.Float32) -  The maximum amount of carbohydrates in grams the menu item can have.
+ * @param "MinProtein" (optional.Float32) -  The minimum amount of protein in grams the menu item must have.
+ * @param "MaxProtein" (optional.Float32) -  The maximum amount of protein in grams the menu item can have.
+ * @param "MinFat" (optional.Float32) -  The minimum amount of fat in grams the menu item must have.
+ * @param "MaxFat" (optional.Float32) -  The maximum amount of fat in grams the menu item can have.
  * @param "Offset" (optional.Float32) -  The offset number for paging (between 0 and 990).
  * @param "Number" (optional.Float32) -  The number of expected results (between 1 and 10).
 @return map[string]interface{}
@@ -4348,12 +4348,12 @@ Our recipe API includes over 360,000 recipes as well as an open source recipe da
  * @param query The (natural language) recipe search query.
  * @param optional nil or *SearchRecipesOpts - Optional Parameters:
  * @param "Cuisine" (optional.String) -  The cuisine(s) of the recipes. One or more comma separated. See a full list of supported cuisines.
- * @param "Diet" (optional.String) -  The diet to which the recipes must be compliant. See a full list of supported diets.
- * @param "ExcludeIngredients" (optional.String) -  An comma-separated list of ingredients or ingredient types that must not be contained in the recipes.
- * @param "Intolerances" (optional.String) -  A comma-separated list of intolerances. All found recipes must not have ingredients that could cause problems for people with one of the given tolerances. See a full list of supported intolerances.
+ * @param "Diet" (optional.String) -  The diet for which the recipes must be suitable. See a full list of supported diets.
+ * @param "ExcludeIngredients" (optional.String) -  A comma-separated list of ingredients or ingredient types that the recipes must not contain.
+ * @param "Intolerances" (optional.String) -  A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. Please note: due to the automatic nature of the recipe analysis, the API cannot be 100% accurate in all cases. Please advise your users to seek professional help with medical issues.
  * @param "Offset" (optional.Float32) -  The number of results to skip (between 0 and 900).
  * @param "Number" (optional.Float32) -  The number of results to return (between 1 and 100).
- * @param "LimitLicense" (optional.Bool) -  Whether the recipes should have an open license that allows for displaying with proper attribution.
+ * @param "LimitLicense" (optional.Bool) -  Whether the recipes should have an open license that allows display with proper attribution.
  * @param "InstructionsRequired" (optional.Bool) -  Whether the recipes must have instructions.
 @return map[string]interface{}
 */
@@ -4476,14 +4476,14 @@ func (a *DefaultApiService) SearchRecipes(ctx context.Context, query string, loc
 
 /*
 DefaultApiService Search Recipes by Ingredients
-Find recipes that use as many of the given ingredients as possible and have as little as possible missing ingredients. This is a \&quot;what&#39;s in your fridge\&quot; API endpoint.
+Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don&#39;t currently have (post shopping).
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param ingredients A comma-separated list of ingredients that the recipes should contain.
  * @param optional nil or *SearchRecipesByIngredientsOpts - Optional Parameters:
- * @param "Number" (optional.Float32) -  The maximal number of recipes to return (between 1 and 100). Defaults to 10.
- * @param "LimitLicense" (optional.Bool) -  Whether the recipes should have an open license that allows for displaying with proper attribution.
+ * @param "Number" (optional.Float32) -  The maximum number of recipes to return (between 1 and 100). Defaults to 10.
+ * @param "LimitLicense" (optional.Bool) -  Whether the recipes should have an open license that allows display with proper attribution.
  * @param "Ranking" (optional.Float32) -  Whether to maximize used ingredients (1) or minimize missing ingredients (2) first.
- * @param "IgnorePantry" (optional.Bool) -  Whether to ignore pantry ingredients such as water, salt, flour etc.
+ * @param "IgnorePantry" (optional.Bool) -  Whether to ignore typical pantry items, such as water, salt, flour, etc.
 @return map[string]interface{}
 */
 
@@ -4589,85 +4589,85 @@ func (a *DefaultApiService) SearchRecipesByIngredients(ctx context.Context, ingr
 
 /*
 DefaultApiService Search Recipes by Nutrients
-Find a set of recipes that adhere to the given nutritional limits. All the returned recipes will have macro nutrients within the calories, protein, fat, and carbohydrate limits.
+Find a set of recipes that adhere to the given nutritional limits. You may set limits for macronutrients (calories, protein, fat, and carbohydrate) and/or many micronutrients.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *SearchRecipesByNutrientsOpts - Optional Parameters:
- * @param "MinCarbs" (optional.Float32) -  The minimum number of carbohydrates in grams the recipe must have.
- * @param "MaxCarbs" (optional.Float32) -  The maximum number of carbohydrates in grams the recipe can have.
- * @param "MinProtein" (optional.Float32) -  The minimum number of protein in grams the recipe must have.
- * @param "MaxProtein" (optional.Float32) -  The maximum number of protein in grams the recipe can have.
- * @param "MinCalories" (optional.Float32) -  The minimum number of calories the recipe must have.
- * @param "MaxCalories" (optional.Float32) -  The maximum number of calories the recipe can have.
- * @param "MinFat" (optional.Float32) -  The minimum number of fat in grams the recipe must have.
- * @param "MaxFat" (optional.Float32) -  The maximum number of fat in grams the recipe can have.
- * @param "MinAlcohol" (optional.Float32) -  The minimum number of alcohol in grams the recipe must have.
- * @param "MaxAlcohol" (optional.Float32) -  The maximum number of alcohol in grams the recipe must have.
- * @param "MinCaffeine" (optional.Float32) -  The minimum number of milligrams of caffeine the recipe must have.
- * @param "MaxCaffeine" (optional.Float32) -  The maximum number of alcohol in grams the recipe must have.
- * @param "MinCopper" (optional.Float32) -  The minimum number of copper in milligrams the recipe must have.
- * @param "MaxCopper" (optional.Float32) -  The maximum number of copper in milligrams the recipe must have.
- * @param "MinCalcium" (optional.Float32) -  The minimum number of calcium in milligrams the recipe must have.
- * @param "MaxCalcium" (optional.Float32) -  The maximum number of calcium in milligrams the recipe must have.
- * @param "MinCholine" (optional.Float32) -  The minimum number of choline in milligrams the recipe must have.
- * @param "MaxCholine" (optional.Float32) -  The maximum number of choline in milligrams the recipe can have.
- * @param "MinCholesterol" (optional.Float32) -  The minimum number of cholesterol in milligrams the recipe must have.
- * @param "MaxCholesterol" (optional.Float32) -  The maximum number of cholesterol in milligrams the recipe must have.
- * @param "MinFluoride" (optional.Float32) -  The minimum number of fluoride in milligrams the recipe must have.
- * @param "MaxFluoride" (optional.Float32) -  The maximum number of fluoride in milligrams the recipe can have.
- * @param "MinSaturatedFat" (optional.Float32) -  The minimum number of saturated fat in grams the recipe must have.
- * @param "MaxSaturatedFat" (optional.Float32) -  The maximum number of saturated fat in grams the recipe must have.
- * @param "MinVitaminA" (optional.Float32) -  The minimum number of Vitamin A in IU the recipe must have.
- * @param "MaxVitaminA" (optional.Float32) -  The maximum number of Vitamin A in IU the recipe must have.
- * @param "MinVitaminC" (optional.Float32) -  The minimum number of Vitamin C milligrams the recipe must have.
- * @param "MaxVitaminC" (optional.Float32) -  The maximum number of Vitamin C in milligrams the recipe can have.
- * @param "MinVitaminD" (optional.Float32) -  The minimum number of Vitamin D in micrograms the recipe must have.
- * @param "MaxVitaminD" (optional.Float32) -  The maximum number of Vitamin D in micrograms the recipe must have.
- * @param "MinVitaminE" (optional.Float32) -  The minimum number of Vitamin E in milligrams the recipe must have.
- * @param "MaxVitaminE" (optional.Float32) -  The maximum number of Vitamin E in milligrams the recipe must have.
- * @param "MinVitaminK" (optional.Float32) -  The minimum number of Vitamin K in micrograms the recipe must have.
- * @param "MaxVitaminK" (optional.Float32) -  The maximum number of Vitamin K in micrograms the recipe must have.
- * @param "MinVitaminB1" (optional.Float32) -  The minimum number of Vitamin B1 in milligrams the recipe must have.
- * @param "MaxVitaminB1" (optional.Float32) -  The maximum number of Vitamin B1 in milligrams the recipe must have.
- * @param "MinVitaminB2" (optional.Float32) -  The minimum number of Vitamin B2 in milligrams the recipe must have.
- * @param "MaxVitaminB2" (optional.Float32) -  The maximum number of Vitamin B2 in milligrams the recipe must have.
- * @param "MinVitaminB5" (optional.Float32) -  The minimum number of Vitamin B5 in milligrams the recipe must have.
- * @param "MaxVitaminB5" (optional.Float32) -  The maximum number of Vitamin B5 in milligrams the recipe can have.
- * @param "MinVitaminB3" (optional.Float32) -  The minimum number of Vitamin B3 in milligrams the recipe must have.
- * @param "MaxVitaminB3" (optional.Float32) -  The maximum number of Vitamin B3 in milligrams the recipe can have.
- * @param "MinVitaminB6" (optional.Float32) -  The minimum number of Vitamin B6 in milligrams the recipe must have.
- * @param "MaxVitaminB6" (optional.Float32) -  The maximum number of Vitamin B6 in milligrams the recipe can have.
- * @param "MinVitaminB12" (optional.Float32) -  The minimum number of Vitamin B12 in micrograms the recipe must have.
- * @param "MaxVitaminB12" (optional.Float32) -  The maximum number of Vitamin B12 in micrograms the recipe must have.
- * @param "MinFiber" (optional.Float32) -  The minimum number of fiber in grams the recipe must have.
- * @param "MaxFiber" (optional.Float32) -  The maximum number of fiber in grams the recipe must have.
- * @param "MinFolate" (optional.Float32) -  The minimum number of folate in grams the recipe must have.
- * @param "MaxFolate" (optional.Float32) -  The maximum number of folate in grams the recipe must have.
- * @param "MinFolicAcid" (optional.Float32) -  The minimum number of folic acid in grams the recipe must have.
- * @param "MaxFolicAcid" (optional.Float32) -  The maximum number of folic acid in grams the recipe must have.
- * @param "MinIodine" (optional.Float32) -  The minimum number of Iodine in grams the recipe must have.
- * @param "MaxIodine" (optional.Float32) -  The maximum number of iodine in grams the recipe must have.
- * @param "MinIron" (optional.Float32) -  The minimum number of iron in milligrams the recipe must have.
- * @param "MaxIron" (optional.Float32) -  The maximum number of iron in milligrams the recipe can have.
- * @param "MinMagnesium" (optional.Float32) -  The minimum number of magnesium in milligrams the recipe must have.
- * @param "MaxMagnesium" (optional.Float32) -  The maximum number of magnesium in milligrams the recipe can have.
- * @param "MinManganese" (optional.Float32) -  The minimum number of manganese in milligrams the recipe must have.
- * @param "MaxManganese" (optional.Float32) -  The maximum number of manganese in milligrams the recipe can have.
- * @param "MinPhosphorus" (optional.Float32) -  The minimum number of phosphorus in milligrams the recipe must have.
- * @param "MaxPhosphorus" (optional.Float32) -  The maximum number of phosphorus in milligrams the recipe can have.
- * @param "MinPotassium" (optional.Float32) -  The minimum number of potassium in milligrams the recipe must have.
- * @param "MaxPotassium" (optional.Float32) -  The maximum number of potassium in milligrams the recipe can have.
- * @param "MinSelenium" (optional.Float32) -  The minimum number of selenium in grams the recipe must have.
- * @param "MaxSelenium" (optional.Float32) -  The maximum number of selenium in grams the recipe must have.
- * @param "MinSodium" (optional.Float32) -  The minimum number of sodium in milligrams the recipe must have.
- * @param "MaxSodium" (optional.Float32) -  The maximum number of sodium in milligrams the recipe must have.
- * @param "MinSugar" (optional.Float32) -  The minimum number of sugar in grams the recipe must have.
- * @param "MaxSugar" (optional.Float32) -  The maximum number of sugar in grams the recipe must have.
- * @param "MinZinc" (optional.Float32) -  The minimum number of zinc in milligrams the recipe must have.
- * @param "MaxZinc" (optional.Float32) -  The maximum number of zinc in milligrams the recipe can have.
+ * @param "MinCarbs" (optional.Float32) -  The minimum amount of carbohydrates in grams the recipe must have.
+ * @param "MaxCarbs" (optional.Float32) -  The maximum amount of carbohydrates in grams the recipe can have.
+ * @param "MinProtein" (optional.Float32) -  The minimum amount of protein in grams the recipe must have.
+ * @param "MaxProtein" (optional.Float32) -  The maximum amount of protein in grams the recipe can have.
+ * @param "MinCalories" (optional.Float32) -  The minimum amount of calories the recipe must have.
+ * @param "MaxCalories" (optional.Float32) -  The maximum amount of calories the recipe can have.
+ * @param "MinFat" (optional.Float32) -  The minimum amount of fat in grams the recipe must have.
+ * @param "MaxFat" (optional.Float32) -  The maximum amount of fat in grams the recipe can have.
+ * @param "MinAlcohol" (optional.Float32) -  The minimum amount of alcohol in grams the recipe must have.
+ * @param "MaxAlcohol" (optional.Float32) -  The maximum amount of alcohol in grams the recipe can have.
+ * @param "MinCaffeine" (optional.Float32) -  The minimum amount of caffeine in milligrams the recipe must have.
+ * @param "MaxCaffeine" (optional.Float32) -  The maximum amount of caffeine in milligrams the recipe can have.
+ * @param "MinCopper" (optional.Float32) -  The minimum amount of copper in milligrams the recipe must have.
+ * @param "MaxCopper" (optional.Float32) -  The maximum amount of copper in milligrams the recipe can have.
+ * @param "MinCalcium" (optional.Float32) -  The minimum amount of calcium in milligrams the recipe must have.
+ * @param "MaxCalcium" (optional.Float32) -  The maximum amount of calcium in milligrams the recipe can have.
+ * @param "MinCholine" (optional.Float32) -  The minimum amount of choline in milligrams the recipe must have.
+ * @param "MaxCholine" (optional.Float32) -  The maximum amount of choline in milligrams the recipe can have.
+ * @param "MinCholesterol" (optional.Float32) -  The minimum amount of cholesterol in milligrams the recipe must have.
+ * @param "MaxCholesterol" (optional.Float32) -  The maximum amount of cholesterol in milligrams the recipe can have.
+ * @param "MinFluoride" (optional.Float32) -  The minimum amount of fluoride in milligrams the recipe must have.
+ * @param "MaxFluoride" (optional.Float32) -  The maximum amount of fluoride in milligrams the recipe can have.
+ * @param "MinSaturatedFat" (optional.Float32) -  The minimum amount of saturated fat in grams the recipe must have.
+ * @param "MaxSaturatedFat" (optional.Float32) -  The maximum amount of saturated fat in grams the recipe can have.
+ * @param "MinVitaminA" (optional.Float32) -  The minimum amount of Vitamin A in IU the recipe must have.
+ * @param "MaxVitaminA" (optional.Float32) -  The maximum amount of Vitamin A in IU the recipe can have.
+ * @param "MinVitaminC" (optional.Float32) -  The minimum amount of Vitamin C in milligrams the recipe must have.
+ * @param "MaxVitaminC" (optional.Float32) -  The maximum amount of Vitamin C in milligrams the recipe can have.
+ * @param "MinVitaminD" (optional.Float32) -  The minimum amount of Vitamin D in micrograms the recipe must have.
+ * @param "MaxVitaminD" (optional.Float32) -  The maximum amount of Vitamin D in micrograms the recipe can have.
+ * @param "MinVitaminE" (optional.Float32) -  The minimum amount of Vitamin E in milligrams the recipe must have.
+ * @param "MaxVitaminE" (optional.Float32) -  The maximum amount of Vitamin E in milligrams the recipe can have.
+ * @param "MinVitaminK" (optional.Float32) -  The minimum amount of Vitamin K in micrograms the recipe must have.
+ * @param "MaxVitaminK" (optional.Float32) -  The maximum amount of Vitamin K in micrograms the recipe can have.
+ * @param "MinVitaminB1" (optional.Float32) -  The minimum amount of Vitamin B1 in milligrams the recipe must have.
+ * @param "MaxVitaminB1" (optional.Float32) -  The maximum amount of Vitamin B1 in milligrams the recipe can have.
+ * @param "MinVitaminB2" (optional.Float32) -  The minimum amount of Vitamin B2 in milligrams the recipe must have.
+ * @param "MaxVitaminB2" (optional.Float32) -  The maximum amount of Vitamin B2 in milligrams the recipe can have.
+ * @param "MinVitaminB5" (optional.Float32) -  The minimum amount of Vitamin B5 in milligrams the recipe must have.
+ * @param "MaxVitaminB5" (optional.Float32) -  The maximum amount of Vitamin B5 in milligrams the recipe can have.
+ * @param "MinVitaminB3" (optional.Float32) -  The minimum amount of Vitamin B3 in milligrams the recipe must have.
+ * @param "MaxVitaminB3" (optional.Float32) -  The maximum amount of Vitamin B3 in milligrams the recipe can have.
+ * @param "MinVitaminB6" (optional.Float32) -  The minimum amount of Vitamin B6 in milligrams the recipe must have.
+ * @param "MaxVitaminB6" (optional.Float32) -  The maximum amount of Vitamin B6 in milligrams the recipe can have.
+ * @param "MinVitaminB12" (optional.Float32) -  The minimum amount of Vitamin B12 in micrograms the recipe must have.
+ * @param "MaxVitaminB12" (optional.Float32) -  The maximum amount of Vitamin B12 in micrograms the recipe can have.
+ * @param "MinFiber" (optional.Float32) -  The minimum amount of fiber in grams the recipe must have.
+ * @param "MaxFiber" (optional.Float32) -  The maximum amount of fiber in grams the recipe can have.
+ * @param "MinFolate" (optional.Float32) -  The minimum amount of folate in grams the recipe must have.
+ * @param "MaxFolate" (optional.Float32) -  The maximum amount of folate in grams the recipe can have.
+ * @param "MinFolicAcid" (optional.Float32) -  The minimum amount of folic acid in grams the recipe must have.
+ * @param "MaxFolicAcid" (optional.Float32) -  The maximum amount of folic acid in grams the recipe can have.
+ * @param "MinIodine" (optional.Float32) -  The minimum amount of iodine in grams the recipe must have.
+ * @param "MaxIodine" (optional.Float32) -  The maximum amount of iodine in grams the recipe can have.
+ * @param "MinIron" (optional.Float32) -  The minimum amount of iron in milligrams the recipe must have.
+ * @param "MaxIron" (optional.Float32) -  The maximum amount of iron in milligrams the recipe can have.
+ * @param "MinMagnesium" (optional.Float32) -  The minimum amount of magnesium in milligrams the recipe must have.
+ * @param "MaxMagnesium" (optional.Float32) -  The maximum amount of magnesium in milligrams the recipe can have.
+ * @param "MinManganese" (optional.Float32) -  The minimum amount of manganese in milligrams the recipe must have.
+ * @param "MaxManganese" (optional.Float32) -  The maximum amount of manganese in milligrams the recipe can have.
+ * @param "MinPhosphorus" (optional.Float32) -  The minimum amount of phosphorus in milligrams the recipe must have.
+ * @param "MaxPhosphorus" (optional.Float32) -  The maximum amount of phosphorus in milligrams the recipe can have.
+ * @param "MinPotassium" (optional.Float32) -  The minimum amount of potassium in milligrams the recipe must have.
+ * @param "MaxPotassium" (optional.Float32) -  The maximum amount of potassium in milligrams the recipe can have.
+ * @param "MinSelenium" (optional.Float32) -  The minimum amount of selenium in grams the recipe must have.
+ * @param "MaxSelenium" (optional.Float32) -  The maximum amount of selenium in grams the recipe can have.
+ * @param "MinSodium" (optional.Float32) -  The minimum amount of sodium in milligrams the recipe must have.
+ * @param "MaxSodium" (optional.Float32) -  The maximum amount of sodium in milligrams the recipe can have.
+ * @param "MinSugar" (optional.Float32) -  The minimum amount of sugar in grams the recipe must have.
+ * @param "MaxSugar" (optional.Float32) -  The maximum amount of sugar in grams the recipe can have.
+ * @param "MinZinc" (optional.Float32) -  The minimum amount of zinc in milligrams the recipe must have.
+ * @param "MaxZinc" (optional.Float32) -  The maximum amount of zinc in milligrams the recipe can have.
  * @param "Offset" (optional.Float32) -  The offset number for paging (between 0 and 990).
  * @param "Number" (optional.Float32) -  The number of expected results (between 1 and 100).
  * @param "Random" (optional.Bool) -  If true, every request will give you a random set of recipes within the requested limits.
- * @param "LimitLicense" (optional.Bool) -  Whether the recipes should have an open license that allows for displaying with proper attribution.
+ * @param "LimitLicense" (optional.Bool) -  Whether the recipes should have an open license that allows display with proper attribution.
 @return map[string]interface{}
 */
 
@@ -5060,101 +5060,103 @@ func (a *DefaultApiService) SearchRecipesByNutrients(ctx context.Context, localV
 
 /*
 DefaultApiService Search Recipes Complex
-Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: Since this method combines searching by query, by ingredients, and by nutrients in one endpoint.
+Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param query The (natural language) recipe search query.
  * @param optional nil or *SearchRecipesComplexOpts - Optional Parameters:
- * @param "Cuisine" (optional.String) -  The cuisine(s) of the recipes. One or more comma separated (will be iterpreted as 'OR'). See a full list of supported cuisines.
- * @param "ExcludeCuisine" (optional.String) -  The cuisine(s) the recipes must not match. One or more comma separated (will be iterpreted as 'AND'). See a full list of supported cuisines.
- * @param "Diet" (optional.String) -  The diet to which the recipes must be compliant. See a full list of supported diets.
- * @param "Intolerances" (optional.String) -  A comma-separated list of intolerances. All found recipes must not have ingredients that could cause problems for people with one of the given tolerances. See a full list of supported intolerances.
+ * @param "Cuisine" (optional.String) -  The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as 'OR'). See a full list of supported cuisines.
+ * @param "ExcludeCuisine" (optional.String) -  The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as 'AND'). See a full list of supported cuisines.
+ * @param "Diet" (optional.String) -  The diet for which the recipes must be suitable. See a full list of supported diets.
+ * @param "Intolerances" (optional.String) -  A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
  * @param "Equipment" (optional.String) -  The equipment required. Multiple values will be interpreted as 'or'. For example, value could be \"blender, frying pan, bowl\".
- * @param "IncludeIngredients" (optional.String) -  A comma-separated list of ingredients that should/must be contained in the recipe.
- * @param "ExcludeIngredients" (optional.String) -  A comma-separated list of ingredients or ingredient types that must not be contained in the recipes.
- * @param "Type_" (optional.String) -  The type of the recipes. See a full list of supported meal types.
+ * @param "IncludeIngredients" (optional.String) -  A comma-separated list of ingredients that should/must be used in the recipes.
+ * @param "ExcludeIngredients" (optional.String) -  A comma-separated list of ingredients or ingredient types that the recipes must not contain.
+ * @param "Type_" (optional.String) -  The type of recipe. See a full list of supported meal types.
  * @param "InstructionsRequired" (optional.Bool) -  Whether the recipes must have instructions.
  * @param "FillIngredients" (optional.Bool) -  Add information about the used and missing ingredients in each recipe.
- * @param "AddRecipeInformation" (optional.Bool) -  If set to true, you get more information about the recipes returned. This saves the calls to get recipe information.
+ * @param "AddRecipeInformation" (optional.Bool) -  If set to true, you get more information about the recipes returned. This saves you from needing to call to get recipe information.
  * @param "Author" (optional.String) -  The username of the recipe author.
  * @param "Tags" (optional.String) -  User defined tags that have to match.
- * @param "TitleMatch" (optional.String) -  A text that has to match in the title of the recipes.
+ * @param "TitleMatch" (optional.String) -  Enter text that must be found in the title of the recipes.
+ * @param "MaxReadyTime" (optional.Float32) -  The maximum time in minutes it should take to prepare and cook the recipe.
+ * @param "IgnorePantry" (optional.Bool) -  Whether to ignore typical pantry items, such as water, salt, flour, etc.
  * @param "Sort" (optional.String) -  The strategy to sort recipes by. See a full list of supported sorting options.
  * @param "SortDirection" (optional.String) -  The direction in which to sort. Must be either 'asc' (ascending) or 'desc' (descending).
- * @param "MinCarbs" (optional.Float32) -  The minimum number of carbohydrates in grams the recipe must have.
- * @param "MaxCarbs" (optional.Float32) -  The maximum number of carbohydrates in grams the recipe can have.
- * @param "MinProtein" (optional.Float32) -  The minimum number of protein in grams the recipe must have.
- * @param "MaxProtein" (optional.Float32) -  The maximum number of protein in grams the recipe can have.
- * @param "MinCalories" (optional.Float32) -  The minimum number of calories the recipe must have.
- * @param "MaxCalories" (optional.Float32) -  The maximum number of calories the recipe can have.
- * @param "MinFat" (optional.Float32) -  The minimum number of fat in grams the recipe must have.
- * @param "MaxFat" (optional.Float32) -  The maximum number of fat in grams the recipe can have.
- * @param "MinAlcohol" (optional.Float32) -  The minimum number of alcohol in grams the recipe must have.
- * @param "MaxAlcohol" (optional.Float32) -  The maximum number of alcohol in grams the recipe must have.
- * @param "MinCaffeine" (optional.Float32) -  The minimum number of milligrams of caffeine the recipe must have.
- * @param "MaxCaffeine" (optional.Float32) -  The maximum number of alcohol in grams the recipe must have.
- * @param "MinCopper" (optional.Float32) -  The minimum number of copper in milligrams the recipe must have.
- * @param "MaxCopper" (optional.Float32) -  The maximum number of copper in milligrams the recipe must have.
- * @param "MinCalcium" (optional.Float32) -  The minimum number of calcium in milligrams the recipe must have.
- * @param "MaxCalcium" (optional.Float32) -  The maximum number of calcium in milligrams the recipe must have.
- * @param "MinCholine" (optional.Float32) -  The minimum number of choline in milligrams the recipe must have.
- * @param "MaxCholine" (optional.Float32) -  The maximum number of choline in milligrams the recipe can have.
- * @param "MinCholesterol" (optional.Float32) -  The minimum number of cholesterol in milligrams the recipe must have.
- * @param "MaxCholesterol" (optional.Float32) -  The maximum number of cholesterol in milligrams the recipe must have.
- * @param "MinFluoride" (optional.Float32) -  The minimum number of fluoride in milligrams the recipe must have.
- * @param "MaxFluoride" (optional.Float32) -  The maximum number of fluoride in milligrams the recipe can have.
- * @param "MinSaturatedFat" (optional.Float32) -  The minimum number of saturated fat in grams the recipe must have.
- * @param "MaxSaturatedFat" (optional.Float32) -  The maximum number of saturated fat in grams the recipe must have.
- * @param "MinVitaminA" (optional.Float32) -  The minimum number of Vitamin A in IU the recipe must have.
- * @param "MaxVitaminA" (optional.Float32) -  The maximum number of Vitamin A in IU the recipe must have.
- * @param "MinVitaminC" (optional.Float32) -  The minimum number of Vitamin C milligrams the recipe must have.
- * @param "MaxVitaminC" (optional.Float32) -  The maximum number of Vitamin C in milligrams the recipe can have.
- * @param "MinVitaminD" (optional.Float32) -  The minimum number of Vitamin D in micrograms the recipe must have.
- * @param "MaxVitaminD" (optional.Float32) -  The maximum number of Vitamin D in micrograms the recipe must have.
- * @param "MinVitaminE" (optional.Float32) -  The minimum number of Vitamin E in milligrams the recipe must have.
- * @param "MaxVitaminE" (optional.Float32) -  The maximum number of Vitamin E in milligrams the recipe must have.
- * @param "MinVitaminK" (optional.Float32) -  The minimum number of Vitamin K in micrograms the recipe must have.
- * @param "MaxVitaminK" (optional.Float32) -  The maximum number of Vitamin K in micrograms the recipe must have.
- * @param "MinVitaminB1" (optional.Float32) -  The minimum number of Vitamin B1 in milligrams the recipe must have.
- * @param "MaxVitaminB1" (optional.Float32) -  The maximum number of Vitamin B1 in milligrams the recipe must have.
- * @param "MinVitaminB2" (optional.Float32) -  The minimum number of Vitamin B2 in milligrams the recipe must have.
- * @param "MaxVitaminB2" (optional.Float32) -  The maximum number of Vitamin B2 in milligrams the recipe must have.
- * @param "MinVitaminB5" (optional.Float32) -  The minimum number of Vitamin B5 in milligrams the recipe must have.
- * @param "MaxVitaminB5" (optional.Float32) -  The maximum number of Vitamin B5 in milligrams the recipe can have.
- * @param "MinVitaminB3" (optional.Float32) -  The minimum number of Vitamin B3 in milligrams the recipe must have.
- * @param "MaxVitaminB3" (optional.Float32) -  The maximum number of Vitamin B3 in milligrams the recipe can have.
- * @param "MinVitaminB6" (optional.Float32) -  The minimum number of Vitamin B6 in milligrams the recipe must have.
- * @param "MaxVitaminB6" (optional.Float32) -  The maximum number of Vitamin B6 in milligrams the recipe can have.
- * @param "MinVitaminB12" (optional.Float32) -  The minimum number of Vitamin B12 in micrograms the recipe must have.
- * @param "MaxVitaminB12" (optional.Float32) -  The maximum number of Vitamin B12 in micrograms the recipe must have.
- * @param "MinFiber" (optional.Float32) -  The minimum number of fiber in grams the recipe must have.
- * @param "MaxFiber" (optional.Float32) -  The maximum number of fiber in grams the recipe must have.
- * @param "MinFolate" (optional.Float32) -  The minimum number of folate in grams the recipe must have.
- * @param "MaxFolate" (optional.Float32) -  The maximum number of folate in grams the recipe must have.
- * @param "MinFolicAcid" (optional.Float32) -  The minimum number of folic acid in grams the recipe must have.
- * @param "MaxFolicAcid" (optional.Float32) -  The maximum number of folic acid in grams the recipe must have.
- * @param "MinIodine" (optional.Float32) -  The minimum number of Iodine in grams the recipe must have.
- * @param "MaxIodine" (optional.Float32) -  The maximum number of iodine in grams the recipe must have.
- * @param "MinIron" (optional.Float32) -  The minimum number of iron in milligrams the recipe must have.
- * @param "MaxIron" (optional.Float32) -  The maximum number of iron in milligrams the recipe can have.
- * @param "MinMagnesium" (optional.Float32) -  The minimum number of magnesium in milligrams the recipe must have.
- * @param "MaxMagnesium" (optional.Float32) -  The maximum number of magnesium in milligrams the recipe can have.
- * @param "MinManganese" (optional.Float32) -  The minimum number of manganese in milligrams the recipe must have.
- * @param "MaxManganese" (optional.Float32) -  The maximum number of manganese in milligrams the recipe can have.
- * @param "MinPhosphorus" (optional.Float32) -  The minimum number of phosphorus in milligrams the recipe must have.
- * @param "MaxPhosphorus" (optional.Float32) -  The maximum number of phosphorus in milligrams the recipe can have.
- * @param "MinPotassium" (optional.Float32) -  The minimum number of potassium in milligrams the recipe must have.
- * @param "MaxPotassium" (optional.Float32) -  The maximum number of potassium in milligrams the recipe can have.
- * @param "MinSelenium" (optional.Float32) -  The minimum number of selenium in grams the recipe must have.
- * @param "MaxSelenium" (optional.Float32) -  The maximum number of selenium in grams the recipe must have.
- * @param "MinSodium" (optional.Float32) -  The minimum number of sodium in milligrams the recipe must have.
- * @param "MaxSodium" (optional.Float32) -  The maximum number of sodium in milligrams the recipe must have.
- * @param "MinSugar" (optional.Float32) -  The minimum number of sugar in grams the recipe must have.
- * @param "MaxSugar" (optional.Float32) -  The maximum number of sugar in grams the recipe must have.
- * @param "MinZinc" (optional.Float32) -  The minimum number of zinc in milligrams the recipe must have.
- * @param "MaxZinc" (optional.Float32) -  The maximum number of zinc in milligrams the recipe can have.
+ * @param "MinCarbs" (optional.Float32) -  The minimum amount of carbohydrates in grams the recipe must have.
+ * @param "MaxCarbs" (optional.Float32) -  The maximum amount of carbohydrates in grams the recipe can have.
+ * @param "MinProtein" (optional.Float32) -  The minimum amount of protein in grams the recipe must have.
+ * @param "MaxProtein" (optional.Float32) -  The maximum amount of protein in grams the recipe can have.
+ * @param "MinCalories" (optional.Float32) -  The minimum amount of calories the recipe must have.
+ * @param "MaxCalories" (optional.Float32) -  The maximum amount of calories the recipe can have.
+ * @param "MinFat" (optional.Float32) -  The minimum amount of fat in grams the recipe must have.
+ * @param "MaxFat" (optional.Float32) -  The maximum amount of fat in grams the recipe can have.
+ * @param "MinAlcohol" (optional.Float32) -  The minimum amount of alcohol in grams the recipe must have.
+ * @param "MaxAlcohol" (optional.Float32) -  The maximum amount of alcohol in grams the recipe can have.
+ * @param "MinCaffeine" (optional.Float32) -  The minimum amount of caffeine in milligrams the recipe must have.
+ * @param "MaxCaffeine" (optional.Float32) -  The maximum amount of caffeine in milligrams the recipe can have.
+ * @param "MinCopper" (optional.Float32) -  The minimum amount of copper in milligrams the recipe must have.
+ * @param "MaxCopper" (optional.Float32) -  The maximum amount of copper in milligrams the recipe can have.
+ * @param "MinCalcium" (optional.Float32) -  The minimum amount of calcium in milligrams the recipe must have.
+ * @param "MaxCalcium" (optional.Float32) -  The maximum amount of calcium in milligrams the recipe can have.
+ * @param "MinCholine" (optional.Float32) -  The minimum amount of choline in milligrams the recipe must have.
+ * @param "MaxCholine" (optional.Float32) -  The maximum amount of choline in milligrams the recipe can have.
+ * @param "MinCholesterol" (optional.Float32) -  The minimum amount of cholesterol in milligrams the recipe must have.
+ * @param "MaxCholesterol" (optional.Float32) -  The maximum amount of cholesterol in milligrams the recipe can have.
+ * @param "MinFluoride" (optional.Float32) -  The minimum amount of fluoride in milligrams the recipe must have.
+ * @param "MaxFluoride" (optional.Float32) -  The maximum amount of fluoride in milligrams the recipe can have.
+ * @param "MinSaturatedFat" (optional.Float32) -  The minimum amount of saturated fat in grams the recipe must have.
+ * @param "MaxSaturatedFat" (optional.Float32) -  The maximum amount of saturated fat in grams the recipe can have.
+ * @param "MinVitaminA" (optional.Float32) -  The minimum amount of Vitamin A in IU the recipe must have.
+ * @param "MaxVitaminA" (optional.Float32) -  The maximum amount of Vitamin A in IU the recipe can have.
+ * @param "MinVitaminC" (optional.Float32) -  The minimum amount of Vitamin C milligrams the recipe must have.
+ * @param "MaxVitaminC" (optional.Float32) -  The maximum amount of Vitamin C in milligrams the recipe can have.
+ * @param "MinVitaminD" (optional.Float32) -  The minimum amount of Vitamin D in micrograms the recipe must have.
+ * @param "MaxVitaminD" (optional.Float32) -  The maximum amount of Vitamin D in micrograms the recipe can have.
+ * @param "MinVitaminE" (optional.Float32) -  The minimum amount of Vitamin E in milligrams the recipe must have.
+ * @param "MaxVitaminE" (optional.Float32) -  The maximum amount of Vitamin E in milligrams the recipe can have.
+ * @param "MinVitaminK" (optional.Float32) -  The minimum amount of Vitamin K in micrograms the recipe must have.
+ * @param "MaxVitaminK" (optional.Float32) -  The maximum amount of Vitamin K in micrograms the recipe can have.
+ * @param "MinVitaminB1" (optional.Float32) -  The minimum amount of Vitamin B1 in milligrams the recipe must have.
+ * @param "MaxVitaminB1" (optional.Float32) -  The maximum amount of Vitamin B1 in milligrams the recipe can have.
+ * @param "MinVitaminB2" (optional.Float32) -  The minimum amount of Vitamin B2 in milligrams the recipe must have.
+ * @param "MaxVitaminB2" (optional.Float32) -  The maximum amount of Vitamin B2 in milligrams the recipe can have.
+ * @param "MinVitaminB5" (optional.Float32) -  The minimum amount of Vitamin B5 in milligrams the recipe must have.
+ * @param "MaxVitaminB5" (optional.Float32) -  The maximum amount of Vitamin B5 in milligrams the recipe can have.
+ * @param "MinVitaminB3" (optional.Float32) -  The minimum amount of Vitamin B3 in milligrams the recipe must have.
+ * @param "MaxVitaminB3" (optional.Float32) -  The maximum amount of Vitamin B3 in milligrams the recipe can have.
+ * @param "MinVitaminB6" (optional.Float32) -  The minimum amount of Vitamin B6 in milligrams the recipe must have.
+ * @param "MaxVitaminB6" (optional.Float32) -  The maximum amount of Vitamin B6 in milligrams the recipe can have.
+ * @param "MinVitaminB12" (optional.Float32) -  The minimum amount of Vitamin B12 in micrograms the recipe must have.
+ * @param "MaxVitaminB12" (optional.Float32) -  The maximum amount of Vitamin B12 in micrograms the recipe can have.
+ * @param "MinFiber" (optional.Float32) -  The minimum amount of fiber in grams the recipe must have.
+ * @param "MaxFiber" (optional.Float32) -  The maximum amount of fiber in grams the recipe can have.
+ * @param "MinFolate" (optional.Float32) -  The minimum amount of folate in grams the recipe must have.
+ * @param "MaxFolate" (optional.Float32) -  The maximum amount of folate in grams the recipe can have.
+ * @param "MinFolicAcid" (optional.Float32) -  The minimum amount of folic acid in grams the recipe must have.
+ * @param "MaxFolicAcid" (optional.Float32) -  The maximum amount of folic acid in grams the recipe can have.
+ * @param "MinIodine" (optional.Float32) -  The minimum amount of iodine in grams the recipe must have.
+ * @param "MaxIodine" (optional.Float32) -  The maximum amount of iodine in grams the recipe can have.
+ * @param "MinIron" (optional.Float32) -  The minimum amount of iron in milligrams the recipe must have.
+ * @param "MaxIron" (optional.Float32) -  The maximum amount of iron in milligrams the recipe can have.
+ * @param "MinMagnesium" (optional.Float32) -  The minimum amount of magnesium in milligrams the recipe must have.
+ * @param "MaxMagnesium" (optional.Float32) -  The maximum amount of magnesium in milligrams the recipe can have.
+ * @param "MinManganese" (optional.Float32) -  The minimum amount of manganese in milligrams the recipe must have.
+ * @param "MaxManganese" (optional.Float32) -  The maximum amount of manganese in milligrams the recipe can have.
+ * @param "MinPhosphorus" (optional.Float32) -  The minimum amount of phosphorus in milligrams the recipe must have.
+ * @param "MaxPhosphorus" (optional.Float32) -  The maximum amount of phosphorus in milligrams the recipe can have.
+ * @param "MinPotassium" (optional.Float32) -  The minimum amount of potassium in milligrams the recipe must have.
+ * @param "MaxPotassium" (optional.Float32) -  The maximum amount of potassium in milligrams the recipe can have.
+ * @param "MinSelenium" (optional.Float32) -  The minimum amount of selenium in grams the recipe must have.
+ * @param "MaxSelenium" (optional.Float32) -  The maximum amount of selenium in grams the recipe can have.
+ * @param "MinSodium" (optional.Float32) -  The minimum amount of sodium in milligrams the recipe must have.
+ * @param "MaxSodium" (optional.Float32) -  The maximum amount of sodium in milligrams the recipe can have.
+ * @param "MinSugar" (optional.Float32) -  The minimum amount of sugar in grams the recipe must have.
+ * @param "MaxSugar" (optional.Float32) -  The maximum amount of sugar in grams the recipe can have.
+ * @param "MinZinc" (optional.Float32) -  The minimum amount of zinc in milligrams the recipe must have.
+ * @param "MaxZinc" (optional.Float32) -  The maximum amount of zinc in milligrams the recipe can have.
  * @param "Offset" (optional.Float32) -  The offset number for paging (between 0 and 990).
  * @param "Number" (optional.Float32) -  The number of expected results (between 1 and 10).
- * @param "LimitLicense" (optional.Bool) -  Whether the recipes should have an open license that allows for displaying with proper attribution.
+ * @param "LimitLicense" (optional.Bool) -  Whether the recipes should have an open license that allows display with proper attribution.
 @return map[string]interface{}
 */
 
@@ -5173,6 +5175,8 @@ type SearchRecipesComplexOpts struct {
 	Author optional.String
 	Tags optional.String
 	TitleMatch optional.String
+	MaxReadyTime optional.Float32
+	IgnorePantry optional.Bool
 	Sort optional.String
 	SortDirection optional.String
 	MinCarbs optional.Float32
@@ -5311,6 +5315,12 @@ func (a *DefaultApiService) SearchRecipesComplex(ctx context.Context, query stri
 	}
 	if localVarOptionals != nil && localVarOptionals.TitleMatch.IsSet() {
 		localVarQueryParams.Add("titleMatch", parameterToString(localVarOptionals.TitleMatch.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MaxReadyTime.IsSet() {
+		localVarQueryParams.Add("maxReadyTime", parameterToString(localVarOptionals.MaxReadyTime.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.IgnorePantry.IsSet() {
+		localVarQueryParams.Add("ignorePantry", parameterToString(localVarOptionals.IgnorePantry.Value(), ""))
 	}
 	if localVarOptionals != nil && localVarOptionals.Sort.IsSet() {
 		localVarQueryParams.Add("sort", parameterToString(localVarOptionals.Sort.Value(), ""))
@@ -5608,7 +5618,7 @@ func (a *DefaultApiService) SearchRecipesComplex(ctx context.Context, query stri
 
 /*
 DefaultApiService Search Site Content
-Search spoonacular&#39;s site content. You&#39;ll be able to find everything that you could also find using the search suggests on spoonacular.com. This is a suggest API so you can send partial strings as queries.
+Search spoonacular&#39;s site content. You&#39;ll be able to find everything that you could also find using the search suggestions on spoonacular.com. This is a suggest API so you can send partial strings as queries.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param query The query to search for. You can also use partial queries such as \"spagh\" to already find spaghetti recipes, articles, grocery products, and other content.
 @return map[string]interface{}
@@ -5696,7 +5706,7 @@ func (a *DefaultApiService) SearchSiteContent(ctx context.Context, query string)
 
 /*
 DefaultApiService Summarize Recipe
-Summarize the recipe in a short text.
+Automatically generate a short description that summarizes key information about the recipe.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The recipe id.
 @return map[string]interface{}
@@ -5784,9 +5794,9 @@ func (a *DefaultApiService) SummarizeRecipe(ctx context.Context, id float32) (ma
 
 /*
 DefaultApiService Talk to Chatbot
-This endpoint can be used to have a conversation about food with the spoonacular chat bot. Use the \&quot;Get Conversation Suggests\&quot; endpoint to show your user what he or she can say.
+This endpoint can be used to have a conversation about food with the spoonacular chatbot. Use the \&quot;Get Conversation Suggests\&quot; endpoint to show your user what he or she can say.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param text The request / question / answer from the user to the chat bot.
+ * @param text The request / question / answer from the user to the chatbot.
  * @param optional nil or *TalkToChatbotOpts - Optional Parameters:
  * @param "ContextId" (optional.String) -  An arbitrary globally unique id for your conversation. The conversation can contain states so you should pass your context id if you want the bot to be able to remember the conversation.
 @return map[string]interface{}
@@ -5887,7 +5897,7 @@ Visualize the equipment used to make a recipe.
  * @param ingredientList The ingredient list of the recipe, one ingredient per line.
  * @param servings The number of servings.
  * @param optional nil or *VisualizeEquipmentOpts - Optional Parameters:
- * @param "View" (optional.String) -  Either \\\"grid\\\" or \\\"list\\\" as visualization of the equipment.
+ * @param "View" (optional.String) -  How to visualize the equipment, either \\\"grid\\\" or \\\"list\\\".
  * @param "DefaultCss" (optional.Bool) -  Whether the default CSS should be added to the response.
  * @param "ShowBacklink" (optional.Bool) -  Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
 @return string
@@ -5997,8 +6007,8 @@ Visualize ingredients of a recipe.
  * @param ingredientList The ingredient list of the recipe, one ingredient per line.
  * @param servings The number of servings.
  * @param optional nil or *VisualizeIngredientsOpts - Optional Parameters:
- * @param "Measure" (optional.String) -  The initial measure, either \\\"metric\\\" or \\\"us\\\".
- * @param "View" (optional.String) -  Either \\\"grid\\\" or \\\"list\\\" as visualization of the equipment.
+ * @param "Measure" (optional.String) -  The original system of measurement, either \\\"metric\\\" or \\\"us\\\".
+ * @param "View" (optional.String) -  How to visualize the ingredients, either \\\"grid\\\" or \\\"list\\\".
  * @param "DefaultCss" (optional.Bool) -  Whether the default CSS should be added to the response.
  * @param "ShowBacklink" (optional.Bool) -  Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
 @return string
@@ -6107,7 +6117,7 @@ func (a *DefaultApiService) VisualizeIngredients(ctx context.Context, ingredient
 
 /*
 DefaultApiService Visualize Menu Item Nutrition by ID
-Visualize a menu items&#39; nutrition data.
+Visualize a menu item&#39;s nutritional information as HTML including CSS.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The menu item id.
  * @param optional nil or *VisualizeMenuItemNutritionByIDOpts - Optional Parameters:
@@ -6315,7 +6325,7 @@ func (a *DefaultApiService) VisualizePriceBreakdown(ctx context.Context, ingredi
 
 /*
 DefaultApiService Visualize Product Nutrition by ID
-Visualize a grocery product&#39;s nutritional information.
+Visualize a product&#39;s nutritional information as HTML including CSS.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The id of the product.
  * @param optional nil or *VisualizeProductNutritionByIDOpts - Optional Parameters:
@@ -6609,7 +6619,7 @@ func (a *DefaultApiService) VisualizeRecipeIngredientsByID(ctx context.Context, 
 
 /*
 DefaultApiService Visualize Recipe Nutrition
-Visualize a recipe&#39;s nutrition data.
+Visualize a recipe&#39;s nutritional information as HTML including CSS
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param ingredientList The ingredient list of the recipe, one ingredient per line.
  * @param servings The number of servings.
@@ -6714,9 +6724,9 @@ func (a *DefaultApiService) VisualizeRecipeNutrition(ctx context.Context, ingred
 
 /*
 DefaultApiService Visualize Recipe Nutrition by ID
-Visualize a recipe&#39;s nutritional information.
+Visualize a recipe&#39;s nutritional information as HTML including CSS.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param id The id of the product.
+ * @param id The recipe id.
  * @param optional nil or *VisualizeRecipeNutritionByIDOpts - Optional Parameters:
  * @param "DefaultCss" (optional.Bool) -  Whether the default CSS should be added to the response.
 @return string

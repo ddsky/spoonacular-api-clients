@@ -15,10 +15,10 @@ package com.spoonacular.client.model
 import com.squareup.moshi.Json
 /**
  * 
- * @param text The text in which food items such as dish names and ingredients should be detected in.
+ * @param text The text in which food items, such as dish names and ingredients, should be detected in.
  */
 data class InlineObject9 (
-    /* The text in which food items such as dish names and ingredients should be detected in. */
+    /* The text in which food items, such as dish names and ingredients, should be detected in. */
     @Json(name = "text")
     val text: kotlin.String
 ) {

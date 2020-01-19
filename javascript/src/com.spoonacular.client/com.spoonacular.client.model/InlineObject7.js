@@ -89,13 +89,13 @@ InlineObject7.prototype['ingredientList'] = undefined;
 InlineObject7.prototype['servings'] = undefined;
 
 /**
- * The initial measure, either \"metric\" or \"us\".
+ * The original system of measurement, either \"metric\" or \"us\".
  * @member {String} measure
  */
 InlineObject7.prototype['measure'] = undefined;
 
 /**
- * Either \"grid\" or \"list\" as visualization of the equipment.
+ * How to visualize the ingredients, either \"grid\" or \"list\".
  * @member {String} view
  */
 InlineObject7.prototype['view'] = undefined;

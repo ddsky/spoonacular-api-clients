@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * InlineObject8
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-07-01T21:17:29.289+02:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-01-19T16:36:49.460+01:00[Europe/Berlin]")
 public class InlineObject8 {
   public static final String SERIALIZED_NAME_LOCALE = "locale";
   @SerializedName(SERIALIZED_NAME_LOCALE)
@@ -39,10 +39,10 @@ public class InlineObject8 {
   }
 
    /**
-   * The locale of the returned category, supported is en_US and en_GB.
+   * The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).
    * @return locale
   **/
-  @ApiModelProperty(example = "en_US", value = "The locale of the returned category, supported is en_US and en_GB.")
+  @ApiModelProperty(example = "en_US", value = "The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).")
   public String getLocale() {
     return locale;
   }

@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ingredientList** | **kotlin.String** | The ingredient list of the recipe, one ingredient per line. | 
 **servings** | [**java.math.BigDecimal**](java.math.BigDecimal.md) | The number of servings. | 
-**view** | **kotlin.String** | Either \&quot;grid\&quot; or \&quot;list\&quot; as visualization of the equipment. |  [optional]
+**view** | **kotlin.String** | How to visualize the equipment, either \&quot;grid\&quot; or \&quot;list\&quot;. |  [optional]
 **defaultCss** | **kotlin.Boolean** | Whether the default CSS should be added to the response. |  [optional]
 **showBacklink** | **kotlin.Boolean** | Whether to show a backlink to spoonacular. If set false, this call counts against your quota. |  [optional]
 

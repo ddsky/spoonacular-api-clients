@@ -17,7 +17,7 @@ import com.squareup.moshi.Json
  * 
  * @param ingredientList The ingredient list of the recipe, one ingredient per line.
  * @param servings The number of servings.
- * @param view Either \"grid\" or \"list\" as visualization of the equipment.
+ * @param view How to visualize the equipment, either \"grid\" or \"list\".
  * @param defaultCss Whether the default CSS should be added to the response.
  * @param showBacklink Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
  */
@@ -28,7 +28,7 @@ data class InlineObject2 (
     /* The number of servings. */
     @Json(name = "servings")
     val servings: java.math.BigDecimal,
-    /* Either \"grid\" or \"list\" as visualization of the equipment. */
+    /* How to visualize the equipment, either \"grid\" or \"list\". */
     @Json(name = "view")
     val view: kotlin.String? = null,
     /* Whether the default CSS should be added to the response. */

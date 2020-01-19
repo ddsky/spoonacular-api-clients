@@ -86,7 +86,7 @@ InlineObject2.prototype['ingredientList'] = undefined;
 InlineObject2.prototype['servings'] = undefined;
 
 /**
- * Either \"grid\" or \"list\" as visualization of the equipment.
+ * How to visualize the equipment, either \"grid\" or \"list\".
  * @member {String} view
  */
 InlineObject2.prototype['view'] = undefined;

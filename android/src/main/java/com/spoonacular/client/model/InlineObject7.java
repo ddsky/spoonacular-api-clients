@@ -45,9 +45,9 @@ public class InlineObject7  {
   }
 
   /**
-   * The initial measure, either \"metric\" or \"us\".
+   * The original system of measurement, either \"metric\" or \"us\".
    **/
-  @ApiModelProperty(value = "The initial measure, either \"metric\" or \"us\".")
+  @ApiModelProperty(value = "The original system of measurement, either \"metric\" or \"us\".")
   public String getMeasure() {
     return measure;
   }
@@ -56,9 +56,9 @@ public class InlineObject7  {
   }
 
   /**
-   * Either \"grid\" or \"list\" as visualization of the equipment.
+   * How to visualize the ingredients, either \"grid\" or \"list\".
    **/
-  @ApiModelProperty(value = "Either \"grid\" or \"list\" as visualization of the equipment.")
+  @ApiModelProperty(value = "How to visualize the ingredients, either \"grid\" or \"list\".")
   public String getView() {
     return view;
   }

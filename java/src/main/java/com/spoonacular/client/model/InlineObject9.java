@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * InlineObject9
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-07-01T21:17:29.289+02:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-01-19T16:36:49.460+01:00[Europe/Berlin]")
 public class InlineObject9 {
   public static final String SERIALIZED_NAME_TEXT = "text";
   @SerializedName(SERIALIZED_NAME_TEXT)
@@ -39,10 +39,10 @@ public class InlineObject9 {
   }
 
    /**
-   * The text in which food items such as dish names and ingredients should be detected in.
+   * The text in which food items, such as dish names and ingredients, should be detected in.
    * @return text
   **/
-  @ApiModelProperty(example = "I like to eat delicious tacos. Only cheeseburger with cheddar are better than that. But then again, pizza with pepperoni, mushrooms, and tomatoes is so good!", required = true, value = "The text in which food items such as dish names and ingredients should be detected in.")
+  @ApiModelProperty(example = "I like to eat delicious tacos. The only thing better is a cheeseburger with cheddar. But then again, pizza with pepperoni, mushrooms, and tomatoes is so good too!", required = true, value = "The text in which food items, such as dish names and ingredients, should be detected in.")
   public String getText() {
     return text;
   }

@@ -29,17 +29,17 @@ namespace spoonacular.Model {
     public decimal? Servings { get; set; }
 
     /// <summary>
-    /// The initial measure, either \"metric\" or \"us\".
+    /// The original system of measurement, either \"metric\" or \"us\".
     /// </summary>
-    /// <value>The initial measure, either \"metric\" or \"us\".</value>
+    /// <value>The original system of measurement, either \"metric\" or \"us\".</value>
     [DataMember(Name="measure", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "measure")]
     public string Measure { get; set; }
 
     /// <summary>
-    /// Either \"grid\" or \"list\" as visualization of the equipment.
+    /// How to visualize the ingredients, either \"grid\" or \"list\".
     /// </summary>
-    /// <value>Either \"grid\" or \"list\" as visualization of the equipment.</value>
+    /// <value>How to visualize the ingredients, either \"grid\" or \"list\".</value>
     [DataMember(Name="view", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "view")]
     public string View { get; set; }

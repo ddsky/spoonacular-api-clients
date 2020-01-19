@@ -91,13 +91,13 @@ Class | Method | HTTP request | Description
 *OpenapiClient::DefaultApi* | [**create_recipe_card**](docs/DefaultApi.md#create_recipe_card) | **POST** /recipes/visualizeRecipe | Create Recipe Card
 *OpenapiClient::DefaultApi* | [**detect_food_in_text**](docs/DefaultApi.md#detect_food_in_text) | **POST** /food/detect | Detect Food in Text
 *OpenapiClient::DefaultApi* | [**extract_recipe_from_website**](docs/DefaultApi.md#extract_recipe_from_website) | **GET** /recipes/extract | Extract Recipe from Website
-*OpenapiClient::DefaultApi* | [**generate_meal_plan**](docs/DefaultApi.md#generate_meal_plan) | **GET** /recipes/mealplans/generate | Generate Meal Plan
+*OpenapiClient::DefaultApi* | [**generate_meal_plan**](docs/DefaultApi.md#generate_meal_plan) | **GET** /mealplanner/generate | Generate Meal Plan
 *OpenapiClient::DefaultApi* | [**get_a_random_food_joke**](docs/DefaultApi.md#get_a_random_food_joke) | **GET** /food/jokes/random | Get a Random Food Joke
 *OpenapiClient::DefaultApi* | [**get_analyzed_recipe_instructions**](docs/DefaultApi.md#get_analyzed_recipe_instructions) | **GET** /recipes/{id}/analyzedInstructions | Get Analyzed Recipe Instructions
 *OpenapiClient::DefaultApi* | [**get_comparable_products**](docs/DefaultApi.md#get_comparable_products) | **GET** /food/products/upc/{upc}/comparable | Get Comparable Products
 *OpenapiClient::DefaultApi* | [**get_conversation_suggests**](docs/DefaultApi.md#get_conversation_suggests) | **GET** /food/converse/suggest | Get Conversation Suggests
 *OpenapiClient::DefaultApi* | [**get_dish_pairing_for_wine**](docs/DefaultApi.md#get_dish_pairing_for_wine) | **GET** /food/wine/dishes | Get Dish Pairing for Wine
-*OpenapiClient::DefaultApi* | [**get_food_information**](docs/DefaultApi.md#get_food_information) | **GET** /food/ingredients/{id}/information | Get Food Information
+*OpenapiClient::DefaultApi* | [**get_ingredient_information**](docs/DefaultApi.md#get_ingredient_information) | **GET** /food/ingredients/{id}/information | Get Ingredient Information
 *OpenapiClient::DefaultApi* | [**get_ingredient_substitutes**](docs/DefaultApi.md#get_ingredient_substitutes) | **GET** /food/ingredients/substitutes | Get Ingredient Substitutes
 *OpenapiClient::DefaultApi* | [**get_ingredient_substitutes_by_id**](docs/DefaultApi.md#get_ingredient_substitutes_by_id) | **GET** /food/ingredients/{id}/substitutes | Get Ingredient Substitutes by ID
 *OpenapiClient::DefaultApi* | [**get_menu_item_information**](docs/DefaultApi.md#get_menu_item_information) | **GET** /food/menuItems/{id} | Get Menu Item Information
@@ -108,7 +108,7 @@ Class | Method | HTTP request | Description
 *OpenapiClient::DefaultApi* | [**get_recipe_information**](docs/DefaultApi.md#get_recipe_information) | **GET** /recipes/{id}/information | Get Recipe Information
 *OpenapiClient::DefaultApi* | [**get_recipe_information_bulk**](docs/DefaultApi.md#get_recipe_information_bulk) | **GET** /recipes/informationBulk | Get Recipe Information Bulk
 *OpenapiClient::DefaultApi* | [**get_recipe_ingredients_by_id**](docs/DefaultApi.md#get_recipe_ingredients_by_id) | **GET** /recipes/{id}/ingredientWidget.json | Get Recipe Ingredients by ID
-*OpenapiClient::DefaultApi* | [**get_recipe_nutrition_by_id**](docs/DefaultApi.md#get_recipe_nutrition_by_id) | **GET** /recipes/{id}/nutritionWidget.json | Get Recipe Nutrition by ID
+*OpenapiClient::DefaultApi* | [**get_recipe_nutrition_widget_by_id**](docs/DefaultApi.md#get_recipe_nutrition_widget_by_id) | **GET** /recipes/{id}/nutritionWidget.json | Get Recipe Nutrition Widget by ID
 *OpenapiClient::DefaultApi* | [**get_recipe_price_breakdown_by_id**](docs/DefaultApi.md#get_recipe_price_breakdown_by_id) | **GET** /recipes/{id}/priceBreakdownWidget.json | Get Recipe Price Breakdown by ID
 *OpenapiClient::DefaultApi* | [**get_similar_recipes**](docs/DefaultApi.md#get_similar_recipes) | **GET** /recipes/{id}/similar | Get Similar Recipes
 *OpenapiClient::DefaultApi* | [**get_wine_description**](docs/DefaultApi.md#get_wine_description) | **GET** /food/wine/description | Get Wine Description

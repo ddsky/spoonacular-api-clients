@@ -22,7 +22,7 @@ class InlineObject9 {
     /**
      * Constructs a new <code>InlineObject9</code>.
      * @alias module:com.spoonacular.client/com.spoonacular.client.model/InlineObject9
-     * @param text {String} The text in which food items such as dish names and ingredients should be detected in.
+     * @param text {String} The text in which food items, such as dish names and ingredients, should be detected in.
      */
     constructor(text) { 
         
@@ -60,7 +60,7 @@ class InlineObject9 {
 }
 
 /**
- * The text in which food items such as dish names and ingredients should be detected in.
+ * The text in which food items, such as dish names and ingredients, should be detected in.
  * @member {String} text
  */
 InlineObject9.prototype['text'] = undefined;

@@ -19,7 +19,7 @@
          get_comparable_products/2, get_comparable_products/3,
          get_conversation_suggests/2, get_conversation_suggests/3,
          get_dish_pairing_for_wine/2, get_dish_pairing_for_wine/3,
-         get_food_information/2, get_food_information/3,
+         get_ingredient_information/2, get_ingredient_information/3,
          get_ingredient_substitutes/2, get_ingredient_substitutes/3,
          get_ingredient_substitutes_by_id/2, get_ingredient_substitutes_by_id/3,
          get_menu_item_information/2, get_menu_item_information/3,
@@ -30,7 +30,7 @@
          get_recipe_information/2, get_recipe_information/3,
          get_recipe_information_bulk/2, get_recipe_information_bulk/3,
          get_recipe_ingredients_by_id/2, get_recipe_ingredients_by_id/3,
-         get_recipe_nutrition_by_id/2, get_recipe_nutrition_by_id/3,
+         get_recipe_nutrition_widget_by_id/2, get_recipe_nutrition_widget_by_id/3,
          get_recipe_price_breakdown_by_id/2, get_recipe_price_breakdown_by_id/3,
          get_similar_recipes/2, get_similar_recipes/3,
          get_wine_description/2, get_wine_description/3,
@@ -86,7 +86,7 @@ analyze_a_recipe_search_query(Ctx, Q, Optional) ->
     spoonacular_utils:request(Ctx, Method, [?BASE_URL, Path], QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
 
 %% @doc Analyze Recipe Instructions
-%% Extract ingredients and equipment from the recipe instruction steps.
+%% Extract ingredients and equipment from the recipe's instructions.
 -spec analyze_recipe_instructions(ctx:ctx(), binary()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 analyze_recipe_instructions(Ctx, Instructions) ->
     analyze_recipe_instructions(Ctx, Instructions, #{}).
@@ -107,7 +107,7 @@ analyze_recipe_instructions(Ctx, Instructions, Optional) ->
     spoonacular_utils:request(Ctx, Method, [?BASE_URL, Path], QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
 
 %% @doc Autocomplete Ingredient Search
-%% Autocomplete a search for an ingredient.
+%% Autocomplete the entry of an ingredient.
 -spec autocomplete_ingredient_search(ctx:ctx(), binary()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 autocomplete_ingredient_search(Ctx, Query) ->
     autocomplete_ingredient_search(Ctx, Query, #{}).
@@ -170,7 +170,7 @@ autocomplete_product_search(Ctx, Query, Optional) ->
     spoonacular_utils:request(Ctx, Method, [?BASE_URL, Path], QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
 
 %% @doc Autocomplete Recipe Search
-%% Autocomplete a partial input to possible recipe names.
+%% Autocomplete a partial input to suggest possible recipe names.
 -spec autocomplete_recipe_search(ctx:ctx(), binary()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 autocomplete_recipe_search(Ctx, Query) ->
     autocomplete_recipe_search(Ctx, Query, #{}).
@@ -212,7 +212,7 @@ classify_cuisine(Ctx, Title, IngredientList, Optional) ->
     spoonacular_utils:request(Ctx, Method, [?BASE_URL, Path], QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
 
 %% @doc Classify Grocery Product
-%% Given a grocery product title, this endpoint allows you to detect what basic ingredient it is.
+%% This endpoint allows you to match a packaged food to a basic category, e.g. a specific brand of milk to the category milk.
 -spec classify_grocery_product(ctx:ctx(), spoonacular_inline_object_8:spoonacular_inline_object_8()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 classify_grocery_product(Ctx, SpoonacularInlineObject8) ->
     classify_grocery_product(Ctx, SpoonacularInlineObject8, #{}).
@@ -233,7 +233,7 @@ classify_grocery_product(Ctx, SpoonacularInlineObject8, Optional) ->
     spoonacular_utils:request(Ctx, Method, [?BASE_URL, Path], QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
 
 %% @doc Classify Grocery Product Bulk
-%% Given a set of product jsons, get back classified products.
+%% Provide a set of product jsons, get back classified products.
 -spec classify_grocery_product_bulk(ctx:ctx(), maps:map()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 classify_grocery_product_bulk(Ctx, Body) ->
     classify_grocery_product_bulk(Ctx, Body, #{}).
@@ -275,7 +275,7 @@ convert_amounts(Ctx, IngredientName, SourceAmount, SourceUnit, TargetUnit, Optio
     spoonacular_utils:request(Ctx, Method, [?BASE_URL, Path], QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
 
 %% @doc Create Recipe Card
-%% Create Recipe Card.
+%% Generate a recipe card for a recipe.
 -spec create_recipe_card(ctx:ctx(), binary(), binary(), binary(), binary(), integer(), integer(), binary(), binary()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 create_recipe_card(Ctx, Title, Image, Ingredients, Instructions, ReadyInMinutes, Servings, Mask, BackgroundImage) ->
     create_recipe_card(Ctx, Title, Image, Ingredients, Instructions, ReadyInMinutes, Servings, Mask, BackgroundImage, #{}).
@@ -296,7 +296,7 @@ create_recipe_card(Ctx, Title, Image, Ingredients, Instructions, ReadyInMinutes,
     spoonacular_utils:request(Ctx, Method, [?BASE_URL, Path], QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
 
 %% @doc Detect Food in Text
-%% Detect ingredients and dishes in texts. This task is also called Named Entity Recognition (NER). In our case the entities are foods. Either dishes, such as pizza and cheeseburger or ingredients, such as cucumber and almonds.
+%% Take any text and find all mentions of food contained within it. This task is also called Named Entity Recognition (NER). In this case, the entities are foods. Either dishes, such as pizza or cheeseburger, or ingredients, such as cucumber or almonds.
 -spec detect_food_in_text(ctx:ctx(), binary()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 detect_food_in_text(Ctx, Text) ->
     detect_food_in_text(Ctx, Text, #{}).
@@ -317,7 +317,7 @@ detect_food_in_text(Ctx, Text, Optional) ->
     spoonacular_utils:request(Ctx, Method, [?BASE_URL, Path], QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
 
 %% @doc Extract Recipe from Website
-%% Get an analyzed breakdown of a recipe's instructions. Each step is enriched with the ingredients and the equipment that is used.
+%% This endpoint lets you extract recipe data such as title, ingredients, and instructions from any properly formatted Website.
 -spec extract_recipe_from_website(ctx:ctx(), binary()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 extract_recipe_from_website(Ctx, Url) ->
     extract_recipe_from_website(Ctx, Url, #{}).
@@ -349,7 +349,7 @@ generate_meal_plan(Ctx, Optional) ->
     Cfg = maps:get(cfg, Optional, application:get_env(kuberl, config, #{})),
 
     Method = get,
-    Path = ["/recipes/mealplans/generate"],
+    Path = ["/mealplanner/generate"],
     QS = lists:flatten([])++spoonacular_utils:optional_params(['timeFrame', 'targetCalories', 'diet', 'exclude'], _OptionalParams),
     Headers = [],
     Body1 = [],
@@ -359,7 +359,7 @@ generate_meal_plan(Ctx, Optional) ->
     spoonacular_utils:request(Ctx, Method, [?BASE_URL, Path], QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
 
 %% @doc Get a Random Food Joke
-%% Get a random joke that includes or is about food.
+%% Get a random joke that is related to food. Caution: this is an endpoint for adults!
 -spec get_a_random_food_joke(ctx:ctx()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 get_a_random_food_joke(Ctx) ->
     get_a_random_food_joke(Ctx, #{}).
@@ -380,7 +380,7 @@ get_a_random_food_joke(Ctx, Optional) ->
     spoonacular_utils:request(Ctx, Method, [?BASE_URL, Path], QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
 
 %% @doc Get Analyzed Recipe Instructions
-%% Get an analyzed breakdown of a recipe's instructions. Each step is enriched with the ingredients and the equipment that is used.
+%% Get an analyzed breakdown of a recipe's instructions. Each step is enriched with the ingredients and equipment required.
 -spec get_analyzed_recipe_instructions(ctx:ctx(), integer()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 get_analyzed_recipe_instructions(Ctx, Id) ->
     get_analyzed_recipe_instructions(Ctx, Id, #{}).
@@ -422,7 +422,7 @@ get_comparable_products(Ctx, Upc, Optional) ->
     spoonacular_utils:request(Ctx, Method, [?BASE_URL, Path], QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
 
 %% @doc Get Conversation Suggests
-%% This endpoint returns suggestions for things the user can say or ask the chat bot.
+%% This endpoint returns suggestions for things the user can say or ask the chatbot.
 -spec get_conversation_suggests(ctx:ctx(), binary()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 get_conversation_suggests(Ctx, Query) ->
     get_conversation_suggests(Ctx, Query, #{}).
@@ -443,7 +443,7 @@ get_conversation_suggests(Ctx, Query, Optional) ->
     spoonacular_utils:request(Ctx, Method, [?BASE_URL, Path], QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
 
 %% @doc Get Dish Pairing for Wine
-%% Get a dish that goes well with a given wine.
+%% Find a dish that goes well with a given wine.
 -spec get_dish_pairing_for_wine(ctx:ctx(), binary()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 get_dish_pairing_for_wine(Ctx, Wine) ->
     get_dish_pairing_for_wine(Ctx, Wine, #{}).
@@ -463,14 +463,14 @@ get_dish_pairing_for_wine(Ctx, Wine, Optional) ->
 
     spoonacular_utils:request(Ctx, Method, [?BASE_URL, Path], QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
 
-%% @doc Get Food Information
-%% Get information about a certain food (ingredient).
--spec get_food_information(ctx:ctx(), integer()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
-get_food_information(Ctx, Id) ->
-    get_food_information(Ctx, Id, #{}).
+%% @doc Get Ingredient Information
+%% Use an ingredient id to get all available information about an ingredient, such as its image and supermarket aisle.
+-spec get_ingredient_information(ctx:ctx(), integer()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+get_ingredient_information(Ctx, Id) ->
+    get_ingredient_information(Ctx, Id, #{}).
 
--spec get_food_information(ctx:ctx(), integer(), maps:map()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
-get_food_information(Ctx, Id, Optional) ->
+-spec get_ingredient_information(ctx:ctx(), integer(), maps:map()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+get_ingredient_information(Ctx, Id, Optional) ->
     _OptionalParams = maps:get(params, Optional, #{}),
     Cfg = maps:get(cfg, Optional, application:get_env(kuberl, config, #{})),
 
@@ -527,7 +527,7 @@ get_ingredient_substitutes_by_id(Ctx, Id, Optional) ->
     spoonacular_utils:request(Ctx, Method, [?BASE_URL, Path], QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
 
 %% @doc Get Menu Item Information
-%% Get information about a certain menu item.
+%% Use a menu item id to get all available information about a menu item, such as nutrition.
 -spec get_menu_item_information(ctx:ctx(), integer()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 get_menu_item_information(Ctx, Id) ->
     get_menu_item_information(Ctx, Id, #{}).
@@ -548,7 +548,7 @@ get_menu_item_information(Ctx, Id, Optional) ->
     spoonacular_utils:request(Ctx, Method, [?BASE_URL, Path], QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
 
 %% @doc Get Product Information
-%% Get information about a packaged food product.
+%% Use a product id to get full information about a product, such as ingredients, nutrition, etc.
 -spec get_product_information(ctx:ctx(), integer()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 get_product_information(Ctx, Id) ->
     get_product_information(Ctx, Id, #{}).
@@ -590,7 +590,7 @@ get_random_food_trivia(Ctx, Optional) ->
     spoonacular_utils:request(Ctx, Method, [?BASE_URL, Path], QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
 
 %% @doc Get Random Recipes
-%% Find random (popular) recipes.
+%% Find random (popular) recipes. If you need to filter recipes by diet, nutrition etc. you might want to consider using the complex recipe search endpoint and set the sort request parameter to random.
 -spec get_random_recipes(ctx:ctx()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 get_random_recipes(Ctx) ->
     get_random_recipes(Ctx, #{}).
@@ -632,7 +632,7 @@ get_recipe_equipment_by_id(Ctx, Id, Optional) ->
     spoonacular_utils:request(Ctx, Method, [?BASE_URL, Path], QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
 
 %% @doc Get Recipe Information
-%% Get information about a recipe.
+%% Use a recipe id to get full information about a recipe, such as ingredients, nutrition, diet and allergen information, etc.
 -spec get_recipe_information(ctx:ctx(), integer()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 get_recipe_information(Ctx, Id) ->
     get_recipe_information(Ctx, Id, #{}).
@@ -653,7 +653,7 @@ get_recipe_information(Ctx, Id, Optional) ->
     spoonacular_utils:request(Ctx, Method, [?BASE_URL, Path], QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
 
 %% @doc Get Recipe Information Bulk
-%% Get information about multiple recipes at once. That is equivalent of calling the Get Recipe Information endpoint multiple times but is faster.
+%% Get information about multiple recipes at once. This is equivalent to calling the Get Recipe Information endpoint multiple times, but faster.
 -spec get_recipe_information_bulk(ctx:ctx(), binary()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 get_recipe_information_bulk(Ctx, Ids) ->
     get_recipe_information_bulk(Ctx, Ids, #{}).
@@ -694,14 +694,14 @@ get_recipe_ingredients_by_id(Ctx, Id, Optional) ->
 
     spoonacular_utils:request(Ctx, Method, [?BASE_URL, Path], QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
 
-%% @doc Get Recipe Nutrition by ID
+%% @doc Get Recipe Nutrition Widget by ID
 %% Get a recipe's nutrition widget data.
--spec get_recipe_nutrition_by_id(ctx:ctx(), integer()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
-get_recipe_nutrition_by_id(Ctx, Id) ->
-    get_recipe_nutrition_by_id(Ctx, Id, #{}).
+-spec get_recipe_nutrition_widget_by_id(ctx:ctx(), integer()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+get_recipe_nutrition_widget_by_id(Ctx, Id) ->
+    get_recipe_nutrition_widget_by_id(Ctx, Id, #{}).
 
--spec get_recipe_nutrition_by_id(ctx:ctx(), integer(), maps:map()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
-get_recipe_nutrition_by_id(Ctx, Id, Optional) ->
+-spec get_recipe_nutrition_widget_by_id(ctx:ctx(), integer(), maps:map()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+get_recipe_nutrition_widget_by_id(Ctx, Id, Optional) ->
     _OptionalParams = maps:get(params, Optional, #{}),
     Cfg = maps:get(cfg, Optional, application:get_env(kuberl, config, #{})),
 
@@ -758,7 +758,7 @@ get_similar_recipes(Ctx, Id, Optional) ->
     spoonacular_utils:request(Ctx, Method, [?BASE_URL, Path], QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
 
 %% @doc Get Wine Description
-%% Get the description of a certain wine, e.g. \"malbec\", \"riesling\", or \"merlot\".
+%% Get a simple description of a certain wine, e.g. \"malbec\", \"riesling\", or \"merlot\".
 -spec get_wine_description(ctx:ctx(), binary()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 get_wine_description(Ctx, Wine) ->
     get_wine_description(Ctx, Wine, #{}).
@@ -800,7 +800,7 @@ get_wine_pairing(Ctx, Food, Optional) ->
     spoonacular_utils:request(Ctx, Method, [?BASE_URL, Path], QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
 
 %% @doc Get Wine Recommendation
-%% Get a specific wine recommendation (concrete product) for a given wine, e.g. \"merlot\".
+%% Get a specific wine recommendation (concrete product) for a given wine type, e.g. \"merlot\".
 -spec get_wine_recommendation(ctx:ctx(), binary()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 get_wine_recommendation(Ctx, Wine) ->
     get_wine_recommendation(Ctx, Wine, #{}).
@@ -821,7 +821,7 @@ get_wine_recommendation(Ctx, Wine, Optional) ->
     spoonacular_utils:request(Ctx, Method, [?BASE_URL, Path], QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
 
 %% @doc Guess Nutrition by Dish Name
-%% Guess the macro nutrients of a dish given its title.
+%% Estimate the macronutrients of a dish based on its title.
 -spec guess_nutrition_by_dish_name(ctx:ctx(), binary()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 guess_nutrition_by_dish_name(Ctx, Title) ->
     guess_nutrition_by_dish_name(Ctx, Title, #{}).
@@ -926,7 +926,7 @@ search_food_videos(Ctx, Query, Optional) ->
     spoonacular_utils:request(Ctx, Method, [?BASE_URL, Path], QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
 
 %% @doc Search Grocery Products
-%% Search packaged food products such as frozen pizza and snickers bars.
+%% Search packaged food products, such as frozen pizza or Greek yogurt.
 -spec search_grocery_products(ctx:ctx(), binary()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 search_grocery_products(Ctx, Query) ->
     search_grocery_products(Ctx, Query, #{}).
@@ -947,7 +947,7 @@ search_grocery_products(Ctx, Query, Optional) ->
     spoonacular_utils:request(Ctx, Method, [?BASE_URL, Path], QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
 
 %% @doc Search Grocery Products by UPC
-%% Get information about a food product given its UPC.
+%% Get information about a packaged food using its UPC.
 -spec search_grocery_products_by_upc(ctx:ctx(), integer()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 search_grocery_products_by_upc(Ctx, Upc) ->
     search_grocery_products_by_upc(Ctx, Upc, #{}).
@@ -968,7 +968,7 @@ search_grocery_products_by_upc(Ctx, Upc, Optional) ->
     spoonacular_utils:request(Ctx, Method, [?BASE_URL, Path], QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
 
 %% @doc Search Menu Items
-%% Search over 115,000 menu items from over 800 fast food and chain restaurants such as McDonalds Big Mac or Starbucks Mocha.
+%% Search over 115,000 menu items from over 800 fast food and chain restaurants. For example, McDonald's Big Mac or Starbucks Mocha.
 -spec search_menu_items(ctx:ctx(), binary()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 search_menu_items(Ctx, Query) ->
     search_menu_items(Ctx, Query, #{}).
@@ -1010,7 +1010,7 @@ search_recipes(Ctx, Query, Optional) ->
     spoonacular_utils:request(Ctx, Method, [?BASE_URL, Path], QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
 
 %% @doc Search Recipes by Ingredients
-%% Find recipes that use as many of the given ingredients as possible and have as little as possible missing ingredients. This is a \"what's in your fridge\" API endpoint.
+%% Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don't currently have (post shopping).
 -spec search_recipes_by_ingredients(ctx:ctx(), binary()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 search_recipes_by_ingredients(Ctx, Ingredients) ->
     search_recipes_by_ingredients(Ctx, Ingredients, #{}).
@@ -1031,7 +1031,7 @@ search_recipes_by_ingredients(Ctx, Ingredients, Optional) ->
     spoonacular_utils:request(Ctx, Method, [?BASE_URL, Path], QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
 
 %% @doc Search Recipes by Nutrients
-%% Find a set of recipes that adhere to the given nutritional limits. All the returned recipes will have macro nutrients within the calories, protein, fat, and carbohydrate limits.
+%% Find a set of recipes that adhere to the given nutritional limits. You may set limits for macronutrients (calories, protein, fat, and carbohydrate) and/or many micronutrients.
 -spec search_recipes_by_nutrients(ctx:ctx()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 search_recipes_by_nutrients(Ctx) ->
     search_recipes_by_nutrients(Ctx, #{}).
@@ -1052,7 +1052,7 @@ search_recipes_by_nutrients(Ctx, Optional) ->
     spoonacular_utils:request(Ctx, Method, [?BASE_URL, Path], QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
 
 %% @doc Search Recipes Complex
-%% Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: Since this method combines searching by query, by ingredients, and by nutrients in one endpoint.
+%% Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint.
 -spec search_recipes_complex(ctx:ctx(), binary()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 search_recipes_complex(Ctx, Query) ->
     search_recipes_complex(Ctx, Query, #{}).
@@ -1064,7 +1064,7 @@ search_recipes_complex(Ctx, Query, Optional) ->
 
     Method = get,
     Path = ["/recipes/complexSearch"],
-    QS = lists:flatten([{<<"query">>, Query}])++spoonacular_utils:optional_params(['cuisine', 'excludeCuisine', 'diet', 'intolerances', 'equipment', 'includeIngredients', 'excludeIngredients', 'type', 'instructionsRequired', 'fillIngredients', 'addRecipeInformation', 'author', 'tags', 'titleMatch', 'sort', 'sortDirection', 'minCarbs', 'maxCarbs', 'minProtein', 'maxProtein', 'minCalories', 'maxCalories', 'minFat', 'maxFat', 'minAlcohol', 'maxAlcohol', 'minCaffeine', 'maxCaffeine', 'minCopper', 'maxCopper', 'minCalcium', 'maxCalcium', 'minCholine', 'maxCholine', 'minCholesterol', 'maxCholesterol', 'minFluoride', 'maxFluoride', 'minSaturatedFat', 'maxSaturatedFat', 'minVitaminA', 'maxVitaminA', 'minVitaminC', 'maxVitaminC', 'minVitaminD', 'maxVitaminD', 'minVitaminE', 'maxVitaminE', 'minVitaminK', 'maxVitaminK', 'minVitaminB1', 'maxVitaminB1', 'minVitaminB2', 'maxVitaminB2', 'minVitaminB5', 'maxVitaminB5', 'minVitaminB3', 'maxVitaminB3', 'minVitaminB6', 'maxVitaminB6', 'minVitaminB12', 'maxVitaminB12', 'minFiber', 'maxFiber', 'minFolate', 'maxFolate', 'minFolicAcid', 'maxFolicAcid', 'minIodine', 'maxIodine', 'minIron', 'maxIron', 'minMagnesium', 'maxMagnesium', 'minManganese', 'maxManganese', 'minPhosphorus', 'maxPhosphorus', 'minPotassium', 'maxPotassium', 'minSelenium', 'maxSelenium', 'minSodium', 'maxSodium', 'minSugar', 'maxSugar', 'minZinc', 'maxZinc', 'offset', 'number', 'limitLicense'], _OptionalParams),
+    QS = lists:flatten([{<<"query">>, Query}])++spoonacular_utils:optional_params(['cuisine', 'excludeCuisine', 'diet', 'intolerances', 'equipment', 'includeIngredients', 'excludeIngredients', 'type', 'instructionsRequired', 'fillIngredients', 'addRecipeInformation', 'author', 'tags', 'titleMatch', 'maxReadyTime', 'ignorePantry', 'sort', 'sortDirection', 'minCarbs', 'maxCarbs', 'minProtein', 'maxProtein', 'minCalories', 'maxCalories', 'minFat', 'maxFat', 'minAlcohol', 'maxAlcohol', 'minCaffeine', 'maxCaffeine', 'minCopper', 'maxCopper', 'minCalcium', 'maxCalcium', 'minCholine', 'maxCholine', 'minCholesterol', 'maxCholesterol', 'minFluoride', 'maxFluoride', 'minSaturatedFat', 'maxSaturatedFat', 'minVitaminA', 'maxVitaminA', 'minVitaminC', 'maxVitaminC', 'minVitaminD', 'maxVitaminD', 'minVitaminE', 'maxVitaminE', 'minVitaminK', 'maxVitaminK', 'minVitaminB1', 'maxVitaminB1', 'minVitaminB2', 'maxVitaminB2', 'minVitaminB5', 'maxVitaminB5', 'minVitaminB3', 'maxVitaminB3', 'minVitaminB6', 'maxVitaminB6', 'minVitaminB12', 'maxVitaminB12', 'minFiber', 'maxFiber', 'minFolate', 'maxFolate', 'minFolicAcid', 'maxFolicAcid', 'minIodine', 'maxIodine', 'minIron', 'maxIron', 'minMagnesium', 'maxMagnesium', 'minManganese', 'maxManganese', 'minPhosphorus', 'maxPhosphorus', 'minPotassium', 'maxPotassium', 'minSelenium', 'maxSelenium', 'minSodium', 'maxSodium', 'minSugar', 'maxSugar', 'minZinc', 'maxZinc', 'offset', 'number', 'limitLicense'], _OptionalParams),
     Headers = [],
     Body1 = [],
     ContentTypeHeader = spoonacular_utils:select_header_content_type([]),
@@ -1073,7 +1073,7 @@ search_recipes_complex(Ctx, Query, Optional) ->
     spoonacular_utils:request(Ctx, Method, [?BASE_URL, Path], QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
 
 %% @doc Search Site Content
-%% Search spoonacular's site content. You'll be able to find everything that you could also find using the search suggests on spoonacular.com. This is a suggest API so you can send partial strings as queries.
+%% Search spoonacular's site content. You'll be able to find everything that you could also find using the search suggestions on spoonacular.com. This is a suggest API so you can send partial strings as queries.
 -spec search_site_content(ctx:ctx(), binary()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 search_site_content(Ctx, Query) ->
     search_site_content(Ctx, Query, #{}).
@@ -1094,7 +1094,7 @@ search_site_content(Ctx, Query, Optional) ->
     spoonacular_utils:request(Ctx, Method, [?BASE_URL, Path], QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
 
 %% @doc Summarize Recipe
-%% Summarize the recipe in a short text.
+%% Automatically generate a short description that summarizes key information about the recipe.
 -spec summarize_recipe(ctx:ctx(), integer()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 summarize_recipe(Ctx, Id) ->
     summarize_recipe(Ctx, Id, #{}).
@@ -1115,7 +1115,7 @@ summarize_recipe(Ctx, Id, Optional) ->
     spoonacular_utils:request(Ctx, Method, [?BASE_URL, Path], QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
 
 %% @doc Talk to Chatbot
-%% This endpoint can be used to have a conversation about food with the spoonacular chat bot. Use the \"Get Conversation Suggests\" endpoint to show your user what he or she can say.
+%% This endpoint can be used to have a conversation about food with the spoonacular chatbot. Use the \"Get Conversation Suggests\" endpoint to show your user what he or she can say.
 -spec talk_to_chatbot(ctx:ctx(), binary()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 talk_to_chatbot(Ctx, Text) ->
     talk_to_chatbot(Ctx, Text, #{}).
@@ -1178,7 +1178,7 @@ visualize_ingredients(Ctx, IngredientList, Servings, Optional) ->
     spoonacular_utils:request(Ctx, Method, [?BASE_URL, Path], QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
 
 %% @doc Visualize Menu Item Nutrition by ID
-%% Visualize a menu items' nutrition data.
+%% Visualize a menu item's nutritional information as HTML including CSS.
 -spec visualize_menu_item_nutrition_by_id(ctx:ctx(), integer()) -> {ok, binary(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 visualize_menu_item_nutrition_by_id(Ctx, Id) ->
     visualize_menu_item_nutrition_by_id(Ctx, Id, #{}).
@@ -1220,7 +1220,7 @@ visualize_price_breakdown(Ctx, IngredientList, Servings, Optional) ->
     spoonacular_utils:request(Ctx, Method, [?BASE_URL, Path], QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
 
 %% @doc Visualize Product Nutrition by ID
-%% Visualize a grocery product's nutritional information.
+%% Visualize a product's nutritional information as HTML including CSS.
 -spec visualize_product_nutrition_by_id(ctx:ctx(), integer()) -> {ok, binary(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 visualize_product_nutrition_by_id(Ctx, Id) ->
     visualize_product_nutrition_by_id(Ctx, Id, #{}).
@@ -1283,7 +1283,7 @@ visualize_recipe_ingredients_by_id(Ctx, Id, Optional) ->
     spoonacular_utils:request(Ctx, Method, [?BASE_URL, Path], QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
 
 %% @doc Visualize Recipe Nutrition
-%% Visualize a recipe's nutrition data.
+%% Visualize a recipe's nutritional information as HTML including CSS
 -spec visualize_recipe_nutrition(ctx:ctx(), binary(), integer()) -> {ok, binary(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 visualize_recipe_nutrition(Ctx, IngredientList, Servings) ->
     visualize_recipe_nutrition(Ctx, IngredientList, Servings, #{}).
@@ -1304,7 +1304,7 @@ visualize_recipe_nutrition(Ctx, IngredientList, Servings, Optional) ->
     spoonacular_utils:request(Ctx, Method, [?BASE_URL, Path], QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
 
 %% @doc Visualize Recipe Nutrition by ID
-%% Visualize a recipe's nutritional information.
+%% Visualize a recipe's nutritional information as HTML including CSS.
 -spec visualize_recipe_nutrition_by_id(ctx:ctx(), integer()) -> {ok, binary(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 visualize_recipe_nutrition_by_id(Ctx, Id) ->
     visualize_recipe_nutrition_by_id(Ctx, Id, #{}).

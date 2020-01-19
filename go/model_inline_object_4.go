@@ -11,6 +11,6 @@
 package spoonacular
 
 type InlineObject4 struct {
-	// The instructions text.
+	// The instructions to be analyzed.
 	Instructions string `json:"instructions"`
 }

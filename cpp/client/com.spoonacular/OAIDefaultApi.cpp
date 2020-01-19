@@ -827,7 +827,7 @@ OAIDefaultApi::extractRecipeFromWebsiteCallback(OAIHttpRequestWorker * worker) {
 void
 OAIDefaultApi::generateMealPlan(const QString& time_frame, const OAINumber& target_calories, const QString& diet, const QString& exclude) {
     QString fullPath;
-    fullPath.append(this->host).append(this->basePath).append("/recipes/mealplans/generate");
+    fullPath.append(this->host).append(this->basePath).append("/mealplanner/generate");
     
     if (fullPath.indexOf("?") > 0)
       fullPath.append("&");
@@ -1165,7 +1165,7 @@ OAIDefaultApi::getDishPairingForWineCallback(OAIHttpRequestWorker * worker) {
 }
 
 void
-OAIDefaultApi::getFoodInformation(const OAINumber& id, const OAINumber& amount, const QString& unit) {
+OAIDefaultApi::getIngredientInformation(const OAINumber& id, const OAINumber& amount, const QString& unit) {
     QString fullPath;
     fullPath.append(this->host).append(this->basePath).append("/food/ingredients/{id}/information");
     QString idPathParam("{"); 
@@ -1199,13 +1199,13 @@ OAIDefaultApi::getFoodInformation(const OAINumber& id, const OAINumber& amount, 
     connect(worker,
             &OAIHttpRequestWorker::on_execution_finished,
             this,
-            &OAIDefaultApi::getFoodInformationCallback);
+            &OAIDefaultApi::getIngredientInformationCallback);
 
     worker->execute(&input);
 }
 
 void
-OAIDefaultApi::getFoodInformationCallback(OAIHttpRequestWorker * worker) {
+OAIDefaultApi::getIngredientInformationCallback(OAIHttpRequestWorker * worker) {
     QString msg;
     QString error_str = worker->error_str;
     QNetworkReply::NetworkError error_type = worker->error_type;
@@ -1220,11 +1220,11 @@ OAIDefaultApi::getFoodInformationCallback(OAIHttpRequestWorker * worker) {
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit getFoodInformationSignal(output);
-        emit getFoodInformationSignalFull(worker, output);
+        emit getIngredientInformationSignal(output);
+        emit getIngredientInformationSignalFull(worker, output);
     } else {
-        emit getFoodInformationSignalE(output, error_type, error_str);
-        emit getFoodInformationSignalEFull(worker, error_type, error_str);
+        emit getIngredientInformationSignalE(output, error_type, error_str);
+        emit getIngredientInformationSignalEFull(worker, error_type, error_str);
     }
 }
 
@@ -1753,7 +1753,7 @@ OAIDefaultApi::getRecipeIngredientsByIDCallback(OAIHttpRequestWorker * worker) {
 }
 
 void
-OAIDefaultApi::getRecipeNutritionByID(const OAINumber& id) {
+OAIDefaultApi::getRecipeNutritionWidgetByID(const OAINumber& id) {
     QString fullPath;
     fullPath.append(this->host).append(this->basePath).append("/recipes/{id}/nutritionWidget.json");
     QString idPathParam("{"); 
@@ -1771,13 +1771,13 @@ OAIDefaultApi::getRecipeNutritionByID(const OAINumber& id) {
     connect(worker,
             &OAIHttpRequestWorker::on_execution_finished,
             this,
-            &OAIDefaultApi::getRecipeNutritionByIDCallback);
+            &OAIDefaultApi::getRecipeNutritionWidgetByIDCallback);
 
     worker->execute(&input);
 }
 
 void
-OAIDefaultApi::getRecipeNutritionByIDCallback(OAIHttpRequestWorker * worker) {
+OAIDefaultApi::getRecipeNutritionWidgetByIDCallback(OAIHttpRequestWorker * worker) {
     QString msg;
     QString error_str = worker->error_str;
     QNetworkReply::NetworkError error_type = worker->error_type;
@@ -1792,11 +1792,11 @@ OAIDefaultApi::getRecipeNutritionByIDCallback(OAIHttpRequestWorker * worker) {
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit getRecipeNutritionByIDSignal(output);
-        emit getRecipeNutritionByIDSignalFull(worker, output);
+        emit getRecipeNutritionWidgetByIDSignal(output);
+        emit getRecipeNutritionWidgetByIDSignalFull(worker, output);
     } else {
-        emit getRecipeNutritionByIDSignalE(output, error_type, error_str);
-        emit getRecipeNutritionByIDSignalEFull(worker, error_type, error_str);
+        emit getRecipeNutritionWidgetByIDSignalE(output, error_type, error_str);
+        emit getRecipeNutritionWidgetByIDSignalEFull(worker, error_type, error_str);
     }
 }
 
@@ -3599,7 +3599,7 @@ OAIDefaultApi::searchRecipesByNutrientsCallback(OAIHttpRequestWorker * worker) {
 }
 
 void
-OAIDefaultApi::searchRecipesComplex(const QString& query, const QString& cuisine, const QString& exclude_cuisine, const QString& diet, const QString& intolerances, const QString& equipment, const QString& include_ingredients, const QString& exclude_ingredients, const QString& type, const bool& instructions_required, const bool& fill_ingredients, const bool& add_recipe_information, const QString& author, const QString& tags, const QString& title_match, const QString& sort, const QString& sort_direction, const OAINumber& min_carbs, const OAINumber& max_carbs, const OAINumber& min_protein, const OAINumber& max_protein, const OAINumber& min_calories, const OAINumber& max_calories, const OAINumber& min_fat, const OAINumber& max_fat, const OAINumber& min_alcohol, const OAINumber& max_alcohol, const OAINumber& min_caffeine, const OAINumber& max_caffeine, const OAINumber& min_copper, const OAINumber& max_copper, const OAINumber& min_calcium, const OAINumber& max_calcium, const OAINumber& min_choline, const OAINumber& max_choline, const OAINumber& min_cholesterol, const OAINumber& max_cholesterol, const OAINumber& min_fluoride, const OAINumber& max_fluoride, const OAINumber& min_saturated_fat, const OAINumber& max_saturated_fat, const OAINumber& min_vitamin_a, const OAINumber& max_vitamin_a, const OAINumber& min_vitamin_c, const OAINumber& max_vitamin_c, const OAINumber& min_vitamin_d, const OAINumber& max_vitamin_d, const OAINumber& min_vitamin_e, const OAINumber& max_vitamin_e, const OAINumber& min_vitamin_k, const OAINumber& max_vitamin_k, const OAINumber& min_vitamin_b1, const OAINumber& max_vitamin_b1, const OAINumber& min_vitamin_b2, const OAINumber& max_vitamin_b2, const OAINumber& min_vitamin_b5, const OAINumber& max_vitamin_b5, const OAINumber& min_vitamin_b3, const OAINumber& max_vitamin_b3, const OAINumber& min_vitamin_b6, const OAINumber& max_vitamin_b6, const OAINumber& min_vitamin_b12, const OAINumber& max_vitamin_b12, const OAINumber& min_fiber, const OAINumber& max_fiber, const OAINumber& min_folate, const OAINumber& max_folate, const OAINumber& min_folic_acid, const OAINumber& max_folic_acid, const OAINumber& min_iodine, const OAINumber& max_iodine, const OAINumber& min_iron, const OAINumber& max_iron, const OAINumber& min_magnesium, const OAINumber& max_magnesium, const OAINumber& min_manganese, const OAINumber& max_manganese, const OAINumber& min_phosphorus, const OAINumber& max_phosphorus, const OAINumber& min_potassium, const OAINumber& max_potassium, const OAINumber& min_selenium, const OAINumber& max_selenium, const OAINumber& min_sodium, const OAINumber& max_sodium, const OAINumber& min_sugar, const OAINumber& max_sugar, const OAINumber& min_zinc, const OAINumber& max_zinc, const OAINumber& offset, const OAINumber& number, const bool& limit_license) {
+OAIDefaultApi::searchRecipesComplex(const QString& query, const QString& cuisine, const QString& exclude_cuisine, const QString& diet, const QString& intolerances, const QString& equipment, const QString& include_ingredients, const QString& exclude_ingredients, const QString& type, const bool& instructions_required, const bool& fill_ingredients, const bool& add_recipe_information, const QString& author, const QString& tags, const QString& title_match, const OAINumber& max_ready_time, const bool& ignore_pantry, const QString& sort, const QString& sort_direction, const OAINumber& min_carbs, const OAINumber& max_carbs, const OAINumber& min_protein, const OAINumber& max_protein, const OAINumber& min_calories, const OAINumber& max_calories, const OAINumber& min_fat, const OAINumber& max_fat, const OAINumber& min_alcohol, const OAINumber& max_alcohol, const OAINumber& min_caffeine, const OAINumber& max_caffeine, const OAINumber& min_copper, const OAINumber& max_copper, const OAINumber& min_calcium, const OAINumber& max_calcium, const OAINumber& min_choline, const OAINumber& max_choline, const OAINumber& min_cholesterol, const OAINumber& max_cholesterol, const OAINumber& min_fluoride, const OAINumber& max_fluoride, const OAINumber& min_saturated_fat, const OAINumber& max_saturated_fat, const OAINumber& min_vitamin_a, const OAINumber& max_vitamin_a, const OAINumber& min_vitamin_c, const OAINumber& max_vitamin_c, const OAINumber& min_vitamin_d, const OAINumber& max_vitamin_d, const OAINumber& min_vitamin_e, const OAINumber& max_vitamin_e, const OAINumber& min_vitamin_k, const OAINumber& max_vitamin_k, const OAINumber& min_vitamin_b1, const OAINumber& max_vitamin_b1, const OAINumber& min_vitamin_b2, const OAINumber& max_vitamin_b2, const OAINumber& min_vitamin_b5, const OAINumber& max_vitamin_b5, const OAINumber& min_vitamin_b3, const OAINumber& max_vitamin_b3, const OAINumber& min_vitamin_b6, const OAINumber& max_vitamin_b6, const OAINumber& min_vitamin_b12, const OAINumber& max_vitamin_b12, const OAINumber& min_fiber, const OAINumber& max_fiber, const OAINumber& min_folate, const OAINumber& max_folate, const OAINumber& min_folic_acid, const OAINumber& max_folic_acid, const OAINumber& min_iodine, const OAINumber& max_iodine, const OAINumber& min_iron, const OAINumber& max_iron, const OAINumber& min_magnesium, const OAINumber& max_magnesium, const OAINumber& min_manganese, const OAINumber& max_manganese, const OAINumber& min_phosphorus, const OAINumber& max_phosphorus, const OAINumber& min_potassium, const OAINumber& max_potassium, const OAINumber& min_selenium, const OAINumber& max_selenium, const OAINumber& min_sodium, const OAINumber& max_sodium, const OAINumber& min_sugar, const OAINumber& max_sugar, const OAINumber& min_zinc, const OAINumber& max_zinc, const OAINumber& offset, const OAINumber& number, const bool& limit_license) {
     QString fullPath;
     fullPath.append(this->host).append(this->basePath).append("/recipes/complexSearch");
     
@@ -3722,6 +3722,22 @@ OAIDefaultApi::searchRecipesComplex(const QString& query, const QString& cuisine
     fullPath.append(QUrl::toPercentEncoding("titleMatch"))
         .append("=")
         .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(title_match)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("maxReadyTime"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_ready_time)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("ignorePantry"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(ignore_pantry)));
     
     if (fullPath.indexOf("?") > 0)
       fullPath.append("&");

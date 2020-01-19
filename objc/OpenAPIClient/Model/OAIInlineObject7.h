@@ -28,10 +28,10 @@
 /* The number of servings. 
  */
 @property(nonatomic) NSNumber* servings;
-/* The initial measure, either \"metric\" or \"us\". [optional]
+/* The original system of measurement, either \"metric\" or \"us\". [optional]
  */
 @property(nonatomic) NSString* measure;
-/* Either \"grid\" or \"list\" as visualization of the equipment. [optional]
+/* How to visualize the ingredients, either \"grid\" or \"list\". [optional]
  */
 @property(nonatomic) NSString* view;
 /* Whether the default CSS should be added to the response. [optional]

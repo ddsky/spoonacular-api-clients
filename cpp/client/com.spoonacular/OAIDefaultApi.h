@@ -56,7 +56,7 @@ public:
     void getComparableProducts(const OAINumber& upc);
     void getConversationSuggests(const QString& query, const OAINumber& number);
     void getDishPairingForWine(const QString& wine);
-    void getFoodInformation(const OAINumber& id, const OAINumber& amount, const QString& unit);
+    void getIngredientInformation(const OAINumber& id, const OAINumber& amount, const QString& unit);
     void getIngredientSubstitutes(const QString& ingredient_name);
     void getIngredientSubstitutesByID(const OAINumber& id);
     void getMenuItemInformation(const OAINumber& id);
@@ -67,7 +67,7 @@ public:
     void getRecipeInformation(const OAINumber& id, const bool& include_nutrition);
     void getRecipeInformationBulk(const QString& ids, const bool& include_nutrition);
     void getRecipeIngredientsByID(const OAINumber& id);
-    void getRecipeNutritionByID(const OAINumber& id);
+    void getRecipeNutritionWidgetByID(const OAINumber& id);
     void getRecipePriceBreakdownByID(const OAINumber& id);
     void getSimilarRecipes(const OAINumber& id, const OAINumber& number);
     void getWineDescription(const QString& wine);
@@ -84,7 +84,7 @@ public:
     void searchRecipes(const QString& query, const QString& cuisine, const QString& diet, const QString& exclude_ingredients, const QString& intolerances, const OAINumber& offset, const OAINumber& number, const bool& limit_license, const bool& instructions_required);
     void searchRecipesByIngredients(const QString& ingredients, const OAINumber& number, const bool& limit_license, const OAINumber& ranking, const bool& ignore_pantry);
     void searchRecipesByNutrients(const OAINumber& min_carbs, const OAINumber& max_carbs, const OAINumber& min_protein, const OAINumber& max_protein, const OAINumber& min_calories, const OAINumber& max_calories, const OAINumber& min_fat, const OAINumber& max_fat, const OAINumber& min_alcohol, const OAINumber& max_alcohol, const OAINumber& min_caffeine, const OAINumber& max_caffeine, const OAINumber& min_copper, const OAINumber& max_copper, const OAINumber& min_calcium, const OAINumber& max_calcium, const OAINumber& min_choline, const OAINumber& max_choline, const OAINumber& min_cholesterol, const OAINumber& max_cholesterol, const OAINumber& min_fluoride, const OAINumber& max_fluoride, const OAINumber& min_saturated_fat, const OAINumber& max_saturated_fat, const OAINumber& min_vitamin_a, const OAINumber& max_vitamin_a, const OAINumber& min_vitamin_c, const OAINumber& max_vitamin_c, const OAINumber& min_vitamin_d, const OAINumber& max_vitamin_d, const OAINumber& min_vitamin_e, const OAINumber& max_vitamin_e, const OAINumber& min_vitamin_k, const OAINumber& max_vitamin_k, const OAINumber& min_vitamin_b1, const OAINumber& max_vitamin_b1, const OAINumber& min_vitamin_b2, const OAINumber& max_vitamin_b2, const OAINumber& min_vitamin_b5, const OAINumber& max_vitamin_b5, const OAINumber& min_vitamin_b3, const OAINumber& max_vitamin_b3, const OAINumber& min_vitamin_b6, const OAINumber& max_vitamin_b6, const OAINumber& min_vitamin_b12, const OAINumber& max_vitamin_b12, const OAINumber& min_fiber, const OAINumber& max_fiber, const OAINumber& min_folate, const OAINumber& max_folate, const OAINumber& min_folic_acid, const OAINumber& max_folic_acid, const OAINumber& min_iodine, const OAINumber& max_iodine, const OAINumber& min_iron, const OAINumber& max_iron, const OAINumber& min_magnesium, const OAINumber& max_magnesium, const OAINumber& min_manganese, const OAINumber& max_manganese, const OAINumber& min_phosphorus, const OAINumber& max_phosphorus, const OAINumber& min_potassium, const OAINumber& max_potassium, const OAINumber& min_selenium, const OAINumber& max_selenium, const OAINumber& min_sodium, const OAINumber& max_sodium, const OAINumber& min_sugar, const OAINumber& max_sugar, const OAINumber& min_zinc, const OAINumber& max_zinc, const OAINumber& offset, const OAINumber& number, const bool& random, const bool& limit_license);
-    void searchRecipesComplex(const QString& query, const QString& cuisine, const QString& exclude_cuisine, const QString& diet, const QString& intolerances, const QString& equipment, const QString& include_ingredients, const QString& exclude_ingredients, const QString& type, const bool& instructions_required, const bool& fill_ingredients, const bool& add_recipe_information, const QString& author, const QString& tags, const QString& title_match, const QString& sort, const QString& sort_direction, const OAINumber& min_carbs, const OAINumber& max_carbs, const OAINumber& min_protein, const OAINumber& max_protein, const OAINumber& min_calories, const OAINumber& max_calories, const OAINumber& min_fat, const OAINumber& max_fat, const OAINumber& min_alcohol, const OAINumber& max_alcohol, const OAINumber& min_caffeine, const OAINumber& max_caffeine, const OAINumber& min_copper, const OAINumber& max_copper, const OAINumber& min_calcium, const OAINumber& max_calcium, const OAINumber& min_choline, const OAINumber& max_choline, const OAINumber& min_cholesterol, const OAINumber& max_cholesterol, const OAINumber& min_fluoride, const OAINumber& max_fluoride, const OAINumber& min_saturated_fat, const OAINumber& max_saturated_fat, const OAINumber& min_vitamin_a, const OAINumber& max_vitamin_a, const OAINumber& min_vitamin_c, const OAINumber& max_vitamin_c, const OAINumber& min_vitamin_d, const OAINumber& max_vitamin_d, const OAINumber& min_vitamin_e, const OAINumber& max_vitamin_e, const OAINumber& min_vitamin_k, const OAINumber& max_vitamin_k, const OAINumber& min_vitamin_b1, const OAINumber& max_vitamin_b1, const OAINumber& min_vitamin_b2, const OAINumber& max_vitamin_b2, const OAINumber& min_vitamin_b5, const OAINumber& max_vitamin_b5, const OAINumber& min_vitamin_b3, const OAINumber& max_vitamin_b3, const OAINumber& min_vitamin_b6, const OAINumber& max_vitamin_b6, const OAINumber& min_vitamin_b12, const OAINumber& max_vitamin_b12, const OAINumber& min_fiber, const OAINumber& max_fiber, const OAINumber& min_folate, const OAINumber& max_folate, const OAINumber& min_folic_acid, const OAINumber& max_folic_acid, const OAINumber& min_iodine, const OAINumber& max_iodine, const OAINumber& min_iron, const OAINumber& max_iron, const OAINumber& min_magnesium, const OAINumber& max_magnesium, const OAINumber& min_manganese, const OAINumber& max_manganese, const OAINumber& min_phosphorus, const OAINumber& max_phosphorus, const OAINumber& min_potassium, const OAINumber& max_potassium, const OAINumber& min_selenium, const OAINumber& max_selenium, const OAINumber& min_sodium, const OAINumber& max_sodium, const OAINumber& min_sugar, const OAINumber& max_sugar, const OAINumber& min_zinc, const OAINumber& max_zinc, const OAINumber& offset, const OAINumber& number, const bool& limit_license);
+    void searchRecipesComplex(const QString& query, const QString& cuisine, const QString& exclude_cuisine, const QString& diet, const QString& intolerances, const QString& equipment, const QString& include_ingredients, const QString& exclude_ingredients, const QString& type, const bool& instructions_required, const bool& fill_ingredients, const bool& add_recipe_information, const QString& author, const QString& tags, const QString& title_match, const OAINumber& max_ready_time, const bool& ignore_pantry, const QString& sort, const QString& sort_direction, const OAINumber& min_carbs, const OAINumber& max_carbs, const OAINumber& min_protein, const OAINumber& max_protein, const OAINumber& min_calories, const OAINumber& max_calories, const OAINumber& min_fat, const OAINumber& max_fat, const OAINumber& min_alcohol, const OAINumber& max_alcohol, const OAINumber& min_caffeine, const OAINumber& max_caffeine, const OAINumber& min_copper, const OAINumber& max_copper, const OAINumber& min_calcium, const OAINumber& max_calcium, const OAINumber& min_choline, const OAINumber& max_choline, const OAINumber& min_cholesterol, const OAINumber& max_cholesterol, const OAINumber& min_fluoride, const OAINumber& max_fluoride, const OAINumber& min_saturated_fat, const OAINumber& max_saturated_fat, const OAINumber& min_vitamin_a, const OAINumber& max_vitamin_a, const OAINumber& min_vitamin_c, const OAINumber& max_vitamin_c, const OAINumber& min_vitamin_d, const OAINumber& max_vitamin_d, const OAINumber& min_vitamin_e, const OAINumber& max_vitamin_e, const OAINumber& min_vitamin_k, const OAINumber& max_vitamin_k, const OAINumber& min_vitamin_b1, const OAINumber& max_vitamin_b1, const OAINumber& min_vitamin_b2, const OAINumber& max_vitamin_b2, const OAINumber& min_vitamin_b5, const OAINumber& max_vitamin_b5, const OAINumber& min_vitamin_b3, const OAINumber& max_vitamin_b3, const OAINumber& min_vitamin_b6, const OAINumber& max_vitamin_b6, const OAINumber& min_vitamin_b12, const OAINumber& max_vitamin_b12, const OAINumber& min_fiber, const OAINumber& max_fiber, const OAINumber& min_folate, const OAINumber& max_folate, const OAINumber& min_folic_acid, const OAINumber& max_folic_acid, const OAINumber& min_iodine, const OAINumber& max_iodine, const OAINumber& min_iron, const OAINumber& max_iron, const OAINumber& min_magnesium, const OAINumber& max_magnesium, const OAINumber& min_manganese, const OAINumber& max_manganese, const OAINumber& min_phosphorus, const OAINumber& max_phosphorus, const OAINumber& min_potassium, const OAINumber& max_potassium, const OAINumber& min_selenium, const OAINumber& max_selenium, const OAINumber& min_sodium, const OAINumber& max_sodium, const OAINumber& min_sugar, const OAINumber& max_sugar, const OAINumber& min_zinc, const OAINumber& max_zinc, const OAINumber& offset, const OAINumber& number, const bool& limit_license);
     void searchSiteContent(const QString& query);
     void summarizeRecipe(const OAINumber& id);
     void talkToChatbot(const QString& text, const QString& context_id);
@@ -119,7 +119,7 @@ private:
     void getComparableProductsCallback (OAIHttpRequestWorker * worker);
     void getConversationSuggestsCallback (OAIHttpRequestWorker * worker);
     void getDishPairingForWineCallback (OAIHttpRequestWorker * worker);
-    void getFoodInformationCallback (OAIHttpRequestWorker * worker);
+    void getIngredientInformationCallback (OAIHttpRequestWorker * worker);
     void getIngredientSubstitutesCallback (OAIHttpRequestWorker * worker);
     void getIngredientSubstitutesByIDCallback (OAIHttpRequestWorker * worker);
     void getMenuItemInformationCallback (OAIHttpRequestWorker * worker);
@@ -130,7 +130,7 @@ private:
     void getRecipeInformationCallback (OAIHttpRequestWorker * worker);
     void getRecipeInformationBulkCallback (OAIHttpRequestWorker * worker);
     void getRecipeIngredientsByIDCallback (OAIHttpRequestWorker * worker);
-    void getRecipeNutritionByIDCallback (OAIHttpRequestWorker * worker);
+    void getRecipeNutritionWidgetByIDCallback (OAIHttpRequestWorker * worker);
     void getRecipePriceBreakdownByIDCallback (OAIHttpRequestWorker * worker);
     void getSimilarRecipesCallback (OAIHttpRequestWorker * worker);
     void getWineDescriptionCallback (OAIHttpRequestWorker * worker);
@@ -182,7 +182,7 @@ signals:
     void getComparableProductsSignal(OAIObject summary);
     void getConversationSuggestsSignal(OAIObject summary);
     void getDishPairingForWineSignal(OAIObject summary);
-    void getFoodInformationSignal(OAIObject summary);
+    void getIngredientInformationSignal(OAIObject summary);
     void getIngredientSubstitutesSignal(OAIObject summary);
     void getIngredientSubstitutesByIDSignal(OAIObject summary);
     void getMenuItemInformationSignal(OAIObject summary);
@@ -193,7 +193,7 @@ signals:
     void getRecipeInformationSignal(OAIObject summary);
     void getRecipeInformationBulkSignal(OAIObject summary);
     void getRecipeIngredientsByIDSignal(OAIObject summary);
-    void getRecipeNutritionByIDSignal(OAIObject summary);
+    void getRecipeNutritionWidgetByIDSignal(OAIObject summary);
     void getRecipePriceBreakdownByIDSignal(OAIObject summary);
     void getSimilarRecipesSignal(OAIObject summary);
     void getWineDescriptionSignal(OAIObject summary);
@@ -244,7 +244,7 @@ signals:
     void getComparableProductsSignalFull(OAIHttpRequestWorker* worker, OAIObject summary);
     void getConversationSuggestsSignalFull(OAIHttpRequestWorker* worker, OAIObject summary);
     void getDishPairingForWineSignalFull(OAIHttpRequestWorker* worker, OAIObject summary);
-    void getFoodInformationSignalFull(OAIHttpRequestWorker* worker, OAIObject summary);
+    void getIngredientInformationSignalFull(OAIHttpRequestWorker* worker, OAIObject summary);
     void getIngredientSubstitutesSignalFull(OAIHttpRequestWorker* worker, OAIObject summary);
     void getIngredientSubstitutesByIDSignalFull(OAIHttpRequestWorker* worker, OAIObject summary);
     void getMenuItemInformationSignalFull(OAIHttpRequestWorker* worker, OAIObject summary);
@@ -255,7 +255,7 @@ signals:
     void getRecipeInformationSignalFull(OAIHttpRequestWorker* worker, OAIObject summary);
     void getRecipeInformationBulkSignalFull(OAIHttpRequestWorker* worker, OAIObject summary);
     void getRecipeIngredientsByIDSignalFull(OAIHttpRequestWorker* worker, OAIObject summary);
-    void getRecipeNutritionByIDSignalFull(OAIHttpRequestWorker* worker, OAIObject summary);
+    void getRecipeNutritionWidgetByIDSignalFull(OAIHttpRequestWorker* worker, OAIObject summary);
     void getRecipePriceBreakdownByIDSignalFull(OAIHttpRequestWorker* worker, OAIObject summary);
     void getSimilarRecipesSignalFull(OAIHttpRequestWorker* worker, OAIObject summary);
     void getWineDescriptionSignalFull(OAIHttpRequestWorker* worker, OAIObject summary);
@@ -306,7 +306,7 @@ signals:
     void getComparableProductsSignalE(OAIObject summary, QNetworkReply::NetworkError error_type, QString& error_str);
     void getConversationSuggestsSignalE(OAIObject summary, QNetworkReply::NetworkError error_type, QString& error_str);
     void getDishPairingForWineSignalE(OAIObject summary, QNetworkReply::NetworkError error_type, QString& error_str);
-    void getFoodInformationSignalE(OAIObject summary, QNetworkReply::NetworkError error_type, QString& error_str);
+    void getIngredientInformationSignalE(OAIObject summary, QNetworkReply::NetworkError error_type, QString& error_str);
     void getIngredientSubstitutesSignalE(OAIObject summary, QNetworkReply::NetworkError error_type, QString& error_str);
     void getIngredientSubstitutesByIDSignalE(OAIObject summary, QNetworkReply::NetworkError error_type, QString& error_str);
     void getMenuItemInformationSignalE(OAIObject summary, QNetworkReply::NetworkError error_type, QString& error_str);
@@ -317,7 +317,7 @@ signals:
     void getRecipeInformationSignalE(OAIObject summary, QNetworkReply::NetworkError error_type, QString& error_str);
     void getRecipeInformationBulkSignalE(OAIObject summary, QNetworkReply::NetworkError error_type, QString& error_str);
     void getRecipeIngredientsByIDSignalE(OAIObject summary, QNetworkReply::NetworkError error_type, QString& error_str);
-    void getRecipeNutritionByIDSignalE(OAIObject summary, QNetworkReply::NetworkError error_type, QString& error_str);
+    void getRecipeNutritionWidgetByIDSignalE(OAIObject summary, QNetworkReply::NetworkError error_type, QString& error_str);
     void getRecipePriceBreakdownByIDSignalE(OAIObject summary, QNetworkReply::NetworkError error_type, QString& error_str);
     void getSimilarRecipesSignalE(OAIObject summary, QNetworkReply::NetworkError error_type, QString& error_str);
     void getWineDescriptionSignalE(OAIObject summary, QNetworkReply::NetworkError error_type, QString& error_str);
@@ -368,7 +368,7 @@ signals:
     void getComparableProductsSignalEFull(OAIHttpRequestWorker* worker, QNetworkReply::NetworkError error_type, QString& error_str);
     void getConversationSuggestsSignalEFull(OAIHttpRequestWorker* worker, QNetworkReply::NetworkError error_type, QString& error_str);
     void getDishPairingForWineSignalEFull(OAIHttpRequestWorker* worker, QNetworkReply::NetworkError error_type, QString& error_str);
-    void getFoodInformationSignalEFull(OAIHttpRequestWorker* worker, QNetworkReply::NetworkError error_type, QString& error_str);
+    void getIngredientInformationSignalEFull(OAIHttpRequestWorker* worker, QNetworkReply::NetworkError error_type, QString& error_str);
     void getIngredientSubstitutesSignalEFull(OAIHttpRequestWorker* worker, QNetworkReply::NetworkError error_type, QString& error_str);
     void getIngredientSubstitutesByIDSignalEFull(OAIHttpRequestWorker* worker, QNetworkReply::NetworkError error_type, QString& error_str);
     void getMenuItemInformationSignalEFull(OAIHttpRequestWorker* worker, QNetworkReply::NetworkError error_type, QString& error_str);
@@ -379,7 +379,7 @@ signals:
     void getRecipeInformationSignalEFull(OAIHttpRequestWorker* worker, QNetworkReply::NetworkError error_type, QString& error_str);
     void getRecipeInformationBulkSignalEFull(OAIHttpRequestWorker* worker, QNetworkReply::NetworkError error_type, QString& error_str);
     void getRecipeIngredientsByIDSignalEFull(OAIHttpRequestWorker* worker, QNetworkReply::NetworkError error_type, QString& error_str);
-    void getRecipeNutritionByIDSignalEFull(OAIHttpRequestWorker* worker, QNetworkReply::NetworkError error_type, QString& error_str);
+    void getRecipeNutritionWidgetByIDSignalEFull(OAIHttpRequestWorker* worker, QNetworkReply::NetworkError error_type, QString& error_str);
     void getRecipePriceBreakdownByIDSignalEFull(OAIHttpRequestWorker* worker, QNetworkReply::NetworkError error_type, QString& error_str);
     void getSimilarRecipesSignalEFull(OAIHttpRequestWorker* worker, QNetworkReply::NetworkError error_type, QString& error_str);
     void getWineDescriptionSignalEFull(OAIHttpRequestWorker* worker, QNetworkReply::NetworkError error_type, QString& error_str);

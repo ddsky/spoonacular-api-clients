@@ -14,7 +14,7 @@ use serde_json::Value;
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct InlineObject9 {
-    /// The text in which food items such as dish names and ingredients should be detected in.
+    /// The text in which food items, such as dish names and ingredients, should be detected in.
     #[serde(rename = "text")]
     pub text: String,
 }

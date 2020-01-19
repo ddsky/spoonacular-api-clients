@@ -52,7 +52,7 @@ class InlineObject8(object):
     def locale(self):
         """Gets the locale of this InlineObject8.  # noqa: E501
 
-        The locale of the returned category, supported is en_US and en_GB.  # noqa: E501
+        The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).  # noqa: E501
 
         :return: The locale of this InlineObject8.  # noqa: E501
         :rtype: str
@@ -63,7 +63,7 @@ class InlineObject8(object):
     def locale(self, locale):
         """Sets the locale of this InlineObject8.
 
-        The locale of the returned category, supported is en_US and en_GB.  # noqa: E501
+        The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).  # noqa: E501
 
         :param locale: The locale of this InlineObject8.  # noqa: E501
         :type: str

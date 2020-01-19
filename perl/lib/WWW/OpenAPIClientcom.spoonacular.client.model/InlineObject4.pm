@@ -164,7 +164,7 @@ __PACKAGE__->method_documentation({
     'instructions' => {
         datatype => 'string',
         base_name => 'instructions',
-        description => 'The instructions text.',
+        description => 'The instructions to be analyzed.',
         format => '',
         read_only => '',
             },

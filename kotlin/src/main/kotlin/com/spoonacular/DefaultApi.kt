@@ -60,8 +60,8 @@ class DefaultApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiC
 
     /**
     * Analyze Recipe Instructions
-    * Extract ingredients and equipment from the recipe instruction steps.
-    * @param instructions The instructions text. 
+    * Extract ingredients and equipment from the recipe&#39;s instructions.
+    * @param instructions The instructions to be analyzed. 
     * @return kotlin.Any
     */
     @Suppress("UNCHECKED_CAST")
@@ -91,11 +91,11 @@ class DefaultApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiC
 
     /**
     * Autocomplete Ingredient Search
-    * Autocomplete a search for an ingredient.
-    * @param query The query - a partial or full ingredient name. 
+    * Autocomplete the entry of an ingredient.
+    * @param query The partial or full ingredient name. 
     * @param number The number of results to return (between 1 and 100). (optional)
     * @param metaInformation Whether to return more meta information about the ingredients. (optional)
-    * @param intolerances A comma-separated list of intolerances. All found ingredients must not cause problems for people with one of the given tolerances. See a full list of supported intolerances. (optional)
+    * @param intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
     * @return kotlin.Any
     */
     @Suppress("UNCHECKED_CAST")
@@ -189,7 +189,7 @@ class DefaultApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiC
 
     /**
     * Autocomplete Recipe Search
-    * Autocomplete a partial input to possible recipe names.
+    * Autocomplete a partial input to suggest possible recipe names.
     * @param query The query to be autocompleted. 
     * @param number The number of results to return (between 1 and 25). (optional)
     * @return kotlin.Any
@@ -253,9 +253,9 @@ class DefaultApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiC
 
     /**
     * Classify Grocery Product
-    * Given a grocery product title, this endpoint allows you to detect what basic ingredient it is.
+    * This endpoint allows you to match a packaged food to a basic category, e.g. a specific brand of milk to the category milk.
     * @param inlineObject8  
-    * @param locale The locale of the returned category, supported is en_US and en_GB. (optional)
+    * @param locale The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). (optional)
     * @return kotlin.Any
     */
     @Suppress("UNCHECKED_CAST")
@@ -285,9 +285,9 @@ class DefaultApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiC
 
     /**
     * Classify Grocery Product Bulk
-    * Given a set of product jsons, get back classified products.
+    * Provide a set of product jsons, get back classified products.
     * @param body  
-    * @param locale The locale of the returned category, supported is en_US and en_GB. (optional)
+    * @param locale The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). (optional)
     * @return kotlin.Any
     */
     @Suppress("UNCHECKED_CAST")
@@ -351,18 +351,18 @@ class DefaultApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiC
 
     /**
     * Create Recipe Card
-    * Create Recipe Card.
+    * Generate a recipe card for a recipe.
     * @param title The title of the recipe. 
     * @param image The binary image of the recipe as jpg. 
     * @param ingredients The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n). 
     * @param instructions The instructions to make the recipe. One step per line (separate lines with \\\\n). 
     * @param readyInMinutes The number of minutes it takes to get the recipe on the table. 
-    * @param servings The number of servings that you can make from the ingredients. 
-    * @param mask The mask to put over the recipe image (\\\&quot;ellipseMask\\\&quot;, \\\&quot;diamondMask\\\&quot;, \\\&quot;diamondMask\\\&quot;, \\\&quot;starMask\\\&quot;, \\\&quot;heartMask\\\&quot;, \\\&quot;potMask\\\&quot;, \\\&quot;fishMask\\\&quot;). 
+    * @param servings The number of servings the recipe makes. 
+    * @param mask The mask to put over the recipe image (\\\&quot;ellipseMask\\\&quot;, \\\&quot;diamondMask\\\&quot;, \\\&quot;starMask\\\&quot;, \\\&quot;heartMask\\\&quot;, \\\&quot;potMask\\\&quot;, \\\&quot;fishMask\\\&quot;). 
     * @param backgroundImage The background image (\\\&quot;none\\\&quot;,\\\&quot;background1\\\&quot;, or \\\&quot;background2\\\&quot;). 
     * @param author The author of the recipe. (optional)
-    * @param backgroundColor The background color on the recipe card as a hex-string. (optional)
-    * @param fontColor The font color on the recipe card as a hex-string. (optional)
+    * @param backgroundColor The background color for the recipe card as a hex-string. (optional)
+    * @param fontColor The font color for the recipe card as a hex-string. (optional)
     * @param source The source of the recipe. (optional)
     * @return kotlin.Any
     */
@@ -393,8 +393,8 @@ class DefaultApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiC
 
     /**
     * Detect Food in Text
-    * Detect ingredients and dishes in texts. This task is also called Named Entity Recognition (NER). In our case the entities are foods. Either dishes, such as pizza and cheeseburger or ingredients, such as cucumber and almonds.
-    * @param text The text in which food items such as dish names and ingredients should be detected in. 
+    * Take any text and find all mentions of food contained within it. This task is also called Named Entity Recognition (NER). In this case, the entities are foods. Either dishes, such as pizza or cheeseburger, or ingredients, such as cucumber or almonds.
+    * @param text The text in which food items, such as dish names and ingredients, should be detected in. 
     * @return kotlin.Any
     */
     @Suppress("UNCHECKED_CAST")
@@ -424,9 +424,9 @@ class DefaultApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiC
 
     /**
     * Extract Recipe from Website
-    * Get an analyzed breakdown of a recipe&#39;s instructions. Each step is enriched with the ingredients and the equipment that is used.
+    * This endpoint lets you extract recipe data such as title, ingredients, and instructions from any properly formatted Website.
     * @param url The URL of the recipe page. 
-    * @param forceExtraction If true, the extraction will be triggered no matter whether we know the recipe already. Use that only if information is missing as this operation is slower. (optional)
+    * @param forceExtraction If true, the extraction will be triggered whether we already know the recipe or not. Use this only if information is missing as this operation is slower. (optional)
     * @return kotlin.Any
     */
     @Suppress("UNCHECKED_CAST")
@@ -470,7 +470,7 @@ class DefaultApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiC
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         val localVariableConfig = RequestConfig(
             RequestMethod.GET,
-            "/recipes/mealplans/generate",
+            "/mealplanner/generate",
             query = localVariableQuery,
             headers = localVariableHeaders
         )
@@ -490,7 +490,7 @@ class DefaultApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiC
 
     /**
     * Get a Random Food Joke
-    * Get a random joke that includes or is about food.
+    * Get a random joke that is related to food. Caution: this is an endpoint for adults!
     * @return kotlin.Any
     */
     @Suppress("UNCHECKED_CAST")
@@ -520,7 +520,7 @@ class DefaultApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiC
 
     /**
     * Get Analyzed Recipe Instructions
-    * Get an analyzed breakdown of a recipe&#39;s instructions. Each step is enriched with the ingredients and the equipment that is used.
+    * Get an analyzed breakdown of a recipe&#39;s instructions. Each step is enriched with the ingredients and equipment required.
     * @param id The recipe id. 
     * @param stepBreakdown Whether to break down the recipe steps even more. (optional)
     * @return kotlin.Any
@@ -553,7 +553,7 @@ class DefaultApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiC
     /**
     * Get Comparable Products
     * Find comparable products to the given one.
-    * @param upc The UPC of the product for that you want to find comparable products. 
+    * @param upc The UPC of the product for which you want to find comparable products. 
     * @return kotlin.Any
     */
     @Suppress("UNCHECKED_CAST")
@@ -583,7 +583,7 @@ class DefaultApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiC
 
     /**
     * Get Conversation Suggests
-    * This endpoint returns suggestions for things the user can say or ask the chat bot.
+    * This endpoint returns suggestions for things the user can say or ask the chatbot.
     * @param query A (partial) query from the user. The endpoint will return if it matches topics it can talk about. 
     * @param number The number of suggestions to return (between 1 and 25). (optional)
     * @return kotlin.Any
@@ -615,8 +615,8 @@ class DefaultApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiC
 
     /**
     * Get Dish Pairing for Wine
-    * Get a dish that goes well with a given wine.
-    * @param wine The name of the wine that should be paired, e.g. \&quot;merlot\&quot;, \&quot;riesling\&quot;, or \&quot;malbec\&quot;. 
+    * Find a dish that goes well with a given wine.
+    * @param wine The type of wine that should be paired, e.g. \&quot;merlot\&quot;, \&quot;riesling\&quot;, or \&quot;malbec\&quot;. 
     * @return kotlin.Any
     */
     @Suppress("UNCHECKED_CAST")
@@ -645,15 +645,15 @@ class DefaultApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiC
     }
 
     /**
-    * Get Food Information
-    * Get information about a certain food (ingredient).
-    * @param id The id of the food / ingredient. 
-    * @param amount The amount of that food. (optional)
+    * Get Ingredient Information
+    * Use an ingredient id to get all available information about an ingredient, such as its image and supermarket aisle.
+    * @param id The ingredient id. 
+    * @param amount The amount of this ingredient. (optional)
     * @param unit The unit for the given amount. (optional)
     * @return kotlin.Any
     */
     @Suppress("UNCHECKED_CAST")
-    fun getFoodInformation(id: java.math.BigDecimal, amount: java.math.BigDecimal?, unit: kotlin.String?) : kotlin.Any {
+    fun getIngredientInformation(id: java.math.BigDecimal, amount: java.math.BigDecimal?, unit: kotlin.String?) : kotlin.Any {
         val localVariableBody: kotlin.Any? = null
         val localVariableQuery: MultiValueMap = mapOf("amount" to listOf("$amount"), "unit" to listOf("$unit"))
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
@@ -741,7 +741,7 @@ class DefaultApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiC
 
     /**
     * Get Menu Item Information
-    * Get information about a certain menu item.
+    * Use a menu item id to get all available information about a menu item, such as nutrition.
     * @param id The menu item id. 
     * @return kotlin.Any
     */
@@ -772,8 +772,8 @@ class DefaultApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiC
 
     /**
     * Get Product Information
-    * Get information about a packaged food product.
-    * @param id The id of the packaged food product. 
+    * Use a product id to get full information about a product, such as ingredients, nutrition, etc.
+    * @param id The id of the packaged food. 
     * @return kotlin.Any
     */
     @Suppress("UNCHECKED_CAST")
@@ -833,9 +833,9 @@ class DefaultApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiC
 
     /**
     * Get Random Recipes
-    * Find random (popular) recipes.
-    * @param limitLicense Whether the recipes should have an open license that allows for displaying with proper attribution. (optional)
-    * @param tags The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must adhere to. (optional)
+    * Find random (popular) recipes. If you need to filter recipes by diet, nutrition etc. you might want to consider using the complex recipe search endpoint and set the sort request parameter to random.
+    * @param limitLicense Whether the recipes should have an open license that allows display with proper attribution. (optional)
+    * @param tags The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have. (optional)
     * @param number The number of random recipes to be returned (between 1 and 100). (optional)
     * @return kotlin.Any
     */
@@ -897,9 +897,9 @@ class DefaultApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiC
 
     /**
     * Get Recipe Information
-    * Get information about a recipe.
+    * Use a recipe id to get full information about a recipe, such as ingredients, nutrition, diet and allergen information, etc.
     * @param id The id of the recipe. 
-    * @param includeNutrition Include nutrition data to the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional)
+    * @param includeNutrition Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional)
     * @return kotlin.Any
     */
     @Suppress("UNCHECKED_CAST")
@@ -929,7 +929,7 @@ class DefaultApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiC
 
     /**
     * Get Recipe Information Bulk
-    * Get information about multiple recipes at once. That is equivalent of calling the Get Recipe Information endpoint multiple times but is faster.
+    * Get information about multiple recipes at once. This is equivalent to calling the Get Recipe Information endpoint multiple times, but faster.
     * @param ids A comma-separated list of recipe ids. 
     * @param includeNutrition Include nutrition data to the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional)
     * @return kotlin.Any
@@ -991,13 +991,13 @@ class DefaultApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiC
     }
 
     /**
-    * Get Recipe Nutrition by ID
+    * Get Recipe Nutrition Widget by ID
     * Get a recipe&#39;s nutrition widget data.
     * @param id The recipe id. 
     * @return kotlin.Any
     */
     @Suppress("UNCHECKED_CAST")
-    fun getRecipeNutritionByID(id: java.math.BigDecimal) : kotlin.Any {
+    fun getRecipeNutritionWidgetByID(id: java.math.BigDecimal) : kotlin.Any {
         val localVariableBody: kotlin.Any? = null
         val localVariableQuery: MultiValueMap = mapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
@@ -1055,7 +1055,7 @@ class DefaultApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiC
     /**
     * Get Similar Recipes
     * Find recipes which are similar to the given one.
-    * @param id The id of the source recipe to which similar recipes should be found. 
+    * @param id The id of the source recipe for which similar recipes should be found. 
     * @param number The number of random recipes to be returned (between 1 and 100). (optional)
     * @return kotlin.Any
     */
@@ -1086,7 +1086,7 @@ class DefaultApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiC
 
     /**
     * Get Wine Description
-    * Get the description of a certain wine, e.g. \&quot;malbec\&quot;, \&quot;riesling\&quot;, or \&quot;merlot\&quot;.
+    * Get a simple description of a certain wine, e.g. \&quot;malbec\&quot;, \&quot;riesling\&quot;, or \&quot;merlot\&quot;.
     * @param wine The name of the wine that should be paired, e.g. \&quot;merlot\&quot;, \&quot;riesling\&quot;, or \&quot;malbec\&quot;. 
     * @return kotlin.Any
     */
@@ -1149,8 +1149,8 @@ class DefaultApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiC
 
     /**
     * Get Wine Recommendation
-    * Get a specific wine recommendation (concrete product) for a given wine, e.g. \&quot;merlot\&quot;.
-    * @param wine The name of the wine to get a specific product recommendation for. 
+    * Get a specific wine recommendation (concrete product) for a given wine type, e.g. \&quot;merlot\&quot;.
+    * @param wine The type of wine to get a specific product recommendation for. 
     * @param maxPrice The maximum price for the specific wine recommendation in USD. (optional)
     * @param minRating The minimum rating of the recommended wine between 0 and 1. For example, 0.8 equals 4 out of 5 stars. (optional)
     * @param number The number of wine recommendations expected (between 1 and 100). (optional)
@@ -1183,7 +1183,7 @@ class DefaultApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiC
 
     /**
     * Guess Nutrition by Dish Name
-    * Guess the macro nutrients of a dish given its title.
+    * Estimate the macronutrients of a dish based on its title.
     * @param title The title of the dish. 
     * @return kotlin.Any
     */
@@ -1279,7 +1279,7 @@ class DefaultApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiC
     /**
     * Quick Answer
     * Answer a nutrition related natural language question.
-    * @param q The nutrition-related question. 
+    * @param q The nutrition related question. 
     * @return kotlin.Any
     */
     @Suppress("UNCHECKED_CAST")
@@ -1312,10 +1312,10 @@ class DefaultApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiC
     * Find recipe and other food related videos.
     * @param query The search query. 
     * @param type The type of the recipes. See a full list of supported meal types. (optional)
-    * @param cuisine The cuisine(s) of the recipes. One or more comma separated. See a full list of supported cuisines. (optional)
-    * @param diet The diet to which the recipes must be compliant. See a full list of supported diets. (optional)
-    * @param includeIngredients A comma-separated list of ingredients that should/must be contained in the recipe. (optional)
-    * @param excludeIngredients A comma-separated list of ingredients or ingredient types that must not be contained in the recipes. (optional)
+    * @param cuisine The cuisine(s) of the recipes. One or more, comma separated. See a full list of supported cuisines. (optional)
+    * @param diet The diet for which the recipes must be suitable. See a full list of supported diets. (optional)
+    * @param includeIngredients A comma-separated list of ingredients that the recipes should contain. (optional)
+    * @param excludeIngredients A comma-separated list of ingredients or ingredient types that the recipes must not contain. (optional)
     * @param minLength Minimum video length in seconds. (optional)
     * @param maxLength Maximum video length in seconds. (optional)
     * @param offset The number of results to skip (between 0 and 900). (optional)
@@ -1349,16 +1349,16 @@ class DefaultApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiC
 
     /**
     * Search Grocery Products
-    * Search packaged food products such as frozen pizza and snickers bars.
+    * Search packaged food products, such as frozen pizza or Greek yogurt.
     * @param query The search query. 
-    * @param minCalories The minimum number of calories the product must have. (optional)
-    * @param maxCalories The maximum number of calories the product can have. (optional)
-    * @param minCarbs The minimum number of carbohydrates in grams the product must have. (optional)
-    * @param maxCarbs The maximum number of carbohydrates in grams the product can have. (optional)
-    * @param minProtein The minimum number of protein in grams the product must have. (optional)
-    * @param maxProtein The maximum number of protein in grams the product can have. (optional)
-    * @param minFat The minimum number of fat in grams the product must have. (optional)
-    * @param maxFat The maximum number of fat in grams the product can have. (optional)
+    * @param minCalories The minimum amount of calories the product must have. (optional)
+    * @param maxCalories The maximum amount of calories the product can have. (optional)
+    * @param minCarbs The minimum amount of carbohydrates in grams the product must have. (optional)
+    * @param maxCarbs The maximum amount of carbohydrates in grams the product can have. (optional)
+    * @param minProtein The minimum amount of protein in grams the product must have. (optional)
+    * @param maxProtein The maximum amount of protein in grams the product can have. (optional)
+    * @param minFat The minimum amount of fat in grams the product must have. (optional)
+    * @param maxFat The maximum amount of fat in grams the product can have. (optional)
     * @param offset The offset number for paging (between 0 and 990). (optional)
     * @param number The number of expected results (between 1 and 100). (optional)
     * @return kotlin.Any
@@ -1390,7 +1390,7 @@ class DefaultApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiC
 
     /**
     * Search Grocery Products by UPC
-    * Get information about a food product given its UPC.
+    * Get information about a packaged food using its UPC.
     * @param upc The product&#39;s UPC. 
     * @return kotlin.Any
     */
@@ -1421,16 +1421,16 @@ class DefaultApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiC
 
     /**
     * Search Menu Items
-    * Search over 115,000 menu items from over 800 fast food and chain restaurants such as McDonalds Big Mac or Starbucks Mocha.
+    * Search over 115,000 menu items from over 800 fast food and chain restaurants. For example, McDonald&#39;s Big Mac or Starbucks Mocha.
     * @param query The search query. 
-    * @param minCalories The minimum number of calories the menu item must have. (optional)
-    * @param maxCalories The maximum number of calories the menu item can have. (optional)
-    * @param minCarbs The minimum number of carbohydrates in grams the menu item must have. (optional)
-    * @param maxCarbs The maximum number of carbohydrates in grams the menu item can have. (optional)
-    * @param minProtein The minimum number of protein in grams the menu item must have. (optional)
-    * @param maxProtein The maximum number of protein in grams the menu item can have. (optional)
-    * @param minFat The minimum number of fat in grams the menu item must have. (optional)
-    * @param maxFat The maximum number of fat in grams the menu item can have. (optional)
+    * @param minCalories The minimum amount of calories the menu item must have. (optional)
+    * @param maxCalories The maximum amount of calories the menu item can have. (optional)
+    * @param minCarbs The minimum amount of carbohydrates in grams the menu item must have. (optional)
+    * @param maxCarbs The maximum amount of carbohydrates in grams the menu item can have. (optional)
+    * @param minProtein The minimum amount of protein in grams the menu item must have. (optional)
+    * @param maxProtein The maximum amount of protein in grams the menu item can have. (optional)
+    * @param minFat The minimum amount of fat in grams the menu item must have. (optional)
+    * @param maxFat The maximum amount of fat in grams the menu item can have. (optional)
     * @param offset The offset number for paging (between 0 and 990). (optional)
     * @param number The number of expected results (between 1 and 10). (optional)
     * @return kotlin.Any
@@ -1465,12 +1465,12 @@ class DefaultApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiC
     * Our recipe API includes over 360,000 recipes as well as an open source recipe database. Consider using the \&quot;Search Recipes Complex\&quot; endpoint for much more flexibility.
     * @param query The (natural language) recipe search query. 
     * @param cuisine The cuisine(s) of the recipes. One or more comma separated. See a full list of supported cuisines. (optional)
-    * @param diet The diet to which the recipes must be compliant. See a full list of supported diets. (optional)
-    * @param excludeIngredients An comma-separated list of ingredients or ingredient types that must not be contained in the recipes. (optional)
-    * @param intolerances A comma-separated list of intolerances. All found recipes must not have ingredients that could cause problems for people with one of the given tolerances. See a full list of supported intolerances. (optional)
+    * @param diet The diet for which the recipes must be suitable. See a full list of supported diets. (optional)
+    * @param excludeIngredients A comma-separated list of ingredients or ingredient types that the recipes must not contain. (optional)
+    * @param intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. Please note: due to the automatic nature of the recipe analysis, the API cannot be 100% accurate in all cases. Please advise your users to seek professional help with medical issues. (optional)
     * @param offset The number of results to skip (between 0 and 900). (optional)
     * @param number The number of results to return (between 1 and 100). (optional)
-    * @param limitLicense Whether the recipes should have an open license that allows for displaying with proper attribution. (optional)
+    * @param limitLicense Whether the recipes should have an open license that allows display with proper attribution. (optional)
     * @param instructionsRequired Whether the recipes must have instructions. (optional)
     * @return kotlin.Any
     */
@@ -1501,12 +1501,12 @@ class DefaultApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiC
 
     /**
     * Search Recipes by Ingredients
-    * Find recipes that use as many of the given ingredients as possible and have as little as possible missing ingredients. This is a \&quot;what&#39;s in your fridge\&quot; API endpoint.
+    * Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don&#39;t currently have (post shopping).
     * @param ingredients A comma-separated list of ingredients that the recipes should contain. 
-    * @param number The maximal number of recipes to return (between 1 and 100). Defaults to 10. (optional)
-    * @param limitLicense Whether the recipes should have an open license that allows for displaying with proper attribution. (optional)
+    * @param number The maximum number of recipes to return (between 1 and 100). Defaults to 10. (optional)
+    * @param limitLicense Whether the recipes should have an open license that allows display with proper attribution. (optional)
     * @param ranking Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. (optional)
-    * @param ignorePantry Whether to ignore pantry ingredients such as water, salt, flour etc. (optional)
+    * @param ignorePantry Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional)
     * @return kotlin.Any
     */
     @Suppress("UNCHECKED_CAST")
@@ -1536,83 +1536,83 @@ class DefaultApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiC
 
     /**
     * Search Recipes by Nutrients
-    * Find a set of recipes that adhere to the given nutritional limits. All the returned recipes will have macro nutrients within the calories, protein, fat, and carbohydrate limits.
-    * @param minCarbs The minimum number of carbohydrates in grams the recipe must have. (optional)
-    * @param maxCarbs The maximum number of carbohydrates in grams the recipe can have. (optional)
-    * @param minProtein The minimum number of protein in grams the recipe must have. (optional)
-    * @param maxProtein The maximum number of protein in grams the recipe can have. (optional)
-    * @param minCalories The minimum number of calories the recipe must have. (optional)
-    * @param maxCalories The maximum number of calories the recipe can have. (optional)
-    * @param minFat The minimum number of fat in grams the recipe must have. (optional)
-    * @param maxFat The maximum number of fat in grams the recipe can have. (optional)
-    * @param minAlcohol The minimum number of alcohol in grams the recipe must have. (optional)
-    * @param maxAlcohol The maximum number of alcohol in grams the recipe must have. (optional)
-    * @param minCaffeine The minimum number of milligrams of caffeine the recipe must have. (optional)
-    * @param maxCaffeine The maximum number of alcohol in grams the recipe must have. (optional)
-    * @param minCopper The minimum number of copper in milligrams the recipe must have. (optional)
-    * @param maxCopper The maximum number of copper in milligrams the recipe must have. (optional)
-    * @param minCalcium The minimum number of calcium in milligrams the recipe must have. (optional)
-    * @param maxCalcium The maximum number of calcium in milligrams the recipe must have. (optional)
-    * @param minCholine The minimum number of choline in milligrams the recipe must have. (optional)
-    * @param maxCholine The maximum number of choline in milligrams the recipe can have. (optional)
-    * @param minCholesterol The minimum number of cholesterol in milligrams the recipe must have. (optional)
-    * @param maxCholesterol The maximum number of cholesterol in milligrams the recipe must have. (optional)
-    * @param minFluoride The minimum number of fluoride in milligrams the recipe must have. (optional)
-    * @param maxFluoride The maximum number of fluoride in milligrams the recipe can have. (optional)
-    * @param minSaturatedFat The minimum number of saturated fat in grams the recipe must have. (optional)
-    * @param maxSaturatedFat The maximum number of saturated fat in grams the recipe must have. (optional)
-    * @param minVitaminA The minimum number of Vitamin A in IU the recipe must have. (optional)
-    * @param maxVitaminA The maximum number of Vitamin A in IU the recipe must have. (optional)
-    * @param minVitaminC The minimum number of Vitamin C milligrams the recipe must have. (optional)
-    * @param maxVitaminC The maximum number of Vitamin C in milligrams the recipe can have. (optional)
-    * @param minVitaminD The minimum number of Vitamin D in micrograms the recipe must have. (optional)
-    * @param maxVitaminD The maximum number of Vitamin D in micrograms the recipe must have. (optional)
-    * @param minVitaminE The minimum number of Vitamin E in milligrams the recipe must have. (optional)
-    * @param maxVitaminE The maximum number of Vitamin E in milligrams the recipe must have. (optional)
-    * @param minVitaminK The minimum number of Vitamin K in micrograms the recipe must have. (optional)
-    * @param maxVitaminK The maximum number of Vitamin K in micrograms the recipe must have. (optional)
-    * @param minVitaminB1 The minimum number of Vitamin B1 in milligrams the recipe must have. (optional)
-    * @param maxVitaminB1 The maximum number of Vitamin B1 in milligrams the recipe must have. (optional)
-    * @param minVitaminB2 The minimum number of Vitamin B2 in milligrams the recipe must have. (optional)
-    * @param maxVitaminB2 The maximum number of Vitamin B2 in milligrams the recipe must have. (optional)
-    * @param minVitaminB5 The minimum number of Vitamin B5 in milligrams the recipe must have. (optional)
-    * @param maxVitaminB5 The maximum number of Vitamin B5 in milligrams the recipe can have. (optional)
-    * @param minVitaminB3 The minimum number of Vitamin B3 in milligrams the recipe must have. (optional)
-    * @param maxVitaminB3 The maximum number of Vitamin B3 in milligrams the recipe can have. (optional)
-    * @param minVitaminB6 The minimum number of Vitamin B6 in milligrams the recipe must have. (optional)
-    * @param maxVitaminB6 The maximum number of Vitamin B6 in milligrams the recipe can have. (optional)
-    * @param minVitaminB12 The minimum number of Vitamin B12 in micrograms the recipe must have. (optional)
-    * @param maxVitaminB12 The maximum number of Vitamin B12 in micrograms the recipe must have. (optional)
-    * @param minFiber The minimum number of fiber in grams the recipe must have. (optional)
-    * @param maxFiber The maximum number of fiber in grams the recipe must have. (optional)
-    * @param minFolate The minimum number of folate in grams the recipe must have. (optional)
-    * @param maxFolate The maximum number of folate in grams the recipe must have. (optional)
-    * @param minFolicAcid The minimum number of folic acid in grams the recipe must have. (optional)
-    * @param maxFolicAcid The maximum number of folic acid in grams the recipe must have. (optional)
-    * @param minIodine The minimum number of Iodine in grams the recipe must have. (optional)
-    * @param maxIodine The maximum number of iodine in grams the recipe must have. (optional)
-    * @param minIron The minimum number of iron in milligrams the recipe must have. (optional)
-    * @param maxIron The maximum number of iron in milligrams the recipe can have. (optional)
-    * @param minMagnesium The minimum number of magnesium in milligrams the recipe must have. (optional)
-    * @param maxMagnesium The maximum number of magnesium in milligrams the recipe can have. (optional)
-    * @param minManganese The minimum number of manganese in milligrams the recipe must have. (optional)
-    * @param maxManganese The maximum number of manganese in milligrams the recipe can have. (optional)
-    * @param minPhosphorus The minimum number of phosphorus in milligrams the recipe must have. (optional)
-    * @param maxPhosphorus The maximum number of phosphorus in milligrams the recipe can have. (optional)
-    * @param minPotassium The minimum number of potassium in milligrams the recipe must have. (optional)
-    * @param maxPotassium The maximum number of potassium in milligrams the recipe can have. (optional)
-    * @param minSelenium The minimum number of selenium in grams the recipe must have. (optional)
-    * @param maxSelenium The maximum number of selenium in grams the recipe must have. (optional)
-    * @param minSodium The minimum number of sodium in milligrams the recipe must have. (optional)
-    * @param maxSodium The maximum number of sodium in milligrams the recipe must have. (optional)
-    * @param minSugar The minimum number of sugar in grams the recipe must have. (optional)
-    * @param maxSugar The maximum number of sugar in grams the recipe must have. (optional)
-    * @param minZinc The minimum number of zinc in milligrams the recipe must have. (optional)
-    * @param maxZinc The maximum number of zinc in milligrams the recipe can have. (optional)
+    * Find a set of recipes that adhere to the given nutritional limits. You may set limits for macronutrients (calories, protein, fat, and carbohydrate) and/or many micronutrients.
+    * @param minCarbs The minimum amount of carbohydrates in grams the recipe must have. (optional)
+    * @param maxCarbs The maximum amount of carbohydrates in grams the recipe can have. (optional)
+    * @param minProtein The minimum amount of protein in grams the recipe must have. (optional)
+    * @param maxProtein The maximum amount of protein in grams the recipe can have. (optional)
+    * @param minCalories The minimum amount of calories the recipe must have. (optional)
+    * @param maxCalories The maximum amount of calories the recipe can have. (optional)
+    * @param minFat The minimum amount of fat in grams the recipe must have. (optional)
+    * @param maxFat The maximum amount of fat in grams the recipe can have. (optional)
+    * @param minAlcohol The minimum amount of alcohol in grams the recipe must have. (optional)
+    * @param maxAlcohol The maximum amount of alcohol in grams the recipe can have. (optional)
+    * @param minCaffeine The minimum amount of caffeine in milligrams the recipe must have. (optional)
+    * @param maxCaffeine The maximum amount of caffeine in milligrams the recipe can have. (optional)
+    * @param minCopper The minimum amount of copper in milligrams the recipe must have. (optional)
+    * @param maxCopper The maximum amount of copper in milligrams the recipe can have. (optional)
+    * @param minCalcium The minimum amount of calcium in milligrams the recipe must have. (optional)
+    * @param maxCalcium The maximum amount of calcium in milligrams the recipe can have. (optional)
+    * @param minCholine The minimum amount of choline in milligrams the recipe must have. (optional)
+    * @param maxCholine The maximum amount of choline in milligrams the recipe can have. (optional)
+    * @param minCholesterol The minimum amount of cholesterol in milligrams the recipe must have. (optional)
+    * @param maxCholesterol The maximum amount of cholesterol in milligrams the recipe can have. (optional)
+    * @param minFluoride The minimum amount of fluoride in milligrams the recipe must have. (optional)
+    * @param maxFluoride The maximum amount of fluoride in milligrams the recipe can have. (optional)
+    * @param minSaturatedFat The minimum amount of saturated fat in grams the recipe must have. (optional)
+    * @param maxSaturatedFat The maximum amount of saturated fat in grams the recipe can have. (optional)
+    * @param minVitaminA The minimum amount of Vitamin A in IU the recipe must have. (optional)
+    * @param maxVitaminA The maximum amount of Vitamin A in IU the recipe can have. (optional)
+    * @param minVitaminC The minimum amount of Vitamin C in milligrams the recipe must have. (optional)
+    * @param maxVitaminC The maximum amount of Vitamin C in milligrams the recipe can have. (optional)
+    * @param minVitaminD The minimum amount of Vitamin D in micrograms the recipe must have. (optional)
+    * @param maxVitaminD The maximum amount of Vitamin D in micrograms the recipe can have. (optional)
+    * @param minVitaminE The minimum amount of Vitamin E in milligrams the recipe must have. (optional)
+    * @param maxVitaminE The maximum amount of Vitamin E in milligrams the recipe can have. (optional)
+    * @param minVitaminK The minimum amount of Vitamin K in micrograms the recipe must have. (optional)
+    * @param maxVitaminK The maximum amount of Vitamin K in micrograms the recipe can have. (optional)
+    * @param minVitaminB1 The minimum amount of Vitamin B1 in milligrams the recipe must have. (optional)
+    * @param maxVitaminB1 The maximum amount of Vitamin B1 in milligrams the recipe can have. (optional)
+    * @param minVitaminB2 The minimum amount of Vitamin B2 in milligrams the recipe must have. (optional)
+    * @param maxVitaminB2 The maximum amount of Vitamin B2 in milligrams the recipe can have. (optional)
+    * @param minVitaminB5 The minimum amount of Vitamin B5 in milligrams the recipe must have. (optional)
+    * @param maxVitaminB5 The maximum amount of Vitamin B5 in milligrams the recipe can have. (optional)
+    * @param minVitaminB3 The minimum amount of Vitamin B3 in milligrams the recipe must have. (optional)
+    * @param maxVitaminB3 The maximum amount of Vitamin B3 in milligrams the recipe can have. (optional)
+    * @param minVitaminB6 The minimum amount of Vitamin B6 in milligrams the recipe must have. (optional)
+    * @param maxVitaminB6 The maximum amount of Vitamin B6 in milligrams the recipe can have. (optional)
+    * @param minVitaminB12 The minimum amount of Vitamin B12 in micrograms the recipe must have. (optional)
+    * @param maxVitaminB12 The maximum amount of Vitamin B12 in micrograms the recipe can have. (optional)
+    * @param minFiber The minimum amount of fiber in grams the recipe must have. (optional)
+    * @param maxFiber The maximum amount of fiber in grams the recipe can have. (optional)
+    * @param minFolate The minimum amount of folate in grams the recipe must have. (optional)
+    * @param maxFolate The maximum amount of folate in grams the recipe can have. (optional)
+    * @param minFolicAcid The minimum amount of folic acid in grams the recipe must have. (optional)
+    * @param maxFolicAcid The maximum amount of folic acid in grams the recipe can have. (optional)
+    * @param minIodine The minimum amount of iodine in grams the recipe must have. (optional)
+    * @param maxIodine The maximum amount of iodine in grams the recipe can have. (optional)
+    * @param minIron The minimum amount of iron in milligrams the recipe must have. (optional)
+    * @param maxIron The maximum amount of iron in milligrams the recipe can have. (optional)
+    * @param minMagnesium The minimum amount of magnesium in milligrams the recipe must have. (optional)
+    * @param maxMagnesium The maximum amount of magnesium in milligrams the recipe can have. (optional)
+    * @param minManganese The minimum amount of manganese in milligrams the recipe must have. (optional)
+    * @param maxManganese The maximum amount of manganese in milligrams the recipe can have. (optional)
+    * @param minPhosphorus The minimum amount of phosphorus in milligrams the recipe must have. (optional)
+    * @param maxPhosphorus The maximum amount of phosphorus in milligrams the recipe can have. (optional)
+    * @param minPotassium The minimum amount of potassium in milligrams the recipe must have. (optional)
+    * @param maxPotassium The maximum amount of potassium in milligrams the recipe can have. (optional)
+    * @param minSelenium The minimum amount of selenium in grams the recipe must have. (optional)
+    * @param maxSelenium The maximum amount of selenium in grams the recipe can have. (optional)
+    * @param minSodium The minimum amount of sodium in milligrams the recipe must have. (optional)
+    * @param maxSodium The maximum amount of sodium in milligrams the recipe can have. (optional)
+    * @param minSugar The minimum amount of sugar in grams the recipe must have. (optional)
+    * @param maxSugar The maximum amount of sugar in grams the recipe can have. (optional)
+    * @param minZinc The minimum amount of zinc in milligrams the recipe must have. (optional)
+    * @param maxZinc The maximum amount of zinc in milligrams the recipe can have. (optional)
     * @param offset The offset number for paging (between 0 and 990). (optional)
     * @param number The number of expected results (between 1 and 100). (optional)
     * @param random If true, every request will give you a random set of recipes within the requested limits. (optional)
-    * @param limitLicense Whether the recipes should have an open license that allows for displaying with proper attribution. (optional)
+    * @param limitLicense Whether the recipes should have an open license that allows display with proper attribution. (optional)
     * @return kotlin.Any
     */
     @Suppress("UNCHECKED_CAST")
@@ -1642,105 +1642,107 @@ class DefaultApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiC
 
     /**
     * Search Recipes Complex
-    * Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: Since this method combines searching by query, by ingredients, and by nutrients in one endpoint.
+    * Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint.
     * @param query The (natural language) recipe search query. 
-    * @param cuisine The cuisine(s) of the recipes. One or more comma separated (will be iterpreted as &#39;OR&#39;). See a full list of supported cuisines. (optional)
-    * @param excludeCuisine The cuisine(s) the recipes must not match. One or more comma separated (will be iterpreted as &#39;AND&#39;). See a full list of supported cuisines. (optional)
-    * @param diet The diet to which the recipes must be compliant. See a full list of supported diets. (optional)
-    * @param intolerances A comma-separated list of intolerances. All found recipes must not have ingredients that could cause problems for people with one of the given tolerances. See a full list of supported intolerances. (optional)
+    * @param cuisine The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as &#39;OR&#39;). See a full list of supported cuisines. (optional)
+    * @param excludeCuisine The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as &#39;AND&#39;). See a full list of supported cuisines. (optional)
+    * @param diet The diet for which the recipes must be suitable. See a full list of supported diets. (optional)
+    * @param intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
     * @param equipment The equipment required. Multiple values will be interpreted as &#39;or&#39;. For example, value could be \&quot;blender, frying pan, bowl\&quot;. (optional)
-    * @param includeIngredients A comma-separated list of ingredients that should/must be contained in the recipe. (optional)
-    * @param excludeIngredients A comma-separated list of ingredients or ingredient types that must not be contained in the recipes. (optional)
-    * @param type The type of the recipes. See a full list of supported meal types. (optional)
+    * @param includeIngredients A comma-separated list of ingredients that should/must be used in the recipes. (optional)
+    * @param excludeIngredients A comma-separated list of ingredients or ingredient types that the recipes must not contain. (optional)
+    * @param type The type of recipe. See a full list of supported meal types. (optional)
     * @param instructionsRequired Whether the recipes must have instructions. (optional)
     * @param fillIngredients Add information about the used and missing ingredients in each recipe. (optional)
-    * @param addRecipeInformation If set to true, you get more information about the recipes returned. This saves the calls to get recipe information. (optional)
+    * @param addRecipeInformation If set to true, you get more information about the recipes returned. This saves you from needing to call to get recipe information. (optional)
     * @param author The username of the recipe author. (optional)
     * @param tags User defined tags that have to match. (optional)
-    * @param titleMatch A text that has to match in the title of the recipes. (optional)
+    * @param titleMatch Enter text that must be found in the title of the recipes. (optional)
+    * @param maxReadyTime The maximum time in minutes it should take to prepare and cook the recipe. (optional)
+    * @param ignorePantry Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional)
     * @param sort The strategy to sort recipes by. See a full list of supported sorting options. (optional)
     * @param sortDirection The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending). (optional)
-    * @param minCarbs The minimum number of carbohydrates in grams the recipe must have. (optional)
-    * @param maxCarbs The maximum number of carbohydrates in grams the recipe can have. (optional)
-    * @param minProtein The minimum number of protein in grams the recipe must have. (optional)
-    * @param maxProtein The maximum number of protein in grams the recipe can have. (optional)
-    * @param minCalories The minimum number of calories the recipe must have. (optional)
-    * @param maxCalories The maximum number of calories the recipe can have. (optional)
-    * @param minFat The minimum number of fat in grams the recipe must have. (optional)
-    * @param maxFat The maximum number of fat in grams the recipe can have. (optional)
-    * @param minAlcohol The minimum number of alcohol in grams the recipe must have. (optional)
-    * @param maxAlcohol The maximum number of alcohol in grams the recipe must have. (optional)
-    * @param minCaffeine The minimum number of milligrams of caffeine the recipe must have. (optional)
-    * @param maxCaffeine The maximum number of alcohol in grams the recipe must have. (optional)
-    * @param minCopper The minimum number of copper in milligrams the recipe must have. (optional)
-    * @param maxCopper The maximum number of copper in milligrams the recipe must have. (optional)
-    * @param minCalcium The minimum number of calcium in milligrams the recipe must have. (optional)
-    * @param maxCalcium The maximum number of calcium in milligrams the recipe must have. (optional)
-    * @param minCholine The minimum number of choline in milligrams the recipe must have. (optional)
-    * @param maxCholine The maximum number of choline in milligrams the recipe can have. (optional)
-    * @param minCholesterol The minimum number of cholesterol in milligrams the recipe must have. (optional)
-    * @param maxCholesterol The maximum number of cholesterol in milligrams the recipe must have. (optional)
-    * @param minFluoride The minimum number of fluoride in milligrams the recipe must have. (optional)
-    * @param maxFluoride The maximum number of fluoride in milligrams the recipe can have. (optional)
-    * @param minSaturatedFat The minimum number of saturated fat in grams the recipe must have. (optional)
-    * @param maxSaturatedFat The maximum number of saturated fat in grams the recipe must have. (optional)
-    * @param minVitaminA The minimum number of Vitamin A in IU the recipe must have. (optional)
-    * @param maxVitaminA The maximum number of Vitamin A in IU the recipe must have. (optional)
-    * @param minVitaminC The minimum number of Vitamin C milligrams the recipe must have. (optional)
-    * @param maxVitaminC The maximum number of Vitamin C in milligrams the recipe can have. (optional)
-    * @param minVitaminD The minimum number of Vitamin D in micrograms the recipe must have. (optional)
-    * @param maxVitaminD The maximum number of Vitamin D in micrograms the recipe must have. (optional)
-    * @param minVitaminE The minimum number of Vitamin E in milligrams the recipe must have. (optional)
-    * @param maxVitaminE The maximum number of Vitamin E in milligrams the recipe must have. (optional)
-    * @param minVitaminK The minimum number of Vitamin K in micrograms the recipe must have. (optional)
-    * @param maxVitaminK The maximum number of Vitamin K in micrograms the recipe must have. (optional)
-    * @param minVitaminB1 The minimum number of Vitamin B1 in milligrams the recipe must have. (optional)
-    * @param maxVitaminB1 The maximum number of Vitamin B1 in milligrams the recipe must have. (optional)
-    * @param minVitaminB2 The minimum number of Vitamin B2 in milligrams the recipe must have. (optional)
-    * @param maxVitaminB2 The maximum number of Vitamin B2 in milligrams the recipe must have. (optional)
-    * @param minVitaminB5 The minimum number of Vitamin B5 in milligrams the recipe must have. (optional)
-    * @param maxVitaminB5 The maximum number of Vitamin B5 in milligrams the recipe can have. (optional)
-    * @param minVitaminB3 The minimum number of Vitamin B3 in milligrams the recipe must have. (optional)
-    * @param maxVitaminB3 The maximum number of Vitamin B3 in milligrams the recipe can have. (optional)
-    * @param minVitaminB6 The minimum number of Vitamin B6 in milligrams the recipe must have. (optional)
-    * @param maxVitaminB6 The maximum number of Vitamin B6 in milligrams the recipe can have. (optional)
-    * @param minVitaminB12 The minimum number of Vitamin B12 in micrograms the recipe must have. (optional)
-    * @param maxVitaminB12 The maximum number of Vitamin B12 in micrograms the recipe must have. (optional)
-    * @param minFiber The minimum number of fiber in grams the recipe must have. (optional)
-    * @param maxFiber The maximum number of fiber in grams the recipe must have. (optional)
-    * @param minFolate The minimum number of folate in grams the recipe must have. (optional)
-    * @param maxFolate The maximum number of folate in grams the recipe must have. (optional)
-    * @param minFolicAcid The minimum number of folic acid in grams the recipe must have. (optional)
-    * @param maxFolicAcid The maximum number of folic acid in grams the recipe must have. (optional)
-    * @param minIodine The minimum number of Iodine in grams the recipe must have. (optional)
-    * @param maxIodine The maximum number of iodine in grams the recipe must have. (optional)
-    * @param minIron The minimum number of iron in milligrams the recipe must have. (optional)
-    * @param maxIron The maximum number of iron in milligrams the recipe can have. (optional)
-    * @param minMagnesium The minimum number of magnesium in milligrams the recipe must have. (optional)
-    * @param maxMagnesium The maximum number of magnesium in milligrams the recipe can have. (optional)
-    * @param minManganese The minimum number of manganese in milligrams the recipe must have. (optional)
-    * @param maxManganese The maximum number of manganese in milligrams the recipe can have. (optional)
-    * @param minPhosphorus The minimum number of phosphorus in milligrams the recipe must have. (optional)
-    * @param maxPhosphorus The maximum number of phosphorus in milligrams the recipe can have. (optional)
-    * @param minPotassium The minimum number of potassium in milligrams the recipe must have. (optional)
-    * @param maxPotassium The maximum number of potassium in milligrams the recipe can have. (optional)
-    * @param minSelenium The minimum number of selenium in grams the recipe must have. (optional)
-    * @param maxSelenium The maximum number of selenium in grams the recipe must have. (optional)
-    * @param minSodium The minimum number of sodium in milligrams the recipe must have. (optional)
-    * @param maxSodium The maximum number of sodium in milligrams the recipe must have. (optional)
-    * @param minSugar The minimum number of sugar in grams the recipe must have. (optional)
-    * @param maxSugar The maximum number of sugar in grams the recipe must have. (optional)
-    * @param minZinc The minimum number of zinc in milligrams the recipe must have. (optional)
-    * @param maxZinc The maximum number of zinc in milligrams the recipe can have. (optional)
+    * @param minCarbs The minimum amount of carbohydrates in grams the recipe must have. (optional)
+    * @param maxCarbs The maximum amount of carbohydrates in grams the recipe can have. (optional)
+    * @param minProtein The minimum amount of protein in grams the recipe must have. (optional)
+    * @param maxProtein The maximum amount of protein in grams the recipe can have. (optional)
+    * @param minCalories The minimum amount of calories the recipe must have. (optional)
+    * @param maxCalories The maximum amount of calories the recipe can have. (optional)
+    * @param minFat The minimum amount of fat in grams the recipe must have. (optional)
+    * @param maxFat The maximum amount of fat in grams the recipe can have. (optional)
+    * @param minAlcohol The minimum amount of alcohol in grams the recipe must have. (optional)
+    * @param maxAlcohol The maximum amount of alcohol in grams the recipe can have. (optional)
+    * @param minCaffeine The minimum amount of caffeine in milligrams the recipe must have. (optional)
+    * @param maxCaffeine The maximum amount of caffeine in milligrams the recipe can have. (optional)
+    * @param minCopper The minimum amount of copper in milligrams the recipe must have. (optional)
+    * @param maxCopper The maximum amount of copper in milligrams the recipe can have. (optional)
+    * @param minCalcium The minimum amount of calcium in milligrams the recipe must have. (optional)
+    * @param maxCalcium The maximum amount of calcium in milligrams the recipe can have. (optional)
+    * @param minCholine The minimum amount of choline in milligrams the recipe must have. (optional)
+    * @param maxCholine The maximum amount of choline in milligrams the recipe can have. (optional)
+    * @param minCholesterol The minimum amount of cholesterol in milligrams the recipe must have. (optional)
+    * @param maxCholesterol The maximum amount of cholesterol in milligrams the recipe can have. (optional)
+    * @param minFluoride The minimum amount of fluoride in milligrams the recipe must have. (optional)
+    * @param maxFluoride The maximum amount of fluoride in milligrams the recipe can have. (optional)
+    * @param minSaturatedFat The minimum amount of saturated fat in grams the recipe must have. (optional)
+    * @param maxSaturatedFat The maximum amount of saturated fat in grams the recipe can have. (optional)
+    * @param minVitaminA The minimum amount of Vitamin A in IU the recipe must have. (optional)
+    * @param maxVitaminA The maximum amount of Vitamin A in IU the recipe can have. (optional)
+    * @param minVitaminC The minimum amount of Vitamin C milligrams the recipe must have. (optional)
+    * @param maxVitaminC The maximum amount of Vitamin C in milligrams the recipe can have. (optional)
+    * @param minVitaminD The minimum amount of Vitamin D in micrograms the recipe must have. (optional)
+    * @param maxVitaminD The maximum amount of Vitamin D in micrograms the recipe can have. (optional)
+    * @param minVitaminE The minimum amount of Vitamin E in milligrams the recipe must have. (optional)
+    * @param maxVitaminE The maximum amount of Vitamin E in milligrams the recipe can have. (optional)
+    * @param minVitaminK The minimum amount of Vitamin K in micrograms the recipe must have. (optional)
+    * @param maxVitaminK The maximum amount of Vitamin K in micrograms the recipe can have. (optional)
+    * @param minVitaminB1 The minimum amount of Vitamin B1 in milligrams the recipe must have. (optional)
+    * @param maxVitaminB1 The maximum amount of Vitamin B1 in milligrams the recipe can have. (optional)
+    * @param minVitaminB2 The minimum amount of Vitamin B2 in milligrams the recipe must have. (optional)
+    * @param maxVitaminB2 The maximum amount of Vitamin B2 in milligrams the recipe can have. (optional)
+    * @param minVitaminB5 The minimum amount of Vitamin B5 in milligrams the recipe must have. (optional)
+    * @param maxVitaminB5 The maximum amount of Vitamin B5 in milligrams the recipe can have. (optional)
+    * @param minVitaminB3 The minimum amount of Vitamin B3 in milligrams the recipe must have. (optional)
+    * @param maxVitaminB3 The maximum amount of Vitamin B3 in milligrams the recipe can have. (optional)
+    * @param minVitaminB6 The minimum amount of Vitamin B6 in milligrams the recipe must have. (optional)
+    * @param maxVitaminB6 The maximum amount of Vitamin B6 in milligrams the recipe can have. (optional)
+    * @param minVitaminB12 The minimum amount of Vitamin B12 in micrograms the recipe must have. (optional)
+    * @param maxVitaminB12 The maximum amount of Vitamin B12 in micrograms the recipe can have. (optional)
+    * @param minFiber The minimum amount of fiber in grams the recipe must have. (optional)
+    * @param maxFiber The maximum amount of fiber in grams the recipe can have. (optional)
+    * @param minFolate The minimum amount of folate in grams the recipe must have. (optional)
+    * @param maxFolate The maximum amount of folate in grams the recipe can have. (optional)
+    * @param minFolicAcid The minimum amount of folic acid in grams the recipe must have. (optional)
+    * @param maxFolicAcid The maximum amount of folic acid in grams the recipe can have. (optional)
+    * @param minIodine The minimum amount of iodine in grams the recipe must have. (optional)
+    * @param maxIodine The maximum amount of iodine in grams the recipe can have. (optional)
+    * @param minIron The minimum amount of iron in milligrams the recipe must have. (optional)
+    * @param maxIron The maximum amount of iron in milligrams the recipe can have. (optional)
+    * @param minMagnesium The minimum amount of magnesium in milligrams the recipe must have. (optional)
+    * @param maxMagnesium The maximum amount of magnesium in milligrams the recipe can have. (optional)
+    * @param minManganese The minimum amount of manganese in milligrams the recipe must have. (optional)
+    * @param maxManganese The maximum amount of manganese in milligrams the recipe can have. (optional)
+    * @param minPhosphorus The minimum amount of phosphorus in milligrams the recipe must have. (optional)
+    * @param maxPhosphorus The maximum amount of phosphorus in milligrams the recipe can have. (optional)
+    * @param minPotassium The minimum amount of potassium in milligrams the recipe must have. (optional)
+    * @param maxPotassium The maximum amount of potassium in milligrams the recipe can have. (optional)
+    * @param minSelenium The minimum amount of selenium in grams the recipe must have. (optional)
+    * @param maxSelenium The maximum amount of selenium in grams the recipe can have. (optional)
+    * @param minSodium The minimum amount of sodium in milligrams the recipe must have. (optional)
+    * @param maxSodium The maximum amount of sodium in milligrams the recipe can have. (optional)
+    * @param minSugar The minimum amount of sugar in grams the recipe must have. (optional)
+    * @param maxSugar The maximum amount of sugar in grams the recipe can have. (optional)
+    * @param minZinc The minimum amount of zinc in milligrams the recipe must have. (optional)
+    * @param maxZinc The maximum amount of zinc in milligrams the recipe can have. (optional)
     * @param offset The offset number for paging (between 0 and 990). (optional)
     * @param number The number of expected results (between 1 and 10). (optional)
-    * @param limitLicense Whether the recipes should have an open license that allows for displaying with proper attribution. (optional)
+    * @param limitLicense Whether the recipes should have an open license that allows display with proper attribution. (optional)
     * @return kotlin.Any
     */
     @Suppress("UNCHECKED_CAST")
-    fun searchRecipesComplex(query: kotlin.String, cuisine: kotlin.String?, excludeCuisine: kotlin.String?, diet: kotlin.String?, intolerances: kotlin.String?, equipment: kotlin.String?, includeIngredients: kotlin.String?, excludeIngredients: kotlin.String?, type: kotlin.String?, instructionsRequired: kotlin.Boolean?, fillIngredients: kotlin.Boolean?, addRecipeInformation: kotlin.Boolean?, author: kotlin.String?, tags: kotlin.String?, titleMatch: kotlin.String?, sort: kotlin.String?, sortDirection: kotlin.String?, minCarbs: java.math.BigDecimal?, maxCarbs: java.math.BigDecimal?, minProtein: java.math.BigDecimal?, maxProtein: java.math.BigDecimal?, minCalories: java.math.BigDecimal?, maxCalories: java.math.BigDecimal?, minFat: java.math.BigDecimal?, maxFat: java.math.BigDecimal?, minAlcohol: java.math.BigDecimal?, maxAlcohol: java.math.BigDecimal?, minCaffeine: java.math.BigDecimal?, maxCaffeine: java.math.BigDecimal?, minCopper: java.math.BigDecimal?, maxCopper: java.math.BigDecimal?, minCalcium: java.math.BigDecimal?, maxCalcium: java.math.BigDecimal?, minCholine: java.math.BigDecimal?, maxCholine: java.math.BigDecimal?, minCholesterol: java.math.BigDecimal?, maxCholesterol: java.math.BigDecimal?, minFluoride: java.math.BigDecimal?, maxFluoride: java.math.BigDecimal?, minSaturatedFat: java.math.BigDecimal?, maxSaturatedFat: java.math.BigDecimal?, minVitaminA: java.math.BigDecimal?, maxVitaminA: java.math.BigDecimal?, minVitaminC: java.math.BigDecimal?, maxVitaminC: java.math.BigDecimal?, minVitaminD: java.math.BigDecimal?, maxVitaminD: java.math.BigDecimal?, minVitaminE: java.math.BigDecimal?, maxVitaminE: java.math.BigDecimal?, minVitaminK: java.math.BigDecimal?, maxVitaminK: java.math.BigDecimal?, minVitaminB1: java.math.BigDecimal?, maxVitaminB1: java.math.BigDecimal?, minVitaminB2: java.math.BigDecimal?, maxVitaminB2: java.math.BigDecimal?, minVitaminB5: java.math.BigDecimal?, maxVitaminB5: java.math.BigDecimal?, minVitaminB3: java.math.BigDecimal?, maxVitaminB3: java.math.BigDecimal?, minVitaminB6: java.math.BigDecimal?, maxVitaminB6: java.math.BigDecimal?, minVitaminB12: java.math.BigDecimal?, maxVitaminB12: java.math.BigDecimal?, minFiber: java.math.BigDecimal?, maxFiber: java.math.BigDecimal?, minFolate: java.math.BigDecimal?, maxFolate: java.math.BigDecimal?, minFolicAcid: java.math.BigDecimal?, maxFolicAcid: java.math.BigDecimal?, minIodine: java.math.BigDecimal?, maxIodine: java.math.BigDecimal?, minIron: java.math.BigDecimal?, maxIron: java.math.BigDecimal?, minMagnesium: java.math.BigDecimal?, maxMagnesium: java.math.BigDecimal?, minManganese: java.math.BigDecimal?, maxManganese: java.math.BigDecimal?, minPhosphorus: java.math.BigDecimal?, maxPhosphorus: java.math.BigDecimal?, minPotassium: java.math.BigDecimal?, maxPotassium: java.math.BigDecimal?, minSelenium: java.math.BigDecimal?, maxSelenium: java.math.BigDecimal?, minSodium: java.math.BigDecimal?, maxSodium: java.math.BigDecimal?, minSugar: java.math.BigDecimal?, maxSugar: java.math.BigDecimal?, minZinc: java.math.BigDecimal?, maxZinc: java.math.BigDecimal?, offset: java.math.BigDecimal?, number: java.math.BigDecimal?, limitLicense: kotlin.Boolean?) : kotlin.Any {
+    fun searchRecipesComplex(query: kotlin.String, cuisine: kotlin.String?, excludeCuisine: kotlin.String?, diet: kotlin.String?, intolerances: kotlin.String?, equipment: kotlin.String?, includeIngredients: kotlin.String?, excludeIngredients: kotlin.String?, type: kotlin.String?, instructionsRequired: kotlin.Boolean?, fillIngredients: kotlin.Boolean?, addRecipeInformation: kotlin.Boolean?, author: kotlin.String?, tags: kotlin.String?, titleMatch: kotlin.String?, maxReadyTime: java.math.BigDecimal?, ignorePantry: kotlin.Boolean?, sort: kotlin.String?, sortDirection: kotlin.String?, minCarbs: java.math.BigDecimal?, maxCarbs: java.math.BigDecimal?, minProtein: java.math.BigDecimal?, maxProtein: java.math.BigDecimal?, minCalories: java.math.BigDecimal?, maxCalories: java.math.BigDecimal?, minFat: java.math.BigDecimal?, maxFat: java.math.BigDecimal?, minAlcohol: java.math.BigDecimal?, maxAlcohol: java.math.BigDecimal?, minCaffeine: java.math.BigDecimal?, maxCaffeine: java.math.BigDecimal?, minCopper: java.math.BigDecimal?, maxCopper: java.math.BigDecimal?, minCalcium: java.math.BigDecimal?, maxCalcium: java.math.BigDecimal?, minCholine: java.math.BigDecimal?, maxCholine: java.math.BigDecimal?, minCholesterol: java.math.BigDecimal?, maxCholesterol: java.math.BigDecimal?, minFluoride: java.math.BigDecimal?, maxFluoride: java.math.BigDecimal?, minSaturatedFat: java.math.BigDecimal?, maxSaturatedFat: java.math.BigDecimal?, minVitaminA: java.math.BigDecimal?, maxVitaminA: java.math.BigDecimal?, minVitaminC: java.math.BigDecimal?, maxVitaminC: java.math.BigDecimal?, minVitaminD: java.math.BigDecimal?, maxVitaminD: java.math.BigDecimal?, minVitaminE: java.math.BigDecimal?, maxVitaminE: java.math.BigDecimal?, minVitaminK: java.math.BigDecimal?, maxVitaminK: java.math.BigDecimal?, minVitaminB1: java.math.BigDecimal?, maxVitaminB1: java.math.BigDecimal?, minVitaminB2: java.math.BigDecimal?, maxVitaminB2: java.math.BigDecimal?, minVitaminB5: java.math.BigDecimal?, maxVitaminB5: java.math.BigDecimal?, minVitaminB3: java.math.BigDecimal?, maxVitaminB3: java.math.BigDecimal?, minVitaminB6: java.math.BigDecimal?, maxVitaminB6: java.math.BigDecimal?, minVitaminB12: java.math.BigDecimal?, maxVitaminB12: java.math.BigDecimal?, minFiber: java.math.BigDecimal?, maxFiber: java.math.BigDecimal?, minFolate: java.math.BigDecimal?, maxFolate: java.math.BigDecimal?, minFolicAcid: java.math.BigDecimal?, maxFolicAcid: java.math.BigDecimal?, minIodine: java.math.BigDecimal?, maxIodine: java.math.BigDecimal?, minIron: java.math.BigDecimal?, maxIron: java.math.BigDecimal?, minMagnesium: java.math.BigDecimal?, maxMagnesium: java.math.BigDecimal?, minManganese: java.math.BigDecimal?, maxManganese: java.math.BigDecimal?, minPhosphorus: java.math.BigDecimal?, maxPhosphorus: java.math.BigDecimal?, minPotassium: java.math.BigDecimal?, maxPotassium: java.math.BigDecimal?, minSelenium: java.math.BigDecimal?, maxSelenium: java.math.BigDecimal?, minSodium: java.math.BigDecimal?, maxSodium: java.math.BigDecimal?, minSugar: java.math.BigDecimal?, maxSugar: java.math.BigDecimal?, minZinc: java.math.BigDecimal?, maxZinc: java.math.BigDecimal?, offset: java.math.BigDecimal?, number: java.math.BigDecimal?, limitLicense: kotlin.Boolean?) : kotlin.Any {
         val localVariableBody: kotlin.Any? = null
-        val localVariableQuery: MultiValueMap = mapOf("query" to listOf("$query"), "cuisine" to listOf("$cuisine"), "excludeCuisine" to listOf("$excludeCuisine"), "diet" to listOf("$diet"), "intolerances" to listOf("$intolerances"), "equipment" to listOf("$equipment"), "includeIngredients" to listOf("$includeIngredients"), "excludeIngredients" to listOf("$excludeIngredients"), "type" to listOf("$type"), "instructionsRequired" to listOf("$instructionsRequired"), "fillIngredients" to listOf("$fillIngredients"), "addRecipeInformation" to listOf("$addRecipeInformation"), "author" to listOf("$author"), "tags" to listOf("$tags"), "titleMatch" to listOf("$titleMatch"), "sort" to listOf("$sort"), "sortDirection" to listOf("$sortDirection"), "minCarbs" to listOf("$minCarbs"), "maxCarbs" to listOf("$maxCarbs"), "minProtein" to listOf("$minProtein"), "maxProtein" to listOf("$maxProtein"), "minCalories" to listOf("$minCalories"), "maxCalories" to listOf("$maxCalories"), "minFat" to listOf("$minFat"), "maxFat" to listOf("$maxFat"), "minAlcohol" to listOf("$minAlcohol"), "maxAlcohol" to listOf("$maxAlcohol"), "minCaffeine" to listOf("$minCaffeine"), "maxCaffeine" to listOf("$maxCaffeine"), "minCopper" to listOf("$minCopper"), "maxCopper" to listOf("$maxCopper"), "minCalcium" to listOf("$minCalcium"), "maxCalcium" to listOf("$maxCalcium"), "minCholine" to listOf("$minCholine"), "maxCholine" to listOf("$maxCholine"), "minCholesterol" to listOf("$minCholesterol"), "maxCholesterol" to listOf("$maxCholesterol"), "minFluoride" to listOf("$minFluoride"), "maxFluoride" to listOf("$maxFluoride"), "minSaturatedFat" to listOf("$minSaturatedFat"), "maxSaturatedFat" to listOf("$maxSaturatedFat"), "minVitaminA" to listOf("$minVitaminA"), "maxVitaminA" to listOf("$maxVitaminA"), "minVitaminC" to listOf("$minVitaminC"), "maxVitaminC" to listOf("$maxVitaminC"), "minVitaminD" to listOf("$minVitaminD"), "maxVitaminD" to listOf("$maxVitaminD"), "minVitaminE" to listOf("$minVitaminE"), "maxVitaminE" to listOf("$maxVitaminE"), "minVitaminK" to listOf("$minVitaminK"), "maxVitaminK" to listOf("$maxVitaminK"), "minVitaminB1" to listOf("$minVitaminB1"), "maxVitaminB1" to listOf("$maxVitaminB1"), "minVitaminB2" to listOf("$minVitaminB2"), "maxVitaminB2" to listOf("$maxVitaminB2"), "minVitaminB5" to listOf("$minVitaminB5"), "maxVitaminB5" to listOf("$maxVitaminB5"), "minVitaminB3" to listOf("$minVitaminB3"), "maxVitaminB3" to listOf("$maxVitaminB3"), "minVitaminB6" to listOf("$minVitaminB6"), "maxVitaminB6" to listOf("$maxVitaminB6"), "minVitaminB12" to listOf("$minVitaminB12"), "maxVitaminB12" to listOf("$maxVitaminB12"), "minFiber" to listOf("$minFiber"), "maxFiber" to listOf("$maxFiber"), "minFolate" to listOf("$minFolate"), "maxFolate" to listOf("$maxFolate"), "minFolicAcid" to listOf("$minFolicAcid"), "maxFolicAcid" to listOf("$maxFolicAcid"), "minIodine" to listOf("$minIodine"), "maxIodine" to listOf("$maxIodine"), "minIron" to listOf("$minIron"), "maxIron" to listOf("$maxIron"), "minMagnesium" to listOf("$minMagnesium"), "maxMagnesium" to listOf("$maxMagnesium"), "minManganese" to listOf("$minManganese"), "maxManganese" to listOf("$maxManganese"), "minPhosphorus" to listOf("$minPhosphorus"), "maxPhosphorus" to listOf("$maxPhosphorus"), "minPotassium" to listOf("$minPotassium"), "maxPotassium" to listOf("$maxPotassium"), "minSelenium" to listOf("$minSelenium"), "maxSelenium" to listOf("$maxSelenium"), "minSodium" to listOf("$minSodium"), "maxSodium" to listOf("$maxSodium"), "minSugar" to listOf("$minSugar"), "maxSugar" to listOf("$maxSugar"), "minZinc" to listOf("$minZinc"), "maxZinc" to listOf("$maxZinc"), "offset" to listOf("$offset"), "number" to listOf("$number"), "limitLicense" to listOf("$limitLicense"))
+        val localVariableQuery: MultiValueMap = mapOf("query" to listOf("$query"), "cuisine" to listOf("$cuisine"), "excludeCuisine" to listOf("$excludeCuisine"), "diet" to listOf("$diet"), "intolerances" to listOf("$intolerances"), "equipment" to listOf("$equipment"), "includeIngredients" to listOf("$includeIngredients"), "excludeIngredients" to listOf("$excludeIngredients"), "type" to listOf("$type"), "instructionsRequired" to listOf("$instructionsRequired"), "fillIngredients" to listOf("$fillIngredients"), "addRecipeInformation" to listOf("$addRecipeInformation"), "author" to listOf("$author"), "tags" to listOf("$tags"), "titleMatch" to listOf("$titleMatch"), "maxReadyTime" to listOf("$maxReadyTime"), "ignorePantry" to listOf("$ignorePantry"), "sort" to listOf("$sort"), "sortDirection" to listOf("$sortDirection"), "minCarbs" to listOf("$minCarbs"), "maxCarbs" to listOf("$maxCarbs"), "minProtein" to listOf("$minProtein"), "maxProtein" to listOf("$maxProtein"), "minCalories" to listOf("$minCalories"), "maxCalories" to listOf("$maxCalories"), "minFat" to listOf("$minFat"), "maxFat" to listOf("$maxFat"), "minAlcohol" to listOf("$minAlcohol"), "maxAlcohol" to listOf("$maxAlcohol"), "minCaffeine" to listOf("$minCaffeine"), "maxCaffeine" to listOf("$maxCaffeine"), "minCopper" to listOf("$minCopper"), "maxCopper" to listOf("$maxCopper"), "minCalcium" to listOf("$minCalcium"), "maxCalcium" to listOf("$maxCalcium"), "minCholine" to listOf("$minCholine"), "maxCholine" to listOf("$maxCholine"), "minCholesterol" to listOf("$minCholesterol"), "maxCholesterol" to listOf("$maxCholesterol"), "minFluoride" to listOf("$minFluoride"), "maxFluoride" to listOf("$maxFluoride"), "minSaturatedFat" to listOf("$minSaturatedFat"), "maxSaturatedFat" to listOf("$maxSaturatedFat"), "minVitaminA" to listOf("$minVitaminA"), "maxVitaminA" to listOf("$maxVitaminA"), "minVitaminC" to listOf("$minVitaminC"), "maxVitaminC" to listOf("$maxVitaminC"), "minVitaminD" to listOf("$minVitaminD"), "maxVitaminD" to listOf("$maxVitaminD"), "minVitaminE" to listOf("$minVitaminE"), "maxVitaminE" to listOf("$maxVitaminE"), "minVitaminK" to listOf("$minVitaminK"), "maxVitaminK" to listOf("$maxVitaminK"), "minVitaminB1" to listOf("$minVitaminB1"), "maxVitaminB1" to listOf("$maxVitaminB1"), "minVitaminB2" to listOf("$minVitaminB2"), "maxVitaminB2" to listOf("$maxVitaminB2"), "minVitaminB5" to listOf("$minVitaminB5"), "maxVitaminB5" to listOf("$maxVitaminB5"), "minVitaminB3" to listOf("$minVitaminB3"), "maxVitaminB3" to listOf("$maxVitaminB3"), "minVitaminB6" to listOf("$minVitaminB6"), "maxVitaminB6" to listOf("$maxVitaminB6"), "minVitaminB12" to listOf("$minVitaminB12"), "maxVitaminB12" to listOf("$maxVitaminB12"), "minFiber" to listOf("$minFiber"), "maxFiber" to listOf("$maxFiber"), "minFolate" to listOf("$minFolate"), "maxFolate" to listOf("$maxFolate"), "minFolicAcid" to listOf("$minFolicAcid"), "maxFolicAcid" to listOf("$maxFolicAcid"), "minIodine" to listOf("$minIodine"), "maxIodine" to listOf("$maxIodine"), "minIron" to listOf("$minIron"), "maxIron" to listOf("$maxIron"), "minMagnesium" to listOf("$minMagnesium"), "maxMagnesium" to listOf("$maxMagnesium"), "minManganese" to listOf("$minManganese"), "maxManganese" to listOf("$maxManganese"), "minPhosphorus" to listOf("$minPhosphorus"), "maxPhosphorus" to listOf("$maxPhosphorus"), "minPotassium" to listOf("$minPotassium"), "maxPotassium" to listOf("$maxPotassium"), "minSelenium" to listOf("$minSelenium"), "maxSelenium" to listOf("$maxSelenium"), "minSodium" to listOf("$minSodium"), "maxSodium" to listOf("$maxSodium"), "minSugar" to listOf("$minSugar"), "maxSugar" to listOf("$maxSugar"), "minZinc" to listOf("$minZinc"), "maxZinc" to listOf("$maxZinc"), "offset" to listOf("$offset"), "number" to listOf("$number"), "limitLicense" to listOf("$limitLicense"))
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         val localVariableConfig = RequestConfig(
             RequestMethod.GET,
@@ -1764,7 +1766,7 @@ class DefaultApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiC
 
     /**
     * Search Site Content
-    * Search spoonacular&#39;s site content. You&#39;ll be able to find everything that you could also find using the search suggests on spoonacular.com. This is a suggest API so you can send partial strings as queries.
+    * Search spoonacular&#39;s site content. You&#39;ll be able to find everything that you could also find using the search suggestions on spoonacular.com. This is a suggest API so you can send partial strings as queries.
     * @param query The query to search for. You can also use partial queries such as \&quot;spagh\&quot; to already find spaghetti recipes, articles, grocery products, and other content. 
     * @return kotlin.Any
     */
@@ -1795,7 +1797,7 @@ class DefaultApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiC
 
     /**
     * Summarize Recipe
-    * Summarize the recipe in a short text.
+    * Automatically generate a short description that summarizes key information about the recipe.
     * @param id The recipe id. 
     * @return kotlin.Any
     */
@@ -1826,8 +1828,8 @@ class DefaultApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiC
 
     /**
     * Talk to Chatbot
-    * This endpoint can be used to have a conversation about food with the spoonacular chat bot. Use the \&quot;Get Conversation Suggests\&quot; endpoint to show your user what he or she can say.
-    * @param text The request / question / answer from the user to the chat bot. 
+    * This endpoint can be used to have a conversation about food with the spoonacular chatbot. Use the \&quot;Get Conversation Suggests\&quot; endpoint to show your user what he or she can say.
+    * @param text The request / question / answer from the user to the chatbot. 
     * @param contextId An arbitrary globally unique id for your conversation. The conversation can contain states so you should pass your context id if you want the bot to be able to remember the conversation. (optional)
     * @return kotlin.Any
     */
@@ -1861,7 +1863,7 @@ class DefaultApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiC
     * Visualize the equipment used to make a recipe.
     * @param ingredientList The ingredient list of the recipe, one ingredient per line. 
     * @param servings The number of servings. 
-    * @param view Either \\\&quot;grid\\\&quot; or \\\&quot;list\\\&quot; as visualization of the equipment. (optional)
+    * @param view How to visualize the equipment, either \\\&quot;grid\\\&quot; or \\\&quot;list\\\&quot;. (optional)
     * @param defaultCss Whether the default CSS should be added to the response. (optional)
     * @param showBacklink Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)
     * @return kotlin.String
@@ -1896,8 +1898,8 @@ class DefaultApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiC
     * Visualize ingredients of a recipe.
     * @param ingredientList The ingredient list of the recipe, one ingredient per line. 
     * @param servings The number of servings. 
-    * @param measure The initial measure, either \\\&quot;metric\\\&quot; or \\\&quot;us\\\&quot;. (optional)
-    * @param view Either \\\&quot;grid\\\&quot; or \\\&quot;list\\\&quot; as visualization of the equipment. (optional)
+    * @param measure The original system of measurement, either \\\&quot;metric\\\&quot; or \\\&quot;us\\\&quot;. (optional)
+    * @param view How to visualize the ingredients, either \\\&quot;grid\\\&quot; or \\\&quot;list\\\&quot;. (optional)
     * @param defaultCss Whether the default CSS should be added to the response. (optional)
     * @param showBacklink Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)
     * @return kotlin.String
@@ -1929,7 +1931,7 @@ class DefaultApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiC
 
     /**
     * Visualize Menu Item Nutrition by ID
-    * Visualize a menu items&#39; nutrition data.
+    * Visualize a menu item&#39;s nutritional information as HTML including CSS.
     * @param id The menu item id. 
     * @param defaultCss Whether the default CSS should be added to the response. (optional)
     * @return kotlin.String
@@ -1996,7 +1998,7 @@ class DefaultApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiC
 
     /**
     * Visualize Product Nutrition by ID
-    * Visualize a grocery product&#39;s nutritional information.
+    * Visualize a product&#39;s nutritional information as HTML including CSS.
     * @param id The id of the product. 
     * @param defaultCss Whether the default CSS should be added to the response. (optional)
     * @return kotlin.String
@@ -2092,7 +2094,7 @@ class DefaultApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiC
 
     /**
     * Visualize Recipe Nutrition
-    * Visualize a recipe&#39;s nutrition data.
+    * Visualize a recipe&#39;s nutritional information as HTML including CSS
     * @param ingredientList The ingredient list of the recipe, one ingredient per line. 
     * @param servings The number of servings. 
     * @param defaultCss Whether the default CSS should be added to the response. (optional)
@@ -2126,8 +2128,8 @@ class DefaultApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiC
 
     /**
     * Visualize Recipe Nutrition by ID
-    * Visualize a recipe&#39;s nutritional information.
-    * @param id The id of the product. 
+    * Visualize a recipe&#39;s nutritional information as HTML including CSS.
+    * @param id The recipe id. 
     * @param defaultCss Whether the default CSS should be added to the response. (optional)
     * @return kotlin.String
     */

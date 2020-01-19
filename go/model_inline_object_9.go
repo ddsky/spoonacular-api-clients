@@ -11,6 +11,6 @@
 package spoonacular
 
 type InlineObject9 struct {
-	// The text in which food items such as dish names and ingredients should be detected in.
+	// The text in which food items, such as dish names and ingredients, should be detected in.
 	Text string `json:"text"`
 }

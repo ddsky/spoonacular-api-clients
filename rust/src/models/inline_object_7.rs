@@ -20,10 +20,10 @@ pub struct InlineObject7 {
     /// The number of servings.
     #[serde(rename = "servings")]
     pub servings: f32,
-    /// The initial measure, either \"metric\" or \"us\".
+    /// The original system of measurement, either \"metric\" or \"us\".
     #[serde(rename = "measure")]
     pub measure: Option<String>,
-    /// Either \"grid\" or \"list\" as visualization of the equipment.
+    /// How to visualize the ingredients, either \"grid\" or \"list\".
     #[serde(rename = "view")]
     pub view: Option<String>,
     /// Whether the default CSS should be added to the response.

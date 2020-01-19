@@ -104,13 +104,13 @@ Class | Method | HTTP request | Description
 *OAIDefaultApi* | [**createRecipeCard**](docs/OAIDefaultApi.md#createrecipecard) | **POST** /recipes/visualizeRecipe | Create Recipe Card
 *OAIDefaultApi* | [**detectFoodInText**](docs/OAIDefaultApi.md#detectfoodintext) | **POST** /food/detect | Detect Food in Text
 *OAIDefaultApi* | [**extractRecipeFromWebsite**](docs/OAIDefaultApi.md#extractrecipefromwebsite) | **GET** /recipes/extract | Extract Recipe from Website
-*OAIDefaultApi* | [**generateMealPlan**](docs/OAIDefaultApi.md#generatemealplan) | **GET** /recipes/mealplans/generate | Generate Meal Plan
+*OAIDefaultApi* | [**generateMealPlan**](docs/OAIDefaultApi.md#generatemealplan) | **GET** /mealplanner/generate | Generate Meal Plan
 *OAIDefaultApi* | [**getARandomFoodJoke**](docs/OAIDefaultApi.md#getarandomfoodjoke) | **GET** /food/jokes/random | Get a Random Food Joke
 *OAIDefaultApi* | [**getAnalyzedRecipeInstructions**](docs/OAIDefaultApi.md#getanalyzedrecipeinstructions) | **GET** /recipes/{id}/analyzedInstructions | Get Analyzed Recipe Instructions
 *OAIDefaultApi* | [**getComparableProducts**](docs/OAIDefaultApi.md#getcomparableproducts) | **GET** /food/products/upc/{upc}/comparable | Get Comparable Products
 *OAIDefaultApi* | [**getConversationSuggests**](docs/OAIDefaultApi.md#getconversationsuggests) | **GET** /food/converse/suggest | Get Conversation Suggests
 *OAIDefaultApi* | [**getDishPairingForWine**](docs/OAIDefaultApi.md#getdishpairingforwine) | **GET** /food/wine/dishes | Get Dish Pairing for Wine
-*OAIDefaultApi* | [**getFoodInformation**](docs/OAIDefaultApi.md#getfoodinformation) | **GET** /food/ingredients/{id}/information | Get Food Information
+*OAIDefaultApi* | [**getIngredientInformation**](docs/OAIDefaultApi.md#getingredientinformation) | **GET** /food/ingredients/{id}/information | Get Ingredient Information
 *OAIDefaultApi* | [**getIngredientSubstitutes**](docs/OAIDefaultApi.md#getingredientsubstitutes) | **GET** /food/ingredients/substitutes | Get Ingredient Substitutes
 *OAIDefaultApi* | [**getIngredientSubstitutesByID**](docs/OAIDefaultApi.md#getingredientsubstitutesbyid) | **GET** /food/ingredients/{id}/substitutes | Get Ingredient Substitutes by ID
 *OAIDefaultApi* | [**getMenuItemInformation**](docs/OAIDefaultApi.md#getmenuiteminformation) | **GET** /food/menuItems/{id} | Get Menu Item Information
@@ -121,7 +121,7 @@ Class | Method | HTTP request | Description
 *OAIDefaultApi* | [**getRecipeInformation**](docs/OAIDefaultApi.md#getrecipeinformation) | **GET** /recipes/{id}/information | Get Recipe Information
 *OAIDefaultApi* | [**getRecipeInformationBulk**](docs/OAIDefaultApi.md#getrecipeinformationbulk) | **GET** /recipes/informationBulk | Get Recipe Information Bulk
 *OAIDefaultApi* | [**getRecipeIngredientsByID**](docs/OAIDefaultApi.md#getrecipeingredientsbyid) | **GET** /recipes/{id}/ingredientWidget.json | Get Recipe Ingredients by ID
-*OAIDefaultApi* | [**getRecipeNutritionByID**](docs/OAIDefaultApi.md#getrecipenutritionbyid) | **GET** /recipes/{id}/nutritionWidget.json | Get Recipe Nutrition by ID
+*OAIDefaultApi* | [**getRecipeNutritionWidgetByID**](docs/OAIDefaultApi.md#getrecipenutritionwidgetbyid) | **GET** /recipes/{id}/nutritionWidget.json | Get Recipe Nutrition Widget by ID
 *OAIDefaultApi* | [**getRecipePriceBreakdownByID**](docs/OAIDefaultApi.md#getrecipepricebreakdownbyid) | **GET** /recipes/{id}/priceBreakdownWidget.json | Get Recipe Price Breakdown by ID
 *OAIDefaultApi* | [**getSimilarRecipes**](docs/OAIDefaultApi.md#getsimilarrecipes) | **GET** /recipes/{id}/similar | Get Similar Recipes
 *OAIDefaultApi* | [**getWineDescription**](docs/OAIDefaultApi.md#getwinedescription) | **GET** /food/wine/description | Get Wine Description

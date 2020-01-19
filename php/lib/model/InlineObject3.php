@@ -427,7 +427,7 @@ class InlineObject3 implements ModelInterface, ArrayAccess
     /**
      * Sets servings
      *
-     * @param float $servings The number of servings that you can make from the ingredients.
+     * @param float $servings The number of servings the recipe makes.
      *
      * @return $this
      */
@@ -451,7 +451,7 @@ class InlineObject3 implements ModelInterface, ArrayAccess
     /**
      * Sets mask
      *
-     * @param string $mask The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\").
+     * @param string $mask The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\").
      *
      * @return $this
      */
@@ -523,7 +523,7 @@ class InlineObject3 implements ModelInterface, ArrayAccess
     /**
      * Sets background_color
      *
-     * @param string|null $background_color The background color on the recipe card as a hex-string.
+     * @param string|null $background_color The background color for the recipe card as a hex-string.
      *
      * @return $this
      */
@@ -547,7 +547,7 @@ class InlineObject3 implements ModelInterface, ArrayAccess
     /**
      * Sets font_color
      *
-     * @param string|null $font_color The font color on the recipe card as a hex-string.
+     * @param string|null $font_color The font color for the recipe card as a hex-string.
      *
      * @return $this
      */

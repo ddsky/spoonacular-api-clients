@@ -13,9 +13,9 @@ namespace spoonacular.Model {
   [DataContract]
   public class InlineObject8 {
     /// <summary>
-    /// The locale of the returned category, supported is en_US and en_GB.
+    /// The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).
     /// </summary>
-    /// <value>The locale of the returned category, supported is en_US and en_GB.</value>
+    /// <value>The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).</value>
     [DataMember(Name="locale", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "locale")]
     public string Locale { get; set; }

@@ -98,13 +98,13 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**createRecipeCard**](docs/Api/DefaultApi.md#createrecipecard) | **POST** /recipes/visualizeRecipe | Create Recipe Card
 *DefaultApi* | [**detectFoodInText**](docs/Api/DefaultApi.md#detectfoodintext) | **POST** /food/detect | Detect Food in Text
 *DefaultApi* | [**extractRecipeFromWebsite**](docs/Api/DefaultApi.md#extractrecipefromwebsite) | **GET** /recipes/extract | Extract Recipe from Website
-*DefaultApi* | [**generateMealPlan**](docs/Api/DefaultApi.md#generatemealplan) | **GET** /recipes/mealplans/generate | Generate Meal Plan
+*DefaultApi* | [**generateMealPlan**](docs/Api/DefaultApi.md#generatemealplan) | **GET** /mealplanner/generate | Generate Meal Plan
 *DefaultApi* | [**getARandomFoodJoke**](docs/Api/DefaultApi.md#getarandomfoodjoke) | **GET** /food/jokes/random | Get a Random Food Joke
 *DefaultApi* | [**getAnalyzedRecipeInstructions**](docs/Api/DefaultApi.md#getanalyzedrecipeinstructions) | **GET** /recipes/{id}/analyzedInstructions | Get Analyzed Recipe Instructions
 *DefaultApi* | [**getComparableProducts**](docs/Api/DefaultApi.md#getcomparableproducts) | **GET** /food/products/upc/{upc}/comparable | Get Comparable Products
 *DefaultApi* | [**getConversationSuggests**](docs/Api/DefaultApi.md#getconversationsuggests) | **GET** /food/converse/suggest | Get Conversation Suggests
 *DefaultApi* | [**getDishPairingForWine**](docs/Api/DefaultApi.md#getdishpairingforwine) | **GET** /food/wine/dishes | Get Dish Pairing for Wine
-*DefaultApi* | [**getFoodInformation**](docs/Api/DefaultApi.md#getfoodinformation) | **GET** /food/ingredients/{id}/information | Get Food Information
+*DefaultApi* | [**getIngredientInformation**](docs/Api/DefaultApi.md#getingredientinformation) | **GET** /food/ingredients/{id}/information | Get Ingredient Information
 *DefaultApi* | [**getIngredientSubstitutes**](docs/Api/DefaultApi.md#getingredientsubstitutes) | **GET** /food/ingredients/substitutes | Get Ingredient Substitutes
 *DefaultApi* | [**getIngredientSubstitutesByID**](docs/Api/DefaultApi.md#getingredientsubstitutesbyid) | **GET** /food/ingredients/{id}/substitutes | Get Ingredient Substitutes by ID
 *DefaultApi* | [**getMenuItemInformation**](docs/Api/DefaultApi.md#getmenuiteminformation) | **GET** /food/menuItems/{id} | Get Menu Item Information
@@ -115,7 +115,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**getRecipeInformation**](docs/Api/DefaultApi.md#getrecipeinformation) | **GET** /recipes/{id}/information | Get Recipe Information
 *DefaultApi* | [**getRecipeInformationBulk**](docs/Api/DefaultApi.md#getrecipeinformationbulk) | **GET** /recipes/informationBulk | Get Recipe Information Bulk
 *DefaultApi* | [**getRecipeIngredientsByID**](docs/Api/DefaultApi.md#getrecipeingredientsbyid) | **GET** /recipes/{id}/ingredientWidget.json | Get Recipe Ingredients by ID
-*DefaultApi* | [**getRecipeNutritionByID**](docs/Api/DefaultApi.md#getrecipenutritionbyid) | **GET** /recipes/{id}/nutritionWidget.json | Get Recipe Nutrition by ID
+*DefaultApi* | [**getRecipeNutritionWidgetByID**](docs/Api/DefaultApi.md#getrecipenutritionwidgetbyid) | **GET** /recipes/{id}/nutritionWidget.json | Get Recipe Nutrition Widget by ID
 *DefaultApi* | [**getRecipePriceBreakdownByID**](docs/Api/DefaultApi.md#getrecipepricebreakdownbyid) | **GET** /recipes/{id}/priceBreakdownWidget.json | Get Recipe Price Breakdown by ID
 *DefaultApi* | [**getSimilarRecipes**](docs/Api/DefaultApi.md#getsimilarrecipes) | **GET** /recipes/{id}/similar | Get Similar Recipes
 *DefaultApi* | [**getWineDescription**](docs/Api/DefaultApi.md#getwinedescription) | **GET** /food/wine/description | Get Wine Description

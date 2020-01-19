@@ -5,9 +5,9 @@ class InlineObject7 {
   String ingredientList = null;
   /* The number of servings. */
   num servings = null;
-  /* The initial measure, either \"metric\" or \"us\". */
+  /* The original system of measurement, either \"metric\" or \"us\". */
   String measure = null;
-  /* Either \"grid\" or \"list\" as visualization of the equipment. */
+  /* How to visualize the ingredients, either \"grid\" or \"list\". */
   String view = null;
   /* Whether the default CSS should be added to the response. */
   bool defaultCss = null;

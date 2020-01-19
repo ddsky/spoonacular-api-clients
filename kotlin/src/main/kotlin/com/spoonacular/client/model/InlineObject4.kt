@@ -15,10 +15,10 @@ package com.spoonacular.client.model
 import com.squareup.moshi.Json
 /**
  * 
- * @param instructions The instructions text.
+ * @param instructions The instructions to be analyzed.
  */
 data class InlineObject4 (
-    /* The instructions text. */
+    /* The instructions to be analyzed. */
     @Json(name = "instructions")
     val instructions: kotlin.String
 ) {

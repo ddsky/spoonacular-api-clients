@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ingredientList** | **String** | The ingredient list of the recipe, one ingredient per line. | [default to null]
 **servings** | **num** | The number of servings. | [default to null]
-**view** | **String** | Either \&quot;grid\&quot; or \&quot;list\&quot; as visualization of the equipment. | [optional] [default to null]
+**view** | **String** | How to visualize the equipment, either \&quot;grid\&quot; or \&quot;list\&quot;. | [optional] [default to null]
 **defaultCss** | **bool** | Whether the default CSS should be added to the response. | [optional] [default to null]
 **showBacklink** | **bool** | Whether to show a backlink to spoonacular. If set false, this call counts against your quota. | [optional] [default to null]
 

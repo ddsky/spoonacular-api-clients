@@ -53,17 +53,17 @@ namespace spoonacular.Model {
     public decimal? ReadyInMinutes { get; set; }
 
     /// <summary>
-    /// The number of servings that you can make from the ingredients.
+    /// The number of servings the recipe makes.
     /// </summary>
-    /// <value>The number of servings that you can make from the ingredients.</value>
+    /// <value>The number of servings the recipe makes.</value>
     [DataMember(Name="servings", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "servings")]
     public decimal? Servings { get; set; }
 
     /// <summary>
-    /// The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\").
+    /// The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\").
     /// </summary>
-    /// <value>The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\").</value>
+    /// <value>The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\").</value>
     [DataMember(Name="mask", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "mask")]
     public string Mask { get; set; }
@@ -85,17 +85,17 @@ namespace spoonacular.Model {
     public string Author { get; set; }
 
     /// <summary>
-    /// The background color on the recipe card as a hex-string.
+    /// The background color for the recipe card as a hex-string.
     /// </summary>
-    /// <value>The background color on the recipe card as a hex-string.</value>
+    /// <value>The background color for the recipe card as a hex-string.</value>
     [DataMember(Name="backgroundColor", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "backgroundColor")]
     public string BackgroundColor { get; set; }
 
     /// <summary>
-    /// The font color on the recipe card as a hex-string.
+    /// The font color for the recipe card as a hex-string.
     /// </summary>
-    /// <value>The font color on the recipe card as a hex-string.</value>
+    /// <value>The font color for the recipe card as a hex-string.</value>
     [DataMember(Name="fontColor", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "fontColor")]
     public string FontColor { get; set; }

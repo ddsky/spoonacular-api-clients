@@ -15,10 +15,10 @@ package com.spoonacular.client.model
 import com.squareup.moshi.Json
 /**
  * 
- * @param locale The locale of the returned category, supported is en_US and en_GB.
+ * @param locale The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).
  */
 data class InlineObject8 (
-    /* The locale of the returned category, supported is en_US and en_GB. */
+    /* The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). */
     @Json(name = "locale")
     val locale: kotlin.String? = null
 ) {

@@ -220,7 +220,7 @@ class InlineObject4 implements ModelInterface, ArrayAccess
     /**
      * Sets instructions
      *
-     * @param string $instructions The instructions text.
+     * @param string $instructions The instructions to be analyzed.
      *
      * @return $this
      */

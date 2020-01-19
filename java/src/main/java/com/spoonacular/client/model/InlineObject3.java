@@ -29,7 +29,7 @@ import java.math.BigDecimal;
 /**
  * InlineObject3
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-07-01T21:17:29.289+02:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-01-19T16:36:49.460+01:00[Europe/Berlin]")
 public class InlineObject3 {
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)
@@ -175,10 +175,10 @@ public class InlineObject3 {
   }
 
    /**
-   * The number of servings that you can make from the ingredients.
+   * The number of servings the recipe makes.
    * @return servings
   **/
-  @ApiModelProperty(example = "2", required = true, value = "The number of servings that you can make from the ingredients.")
+  @ApiModelProperty(example = "2", required = true, value = "The number of servings the recipe makes.")
   public BigDecimal getServings() {
     return servings;
   }
@@ -193,10 +193,10 @@ public class InlineObject3 {
   }
 
    /**
-   * The mask to put over the recipe image (\&quot;ellipseMask\&quot;, \&quot;diamondMask\&quot;, \&quot;diamondMask\&quot;, \&quot;starMask\&quot;, \&quot;heartMask\&quot;, \&quot;potMask\&quot;, \&quot;fishMask\&quot;).
+   * The mask to put over the recipe image (\&quot;ellipseMask\&quot;, \&quot;diamondMask\&quot;, \&quot;starMask\&quot;, \&quot;heartMask\&quot;, \&quot;potMask\&quot;, \&quot;fishMask\&quot;).
    * @return mask
   **/
-  @ApiModelProperty(example = "ellipseMask", required = true, value = "The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\").")
+  @ApiModelProperty(example = "ellipseMask", required = true, value = "The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\").")
   public String getMask() {
     return mask;
   }
@@ -232,7 +232,7 @@ public class InlineObject3 {
    * The author of the recipe.
    * @return author
   **/
-  @ApiModelProperty(example = "Emily Henderson", value = "The author of the recipe.")
+  @ApiModelProperty(example = "Anna Banana", value = "The author of the recipe.")
   public String getAuthor() {
     return author;
   }
@@ -247,10 +247,10 @@ public class InlineObject3 {
   }
 
    /**
-   * The background color on the recipe card as a hex-string.
+   * The background color for the recipe card as a hex-string.
    * @return backgroundColor
   **/
-  @ApiModelProperty(example = "#ffffff", value = "The background color on the recipe card as a hex-string.")
+  @ApiModelProperty(example = "#ffffff", value = "The background color for the recipe card as a hex-string.")
   public String getBackgroundColor() {
     return backgroundColor;
   }
@@ -265,10 +265,10 @@ public class InlineObject3 {
   }
 
    /**
-   * The font color on the recipe card as a hex-string.
+   * The font color for the recipe card as a hex-string.
    * @return fontColor
   **/
-  @ApiModelProperty(example = "#333333", value = "The font color on the recipe card as a hex-string.")
+  @ApiModelProperty(example = "#333333", value = "The font color for the recipe card as a hex-string.")
   public String getFontColor() {
     return fontColor;
   }

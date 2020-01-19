@@ -15,12 +15,12 @@ import java.math.BigDecimal
  * @param ingredients The ingredient list of the recipe, one ingredient per line (separate lines with \\n).
  * @param instructions The instructions to make the recipe. One step per line (separate lines with \\n).
  * @param readyInMinutes The number of minutes it takes to get the recipe on the table.
- * @param servings The number of servings that you can make from the ingredients.
- * @param mask The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\").
+ * @param servings The number of servings the recipe makes.
+ * @param mask The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\").
  * @param backgroundImage The background image (\"none\",\"background1\", or \"background2\").
  * @param author The author of the recipe.
- * @param backgroundColor The background color on the recipe card as a hex-string.
- * @param fontColor The font color on the recipe card as a hex-string.
+ * @param backgroundColor The background color for the recipe card as a hex-string.
+ * @param fontColor The font color for the recipe card as a hex-string.
  * @param source The source of the recipe.
  */
 case class InlineObject3(title: String,

@@ -15,7 +15,7 @@ type InlineObject2 struct {
 	IngredientList string `json:"ingredientList"`
 	// The number of servings.
 	Servings float32 `json:"servings"`
-	// Either \"grid\" or \"list\" as visualization of the equipment.
+	// How to visualize the equipment, either \"grid\" or \"list\".
 	View string `json:"view,omitempty"`
 	// Whether the default CSS should be added to the response.
 	DefaultCss bool `json:"defaultCss,omitempty"`

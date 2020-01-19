@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**locale** | **kotlin.String** | The locale of the returned category, supported is en_US and en_GB. |  [optional]
+**locale** | **kotlin.String** | The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). |  [optional]
 
 
 

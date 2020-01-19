@@ -235,6 +235,9 @@ newtype MaxPrice = MaxPrice { unMaxPrice :: Double } deriving (P.Eq, P.Show)
 -- ** MaxProtein
 newtype MaxProtein = MaxProtein { unMaxProtein :: Double } deriving (P.Eq, P.Show)
 
+-- ** MaxReadyTime
+newtype MaxReadyTime = MaxReadyTime { unMaxReadyTime :: Double } deriving (P.Eq, P.Show)
+
 -- ** MaxSaturatedFat
 newtype MaxSaturatedFat = MaxSaturatedFat { unMaxSaturatedFat :: Double } deriving (P.Eq, P.Show)
 
@@ -586,7 +589,7 @@ mkInlineObject1 inlineObject1IngredientList inlineObject1Servings =
 data InlineObject2 = InlineObject2
   { inlineObject2IngredientList :: !(Text) -- ^ /Required/ "ingredientList" - The ingredient list of the recipe, one ingredient per line.
   , inlineObject2Servings :: !(Double) -- ^ /Required/ "servings" - The number of servings.
-  , inlineObject2View :: !(Maybe Text) -- ^ "view" - Either \&quot;grid\&quot; or \&quot;list\&quot; as visualization of the equipment.
+  , inlineObject2View :: !(Maybe Text) -- ^ "view" - How to visualize the equipment, either \&quot;grid\&quot; or \&quot;list\&quot;.
   , inlineObject2DefaultCss :: !(Maybe Bool) -- ^ "defaultCss" - Whether the default CSS should be added to the response.
   , inlineObject2ShowBacklink :: !(Maybe Bool) -- ^ "showBacklink" - Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
   } deriving (P.Show, P.Eq, P.Typeable)
@@ -635,12 +638,12 @@ data InlineObject3 = InlineObject3
   , inlineObject3Ingredients :: !(Text) -- ^ /Required/ "ingredients" - The ingredient list of the recipe, one ingredient per line (separate lines with \\n).
   , inlineObject3Instructions :: !(Text) -- ^ /Required/ "instructions" - The instructions to make the recipe. One step per line (separate lines with \\n).
   , inlineObject3ReadyInMinutes :: !(Double) -- ^ /Required/ "readyInMinutes" - The number of minutes it takes to get the recipe on the table.
-  , inlineObject3Servings :: !(Double) -- ^ /Required/ "servings" - The number of servings that you can make from the ingredients.
-  , inlineObject3Mask :: !(Text) -- ^ /Required/ "mask" - The mask to put over the recipe image (\&quot;ellipseMask\&quot;, \&quot;diamondMask\&quot;, \&quot;diamondMask\&quot;, \&quot;starMask\&quot;, \&quot;heartMask\&quot;, \&quot;potMask\&quot;, \&quot;fishMask\&quot;).
+  , inlineObject3Servings :: !(Double) -- ^ /Required/ "servings" - The number of servings the recipe makes.
+  , inlineObject3Mask :: !(Text) -- ^ /Required/ "mask" - The mask to put over the recipe image (\&quot;ellipseMask\&quot;, \&quot;diamondMask\&quot;, \&quot;starMask\&quot;, \&quot;heartMask\&quot;, \&quot;potMask\&quot;, \&quot;fishMask\&quot;).
   , inlineObject3BackgroundImage :: !(Text) -- ^ /Required/ "backgroundImage" - The background image (\&quot;none\&quot;,\&quot;background1\&quot;, or \&quot;background2\&quot;).
   , inlineObject3Author :: !(Maybe Text) -- ^ "author" - The author of the recipe.
-  , inlineObject3BackgroundColor :: !(Maybe Text) -- ^ "backgroundColor" - The background color on the recipe card as a hex-string.
-  , inlineObject3FontColor :: !(Maybe Text) -- ^ "fontColor" - The font color on the recipe card as a hex-string.
+  , inlineObject3BackgroundColor :: !(Maybe Text) -- ^ "backgroundColor" - The background color for the recipe card as a hex-string.
+  , inlineObject3FontColor :: !(Maybe Text) -- ^ "fontColor" - The font color for the recipe card as a hex-string.
   , inlineObject3Source :: !(Maybe Text) -- ^ "source" - The source of the recipe.
   } deriving (P.Show, P.Eq, P.Typeable)
 
@@ -687,8 +690,8 @@ mkInlineObject3
   -> Text -- ^ 'inlineObject3Ingredients': The ingredient list of the recipe, one ingredient per line (separate lines with \\n).
   -> Text -- ^ 'inlineObject3Instructions': The instructions to make the recipe. One step per line (separate lines with \\n).
   -> Double -- ^ 'inlineObject3ReadyInMinutes': The number of minutes it takes to get the recipe on the table.
-  -> Double -- ^ 'inlineObject3Servings': The number of servings that you can make from the ingredients.
-  -> Text -- ^ 'inlineObject3Mask': The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\").
+  -> Double -- ^ 'inlineObject3Servings': The number of servings the recipe makes.
+  -> Text -- ^ 'inlineObject3Mask': The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\").
   -> Text -- ^ 'inlineObject3BackgroundImage': The background image (\"none\",\"background1\", or \"background2\").
   -> InlineObject3
 mkInlineObject3 inlineObject3Title inlineObject3Image inlineObject3Ingredients inlineObject3Instructions inlineObject3ReadyInMinutes inlineObject3Servings inlineObject3Mask inlineObject3BackgroundImage =
@@ -710,7 +713,7 @@ mkInlineObject3 inlineObject3Title inlineObject3Image inlineObject3Ingredients i
 -- ** InlineObject4
 -- | InlineObject4
 data InlineObject4 = InlineObject4
-  { inlineObject4Instructions :: !(Text) -- ^ /Required/ "instructions" - The instructions text.
+  { inlineObject4Instructions :: !(Text) -- ^ /Required/ "instructions" - The instructions to be analyzed.
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON InlineObject4
@@ -729,7 +732,7 @@ instance A.ToJSON InlineObject4 where
 
 -- | Construct a value of type 'InlineObject4' (by applying it's required fields, if any)
 mkInlineObject4
-  :: Text -- ^ 'inlineObject4Instructions': The instructions text.
+  :: Text -- ^ 'inlineObject4Instructions': The instructions to be analyzed.
   -> InlineObject4
 mkInlineObject4 inlineObject4Instructions =
   InlineObject4
@@ -813,8 +816,8 @@ mkInlineObject6 inlineObject6IngredientList inlineObject6Servings =
 data InlineObject7 = InlineObject7
   { inlineObject7IngredientList :: !(Text) -- ^ /Required/ "ingredientList" - The ingredient list of the recipe, one ingredient per line.
   , inlineObject7Servings :: !(Double) -- ^ /Required/ "servings" - The number of servings.
-  , inlineObject7Measure :: !(Maybe Text) -- ^ "measure" - The initial measure, either \&quot;metric\&quot; or \&quot;us\&quot;.
-  , inlineObject7View :: !(Maybe Text) -- ^ "view" - Either \&quot;grid\&quot; or \&quot;list\&quot; as visualization of the equipment.
+  , inlineObject7Measure :: !(Maybe Text) -- ^ "measure" - The original system of measurement, either \&quot;metric\&quot; or \&quot;us\&quot;.
+  , inlineObject7View :: !(Maybe Text) -- ^ "view" - How to visualize the ingredients, either \&quot;grid\&quot; or \&quot;list\&quot;.
   , inlineObject7DefaultCss :: !(Maybe Bool) -- ^ "defaultCss" - Whether the default CSS should be added to the response.
   , inlineObject7ShowBacklink :: !(Maybe Bool) -- ^ "showBacklink" - Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
   } deriving (P.Show, P.Eq, P.Typeable)
@@ -861,7 +864,7 @@ mkInlineObject7 inlineObject7IngredientList inlineObject7Servings =
 -- ** InlineObject8
 -- | InlineObject8
 data InlineObject8 = InlineObject8
-  { inlineObject8Locale :: !(Maybe Text) -- ^ "locale" - The locale of the returned category, supported is en_US and en_GB.
+  { inlineObject8Locale :: !(Maybe Text) -- ^ "locale" - The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON InlineObject8
@@ -889,7 +892,7 @@ mkInlineObject8 =
 -- ** InlineObject9
 -- | InlineObject9
 data InlineObject9 = InlineObject9
-  { inlineObject9Text :: !(Text) -- ^ /Required/ "text" - The text in which food items such as dish names and ingredients should be detected in.
+  { inlineObject9Text :: !(Text) -- ^ /Required/ "text" - The text in which food items, such as dish names and ingredients, should be detected in.
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON InlineObject9
@@ -908,7 +911,7 @@ instance A.ToJSON InlineObject9 where
 
 -- | Construct a value of type 'InlineObject9' (by applying it's required fields, if any)
 mkInlineObject9
-  :: Text -- ^ 'inlineObject9Text': The text in which food items such as dish names and ingredients should be detected in.
+  :: Text -- ^ 'inlineObject9Text': The text in which food items, such as dish names and ingredients, should be detected in.
   -> InlineObject9
 mkInlineObject9 inlineObject9Text =
   InlineObject9

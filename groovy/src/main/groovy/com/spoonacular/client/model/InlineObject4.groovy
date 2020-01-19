@@ -6,6 +6,6 @@ import io.swagger.annotations.ApiModelProperty;
 
 @Canonical
 class InlineObject4 {
-    /* The instructions text. */
+    /* The instructions to be analyzed. */
     String instructions
 }

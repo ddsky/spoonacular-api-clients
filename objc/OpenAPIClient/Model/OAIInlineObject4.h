@@ -22,7 +22,7 @@
 
 @interface OAIInlineObject4 : OAIObject
 
-/* The instructions text. 
+/* The instructions to be analyzed. 
  */
 @property(nonatomic) NSString* instructions;
 

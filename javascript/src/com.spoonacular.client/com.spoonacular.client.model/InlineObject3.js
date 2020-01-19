@@ -27,8 +27,8 @@ class InlineObject3 {
      * @param ingredients {String} The ingredient list of the recipe, one ingredient per line (separate lines with \\n).
      * @param instructions {String} The instructions to make the recipe. One step per line (separate lines with \\n).
      * @param readyInMinutes {Number} The number of minutes it takes to get the recipe on the table.
-     * @param servings {Number} The number of servings that you can make from the ingredients.
-     * @param mask {String} The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\").
+     * @param servings {Number} The number of servings the recipe makes.
+     * @param mask {String} The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\").
      * @param backgroundImage {String} The background image (\"none\",\"background1\", or \"background2\").
      */
     constructor(title, image, ingredients, instructions, readyInMinutes, servings, mask, backgroundImage) { 
@@ -137,13 +137,13 @@ InlineObject3.prototype['instructions'] = undefined;
 InlineObject3.prototype['readyInMinutes'] = undefined;
 
 /**
- * The number of servings that you can make from the ingredients.
+ * The number of servings the recipe makes.
  * @member {Number} servings
  */
 InlineObject3.prototype['servings'] = undefined;
 
 /**
- * The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\").
+ * The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\").
  * @member {String} mask
  */
 InlineObject3.prototype['mask'] = undefined;
@@ -161,13 +161,13 @@ InlineObject3.prototype['backgroundImage'] = undefined;
 InlineObject3.prototype['author'] = undefined;
 
 /**
- * The background color on the recipe card as a hex-string.
+ * The background color for the recipe card as a hex-string.
  * @member {String} backgroundColor
  */
 InlineObject3.prototype['backgroundColor'] = undefined;
 
 /**
- * The font color on the recipe card as a hex-string.
+ * The font color for the recipe card as a hex-string.
  * @member {String} fontColor
  */
 InlineObject3.prototype['fontColor'] = undefined;

@@ -125,7 +125,7 @@ class InlineObject7(object):
     def measure(self):
         """Gets the measure of this InlineObject7.  # noqa: E501
 
-        The initial measure, either \"metric\" or \"us\".  # noqa: E501
+        The original system of measurement, either \"metric\" or \"us\".  # noqa: E501
 
         :return: The measure of this InlineObject7.  # noqa: E501
         :rtype: str
@@ -136,7 +136,7 @@ class InlineObject7(object):
     def measure(self, measure):
         """Sets the measure of this InlineObject7.
 
-        The initial measure, either \"metric\" or \"us\".  # noqa: E501
+        The original system of measurement, either \"metric\" or \"us\".  # noqa: E501
 
         :param measure: The measure of this InlineObject7.  # noqa: E501
         :type: str
@@ -148,7 +148,7 @@ class InlineObject7(object):
     def view(self):
         """Gets the view of this InlineObject7.  # noqa: E501
 
-        Either \"grid\" or \"list\" as visualization of the equipment.  # noqa: E501
+        How to visualize the ingredients, either \"grid\" or \"list\".  # noqa: E501
 
         :return: The view of this InlineObject7.  # noqa: E501
         :rtype: str
@@ -159,7 +159,7 @@ class InlineObject7(object):
     def view(self, view):
         """Sets the view of this InlineObject7.
 
-        Either \"grid\" or \"list\" as visualization of the equipment.  # noqa: E501
+        How to visualize the ingredients, either \"grid\" or \"list\".  # noqa: E501
 
         :param view: The view of this InlineObject7.  # noqa: E501
         :type: str

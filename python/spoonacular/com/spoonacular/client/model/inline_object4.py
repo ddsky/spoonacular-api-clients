@@ -51,7 +51,7 @@ class InlineObject4(object):
     def instructions(self):
         """Gets the instructions of this InlineObject4.  # noqa: E501
 
-        The instructions text.  # noqa: E501
+        The instructions to be analyzed.  # noqa: E501
 
         :return: The instructions of this InlineObject4.  # noqa: E501
         :rtype: str
@@ -62,7 +62,7 @@ class InlineObject4(object):
     def instructions(self, instructions):
         """Sets the instructions of this InlineObject4.
 
-        The instructions text.  # noqa: E501
+        The instructions to be analyzed.  # noqa: E501
 
         :param instructions: The instructions of this InlineObject4.  # noqa: E501
         :type: str
