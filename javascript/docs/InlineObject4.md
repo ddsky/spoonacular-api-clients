@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**instructions** | **String** | The instructions text. | 
+**instructions** | **String** | The instructions to be analyzed. | 
 
 

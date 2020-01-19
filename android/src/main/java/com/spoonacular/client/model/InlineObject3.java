@@ -91,9 +91,9 @@ public class InlineObject3  {
   }
 
   /**
-   * The number of servings that you can make from the ingredients.
+   * The number of servings the recipe makes.
    **/
-  @ApiModelProperty(required = true, value = "The number of servings that you can make from the ingredients.")
+  @ApiModelProperty(required = true, value = "The number of servings the recipe makes.")
   public BigDecimal getServings() {
     return servings;
   }
@@ -102,9 +102,9 @@ public class InlineObject3  {
   }
 
   /**
-   * The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\").
+   * The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\").
    **/
-  @ApiModelProperty(required = true, value = "The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\").")
+  @ApiModelProperty(required = true, value = "The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\").")
   public String getMask() {
     return mask;
   }
@@ -135,9 +135,9 @@ public class InlineObject3  {
   }
 
   /**
-   * The background color on the recipe card as a hex-string.
+   * The background color for the recipe card as a hex-string.
    **/
-  @ApiModelProperty(value = "The background color on the recipe card as a hex-string.")
+  @ApiModelProperty(value = "The background color for the recipe card as a hex-string.")
   public String getBackgroundColor() {
     return backgroundColor;
   }
@@ -146,9 +146,9 @@ public class InlineObject3  {
   }
 
   /**
-   * The font color on the recipe card as a hex-string.
+   * The font color for the recipe card as a hex-string.
    **/
-  @ApiModelProperty(value = "The font color on the recipe card as a hex-string.")
+  @ApiModelProperty(value = "The font color for the recipe card as a hex-string.")
   public String getFontColor() {
     return fontColor;
   }

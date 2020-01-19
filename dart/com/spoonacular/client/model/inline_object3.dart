@@ -11,17 +11,17 @@ class InlineObject3 {
   String instructions = null;
   /* The number of minutes it takes to get the recipe on the table. */
   num readyInMinutes = null;
-  /* The number of servings that you can make from the ingredients. */
+  /* The number of servings the recipe makes. */
   num servings = null;
-  /* The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\"). */
+  /* The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\"). */
   String mask = null;
   /* The background image (\"none\",\"background1\", or \"background2\"). */
   String backgroundImage = null;
   /* The author of the recipe. */
   String author = null;
-  /* The background color on the recipe card as a hex-string. */
+  /* The background color for the recipe card as a hex-string. */
   String backgroundColor = null;
-  /* The font color on the recipe card as a hex-string. */
+  /* The font color for the recipe card as a hex-string. */
   String fontColor = null;
   /* The source of the recipe. */
   String source = null;

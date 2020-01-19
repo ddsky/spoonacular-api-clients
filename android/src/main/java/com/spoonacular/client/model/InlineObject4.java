@@ -12,9 +12,9 @@ public class InlineObject4  {
   private String instructions = null;
 
   /**
-   * The instructions text.
+   * The instructions to be analyzed.
    **/
-  @ApiModelProperty(required = true, value = "The instructions text.")
+  @ApiModelProperty(required = true, value = "The instructions to be analyzed.")
   public String getInstructions() {
     return instructions;
   }

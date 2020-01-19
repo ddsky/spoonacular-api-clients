@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * InlineObject4
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-07-01T21:17:29.289+02:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-01-19T16:36:49.460+01:00[Europe/Berlin]")
 public class InlineObject4 {
   public static final String SERIALIZED_NAME_INSTRUCTIONS = "instructions";
   @SerializedName(SERIALIZED_NAME_INSTRUCTIONS)
@@ -39,10 +39,10 @@ public class InlineObject4 {
   }
 
    /**
-   * The instructions text.
+   * The instructions to be analyzed.
    * @return instructions
   **/
-  @ApiModelProperty(example = "Put the garlic in a pan and then add the onion.", required = true, value = "The instructions text.")
+  @ApiModelProperty(example = "Put the garlic in a pan and then add the onion.", required = true, value = "The instructions to be analyzed.")
   public String getInstructions() {
     return instructions;
   }

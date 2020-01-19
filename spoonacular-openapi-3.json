@@ -153,7 +153,7 @@
           },
           {
             "name": "diet",
-            "description": "The diet to which the recipes must be compliant. See a full list of supported diets.",
+            "description": "The diet for which the recipes must be suitable. See a full list of supported diets.",
             "schema": {
               "type": "string",
               "example": "vegetarian"
@@ -165,7 +165,7 @@
           },
           {
             "name": "excludeIngredients",
-            "description": "An comma-separated list of ingredients or ingredient types that must not be contained in the recipes.",
+            "description": "A comma-separated list of ingredients or ingredient types that the recipes must not contain.",
             "schema": {
               "type": "string",
               "example": "eggs"
@@ -177,7 +177,7 @@
           },
           {
             "name": "intolerances",
-            "description": "A comma-separated list of intolerances. All found recipes must not have ingredients that could cause problems for people with one of the given tolerances. See a full list of supported intolerances.",
+            "description": "A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. Please note: due to the automatic nature of the recipe analysis, the API cannot be 100% accurate in all cases. Please advise your users to seek professional help with medical issues.",
             "schema": {
               "type": "string",
               "example": "gluten"
@@ -213,7 +213,7 @@
           },
           {
             "name": "limitLicense",
-            "description": "Whether the recipes should have an open license that allows for displaying with proper attribution.",
+            "description": "Whether the recipes should have an open license that allows display with proper attribution.",
             "schema": {
               "type": "boolean",
               "example": true
@@ -285,7 +285,7 @@
           },
           {
             "name": "number",
-            "description": "The maximal number of recipes to return (between 1 and 100). Defaults to 10.",
+            "description": "The maximum number of recipes to return (between 1 and 100). Defaults to 10.",
             "schema": {
               "type": "number",
               "example": 10
@@ -297,7 +297,7 @@
           },
           {
             "name": "limitLicense",
-            "description": "Whether the recipes should have an open license that allows for displaying with proper attribution.",
+            "description": "Whether the recipes should have an open license that allows display with proper attribution.",
             "schema": {
               "type": "boolean",
               "example": true
@@ -321,7 +321,7 @@
           },
           {
             "name": "ignorePantry",
-            "description": "Whether to ignore pantry ingredients such as water, salt, flour etc.",
+            "description": "Whether to ignore typical pantry items, such as water, salt, flour, etc.",
             "schema": {
               "type": "boolean",
               "example": true
@@ -337,7 +337,7 @@
           "url": "https://spoonacular.com/food-api/docs#Search-Recipes-by-Ingredients"
         },
         "summary": "Search Recipes by Ingredients",
-        "description": "Find recipes that use as many of the given ingredients as possible and have as little as possible missing ingredients. This is a \"what's in your fridge\" API endpoint.",
+        "description": "Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don't currently have (post shopping).",
         "operationId": "searchRecipesByIngredients",
         "deprecated": false
       }
@@ -369,7 +369,7 @@
         "parameters": [
           {
             "name": "minCarbs",
-            "description": "The minimum number of carbohydrates in grams the recipe must have.",
+            "description": "The minimum amount of carbohydrates in grams the recipe must have.",
             "schema": {
               "type": "number",
               "example": 10
@@ -381,7 +381,7 @@
           },
           {
             "name": "maxCarbs",
-            "description": "The maximum number of carbohydrates in grams the recipe can have.",
+            "description": "The maximum amount of carbohydrates in grams the recipe can have.",
             "schema": {
               "type": "number",
               "example": 100
@@ -393,7 +393,7 @@
           },
           {
             "name": "minProtein",
-            "description": "The minimum number of protein in grams the recipe must have.",
+            "description": "The minimum amount of protein in grams the recipe must have.",
             "schema": {
               "type": "number",
               "example": 10
@@ -405,7 +405,7 @@
           },
           {
             "name": "maxProtein",
-            "description": "The maximum number of protein in grams the recipe can have.",
+            "description": "The maximum amount of protein in grams the recipe can have.",
             "schema": {
               "type": "number",
               "example": 100
@@ -417,7 +417,7 @@
           },
           {
             "name": "minCalories",
-            "description": "The minimum number of calories the recipe must have.",
+            "description": "The minimum amount of calories the recipe must have.",
             "schema": {
               "type": "number",
               "example": 50
@@ -429,7 +429,7 @@
           },
           {
             "name": "maxCalories",
-            "description": "The maximum number of calories the recipe can have.",
+            "description": "The maximum amount of calories the recipe can have.",
             "schema": {
               "type": "number",
               "example": 800
@@ -441,7 +441,7 @@
           },
           {
             "name": "minFat",
-            "description": "The minimum number of fat in grams the recipe must have.",
+            "description": "The minimum amount of fat in grams the recipe must have.",
             "schema": {
               "type": "number",
               "example": 1
@@ -453,7 +453,7 @@
           },
           {
             "name": "maxFat",
-            "description": "The maximum number of fat in grams the recipe can have.",
+            "description": "The maximum amount of fat in grams the recipe can have.",
             "schema": {
               "type": "number",
               "example": 100
@@ -465,7 +465,7 @@
           },
           {
             "name": "minAlcohol",
-            "description": "The minimum number of alcohol in grams the recipe must have.",
+            "description": "The minimum amount of alcohol in grams the recipe must have.",
             "schema": {
               "type": "number",
               "example": 0
@@ -477,7 +477,7 @@
           },
           {
             "name": "maxAlcohol",
-            "description": "The maximum number of alcohol in grams the recipe must have.",
+            "description": "The maximum amount of alcohol in grams the recipe can have.",
             "schema": {
               "type": "number",
               "example": 100
@@ -489,7 +489,7 @@
           },
           {
             "name": "minCaffeine",
-            "description": "The minimum number of milligrams of caffeine the recipe must have.",
+            "description": "The minimum amount of caffeine in milligrams the recipe must have.",
             "schema": {
               "type": "number",
               "example": 0
@@ -501,7 +501,7 @@
           },
           {
             "name": "maxCaffeine",
-            "description": "The maximum number of alcohol in grams the recipe must have.",
+            "description": "The maximum amount of caffeine in milligrams the recipe can have.",
             "schema": {
               "type": "number",
               "example": 100
@@ -513,7 +513,7 @@
           },
           {
             "name": "minCopper",
-            "description": "The minimum number of copper in milligrams the recipe must have.",
+            "description": "The minimum amount of copper in milligrams the recipe must have.",
             "schema": {
               "type": "number",
               "example": 0
@@ -525,7 +525,7 @@
           },
           {
             "name": "maxCopper",
-            "description": "The maximum number of copper in milligrams the recipe must have.",
+            "description": "The maximum amount of copper in milligrams the recipe can have.",
             "schema": {
               "type": "number",
               "example": 100
@@ -537,7 +537,7 @@
           },
           {
             "name": "minCalcium",
-            "description": "The minimum number of calcium in milligrams the recipe must have.",
+            "description": "The minimum amount of calcium in milligrams the recipe must have.",
             "schema": {
               "type": "number",
               "example": 0
@@ -549,7 +549,7 @@
           },
           {
             "name": "maxCalcium",
-            "description": "The maximum number of calcium in milligrams the recipe must have.",
+            "description": "The maximum amount of calcium in milligrams the recipe can have.",
             "schema": {
               "type": "number",
               "example": 100
@@ -561,7 +561,7 @@
           },
           {
             "name": "minCholine",
-            "description": "The minimum number of choline in milligrams the recipe must have.",
+            "description": "The minimum amount of choline in milligrams the recipe must have.",
             "schema": {
               "type": "number",
               "example": 0
@@ -573,7 +573,7 @@
           },
           {
             "name": "maxCholine",
-            "description": "The maximum number of choline in milligrams the recipe can have.",
+            "description": "The maximum amount of choline in milligrams the recipe can have.",
             "schema": {
               "type": "number",
               "example": 100
@@ -585,7 +585,7 @@
           },
           {
             "name": "minCholesterol",
-            "description": "The minimum number of cholesterol in milligrams the recipe must have.",
+            "description": "The minimum amount of cholesterol in milligrams the recipe must have.",
             "schema": {
               "type": "number",
               "example": 0
@@ -597,7 +597,7 @@
           },
           {
             "name": "maxCholesterol",
-            "description": "The maximum number of cholesterol in milligrams the recipe must have.",
+            "description": "The maximum amount of cholesterol in milligrams the recipe can have.",
             "schema": {
               "type": "number",
               "example": 100
@@ -609,7 +609,7 @@
           },
           {
             "name": "minFluoride",
-            "description": "The minimum number of fluoride in milligrams the recipe must have.",
+            "description": "The minimum amount of fluoride in milligrams the recipe must have.",
             "schema": {
               "type": "number",
               "example": 0
@@ -621,7 +621,7 @@
           },
           {
             "name": "maxFluoride",
-            "description": "The maximum number of fluoride in milligrams the recipe can have.",
+            "description": "The maximum amount of fluoride in milligrams the recipe can have.",
             "schema": {
               "type": "number",
               "example": 100
@@ -633,7 +633,7 @@
           },
           {
             "name": "minSaturatedFat",
-            "description": "The minimum number of saturated fat in grams the recipe must have.",
+            "description": "The minimum amount of saturated fat in grams the recipe must have.",
             "schema": {
               "type": "number",
               "example": 0
@@ -645,7 +645,7 @@
           },
           {
             "name": "maxSaturatedFat",
-            "description": "The maximum number of saturated fat in grams the recipe must have.",
+            "description": "The maximum amount of saturated fat in grams the recipe can have.",
             "schema": {
               "type": "number",
               "example": 100
@@ -657,7 +657,7 @@
           },
           {
             "name": "minVitaminA",
-            "description": "The minimum number of Vitamin A in IU the recipe must have.",
+            "description": "The minimum amount of Vitamin A in IU the recipe must have.",
             "schema": {
               "type": "number",
               "example": 0
@@ -669,7 +669,7 @@
           },
           {
             "name": "maxVitaminA",
-            "description": "The maximum number of Vitamin A in IU the recipe must have.",
+            "description": "The maximum amount of Vitamin A in IU the recipe can have.",
             "schema": {
               "type": "number",
               "example": 100
@@ -681,7 +681,7 @@
           },
           {
             "name": "minVitaminC",
-            "description": "The minimum number of Vitamin C milligrams the recipe must have.",
+            "description": "The minimum amount of Vitamin C in milligrams the recipe must have.",
             "schema": {
               "type": "number",
               "example": 0
@@ -693,7 +693,7 @@
           },
           {
             "name": "maxVitaminC",
-            "description": "The maximum number of Vitamin C in milligrams the recipe can have.",
+            "description": "The maximum amount of Vitamin C in milligrams the recipe can have.",
             "schema": {
               "type": "number",
               "example": 100
@@ -705,7 +705,7 @@
           },
           {
             "name": "minVitaminD",
-            "description": "The minimum number of Vitamin D in micrograms the recipe must have.",
+            "description": "The minimum amount of Vitamin D in micrograms the recipe must have.",
             "schema": {
               "type": "number",
               "example": 0
@@ -717,7 +717,7 @@
           },
           {
             "name": "maxVitaminD",
-            "description": "The maximum number of Vitamin D in micrograms the recipe must have.",
+            "description": "The maximum amount of Vitamin D in micrograms the recipe can have.",
             "schema": {
               "type": "number",
               "example": 100
@@ -729,7 +729,7 @@
           },
           {
             "name": "minVitaminE",
-            "description": "The minimum number of Vitamin E in milligrams the recipe must have.",
+            "description": "The minimum amount of Vitamin E in milligrams the recipe must have.",
             "schema": {
               "type": "number",
               "example": 0
@@ -741,7 +741,7 @@
           },
           {
             "name": "maxVitaminE",
-            "description": "The maximum number of Vitamin E in milligrams the recipe must have.",
+            "description": "The maximum amount of Vitamin E in milligrams the recipe can have.",
             "schema": {
               "type": "number",
               "example": 100
@@ -753,7 +753,7 @@
           },
           {
             "name": "minVitaminK",
-            "description": "The minimum number of Vitamin K in micrograms the recipe must have.",
+            "description": "The minimum amount of Vitamin K in micrograms the recipe must have.",
             "schema": {
               "type": "number",
               "example": 0
@@ -765,7 +765,7 @@
           },
           {
             "name": "maxVitaminK",
-            "description": "The maximum number of Vitamin K in micrograms the recipe must have.",
+            "description": "The maximum amount of Vitamin K in micrograms the recipe can have.",
             "schema": {
               "type": "number",
               "example": 100
@@ -777,7 +777,7 @@
           },
           {
             "name": "minVitaminB1",
-            "description": "The minimum number of Vitamin B1 in milligrams the recipe must have.",
+            "description": "The minimum amount of Vitamin B1 in milligrams the recipe must have.",
             "schema": {
               "type": "number",
               "example": 0
@@ -789,7 +789,7 @@
           },
           {
             "name": "maxVitaminB1",
-            "description": "The maximum number of Vitamin B1 in milligrams the recipe must have.",
+            "description": "The maximum amount of Vitamin B1 in milligrams the recipe can have.",
             "schema": {
               "type": "number",
               "example": 100
@@ -801,7 +801,7 @@
           },
           {
             "name": "minVitaminB2",
-            "description": "The minimum number of Vitamin B2 in milligrams the recipe must have.",
+            "description": "The minimum amount of Vitamin B2 in milligrams the recipe must have.",
             "schema": {
               "type": "number",
               "example": 0
@@ -813,7 +813,7 @@
           },
           {
             "name": "maxVitaminB2",
-            "description": "The maximum number of Vitamin B2 in milligrams the recipe must have.",
+            "description": "The maximum amount of Vitamin B2 in milligrams the recipe can have.",
             "schema": {
               "type": "number",
               "example": 100
@@ -825,7 +825,7 @@
           },
           {
             "name": "minVitaminB5",
-            "description": "The minimum number of Vitamin B5 in milligrams the recipe must have.",
+            "description": "The minimum amount of Vitamin B5 in milligrams the recipe must have.",
             "schema": {
               "type": "number",
               "example": 0
@@ -837,7 +837,7 @@
           },
           {
             "name": "maxVitaminB5",
-            "description": "The maximum number of Vitamin B5 in milligrams the recipe can have.",
+            "description": "The maximum amount of Vitamin B5 in milligrams the recipe can have.",
             "schema": {
               "type": "number",
               "example": 100
@@ -849,7 +849,7 @@
           },
           {
             "name": "minVitaminB3",
-            "description": "The minimum number of Vitamin B3 in milligrams the recipe must have.",
+            "description": "The minimum amount of Vitamin B3 in milligrams the recipe must have.",
             "schema": {
               "type": "number",
               "example": 0
@@ -861,7 +861,7 @@
           },
           {
             "name": "maxVitaminB3",
-            "description": "The maximum number of Vitamin B3 in milligrams the recipe can have.",
+            "description": "The maximum amount of Vitamin B3 in milligrams the recipe can have.",
             "schema": {
               "type": "number",
               "example": 100
@@ -873,7 +873,7 @@
           },
           {
             "name": "minVitaminB6",
-            "description": "The minimum number of Vitamin B6 in milligrams the recipe must have.",
+            "description": "The minimum amount of Vitamin B6 in milligrams the recipe must have.",
             "schema": {
               "type": "number",
               "example": 0
@@ -885,7 +885,7 @@
           },
           {
             "name": "maxVitaminB6",
-            "description": "The maximum number of Vitamin B6 in milligrams the recipe can have.",
+            "description": "The maximum amount of Vitamin B6 in milligrams the recipe can have.",
             "schema": {
               "type": "number",
               "example": 100
@@ -897,7 +897,7 @@
           },
           {
             "name": "minVitaminB12",
-            "description": "The minimum number of Vitamin B12 in micrograms the recipe must have.",
+            "description": "The minimum amount of Vitamin B12 in micrograms the recipe must have.",
             "schema": {
               "type": "number",
               "example": 0
@@ -909,7 +909,7 @@
           },
           {
             "name": "maxVitaminB12",
-            "description": "The maximum number of Vitamin B12 in micrograms the recipe must have.",
+            "description": "The maximum amount of Vitamin B12 in micrograms the recipe can have.",
             "schema": {
               "type": "number",
               "example": 100
@@ -921,7 +921,7 @@
           },
           {
             "name": "minFiber",
-            "description": "The minimum number of fiber in grams the recipe must have.",
+            "description": "The minimum amount of fiber in grams the recipe must have.",
             "schema": {
               "type": "number",
               "example": 0
@@ -933,7 +933,7 @@
           },
           {
             "name": "maxFiber",
-            "description": "The maximum number of fiber in grams the recipe must have.",
+            "description": "The maximum amount of fiber in grams the recipe can have.",
             "schema": {
               "type": "number",
               "example": 100
@@ -945,7 +945,7 @@
           },
           {
             "name": "minFolate",
-            "description": "The minimum number of folate in grams the recipe must have.",
+            "description": "The minimum amount of folate in grams the recipe must have.",
             "schema": {
               "type": "number",
               "example": 0
@@ -957,7 +957,7 @@
           },
           {
             "name": "maxFolate",
-            "description": "The maximum number of folate in grams the recipe must have.",
+            "description": "The maximum amount of folate in grams the recipe can have.",
             "schema": {
               "type": "number",
               "example": 100
@@ -969,7 +969,7 @@
           },
           {
             "name": "minFolicAcid",
-            "description": "The minimum number of folic acid in grams the recipe must have.",
+            "description": "The minimum amount of folic acid in grams the recipe must have.",
             "schema": {
               "type": "number",
               "example": 0
@@ -981,7 +981,7 @@
           },
           {
             "name": "maxFolicAcid",
-            "description": "The maximum number of folic acid in grams the recipe must have.",
+            "description": "The maximum amount of folic acid in grams the recipe can have.",
             "schema": {
               "type": "number",
               "example": 100
@@ -993,7 +993,7 @@
           },
           {
             "name": "minIodine",
-            "description": "The minimum number of Iodine in grams the recipe must have.",
+            "description": "The minimum amount of iodine in grams the recipe must have.",
             "schema": {
               "type": "number",
               "example": 0
@@ -1005,7 +1005,7 @@
           },
           {
             "name": "maxIodine",
-            "description": "The maximum number of iodine in grams the recipe must have.",
+            "description": "The maximum amount of iodine in grams the recipe can have.",
             "schema": {
               "type": "number",
               "example": 100
@@ -1017,7 +1017,7 @@
           },
           {
             "name": "minIron",
-            "description": "The minimum number of iron in milligrams the recipe must have.",
+            "description": "The minimum amount of iron in milligrams the recipe must have.",
             "schema": {
               "type": "number",
               "example": 0
@@ -1029,7 +1029,7 @@
           },
           {
             "name": "maxIron",
-            "description": "The maximum number of iron in milligrams the recipe can have.",
+            "description": "The maximum amount of iron in milligrams the recipe can have.",
             "schema": {
               "type": "number",
               "example": 100
@@ -1041,7 +1041,7 @@
           },
           {
             "name": "minMagnesium",
-            "description": "The minimum number of magnesium in milligrams the recipe must have.",
+            "description": "The minimum amount of magnesium in milligrams the recipe must have.",
             "schema": {
               "type": "number",
               "example": 0
@@ -1053,7 +1053,7 @@
           },
           {
             "name": "maxMagnesium",
-            "description": "The maximum number of magnesium in milligrams the recipe can have.",
+            "description": "The maximum amount of magnesium in milligrams the recipe can have.",
             "schema": {
               "type": "number",
               "example": 100
@@ -1065,7 +1065,7 @@
           },
           {
             "name": "minManganese",
-            "description": "The minimum number of manganese in milligrams the recipe must have.",
+            "description": "The minimum amount of manganese in milligrams the recipe must have.",
             "schema": {
               "type": "number",
               "example": 0
@@ -1077,7 +1077,7 @@
           },
           {
             "name": "maxManganese",
-            "description": "The maximum number of manganese in milligrams the recipe can have.",
+            "description": "The maximum amount of manganese in milligrams the recipe can have.",
             "schema": {
               "type": "number",
               "example": 100
@@ -1089,7 +1089,7 @@
           },
           {
             "name": "minPhosphorus",
-            "description": "The minimum number of phosphorus in milligrams the recipe must have.",
+            "description": "The minimum amount of phosphorus in milligrams the recipe must have.",
             "schema": {
               "type": "number",
               "example": 0
@@ -1101,7 +1101,7 @@
           },
           {
             "name": "maxPhosphorus",
-            "description": "The maximum number of phosphorus in milligrams the recipe can have.",
+            "description": "The maximum amount of phosphorus in milligrams the recipe can have.",
             "schema": {
               "type": "number",
               "example": 100
@@ -1113,7 +1113,7 @@
           },
           {
             "name": "minPotassium",
-            "description": "The minimum number of potassium in milligrams the recipe must have.",
+            "description": "The minimum amount of potassium in milligrams the recipe must have.",
             "schema": {
               "type": "number",
               "example": 0
@@ -1125,7 +1125,7 @@
           },
           {
             "name": "maxPotassium",
-            "description": "The maximum number of potassium in milligrams the recipe can have.",
+            "description": "The maximum amount of potassium in milligrams the recipe can have.",
             "schema": {
               "type": "number",
               "example": 100
@@ -1137,7 +1137,7 @@
           },
           {
             "name": "minSelenium",
-            "description": "The minimum number of selenium in grams the recipe must have.",
+            "description": "The minimum amount of selenium in grams the recipe must have.",
             "schema": {
               "type": "number",
               "example": 0
@@ -1149,7 +1149,7 @@
           },
           {
             "name": "maxSelenium",
-            "description": "The maximum number of selenium in grams the recipe must have.",
+            "description": "The maximum amount of selenium in grams the recipe can have.",
             "schema": {
               "type": "number",
               "example": 100
@@ -1161,7 +1161,7 @@
           },
           {
             "name": "minSodium",
-            "description": "The minimum number of sodium in milligrams the recipe must have.",
+            "description": "The minimum amount of sodium in milligrams the recipe must have.",
             "schema": {
               "type": "number",
               "example": 0
@@ -1173,7 +1173,7 @@
           },
           {
             "name": "maxSodium",
-            "description": "The maximum number of sodium in milligrams the recipe must have.",
+            "description": "The maximum amount of sodium in milligrams the recipe can have.",
             "schema": {
               "type": "number",
               "example": 100
@@ -1185,7 +1185,7 @@
           },
           {
             "name": "minSugar",
-            "description": "The minimum number of sugar in grams the recipe must have.",
+            "description": "The minimum amount of sugar in grams the recipe must have.",
             "schema": {
               "type": "number",
               "example": 0
@@ -1197,7 +1197,7 @@
           },
           {
             "name": "maxSugar",
-            "description": "The maximum number of sugar in grams the recipe must have.",
+            "description": "The maximum amount of sugar in grams the recipe can have.",
             "schema": {
               "type": "number",
               "example": 100
@@ -1209,7 +1209,7 @@
           },
           {
             "name": "minZinc",
-            "description": "The minimum number of zinc in milligrams the recipe must have.",
+            "description": "The minimum amount of zinc in milligrams the recipe must have.",
             "schema": {
               "type": "number",
               "example": 0
@@ -1221,7 +1221,7 @@
           },
           {
             "name": "maxZinc",
-            "description": "The maximum number of zinc in milligrams the recipe can have.",
+            "description": "The maximum amount of zinc in milligrams the recipe can have.",
             "schema": {
               "type": "number",
               "example": 100
@@ -1269,7 +1269,7 @@
           },
           {
             "name": "limitLicense",
-            "description": "Whether the recipes should have an open license that allows for displaying with proper attribution.",
+            "description": "Whether the recipes should have an open license that allows display with proper attribution.",
             "schema": {
               "type": "boolean",
               "example": true
@@ -1285,7 +1285,7 @@
           "url": "https://spoonacular.com/food-api/docs#Search-Recipes-by-Nutrients"
         },
         "summary": "Search Recipes by Nutrients",
-        "description": "Find a set of recipes that adhere to the given nutritional limits. All the returned recipes will have macro nutrients within the calories, protein, fat, and carbohydrate limits.",
+        "description": "Find a set of recipes that adhere to the given nutritional limits. You may set limits for macronutrients (calories, protein, fat, and carbohydrate) and/or many micronutrients.",
         "operationId": "searchRecipesByNutrients",
         "deprecated": false
       }
@@ -1329,7 +1329,7 @@
           },
           {
             "name": "cuisine",
-            "description": "The cuisine(s) of the recipes. One or more comma separated (will be iterpreted as 'OR'). See a full list of supported cuisines.",
+            "description": "The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as 'OR'). See a full list of supported cuisines.",
             "schema": {
               "type": "string",
               "example": "italian"
@@ -1341,7 +1341,7 @@
           },
           {
             "name": "excludeCuisine",
-            "description": "The cuisine(s) the recipes must not match. One or more comma separated (will be iterpreted as 'AND'). See a full list of supported cuisines.",
+            "description": "The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as 'AND'). See a full list of supported cuisines.",
             "schema": {
               "type": "string",
               "example": "greek"
@@ -1353,7 +1353,7 @@
           },
           {
             "name": "diet",
-            "description": "The diet to which the recipes must be compliant. See a full list of supported diets.",
+            "description": "The diet for which the recipes must be suitable. See a full list of supported diets.",
             "schema": {
               "type": "string",
               "example": "vegetarian"
@@ -1365,7 +1365,7 @@
           },
           {
             "name": "intolerances",
-            "description": "A comma-separated list of intolerances. All found recipes must not have ingredients that could cause problems for people with one of the given tolerances. See a full list of supported intolerances.",
+            "description": "A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.",
             "schema": {
               "type": "string",
               "example": "gluten"
@@ -1389,7 +1389,7 @@
           },
           {
             "name": "includeIngredients",
-            "description": "A comma-separated list of ingredients that should/must be contained in the recipe.",
+            "description": "A comma-separated list of ingredients that should/must be used in the recipes.",
             "schema": {
               "type": "string",
               "example": "tomato,cheese"
@@ -1401,7 +1401,7 @@
           },
           {
             "name": "excludeIngredients",
-            "description": "A comma-separated list of ingredients or ingredient types that must not be contained in the recipes.",
+            "description": "A comma-separated list of ingredients or ingredient types that the recipes must not contain.",
             "schema": {
               "type": "string",
               "example": "eggs"
@@ -1413,7 +1413,7 @@
           },
           {
             "name": "type",
-            "description": "The type of the recipes. See a full list of supported meal types.",
+            "description": "The type of recipe. See a full list of supported meal types.",
             "schema": {
               "type": "string",
               "example": "main course"
@@ -1449,7 +1449,7 @@
           },
           {
             "name": "addRecipeInformation",
-            "description": "If set to true, you get more information about the recipes returned. This saves the calls to get recipe information.",
+            "description": "If set to true, you get more information about the recipes returned. This saves you from needing to call to get recipe information.",
             "schema": {
               "type": "boolean",
               "example": false
@@ -1485,10 +1485,34 @@
           },
           {
             "name": "titleMatch",
-            "description": "A text that has to match in the title of the recipes.",
+            "description": "Enter text that must be found in the title of the recipes.",
             "schema": {
               "type": "string",
               "example": "Crock Pot"
+            },
+            "required": false,
+            "style": "form",
+            "explode": false,
+            "in": "query"
+          },
+          {
+            "name": "maxReadyTime",
+            "description": "The maximum time in minutes it should take to prepare and cook the recipe.",
+            "schema": {
+              "type": "number",
+              "example": 20
+            },
+            "required": false,
+            "style": "form",
+            "explode": false,
+            "in": "query"
+          },
+          {
+            "name": "ignorePantry",
+            "description": "Whether to ignore typical pantry items, such as water, salt, flour, etc.",
+            "schema": {
+              "type": "boolean",
+              "example": true
             },
             "required": false,
             "style": "form",
@@ -1521,7 +1545,7 @@
           },
           {
             "name": "minCarbs",
-            "description": "The minimum number of carbohydrates in grams the recipe must have.",
+            "description": "The minimum amount of carbohydrates in grams the recipe must have.",
             "schema": {
               "type": "number",
               "example": 10
@@ -1533,7 +1557,7 @@
           },
           {
             "name": "maxCarbs",
-            "description": "The maximum number of carbohydrates in grams the recipe can have.",
+            "description": "The maximum amount of carbohydrates in grams the recipe can have.",
             "schema": {
               "type": "number",
               "example": 100
@@ -1545,7 +1569,7 @@
           },
           {
             "name": "minProtein",
-            "description": "The minimum number of protein in grams the recipe must have.",
+            "description": "The minimum amount of protein in grams the recipe must have.",
             "schema": {
               "type": "number",
               "example": 10
@@ -1557,7 +1581,7 @@
           },
           {
             "name": "maxProtein",
-            "description": "The maximum number of protein in grams the recipe can have.",
+            "description": "The maximum amount of protein in grams the recipe can have.",
             "schema": {
               "type": "number",
               "example": 100
@@ -1569,7 +1593,7 @@
           },
           {
             "name": "minCalories",
-            "description": "The minimum number of calories the recipe must have.",
+            "description": "The minimum amount of calories the recipe must have.",
             "schema": {
               "type": "number",
               "example": 50
@@ -1581,7 +1605,7 @@
           },
           {
             "name": "maxCalories",
-            "description": "The maximum number of calories the recipe can have.",
+            "description": "The maximum amount of calories the recipe can have.",
             "schema": {
               "type": "number",
               "example": 800
@@ -1593,7 +1617,7 @@
           },
           {
             "name": "minFat",
-            "description": "The minimum number of fat in grams the recipe must have.",
+            "description": "The minimum amount of fat in grams the recipe must have.",
             "schema": {
               "type": "number",
               "example": 1
@@ -1605,7 +1629,7 @@
           },
           {
             "name": "maxFat",
-            "description": "The maximum number of fat in grams the recipe can have.",
+            "description": "The maximum amount of fat in grams the recipe can have.",
             "schema": {
               "type": "number",
               "example": 100
@@ -1617,7 +1641,7 @@
           },
           {
             "name": "minAlcohol",
-            "description": "The minimum number of alcohol in grams the recipe must have.",
+            "description": "The minimum amount of alcohol in grams the recipe must have.",
             "schema": {
               "type": "number",
               "example": 0
@@ -1629,7 +1653,7 @@
           },
           {
             "name": "maxAlcohol",
-            "description": "The maximum number of alcohol in grams the recipe must have.",
+            "description": "The maximum amount of alcohol in grams the recipe can have.",
             "schema": {
               "type": "number",
               "example": 100
@@ -1641,7 +1665,7 @@
           },
           {
             "name": "minCaffeine",
-            "description": "The minimum number of milligrams of caffeine the recipe must have.",
+            "description": "The minimum amount of caffeine in milligrams the recipe must have.",
             "schema": {
               "type": "number",
               "example": 0
@@ -1653,7 +1677,7 @@
           },
           {
             "name": "maxCaffeine",
-            "description": "The maximum number of alcohol in grams the recipe must have.",
+            "description": "The maximum amount of caffeine in milligrams the recipe can have.",
             "schema": {
               "type": "number",
               "example": 100
@@ -1665,7 +1689,7 @@
           },
           {
             "name": "minCopper",
-            "description": "The minimum number of copper in milligrams the recipe must have.",
+            "description": "The minimum amount of copper in milligrams the recipe must have.",
             "schema": {
               "type": "number",
               "example": 0
@@ -1677,7 +1701,7 @@
           },
           {
             "name": "maxCopper",
-            "description": "The maximum number of copper in milligrams the recipe must have.",
+            "description": "The maximum amount of copper in milligrams the recipe can have.",
             "schema": {
               "type": "number",
               "example": 100
@@ -1689,7 +1713,7 @@
           },
           {
             "name": "minCalcium",
-            "description": "The minimum number of calcium in milligrams the recipe must have.",
+            "description": "The minimum amount of calcium in milligrams the recipe must have.",
             "schema": {
               "type": "number",
               "example": 0
@@ -1701,7 +1725,7 @@
           },
           {
             "name": "maxCalcium",
-            "description": "The maximum number of calcium in milligrams the recipe must have.",
+            "description": "The maximum amount of calcium in milligrams the recipe can have.",
             "schema": {
               "type": "number",
               "example": 100
@@ -1713,7 +1737,7 @@
           },
           {
             "name": "minCholine",
-            "description": "The minimum number of choline in milligrams the recipe must have.",
+            "description": "The minimum amount of choline in milligrams the recipe must have.",
             "schema": {
               "type": "number",
               "example": 0
@@ -1725,7 +1749,7 @@
           },
           {
             "name": "maxCholine",
-            "description": "The maximum number of choline in milligrams the recipe can have.",
+            "description": "The maximum amount of choline in milligrams the recipe can have.",
             "schema": {
               "type": "number",
               "example": 100
@@ -1737,7 +1761,7 @@
           },
           {
             "name": "minCholesterol",
-            "description": "The minimum number of cholesterol in milligrams the recipe must have.",
+            "description": "The minimum amount of cholesterol in milligrams the recipe must have.",
             "schema": {
               "type": "number",
               "example": 0
@@ -1749,7 +1773,7 @@
           },
           {
             "name": "maxCholesterol",
-            "description": "The maximum number of cholesterol in milligrams the recipe must have.",
+            "description": "The maximum amount of cholesterol in milligrams the recipe can have.",
             "schema": {
               "type": "number",
               "example": 100
@@ -1761,7 +1785,7 @@
           },
           {
             "name": "minFluoride",
-            "description": "The minimum number of fluoride in milligrams the recipe must have.",
+            "description": "The minimum amount of fluoride in milligrams the recipe must have.",
             "schema": {
               "type": "number",
               "example": 0
@@ -1773,7 +1797,7 @@
           },
           {
             "name": "maxFluoride",
-            "description": "The maximum number of fluoride in milligrams the recipe can have.",
+            "description": "The maximum amount of fluoride in milligrams the recipe can have.",
             "schema": {
               "type": "number",
               "example": 100
@@ -1785,7 +1809,7 @@
           },
           {
             "name": "minSaturatedFat",
-            "description": "The minimum number of saturated fat in grams the recipe must have.",
+            "description": "The minimum amount of saturated fat in grams the recipe must have.",
             "schema": {
               "type": "number",
               "example": 0
@@ -1797,7 +1821,7 @@
           },
           {
             "name": "maxSaturatedFat",
-            "description": "The maximum number of saturated fat in grams the recipe must have.",
+            "description": "The maximum amount of saturated fat in grams the recipe can have.",
             "schema": {
               "type": "number",
               "example": 100
@@ -1809,7 +1833,7 @@
           },
           {
             "name": "minVitaminA",
-            "description": "The minimum number of Vitamin A in IU the recipe must have.",
+            "description": "The minimum amount of Vitamin A in IU the recipe must have.",
             "schema": {
               "type": "number",
               "example": 0
@@ -1821,7 +1845,7 @@
           },
           {
             "name": "maxVitaminA",
-            "description": "The maximum number of Vitamin A in IU the recipe must have.",
+            "description": "The maximum amount of Vitamin A in IU the recipe can have.",
             "schema": {
               "type": "number",
               "example": 100
@@ -1833,7 +1857,7 @@
           },
           {
             "name": "minVitaminC",
-            "description": "The minimum number of Vitamin C milligrams the recipe must have.",
+            "description": "The minimum amount of Vitamin C milligrams the recipe must have.",
             "schema": {
               "type": "number",
               "example": 0
@@ -1845,7 +1869,7 @@
           },
           {
             "name": "maxVitaminC",
-            "description": "The maximum number of Vitamin C in milligrams the recipe can have.",
+            "description": "The maximum amount of Vitamin C in milligrams the recipe can have.",
             "schema": {
               "type": "number",
               "example": 100
@@ -1857,7 +1881,7 @@
           },
           {
             "name": "minVitaminD",
-            "description": "The minimum number of Vitamin D in micrograms the recipe must have.",
+            "description": "The minimum amount of Vitamin D in micrograms the recipe must have.",
             "schema": {
               "type": "number",
               "example": 0
@@ -1869,7 +1893,7 @@
           },
           {
             "name": "maxVitaminD",
-            "description": "The maximum number of Vitamin D in micrograms the recipe must have.",
+            "description": "The maximum amount of Vitamin D in micrograms the recipe can have.",
             "schema": {
               "type": "number",
               "example": 100
@@ -1881,7 +1905,7 @@
           },
           {
             "name": "minVitaminE",
-            "description": "The minimum number of Vitamin E in milligrams the recipe must have.",
+            "description": "The minimum amount of Vitamin E in milligrams the recipe must have.",
             "schema": {
               "type": "number",
               "example": 0
@@ -1893,7 +1917,7 @@
           },
           {
             "name": "maxVitaminE",
-            "description": "The maximum number of Vitamin E in milligrams the recipe must have.",
+            "description": "The maximum amount of Vitamin E in milligrams the recipe can have.",
             "schema": {
               "type": "number",
               "example": 100
@@ -1905,7 +1929,7 @@
           },
           {
             "name": "minVitaminK",
-            "description": "The minimum number of Vitamin K in micrograms the recipe must have.",
+            "description": "The minimum amount of Vitamin K in micrograms the recipe must have.",
             "schema": {
               "type": "number",
               "example": 0
@@ -1917,7 +1941,7 @@
           },
           {
             "name": "maxVitaminK",
-            "description": "The maximum number of Vitamin K in micrograms the recipe must have.",
+            "description": "The maximum amount of Vitamin K in micrograms the recipe can have.",
             "schema": {
               "type": "number",
               "example": 100
@@ -1929,7 +1953,7 @@
           },
           {
             "name": "minVitaminB1",
-            "description": "The minimum number of Vitamin B1 in milligrams the recipe must have.",
+            "description": "The minimum amount of Vitamin B1 in milligrams the recipe must have.",
             "schema": {
               "type": "number",
               "example": 0
@@ -1941,7 +1965,7 @@
           },
           {
             "name": "maxVitaminB1",
-            "description": "The maximum number of Vitamin B1 in milligrams the recipe must have.",
+            "description": "The maximum amount of Vitamin B1 in milligrams the recipe can have.",
             "schema": {
               "type": "number",
               "example": 100
@@ -1953,7 +1977,7 @@
           },
           {
             "name": "minVitaminB2",
-            "description": "The minimum number of Vitamin B2 in milligrams the recipe must have.",
+            "description": "The minimum amount of Vitamin B2 in milligrams the recipe must have.",
             "schema": {
               "type": "number",
               "example": 0
@@ -1965,7 +1989,7 @@
           },
           {
             "name": "maxVitaminB2",
-            "description": "The maximum number of Vitamin B2 in milligrams the recipe must have.",
+            "description": "The maximum amount of Vitamin B2 in milligrams the recipe can have.",
             "schema": {
               "type": "number",
               "example": 100
@@ -1977,7 +2001,7 @@
           },
           {
             "name": "minVitaminB5",
-            "description": "The minimum number of Vitamin B5 in milligrams the recipe must have.",
+            "description": "The minimum amount of Vitamin B5 in milligrams the recipe must have.",
             "schema": {
               "type": "number",
               "example": 0
@@ -1989,7 +2013,7 @@
           },
           {
             "name": "maxVitaminB5",
-            "description": "The maximum number of Vitamin B5 in milligrams the recipe can have.",
+            "description": "The maximum amount of Vitamin B5 in milligrams the recipe can have.",
             "schema": {
               "type": "number",
               "example": 100
@@ -2001,7 +2025,7 @@
           },
           {
             "name": "minVitaminB3",
-            "description": "The minimum number of Vitamin B3 in milligrams the recipe must have.",
+            "description": "The minimum amount of Vitamin B3 in milligrams the recipe must have.",
             "schema": {
               "type": "number",
               "example": 0
@@ -2013,7 +2037,7 @@
           },
           {
             "name": "maxVitaminB3",
-            "description": "The maximum number of Vitamin B3 in milligrams the recipe can have.",
+            "description": "The maximum amount of Vitamin B3 in milligrams the recipe can have.",
             "schema": {
               "type": "number",
               "example": 100
@@ -2025,7 +2049,7 @@
           },
           {
             "name": "minVitaminB6",
-            "description": "The minimum number of Vitamin B6 in milligrams the recipe must have.",
+            "description": "The minimum amount of Vitamin B6 in milligrams the recipe must have.",
             "schema": {
               "type": "number",
               "example": 0
@@ -2037,7 +2061,7 @@
           },
           {
             "name": "maxVitaminB6",
-            "description": "The maximum number of Vitamin B6 in milligrams the recipe can have.",
+            "description": "The maximum amount of Vitamin B6 in milligrams the recipe can have.",
             "schema": {
               "type": "number",
               "example": 100
@@ -2049,7 +2073,7 @@
           },
           {
             "name": "minVitaminB12",
-            "description": "The minimum number of Vitamin B12 in micrograms the recipe must have.",
+            "description": "The minimum amount of Vitamin B12 in micrograms the recipe must have.",
             "schema": {
               "type": "number",
               "example": 0
@@ -2061,7 +2085,7 @@
           },
           {
             "name": "maxVitaminB12",
-            "description": "The maximum number of Vitamin B12 in micrograms the recipe must have.",
+            "description": "The maximum amount of Vitamin B12 in micrograms the recipe can have.",
             "schema": {
               "type": "number",
               "example": 100
@@ -2073,7 +2097,7 @@
           },
           {
             "name": "minFiber",
-            "description": "The minimum number of fiber in grams the recipe must have.",
+            "description": "The minimum amount of fiber in grams the recipe must have.",
             "schema": {
               "type": "number",
               "example": 0
@@ -2085,7 +2109,7 @@
           },
           {
             "name": "maxFiber",
-            "description": "The maximum number of fiber in grams the recipe must have.",
+            "description": "The maximum amount of fiber in grams the recipe can have.",
             "schema": {
               "type": "number",
               "example": 100
@@ -2097,7 +2121,7 @@
           },
           {
             "name": "minFolate",
-            "description": "The minimum number of folate in grams the recipe must have.",
+            "description": "The minimum amount of folate in grams the recipe must have.",
             "schema": {
               "type": "number",
               "example": 0
@@ -2109,7 +2133,7 @@
           },
           {
             "name": "maxFolate",
-            "description": "The maximum number of folate in grams the recipe must have.",
+            "description": "The maximum amount of folate in grams the recipe can have.",
             "schema": {
               "type": "number",
               "example": 100
@@ -2121,7 +2145,7 @@
           },
           {
             "name": "minFolicAcid",
-            "description": "The minimum number of folic acid in grams the recipe must have.",
+            "description": "The minimum amount of folic acid in grams the recipe must have.",
             "schema": {
               "type": "number",
               "example": 0
@@ -2133,7 +2157,7 @@
           },
           {
             "name": "maxFolicAcid",
-            "description": "The maximum number of folic acid in grams the recipe must have.",
+            "description": "The maximum amount of folic acid in grams the recipe can have.",
             "schema": {
               "type": "number",
               "example": 100
@@ -2145,7 +2169,7 @@
           },
           {
             "name": "minIodine",
-            "description": "The minimum number of Iodine in grams the recipe must have.",
+            "description": "The minimum amount of iodine in grams the recipe must have.",
             "schema": {
               "type": "number",
               "example": 0
@@ -2157,7 +2181,7 @@
           },
           {
             "name": "maxIodine",
-            "description": "The maximum number of iodine in grams the recipe must have.",
+            "description": "The maximum amount of iodine in grams the recipe can have.",
             "schema": {
               "type": "number",
               "example": 100
@@ -2169,7 +2193,7 @@
           },
           {
             "name": "minIron",
-            "description": "The minimum number of iron in milligrams the recipe must have.",
+            "description": "The minimum amount of iron in milligrams the recipe must have.",
             "schema": {
               "type": "number",
               "example": 0
@@ -2181,7 +2205,7 @@
           },
           {
             "name": "maxIron",
-            "description": "The maximum number of iron in milligrams the recipe can have.",
+            "description": "The maximum amount of iron in milligrams the recipe can have.",
             "schema": {
               "type": "number",
               "example": 100
@@ -2193,7 +2217,7 @@
           },
           {
             "name": "minMagnesium",
-            "description": "The minimum number of magnesium in milligrams the recipe must have.",
+            "description": "The minimum amount of magnesium in milligrams the recipe must have.",
             "schema": {
               "type": "number",
               "example": 0
@@ -2205,7 +2229,7 @@
           },
           {
             "name": "maxMagnesium",
-            "description": "The maximum number of magnesium in milligrams the recipe can have.",
+            "description": "The maximum amount of magnesium in milligrams the recipe can have.",
             "schema": {
               "type": "number",
               "example": 100
@@ -2217,7 +2241,7 @@
           },
           {
             "name": "minManganese",
-            "description": "The minimum number of manganese in milligrams the recipe must have.",
+            "description": "The minimum amount of manganese in milligrams the recipe must have.",
             "schema": {
               "type": "number",
               "example": 0
@@ -2229,7 +2253,7 @@
           },
           {
             "name": "maxManganese",
-            "description": "The maximum number of manganese in milligrams the recipe can have.",
+            "description": "The maximum amount of manganese in milligrams the recipe can have.",
             "schema": {
               "type": "number",
               "example": 100
@@ -2241,7 +2265,7 @@
           },
           {
             "name": "minPhosphorus",
-            "description": "The minimum number of phosphorus in milligrams the recipe must have.",
+            "description": "The minimum amount of phosphorus in milligrams the recipe must have.",
             "schema": {
               "type": "number",
               "example": 0
@@ -2253,7 +2277,7 @@
           },
           {
             "name": "maxPhosphorus",
-            "description": "The maximum number of phosphorus in milligrams the recipe can have.",
+            "description": "The maximum amount of phosphorus in milligrams the recipe can have.",
             "schema": {
               "type": "number",
               "example": 100
@@ -2265,7 +2289,7 @@
           },
           {
             "name": "minPotassium",
-            "description": "The minimum number of potassium in milligrams the recipe must have.",
+            "description": "The minimum amount of potassium in milligrams the recipe must have.",
             "schema": {
               "type": "number",
               "example": 0
@@ -2277,7 +2301,7 @@
           },
           {
             "name": "maxPotassium",
-            "description": "The maximum number of potassium in milligrams the recipe can have.",
+            "description": "The maximum amount of potassium in milligrams the recipe can have.",
             "schema": {
               "type": "number",
               "example": 100
@@ -2289,7 +2313,7 @@
           },
           {
             "name": "minSelenium",
-            "description": "The minimum number of selenium in grams the recipe must have.",
+            "description": "The minimum amount of selenium in grams the recipe must have.",
             "schema": {
               "type": "number",
               "example": 0
@@ -2301,7 +2325,7 @@
           },
           {
             "name": "maxSelenium",
-            "description": "The maximum number of selenium in grams the recipe must have.",
+            "description": "The maximum amount of selenium in grams the recipe can have.",
             "schema": {
               "type": "number",
               "example": 100
@@ -2313,7 +2337,7 @@
           },
           {
             "name": "minSodium",
-            "description": "The minimum number of sodium in milligrams the recipe must have.",
+            "description": "The minimum amount of sodium in milligrams the recipe must have.",
             "schema": {
               "type": "number",
               "example": 0
@@ -2325,7 +2349,7 @@
           },
           {
             "name": "maxSodium",
-            "description": "The maximum number of sodium in milligrams the recipe must have.",
+            "description": "The maximum amount of sodium in milligrams the recipe can have.",
             "schema": {
               "type": "number",
               "example": 100
@@ -2337,7 +2361,7 @@
           },
           {
             "name": "minSugar",
-            "description": "The minimum number of sugar in grams the recipe must have.",
+            "description": "The minimum amount of sugar in grams the recipe must have.",
             "schema": {
               "type": "number",
               "example": 0
@@ -2349,7 +2373,7 @@
           },
           {
             "name": "maxSugar",
-            "description": "The maximum number of sugar in grams the recipe must have.",
+            "description": "The maximum amount of sugar in grams the recipe can have.",
             "schema": {
               "type": "number",
               "example": 100
@@ -2361,7 +2385,7 @@
           },
           {
             "name": "minZinc",
-            "description": "The minimum number of zinc in milligrams the recipe must have.",
+            "description": "The minimum amount of zinc in milligrams the recipe must have.",
             "schema": {
               "type": "number",
               "example": 0
@@ -2373,7 +2397,7 @@
           },
           {
             "name": "maxZinc",
-            "description": "The maximum number of zinc in milligrams the recipe can have.",
+            "description": "The maximum amount of zinc in milligrams the recipe can have.",
             "schema": {
               "type": "number",
               "example": 100
@@ -2409,7 +2433,7 @@
           },
           {
             "name": "limitLicense",
-            "description": "Whether the recipes should have an open license that allows for displaying with proper attribution.",
+            "description": "Whether the recipes should have an open license that allows display with proper attribution.",
             "schema": {
               "type": "boolean",
               "example": true
@@ -2425,7 +2449,7 @@
           "url": "https://spoonacular.com/food-api/docs#Search-Recipes-Complex"
         },
         "summary": "Search Recipes Complex",
-        "description": "Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: Since this method combines searching by query, by ingredients, and by nutrients in one endpoint.",
+        "description": "Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint.",
         "operationId": "searchRecipesComplex",
         "deprecated": false
       }
@@ -2469,7 +2493,7 @@
           },
           {
             "name": "includeNutrition",
-            "description": "Include nutrition data to the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.",
+            "description": "Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.",
             "schema": {
               "type": "boolean",
               "example": false
@@ -2485,7 +2509,7 @@
           "url": "https://spoonacular.com/food-api/docs#Get-Recipe-Information"
         },
         "summary": "Get Recipe Information",
-        "description": "Get information about a recipe.",
+        "description": "Use a recipe id to get full information about a recipe, such as ingredients, nutrition, diet and allergen information, etc.",
         "operationId": "getRecipeInformation",
         "deprecated": false
       }
@@ -2545,7 +2569,7 @@
           "url": "https://spoonacular.com/food-api/docs#Get-Recipe-Information-Bulk"
         },
         "summary": "Get Recipe Information Bulk",
-        "description": "Get information about multiple recipes at once. That is equivalent of calling the Get Recipe Information endpoint multiple times but is faster.",
+        "description": "Get information about multiple recipes at once. This is equivalent to calling the Get Recipe Information endpoint multiple times, but faster.",
         "operationId": "getRecipeInformationBulk",
         "deprecated": false
       }
@@ -2577,7 +2601,7 @@
         "parameters": [
           {
             "name": "id",
-            "description": "The id of the source recipe to which similar recipes should be found.",
+            "description": "The id of the source recipe for which similar recipes should be found.",
             "schema": {
               "type": "number",
               "example": 715538
@@ -2637,7 +2661,7 @@
         "parameters": [
           {
             "name": "limitLicense",
-            "description": "Whether the recipes should have an open license that allows for displaying with proper attribution.",
+            "description": "Whether the recipes should have an open license that allows display with proper attribution.",
             "schema": {
               "type": "boolean",
               "example": true
@@ -2649,7 +2673,7 @@
           },
           {
             "name": "tags",
-            "description": "The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must adhere to.",
+            "description": "The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have.",
             "schema": {
               "type": "string",
               "example": "vegetarian, dessert"
@@ -2677,7 +2701,7 @@
           "url": "https://spoonacular.com/food-api/docs#Get-Random-Recipes"
         },
         "summary": "Get Random Recipes",
-        "description": "Find random (popular) recipes.",
+        "description": "Find random (popular) recipes. If you need to filter recipes by diet, nutrition etc. you might want to consider using the complex recipe search endpoint and set the sort request parameter to random.",
         "operationId": "getRandomRecipes",
         "deprecated": false
       }
@@ -2737,7 +2761,7 @@
           "url": "https://spoonacular.com/food-api/docs#Autocomplete-Recipe-Search"
         },
         "summary": "Autocomplete Recipe Search",
-        "description": "Autocomplete a partial input to possible recipe names.",
+        "description": "Autocomplete a partial input to suggest possible recipe names.",
         "operationId": "autocompleteRecipeSearch",
         "deprecated": false
       }
@@ -2926,11 +2950,11 @@
         ],
         "externalDocs": {
           "description": "Read entire docs",
-          "url": "https://spoonacular.com/food-api/docs#Get-Recipe-Nutrition-by-ID"
+          "url": "https://spoonacular.com/food-api/docs#Get-Recipe-Nutrition-Widget-by-ID"
         },
-        "summary": "Get Recipe Nutrition by ID",
+        "summary": "Get Recipe Nutrition Widget by ID",
         "description": "Get a recipe's nutrition widget data.",
-        "operationId": "getRecipeNutritionByID",
+        "operationId": "getRecipeNutritionWidgetByID",
         "deprecated": false
       }
     },
@@ -2989,7 +3013,7 @@
           "url": "https://spoonacular.com/food-api/docs#Get-Analyzed-Recipe-Instructions"
         },
         "summary": "Get Analyzed Recipe Instructions",
-        "description": "Get an analyzed breakdown of a recipe's instructions. Each step is enriched with the ingredients and the equipment that is used.",
+        "description": "Get an analyzed breakdown of a recipe's instructions. Each step is enriched with the ingredients and equipment required.",
         "operationId": "getAnalyzedRecipeInstructions",
         "deprecated": false
       }
@@ -3033,7 +3057,7 @@
           },
           {
             "name": "forceExtraction",
-            "description": "If true, the extraction will be triggered no matter whether we know the recipe already. Use that only if information is missing as this operation is slower.",
+            "description": "If true, the extraction will be triggered whether we already know the recipe or not. Use this only if information is missing as this operation is slower.",
             "schema": {
               "type": "boolean",
               "example": true
@@ -3049,7 +3073,7 @@
           "url": "https://spoonacular.com/food-api/docs#Extract-Recipe-from-Website"
         },
         "summary": "Extract Recipe from Website",
-        "description": "Get an analyzed breakdown of a recipe's instructions. Each step is enriched with the ingredients and the equipment that is used.",
+        "description": "This endpoint lets you extract recipe data such as title, ingredients, and instructions from any properly formatted Website.",
         "operationId": "extractRecipeFromWebsite",
         "deprecated": false
       }
@@ -3300,7 +3324,7 @@
           "url": "https://spoonacular.com/food-api/docs#Visualize-Recipe-Nutrition"
         },
         "summary": "Visualize Recipe Nutrition",
-        "description": "Visualize a recipe's nutrition data.",
+        "description": "Visualize a recipe's nutritional information as HTML including CSS",
         "operationId": "visualizeRecipeNutrition",
         "deprecated": false
       }
@@ -3428,7 +3452,7 @@
                   },
                   "view": {
                     "type": "string",
-                    "description": "Either \"grid\" or \"list\" as visualization of the equipment.",
+                    "description": "How to visualize the equipment, either \"grid\" or \"list\".",
                     "example": "grid"
                   },
                   "defaultCss": {
@@ -3500,7 +3524,7 @@
           "url": "https://spoonacular.com/food-api/docs#Summarize-Recipe"
         },
         "summary": "Summarize Recipe",
-        "description": "Summarize the recipe in a short text.",
+        "description": "Automatically generate a short description that summarizes key information about the recipe.",
         "operationId": "summarizeRecipe",
         "deprecated": false
       }
@@ -3574,12 +3598,12 @@
                   },
                   "servings": {
                     "type": "number",
-                    "description": "The number of servings that you can make from the ingredients.",
+                    "description": "The number of servings the recipe makes.",
                     "example": 2
                   },
                   "mask": {
                     "type": "string",
-                    "description": "The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\").",
+                    "description": "The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\").",
                     "example": "ellipseMask"
                   },
                   "backgroundImage": {
@@ -3590,16 +3614,16 @@
                   "author": {
                     "type": "string",
                     "description": "The author of the recipe.",
-                    "example": "Emily Henderson"
+                    "example": "Anna Banana"
                   },
                   "backgroundColor": {
                     "type": "string",
-                    "description": "The background color on the recipe card as a hex-string.",
+                    "description": "The background color for the recipe card as a hex-string.",
                     "example": "#ffffff"
                   },
                   "fontColor": {
                     "type": "string",
-                    "description": "The font color on the recipe card as a hex-string.",
+                    "description": "The font color for the recipe card as a hex-string.",
                     "example": "#333333"
                   },
                   "source": {
@@ -3618,7 +3642,7 @@
           "url": "https://spoonacular.com/food-api/docs#Create-Recipe-Card"
         },
         "summary": "Create Recipe Card",
-        "description": "Create Recipe Card.",
+        "description": "Generate a recipe card for a recipe.",
         "operationId": "createRecipeCard",
         "deprecated": false
       }
@@ -3659,7 +3683,7 @@
                 "properties": {
                   "instructions": {
                     "type": "string",
-                    "description": "The instructions text.",
+                    "description": "The instructions to be analyzed.",
                     "example": "Put the garlic in a pan and then add the onion."
                   }
                 }
@@ -3673,7 +3697,7 @@
           "url": "https://spoonacular.com/food-api/docs#Analyze-Recipe-Instructions"
         },
         "summary": "Analyze Recipe Instructions",
-        "description": "Extract ingredients and equipment from the recipe instruction steps.",
+        "description": "Extract ingredients and equipment from the recipe's instructions.",
         "operationId": "analyzeRecipeInstructions",
         "deprecated": false
       }
@@ -3964,7 +3988,7 @@
         "parameters": [
           {
             "name": "query",
-            "description": "The query - a partial or full ingredient name.",
+            "description": "The partial or full ingredient name.",
             "schema": {
               "type": "string",
               "example": "appl"
@@ -4000,7 +4024,7 @@
           },
           {
             "name": "intolerances",
-            "description": "A comma-separated list of intolerances. All found ingredients must not cause problems for people with one of the given tolerances. See a full list of supported intolerances.",
+            "description": "A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.",
             "schema": {
               "type": "boolean",
               "example": false
@@ -4016,7 +4040,7 @@
           "url": "https://spoonacular.com/food-api/docs#Autocomplete-Ingredient-Search"
         },
         "summary": "Autocomplete Ingredient Search",
-        "description": "Autocomplete a search for an ingredient.",
+        "description": "Autocomplete the entry of an ingredient.",
         "operationId": "autocompleteIngredientSearch",
         "deprecated": false
       }
@@ -4164,12 +4188,12 @@
                   },
                   "measure": {
                     "type": "string",
-                    "description": "The initial measure, either \"metric\" or \"us\".",
+                    "description": "The original system of measurement, either \"metric\" or \"us\".",
                     "example": "metric"
                   },
                   "view": {
                     "type": "string",
-                    "description": "Either \"grid\" or \"list\" as visualization of the equipment.",
+                    "description": "How to visualize the ingredients, either \"grid\" or \"list\".",
                     "example": "grid"
                   },
                   "defaultCss": {
@@ -4225,7 +4249,7 @@
         "parameters": [
           {
             "name": "id",
-            "description": "The id of the packaged food product.",
+            "description": "The id of the packaged food.",
             "schema": {
               "type": "number",
               "example": 22347
@@ -4241,7 +4265,7 @@
           "url": "https://spoonacular.com/food-api/docs#Get-Product-Information"
         },
         "summary": "Get Product Information",
-        "description": "Get information about a packaged food product.",
+        "description": "Use a product id to get full information about a product, such as ingredients, nutrition, etc.",
         "operationId": "getProductInformation",
         "deprecated": false
       }
@@ -4276,7 +4300,7 @@
             "description": "The search query.",
             "schema": {
               "type": "string",
-              "example": "snickers"
+              "example": "greek yogurt"
             },
             "required": true,
             "style": "form",
@@ -4285,7 +4309,7 @@
           },
           {
             "name": "minCalories",
-            "description": "The minimum number of calories the product must have.",
+            "description": "The minimum amount of calories the product must have.",
             "schema": {
               "type": "number",
               "example": 50
@@ -4297,7 +4321,7 @@
           },
           {
             "name": "maxCalories",
-            "description": "The maximum number of calories the product can have.",
+            "description": "The maximum amount of calories the product can have.",
             "schema": {
               "type": "number",
               "example": 800
@@ -4309,7 +4333,7 @@
           },
           {
             "name": "minCarbs",
-            "description": "The minimum number of carbohydrates in grams the product must have.",
+            "description": "The minimum amount of carbohydrates in grams the product must have.",
             "schema": {
               "type": "number",
               "example": 10
@@ -4321,7 +4345,7 @@
           },
           {
             "name": "maxCarbs",
-            "description": "The maximum number of carbohydrates in grams the product can have.",
+            "description": "The maximum amount of carbohydrates in grams the product can have.",
             "schema": {
               "type": "number",
               "example": 100
@@ -4333,7 +4357,7 @@
           },
           {
             "name": "minProtein",
-            "description": "The minimum number of protein in grams the product must have.",
+            "description": "The minimum amount of protein in grams the product must have.",
             "schema": {
               "type": "number",
               "example": 10
@@ -4345,7 +4369,7 @@
           },
           {
             "name": "maxProtein",
-            "description": "The maximum number of protein in grams the product can have.",
+            "description": "The maximum amount of protein in grams the product can have.",
             "schema": {
               "type": "number",
               "example": 100
@@ -4357,7 +4381,7 @@
           },
           {
             "name": "minFat",
-            "description": "The minimum number of fat in grams the product must have.",
+            "description": "The minimum amount of fat in grams the product must have.",
             "schema": {
               "type": "number",
               "example": 1
@@ -4369,7 +4393,7 @@
           },
           {
             "name": "maxFat",
-            "description": "The maximum number of fat in grams the product can have.",
+            "description": "The maximum amount of fat in grams the product can have.",
             "schema": {
               "type": "number",
               "example": 100
@@ -4409,7 +4433,7 @@
           "url": "https://spoonacular.com/food-api/docs#Search-Grocery-Products"
         },
         "summary": "Search Grocery Products",
-        "description": "Search packaged food products such as frozen pizza and snickers bars.",
+        "description": "Search packaged food products, such as frozen pizza or Greek yogurt.",
         "operationId": "searchGroceryProducts",
         "deprecated": false
       }
@@ -4457,7 +4481,7 @@
           "url": "https://spoonacular.com/food-api/docs#Search-Grocery-Products-by-UPC"
         },
         "summary": "Search Grocery Products by UPC",
-        "description": "Get information about a food product given its UPC.",
+        "description": "Get information about a packaged food using its UPC.",
         "operationId": "searchGroceryProductsByUPC",
         "deprecated": false
       }
@@ -4489,10 +4513,10 @@
         "parameters": [
           {
             "name": "upc",
-            "description": "The UPC of the product for that you want to find comparable products.",
+            "description": "The UPC of the product for which you want to find comparable products.",
             "schema": {
               "type": "number",
-              "example": 33698816271
+              "example": 33698816271.0
             },
             "required": true,
             "style": "simple",
@@ -4625,7 +4649,7 @@
           "url": "https://spoonacular.com/food-api/docs#Visualize-Product-Nutrition-by-ID"
         },
         "summary": "Visualize Product Nutrition by ID",
-        "description": "Visualize a grocery product's nutritional information.",
+        "description": "Visualize a product's nutritional information as HTML including CSS.",
         "operationId": "visualizeProductNutritionByID",
         "deprecated": false
       }
@@ -4657,7 +4681,7 @@
         "parameters": [
           {
             "name": "id",
-            "description": "The id of the product.",
+            "description": "The recipe id.",
             "schema": {
               "type": "number",
               "example": 1082038
@@ -4685,7 +4709,7 @@
           "url": "https://spoonacular.com/food-api/docs#Visualize-Recipe-Nutrition-by-ID"
         },
         "summary": "Visualize Recipe Nutrition by ID",
-        "description": "Visualize a recipe's nutritional information.",
+        "description": "Visualize a recipe's nutritional information as HTML including CSS.",
         "operationId": "visualizeRecipeNutritionByID",
         "deprecated": false
       }
@@ -4724,7 +4748,7 @@
                 "properties": {
                   "locale": {
                     "type": "string",
-                    "description": "The locale of the returned category, supported is en_US and en_GB.",
+                    "description": "The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).",
                     "example": "en_US"
                   }
                 }
@@ -4735,7 +4759,7 @@
         "parameters": [
           {
             "name": "locale",
-            "description": "The locale of the returned category, supported is en_US and en_GB.",
+            "description": "The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).",
             "schema": {
               "type": "string",
               "example": "en_US"
@@ -4751,7 +4775,7 @@
           "url": "https://spoonacular.com/food-api/docs#Classify-Grocery-Product"
         },
         "summary": "Classify Grocery Product",
-        "description": "Given a grocery product title, this endpoint allows you to detect what basic ingredient it is.",
+        "description": "This endpoint allows you to match a packaged food to a basic category, e.g. a specific brand of milk to the category milk.",
         "operationId": "classifyGroceryProduct",
         "deprecated": false
       }
@@ -4790,7 +4814,7 @@
                 "properties": {
                   "locale": {
                     "type": "string",
-                    "description": "The locale of the returned category, supported is en_US and en_GB.",
+                    "description": "The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).",
                     "example": "en_US"
                   }
                 }
@@ -4801,7 +4825,7 @@
         "parameters": [
           {
             "name": "locale",
-            "description": "The locale of the returned category, supported is en_US and en_GB.",
+            "description": "The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).",
             "schema": {
               "type": "string",
               "example": "en_US"
@@ -4817,7 +4841,7 @@
           "url": "https://spoonacular.com/food-api/docs#Classify-Grocery-Product-Bulk"
         },
         "summary": "Classify Grocery Product Bulk",
-        "description": "Given a set of product jsons, get back classified products.",
+        "description": "Provide a set of product jsons, get back classified products.",
         "operationId": "classifyGroceryProductBulk",
         "deprecated": false
       }
@@ -4912,7 +4936,7 @@
           "url": "https://spoonacular.com/food-api/docs#Guess-Nutrition-by-Dish-Name"
         },
         "summary": "Guess Nutrition by Dish Name",
-        "description": "Guess the macro nutrients of a dish given its title.",
+        "description": "Estimate the macronutrients of a dish based on its title.",
         "operationId": "guessNutritionByDishName",
         "deprecated": false
       }
@@ -5016,7 +5040,7 @@
           },
           {
             "name": "minCalories",
-            "description": "The minimum number of calories the menu item must have.",
+            "description": "The minimum amount of calories the menu item must have.",
             "schema": {
               "type": "number",
               "example": 50
@@ -5028,7 +5052,7 @@
           },
           {
             "name": "maxCalories",
-            "description": "The maximum number of calories the menu item can have.",
+            "description": "The maximum amount of calories the menu item can have.",
             "schema": {
               "type": "number",
               "example": 800
@@ -5040,7 +5064,7 @@
           },
           {
             "name": "minCarbs",
-            "description": "The minimum number of carbohydrates in grams the menu item must have.",
+            "description": "The minimum amount of carbohydrates in grams the menu item must have.",
             "schema": {
               "type": "number",
               "example": 10
@@ -5052,7 +5076,7 @@
           },
           {
             "name": "maxCarbs",
-            "description": "The maximum number of carbohydrates in grams the menu item can have.",
+            "description": "The maximum amount of carbohydrates in grams the menu item can have.",
             "schema": {
               "type": "number",
               "example": 100
@@ -5064,7 +5088,7 @@
           },
           {
             "name": "minProtein",
-            "description": "The minimum number of protein in grams the menu item must have.",
+            "description": "The minimum amount of protein in grams the menu item must have.",
             "schema": {
               "type": "number",
               "example": 10
@@ -5076,7 +5100,7 @@
           },
           {
             "name": "maxProtein",
-            "description": "The maximum number of protein in grams the menu item can have.",
+            "description": "The maximum amount of protein in grams the menu item can have.",
             "schema": {
               "type": "number",
               "example": 100
@@ -5088,7 +5112,7 @@
           },
           {
             "name": "minFat",
-            "description": "The minimum number of fat in grams the menu item must have.",
+            "description": "The minimum amount of fat in grams the menu item must have.",
             "schema": {
               "type": "number",
               "example": 1
@@ -5100,7 +5124,7 @@
           },
           {
             "name": "maxFat",
-            "description": "The maximum number of fat in grams the menu item can have.",
+            "description": "The maximum amount of fat in grams the menu item can have.",
             "schema": {
               "type": "number",
               "example": 100
@@ -5140,7 +5164,7 @@
           "url": "https://spoonacular.com/food-api/docs#Search-Menu-Items"
         },
         "summary": "Search Menu Items",
-        "description": "Search over 115,000 menu items from over 800 fast food and chain restaurants such as McDonalds Big Mac or Starbucks Mocha.",
+        "description": "Search over 115,000 menu items from over 800 fast food and chain restaurants. For example, McDonald's Big Mac or Starbucks Mocha.",
         "operationId": "searchMenuItems",
         "deprecated": false
       }
@@ -5200,7 +5224,7 @@
           "url": "https://spoonacular.com/food-api/docs#Visualize-Menu-Item-Nutrition-by-ID"
         },
         "summary": "Visualize Menu Item Nutrition by ID",
-        "description": "Visualize a menu items' nutrition data.",
+        "description": "Visualize a menu item's nutritional information as HTML including CSS.",
         "operationId": "visualizeMenuItemNutritionByID",
         "deprecated": false
       }
@@ -5248,12 +5272,12 @@
           "url": "https://spoonacular.com/food-api/docs#Get-Menu-Item-Information"
         },
         "summary": "Get Menu Item Information",
-        "description": "Get information about a certain menu item.",
+        "description": "Use a menu item id to get all available information about a menu item, such as nutrition.",
         "operationId": "getMenuItemInformation",
         "deprecated": false
       }
     },
-    "/recipes/mealplans/generate": {
+    "/mealplanner/generate": {
       "get": {
         "responses": {
           "200": {
@@ -5364,7 +5388,7 @@
         "parameters": [
           {
             "name": "wine",
-            "description": "The name of the wine that should be paired, e.g. \"merlot\", \"riesling\", or \"malbec\".",
+            "description": "The type of wine that should be paired, e.g. \"merlot\", \"riesling\", or \"malbec\".",
             "schema": {
               "type": "string",
               "example": "malbec"
@@ -5380,7 +5404,7 @@
           "url": "https://spoonacular.com/food-api/docs#Get-Dish-Pairing-for-Wine"
         },
         "summary": "Get Dish Pairing for Wine",
-        "description": "Get a dish that goes well with a given wine.",
+        "description": "Find a dish that goes well with a given wine.",
         "operationId": "getDishPairingForWine",
         "deprecated": false
       }
@@ -5488,7 +5512,7 @@
           "url": "https://spoonacular.com/food-api/docs#Get-Wine-Description"
         },
         "summary": "Get Wine Description",
-        "description": "Get the description of a certain wine, e.g. \"malbec\", \"riesling\", or \"merlot\".",
+        "description": "Get a simple description of a certain wine, e.g. \"malbec\", \"riesling\", or \"merlot\".",
         "operationId": "getWineDescription",
         "deprecated": false
       }
@@ -5520,7 +5544,7 @@
         "parameters": [
           {
             "name": "wine",
-            "description": "The name of the wine to get a specific product recommendation for.",
+            "description": "The type of wine to get a specific product recommendation for.",
             "schema": {
               "type": "string",
               "example": "merlot"
@@ -5572,7 +5596,7 @@
           "url": "https://spoonacular.com/food-api/docs#Get-Wine-Recommendation"
         },
         "summary": "Get Wine Recommendation",
-        "description": "Get a specific wine recommendation (concrete product) for a given wine, e.g. \"merlot\".",
+        "description": "Get a specific wine recommendation (concrete product) for a given wine type, e.g. \"merlot\".",
         "operationId": "getWineRecommendation",
         "deprecated": false
       }
@@ -5604,7 +5628,7 @@
         "parameters": [
           {
             "name": "q",
-            "description": "The nutrition-related question.",
+            "description": "The nutrition related question.",
             "schema": {
               "type": "string",
               "example": "How much vitamin c is in 2 apples?"
@@ -5661,8 +5685,8 @@
                 "properties": {
                   "text": {
                     "type": "string",
-                    "description": "The text in which food items such as dish names and ingredients should be detected in.",
-                    "example": "I like to eat delicious tacos. Only cheeseburger with cheddar are better than that. But then again, pizza with pepperoni, mushrooms, and tomatoes is so good!"
+                    "description": "The text in which food items, such as dish names and ingredients, should be detected in.",
+                    "example": "I like to eat delicious tacos. The only thing better is a cheeseburger with cheddar. But then again, pizza with pepperoni, mushrooms, and tomatoes is so good too!"
                   }
                 }
               }
@@ -5675,7 +5699,7 @@
           "url": "https://spoonacular.com/food-api/docs#Detect-Food-in-Text"
         },
         "summary": "Detect Food in Text",
-        "description": "Detect ingredients and dishes in texts. This task is also called Named Entity Recognition (NER). In our case the entities are foods. Either dishes, such as pizza and cheeseburger or ingredients, such as cucumber and almonds.",
+        "description": "Take any text and find all mentions of food contained within it. This task is also called Named Entity Recognition (NER). In this case, the entities are foods. Either dishes, such as pizza or cheeseburger, or ingredients, such as cucumber or almonds.",
         "operationId": "detectFoodInText",
         "deprecated": false
       }
@@ -5723,7 +5747,7 @@
           "url": "https://spoonacular.com/food-api/docs#Search-Site-Content"
         },
         "summary": "Search Site Content",
-        "description": "Search spoonacular's site content. You'll be able to find everything that you could also find using the search suggests on spoonacular.com. This is a suggest API so you can send partial strings as queries.",
+        "description": "Search spoonacular's site content. You'll be able to find everything that you could also find using the search suggestions on spoonacular.com. This is a suggest API so you can send partial strings as queries.",
         "operationId": "searchSiteContent",
         "deprecated": false
       }
@@ -5779,7 +5803,7 @@
           },
           {
             "name": "cuisine",
-            "description": "The cuisine(s) of the recipes. One or more comma separated. See a full list of supported cuisines.",
+            "description": "The cuisine(s) of the recipes. One or more, comma separated. See a full list of supported cuisines.",
             "schema": {
               "type": "string",
               "example": "italian"
@@ -5791,7 +5815,7 @@
           },
           {
             "name": "diet",
-            "description": "The diet to which the recipes must be compliant. See a full list of supported diets.",
+            "description": "The diet for which the recipes must be suitable. See a full list of supported diets.",
             "schema": {
               "type": "string",
               "example": "vegetarian"
@@ -5803,7 +5827,7 @@
           },
           {
             "name": "includeIngredients",
-            "description": "A comma-separated list of ingredients that should/must be contained in the recipe.",
+            "description": "A comma-separated list of ingredients that the recipes should contain.",
             "schema": {
               "type": "string",
               "example": "tomato,cheese"
@@ -5815,7 +5839,7 @@
           },
           {
             "name": "excludeIngredients",
-            "description": "A comma-separated list of ingredients or ingredient types that must not be contained in the recipes.",
+            "description": "A comma-separated list of ingredients or ingredient types that the recipes must not contain.",
             "schema": {
               "type": "string",
               "example": "eggs"
@@ -5914,7 +5938,7 @@
           "url": "https://spoonacular.com/food-api/docs#Get-a-Random-Food-Joke"
         },
         "summary": "Get a Random Food Joke",
-        "description": "Get a random joke that includes or is about food.",
+        "description": "Get a random joke that is related to food. Caution: this is an endpoint for adults!",
         "operationId": "getARandomFoodJoke",
         "deprecated": false
       }
@@ -5981,7 +6005,7 @@
         "parameters": [
           {
             "name": "id",
-            "description": "The id of the food / ingredient.",
+            "description": "The ingredient id.",
             "schema": {
               "type": "number",
               "example": 9266
@@ -5993,7 +6017,7 @@
           },
           {
             "name": "amount",
-            "description": "The amount of that food.",
+            "description": "The amount of this ingredient.",
             "schema": {
               "type": "number",
               "example": 150
@@ -6018,11 +6042,11 @@
         ],
         "externalDocs": {
           "description": "Read entire docs",
-          "url": "https://spoonacular.com/food-api/docs#Get-Food-Information"
+          "url": "https://spoonacular.com/food-api/docs#Get-Ingredient-Information"
         },
-        "summary": "Get Food Information",
-        "description": "Get information about a certain food (ingredient).",
-        "operationId": "getFoodInformation",
+        "summary": "Get Ingredient Information",
+        "description": "Use an ingredient id to get all available information about an ingredient, such as its image and supermarket aisle.",
+        "operationId": "getIngredientInformation",
         "deprecated": false
       }
     },
@@ -6053,7 +6077,7 @@
         "parameters": [
           {
             "name": "text",
-            "description": "The request / question / answer from the user to the chat bot.",
+            "description": "The request / question / answer from the user to the chatbot.",
             "schema": {
               "type": "string",
               "example": "donut recipes"
@@ -6081,7 +6105,7 @@
           "url": "https://spoonacular.com/food-api/docs#Talk-to-Chatbot"
         },
         "summary": "Talk to Chatbot",
-        "description": "This endpoint can be used to have a conversation about food with the spoonacular chat bot. Use the \"Get Conversation Suggests\" endpoint to show your user what he or she can say.",
+        "description": "This endpoint can be used to have a conversation about food with the spoonacular chatbot. Use the \"Get Conversation Suggests\" endpoint to show your user what he or she can say.",
         "operationId": "talkToChatbot",
         "deprecated": false
       }
@@ -6141,7 +6165,7 @@
           "url": "https://spoonacular.com/food-api/docs#Get-Conversation-Suggests"
         },
         "summary": "Get Conversation Suggests",
-        "description": "This endpoint returns suggestions for things the user can say or ask the chat bot.",
+        "description": "This endpoint returns suggestions for things the user can say or ask the chatbot.",
         "operationId": "getConversationSuggests",
         "deprecated": false
       }

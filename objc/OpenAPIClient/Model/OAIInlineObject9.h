@@ -22,7 +22,7 @@
 
 @interface OAIInlineObject9 : OAIObject
 
-/* The text in which food items such as dish names and ingredients should be detected in. 
+/* The text in which food items, such as dish names and ingredients, should be detected in. 
  */
 @property(nonatomic) NSString* text;
 

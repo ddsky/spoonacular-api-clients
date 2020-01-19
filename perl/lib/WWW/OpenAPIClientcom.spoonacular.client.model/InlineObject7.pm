@@ -178,14 +178,14 @@ __PACKAGE__->method_documentation({
     'measure' => {
         datatype => 'string',
         base_name => 'measure',
-        description => 'The initial measure, either \&quot;metric\&quot; or \&quot;us\&quot;.',
+        description => 'The original system of measurement, either \&quot;metric\&quot; or \&quot;us\&quot;.',
         format => '',
         read_only => '',
             },
     'view' => {
         datatype => 'string',
         base_name => 'view',
-        description => 'Either \&quot;grid\&quot; or \&quot;list\&quot; as visualization of the equipment.',
+        description => 'How to visualize the ingredients, either \&quot;grid\&quot; or \&quot;list\&quot;.',
         format => '',
         read_only => '',
             },

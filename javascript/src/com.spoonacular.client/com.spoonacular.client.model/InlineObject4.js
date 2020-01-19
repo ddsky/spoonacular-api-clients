@@ -22,7 +22,7 @@ class InlineObject4 {
     /**
      * Constructs a new <code>InlineObject4</code>.
      * @alias module:com.spoonacular.client/com.spoonacular.client.model/InlineObject4
-     * @param instructions {String} The instructions text.
+     * @param instructions {String} The instructions to be analyzed.
      */
     constructor(instructions) { 
         
@@ -60,7 +60,7 @@ class InlineObject4 {
 }
 
 /**
- * The instructions text.
+ * The instructions to be analyzed.
  * @member {String} instructions
  */
 InlineObject4.prototype['instructions'] = undefined;

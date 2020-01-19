@@ -28,7 +28,7 @@ import java.math.BigDecimal;
 /**
  * InlineObject1
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-07-01T21:17:29.289+02:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-01-19T16:36:49.460+01:00[Europe/Berlin]")
 public class InlineObject1 {
   public static final String SERIALIZED_NAME_INGREDIENT_LIST = "ingredientList";
   @SerializedName(SERIALIZED_NAME_INGREDIENT_LIST)

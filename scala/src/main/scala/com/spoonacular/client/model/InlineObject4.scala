@@ -8,7 +8,7 @@ import spoonacular._
 
 /**
  * 
- * @param instructions The instructions text.
+ * @param instructions The instructions to be analyzed.
  */
 case class InlineObject4(instructions: String
                 )

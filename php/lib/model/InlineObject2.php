@@ -295,7 +295,7 @@ class InlineObject2 implements ModelInterface, ArrayAccess
     /**
      * Sets view
      *
-     * @param string|null $view Either \"grid\" or \"list\" as visualization of the equipment.
+     * @param string|null $view How to visualize the equipment, either \"grid\" or \"list\".
      *
      * @return $this
      */

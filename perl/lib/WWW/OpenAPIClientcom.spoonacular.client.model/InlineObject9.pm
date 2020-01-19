@@ -164,7 +164,7 @@ __PACKAGE__->method_documentation({
     'text' => {
         datatype => 'string',
         base_name => 'text',
-        description => 'The text in which food items such as dish names and ingredients should be detected in.',
+        description => 'The text in which food items, such as dish names and ingredients, should be detected in.',
         format => '',
         read_only => '',
             },

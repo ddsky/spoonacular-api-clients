@@ -11,7 +11,7 @@ class InlineObject2 {
     String ingredientList
     /* The number of servings. */
     BigDecimal servings
-    /* Either \"grid\" or \"list\" as visualization of the equipment. */
+    /* How to visualize the equipment, either \"grid\" or \"list\". */
     String view
     /* Whether the default CSS should be added to the response. */
     Boolean defaultCss

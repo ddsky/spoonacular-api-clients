@@ -29,9 +29,9 @@ namespace spoonacular.Model {
     public decimal? Servings { get; set; }
 
     /// <summary>
-    /// Either \"grid\" or \"list\" as visualization of the equipment.
+    /// How to visualize the equipment, either \"grid\" or \"list\".
     /// </summary>
-    /// <value>Either \"grid\" or \"list\" as visualization of the equipment.</value>
+    /// <value>How to visualize the equipment, either \"grid\" or \"list\".</value>
     [DataMember(Name="view", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "view")]
     public string View { get; set; }

@@ -224,7 +224,7 @@ class InlineObject3(object):
     def servings(self):
         """Gets the servings of this InlineObject3.  # noqa: E501
 
-        The number of servings that you can make from the ingredients.  # noqa: E501
+        The number of servings the recipe makes.  # noqa: E501
 
         :return: The servings of this InlineObject3.  # noqa: E501
         :rtype: float
@@ -235,7 +235,7 @@ class InlineObject3(object):
     def servings(self, servings):
         """Sets the servings of this InlineObject3.
 
-        The number of servings that you can make from the ingredients.  # noqa: E501
+        The number of servings the recipe makes.  # noqa: E501
 
         :param servings: The servings of this InlineObject3.  # noqa: E501
         :type: float
@@ -249,7 +249,7 @@ class InlineObject3(object):
     def mask(self):
         """Gets the mask of this InlineObject3.  # noqa: E501
 
-        The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\").  # noqa: E501
+        The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\").  # noqa: E501
 
         :return: The mask of this InlineObject3.  # noqa: E501
         :rtype: str
@@ -260,7 +260,7 @@ class InlineObject3(object):
     def mask(self, mask):
         """Sets the mask of this InlineObject3.
 
-        The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\").  # noqa: E501
+        The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\").  # noqa: E501
 
         :param mask: The mask of this InlineObject3.  # noqa: E501
         :type: str
@@ -322,7 +322,7 @@ class InlineObject3(object):
     def background_color(self):
         """Gets the background_color of this InlineObject3.  # noqa: E501
 
-        The background color on the recipe card as a hex-string.  # noqa: E501
+        The background color for the recipe card as a hex-string.  # noqa: E501
 
         :return: The background_color of this InlineObject3.  # noqa: E501
         :rtype: str
@@ -333,7 +333,7 @@ class InlineObject3(object):
     def background_color(self, background_color):
         """Sets the background_color of this InlineObject3.
 
-        The background color on the recipe card as a hex-string.  # noqa: E501
+        The background color for the recipe card as a hex-string.  # noqa: E501
 
         :param background_color: The background_color of this InlineObject3.  # noqa: E501
         :type: str
@@ -345,7 +345,7 @@ class InlineObject3(object):
     def font_color(self):
         """Gets the font_color of this InlineObject3.  # noqa: E501
 
-        The font color on the recipe card as a hex-string.  # noqa: E501
+        The font color for the recipe card as a hex-string.  # noqa: E501
 
         :return: The font_color of this InlineObject3.  # noqa: E501
         :rtype: str
@@ -356,7 +356,7 @@ class InlineObject3(object):
     def font_color(self, font_color):
         """Sets the font_color of this InlineObject3.
 
-        The font color on the recipe card as a hex-string.  # noqa: E501
+        The font color for the recipe card as a hex-string.  # noqa: E501
 
         :param font_color: The font_color of this InlineObject3.  # noqa: E501
         :type: str

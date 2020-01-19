@@ -220,7 +220,7 @@ class InlineObject9 implements ModelInterface, ArrayAccess
     /**
      * Sets text
      *
-     * @param string $text The text in which food items such as dish names and ingredients should be detected in.
+     * @param string $text The text in which food items, such as dish names and ingredients, should be detected in.
      *
      * @return $this
      */

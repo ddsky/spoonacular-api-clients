@@ -10,8 +10,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ingredient_list** | **string** | The ingredient list of the recipe, one ingredient per line. | 
 **servings** | **double** | The number of servings. | 
-**measure** | **string** | The initial measure, either \&quot;metric\&quot; or \&quot;us\&quot;. | [optional] 
-**view** | **string** | Either \&quot;grid\&quot; or \&quot;list\&quot; as visualization of the equipment. | [optional] 
+**measure** | **string** | The original system of measurement, either \&quot;metric\&quot; or \&quot;us\&quot;. | [optional] 
+**view** | **string** | How to visualize the ingredients, either \&quot;grid\&quot; or \&quot;list\&quot;. | [optional] 
 **default_css** | **boolean** | Whether the default CSS should be added to the response. | [optional] 
 **show_backlink** | **boolean** | Whether to show a backlink to spoonacular. If set false, this call counts against your quota. | [optional] 
 

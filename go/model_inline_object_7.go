@@ -15,9 +15,9 @@ type InlineObject7 struct {
 	IngredientList string `json:"ingredientList"`
 	// The number of servings.
 	Servings float32 `json:"servings"`
-	// The initial measure, either \"metric\" or \"us\".
+	// The original system of measurement, either \"metric\" or \"us\".
 	Measure string `json:"measure,omitempty"`
-	// Either \"grid\" or \"list\" as visualization of the equipment.
+	// How to visualize the ingredients, either \"grid\" or \"list\".
 	View string `json:"view,omitempty"`
 	// Whether the default CSS should be added to the response.
 	DefaultCss bool `json:"defaultCss,omitempty"`

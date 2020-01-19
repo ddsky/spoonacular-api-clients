@@ -118,12 +118,12 @@ sub analyze_a_recipe_search_query {
 #
 # Analyze Recipe Instructions
 # 
-# @param string $instructions The instructions text. (required)
+# @param string $instructions The instructions to be analyzed. (required)
 {
     my $params = {
     'instructions' => {
         data_type => 'string',
-        description => 'The instructions text.',
+        description => 'The instructions to be analyzed.',
         required => '1',
     },
     };
@@ -183,15 +183,15 @@ sub analyze_recipe_instructions {
 #
 # Autocomplete Ingredient Search
 # 
-# @param string $query The query - a partial or full ingredient name. (required)
+# @param string $query The partial or full ingredient name. (required)
 # @param double $number The number of results to return (between 1 and 100). (optional)
 # @param boolean $meta_information Whether to return more meta information about the ingredients. (optional)
-# @param boolean $intolerances A comma-separated list of intolerances. All found ingredients must not cause problems for people with one of the given tolerances. See a full list of supported intolerances. (optional)
+# @param boolean $intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
 {
     my $params = {
     'query' => {
         data_type => 'string',
-        description => 'The query - a partial or full ingredient name.',
+        description => 'The partial or full ingredient name.',
         required => '1',
     },
     'number' => {
@@ -206,7 +206,7 @@ sub analyze_recipe_instructions {
     },
     'intolerances' => {
         data_type => 'boolean',
-        description => 'A comma-separated list of intolerances. All found ingredients must not cause problems for people with one of the given tolerances. See a full list of supported intolerances.',
+        description => 'A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.',
         required => '0',
     },
     };
@@ -591,7 +591,7 @@ sub classify_cuisine {
 # Classify Grocery Product
 # 
 # @param InlineObject8 $inline_object8  (required)
-# @param string $locale The locale of the returned category, supported is en_US and en_GB. (optional)
+# @param string $locale The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). (optional)
 {
     my $params = {
     'inline_object8' => {
@@ -601,7 +601,7 @@ sub classify_cuisine {
     },
     'locale' => {
         data_type => 'string',
-        description => 'The locale of the returned category, supported is en_US and en_GB.',
+        description => 'The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).',
         required => '0',
     },
     };
@@ -667,7 +667,7 @@ sub classify_grocery_product {
 # Classify Grocery Product Bulk
 # 
 # @param object $body  (required)
-# @param string $locale The locale of the returned category, supported is en_US and en_GB. (optional)
+# @param string $locale The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). (optional)
 {
     my $params = {
     'body' => {
@@ -677,7 +677,7 @@ sub classify_grocery_product {
     },
     'locale' => {
         data_type => 'string',
-        description => 'The locale of the returned category, supported is en_US and en_GB.',
+        description => 'The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).',
         required => '0',
     },
     };
@@ -860,12 +860,12 @@ sub convert_amounts {
 # @param string $ingredients The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n). (required)
 # @param string $instructions The instructions to make the recipe. One step per line (separate lines with \\\\n). (required)
 # @param double $ready_in_minutes The number of minutes it takes to get the recipe on the table. (required)
-# @param double $servings The number of servings that you can make from the ingredients. (required)
-# @param string $mask The mask to put over the recipe image (\\\&quot;ellipseMask\\\&quot;, \\\&quot;diamondMask\\\&quot;, \\\&quot;diamondMask\\\&quot;, \\\&quot;starMask\\\&quot;, \\\&quot;heartMask\\\&quot;, \\\&quot;potMask\\\&quot;, \\\&quot;fishMask\\\&quot;). (required)
+# @param double $servings The number of servings the recipe makes. (required)
+# @param string $mask The mask to put over the recipe image (\\\&quot;ellipseMask\\\&quot;, \\\&quot;diamondMask\\\&quot;, \\\&quot;starMask\\\&quot;, \\\&quot;heartMask\\\&quot;, \\\&quot;potMask\\\&quot;, \\\&quot;fishMask\\\&quot;). (required)
 # @param string $background_image The background image (\\\&quot;none\\\&quot;,\\\&quot;background1\\\&quot;, or \\\&quot;background2\\\&quot;). (required)
 # @param string $author The author of the recipe. (optional)
-# @param string $background_color The background color on the recipe card as a hex-string. (optional)
-# @param string $font_color The font color on the recipe card as a hex-string. (optional)
+# @param string $background_color The background color for the recipe card as a hex-string. (optional)
+# @param string $font_color The font color for the recipe card as a hex-string. (optional)
 # @param string $source The source of the recipe. (optional)
 {
     my $params = {
@@ -896,12 +896,12 @@ sub convert_amounts {
     },
     'servings' => {
         data_type => 'double',
-        description => 'The number of servings that you can make from the ingredients.',
+        description => 'The number of servings the recipe makes.',
         required => '1',
     },
     'mask' => {
         data_type => 'string',
-        description => 'The mask to put over the recipe image (\\\&quot;ellipseMask\\\&quot;, \\\&quot;diamondMask\\\&quot;, \\\&quot;diamondMask\\\&quot;, \\\&quot;starMask\\\&quot;, \\\&quot;heartMask\\\&quot;, \\\&quot;potMask\\\&quot;, \\\&quot;fishMask\\\&quot;).',
+        description => 'The mask to put over the recipe image (\\\&quot;ellipseMask\\\&quot;, \\\&quot;diamondMask\\\&quot;, \\\&quot;starMask\\\&quot;, \\\&quot;heartMask\\\&quot;, \\\&quot;potMask\\\&quot;, \\\&quot;fishMask\\\&quot;).',
         required => '1',
     },
     'background_image' => {
@@ -916,12 +916,12 @@ sub convert_amounts {
     },
     'background_color' => {
         data_type => 'string',
-        description => 'The background color on the recipe card as a hex-string.',
+        description => 'The background color for the recipe card as a hex-string.',
         required => '0',
     },
     'font_color' => {
         data_type => 'string',
-        description => 'The font color on the recipe card as a hex-string.',
+        description => 'The font color for the recipe card as a hex-string.',
         required => '0',
     },
     'source' => {
@@ -1077,12 +1077,12 @@ sub create_recipe_card {
 #
 # Detect Food in Text
 # 
-# @param string $text The text in which food items such as dish names and ingredients should be detected in. (required)
+# @param string $text The text in which food items, such as dish names and ingredients, should be detected in. (required)
 {
     my $params = {
     'text' => {
         data_type => 'string',
-        description => 'The text in which food items such as dish names and ingredients should be detected in.',
+        description => 'The text in which food items, such as dish names and ingredients, should be detected in.',
         required => '1',
     },
     };
@@ -1143,7 +1143,7 @@ sub detect_food_in_text {
 # Extract Recipe from Website
 # 
 # @param string $url The URL of the recipe page. (required)
-# @param boolean $force_extraction If true, the extraction will be triggered no matter whether we know the recipe already. Use that only if information is missing as this operation is slower. (optional)
+# @param boolean $force_extraction If true, the extraction will be triggered whether we already know the recipe or not. Use this only if information is missing as this operation is slower. (optional)
 {
     my $params = {
     'url' => {
@@ -1153,7 +1153,7 @@ sub detect_food_in_text {
     },
     'force_extraction' => {
         data_type => 'boolean',
-        description => 'If true, the extraction will be triggered no matter whether we know the recipe already. Use that only if information is missing as this operation is slower.',
+        description => 'If true, the extraction will be triggered whether we already know the recipe or not. Use this only if information is missing as this operation is slower.',
         required => '0',
     },
     };
@@ -1257,7 +1257,7 @@ sub generate_meal_plan {
     my ($self, %args) = @_;
 
     # parse inputs
-    my $_resource_path = '/recipes/mealplans/generate';
+    my $_resource_path = '/mealplanner/generate';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -1438,12 +1438,12 @@ sub get_analyzed_recipe_instructions {
 #
 # Get Comparable Products
 # 
-# @param double $upc The UPC of the product for that you want to find comparable products. (required)
+# @param double $upc The UPC of the product for which you want to find comparable products. (required)
 {
     my $params = {
     'upc' => {
         data_type => 'double',
-        description => 'The UPC of the product for that you want to find comparable products.',
+        description => 'The UPC of the product for which you want to find comparable products.',
         required => '1',
     },
     };
@@ -1581,12 +1581,12 @@ sub get_conversation_suggests {
 #
 # Get Dish Pairing for Wine
 # 
-# @param string $wine The name of the wine that should be paired, e.g. \&quot;merlot\&quot;, \&quot;riesling\&quot;, or \&quot;malbec\&quot;. (required)
+# @param string $wine The type of wine that should be paired, e.g. \&quot;merlot\&quot;, \&quot;riesling\&quot;, or \&quot;malbec\&quot;. (required)
 {
     my $params = {
     'wine' => {
         data_type => 'string',
-        description => 'The name of the wine that should be paired, e.g. \&quot;merlot\&quot;, \&quot;riesling\&quot;, or \&quot;malbec\&quot;.',
+        description => 'The type of wine that should be paired, e.g. \&quot;merlot\&quot;, \&quot;riesling\&quot;, or \&quot;malbec\&quot;.',
         required => '1',
     },
     };
@@ -1642,23 +1642,23 @@ sub get_dish_pairing_for_wine {
 }
 
 #
-# get_food_information
+# get_ingredient_information
 #
-# Get Food Information
+# Get Ingredient Information
 # 
-# @param double $id The id of the food / ingredient. (required)
-# @param double $amount The amount of that food. (optional)
+# @param double $id The ingredient id. (required)
+# @param double $amount The amount of this ingredient. (optional)
 # @param string $unit The unit for the given amount. (optional)
 {
     my $params = {
     'id' => {
         data_type => 'double',
-        description => 'The id of the food / ingredient.',
+        description => 'The ingredient id.',
         required => '1',
     },
     'amount' => {
         data_type => 'double',
-        description => 'The amount of that food.',
+        description => 'The amount of this ingredient.',
         required => '0',
     },
     'unit' => {
@@ -1667,20 +1667,20 @@ sub get_dish_pairing_for_wine {
         required => '0',
     },
     };
-    __PACKAGE__->method_documentation->{ 'get_food_information' } = { 
-        summary => 'Get Food Information',
+    __PACKAGE__->method_documentation->{ 'get_ingredient_information' } = { 
+        summary => 'Get Ingredient Information',
         params => $params,
         returns => 'object',
         };
 }
 # @return object
 #
-sub get_food_information {
+sub get_ingredient_information {
     my ($self, %args) = @_;
 
     # verify the required parameter 'id' is set
     unless (exists $args{'id'}) {
-      croak("Missing the required parameter 'id' when calling get_food_information");
+      croak("Missing the required parameter 'id' when calling get_ingredient_information");
     }
 
     # parse inputs
@@ -1934,12 +1934,12 @@ sub get_menu_item_information {
 #
 # Get Product Information
 # 
-# @param double $id The id of the packaged food product. (required)
+# @param double $id The id of the packaged food. (required)
 {
     my $params = {
     'id' => {
         data_type => 'double',
-        description => 'The id of the packaged food product.',
+        description => 'The id of the packaged food.',
         required => '1',
     },
     };
@@ -2050,19 +2050,19 @@ sub get_random_food_trivia {
 #
 # Get Random Recipes
 # 
-# @param boolean $limit_license Whether the recipes should have an open license that allows for displaying with proper attribution. (optional)
-# @param string $tags The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must adhere to. (optional)
+# @param boolean $limit_license Whether the recipes should have an open license that allows display with proper attribution. (optional)
+# @param string $tags The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have. (optional)
 # @param double $number The number of random recipes to be returned (between 1 and 100). (optional)
 {
     my $params = {
     'limit_license' => {
         data_type => 'boolean',
-        description => 'Whether the recipes should have an open license that allows for displaying with proper attribution.',
+        description => 'Whether the recipes should have an open license that allows display with proper attribution.',
         required => '0',
     },
     'tags' => {
         data_type => 'string',
-        description => 'The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must adhere to.',
+        description => 'The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have.',
         required => '0',
     },
     'number' => {
@@ -2200,7 +2200,7 @@ sub get_recipe_equipment_by_id {
 # Get Recipe Information
 # 
 # @param double $id The id of the recipe. (required)
-# @param boolean $include_nutrition Include nutrition data to the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional)
+# @param boolean $include_nutrition Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional)
 {
     my $params = {
     'id' => {
@@ -2210,7 +2210,7 @@ sub get_recipe_equipment_by_id {
     },
     'include_nutrition' => {
         data_type => 'boolean',
-        description => 'Include nutrition data to the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.',
+        description => 'Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.',
         required => '0',
     },
     };
@@ -2416,9 +2416,9 @@ sub get_recipe_ingredients_by_id {
 }
 
 #
-# get_recipe_nutrition_by_id
+# get_recipe_nutrition_widget_by_id
 #
-# Get Recipe Nutrition by ID
+# Get Recipe Nutrition Widget by ID
 # 
 # @param double $id The recipe id. (required)
 {
@@ -2429,20 +2429,20 @@ sub get_recipe_ingredients_by_id {
         required => '1',
     },
     };
-    __PACKAGE__->method_documentation->{ 'get_recipe_nutrition_by_id' } = { 
-        summary => 'Get Recipe Nutrition by ID',
+    __PACKAGE__->method_documentation->{ 'get_recipe_nutrition_widget_by_id' } = { 
+        summary => 'Get Recipe Nutrition Widget by ID',
         params => $params,
         returns => 'object',
         };
 }
 # @return object
 #
-sub get_recipe_nutrition_by_id {
+sub get_recipe_nutrition_widget_by_id {
     my ($self, %args) = @_;
 
     # verify the required parameter 'id' is set
     unless (exists $args{'id'}) {
-      croak("Missing the required parameter 'id' when calling get_recipe_nutrition_by_id");
+      croak("Missing the required parameter 'id' when calling get_recipe_nutrition_widget_by_id");
     }
 
     # parse inputs
@@ -2554,13 +2554,13 @@ sub get_recipe_price_breakdown_by_id {
 #
 # Get Similar Recipes
 # 
-# @param double $id The id of the source recipe to which similar recipes should be found. (required)
+# @param double $id The id of the source recipe for which similar recipes should be found. (required)
 # @param double $number The number of random recipes to be returned (between 1 and 100). (optional)
 {
     my $params = {
     'id' => {
         data_type => 'double',
-        description => 'The id of the source recipe to which similar recipes should be found.',
+        description => 'The id of the source recipe for which similar recipes should be found.',
         required => '1',
     },
     'number' => {
@@ -2773,7 +2773,7 @@ sub get_wine_pairing {
 #
 # Get Wine Recommendation
 # 
-# @param string $wine The name of the wine to get a specific product recommendation for. (required)
+# @param string $wine The type of wine to get a specific product recommendation for. (required)
 # @param double $max_price The maximum price for the specific wine recommendation in USD. (optional)
 # @param double $min_rating The minimum rating of the recommended wine between 0 and 1. For example, 0.8 equals 4 out of 5 stars. (optional)
 # @param double $number The number of wine recommendations expected (between 1 and 100). (optional)
@@ -2781,7 +2781,7 @@ sub get_wine_pairing {
     my $params = {
     'wine' => {
         data_type => 'string',
-        description => 'The name of the wine to get a specific product recommendation for.',
+        description => 'The type of wine to get a specific product recommendation for.',
         required => '1',
     },
     'max_price' => {
@@ -3093,12 +3093,12 @@ sub parse_ingredients {
 #
 # Quick Answer
 # 
-# @param string $q The nutrition-related question. (required)
+# @param string $q The nutrition related question. (required)
 {
     my $params = {
     'q' => {
         data_type => 'string',
-        description => 'The nutrition-related question.',
+        description => 'The nutrition related question.',
         required => '1',
     },
     };
@@ -3160,10 +3160,10 @@ sub quick_answer {
 # 
 # @param string $query The search query. (required)
 # @param string $type The type of the recipes. See a full list of supported meal types. (optional)
-# @param string $cuisine The cuisine(s) of the recipes. One or more comma separated. See a full list of supported cuisines. (optional)
-# @param string $diet The diet to which the recipes must be compliant. See a full list of supported diets. (optional)
-# @param string $include_ingredients A comma-separated list of ingredients that should/must be contained in the recipe. (optional)
-# @param string $exclude_ingredients A comma-separated list of ingredients or ingredient types that must not be contained in the recipes. (optional)
+# @param string $cuisine The cuisine(s) of the recipes. One or more, comma separated. See a full list of supported cuisines. (optional)
+# @param string $diet The diet for which the recipes must be suitable. See a full list of supported diets. (optional)
+# @param string $include_ingredients A comma-separated list of ingredients that the recipes should contain. (optional)
+# @param string $exclude_ingredients A comma-separated list of ingredients or ingredient types that the recipes must not contain. (optional)
 # @param double $min_length Minimum video length in seconds. (optional)
 # @param double $max_length Maximum video length in seconds. (optional)
 # @param double $offset The number of results to skip (between 0 and 900). (optional)
@@ -3182,22 +3182,22 @@ sub quick_answer {
     },
     'cuisine' => {
         data_type => 'string',
-        description => 'The cuisine(s) of the recipes. One or more comma separated. See a full list of supported cuisines.',
+        description => 'The cuisine(s) of the recipes. One or more, comma separated. See a full list of supported cuisines.',
         required => '0',
     },
     'diet' => {
         data_type => 'string',
-        description => 'The diet to which the recipes must be compliant. See a full list of supported diets.',
+        description => 'The diet for which the recipes must be suitable. See a full list of supported diets.',
         required => '0',
     },
     'include_ingredients' => {
         data_type => 'string',
-        description => 'A comma-separated list of ingredients that should/must be contained in the recipe.',
+        description => 'A comma-separated list of ingredients that the recipes should contain.',
         required => '0',
     },
     'exclude_ingredients' => {
         data_type => 'string',
-        description => 'A comma-separated list of ingredients or ingredient types that must not be contained in the recipes.',
+        description => 'A comma-separated list of ingredients or ingredient types that the recipes must not contain.',
         required => '0',
     },
     'min_length' => {
@@ -3323,14 +3323,14 @@ sub search_food_videos {
 # Search Grocery Products
 # 
 # @param string $query The search query. (required)
-# @param double $min_calories The minimum number of calories the product must have. (optional)
-# @param double $max_calories The maximum number of calories the product can have. (optional)
-# @param double $min_carbs The minimum number of carbohydrates in grams the product must have. (optional)
-# @param double $max_carbs The maximum number of carbohydrates in grams the product can have. (optional)
-# @param double $min_protein The minimum number of protein in grams the product must have. (optional)
-# @param double $max_protein The maximum number of protein in grams the product can have. (optional)
-# @param double $min_fat The minimum number of fat in grams the product must have. (optional)
-# @param double $max_fat The maximum number of fat in grams the product can have. (optional)
+# @param double $min_calories The minimum amount of calories the product must have. (optional)
+# @param double $max_calories The maximum amount of calories the product can have. (optional)
+# @param double $min_carbs The minimum amount of carbohydrates in grams the product must have. (optional)
+# @param double $max_carbs The maximum amount of carbohydrates in grams the product can have. (optional)
+# @param double $min_protein The minimum amount of protein in grams the product must have. (optional)
+# @param double $max_protein The maximum amount of protein in grams the product can have. (optional)
+# @param double $min_fat The minimum amount of fat in grams the product must have. (optional)
+# @param double $max_fat The maximum amount of fat in grams the product can have. (optional)
 # @param double $offset The offset number for paging (between 0 and 990). (optional)
 # @param double $number The number of expected results (between 1 and 100). (optional)
 {
@@ -3342,42 +3342,42 @@ sub search_food_videos {
     },
     'min_calories' => {
         data_type => 'double',
-        description => 'The minimum number of calories the product must have.',
+        description => 'The minimum amount of calories the product must have.',
         required => '0',
     },
     'max_calories' => {
         data_type => 'double',
-        description => 'The maximum number of calories the product can have.',
+        description => 'The maximum amount of calories the product can have.',
         required => '0',
     },
     'min_carbs' => {
         data_type => 'double',
-        description => 'The minimum number of carbohydrates in grams the product must have.',
+        description => 'The minimum amount of carbohydrates in grams the product must have.',
         required => '0',
     },
     'max_carbs' => {
         data_type => 'double',
-        description => 'The maximum number of carbohydrates in grams the product can have.',
+        description => 'The maximum amount of carbohydrates in grams the product can have.',
         required => '0',
     },
     'min_protein' => {
         data_type => 'double',
-        description => 'The minimum number of protein in grams the product must have.',
+        description => 'The minimum amount of protein in grams the product must have.',
         required => '0',
     },
     'max_protein' => {
         data_type => 'double',
-        description => 'The maximum number of protein in grams the product can have.',
+        description => 'The maximum amount of protein in grams the product can have.',
         required => '0',
     },
     'min_fat' => {
         data_type => 'double',
-        description => 'The minimum number of fat in grams the product must have.',
+        description => 'The minimum amount of fat in grams the product must have.',
         required => '0',
     },
     'max_fat' => {
         data_type => 'double',
-        description => 'The maximum number of fat in grams the product can have.',
+        description => 'The maximum amount of fat in grams the product can have.',
         required => '0',
     },
     'offset' => {
@@ -3565,14 +3565,14 @@ sub search_grocery_products_by_upc {
 # Search Menu Items
 # 
 # @param string $query The search query. (required)
-# @param double $min_calories The minimum number of calories the menu item must have. (optional)
-# @param double $max_calories The maximum number of calories the menu item can have. (optional)
-# @param double $min_carbs The minimum number of carbohydrates in grams the menu item must have. (optional)
-# @param double $max_carbs The maximum number of carbohydrates in grams the menu item can have. (optional)
-# @param double $min_protein The minimum number of protein in grams the menu item must have. (optional)
-# @param double $max_protein The maximum number of protein in grams the menu item can have. (optional)
-# @param double $min_fat The minimum number of fat in grams the menu item must have. (optional)
-# @param double $max_fat The maximum number of fat in grams the menu item can have. (optional)
+# @param double $min_calories The minimum amount of calories the menu item must have. (optional)
+# @param double $max_calories The maximum amount of calories the menu item can have. (optional)
+# @param double $min_carbs The minimum amount of carbohydrates in grams the menu item must have. (optional)
+# @param double $max_carbs The maximum amount of carbohydrates in grams the menu item can have. (optional)
+# @param double $min_protein The minimum amount of protein in grams the menu item must have. (optional)
+# @param double $max_protein The maximum amount of protein in grams the menu item can have. (optional)
+# @param double $min_fat The minimum amount of fat in grams the menu item must have. (optional)
+# @param double $max_fat The maximum amount of fat in grams the menu item can have. (optional)
 # @param double $offset The offset number for paging (between 0 and 990). (optional)
 # @param double $number The number of expected results (between 1 and 10). (optional)
 {
@@ -3584,42 +3584,42 @@ sub search_grocery_products_by_upc {
     },
     'min_calories' => {
         data_type => 'double',
-        description => 'The minimum number of calories the menu item must have.',
+        description => 'The minimum amount of calories the menu item must have.',
         required => '0',
     },
     'max_calories' => {
         data_type => 'double',
-        description => 'The maximum number of calories the menu item can have.',
+        description => 'The maximum amount of calories the menu item can have.',
         required => '0',
     },
     'min_carbs' => {
         data_type => 'double',
-        description => 'The minimum number of carbohydrates in grams the menu item must have.',
+        description => 'The minimum amount of carbohydrates in grams the menu item must have.',
         required => '0',
     },
     'max_carbs' => {
         data_type => 'double',
-        description => 'The maximum number of carbohydrates in grams the menu item can have.',
+        description => 'The maximum amount of carbohydrates in grams the menu item can have.',
         required => '0',
     },
     'min_protein' => {
         data_type => 'double',
-        description => 'The minimum number of protein in grams the menu item must have.',
+        description => 'The minimum amount of protein in grams the menu item must have.',
         required => '0',
     },
     'max_protein' => {
         data_type => 'double',
-        description => 'The maximum number of protein in grams the menu item can have.',
+        description => 'The maximum amount of protein in grams the menu item can have.',
         required => '0',
     },
     'min_fat' => {
         data_type => 'double',
-        description => 'The minimum number of fat in grams the menu item must have.',
+        description => 'The minimum amount of fat in grams the menu item must have.',
         required => '0',
     },
     'max_fat' => {
         data_type => 'double',
-        description => 'The maximum number of fat in grams the menu item can have.',
+        description => 'The maximum amount of fat in grams the menu item can have.',
         required => '0',
     },
     'offset' => {
@@ -3741,12 +3741,12 @@ sub search_menu_items {
 # 
 # @param string $query The (natural language) recipe search query. (required)
 # @param string $cuisine The cuisine(s) of the recipes. One or more comma separated. See a full list of supported cuisines. (optional)
-# @param string $diet The diet to which the recipes must be compliant. See a full list of supported diets. (optional)
-# @param string $exclude_ingredients An comma-separated list of ingredients or ingredient types that must not be contained in the recipes. (optional)
-# @param string $intolerances A comma-separated list of intolerances. All found recipes must not have ingredients that could cause problems for people with one of the given tolerances. See a full list of supported intolerances. (optional)
+# @param string $diet The diet for which the recipes must be suitable. See a full list of supported diets. (optional)
+# @param string $exclude_ingredients A comma-separated list of ingredients or ingredient types that the recipes must not contain. (optional)
+# @param string $intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. Please note: due to the automatic nature of the recipe analysis, the API cannot be 100% accurate in all cases. Please advise your users to seek professional help with medical issues. (optional)
 # @param double $offset The number of results to skip (between 0 and 900). (optional)
 # @param double $number The number of results to return (between 1 and 100). (optional)
-# @param boolean $limit_license Whether the recipes should have an open license that allows for displaying with proper attribution. (optional)
+# @param boolean $limit_license Whether the recipes should have an open license that allows display with proper attribution. (optional)
 # @param boolean $instructions_required Whether the recipes must have instructions. (optional)
 {
     my $params = {
@@ -3762,17 +3762,17 @@ sub search_menu_items {
     },
     'diet' => {
         data_type => 'string',
-        description => 'The diet to which the recipes must be compliant. See a full list of supported diets.',
+        description => 'The diet for which the recipes must be suitable. See a full list of supported diets.',
         required => '0',
     },
     'exclude_ingredients' => {
         data_type => 'string',
-        description => 'An comma-separated list of ingredients or ingredient types that must not be contained in the recipes.',
+        description => 'A comma-separated list of ingredients or ingredient types that the recipes must not contain.',
         required => '0',
     },
     'intolerances' => {
         data_type => 'string',
-        description => 'A comma-separated list of intolerances. All found recipes must not have ingredients that could cause problems for people with one of the given tolerances. See a full list of supported intolerances.',
+        description => 'A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. Please note: due to the automatic nature of the recipe analysis, the API cannot be 100% accurate in all cases. Please advise your users to seek professional help with medical issues.',
         required => '0',
     },
     'offset' => {
@@ -3787,7 +3787,7 @@ sub search_menu_items {
     },
     'limit_license' => {
         data_type => 'boolean',
-        description => 'Whether the recipes should have an open license that allows for displaying with proper attribution.',
+        description => 'Whether the recipes should have an open license that allows display with proper attribution.',
         required => '0',
     },
     'instructions_required' => {
@@ -3893,10 +3893,10 @@ sub search_recipes {
 # Search Recipes by Ingredients
 # 
 # @param string $ingredients A comma-separated list of ingredients that the recipes should contain. (required)
-# @param double $number The maximal number of recipes to return (between 1 and 100). Defaults to 10. (optional)
-# @param boolean $limit_license Whether the recipes should have an open license that allows for displaying with proper attribution. (optional)
+# @param double $number The maximum number of recipes to return (between 1 and 100). Defaults to 10. (optional)
+# @param boolean $limit_license Whether the recipes should have an open license that allows display with proper attribution. (optional)
 # @param double $ranking Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. (optional)
-# @param boolean $ignore_pantry Whether to ignore pantry ingredients such as water, salt, flour etc. (optional)
+# @param boolean $ignore_pantry Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional)
 {
     my $params = {
     'ingredients' => {
@@ -3906,12 +3906,12 @@ sub search_recipes {
     },
     'number' => {
         data_type => 'double',
-        description => 'The maximal number of recipes to return (between 1 and 100). Defaults to 10.',
+        description => 'The maximum number of recipes to return (between 1 and 100). Defaults to 10.',
         required => '0',
     },
     'limit_license' => {
         data_type => 'boolean',
-        description => 'Whether the recipes should have an open license that allows for displaying with proper attribution.',
+        description => 'Whether the recipes should have an open license that allows display with proper attribution.',
         required => '0',
     },
     'ranking' => {
@@ -3921,7 +3921,7 @@ sub search_recipes {
     },
     'ignore_pantry' => {
         data_type => 'boolean',
-        description => 'Whether to ignore pantry ingredients such as water, salt, flour etc.',
+        description => 'Whether to ignore typical pantry items, such as water, salt, flour, etc.',
         required => '0',
     },
     };
@@ -4001,442 +4001,442 @@ sub search_recipes_by_ingredients {
 #
 # Search Recipes by Nutrients
 # 
-# @param double $min_carbs The minimum number of carbohydrates in grams the recipe must have. (optional)
-# @param double $max_carbs The maximum number of carbohydrates in grams the recipe can have. (optional)
-# @param double $min_protein The minimum number of protein in grams the recipe must have. (optional)
-# @param double $max_protein The maximum number of protein in grams the recipe can have. (optional)
-# @param double $min_calories The minimum number of calories the recipe must have. (optional)
-# @param double $max_calories The maximum number of calories the recipe can have. (optional)
-# @param double $min_fat The minimum number of fat in grams the recipe must have. (optional)
-# @param double $max_fat The maximum number of fat in grams the recipe can have. (optional)
-# @param double $min_alcohol The minimum number of alcohol in grams the recipe must have. (optional)
-# @param double $max_alcohol The maximum number of alcohol in grams the recipe must have. (optional)
-# @param double $min_caffeine The minimum number of milligrams of caffeine the recipe must have. (optional)
-# @param double $max_caffeine The maximum number of alcohol in grams the recipe must have. (optional)
-# @param double $min_copper The minimum number of copper in milligrams the recipe must have. (optional)
-# @param double $max_copper The maximum number of copper in milligrams the recipe must have. (optional)
-# @param double $min_calcium The minimum number of calcium in milligrams the recipe must have. (optional)
-# @param double $max_calcium The maximum number of calcium in milligrams the recipe must have. (optional)
-# @param double $min_choline The minimum number of choline in milligrams the recipe must have. (optional)
-# @param double $max_choline The maximum number of choline in milligrams the recipe can have. (optional)
-# @param double $min_cholesterol The minimum number of cholesterol in milligrams the recipe must have. (optional)
-# @param double $max_cholesterol The maximum number of cholesterol in milligrams the recipe must have. (optional)
-# @param double $min_fluoride The minimum number of fluoride in milligrams the recipe must have. (optional)
-# @param double $max_fluoride The maximum number of fluoride in milligrams the recipe can have. (optional)
-# @param double $min_saturated_fat The minimum number of saturated fat in grams the recipe must have. (optional)
-# @param double $max_saturated_fat The maximum number of saturated fat in grams the recipe must have. (optional)
-# @param double $min_vitamin_a The minimum number of Vitamin A in IU the recipe must have. (optional)
-# @param double $max_vitamin_a The maximum number of Vitamin A in IU the recipe must have. (optional)
-# @param double $min_vitamin_c The minimum number of Vitamin C milligrams the recipe must have. (optional)
-# @param double $max_vitamin_c The maximum number of Vitamin C in milligrams the recipe can have. (optional)
-# @param double $min_vitamin_d The minimum number of Vitamin D in micrograms the recipe must have. (optional)
-# @param double $max_vitamin_d The maximum number of Vitamin D in micrograms the recipe must have. (optional)
-# @param double $min_vitamin_e The minimum number of Vitamin E in milligrams the recipe must have. (optional)
-# @param double $max_vitamin_e The maximum number of Vitamin E in milligrams the recipe must have. (optional)
-# @param double $min_vitamin_k The minimum number of Vitamin K in micrograms the recipe must have. (optional)
-# @param double $max_vitamin_k The maximum number of Vitamin K in micrograms the recipe must have. (optional)
-# @param double $min_vitamin_b1 The minimum number of Vitamin B1 in milligrams the recipe must have. (optional)
-# @param double $max_vitamin_b1 The maximum number of Vitamin B1 in milligrams the recipe must have. (optional)
-# @param double $min_vitamin_b2 The minimum number of Vitamin B2 in milligrams the recipe must have. (optional)
-# @param double $max_vitamin_b2 The maximum number of Vitamin B2 in milligrams the recipe must have. (optional)
-# @param double $min_vitamin_b5 The minimum number of Vitamin B5 in milligrams the recipe must have. (optional)
-# @param double $max_vitamin_b5 The maximum number of Vitamin B5 in milligrams the recipe can have. (optional)
-# @param double $min_vitamin_b3 The minimum number of Vitamin B3 in milligrams the recipe must have. (optional)
-# @param double $max_vitamin_b3 The maximum number of Vitamin B3 in milligrams the recipe can have. (optional)
-# @param double $min_vitamin_b6 The minimum number of Vitamin B6 in milligrams the recipe must have. (optional)
-# @param double $max_vitamin_b6 The maximum number of Vitamin B6 in milligrams the recipe can have. (optional)
-# @param double $min_vitamin_b12 The minimum number of Vitamin B12 in micrograms the recipe must have. (optional)
-# @param double $max_vitamin_b12 The maximum number of Vitamin B12 in micrograms the recipe must have. (optional)
-# @param double $min_fiber The minimum number of fiber in grams the recipe must have. (optional)
-# @param double $max_fiber The maximum number of fiber in grams the recipe must have. (optional)
-# @param double $min_folate The minimum number of folate in grams the recipe must have. (optional)
-# @param double $max_folate The maximum number of folate in grams the recipe must have. (optional)
-# @param double $min_folic_acid The minimum number of folic acid in grams the recipe must have. (optional)
-# @param double $max_folic_acid The maximum number of folic acid in grams the recipe must have. (optional)
-# @param double $min_iodine The minimum number of Iodine in grams the recipe must have. (optional)
-# @param double $max_iodine The maximum number of iodine in grams the recipe must have. (optional)
-# @param double $min_iron The minimum number of iron in milligrams the recipe must have. (optional)
-# @param double $max_iron The maximum number of iron in milligrams the recipe can have. (optional)
-# @param double $min_magnesium The minimum number of magnesium in milligrams the recipe must have. (optional)
-# @param double $max_magnesium The maximum number of magnesium in milligrams the recipe can have. (optional)
-# @param double $min_manganese The minimum number of manganese in milligrams the recipe must have. (optional)
-# @param double $max_manganese The maximum number of manganese in milligrams the recipe can have. (optional)
-# @param double $min_phosphorus The minimum number of phosphorus in milligrams the recipe must have. (optional)
-# @param double $max_phosphorus The maximum number of phosphorus in milligrams the recipe can have. (optional)
-# @param double $min_potassium The minimum number of potassium in milligrams the recipe must have. (optional)
-# @param double $max_potassium The maximum number of potassium in milligrams the recipe can have. (optional)
-# @param double $min_selenium The minimum number of selenium in grams the recipe must have. (optional)
-# @param double $max_selenium The maximum number of selenium in grams the recipe must have. (optional)
-# @param double $min_sodium The minimum number of sodium in milligrams the recipe must have. (optional)
-# @param double $max_sodium The maximum number of sodium in milligrams the recipe must have. (optional)
-# @param double $min_sugar The minimum number of sugar in grams the recipe must have. (optional)
-# @param double $max_sugar The maximum number of sugar in grams the recipe must have. (optional)
-# @param double $min_zinc The minimum number of zinc in milligrams the recipe must have. (optional)
-# @param double $max_zinc The maximum number of zinc in milligrams the recipe can have. (optional)
+# @param double $min_carbs The minimum amount of carbohydrates in grams the recipe must have. (optional)
+# @param double $max_carbs The maximum amount of carbohydrates in grams the recipe can have. (optional)
+# @param double $min_protein The minimum amount of protein in grams the recipe must have. (optional)
+# @param double $max_protein The maximum amount of protein in grams the recipe can have. (optional)
+# @param double $min_calories The minimum amount of calories the recipe must have. (optional)
+# @param double $max_calories The maximum amount of calories the recipe can have. (optional)
+# @param double $min_fat The minimum amount of fat in grams the recipe must have. (optional)
+# @param double $max_fat The maximum amount of fat in grams the recipe can have. (optional)
+# @param double $min_alcohol The minimum amount of alcohol in grams the recipe must have. (optional)
+# @param double $max_alcohol The maximum amount of alcohol in grams the recipe can have. (optional)
+# @param double $min_caffeine The minimum amount of caffeine in milligrams the recipe must have. (optional)
+# @param double $max_caffeine The maximum amount of caffeine in milligrams the recipe can have. (optional)
+# @param double $min_copper The minimum amount of copper in milligrams the recipe must have. (optional)
+# @param double $max_copper The maximum amount of copper in milligrams the recipe can have. (optional)
+# @param double $min_calcium The minimum amount of calcium in milligrams the recipe must have. (optional)
+# @param double $max_calcium The maximum amount of calcium in milligrams the recipe can have. (optional)
+# @param double $min_choline The minimum amount of choline in milligrams the recipe must have. (optional)
+# @param double $max_choline The maximum amount of choline in milligrams the recipe can have. (optional)
+# @param double $min_cholesterol The minimum amount of cholesterol in milligrams the recipe must have. (optional)
+# @param double $max_cholesterol The maximum amount of cholesterol in milligrams the recipe can have. (optional)
+# @param double $min_fluoride The minimum amount of fluoride in milligrams the recipe must have. (optional)
+# @param double $max_fluoride The maximum amount of fluoride in milligrams the recipe can have. (optional)
+# @param double $min_saturated_fat The minimum amount of saturated fat in grams the recipe must have. (optional)
+# @param double $max_saturated_fat The maximum amount of saturated fat in grams the recipe can have. (optional)
+# @param double $min_vitamin_a The minimum amount of Vitamin A in IU the recipe must have. (optional)
+# @param double $max_vitamin_a The maximum amount of Vitamin A in IU the recipe can have. (optional)
+# @param double $min_vitamin_c The minimum amount of Vitamin C in milligrams the recipe must have. (optional)
+# @param double $max_vitamin_c The maximum amount of Vitamin C in milligrams the recipe can have. (optional)
+# @param double $min_vitamin_d The minimum amount of Vitamin D in micrograms the recipe must have. (optional)
+# @param double $max_vitamin_d The maximum amount of Vitamin D in micrograms the recipe can have. (optional)
+# @param double $min_vitamin_e The minimum amount of Vitamin E in milligrams the recipe must have. (optional)
+# @param double $max_vitamin_e The maximum amount of Vitamin E in milligrams the recipe can have. (optional)
+# @param double $min_vitamin_k The minimum amount of Vitamin K in micrograms the recipe must have. (optional)
+# @param double $max_vitamin_k The maximum amount of Vitamin K in micrograms the recipe can have. (optional)
+# @param double $min_vitamin_b1 The minimum amount of Vitamin B1 in milligrams the recipe must have. (optional)
+# @param double $max_vitamin_b1 The maximum amount of Vitamin B1 in milligrams the recipe can have. (optional)
+# @param double $min_vitamin_b2 The minimum amount of Vitamin B2 in milligrams the recipe must have. (optional)
+# @param double $max_vitamin_b2 The maximum amount of Vitamin B2 in milligrams the recipe can have. (optional)
+# @param double $min_vitamin_b5 The minimum amount of Vitamin B5 in milligrams the recipe must have. (optional)
+# @param double $max_vitamin_b5 The maximum amount of Vitamin B5 in milligrams the recipe can have. (optional)
+# @param double $min_vitamin_b3 The minimum amount of Vitamin B3 in milligrams the recipe must have. (optional)
+# @param double $max_vitamin_b3 The maximum amount of Vitamin B3 in milligrams the recipe can have. (optional)
+# @param double $min_vitamin_b6 The minimum amount of Vitamin B6 in milligrams the recipe must have. (optional)
+# @param double $max_vitamin_b6 The maximum amount of Vitamin B6 in milligrams the recipe can have. (optional)
+# @param double $min_vitamin_b12 The minimum amount of Vitamin B12 in micrograms the recipe must have. (optional)
+# @param double $max_vitamin_b12 The maximum amount of Vitamin B12 in micrograms the recipe can have. (optional)
+# @param double $min_fiber The minimum amount of fiber in grams the recipe must have. (optional)
+# @param double $max_fiber The maximum amount of fiber in grams the recipe can have. (optional)
+# @param double $min_folate The minimum amount of folate in grams the recipe must have. (optional)
+# @param double $max_folate The maximum amount of folate in grams the recipe can have. (optional)
+# @param double $min_folic_acid The minimum amount of folic acid in grams the recipe must have. (optional)
+# @param double $max_folic_acid The maximum amount of folic acid in grams the recipe can have. (optional)
+# @param double $min_iodine The minimum amount of iodine in grams the recipe must have. (optional)
+# @param double $max_iodine The maximum amount of iodine in grams the recipe can have. (optional)
+# @param double $min_iron The minimum amount of iron in milligrams the recipe must have. (optional)
+# @param double $max_iron The maximum amount of iron in milligrams the recipe can have. (optional)
+# @param double $min_magnesium The minimum amount of magnesium in milligrams the recipe must have. (optional)
+# @param double $max_magnesium The maximum amount of magnesium in milligrams the recipe can have. (optional)
+# @param double $min_manganese The minimum amount of manganese in milligrams the recipe must have. (optional)
+# @param double $max_manganese The maximum amount of manganese in milligrams the recipe can have. (optional)
+# @param double $min_phosphorus The minimum amount of phosphorus in milligrams the recipe must have. (optional)
+# @param double $max_phosphorus The maximum amount of phosphorus in milligrams the recipe can have. (optional)
+# @param double $min_potassium The minimum amount of potassium in milligrams the recipe must have. (optional)
+# @param double $max_potassium The maximum amount of potassium in milligrams the recipe can have. (optional)
+# @param double $min_selenium The minimum amount of selenium in grams the recipe must have. (optional)
+# @param double $max_selenium The maximum amount of selenium in grams the recipe can have. (optional)
+# @param double $min_sodium The minimum amount of sodium in milligrams the recipe must have. (optional)
+# @param double $max_sodium The maximum amount of sodium in milligrams the recipe can have. (optional)
+# @param double $min_sugar The minimum amount of sugar in grams the recipe must have. (optional)
+# @param double $max_sugar The maximum amount of sugar in grams the recipe can have. (optional)
+# @param double $min_zinc The minimum amount of zinc in milligrams the recipe must have. (optional)
+# @param double $max_zinc The maximum amount of zinc in milligrams the recipe can have. (optional)
 # @param double $offset The offset number for paging (between 0 and 990). (optional)
 # @param double $number The number of expected results (between 1 and 100). (optional)
 # @param boolean $random If true, every request will give you a random set of recipes within the requested limits. (optional)
-# @param boolean $limit_license Whether the recipes should have an open license that allows for displaying with proper attribution. (optional)
+# @param boolean $limit_license Whether the recipes should have an open license that allows display with proper attribution. (optional)
 {
     my $params = {
     'min_carbs' => {
         data_type => 'double',
-        description => 'The minimum number of carbohydrates in grams the recipe must have.',
+        description => 'The minimum amount of carbohydrates in grams the recipe must have.',
         required => '0',
     },
     'max_carbs' => {
         data_type => 'double',
-        description => 'The maximum number of carbohydrates in grams the recipe can have.',
+        description => 'The maximum amount of carbohydrates in grams the recipe can have.',
         required => '0',
     },
     'min_protein' => {
         data_type => 'double',
-        description => 'The minimum number of protein in grams the recipe must have.',
+        description => 'The minimum amount of protein in grams the recipe must have.',
         required => '0',
     },
     'max_protein' => {
         data_type => 'double',
-        description => 'The maximum number of protein in grams the recipe can have.',
+        description => 'The maximum amount of protein in grams the recipe can have.',
         required => '0',
     },
     'min_calories' => {
         data_type => 'double',
-        description => 'The minimum number of calories the recipe must have.',
+        description => 'The minimum amount of calories the recipe must have.',
         required => '0',
     },
     'max_calories' => {
         data_type => 'double',
-        description => 'The maximum number of calories the recipe can have.',
+        description => 'The maximum amount of calories the recipe can have.',
         required => '0',
     },
     'min_fat' => {
         data_type => 'double',
-        description => 'The minimum number of fat in grams the recipe must have.',
+        description => 'The minimum amount of fat in grams the recipe must have.',
         required => '0',
     },
     'max_fat' => {
         data_type => 'double',
-        description => 'The maximum number of fat in grams the recipe can have.',
+        description => 'The maximum amount of fat in grams the recipe can have.',
         required => '0',
     },
     'min_alcohol' => {
         data_type => 'double',
-        description => 'The minimum number of alcohol in grams the recipe must have.',
+        description => 'The minimum amount of alcohol in grams the recipe must have.',
         required => '0',
     },
     'max_alcohol' => {
         data_type => 'double',
-        description => 'The maximum number of alcohol in grams the recipe must have.',
+        description => 'The maximum amount of alcohol in grams the recipe can have.',
         required => '0',
     },
     'min_caffeine' => {
         data_type => 'double',
-        description => 'The minimum number of milligrams of caffeine the recipe must have.',
+        description => 'The minimum amount of caffeine in milligrams the recipe must have.',
         required => '0',
     },
     'max_caffeine' => {
         data_type => 'double',
-        description => 'The maximum number of alcohol in grams the recipe must have.',
+        description => 'The maximum amount of caffeine in milligrams the recipe can have.',
         required => '0',
     },
     'min_copper' => {
         data_type => 'double',
-        description => 'The minimum number of copper in milligrams the recipe must have.',
+        description => 'The minimum amount of copper in milligrams the recipe must have.',
         required => '0',
     },
     'max_copper' => {
         data_type => 'double',
-        description => 'The maximum number of copper in milligrams the recipe must have.',
+        description => 'The maximum amount of copper in milligrams the recipe can have.',
         required => '0',
     },
     'min_calcium' => {
         data_type => 'double',
-        description => 'The minimum number of calcium in milligrams the recipe must have.',
+        description => 'The minimum amount of calcium in milligrams the recipe must have.',
         required => '0',
     },
     'max_calcium' => {
         data_type => 'double',
-        description => 'The maximum number of calcium in milligrams the recipe must have.',
+        description => 'The maximum amount of calcium in milligrams the recipe can have.',
         required => '0',
     },
     'min_choline' => {
         data_type => 'double',
-        description => 'The minimum number of choline in milligrams the recipe must have.',
+        description => 'The minimum amount of choline in milligrams the recipe must have.',
         required => '0',
     },
     'max_choline' => {
         data_type => 'double',
-        description => 'The maximum number of choline in milligrams the recipe can have.',
+        description => 'The maximum amount of choline in milligrams the recipe can have.',
         required => '0',
     },
     'min_cholesterol' => {
         data_type => 'double',
-        description => 'The minimum number of cholesterol in milligrams the recipe must have.',
+        description => 'The minimum amount of cholesterol in milligrams the recipe must have.',
         required => '0',
     },
     'max_cholesterol' => {
         data_type => 'double',
-        description => 'The maximum number of cholesterol in milligrams the recipe must have.',
+        description => 'The maximum amount of cholesterol in milligrams the recipe can have.',
         required => '0',
     },
     'min_fluoride' => {
         data_type => 'double',
-        description => 'The minimum number of fluoride in milligrams the recipe must have.',
+        description => 'The minimum amount of fluoride in milligrams the recipe must have.',
         required => '0',
     },
     'max_fluoride' => {
         data_type => 'double',
-        description => 'The maximum number of fluoride in milligrams the recipe can have.',
+        description => 'The maximum amount of fluoride in milligrams the recipe can have.',
         required => '0',
     },
     'min_saturated_fat' => {
         data_type => 'double',
-        description => 'The minimum number of saturated fat in grams the recipe must have.',
+        description => 'The minimum amount of saturated fat in grams the recipe must have.',
         required => '0',
     },
     'max_saturated_fat' => {
         data_type => 'double',
-        description => 'The maximum number of saturated fat in grams the recipe must have.',
+        description => 'The maximum amount of saturated fat in grams the recipe can have.',
         required => '0',
     },
     'min_vitamin_a' => {
         data_type => 'double',
-        description => 'The minimum number of Vitamin A in IU the recipe must have.',
+        description => 'The minimum amount of Vitamin A in IU the recipe must have.',
         required => '0',
     },
     'max_vitamin_a' => {
         data_type => 'double',
-        description => 'The maximum number of Vitamin A in IU the recipe must have.',
+        description => 'The maximum amount of Vitamin A in IU the recipe can have.',
         required => '0',
     },
     'min_vitamin_c' => {
         data_type => 'double',
-        description => 'The minimum number of Vitamin C milligrams the recipe must have.',
+        description => 'The minimum amount of Vitamin C in milligrams the recipe must have.',
         required => '0',
     },
     'max_vitamin_c' => {
         data_type => 'double',
-        description => 'The maximum number of Vitamin C in milligrams the recipe can have.',
+        description => 'The maximum amount of Vitamin C in milligrams the recipe can have.',
         required => '0',
     },
     'min_vitamin_d' => {
         data_type => 'double',
-        description => 'The minimum number of Vitamin D in micrograms the recipe must have.',
+        description => 'The minimum amount of Vitamin D in micrograms the recipe must have.',
         required => '0',
     },
     'max_vitamin_d' => {
         data_type => 'double',
-        description => 'The maximum number of Vitamin D in micrograms the recipe must have.',
+        description => 'The maximum amount of Vitamin D in micrograms the recipe can have.',
         required => '0',
     },
     'min_vitamin_e' => {
         data_type => 'double',
-        description => 'The minimum number of Vitamin E in milligrams the recipe must have.',
+        description => 'The minimum amount of Vitamin E in milligrams the recipe must have.',
         required => '0',
     },
     'max_vitamin_e' => {
         data_type => 'double',
-        description => 'The maximum number of Vitamin E in milligrams the recipe must have.',
+        description => 'The maximum amount of Vitamin E in milligrams the recipe can have.',
         required => '0',
     },
     'min_vitamin_k' => {
         data_type => 'double',
-        description => 'The minimum number of Vitamin K in micrograms the recipe must have.',
+        description => 'The minimum amount of Vitamin K in micrograms the recipe must have.',
         required => '0',
     },
     'max_vitamin_k' => {
         data_type => 'double',
-        description => 'The maximum number of Vitamin K in micrograms the recipe must have.',
+        description => 'The maximum amount of Vitamin K in micrograms the recipe can have.',
         required => '0',
     },
     'min_vitamin_b1' => {
         data_type => 'double',
-        description => 'The minimum number of Vitamin B1 in milligrams the recipe must have.',
+        description => 'The minimum amount of Vitamin B1 in milligrams the recipe must have.',
         required => '0',
     },
     'max_vitamin_b1' => {
         data_type => 'double',
-        description => 'The maximum number of Vitamin B1 in milligrams the recipe must have.',
+        description => 'The maximum amount of Vitamin B1 in milligrams the recipe can have.',
         required => '0',
     },
     'min_vitamin_b2' => {
         data_type => 'double',
-        description => 'The minimum number of Vitamin B2 in milligrams the recipe must have.',
+        description => 'The minimum amount of Vitamin B2 in milligrams the recipe must have.',
         required => '0',
     },
     'max_vitamin_b2' => {
         data_type => 'double',
-        description => 'The maximum number of Vitamin B2 in milligrams the recipe must have.',
+        description => 'The maximum amount of Vitamin B2 in milligrams the recipe can have.',
         required => '0',
     },
     'min_vitamin_b5' => {
         data_type => 'double',
-        description => 'The minimum number of Vitamin B5 in milligrams the recipe must have.',
+        description => 'The minimum amount of Vitamin B5 in milligrams the recipe must have.',
         required => '0',
     },
     'max_vitamin_b5' => {
         data_type => 'double',
-        description => 'The maximum number of Vitamin B5 in milligrams the recipe can have.',
+        description => 'The maximum amount of Vitamin B5 in milligrams the recipe can have.',
         required => '0',
     },
     'min_vitamin_b3' => {
         data_type => 'double',
-        description => 'The minimum number of Vitamin B3 in milligrams the recipe must have.',
+        description => 'The minimum amount of Vitamin B3 in milligrams the recipe must have.',
         required => '0',
     },
     'max_vitamin_b3' => {
         data_type => 'double',
-        description => 'The maximum number of Vitamin B3 in milligrams the recipe can have.',
+        description => 'The maximum amount of Vitamin B3 in milligrams the recipe can have.',
         required => '0',
     },
     'min_vitamin_b6' => {
         data_type => 'double',
-        description => 'The minimum number of Vitamin B6 in milligrams the recipe must have.',
+        description => 'The minimum amount of Vitamin B6 in milligrams the recipe must have.',
         required => '0',
     },
     'max_vitamin_b6' => {
         data_type => 'double',
-        description => 'The maximum number of Vitamin B6 in milligrams the recipe can have.',
+        description => 'The maximum amount of Vitamin B6 in milligrams the recipe can have.',
         required => '0',
     },
     'min_vitamin_b12' => {
         data_type => 'double',
-        description => 'The minimum number of Vitamin B12 in micrograms the recipe must have.',
+        description => 'The minimum amount of Vitamin B12 in micrograms the recipe must have.',
         required => '0',
     },
     'max_vitamin_b12' => {
         data_type => 'double',
-        description => 'The maximum number of Vitamin B12 in micrograms the recipe must have.',
+        description => 'The maximum amount of Vitamin B12 in micrograms the recipe can have.',
         required => '0',
     },
     'min_fiber' => {
         data_type => 'double',
-        description => 'The minimum number of fiber in grams the recipe must have.',
+        description => 'The minimum amount of fiber in grams the recipe must have.',
         required => '0',
     },
     'max_fiber' => {
         data_type => 'double',
-        description => 'The maximum number of fiber in grams the recipe must have.',
+        description => 'The maximum amount of fiber in grams the recipe can have.',
         required => '0',
     },
     'min_folate' => {
         data_type => 'double',
-        description => 'The minimum number of folate in grams the recipe must have.',
+        description => 'The minimum amount of folate in grams the recipe must have.',
         required => '0',
     },
     'max_folate' => {
         data_type => 'double',
-        description => 'The maximum number of folate in grams the recipe must have.',
+        description => 'The maximum amount of folate in grams the recipe can have.',
         required => '0',
     },
     'min_folic_acid' => {
         data_type => 'double',
-        description => 'The minimum number of folic acid in grams the recipe must have.',
+        description => 'The minimum amount of folic acid in grams the recipe must have.',
         required => '0',
     },
     'max_folic_acid' => {
         data_type => 'double',
-        description => 'The maximum number of folic acid in grams the recipe must have.',
+        description => 'The maximum amount of folic acid in grams the recipe can have.',
         required => '0',
     },
     'min_iodine' => {
         data_type => 'double',
-        description => 'The minimum number of Iodine in grams the recipe must have.',
+        description => 'The minimum amount of iodine in grams the recipe must have.',
         required => '0',
     },
     'max_iodine' => {
         data_type => 'double',
-        description => 'The maximum number of iodine in grams the recipe must have.',
+        description => 'The maximum amount of iodine in grams the recipe can have.',
         required => '0',
     },
     'min_iron' => {
         data_type => 'double',
-        description => 'The minimum number of iron in milligrams the recipe must have.',
+        description => 'The minimum amount of iron in milligrams the recipe must have.',
         required => '0',
     },
     'max_iron' => {
         data_type => 'double',
-        description => 'The maximum number of iron in milligrams the recipe can have.',
+        description => 'The maximum amount of iron in milligrams the recipe can have.',
         required => '0',
     },
     'min_magnesium' => {
         data_type => 'double',
-        description => 'The minimum number of magnesium in milligrams the recipe must have.',
+        description => 'The minimum amount of magnesium in milligrams the recipe must have.',
         required => '0',
     },
     'max_magnesium' => {
         data_type => 'double',
-        description => 'The maximum number of magnesium in milligrams the recipe can have.',
+        description => 'The maximum amount of magnesium in milligrams the recipe can have.',
         required => '0',
     },
     'min_manganese' => {
         data_type => 'double',
-        description => 'The minimum number of manganese in milligrams the recipe must have.',
+        description => 'The minimum amount of manganese in milligrams the recipe must have.',
         required => '0',
     },
     'max_manganese' => {
         data_type => 'double',
-        description => 'The maximum number of manganese in milligrams the recipe can have.',
+        description => 'The maximum amount of manganese in milligrams the recipe can have.',
         required => '0',
     },
     'min_phosphorus' => {
         data_type => 'double',
-        description => 'The minimum number of phosphorus in milligrams the recipe must have.',
+        description => 'The minimum amount of phosphorus in milligrams the recipe must have.',
         required => '0',
     },
     'max_phosphorus' => {
         data_type => 'double',
-        description => 'The maximum number of phosphorus in milligrams the recipe can have.',
+        description => 'The maximum amount of phosphorus in milligrams the recipe can have.',
         required => '0',
     },
     'min_potassium' => {
         data_type => 'double',
-        description => 'The minimum number of potassium in milligrams the recipe must have.',
+        description => 'The minimum amount of potassium in milligrams the recipe must have.',
         required => '0',
     },
     'max_potassium' => {
         data_type => 'double',
-        description => 'The maximum number of potassium in milligrams the recipe can have.',
+        description => 'The maximum amount of potassium in milligrams the recipe can have.',
         required => '0',
     },
     'min_selenium' => {
         data_type => 'double',
-        description => 'The minimum number of selenium in grams the recipe must have.',
+        description => 'The minimum amount of selenium in grams the recipe must have.',
         required => '0',
     },
     'max_selenium' => {
         data_type => 'double',
-        description => 'The maximum number of selenium in grams the recipe must have.',
+        description => 'The maximum amount of selenium in grams the recipe can have.',
         required => '0',
     },
     'min_sodium' => {
         data_type => 'double',
-        description => 'The minimum number of sodium in milligrams the recipe must have.',
+        description => 'The minimum amount of sodium in milligrams the recipe must have.',
         required => '0',
     },
     'max_sodium' => {
         data_type => 'double',
-        description => 'The maximum number of sodium in milligrams the recipe must have.',
+        description => 'The maximum amount of sodium in milligrams the recipe can have.',
         required => '0',
     },
     'min_sugar' => {
         data_type => 'double',
-        description => 'The minimum number of sugar in grams the recipe must have.',
+        description => 'The minimum amount of sugar in grams the recipe must have.',
         required => '0',
     },
     'max_sugar' => {
         data_type => 'double',
-        description => 'The maximum number of sugar in grams the recipe must have.',
+        description => 'The maximum amount of sugar in grams the recipe can have.',
         required => '0',
     },
     'min_zinc' => {
         data_type => 'double',
-        description => 'The minimum number of zinc in milligrams the recipe must have.',
+        description => 'The minimum amount of zinc in milligrams the recipe must have.',
         required => '0',
     },
     'max_zinc' => {
         data_type => 'double',
-        description => 'The maximum number of zinc in milligrams the recipe can have.',
+        description => 'The maximum amount of zinc in milligrams the recipe can have.',
         required => '0',
     },
     'offset' => {
@@ -4456,7 +4456,7 @@ sub search_recipes_by_ingredients {
     },
     'limit_license' => {
         data_type => 'boolean',
-        description => 'Whether the recipes should have an open license that allows for displaying with proper attribution.',
+        description => 'Whether the recipes should have an open license that allows display with proper attribution.',
         required => '0',
     },
     };
@@ -4887,97 +4887,99 @@ sub search_recipes_by_nutrients {
 # Search Recipes Complex
 # 
 # @param string $query The (natural language) recipe search query. (required)
-# @param string $cuisine The cuisine(s) of the recipes. One or more comma separated (will be iterpreted as &#39;OR&#39;). See a full list of supported cuisines. (optional)
-# @param string $exclude_cuisine The cuisine(s) the recipes must not match. One or more comma separated (will be iterpreted as &#39;AND&#39;). See a full list of supported cuisines. (optional)
-# @param string $diet The diet to which the recipes must be compliant. See a full list of supported diets. (optional)
-# @param string $intolerances A comma-separated list of intolerances. All found recipes must not have ingredients that could cause problems for people with one of the given tolerances. See a full list of supported intolerances. (optional)
+# @param string $cuisine The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as &#39;OR&#39;). See a full list of supported cuisines. (optional)
+# @param string $exclude_cuisine The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as &#39;AND&#39;). See a full list of supported cuisines. (optional)
+# @param string $diet The diet for which the recipes must be suitable. See a full list of supported diets. (optional)
+# @param string $intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
 # @param string $equipment The equipment required. Multiple values will be interpreted as &#39;or&#39;. For example, value could be \&quot;blender, frying pan, bowl\&quot;. (optional)
-# @param string $include_ingredients A comma-separated list of ingredients that should/must be contained in the recipe. (optional)
-# @param string $exclude_ingredients A comma-separated list of ingredients or ingredient types that must not be contained in the recipes. (optional)
-# @param string $type The type of the recipes. See a full list of supported meal types. (optional)
+# @param string $include_ingredients A comma-separated list of ingredients that should/must be used in the recipes. (optional)
+# @param string $exclude_ingredients A comma-separated list of ingredients or ingredient types that the recipes must not contain. (optional)
+# @param string $type The type of recipe. See a full list of supported meal types. (optional)
 # @param boolean $instructions_required Whether the recipes must have instructions. (optional)
 # @param boolean $fill_ingredients Add information about the used and missing ingredients in each recipe. (optional)
-# @param boolean $add_recipe_information If set to true, you get more information about the recipes returned. This saves the calls to get recipe information. (optional)
+# @param boolean $add_recipe_information If set to true, you get more information about the recipes returned. This saves you from needing to call to get recipe information. (optional)
 # @param string $author The username of the recipe author. (optional)
 # @param string $tags User defined tags that have to match. (optional)
-# @param string $title_match A text that has to match in the title of the recipes. (optional)
+# @param string $title_match Enter text that must be found in the title of the recipes. (optional)
+# @param double $max_ready_time The maximum time in minutes it should take to prepare and cook the recipe. (optional)
+# @param boolean $ignore_pantry Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional)
 # @param string $sort The strategy to sort recipes by. See a full list of supported sorting options. (optional)
 # @param string $sort_direction The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending). (optional)
-# @param double $min_carbs The minimum number of carbohydrates in grams the recipe must have. (optional)
-# @param double $max_carbs The maximum number of carbohydrates in grams the recipe can have. (optional)
-# @param double $min_protein The minimum number of protein in grams the recipe must have. (optional)
-# @param double $max_protein The maximum number of protein in grams the recipe can have. (optional)
-# @param double $min_calories The minimum number of calories the recipe must have. (optional)
-# @param double $max_calories The maximum number of calories the recipe can have. (optional)
-# @param double $min_fat The minimum number of fat in grams the recipe must have. (optional)
-# @param double $max_fat The maximum number of fat in grams the recipe can have. (optional)
-# @param double $min_alcohol The minimum number of alcohol in grams the recipe must have. (optional)
-# @param double $max_alcohol The maximum number of alcohol in grams the recipe must have. (optional)
-# @param double $min_caffeine The minimum number of milligrams of caffeine the recipe must have. (optional)
-# @param double $max_caffeine The maximum number of alcohol in grams the recipe must have. (optional)
-# @param double $min_copper The minimum number of copper in milligrams the recipe must have. (optional)
-# @param double $max_copper The maximum number of copper in milligrams the recipe must have. (optional)
-# @param double $min_calcium The minimum number of calcium in milligrams the recipe must have. (optional)
-# @param double $max_calcium The maximum number of calcium in milligrams the recipe must have. (optional)
-# @param double $min_choline The minimum number of choline in milligrams the recipe must have. (optional)
-# @param double $max_choline The maximum number of choline in milligrams the recipe can have. (optional)
-# @param double $min_cholesterol The minimum number of cholesterol in milligrams the recipe must have. (optional)
-# @param double $max_cholesterol The maximum number of cholesterol in milligrams the recipe must have. (optional)
-# @param double $min_fluoride The minimum number of fluoride in milligrams the recipe must have. (optional)
-# @param double $max_fluoride The maximum number of fluoride in milligrams the recipe can have. (optional)
-# @param double $min_saturated_fat The minimum number of saturated fat in grams the recipe must have. (optional)
-# @param double $max_saturated_fat The maximum number of saturated fat in grams the recipe must have. (optional)
-# @param double $min_vitamin_a The minimum number of Vitamin A in IU the recipe must have. (optional)
-# @param double $max_vitamin_a The maximum number of Vitamin A in IU the recipe must have. (optional)
-# @param double $min_vitamin_c The minimum number of Vitamin C milligrams the recipe must have. (optional)
-# @param double $max_vitamin_c The maximum number of Vitamin C in milligrams the recipe can have. (optional)
-# @param double $min_vitamin_d The minimum number of Vitamin D in micrograms the recipe must have. (optional)
-# @param double $max_vitamin_d The maximum number of Vitamin D in micrograms the recipe must have. (optional)
-# @param double $min_vitamin_e The minimum number of Vitamin E in milligrams the recipe must have. (optional)
-# @param double $max_vitamin_e The maximum number of Vitamin E in milligrams the recipe must have. (optional)
-# @param double $min_vitamin_k The minimum number of Vitamin K in micrograms the recipe must have. (optional)
-# @param double $max_vitamin_k The maximum number of Vitamin K in micrograms the recipe must have. (optional)
-# @param double $min_vitamin_b1 The minimum number of Vitamin B1 in milligrams the recipe must have. (optional)
-# @param double $max_vitamin_b1 The maximum number of Vitamin B1 in milligrams the recipe must have. (optional)
-# @param double $min_vitamin_b2 The minimum number of Vitamin B2 in milligrams the recipe must have. (optional)
-# @param double $max_vitamin_b2 The maximum number of Vitamin B2 in milligrams the recipe must have. (optional)
-# @param double $min_vitamin_b5 The minimum number of Vitamin B5 in milligrams the recipe must have. (optional)
-# @param double $max_vitamin_b5 The maximum number of Vitamin B5 in milligrams the recipe can have. (optional)
-# @param double $min_vitamin_b3 The minimum number of Vitamin B3 in milligrams the recipe must have. (optional)
-# @param double $max_vitamin_b3 The maximum number of Vitamin B3 in milligrams the recipe can have. (optional)
-# @param double $min_vitamin_b6 The minimum number of Vitamin B6 in milligrams the recipe must have. (optional)
-# @param double $max_vitamin_b6 The maximum number of Vitamin B6 in milligrams the recipe can have. (optional)
-# @param double $min_vitamin_b12 The minimum number of Vitamin B12 in micrograms the recipe must have. (optional)
-# @param double $max_vitamin_b12 The maximum number of Vitamin B12 in micrograms the recipe must have. (optional)
-# @param double $min_fiber The minimum number of fiber in grams the recipe must have. (optional)
-# @param double $max_fiber The maximum number of fiber in grams the recipe must have. (optional)
-# @param double $min_folate The minimum number of folate in grams the recipe must have. (optional)
-# @param double $max_folate The maximum number of folate in grams the recipe must have. (optional)
-# @param double $min_folic_acid The minimum number of folic acid in grams the recipe must have. (optional)
-# @param double $max_folic_acid The maximum number of folic acid in grams the recipe must have. (optional)
-# @param double $min_iodine The minimum number of Iodine in grams the recipe must have. (optional)
-# @param double $max_iodine The maximum number of iodine in grams the recipe must have. (optional)
-# @param double $min_iron The minimum number of iron in milligrams the recipe must have. (optional)
-# @param double $max_iron The maximum number of iron in milligrams the recipe can have. (optional)
-# @param double $min_magnesium The minimum number of magnesium in milligrams the recipe must have. (optional)
-# @param double $max_magnesium The maximum number of magnesium in milligrams the recipe can have. (optional)
-# @param double $min_manganese The minimum number of manganese in milligrams the recipe must have. (optional)
-# @param double $max_manganese The maximum number of manganese in milligrams the recipe can have. (optional)
-# @param double $min_phosphorus The minimum number of phosphorus in milligrams the recipe must have. (optional)
-# @param double $max_phosphorus The maximum number of phosphorus in milligrams the recipe can have. (optional)
-# @param double $min_potassium The minimum number of potassium in milligrams the recipe must have. (optional)
-# @param double $max_potassium The maximum number of potassium in milligrams the recipe can have. (optional)
-# @param double $min_selenium The minimum number of selenium in grams the recipe must have. (optional)
-# @param double $max_selenium The maximum number of selenium in grams the recipe must have. (optional)
-# @param double $min_sodium The minimum number of sodium in milligrams the recipe must have. (optional)
-# @param double $max_sodium The maximum number of sodium in milligrams the recipe must have. (optional)
-# @param double $min_sugar The minimum number of sugar in grams the recipe must have. (optional)
-# @param double $max_sugar The maximum number of sugar in grams the recipe must have. (optional)
-# @param double $min_zinc The minimum number of zinc in milligrams the recipe must have. (optional)
-# @param double $max_zinc The maximum number of zinc in milligrams the recipe can have. (optional)
+# @param double $min_carbs The minimum amount of carbohydrates in grams the recipe must have. (optional)
+# @param double $max_carbs The maximum amount of carbohydrates in grams the recipe can have. (optional)
+# @param double $min_protein The minimum amount of protein in grams the recipe must have. (optional)
+# @param double $max_protein The maximum amount of protein in grams the recipe can have. (optional)
+# @param double $min_calories The minimum amount of calories the recipe must have. (optional)
+# @param double $max_calories The maximum amount of calories the recipe can have. (optional)
+# @param double $min_fat The minimum amount of fat in grams the recipe must have. (optional)
+# @param double $max_fat The maximum amount of fat in grams the recipe can have. (optional)
+# @param double $min_alcohol The minimum amount of alcohol in grams the recipe must have. (optional)
+# @param double $max_alcohol The maximum amount of alcohol in grams the recipe can have. (optional)
+# @param double $min_caffeine The minimum amount of caffeine in milligrams the recipe must have. (optional)
+# @param double $max_caffeine The maximum amount of caffeine in milligrams the recipe can have. (optional)
+# @param double $min_copper The minimum amount of copper in milligrams the recipe must have. (optional)
+# @param double $max_copper The maximum amount of copper in milligrams the recipe can have. (optional)
+# @param double $min_calcium The minimum amount of calcium in milligrams the recipe must have. (optional)
+# @param double $max_calcium The maximum amount of calcium in milligrams the recipe can have. (optional)
+# @param double $min_choline The minimum amount of choline in milligrams the recipe must have. (optional)
+# @param double $max_choline The maximum amount of choline in milligrams the recipe can have. (optional)
+# @param double $min_cholesterol The minimum amount of cholesterol in milligrams the recipe must have. (optional)
+# @param double $max_cholesterol The maximum amount of cholesterol in milligrams the recipe can have. (optional)
+# @param double $min_fluoride The minimum amount of fluoride in milligrams the recipe must have. (optional)
+# @param double $max_fluoride The maximum amount of fluoride in milligrams the recipe can have. (optional)
+# @param double $min_saturated_fat The minimum amount of saturated fat in grams the recipe must have. (optional)
+# @param double $max_saturated_fat The maximum amount of saturated fat in grams the recipe can have. (optional)
+# @param double $min_vitamin_a The minimum amount of Vitamin A in IU the recipe must have. (optional)
+# @param double $max_vitamin_a The maximum amount of Vitamin A in IU the recipe can have. (optional)
+# @param double $min_vitamin_c The minimum amount of Vitamin C milligrams the recipe must have. (optional)
+# @param double $max_vitamin_c The maximum amount of Vitamin C in milligrams the recipe can have. (optional)
+# @param double $min_vitamin_d The minimum amount of Vitamin D in micrograms the recipe must have. (optional)
+# @param double $max_vitamin_d The maximum amount of Vitamin D in micrograms the recipe can have. (optional)
+# @param double $min_vitamin_e The minimum amount of Vitamin E in milligrams the recipe must have. (optional)
+# @param double $max_vitamin_e The maximum amount of Vitamin E in milligrams the recipe can have. (optional)
+# @param double $min_vitamin_k The minimum amount of Vitamin K in micrograms the recipe must have. (optional)
+# @param double $max_vitamin_k The maximum amount of Vitamin K in micrograms the recipe can have. (optional)
+# @param double $min_vitamin_b1 The minimum amount of Vitamin B1 in milligrams the recipe must have. (optional)
+# @param double $max_vitamin_b1 The maximum amount of Vitamin B1 in milligrams the recipe can have. (optional)
+# @param double $min_vitamin_b2 The minimum amount of Vitamin B2 in milligrams the recipe must have. (optional)
+# @param double $max_vitamin_b2 The maximum amount of Vitamin B2 in milligrams the recipe can have. (optional)
+# @param double $min_vitamin_b5 The minimum amount of Vitamin B5 in milligrams the recipe must have. (optional)
+# @param double $max_vitamin_b5 The maximum amount of Vitamin B5 in milligrams the recipe can have. (optional)
+# @param double $min_vitamin_b3 The minimum amount of Vitamin B3 in milligrams the recipe must have. (optional)
+# @param double $max_vitamin_b3 The maximum amount of Vitamin B3 in milligrams the recipe can have. (optional)
+# @param double $min_vitamin_b6 The minimum amount of Vitamin B6 in milligrams the recipe must have. (optional)
+# @param double $max_vitamin_b6 The maximum amount of Vitamin B6 in milligrams the recipe can have. (optional)
+# @param double $min_vitamin_b12 The minimum amount of Vitamin B12 in micrograms the recipe must have. (optional)
+# @param double $max_vitamin_b12 The maximum amount of Vitamin B12 in micrograms the recipe can have. (optional)
+# @param double $min_fiber The minimum amount of fiber in grams the recipe must have. (optional)
+# @param double $max_fiber The maximum amount of fiber in grams the recipe can have. (optional)
+# @param double $min_folate The minimum amount of folate in grams the recipe must have. (optional)
+# @param double $max_folate The maximum amount of folate in grams the recipe can have. (optional)
+# @param double $min_folic_acid The minimum amount of folic acid in grams the recipe must have. (optional)
+# @param double $max_folic_acid The maximum amount of folic acid in grams the recipe can have. (optional)
+# @param double $min_iodine The minimum amount of iodine in grams the recipe must have. (optional)
+# @param double $max_iodine The maximum amount of iodine in grams the recipe can have. (optional)
+# @param double $min_iron The minimum amount of iron in milligrams the recipe must have. (optional)
+# @param double $max_iron The maximum amount of iron in milligrams the recipe can have. (optional)
+# @param double $min_magnesium The minimum amount of magnesium in milligrams the recipe must have. (optional)
+# @param double $max_magnesium The maximum amount of magnesium in milligrams the recipe can have. (optional)
+# @param double $min_manganese The minimum amount of manganese in milligrams the recipe must have. (optional)
+# @param double $max_manganese The maximum amount of manganese in milligrams the recipe can have. (optional)
+# @param double $min_phosphorus The minimum amount of phosphorus in milligrams the recipe must have. (optional)
+# @param double $max_phosphorus The maximum amount of phosphorus in milligrams the recipe can have. (optional)
+# @param double $min_potassium The minimum amount of potassium in milligrams the recipe must have. (optional)
+# @param double $max_potassium The maximum amount of potassium in milligrams the recipe can have. (optional)
+# @param double $min_selenium The minimum amount of selenium in grams the recipe must have. (optional)
+# @param double $max_selenium The maximum amount of selenium in grams the recipe can have. (optional)
+# @param double $min_sodium The minimum amount of sodium in milligrams the recipe must have. (optional)
+# @param double $max_sodium The maximum amount of sodium in milligrams the recipe can have. (optional)
+# @param double $min_sugar The minimum amount of sugar in grams the recipe must have. (optional)
+# @param double $max_sugar The maximum amount of sugar in grams the recipe can have. (optional)
+# @param double $min_zinc The minimum amount of zinc in milligrams the recipe must have. (optional)
+# @param double $max_zinc The maximum amount of zinc in milligrams the recipe can have. (optional)
 # @param double $offset The offset number for paging (between 0 and 990). (optional)
 # @param double $number The number of expected results (between 1 and 10). (optional)
-# @param boolean $limit_license Whether the recipes should have an open license that allows for displaying with proper attribution. (optional)
+# @param boolean $limit_license Whether the recipes should have an open license that allows display with proper attribution. (optional)
 {
     my $params = {
     'query' => {
@@ -4987,22 +4989,22 @@ sub search_recipes_by_nutrients {
     },
     'cuisine' => {
         data_type => 'string',
-        description => 'The cuisine(s) of the recipes. One or more comma separated (will be iterpreted as &#39;OR&#39;). See a full list of supported cuisines.',
+        description => 'The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as &#39;OR&#39;). See a full list of supported cuisines.',
         required => '0',
     },
     'exclude_cuisine' => {
         data_type => 'string',
-        description => 'The cuisine(s) the recipes must not match. One or more comma separated (will be iterpreted as &#39;AND&#39;). See a full list of supported cuisines.',
+        description => 'The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as &#39;AND&#39;). See a full list of supported cuisines.',
         required => '0',
     },
     'diet' => {
         data_type => 'string',
-        description => 'The diet to which the recipes must be compliant. See a full list of supported diets.',
+        description => 'The diet for which the recipes must be suitable. See a full list of supported diets.',
         required => '0',
     },
     'intolerances' => {
         data_type => 'string',
-        description => 'A comma-separated list of intolerances. All found recipes must not have ingredients that could cause problems for people with one of the given tolerances. See a full list of supported intolerances.',
+        description => 'A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.',
         required => '0',
     },
     'equipment' => {
@@ -5012,17 +5014,17 @@ sub search_recipes_by_nutrients {
     },
     'include_ingredients' => {
         data_type => 'string',
-        description => 'A comma-separated list of ingredients that should/must be contained in the recipe.',
+        description => 'A comma-separated list of ingredients that should/must be used in the recipes.',
         required => '0',
     },
     'exclude_ingredients' => {
         data_type => 'string',
-        description => 'A comma-separated list of ingredients or ingredient types that must not be contained in the recipes.',
+        description => 'A comma-separated list of ingredients or ingredient types that the recipes must not contain.',
         required => '0',
     },
     'type' => {
         data_type => 'string',
-        description => 'The type of the recipes. See a full list of supported meal types.',
+        description => 'The type of recipe. See a full list of supported meal types.',
         required => '0',
     },
     'instructions_required' => {
@@ -5037,7 +5039,7 @@ sub search_recipes_by_nutrients {
     },
     'add_recipe_information' => {
         data_type => 'boolean',
-        description => 'If set to true, you get more information about the recipes returned. This saves the calls to get recipe information.',
+        description => 'If set to true, you get more information about the recipes returned. This saves you from needing to call to get recipe information.',
         required => '0',
     },
     'author' => {
@@ -5052,7 +5054,17 @@ sub search_recipes_by_nutrients {
     },
     'title_match' => {
         data_type => 'string',
-        description => 'A text that has to match in the title of the recipes.',
+        description => 'Enter text that must be found in the title of the recipes.',
+        required => '0',
+    },
+    'max_ready_time' => {
+        data_type => 'double',
+        description => 'The maximum time in minutes it should take to prepare and cook the recipe.',
+        required => '0',
+    },
+    'ignore_pantry' => {
+        data_type => 'boolean',
+        description => 'Whether to ignore typical pantry items, such as water, salt, flour, etc.',
         required => '0',
     },
     'sort' => {
@@ -5067,362 +5079,362 @@ sub search_recipes_by_nutrients {
     },
     'min_carbs' => {
         data_type => 'double',
-        description => 'The minimum number of carbohydrates in grams the recipe must have.',
+        description => 'The minimum amount of carbohydrates in grams the recipe must have.',
         required => '0',
     },
     'max_carbs' => {
         data_type => 'double',
-        description => 'The maximum number of carbohydrates in grams the recipe can have.',
+        description => 'The maximum amount of carbohydrates in grams the recipe can have.',
         required => '0',
     },
     'min_protein' => {
         data_type => 'double',
-        description => 'The minimum number of protein in grams the recipe must have.',
+        description => 'The minimum amount of protein in grams the recipe must have.',
         required => '0',
     },
     'max_protein' => {
         data_type => 'double',
-        description => 'The maximum number of protein in grams the recipe can have.',
+        description => 'The maximum amount of protein in grams the recipe can have.',
         required => '0',
     },
     'min_calories' => {
         data_type => 'double',
-        description => 'The minimum number of calories the recipe must have.',
+        description => 'The minimum amount of calories the recipe must have.',
         required => '0',
     },
     'max_calories' => {
         data_type => 'double',
-        description => 'The maximum number of calories the recipe can have.',
+        description => 'The maximum amount of calories the recipe can have.',
         required => '0',
     },
     'min_fat' => {
         data_type => 'double',
-        description => 'The minimum number of fat in grams the recipe must have.',
+        description => 'The minimum amount of fat in grams the recipe must have.',
         required => '0',
     },
     'max_fat' => {
         data_type => 'double',
-        description => 'The maximum number of fat in grams the recipe can have.',
+        description => 'The maximum amount of fat in grams the recipe can have.',
         required => '0',
     },
     'min_alcohol' => {
         data_type => 'double',
-        description => 'The minimum number of alcohol in grams the recipe must have.',
+        description => 'The minimum amount of alcohol in grams the recipe must have.',
         required => '0',
     },
     'max_alcohol' => {
         data_type => 'double',
-        description => 'The maximum number of alcohol in grams the recipe must have.',
+        description => 'The maximum amount of alcohol in grams the recipe can have.',
         required => '0',
     },
     'min_caffeine' => {
         data_type => 'double',
-        description => 'The minimum number of milligrams of caffeine the recipe must have.',
+        description => 'The minimum amount of caffeine in milligrams the recipe must have.',
         required => '0',
     },
     'max_caffeine' => {
         data_type => 'double',
-        description => 'The maximum number of alcohol in grams the recipe must have.',
+        description => 'The maximum amount of caffeine in milligrams the recipe can have.',
         required => '0',
     },
     'min_copper' => {
         data_type => 'double',
-        description => 'The minimum number of copper in milligrams the recipe must have.',
+        description => 'The minimum amount of copper in milligrams the recipe must have.',
         required => '0',
     },
     'max_copper' => {
         data_type => 'double',
-        description => 'The maximum number of copper in milligrams the recipe must have.',
+        description => 'The maximum amount of copper in milligrams the recipe can have.',
         required => '0',
     },
     'min_calcium' => {
         data_type => 'double',
-        description => 'The minimum number of calcium in milligrams the recipe must have.',
+        description => 'The minimum amount of calcium in milligrams the recipe must have.',
         required => '0',
     },
     'max_calcium' => {
         data_type => 'double',
-        description => 'The maximum number of calcium in milligrams the recipe must have.',
+        description => 'The maximum amount of calcium in milligrams the recipe can have.',
         required => '0',
     },
     'min_choline' => {
         data_type => 'double',
-        description => 'The minimum number of choline in milligrams the recipe must have.',
+        description => 'The minimum amount of choline in milligrams the recipe must have.',
         required => '0',
     },
     'max_choline' => {
         data_type => 'double',
-        description => 'The maximum number of choline in milligrams the recipe can have.',
+        description => 'The maximum amount of choline in milligrams the recipe can have.',
         required => '0',
     },
     'min_cholesterol' => {
         data_type => 'double',
-        description => 'The minimum number of cholesterol in milligrams the recipe must have.',
+        description => 'The minimum amount of cholesterol in milligrams the recipe must have.',
         required => '0',
     },
     'max_cholesterol' => {
         data_type => 'double',
-        description => 'The maximum number of cholesterol in milligrams the recipe must have.',
+        description => 'The maximum amount of cholesterol in milligrams the recipe can have.',
         required => '0',
     },
     'min_fluoride' => {
         data_type => 'double',
-        description => 'The minimum number of fluoride in milligrams the recipe must have.',
+        description => 'The minimum amount of fluoride in milligrams the recipe must have.',
         required => '0',
     },
     'max_fluoride' => {
         data_type => 'double',
-        description => 'The maximum number of fluoride in milligrams the recipe can have.',
+        description => 'The maximum amount of fluoride in milligrams the recipe can have.',
         required => '0',
     },
     'min_saturated_fat' => {
         data_type => 'double',
-        description => 'The minimum number of saturated fat in grams the recipe must have.',
+        description => 'The minimum amount of saturated fat in grams the recipe must have.',
         required => '0',
     },
     'max_saturated_fat' => {
         data_type => 'double',
-        description => 'The maximum number of saturated fat in grams the recipe must have.',
+        description => 'The maximum amount of saturated fat in grams the recipe can have.',
         required => '0',
     },
     'min_vitamin_a' => {
         data_type => 'double',
-        description => 'The minimum number of Vitamin A in IU the recipe must have.',
+        description => 'The minimum amount of Vitamin A in IU the recipe must have.',
         required => '0',
     },
     'max_vitamin_a' => {
         data_type => 'double',
-        description => 'The maximum number of Vitamin A in IU the recipe must have.',
+        description => 'The maximum amount of Vitamin A in IU the recipe can have.',
         required => '0',
     },
     'min_vitamin_c' => {
         data_type => 'double',
-        description => 'The minimum number of Vitamin C milligrams the recipe must have.',
+        description => 'The minimum amount of Vitamin C milligrams the recipe must have.',
         required => '0',
     },
     'max_vitamin_c' => {
         data_type => 'double',
-        description => 'The maximum number of Vitamin C in milligrams the recipe can have.',
+        description => 'The maximum amount of Vitamin C in milligrams the recipe can have.',
         required => '0',
     },
     'min_vitamin_d' => {
         data_type => 'double',
-        description => 'The minimum number of Vitamin D in micrograms the recipe must have.',
+        description => 'The minimum amount of Vitamin D in micrograms the recipe must have.',
         required => '0',
     },
     'max_vitamin_d' => {
         data_type => 'double',
-        description => 'The maximum number of Vitamin D in micrograms the recipe must have.',
+        description => 'The maximum amount of Vitamin D in micrograms the recipe can have.',
         required => '0',
     },
     'min_vitamin_e' => {
         data_type => 'double',
-        description => 'The minimum number of Vitamin E in milligrams the recipe must have.',
+        description => 'The minimum amount of Vitamin E in milligrams the recipe must have.',
         required => '0',
     },
     'max_vitamin_e' => {
         data_type => 'double',
-        description => 'The maximum number of Vitamin E in milligrams the recipe must have.',
+        description => 'The maximum amount of Vitamin E in milligrams the recipe can have.',
         required => '0',
     },
     'min_vitamin_k' => {
         data_type => 'double',
-        description => 'The minimum number of Vitamin K in micrograms the recipe must have.',
+        description => 'The minimum amount of Vitamin K in micrograms the recipe must have.',
         required => '0',
     },
     'max_vitamin_k' => {
         data_type => 'double',
-        description => 'The maximum number of Vitamin K in micrograms the recipe must have.',
+        description => 'The maximum amount of Vitamin K in micrograms the recipe can have.',
         required => '0',
     },
     'min_vitamin_b1' => {
         data_type => 'double',
-        description => 'The minimum number of Vitamin B1 in milligrams the recipe must have.',
+        description => 'The minimum amount of Vitamin B1 in milligrams the recipe must have.',
         required => '0',
     },
     'max_vitamin_b1' => {
         data_type => 'double',
-        description => 'The maximum number of Vitamin B1 in milligrams the recipe must have.',
+        description => 'The maximum amount of Vitamin B1 in milligrams the recipe can have.',
         required => '0',
     },
     'min_vitamin_b2' => {
         data_type => 'double',
-        description => 'The minimum number of Vitamin B2 in milligrams the recipe must have.',
+        description => 'The minimum amount of Vitamin B2 in milligrams the recipe must have.',
         required => '0',
     },
     'max_vitamin_b2' => {
         data_type => 'double',
-        description => 'The maximum number of Vitamin B2 in milligrams the recipe must have.',
+        description => 'The maximum amount of Vitamin B2 in milligrams the recipe can have.',
         required => '0',
     },
     'min_vitamin_b5' => {
         data_type => 'double',
-        description => 'The minimum number of Vitamin B5 in milligrams the recipe must have.',
+        description => 'The minimum amount of Vitamin B5 in milligrams the recipe must have.',
         required => '0',
     },
     'max_vitamin_b5' => {
         data_type => 'double',
-        description => 'The maximum number of Vitamin B5 in milligrams the recipe can have.',
+        description => 'The maximum amount of Vitamin B5 in milligrams the recipe can have.',
         required => '0',
     },
     'min_vitamin_b3' => {
         data_type => 'double',
-        description => 'The minimum number of Vitamin B3 in milligrams the recipe must have.',
+        description => 'The minimum amount of Vitamin B3 in milligrams the recipe must have.',
         required => '0',
     },
     'max_vitamin_b3' => {
         data_type => 'double',
-        description => 'The maximum number of Vitamin B3 in milligrams the recipe can have.',
+        description => 'The maximum amount of Vitamin B3 in milligrams the recipe can have.',
         required => '0',
     },
     'min_vitamin_b6' => {
         data_type => 'double',
-        description => 'The minimum number of Vitamin B6 in milligrams the recipe must have.',
+        description => 'The minimum amount of Vitamin B6 in milligrams the recipe must have.',
         required => '0',
     },
     'max_vitamin_b6' => {
         data_type => 'double',
-        description => 'The maximum number of Vitamin B6 in milligrams the recipe can have.',
+        description => 'The maximum amount of Vitamin B6 in milligrams the recipe can have.',
         required => '0',
     },
     'min_vitamin_b12' => {
         data_type => 'double',
-        description => 'The minimum number of Vitamin B12 in micrograms the recipe must have.',
+        description => 'The minimum amount of Vitamin B12 in micrograms the recipe must have.',
         required => '0',
     },
     'max_vitamin_b12' => {
         data_type => 'double',
-        description => 'The maximum number of Vitamin B12 in micrograms the recipe must have.',
+        description => 'The maximum amount of Vitamin B12 in micrograms the recipe can have.',
         required => '0',
     },
     'min_fiber' => {
         data_type => 'double',
-        description => 'The minimum number of fiber in grams the recipe must have.',
+        description => 'The minimum amount of fiber in grams the recipe must have.',
         required => '0',
     },
     'max_fiber' => {
         data_type => 'double',
-        description => 'The maximum number of fiber in grams the recipe must have.',
+        description => 'The maximum amount of fiber in grams the recipe can have.',
         required => '0',
     },
     'min_folate' => {
         data_type => 'double',
-        description => 'The minimum number of folate in grams the recipe must have.',
+        description => 'The minimum amount of folate in grams the recipe must have.',
         required => '0',
     },
     'max_folate' => {
         data_type => 'double',
-        description => 'The maximum number of folate in grams the recipe must have.',
+        description => 'The maximum amount of folate in grams the recipe can have.',
         required => '0',
     },
     'min_folic_acid' => {
         data_type => 'double',
-        description => 'The minimum number of folic acid in grams the recipe must have.',
+        description => 'The minimum amount of folic acid in grams the recipe must have.',
         required => '0',
     },
     'max_folic_acid' => {
         data_type => 'double',
-        description => 'The maximum number of folic acid in grams the recipe must have.',
+        description => 'The maximum amount of folic acid in grams the recipe can have.',
         required => '0',
     },
     'min_iodine' => {
         data_type => 'double',
-        description => 'The minimum number of Iodine in grams the recipe must have.',
+        description => 'The minimum amount of iodine in grams the recipe must have.',
         required => '0',
     },
     'max_iodine' => {
         data_type => 'double',
-        description => 'The maximum number of iodine in grams the recipe must have.',
+        description => 'The maximum amount of iodine in grams the recipe can have.',
         required => '0',
     },
     'min_iron' => {
         data_type => 'double',
-        description => 'The minimum number of iron in milligrams the recipe must have.',
+        description => 'The minimum amount of iron in milligrams the recipe must have.',
         required => '0',
     },
     'max_iron' => {
         data_type => 'double',
-        description => 'The maximum number of iron in milligrams the recipe can have.',
+        description => 'The maximum amount of iron in milligrams the recipe can have.',
         required => '0',
     },
     'min_magnesium' => {
         data_type => 'double',
-        description => 'The minimum number of magnesium in milligrams the recipe must have.',
+        description => 'The minimum amount of magnesium in milligrams the recipe must have.',
         required => '0',
     },
     'max_magnesium' => {
         data_type => 'double',
-        description => 'The maximum number of magnesium in milligrams the recipe can have.',
+        description => 'The maximum amount of magnesium in milligrams the recipe can have.',
         required => '0',
     },
     'min_manganese' => {
         data_type => 'double',
-        description => 'The minimum number of manganese in milligrams the recipe must have.',
+        description => 'The minimum amount of manganese in milligrams the recipe must have.',
         required => '0',
     },
     'max_manganese' => {
         data_type => 'double',
-        description => 'The maximum number of manganese in milligrams the recipe can have.',
+        description => 'The maximum amount of manganese in milligrams the recipe can have.',
         required => '0',
     },
     'min_phosphorus' => {
         data_type => 'double',
-        description => 'The minimum number of phosphorus in milligrams the recipe must have.',
+        description => 'The minimum amount of phosphorus in milligrams the recipe must have.',
         required => '0',
     },
     'max_phosphorus' => {
         data_type => 'double',
-        description => 'The maximum number of phosphorus in milligrams the recipe can have.',
+        description => 'The maximum amount of phosphorus in milligrams the recipe can have.',
         required => '0',
     },
     'min_potassium' => {
         data_type => 'double',
-        description => 'The minimum number of potassium in milligrams the recipe must have.',
+        description => 'The minimum amount of potassium in milligrams the recipe must have.',
         required => '0',
     },
     'max_potassium' => {
         data_type => 'double',
-        description => 'The maximum number of potassium in milligrams the recipe can have.',
+        description => 'The maximum amount of potassium in milligrams the recipe can have.',
         required => '0',
     },
     'min_selenium' => {
         data_type => 'double',
-        description => 'The minimum number of selenium in grams the recipe must have.',
+        description => 'The minimum amount of selenium in grams the recipe must have.',
         required => '0',
     },
     'max_selenium' => {
         data_type => 'double',
-        description => 'The maximum number of selenium in grams the recipe must have.',
+        description => 'The maximum amount of selenium in grams the recipe can have.',
         required => '0',
     },
     'min_sodium' => {
         data_type => 'double',
-        description => 'The minimum number of sodium in milligrams the recipe must have.',
+        description => 'The minimum amount of sodium in milligrams the recipe must have.',
         required => '0',
     },
     'max_sodium' => {
         data_type => 'double',
-        description => 'The maximum number of sodium in milligrams the recipe must have.',
+        description => 'The maximum amount of sodium in milligrams the recipe can have.',
         required => '0',
     },
     'min_sugar' => {
         data_type => 'double',
-        description => 'The minimum number of sugar in grams the recipe must have.',
+        description => 'The minimum amount of sugar in grams the recipe must have.',
         required => '0',
     },
     'max_sugar' => {
         data_type => 'double',
-        description => 'The maximum number of sugar in grams the recipe must have.',
+        description => 'The maximum amount of sugar in grams the recipe can have.',
         required => '0',
     },
     'min_zinc' => {
         data_type => 'double',
-        description => 'The minimum number of zinc in milligrams the recipe must have.',
+        description => 'The minimum amount of zinc in milligrams the recipe must have.',
         required => '0',
     },
     'max_zinc' => {
         data_type => 'double',
-        description => 'The maximum number of zinc in milligrams the recipe can have.',
+        description => 'The maximum amount of zinc in milligrams the recipe can have.',
         required => '0',
     },
     'offset' => {
@@ -5437,7 +5449,7 @@ sub search_recipes_by_nutrients {
     },
     'limit_license' => {
         data_type => 'boolean',
-        description => 'Whether the recipes should have an open license that allows for displaying with proper attribution.',
+        description => 'Whether the recipes should have an open license that allows display with proper attribution.',
         required => '0',
     },
     };
@@ -5545,6 +5557,16 @@ sub search_recipes_complex {
     # query params
     if ( exists $args{'title_match'}) {
         $query_params->{'titleMatch'} = $self->{api_client}->to_query_value($args{'title_match'});
+    }
+
+    # query params
+    if ( exists $args{'max_ready_time'}) {
+        $query_params->{'maxReadyTime'} = $self->{api_client}->to_query_value($args{'max_ready_time'});
+    }
+
+    # query params
+    if ( exists $args{'ignore_pantry'}) {
+        $query_params->{'ignorePantry'} = $self->{api_client}->to_query_value($args{'ignore_pantry'});
     }
 
     # query params
@@ -6084,13 +6106,13 @@ sub summarize_recipe {
 #
 # Talk to Chatbot
 # 
-# @param string $text The request / question / answer from the user to the chat bot. (required)
+# @param string $text The request / question / answer from the user to the chatbot. (required)
 # @param string $context_id An arbitrary globally unique id for your conversation. The conversation can contain states so you should pass your context id if you want the bot to be able to remember the conversation. (optional)
 {
     my $params = {
     'text' => {
         data_type => 'string',
-        description => 'The request / question / answer from the user to the chat bot.',
+        description => 'The request / question / answer from the user to the chatbot.',
         required => '1',
     },
     'context_id' => {
@@ -6162,7 +6184,7 @@ sub talk_to_chatbot {
 # 
 # @param string $ingredient_list The ingredient list of the recipe, one ingredient per line. (required)
 # @param double $servings The number of servings. (required)
-# @param string $view Either \\\&quot;grid\\\&quot; or \\\&quot;list\\\&quot; as visualization of the equipment. (optional)
+# @param string $view How to visualize the equipment, either \\\&quot;grid\\\&quot; or \\\&quot;list\\\&quot;. (optional)
 # @param boolean $default_css Whether the default CSS should be added to the response. (optional)
 # @param boolean $show_backlink Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)
 {
@@ -6179,7 +6201,7 @@ sub talk_to_chatbot {
     },
     'view' => {
         data_type => 'string',
-        description => 'Either \\\&quot;grid\\\&quot; or \\\&quot;list\\\&quot; as visualization of the equipment.',
+        description => 'How to visualize the equipment, either \\\&quot;grid\\\&quot; or \\\&quot;list\\\&quot;.',
         required => '0',
     },
     'default_css' => {
@@ -6276,8 +6298,8 @@ sub visualize_equipment {
 # 
 # @param string $ingredient_list The ingredient list of the recipe, one ingredient per line. (required)
 # @param double $servings The number of servings. (required)
-# @param string $measure The initial measure, either \\\&quot;metric\\\&quot; or \\\&quot;us\\\&quot;. (optional)
-# @param string $view Either \\\&quot;grid\\\&quot; or \\\&quot;list\\\&quot; as visualization of the equipment. (optional)
+# @param string $measure The original system of measurement, either \\\&quot;metric\\\&quot; or \\\&quot;us\\\&quot;. (optional)
+# @param string $view How to visualize the ingredients, either \\\&quot;grid\\\&quot; or \\\&quot;list\\\&quot;. (optional)
 # @param boolean $default_css Whether the default CSS should be added to the response. (optional)
 # @param boolean $show_backlink Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)
 {
@@ -6294,12 +6316,12 @@ sub visualize_equipment {
     },
     'measure' => {
         data_type => 'string',
-        description => 'The initial measure, either \\\&quot;metric\\\&quot; or \\\&quot;us\\\&quot;.',
+        description => 'The original system of measurement, either \\\&quot;metric\\\&quot; or \\\&quot;us\\\&quot;.',
         required => '0',
     },
     'view' => {
         data_type => 'string',
-        description => 'Either \\\&quot;grid\\\&quot; or \\\&quot;list\\\&quot; as visualization of the equipment.',
+        description => 'How to visualize the ingredients, either \\\&quot;grid\\\&quot; or \\\&quot;list\\\&quot;.',
         required => '0',
     },
     'default_css' => {
@@ -6928,13 +6950,13 @@ sub visualize_recipe_nutrition {
 #
 # Visualize Recipe Nutrition by ID
 # 
-# @param double $id The id of the product. (required)
+# @param double $id The recipe id. (required)
 # @param boolean $default_css Whether the default CSS should be added to the response. (optional)
 {
     my $params = {
     'id' => {
         data_type => 'double',
-        description => 'The id of the product.',
+        description => 'The recipe id.',
         required => '1',
     },
     'default_css' => {

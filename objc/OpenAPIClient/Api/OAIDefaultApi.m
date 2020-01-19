@@ -119,8 +119,8 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 
 ///
 /// Analyze Recipe Instructions
-/// Extract ingredients and equipment from the recipe instruction steps.
-///  @param instructions The instructions text. 
+/// Extract ingredients and equipment from the recipe's instructions.
+///  @param instructions The instructions to be analyzed. 
 ///
 ///  @returns NSObject*
 ///
@@ -187,14 +187,14 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 
 ///
 /// Autocomplete Ingredient Search
-/// Autocomplete a search for an ingredient.
-///  @param query The query - a partial or full ingredient name. 
+/// Autocomplete the entry of an ingredient.
+///  @param query The partial or full ingredient name. 
 ///
 ///  @param number The number of results to return (between 1 and 100). (optional)
 ///
 ///  @param metaInformation Whether to return more meta information about the ingredients. (optional)
 ///
-///  @param intolerances A comma-separated list of intolerances. All found ingredients must not cause problems for people with one of the given tolerances. See a full list of supported intolerances. (optional)
+///  @param intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
 ///
 ///  @returns NSObject*
 ///
@@ -421,7 +421,7 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 
 ///
 /// Autocomplete Recipe Search
-/// Autocomplete a partial input to possible recipe names.
+/// Autocomplete a partial input to suggest possible recipe names.
 ///  @param query The query to be autocompleted. 
 ///
 ///  @param number The number of results to return (between 1 and 25). (optional)
@@ -580,10 +580,10 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 
 ///
 /// Classify Grocery Product
-/// Given a grocery product title, this endpoint allows you to detect what basic ingredient it is.
+/// This endpoint allows you to match a packaged food to a basic category, e.g. a specific brand of milk to the category milk.
 ///  @param inlineObject8  
 ///
-///  @param locale The locale of the returned category, supported is en_US and en_GB. (optional)
+///  @param locale The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). (optional)
 ///
 ///  @returns NSObject*
 ///
@@ -652,10 +652,10 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 
 ///
 /// Classify Grocery Product Bulk
-/// Given a set of product jsons, get back classified products.
+/// Provide a set of product jsons, get back classified products.
 ///  @param body  
 ///
-///  @param locale The locale of the returned category, supported is en_US and en_GB. (optional)
+///  @param locale The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). (optional)
 ///
 ///  @returns NSObject*
 ///
@@ -843,7 +843,7 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 
 ///
 /// Create Recipe Card
-/// Create Recipe Card.
+/// Generate a recipe card for a recipe.
 ///  @param title The title of the recipe. 
 ///
 ///  @param image The binary image of the recipe as jpg. 
@@ -854,17 +854,17 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 ///
 ///  @param readyInMinutes The number of minutes it takes to get the recipe on the table. 
 ///
-///  @param servings The number of servings that you can make from the ingredients. 
+///  @param servings The number of servings the recipe makes. 
 ///
-///  @param mask The mask to put over the recipe image (\\\"ellipseMask\\\", \\\"diamondMask\\\", \\\"diamondMask\\\", \\\"starMask\\\", \\\"heartMask\\\", \\\"potMask\\\", \\\"fishMask\\\"). 
+///  @param mask The mask to put over the recipe image (\\\"ellipseMask\\\", \\\"diamondMask\\\", \\\"starMask\\\", \\\"heartMask\\\", \\\"potMask\\\", \\\"fishMask\\\"). 
 ///
 ///  @param backgroundImage The background image (\\\"none\\\",\\\"background1\\\", or \\\"background2\\\"). 
 ///
 ///  @param author The author of the recipe. (optional)
 ///
-///  @param backgroundColor The background color on the recipe card as a hex-string. (optional)
+///  @param backgroundColor The background color for the recipe card as a hex-string. (optional)
 ///
-///  @param fontColor The font color on the recipe card as a hex-string. (optional)
+///  @param fontColor The font color for the recipe card as a hex-string. (optional)
 ///
 ///  @param source The source of the recipe. (optional)
 ///
@@ -1052,8 +1052,8 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 
 ///
 /// Detect Food in Text
-/// Detect ingredients and dishes in texts. This task is also called Named Entity Recognition (NER). In our case the entities are foods. Either dishes, such as pizza and cheeseburger or ingredients, such as cucumber and almonds.
-///  @param text The text in which food items such as dish names and ingredients should be detected in. 
+/// Take any text and find all mentions of food contained within it. This task is also called Named Entity Recognition (NER). In this case, the entities are foods. Either dishes, such as pizza or cheeseburger, or ingredients, such as cucumber or almonds.
+///  @param text The text in which food items, such as dish names and ingredients, should be detected in. 
 ///
 ///  @returns NSObject*
 ///
@@ -1120,10 +1120,10 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 
 ///
 /// Extract Recipe from Website
-/// Get an analyzed breakdown of a recipe's instructions. Each step is enriched with the ingredients and the equipment that is used.
+/// This endpoint lets you extract recipe data such as title, ingredients, and instructions from any properly formatted Website.
 ///  @param url The URL of the recipe page. 
 ///
-///  @param forceExtraction If true, the extraction will be triggered no matter whether we know the recipe already. Use that only if information is missing as this operation is slower. (optional)
+///  @param forceExtraction If true, the extraction will be triggered whether we already know the recipe or not. Use this only if information is missing as this operation is slower. (optional)
 ///
 ///  @returns NSObject*
 ///
@@ -1210,7 +1210,7 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
     diet: (NSString*) diet
     exclude: (NSString*) exclude
     completionHandler: (void (^)(NSObject* output, NSError* error)) handler {
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/recipes/mealplans/generate"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/mealplanner/generate"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
 
@@ -1269,7 +1269,7 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 
 ///
 /// Get a Random Food Joke
-/// Get a random joke that includes or is about food.
+/// Get a random joke that is related to food. Caution: this is an endpoint for adults!
 ///  @returns NSObject*
 ///
 -(NSURLSessionTask*) getARandomFoodJokeWithCompletionHandler: 
@@ -1321,7 +1321,7 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 
 ///
 /// Get Analyzed Recipe Instructions
-/// Get an analyzed breakdown of a recipe's instructions. Each step is enriched with the ingredients and the equipment that is used.
+/// Get an analyzed breakdown of a recipe's instructions. Each step is enriched with the ingredients and equipment required.
 ///  @param _id The recipe id. 
 ///
 ///  @param stepBreakdown Whether to break down the recipe steps even more. (optional)
@@ -1396,7 +1396,7 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 ///
 /// Get Comparable Products
 /// Find comparable products to the given one.
-///  @param upc The UPC of the product for that you want to find comparable products. 
+///  @param upc The UPC of the product for which you want to find comparable products. 
 ///
 ///  @returns NSObject*
 ///
@@ -1463,7 +1463,7 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 
 ///
 /// Get Conversation Suggests
-/// This endpoint returns suggestions for things the user can say or ask the chat bot.
+/// This endpoint returns suggestions for things the user can say or ask the chatbot.
 ///  @param query A (partial) query from the user. The endpoint will return if it matches topics it can talk about. 
 ///
 ///  @param number The number of suggestions to return (between 1 and 25). (optional)
@@ -1537,8 +1537,8 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 
 ///
 /// Get Dish Pairing for Wine
-/// Get a dish that goes well with a given wine.
-///  @param wine The name of the wine that should be paired, e.g. \"merlot\", \"riesling\", or \"malbec\". 
+/// Find a dish that goes well with a given wine.
+///  @param wine The type of wine that should be paired, e.g. \"merlot\", \"riesling\", or \"malbec\". 
 ///
 ///  @returns NSObject*
 ///
@@ -1604,17 +1604,17 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 }
 
 ///
-/// Get Food Information
-/// Get information about a certain food (ingredient).
-///  @param _id The id of the food / ingredient. 
+/// Get Ingredient Information
+/// Use an ingredient id to get all available information about an ingredient, such as its image and supermarket aisle.
+///  @param _id The ingredient id. 
 ///
-///  @param amount The amount of that food. (optional)
+///  @param amount The amount of this ingredient. (optional)
 ///
 ///  @param unit The unit for the given amount. (optional)
 ///
 ///  @returns NSObject*
 ///
--(NSURLSessionTask*) getFoodInformationWithId: (NSNumber*) _id
+-(NSURLSessionTask*) getIngredientInformationWithId: (NSNumber*) _id
     amount: (NSNumber*) amount
     unit: (NSString*) unit
     completionHandler: (void (^)(NSObject* output, NSError* error)) handler {
@@ -1821,7 +1821,7 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 
 ///
 /// Get Menu Item Information
-/// Get information about a certain menu item.
+/// Use a menu item id to get all available information about a menu item, such as nutrition.
 ///  @param _id The menu item id. 
 ///
 ///  @returns NSObject*
@@ -1889,8 +1889,8 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 
 ///
 /// Get Product Information
-/// Get information about a packaged food product.
-///  @param _id The id of the packaged food product. 
+/// Use a product id to get full information about a product, such as ingredients, nutrition, etc.
+///  @param _id The id of the packaged food. 
 ///
 ///  @returns NSObject*
 ///
@@ -2009,10 +2009,10 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 
 ///
 /// Get Random Recipes
-/// Find random (popular) recipes.
-///  @param limitLicense Whether the recipes should have an open license that allows for displaying with proper attribution. (optional)
+/// Find random (popular) recipes. If you need to filter recipes by diet, nutrition etc. you might want to consider using the complex recipe search endpoint and set the sort request parameter to random.
+///  @param limitLicense Whether the recipes should have an open license that allows display with proper attribution. (optional)
 ///
-///  @param tags The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must adhere to. (optional)
+///  @param tags The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have. (optional)
 ///
 ///  @param number The number of random recipes to be returned (between 1 and 100). (optional)
 ///
@@ -2146,10 +2146,10 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 
 ///
 /// Get Recipe Information
-/// Get information about a recipe.
+/// Use a recipe id to get full information about a recipe, such as ingredients, nutrition, diet and allergen information, etc.
 ///  @param _id The id of the recipe. 
 ///
-///  @param includeNutrition Include nutrition data to the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional)
+///  @param includeNutrition Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional)
 ///
 ///  @returns NSObject*
 ///
@@ -2220,7 +2220,7 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 
 ///
 /// Get Recipe Information Bulk
-/// Get information about multiple recipes at once. That is equivalent of calling the Get Recipe Information endpoint multiple times but is faster.
+/// Get information about multiple recipes at once. This is equivalent to calling the Get Recipe Information endpoint multiple times, but faster.
 ///  @param ids A comma-separated list of recipe ids. 
 ///
 ///  @param includeNutrition Include nutrition data to the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional)
@@ -2361,13 +2361,13 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 }
 
 ///
-/// Get Recipe Nutrition by ID
+/// Get Recipe Nutrition Widget by ID
 /// Get a recipe's nutrition widget data.
 ///  @param _id The recipe id. 
 ///
 ///  @returns NSObject*
 ///
--(NSURLSessionTask*) getRecipeNutritionByIDWithId: (NSNumber*) _id
+-(NSURLSessionTask*) getRecipeNutritionWidgetByIDWithId: (NSNumber*) _id
     completionHandler: (void (^)(NSObject* output, NSError* error)) handler {
     // verify the required parameter '_id' is set
     if (_id == nil) {
@@ -2499,7 +2499,7 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 ///
 /// Get Similar Recipes
 /// Find recipes which are similar to the given one.
-///  @param _id The id of the source recipe to which similar recipes should be found. 
+///  @param _id The id of the source recipe for which similar recipes should be found. 
 ///
 ///  @param number The number of random recipes to be returned (between 1 and 100). (optional)
 ///
@@ -2572,7 +2572,7 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 
 ///
 /// Get Wine Description
-/// Get the description of a certain wine, e.g. \"malbec\", \"riesling\", or \"merlot\".
+/// Get a simple description of a certain wine, e.g. \"malbec\", \"riesling\", or \"merlot\".
 ///  @param wine The name of the wine that should be paired, e.g. \"merlot\", \"riesling\", or \"malbec\". 
 ///
 ///  @returns NSObject*
@@ -2714,8 +2714,8 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 
 ///
 /// Get Wine Recommendation
-/// Get a specific wine recommendation (concrete product) for a given wine, e.g. \"merlot\".
-///  @param wine The name of the wine to get a specific product recommendation for. 
+/// Get a specific wine recommendation (concrete product) for a given wine type, e.g. \"merlot\".
+///  @param wine The type of wine to get a specific product recommendation for. 
 ///
 ///  @param maxPrice The maximum price for the specific wine recommendation in USD. (optional)
 ///
@@ -2800,7 +2800,7 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 
 ///
 /// Guess Nutrition by Dish Name
-/// Guess the macro nutrients of a dish given its title.
+/// Estimate the macronutrients of a dish based on its title.
 ///  @param title The title of the dish. 
 ///
 ///  @returns NSObject*
@@ -3026,7 +3026,7 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 ///
 /// Quick Answer
 /// Answer a nutrition related natural language question.
-///  @param q The nutrition-related question. 
+///  @param q The nutrition related question. 
 ///
 ///  @returns NSObject*
 ///
@@ -3098,13 +3098,13 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 ///
 ///  @param type The type of the recipes. See a full list of supported meal types. (optional)
 ///
-///  @param cuisine The cuisine(s) of the recipes. One or more comma separated. See a full list of supported cuisines. (optional)
+///  @param cuisine The cuisine(s) of the recipes. One or more, comma separated. See a full list of supported cuisines. (optional)
 ///
-///  @param diet The diet to which the recipes must be compliant. See a full list of supported diets. (optional)
+///  @param diet The diet for which the recipes must be suitable. See a full list of supported diets. (optional)
 ///
-///  @param includeIngredients A comma-separated list of ingredients that should/must be contained in the recipe. (optional)
+///  @param includeIngredients A comma-separated list of ingredients that the recipes should contain. (optional)
 ///
-///  @param excludeIngredients A comma-separated list of ingredients or ingredient types that must not be contained in the recipes. (optional)
+///  @param excludeIngredients A comma-separated list of ingredients or ingredient types that the recipes must not contain. (optional)
 ///
 ///  @param minLength Minimum video length in seconds. (optional)
 ///
@@ -3215,24 +3215,24 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 
 ///
 /// Search Grocery Products
-/// Search packaged food products such as frozen pizza and snickers bars.
+/// Search packaged food products, such as frozen pizza or Greek yogurt.
 ///  @param query The search query. 
 ///
-///  @param minCalories The minimum number of calories the product must have. (optional)
+///  @param minCalories The minimum amount of calories the product must have. (optional)
 ///
-///  @param maxCalories The maximum number of calories the product can have. (optional)
+///  @param maxCalories The maximum amount of calories the product can have. (optional)
 ///
-///  @param minCarbs The minimum number of carbohydrates in grams the product must have. (optional)
+///  @param minCarbs The minimum amount of carbohydrates in grams the product must have. (optional)
 ///
-///  @param maxCarbs The maximum number of carbohydrates in grams the product can have. (optional)
+///  @param maxCarbs The maximum amount of carbohydrates in grams the product can have. (optional)
 ///
-///  @param minProtein The minimum number of protein in grams the product must have. (optional)
+///  @param minProtein The minimum amount of protein in grams the product must have. (optional)
 ///
-///  @param maxProtein The maximum number of protein in grams the product can have. (optional)
+///  @param maxProtein The maximum amount of protein in grams the product can have. (optional)
 ///
-///  @param minFat The minimum number of fat in grams the product must have. (optional)
+///  @param minFat The minimum amount of fat in grams the product must have. (optional)
 ///
-///  @param maxFat The maximum number of fat in grams the product can have. (optional)
+///  @param maxFat The maximum amount of fat in grams the product can have. (optional)
 ///
 ///  @param offset The offset number for paging (between 0 and 990). (optional)
 ///
@@ -3343,7 +3343,7 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 
 ///
 /// Search Grocery Products by UPC
-/// Get information about a food product given its UPC.
+/// Get information about a packaged food using its UPC.
 ///  @param upc The product's UPC. 
 ///
 ///  @returns NSObject*
@@ -3411,24 +3411,24 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 
 ///
 /// Search Menu Items
-/// Search over 115,000 menu items from over 800 fast food and chain restaurants such as McDonalds Big Mac or Starbucks Mocha.
+/// Search over 115,000 menu items from over 800 fast food and chain restaurants. For example, McDonald's Big Mac or Starbucks Mocha.
 ///  @param query The search query. 
 ///
-///  @param minCalories The minimum number of calories the menu item must have. (optional)
+///  @param minCalories The minimum amount of calories the menu item must have. (optional)
 ///
-///  @param maxCalories The maximum number of calories the menu item can have. (optional)
+///  @param maxCalories The maximum amount of calories the menu item can have. (optional)
 ///
-///  @param minCarbs The minimum number of carbohydrates in grams the menu item must have. (optional)
+///  @param minCarbs The minimum amount of carbohydrates in grams the menu item must have. (optional)
 ///
-///  @param maxCarbs The maximum number of carbohydrates in grams the menu item can have. (optional)
+///  @param maxCarbs The maximum amount of carbohydrates in grams the menu item can have. (optional)
 ///
-///  @param minProtein The minimum number of protein in grams the menu item must have. (optional)
+///  @param minProtein The minimum amount of protein in grams the menu item must have. (optional)
 ///
-///  @param maxProtein The maximum number of protein in grams the menu item can have. (optional)
+///  @param maxProtein The maximum amount of protein in grams the menu item can have. (optional)
 ///
-///  @param minFat The minimum number of fat in grams the menu item must have. (optional)
+///  @param minFat The minimum amount of fat in grams the menu item must have. (optional)
 ///
-///  @param maxFat The maximum number of fat in grams the menu item can have. (optional)
+///  @param maxFat The maximum amount of fat in grams the menu item can have. (optional)
 ///
 ///  @param offset The offset number for paging (between 0 and 990). (optional)
 ///
@@ -3544,17 +3544,17 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 ///
 ///  @param cuisine The cuisine(s) of the recipes. One or more comma separated. See a full list of supported cuisines. (optional)
 ///
-///  @param diet The diet to which the recipes must be compliant. See a full list of supported diets. (optional)
+///  @param diet The diet for which the recipes must be suitable. See a full list of supported diets. (optional)
 ///
-///  @param excludeIngredients An comma-separated list of ingredients or ingredient types that must not be contained in the recipes. (optional)
+///  @param excludeIngredients A comma-separated list of ingredients or ingredient types that the recipes must not contain. (optional)
 ///
-///  @param intolerances A comma-separated list of intolerances. All found recipes must not have ingredients that could cause problems for people with one of the given tolerances. See a full list of supported intolerances. (optional)
+///  @param intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. Please note: due to the automatic nature of the recipe analysis, the API cannot be 100% accurate in all cases. Please advise your users to seek professional help with medical issues. (optional)
 ///
 ///  @param offset The number of results to skip (between 0 and 900). (optional)
 ///
 ///  @param number The number of results to return (between 1 and 100). (optional)
 ///
-///  @param limitLicense Whether the recipes should have an open license that allows for displaying with proper attribution. (optional)
+///  @param limitLicense Whether the recipes should have an open license that allows display with proper attribution. (optional)
 ///
 ///  @param instructionsRequired Whether the recipes must have instructions. (optional)
 ///
@@ -3655,16 +3655,16 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 
 ///
 /// Search Recipes by Ingredients
-/// Find recipes that use as many of the given ingredients as possible and have as little as possible missing ingredients. This is a \"what's in your fridge\" API endpoint.
+/// Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don't currently have (post shopping).
 ///  @param ingredients A comma-separated list of ingredients that the recipes should contain. 
 ///
-///  @param number The maximal number of recipes to return (between 1 and 100). Defaults to 10. (optional)
+///  @param number The maximum number of recipes to return (between 1 and 100). Defaults to 10. (optional)
 ///
-///  @param limitLicense Whether the recipes should have an open license that allows for displaying with proper attribution. (optional)
+///  @param limitLicense Whether the recipes should have an open license that allows display with proper attribution. (optional)
 ///
 ///  @param ranking Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. (optional)
 ///
-///  @param ignorePantry Whether to ignore pantry ingredients such as water, salt, flour etc. (optional)
+///  @param ignorePantry Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional)
 ///
 ///  @returns NSObject*
 ///
@@ -3747,150 +3747,150 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 
 ///
 /// Search Recipes by Nutrients
-/// Find a set of recipes that adhere to the given nutritional limits. All the returned recipes will have macro nutrients within the calories, protein, fat, and carbohydrate limits.
-///  @param minCarbs The minimum number of carbohydrates in grams the recipe must have. (optional)
+/// Find a set of recipes that adhere to the given nutritional limits. You may set limits for macronutrients (calories, protein, fat, and carbohydrate) and/or many micronutrients.
+///  @param minCarbs The minimum amount of carbohydrates in grams the recipe must have. (optional)
 ///
-///  @param maxCarbs The maximum number of carbohydrates in grams the recipe can have. (optional)
+///  @param maxCarbs The maximum amount of carbohydrates in grams the recipe can have. (optional)
 ///
-///  @param minProtein The minimum number of protein in grams the recipe must have. (optional)
+///  @param minProtein The minimum amount of protein in grams the recipe must have. (optional)
 ///
-///  @param maxProtein The maximum number of protein in grams the recipe can have. (optional)
+///  @param maxProtein The maximum amount of protein in grams the recipe can have. (optional)
 ///
-///  @param minCalories The minimum number of calories the recipe must have. (optional)
+///  @param minCalories The minimum amount of calories the recipe must have. (optional)
 ///
-///  @param maxCalories The maximum number of calories the recipe can have. (optional)
+///  @param maxCalories The maximum amount of calories the recipe can have. (optional)
 ///
-///  @param minFat The minimum number of fat in grams the recipe must have. (optional)
+///  @param minFat The minimum amount of fat in grams the recipe must have. (optional)
 ///
-///  @param maxFat The maximum number of fat in grams the recipe can have. (optional)
+///  @param maxFat The maximum amount of fat in grams the recipe can have. (optional)
 ///
-///  @param minAlcohol The minimum number of alcohol in grams the recipe must have. (optional)
+///  @param minAlcohol The minimum amount of alcohol in grams the recipe must have. (optional)
 ///
-///  @param maxAlcohol The maximum number of alcohol in grams the recipe must have. (optional)
+///  @param maxAlcohol The maximum amount of alcohol in grams the recipe can have. (optional)
 ///
-///  @param minCaffeine The minimum number of milligrams of caffeine the recipe must have. (optional)
+///  @param minCaffeine The minimum amount of caffeine in milligrams the recipe must have. (optional)
 ///
-///  @param maxCaffeine The maximum number of alcohol in grams the recipe must have. (optional)
+///  @param maxCaffeine The maximum amount of caffeine in milligrams the recipe can have. (optional)
 ///
-///  @param minCopper The minimum number of copper in milligrams the recipe must have. (optional)
+///  @param minCopper The minimum amount of copper in milligrams the recipe must have. (optional)
 ///
-///  @param maxCopper The maximum number of copper in milligrams the recipe must have. (optional)
+///  @param maxCopper The maximum amount of copper in milligrams the recipe can have. (optional)
 ///
-///  @param minCalcium The minimum number of calcium in milligrams the recipe must have. (optional)
+///  @param minCalcium The minimum amount of calcium in milligrams the recipe must have. (optional)
 ///
-///  @param maxCalcium The maximum number of calcium in milligrams the recipe must have. (optional)
+///  @param maxCalcium The maximum amount of calcium in milligrams the recipe can have. (optional)
 ///
-///  @param minCholine The minimum number of choline in milligrams the recipe must have. (optional)
+///  @param minCholine The minimum amount of choline in milligrams the recipe must have. (optional)
 ///
-///  @param maxCholine The maximum number of choline in milligrams the recipe can have. (optional)
+///  @param maxCholine The maximum amount of choline in milligrams the recipe can have. (optional)
 ///
-///  @param minCholesterol The minimum number of cholesterol in milligrams the recipe must have. (optional)
+///  @param minCholesterol The minimum amount of cholesterol in milligrams the recipe must have. (optional)
 ///
-///  @param maxCholesterol The maximum number of cholesterol in milligrams the recipe must have. (optional)
+///  @param maxCholesterol The maximum amount of cholesterol in milligrams the recipe can have. (optional)
 ///
-///  @param minFluoride The minimum number of fluoride in milligrams the recipe must have. (optional)
+///  @param minFluoride The minimum amount of fluoride in milligrams the recipe must have. (optional)
 ///
-///  @param maxFluoride The maximum number of fluoride in milligrams the recipe can have. (optional)
+///  @param maxFluoride The maximum amount of fluoride in milligrams the recipe can have. (optional)
 ///
-///  @param minSaturatedFat The minimum number of saturated fat in grams the recipe must have. (optional)
+///  @param minSaturatedFat The minimum amount of saturated fat in grams the recipe must have. (optional)
 ///
-///  @param maxSaturatedFat The maximum number of saturated fat in grams the recipe must have. (optional)
+///  @param maxSaturatedFat The maximum amount of saturated fat in grams the recipe can have. (optional)
 ///
-///  @param minVitaminA The minimum number of Vitamin A in IU the recipe must have. (optional)
+///  @param minVitaminA The minimum amount of Vitamin A in IU the recipe must have. (optional)
 ///
-///  @param maxVitaminA The maximum number of Vitamin A in IU the recipe must have. (optional)
+///  @param maxVitaminA The maximum amount of Vitamin A in IU the recipe can have. (optional)
 ///
-///  @param minVitaminC The minimum number of Vitamin C milligrams the recipe must have. (optional)
+///  @param minVitaminC The minimum amount of Vitamin C in milligrams the recipe must have. (optional)
 ///
-///  @param maxVitaminC The maximum number of Vitamin C in milligrams the recipe can have. (optional)
+///  @param maxVitaminC The maximum amount of Vitamin C in milligrams the recipe can have. (optional)
 ///
-///  @param minVitaminD The minimum number of Vitamin D in micrograms the recipe must have. (optional)
+///  @param minVitaminD The minimum amount of Vitamin D in micrograms the recipe must have. (optional)
 ///
-///  @param maxVitaminD The maximum number of Vitamin D in micrograms the recipe must have. (optional)
+///  @param maxVitaminD The maximum amount of Vitamin D in micrograms the recipe can have. (optional)
 ///
-///  @param minVitaminE The minimum number of Vitamin E in milligrams the recipe must have. (optional)
+///  @param minVitaminE The minimum amount of Vitamin E in milligrams the recipe must have. (optional)
 ///
-///  @param maxVitaminE The maximum number of Vitamin E in milligrams the recipe must have. (optional)
+///  @param maxVitaminE The maximum amount of Vitamin E in milligrams the recipe can have. (optional)
 ///
-///  @param minVitaminK The minimum number of Vitamin K in micrograms the recipe must have. (optional)
+///  @param minVitaminK The minimum amount of Vitamin K in micrograms the recipe must have. (optional)
 ///
-///  @param maxVitaminK The maximum number of Vitamin K in micrograms the recipe must have. (optional)
+///  @param maxVitaminK The maximum amount of Vitamin K in micrograms the recipe can have. (optional)
 ///
-///  @param minVitaminB1 The minimum number of Vitamin B1 in milligrams the recipe must have. (optional)
+///  @param minVitaminB1 The minimum amount of Vitamin B1 in milligrams the recipe must have. (optional)
 ///
-///  @param maxVitaminB1 The maximum number of Vitamin B1 in milligrams the recipe must have. (optional)
+///  @param maxVitaminB1 The maximum amount of Vitamin B1 in milligrams the recipe can have. (optional)
 ///
-///  @param minVitaminB2 The minimum number of Vitamin B2 in milligrams the recipe must have. (optional)
+///  @param minVitaminB2 The minimum amount of Vitamin B2 in milligrams the recipe must have. (optional)
 ///
-///  @param maxVitaminB2 The maximum number of Vitamin B2 in milligrams the recipe must have. (optional)
+///  @param maxVitaminB2 The maximum amount of Vitamin B2 in milligrams the recipe can have. (optional)
 ///
-///  @param minVitaminB5 The minimum number of Vitamin B5 in milligrams the recipe must have. (optional)
+///  @param minVitaminB5 The minimum amount of Vitamin B5 in milligrams the recipe must have. (optional)
 ///
-///  @param maxVitaminB5 The maximum number of Vitamin B5 in milligrams the recipe can have. (optional)
+///  @param maxVitaminB5 The maximum amount of Vitamin B5 in milligrams the recipe can have. (optional)
 ///
-///  @param minVitaminB3 The minimum number of Vitamin B3 in milligrams the recipe must have. (optional)
+///  @param minVitaminB3 The minimum amount of Vitamin B3 in milligrams the recipe must have. (optional)
 ///
-///  @param maxVitaminB3 The maximum number of Vitamin B3 in milligrams the recipe can have. (optional)
+///  @param maxVitaminB3 The maximum amount of Vitamin B3 in milligrams the recipe can have. (optional)
 ///
-///  @param minVitaminB6 The minimum number of Vitamin B6 in milligrams the recipe must have. (optional)
+///  @param minVitaminB6 The minimum amount of Vitamin B6 in milligrams the recipe must have. (optional)
 ///
-///  @param maxVitaminB6 The maximum number of Vitamin B6 in milligrams the recipe can have. (optional)
+///  @param maxVitaminB6 The maximum amount of Vitamin B6 in milligrams the recipe can have. (optional)
 ///
-///  @param minVitaminB12 The minimum number of Vitamin B12 in micrograms the recipe must have. (optional)
+///  @param minVitaminB12 The minimum amount of Vitamin B12 in micrograms the recipe must have. (optional)
 ///
-///  @param maxVitaminB12 The maximum number of Vitamin B12 in micrograms the recipe must have. (optional)
+///  @param maxVitaminB12 The maximum amount of Vitamin B12 in micrograms the recipe can have. (optional)
 ///
-///  @param minFiber The minimum number of fiber in grams the recipe must have. (optional)
+///  @param minFiber The minimum amount of fiber in grams the recipe must have. (optional)
 ///
-///  @param maxFiber The maximum number of fiber in grams the recipe must have. (optional)
+///  @param maxFiber The maximum amount of fiber in grams the recipe can have. (optional)
 ///
-///  @param minFolate The minimum number of folate in grams the recipe must have. (optional)
+///  @param minFolate The minimum amount of folate in grams the recipe must have. (optional)
 ///
-///  @param maxFolate The maximum number of folate in grams the recipe must have. (optional)
+///  @param maxFolate The maximum amount of folate in grams the recipe can have. (optional)
 ///
-///  @param minFolicAcid The minimum number of folic acid in grams the recipe must have. (optional)
+///  @param minFolicAcid The minimum amount of folic acid in grams the recipe must have. (optional)
 ///
-///  @param maxFolicAcid The maximum number of folic acid in grams the recipe must have. (optional)
+///  @param maxFolicAcid The maximum amount of folic acid in grams the recipe can have. (optional)
 ///
-///  @param minIodine The minimum number of Iodine in grams the recipe must have. (optional)
+///  @param minIodine The minimum amount of iodine in grams the recipe must have. (optional)
 ///
-///  @param maxIodine The maximum number of iodine in grams the recipe must have. (optional)
+///  @param maxIodine The maximum amount of iodine in grams the recipe can have. (optional)
 ///
-///  @param minIron The minimum number of iron in milligrams the recipe must have. (optional)
+///  @param minIron The minimum amount of iron in milligrams the recipe must have. (optional)
 ///
-///  @param maxIron The maximum number of iron in milligrams the recipe can have. (optional)
+///  @param maxIron The maximum amount of iron in milligrams the recipe can have. (optional)
 ///
-///  @param minMagnesium The minimum number of magnesium in milligrams the recipe must have. (optional)
+///  @param minMagnesium The minimum amount of magnesium in milligrams the recipe must have. (optional)
 ///
-///  @param maxMagnesium The maximum number of magnesium in milligrams the recipe can have. (optional)
+///  @param maxMagnesium The maximum amount of magnesium in milligrams the recipe can have. (optional)
 ///
-///  @param minManganese The minimum number of manganese in milligrams the recipe must have. (optional)
+///  @param minManganese The minimum amount of manganese in milligrams the recipe must have. (optional)
 ///
-///  @param maxManganese The maximum number of manganese in milligrams the recipe can have. (optional)
+///  @param maxManganese The maximum amount of manganese in milligrams the recipe can have. (optional)
 ///
-///  @param minPhosphorus The minimum number of phosphorus in milligrams the recipe must have. (optional)
+///  @param minPhosphorus The minimum amount of phosphorus in milligrams the recipe must have. (optional)
 ///
-///  @param maxPhosphorus The maximum number of phosphorus in milligrams the recipe can have. (optional)
+///  @param maxPhosphorus The maximum amount of phosphorus in milligrams the recipe can have. (optional)
 ///
-///  @param minPotassium The minimum number of potassium in milligrams the recipe must have. (optional)
+///  @param minPotassium The minimum amount of potassium in milligrams the recipe must have. (optional)
 ///
-///  @param maxPotassium The maximum number of potassium in milligrams the recipe can have. (optional)
+///  @param maxPotassium The maximum amount of potassium in milligrams the recipe can have. (optional)
 ///
-///  @param minSelenium The minimum number of selenium in grams the recipe must have. (optional)
+///  @param minSelenium The minimum amount of selenium in grams the recipe must have. (optional)
 ///
-///  @param maxSelenium The maximum number of selenium in grams the recipe must have. (optional)
+///  @param maxSelenium The maximum amount of selenium in grams the recipe can have. (optional)
 ///
-///  @param minSodium The minimum number of sodium in milligrams the recipe must have. (optional)
+///  @param minSodium The minimum amount of sodium in milligrams the recipe must have. (optional)
 ///
-///  @param maxSodium The maximum number of sodium in milligrams the recipe must have. (optional)
+///  @param maxSodium The maximum amount of sodium in milligrams the recipe can have. (optional)
 ///
-///  @param minSugar The minimum number of sugar in grams the recipe must have. (optional)
+///  @param minSugar The minimum amount of sugar in grams the recipe must have. (optional)
 ///
-///  @param maxSugar The maximum number of sugar in grams the recipe must have. (optional)
+///  @param maxSugar The maximum amount of sugar in grams the recipe can have. (optional)
 ///
-///  @param minZinc The minimum number of zinc in milligrams the recipe must have. (optional)
+///  @param minZinc The minimum amount of zinc in milligrams the recipe must have. (optional)
 ///
-///  @param maxZinc The maximum number of zinc in milligrams the recipe can have. (optional)
+///  @param maxZinc The maximum amount of zinc in milligrams the recipe can have. (optional)
 ///
 ///  @param offset The offset number for paging (between 0 and 990). (optional)
 ///
@@ -3898,7 +3898,7 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 ///
 ///  @param random If true, every request will give you a random set of recipes within the requested limits. (optional)
 ///
-///  @param limitLicense Whether the recipes should have an open license that allows for displaying with proper attribution. (optional)
+///  @param limitLicense Whether the recipes should have an open license that allows display with proper attribution. (optional)
 ///
 ///  @returns NSObject*
 ///
@@ -4254,190 +4254,194 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 
 ///
 /// Search Recipes Complex
-/// Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: Since this method combines searching by query, by ingredients, and by nutrients in one endpoint.
+/// Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint.
 ///  @param query The (natural language) recipe search query. 
 ///
-///  @param cuisine The cuisine(s) of the recipes. One or more comma separated (will be iterpreted as 'OR'). See a full list of supported cuisines. (optional)
+///  @param cuisine The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as 'OR'). See a full list of supported cuisines. (optional)
 ///
-///  @param excludeCuisine The cuisine(s) the recipes must not match. One or more comma separated (will be iterpreted as 'AND'). See a full list of supported cuisines. (optional)
+///  @param excludeCuisine The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as 'AND'). See a full list of supported cuisines. (optional)
 ///
-///  @param diet The diet to which the recipes must be compliant. See a full list of supported diets. (optional)
+///  @param diet The diet for which the recipes must be suitable. See a full list of supported diets. (optional)
 ///
-///  @param intolerances A comma-separated list of intolerances. All found recipes must not have ingredients that could cause problems for people with one of the given tolerances. See a full list of supported intolerances. (optional)
+///  @param intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
 ///
 ///  @param equipment The equipment required. Multiple values will be interpreted as 'or'. For example, value could be \"blender, frying pan, bowl\". (optional)
 ///
-///  @param includeIngredients A comma-separated list of ingredients that should/must be contained in the recipe. (optional)
+///  @param includeIngredients A comma-separated list of ingredients that should/must be used in the recipes. (optional)
 ///
-///  @param excludeIngredients A comma-separated list of ingredients or ingredient types that must not be contained in the recipes. (optional)
+///  @param excludeIngredients A comma-separated list of ingredients or ingredient types that the recipes must not contain. (optional)
 ///
-///  @param type The type of the recipes. See a full list of supported meal types. (optional)
+///  @param type The type of recipe. See a full list of supported meal types. (optional)
 ///
 ///  @param instructionsRequired Whether the recipes must have instructions. (optional)
 ///
 ///  @param fillIngredients Add information about the used and missing ingredients in each recipe. (optional)
 ///
-///  @param addRecipeInformation If set to true, you get more information about the recipes returned. This saves the calls to get recipe information. (optional)
+///  @param addRecipeInformation If set to true, you get more information about the recipes returned. This saves you from needing to call to get recipe information. (optional)
 ///
 ///  @param author The username of the recipe author. (optional)
 ///
 ///  @param tags User defined tags that have to match. (optional)
 ///
-///  @param titleMatch A text that has to match in the title of the recipes. (optional)
+///  @param titleMatch Enter text that must be found in the title of the recipes. (optional)
+///
+///  @param maxReadyTime The maximum time in minutes it should take to prepare and cook the recipe. (optional)
+///
+///  @param ignorePantry Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional)
 ///
 ///  @param sort The strategy to sort recipes by. See a full list of supported sorting options. (optional)
 ///
 ///  @param sortDirection The direction in which to sort. Must be either 'asc' (ascending) or 'desc' (descending). (optional)
 ///
-///  @param minCarbs The minimum number of carbohydrates in grams the recipe must have. (optional)
+///  @param minCarbs The minimum amount of carbohydrates in grams the recipe must have. (optional)
 ///
-///  @param maxCarbs The maximum number of carbohydrates in grams the recipe can have. (optional)
+///  @param maxCarbs The maximum amount of carbohydrates in grams the recipe can have. (optional)
 ///
-///  @param minProtein The minimum number of protein in grams the recipe must have. (optional)
+///  @param minProtein The minimum amount of protein in grams the recipe must have. (optional)
 ///
-///  @param maxProtein The maximum number of protein in grams the recipe can have. (optional)
+///  @param maxProtein The maximum amount of protein in grams the recipe can have. (optional)
 ///
-///  @param minCalories The minimum number of calories the recipe must have. (optional)
+///  @param minCalories The minimum amount of calories the recipe must have. (optional)
 ///
-///  @param maxCalories The maximum number of calories the recipe can have. (optional)
+///  @param maxCalories The maximum amount of calories the recipe can have. (optional)
 ///
-///  @param minFat The minimum number of fat in grams the recipe must have. (optional)
+///  @param minFat The minimum amount of fat in grams the recipe must have. (optional)
 ///
-///  @param maxFat The maximum number of fat in grams the recipe can have. (optional)
+///  @param maxFat The maximum amount of fat in grams the recipe can have. (optional)
 ///
-///  @param minAlcohol The minimum number of alcohol in grams the recipe must have. (optional)
+///  @param minAlcohol The minimum amount of alcohol in grams the recipe must have. (optional)
 ///
-///  @param maxAlcohol The maximum number of alcohol in grams the recipe must have. (optional)
+///  @param maxAlcohol The maximum amount of alcohol in grams the recipe can have. (optional)
 ///
-///  @param minCaffeine The minimum number of milligrams of caffeine the recipe must have. (optional)
+///  @param minCaffeine The minimum amount of caffeine in milligrams the recipe must have. (optional)
 ///
-///  @param maxCaffeine The maximum number of alcohol in grams the recipe must have. (optional)
+///  @param maxCaffeine The maximum amount of caffeine in milligrams the recipe can have. (optional)
 ///
-///  @param minCopper The minimum number of copper in milligrams the recipe must have. (optional)
+///  @param minCopper The minimum amount of copper in milligrams the recipe must have. (optional)
 ///
-///  @param maxCopper The maximum number of copper in milligrams the recipe must have. (optional)
+///  @param maxCopper The maximum amount of copper in milligrams the recipe can have. (optional)
 ///
-///  @param minCalcium The minimum number of calcium in milligrams the recipe must have. (optional)
+///  @param minCalcium The minimum amount of calcium in milligrams the recipe must have. (optional)
 ///
-///  @param maxCalcium The maximum number of calcium in milligrams the recipe must have. (optional)
+///  @param maxCalcium The maximum amount of calcium in milligrams the recipe can have. (optional)
 ///
-///  @param minCholine The minimum number of choline in milligrams the recipe must have. (optional)
+///  @param minCholine The minimum amount of choline in milligrams the recipe must have. (optional)
 ///
-///  @param maxCholine The maximum number of choline in milligrams the recipe can have. (optional)
+///  @param maxCholine The maximum amount of choline in milligrams the recipe can have. (optional)
 ///
-///  @param minCholesterol The minimum number of cholesterol in milligrams the recipe must have. (optional)
+///  @param minCholesterol The minimum amount of cholesterol in milligrams the recipe must have. (optional)
 ///
-///  @param maxCholesterol The maximum number of cholesterol in milligrams the recipe must have. (optional)
+///  @param maxCholesterol The maximum amount of cholesterol in milligrams the recipe can have. (optional)
 ///
-///  @param minFluoride The minimum number of fluoride in milligrams the recipe must have. (optional)
+///  @param minFluoride The minimum amount of fluoride in milligrams the recipe must have. (optional)
 ///
-///  @param maxFluoride The maximum number of fluoride in milligrams the recipe can have. (optional)
+///  @param maxFluoride The maximum amount of fluoride in milligrams the recipe can have. (optional)
 ///
-///  @param minSaturatedFat The minimum number of saturated fat in grams the recipe must have. (optional)
+///  @param minSaturatedFat The minimum amount of saturated fat in grams the recipe must have. (optional)
 ///
-///  @param maxSaturatedFat The maximum number of saturated fat in grams the recipe must have. (optional)
+///  @param maxSaturatedFat The maximum amount of saturated fat in grams the recipe can have. (optional)
 ///
-///  @param minVitaminA The minimum number of Vitamin A in IU the recipe must have. (optional)
+///  @param minVitaminA The minimum amount of Vitamin A in IU the recipe must have. (optional)
 ///
-///  @param maxVitaminA The maximum number of Vitamin A in IU the recipe must have. (optional)
+///  @param maxVitaminA The maximum amount of Vitamin A in IU the recipe can have. (optional)
 ///
-///  @param minVitaminC The minimum number of Vitamin C milligrams the recipe must have. (optional)
+///  @param minVitaminC The minimum amount of Vitamin C milligrams the recipe must have. (optional)
 ///
-///  @param maxVitaminC The maximum number of Vitamin C in milligrams the recipe can have. (optional)
+///  @param maxVitaminC The maximum amount of Vitamin C in milligrams the recipe can have. (optional)
 ///
-///  @param minVitaminD The minimum number of Vitamin D in micrograms the recipe must have. (optional)
+///  @param minVitaminD The minimum amount of Vitamin D in micrograms the recipe must have. (optional)
 ///
-///  @param maxVitaminD The maximum number of Vitamin D in micrograms the recipe must have. (optional)
+///  @param maxVitaminD The maximum amount of Vitamin D in micrograms the recipe can have. (optional)
 ///
-///  @param minVitaminE The minimum number of Vitamin E in milligrams the recipe must have. (optional)
+///  @param minVitaminE The minimum amount of Vitamin E in milligrams the recipe must have. (optional)
 ///
-///  @param maxVitaminE The maximum number of Vitamin E in milligrams the recipe must have. (optional)
+///  @param maxVitaminE The maximum amount of Vitamin E in milligrams the recipe can have. (optional)
 ///
-///  @param minVitaminK The minimum number of Vitamin K in micrograms the recipe must have. (optional)
+///  @param minVitaminK The minimum amount of Vitamin K in micrograms the recipe must have. (optional)
 ///
-///  @param maxVitaminK The maximum number of Vitamin K in micrograms the recipe must have. (optional)
+///  @param maxVitaminK The maximum amount of Vitamin K in micrograms the recipe can have. (optional)
 ///
-///  @param minVitaminB1 The minimum number of Vitamin B1 in milligrams the recipe must have. (optional)
+///  @param minVitaminB1 The minimum amount of Vitamin B1 in milligrams the recipe must have. (optional)
 ///
-///  @param maxVitaminB1 The maximum number of Vitamin B1 in milligrams the recipe must have. (optional)
+///  @param maxVitaminB1 The maximum amount of Vitamin B1 in milligrams the recipe can have. (optional)
 ///
-///  @param minVitaminB2 The minimum number of Vitamin B2 in milligrams the recipe must have. (optional)
+///  @param minVitaminB2 The minimum amount of Vitamin B2 in milligrams the recipe must have. (optional)
 ///
-///  @param maxVitaminB2 The maximum number of Vitamin B2 in milligrams the recipe must have. (optional)
+///  @param maxVitaminB2 The maximum amount of Vitamin B2 in milligrams the recipe can have. (optional)
 ///
-///  @param minVitaminB5 The minimum number of Vitamin B5 in milligrams the recipe must have. (optional)
+///  @param minVitaminB5 The minimum amount of Vitamin B5 in milligrams the recipe must have. (optional)
 ///
-///  @param maxVitaminB5 The maximum number of Vitamin B5 in milligrams the recipe can have. (optional)
+///  @param maxVitaminB5 The maximum amount of Vitamin B5 in milligrams the recipe can have. (optional)
 ///
-///  @param minVitaminB3 The minimum number of Vitamin B3 in milligrams the recipe must have. (optional)
+///  @param minVitaminB3 The minimum amount of Vitamin B3 in milligrams the recipe must have. (optional)
 ///
-///  @param maxVitaminB3 The maximum number of Vitamin B3 in milligrams the recipe can have. (optional)
+///  @param maxVitaminB3 The maximum amount of Vitamin B3 in milligrams the recipe can have. (optional)
 ///
-///  @param minVitaminB6 The minimum number of Vitamin B6 in milligrams the recipe must have. (optional)
+///  @param minVitaminB6 The minimum amount of Vitamin B6 in milligrams the recipe must have. (optional)
 ///
-///  @param maxVitaminB6 The maximum number of Vitamin B6 in milligrams the recipe can have. (optional)
+///  @param maxVitaminB6 The maximum amount of Vitamin B6 in milligrams the recipe can have. (optional)
 ///
-///  @param minVitaminB12 The minimum number of Vitamin B12 in micrograms the recipe must have. (optional)
+///  @param minVitaminB12 The minimum amount of Vitamin B12 in micrograms the recipe must have. (optional)
 ///
-///  @param maxVitaminB12 The maximum number of Vitamin B12 in micrograms the recipe must have. (optional)
+///  @param maxVitaminB12 The maximum amount of Vitamin B12 in micrograms the recipe can have. (optional)
 ///
-///  @param minFiber The minimum number of fiber in grams the recipe must have. (optional)
+///  @param minFiber The minimum amount of fiber in grams the recipe must have. (optional)
 ///
-///  @param maxFiber The maximum number of fiber in grams the recipe must have. (optional)
+///  @param maxFiber The maximum amount of fiber in grams the recipe can have. (optional)
 ///
-///  @param minFolate The minimum number of folate in grams the recipe must have. (optional)
+///  @param minFolate The minimum amount of folate in grams the recipe must have. (optional)
 ///
-///  @param maxFolate The maximum number of folate in grams the recipe must have. (optional)
+///  @param maxFolate The maximum amount of folate in grams the recipe can have. (optional)
 ///
-///  @param minFolicAcid The minimum number of folic acid in grams the recipe must have. (optional)
+///  @param minFolicAcid The minimum amount of folic acid in grams the recipe must have. (optional)
 ///
-///  @param maxFolicAcid The maximum number of folic acid in grams the recipe must have. (optional)
+///  @param maxFolicAcid The maximum amount of folic acid in grams the recipe can have. (optional)
 ///
-///  @param minIodine The minimum number of Iodine in grams the recipe must have. (optional)
+///  @param minIodine The minimum amount of iodine in grams the recipe must have. (optional)
 ///
-///  @param maxIodine The maximum number of iodine in grams the recipe must have. (optional)
+///  @param maxIodine The maximum amount of iodine in grams the recipe can have. (optional)
 ///
-///  @param minIron The minimum number of iron in milligrams the recipe must have. (optional)
+///  @param minIron The minimum amount of iron in milligrams the recipe must have. (optional)
 ///
-///  @param maxIron The maximum number of iron in milligrams the recipe can have. (optional)
+///  @param maxIron The maximum amount of iron in milligrams the recipe can have. (optional)
 ///
-///  @param minMagnesium The minimum number of magnesium in milligrams the recipe must have. (optional)
+///  @param minMagnesium The minimum amount of magnesium in milligrams the recipe must have. (optional)
 ///
-///  @param maxMagnesium The maximum number of magnesium in milligrams the recipe can have. (optional)
+///  @param maxMagnesium The maximum amount of magnesium in milligrams the recipe can have. (optional)
 ///
-///  @param minManganese The minimum number of manganese in milligrams the recipe must have. (optional)
+///  @param minManganese The minimum amount of manganese in milligrams the recipe must have. (optional)
 ///
-///  @param maxManganese The maximum number of manganese in milligrams the recipe can have. (optional)
+///  @param maxManganese The maximum amount of manganese in milligrams the recipe can have. (optional)
 ///
-///  @param minPhosphorus The minimum number of phosphorus in milligrams the recipe must have. (optional)
+///  @param minPhosphorus The minimum amount of phosphorus in milligrams the recipe must have. (optional)
 ///
-///  @param maxPhosphorus The maximum number of phosphorus in milligrams the recipe can have. (optional)
+///  @param maxPhosphorus The maximum amount of phosphorus in milligrams the recipe can have. (optional)
 ///
-///  @param minPotassium The minimum number of potassium in milligrams the recipe must have. (optional)
+///  @param minPotassium The minimum amount of potassium in milligrams the recipe must have. (optional)
 ///
-///  @param maxPotassium The maximum number of potassium in milligrams the recipe can have. (optional)
+///  @param maxPotassium The maximum amount of potassium in milligrams the recipe can have. (optional)
 ///
-///  @param minSelenium The minimum number of selenium in grams the recipe must have. (optional)
+///  @param minSelenium The minimum amount of selenium in grams the recipe must have. (optional)
 ///
-///  @param maxSelenium The maximum number of selenium in grams the recipe must have. (optional)
+///  @param maxSelenium The maximum amount of selenium in grams the recipe can have. (optional)
 ///
-///  @param minSodium The minimum number of sodium in milligrams the recipe must have. (optional)
+///  @param minSodium The minimum amount of sodium in milligrams the recipe must have. (optional)
 ///
-///  @param maxSodium The maximum number of sodium in milligrams the recipe must have. (optional)
+///  @param maxSodium The maximum amount of sodium in milligrams the recipe can have. (optional)
 ///
-///  @param minSugar The minimum number of sugar in grams the recipe must have. (optional)
+///  @param minSugar The minimum amount of sugar in grams the recipe must have. (optional)
 ///
-///  @param maxSugar The maximum number of sugar in grams the recipe must have. (optional)
+///  @param maxSugar The maximum amount of sugar in grams the recipe can have. (optional)
 ///
-///  @param minZinc The minimum number of zinc in milligrams the recipe must have. (optional)
+///  @param minZinc The minimum amount of zinc in milligrams the recipe must have. (optional)
 ///
-///  @param maxZinc The maximum number of zinc in milligrams the recipe can have. (optional)
+///  @param maxZinc The maximum amount of zinc in milligrams the recipe can have. (optional)
 ///
 ///  @param offset The offset number for paging (between 0 and 990). (optional)
 ///
 ///  @param number The number of expected results (between 1 and 10). (optional)
 ///
-///  @param limitLicense Whether the recipes should have an open license that allows for displaying with proper attribution. (optional)
+///  @param limitLicense Whether the recipes should have an open license that allows display with proper attribution. (optional)
 ///
 ///  @returns NSObject*
 ///
@@ -4456,6 +4460,8 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
     author: (NSString*) author
     tags: (NSString*) tags
     titleMatch: (NSString*) titleMatch
+    maxReadyTime: (NSNumber*) maxReadyTime
+    ignorePantry: (NSNumber*) ignorePantry
     sort: (NSString*) sort
     sortDirection: (NSString*) sortDirection
     minCarbs: (NSNumber*) minCarbs
@@ -4594,6 +4600,12 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
     }
     if (titleMatch != nil) {
         queryParams[@"titleMatch"] = titleMatch;
+    }
+    if (maxReadyTime != nil) {
+        queryParams[@"maxReadyTime"] = maxReadyTime;
+    }
+    if (ignorePantry != nil) {
+        queryParams[@"ignorePantry"] = [ignorePantry isEqual:@(YES)] ? @"true" : @"false";
     }
     if (sort != nil) {
         queryParams[@"sort"] = sort;
@@ -4868,7 +4880,7 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 
 ///
 /// Search Site Content
-/// Search spoonacular's site content. You'll be able to find everything that you could also find using the search suggests on spoonacular.com. This is a suggest API so you can send partial strings as queries.
+/// Search spoonacular's site content. You'll be able to find everything that you could also find using the search suggestions on spoonacular.com. This is a suggest API so you can send partial strings as queries.
 ///  @param query The query to search for. You can also use partial queries such as \"spagh\" to already find spaghetti recipes, articles, grocery products, and other content. 
 ///
 ///  @returns NSObject*
@@ -4936,7 +4948,7 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 
 ///
 /// Summarize Recipe
-/// Summarize the recipe in a short text.
+/// Automatically generate a short description that summarizes key information about the recipe.
 ///  @param _id The recipe id. 
 ///
 ///  @returns NSObject*
@@ -5004,8 +5016,8 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 
 ///
 /// Talk to Chatbot
-/// This endpoint can be used to have a conversation about food with the spoonacular chat bot. Use the \"Get Conversation Suggests\" endpoint to show your user what he or she can say.
-///  @param text The request / question / answer from the user to the chat bot. 
+/// This endpoint can be used to have a conversation about food with the spoonacular chatbot. Use the \"Get Conversation Suggests\" endpoint to show your user what he or she can say.
+///  @param text The request / question / answer from the user to the chatbot. 
 ///
 ///  @param contextId An arbitrary globally unique id for your conversation. The conversation can contain states so you should pass your context id if you want the bot to be able to remember the conversation. (optional)
 ///
@@ -5083,7 +5095,7 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 ///
 ///  @param servings The number of servings. 
 ///
-///  @param view Either \\\"grid\\\" or \\\"list\\\" as visualization of the equipment. (optional)
+///  @param view How to visualize the equipment, either \\\"grid\\\" or \\\"list\\\". (optional)
 ///
 ///  @param defaultCss Whether the default CSS should be added to the response. (optional)
 ///
@@ -5186,9 +5198,9 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 ///
 ///  @param servings The number of servings. 
 ///
-///  @param measure The initial measure, either \\\"metric\\\" or \\\"us\\\". (optional)
+///  @param measure The original system of measurement, either \\\"metric\\\" or \\\"us\\\". (optional)
 ///
-///  @param view Either \\\"grid\\\" or \\\"list\\\" as visualization of the equipment. (optional)
+///  @param view How to visualize the ingredients, either \\\"grid\\\" or \\\"list\\\". (optional)
 ///
 ///  @param defaultCss Whether the default CSS should be added to the response. (optional)
 ///
@@ -5290,7 +5302,7 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 
 ///
 /// Visualize Menu Item Nutrition by ID
-/// Visualize a menu items' nutrition data.
+/// Visualize a menu item's nutritional information as HTML including CSS.
 ///  @param _id The menu item id. 
 ///
 ///  @param defaultCss Whether the default CSS should be added to the response. (optional)
@@ -5467,7 +5479,7 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 
 ///
 /// Visualize Product Nutrition by ID
-/// Visualize a grocery product's nutritional information.
+/// Visualize a product's nutritional information as HTML including CSS.
 ///  @param _id The id of the product. 
 ///
 ///  @param defaultCss Whether the default CSS should be added to the response. (optional)
@@ -5689,7 +5701,7 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 
 ///
 /// Visualize Recipe Nutrition
-/// Visualize a recipe's nutrition data.
+/// Visualize a recipe's nutritional information as HTML including CSS
 ///  @param ingredientList The ingredient list of the recipe, one ingredient per line. 
 ///
 ///  @param servings The number of servings. 
@@ -5786,8 +5798,8 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 
 ///
 /// Visualize Recipe Nutrition by ID
-/// Visualize a recipe's nutritional information.
-///  @param _id The id of the product. 
+/// Visualize a recipe's nutritional information as HTML including CSS.
+///  @param _id The recipe id. 
 ///
 ///  @param defaultCss Whether the default CSS should be added to the response. (optional)
 ///

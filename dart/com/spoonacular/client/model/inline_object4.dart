@@ -1,7 +1,7 @@
 part of openapi.api;
 
 class InlineObject4 {
-  /* The instructions text. */
+  /* The instructions to be analyzed. */
   String instructions = null;
   InlineObject4();
 

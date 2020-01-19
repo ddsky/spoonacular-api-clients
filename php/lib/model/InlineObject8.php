@@ -217,7 +217,7 @@ class InlineObject8 implements ModelInterface, ArrayAccess
     /**
      * Sets locale
      *
-     * @param string|null $locale The locale of the returned category, supported is en_US and en_GB.
+     * @param string|null $locale The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).
      *
      * @return $this
      */

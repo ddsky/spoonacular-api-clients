@@ -199,14 +199,14 @@ __PACKAGE__->method_documentation({
     'servings' => {
         datatype => 'double',
         base_name => 'servings',
-        description => 'The number of servings that you can make from the ingredients.',
+        description => 'The number of servings the recipe makes.',
         format => '',
         read_only => '',
             },
     'mask' => {
         datatype => 'string',
         base_name => 'mask',
-        description => 'The mask to put over the recipe image (\&quot;ellipseMask\&quot;, \&quot;diamondMask\&quot;, \&quot;diamondMask\&quot;, \&quot;starMask\&quot;, \&quot;heartMask\&quot;, \&quot;potMask\&quot;, \&quot;fishMask\&quot;).',
+        description => 'The mask to put over the recipe image (\&quot;ellipseMask\&quot;, \&quot;diamondMask\&quot;, \&quot;starMask\&quot;, \&quot;heartMask\&quot;, \&quot;potMask\&quot;, \&quot;fishMask\&quot;).',
         format => '',
         read_only => '',
             },
@@ -227,14 +227,14 @@ __PACKAGE__->method_documentation({
     'background_color' => {
         datatype => 'string',
         base_name => 'backgroundColor',
-        description => 'The background color on the recipe card as a hex-string.',
+        description => 'The background color for the recipe card as a hex-string.',
         format => '',
         read_only => '',
             },
     'font_color' => {
         datatype => 'string',
         base_name => 'fontColor',
-        description => 'The font color on the recipe card as a hex-string.',
+        description => 'The font color for the recipe card as a hex-string.',
         format => '',
         read_only => '',
             },

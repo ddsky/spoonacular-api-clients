@@ -24,17 +24,17 @@ type InlineObject3 struct {
 	Instructions string `json:"instructions"`
 	// The number of minutes it takes to get the recipe on the table.
 	ReadyInMinutes float32 `json:"readyInMinutes"`
-	// The number of servings that you can make from the ingredients.
+	// The number of servings the recipe makes.
 	Servings float32 `json:"servings"`
-	// The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\").
+	// The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\").
 	Mask string `json:"mask"`
 	// The background image (\"none\",\"background1\", or \"background2\").
 	BackgroundImage string `json:"backgroundImage"`
 	// The author of the recipe.
 	Author string `json:"author,omitempty"`
-	// The background color on the recipe card as a hex-string.
+	// The background color for the recipe card as a hex-string.
 	BackgroundColor string `json:"backgroundColor,omitempty"`
-	// The font color on the recipe card as a hex-string.
+	// The font color for the recipe card as a hex-string.
 	FontColor string `json:"fontColor,omitempty"`
 	// The source of the recipe.
 	Source string `json:"source,omitempty"`

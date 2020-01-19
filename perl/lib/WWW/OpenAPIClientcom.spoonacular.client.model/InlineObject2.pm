@@ -178,7 +178,7 @@ __PACKAGE__->method_documentation({
     'view' => {
         datatype => 'string',
         base_name => 'view',
-        description => 'Either \&quot;grid\&quot; or \&quot;list\&quot; as visualization of the equipment.',
+        description => 'How to visualize the equipment, either \&quot;grid\&quot; or \&quot;list\&quot;.',
         format => '',
         read_only => '',
             },

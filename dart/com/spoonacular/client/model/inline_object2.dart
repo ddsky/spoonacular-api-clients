@@ -5,7 +5,7 @@ class InlineObject2 {
   String ingredientList = null;
   /* The number of servings. */
   num servings = null;
-  /* Either \"grid\" or \"list\" as visualization of the equipment. */
+  /* How to visualize the equipment, either \"grid\" or \"list\". */
   String view = null;
   /* Whether the default CSS should be added to the response. */
   bool defaultCss = null;

@@ -20,12 +20,12 @@ import com.squareup.moshi.Json
  * @param ingredients The ingredient list of the recipe, one ingredient per line (separate lines with \\n).
  * @param instructions The instructions to make the recipe. One step per line (separate lines with \\n).
  * @param readyInMinutes The number of minutes it takes to get the recipe on the table.
- * @param servings The number of servings that you can make from the ingredients.
- * @param mask The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\").
+ * @param servings The number of servings the recipe makes.
+ * @param mask The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\").
  * @param backgroundImage The background image (\"none\",\"background1\", or \"background2\").
  * @param author The author of the recipe.
- * @param backgroundColor The background color on the recipe card as a hex-string.
- * @param fontColor The font color on the recipe card as a hex-string.
+ * @param backgroundColor The background color for the recipe card as a hex-string.
+ * @param fontColor The font color for the recipe card as a hex-string.
  * @param source The source of the recipe.
  */
 data class InlineObject3 (
@@ -44,10 +44,10 @@ data class InlineObject3 (
     /* The number of minutes it takes to get the recipe on the table. */
     @Json(name = "readyInMinutes")
     val readyInMinutes: java.math.BigDecimal,
-    /* The number of servings that you can make from the ingredients. */
+    /* The number of servings the recipe makes. */
     @Json(name = "servings")
     val servings: java.math.BigDecimal,
-    /* The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\"). */
+    /* The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\"). */
     @Json(name = "mask")
     val mask: kotlin.String,
     /* The background image (\"none\",\"background1\", or \"background2\"). */
@@ -56,10 +56,10 @@ data class InlineObject3 (
     /* The author of the recipe. */
     @Json(name = "author")
     val author: kotlin.String? = null,
-    /* The background color on the recipe card as a hex-string. */
+    /* The background color for the recipe card as a hex-string. */
     @Json(name = "backgroundColor")
     val backgroundColor: kotlin.String? = null,
-    /* The font color on the recipe card as a hex-string. */
+    /* The font color for the recipe card as a hex-string. */
     @Json(name = "fontColor")
     val fontColor: kotlin.String? = null,
     /* The source of the recipe. */

@@ -13,9 +13,9 @@ namespace spoonacular.Model {
   [DataContract]
   public class InlineObject4 {
     /// <summary>
-    /// The instructions text.
+    /// The instructions to be analyzed.
     /// </summary>
-    /// <value>The instructions text.</value>
+    /// <value>The instructions to be analyzed.</value>
     [DataMember(Name="instructions", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "instructions")]
     public string Instructions { get; set; }

@@ -29,10 +29,10 @@ pub struct InlineObject3 {
     /// The number of minutes it takes to get the recipe on the table.
     #[serde(rename = "readyInMinutes")]
     pub ready_in_minutes: f32,
-    /// The number of servings that you can make from the ingredients.
+    /// The number of servings the recipe makes.
     #[serde(rename = "servings")]
     pub servings: f32,
-    /// The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\").
+    /// The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\").
     #[serde(rename = "mask")]
     pub mask: String,
     /// The background image (\"none\",\"background1\", or \"background2\").
@@ -41,10 +41,10 @@ pub struct InlineObject3 {
     /// The author of the recipe.
     #[serde(rename = "author")]
     pub author: Option<String>,
-    /// The background color on the recipe card as a hex-string.
+    /// The background color for the recipe card as a hex-string.
     #[serde(rename = "backgroundColor")]
     pub background_color: Option<String>,
-    /// The font color on the recipe card as a hex-string.
+    /// The font color for the recipe card as a hex-string.
     #[serde(rename = "fontColor")]
     pub font_color: Option<String>,
     /// The source of the recipe.

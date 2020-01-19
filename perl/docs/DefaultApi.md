@@ -22,13 +22,13 @@ Method | HTTP request | Description
 [**create_recipe_card**](DefaultApi.md#create_recipe_card) | **POST** /recipes/visualizeRecipe | Create Recipe Card
 [**detect_food_in_text**](DefaultApi.md#detect_food_in_text) | **POST** /food/detect | Detect Food in Text
 [**extract_recipe_from_website**](DefaultApi.md#extract_recipe_from_website) | **GET** /recipes/extract | Extract Recipe from Website
-[**generate_meal_plan**](DefaultApi.md#generate_meal_plan) | **GET** /recipes/mealplans/generate | Generate Meal Plan
+[**generate_meal_plan**](DefaultApi.md#generate_meal_plan) | **GET** /mealplanner/generate | Generate Meal Plan
 [**get_a_random_food_joke**](DefaultApi.md#get_a_random_food_joke) | **GET** /food/jokes/random | Get a Random Food Joke
 [**get_analyzed_recipe_instructions**](DefaultApi.md#get_analyzed_recipe_instructions) | **GET** /recipes/{id}/analyzedInstructions | Get Analyzed Recipe Instructions
 [**get_comparable_products**](DefaultApi.md#get_comparable_products) | **GET** /food/products/upc/{upc}/comparable | Get Comparable Products
 [**get_conversation_suggests**](DefaultApi.md#get_conversation_suggests) | **GET** /food/converse/suggest | Get Conversation Suggests
 [**get_dish_pairing_for_wine**](DefaultApi.md#get_dish_pairing_for_wine) | **GET** /food/wine/dishes | Get Dish Pairing for Wine
-[**get_food_information**](DefaultApi.md#get_food_information) | **GET** /food/ingredients/{id}/information | Get Food Information
+[**get_ingredient_information**](DefaultApi.md#get_ingredient_information) | **GET** /food/ingredients/{id}/information | Get Ingredient Information
 [**get_ingredient_substitutes**](DefaultApi.md#get_ingredient_substitutes) | **GET** /food/ingredients/substitutes | Get Ingredient Substitutes
 [**get_ingredient_substitutes_by_id**](DefaultApi.md#get_ingredient_substitutes_by_id) | **GET** /food/ingredients/{id}/substitutes | Get Ingredient Substitutes by ID
 [**get_menu_item_information**](DefaultApi.md#get_menu_item_information) | **GET** /food/menuItems/{id} | Get Menu Item Information
@@ -39,7 +39,7 @@ Method | HTTP request | Description
 [**get_recipe_information**](DefaultApi.md#get_recipe_information) | **GET** /recipes/{id}/information | Get Recipe Information
 [**get_recipe_information_bulk**](DefaultApi.md#get_recipe_information_bulk) | **GET** /recipes/informationBulk | Get Recipe Information Bulk
 [**get_recipe_ingredients_by_id**](DefaultApi.md#get_recipe_ingredients_by_id) | **GET** /recipes/{id}/ingredientWidget.json | Get Recipe Ingredients by ID
-[**get_recipe_nutrition_by_id**](DefaultApi.md#get_recipe_nutrition_by_id) | **GET** /recipes/{id}/nutritionWidget.json | Get Recipe Nutrition by ID
+[**get_recipe_nutrition_widget_by_id**](DefaultApi.md#get_recipe_nutrition_widget_by_id) | **GET** /recipes/{id}/nutritionWidget.json | Get Recipe Nutrition Widget by ID
 [**get_recipe_price_breakdown_by_id**](DefaultApi.md#get_recipe_price_breakdown_by_id) | **GET** /recipes/{id}/priceBreakdownWidget.json | Get Recipe Price Breakdown by ID
 [**get_similar_recipes**](DefaultApi.md#get_similar_recipes) | **GET** /recipes/{id}/similar | Get Similar Recipes
 [**get_wine_description**](DefaultApi.md#get_wine_description) | **GET** /food/wine/description | Get Wine Description
@@ -123,7 +123,7 @@ No authorization required
 
 Analyze Recipe Instructions
 
-Extract ingredients and equipment from the recipe instruction steps.
+Extract ingredients and equipment from the recipe's instructions.
 
 ### Example 
 ```perl
@@ -132,7 +132,7 @@ use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
 );
 
-my $instructions = "instructions_example"; # string | The instructions text.
+my $instructions = "instructions_example"; # string | The instructions to be analyzed.
 
 eval { 
     my $result = $api_instance->analyze_recipe_instructions(instructions => $instructions);
@@ -147,7 +147,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **instructions** | **string**| The instructions text. | 
+ **instructions** | **string**| The instructions to be analyzed. | 
 
 ### Return type
 
@@ -169,7 +169,7 @@ No authorization required
 
 Autocomplete Ingredient Search
 
-Autocomplete a search for an ingredient.
+Autocomplete the entry of an ingredient.
 
 ### Example 
 ```perl
@@ -178,10 +178,10 @@ use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
 );
 
-my $query = appl; # string | The query - a partial or full ingredient name.
+my $query = appl; # string | The partial or full ingredient name.
 my $number = 10; # double | The number of results to return (between 1 and 100).
 my $meta_information = false; # boolean | Whether to return more meta information about the ingredients.
-my $intolerances = false; # boolean | A comma-separated list of intolerances. All found ingredients must not cause problems for people with one of the given tolerances. See a full list of supported intolerances.
+my $intolerances = false; # boolean | A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
 
 eval { 
     my $result = $api_instance->autocomplete_ingredient_search(query => $query, number => $number, meta_information => $meta_information, intolerances => $intolerances);
@@ -196,10 +196,10 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **query** | **string**| The query - a partial or full ingredient name. | 
+ **query** | **string**| The partial or full ingredient name. | 
  **number** | **double**| The number of results to return (between 1 and 100). | [optional] 
  **meta_information** | **boolean**| Whether to return more meta information about the ingredients. | [optional] 
- **intolerances** | **boolean**| A comma-separated list of intolerances. All found ingredients must not cause problems for people with one of the given tolerances. See a full list of supported intolerances. | [optional] 
+ **intolerances** | **boolean**| A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. | [optional] 
 
 ### Return type
 
@@ -317,7 +317,7 @@ No authorization required
 
 Autocomplete Recipe Search
 
-Autocomplete a partial input to possible recipe names.
+Autocomplete a partial input to suggest possible recipe names.
 
 ### Example 
 ```perl
@@ -413,7 +413,7 @@ No authorization required
 
 Classify Grocery Product
 
-Given a grocery product title, this endpoint allows you to detect what basic ingredient it is.
+This endpoint allows you to match a packaged food to a basic category, e.g. a specific brand of milk to the category milk.
 
 ### Example 
 ```perl
@@ -423,7 +423,7 @@ my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
 );
 
 my $inline_object8 = WWW::OpenAPIClient::Object::InlineObject8->new(); # InlineObject8 | 
-my $locale = en_US; # string | The locale of the returned category, supported is en_US and en_GB.
+my $locale = en_US; # string | The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).
 
 eval { 
     my $result = $api_instance->classify_grocery_product(inline_object8 => $inline_object8, locale => $locale);
@@ -439,7 +439,7 @@ if ($@) {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **inline_object8** | [**InlineObject8**](InlineObject8.md)|  | 
- **locale** | **string**| The locale of the returned category, supported is en_US and en_GB. | [optional] 
+ **locale** | **string**| The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). | [optional] 
 
 ### Return type
 
@@ -461,7 +461,7 @@ No authorization required
 
 Classify Grocery Product Bulk
 
-Given a set of product jsons, get back classified products.
+Provide a set of product jsons, get back classified products.
 
 ### Example 
 ```perl
@@ -471,7 +471,7 @@ my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
 );
 
 my $body = WWW::OpenAPIClient::Object::object->new(); # object | 
-my $locale = en_US; # string | The locale of the returned category, supported is en_US and en_GB.
+my $locale = en_US; # string | The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).
 
 eval { 
     my $result = $api_instance->classify_grocery_product_bulk(body => $body, locale => $locale);
@@ -487,7 +487,7 @@ if ($@) {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | **object**|  | 
- **locale** | **string**| The locale of the returned category, supported is en_US and en_GB. | [optional] 
+ **locale** | **string**| The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). | [optional] 
 
 ### Return type
 
@@ -561,7 +561,7 @@ No authorization required
 
 Create Recipe Card
 
-Create Recipe Card.
+Generate a recipe card for a recipe.
 
 ### Example 
 ```perl
@@ -575,12 +575,12 @@ my $image = "/path/to/file"; # string | The binary image of the recipe as jpg.
 my $ingredients = "ingredients_example"; # string | The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
 my $instructions = "instructions_example"; # string | The instructions to make the recipe. One step per line (separate lines with \\\\n).
 my $ready_in_minutes = 3.4; # double | The number of minutes it takes to get the recipe on the table.
-my $servings = 3.4; # double | The number of servings that you can make from the ingredients.
-my $mask = "mask_example"; # string | The mask to put over the recipe image (\\\"ellipseMask\\\", \\\"diamondMask\\\", \\\"diamondMask\\\", \\\"starMask\\\", \\\"heartMask\\\", \\\"potMask\\\", \\\"fishMask\\\").
+my $servings = 3.4; # double | The number of servings the recipe makes.
+my $mask = "mask_example"; # string | The mask to put over the recipe image (\\\"ellipseMask\\\", \\\"diamondMask\\\", \\\"starMask\\\", \\\"heartMask\\\", \\\"potMask\\\", \\\"fishMask\\\").
 my $background_image = "background_image_example"; # string | The background image (\\\"none\\\",\\\"background1\\\", or \\\"background2\\\").
 my $author = "author_example"; # string | The author of the recipe.
-my $background_color = "background_color_example"; # string | The background color on the recipe card as a hex-string.
-my $font_color = "font_color_example"; # string | The font color on the recipe card as a hex-string.
+my $background_color = "background_color_example"; # string | The background color for the recipe card as a hex-string.
+my $font_color = "font_color_example"; # string | The font color for the recipe card as a hex-string.
 my $source = "source_example"; # string | The source of the recipe.
 
 eval { 
@@ -601,12 +601,12 @@ Name | Type | Description  | Notes
  **ingredients** | **string**| The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n). | 
  **instructions** | **string**| The instructions to make the recipe. One step per line (separate lines with \\\\n). | 
  **ready_in_minutes** | **double**| The number of minutes it takes to get the recipe on the table. | 
- **servings** | **double**| The number of servings that you can make from the ingredients. | 
- **mask** | **string**| The mask to put over the recipe image (\\\&quot;ellipseMask\\\&quot;, \\\&quot;diamondMask\\\&quot;, \\\&quot;diamondMask\\\&quot;, \\\&quot;starMask\\\&quot;, \\\&quot;heartMask\\\&quot;, \\\&quot;potMask\\\&quot;, \\\&quot;fishMask\\\&quot;). | 
+ **servings** | **double**| The number of servings the recipe makes. | 
+ **mask** | **string**| The mask to put over the recipe image (\\\&quot;ellipseMask\\\&quot;, \\\&quot;diamondMask\\\&quot;, \\\&quot;starMask\\\&quot;, \\\&quot;heartMask\\\&quot;, \\\&quot;potMask\\\&quot;, \\\&quot;fishMask\\\&quot;). | 
  **background_image** | **string**| The background image (\\\&quot;none\\\&quot;,\\\&quot;background1\\\&quot;, or \\\&quot;background2\\\&quot;). | 
  **author** | **string**| The author of the recipe. | [optional] 
- **background_color** | **string**| The background color on the recipe card as a hex-string. | [optional] 
- **font_color** | **string**| The font color on the recipe card as a hex-string. | [optional] 
+ **background_color** | **string**| The background color for the recipe card as a hex-string. | [optional] 
+ **font_color** | **string**| The font color for the recipe card as a hex-string. | [optional] 
  **source** | **string**| The source of the recipe. | [optional] 
 
 ### Return type
@@ -629,7 +629,7 @@ No authorization required
 
 Detect Food in Text
 
-Detect ingredients and dishes in texts. This task is also called Named Entity Recognition (NER). In our case the entities are foods. Either dishes, such as pizza and cheeseburger or ingredients, such as cucumber and almonds.
+Take any text and find all mentions of food contained within it. This task is also called Named Entity Recognition (NER). In this case, the entities are foods. Either dishes, such as pizza or cheeseburger, or ingredients, such as cucumber or almonds.
 
 ### Example 
 ```perl
@@ -638,7 +638,7 @@ use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
 );
 
-my $text = "text_example"; # string | The text in which food items such as dish names and ingredients should be detected in.
+my $text = "text_example"; # string | The text in which food items, such as dish names and ingredients, should be detected in.
 
 eval { 
     my $result = $api_instance->detect_food_in_text(text => $text);
@@ -653,7 +653,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **text** | **string**| The text in which food items such as dish names and ingredients should be detected in. | 
+ **text** | **string**| The text in which food items, such as dish names and ingredients, should be detected in. | 
 
 ### Return type
 
@@ -675,7 +675,7 @@ No authorization required
 
 Extract Recipe from Website
 
-Get an analyzed breakdown of a recipe's instructions. Each step is enriched with the ingredients and the equipment that is used.
+This endpoint lets you extract recipe data such as title, ingredients, and instructions from any properly formatted Website.
 
 ### Example 
 ```perl
@@ -685,7 +685,7 @@ my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
 );
 
 my $url = https://foodista.com/recipe/ZHK4KPB6/chocolate-crinkle-cookies; # string | The URL of the recipe page.
-my $force_extraction = true; # boolean | If true, the extraction will be triggered no matter whether we know the recipe already. Use that only if information is missing as this operation is slower.
+my $force_extraction = true; # boolean | If true, the extraction will be triggered whether we already know the recipe or not. Use this only if information is missing as this operation is slower.
 
 eval { 
     my $result = $api_instance->extract_recipe_from_website(url => $url, force_extraction => $force_extraction);
@@ -701,7 +701,7 @@ if ($@) {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **url** | **string**| The URL of the recipe page. | 
- **force_extraction** | **boolean**| If true, the extraction will be triggered no matter whether we know the recipe already. Use that only if information is missing as this operation is slower. | [optional] 
+ **force_extraction** | **boolean**| If true, the extraction will be triggered whether we already know the recipe or not. Use this only if information is missing as this operation is slower. | [optional] 
 
 ### Return type
 
@@ -775,7 +775,7 @@ No authorization required
 
 Get a Random Food Joke
 
-Get a random joke that includes or is about food.
+Get a random joke that is related to food. Caution: this is an endpoint for adults!
 
 ### Example 
 ```perl
@@ -817,7 +817,7 @@ No authorization required
 
 Get Analyzed Recipe Instructions
 
-Get an analyzed breakdown of a recipe's instructions. Each step is enriched with the ingredients and the equipment that is used.
+Get an analyzed breakdown of a recipe's instructions. Each step is enriched with the ingredients and equipment required.
 
 ### Example 
 ```perl
@@ -874,7 +874,7 @@ use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
 );
 
-my $upc = 33698816271; # double | The UPC of the product for that you want to find comparable products.
+my $upc = 33698816271; # double | The UPC of the product for which you want to find comparable products.
 
 eval { 
     my $result = $api_instance->get_comparable_products(upc => $upc);
@@ -889,7 +889,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **upc** | **double**| The UPC of the product for that you want to find comparable products. | 
+ **upc** | **double**| The UPC of the product for which you want to find comparable products. | 
 
 ### Return type
 
@@ -911,7 +911,7 @@ No authorization required
 
 Get Conversation Suggests
 
-This endpoint returns suggestions for things the user can say or ask the chat bot.
+This endpoint returns suggestions for things the user can say or ask the chatbot.
 
 ### Example 
 ```perl
@@ -959,7 +959,7 @@ No authorization required
 
 Get Dish Pairing for Wine
 
-Get a dish that goes well with a given wine.
+Find a dish that goes well with a given wine.
 
 ### Example 
 ```perl
@@ -968,7 +968,7 @@ use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
 );
 
-my $wine = malbec; # string | The name of the wine that should be paired, e.g. \"merlot\", \"riesling\", or \"malbec\".
+my $wine = malbec; # string | The type of wine that should be paired, e.g. \"merlot\", \"riesling\", or \"malbec\".
 
 eval { 
     my $result = $api_instance->get_dish_pairing_for_wine(wine => $wine);
@@ -983,7 +983,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **wine** | **string**| The name of the wine that should be paired, e.g. \&quot;merlot\&quot;, \&quot;riesling\&quot;, or \&quot;malbec\&quot;. | 
+ **wine** | **string**| The type of wine that should be paired, e.g. \&quot;merlot\&quot;, \&quot;riesling\&quot;, or \&quot;malbec\&quot;. | 
 
 ### Return type
 
@@ -1000,12 +1000,12 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_food_information**
-> object get_food_information(id => $id, amount => $amount, unit => $unit)
+# **get_ingredient_information**
+> object get_ingredient_information(id => $id, amount => $amount, unit => $unit)
 
-Get Food Information
+Get Ingredient Information
 
-Get information about a certain food (ingredient).
+Use an ingredient id to get all available information about an ingredient, such as its image and supermarket aisle.
 
 ### Example 
 ```perl
@@ -1014,16 +1014,16 @@ use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
 );
 
-my $id = 9266; # double | The id of the food / ingredient.
-my $amount = 150; # double | The amount of that food.
+my $id = 9266; # double | The ingredient id.
+my $amount = 150; # double | The amount of this ingredient.
 my $unit = grams; # string | The unit for the given amount.
 
 eval { 
-    my $result = $api_instance->get_food_information(id => $id, amount => $amount, unit => $unit);
+    my $result = $api_instance->get_ingredient_information(id => $id, amount => $amount, unit => $unit);
     print Dumper($result);
 };
 if ($@) {
-    warn "Exception when calling DefaultApi->get_food_information: $@\n";
+    warn "Exception when calling DefaultApi->get_ingredient_information: $@\n";
 }
 ```
 
@@ -1031,8 +1031,8 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **double**| The id of the food / ingredient. | 
- **amount** | **double**| The amount of that food. | [optional] 
+ **id** | **double**| The ingredient id. | 
+ **amount** | **double**| The amount of this ingredient. | [optional] 
  **unit** | **string**| The unit for the given amount. | [optional] 
 
 ### Return type
@@ -1147,7 +1147,7 @@ No authorization required
 
 Get Menu Item Information
 
-Get information about a certain menu item.
+Use a menu item id to get all available information about a menu item, such as nutrition.
 
 ### Example 
 ```perl
@@ -1193,7 +1193,7 @@ No authorization required
 
 Get Product Information
 
-Get information about a packaged food product.
+Use a product id to get full information about a product, such as ingredients, nutrition, etc.
 
 ### Example 
 ```perl
@@ -1202,7 +1202,7 @@ use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
 );
 
-my $id = 22347; # double | The id of the packaged food product.
+my $id = 22347; # double | The id of the packaged food.
 
 eval { 
     my $result = $api_instance->get_product_information(id => $id);
@@ -1217,7 +1217,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **double**| The id of the packaged food product. | 
+ **id** | **double**| The id of the packaged food. | 
 
 ### Return type
 
@@ -1281,7 +1281,7 @@ No authorization required
 
 Get Random Recipes
 
-Find random (popular) recipes.
+Find random (popular) recipes. If you need to filter recipes by diet, nutrition etc. you might want to consider using the complex recipe search endpoint and set the sort request parameter to random.
 
 ### Example 
 ```perl
@@ -1290,8 +1290,8 @@ use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
 );
 
-my $limit_license = true; # boolean | Whether the recipes should have an open license that allows for displaying with proper attribution.
-my $tags = vegetarian, dessert; # string | The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must adhere to.
+my $limit_license = true; # boolean | Whether the recipes should have an open license that allows display with proper attribution.
+my $tags = vegetarian, dessert; # string | The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have.
 my $number = 1; # double | The number of random recipes to be returned (between 1 and 100).
 
 eval { 
@@ -1307,8 +1307,8 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **limit_license** | **boolean**| Whether the recipes should have an open license that allows for displaying with proper attribution. | [optional] 
- **tags** | **string**| The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must adhere to. | [optional] 
+ **limit_license** | **boolean**| Whether the recipes should have an open license that allows display with proper attribution. | [optional] 
+ **tags** | **string**| The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have. | [optional] 
  **number** | **double**| The number of random recipes to be returned (between 1 and 100). | [optional] 
 
 ### Return type
@@ -1377,7 +1377,7 @@ No authorization required
 
 Get Recipe Information
 
-Get information about a recipe.
+Use a recipe id to get full information about a recipe, such as ingredients, nutrition, diet and allergen information, etc.
 
 ### Example 
 ```perl
@@ -1387,7 +1387,7 @@ my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
 );
 
 my $id = 716429; # double | The id of the recipe.
-my $include_nutrition = false; # boolean | Include nutrition data to the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
+my $include_nutrition = false; # boolean | Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
 
 eval { 
     my $result = $api_instance->get_recipe_information(id => $id, include_nutrition => $include_nutrition);
@@ -1403,7 +1403,7 @@ if ($@) {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **double**| The id of the recipe. | 
- **include_nutrition** | **boolean**| Include nutrition data to the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. | [optional] 
+ **include_nutrition** | **boolean**| Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. | [optional] 
 
 ### Return type
 
@@ -1425,7 +1425,7 @@ No authorization required
 
 Get Recipe Information Bulk
 
-Get information about multiple recipes at once. That is equivalent of calling the Get Recipe Information endpoint multiple times but is faster.
+Get information about multiple recipes at once. This is equivalent to calling the Get Recipe Information endpoint multiple times, but faster.
 
 ### Example 
 ```perl
@@ -1514,10 +1514,10 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_recipe_nutrition_by_id**
-> object get_recipe_nutrition_by_id(id => $id)
+# **get_recipe_nutrition_widget_by_id**
+> object get_recipe_nutrition_widget_by_id(id => $id)
 
-Get Recipe Nutrition by ID
+Get Recipe Nutrition Widget by ID
 
 Get a recipe's nutrition widget data.
 
@@ -1531,11 +1531,11 @@ my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
 my $id = 1003464; # double | The recipe id.
 
 eval { 
-    my $result = $api_instance->get_recipe_nutrition_by_id(id => $id);
+    my $result = $api_instance->get_recipe_nutrition_widget_by_id(id => $id);
     print Dumper($result);
 };
 if ($@) {
-    warn "Exception when calling DefaultApi->get_recipe_nutrition_by_id: $@\n";
+    warn "Exception when calling DefaultApi->get_recipe_nutrition_widget_by_id: $@\n";
 }
 ```
 
@@ -1620,7 +1620,7 @@ use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
 );
 
-my $id = 715538; # double | The id of the source recipe to which similar recipes should be found.
+my $id = 715538; # double | The id of the source recipe for which similar recipes should be found.
 my $number = 1; # double | The number of random recipes to be returned (between 1 and 100).
 
 eval { 
@@ -1636,7 +1636,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **double**| The id of the source recipe to which similar recipes should be found. | 
+ **id** | **double**| The id of the source recipe for which similar recipes should be found. | 
  **number** | **double**| The number of random recipes to be returned (between 1 and 100). | [optional] 
 
 ### Return type
@@ -1659,7 +1659,7 @@ No authorization required
 
 Get Wine Description
 
-Get the description of a certain wine, e.g. \"malbec\", \"riesling\", or \"merlot\".
+Get a simple description of a certain wine, e.g. \"malbec\", \"riesling\", or \"merlot\".
 
 ### Example 
 ```perl
@@ -1753,7 +1753,7 @@ No authorization required
 
 Get Wine Recommendation
 
-Get a specific wine recommendation (concrete product) for a given wine, e.g. \"merlot\".
+Get a specific wine recommendation (concrete product) for a given wine type, e.g. \"merlot\".
 
 ### Example 
 ```perl
@@ -1762,7 +1762,7 @@ use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
 );
 
-my $wine = merlot; # string | The name of the wine to get a specific product recommendation for.
+my $wine = merlot; # string | The type of wine to get a specific product recommendation for.
 my $max_price = 50; # double | The maximum price for the specific wine recommendation in USD.
 my $min_rating = 0.7; # double | The minimum rating of the recommended wine between 0 and 1. For example, 0.8 equals 4 out of 5 stars.
 my $number = 3; # double | The number of wine recommendations expected (between 1 and 100).
@@ -1780,7 +1780,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **wine** | **string**| The name of the wine to get a specific product recommendation for. | 
+ **wine** | **string**| The type of wine to get a specific product recommendation for. | 
  **max_price** | **double**| The maximum price for the specific wine recommendation in USD. | [optional] 
  **min_rating** | **double**| The minimum rating of the recommended wine between 0 and 1. For example, 0.8 equals 4 out of 5 stars. | [optional] 
  **number** | **double**| The number of wine recommendations expected (between 1 and 100). | [optional] 
@@ -1805,7 +1805,7 @@ No authorization required
 
 Guess Nutrition by Dish Name
 
-Guess the macro nutrients of a dish given its title.
+Estimate the macronutrients of a dish based on its title.
 
 ### Example 
 ```perl
@@ -1956,7 +1956,7 @@ use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
 );
 
-my $q = How much vitamin c is in 2 apples?; # string | The nutrition-related question.
+my $q = How much vitamin c is in 2 apples?; # string | The nutrition related question.
 
 eval { 
     my $result = $api_instance->quick_answer(q => $q);
@@ -1971,7 +1971,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **q** | **string**| The nutrition-related question. | 
+ **q** | **string**| The nutrition related question. | 
 
 ### Return type
 
@@ -2004,10 +2004,10 @@ my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
 
 my $query = chicken soup; # string | The search query.
 my $type = main course; # string | The type of the recipes. See a full list of supported meal types.
-my $cuisine = italian; # string | The cuisine(s) of the recipes. One or more comma separated. See a full list of supported cuisines.
-my $diet = vegetarian; # string | The diet to which the recipes must be compliant. See a full list of supported diets.
-my $include_ingredients = tomato,cheese; # string | A comma-separated list of ingredients that should/must be contained in the recipe.
-my $exclude_ingredients = eggs; # string | A comma-separated list of ingredients or ingredient types that must not be contained in the recipes.
+my $cuisine = italian; # string | The cuisine(s) of the recipes. One or more, comma separated. See a full list of supported cuisines.
+my $diet = vegetarian; # string | The diet for which the recipes must be suitable. See a full list of supported diets.
+my $include_ingredients = tomato,cheese; # string | A comma-separated list of ingredients that the recipes should contain.
+my $exclude_ingredients = eggs; # string | A comma-separated list of ingredients or ingredient types that the recipes must not contain.
 my $min_length = 0; # double | Minimum video length in seconds.
 my $max_length = 999; # double | Maximum video length in seconds.
 my $offset = 0; # double | The number of results to skip (between 0 and 900).
@@ -2028,10 +2028,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **query** | **string**| The search query. | 
  **type** | **string**| The type of the recipes. See a full list of supported meal types. | [optional] 
- **cuisine** | **string**| The cuisine(s) of the recipes. One or more comma separated. See a full list of supported cuisines. | [optional] 
- **diet** | **string**| The diet to which the recipes must be compliant. See a full list of supported diets. | [optional] 
- **include_ingredients** | **string**| A comma-separated list of ingredients that should/must be contained in the recipe. | [optional] 
- **exclude_ingredients** | **string**| A comma-separated list of ingredients or ingredient types that must not be contained in the recipes. | [optional] 
+ **cuisine** | **string**| The cuisine(s) of the recipes. One or more, comma separated. See a full list of supported cuisines. | [optional] 
+ **diet** | **string**| The diet for which the recipes must be suitable. See a full list of supported diets. | [optional] 
+ **include_ingredients** | **string**| A comma-separated list of ingredients that the recipes should contain. | [optional] 
+ **exclude_ingredients** | **string**| A comma-separated list of ingredients or ingredient types that the recipes must not contain. | [optional] 
  **min_length** | **double**| Minimum video length in seconds. | [optional] 
  **max_length** | **double**| Maximum video length in seconds. | [optional] 
  **offset** | **double**| The number of results to skip (between 0 and 900). | [optional] 
@@ -2057,7 +2057,7 @@ No authorization required
 
 Search Grocery Products
 
-Search packaged food products such as frozen pizza and snickers bars.
+Search packaged food products, such as frozen pizza or Greek yogurt.
 
 ### Example 
 ```perl
@@ -2066,15 +2066,15 @@ use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
 );
 
-my $query = snickers; # string | The search query.
-my $min_calories = 50; # double | The minimum number of calories the product must have.
-my $max_calories = 800; # double | The maximum number of calories the product can have.
-my $min_carbs = 10; # double | The minimum number of carbohydrates in grams the product must have.
-my $max_carbs = 100; # double | The maximum number of carbohydrates in grams the product can have.
-my $min_protein = 10; # double | The minimum number of protein in grams the product must have.
-my $max_protein = 100; # double | The maximum number of protein in grams the product can have.
-my $min_fat = 1; # double | The minimum number of fat in grams the product must have.
-my $max_fat = 100; # double | The maximum number of fat in grams the product can have.
+my $query = greek yogurt; # string | The search query.
+my $min_calories = 50; # double | The minimum amount of calories the product must have.
+my $max_calories = 800; # double | The maximum amount of calories the product can have.
+my $min_carbs = 10; # double | The minimum amount of carbohydrates in grams the product must have.
+my $max_carbs = 100; # double | The maximum amount of carbohydrates in grams the product can have.
+my $min_protein = 10; # double | The minimum amount of protein in grams the product must have.
+my $max_protein = 100; # double | The maximum amount of protein in grams the product can have.
+my $min_fat = 1; # double | The minimum amount of fat in grams the product must have.
+my $max_fat = 100; # double | The maximum amount of fat in grams the product can have.
 my $offset = 0; # double | The offset number for paging (between 0 and 990).
 my $number = 10; # double | The number of expected results (between 1 and 100).
 
@@ -2092,14 +2092,14 @@ if ($@) {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **query** | **string**| The search query. | 
- **min_calories** | **double**| The minimum number of calories the product must have. | [optional] 
- **max_calories** | **double**| The maximum number of calories the product can have. | [optional] 
- **min_carbs** | **double**| The minimum number of carbohydrates in grams the product must have. | [optional] 
- **max_carbs** | **double**| The maximum number of carbohydrates in grams the product can have. | [optional] 
- **min_protein** | **double**| The minimum number of protein in grams the product must have. | [optional] 
- **max_protein** | **double**| The maximum number of protein in grams the product can have. | [optional] 
- **min_fat** | **double**| The minimum number of fat in grams the product must have. | [optional] 
- **max_fat** | **double**| The maximum number of fat in grams the product can have. | [optional] 
+ **min_calories** | **double**| The minimum amount of calories the product must have. | [optional] 
+ **max_calories** | **double**| The maximum amount of calories the product can have. | [optional] 
+ **min_carbs** | **double**| The minimum amount of carbohydrates in grams the product must have. | [optional] 
+ **max_carbs** | **double**| The maximum amount of carbohydrates in grams the product can have. | [optional] 
+ **min_protein** | **double**| The minimum amount of protein in grams the product must have. | [optional] 
+ **max_protein** | **double**| The maximum amount of protein in grams the product can have. | [optional] 
+ **min_fat** | **double**| The minimum amount of fat in grams the product must have. | [optional] 
+ **max_fat** | **double**| The maximum amount of fat in grams the product can have. | [optional] 
  **offset** | **double**| The offset number for paging (between 0 and 990). | [optional] 
  **number** | **double**| The number of expected results (between 1 and 100). | [optional] 
 
@@ -2123,7 +2123,7 @@ No authorization required
 
 Search Grocery Products by UPC
 
-Get information about a food product given its UPC.
+Get information about a packaged food using its UPC.
 
 ### Example 
 ```perl
@@ -2169,7 +2169,7 @@ No authorization required
 
 Search Menu Items
 
-Search over 115,000 menu items from over 800 fast food and chain restaurants such as McDonalds Big Mac or Starbucks Mocha.
+Search over 115,000 menu items from over 800 fast food and chain restaurants. For example, McDonald's Big Mac or Starbucks Mocha.
 
 ### Example 
 ```perl
@@ -2179,14 +2179,14 @@ my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
 );
 
 my $query = snickers; # string | The search query.
-my $min_calories = 50; # double | The minimum number of calories the menu item must have.
-my $max_calories = 800; # double | The maximum number of calories the menu item can have.
-my $min_carbs = 10; # double | The minimum number of carbohydrates in grams the menu item must have.
-my $max_carbs = 100; # double | The maximum number of carbohydrates in grams the menu item can have.
-my $min_protein = 10; # double | The minimum number of protein in grams the menu item must have.
-my $max_protein = 100; # double | The maximum number of protein in grams the menu item can have.
-my $min_fat = 1; # double | The minimum number of fat in grams the menu item must have.
-my $max_fat = 100; # double | The maximum number of fat in grams the menu item can have.
+my $min_calories = 50; # double | The minimum amount of calories the menu item must have.
+my $max_calories = 800; # double | The maximum amount of calories the menu item can have.
+my $min_carbs = 10; # double | The minimum amount of carbohydrates in grams the menu item must have.
+my $max_carbs = 100; # double | The maximum amount of carbohydrates in grams the menu item can have.
+my $min_protein = 10; # double | The minimum amount of protein in grams the menu item must have.
+my $max_protein = 100; # double | The maximum amount of protein in grams the menu item can have.
+my $min_fat = 1; # double | The minimum amount of fat in grams the menu item must have.
+my $max_fat = 100; # double | The maximum amount of fat in grams the menu item can have.
 my $offset = 0; # double | The offset number for paging (between 0 and 990).
 my $number = 100; # double | The number of expected results (between 1 and 10).
 
@@ -2204,14 +2204,14 @@ if ($@) {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **query** | **string**| The search query. | 
- **min_calories** | **double**| The minimum number of calories the menu item must have. | [optional] 
- **max_calories** | **double**| The maximum number of calories the menu item can have. | [optional] 
- **min_carbs** | **double**| The minimum number of carbohydrates in grams the menu item must have. | [optional] 
- **max_carbs** | **double**| The maximum number of carbohydrates in grams the menu item can have. | [optional] 
- **min_protein** | **double**| The minimum number of protein in grams the menu item must have. | [optional] 
- **max_protein** | **double**| The maximum number of protein in grams the menu item can have. | [optional] 
- **min_fat** | **double**| The minimum number of fat in grams the menu item must have. | [optional] 
- **max_fat** | **double**| The maximum number of fat in grams the menu item can have. | [optional] 
+ **min_calories** | **double**| The minimum amount of calories the menu item must have. | [optional] 
+ **max_calories** | **double**| The maximum amount of calories the menu item can have. | [optional] 
+ **min_carbs** | **double**| The minimum amount of carbohydrates in grams the menu item must have. | [optional] 
+ **max_carbs** | **double**| The maximum amount of carbohydrates in grams the menu item can have. | [optional] 
+ **min_protein** | **double**| The minimum amount of protein in grams the menu item must have. | [optional] 
+ **max_protein** | **double**| The maximum amount of protein in grams the menu item can have. | [optional] 
+ **min_fat** | **double**| The minimum amount of fat in grams the menu item must have. | [optional] 
+ **max_fat** | **double**| The maximum amount of fat in grams the menu item can have. | [optional] 
  **offset** | **double**| The offset number for paging (between 0 and 990). | [optional] 
  **number** | **double**| The number of expected results (between 1 and 10). | [optional] 
 
@@ -2246,12 +2246,12 @@ my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
 
 my $query = burger; # string | The (natural language) recipe search query.
 my $cuisine = italian; # string | The cuisine(s) of the recipes. One or more comma separated. See a full list of supported cuisines.
-my $diet = vegetarian; # string | The diet to which the recipes must be compliant. See a full list of supported diets.
-my $exclude_ingredients = eggs; # string | An comma-separated list of ingredients or ingredient types that must not be contained in the recipes.
-my $intolerances = gluten; # string | A comma-separated list of intolerances. All found recipes must not have ingredients that could cause problems for people with one of the given tolerances. See a full list of supported intolerances.
+my $diet = vegetarian; # string | The diet for which the recipes must be suitable. See a full list of supported diets.
+my $exclude_ingredients = eggs; # string | A comma-separated list of ingredients or ingredient types that the recipes must not contain.
+my $intolerances = gluten; # string | A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. Please note: due to the automatic nature of the recipe analysis, the API cannot be 100% accurate in all cases. Please advise your users to seek professional help with medical issues.
 my $offset = 0; # double | The number of results to skip (between 0 and 900).
 my $number = 10; # double | The number of results to return (between 1 and 100).
-my $limit_license = true; # boolean | Whether the recipes should have an open license that allows for displaying with proper attribution.
+my $limit_license = true; # boolean | Whether the recipes should have an open license that allows display with proper attribution.
 my $instructions_required = true; # boolean | Whether the recipes must have instructions.
 
 eval { 
@@ -2269,12 +2269,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **query** | **string**| The (natural language) recipe search query. | 
  **cuisine** | **string**| The cuisine(s) of the recipes. One or more comma separated. See a full list of supported cuisines. | [optional] 
- **diet** | **string**| The diet to which the recipes must be compliant. See a full list of supported diets. | [optional] 
- **exclude_ingredients** | **string**| An comma-separated list of ingredients or ingredient types that must not be contained in the recipes. | [optional] 
- **intolerances** | **string**| A comma-separated list of intolerances. All found recipes must not have ingredients that could cause problems for people with one of the given tolerances. See a full list of supported intolerances. | [optional] 
+ **diet** | **string**| The diet for which the recipes must be suitable. See a full list of supported diets. | [optional] 
+ **exclude_ingredients** | **string**| A comma-separated list of ingredients or ingredient types that the recipes must not contain. | [optional] 
+ **intolerances** | **string**| A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. Please note: due to the automatic nature of the recipe analysis, the API cannot be 100% accurate in all cases. Please advise your users to seek professional help with medical issues. | [optional] 
  **offset** | **double**| The number of results to skip (between 0 and 900). | [optional] 
  **number** | **double**| The number of results to return (between 1 and 100). | [optional] 
- **limit_license** | **boolean**| Whether the recipes should have an open license that allows for displaying with proper attribution. | [optional] 
+ **limit_license** | **boolean**| Whether the recipes should have an open license that allows display with proper attribution. | [optional] 
  **instructions_required** | **boolean**| Whether the recipes must have instructions. | [optional] 
 
 ### Return type
@@ -2297,7 +2297,7 @@ No authorization required
 
 Search Recipes by Ingredients
 
-Find recipes that use as many of the given ingredients as possible and have as little as possible missing ingredients. This is a \"what's in your fridge\" API endpoint.
+Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don't currently have (post shopping).
 
 ### Example 
 ```perl
@@ -2307,10 +2307,10 @@ my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
 );
 
 my $ingredients = apples,flour,sugar; # string | A comma-separated list of ingredients that the recipes should contain.
-my $number = 10; # double | The maximal number of recipes to return (between 1 and 100). Defaults to 10.
-my $limit_license = true; # boolean | Whether the recipes should have an open license that allows for displaying with proper attribution.
+my $number = 10; # double | The maximum number of recipes to return (between 1 and 100). Defaults to 10.
+my $limit_license = true; # boolean | Whether the recipes should have an open license that allows display with proper attribution.
 my $ranking = 1; # double | Whether to maximize used ingredients (1) or minimize missing ingredients (2) first.
-my $ignore_pantry = true; # boolean | Whether to ignore pantry ingredients such as water, salt, flour etc.
+my $ignore_pantry = true; # boolean | Whether to ignore typical pantry items, such as water, salt, flour, etc.
 
 eval { 
     my $result = $api_instance->search_recipes_by_ingredients(ingredients => $ingredients, number => $number, limit_license => $limit_license, ranking => $ranking, ignore_pantry => $ignore_pantry);
@@ -2326,10 +2326,10 @@ if ($@) {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ingredients** | **string**| A comma-separated list of ingredients that the recipes should contain. | 
- **number** | **double**| The maximal number of recipes to return (between 1 and 100). Defaults to 10. | [optional] 
- **limit_license** | **boolean**| Whether the recipes should have an open license that allows for displaying with proper attribution. | [optional] 
+ **number** | **double**| The maximum number of recipes to return (between 1 and 100). Defaults to 10. | [optional] 
+ **limit_license** | **boolean**| Whether the recipes should have an open license that allows display with proper attribution. | [optional] 
  **ranking** | **double**| Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. | [optional] 
- **ignore_pantry** | **boolean**| Whether to ignore pantry ingredients such as water, salt, flour etc. | [optional] 
+ **ignore_pantry** | **boolean**| Whether to ignore typical pantry items, such as water, salt, flour, etc. | [optional] 
 
 ### Return type
 
@@ -2351,7 +2351,7 @@ No authorization required
 
 Search Recipes by Nutrients
 
-Find a set of recipes that adhere to the given nutritional limits. All the returned recipes will have macro nutrients within the calories, protein, fat, and carbohydrate limits.
+Find a set of recipes that adhere to the given nutritional limits. You may set limits for macronutrients (calories, protein, fat, and carbohydrate) and/or many micronutrients.
 
 ### Example 
 ```perl
@@ -2360,82 +2360,82 @@ use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
 );
 
-my $min_carbs = 10; # double | The minimum number of carbohydrates in grams the recipe must have.
-my $max_carbs = 100; # double | The maximum number of carbohydrates in grams the recipe can have.
-my $min_protein = 10; # double | The minimum number of protein in grams the recipe must have.
-my $max_protein = 100; # double | The maximum number of protein in grams the recipe can have.
-my $min_calories = 50; # double | The minimum number of calories the recipe must have.
-my $max_calories = 800; # double | The maximum number of calories the recipe can have.
-my $min_fat = 1; # double | The minimum number of fat in grams the recipe must have.
-my $max_fat = 100; # double | The maximum number of fat in grams the recipe can have.
-my $min_alcohol = 0; # double | The minimum number of alcohol in grams the recipe must have.
-my $max_alcohol = 100; # double | The maximum number of alcohol in grams the recipe must have.
-my $min_caffeine = 0; # double | The minimum number of milligrams of caffeine the recipe must have.
-my $max_caffeine = 100; # double | The maximum number of alcohol in grams the recipe must have.
-my $min_copper = 0; # double | The minimum number of copper in milligrams the recipe must have.
-my $max_copper = 100; # double | The maximum number of copper in milligrams the recipe must have.
-my $min_calcium = 0; # double | The minimum number of calcium in milligrams the recipe must have.
-my $max_calcium = 100; # double | The maximum number of calcium in milligrams the recipe must have.
-my $min_choline = 0; # double | The minimum number of choline in milligrams the recipe must have.
-my $max_choline = 100; # double | The maximum number of choline in milligrams the recipe can have.
-my $min_cholesterol = 0; # double | The minimum number of cholesterol in milligrams the recipe must have.
-my $max_cholesterol = 100; # double | The maximum number of cholesterol in milligrams the recipe must have.
-my $min_fluoride = 0; # double | The minimum number of fluoride in milligrams the recipe must have.
-my $max_fluoride = 100; # double | The maximum number of fluoride in milligrams the recipe can have.
-my $min_saturated_fat = 0; # double | The minimum number of saturated fat in grams the recipe must have.
-my $max_saturated_fat = 100; # double | The maximum number of saturated fat in grams the recipe must have.
-my $min_vitamin_a = 0; # double | The minimum number of Vitamin A in IU the recipe must have.
-my $max_vitamin_a = 100; # double | The maximum number of Vitamin A in IU the recipe must have.
-my $min_vitamin_c = 0; # double | The minimum number of Vitamin C milligrams the recipe must have.
-my $max_vitamin_c = 100; # double | The maximum number of Vitamin C in milligrams the recipe can have.
-my $min_vitamin_d = 0; # double | The minimum number of Vitamin D in micrograms the recipe must have.
-my $max_vitamin_d = 100; # double | The maximum number of Vitamin D in micrograms the recipe must have.
-my $min_vitamin_e = 0; # double | The minimum number of Vitamin E in milligrams the recipe must have.
-my $max_vitamin_e = 100; # double | The maximum number of Vitamin E in milligrams the recipe must have.
-my $min_vitamin_k = 0; # double | The minimum number of Vitamin K in micrograms the recipe must have.
-my $max_vitamin_k = 100; # double | The maximum number of Vitamin K in micrograms the recipe must have.
-my $min_vitamin_b1 = 0; # double | The minimum number of Vitamin B1 in milligrams the recipe must have.
-my $max_vitamin_b1 = 100; # double | The maximum number of Vitamin B1 in milligrams the recipe must have.
-my $min_vitamin_b2 = 0; # double | The minimum number of Vitamin B2 in milligrams the recipe must have.
-my $max_vitamin_b2 = 100; # double | The maximum number of Vitamin B2 in milligrams the recipe must have.
-my $min_vitamin_b5 = 0; # double | The minimum number of Vitamin B5 in milligrams the recipe must have.
-my $max_vitamin_b5 = 100; # double | The maximum number of Vitamin B5 in milligrams the recipe can have.
-my $min_vitamin_b3 = 0; # double | The minimum number of Vitamin B3 in milligrams the recipe must have.
-my $max_vitamin_b3 = 100; # double | The maximum number of Vitamin B3 in milligrams the recipe can have.
-my $min_vitamin_b6 = 0; # double | The minimum number of Vitamin B6 in milligrams the recipe must have.
-my $max_vitamin_b6 = 100; # double | The maximum number of Vitamin B6 in milligrams the recipe can have.
-my $min_vitamin_b12 = 0; # double | The minimum number of Vitamin B12 in micrograms the recipe must have.
-my $max_vitamin_b12 = 100; # double | The maximum number of Vitamin B12 in micrograms the recipe must have.
-my $min_fiber = 0; # double | The minimum number of fiber in grams the recipe must have.
-my $max_fiber = 100; # double | The maximum number of fiber in grams the recipe must have.
-my $min_folate = 0; # double | The minimum number of folate in grams the recipe must have.
-my $max_folate = 100; # double | The maximum number of folate in grams the recipe must have.
-my $min_folic_acid = 0; # double | The minimum number of folic acid in grams the recipe must have.
-my $max_folic_acid = 100; # double | The maximum number of folic acid in grams the recipe must have.
-my $min_iodine = 0; # double | The minimum number of Iodine in grams the recipe must have.
-my $max_iodine = 100; # double | The maximum number of iodine in grams the recipe must have.
-my $min_iron = 0; # double | The minimum number of iron in milligrams the recipe must have.
-my $max_iron = 100; # double | The maximum number of iron in milligrams the recipe can have.
-my $min_magnesium = 0; # double | The minimum number of magnesium in milligrams the recipe must have.
-my $max_magnesium = 100; # double | The maximum number of magnesium in milligrams the recipe can have.
-my $min_manganese = 0; # double | The minimum number of manganese in milligrams the recipe must have.
-my $max_manganese = 100; # double | The maximum number of manganese in milligrams the recipe can have.
-my $min_phosphorus = 0; # double | The minimum number of phosphorus in milligrams the recipe must have.
-my $max_phosphorus = 100; # double | The maximum number of phosphorus in milligrams the recipe can have.
-my $min_potassium = 0; # double | The minimum number of potassium in milligrams the recipe must have.
-my $max_potassium = 100; # double | The maximum number of potassium in milligrams the recipe can have.
-my $min_selenium = 0; # double | The minimum number of selenium in grams the recipe must have.
-my $max_selenium = 100; # double | The maximum number of selenium in grams the recipe must have.
-my $min_sodium = 0; # double | The minimum number of sodium in milligrams the recipe must have.
-my $max_sodium = 100; # double | The maximum number of sodium in milligrams the recipe must have.
-my $min_sugar = 0; # double | The minimum number of sugar in grams the recipe must have.
-my $max_sugar = 100; # double | The maximum number of sugar in grams the recipe must have.
-my $min_zinc = 0; # double | The minimum number of zinc in milligrams the recipe must have.
-my $max_zinc = 100; # double | The maximum number of zinc in milligrams the recipe can have.
+my $min_carbs = 10; # double | The minimum amount of carbohydrates in grams the recipe must have.
+my $max_carbs = 100; # double | The maximum amount of carbohydrates in grams the recipe can have.
+my $min_protein = 10; # double | The minimum amount of protein in grams the recipe must have.
+my $max_protein = 100; # double | The maximum amount of protein in grams the recipe can have.
+my $min_calories = 50; # double | The minimum amount of calories the recipe must have.
+my $max_calories = 800; # double | The maximum amount of calories the recipe can have.
+my $min_fat = 1; # double | The minimum amount of fat in grams the recipe must have.
+my $max_fat = 100; # double | The maximum amount of fat in grams the recipe can have.
+my $min_alcohol = 0; # double | The minimum amount of alcohol in grams the recipe must have.
+my $max_alcohol = 100; # double | The maximum amount of alcohol in grams the recipe can have.
+my $min_caffeine = 0; # double | The minimum amount of caffeine in milligrams the recipe must have.
+my $max_caffeine = 100; # double | The maximum amount of caffeine in milligrams the recipe can have.
+my $min_copper = 0; # double | The minimum amount of copper in milligrams the recipe must have.
+my $max_copper = 100; # double | The maximum amount of copper in milligrams the recipe can have.
+my $min_calcium = 0; # double | The minimum amount of calcium in milligrams the recipe must have.
+my $max_calcium = 100; # double | The maximum amount of calcium in milligrams the recipe can have.
+my $min_choline = 0; # double | The minimum amount of choline in milligrams the recipe must have.
+my $max_choline = 100; # double | The maximum amount of choline in milligrams the recipe can have.
+my $min_cholesterol = 0; # double | The minimum amount of cholesterol in milligrams the recipe must have.
+my $max_cholesterol = 100; # double | The maximum amount of cholesterol in milligrams the recipe can have.
+my $min_fluoride = 0; # double | The minimum amount of fluoride in milligrams the recipe must have.
+my $max_fluoride = 100; # double | The maximum amount of fluoride in milligrams the recipe can have.
+my $min_saturated_fat = 0; # double | The minimum amount of saturated fat in grams the recipe must have.
+my $max_saturated_fat = 100; # double | The maximum amount of saturated fat in grams the recipe can have.
+my $min_vitamin_a = 0; # double | The minimum amount of Vitamin A in IU the recipe must have.
+my $max_vitamin_a = 100; # double | The maximum amount of Vitamin A in IU the recipe can have.
+my $min_vitamin_c = 0; # double | The minimum amount of Vitamin C in milligrams the recipe must have.
+my $max_vitamin_c = 100; # double | The maximum amount of Vitamin C in milligrams the recipe can have.
+my $min_vitamin_d = 0; # double | The minimum amount of Vitamin D in micrograms the recipe must have.
+my $max_vitamin_d = 100; # double | The maximum amount of Vitamin D in micrograms the recipe can have.
+my $min_vitamin_e = 0; # double | The minimum amount of Vitamin E in milligrams the recipe must have.
+my $max_vitamin_e = 100; # double | The maximum amount of Vitamin E in milligrams the recipe can have.
+my $min_vitamin_k = 0; # double | The minimum amount of Vitamin K in micrograms the recipe must have.
+my $max_vitamin_k = 100; # double | The maximum amount of Vitamin K in micrograms the recipe can have.
+my $min_vitamin_b1 = 0; # double | The minimum amount of Vitamin B1 in milligrams the recipe must have.
+my $max_vitamin_b1 = 100; # double | The maximum amount of Vitamin B1 in milligrams the recipe can have.
+my $min_vitamin_b2 = 0; # double | The minimum amount of Vitamin B2 in milligrams the recipe must have.
+my $max_vitamin_b2 = 100; # double | The maximum amount of Vitamin B2 in milligrams the recipe can have.
+my $min_vitamin_b5 = 0; # double | The minimum amount of Vitamin B5 in milligrams the recipe must have.
+my $max_vitamin_b5 = 100; # double | The maximum amount of Vitamin B5 in milligrams the recipe can have.
+my $min_vitamin_b3 = 0; # double | The minimum amount of Vitamin B3 in milligrams the recipe must have.
+my $max_vitamin_b3 = 100; # double | The maximum amount of Vitamin B3 in milligrams the recipe can have.
+my $min_vitamin_b6 = 0; # double | The minimum amount of Vitamin B6 in milligrams the recipe must have.
+my $max_vitamin_b6 = 100; # double | The maximum amount of Vitamin B6 in milligrams the recipe can have.
+my $min_vitamin_b12 = 0; # double | The minimum amount of Vitamin B12 in micrograms the recipe must have.
+my $max_vitamin_b12 = 100; # double | The maximum amount of Vitamin B12 in micrograms the recipe can have.
+my $min_fiber = 0; # double | The minimum amount of fiber in grams the recipe must have.
+my $max_fiber = 100; # double | The maximum amount of fiber in grams the recipe can have.
+my $min_folate = 0; # double | The minimum amount of folate in grams the recipe must have.
+my $max_folate = 100; # double | The maximum amount of folate in grams the recipe can have.
+my $min_folic_acid = 0; # double | The minimum amount of folic acid in grams the recipe must have.
+my $max_folic_acid = 100; # double | The maximum amount of folic acid in grams the recipe can have.
+my $min_iodine = 0; # double | The minimum amount of iodine in grams the recipe must have.
+my $max_iodine = 100; # double | The maximum amount of iodine in grams the recipe can have.
+my $min_iron = 0; # double | The minimum amount of iron in milligrams the recipe must have.
+my $max_iron = 100; # double | The maximum amount of iron in milligrams the recipe can have.
+my $min_magnesium = 0; # double | The minimum amount of magnesium in milligrams the recipe must have.
+my $max_magnesium = 100; # double | The maximum amount of magnesium in milligrams the recipe can have.
+my $min_manganese = 0; # double | The minimum amount of manganese in milligrams the recipe must have.
+my $max_manganese = 100; # double | The maximum amount of manganese in milligrams the recipe can have.
+my $min_phosphorus = 0; # double | The minimum amount of phosphorus in milligrams the recipe must have.
+my $max_phosphorus = 100; # double | The maximum amount of phosphorus in milligrams the recipe can have.
+my $min_potassium = 0; # double | The minimum amount of potassium in milligrams the recipe must have.
+my $max_potassium = 100; # double | The maximum amount of potassium in milligrams the recipe can have.
+my $min_selenium = 0; # double | The minimum amount of selenium in grams the recipe must have.
+my $max_selenium = 100; # double | The maximum amount of selenium in grams the recipe can have.
+my $min_sodium = 0; # double | The minimum amount of sodium in milligrams the recipe must have.
+my $max_sodium = 100; # double | The maximum amount of sodium in milligrams the recipe can have.
+my $min_sugar = 0; # double | The minimum amount of sugar in grams the recipe must have.
+my $max_sugar = 100; # double | The maximum amount of sugar in grams the recipe can have.
+my $min_zinc = 0; # double | The minimum amount of zinc in milligrams the recipe must have.
+my $max_zinc = 100; # double | The maximum amount of zinc in milligrams the recipe can have.
 my $offset = 0; # double | The offset number for paging (between 0 and 990).
 my $number = 10; # double | The number of expected results (between 1 and 100).
 my $random = false; # boolean | If true, every request will give you a random set of recipes within the requested limits.
-my $limit_license = true; # boolean | Whether the recipes should have an open license that allows for displaying with proper attribution.
+my $limit_license = true; # boolean | Whether the recipes should have an open license that allows display with proper attribution.
 
 eval { 
     my $result = $api_instance->search_recipes_by_nutrients(min_carbs => $min_carbs, max_carbs => $max_carbs, min_protein => $min_protein, max_protein => $max_protein, min_calories => $min_calories, max_calories => $max_calories, min_fat => $min_fat, max_fat => $max_fat, min_alcohol => $min_alcohol, max_alcohol => $max_alcohol, min_caffeine => $min_caffeine, max_caffeine => $max_caffeine, min_copper => $min_copper, max_copper => $max_copper, min_calcium => $min_calcium, max_calcium => $max_calcium, min_choline => $min_choline, max_choline => $max_choline, min_cholesterol => $min_cholesterol, max_cholesterol => $max_cholesterol, min_fluoride => $min_fluoride, max_fluoride => $max_fluoride, min_saturated_fat => $min_saturated_fat, max_saturated_fat => $max_saturated_fat, min_vitamin_a => $min_vitamin_a, max_vitamin_a => $max_vitamin_a, min_vitamin_c => $min_vitamin_c, max_vitamin_c => $max_vitamin_c, min_vitamin_d => $min_vitamin_d, max_vitamin_d => $max_vitamin_d, min_vitamin_e => $min_vitamin_e, max_vitamin_e => $max_vitamin_e, min_vitamin_k => $min_vitamin_k, max_vitamin_k => $max_vitamin_k, min_vitamin_b1 => $min_vitamin_b1, max_vitamin_b1 => $max_vitamin_b1, min_vitamin_b2 => $min_vitamin_b2, max_vitamin_b2 => $max_vitamin_b2, min_vitamin_b5 => $min_vitamin_b5, max_vitamin_b5 => $max_vitamin_b5, min_vitamin_b3 => $min_vitamin_b3, max_vitamin_b3 => $max_vitamin_b3, min_vitamin_b6 => $min_vitamin_b6, max_vitamin_b6 => $max_vitamin_b6, min_vitamin_b12 => $min_vitamin_b12, max_vitamin_b12 => $max_vitamin_b12, min_fiber => $min_fiber, max_fiber => $max_fiber, min_folate => $min_folate, max_folate => $max_folate, min_folic_acid => $min_folic_acid, max_folic_acid => $max_folic_acid, min_iodine => $min_iodine, max_iodine => $max_iodine, min_iron => $min_iron, max_iron => $max_iron, min_magnesium => $min_magnesium, max_magnesium => $max_magnesium, min_manganese => $min_manganese, max_manganese => $max_manganese, min_phosphorus => $min_phosphorus, max_phosphorus => $max_phosphorus, min_potassium => $min_potassium, max_potassium => $max_potassium, min_selenium => $min_selenium, max_selenium => $max_selenium, min_sodium => $min_sodium, max_sodium => $max_sodium, min_sugar => $min_sugar, max_sugar => $max_sugar, min_zinc => $min_zinc, max_zinc => $max_zinc, offset => $offset, number => $number, random => $random, limit_license => $limit_license);
@@ -2450,82 +2450,82 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **min_carbs** | **double**| The minimum number of carbohydrates in grams the recipe must have. | [optional] 
- **max_carbs** | **double**| The maximum number of carbohydrates in grams the recipe can have. | [optional] 
- **min_protein** | **double**| The minimum number of protein in grams the recipe must have. | [optional] 
- **max_protein** | **double**| The maximum number of protein in grams the recipe can have. | [optional] 
- **min_calories** | **double**| The minimum number of calories the recipe must have. | [optional] 
- **max_calories** | **double**| The maximum number of calories the recipe can have. | [optional] 
- **min_fat** | **double**| The minimum number of fat in grams the recipe must have. | [optional] 
- **max_fat** | **double**| The maximum number of fat in grams the recipe can have. | [optional] 
- **min_alcohol** | **double**| The minimum number of alcohol in grams the recipe must have. | [optional] 
- **max_alcohol** | **double**| The maximum number of alcohol in grams the recipe must have. | [optional] 
- **min_caffeine** | **double**| The minimum number of milligrams of caffeine the recipe must have. | [optional] 
- **max_caffeine** | **double**| The maximum number of alcohol in grams the recipe must have. | [optional] 
- **min_copper** | **double**| The minimum number of copper in milligrams the recipe must have. | [optional] 
- **max_copper** | **double**| The maximum number of copper in milligrams the recipe must have. | [optional] 
- **min_calcium** | **double**| The minimum number of calcium in milligrams the recipe must have. | [optional] 
- **max_calcium** | **double**| The maximum number of calcium in milligrams the recipe must have. | [optional] 
- **min_choline** | **double**| The minimum number of choline in milligrams the recipe must have. | [optional] 
- **max_choline** | **double**| The maximum number of choline in milligrams the recipe can have. | [optional] 
- **min_cholesterol** | **double**| The minimum number of cholesterol in milligrams the recipe must have. | [optional] 
- **max_cholesterol** | **double**| The maximum number of cholesterol in milligrams the recipe must have. | [optional] 
- **min_fluoride** | **double**| The minimum number of fluoride in milligrams the recipe must have. | [optional] 
- **max_fluoride** | **double**| The maximum number of fluoride in milligrams the recipe can have. | [optional] 
- **min_saturated_fat** | **double**| The minimum number of saturated fat in grams the recipe must have. | [optional] 
- **max_saturated_fat** | **double**| The maximum number of saturated fat in grams the recipe must have. | [optional] 
- **min_vitamin_a** | **double**| The minimum number of Vitamin A in IU the recipe must have. | [optional] 
- **max_vitamin_a** | **double**| The maximum number of Vitamin A in IU the recipe must have. | [optional] 
- **min_vitamin_c** | **double**| The minimum number of Vitamin C milligrams the recipe must have. | [optional] 
- **max_vitamin_c** | **double**| The maximum number of Vitamin C in milligrams the recipe can have. | [optional] 
- **min_vitamin_d** | **double**| The minimum number of Vitamin D in micrograms the recipe must have. | [optional] 
- **max_vitamin_d** | **double**| The maximum number of Vitamin D in micrograms the recipe must have. | [optional] 
- **min_vitamin_e** | **double**| The minimum number of Vitamin E in milligrams the recipe must have. | [optional] 
- **max_vitamin_e** | **double**| The maximum number of Vitamin E in milligrams the recipe must have. | [optional] 
- **min_vitamin_k** | **double**| The minimum number of Vitamin K in micrograms the recipe must have. | [optional] 
- **max_vitamin_k** | **double**| The maximum number of Vitamin K in micrograms the recipe must have. | [optional] 
- **min_vitamin_b1** | **double**| The minimum number of Vitamin B1 in milligrams the recipe must have. | [optional] 
- **max_vitamin_b1** | **double**| The maximum number of Vitamin B1 in milligrams the recipe must have. | [optional] 
- **min_vitamin_b2** | **double**| The minimum number of Vitamin B2 in milligrams the recipe must have. | [optional] 
- **max_vitamin_b2** | **double**| The maximum number of Vitamin B2 in milligrams the recipe must have. | [optional] 
- **min_vitamin_b5** | **double**| The minimum number of Vitamin B5 in milligrams the recipe must have. | [optional] 
- **max_vitamin_b5** | **double**| The maximum number of Vitamin B5 in milligrams the recipe can have. | [optional] 
- **min_vitamin_b3** | **double**| The minimum number of Vitamin B3 in milligrams the recipe must have. | [optional] 
- **max_vitamin_b3** | **double**| The maximum number of Vitamin B3 in milligrams the recipe can have. | [optional] 
- **min_vitamin_b6** | **double**| The minimum number of Vitamin B6 in milligrams the recipe must have. | [optional] 
- **max_vitamin_b6** | **double**| The maximum number of Vitamin B6 in milligrams the recipe can have. | [optional] 
- **min_vitamin_b12** | **double**| The minimum number of Vitamin B12 in micrograms the recipe must have. | [optional] 
- **max_vitamin_b12** | **double**| The maximum number of Vitamin B12 in micrograms the recipe must have. | [optional] 
- **min_fiber** | **double**| The minimum number of fiber in grams the recipe must have. | [optional] 
- **max_fiber** | **double**| The maximum number of fiber in grams the recipe must have. | [optional] 
- **min_folate** | **double**| The minimum number of folate in grams the recipe must have. | [optional] 
- **max_folate** | **double**| The maximum number of folate in grams the recipe must have. | [optional] 
- **min_folic_acid** | **double**| The minimum number of folic acid in grams the recipe must have. | [optional] 
- **max_folic_acid** | **double**| The maximum number of folic acid in grams the recipe must have. | [optional] 
- **min_iodine** | **double**| The minimum number of Iodine in grams the recipe must have. | [optional] 
- **max_iodine** | **double**| The maximum number of iodine in grams the recipe must have. | [optional] 
- **min_iron** | **double**| The minimum number of iron in milligrams the recipe must have. | [optional] 
- **max_iron** | **double**| The maximum number of iron in milligrams the recipe can have. | [optional] 
- **min_magnesium** | **double**| The minimum number of magnesium in milligrams the recipe must have. | [optional] 
- **max_magnesium** | **double**| The maximum number of magnesium in milligrams the recipe can have. | [optional] 
- **min_manganese** | **double**| The minimum number of manganese in milligrams the recipe must have. | [optional] 
- **max_manganese** | **double**| The maximum number of manganese in milligrams the recipe can have. | [optional] 
- **min_phosphorus** | **double**| The minimum number of phosphorus in milligrams the recipe must have. | [optional] 
- **max_phosphorus** | **double**| The maximum number of phosphorus in milligrams the recipe can have. | [optional] 
- **min_potassium** | **double**| The minimum number of potassium in milligrams the recipe must have. | [optional] 
- **max_potassium** | **double**| The maximum number of potassium in milligrams the recipe can have. | [optional] 
- **min_selenium** | **double**| The minimum number of selenium in grams the recipe must have. | [optional] 
- **max_selenium** | **double**| The maximum number of selenium in grams the recipe must have. | [optional] 
- **min_sodium** | **double**| The minimum number of sodium in milligrams the recipe must have. | [optional] 
- **max_sodium** | **double**| The maximum number of sodium in milligrams the recipe must have. | [optional] 
- **min_sugar** | **double**| The minimum number of sugar in grams the recipe must have. | [optional] 
- **max_sugar** | **double**| The maximum number of sugar in grams the recipe must have. | [optional] 
- **min_zinc** | **double**| The minimum number of zinc in milligrams the recipe must have. | [optional] 
- **max_zinc** | **double**| The maximum number of zinc in milligrams the recipe can have. | [optional] 
+ **min_carbs** | **double**| The minimum amount of carbohydrates in grams the recipe must have. | [optional] 
+ **max_carbs** | **double**| The maximum amount of carbohydrates in grams the recipe can have. | [optional] 
+ **min_protein** | **double**| The minimum amount of protein in grams the recipe must have. | [optional] 
+ **max_protein** | **double**| The maximum amount of protein in grams the recipe can have. | [optional] 
+ **min_calories** | **double**| The minimum amount of calories the recipe must have. | [optional] 
+ **max_calories** | **double**| The maximum amount of calories the recipe can have. | [optional] 
+ **min_fat** | **double**| The minimum amount of fat in grams the recipe must have. | [optional] 
+ **max_fat** | **double**| The maximum amount of fat in grams the recipe can have. | [optional] 
+ **min_alcohol** | **double**| The minimum amount of alcohol in grams the recipe must have. | [optional] 
+ **max_alcohol** | **double**| The maximum amount of alcohol in grams the recipe can have. | [optional] 
+ **min_caffeine** | **double**| The minimum amount of caffeine in milligrams the recipe must have. | [optional] 
+ **max_caffeine** | **double**| The maximum amount of caffeine in milligrams the recipe can have. | [optional] 
+ **min_copper** | **double**| The minimum amount of copper in milligrams the recipe must have. | [optional] 
+ **max_copper** | **double**| The maximum amount of copper in milligrams the recipe can have. | [optional] 
+ **min_calcium** | **double**| The minimum amount of calcium in milligrams the recipe must have. | [optional] 
+ **max_calcium** | **double**| The maximum amount of calcium in milligrams the recipe can have. | [optional] 
+ **min_choline** | **double**| The minimum amount of choline in milligrams the recipe must have. | [optional] 
+ **max_choline** | **double**| The maximum amount of choline in milligrams the recipe can have. | [optional] 
+ **min_cholesterol** | **double**| The minimum amount of cholesterol in milligrams the recipe must have. | [optional] 
+ **max_cholesterol** | **double**| The maximum amount of cholesterol in milligrams the recipe can have. | [optional] 
+ **min_fluoride** | **double**| The minimum amount of fluoride in milligrams the recipe must have. | [optional] 
+ **max_fluoride** | **double**| The maximum amount of fluoride in milligrams the recipe can have. | [optional] 
+ **min_saturated_fat** | **double**| The minimum amount of saturated fat in grams the recipe must have. | [optional] 
+ **max_saturated_fat** | **double**| The maximum amount of saturated fat in grams the recipe can have. | [optional] 
+ **min_vitamin_a** | **double**| The minimum amount of Vitamin A in IU the recipe must have. | [optional] 
+ **max_vitamin_a** | **double**| The maximum amount of Vitamin A in IU the recipe can have. | [optional] 
+ **min_vitamin_c** | **double**| The minimum amount of Vitamin C in milligrams the recipe must have. | [optional] 
+ **max_vitamin_c** | **double**| The maximum amount of Vitamin C in milligrams the recipe can have. | [optional] 
+ **min_vitamin_d** | **double**| The minimum amount of Vitamin D in micrograms the recipe must have. | [optional] 
+ **max_vitamin_d** | **double**| The maximum amount of Vitamin D in micrograms the recipe can have. | [optional] 
+ **min_vitamin_e** | **double**| The minimum amount of Vitamin E in milligrams the recipe must have. | [optional] 
+ **max_vitamin_e** | **double**| The maximum amount of Vitamin E in milligrams the recipe can have. | [optional] 
+ **min_vitamin_k** | **double**| The minimum amount of Vitamin K in micrograms the recipe must have. | [optional] 
+ **max_vitamin_k** | **double**| The maximum amount of Vitamin K in micrograms the recipe can have. | [optional] 
+ **min_vitamin_b1** | **double**| The minimum amount of Vitamin B1 in milligrams the recipe must have. | [optional] 
+ **max_vitamin_b1** | **double**| The maximum amount of Vitamin B1 in milligrams the recipe can have. | [optional] 
+ **min_vitamin_b2** | **double**| The minimum amount of Vitamin B2 in milligrams the recipe must have. | [optional] 
+ **max_vitamin_b2** | **double**| The maximum amount of Vitamin B2 in milligrams the recipe can have. | [optional] 
+ **min_vitamin_b5** | **double**| The minimum amount of Vitamin B5 in milligrams the recipe must have. | [optional] 
+ **max_vitamin_b5** | **double**| The maximum amount of Vitamin B5 in milligrams the recipe can have. | [optional] 
+ **min_vitamin_b3** | **double**| The minimum amount of Vitamin B3 in milligrams the recipe must have. | [optional] 
+ **max_vitamin_b3** | **double**| The maximum amount of Vitamin B3 in milligrams the recipe can have. | [optional] 
+ **min_vitamin_b6** | **double**| The minimum amount of Vitamin B6 in milligrams the recipe must have. | [optional] 
+ **max_vitamin_b6** | **double**| The maximum amount of Vitamin B6 in milligrams the recipe can have. | [optional] 
+ **min_vitamin_b12** | **double**| The minimum amount of Vitamin B12 in micrograms the recipe must have. | [optional] 
+ **max_vitamin_b12** | **double**| The maximum amount of Vitamin B12 in micrograms the recipe can have. | [optional] 
+ **min_fiber** | **double**| The minimum amount of fiber in grams the recipe must have. | [optional] 
+ **max_fiber** | **double**| The maximum amount of fiber in grams the recipe can have. | [optional] 
+ **min_folate** | **double**| The minimum amount of folate in grams the recipe must have. | [optional] 
+ **max_folate** | **double**| The maximum amount of folate in grams the recipe can have. | [optional] 
+ **min_folic_acid** | **double**| The minimum amount of folic acid in grams the recipe must have. | [optional] 
+ **max_folic_acid** | **double**| The maximum amount of folic acid in grams the recipe can have. | [optional] 
+ **min_iodine** | **double**| The minimum amount of iodine in grams the recipe must have. | [optional] 
+ **max_iodine** | **double**| The maximum amount of iodine in grams the recipe can have. | [optional] 
+ **min_iron** | **double**| The minimum amount of iron in milligrams the recipe must have. | [optional] 
+ **max_iron** | **double**| The maximum amount of iron in milligrams the recipe can have. | [optional] 
+ **min_magnesium** | **double**| The minimum amount of magnesium in milligrams the recipe must have. | [optional] 
+ **max_magnesium** | **double**| The maximum amount of magnesium in milligrams the recipe can have. | [optional] 
+ **min_manganese** | **double**| The minimum amount of manganese in milligrams the recipe must have. | [optional] 
+ **max_manganese** | **double**| The maximum amount of manganese in milligrams the recipe can have. | [optional] 
+ **min_phosphorus** | **double**| The minimum amount of phosphorus in milligrams the recipe must have. | [optional] 
+ **max_phosphorus** | **double**| The maximum amount of phosphorus in milligrams the recipe can have. | [optional] 
+ **min_potassium** | **double**| The minimum amount of potassium in milligrams the recipe must have. | [optional] 
+ **max_potassium** | **double**| The maximum amount of potassium in milligrams the recipe can have. | [optional] 
+ **min_selenium** | **double**| The minimum amount of selenium in grams the recipe must have. | [optional] 
+ **max_selenium** | **double**| The maximum amount of selenium in grams the recipe can have. | [optional] 
+ **min_sodium** | **double**| The minimum amount of sodium in milligrams the recipe must have. | [optional] 
+ **max_sodium** | **double**| The maximum amount of sodium in milligrams the recipe can have. | [optional] 
+ **min_sugar** | **double**| The minimum amount of sugar in grams the recipe must have. | [optional] 
+ **max_sugar** | **double**| The maximum amount of sugar in grams the recipe can have. | [optional] 
+ **min_zinc** | **double**| The minimum amount of zinc in milligrams the recipe must have. | [optional] 
+ **max_zinc** | **double**| The maximum amount of zinc in milligrams the recipe can have. | [optional] 
  **offset** | **double**| The offset number for paging (between 0 and 990). | [optional] 
  **number** | **double**| The number of expected results (between 1 and 100). | [optional] 
  **random** | **boolean**| If true, every request will give you a random set of recipes within the requested limits. | [optional] 
- **limit_license** | **boolean**| Whether the recipes should have an open license that allows for displaying with proper attribution. | [optional] 
+ **limit_license** | **boolean**| Whether the recipes should have an open license that allows display with proper attribution. | [optional] 
 
 ### Return type
 
@@ -2543,11 +2543,11 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **search_recipes_complex**
-> object search_recipes_complex(query => $query, cuisine => $cuisine, exclude_cuisine => $exclude_cuisine, diet => $diet, intolerances => $intolerances, equipment => $equipment, include_ingredients => $include_ingredients, exclude_ingredients => $exclude_ingredients, type => $type, instructions_required => $instructions_required, fill_ingredients => $fill_ingredients, add_recipe_information => $add_recipe_information, author => $author, tags => $tags, title_match => $title_match, sort => $sort, sort_direction => $sort_direction, min_carbs => $min_carbs, max_carbs => $max_carbs, min_protein => $min_protein, max_protein => $max_protein, min_calories => $min_calories, max_calories => $max_calories, min_fat => $min_fat, max_fat => $max_fat, min_alcohol => $min_alcohol, max_alcohol => $max_alcohol, min_caffeine => $min_caffeine, max_caffeine => $max_caffeine, min_copper => $min_copper, max_copper => $max_copper, min_calcium => $min_calcium, max_calcium => $max_calcium, min_choline => $min_choline, max_choline => $max_choline, min_cholesterol => $min_cholesterol, max_cholesterol => $max_cholesterol, min_fluoride => $min_fluoride, max_fluoride => $max_fluoride, min_saturated_fat => $min_saturated_fat, max_saturated_fat => $max_saturated_fat, min_vitamin_a => $min_vitamin_a, max_vitamin_a => $max_vitamin_a, min_vitamin_c => $min_vitamin_c, max_vitamin_c => $max_vitamin_c, min_vitamin_d => $min_vitamin_d, max_vitamin_d => $max_vitamin_d, min_vitamin_e => $min_vitamin_e, max_vitamin_e => $max_vitamin_e, min_vitamin_k => $min_vitamin_k, max_vitamin_k => $max_vitamin_k, min_vitamin_b1 => $min_vitamin_b1, max_vitamin_b1 => $max_vitamin_b1, min_vitamin_b2 => $min_vitamin_b2, max_vitamin_b2 => $max_vitamin_b2, min_vitamin_b5 => $min_vitamin_b5, max_vitamin_b5 => $max_vitamin_b5, min_vitamin_b3 => $min_vitamin_b3, max_vitamin_b3 => $max_vitamin_b3, min_vitamin_b6 => $min_vitamin_b6, max_vitamin_b6 => $max_vitamin_b6, min_vitamin_b12 => $min_vitamin_b12, max_vitamin_b12 => $max_vitamin_b12, min_fiber => $min_fiber, max_fiber => $max_fiber, min_folate => $min_folate, max_folate => $max_folate, min_folic_acid => $min_folic_acid, max_folic_acid => $max_folic_acid, min_iodine => $min_iodine, max_iodine => $max_iodine, min_iron => $min_iron, max_iron => $max_iron, min_magnesium => $min_magnesium, max_magnesium => $max_magnesium, min_manganese => $min_manganese, max_manganese => $max_manganese, min_phosphorus => $min_phosphorus, max_phosphorus => $max_phosphorus, min_potassium => $min_potassium, max_potassium => $max_potassium, min_selenium => $min_selenium, max_selenium => $max_selenium, min_sodium => $min_sodium, max_sodium => $max_sodium, min_sugar => $min_sugar, max_sugar => $max_sugar, min_zinc => $min_zinc, max_zinc => $max_zinc, offset => $offset, number => $number, limit_license => $limit_license)
+> object search_recipes_complex(query => $query, cuisine => $cuisine, exclude_cuisine => $exclude_cuisine, diet => $diet, intolerances => $intolerances, equipment => $equipment, include_ingredients => $include_ingredients, exclude_ingredients => $exclude_ingredients, type => $type, instructions_required => $instructions_required, fill_ingredients => $fill_ingredients, add_recipe_information => $add_recipe_information, author => $author, tags => $tags, title_match => $title_match, max_ready_time => $max_ready_time, ignore_pantry => $ignore_pantry, sort => $sort, sort_direction => $sort_direction, min_carbs => $min_carbs, max_carbs => $max_carbs, min_protein => $min_protein, max_protein => $max_protein, min_calories => $min_calories, max_calories => $max_calories, min_fat => $min_fat, max_fat => $max_fat, min_alcohol => $min_alcohol, max_alcohol => $max_alcohol, min_caffeine => $min_caffeine, max_caffeine => $max_caffeine, min_copper => $min_copper, max_copper => $max_copper, min_calcium => $min_calcium, max_calcium => $max_calcium, min_choline => $min_choline, max_choline => $max_choline, min_cholesterol => $min_cholesterol, max_cholesterol => $max_cholesterol, min_fluoride => $min_fluoride, max_fluoride => $max_fluoride, min_saturated_fat => $min_saturated_fat, max_saturated_fat => $max_saturated_fat, min_vitamin_a => $min_vitamin_a, max_vitamin_a => $max_vitamin_a, min_vitamin_c => $min_vitamin_c, max_vitamin_c => $max_vitamin_c, min_vitamin_d => $min_vitamin_d, max_vitamin_d => $max_vitamin_d, min_vitamin_e => $min_vitamin_e, max_vitamin_e => $max_vitamin_e, min_vitamin_k => $min_vitamin_k, max_vitamin_k => $max_vitamin_k, min_vitamin_b1 => $min_vitamin_b1, max_vitamin_b1 => $max_vitamin_b1, min_vitamin_b2 => $min_vitamin_b2, max_vitamin_b2 => $max_vitamin_b2, min_vitamin_b5 => $min_vitamin_b5, max_vitamin_b5 => $max_vitamin_b5, min_vitamin_b3 => $min_vitamin_b3, max_vitamin_b3 => $max_vitamin_b3, min_vitamin_b6 => $min_vitamin_b6, max_vitamin_b6 => $max_vitamin_b6, min_vitamin_b12 => $min_vitamin_b12, max_vitamin_b12 => $max_vitamin_b12, min_fiber => $min_fiber, max_fiber => $max_fiber, min_folate => $min_folate, max_folate => $max_folate, min_folic_acid => $min_folic_acid, max_folic_acid => $max_folic_acid, min_iodine => $min_iodine, max_iodine => $max_iodine, min_iron => $min_iron, max_iron => $max_iron, min_magnesium => $min_magnesium, max_magnesium => $max_magnesium, min_manganese => $min_manganese, max_manganese => $max_manganese, min_phosphorus => $min_phosphorus, max_phosphorus => $max_phosphorus, min_potassium => $min_potassium, max_potassium => $max_potassium, min_selenium => $min_selenium, max_selenium => $max_selenium, min_sodium => $min_sodium, max_sodium => $max_sodium, min_sugar => $min_sugar, max_sugar => $max_sugar, min_zinc => $min_zinc, max_zinc => $max_zinc, offset => $offset, number => $number, limit_license => $limit_license)
 
 Search Recipes Complex
 
-Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: Since this method combines searching by query, by ingredients, and by nutrients in one endpoint.
+Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint.
 
 ### Example 
 ```perl
@@ -2557,100 +2557,102 @@ my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
 );
 
 my $query = pasta; # string | The (natural language) recipe search query.
-my $cuisine = italian; # string | The cuisine(s) of the recipes. One or more comma separated (will be iterpreted as 'OR'). See a full list of supported cuisines.
-my $exclude_cuisine = greek; # string | The cuisine(s) the recipes must not match. One or more comma separated (will be iterpreted as 'AND'). See a full list of supported cuisines.
-my $diet = vegetarian; # string | The diet to which the recipes must be compliant. See a full list of supported diets.
-my $intolerances = gluten; # string | A comma-separated list of intolerances. All found recipes must not have ingredients that could cause problems for people with one of the given tolerances. See a full list of supported intolerances.
+my $cuisine = italian; # string | The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as 'OR'). See a full list of supported cuisines.
+my $exclude_cuisine = greek; # string | The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as 'AND'). See a full list of supported cuisines.
+my $diet = vegetarian; # string | The diet for which the recipes must be suitable. See a full list of supported diets.
+my $intolerances = gluten; # string | A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
 my $equipment = pan; # string | The equipment required. Multiple values will be interpreted as 'or'. For example, value could be \"blender, frying pan, bowl\".
-my $include_ingredients = tomato,cheese; # string | A comma-separated list of ingredients that should/must be contained in the recipe.
-my $exclude_ingredients = eggs; # string | A comma-separated list of ingredients or ingredient types that must not be contained in the recipes.
-my $type = main course; # string | The type of the recipes. See a full list of supported meal types.
+my $include_ingredients = tomato,cheese; # string | A comma-separated list of ingredients that should/must be used in the recipes.
+my $exclude_ingredients = eggs; # string | A comma-separated list of ingredients or ingredient types that the recipes must not contain.
+my $type = main course; # string | The type of recipe. See a full list of supported meal types.
 my $instructions_required = true; # boolean | Whether the recipes must have instructions.
 my $fill_ingredients = false; # boolean | Add information about the used and missing ingredients in each recipe.
-my $add_recipe_information = false; # boolean | If set to true, you get more information about the recipes returned. This saves the calls to get recipe information.
+my $add_recipe_information = false; # boolean | If set to true, you get more information about the recipes returned. This saves you from needing to call to get recipe information.
 my $author = coffeebean; # string | The username of the recipe author.
 my $tags = myCustomTag; # string | User defined tags that have to match.
-my $title_match = Crock Pot; # string | A text that has to match in the title of the recipes.
+my $title_match = Crock Pot; # string | Enter text that must be found in the title of the recipes.
+my $max_ready_time = 20; # double | The maximum time in minutes it should take to prepare and cook the recipe.
+my $ignore_pantry = true; # boolean | Whether to ignore typical pantry items, such as water, salt, flour, etc.
 my $sort = calories; # string | The strategy to sort recipes by. See a full list of supported sorting options.
 my $sort_direction = asc; # string | The direction in which to sort. Must be either 'asc' (ascending) or 'desc' (descending).
-my $min_carbs = 10; # double | The minimum number of carbohydrates in grams the recipe must have.
-my $max_carbs = 100; # double | The maximum number of carbohydrates in grams the recipe can have.
-my $min_protein = 10; # double | The minimum number of protein in grams the recipe must have.
-my $max_protein = 100; # double | The maximum number of protein in grams the recipe can have.
-my $min_calories = 50; # double | The minimum number of calories the recipe must have.
-my $max_calories = 800; # double | The maximum number of calories the recipe can have.
-my $min_fat = 1; # double | The minimum number of fat in grams the recipe must have.
-my $max_fat = 100; # double | The maximum number of fat in grams the recipe can have.
-my $min_alcohol = 0; # double | The minimum number of alcohol in grams the recipe must have.
-my $max_alcohol = 100; # double | The maximum number of alcohol in grams the recipe must have.
-my $min_caffeine = 0; # double | The minimum number of milligrams of caffeine the recipe must have.
-my $max_caffeine = 100; # double | The maximum number of alcohol in grams the recipe must have.
-my $min_copper = 0; # double | The minimum number of copper in milligrams the recipe must have.
-my $max_copper = 100; # double | The maximum number of copper in milligrams the recipe must have.
-my $min_calcium = 0; # double | The minimum number of calcium in milligrams the recipe must have.
-my $max_calcium = 100; # double | The maximum number of calcium in milligrams the recipe must have.
-my $min_choline = 0; # double | The minimum number of choline in milligrams the recipe must have.
-my $max_choline = 100; # double | The maximum number of choline in milligrams the recipe can have.
-my $min_cholesterol = 0; # double | The minimum number of cholesterol in milligrams the recipe must have.
-my $max_cholesterol = 100; # double | The maximum number of cholesterol in milligrams the recipe must have.
-my $min_fluoride = 0; # double | The minimum number of fluoride in milligrams the recipe must have.
-my $max_fluoride = 100; # double | The maximum number of fluoride in milligrams the recipe can have.
-my $min_saturated_fat = 0; # double | The minimum number of saturated fat in grams the recipe must have.
-my $max_saturated_fat = 100; # double | The maximum number of saturated fat in grams the recipe must have.
-my $min_vitamin_a = 0; # double | The minimum number of Vitamin A in IU the recipe must have.
-my $max_vitamin_a = 100; # double | The maximum number of Vitamin A in IU the recipe must have.
-my $min_vitamin_c = 0; # double | The minimum number of Vitamin C milligrams the recipe must have.
-my $max_vitamin_c = 100; # double | The maximum number of Vitamin C in milligrams the recipe can have.
-my $min_vitamin_d = 0; # double | The minimum number of Vitamin D in micrograms the recipe must have.
-my $max_vitamin_d = 100; # double | The maximum number of Vitamin D in micrograms the recipe must have.
-my $min_vitamin_e = 0; # double | The minimum number of Vitamin E in milligrams the recipe must have.
-my $max_vitamin_e = 100; # double | The maximum number of Vitamin E in milligrams the recipe must have.
-my $min_vitamin_k = 0; # double | The minimum number of Vitamin K in micrograms the recipe must have.
-my $max_vitamin_k = 100; # double | The maximum number of Vitamin K in micrograms the recipe must have.
-my $min_vitamin_b1 = 0; # double | The minimum number of Vitamin B1 in milligrams the recipe must have.
-my $max_vitamin_b1 = 100; # double | The maximum number of Vitamin B1 in milligrams the recipe must have.
-my $min_vitamin_b2 = 0; # double | The minimum number of Vitamin B2 in milligrams the recipe must have.
-my $max_vitamin_b2 = 100; # double | The maximum number of Vitamin B2 in milligrams the recipe must have.
-my $min_vitamin_b5 = 0; # double | The minimum number of Vitamin B5 in milligrams the recipe must have.
-my $max_vitamin_b5 = 100; # double | The maximum number of Vitamin B5 in milligrams the recipe can have.
-my $min_vitamin_b3 = 0; # double | The minimum number of Vitamin B3 in milligrams the recipe must have.
-my $max_vitamin_b3 = 100; # double | The maximum number of Vitamin B3 in milligrams the recipe can have.
-my $min_vitamin_b6 = 0; # double | The minimum number of Vitamin B6 in milligrams the recipe must have.
-my $max_vitamin_b6 = 100; # double | The maximum number of Vitamin B6 in milligrams the recipe can have.
-my $min_vitamin_b12 = 0; # double | The minimum number of Vitamin B12 in micrograms the recipe must have.
-my $max_vitamin_b12 = 100; # double | The maximum number of Vitamin B12 in micrograms the recipe must have.
-my $min_fiber = 0; # double | The minimum number of fiber in grams the recipe must have.
-my $max_fiber = 100; # double | The maximum number of fiber in grams the recipe must have.
-my $min_folate = 0; # double | The minimum number of folate in grams the recipe must have.
-my $max_folate = 100; # double | The maximum number of folate in grams the recipe must have.
-my $min_folic_acid = 0; # double | The minimum number of folic acid in grams the recipe must have.
-my $max_folic_acid = 100; # double | The maximum number of folic acid in grams the recipe must have.
-my $min_iodine = 0; # double | The minimum number of Iodine in grams the recipe must have.
-my $max_iodine = 100; # double | The maximum number of iodine in grams the recipe must have.
-my $min_iron = 0; # double | The minimum number of iron in milligrams the recipe must have.
-my $max_iron = 100; # double | The maximum number of iron in milligrams the recipe can have.
-my $min_magnesium = 0; # double | The minimum number of magnesium in milligrams the recipe must have.
-my $max_magnesium = 100; # double | The maximum number of magnesium in milligrams the recipe can have.
-my $min_manganese = 0; # double | The minimum number of manganese in milligrams the recipe must have.
-my $max_manganese = 100; # double | The maximum number of manganese in milligrams the recipe can have.
-my $min_phosphorus = 0; # double | The minimum number of phosphorus in milligrams the recipe must have.
-my $max_phosphorus = 100; # double | The maximum number of phosphorus in milligrams the recipe can have.
-my $min_potassium = 0; # double | The minimum number of potassium in milligrams the recipe must have.
-my $max_potassium = 100; # double | The maximum number of potassium in milligrams the recipe can have.
-my $min_selenium = 0; # double | The minimum number of selenium in grams the recipe must have.
-my $max_selenium = 100; # double | The maximum number of selenium in grams the recipe must have.
-my $min_sodium = 0; # double | The minimum number of sodium in milligrams the recipe must have.
-my $max_sodium = 100; # double | The maximum number of sodium in milligrams the recipe must have.
-my $min_sugar = 0; # double | The minimum number of sugar in grams the recipe must have.
-my $max_sugar = 100; # double | The maximum number of sugar in grams the recipe must have.
-my $min_zinc = 0; # double | The minimum number of zinc in milligrams the recipe must have.
-my $max_zinc = 100; # double | The maximum number of zinc in milligrams the recipe can have.
+my $min_carbs = 10; # double | The minimum amount of carbohydrates in grams the recipe must have.
+my $max_carbs = 100; # double | The maximum amount of carbohydrates in grams the recipe can have.
+my $min_protein = 10; # double | The minimum amount of protein in grams the recipe must have.
+my $max_protein = 100; # double | The maximum amount of protein in grams the recipe can have.
+my $min_calories = 50; # double | The minimum amount of calories the recipe must have.
+my $max_calories = 800; # double | The maximum amount of calories the recipe can have.
+my $min_fat = 1; # double | The minimum amount of fat in grams the recipe must have.
+my $max_fat = 100; # double | The maximum amount of fat in grams the recipe can have.
+my $min_alcohol = 0; # double | The minimum amount of alcohol in grams the recipe must have.
+my $max_alcohol = 100; # double | The maximum amount of alcohol in grams the recipe can have.
+my $min_caffeine = 0; # double | The minimum amount of caffeine in milligrams the recipe must have.
+my $max_caffeine = 100; # double | The maximum amount of caffeine in milligrams the recipe can have.
+my $min_copper = 0; # double | The minimum amount of copper in milligrams the recipe must have.
+my $max_copper = 100; # double | The maximum amount of copper in milligrams the recipe can have.
+my $min_calcium = 0; # double | The minimum amount of calcium in milligrams the recipe must have.
+my $max_calcium = 100; # double | The maximum amount of calcium in milligrams the recipe can have.
+my $min_choline = 0; # double | The minimum amount of choline in milligrams the recipe must have.
+my $max_choline = 100; # double | The maximum amount of choline in milligrams the recipe can have.
+my $min_cholesterol = 0; # double | The minimum amount of cholesterol in milligrams the recipe must have.
+my $max_cholesterol = 100; # double | The maximum amount of cholesterol in milligrams the recipe can have.
+my $min_fluoride = 0; # double | The minimum amount of fluoride in milligrams the recipe must have.
+my $max_fluoride = 100; # double | The maximum amount of fluoride in milligrams the recipe can have.
+my $min_saturated_fat = 0; # double | The minimum amount of saturated fat in grams the recipe must have.
+my $max_saturated_fat = 100; # double | The maximum amount of saturated fat in grams the recipe can have.
+my $min_vitamin_a = 0; # double | The minimum amount of Vitamin A in IU the recipe must have.
+my $max_vitamin_a = 100; # double | The maximum amount of Vitamin A in IU the recipe can have.
+my $min_vitamin_c = 0; # double | The minimum amount of Vitamin C milligrams the recipe must have.
+my $max_vitamin_c = 100; # double | The maximum amount of Vitamin C in milligrams the recipe can have.
+my $min_vitamin_d = 0; # double | The minimum amount of Vitamin D in micrograms the recipe must have.
+my $max_vitamin_d = 100; # double | The maximum amount of Vitamin D in micrograms the recipe can have.
+my $min_vitamin_e = 0; # double | The minimum amount of Vitamin E in milligrams the recipe must have.
+my $max_vitamin_e = 100; # double | The maximum amount of Vitamin E in milligrams the recipe can have.
+my $min_vitamin_k = 0; # double | The minimum amount of Vitamin K in micrograms the recipe must have.
+my $max_vitamin_k = 100; # double | The maximum amount of Vitamin K in micrograms the recipe can have.
+my $min_vitamin_b1 = 0; # double | The minimum amount of Vitamin B1 in milligrams the recipe must have.
+my $max_vitamin_b1 = 100; # double | The maximum amount of Vitamin B1 in milligrams the recipe can have.
+my $min_vitamin_b2 = 0; # double | The minimum amount of Vitamin B2 in milligrams the recipe must have.
+my $max_vitamin_b2 = 100; # double | The maximum amount of Vitamin B2 in milligrams the recipe can have.
+my $min_vitamin_b5 = 0; # double | The minimum amount of Vitamin B5 in milligrams the recipe must have.
+my $max_vitamin_b5 = 100; # double | The maximum amount of Vitamin B5 in milligrams the recipe can have.
+my $min_vitamin_b3 = 0; # double | The minimum amount of Vitamin B3 in milligrams the recipe must have.
+my $max_vitamin_b3 = 100; # double | The maximum amount of Vitamin B3 in milligrams the recipe can have.
+my $min_vitamin_b6 = 0; # double | The minimum amount of Vitamin B6 in milligrams the recipe must have.
+my $max_vitamin_b6 = 100; # double | The maximum amount of Vitamin B6 in milligrams the recipe can have.
+my $min_vitamin_b12 = 0; # double | The minimum amount of Vitamin B12 in micrograms the recipe must have.
+my $max_vitamin_b12 = 100; # double | The maximum amount of Vitamin B12 in micrograms the recipe can have.
+my $min_fiber = 0; # double | The minimum amount of fiber in grams the recipe must have.
+my $max_fiber = 100; # double | The maximum amount of fiber in grams the recipe can have.
+my $min_folate = 0; # double | The minimum amount of folate in grams the recipe must have.
+my $max_folate = 100; # double | The maximum amount of folate in grams the recipe can have.
+my $min_folic_acid = 0; # double | The minimum amount of folic acid in grams the recipe must have.
+my $max_folic_acid = 100; # double | The maximum amount of folic acid in grams the recipe can have.
+my $min_iodine = 0; # double | The minimum amount of iodine in grams the recipe must have.
+my $max_iodine = 100; # double | The maximum amount of iodine in grams the recipe can have.
+my $min_iron = 0; # double | The minimum amount of iron in milligrams the recipe must have.
+my $max_iron = 100; # double | The maximum amount of iron in milligrams the recipe can have.
+my $min_magnesium = 0; # double | The minimum amount of magnesium in milligrams the recipe must have.
+my $max_magnesium = 100; # double | The maximum amount of magnesium in milligrams the recipe can have.
+my $min_manganese = 0; # double | The minimum amount of manganese in milligrams the recipe must have.
+my $max_manganese = 100; # double | The maximum amount of manganese in milligrams the recipe can have.
+my $min_phosphorus = 0; # double | The minimum amount of phosphorus in milligrams the recipe must have.
+my $max_phosphorus = 100; # double | The maximum amount of phosphorus in milligrams the recipe can have.
+my $min_potassium = 0; # double | The minimum amount of potassium in milligrams the recipe must have.
+my $max_potassium = 100; # double | The maximum amount of potassium in milligrams the recipe can have.
+my $min_selenium = 0; # double | The minimum amount of selenium in grams the recipe must have.
+my $max_selenium = 100; # double | The maximum amount of selenium in grams the recipe can have.
+my $min_sodium = 0; # double | The minimum amount of sodium in milligrams the recipe must have.
+my $max_sodium = 100; # double | The maximum amount of sodium in milligrams the recipe can have.
+my $min_sugar = 0; # double | The minimum amount of sugar in grams the recipe must have.
+my $max_sugar = 100; # double | The maximum amount of sugar in grams the recipe can have.
+my $min_zinc = 0; # double | The minimum amount of zinc in milligrams the recipe must have.
+my $max_zinc = 100; # double | The maximum amount of zinc in milligrams the recipe can have.
 my $offset = 0; # double | The offset number for paging (between 0 and 990).
 my $number = 5; # double | The number of expected results (between 1 and 10).
-my $limit_license = true; # boolean | Whether the recipes should have an open license that allows for displaying with proper attribution.
+my $limit_license = true; # boolean | Whether the recipes should have an open license that allows display with proper attribution.
 
 eval { 
-    my $result = $api_instance->search_recipes_complex(query => $query, cuisine => $cuisine, exclude_cuisine => $exclude_cuisine, diet => $diet, intolerances => $intolerances, equipment => $equipment, include_ingredients => $include_ingredients, exclude_ingredients => $exclude_ingredients, type => $type, instructions_required => $instructions_required, fill_ingredients => $fill_ingredients, add_recipe_information => $add_recipe_information, author => $author, tags => $tags, title_match => $title_match, sort => $sort, sort_direction => $sort_direction, min_carbs => $min_carbs, max_carbs => $max_carbs, min_protein => $min_protein, max_protein => $max_protein, min_calories => $min_calories, max_calories => $max_calories, min_fat => $min_fat, max_fat => $max_fat, min_alcohol => $min_alcohol, max_alcohol => $max_alcohol, min_caffeine => $min_caffeine, max_caffeine => $max_caffeine, min_copper => $min_copper, max_copper => $max_copper, min_calcium => $min_calcium, max_calcium => $max_calcium, min_choline => $min_choline, max_choline => $max_choline, min_cholesterol => $min_cholesterol, max_cholesterol => $max_cholesterol, min_fluoride => $min_fluoride, max_fluoride => $max_fluoride, min_saturated_fat => $min_saturated_fat, max_saturated_fat => $max_saturated_fat, min_vitamin_a => $min_vitamin_a, max_vitamin_a => $max_vitamin_a, min_vitamin_c => $min_vitamin_c, max_vitamin_c => $max_vitamin_c, min_vitamin_d => $min_vitamin_d, max_vitamin_d => $max_vitamin_d, min_vitamin_e => $min_vitamin_e, max_vitamin_e => $max_vitamin_e, min_vitamin_k => $min_vitamin_k, max_vitamin_k => $max_vitamin_k, min_vitamin_b1 => $min_vitamin_b1, max_vitamin_b1 => $max_vitamin_b1, min_vitamin_b2 => $min_vitamin_b2, max_vitamin_b2 => $max_vitamin_b2, min_vitamin_b5 => $min_vitamin_b5, max_vitamin_b5 => $max_vitamin_b5, min_vitamin_b3 => $min_vitamin_b3, max_vitamin_b3 => $max_vitamin_b3, min_vitamin_b6 => $min_vitamin_b6, max_vitamin_b6 => $max_vitamin_b6, min_vitamin_b12 => $min_vitamin_b12, max_vitamin_b12 => $max_vitamin_b12, min_fiber => $min_fiber, max_fiber => $max_fiber, min_folate => $min_folate, max_folate => $max_folate, min_folic_acid => $min_folic_acid, max_folic_acid => $max_folic_acid, min_iodine => $min_iodine, max_iodine => $max_iodine, min_iron => $min_iron, max_iron => $max_iron, min_magnesium => $min_magnesium, max_magnesium => $max_magnesium, min_manganese => $min_manganese, max_manganese => $max_manganese, min_phosphorus => $min_phosphorus, max_phosphorus => $max_phosphorus, min_potassium => $min_potassium, max_potassium => $max_potassium, min_selenium => $min_selenium, max_selenium => $max_selenium, min_sodium => $min_sodium, max_sodium => $max_sodium, min_sugar => $min_sugar, max_sugar => $max_sugar, min_zinc => $min_zinc, max_zinc => $max_zinc, offset => $offset, number => $number, limit_license => $limit_license);
+    my $result = $api_instance->search_recipes_complex(query => $query, cuisine => $cuisine, exclude_cuisine => $exclude_cuisine, diet => $diet, intolerances => $intolerances, equipment => $equipment, include_ingredients => $include_ingredients, exclude_ingredients => $exclude_ingredients, type => $type, instructions_required => $instructions_required, fill_ingredients => $fill_ingredients, add_recipe_information => $add_recipe_information, author => $author, tags => $tags, title_match => $title_match, max_ready_time => $max_ready_time, ignore_pantry => $ignore_pantry, sort => $sort, sort_direction => $sort_direction, min_carbs => $min_carbs, max_carbs => $max_carbs, min_protein => $min_protein, max_protein => $max_protein, min_calories => $min_calories, max_calories => $max_calories, min_fat => $min_fat, max_fat => $max_fat, min_alcohol => $min_alcohol, max_alcohol => $max_alcohol, min_caffeine => $min_caffeine, max_caffeine => $max_caffeine, min_copper => $min_copper, max_copper => $max_copper, min_calcium => $min_calcium, max_calcium => $max_calcium, min_choline => $min_choline, max_choline => $max_choline, min_cholesterol => $min_cholesterol, max_cholesterol => $max_cholesterol, min_fluoride => $min_fluoride, max_fluoride => $max_fluoride, min_saturated_fat => $min_saturated_fat, max_saturated_fat => $max_saturated_fat, min_vitamin_a => $min_vitamin_a, max_vitamin_a => $max_vitamin_a, min_vitamin_c => $min_vitamin_c, max_vitamin_c => $max_vitamin_c, min_vitamin_d => $min_vitamin_d, max_vitamin_d => $max_vitamin_d, min_vitamin_e => $min_vitamin_e, max_vitamin_e => $max_vitamin_e, min_vitamin_k => $min_vitamin_k, max_vitamin_k => $max_vitamin_k, min_vitamin_b1 => $min_vitamin_b1, max_vitamin_b1 => $max_vitamin_b1, min_vitamin_b2 => $min_vitamin_b2, max_vitamin_b2 => $max_vitamin_b2, min_vitamin_b5 => $min_vitamin_b5, max_vitamin_b5 => $max_vitamin_b5, min_vitamin_b3 => $min_vitamin_b3, max_vitamin_b3 => $max_vitamin_b3, min_vitamin_b6 => $min_vitamin_b6, max_vitamin_b6 => $max_vitamin_b6, min_vitamin_b12 => $min_vitamin_b12, max_vitamin_b12 => $max_vitamin_b12, min_fiber => $min_fiber, max_fiber => $max_fiber, min_folate => $min_folate, max_folate => $max_folate, min_folic_acid => $min_folic_acid, max_folic_acid => $max_folic_acid, min_iodine => $min_iodine, max_iodine => $max_iodine, min_iron => $min_iron, max_iron => $max_iron, min_magnesium => $min_magnesium, max_magnesium => $max_magnesium, min_manganese => $min_manganese, max_manganese => $max_manganese, min_phosphorus => $min_phosphorus, max_phosphorus => $max_phosphorus, min_potassium => $min_potassium, max_potassium => $max_potassium, min_selenium => $min_selenium, max_selenium => $max_selenium, min_sodium => $min_sodium, max_sodium => $max_sodium, min_sugar => $min_sugar, max_sugar => $max_sugar, min_zinc => $min_zinc, max_zinc => $max_zinc, offset => $offset, number => $number, limit_license => $limit_license);
     print Dumper($result);
 };
 if ($@) {
@@ -2663,97 +2665,99 @@ if ($@) {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **query** | **string**| The (natural language) recipe search query. | 
- **cuisine** | **string**| The cuisine(s) of the recipes. One or more comma separated (will be iterpreted as &#39;OR&#39;). See a full list of supported cuisines. | [optional] 
- **exclude_cuisine** | **string**| The cuisine(s) the recipes must not match. One or more comma separated (will be iterpreted as &#39;AND&#39;). See a full list of supported cuisines. | [optional] 
- **diet** | **string**| The diet to which the recipes must be compliant. See a full list of supported diets. | [optional] 
- **intolerances** | **string**| A comma-separated list of intolerances. All found recipes must not have ingredients that could cause problems for people with one of the given tolerances. See a full list of supported intolerances. | [optional] 
+ **cuisine** | **string**| The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as &#39;OR&#39;). See a full list of supported cuisines. | [optional] 
+ **exclude_cuisine** | **string**| The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as &#39;AND&#39;). See a full list of supported cuisines. | [optional] 
+ **diet** | **string**| The diet for which the recipes must be suitable. See a full list of supported diets. | [optional] 
+ **intolerances** | **string**| A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. | [optional] 
  **equipment** | **string**| The equipment required. Multiple values will be interpreted as &#39;or&#39;. For example, value could be \&quot;blender, frying pan, bowl\&quot;. | [optional] 
- **include_ingredients** | **string**| A comma-separated list of ingredients that should/must be contained in the recipe. | [optional] 
- **exclude_ingredients** | **string**| A comma-separated list of ingredients or ingredient types that must not be contained in the recipes. | [optional] 
- **type** | **string**| The type of the recipes. See a full list of supported meal types. | [optional] 
+ **include_ingredients** | **string**| A comma-separated list of ingredients that should/must be used in the recipes. | [optional] 
+ **exclude_ingredients** | **string**| A comma-separated list of ingredients or ingredient types that the recipes must not contain. | [optional] 
+ **type** | **string**| The type of recipe. See a full list of supported meal types. | [optional] 
  **instructions_required** | **boolean**| Whether the recipes must have instructions. | [optional] 
  **fill_ingredients** | **boolean**| Add information about the used and missing ingredients in each recipe. | [optional] 
- **add_recipe_information** | **boolean**| If set to true, you get more information about the recipes returned. This saves the calls to get recipe information. | [optional] 
+ **add_recipe_information** | **boolean**| If set to true, you get more information about the recipes returned. This saves you from needing to call to get recipe information. | [optional] 
  **author** | **string**| The username of the recipe author. | [optional] 
  **tags** | **string**| User defined tags that have to match. | [optional] 
- **title_match** | **string**| A text that has to match in the title of the recipes. | [optional] 
+ **title_match** | **string**| Enter text that must be found in the title of the recipes. | [optional] 
+ **max_ready_time** | **double**| The maximum time in minutes it should take to prepare and cook the recipe. | [optional] 
+ **ignore_pantry** | **boolean**| Whether to ignore typical pantry items, such as water, salt, flour, etc. | [optional] 
  **sort** | **string**| The strategy to sort recipes by. See a full list of supported sorting options. | [optional] 
  **sort_direction** | **string**| The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending). | [optional] 
- **min_carbs** | **double**| The minimum number of carbohydrates in grams the recipe must have. | [optional] 
- **max_carbs** | **double**| The maximum number of carbohydrates in grams the recipe can have. | [optional] 
- **min_protein** | **double**| The minimum number of protein in grams the recipe must have. | [optional] 
- **max_protein** | **double**| The maximum number of protein in grams the recipe can have. | [optional] 
- **min_calories** | **double**| The minimum number of calories the recipe must have. | [optional] 
- **max_calories** | **double**| The maximum number of calories the recipe can have. | [optional] 
- **min_fat** | **double**| The minimum number of fat in grams the recipe must have. | [optional] 
- **max_fat** | **double**| The maximum number of fat in grams the recipe can have. | [optional] 
- **min_alcohol** | **double**| The minimum number of alcohol in grams the recipe must have. | [optional] 
- **max_alcohol** | **double**| The maximum number of alcohol in grams the recipe must have. | [optional] 
- **min_caffeine** | **double**| The minimum number of milligrams of caffeine the recipe must have. | [optional] 
- **max_caffeine** | **double**| The maximum number of alcohol in grams the recipe must have. | [optional] 
- **min_copper** | **double**| The minimum number of copper in milligrams the recipe must have. | [optional] 
- **max_copper** | **double**| The maximum number of copper in milligrams the recipe must have. | [optional] 
- **min_calcium** | **double**| The minimum number of calcium in milligrams the recipe must have. | [optional] 
- **max_calcium** | **double**| The maximum number of calcium in milligrams the recipe must have. | [optional] 
- **min_choline** | **double**| The minimum number of choline in milligrams the recipe must have. | [optional] 
- **max_choline** | **double**| The maximum number of choline in milligrams the recipe can have. | [optional] 
- **min_cholesterol** | **double**| The minimum number of cholesterol in milligrams the recipe must have. | [optional] 
- **max_cholesterol** | **double**| The maximum number of cholesterol in milligrams the recipe must have. | [optional] 
- **min_fluoride** | **double**| The minimum number of fluoride in milligrams the recipe must have. | [optional] 
- **max_fluoride** | **double**| The maximum number of fluoride in milligrams the recipe can have. | [optional] 
- **min_saturated_fat** | **double**| The minimum number of saturated fat in grams the recipe must have. | [optional] 
- **max_saturated_fat** | **double**| The maximum number of saturated fat in grams the recipe must have. | [optional] 
- **min_vitamin_a** | **double**| The minimum number of Vitamin A in IU the recipe must have. | [optional] 
- **max_vitamin_a** | **double**| The maximum number of Vitamin A in IU the recipe must have. | [optional] 
- **min_vitamin_c** | **double**| The minimum number of Vitamin C milligrams the recipe must have. | [optional] 
- **max_vitamin_c** | **double**| The maximum number of Vitamin C in milligrams the recipe can have. | [optional] 
- **min_vitamin_d** | **double**| The minimum number of Vitamin D in micrograms the recipe must have. | [optional] 
- **max_vitamin_d** | **double**| The maximum number of Vitamin D in micrograms the recipe must have. | [optional] 
- **min_vitamin_e** | **double**| The minimum number of Vitamin E in milligrams the recipe must have. | [optional] 
- **max_vitamin_e** | **double**| The maximum number of Vitamin E in milligrams the recipe must have. | [optional] 
- **min_vitamin_k** | **double**| The minimum number of Vitamin K in micrograms the recipe must have. | [optional] 
- **max_vitamin_k** | **double**| The maximum number of Vitamin K in micrograms the recipe must have. | [optional] 
- **min_vitamin_b1** | **double**| The minimum number of Vitamin B1 in milligrams the recipe must have. | [optional] 
- **max_vitamin_b1** | **double**| The maximum number of Vitamin B1 in milligrams the recipe must have. | [optional] 
- **min_vitamin_b2** | **double**| The minimum number of Vitamin B2 in milligrams the recipe must have. | [optional] 
- **max_vitamin_b2** | **double**| The maximum number of Vitamin B2 in milligrams the recipe must have. | [optional] 
- **min_vitamin_b5** | **double**| The minimum number of Vitamin B5 in milligrams the recipe must have. | [optional] 
- **max_vitamin_b5** | **double**| The maximum number of Vitamin B5 in milligrams the recipe can have. | [optional] 
- **min_vitamin_b3** | **double**| The minimum number of Vitamin B3 in milligrams the recipe must have. | [optional] 
- **max_vitamin_b3** | **double**| The maximum number of Vitamin B3 in milligrams the recipe can have. | [optional] 
- **min_vitamin_b6** | **double**| The minimum number of Vitamin B6 in milligrams the recipe must have. | [optional] 
- **max_vitamin_b6** | **double**| The maximum number of Vitamin B6 in milligrams the recipe can have. | [optional] 
- **min_vitamin_b12** | **double**| The minimum number of Vitamin B12 in micrograms the recipe must have. | [optional] 
- **max_vitamin_b12** | **double**| The maximum number of Vitamin B12 in micrograms the recipe must have. | [optional] 
- **min_fiber** | **double**| The minimum number of fiber in grams the recipe must have. | [optional] 
- **max_fiber** | **double**| The maximum number of fiber in grams the recipe must have. | [optional] 
- **min_folate** | **double**| The minimum number of folate in grams the recipe must have. | [optional] 
- **max_folate** | **double**| The maximum number of folate in grams the recipe must have. | [optional] 
- **min_folic_acid** | **double**| The minimum number of folic acid in grams the recipe must have. | [optional] 
- **max_folic_acid** | **double**| The maximum number of folic acid in grams the recipe must have. | [optional] 
- **min_iodine** | **double**| The minimum number of Iodine in grams the recipe must have. | [optional] 
- **max_iodine** | **double**| The maximum number of iodine in grams the recipe must have. | [optional] 
- **min_iron** | **double**| The minimum number of iron in milligrams the recipe must have. | [optional] 
- **max_iron** | **double**| The maximum number of iron in milligrams the recipe can have. | [optional] 
- **min_magnesium** | **double**| The minimum number of magnesium in milligrams the recipe must have. | [optional] 
- **max_magnesium** | **double**| The maximum number of magnesium in milligrams the recipe can have. | [optional] 
- **min_manganese** | **double**| The minimum number of manganese in milligrams the recipe must have. | [optional] 
- **max_manganese** | **double**| The maximum number of manganese in milligrams the recipe can have. | [optional] 
- **min_phosphorus** | **double**| The minimum number of phosphorus in milligrams the recipe must have. | [optional] 
- **max_phosphorus** | **double**| The maximum number of phosphorus in milligrams the recipe can have. | [optional] 
- **min_potassium** | **double**| The minimum number of potassium in milligrams the recipe must have. | [optional] 
- **max_potassium** | **double**| The maximum number of potassium in milligrams the recipe can have. | [optional] 
- **min_selenium** | **double**| The minimum number of selenium in grams the recipe must have. | [optional] 
- **max_selenium** | **double**| The maximum number of selenium in grams the recipe must have. | [optional] 
- **min_sodium** | **double**| The minimum number of sodium in milligrams the recipe must have. | [optional] 
- **max_sodium** | **double**| The maximum number of sodium in milligrams the recipe must have. | [optional] 
- **min_sugar** | **double**| The minimum number of sugar in grams the recipe must have. | [optional] 
- **max_sugar** | **double**| The maximum number of sugar in grams the recipe must have. | [optional] 
- **min_zinc** | **double**| The minimum number of zinc in milligrams the recipe must have. | [optional] 
- **max_zinc** | **double**| The maximum number of zinc in milligrams the recipe can have. | [optional] 
+ **min_carbs** | **double**| The minimum amount of carbohydrates in grams the recipe must have. | [optional] 
+ **max_carbs** | **double**| The maximum amount of carbohydrates in grams the recipe can have. | [optional] 
+ **min_protein** | **double**| The minimum amount of protein in grams the recipe must have. | [optional] 
+ **max_protein** | **double**| The maximum amount of protein in grams the recipe can have. | [optional] 
+ **min_calories** | **double**| The minimum amount of calories the recipe must have. | [optional] 
+ **max_calories** | **double**| The maximum amount of calories the recipe can have. | [optional] 
+ **min_fat** | **double**| The minimum amount of fat in grams the recipe must have. | [optional] 
+ **max_fat** | **double**| The maximum amount of fat in grams the recipe can have. | [optional] 
+ **min_alcohol** | **double**| The minimum amount of alcohol in grams the recipe must have. | [optional] 
+ **max_alcohol** | **double**| The maximum amount of alcohol in grams the recipe can have. | [optional] 
+ **min_caffeine** | **double**| The minimum amount of caffeine in milligrams the recipe must have. | [optional] 
+ **max_caffeine** | **double**| The maximum amount of caffeine in milligrams the recipe can have. | [optional] 
+ **min_copper** | **double**| The minimum amount of copper in milligrams the recipe must have. | [optional] 
+ **max_copper** | **double**| The maximum amount of copper in milligrams the recipe can have. | [optional] 
+ **min_calcium** | **double**| The minimum amount of calcium in milligrams the recipe must have. | [optional] 
+ **max_calcium** | **double**| The maximum amount of calcium in milligrams the recipe can have. | [optional] 
+ **min_choline** | **double**| The minimum amount of choline in milligrams the recipe must have. | [optional] 
+ **max_choline** | **double**| The maximum amount of choline in milligrams the recipe can have. | [optional] 
+ **min_cholesterol** | **double**| The minimum amount of cholesterol in milligrams the recipe must have. | [optional] 
+ **max_cholesterol** | **double**| The maximum amount of cholesterol in milligrams the recipe can have. | [optional] 
+ **min_fluoride** | **double**| The minimum amount of fluoride in milligrams the recipe must have. | [optional] 
+ **max_fluoride** | **double**| The maximum amount of fluoride in milligrams the recipe can have. | [optional] 
+ **min_saturated_fat** | **double**| The minimum amount of saturated fat in grams the recipe must have. | [optional] 
+ **max_saturated_fat** | **double**| The maximum amount of saturated fat in grams the recipe can have. | [optional] 
+ **min_vitamin_a** | **double**| The minimum amount of Vitamin A in IU the recipe must have. | [optional] 
+ **max_vitamin_a** | **double**| The maximum amount of Vitamin A in IU the recipe can have. | [optional] 
+ **min_vitamin_c** | **double**| The minimum amount of Vitamin C milligrams the recipe must have. | [optional] 
+ **max_vitamin_c** | **double**| The maximum amount of Vitamin C in milligrams the recipe can have. | [optional] 
+ **min_vitamin_d** | **double**| The minimum amount of Vitamin D in micrograms the recipe must have. | [optional] 
+ **max_vitamin_d** | **double**| The maximum amount of Vitamin D in micrograms the recipe can have. | [optional] 
+ **min_vitamin_e** | **double**| The minimum amount of Vitamin E in milligrams the recipe must have. | [optional] 
+ **max_vitamin_e** | **double**| The maximum amount of Vitamin E in milligrams the recipe can have. | [optional] 
+ **min_vitamin_k** | **double**| The minimum amount of Vitamin K in micrograms the recipe must have. | [optional] 
+ **max_vitamin_k** | **double**| The maximum amount of Vitamin K in micrograms the recipe can have. | [optional] 
+ **min_vitamin_b1** | **double**| The minimum amount of Vitamin B1 in milligrams the recipe must have. | [optional] 
+ **max_vitamin_b1** | **double**| The maximum amount of Vitamin B1 in milligrams the recipe can have. | [optional] 
+ **min_vitamin_b2** | **double**| The minimum amount of Vitamin B2 in milligrams the recipe must have. | [optional] 
+ **max_vitamin_b2** | **double**| The maximum amount of Vitamin B2 in milligrams the recipe can have. | [optional] 
+ **min_vitamin_b5** | **double**| The minimum amount of Vitamin B5 in milligrams the recipe must have. | [optional] 
+ **max_vitamin_b5** | **double**| The maximum amount of Vitamin B5 in milligrams the recipe can have. | [optional] 
+ **min_vitamin_b3** | **double**| The minimum amount of Vitamin B3 in milligrams the recipe must have. | [optional] 
+ **max_vitamin_b3** | **double**| The maximum amount of Vitamin B3 in milligrams the recipe can have. | [optional] 
+ **min_vitamin_b6** | **double**| The minimum amount of Vitamin B6 in milligrams the recipe must have. | [optional] 
+ **max_vitamin_b6** | **double**| The maximum amount of Vitamin B6 in milligrams the recipe can have. | [optional] 
+ **min_vitamin_b12** | **double**| The minimum amount of Vitamin B12 in micrograms the recipe must have. | [optional] 
+ **max_vitamin_b12** | **double**| The maximum amount of Vitamin B12 in micrograms the recipe can have. | [optional] 
+ **min_fiber** | **double**| The minimum amount of fiber in grams the recipe must have. | [optional] 
+ **max_fiber** | **double**| The maximum amount of fiber in grams the recipe can have. | [optional] 
+ **min_folate** | **double**| The minimum amount of folate in grams the recipe must have. | [optional] 
+ **max_folate** | **double**| The maximum amount of folate in grams the recipe can have. | [optional] 
+ **min_folic_acid** | **double**| The minimum amount of folic acid in grams the recipe must have. | [optional] 
+ **max_folic_acid** | **double**| The maximum amount of folic acid in grams the recipe can have. | [optional] 
+ **min_iodine** | **double**| The minimum amount of iodine in grams the recipe must have. | [optional] 
+ **max_iodine** | **double**| The maximum amount of iodine in grams the recipe can have. | [optional] 
+ **min_iron** | **double**| The minimum amount of iron in milligrams the recipe must have. | [optional] 
+ **max_iron** | **double**| The maximum amount of iron in milligrams the recipe can have. | [optional] 
+ **min_magnesium** | **double**| The minimum amount of magnesium in milligrams the recipe must have. | [optional] 
+ **max_magnesium** | **double**| The maximum amount of magnesium in milligrams the recipe can have. | [optional] 
+ **min_manganese** | **double**| The minimum amount of manganese in milligrams the recipe must have. | [optional] 
+ **max_manganese** | **double**| The maximum amount of manganese in milligrams the recipe can have. | [optional] 
+ **min_phosphorus** | **double**| The minimum amount of phosphorus in milligrams the recipe must have. | [optional] 
+ **max_phosphorus** | **double**| The maximum amount of phosphorus in milligrams the recipe can have. | [optional] 
+ **min_potassium** | **double**| The minimum amount of potassium in milligrams the recipe must have. | [optional] 
+ **max_potassium** | **double**| The maximum amount of potassium in milligrams the recipe can have. | [optional] 
+ **min_selenium** | **double**| The minimum amount of selenium in grams the recipe must have. | [optional] 
+ **max_selenium** | **double**| The maximum amount of selenium in grams the recipe can have. | [optional] 
+ **min_sodium** | **double**| The minimum amount of sodium in milligrams the recipe must have. | [optional] 
+ **max_sodium** | **double**| The maximum amount of sodium in milligrams the recipe can have. | [optional] 
+ **min_sugar** | **double**| The minimum amount of sugar in grams the recipe must have. | [optional] 
+ **max_sugar** | **double**| The maximum amount of sugar in grams the recipe can have. | [optional] 
+ **min_zinc** | **double**| The minimum amount of zinc in milligrams the recipe must have. | [optional] 
+ **max_zinc** | **double**| The maximum amount of zinc in milligrams the recipe can have. | [optional] 
  **offset** | **double**| The offset number for paging (between 0 and 990). | [optional] 
  **number** | **double**| The number of expected results (between 1 and 10). | [optional] 
- **limit_license** | **boolean**| Whether the recipes should have an open license that allows for displaying with proper attribution. | [optional] 
+ **limit_license** | **boolean**| Whether the recipes should have an open license that allows display with proper attribution. | [optional] 
 
 ### Return type
 
@@ -2775,7 +2779,7 @@ No authorization required
 
 Search Site Content
 
-Search spoonacular's site content. You'll be able to find everything that you could also find using the search suggests on spoonacular.com. This is a suggest API so you can send partial strings as queries.
+Search spoonacular's site content. You'll be able to find everything that you could also find using the search suggestions on spoonacular.com. This is a suggest API so you can send partial strings as queries.
 
 ### Example 
 ```perl
@@ -2821,7 +2825,7 @@ No authorization required
 
 Summarize Recipe
 
-Summarize the recipe in a short text.
+Automatically generate a short description that summarizes key information about the recipe.
 
 ### Example 
 ```perl
@@ -2867,7 +2871,7 @@ No authorization required
 
 Talk to Chatbot
 
-This endpoint can be used to have a conversation about food with the spoonacular chat bot. Use the \"Get Conversation Suggests\" endpoint to show your user what he or she can say.
+This endpoint can be used to have a conversation about food with the spoonacular chatbot. Use the \"Get Conversation Suggests\" endpoint to show your user what he or she can say.
 
 ### Example 
 ```perl
@@ -2876,7 +2880,7 @@ use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
 );
 
-my $text = donut recipes; # string | The request / question / answer from the user to the chat bot.
+my $text = donut recipes; # string | The request / question / answer from the user to the chatbot.
 my $context_id = 342938; # string | An arbitrary globally unique id for your conversation. The conversation can contain states so you should pass your context id if you want the bot to be able to remember the conversation.
 
 eval { 
@@ -2892,7 +2896,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **text** | **string**| The request / question / answer from the user to the chat bot. | 
+ **text** | **string**| The request / question / answer from the user to the chatbot. | 
  **context_id** | **string**| An arbitrary globally unique id for your conversation. The conversation can contain states so you should pass your context id if you want the bot to be able to remember the conversation. | [optional] 
 
 ### Return type
@@ -2926,7 +2930,7 @@ my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
 
 my $ingredient_list = "ingredient_list_example"; # string | The ingredient list of the recipe, one ingredient per line.
 my $servings = 3.4; # double | The number of servings.
-my $view = "view_example"; # string | Either \\\"grid\\\" or \\\"list\\\" as visualization of the equipment.
+my $view = "view_example"; # string | How to visualize the equipment, either \\\"grid\\\" or \\\"list\\\".
 my $default_css = null; # boolean | Whether the default CSS should be added to the response.
 my $show_backlink = null; # boolean | Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
 
@@ -2945,7 +2949,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ingredient_list** | **string**| The ingredient list of the recipe, one ingredient per line. | 
  **servings** | **double**| The number of servings. | 
- **view** | **string**| Either \\\&quot;grid\\\&quot; or \\\&quot;list\\\&quot; as visualization of the equipment. | [optional] 
+ **view** | **string**| How to visualize the equipment, either \\\&quot;grid\\\&quot; or \\\&quot;list\\\&quot;. | [optional] 
  **default_css** | **boolean**| Whether the default CSS should be added to the response. | [optional] 
  **show_backlink** | **boolean**| Whether to show a backlink to spoonacular. If set false, this call counts against your quota. | [optional] 
 
@@ -2980,8 +2984,8 @@ my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
 
 my $ingredient_list = "ingredient_list_example"; # string | The ingredient list of the recipe, one ingredient per line.
 my $servings = 3.4; # double | The number of servings.
-my $measure = "measure_example"; # string | The initial measure, either \\\"metric\\\" or \\\"us\\\".
-my $view = "view_example"; # string | Either \\\"grid\\\" or \\\"list\\\" as visualization of the equipment.
+my $measure = "measure_example"; # string | The original system of measurement, either \\\"metric\\\" or \\\"us\\\".
+my $view = "view_example"; # string | How to visualize the ingredients, either \\\"grid\\\" or \\\"list\\\".
 my $default_css = null; # boolean | Whether the default CSS should be added to the response.
 my $show_backlink = null; # boolean | Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
 
@@ -3000,8 +3004,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ingredient_list** | **string**| The ingredient list of the recipe, one ingredient per line. | 
  **servings** | **double**| The number of servings. | 
- **measure** | **string**| The initial measure, either \\\&quot;metric\\\&quot; or \\\&quot;us\\\&quot;. | [optional] 
- **view** | **string**| Either \\\&quot;grid\\\&quot; or \\\&quot;list\\\&quot; as visualization of the equipment. | [optional] 
+ **measure** | **string**| The original system of measurement, either \\\&quot;metric\\\&quot; or \\\&quot;us\\\&quot;. | [optional] 
+ **view** | **string**| How to visualize the ingredients, either \\\&quot;grid\\\&quot; or \\\&quot;list\\\&quot;. | [optional] 
  **default_css** | **boolean**| Whether the default CSS should be added to the response. | [optional] 
  **show_backlink** | **boolean**| Whether to show a backlink to spoonacular. If set false, this call counts against your quota. | [optional] 
 
@@ -3025,7 +3029,7 @@ No authorization required
 
 Visualize Menu Item Nutrition by ID
 
-Visualize a menu items' nutrition data.
+Visualize a menu item's nutritional information as HTML including CSS.
 
 ### Example 
 ```perl
@@ -3127,7 +3131,7 @@ No authorization required
 
 Visualize Product Nutrition by ID
 
-Visualize a grocery product's nutritional information.
+Visualize a product's nutritional information as HTML including CSS.
 
 ### Example 
 ```perl
@@ -3271,7 +3275,7 @@ No authorization required
 
 Visualize Recipe Nutrition
 
-Visualize a recipe's nutrition data.
+Visualize a recipe's nutritional information as HTML including CSS
 
 ### Example 
 ```perl
@@ -3323,7 +3327,7 @@ No authorization required
 
 Visualize Recipe Nutrition by ID
 
-Visualize a recipe's nutritional information.
+Visualize a recipe's nutritional information as HTML including CSS.
 
 ### Example 
 ```perl
@@ -3332,7 +3336,7 @@ use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
 );
 
-my $id = 1082038; # double | The id of the product.
+my $id = 1082038; # double | The recipe id.
 my $default_css = true; # boolean | Whether the default CSS should be added to the response.
 
 eval { 
@@ -3348,7 +3352,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **double**| The id of the product. | 
+ **id** | **double**| The recipe id. | 
  **default_css** | **boolean**| Whether the default CSS should be added to the response. | [optional] 
 
 ### Return type

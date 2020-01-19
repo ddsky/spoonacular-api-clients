@@ -12,9 +12,9 @@ public class InlineObject8  {
   private String locale = null;
 
   /**
-   * The locale of the returned category, supported is en_US and en_GB.
+   * The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).
    **/
-  @ApiModelProperty(value = "The locale of the returned category, supported is en_US and en_GB.")
+  @ApiModelProperty(value = "The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).")
   public String getLocale() {
     return locale;
   }

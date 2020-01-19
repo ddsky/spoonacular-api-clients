@@ -58,7 +58,7 @@ class InlineObject8 {
 }
 
 /**
- * The locale of the returned category, supported is en_US and en_GB.
+ * The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).
  * @member {String} locale
  */
 InlineObject8.prototype['locale'] = undefined;

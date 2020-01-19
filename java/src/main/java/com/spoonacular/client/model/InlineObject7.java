@@ -28,7 +28,7 @@ import java.math.BigDecimal;
 /**
  * InlineObject7
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-07-01T21:17:29.289+02:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-01-19T16:36:49.460+01:00[Europe/Berlin]")
 public class InlineObject7 {
   public static final String SERIALIZED_NAME_INGREDIENT_LIST = "ingredientList";
   @SerializedName(SERIALIZED_NAME_INGREDIENT_LIST)
@@ -96,10 +96,10 @@ public class InlineObject7 {
   }
 
    /**
-   * The initial measure, either \&quot;metric\&quot; or \&quot;us\&quot;.
+   * The original system of measurement, either \&quot;metric\&quot; or \&quot;us\&quot;.
    * @return measure
   **/
-  @ApiModelProperty(example = "metric", value = "The initial measure, either \"metric\" or \"us\".")
+  @ApiModelProperty(example = "metric", value = "The original system of measurement, either \"metric\" or \"us\".")
   public String getMeasure() {
     return measure;
   }
@@ -114,10 +114,10 @@ public class InlineObject7 {
   }
 
    /**
-   * Either \&quot;grid\&quot; or \&quot;list\&quot; as visualization of the equipment.
+   * How to visualize the ingredients, either \&quot;grid\&quot; or \&quot;list\&quot;.
    * @return view
   **/
-  @ApiModelProperty(example = "grid", value = "Either \"grid\" or \"list\" as visualization of the equipment.")
+  @ApiModelProperty(example = "grid", value = "How to visualize the ingredients, either \"grid\" or \"list\".")
   public String getView() {
     return view;
   }

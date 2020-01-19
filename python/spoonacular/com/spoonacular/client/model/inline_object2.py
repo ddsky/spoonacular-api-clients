@@ -120,7 +120,7 @@ class InlineObject2(object):
     def view(self):
         """Gets the view of this InlineObject2.  # noqa: E501
 
-        Either \"grid\" or \"list\" as visualization of the equipment.  # noqa: E501
+        How to visualize the equipment, either \"grid\" or \"list\".  # noqa: E501
 
         :return: The view of this InlineObject2.  # noqa: E501
         :rtype: str
@@ -131,7 +131,7 @@ class InlineObject2(object):
     def view(self, view):
         """Sets the view of this InlineObject2.
 
-        Either \"grid\" or \"list\" as visualization of the equipment.  # noqa: E501
+        How to visualize the equipment, either \"grid\" or \"list\".  # noqa: E501
 
         :param view: The view of this InlineObject2.  # noqa: E501
         :type: str

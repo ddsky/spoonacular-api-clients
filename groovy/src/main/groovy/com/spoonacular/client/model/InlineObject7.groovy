@@ -11,9 +11,9 @@ class InlineObject7 {
     String ingredientList
     /* The number of servings. */
     BigDecimal servings
-    /* The initial measure, either \"metric\" or \"us\". */
+    /* The original system of measurement, either \"metric\" or \"us\". */
     String measure
-    /* Either \"grid\" or \"list\" as visualization of the equipment. */
+    /* How to visualize the ingredients, either \"grid\" or \"list\". */
     String view
     /* Whether the default CSS should be added to the response. */
     Boolean defaultCss

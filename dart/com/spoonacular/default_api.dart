@@ -60,7 +60,7 @@ class DefaultApi {
   }
   /// Analyze Recipe Instructions
   ///
-  /// Extract ingredients and equipment from the recipe instruction steps.
+  /// Extract ingredients and equipment from the recipe&#39;s instructions.
   Future<Object> analyzeRecipeInstructions(String instructions) async {
     Object postBody;
 
@@ -116,7 +116,7 @@ class DefaultApi {
   }
   /// Autocomplete Ingredient Search
   ///
-  /// Autocomplete a search for an ingredient.
+  /// Autocomplete the entry of an ingredient.
   Future<Object> autocompleteIngredientSearch(String query, { num number, bool metaInformation, bool intolerances }) async {
     Object postBody;
 
@@ -284,7 +284,7 @@ class DefaultApi {
   }
   /// Autocomplete Recipe Search
   ///
-  /// Autocomplete a partial input to possible recipe names.
+  /// Autocomplete a partial input to suggest possible recipe names.
   Future<Object> autocompleteRecipeSearch(String query, { num number }) async {
     Object postBody;
 
@@ -403,7 +403,7 @@ class DefaultApi {
   }
   /// Classify Grocery Product
   ///
-  /// Given a grocery product title, this endpoint allows you to detect what basic ingredient it is.
+  /// This endpoint allows you to match a packaged food to a basic category, e.g. a specific brand of milk to the category milk.
   Future<Object> classifyGroceryProduct(InlineObject8 inlineObject8, { String locale }) async {
     Object postBody = inlineObject8;
 
@@ -456,7 +456,7 @@ class DefaultApi {
   }
   /// Classify Grocery Product Bulk
   ///
-  /// Given a set of product jsons, get back classified products.
+  /// Provide a set of product jsons, get back classified products.
   Future<Object> classifyGroceryProductBulk(Object body, { String locale }) async {
     Object postBody = body;
 
@@ -572,7 +572,7 @@ class DefaultApi {
   }
   /// Create Recipe Card
   ///
-  /// Create Recipe Card.
+  /// Generate a recipe card for a recipe.
   Future<Object> createRecipeCard(String title, MultipartFile image, String ingredients, String instructions, num readyInMinutes, num servings, String mask, String backgroundImage, { String author, String backgroundColor, String fontColor, String source }) async {
     Object postBody;
 
@@ -714,7 +714,7 @@ class DefaultApi {
   }
   /// Detect Food in Text
   ///
-  /// Detect ingredients and dishes in texts. This task is also called Named Entity Recognition (NER). In our case the entities are foods. Either dishes, such as pizza and cheeseburger or ingredients, such as cucumber and almonds.
+  /// Take any text and find all mentions of food contained within it. This task is also called Named Entity Recognition (NER). In this case, the entities are foods. Either dishes, such as pizza or cheeseburger, or ingredients, such as cucumber or almonds.
   Future<Object> detectFoodInText(String text) async {
     Object postBody;
 
@@ -770,7 +770,7 @@ class DefaultApi {
   }
   /// Extract Recipe from Website
   ///
-  /// Get an analyzed breakdown of a recipe&#39;s instructions. Each step is enriched with the ingredients and the equipment that is used.
+  /// This endpoint lets you extract recipe data such as title, ingredients, and instructions from any properly formatted Website.
   Future<Object> extractRecipeFromWebsite(String url, { bool forceExtraction }) async {
     Object postBody;
 
@@ -831,7 +831,7 @@ class DefaultApi {
     // verify required params are set
 
     // create path and map variables
-    String path = "/recipes/mealplans/generate".replaceAll("{format}","json");
+    String path = "/mealplanner/generate".replaceAll("{format}","json");
 
     // query params
     List<QueryParam> queryParams = [];
@@ -883,7 +883,7 @@ class DefaultApi {
   }
   /// Get a Random Food Joke
   ///
-  /// Get a random joke that includes or is about food.
+  /// Get a random joke that is related to food. Caution: this is an endpoint for adults!
   Future<Object> getARandomFoodJoke() async {
     Object postBody;
 
@@ -930,7 +930,7 @@ class DefaultApi {
   }
   /// Get Analyzed Recipe Instructions
   ///
-  /// Get an analyzed breakdown of a recipe&#39;s instructions. Each step is enriched with the ingredients and the equipment that is used.
+  /// Get an analyzed breakdown of a recipe&#39;s instructions. Each step is enriched with the ingredients and equipment required.
   Future<Object> getAnalyzedRecipeInstructions(num id, { bool stepBreakdown }) async {
     Object postBody;
 
@@ -1033,7 +1033,7 @@ class DefaultApi {
   }
   /// Get Conversation Suggests
   ///
-  /// This endpoint returns suggestions for things the user can say or ask the chat bot.
+  /// This endpoint returns suggestions for things the user can say or ask the chatbot.
   Future<Object> getConversationSuggests(String query, { num number }) async {
     Object postBody;
 
@@ -1087,7 +1087,7 @@ class DefaultApi {
   }
   /// Get Dish Pairing for Wine
   ///
-  /// Get a dish that goes well with a given wine.
+  /// Find a dish that goes well with a given wine.
   Future<Object> getDishPairingForWine(String wine) async {
     Object postBody;
 
@@ -1136,10 +1136,10 @@ class DefaultApi {
       return null;
     }
   }
-  /// Get Food Information
+  /// Get Ingredient Information
   ///
-  /// Get information about a certain food (ingredient).
-  Future<Object> getFoodInformation(num id, { num amount, String unit }) async {
+  /// Use an ingredient id to get all available information about an ingredient, such as its image and supermarket aisle.
+  Future<Object> getIngredientInformation(num id, { num amount, String unit }) async {
     Object postBody;
 
     // verify required params are set
@@ -1295,7 +1295,7 @@ class DefaultApi {
   }
   /// Get Menu Item Information
   ///
-  /// Get information about a certain menu item.
+  /// Use a menu item id to get all available information about a menu item, such as nutrition.
   Future<Object> getMenuItemInformation(num id) async {
     Object postBody;
 
@@ -1345,7 +1345,7 @@ class DefaultApi {
   }
   /// Get Product Information
   ///
-  /// Get information about a packaged food product.
+  /// Use a product id to get full information about a product, such as ingredients, nutrition, etc.
   Future<Object> getProductInformation(num id) async {
     Object postBody;
 
@@ -1442,7 +1442,7 @@ class DefaultApi {
   }
   /// Get Random Recipes
   ///
-  /// Find random (popular) recipes.
+  /// Find random (popular) recipes. If you need to filter recipes by diet, nutrition etc. you might want to consider using the complex recipe search endpoint and set the sort request parameter to random.
   Future<Object> getRandomRecipes({ bool limitLicense, String tags, num number }) async {
     Object postBody;
 
@@ -1548,7 +1548,7 @@ class DefaultApi {
   }
   /// Get Recipe Information
   ///
-  /// Get information about a recipe.
+  /// Use a recipe id to get full information about a recipe, such as ingredients, nutrition, diet and allergen information, etc.
   Future<Object> getRecipeInformation(num id, { bool includeNutrition }) async {
     Object postBody;
 
@@ -1601,7 +1601,7 @@ class DefaultApi {
   }
   /// Get Recipe Information Bulk
   ///
-  /// Get information about multiple recipes at once. That is equivalent of calling the Get Recipe Information endpoint multiple times but is faster.
+  /// Get information about multiple recipes at once. This is equivalent to calling the Get Recipe Information endpoint multiple times, but faster.
   Future<Object> getRecipeInformationBulk(String ids, { bool includeNutrition }) async {
     Object postBody;
 
@@ -1703,10 +1703,10 @@ class DefaultApi {
       return null;
     }
   }
-  /// Get Recipe Nutrition by ID
+  /// Get Recipe Nutrition Widget by ID
   ///
   /// Get a recipe&#39;s nutrition widget data.
-  Future<Object> getRecipeNutritionByID(num id) async {
+  Future<Object> getRecipeNutritionWidgetByID(num id) async {
     Object postBody;
 
     // verify required params are set
@@ -1858,7 +1858,7 @@ class DefaultApi {
   }
   /// Get Wine Description
   ///
-  /// Get the description of a certain wine, e.g. \&quot;malbec\&quot;, \&quot;riesling\&quot;, or \&quot;merlot\&quot;.
+  /// Get a simple description of a certain wine, e.g. \&quot;malbec\&quot;, \&quot;riesling\&quot;, or \&quot;merlot\&quot;.
   Future<Object> getWineDescription(String wine) async {
     Object postBody;
 
@@ -1963,7 +1963,7 @@ class DefaultApi {
   }
   /// Get Wine Recommendation
   ///
-  /// Get a specific wine recommendation (concrete product) for a given wine, e.g. \&quot;merlot\&quot;.
+  /// Get a specific wine recommendation (concrete product) for a given wine type, e.g. \&quot;merlot\&quot;.
   Future<Object> getWineRecommendation(String wine, { num maxPrice, num minRating, num number }) async {
     Object postBody;
 
@@ -2023,7 +2023,7 @@ class DefaultApi {
   }
   /// Guess Nutrition by Dish Name
   ///
-  /// Guess the macro nutrients of a dish given its title.
+  /// Estimate the macronutrients of a dish based on its title.
   Future<Object> guessNutritionByDishName(String title) async {
     Object postBody;
 
@@ -2324,7 +2324,7 @@ class DefaultApi {
   }
   /// Search Grocery Products
   ///
-  /// Search packaged food products such as frozen pizza and snickers bars.
+  /// Search packaged food products, such as frozen pizza or Greek yogurt.
   Future<Object> searchGroceryProducts(String query, { num minCalories, num maxCalories, num minCarbs, num maxCarbs, num minProtein, num maxProtein, num minFat, num maxFat, num offset, num number }) async {
     Object postBody;
 
@@ -2405,7 +2405,7 @@ class DefaultApi {
   }
   /// Search Grocery Products by UPC
   ///
-  /// Get information about a food product given its UPC.
+  /// Get information about a packaged food using its UPC.
   Future<Object> searchGroceryProductsByUPC(num upc) async {
     Object postBody;
 
@@ -2455,7 +2455,7 @@ class DefaultApi {
   }
   /// Search Menu Items
   ///
-  /// Search over 115,000 menu items from over 800 fast food and chain restaurants such as McDonalds Big Mac or Starbucks Mocha.
+  /// Search over 115,000 menu items from over 800 fast food and chain restaurants. For example, McDonald&#39;s Big Mac or Starbucks Mocha.
   Future<Object> searchMenuItems(String query, { num minCalories, num maxCalories, num minCarbs, num maxCarbs, num minProtein, num maxProtein, num minFat, num maxFat, num offset, num number }) async {
     Object postBody;
 
@@ -2611,7 +2611,7 @@ class DefaultApi {
   }
   /// Search Recipes by Ingredients
   ///
-  /// Find recipes that use as many of the given ingredients as possible and have as little as possible missing ingredients. This is a \&quot;what&#39;s in your fridge\&quot; API endpoint.
+  /// Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don&#39;t currently have (post shopping).
   Future<Object> searchRecipesByIngredients(String ingredients, { num number, bool limitLicense, num ranking, bool ignorePantry }) async {
     Object postBody;
 
@@ -2674,7 +2674,7 @@ class DefaultApi {
   }
   /// Search Recipes by Nutrients
   ///
-  /// Find a set of recipes that adhere to the given nutritional limits. All the returned recipes will have macro nutrients within the calories, protein, fat, and carbohydrate limits.
+  /// Find a set of recipes that adhere to the given nutritional limits. You may set limits for macronutrients (calories, protein, fat, and carbohydrate) and/or many micronutrients.
   Future<Object> searchRecipesByNutrients({ num minCarbs, num maxCarbs, num minProtein, num maxProtein, num minCalories, num maxCalories, num minFat, num maxFat, num minAlcohol, num maxAlcohol, num minCaffeine, num maxCaffeine, num minCopper, num maxCopper, num minCalcium, num maxCalcium, num minCholine, num maxCholine, num minCholesterol, num maxCholesterol, num minFluoride, num maxFluoride, num minSaturatedFat, num maxSaturatedFat, num minVitaminA, num maxVitaminA, num minVitaminC, num maxVitaminC, num minVitaminD, num maxVitaminD, num minVitaminE, num maxVitaminE, num minVitaminK, num maxVitaminK, num minVitaminB1, num maxVitaminB1, num minVitaminB2, num maxVitaminB2, num minVitaminB5, num maxVitaminB5, num minVitaminB3, num maxVitaminB3, num minVitaminB6, num maxVitaminB6, num minVitaminB12, num maxVitaminB12, num minFiber, num maxFiber, num minFolate, num maxFolate, num minFolicAcid, num maxFolicAcid, num minIodine, num maxIodine, num minIron, num maxIron, num minMagnesium, num maxMagnesium, num minManganese, num maxManganese, num minPhosphorus, num maxPhosphorus, num minPotassium, num maxPotassium, num minSelenium, num maxSelenium, num minSodium, num maxSodium, num minSugar, num maxSugar, num minZinc, num maxZinc, num offset, num number, bool random, bool limitLicense }) async {
     Object postBody;
 
@@ -2949,8 +2949,8 @@ class DefaultApi {
   }
   /// Search Recipes Complex
   ///
-  /// Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: Since this method combines searching by query, by ingredients, and by nutrients in one endpoint.
-  Future<Object> searchRecipesComplex(String query, { String cuisine, String excludeCuisine, String diet, String intolerances, String equipment, String includeIngredients, String excludeIngredients, String type, bool instructionsRequired, bool fillIngredients, bool addRecipeInformation, String author, String tags, String titleMatch, String sort, String sortDirection, num minCarbs, num maxCarbs, num minProtein, num maxProtein, num minCalories, num maxCalories, num minFat, num maxFat, num minAlcohol, num maxAlcohol, num minCaffeine, num maxCaffeine, num minCopper, num maxCopper, num minCalcium, num maxCalcium, num minCholine, num maxCholine, num minCholesterol, num maxCholesterol, num minFluoride, num maxFluoride, num minSaturatedFat, num maxSaturatedFat, num minVitaminA, num maxVitaminA, num minVitaminC, num maxVitaminC, num minVitaminD, num maxVitaminD, num minVitaminE, num maxVitaminE, num minVitaminK, num maxVitaminK, num minVitaminB1, num maxVitaminB1, num minVitaminB2, num maxVitaminB2, num minVitaminB5, num maxVitaminB5, num minVitaminB3, num maxVitaminB3, num minVitaminB6, num maxVitaminB6, num minVitaminB12, num maxVitaminB12, num minFiber, num maxFiber, num minFolate, num maxFolate, num minFolicAcid, num maxFolicAcid, num minIodine, num maxIodine, num minIron, num maxIron, num minMagnesium, num maxMagnesium, num minManganese, num maxManganese, num minPhosphorus, num maxPhosphorus, num minPotassium, num maxPotassium, num minSelenium, num maxSelenium, num minSodium, num maxSodium, num minSugar, num maxSugar, num minZinc, num maxZinc, num offset, num number, bool limitLicense }) async {
+  /// Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint.
+  Future<Object> searchRecipesComplex(String query, { String cuisine, String excludeCuisine, String diet, String intolerances, String equipment, String includeIngredients, String excludeIngredients, String type, bool instructionsRequired, bool fillIngredients, bool addRecipeInformation, String author, String tags, String titleMatch, num maxReadyTime, bool ignorePantry, String sort, String sortDirection, num minCarbs, num maxCarbs, num minProtein, num maxProtein, num minCalories, num maxCalories, num minFat, num maxFat, num minAlcohol, num maxAlcohol, num minCaffeine, num maxCaffeine, num minCopper, num maxCopper, num minCalcium, num maxCalcium, num minCholine, num maxCholine, num minCholesterol, num maxCholesterol, num minFluoride, num maxFluoride, num minSaturatedFat, num maxSaturatedFat, num minVitaminA, num maxVitaminA, num minVitaminC, num maxVitaminC, num minVitaminD, num maxVitaminD, num minVitaminE, num maxVitaminE, num minVitaminK, num maxVitaminK, num minVitaminB1, num maxVitaminB1, num minVitaminB2, num maxVitaminB2, num minVitaminB5, num maxVitaminB5, num minVitaminB3, num maxVitaminB3, num minVitaminB6, num maxVitaminB6, num minVitaminB12, num maxVitaminB12, num minFiber, num maxFiber, num minFolate, num maxFolate, num minFolicAcid, num maxFolicAcid, num minIodine, num maxIodine, num minIron, num maxIron, num minMagnesium, num maxMagnesium, num minManganese, num maxManganese, num minPhosphorus, num maxPhosphorus, num minPotassium, num maxPotassium, num minSelenium, num maxSelenium, num minSodium, num maxSodium, num minSugar, num maxSugar, num minZinc, num maxZinc, num offset, num number, bool limitLicense }) async {
     Object postBody;
 
     // verify required params are set
@@ -3007,6 +3007,12 @@ class DefaultApi {
     }
     if(titleMatch != null) {
       queryParams.addAll(_convertParametersForCollectionFormat("", "titleMatch", titleMatch));
+    }
+    if(maxReadyTime != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "maxReadyTime", maxReadyTime));
+    }
+    if(ignorePantry != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "ignorePantry", ignorePantry));
     }
     if(sort != null) {
       queryParams.addAll(_convertParametersForCollectionFormat("", "sort", sort));
@@ -3273,7 +3279,7 @@ class DefaultApi {
   }
   /// Search Site Content
   ///
-  /// Search spoonacular&#39;s site content. You&#39;ll be able to find everything that you could also find using the search suggests on spoonacular.com. This is a suggest API so you can send partial strings as queries.
+  /// Search spoonacular&#39;s site content. You&#39;ll be able to find everything that you could also find using the search suggestions on spoonacular.com. This is a suggest API so you can send partial strings as queries.
   Future<Object> searchSiteContent(String query) async {
     Object postBody;
 
@@ -3324,7 +3330,7 @@ class DefaultApi {
   }
   /// Summarize Recipe
   ///
-  /// Summarize the recipe in a short text.
+  /// Automatically generate a short description that summarizes key information about the recipe.
   Future<Object> summarizeRecipe(num id) async {
     Object postBody;
 
@@ -3374,7 +3380,7 @@ class DefaultApi {
   }
   /// Talk to Chatbot
   ///
-  /// This endpoint can be used to have a conversation about food with the spoonacular chat bot. Use the \&quot;Get Conversation Suggests\&quot; endpoint to show your user what he or she can say.
+  /// This endpoint can be used to have a conversation about food with the spoonacular chatbot. Use the \&quot;Get Conversation Suggests\&quot; endpoint to show your user what he or she can say.
   Future<Object> talkToChatbot(String text, { String contextId }) async {
     Object postBody;
 
@@ -3600,7 +3606,7 @@ class DefaultApi {
   }
   /// Visualize Menu Item Nutrition by ID
   ///
-  /// Visualize a menu items&#39; nutrition data.
+  /// Visualize a menu item&#39;s nutritional information as HTML including CSS.
   Future<String> visualizeMenuItemNutritionByID(num id, { bool defaultCss }) async {
     Object postBody;
 
@@ -3736,7 +3742,7 @@ class DefaultApi {
   }
   /// Visualize Product Nutrition by ID
   ///
-  /// Visualize a grocery product&#39;s nutritional information.
+  /// Visualize a product&#39;s nutritional information as HTML including CSS.
   Future<String> visualizeProductNutritionByID(num id, { bool defaultCss }) async {
     Object postBody;
 
@@ -3895,7 +3901,7 @@ class DefaultApi {
   }
   /// Visualize Recipe Nutrition
   ///
-  /// Visualize a recipe&#39;s nutrition data.
+  /// Visualize a recipe&#39;s nutritional information as HTML including CSS
   Future<String> visualizeRecipeNutrition(String ingredientList, num servings, { bool defaultCss, bool showBacklink }) async {
     Object postBody;
 
@@ -3972,7 +3978,7 @@ class DefaultApi {
   }
   /// Visualize Recipe Nutrition by ID
   ///
-  /// Visualize a recipe&#39;s nutritional information.
+  /// Visualize a recipe&#39;s nutritional information as HTML including CSS.
   Future<String> visualizeRecipeNutritionByID(num id, { bool defaultCss }) async {
     Object postBody;
 

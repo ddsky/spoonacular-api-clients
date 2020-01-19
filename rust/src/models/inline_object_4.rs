@@ -14,7 +14,7 @@ use serde_json::Value;
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct InlineObject4 {
-    /// The instructions text.
+    /// The instructions to be analyzed.
     #[serde(rename = "instructions")]
     pub instructions: String,
 }

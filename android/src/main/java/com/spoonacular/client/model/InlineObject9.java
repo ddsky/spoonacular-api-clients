@@ -12,9 +12,9 @@ public class InlineObject9  {
   private String text = null;
 
   /**
-   * The text in which food items such as dish names and ingredients should be detected in.
+   * The text in which food items, such as dish names and ingredients, should be detected in.
    **/
-  @ApiModelProperty(required = true, value = "The text in which food items such as dish names and ingredients should be detected in.")
+  @ApiModelProperty(required = true, value = "The text in which food items, such as dish names and ingredients, should be detected in.")
   public String getText() {
     return text;
   }

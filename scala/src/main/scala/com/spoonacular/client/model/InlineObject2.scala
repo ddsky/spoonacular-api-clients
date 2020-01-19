@@ -11,7 +11,7 @@ import java.math.BigDecimal
  * 
  * @param ingredientList The ingredient list of the recipe, one ingredient per line.
  * @param servings The number of servings.
- * @param view Either \"grid\" or \"list\" as visualization of the equipment.
+ * @param view How to visualize the equipment, either \"grid\" or \"list\".
  * @param defaultCss Whether the default CSS should be added to the response.
  * @param showBacklink Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
  */

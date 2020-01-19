@@ -43,9 +43,9 @@ public class InlineObject2  {
   }
 
   /**
-   * Either \"grid\" or \"list\" as visualization of the equipment.
+   * How to visualize the equipment, either \"grid\" or \"list\".
    **/
-  @ApiModelProperty(value = "Either \"grid\" or \"list\" as visualization of the equipment.")
+  @ApiModelProperty(value = "How to visualize the equipment, either \"grid\" or \"list\".")
   public String getView() {
     return view;
   }

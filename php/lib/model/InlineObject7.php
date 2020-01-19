@@ -301,7 +301,7 @@ class InlineObject7 implements ModelInterface, ArrayAccess
     /**
      * Sets measure
      *
-     * @param string|null $measure The initial measure, either \"metric\" or \"us\".
+     * @param string|null $measure The original system of measurement, either \"metric\" or \"us\".
      *
      * @return $this
      */
@@ -325,7 +325,7 @@ class InlineObject7 implements ModelInterface, ArrayAccess
     /**
      * Sets view
      *
-     * @param string|null $view Either \"grid\" or \"list\" as visualization of the equipment.
+     * @param string|null $view How to visualize the ingredients, either \"grid\" or \"list\".
      *
      * @return $this
      */

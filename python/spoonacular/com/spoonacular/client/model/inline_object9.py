@@ -51,7 +51,7 @@ class InlineObject9(object):
     def text(self):
         """Gets the text of this InlineObject9.  # noqa: E501
 
-        The text in which food items such as dish names and ingredients should be detected in.  # noqa: E501
+        The text in which food items, such as dish names and ingredients, should be detected in.  # noqa: E501
 
         :return: The text of this InlineObject9.  # noqa: E501
         :rtype: str
@@ -62,7 +62,7 @@ class InlineObject9(object):
     def text(self, text):
         """Sets the text of this InlineObject9.
 
-        The text in which food items such as dish names and ingredients should be detected in.  # noqa: E501
+        The text in which food items, such as dish names and ingredients, should be detected in.  # noqa: E501
 
         :param text: The text of this InlineObject9.  # noqa: E501
         :type: str

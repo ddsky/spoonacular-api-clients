@@ -22,7 +22,7 @@
 
 @interface OAIInlineObject8 : OAIObject
 
-/* The locale of the returned category, supported is en_US and en_GB. [optional]
+/* The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). [optional]
  */
 @property(nonatomic) NSString* locale;
 

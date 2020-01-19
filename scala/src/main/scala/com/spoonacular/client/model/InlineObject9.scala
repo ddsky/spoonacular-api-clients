@@ -8,7 +8,7 @@ import spoonacular._
 
 /**
  * 
- * @param text The text in which food items such as dish names and ingredients should be detected in.
+ * @param text The text in which food items, such as dish names and ingredients, should be detected in.
  */
 case class InlineObject9(text: String
                 )

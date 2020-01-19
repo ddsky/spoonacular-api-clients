@@ -13,9 +13,9 @@ namespace spoonacular.Model {
   [DataContract]
   public class InlineObject9 {
     /// <summary>
-    /// The text in which food items such as dish names and ingredients should be detected in.
+    /// The text in which food items, such as dish names and ingredients, should be detected in.
     /// </summary>
-    /// <value>The text in which food items such as dish names and ingredients should be detected in.</value>
+    /// <value>The text in which food items, such as dish names and ingredients, should be detected in.</value>
     [DataMember(Name="text", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "text")]
     public string Text { get; set; }
