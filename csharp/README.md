@@ -51,17 +51,19 @@ namespace Example
         {
             
             var apiInstance = new DefaultApi();
-            var q = salmon with fusilli and no nuts;  // string | The recipe search query.
+            var username = dsky;  // string | The username.
+            var hash = 4b5v4398573406;  // string | The private hash for the username.
+            var inlineObject9 = new InlineObject9(); // InlineObject9 | 
 
             try
             {
-                // Analyze a Recipe Search Query
-                Object result = apiInstance.AnalyzeARecipeSearchQuery(q);
+                // Add to Meal Plan
+                Object result = apiInstance.AddToMealPlan(username, hash, inlineObject9);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling DefaultApi.AnalyzeARecipeSearchQuery: " + e.Message );
+                Debug.Print("Exception when calling DefaultApi.AddToMealPlan: " + e.Message );
             }
         }
     }
@@ -75,6 +77,8 @@ All URIs are relative to *https://api.spoonacular.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*DefaultApi* | [**AddToMealPlan**](docs/DefaultApi.md#addtomealplan) | **POST** /mealplanner/{username}/items | Add to Meal Plan
+*DefaultApi* | [**AddToShoppingList**](docs/DefaultApi.md#addtoshoppinglist) | **POST** /mealplanner/{username}/shopping-list/items | Add to Shopping List
 *DefaultApi* | [**AnalyzeARecipeSearchQuery**](docs/DefaultApi.md#analyzearecipesearchquery) | **GET** /recipes/queries/analyze | Analyze a Recipe Search Query
 *DefaultApi* | [**AnalyzeRecipeInstructions**](docs/DefaultApi.md#analyzerecipeinstructions) | **POST** /recipes/analyzeInstructions | Analyze Recipe Instructions
 *DefaultApi* | [**AutocompleteIngredientSearch**](docs/DefaultApi.md#autocompleteingredientsearch) | **GET** /food/ingredients/autocomplete | Autocomplete Ingredient Search
@@ -86,9 +90,12 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**ClassifyGroceryProductBulk**](docs/DefaultApi.md#classifygroceryproductbulk) | **POST** /food/products/classifyBatch | Classify Grocery Product Bulk
 *DefaultApi* | [**ConvertAmounts**](docs/DefaultApi.md#convertamounts) | **GET** /recipes/convert | Convert Amounts
 *DefaultApi* | [**CreateRecipeCard**](docs/DefaultApi.md#createrecipecard) | **POST** /recipes/visualizeRecipe | Create Recipe Card
+*DefaultApi* | [**DeleteFromMealPlan**](docs/DefaultApi.md#deletefrommealplan) | **DELETE** /mealplanner/{username}/items/{id} | Delete from Meal Plan
+*DefaultApi* | [**DeleteFromShoppingList**](docs/DefaultApi.md#deletefromshoppinglist) | **DELETE** /mealplanner/{username}/shopping-list/items/{id} | Delete from Shopping List
 *DefaultApi* | [**DetectFoodInText**](docs/DefaultApi.md#detectfoodintext) | **POST** /food/detect | Detect Food in Text
 *DefaultApi* | [**ExtractRecipeFromWebsite**](docs/DefaultApi.md#extractrecipefromwebsite) | **GET** /recipes/extract | Extract Recipe from Website
 *DefaultApi* | [**GenerateMealPlan**](docs/DefaultApi.md#generatemealplan) | **GET** /mealplanner/generate | Generate Meal Plan
+*DefaultApi* | [**GenerateShoppingList**](docs/DefaultApi.md#generateshoppinglist) | **POST** /mealplanner/{username}/shopping-list/{start-date}/{end-date} | Generate Shopping List
 *DefaultApi* | [**GetARandomFoodJoke**](docs/DefaultApi.md#getarandomfoodjoke) | **GET** /food/jokes/random | Get a Random Food Joke
 *DefaultApi* | [**GetAnalyzedRecipeInstructions**](docs/DefaultApi.md#getanalyzedrecipeinstructions) | **GET** /recipes/{id}/analyzedInstructions | Get Analyzed Recipe Instructions
 *DefaultApi* | [**GetComparableProducts**](docs/DefaultApi.md#getcomparableproducts) | **GET** /food/products/upc/{upc}/comparable | Get Comparable Products
@@ -97,6 +104,9 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**GetIngredientInformation**](docs/DefaultApi.md#getingredientinformation) | **GET** /food/ingredients/{id}/information | Get Ingredient Information
 *DefaultApi* | [**GetIngredientSubstitutes**](docs/DefaultApi.md#getingredientsubstitutes) | **GET** /food/ingredients/substitutes | Get Ingredient Substitutes
 *DefaultApi* | [**GetIngredientSubstitutesByID**](docs/DefaultApi.md#getingredientsubstitutesbyid) | **GET** /food/ingredients/{id}/substitutes | Get Ingredient Substitutes by ID
+*DefaultApi* | [**GetMealPlanTemplate**](docs/DefaultApi.md#getmealplantemplate) | **GET** /mealplanner/{username}/templates/{id} | Get Meal Plan Template
+*DefaultApi* | [**GetMealPlanTemplates**](docs/DefaultApi.md#getmealplantemplates) | **GET** /mealplanner/{username}/templates | Get Meal Plan Templates
+*DefaultApi* | [**GetMealPlanWeek**](docs/DefaultApi.md#getmealplanweek) | **GET** /mealplanner/{username}/week/{start-date} | Get Meal Plan Week
 *DefaultApi* | [**GetMenuItemInformation**](docs/DefaultApi.md#getmenuiteminformation) | **GET** /food/menuItems/{id} | Get Menu Item Information
 *DefaultApi* | [**GetProductInformation**](docs/DefaultApi.md#getproductinformation) | **GET** /food/products/{id} | Get Product Information
 *DefaultApi* | [**GetRandomFoodTrivia**](docs/DefaultApi.md#getrandomfoodtrivia) | **GET** /food/trivia/random | Get Random Food Trivia
@@ -107,14 +117,18 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**GetRecipeIngredientsByID**](docs/DefaultApi.md#getrecipeingredientsbyid) | **GET** /recipes/{id}/ingredientWidget.json | Get Recipe Ingredients by ID
 *DefaultApi* | [**GetRecipeNutritionWidgetByID**](docs/DefaultApi.md#getrecipenutritionwidgetbyid) | **GET** /recipes/{id}/nutritionWidget.json | Get Recipe Nutrition Widget by ID
 *DefaultApi* | [**GetRecipePriceBreakdownByID**](docs/DefaultApi.md#getrecipepricebreakdownbyid) | **GET** /recipes/{id}/priceBreakdownWidget.json | Get Recipe Price Breakdown by ID
+*DefaultApi* | [**GetShoppingList**](docs/DefaultApi.md#getshoppinglist) | **GET** /mealplanner/{username}/shopping-list | Get Shopping List
 *DefaultApi* | [**GetSimilarRecipes**](docs/DefaultApi.md#getsimilarrecipes) | **GET** /recipes/{id}/similar | Get Similar Recipes
 *DefaultApi* | [**GetWineDescription**](docs/DefaultApi.md#getwinedescription) | **GET** /food/wine/description | Get Wine Description
 *DefaultApi* | [**GetWinePairing**](docs/DefaultApi.md#getwinepairing) | **GET** /food/wine/pairing | Get Wine Pairing
 *DefaultApi* | [**GetWineRecommendation**](docs/DefaultApi.md#getwinerecommendation) | **GET** /food/wine/recommendation | Get Wine Recommendation
 *DefaultApi* | [**GuessNutritionByDishName**](docs/DefaultApi.md#guessnutritionbydishname) | **GET** /recipes/guessNutrition | Guess Nutrition by Dish Name
+*DefaultApi* | [**ImageAnalysisByURL**](docs/DefaultApi.md#imageanalysisbyurl) | **GET** /food/images/analyze | Image Analysis by URL
+*DefaultApi* | [**ImageClassificationByURL**](docs/DefaultApi.md#imageclassificationbyurl) | **GET** /food/images/classify | Image Classification by URL
 *DefaultApi* | [**MapIngredientsToGroceryProducts**](docs/DefaultApi.md#mapingredientstogroceryproducts) | **POST** /food/ingredients/map | Map Ingredients to Grocery Products
 *DefaultApi* | [**ParseIngredients**](docs/DefaultApi.md#parseingredients) | **POST** /recipes/parseIngredients | Parse Ingredients
 *DefaultApi* | [**QuickAnswer**](docs/DefaultApi.md#quickanswer) | **GET** /recipes/quickAnswer | Quick Answer
+*DefaultApi* | [**SearchCustomFoods**](docs/DefaultApi.md#searchcustomfoods) | **GET** /food/customFoods/search | Search Custom Foods
 *DefaultApi* | [**SearchFoodVideos**](docs/DefaultApi.md#searchfoodvideos) | **GET** /food/videos/search | Search Food Videos
 *DefaultApi* | [**SearchGroceryProducts**](docs/DefaultApi.md#searchgroceryproducts) | **GET** /food/products/search | Search Grocery Products
 *DefaultApi* | [**SearchGroceryProductsByUPC**](docs/DefaultApi.md#searchgroceryproductsbyupc) | **GET** /food/products/upc/{upc} | Search Grocery Products by UPC
@@ -143,6 +157,11 @@ Class | Method | HTTP request | Description
 
  - [spoonacular.Model.InlineObject](docs/InlineObject.md)
  - [spoonacular.Model.InlineObject1](docs/InlineObject1.md)
+ - [spoonacular.Model.InlineObject10](docs/InlineObject10.md)
+ - [spoonacular.Model.InlineObject11](docs/InlineObject11.md)
+ - [spoonacular.Model.InlineObject12](docs/InlineObject12.md)
+ - [spoonacular.Model.InlineObject13](docs/InlineObject13.md)
+ - [spoonacular.Model.InlineObject14](docs/InlineObject14.md)
  - [spoonacular.Model.InlineObject2](docs/InlineObject2.md)
  - [spoonacular.Model.InlineObject3](docs/InlineObject3.md)
  - [spoonacular.Model.InlineObject4](docs/InlineObject4.md)

@@ -58,6 +58,64 @@ import qualified Prelude as P
 
 -- ** Default
 
+-- *** addToMealPlan
+
+-- | @POST \/mealplanner\/{username}\/items@
+-- 
+-- Add to Meal Plan
+-- 
+-- Add an item to the user's meal plan.
+-- 
+addToMealPlan 
+  :: (Consumes AddToMealPlan , MimeRender  InlineObject9)
+  => InlineObject9 -- ^ "inlineObject9"
+  -> Username -- ^ "username" -  The username.
+  -> Hash -- ^ "hash" -  The private hash for the username.
+  -> SpoonacularRequest AddToMealPlan  A.Value MimeJSON
+addToMealPlan inlineObject9 (Username username) (Hash hash) =
+  _mkRequest "POST" ["/mealplanner/",toPath username,"/items"]
+    `setBodyParam` inlineObject9
+    `setQuery` toQuery ("hash", Just hash)
+
+data AddToMealPlan 
+instance HasBodyParam AddToMealPlan InlineObject9 
+
+-- | @@
+instance Consumes AddToMealPlan 
+
+-- | @application/json@
+instance Produces AddToMealPlan MimeJSON
+
+
+-- *** addToShoppingList
+
+-- | @POST \/mealplanner\/{username}\/shopping-list\/items@
+-- 
+-- Add to Shopping List
+-- 
+-- Add an item to the current shopping list of a user.
+-- 
+addToShoppingList 
+  :: (Consumes AddToShoppingList , MimeRender  InlineObject12)
+  => InlineObject12 -- ^ "inlineObject12"
+  -> Username -- ^ "username" -  The username.
+  -> Hash -- ^ "hash" -  The private hash for the username.
+  -> SpoonacularRequest AddToShoppingList  A.Value MimeJSON
+addToShoppingList inlineObject12 (Username username) (Hash hash) =
+  _mkRequest "POST" ["/mealplanner/",toPath username,"/shopping-list/items"]
+    `setBodyParam` inlineObject12
+    `setQuery` toQuery ("hash", Just hash)
+
+data AddToShoppingList 
+instance HasBodyParam AddToShoppingList InlineObject12 
+
+-- | @@
+instance Consumes AddToShoppingList 
+
+-- | @application/json@
+instance Produces AddToShoppingList MimeJSON
+
+
 -- *** analyzeARecipeSearchQuery
 
 -- | @GET \/recipes\/queries\/analyze@
@@ -387,6 +445,66 @@ instance Consumes CreateRecipeCard MimeMultipartFormData
 instance Produces CreateRecipeCard MimeJSON
 
 
+-- *** deleteFromMealPlan
+
+-- | @DELETE \/mealplanner\/{username}\/items\/{id}@
+-- 
+-- Delete from Meal Plan
+-- 
+-- Delete an item from the user's meal plan.
+-- 
+deleteFromMealPlan 
+  :: (Consumes DeleteFromMealPlan , MimeRender  InlineObject10)
+  => InlineObject10 -- ^ "inlineObject10"
+  -> Username -- ^ "username" -  The username.
+  -> Id -- ^ "id" -  The shopping list item id.
+  -> Hash -- ^ "hash" -  The private hash for the username.
+  -> SpoonacularRequest DeleteFromMealPlan  A.Value MimeJSON
+deleteFromMealPlan inlineObject10 (Username username) (Id id) (Hash hash) =
+  _mkRequest "DELETE" ["/mealplanner/",toPath username,"/items/",toPath id]
+    `setBodyParam` inlineObject10
+    `setQuery` toQuery ("hash", Just hash)
+
+data DeleteFromMealPlan 
+instance HasBodyParam DeleteFromMealPlan InlineObject10 
+
+-- | @@
+instance Consumes DeleteFromMealPlan 
+
+-- | @application/json@
+instance Produces DeleteFromMealPlan MimeJSON
+
+
+-- *** deleteFromShoppingList
+
+-- | @DELETE \/mealplanner\/{username}\/shopping-list\/items\/{id}@
+-- 
+-- Delete from Shopping List
+-- 
+-- Delete an item from the current shopping list of the user.
+-- 
+deleteFromShoppingList 
+  :: (Consumes DeleteFromShoppingList , MimeRender  InlineObject13)
+  => InlineObject13 -- ^ "inlineObject13"
+  -> Username -- ^ "username" -  The username.
+  -> Id -- ^ "id" -  The shopping list item id.
+  -> Hash -- ^ "hash" -  The private hash for the username.
+  -> SpoonacularRequest DeleteFromShoppingList  A.Value MimeJSON
+deleteFromShoppingList inlineObject13 (Username username) (Id id) (Hash hash) =
+  _mkRequest "DELETE" ["/mealplanner/",toPath username,"/shopping-list/items/",toPath id]
+    `setBodyParam` inlineObject13
+    `setQuery` toQuery ("hash", Just hash)
+
+data DeleteFromShoppingList 
+instance HasBodyParam DeleteFromShoppingList InlineObject13 
+
+-- | @@
+instance Consumes DeleteFromShoppingList 
+
+-- | @application/json@
+instance Produces DeleteFromShoppingList MimeJSON
+
+
 -- *** detectFoodInText
 
 -- | @POST \/food\/detect@
@@ -433,6 +551,11 @@ data ExtractRecipeFromWebsite
 instance HasOptionalParam ExtractRecipeFromWebsite ForceExtraction where
   applyOptionalParam req (ForceExtraction xs) =
     req `setQuery` toQuery ("forceExtraction", Just xs)
+
+-- | /Optional Param/ "analyze" - If true, the recipe will be analyzed and classified resolving in more data such as cuisines, dish types, and more.
+instance HasOptionalParam ExtractRecipeFromWebsite Analyze where
+  applyOptionalParam req (Analyze xs) =
+    req `setQuery` toQuery ("analyze", Just xs)
 -- | @application/json@
 instance Produces ExtractRecipeFromWebsite MimeJSON
 
@@ -473,6 +596,37 @@ instance HasOptionalParam GenerateMealPlan Exclude where
     req `setQuery` toQuery ("exclude", Just xs)
 -- | @application/json@
 instance Produces GenerateMealPlan MimeJSON
+
+
+-- *** generateShoppingList
+
+-- | @POST \/mealplanner\/{username}\/shopping-list\/{start-date}\/{end-date}@
+-- 
+-- Generate Shopping List
+-- 
+-- Generate the shopping list for a user from the meal planner in a given time frame.
+-- 
+generateShoppingList 
+  :: (Consumes GenerateShoppingList , MimeRender  InlineObject11)
+  => InlineObject11 -- ^ "inlineObject11"
+  -> Username -- ^ "username" -  The username.
+  -> StartDate -- ^ "startDate" -  The start date in the format yyyy-mm-dd.
+  -> EndDate -- ^ "endDate" -  The end date in the format yyyy-mm-dd.
+  -> Hash -- ^ "hash" -  The private hash for the username.
+  -> SpoonacularRequest GenerateShoppingList  A.Value MimeJSON
+generateShoppingList inlineObject11 (Username username) (StartDate startDate) (EndDate endDate) (Hash hash) =
+  _mkRequest "POST" ["/mealplanner/",toPath username,"/shopping-list/",toPath startDate,"/",toPath endDate]
+    `setBodyParam` inlineObject11
+    `setQuery` toQuery ("hash", Just hash)
+
+data GenerateShoppingList 
+instance HasBodyParam GenerateShoppingList InlineObject11 
+
+-- | @@
+instance Consumes GenerateShoppingList 
+
+-- | @application/json@
+instance Produces GenerateShoppingList MimeJSON
 
 
 -- *** getARandomFoodJoke
@@ -649,6 +803,71 @@ data GetIngredientSubstitutesByID
 instance Produces GetIngredientSubstitutesByID MimeJSON
 
 
+-- *** getMealPlanTemplate
+
+-- | @GET \/mealplanner\/{username}\/templates\/{id}@
+-- 
+-- Get Meal Plan Template
+-- 
+-- Get information about a meal plan template.
+-- 
+getMealPlanTemplate 
+  :: Username -- ^ "username" -  The username.
+  -> Id -- ^ "id" -  The shopping list item id.
+  -> Hash -- ^ "hash" -  The private hash for the username.
+  -> SpoonacularRequest GetMealPlanTemplate MimeNoContent A.Value MimeJSON
+getMealPlanTemplate (Username username) (Id id) (Hash hash) =
+  _mkRequest "GET" ["/mealplanner/",toPath username,"/templates/",toPath id]
+    `setQuery` toQuery ("hash", Just hash)
+
+data GetMealPlanTemplate  
+-- | @application/json@
+instance Produces GetMealPlanTemplate MimeJSON
+
+
+-- *** getMealPlanTemplates
+
+-- | @GET \/mealplanner\/{username}\/templates@
+-- 
+-- Get Meal Plan Templates
+-- 
+-- Get meal plan templates from user or public ones.
+-- 
+getMealPlanTemplates 
+  :: Username -- ^ "username" -  The username.
+  -> Hash -- ^ "hash" -  The private hash for the username.
+  -> SpoonacularRequest GetMealPlanTemplates MimeNoContent A.Value MimeJSON
+getMealPlanTemplates (Username username) (Hash hash) =
+  _mkRequest "GET" ["/mealplanner/",toPath username,"/templates"]
+    `setQuery` toQuery ("hash", Just hash)
+
+data GetMealPlanTemplates  
+-- | @application/json@
+instance Produces GetMealPlanTemplates MimeJSON
+
+
+-- *** getMealPlanWeek
+
+-- | @GET \/mealplanner\/{username}\/week\/{start-date}@
+-- 
+-- Get Meal Plan Week
+-- 
+-- Retrieve a meal planned week for the given user. The username must be a spoonacular user and the hash must the the user's hash that can be found in his/her account.
+-- 
+getMealPlanWeek 
+  :: Username -- ^ "username" -  The username.
+  -> StartDate -- ^ "startDate" -  The start date of the meal planned week in the format yyyy-mm-dd.
+  -> Hash -- ^ "hash" -  The private hash for the username.
+  -> SpoonacularRequest GetMealPlanWeek MimeNoContent A.Value MimeJSON
+getMealPlanWeek (Username username) (StartDate startDate) (Hash hash) =
+  _mkRequest "GET" ["/mealplanner/",toPath username,"/week/",toPath startDate]
+    `setQuery` toQuery ("hash", Just hash)
+
+data GetMealPlanWeek  
+-- | @application/json@
+instance Produces GetMealPlanWeek MimeJSON
+
+
 -- *** getMenuItemInformation
 
 -- | @GET \/food\/menuItems\/{id}@
@@ -674,7 +893,7 @@ instance Produces GetMenuItemInformation MimeJSON
 -- 
 -- Get Product Information
 -- 
--- Use a product id to get full information about a product, such as ingredients, nutrition, etc.
+-- Use a product id to get full information about a product, such as ingredients, nutrition, etc. The nutritional information is per serving.
 -- 
 getProductInformation 
   :: Id -- ^ "id" -  The id of the packaged food.
@@ -863,6 +1082,27 @@ data GetRecipePriceBreakdownByID
 instance Produces GetRecipePriceBreakdownByID MimeJSON
 
 
+-- *** getShoppingList
+
+-- | @GET \/mealplanner\/{username}\/shopping-list@
+-- 
+-- Get Shopping List
+-- 
+-- Get the current shopping list for the given user.
+-- 
+getShoppingList 
+  :: Username -- ^ "username" -  The username.
+  -> Hash -- ^ "hash" -  The private hash for the username.
+  -> SpoonacularRequest GetShoppingList MimeNoContent A.Value MimeJSON
+getShoppingList (Username username) (Hash hash) =
+  _mkRequest "GET" ["/mealplanner/",toPath username,"/shopping-list"]
+    `setQuery` toQuery ("hash", Just hash)
+
+data GetShoppingList  
+-- | @application/json@
+instance Produces GetShoppingList MimeJSON
+
+
 -- *** getSimilarRecipes
 
 -- | @GET \/recipes\/{id}\/similar@
@@ -883,6 +1123,11 @@ data GetSimilarRecipes
 instance HasOptionalParam GetSimilarRecipes Number where
   applyOptionalParam req (Number xs) =
     req `setQuery` toQuery ("number", Just xs)
+
+-- | /Optional Param/ "limitLicense" - Whether the recipes should have an open license that allows display with proper attribution.
+instance HasOptionalParam GetSimilarRecipes LimitLicense where
+  applyOptionalParam req (LimitLicense xs) =
+    req `setQuery` toQuery ("limitLicense", Just xs)
 -- | @application/json@
 instance Produces GetSimilarRecipes MimeJSON
 
@@ -987,6 +1232,46 @@ data GuessNutritionByDishName
 instance Produces GuessNutritionByDishName MimeJSON
 
 
+-- *** imageAnalysisByURL
+
+-- | @GET \/food\/images\/analyze@
+-- 
+-- Image Analysis by URL
+-- 
+-- Analyze a food image. The API tries to classify the image, guess the nutrition, and find a matching recipes. You can play around with that endpoint!
+-- 
+imageAnalysisByURL 
+  :: ImageUrl -- ^ "imageUrl" -  The URL of the image to be analyzed.
+  -> SpoonacularRequest ImageAnalysisByURL MimeNoContent A.Value MimeJSON
+imageAnalysisByURL (ImageUrl imageUrl) =
+  _mkRequest "GET" ["/food/images/analyze"]
+    `setQuery` toQuery ("imageUrl", Just imageUrl)
+
+data ImageAnalysisByURL  
+-- | @application/json@
+instance Produces ImageAnalysisByURL MimeJSON
+
+
+-- *** imageClassificationByURL
+
+-- | @GET \/food\/images\/classify@
+-- 
+-- Image Classification by URL
+-- 
+-- Classify a food image. You can play around with that endpoint!
+-- 
+imageClassificationByURL 
+  :: ImageUrl -- ^ "imageUrl" -  The URL of the image to be classified.
+  -> SpoonacularRequest ImageClassificationByURL MimeNoContent A.Value MimeJSON
+imageClassificationByURL (ImageUrl imageUrl) =
+  _mkRequest "GET" ["/food/images/classify"]
+    `setQuery` toQuery ("imageUrl", Just imageUrl)
+
+data ImageClassificationByURL  
+-- | @application/json@
+instance Produces ImageClassificationByURL MimeJSON
+
+
 -- *** mapIngredientsToGroceryProducts
 
 -- | @POST \/food\/ingredients\/map@
@@ -1063,6 +1348,40 @@ quickAnswer (Q q) =
 data QuickAnswer  
 -- | @application/json@
 instance Produces QuickAnswer MimeJSON
+
+
+-- *** searchCustomFoods
+
+-- | @GET \/food\/customFoods\/search@
+-- 
+-- Search Custom Foods
+-- 
+-- Search custom foods in a user's account.
+-- 
+searchCustomFoods 
+  :: Query -- ^ "query" -  The search query.
+  -> Username -- ^ "username" -  The username.
+  -> Hash -- ^ "hash" -  The private hash for the username.
+  -> SpoonacularRequest SearchCustomFoods MimeNoContent A.Value MimeJSON
+searchCustomFoods (Query query) (Username username) (Hash hash) =
+  _mkRequest "GET" ["/food/customFoods/search"]
+    `setQuery` toQuery ("query", Just query)
+    `setQuery` toQuery ("username", Just username)
+    `setQuery` toQuery ("hash", Just hash)
+
+data SearchCustomFoods  
+
+-- | /Optional Param/ "offset" - The number of results to skip (between 0 and 990).
+instance HasOptionalParam SearchCustomFoods Offset where
+  applyOptionalParam req (Offset xs) =
+    req `setQuery` toQuery ("offset", Just xs)
+
+-- | /Optional Param/ "number" - The number of expected results (between 1 and 100).
+instance HasOptionalParam SearchCustomFoods Number where
+  applyOptionalParam req (Number xs) =
+    req `setQuery` toQuery ("number", Just xs)
+-- | @application/json@
+instance Produces SearchCustomFoods MimeJSON
 
 
 -- *** searchFoodVideos
@@ -1187,7 +1506,7 @@ instance HasOptionalParam SearchGroceryProducts MaxFat where
   applyOptionalParam req (MaxFat xs) =
     req `setQuery` toQuery ("maxFat", Just xs)
 
--- | /Optional Param/ "offset" - The offset number for paging (between 0 and 990).
+-- | /Optional Param/ "offset" - The number of results to skip (between 0 and 990).
 instance HasOptionalParam SearchGroceryProducts Offset where
   applyOptionalParam req (Offset xs) =
     req `setQuery` toQuery ("offset", Just xs)
@@ -1355,7 +1674,7 @@ instance Produces SearchRecipes MimeJSON
 -- 
 -- Search Recipes by Ingredients
 -- 
--- Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don't currently have (post shopping).
+--              Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don't currently have (post shopping).         
 -- 
 searchRecipesByIngredients 
   :: Ingredients -- ^ "ingredients" -  A comma-separated list of ingredients that the recipes should contain.
@@ -1764,7 +2083,7 @@ instance HasOptionalParam SearchRecipesByNutrients MaxZinc where
   applyOptionalParam req (MaxZinc xs) =
     req `setQuery` toQuery ("maxZinc", Just xs)
 
--- | /Optional Param/ "offset" - The offset number for paging (between 0 and 990).
+-- | /Optional Param/ "offset" - The number of results to skip (between 0 and 900).
 instance HasOptionalParam SearchRecipesByNutrients Offset where
   applyOptionalParam req (Offset xs) =
     req `setQuery` toQuery ("offset", Just xs)
@@ -1849,25 +2168,35 @@ instance HasOptionalParam SearchRecipesComplex InstructionsRequired where
   applyOptionalParam req (InstructionsRequired xs) =
     req `setQuery` toQuery ("instructionsRequired", Just xs)
 
--- | /Optional Param/ "fillIngredients" - Add information about the used and missing ingredients in each recipe.
+-- | /Optional Param/ "fillIngredients" - Add information about the ingredients and whether they are used or missing in relation to the query.
 instance HasOptionalParam SearchRecipesComplex FillIngredients where
   applyOptionalParam req (FillIngredients xs) =
     req `setQuery` toQuery ("fillIngredients", Just xs)
 
--- | /Optional Param/ "addRecipeInformation" - If set to true, you get more information about the recipes returned. This saves you from needing to call to get recipe information.
+-- | /Optional Param/ "addRecipeInformation" - If set to true, you get more information about the recipes returned.
 instance HasOptionalParam SearchRecipesComplex AddRecipeInformation where
   applyOptionalParam req (AddRecipeInformation xs) =
     req `setQuery` toQuery ("addRecipeInformation", Just xs)
+
+-- | /Optional Param/ "addRecipeNutrition" - If set to true, you get nutritional information about each recipes returned.
+instance HasOptionalParam SearchRecipesComplex AddRecipeNutrition where
+  applyOptionalParam req (AddRecipeNutrition xs) =
+    req `setQuery` toQuery ("addRecipeNutrition", Just xs)
 
 -- | /Optional Param/ "author" - The username of the recipe author.
 instance HasOptionalParam SearchRecipesComplex Author where
   applyOptionalParam req (Author xs) =
     req `setQuery` toQuery ("author", Just xs)
 
--- | /Optional Param/ "tags" - User defined tags that have to match.
+-- | /Optional Param/ "tags" - User defined tags that have to match. The author param has to be set.
 instance HasOptionalParam SearchRecipesComplex Tags where
   applyOptionalParam req (Tags xs) =
     req `setQuery` toQuery ("tags", Just xs)
+
+-- | /Optional Param/ "recipeBoxId" - The id of the recipe box to which the search should be limited to.
+instance HasOptionalParam SearchRecipesComplex RecipeBoxId where
+  applyOptionalParam req (RecipeBoxId xs) =
+    req `setQuery` toQuery ("recipeBoxId", Just xs)
 
 -- | /Optional Param/ "titleMatch" - Enter text that must be found in the title of the recipes.
 instance HasOptionalParam SearchRecipesComplex TitleMatch where
@@ -2254,12 +2583,12 @@ instance HasOptionalParam SearchRecipesComplex MaxZinc where
   applyOptionalParam req (MaxZinc xs) =
     req `setQuery` toQuery ("maxZinc", Just xs)
 
--- | /Optional Param/ "offset" - The offset number for paging (between 0 and 990).
+-- | /Optional Param/ "offset" - The number of results to skip (between 0 and 900).
 instance HasOptionalParam SearchRecipesComplex Offset where
   applyOptionalParam req (Offset xs) =
     req `setQuery` toQuery ("offset", Just xs)
 
--- | /Optional Param/ "number" - The number of expected results (between 1 and 10).
+-- | /Optional Param/ "number" - The number of expected results (between 1 and 100).
 instance HasOptionalParam SearchRecipesComplex Number where
   applyOptionalParam req (Number xs) =
     req `setQuery` toQuery ("number", Just xs)

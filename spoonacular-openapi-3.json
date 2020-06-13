@@ -1233,7 +1233,7 @@
           },
           {
             "name": "offset",
-            "description": "The offset number for paging (between 0 and 990).",
+            "description": "The number of results to skip (between 0 and 900).",
             "schema": {
               "type": "number",
               "example": 0
@@ -1437,7 +1437,7 @@
           },
           {
             "name": "fillIngredients",
-            "description": "Add information about the used and missing ingredients in each recipe.",
+            "description": "Add information about the ingredients and whether they are used or missing in relation to the query.",
             "schema": {
               "type": "boolean",
               "example": false
@@ -1449,7 +1449,19 @@
           },
           {
             "name": "addRecipeInformation",
-            "description": "If set to true, you get more information about the recipes returned. This saves you from needing to call to get recipe information.",
+            "description": "If set to true, you get more information about the recipes returned.",
+            "schema": {
+              "type": "boolean",
+              "example": false
+            },
+            "required": false,
+            "style": "form",
+            "explode": false,
+            "in": "query"
+          },
+          {
+            "name": "addRecipeNutrition",
+            "description": "If set to true, you get nutritional information about each recipes returned.",
             "schema": {
               "type": "boolean",
               "example": false
@@ -1473,10 +1485,22 @@
           },
           {
             "name": "tags",
-            "description": "User defined tags that have to match.",
+            "description": "User defined tags that have to match. The author param has to be set.",
             "schema": {
               "type": "string",
               "example": "myCustomTag"
+            },
+            "required": false,
+            "style": "form",
+            "explode": false,
+            "in": "query"
+          },
+          {
+            "name": "recipeBoxId",
+            "description": "The id of the recipe box to which the search should be limited to.",
+            "schema": {
+              "type": "number",
+              "example": 2468
             },
             "required": false,
             "style": "form",
@@ -2409,7 +2433,7 @@
           },
           {
             "name": "offset",
-            "description": "The offset number for paging (between 0 and 990).",
+            "description": "The number of results to skip (between 0 and 900).",
             "schema": {
               "type": "number",
               "example": 0
@@ -2421,10 +2445,10 @@
           },
           {
             "name": "number",
-            "description": "The number of expected results (between 1 and 10).",
+            "description": "The number of expected results (between 1 and 100).",
             "schema": {
               "type": "number",
-              "example": 5
+              "example": 10
             },
             "required": false,
             "style": "form",
@@ -2617,6 +2641,18 @@
             "schema": {
               "type": "number",
               "example": 1
+            },
+            "required": false,
+            "style": "form",
+            "explode": false,
+            "in": "query"
+          },
+          {
+            "name": "limitLicense",
+            "description": "Whether the recipes should have an open license that allows display with proper attribution.",
+            "schema": {
+              "type": "boolean",
+              "example": true
             },
             "required": false,
             "style": "form",
@@ -3061,6 +3097,18 @@
             "schema": {
               "type": "boolean",
               "example": true
+            },
+            "required": false,
+            "style": "form",
+            "explode": false,
+            "in": "query"
+          },
+          {
+            "name": "analyze",
+            "description": "If true, the recipe will be analyzed and classified resolving in more data such as cuisines, dish types, and more.",
+            "schema": {
+              "type": "boolean",
+              "example": false
             },
             "required": false,
             "style": "form",
@@ -4265,7 +4313,7 @@
           "url": "https://spoonacular.com/food-api/docs#Get-Product-Information"
         },
         "summary": "Get Product Information",
-        "description": "Use a product id to get full information about a product, such as ingredients, nutrition, etc.",
+        "description": "Use a product id to get full information about a product, such as ingredients, nutrition, etc. The nutritional information is per serving.",
         "operationId": "getProductInformation",
         "deprecated": false
       }
@@ -4405,7 +4453,7 @@
           },
           {
             "name": "offset",
-            "description": "The offset number for paging (between 0 and 990).",
+            "description": "The number of results to skip (between 0 and 990).",
             "schema": {
               "type": "number",
               "example": 0
@@ -4468,7 +4516,7 @@
             "description": "The product's UPC.",
             "schema": {
               "type": "number",
-              "example": 41631000564
+              "example": 4.1631000564E10
             },
             "required": true,
             "style": "simple",
@@ -4483,6 +4531,102 @@
         "summary": "Search Grocery Products by UPC",
         "description": "Get information about a packaged food using its UPC.",
         "operationId": "searchGroceryProductsByUPC",
+        "deprecated": false
+      }
+    },
+    "/food/customFoods/search": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "parameters": [
+          {
+            "name": "query",
+            "description": "The search query.",
+            "schema": {
+              "type": "string",
+              "example": "brat"
+            },
+            "required": true,
+            "style": "form",
+            "explode": false,
+            "in": "query"
+          },
+          {
+            "name": "username",
+            "description": "The username.",
+            "schema": {
+              "type": "string",
+              "example": "dsky"
+            },
+            "required": true,
+            "style": "form",
+            "explode": false,
+            "in": "query"
+          },
+          {
+            "name": "hash",
+            "description": "The private hash for the username.",
+            "schema": {
+              "type": "string",
+              "example": "4b5v4398573406"
+            },
+            "required": true,
+            "style": "form",
+            "explode": false,
+            "in": "query"
+          },
+          {
+            "name": "offset",
+            "description": "The number of results to skip (between 0 and 990).",
+            "schema": {
+              "type": "number",
+              "example": 0
+            },
+            "required": false,
+            "style": "form",
+            "explode": false,
+            "in": "query"
+          },
+          {
+            "name": "number",
+            "description": "The number of expected results (between 1 and 100).",
+            "schema": {
+              "type": "number",
+              "example": 10
+            },
+            "required": false,
+            "style": "form",
+            "explode": false,
+            "in": "query"
+          }
+        ],
+        "externalDocs": {
+          "description": "Read entire docs",
+          "url": "https://spoonacular.com/food-api/docs#Search-Custom-Foods"
+        },
+        "summary": "Search Custom Foods",
+        "description": "Search custom foods in a user's account.",
+        "operationId": "searchCustomFoods",
         "deprecated": false
       }
     },
@@ -4516,7 +4660,7 @@
             "description": "The UPC of the product for which you want to find comparable products.",
             "schema": {
               "type": "number",
-              "example": 33698816271.0
+              "example": 3.3698816271E10
             },
             "required": true,
             "style": "simple",
@@ -5361,6 +5505,772 @@
         "deprecated": false
       }
     },
+    "/mealplanner/{username}/week/{start-date}": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "parameters": [
+          {
+            "name": "username",
+            "description": "The username.",
+            "schema": {
+              "type": "string",
+              "example": "dsky"
+            },
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "in": "path"
+          },
+          {
+            "name": "start-date",
+            "description": "The start date of the meal planned week in the format yyyy-mm-dd.",
+            "schema": {
+              "type": "string",
+              "example": "2020-06-01"
+            },
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "in": "path"
+          },
+          {
+            "name": "hash",
+            "description": "The private hash for the username.",
+            "schema": {
+              "type": "string",
+              "example": "4b5v4398573406"
+            },
+            "required": true,
+            "style": "form",
+            "explode": false,
+            "in": "query"
+          }
+        ],
+        "externalDocs": {
+          "description": "Read entire docs",
+          "url": "https://spoonacular.com/food-api/docs#Get-Meal-Plan-Week"
+        },
+        "summary": "Get Meal Plan Week",
+        "description": "Retrieve a meal planned week for the given user. The username must be a spoonacular user and the hash must the the user's hash that can be found in his/her account.",
+        "operationId": "getMealPlanWeek",
+        "deprecated": false
+      }
+    },
+    "/mealplanner/{username}/items": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "": {
+              "schema": {
+                "required": [
+                  "username",
+                  "hash"
+                ],
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string",
+                    "description": "The username.",
+                    "example": "dsky"
+                  },
+                  "hash": {
+                    "type": "string",
+                    "description": "The private hash for the username.",
+                    "example": "4b5v4398573406"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "username",
+            "description": "The username.",
+            "schema": {
+              "type": "string",
+              "example": "dsky"
+            },
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "in": "path"
+          },
+          {
+            "name": "hash",
+            "description": "The private hash for the username.",
+            "schema": {
+              "type": "string",
+              "example": "4b5v4398573406"
+            },
+            "required": true,
+            "style": "form",
+            "explode": false,
+            "in": "query"
+          }
+        ],
+        "externalDocs": {
+          "description": "Read entire docs",
+          "url": "https://spoonacular.com/food-api/docs#Add-to-Meal-Plan"
+        },
+        "summary": "Add to Meal Plan",
+        "description": "Add an item to the user's meal plan.",
+        "operationId": "addToMealPlan",
+        "deprecated": false
+      }
+    },
+    "/mealplanner/{username}/items/{id}": {
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "": {
+              "schema": {
+                "required": [
+                  "username",
+                  "id",
+                  "hash"
+                ],
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string",
+                    "description": "The username.",
+                    "example": "dsky"
+                  },
+                  "id": {
+                    "type": "number",
+                    "description": "The shopping list item id.",
+                    "example": 15678
+                  },
+                  "hash": {
+                    "type": "string",
+                    "description": "The private hash for the username.",
+                    "example": "4b5v4398573406"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "username",
+            "description": "The username.",
+            "schema": {
+              "type": "string",
+              "example": "dsky"
+            },
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "in": "path"
+          },
+          {
+            "name": "id",
+            "description": "The shopping list item id.",
+            "schema": {
+              "type": "number",
+              "example": 15678
+            },
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "in": "path"
+          },
+          {
+            "name": "hash",
+            "description": "The private hash for the username.",
+            "schema": {
+              "type": "string",
+              "example": "4b5v4398573406"
+            },
+            "required": true,
+            "style": "form",
+            "explode": false,
+            "in": "query"
+          }
+        ],
+        "externalDocs": {
+          "description": "Read entire docs",
+          "url": "https://spoonacular.com/food-api/docs#Delete-from-Meal-Plan"
+        },
+        "summary": "Delete from Meal Plan",
+        "description": "Delete an item from the user's meal plan.",
+        "operationId": "deleteFromMealPlan",
+        "deprecated": false
+      }
+    },
+    "/mealplanner/{username}/templates": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "parameters": [
+          {
+            "name": "username",
+            "description": "The username.",
+            "schema": {
+              "type": "string",
+              "example": "dsky"
+            },
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "in": "path"
+          },
+          {
+            "name": "hash",
+            "description": "The private hash for the username.",
+            "schema": {
+              "type": "string",
+              "example": "4b5v4398573406"
+            },
+            "required": true,
+            "style": "form",
+            "explode": false,
+            "in": "query"
+          }
+        ],
+        "externalDocs": {
+          "description": "Read entire docs",
+          "url": "https://spoonacular.com/food-api/docs#Get-Meal-Plan-Templates"
+        },
+        "summary": "Get Meal Plan Templates",
+        "description": "Get meal plan templates from user or public ones.",
+        "operationId": "getMealPlanTemplates",
+        "deprecated": false
+      }
+    },
+    "/mealplanner/{username}/templates/{id}": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "parameters": [
+          {
+            "name": "username",
+            "description": "The username.",
+            "schema": {
+              "type": "string",
+              "example": "dsky"
+            },
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "in": "path"
+          },
+          {
+            "name": "id",
+            "description": "The shopping list item id.",
+            "schema": {
+              "type": "number",
+              "example": 15678
+            },
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "in": "path"
+          },
+          {
+            "name": "hash",
+            "description": "The private hash for the username.",
+            "schema": {
+              "type": "string",
+              "example": "4b5v4398573406"
+            },
+            "required": true,
+            "style": "form",
+            "explode": false,
+            "in": "query"
+          }
+        ],
+        "externalDocs": {
+          "description": "Read entire docs",
+          "url": "https://spoonacular.com/food-api/docs#Get-Meal-Plan-Template"
+        },
+        "summary": "Get Meal Plan Template",
+        "description": "Get information about a meal plan template.",
+        "operationId": "getMealPlanTemplate",
+        "deprecated": false
+      }
+    },
+    "/mealplanner/{username}/shopping-list": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "parameters": [
+          {
+            "name": "username",
+            "description": "The username.",
+            "schema": {
+              "type": "string",
+              "example": "dsky"
+            },
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "in": "path"
+          },
+          {
+            "name": "hash",
+            "description": "The private hash for the username.",
+            "schema": {
+              "type": "string",
+              "example": "4b5v4398573406"
+            },
+            "required": true,
+            "style": "form",
+            "explode": false,
+            "in": "query"
+          }
+        ],
+        "externalDocs": {
+          "description": "Read entire docs",
+          "url": "https://spoonacular.com/food-api/docs#Get-Shopping-List"
+        },
+        "summary": "Get Shopping List",
+        "description": "Get the current shopping list for the given user.",
+        "operationId": "getShoppingList",
+        "deprecated": false
+      }
+    },
+    "/mealplanner/{username}/shopping-list/{start-date}/{end-date}": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "": {
+              "schema": {
+                "required": [
+                  "username",
+                  "start-date",
+                  "end-date",
+                  "hash"
+                ],
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string",
+                    "description": "The username.",
+                    "example": "dsky"
+                  },
+                  "start-date": {
+                    "type": "string",
+                    "description": "The start date in the format yyyy-mm-dd.",
+                    "example": "2020-06-01"
+                  },
+                  "end-date": {
+                    "type": "string",
+                    "description": "The end date in the format yyyy-mm-dd.",
+                    "example": "2020-06-07"
+                  },
+                  "hash": {
+                    "type": "string",
+                    "description": "The private hash for the username.",
+                    "example": "4b5v4398573406"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "username",
+            "description": "The username.",
+            "schema": {
+              "type": "string",
+              "example": "dsky"
+            },
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "in": "path"
+          },
+          {
+            "name": "start-date",
+            "description": "The start date in the format yyyy-mm-dd.",
+            "schema": {
+              "type": "string",
+              "example": "2020-06-01"
+            },
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "in": "path"
+          },
+          {
+            "name": "end-date",
+            "description": "The end date in the format yyyy-mm-dd.",
+            "schema": {
+              "type": "string",
+              "example": "2020-06-07"
+            },
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "in": "path"
+          },
+          {
+            "name": "hash",
+            "description": "The private hash for the username.",
+            "schema": {
+              "type": "string",
+              "example": "4b5v4398573406"
+            },
+            "required": true,
+            "style": "form",
+            "explode": false,
+            "in": "query"
+          }
+        ],
+        "externalDocs": {
+          "description": "Read entire docs",
+          "url": "https://spoonacular.com/food-api/docs#Generate-Shopping-List"
+        },
+        "summary": "Generate Shopping List",
+        "description": "Generate the shopping list for a user from the meal planner in a given time frame.",
+        "operationId": "generateShoppingList",
+        "deprecated": false
+      }
+    },
+    "/mealplanner/{username}/shopping-list/items": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "": {
+              "schema": {
+                "required": [
+                  "username",
+                  "hash"
+                ],
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string",
+                    "description": "The username.",
+                    "example": "dsky"
+                  },
+                  "hash": {
+                    "type": "string",
+                    "description": "The private hash for the username.",
+                    "example": "4b5v4398573406"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "username",
+            "description": "The username.",
+            "schema": {
+              "type": "string",
+              "example": "dsky"
+            },
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "in": "path"
+          },
+          {
+            "name": "hash",
+            "description": "The private hash for the username.",
+            "schema": {
+              "type": "string",
+              "example": "4b5v4398573406"
+            },
+            "required": true,
+            "style": "form",
+            "explode": false,
+            "in": "query"
+          }
+        ],
+        "externalDocs": {
+          "description": "Read entire docs",
+          "url": "https://spoonacular.com/food-api/docs#Add-to-Shopping-List"
+        },
+        "summary": "Add to Shopping List",
+        "description": "Add an item to the current shopping list of a user.",
+        "operationId": "addToShoppingList",
+        "deprecated": false
+      }
+    },
+    "/mealplanner/{username}/shopping-list/items/{id}": {
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "": {
+              "schema": {
+                "required": [
+                  "username",
+                  "id",
+                  "hash"
+                ],
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string",
+                    "description": "The username.",
+                    "example": "dsky"
+                  },
+                  "id": {
+                    "type": "number",
+                    "description": "The shopping list item id.",
+                    "example": 15678
+                  },
+                  "hash": {
+                    "type": "string",
+                    "description": "The private hash for the username.",
+                    "example": "4b5v4398573406"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "username",
+            "description": "The username.",
+            "schema": {
+              "type": "string",
+              "example": "dsky"
+            },
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "in": "path"
+          },
+          {
+            "name": "id",
+            "description": "The shopping list item id.",
+            "schema": {
+              "type": "number",
+              "example": 15678
+            },
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "in": "path"
+          },
+          {
+            "name": "hash",
+            "description": "The private hash for the username.",
+            "schema": {
+              "type": "string",
+              "example": "4b5v4398573406"
+            },
+            "required": true,
+            "style": "form",
+            "explode": false,
+            "in": "query"
+          }
+        ],
+        "externalDocs": {
+          "description": "Read entire docs",
+          "url": "https://spoonacular.com/food-api/docs#Delete-from-Shopping-List"
+        },
+        "summary": "Delete from Shopping List",
+        "description": "Delete an item from the current shopping list of the user.",
+        "operationId": "deleteFromShoppingList",
+        "deprecated": false
+      }
+    },
     "/food/wine/dishes": {
       "get": {
         "responses": {
@@ -5598,6 +6508,102 @@
         "summary": "Get Wine Recommendation",
         "description": "Get a specific wine recommendation (concrete product) for a given wine type, e.g. \"merlot\".",
         "operationId": "getWineRecommendation",
+        "deprecated": false
+      }
+    },
+    "/food/images/classify": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "parameters": [
+          {
+            "name": "imageUrl",
+            "description": "The URL of the image to be classified.",
+            "schema": {
+              "type": "string",
+              "example": "https://spoonacular.com/recipeImages/635350-240x150.jpg"
+            },
+            "required": true,
+            "style": "form",
+            "explode": false,
+            "in": "query"
+          }
+        ],
+        "externalDocs": {
+          "description": "Read entire docs",
+          "url": "https://spoonacular.com/food-api/docs#Image-Classification-by-URL"
+        },
+        "summary": "Image Classification by URL",
+        "description": "Classify a food image. You can play around with that endpoint!",
+        "operationId": "imageClassificationByURL",
+        "deprecated": false
+      }
+    },
+    "/food/images/analyze": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "parameters": [
+          {
+            "name": "imageUrl",
+            "description": "The URL of the image to be analyzed.",
+            "schema": {
+              "type": "string",
+              "example": "https://spoonacular.com/recipeImages/635350-240x150.jpg"
+            },
+            "required": true,
+            "style": "form",
+            "explode": false,
+            "in": "query"
+          }
+        ],
+        "externalDocs": {
+          "description": "Read entire docs",
+          "url": "https://spoonacular.com/food-api/docs#Image-Analysis-by-URL"
+        },
+        "summary": "Image Analysis by URL",
+        "description": "Analyze a food image. The API tries to classify the image, guess the nutrition, and find a matching recipes. You can play around with that endpoint!",
+        "operationId": "imageAnalysisByURL",
         "deprecated": false
       }
     },

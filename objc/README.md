@@ -44,6 +44,11 @@ Import the following:
 // load models
 #import <OpenAPIClient/OAIInlineObject.h>
 #import <OpenAPIClient/OAIInlineObject1.h>
+#import <OpenAPIClient/OAIInlineObject10.h>
+#import <OpenAPIClient/OAIInlineObject11.h>
+#import <OpenAPIClient/OAIInlineObject12.h>
+#import <OpenAPIClient/OAIInlineObject13.h>
+#import <OpenAPIClient/OAIInlineObject14.h>
 #import <OpenAPIClient/OAIInlineObject2.h>
 #import <OpenAPIClient/OAIInlineObject3.h>
 #import <OpenAPIClient/OAIInlineObject4.h>
@@ -68,12 +73,16 @@ Please follow the [installation procedure](#installation--usage) and then run th
 ```objc
 
 
-NSString* *q = salmon with fusilli and no nuts; // The recipe search query.
+NSString* *username = dsky; // The username.
+NSString* *hash = 4b5v4398573406; // The private hash for the username.
+OAIInlineObject9* *inlineObject9 = [[OAIInlineObject9 alloc] init]; // 
 
 OAIDefaultApi *apiInstance = [[OAIDefaultApi alloc] init];
 
-// Analyze a Recipe Search Query
-[apiInstance analyzeARecipeSearchQueryWithQ:q
+// Add to Meal Plan
+[apiInstance addToMealPlanWithUsername:username
+    hash:hash
+    inlineObject9:inlineObject9
               completionHandler: ^(NSObject* output, NSError* error) {
                             if (output) {
                                 NSLog(@"%@", output);
@@ -91,6 +100,8 @@ All URIs are relative to *https://api.spoonacular.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*OAIDefaultApi* | [**addToMealPlan**](docs/OAIDefaultApi.md#addtomealplan) | **POST** /mealplanner/{username}/items | Add to Meal Plan
+*OAIDefaultApi* | [**addToShoppingList**](docs/OAIDefaultApi.md#addtoshoppinglist) | **POST** /mealplanner/{username}/shopping-list/items | Add to Shopping List
 *OAIDefaultApi* | [**analyzeARecipeSearchQuery**](docs/OAIDefaultApi.md#analyzearecipesearchquery) | **GET** /recipes/queries/analyze | Analyze a Recipe Search Query
 *OAIDefaultApi* | [**analyzeRecipeInstructions**](docs/OAIDefaultApi.md#analyzerecipeinstructions) | **POST** /recipes/analyzeInstructions | Analyze Recipe Instructions
 *OAIDefaultApi* | [**autocompleteIngredientSearch**](docs/OAIDefaultApi.md#autocompleteingredientsearch) | **GET** /food/ingredients/autocomplete | Autocomplete Ingredient Search
@@ -102,9 +113,12 @@ Class | Method | HTTP request | Description
 *OAIDefaultApi* | [**classifyGroceryProductBulk**](docs/OAIDefaultApi.md#classifygroceryproductbulk) | **POST** /food/products/classifyBatch | Classify Grocery Product Bulk
 *OAIDefaultApi* | [**convertAmounts**](docs/OAIDefaultApi.md#convertamounts) | **GET** /recipes/convert | Convert Amounts
 *OAIDefaultApi* | [**createRecipeCard**](docs/OAIDefaultApi.md#createrecipecard) | **POST** /recipes/visualizeRecipe | Create Recipe Card
+*OAIDefaultApi* | [**deleteFromMealPlan**](docs/OAIDefaultApi.md#deletefrommealplan) | **DELETE** /mealplanner/{username}/items/{id} | Delete from Meal Plan
+*OAIDefaultApi* | [**deleteFromShoppingList**](docs/OAIDefaultApi.md#deletefromshoppinglist) | **DELETE** /mealplanner/{username}/shopping-list/items/{id} | Delete from Shopping List
 *OAIDefaultApi* | [**detectFoodInText**](docs/OAIDefaultApi.md#detectfoodintext) | **POST** /food/detect | Detect Food in Text
 *OAIDefaultApi* | [**extractRecipeFromWebsite**](docs/OAIDefaultApi.md#extractrecipefromwebsite) | **GET** /recipes/extract | Extract Recipe from Website
 *OAIDefaultApi* | [**generateMealPlan**](docs/OAIDefaultApi.md#generatemealplan) | **GET** /mealplanner/generate | Generate Meal Plan
+*OAIDefaultApi* | [**generateShoppingList**](docs/OAIDefaultApi.md#generateshoppinglist) | **POST** /mealplanner/{username}/shopping-list/{start-date}/{end-date} | Generate Shopping List
 *OAIDefaultApi* | [**getARandomFoodJoke**](docs/OAIDefaultApi.md#getarandomfoodjoke) | **GET** /food/jokes/random | Get a Random Food Joke
 *OAIDefaultApi* | [**getAnalyzedRecipeInstructions**](docs/OAIDefaultApi.md#getanalyzedrecipeinstructions) | **GET** /recipes/{id}/analyzedInstructions | Get Analyzed Recipe Instructions
 *OAIDefaultApi* | [**getComparableProducts**](docs/OAIDefaultApi.md#getcomparableproducts) | **GET** /food/products/upc/{upc}/comparable | Get Comparable Products
@@ -113,6 +127,9 @@ Class | Method | HTTP request | Description
 *OAIDefaultApi* | [**getIngredientInformation**](docs/OAIDefaultApi.md#getingredientinformation) | **GET** /food/ingredients/{id}/information | Get Ingredient Information
 *OAIDefaultApi* | [**getIngredientSubstitutes**](docs/OAIDefaultApi.md#getingredientsubstitutes) | **GET** /food/ingredients/substitutes | Get Ingredient Substitutes
 *OAIDefaultApi* | [**getIngredientSubstitutesByID**](docs/OAIDefaultApi.md#getingredientsubstitutesbyid) | **GET** /food/ingredients/{id}/substitutes | Get Ingredient Substitutes by ID
+*OAIDefaultApi* | [**getMealPlanTemplate**](docs/OAIDefaultApi.md#getmealplantemplate) | **GET** /mealplanner/{username}/templates/{id} | Get Meal Plan Template
+*OAIDefaultApi* | [**getMealPlanTemplates**](docs/OAIDefaultApi.md#getmealplantemplates) | **GET** /mealplanner/{username}/templates | Get Meal Plan Templates
+*OAIDefaultApi* | [**getMealPlanWeek**](docs/OAIDefaultApi.md#getmealplanweek) | **GET** /mealplanner/{username}/week/{start-date} | Get Meal Plan Week
 *OAIDefaultApi* | [**getMenuItemInformation**](docs/OAIDefaultApi.md#getmenuiteminformation) | **GET** /food/menuItems/{id} | Get Menu Item Information
 *OAIDefaultApi* | [**getProductInformation**](docs/OAIDefaultApi.md#getproductinformation) | **GET** /food/products/{id} | Get Product Information
 *OAIDefaultApi* | [**getRandomFoodTrivia**](docs/OAIDefaultApi.md#getrandomfoodtrivia) | **GET** /food/trivia/random | Get Random Food Trivia
@@ -123,14 +140,18 @@ Class | Method | HTTP request | Description
 *OAIDefaultApi* | [**getRecipeIngredientsByID**](docs/OAIDefaultApi.md#getrecipeingredientsbyid) | **GET** /recipes/{id}/ingredientWidget.json | Get Recipe Ingredients by ID
 *OAIDefaultApi* | [**getRecipeNutritionWidgetByID**](docs/OAIDefaultApi.md#getrecipenutritionwidgetbyid) | **GET** /recipes/{id}/nutritionWidget.json | Get Recipe Nutrition Widget by ID
 *OAIDefaultApi* | [**getRecipePriceBreakdownByID**](docs/OAIDefaultApi.md#getrecipepricebreakdownbyid) | **GET** /recipes/{id}/priceBreakdownWidget.json | Get Recipe Price Breakdown by ID
+*OAIDefaultApi* | [**getShoppingList**](docs/OAIDefaultApi.md#getshoppinglist) | **GET** /mealplanner/{username}/shopping-list | Get Shopping List
 *OAIDefaultApi* | [**getSimilarRecipes**](docs/OAIDefaultApi.md#getsimilarrecipes) | **GET** /recipes/{id}/similar | Get Similar Recipes
 *OAIDefaultApi* | [**getWineDescription**](docs/OAIDefaultApi.md#getwinedescription) | **GET** /food/wine/description | Get Wine Description
 *OAIDefaultApi* | [**getWinePairing**](docs/OAIDefaultApi.md#getwinepairing) | **GET** /food/wine/pairing | Get Wine Pairing
 *OAIDefaultApi* | [**getWineRecommendation**](docs/OAIDefaultApi.md#getwinerecommendation) | **GET** /food/wine/recommendation | Get Wine Recommendation
 *OAIDefaultApi* | [**guessNutritionByDishName**](docs/OAIDefaultApi.md#guessnutritionbydishname) | **GET** /recipes/guessNutrition | Guess Nutrition by Dish Name
+*OAIDefaultApi* | [**imageAnalysisByURL**](docs/OAIDefaultApi.md#imageanalysisbyurl) | **GET** /food/images/analyze | Image Analysis by URL
+*OAIDefaultApi* | [**imageClassificationByURL**](docs/OAIDefaultApi.md#imageclassificationbyurl) | **GET** /food/images/classify | Image Classification by URL
 *OAIDefaultApi* | [**mapIngredientsToGroceryProducts**](docs/OAIDefaultApi.md#mapingredientstogroceryproducts) | **POST** /food/ingredients/map | Map Ingredients to Grocery Products
 *OAIDefaultApi* | [**parseIngredients**](docs/OAIDefaultApi.md#parseingredients) | **POST** /recipes/parseIngredients | Parse Ingredients
 *OAIDefaultApi* | [**quickAnswer**](docs/OAIDefaultApi.md#quickanswer) | **GET** /recipes/quickAnswer | Quick Answer
+*OAIDefaultApi* | [**searchCustomFoods**](docs/OAIDefaultApi.md#searchcustomfoods) | **GET** /food/customFoods/search | Search Custom Foods
 *OAIDefaultApi* | [**searchFoodVideos**](docs/OAIDefaultApi.md#searchfoodvideos) | **GET** /food/videos/search | Search Food Videos
 *OAIDefaultApi* | [**searchGroceryProducts**](docs/OAIDefaultApi.md#searchgroceryproducts) | **GET** /food/products/search | Search Grocery Products
 *OAIDefaultApi* | [**searchGroceryProductsByUPC**](docs/OAIDefaultApi.md#searchgroceryproductsbyupc) | **GET** /food/products/upc/{upc} | Search Grocery Products by UPC
@@ -158,6 +179,11 @@ Class | Method | HTTP request | Description
 
  - [OAIInlineObject](docs/OAIInlineObject.md)
  - [OAIInlineObject1](docs/OAIInlineObject1.md)
+ - [OAIInlineObject10](docs/OAIInlineObject10.md)
+ - [OAIInlineObject11](docs/OAIInlineObject11.md)
+ - [OAIInlineObject12](docs/OAIInlineObject12.md)
+ - [OAIInlineObject13](docs/OAIInlineObject13.md)
+ - [OAIInlineObject14](docs/OAIInlineObject14.md)
  - [OAIInlineObject2](docs/OAIInlineObject2.md)
  - [OAIInlineObject3](docs/OAIInlineObject3.md)
  - [OAIInlineObject4](docs/OAIInlineObject4.md)

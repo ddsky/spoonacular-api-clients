@@ -12,6 +12,22 @@ namespace com.spoonacular
     public interface IDefaultApi
     {
         /// <summary>
+        /// Add to Meal Plan Add an item to the user&#39;s meal plan.
+        /// </summary>
+        /// <param name="username">The username.</param>
+        /// <param name="hash">The private hash for the username.</param>
+        /// <param name="inlineObject9"></param>
+        /// <returns>Object</returns>
+        Object AddToMealPlan (string username, string hash, InlineObject9 inlineObject9);
+        /// <summary>
+        /// Add to Shopping List Add an item to the current shopping list of a user.
+        /// </summary>
+        /// <param name="username">The username.</param>
+        /// <param name="hash">The private hash for the username.</param>
+        /// <param name="inlineObject12"></param>
+        /// <returns>Object</returns>
+        Object AddToShoppingList (string username, string hash, InlineObject12 inlineObject12);
+        /// <summary>
         /// Analyze a Recipe Search Query Parse a recipe search query to find out its intention.
         /// </summary>
         /// <param name="q">The recipe search query.</param>
@@ -101,6 +117,24 @@ namespace com.spoonacular
         /// <returns>Object</returns>
         Object CreateRecipeCard (string title, System.IO.Stream image, string ingredients, string instructions, decimal? readyInMinutes, decimal? servings, string mask, string backgroundImage, string author, string backgroundColor, string fontColor, string source);
         /// <summary>
+        /// Delete from Meal Plan Delete an item from the user&#39;s meal plan.
+        /// </summary>
+        /// <param name="username">The username.</param>
+        /// <param name="id">The shopping list item id.</param>
+        /// <param name="hash">The private hash for the username.</param>
+        /// <param name="inlineObject10"></param>
+        /// <returns>Object</returns>
+        Object DeleteFromMealPlan (string username, decimal? id, string hash, InlineObject10 inlineObject10);
+        /// <summary>
+        /// Delete from Shopping List Delete an item from the current shopping list of the user.
+        /// </summary>
+        /// <param name="username">The username.</param>
+        /// <param name="id">The shopping list item id.</param>
+        /// <param name="hash">The private hash for the username.</param>
+        /// <param name="inlineObject13"></param>
+        /// <returns>Object</returns>
+        Object DeleteFromShoppingList (string username, decimal? id, string hash, InlineObject13 inlineObject13);
+        /// <summary>
         /// Detect Food in Text Take any text and find all mentions of food contained within it. This task is also called Named Entity Recognition (NER). In this case, the entities are foods. Either dishes, such as pizza or cheeseburger, or ingredients, such as cucumber or almonds.
         /// </summary>
         /// <param name="text">The text in which food items, such as dish names and ingredients, should be detected in.</param>
@@ -111,8 +145,9 @@ namespace com.spoonacular
         /// </summary>
         /// <param name="url">The URL of the recipe page.</param>
         /// <param name="forceExtraction">If true, the extraction will be triggered whether we already know the recipe or not. Use this only if information is missing as this operation is slower.</param>
+        /// <param name="analyze">If true, the recipe will be analyzed and classified resolving in more data such as cuisines, dish types, and more.</param>
         /// <returns>Object</returns>
-        Object ExtractRecipeFromWebsite (string url, bool? forceExtraction);
+        Object ExtractRecipeFromWebsite (string url, bool? forceExtraction, bool? analyze);
         /// <summary>
         /// Generate Meal Plan Generate a meal plan with three meals per day (breakfast, lunch, and dinner).
         /// </summary>
@@ -122,6 +157,16 @@ namespace com.spoonacular
         /// <param name="exclude">A comma-separated list of allergens or ingredients that must be excluded.</param>
         /// <returns>Object</returns>
         Object GenerateMealPlan (string timeFrame, decimal? targetCalories, string diet, string exclude);
+        /// <summary>
+        /// Generate Shopping List Generate the shopping list for a user from the meal planner in a given time frame.
+        /// </summary>
+        /// <param name="username">The username.</param>
+        /// <param name="startDate">The start date in the format yyyy-mm-dd.</param>
+        /// <param name="endDate">The end date in the format yyyy-mm-dd.</param>
+        /// <param name="hash">The private hash for the username.</param>
+        /// <param name="inlineObject11"></param>
+        /// <returns>Object</returns>
+        Object GenerateShoppingList (string username, string startDate, string endDate, string hash, InlineObject11 inlineObject11);
         /// <summary>
         /// Get a Random Food Joke Get a random joke that is related to food. Caution: this is an endpoint for adults!
         /// </summary>
@@ -174,13 +219,36 @@ namespace com.spoonacular
         /// <returns>Object</returns>
         Object GetIngredientSubstitutesByID (decimal? id);
         /// <summary>
+        /// Get Meal Plan Template Get information about a meal plan template.
+        /// </summary>
+        /// <param name="username">The username.</param>
+        /// <param name="id">The shopping list item id.</param>
+        /// <param name="hash">The private hash for the username.</param>
+        /// <returns>Object</returns>
+        Object GetMealPlanTemplate (string username, decimal? id, string hash);
+        /// <summary>
+        /// Get Meal Plan Templates Get meal plan templates from user or public ones.
+        /// </summary>
+        /// <param name="username">The username.</param>
+        /// <param name="hash">The private hash for the username.</param>
+        /// <returns>Object</returns>
+        Object GetMealPlanTemplates (string username, string hash);
+        /// <summary>
+        /// Get Meal Plan Week Retrieve a meal planned week for the given user. The username must be a spoonacular user and the hash must the the user&#39;s hash that can be found in his/her account.
+        /// </summary>
+        /// <param name="username">The username.</param>
+        /// <param name="startDate">The start date of the meal planned week in the format yyyy-mm-dd.</param>
+        /// <param name="hash">The private hash for the username.</param>
+        /// <returns>Object</returns>
+        Object GetMealPlanWeek (string username, string startDate, string hash);
+        /// <summary>
         /// Get Menu Item Information Use a menu item id to get all available information about a menu item, such as nutrition.
         /// </summary>
         /// <param name="id">The menu item id.</param>
         /// <returns>Object</returns>
         Object GetMenuItemInformation (decimal? id);
         /// <summary>
-        /// Get Product Information Use a product id to get full information about a product, such as ingredients, nutrition, etc.
+        /// Get Product Information Use a product id to get full information about a product, such as ingredients, nutrition, etc. The nutritional information is per serving.
         /// </summary>
         /// <param name="id">The id of the packaged food.</param>
         /// <returns>Object</returns>
@@ -237,12 +305,20 @@ namespace com.spoonacular
         /// <returns>Object</returns>
         Object GetRecipePriceBreakdownByID (decimal? id);
         /// <summary>
+        /// Get Shopping List Get the current shopping list for the given user.
+        /// </summary>
+        /// <param name="username">The username.</param>
+        /// <param name="hash">The private hash for the username.</param>
+        /// <returns>Object</returns>
+        Object GetShoppingList (string username, string hash);
+        /// <summary>
         /// Get Similar Recipes Find recipes which are similar to the given one.
         /// </summary>
         /// <param name="id">The id of the source recipe for which similar recipes should be found.</param>
         /// <param name="number">The number of random recipes to be returned (between 1 and 100).</param>
+        /// <param name="limitLicense">Whether the recipes should have an open license that allows display with proper attribution.</param>
         /// <returns>Object</returns>
-        Object GetSimilarRecipes (decimal? id, decimal? number);
+        Object GetSimilarRecipes (decimal? id, decimal? number, bool? limitLicense);
         /// <summary>
         /// Get Wine Description Get a simple description of a certain wine, e.g. \&quot;malbec\&quot;, \&quot;riesling\&quot;, or \&quot;merlot\&quot;.
         /// </summary>
@@ -272,6 +348,18 @@ namespace com.spoonacular
         /// <returns>Object</returns>
         Object GuessNutritionByDishName (string title);
         /// <summary>
+        /// Image Analysis by URL Analyze a food image. The API tries to classify the image, guess the nutrition, and find a matching recipes. You can play around with that endpoint!
+        /// </summary>
+        /// <param name="imageUrl">The URL of the image to be analyzed.</param>
+        /// <returns>Object</returns>
+        Object ImageAnalysisByURL (string imageUrl);
+        /// <summary>
+        /// Image Classification by URL Classify a food image. You can play around with that endpoint!
+        /// </summary>
+        /// <param name="imageUrl">The URL of the image to be classified.</param>
+        /// <returns>Object</returns>
+        Object ImageClassificationByURL (string imageUrl);
+        /// <summary>
         /// Map Ingredients to Grocery Products Map a set of ingredients to products you can buy in the grocery store.
         /// </summary>
         /// <param name="body"></param>
@@ -291,6 +379,16 @@ namespace com.spoonacular
         /// <param name="q">The nutrition related question.</param>
         /// <returns>Object</returns>
         Object QuickAnswer (string q);
+        /// <summary>
+        /// Search Custom Foods Search custom foods in a user&#39;s account.
+        /// </summary>
+        /// <param name="query">The search query.</param>
+        /// <param name="username">The username.</param>
+        /// <param name="hash">The private hash for the username.</param>
+        /// <param name="offset">The number of results to skip (between 0 and 990).</param>
+        /// <param name="number">The number of expected results (between 1 and 100).</param>
+        /// <returns>Object</returns>
+        Object SearchCustomFoods (string query, string username, string hash, decimal? offset, decimal? number);
         /// <summary>
         /// Search Food Videos Find recipe and other food related videos.
         /// </summary>
@@ -318,7 +416,7 @@ namespace com.spoonacular
         /// <param name="maxProtein">The maximum amount of protein in grams the product can have.</param>
         /// <param name="minFat">The minimum amount of fat in grams the product must have.</param>
         /// <param name="maxFat">The maximum amount of fat in grams the product can have.</param>
-        /// <param name="offset">The offset number for paging (between 0 and 990).</param>
+        /// <param name="offset">The number of results to skip (between 0 and 990).</param>
         /// <param name="number">The number of expected results (between 1 and 100).</param>
         /// <returns>Object</returns>
         Object SearchGroceryProducts (string query, decimal? minCalories, decimal? maxCalories, decimal? minCarbs, decimal? maxCarbs, decimal? minProtein, decimal? maxProtein, decimal? minFat, decimal? maxFat, decimal? offset, decimal? number);
@@ -359,7 +457,7 @@ namespace com.spoonacular
         /// <returns>Object</returns>
         Object SearchRecipes (string query, string cuisine, string diet, string excludeIngredients, string intolerances, decimal? offset, decimal? number, bool? limitLicense, bool? instructionsRequired);
         /// <summary>
-        /// Search Recipes by Ingredients Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don&#39;t currently have (post shopping).
+        /// Search Recipes by Ingredients              Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don&#39;t currently have (post shopping).         
         /// </summary>
         /// <param name="ingredients">A comma-separated list of ingredients that the recipes should contain.</param>
         /// <param name="number">The maximum number of recipes to return (between 1 and 100). Defaults to 10.</param>
@@ -443,7 +541,7 @@ namespace com.spoonacular
         /// <param name="maxSugar">The maximum amount of sugar in grams the recipe can have.</param>
         /// <param name="minZinc">The minimum amount of zinc in milligrams the recipe must have.</param>
         /// <param name="maxZinc">The maximum amount of zinc in milligrams the recipe can have.</param>
-        /// <param name="offset">The offset number for paging (between 0 and 990).</param>
+        /// <param name="offset">The number of results to skip (between 0 and 900).</param>
         /// <param name="number">The number of expected results (between 1 and 100).</param>
         /// <param name="random">If true, every request will give you a random set of recipes within the requested limits.</param>
         /// <param name="limitLicense">Whether the recipes should have an open license that allows display with proper attribution.</param>
@@ -462,10 +560,12 @@ namespace com.spoonacular
         /// <param name="excludeIngredients">A comma-separated list of ingredients or ingredient types that the recipes must not contain.</param>
         /// <param name="type">The type of recipe. See a full list of supported meal types.</param>
         /// <param name="instructionsRequired">Whether the recipes must have instructions.</param>
-        /// <param name="fillIngredients">Add information about the used and missing ingredients in each recipe.</param>
-        /// <param name="addRecipeInformation">If set to true, you get more information about the recipes returned. This saves you from needing to call to get recipe information.</param>
+        /// <param name="fillIngredients">Add information about the ingredients and whether they are used or missing in relation to the query.</param>
+        /// <param name="addRecipeInformation">If set to true, you get more information about the recipes returned.</param>
+        /// <param name="addRecipeNutrition">If set to true, you get nutritional information about each recipes returned.</param>
         /// <param name="author">The username of the recipe author.</param>
-        /// <param name="tags">User defined tags that have to match.</param>
+        /// <param name="tags">User defined tags that have to match. The author param has to be set.</param>
+        /// <param name="recipeBoxId">The id of the recipe box to which the search should be limited to.</param>
         /// <param name="titleMatch">Enter text that must be found in the title of the recipes.</param>
         /// <param name="maxReadyTime">The maximum time in minutes it should take to prepare and cook the recipe.</param>
         /// <param name="ignorePantry">Whether to ignore typical pantry items, such as water, salt, flour, etc.</param>
@@ -543,11 +643,11 @@ namespace com.spoonacular
         /// <param name="maxSugar">The maximum amount of sugar in grams the recipe can have.</param>
         /// <param name="minZinc">The minimum amount of zinc in milligrams the recipe must have.</param>
         /// <param name="maxZinc">The maximum amount of zinc in milligrams the recipe can have.</param>
-        /// <param name="offset">The offset number for paging (between 0 and 990).</param>
-        /// <param name="number">The number of expected results (between 1 and 10).</param>
+        /// <param name="offset">The number of results to skip (between 0 and 900).</param>
+        /// <param name="number">The number of expected results (between 1 and 100).</param>
         /// <param name="limitLicense">Whether the recipes should have an open license that allows display with proper attribution.</param>
         /// <returns>Object</returns>
-        Object SearchRecipesComplex (string query, string cuisine, string excludeCuisine, string diet, string intolerances, string equipment, string includeIngredients, string excludeIngredients, string type, bool? instructionsRequired, bool? fillIngredients, bool? addRecipeInformation, string author, string tags, string titleMatch, decimal? maxReadyTime, bool? ignorePantry, string sort, string sortDirection, decimal? minCarbs, decimal? maxCarbs, decimal? minProtein, decimal? maxProtein, decimal? minCalories, decimal? maxCalories, decimal? minFat, decimal? maxFat, decimal? minAlcohol, decimal? maxAlcohol, decimal? minCaffeine, decimal? maxCaffeine, decimal? minCopper, decimal? maxCopper, decimal? minCalcium, decimal? maxCalcium, decimal? minCholine, decimal? maxCholine, decimal? minCholesterol, decimal? maxCholesterol, decimal? minFluoride, decimal? maxFluoride, decimal? minSaturatedFat, decimal? maxSaturatedFat, decimal? minVitaminA, decimal? maxVitaminA, decimal? minVitaminC, decimal? maxVitaminC, decimal? minVitaminD, decimal? maxVitaminD, decimal? minVitaminE, decimal? maxVitaminE, decimal? minVitaminK, decimal? maxVitaminK, decimal? minVitaminB1, decimal? maxVitaminB1, decimal? minVitaminB2, decimal? maxVitaminB2, decimal? minVitaminB5, decimal? maxVitaminB5, decimal? minVitaminB3, decimal? maxVitaminB3, decimal? minVitaminB6, decimal? maxVitaminB6, decimal? minVitaminB12, decimal? maxVitaminB12, decimal? minFiber, decimal? maxFiber, decimal? minFolate, decimal? maxFolate, decimal? minFolicAcid, decimal? maxFolicAcid, decimal? minIodine, decimal? maxIodine, decimal? minIron, decimal? maxIron, decimal? minMagnesium, decimal? maxMagnesium, decimal? minManganese, decimal? maxManganese, decimal? minPhosphorus, decimal? maxPhosphorus, decimal? minPotassium, decimal? maxPotassium, decimal? minSelenium, decimal? maxSelenium, decimal? minSodium, decimal? maxSodium, decimal? minSugar, decimal? maxSugar, decimal? minZinc, decimal? maxZinc, decimal? offset, decimal? number, bool? limitLicense);
+        Object SearchRecipesComplex (string query, string cuisine, string excludeCuisine, string diet, string intolerances, string equipment, string includeIngredients, string excludeIngredients, string type, bool? instructionsRequired, bool? fillIngredients, bool? addRecipeInformation, bool? addRecipeNutrition, string author, string tags, decimal? recipeBoxId, string titleMatch, decimal? maxReadyTime, bool? ignorePantry, string sort, string sortDirection, decimal? minCarbs, decimal? maxCarbs, decimal? minProtein, decimal? maxProtein, decimal? minCalories, decimal? maxCalories, decimal? minFat, decimal? maxFat, decimal? minAlcohol, decimal? maxAlcohol, decimal? minCaffeine, decimal? maxCaffeine, decimal? minCopper, decimal? maxCopper, decimal? minCalcium, decimal? maxCalcium, decimal? minCholine, decimal? maxCholine, decimal? minCholesterol, decimal? maxCholesterol, decimal? minFluoride, decimal? maxFluoride, decimal? minSaturatedFat, decimal? maxSaturatedFat, decimal? minVitaminA, decimal? maxVitaminA, decimal? minVitaminC, decimal? maxVitaminC, decimal? minVitaminD, decimal? maxVitaminD, decimal? minVitaminE, decimal? maxVitaminE, decimal? minVitaminK, decimal? maxVitaminK, decimal? minVitaminB1, decimal? maxVitaminB1, decimal? minVitaminB2, decimal? maxVitaminB2, decimal? minVitaminB5, decimal? maxVitaminB5, decimal? minVitaminB3, decimal? maxVitaminB3, decimal? minVitaminB6, decimal? maxVitaminB6, decimal? minVitaminB12, decimal? maxVitaminB12, decimal? minFiber, decimal? maxFiber, decimal? minFolate, decimal? maxFolate, decimal? minFolicAcid, decimal? maxFolicAcid, decimal? minIodine, decimal? maxIodine, decimal? minIron, decimal? maxIron, decimal? minMagnesium, decimal? maxMagnesium, decimal? minManganese, decimal? maxManganese, decimal? minPhosphorus, decimal? maxPhosphorus, decimal? minPotassium, decimal? maxPotassium, decimal? minSelenium, decimal? maxSelenium, decimal? minSodium, decimal? maxSodium, decimal? minSugar, decimal? maxSugar, decimal? minZinc, decimal? maxZinc, decimal? offset, decimal? number, bool? limitLicense);
         /// <summary>
         /// Search Site Content Search spoonacular&#39;s site content. You&#39;ll be able to find everything that you could also find using the search suggestions on spoonacular.com. This is a suggest API so you can send partial strings as queries.
         /// </summary>
@@ -703,6 +803,100 @@ namespace com.spoonacular
         /// </summary>
         /// <value>An instance of the ApiClient</value>
         public ApiClient ApiClient {get; set;}
+    
+        /// <summary>
+        /// Add to Meal Plan Add an item to the user&#39;s meal plan.
+        /// </summary>
+        /// <param name="username">The username.</param> 
+        /// <param name="hash">The private hash for the username.</param> 
+        /// <param name="inlineObject9"></param> 
+        /// <returns>Object</returns>            
+        public Object AddToMealPlan (string username, string hash, InlineObject9 inlineObject9)
+        {
+            
+            // verify the required parameter 'username' is set
+            if (username == null) throw new ApiException(400, "Missing required parameter 'username' when calling AddToMealPlan");
+            
+            // verify the required parameter 'hash' is set
+            if (hash == null) throw new ApiException(400, "Missing required parameter 'hash' when calling AddToMealPlan");
+            
+            // verify the required parameter 'inlineObject9' is set
+            if (inlineObject9 == null) throw new ApiException(400, "Missing required parameter 'inlineObject9' when calling AddToMealPlan");
+            
+    
+            var path = "/mealplanner/{username}/items";
+            path = path.Replace("{format}", "json");
+            path = path.Replace("{" + "username" + "}", ApiClient.ParameterToString(username));
+    
+            var queryParams = new Dictionary<String, String>();
+            var headerParams = new Dictionary<String, String>();
+            var formParams = new Dictionary<String, String>();
+            var fileParams = new Dictionary<String, FileParameter>();
+            String postBody = null;
+    
+             if (hash != null) queryParams.Add("hash", ApiClient.ParameterToString(hash)); // query parameter
+                                    postBody = ApiClient.Serialize(inlineObject9); // http body (model) parameter
+    
+            // authentication setting, if any
+            String[] authSettings = new String[] {  };
+    
+            // make the HTTP request
+            IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.POST, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
+    
+            if (((int)response.StatusCode) >= 400)
+                throw new ApiException ((int)response.StatusCode, "Error calling AddToMealPlan: " + response.Content, response.Content);
+            else if (((int)response.StatusCode) == 0)
+                throw new ApiException ((int)response.StatusCode, "Error calling AddToMealPlan: " + response.ErrorMessage, response.ErrorMessage);
+    
+            return (Object) ApiClient.Deserialize(response.Content, typeof(Object), response.Headers);
+        }
+    
+        /// <summary>
+        /// Add to Shopping List Add an item to the current shopping list of a user.
+        /// </summary>
+        /// <param name="username">The username.</param> 
+        /// <param name="hash">The private hash for the username.</param> 
+        /// <param name="inlineObject12"></param> 
+        /// <returns>Object</returns>            
+        public Object AddToShoppingList (string username, string hash, InlineObject12 inlineObject12)
+        {
+            
+            // verify the required parameter 'username' is set
+            if (username == null) throw new ApiException(400, "Missing required parameter 'username' when calling AddToShoppingList");
+            
+            // verify the required parameter 'hash' is set
+            if (hash == null) throw new ApiException(400, "Missing required parameter 'hash' when calling AddToShoppingList");
+            
+            // verify the required parameter 'inlineObject12' is set
+            if (inlineObject12 == null) throw new ApiException(400, "Missing required parameter 'inlineObject12' when calling AddToShoppingList");
+            
+    
+            var path = "/mealplanner/{username}/shopping-list/items";
+            path = path.Replace("{format}", "json");
+            path = path.Replace("{" + "username" + "}", ApiClient.ParameterToString(username));
+    
+            var queryParams = new Dictionary<String, String>();
+            var headerParams = new Dictionary<String, String>();
+            var formParams = new Dictionary<String, String>();
+            var fileParams = new Dictionary<String, FileParameter>();
+            String postBody = null;
+    
+             if (hash != null) queryParams.Add("hash", ApiClient.ParameterToString(hash)); // query parameter
+                                    postBody = ApiClient.Serialize(inlineObject12); // http body (model) parameter
+    
+            // authentication setting, if any
+            String[] authSettings = new String[] {  };
+    
+            // make the HTTP request
+            IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.POST, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
+    
+            if (((int)response.StatusCode) >= 400)
+                throw new ApiException ((int)response.StatusCode, "Error calling AddToShoppingList: " + response.Content, response.Content);
+            else if (((int)response.StatusCode) == 0)
+                throw new ApiException ((int)response.StatusCode, "Error calling AddToShoppingList: " + response.ErrorMessage, response.ErrorMessage);
+    
+            return (Object) ApiClient.Deserialize(response.Content, typeof(Object), response.Headers);
+        }
     
         /// <summary>
         /// Analyze a Recipe Search Query Parse a recipe search query to find out its intention.
@@ -1191,6 +1385,110 @@ if (source != null) formParams.Add("source", ApiClient.ParameterToString(source)
         }
     
         /// <summary>
+        /// Delete from Meal Plan Delete an item from the user&#39;s meal plan.
+        /// </summary>
+        /// <param name="username">The username.</param> 
+        /// <param name="id">The shopping list item id.</param> 
+        /// <param name="hash">The private hash for the username.</param> 
+        /// <param name="inlineObject10"></param> 
+        /// <returns>Object</returns>            
+        public Object DeleteFromMealPlan (string username, decimal? id, string hash, InlineObject10 inlineObject10)
+        {
+            
+            // verify the required parameter 'username' is set
+            if (username == null) throw new ApiException(400, "Missing required parameter 'username' when calling DeleteFromMealPlan");
+            
+            // verify the required parameter 'id' is set
+            if (id == null) throw new ApiException(400, "Missing required parameter 'id' when calling DeleteFromMealPlan");
+            
+            // verify the required parameter 'hash' is set
+            if (hash == null) throw new ApiException(400, "Missing required parameter 'hash' when calling DeleteFromMealPlan");
+            
+            // verify the required parameter 'inlineObject10' is set
+            if (inlineObject10 == null) throw new ApiException(400, "Missing required parameter 'inlineObject10' when calling DeleteFromMealPlan");
+            
+    
+            var path = "/mealplanner/{username}/items/{id}";
+            path = path.Replace("{format}", "json");
+            path = path.Replace("{" + "username" + "}", ApiClient.ParameterToString(username));
+path = path.Replace("{" + "id" + "}", ApiClient.ParameterToString(id));
+    
+            var queryParams = new Dictionary<String, String>();
+            var headerParams = new Dictionary<String, String>();
+            var formParams = new Dictionary<String, String>();
+            var fileParams = new Dictionary<String, FileParameter>();
+            String postBody = null;
+    
+             if (hash != null) queryParams.Add("hash", ApiClient.ParameterToString(hash)); // query parameter
+                                    postBody = ApiClient.Serialize(inlineObject10); // http body (model) parameter
+    
+            // authentication setting, if any
+            String[] authSettings = new String[] {  };
+    
+            // make the HTTP request
+            IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.DELETE, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
+    
+            if (((int)response.StatusCode) >= 400)
+                throw new ApiException ((int)response.StatusCode, "Error calling DeleteFromMealPlan: " + response.Content, response.Content);
+            else if (((int)response.StatusCode) == 0)
+                throw new ApiException ((int)response.StatusCode, "Error calling DeleteFromMealPlan: " + response.ErrorMessage, response.ErrorMessage);
+    
+            return (Object) ApiClient.Deserialize(response.Content, typeof(Object), response.Headers);
+        }
+    
+        /// <summary>
+        /// Delete from Shopping List Delete an item from the current shopping list of the user.
+        /// </summary>
+        /// <param name="username">The username.</param> 
+        /// <param name="id">The shopping list item id.</param> 
+        /// <param name="hash">The private hash for the username.</param> 
+        /// <param name="inlineObject13"></param> 
+        /// <returns>Object</returns>            
+        public Object DeleteFromShoppingList (string username, decimal? id, string hash, InlineObject13 inlineObject13)
+        {
+            
+            // verify the required parameter 'username' is set
+            if (username == null) throw new ApiException(400, "Missing required parameter 'username' when calling DeleteFromShoppingList");
+            
+            // verify the required parameter 'id' is set
+            if (id == null) throw new ApiException(400, "Missing required parameter 'id' when calling DeleteFromShoppingList");
+            
+            // verify the required parameter 'hash' is set
+            if (hash == null) throw new ApiException(400, "Missing required parameter 'hash' when calling DeleteFromShoppingList");
+            
+            // verify the required parameter 'inlineObject13' is set
+            if (inlineObject13 == null) throw new ApiException(400, "Missing required parameter 'inlineObject13' when calling DeleteFromShoppingList");
+            
+    
+            var path = "/mealplanner/{username}/shopping-list/items/{id}";
+            path = path.Replace("{format}", "json");
+            path = path.Replace("{" + "username" + "}", ApiClient.ParameterToString(username));
+path = path.Replace("{" + "id" + "}", ApiClient.ParameterToString(id));
+    
+            var queryParams = new Dictionary<String, String>();
+            var headerParams = new Dictionary<String, String>();
+            var formParams = new Dictionary<String, String>();
+            var fileParams = new Dictionary<String, FileParameter>();
+            String postBody = null;
+    
+             if (hash != null) queryParams.Add("hash", ApiClient.ParameterToString(hash)); // query parameter
+                                    postBody = ApiClient.Serialize(inlineObject13); // http body (model) parameter
+    
+            // authentication setting, if any
+            String[] authSettings = new String[] {  };
+    
+            // make the HTTP request
+            IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.DELETE, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
+    
+            if (((int)response.StatusCode) >= 400)
+                throw new ApiException ((int)response.StatusCode, "Error calling DeleteFromShoppingList: " + response.Content, response.Content);
+            else if (((int)response.StatusCode) == 0)
+                throw new ApiException ((int)response.StatusCode, "Error calling DeleteFromShoppingList: " + response.ErrorMessage, response.ErrorMessage);
+    
+            return (Object) ApiClient.Deserialize(response.Content, typeof(Object), response.Headers);
+        }
+    
+        /// <summary>
         /// Detect Food in Text Take any text and find all mentions of food contained within it. This task is also called Named Entity Recognition (NER). In this case, the entities are foods. Either dishes, such as pizza or cheeseburger, or ingredients, such as cucumber or almonds.
         /// </summary>
         /// <param name="text">The text in which food items, such as dish names and ingredients, should be detected in.</param> 
@@ -1232,8 +1530,9 @@ if (source != null) formParams.Add("source", ApiClient.ParameterToString(source)
         /// </summary>
         /// <param name="url">The URL of the recipe page.</param> 
         /// <param name="forceExtraction">If true, the extraction will be triggered whether we already know the recipe or not. Use this only if information is missing as this operation is slower.</param> 
+        /// <param name="analyze">If true, the recipe will be analyzed and classified resolving in more data such as cuisines, dish types, and more.</param> 
         /// <returns>Object</returns>            
-        public Object ExtractRecipeFromWebsite (string url, bool? forceExtraction)
+        public Object ExtractRecipeFromWebsite (string url, bool? forceExtraction, bool? analyze)
         {
             
             // verify the required parameter 'url' is set
@@ -1251,6 +1550,7 @@ if (source != null) formParams.Add("source", ApiClient.ParameterToString(source)
     
              if (url != null) queryParams.Add("url", ApiClient.ParameterToString(url)); // query parameter
  if (forceExtraction != null) queryParams.Add("forceExtraction", ApiClient.ParameterToString(forceExtraction)); // query parameter
+ if (analyze != null) queryParams.Add("analyze", ApiClient.ParameterToString(analyze)); // query parameter
                                         
             // authentication setting, if any
             String[] authSettings = new String[] {  };
@@ -1302,6 +1602,63 @@ if (source != null) formParams.Add("source", ApiClient.ParameterToString(source)
                 throw new ApiException ((int)response.StatusCode, "Error calling GenerateMealPlan: " + response.Content, response.Content);
             else if (((int)response.StatusCode) == 0)
                 throw new ApiException ((int)response.StatusCode, "Error calling GenerateMealPlan: " + response.ErrorMessage, response.ErrorMessage);
+    
+            return (Object) ApiClient.Deserialize(response.Content, typeof(Object), response.Headers);
+        }
+    
+        /// <summary>
+        /// Generate Shopping List Generate the shopping list for a user from the meal planner in a given time frame.
+        /// </summary>
+        /// <param name="username">The username.</param> 
+        /// <param name="startDate">The start date in the format yyyy-mm-dd.</param> 
+        /// <param name="endDate">The end date in the format yyyy-mm-dd.</param> 
+        /// <param name="hash">The private hash for the username.</param> 
+        /// <param name="inlineObject11"></param> 
+        /// <returns>Object</returns>            
+        public Object GenerateShoppingList (string username, string startDate, string endDate, string hash, InlineObject11 inlineObject11)
+        {
+            
+            // verify the required parameter 'username' is set
+            if (username == null) throw new ApiException(400, "Missing required parameter 'username' when calling GenerateShoppingList");
+            
+            // verify the required parameter 'startDate' is set
+            if (startDate == null) throw new ApiException(400, "Missing required parameter 'startDate' when calling GenerateShoppingList");
+            
+            // verify the required parameter 'endDate' is set
+            if (endDate == null) throw new ApiException(400, "Missing required parameter 'endDate' when calling GenerateShoppingList");
+            
+            // verify the required parameter 'hash' is set
+            if (hash == null) throw new ApiException(400, "Missing required parameter 'hash' when calling GenerateShoppingList");
+            
+            // verify the required parameter 'inlineObject11' is set
+            if (inlineObject11 == null) throw new ApiException(400, "Missing required parameter 'inlineObject11' when calling GenerateShoppingList");
+            
+    
+            var path = "/mealplanner/{username}/shopping-list/{start-date}/{end-date}";
+            path = path.Replace("{format}", "json");
+            path = path.Replace("{" + "username" + "}", ApiClient.ParameterToString(username));
+path = path.Replace("{" + "start-date" + "}", ApiClient.ParameterToString(startDate));
+path = path.Replace("{" + "end-date" + "}", ApiClient.ParameterToString(endDate));
+    
+            var queryParams = new Dictionary<String, String>();
+            var headerParams = new Dictionary<String, String>();
+            var formParams = new Dictionary<String, String>();
+            var fileParams = new Dictionary<String, FileParameter>();
+            String postBody = null;
+    
+             if (hash != null) queryParams.Add("hash", ApiClient.ParameterToString(hash)); // query parameter
+                                    postBody = ApiClient.Serialize(inlineObject11); // http body (model) parameter
+    
+            // authentication setting, if any
+            String[] authSettings = new String[] {  };
+    
+            // make the HTTP request
+            IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.POST, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
+    
+            if (((int)response.StatusCode) >= 400)
+                throw new ApiException ((int)response.StatusCode, "Error calling GenerateShoppingList: " + response.Content, response.Content);
+            else if (((int)response.StatusCode) == 0)
+                throw new ApiException ((int)response.StatusCode, "Error calling GenerateShoppingList: " + response.ErrorMessage, response.ErrorMessage);
     
             return (Object) ApiClient.Deserialize(response.Content, typeof(Object), response.Headers);
         }
@@ -1606,6 +1963,142 @@ if (source != null) formParams.Add("source", ApiClient.ParameterToString(source)
         }
     
         /// <summary>
+        /// Get Meal Plan Template Get information about a meal plan template.
+        /// </summary>
+        /// <param name="username">The username.</param> 
+        /// <param name="id">The shopping list item id.</param> 
+        /// <param name="hash">The private hash for the username.</param> 
+        /// <returns>Object</returns>            
+        public Object GetMealPlanTemplate (string username, decimal? id, string hash)
+        {
+            
+            // verify the required parameter 'username' is set
+            if (username == null) throw new ApiException(400, "Missing required parameter 'username' when calling GetMealPlanTemplate");
+            
+            // verify the required parameter 'id' is set
+            if (id == null) throw new ApiException(400, "Missing required parameter 'id' when calling GetMealPlanTemplate");
+            
+            // verify the required parameter 'hash' is set
+            if (hash == null) throw new ApiException(400, "Missing required parameter 'hash' when calling GetMealPlanTemplate");
+            
+    
+            var path = "/mealplanner/{username}/templates/{id}";
+            path = path.Replace("{format}", "json");
+            path = path.Replace("{" + "username" + "}", ApiClient.ParameterToString(username));
+path = path.Replace("{" + "id" + "}", ApiClient.ParameterToString(id));
+    
+            var queryParams = new Dictionary<String, String>();
+            var headerParams = new Dictionary<String, String>();
+            var formParams = new Dictionary<String, String>();
+            var fileParams = new Dictionary<String, FileParameter>();
+            String postBody = null;
+    
+             if (hash != null) queryParams.Add("hash", ApiClient.ParameterToString(hash)); // query parameter
+                                        
+            // authentication setting, if any
+            String[] authSettings = new String[] {  };
+    
+            // make the HTTP request
+            IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
+    
+            if (((int)response.StatusCode) >= 400)
+                throw new ApiException ((int)response.StatusCode, "Error calling GetMealPlanTemplate: " + response.Content, response.Content);
+            else if (((int)response.StatusCode) == 0)
+                throw new ApiException ((int)response.StatusCode, "Error calling GetMealPlanTemplate: " + response.ErrorMessage, response.ErrorMessage);
+    
+            return (Object) ApiClient.Deserialize(response.Content, typeof(Object), response.Headers);
+        }
+    
+        /// <summary>
+        /// Get Meal Plan Templates Get meal plan templates from user or public ones.
+        /// </summary>
+        /// <param name="username">The username.</param> 
+        /// <param name="hash">The private hash for the username.</param> 
+        /// <returns>Object</returns>            
+        public Object GetMealPlanTemplates (string username, string hash)
+        {
+            
+            // verify the required parameter 'username' is set
+            if (username == null) throw new ApiException(400, "Missing required parameter 'username' when calling GetMealPlanTemplates");
+            
+            // verify the required parameter 'hash' is set
+            if (hash == null) throw new ApiException(400, "Missing required parameter 'hash' when calling GetMealPlanTemplates");
+            
+    
+            var path = "/mealplanner/{username}/templates";
+            path = path.Replace("{format}", "json");
+            path = path.Replace("{" + "username" + "}", ApiClient.ParameterToString(username));
+    
+            var queryParams = new Dictionary<String, String>();
+            var headerParams = new Dictionary<String, String>();
+            var formParams = new Dictionary<String, String>();
+            var fileParams = new Dictionary<String, FileParameter>();
+            String postBody = null;
+    
+             if (hash != null) queryParams.Add("hash", ApiClient.ParameterToString(hash)); // query parameter
+                                        
+            // authentication setting, if any
+            String[] authSettings = new String[] {  };
+    
+            // make the HTTP request
+            IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
+    
+            if (((int)response.StatusCode) >= 400)
+                throw new ApiException ((int)response.StatusCode, "Error calling GetMealPlanTemplates: " + response.Content, response.Content);
+            else if (((int)response.StatusCode) == 0)
+                throw new ApiException ((int)response.StatusCode, "Error calling GetMealPlanTemplates: " + response.ErrorMessage, response.ErrorMessage);
+    
+            return (Object) ApiClient.Deserialize(response.Content, typeof(Object), response.Headers);
+        }
+    
+        /// <summary>
+        /// Get Meal Plan Week Retrieve a meal planned week for the given user. The username must be a spoonacular user and the hash must the the user&#39;s hash that can be found in his/her account.
+        /// </summary>
+        /// <param name="username">The username.</param> 
+        /// <param name="startDate">The start date of the meal planned week in the format yyyy-mm-dd.</param> 
+        /// <param name="hash">The private hash for the username.</param> 
+        /// <returns>Object</returns>            
+        public Object GetMealPlanWeek (string username, string startDate, string hash)
+        {
+            
+            // verify the required parameter 'username' is set
+            if (username == null) throw new ApiException(400, "Missing required parameter 'username' when calling GetMealPlanWeek");
+            
+            // verify the required parameter 'startDate' is set
+            if (startDate == null) throw new ApiException(400, "Missing required parameter 'startDate' when calling GetMealPlanWeek");
+            
+            // verify the required parameter 'hash' is set
+            if (hash == null) throw new ApiException(400, "Missing required parameter 'hash' when calling GetMealPlanWeek");
+            
+    
+            var path = "/mealplanner/{username}/week/{start-date}";
+            path = path.Replace("{format}", "json");
+            path = path.Replace("{" + "username" + "}", ApiClient.ParameterToString(username));
+path = path.Replace("{" + "start-date" + "}", ApiClient.ParameterToString(startDate));
+    
+            var queryParams = new Dictionary<String, String>();
+            var headerParams = new Dictionary<String, String>();
+            var formParams = new Dictionary<String, String>();
+            var fileParams = new Dictionary<String, FileParameter>();
+            String postBody = null;
+    
+             if (hash != null) queryParams.Add("hash", ApiClient.ParameterToString(hash)); // query parameter
+                                        
+            // authentication setting, if any
+            String[] authSettings = new String[] {  };
+    
+            // make the HTTP request
+            IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
+    
+            if (((int)response.StatusCode) >= 400)
+                throw new ApiException ((int)response.StatusCode, "Error calling GetMealPlanWeek: " + response.Content, response.Content);
+            else if (((int)response.StatusCode) == 0)
+                throw new ApiException ((int)response.StatusCode, "Error calling GetMealPlanWeek: " + response.ErrorMessage, response.ErrorMessage);
+    
+            return (Object) ApiClient.Deserialize(response.Content, typeof(Object), response.Headers);
+        }
+    
+        /// <summary>
         /// Get Menu Item Information Use a menu item id to get all available information about a menu item, such as nutrition.
         /// </summary>
         /// <param name="id">The menu item id.</param> 
@@ -1643,7 +2136,7 @@ if (source != null) formParams.Add("source", ApiClient.ParameterToString(source)
         }
     
         /// <summary>
-        /// Get Product Information Use a product id to get full information about a product, such as ingredients, nutrition, etc.
+        /// Get Product Information Use a product id to get full information about a product, such as ingredients, nutrition, etc. The nutritional information is per serving.
         /// </summary>
         /// <param name="id">The id of the packaged food.</param> 
         /// <returns>Object</returns>            
@@ -1976,12 +2469,55 @@ if (source != null) formParams.Add("source", ApiClient.ParameterToString(source)
         }
     
         /// <summary>
+        /// Get Shopping List Get the current shopping list for the given user.
+        /// </summary>
+        /// <param name="username">The username.</param> 
+        /// <param name="hash">The private hash for the username.</param> 
+        /// <returns>Object</returns>            
+        public Object GetShoppingList (string username, string hash)
+        {
+            
+            // verify the required parameter 'username' is set
+            if (username == null) throw new ApiException(400, "Missing required parameter 'username' when calling GetShoppingList");
+            
+            // verify the required parameter 'hash' is set
+            if (hash == null) throw new ApiException(400, "Missing required parameter 'hash' when calling GetShoppingList");
+            
+    
+            var path = "/mealplanner/{username}/shopping-list";
+            path = path.Replace("{format}", "json");
+            path = path.Replace("{" + "username" + "}", ApiClient.ParameterToString(username));
+    
+            var queryParams = new Dictionary<String, String>();
+            var headerParams = new Dictionary<String, String>();
+            var formParams = new Dictionary<String, String>();
+            var fileParams = new Dictionary<String, FileParameter>();
+            String postBody = null;
+    
+             if (hash != null) queryParams.Add("hash", ApiClient.ParameterToString(hash)); // query parameter
+                                        
+            // authentication setting, if any
+            String[] authSettings = new String[] {  };
+    
+            // make the HTTP request
+            IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
+    
+            if (((int)response.StatusCode) >= 400)
+                throw new ApiException ((int)response.StatusCode, "Error calling GetShoppingList: " + response.Content, response.Content);
+            else if (((int)response.StatusCode) == 0)
+                throw new ApiException ((int)response.StatusCode, "Error calling GetShoppingList: " + response.ErrorMessage, response.ErrorMessage);
+    
+            return (Object) ApiClient.Deserialize(response.Content, typeof(Object), response.Headers);
+        }
+    
+        /// <summary>
         /// Get Similar Recipes Find recipes which are similar to the given one.
         /// </summary>
         /// <param name="id">The id of the source recipe for which similar recipes should be found.</param> 
         /// <param name="number">The number of random recipes to be returned (between 1 and 100).</param> 
+        /// <param name="limitLicense">Whether the recipes should have an open license that allows display with proper attribution.</param> 
         /// <returns>Object</returns>            
-        public Object GetSimilarRecipes (decimal? id, decimal? number)
+        public Object GetSimilarRecipes (decimal? id, decimal? number, bool? limitLicense)
         {
             
             // verify the required parameter 'id' is set
@@ -1999,6 +2535,7 @@ if (source != null) formParams.Add("source", ApiClient.ParameterToString(source)
             String postBody = null;
     
              if (number != null) queryParams.Add("number", ApiClient.ParameterToString(number)); // query parameter
+ if (limitLicense != null) queryParams.Add("limitLicense", ApiClient.ParameterToString(limitLicense)); // query parameter
                                         
             // authentication setting, if any
             String[] authSettings = new String[] {  };
@@ -2171,6 +2708,80 @@ if (source != null) formParams.Add("source", ApiClient.ParameterToString(source)
         }
     
         /// <summary>
+        /// Image Analysis by URL Analyze a food image. The API tries to classify the image, guess the nutrition, and find a matching recipes. You can play around with that endpoint!
+        /// </summary>
+        /// <param name="imageUrl">The URL of the image to be analyzed.</param> 
+        /// <returns>Object</returns>            
+        public Object ImageAnalysisByURL (string imageUrl)
+        {
+            
+            // verify the required parameter 'imageUrl' is set
+            if (imageUrl == null) throw new ApiException(400, "Missing required parameter 'imageUrl' when calling ImageAnalysisByURL");
+            
+    
+            var path = "/food/images/analyze";
+            path = path.Replace("{format}", "json");
+                
+            var queryParams = new Dictionary<String, String>();
+            var headerParams = new Dictionary<String, String>();
+            var formParams = new Dictionary<String, String>();
+            var fileParams = new Dictionary<String, FileParameter>();
+            String postBody = null;
+    
+             if (imageUrl != null) queryParams.Add("imageUrl", ApiClient.ParameterToString(imageUrl)); // query parameter
+                                        
+            // authentication setting, if any
+            String[] authSettings = new String[] {  };
+    
+            // make the HTTP request
+            IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
+    
+            if (((int)response.StatusCode) >= 400)
+                throw new ApiException ((int)response.StatusCode, "Error calling ImageAnalysisByURL: " + response.Content, response.Content);
+            else if (((int)response.StatusCode) == 0)
+                throw new ApiException ((int)response.StatusCode, "Error calling ImageAnalysisByURL: " + response.ErrorMessage, response.ErrorMessage);
+    
+            return (Object) ApiClient.Deserialize(response.Content, typeof(Object), response.Headers);
+        }
+    
+        /// <summary>
+        /// Image Classification by URL Classify a food image. You can play around with that endpoint!
+        /// </summary>
+        /// <param name="imageUrl">The URL of the image to be classified.</param> 
+        /// <returns>Object</returns>            
+        public Object ImageClassificationByURL (string imageUrl)
+        {
+            
+            // verify the required parameter 'imageUrl' is set
+            if (imageUrl == null) throw new ApiException(400, "Missing required parameter 'imageUrl' when calling ImageClassificationByURL");
+            
+    
+            var path = "/food/images/classify";
+            path = path.Replace("{format}", "json");
+                
+            var queryParams = new Dictionary<String, String>();
+            var headerParams = new Dictionary<String, String>();
+            var formParams = new Dictionary<String, String>();
+            var fileParams = new Dictionary<String, FileParameter>();
+            String postBody = null;
+    
+             if (imageUrl != null) queryParams.Add("imageUrl", ApiClient.ParameterToString(imageUrl)); // query parameter
+                                        
+            // authentication setting, if any
+            String[] authSettings = new String[] {  };
+    
+            // make the HTTP request
+            IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
+    
+            if (((int)response.StatusCode) >= 400)
+                throw new ApiException ((int)response.StatusCode, "Error calling ImageClassificationByURL: " + response.Content, response.Content);
+            else if (((int)response.StatusCode) == 0)
+                throw new ApiException ((int)response.StatusCode, "Error calling ImageClassificationByURL: " + response.ErrorMessage, response.ErrorMessage);
+    
+            return (Object) ApiClient.Deserialize(response.Content, typeof(Object), response.Headers);
+        }
+    
+        /// <summary>
         /// Map Ingredients to Grocery Products Map a set of ingredients to products you can buy in the grocery store.
         /// </summary>
         /// <param name="body"></param> 
@@ -2289,6 +2900,57 @@ if (includeNutrition != null) formParams.Add("includeNutrition", ApiClient.Param
         }
     
         /// <summary>
+        /// Search Custom Foods Search custom foods in a user&#39;s account.
+        /// </summary>
+        /// <param name="query">The search query.</param> 
+        /// <param name="username">The username.</param> 
+        /// <param name="hash">The private hash for the username.</param> 
+        /// <param name="offset">The number of results to skip (between 0 and 990).</param> 
+        /// <param name="number">The number of expected results (between 1 and 100).</param> 
+        /// <returns>Object</returns>            
+        public Object SearchCustomFoods (string query, string username, string hash, decimal? offset, decimal? number)
+        {
+            
+            // verify the required parameter 'query' is set
+            if (query == null) throw new ApiException(400, "Missing required parameter 'query' when calling SearchCustomFoods");
+            
+            // verify the required parameter 'username' is set
+            if (username == null) throw new ApiException(400, "Missing required parameter 'username' when calling SearchCustomFoods");
+            
+            // verify the required parameter 'hash' is set
+            if (hash == null) throw new ApiException(400, "Missing required parameter 'hash' when calling SearchCustomFoods");
+            
+    
+            var path = "/food/customFoods/search";
+            path = path.Replace("{format}", "json");
+                
+            var queryParams = new Dictionary<String, String>();
+            var headerParams = new Dictionary<String, String>();
+            var formParams = new Dictionary<String, String>();
+            var fileParams = new Dictionary<String, FileParameter>();
+            String postBody = null;
+    
+             if (query != null) queryParams.Add("query", ApiClient.ParameterToString(query)); // query parameter
+ if (username != null) queryParams.Add("username", ApiClient.ParameterToString(username)); // query parameter
+ if (hash != null) queryParams.Add("hash", ApiClient.ParameterToString(hash)); // query parameter
+ if (offset != null) queryParams.Add("offset", ApiClient.ParameterToString(offset)); // query parameter
+ if (number != null) queryParams.Add("number", ApiClient.ParameterToString(number)); // query parameter
+                                        
+            // authentication setting, if any
+            String[] authSettings = new String[] {  };
+    
+            // make the HTTP request
+            IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
+    
+            if (((int)response.StatusCode) >= 400)
+                throw new ApiException ((int)response.StatusCode, "Error calling SearchCustomFoods: " + response.Content, response.Content);
+            else if (((int)response.StatusCode) == 0)
+                throw new ApiException ((int)response.StatusCode, "Error calling SearchCustomFoods: " + response.ErrorMessage, response.ErrorMessage);
+    
+            return (Object) ApiClient.Deserialize(response.Content, typeof(Object), response.Headers);
+        }
+    
+        /// <summary>
         /// Search Food Videos Find recipe and other food related videos.
         /// </summary>
         /// <param name="query">The search query.</param> 
@@ -2355,7 +3017,7 @@ if (includeNutrition != null) formParams.Add("includeNutrition", ApiClient.Param
         /// <param name="maxProtein">The maximum amount of protein in grams the product can have.</param> 
         /// <param name="minFat">The minimum amount of fat in grams the product must have.</param> 
         /// <param name="maxFat">The maximum amount of fat in grams the product can have.</param> 
-        /// <param name="offset">The offset number for paging (between 0 and 990).</param> 
+        /// <param name="offset">The number of results to skip (between 0 and 990).</param> 
         /// <param name="number">The number of expected results (between 1 and 100).</param> 
         /// <returns>Object</returns>            
         public Object SearchGroceryProducts (string query, decimal? minCalories, decimal? maxCalories, decimal? minCarbs, decimal? maxCarbs, decimal? minProtein, decimal? maxProtein, decimal? minFat, decimal? maxFat, decimal? offset, decimal? number)
@@ -2548,7 +3210,7 @@ if (includeNutrition != null) formParams.Add("includeNutrition", ApiClient.Param
         }
     
         /// <summary>
-        /// Search Recipes by Ingredients Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don&#39;t currently have (post shopping).
+        /// Search Recipes by Ingredients              Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don&#39;t currently have (post shopping).         
         /// </summary>
         /// <param name="ingredients">A comma-separated list of ingredients that the recipes should contain.</param> 
         /// <param name="number">The maximum number of recipes to return (between 1 and 100). Defaults to 10.</param> 
@@ -2667,7 +3329,7 @@ if (includeNutrition != null) formParams.Add("includeNutrition", ApiClient.Param
         /// <param name="maxSugar">The maximum amount of sugar in grams the recipe can have.</param> 
         /// <param name="minZinc">The minimum amount of zinc in milligrams the recipe must have.</param> 
         /// <param name="maxZinc">The maximum amount of zinc in milligrams the recipe can have.</param> 
-        /// <param name="offset">The offset number for paging (between 0 and 990).</param> 
+        /// <param name="offset">The number of results to skip (between 0 and 900).</param> 
         /// <param name="number">The number of expected results (between 1 and 100).</param> 
         /// <param name="random">If true, every request will give you a random set of recipes within the requested limits.</param> 
         /// <param name="limitLicense">Whether the recipes should have an open license that allows display with proper attribution.</param> 
@@ -2789,10 +3451,12 @@ if (includeNutrition != null) formParams.Add("includeNutrition", ApiClient.Param
         /// <param name="excludeIngredients">A comma-separated list of ingredients or ingredient types that the recipes must not contain.</param> 
         /// <param name="type">The type of recipe. See a full list of supported meal types.</param> 
         /// <param name="instructionsRequired">Whether the recipes must have instructions.</param> 
-        /// <param name="fillIngredients">Add information about the used and missing ingredients in each recipe.</param> 
-        /// <param name="addRecipeInformation">If set to true, you get more information about the recipes returned. This saves you from needing to call to get recipe information.</param> 
+        /// <param name="fillIngredients">Add information about the ingredients and whether they are used or missing in relation to the query.</param> 
+        /// <param name="addRecipeInformation">If set to true, you get more information about the recipes returned.</param> 
+        /// <param name="addRecipeNutrition">If set to true, you get nutritional information about each recipes returned.</param> 
         /// <param name="author">The username of the recipe author.</param> 
-        /// <param name="tags">User defined tags that have to match.</param> 
+        /// <param name="tags">User defined tags that have to match. The author param has to be set.</param> 
+        /// <param name="recipeBoxId">The id of the recipe box to which the search should be limited to.</param> 
         /// <param name="titleMatch">Enter text that must be found in the title of the recipes.</param> 
         /// <param name="maxReadyTime">The maximum time in minutes it should take to prepare and cook the recipe.</param> 
         /// <param name="ignorePantry">Whether to ignore typical pantry items, such as water, salt, flour, etc.</param> 
@@ -2870,11 +3534,11 @@ if (includeNutrition != null) formParams.Add("includeNutrition", ApiClient.Param
         /// <param name="maxSugar">The maximum amount of sugar in grams the recipe can have.</param> 
         /// <param name="minZinc">The minimum amount of zinc in milligrams the recipe must have.</param> 
         /// <param name="maxZinc">The maximum amount of zinc in milligrams the recipe can have.</param> 
-        /// <param name="offset">The offset number for paging (between 0 and 990).</param> 
-        /// <param name="number">The number of expected results (between 1 and 10).</param> 
+        /// <param name="offset">The number of results to skip (between 0 and 900).</param> 
+        /// <param name="number">The number of expected results (between 1 and 100).</param> 
         /// <param name="limitLicense">Whether the recipes should have an open license that allows display with proper attribution.</param> 
         /// <returns>Object</returns>            
-        public Object SearchRecipesComplex (string query, string cuisine, string excludeCuisine, string diet, string intolerances, string equipment, string includeIngredients, string excludeIngredients, string type, bool? instructionsRequired, bool? fillIngredients, bool? addRecipeInformation, string author, string tags, string titleMatch, decimal? maxReadyTime, bool? ignorePantry, string sort, string sortDirection, decimal? minCarbs, decimal? maxCarbs, decimal? minProtein, decimal? maxProtein, decimal? minCalories, decimal? maxCalories, decimal? minFat, decimal? maxFat, decimal? minAlcohol, decimal? maxAlcohol, decimal? minCaffeine, decimal? maxCaffeine, decimal? minCopper, decimal? maxCopper, decimal? minCalcium, decimal? maxCalcium, decimal? minCholine, decimal? maxCholine, decimal? minCholesterol, decimal? maxCholesterol, decimal? minFluoride, decimal? maxFluoride, decimal? minSaturatedFat, decimal? maxSaturatedFat, decimal? minVitaminA, decimal? maxVitaminA, decimal? minVitaminC, decimal? maxVitaminC, decimal? minVitaminD, decimal? maxVitaminD, decimal? minVitaminE, decimal? maxVitaminE, decimal? minVitaminK, decimal? maxVitaminK, decimal? minVitaminB1, decimal? maxVitaminB1, decimal? minVitaminB2, decimal? maxVitaminB2, decimal? minVitaminB5, decimal? maxVitaminB5, decimal? minVitaminB3, decimal? maxVitaminB3, decimal? minVitaminB6, decimal? maxVitaminB6, decimal? minVitaminB12, decimal? maxVitaminB12, decimal? minFiber, decimal? maxFiber, decimal? minFolate, decimal? maxFolate, decimal? minFolicAcid, decimal? maxFolicAcid, decimal? minIodine, decimal? maxIodine, decimal? minIron, decimal? maxIron, decimal? minMagnesium, decimal? maxMagnesium, decimal? minManganese, decimal? maxManganese, decimal? minPhosphorus, decimal? maxPhosphorus, decimal? minPotassium, decimal? maxPotassium, decimal? minSelenium, decimal? maxSelenium, decimal? minSodium, decimal? maxSodium, decimal? minSugar, decimal? maxSugar, decimal? minZinc, decimal? maxZinc, decimal? offset, decimal? number, bool? limitLicense)
+        public Object SearchRecipesComplex (string query, string cuisine, string excludeCuisine, string diet, string intolerances, string equipment, string includeIngredients, string excludeIngredients, string type, bool? instructionsRequired, bool? fillIngredients, bool? addRecipeInformation, bool? addRecipeNutrition, string author, string tags, decimal? recipeBoxId, string titleMatch, decimal? maxReadyTime, bool? ignorePantry, string sort, string sortDirection, decimal? minCarbs, decimal? maxCarbs, decimal? minProtein, decimal? maxProtein, decimal? minCalories, decimal? maxCalories, decimal? minFat, decimal? maxFat, decimal? minAlcohol, decimal? maxAlcohol, decimal? minCaffeine, decimal? maxCaffeine, decimal? minCopper, decimal? maxCopper, decimal? minCalcium, decimal? maxCalcium, decimal? minCholine, decimal? maxCholine, decimal? minCholesterol, decimal? maxCholesterol, decimal? minFluoride, decimal? maxFluoride, decimal? minSaturatedFat, decimal? maxSaturatedFat, decimal? minVitaminA, decimal? maxVitaminA, decimal? minVitaminC, decimal? maxVitaminC, decimal? minVitaminD, decimal? maxVitaminD, decimal? minVitaminE, decimal? maxVitaminE, decimal? minVitaminK, decimal? maxVitaminK, decimal? minVitaminB1, decimal? maxVitaminB1, decimal? minVitaminB2, decimal? maxVitaminB2, decimal? minVitaminB5, decimal? maxVitaminB5, decimal? minVitaminB3, decimal? maxVitaminB3, decimal? minVitaminB6, decimal? maxVitaminB6, decimal? minVitaminB12, decimal? maxVitaminB12, decimal? minFiber, decimal? maxFiber, decimal? minFolate, decimal? maxFolate, decimal? minFolicAcid, decimal? maxFolicAcid, decimal? minIodine, decimal? maxIodine, decimal? minIron, decimal? maxIron, decimal? minMagnesium, decimal? maxMagnesium, decimal? minManganese, decimal? maxManganese, decimal? minPhosphorus, decimal? maxPhosphorus, decimal? minPotassium, decimal? maxPotassium, decimal? minSelenium, decimal? maxSelenium, decimal? minSodium, decimal? maxSodium, decimal? minSugar, decimal? maxSugar, decimal? minZinc, decimal? maxZinc, decimal? offset, decimal? number, bool? limitLicense)
         {
             
             // verify the required parameter 'query' is set
@@ -2902,8 +3566,10 @@ if (includeNutrition != null) formParams.Add("includeNutrition", ApiClient.Param
  if (instructionsRequired != null) queryParams.Add("instructionsRequired", ApiClient.ParameterToString(instructionsRequired)); // query parameter
  if (fillIngredients != null) queryParams.Add("fillIngredients", ApiClient.ParameterToString(fillIngredients)); // query parameter
  if (addRecipeInformation != null) queryParams.Add("addRecipeInformation", ApiClient.ParameterToString(addRecipeInformation)); // query parameter
+ if (addRecipeNutrition != null) queryParams.Add("addRecipeNutrition", ApiClient.ParameterToString(addRecipeNutrition)); // query parameter
  if (author != null) queryParams.Add("author", ApiClient.ParameterToString(author)); // query parameter
  if (tags != null) queryParams.Add("tags", ApiClient.ParameterToString(tags)); // query parameter
+ if (recipeBoxId != null) queryParams.Add("recipeBoxId", ApiClient.ParameterToString(recipeBoxId)); // query parameter
  if (titleMatch != null) queryParams.Add("titleMatch", ApiClient.ParameterToString(titleMatch)); // query parameter
  if (maxReadyTime != null) queryParams.Add("maxReadyTime", ApiClient.ParameterToString(maxReadyTime)); // query parameter
  if (ignorePantry != null) queryParams.Add("ignorePantry", ApiClient.ParameterToString(ignorePantry)); // query parameter

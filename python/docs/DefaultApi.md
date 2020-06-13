@@ -4,6 +4,8 @@ All URIs are relative to *https://api.spoonacular.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**add_to_meal_plan**](DefaultApi.md#add_to_meal_plan) | **POST** /mealplanner/{username}/items | Add to Meal Plan
+[**add_to_shopping_list**](DefaultApi.md#add_to_shopping_list) | **POST** /mealplanner/{username}/shopping-list/items | Add to Shopping List
 [**analyze_a_recipe_search_query**](DefaultApi.md#analyze_a_recipe_search_query) | **GET** /recipes/queries/analyze | Analyze a Recipe Search Query
 [**analyze_recipe_instructions**](DefaultApi.md#analyze_recipe_instructions) | **POST** /recipes/analyzeInstructions | Analyze Recipe Instructions
 [**autocomplete_ingredient_search**](DefaultApi.md#autocomplete_ingredient_search) | **GET** /food/ingredients/autocomplete | Autocomplete Ingredient Search
@@ -15,9 +17,12 @@ Method | HTTP request | Description
 [**classify_grocery_product_bulk**](DefaultApi.md#classify_grocery_product_bulk) | **POST** /food/products/classifyBatch | Classify Grocery Product Bulk
 [**convert_amounts**](DefaultApi.md#convert_amounts) | **GET** /recipes/convert | Convert Amounts
 [**create_recipe_card**](DefaultApi.md#create_recipe_card) | **POST** /recipes/visualizeRecipe | Create Recipe Card
+[**delete_from_meal_plan**](DefaultApi.md#delete_from_meal_plan) | **DELETE** /mealplanner/{username}/items/{id} | Delete from Meal Plan
+[**delete_from_shopping_list**](DefaultApi.md#delete_from_shopping_list) | **DELETE** /mealplanner/{username}/shopping-list/items/{id} | Delete from Shopping List
 [**detect_food_in_text**](DefaultApi.md#detect_food_in_text) | **POST** /food/detect | Detect Food in Text
 [**extract_recipe_from_website**](DefaultApi.md#extract_recipe_from_website) | **GET** /recipes/extract | Extract Recipe from Website
 [**generate_meal_plan**](DefaultApi.md#generate_meal_plan) | **GET** /mealplanner/generate | Generate Meal Plan
+[**generate_shopping_list**](DefaultApi.md#generate_shopping_list) | **POST** /mealplanner/{username}/shopping-list/{start-date}/{end-date} | Generate Shopping List
 [**get_a_random_food_joke**](DefaultApi.md#get_a_random_food_joke) | **GET** /food/jokes/random | Get a Random Food Joke
 [**get_analyzed_recipe_instructions**](DefaultApi.md#get_analyzed_recipe_instructions) | **GET** /recipes/{id}/analyzedInstructions | Get Analyzed Recipe Instructions
 [**get_comparable_products**](DefaultApi.md#get_comparable_products) | **GET** /food/products/upc/{upc}/comparable | Get Comparable Products
@@ -26,6 +31,9 @@ Method | HTTP request | Description
 [**get_ingredient_information**](DefaultApi.md#get_ingredient_information) | **GET** /food/ingredients/{id}/information | Get Ingredient Information
 [**get_ingredient_substitutes**](DefaultApi.md#get_ingredient_substitutes) | **GET** /food/ingredients/substitutes | Get Ingredient Substitutes
 [**get_ingredient_substitutes_by_id**](DefaultApi.md#get_ingredient_substitutes_by_id) | **GET** /food/ingredients/{id}/substitutes | Get Ingredient Substitutes by ID
+[**get_meal_plan_template**](DefaultApi.md#get_meal_plan_template) | **GET** /mealplanner/{username}/templates/{id} | Get Meal Plan Template
+[**get_meal_plan_templates**](DefaultApi.md#get_meal_plan_templates) | **GET** /mealplanner/{username}/templates | Get Meal Plan Templates
+[**get_meal_plan_week**](DefaultApi.md#get_meal_plan_week) | **GET** /mealplanner/{username}/week/{start-date} | Get Meal Plan Week
 [**get_menu_item_information**](DefaultApi.md#get_menu_item_information) | **GET** /food/menuItems/{id} | Get Menu Item Information
 [**get_product_information**](DefaultApi.md#get_product_information) | **GET** /food/products/{id} | Get Product Information
 [**get_random_food_trivia**](DefaultApi.md#get_random_food_trivia) | **GET** /food/trivia/random | Get Random Food Trivia
@@ -36,14 +44,18 @@ Method | HTTP request | Description
 [**get_recipe_ingredients_by_id**](DefaultApi.md#get_recipe_ingredients_by_id) | **GET** /recipes/{id}/ingredientWidget.json | Get Recipe Ingredients by ID
 [**get_recipe_nutrition_widget_by_id**](DefaultApi.md#get_recipe_nutrition_widget_by_id) | **GET** /recipes/{id}/nutritionWidget.json | Get Recipe Nutrition Widget by ID
 [**get_recipe_price_breakdown_by_id**](DefaultApi.md#get_recipe_price_breakdown_by_id) | **GET** /recipes/{id}/priceBreakdownWidget.json | Get Recipe Price Breakdown by ID
+[**get_shopping_list**](DefaultApi.md#get_shopping_list) | **GET** /mealplanner/{username}/shopping-list | Get Shopping List
 [**get_similar_recipes**](DefaultApi.md#get_similar_recipes) | **GET** /recipes/{id}/similar | Get Similar Recipes
 [**get_wine_description**](DefaultApi.md#get_wine_description) | **GET** /food/wine/description | Get Wine Description
 [**get_wine_pairing**](DefaultApi.md#get_wine_pairing) | **GET** /food/wine/pairing | Get Wine Pairing
 [**get_wine_recommendation**](DefaultApi.md#get_wine_recommendation) | **GET** /food/wine/recommendation | Get Wine Recommendation
 [**guess_nutrition_by_dish_name**](DefaultApi.md#guess_nutrition_by_dish_name) | **GET** /recipes/guessNutrition | Guess Nutrition by Dish Name
+[**image_analysis_by_url**](DefaultApi.md#image_analysis_by_url) | **GET** /food/images/analyze | Image Analysis by URL
+[**image_classification_by_url**](DefaultApi.md#image_classification_by_url) | **GET** /food/images/classify | Image Classification by URL
 [**map_ingredients_to_grocery_products**](DefaultApi.md#map_ingredients_to_grocery_products) | **POST** /food/ingredients/map | Map Ingredients to Grocery Products
 [**parse_ingredients**](DefaultApi.md#parse_ingredients) | **POST** /recipes/parseIngredients | Parse Ingredients
 [**quick_answer**](DefaultApi.md#quick_answer) | **GET** /recipes/quickAnswer | Quick Answer
+[**search_custom_foods**](DefaultApi.md#search_custom_foods) | **GET** /food/customFoods/search | Search Custom Foods
 [**search_food_videos**](DefaultApi.md#search_food_videos) | **GET** /food/videos/search | Search Food Videos
 [**search_grocery_products**](DefaultApi.md#search_grocery_products) | **GET** /food/products/search | Search Grocery Products
 [**search_grocery_products_by_upc**](DefaultApi.md#search_grocery_products_by_upc) | **GET** /food/products/upc/{upc} | Search Grocery Products by UPC
@@ -66,6 +78,112 @@ Method | HTTP request | Description
 [**visualize_recipe_nutrition_by_id**](DefaultApi.md#visualize_recipe_nutrition_by_id) | **GET** /recipes/{id}/nutritionWidget | Visualize Recipe Nutrition by ID
 [**visualize_recipe_price_breakdown_by_id**](DefaultApi.md#visualize_recipe_price_breakdown_by_id) | **GET** /recipes/{id}/priceBreakdownWidget | Visualize Recipe Price Breakdown by ID
 
+
+# **add_to_meal_plan**
+> object add_to_meal_plan(username, hash, inline_object9)
+
+Add to Meal Plan
+
+Add an item to the user's meal plan.
+
+### Example
+
+```python
+from __future__ import print_function
+import time
+import spoonacular
+from spoonacular.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = spoonacular.DefaultApi()
+username = 'dsky' # str | The username.
+hash = '4b5v4398573406' # str | The private hash for the username.
+inline_object9 = spoonacular.InlineObject9() # InlineObject9 | 
+
+try:
+    # Add to Meal Plan
+    api_response = api_instance.add_to_meal_plan(username, hash, inline_object9)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DefaultApi->add_to_meal_plan: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **str**| The username. | 
+ **hash** | **str**| The private hash for the username. | 
+ **inline_object9** | [**InlineObject9**](InlineObject9.md)|  | 
+
+### Return type
+
+**object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: 
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **add_to_shopping_list**
+> object add_to_shopping_list(username, hash, inline_object12)
+
+Add to Shopping List
+
+Add an item to the current shopping list of a user.
+
+### Example
+
+```python
+from __future__ import print_function
+import time
+import spoonacular
+from spoonacular.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = spoonacular.DefaultApi()
+username = 'dsky' # str | The username.
+hash = '4b5v4398573406' # str | The private hash for the username.
+inline_object12 = spoonacular.InlineObject12() # InlineObject12 | 
+
+try:
+    # Add to Shopping List
+    api_response = api_instance.add_to_shopping_list(username, hash, inline_object12)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DefaultApi->add_to_shopping_list: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **str**| The username. | 
+ **hash** | **str**| The private hash for the username. | 
+ **inline_object12** | [**InlineObject12**](InlineObject12.md)|  | 
+
+### Return type
+
+**object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: 
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **analyze_a_recipe_search_query**
 > object analyze_a_recipe_search_query(q)
@@ -652,6 +770,116 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **delete_from_meal_plan**
+> object delete_from_meal_plan(username, id, hash, inline_object10)
+
+Delete from Meal Plan
+
+Delete an item from the user's meal plan.
+
+### Example
+
+```python
+from __future__ import print_function
+import time
+import spoonacular
+from spoonacular.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = spoonacular.DefaultApi()
+username = 'dsky' # str | The username.
+id = 15678 # float | The shopping list item id.
+hash = '4b5v4398573406' # str | The private hash for the username.
+inline_object10 = spoonacular.InlineObject10() # InlineObject10 | 
+
+try:
+    # Delete from Meal Plan
+    api_response = api_instance.delete_from_meal_plan(username, id, hash, inline_object10)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DefaultApi->delete_from_meal_plan: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **str**| The username. | 
+ **id** | **float**| The shopping list item id. | 
+ **hash** | **str**| The private hash for the username. | 
+ **inline_object10** | [**InlineObject10**](InlineObject10.md)|  | 
+
+### Return type
+
+**object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: 
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **delete_from_shopping_list**
+> object delete_from_shopping_list(username, id, hash, inline_object13)
+
+Delete from Shopping List
+
+Delete an item from the current shopping list of the user.
+
+### Example
+
+```python
+from __future__ import print_function
+import time
+import spoonacular
+from spoonacular.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = spoonacular.DefaultApi()
+username = 'dsky' # str | The username.
+id = 15678 # float | The shopping list item id.
+hash = '4b5v4398573406' # str | The private hash for the username.
+inline_object13 = spoonacular.InlineObject13() # InlineObject13 | 
+
+try:
+    # Delete from Shopping List
+    api_response = api_instance.delete_from_shopping_list(username, id, hash, inline_object13)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DefaultApi->delete_from_shopping_list: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **str**| The username. | 
+ **id** | **float**| The shopping list item id. | 
+ **hash** | **str**| The private hash for the username. | 
+ **inline_object13** | [**InlineObject13**](InlineObject13.md)|  | 
+
+### Return type
+
+**object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: 
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **detect_food_in_text**
 > object detect_food_in_text(text)
 
@@ -702,7 +930,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **extract_recipe_from_website**
-> object extract_recipe_from_website(url, force_extraction=force_extraction)
+> object extract_recipe_from_website(url, force_extraction=force_extraction, analyze=analyze)
 
 Extract Recipe from Website
 
@@ -721,10 +949,11 @@ from pprint import pprint
 api_instance = spoonacular.DefaultApi()
 url = 'https://foodista.com/recipe/ZHK4KPB6/chocolate-crinkle-cookies' # str | The URL of the recipe page.
 force_extraction = true # bool | If true, the extraction will be triggered whether we already know the recipe or not. Use this only if information is missing as this operation is slower. (optional)
+analyze = false # bool | If true, the recipe will be analyzed and classified resolving in more data such as cuisines, dish types, and more. (optional)
 
 try:
     # Extract Recipe from Website
-    api_response = api_instance.extract_recipe_from_website(url, force_extraction=force_extraction)
+    api_response = api_instance.extract_recipe_from_website(url, force_extraction=force_extraction, analyze=analyze)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->extract_recipe_from_website: %s\n" % e)
@@ -736,6 +965,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **url** | **str**| The URL of the recipe page. | 
  **force_extraction** | **bool**| If true, the extraction will be triggered whether we already know the recipe or not. Use this only if information is missing as this operation is slower. | [optional] 
+ **analyze** | **bool**| If true, the recipe will be analyzed and classified resolving in more data such as cuisines, dish types, and more. | [optional] 
 
 ### Return type
 
@@ -803,6 +1033,63 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **generate_shopping_list**
+> object generate_shopping_list(username, start_date, end_date, hash, inline_object11)
+
+Generate Shopping List
+
+Generate the shopping list for a user from the meal planner in a given time frame.
+
+### Example
+
+```python
+from __future__ import print_function
+import time
+import spoonacular
+from spoonacular.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = spoonacular.DefaultApi()
+username = 'dsky' # str | The username.
+start_date = '2020-06-01' # str | The start date in the format yyyy-mm-dd.
+end_date = '2020-06-07' # str | The end date in the format yyyy-mm-dd.
+hash = '4b5v4398573406' # str | The private hash for the username.
+inline_object11 = spoonacular.InlineObject11() # InlineObject11 | 
+
+try:
+    # Generate Shopping List
+    api_response = api_instance.generate_shopping_list(username, start_date, end_date, hash, inline_object11)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DefaultApi->generate_shopping_list: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **str**| The username. | 
+ **start_date** | **str**| The start date in the format yyyy-mm-dd. | 
+ **end_date** | **str**| The end date in the format yyyy-mm-dd. | 
+ **hash** | **str**| The private hash for the username. | 
+ **inline_object11** | [**InlineObject11**](InlineObject11.md)|  | 
+
+### Return type
+
+**object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: 
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1203,6 +1490,163 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_meal_plan_template**
+> object get_meal_plan_template(username, id, hash)
+
+Get Meal Plan Template
+
+Get information about a meal plan template.
+
+### Example
+
+```python
+from __future__ import print_function
+import time
+import spoonacular
+from spoonacular.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = spoonacular.DefaultApi()
+username = 'dsky' # str | The username.
+id = 15678 # float | The shopping list item id.
+hash = '4b5v4398573406' # str | The private hash for the username.
+
+try:
+    # Get Meal Plan Template
+    api_response = api_instance.get_meal_plan_template(username, id, hash)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DefaultApi->get_meal_plan_template: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **str**| The username. | 
+ **id** | **float**| The shopping list item id. | 
+ **hash** | **str**| The private hash for the username. | 
+
+### Return type
+
+**object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_meal_plan_templates**
+> object get_meal_plan_templates(username, hash)
+
+Get Meal Plan Templates
+
+Get meal plan templates from user or public ones.
+
+### Example
+
+```python
+from __future__ import print_function
+import time
+import spoonacular
+from spoonacular.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = spoonacular.DefaultApi()
+username = 'dsky' # str | The username.
+hash = '4b5v4398573406' # str | The private hash for the username.
+
+try:
+    # Get Meal Plan Templates
+    api_response = api_instance.get_meal_plan_templates(username, hash)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DefaultApi->get_meal_plan_templates: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **str**| The username. | 
+ **hash** | **str**| The private hash for the username. | 
+
+### Return type
+
+**object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_meal_plan_week**
+> object get_meal_plan_week(username, start_date, hash)
+
+Get Meal Plan Week
+
+Retrieve a meal planned week for the given user. The username must be a spoonacular user and the hash must the the user's hash that can be found in his/her account.
+
+### Example
+
+```python
+from __future__ import print_function
+import time
+import spoonacular
+from spoonacular.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = spoonacular.DefaultApi()
+username = 'dsky' # str | The username.
+start_date = '2020-06-01' # str | The start date of the meal planned week in the format yyyy-mm-dd.
+hash = '4b5v4398573406' # str | The private hash for the username.
+
+try:
+    # Get Meal Plan Week
+    api_response = api_instance.get_meal_plan_week(username, start_date, hash)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DefaultApi->get_meal_plan_week: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **str**| The username. | 
+ **start_date** | **str**| The start date of the meal planned week in the format yyyy-mm-dd. | 
+ **hash** | **str**| The private hash for the username. | 
+
+### Return type
+
+**object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_menu_item_information**
 > object get_menu_item_information(id)
 
@@ -1257,7 +1701,7 @@ No authorization required
 
 Get Product Information
 
-Use a product id to get full information about a product, such as ingredients, nutrition, etc.
+Use a product id to get full information about a product, such as ingredients, nutrition, etc. The nutritional information is per serving.
 
 ### Example
 
@@ -1697,8 +2141,59 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_shopping_list**
+> object get_shopping_list(username, hash)
+
+Get Shopping List
+
+Get the current shopping list for the given user.
+
+### Example
+
+```python
+from __future__ import print_function
+import time
+import spoonacular
+from spoonacular.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = spoonacular.DefaultApi()
+username = 'dsky' # str | The username.
+hash = '4b5v4398573406' # str | The private hash for the username.
+
+try:
+    # Get Shopping List
+    api_response = api_instance.get_shopping_list(username, hash)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DefaultApi->get_shopping_list: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **str**| The username. | 
+ **hash** | **str**| The private hash for the username. | 
+
+### Return type
+
+**object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_similar_recipes**
-> object get_similar_recipes(id, number=number)
+> object get_similar_recipes(id, number=number, limit_license=limit_license)
 
 Get Similar Recipes
 
@@ -1717,10 +2212,11 @@ from pprint import pprint
 api_instance = spoonacular.DefaultApi()
 id = 715538 # float | The id of the source recipe for which similar recipes should be found.
 number = 1 # float | The number of random recipes to be returned (between 1 and 100). (optional)
+limit_license = true # bool | Whether the recipes should have an open license that allows display with proper attribution. (optional)
 
 try:
     # Get Similar Recipes
-    api_response = api_instance.get_similar_recipes(id, number=number)
+    api_response = api_instance.get_similar_recipes(id, number=number, limit_license=limit_license)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->get_similar_recipes: %s\n" % e)
@@ -1732,6 +2228,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **float**| The id of the source recipe for which similar recipes should be found. | 
  **number** | **float**| The number of random recipes to be returned (between 1 and 100). | [optional] 
+ **limit_license** | **bool**| Whether the recipes should have an open license that allows display with proper attribution. | [optional] 
 
 ### Return type
 
@@ -1952,6 +2449,104 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **image_analysis_by_url**
+> object image_analysis_by_url(image_url)
+
+Image Analysis by URL
+
+Analyze a food image. The API tries to classify the image, guess the nutrition, and find a matching recipes. You can play around with that endpoint!
+
+### Example
+
+```python
+from __future__ import print_function
+import time
+import spoonacular
+from spoonacular.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = spoonacular.DefaultApi()
+image_url = 'https://spoonacular.com/recipeImages/635350-240x150.jpg' # str | The URL of the image to be analyzed.
+
+try:
+    # Image Analysis by URL
+    api_response = api_instance.image_analysis_by_url(image_url)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DefaultApi->image_analysis_by_url: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **image_url** | **str**| The URL of the image to be analyzed. | 
+
+### Return type
+
+**object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **image_classification_by_url**
+> object image_classification_by_url(image_url)
+
+Image Classification by URL
+
+Classify a food image. You can play around with that endpoint!
+
+### Example
+
+```python
+from __future__ import print_function
+import time
+import spoonacular
+from spoonacular.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = spoonacular.DefaultApi()
+image_url = 'https://spoonacular.com/recipeImages/635350-240x150.jpg' # str | The URL of the image to be classified.
+
+try:
+    # Image Classification by URL
+    api_response = api_instance.image_classification_by_url(image_url)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DefaultApi->image_classification_by_url: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **image_url** | **str**| The URL of the image to be classified. | 
+
+### Return type
+
+**object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **map_ingredients_to_grocery_products**
 > object map_ingredients_to_grocery_products(body)
 
@@ -2103,6 +2698,63 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **search_custom_foods**
+> object search_custom_foods(query, username, hash, offset=offset, number=number)
+
+Search Custom Foods
+
+Search custom foods in a user's account.
+
+### Example
+
+```python
+from __future__ import print_function
+import time
+import spoonacular
+from spoonacular.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = spoonacular.DefaultApi()
+query = 'brat' # str | The search query.
+username = 'dsky' # str | The username.
+hash = '4b5v4398573406' # str | The private hash for the username.
+offset = 0 # float | The number of results to skip (between 0 and 990). (optional)
+number = 10 # float | The number of expected results (between 1 and 100). (optional)
+
+try:
+    # Search Custom Foods
+    api_response = api_instance.search_custom_foods(query, username, hash, offset=offset, number=number)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DefaultApi->search_custom_foods: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **query** | **str**| The search query. | 
+ **username** | **str**| The username. | 
+ **hash** | **str**| The private hash for the username. | 
+ **offset** | **float**| The number of results to skip (between 0 and 990). | [optional] 
+ **number** | **float**| The number of expected results (between 1 and 100). | [optional] 
+
+### Return type
+
+**object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **search_food_videos**
 > object search_food_videos(query, type=type, cuisine=cuisine, diet=diet, include_ingredients=include_ingredients, exclude_ingredients=exclude_ingredients, min_length=min_length, max_length=max_length, offset=offset, number=number)
 
@@ -2197,7 +2849,7 @@ min_protein = 10 # float | The minimum amount of protein in grams the product mu
 max_protein = 100 # float | The maximum amount of protein in grams the product can have. (optional)
 min_fat = 1 # float | The minimum amount of fat in grams the product must have. (optional)
 max_fat = 100 # float | The maximum amount of fat in grams the product can have. (optional)
-offset = 0 # float | The offset number for paging (between 0 and 990). (optional)
+offset = 0 # float | The number of results to skip (between 0 and 990). (optional)
 number = 10 # float | The number of expected results (between 1 and 100). (optional)
 
 try:
@@ -2221,7 +2873,7 @@ Name | Type | Description  | Notes
  **max_protein** | **float**| The maximum amount of protein in grams the product can have. | [optional] 
  **min_fat** | **float**| The minimum amount of fat in grams the product must have. | [optional] 
  **max_fat** | **float**| The maximum amount of fat in grams the product can have. | [optional] 
- **offset** | **float**| The offset number for paging (between 0 and 990). | [optional] 
+ **offset** | **float**| The number of results to skip (between 0 and 990). | [optional] 
  **number** | **float**| The number of expected results (between 1 and 100). | [optional] 
 
 ### Return type
@@ -2427,7 +3079,7 @@ No authorization required
 
 Search Recipes by Ingredients
 
-Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don't currently have (post shopping).
+             Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don't currently have (post shopping).         
 
 ### Example
 
@@ -2569,7 +3221,7 @@ min_sugar = 0 # float | The minimum amount of sugar in grams the recipe must hav
 max_sugar = 100 # float | The maximum amount of sugar in grams the recipe can have. (optional)
 min_zinc = 0 # float | The minimum amount of zinc in milligrams the recipe must have. (optional)
 max_zinc = 100 # float | The maximum amount of zinc in milligrams the recipe can have. (optional)
-offset = 0 # float | The offset number for paging (between 0 and 990). (optional)
+offset = 0 # float | The number of results to skip (between 0 and 900). (optional)
 number = 10 # float | The number of expected results (between 1 and 100). (optional)
 random = false # bool | If true, every request will give you a random set of recipes within the requested limits. (optional)
 limit_license = true # bool | Whether the recipes should have an open license that allows display with proper attribution. (optional)
@@ -2658,7 +3310,7 @@ Name | Type | Description  | Notes
  **max_sugar** | **float**| The maximum amount of sugar in grams the recipe can have. | [optional] 
  **min_zinc** | **float**| The minimum amount of zinc in milligrams the recipe must have. | [optional] 
  **max_zinc** | **float**| The maximum amount of zinc in milligrams the recipe can have. | [optional] 
- **offset** | **float**| The offset number for paging (between 0 and 990). | [optional] 
+ **offset** | **float**| The number of results to skip (between 0 and 900). | [optional] 
  **number** | **float**| The number of expected results (between 1 and 100). | [optional] 
  **random** | **bool**| If true, every request will give you a random set of recipes within the requested limits. | [optional] 
  **limit_license** | **bool**| Whether the recipes should have an open license that allows display with proper attribution. | [optional] 
@@ -2679,7 +3331,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **search_recipes_complex**
-> object search_recipes_complex(query, cuisine=cuisine, exclude_cuisine=exclude_cuisine, diet=diet, intolerances=intolerances, equipment=equipment, include_ingredients=include_ingredients, exclude_ingredients=exclude_ingredients, type=type, instructions_required=instructions_required, fill_ingredients=fill_ingredients, add_recipe_information=add_recipe_information, author=author, tags=tags, title_match=title_match, max_ready_time=max_ready_time, ignore_pantry=ignore_pantry, sort=sort, sort_direction=sort_direction, min_carbs=min_carbs, max_carbs=max_carbs, min_protein=min_protein, max_protein=max_protein, min_calories=min_calories, max_calories=max_calories, min_fat=min_fat, max_fat=max_fat, min_alcohol=min_alcohol, max_alcohol=max_alcohol, min_caffeine=min_caffeine, max_caffeine=max_caffeine, min_copper=min_copper, max_copper=max_copper, min_calcium=min_calcium, max_calcium=max_calcium, min_choline=min_choline, max_choline=max_choline, min_cholesterol=min_cholesterol, max_cholesterol=max_cholesterol, min_fluoride=min_fluoride, max_fluoride=max_fluoride, min_saturated_fat=min_saturated_fat, max_saturated_fat=max_saturated_fat, min_vitamin_a=min_vitamin_a, max_vitamin_a=max_vitamin_a, min_vitamin_c=min_vitamin_c, max_vitamin_c=max_vitamin_c, min_vitamin_d=min_vitamin_d, max_vitamin_d=max_vitamin_d, min_vitamin_e=min_vitamin_e, max_vitamin_e=max_vitamin_e, min_vitamin_k=min_vitamin_k, max_vitamin_k=max_vitamin_k, min_vitamin_b1=min_vitamin_b1, max_vitamin_b1=max_vitamin_b1, min_vitamin_b2=min_vitamin_b2, max_vitamin_b2=max_vitamin_b2, min_vitamin_b5=min_vitamin_b5, max_vitamin_b5=max_vitamin_b5, min_vitamin_b3=min_vitamin_b3, max_vitamin_b3=max_vitamin_b3, min_vitamin_b6=min_vitamin_b6, max_vitamin_b6=max_vitamin_b6, min_vitamin_b12=min_vitamin_b12, max_vitamin_b12=max_vitamin_b12, min_fiber=min_fiber, max_fiber=max_fiber, min_folate=min_folate, max_folate=max_folate, min_folic_acid=min_folic_acid, max_folic_acid=max_folic_acid, min_iodine=min_iodine, max_iodine=max_iodine, min_iron=min_iron, max_iron=max_iron, min_magnesium=min_magnesium, max_magnesium=max_magnesium, min_manganese=min_manganese, max_manganese=max_manganese, min_phosphorus=min_phosphorus, max_phosphorus=max_phosphorus, min_potassium=min_potassium, max_potassium=max_potassium, min_selenium=min_selenium, max_selenium=max_selenium, min_sodium=min_sodium, max_sodium=max_sodium, min_sugar=min_sugar, max_sugar=max_sugar, min_zinc=min_zinc, max_zinc=max_zinc, offset=offset, number=number, limit_license=limit_license)
+> object search_recipes_complex(query, cuisine=cuisine, exclude_cuisine=exclude_cuisine, diet=diet, intolerances=intolerances, equipment=equipment, include_ingredients=include_ingredients, exclude_ingredients=exclude_ingredients, type=type, instructions_required=instructions_required, fill_ingredients=fill_ingredients, add_recipe_information=add_recipe_information, add_recipe_nutrition=add_recipe_nutrition, author=author, tags=tags, recipe_box_id=recipe_box_id, title_match=title_match, max_ready_time=max_ready_time, ignore_pantry=ignore_pantry, sort=sort, sort_direction=sort_direction, min_carbs=min_carbs, max_carbs=max_carbs, min_protein=min_protein, max_protein=max_protein, min_calories=min_calories, max_calories=max_calories, min_fat=min_fat, max_fat=max_fat, min_alcohol=min_alcohol, max_alcohol=max_alcohol, min_caffeine=min_caffeine, max_caffeine=max_caffeine, min_copper=min_copper, max_copper=max_copper, min_calcium=min_calcium, max_calcium=max_calcium, min_choline=min_choline, max_choline=max_choline, min_cholesterol=min_cholesterol, max_cholesterol=max_cholesterol, min_fluoride=min_fluoride, max_fluoride=max_fluoride, min_saturated_fat=min_saturated_fat, max_saturated_fat=max_saturated_fat, min_vitamin_a=min_vitamin_a, max_vitamin_a=max_vitamin_a, min_vitamin_c=min_vitamin_c, max_vitamin_c=max_vitamin_c, min_vitamin_d=min_vitamin_d, max_vitamin_d=max_vitamin_d, min_vitamin_e=min_vitamin_e, max_vitamin_e=max_vitamin_e, min_vitamin_k=min_vitamin_k, max_vitamin_k=max_vitamin_k, min_vitamin_b1=min_vitamin_b1, max_vitamin_b1=max_vitamin_b1, min_vitamin_b2=min_vitamin_b2, max_vitamin_b2=max_vitamin_b2, min_vitamin_b5=min_vitamin_b5, max_vitamin_b5=max_vitamin_b5, min_vitamin_b3=min_vitamin_b3, max_vitamin_b3=max_vitamin_b3, min_vitamin_b6=min_vitamin_b6, max_vitamin_b6=max_vitamin_b6, min_vitamin_b12=min_vitamin_b12, max_vitamin_b12=max_vitamin_b12, min_fiber=min_fiber, max_fiber=max_fiber, min_folate=min_folate, max_folate=max_folate, min_folic_acid=min_folic_acid, max_folic_acid=max_folic_acid, min_iodine=min_iodine, max_iodine=max_iodine, min_iron=min_iron, max_iron=max_iron, min_magnesium=min_magnesium, max_magnesium=max_magnesium, min_manganese=min_manganese, max_manganese=max_manganese, min_phosphorus=min_phosphorus, max_phosphorus=max_phosphorus, min_potassium=min_potassium, max_potassium=max_potassium, min_selenium=min_selenium, max_selenium=max_selenium, min_sodium=min_sodium, max_sodium=max_sodium, min_sugar=min_sugar, max_sugar=max_sugar, min_zinc=min_zinc, max_zinc=max_zinc, offset=offset, number=number, limit_license=limit_license)
 
 Search Recipes Complex
 
@@ -2706,10 +3358,12 @@ include_ingredients = 'tomato,cheese' # str | A comma-separated list of ingredie
 exclude_ingredients = 'eggs' # str | A comma-separated list of ingredients or ingredient types that the recipes must not contain. (optional)
 type = 'main course' # str | The type of recipe. See a full list of supported meal types. (optional)
 instructions_required = true # bool | Whether the recipes must have instructions. (optional)
-fill_ingredients = false # bool | Add information about the used and missing ingredients in each recipe. (optional)
-add_recipe_information = false # bool | If set to true, you get more information about the recipes returned. This saves you from needing to call to get recipe information. (optional)
+fill_ingredients = false # bool | Add information about the ingredients and whether they are used or missing in relation to the query. (optional)
+add_recipe_information = false # bool | If set to true, you get more information about the recipes returned. (optional)
+add_recipe_nutrition = false # bool | If set to true, you get nutritional information about each recipes returned. (optional)
 author = 'coffeebean' # str | The username of the recipe author. (optional)
-tags = 'myCustomTag' # str | User defined tags that have to match. (optional)
+tags = 'myCustomTag' # str | User defined tags that have to match. The author param has to be set. (optional)
+recipe_box_id = 2468 # float | The id of the recipe box to which the search should be limited to. (optional)
 title_match = 'Crock Pot' # str | Enter text that must be found in the title of the recipes. (optional)
 max_ready_time = 20 # float | The maximum time in minutes it should take to prepare and cook the recipe. (optional)
 ignore_pantry = true # bool | Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional)
@@ -2787,13 +3441,13 @@ min_sugar = 0 # float | The minimum amount of sugar in grams the recipe must hav
 max_sugar = 100 # float | The maximum amount of sugar in grams the recipe can have. (optional)
 min_zinc = 0 # float | The minimum amount of zinc in milligrams the recipe must have. (optional)
 max_zinc = 100 # float | The maximum amount of zinc in milligrams the recipe can have. (optional)
-offset = 0 # float | The offset number for paging (between 0 and 990). (optional)
-number = 5 # float | The number of expected results (between 1 and 10). (optional)
+offset = 0 # float | The number of results to skip (between 0 and 900). (optional)
+number = 10 # float | The number of expected results (between 1 and 100). (optional)
 limit_license = true # bool | Whether the recipes should have an open license that allows display with proper attribution. (optional)
 
 try:
     # Search Recipes Complex
-    api_response = api_instance.search_recipes_complex(query, cuisine=cuisine, exclude_cuisine=exclude_cuisine, diet=diet, intolerances=intolerances, equipment=equipment, include_ingredients=include_ingredients, exclude_ingredients=exclude_ingredients, type=type, instructions_required=instructions_required, fill_ingredients=fill_ingredients, add_recipe_information=add_recipe_information, author=author, tags=tags, title_match=title_match, max_ready_time=max_ready_time, ignore_pantry=ignore_pantry, sort=sort, sort_direction=sort_direction, min_carbs=min_carbs, max_carbs=max_carbs, min_protein=min_protein, max_protein=max_protein, min_calories=min_calories, max_calories=max_calories, min_fat=min_fat, max_fat=max_fat, min_alcohol=min_alcohol, max_alcohol=max_alcohol, min_caffeine=min_caffeine, max_caffeine=max_caffeine, min_copper=min_copper, max_copper=max_copper, min_calcium=min_calcium, max_calcium=max_calcium, min_choline=min_choline, max_choline=max_choline, min_cholesterol=min_cholesterol, max_cholesterol=max_cholesterol, min_fluoride=min_fluoride, max_fluoride=max_fluoride, min_saturated_fat=min_saturated_fat, max_saturated_fat=max_saturated_fat, min_vitamin_a=min_vitamin_a, max_vitamin_a=max_vitamin_a, min_vitamin_c=min_vitamin_c, max_vitamin_c=max_vitamin_c, min_vitamin_d=min_vitamin_d, max_vitamin_d=max_vitamin_d, min_vitamin_e=min_vitamin_e, max_vitamin_e=max_vitamin_e, min_vitamin_k=min_vitamin_k, max_vitamin_k=max_vitamin_k, min_vitamin_b1=min_vitamin_b1, max_vitamin_b1=max_vitamin_b1, min_vitamin_b2=min_vitamin_b2, max_vitamin_b2=max_vitamin_b2, min_vitamin_b5=min_vitamin_b5, max_vitamin_b5=max_vitamin_b5, min_vitamin_b3=min_vitamin_b3, max_vitamin_b3=max_vitamin_b3, min_vitamin_b6=min_vitamin_b6, max_vitamin_b6=max_vitamin_b6, min_vitamin_b12=min_vitamin_b12, max_vitamin_b12=max_vitamin_b12, min_fiber=min_fiber, max_fiber=max_fiber, min_folate=min_folate, max_folate=max_folate, min_folic_acid=min_folic_acid, max_folic_acid=max_folic_acid, min_iodine=min_iodine, max_iodine=max_iodine, min_iron=min_iron, max_iron=max_iron, min_magnesium=min_magnesium, max_magnesium=max_magnesium, min_manganese=min_manganese, max_manganese=max_manganese, min_phosphorus=min_phosphorus, max_phosphorus=max_phosphorus, min_potassium=min_potassium, max_potassium=max_potassium, min_selenium=min_selenium, max_selenium=max_selenium, min_sodium=min_sodium, max_sodium=max_sodium, min_sugar=min_sugar, max_sugar=max_sugar, min_zinc=min_zinc, max_zinc=max_zinc, offset=offset, number=number, limit_license=limit_license)
+    api_response = api_instance.search_recipes_complex(query, cuisine=cuisine, exclude_cuisine=exclude_cuisine, diet=diet, intolerances=intolerances, equipment=equipment, include_ingredients=include_ingredients, exclude_ingredients=exclude_ingredients, type=type, instructions_required=instructions_required, fill_ingredients=fill_ingredients, add_recipe_information=add_recipe_information, add_recipe_nutrition=add_recipe_nutrition, author=author, tags=tags, recipe_box_id=recipe_box_id, title_match=title_match, max_ready_time=max_ready_time, ignore_pantry=ignore_pantry, sort=sort, sort_direction=sort_direction, min_carbs=min_carbs, max_carbs=max_carbs, min_protein=min_protein, max_protein=max_protein, min_calories=min_calories, max_calories=max_calories, min_fat=min_fat, max_fat=max_fat, min_alcohol=min_alcohol, max_alcohol=max_alcohol, min_caffeine=min_caffeine, max_caffeine=max_caffeine, min_copper=min_copper, max_copper=max_copper, min_calcium=min_calcium, max_calcium=max_calcium, min_choline=min_choline, max_choline=max_choline, min_cholesterol=min_cholesterol, max_cholesterol=max_cholesterol, min_fluoride=min_fluoride, max_fluoride=max_fluoride, min_saturated_fat=min_saturated_fat, max_saturated_fat=max_saturated_fat, min_vitamin_a=min_vitamin_a, max_vitamin_a=max_vitamin_a, min_vitamin_c=min_vitamin_c, max_vitamin_c=max_vitamin_c, min_vitamin_d=min_vitamin_d, max_vitamin_d=max_vitamin_d, min_vitamin_e=min_vitamin_e, max_vitamin_e=max_vitamin_e, min_vitamin_k=min_vitamin_k, max_vitamin_k=max_vitamin_k, min_vitamin_b1=min_vitamin_b1, max_vitamin_b1=max_vitamin_b1, min_vitamin_b2=min_vitamin_b2, max_vitamin_b2=max_vitamin_b2, min_vitamin_b5=min_vitamin_b5, max_vitamin_b5=max_vitamin_b5, min_vitamin_b3=min_vitamin_b3, max_vitamin_b3=max_vitamin_b3, min_vitamin_b6=min_vitamin_b6, max_vitamin_b6=max_vitamin_b6, min_vitamin_b12=min_vitamin_b12, max_vitamin_b12=max_vitamin_b12, min_fiber=min_fiber, max_fiber=max_fiber, min_folate=min_folate, max_folate=max_folate, min_folic_acid=min_folic_acid, max_folic_acid=max_folic_acid, min_iodine=min_iodine, max_iodine=max_iodine, min_iron=min_iron, max_iron=max_iron, min_magnesium=min_magnesium, max_magnesium=max_magnesium, min_manganese=min_manganese, max_manganese=max_manganese, min_phosphorus=min_phosphorus, max_phosphorus=max_phosphorus, min_potassium=min_potassium, max_potassium=max_potassium, min_selenium=min_selenium, max_selenium=max_selenium, min_sodium=min_sodium, max_sodium=max_sodium, min_sugar=min_sugar, max_sugar=max_sugar, min_zinc=min_zinc, max_zinc=max_zinc, offset=offset, number=number, limit_license=limit_license)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->search_recipes_complex: %s\n" % e)
@@ -2813,10 +3467,12 @@ Name | Type | Description  | Notes
  **exclude_ingredients** | **str**| A comma-separated list of ingredients or ingredient types that the recipes must not contain. | [optional] 
  **type** | **str**| The type of recipe. See a full list of supported meal types. | [optional] 
  **instructions_required** | **bool**| Whether the recipes must have instructions. | [optional] 
- **fill_ingredients** | **bool**| Add information about the used and missing ingredients in each recipe. | [optional] 
- **add_recipe_information** | **bool**| If set to true, you get more information about the recipes returned. This saves you from needing to call to get recipe information. | [optional] 
+ **fill_ingredients** | **bool**| Add information about the ingredients and whether they are used or missing in relation to the query. | [optional] 
+ **add_recipe_information** | **bool**| If set to true, you get more information about the recipes returned. | [optional] 
+ **add_recipe_nutrition** | **bool**| If set to true, you get nutritional information about each recipes returned. | [optional] 
  **author** | **str**| The username of the recipe author. | [optional] 
- **tags** | **str**| User defined tags that have to match. | [optional] 
+ **tags** | **str**| User defined tags that have to match. The author param has to be set. | [optional] 
+ **recipe_box_id** | **float**| The id of the recipe box to which the search should be limited to. | [optional] 
  **title_match** | **str**| Enter text that must be found in the title of the recipes. | [optional] 
  **max_ready_time** | **float**| The maximum time in minutes it should take to prepare and cook the recipe. | [optional] 
  **ignore_pantry** | **bool**| Whether to ignore typical pantry items, such as water, salt, flour, etc. | [optional] 
@@ -2894,8 +3550,8 @@ Name | Type | Description  | Notes
  **max_sugar** | **float**| The maximum amount of sugar in grams the recipe can have. | [optional] 
  **min_zinc** | **float**| The minimum amount of zinc in milligrams the recipe must have. | [optional] 
  **max_zinc** | **float**| The maximum amount of zinc in milligrams the recipe can have. | [optional] 
- **offset** | **float**| The offset number for paging (between 0 and 990). | [optional] 
- **number** | **float**| The number of expected results (between 1 and 10). | [optional] 
+ **offset** | **float**| The number of results to skip (between 0 and 900). | [optional] 
+ **number** | **float**| The number of expected results (between 1 and 100). | [optional] 
  **limit_license** | **bool**| Whether the recipes should have an open license that allows display with proper attribution. | [optional] 
 
 ### Return type

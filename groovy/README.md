@@ -33,9 +33,11 @@ Then, run:
 
 ```groovy
 def apiInstance = new DefaultApi()
-def q = salmon with fusilli and no nuts // String | The recipe search query.
+def username = dsky // String | The username.
+def hash = 4b5v4398573406 // String | The private hash for the username.
+def inlineObject9 = new InlineObject9() // InlineObject9 | 
 
-apiInstance.analyzeARecipeSearchQuery(q)
+apiInstance.addToMealPlan(username, hash, inlineObject9)
     {
     // on success
     def result = (Object)it

@@ -4,6 +4,8 @@ All URIs are relative to *https://api.spoonacular.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**addToMealPlan**](OAIDefaultApi.md#addtomealplan) | **POST** /mealplanner/{username}/items | Add to Meal Plan
+[**addToShoppingList**](OAIDefaultApi.md#addtoshoppinglist) | **POST** /mealplanner/{username}/shopping-list/items | Add to Shopping List
 [**analyzeARecipeSearchQuery**](OAIDefaultApi.md#analyzearecipesearchquery) | **GET** /recipes/queries/analyze | Analyze a Recipe Search Query
 [**analyzeRecipeInstructions**](OAIDefaultApi.md#analyzerecipeinstructions) | **POST** /recipes/analyzeInstructions | Analyze Recipe Instructions
 [**autocompleteIngredientSearch**](OAIDefaultApi.md#autocompleteingredientsearch) | **GET** /food/ingredients/autocomplete | Autocomplete Ingredient Search
@@ -15,9 +17,12 @@ Method | HTTP request | Description
 [**classifyGroceryProductBulk**](OAIDefaultApi.md#classifygroceryproductbulk) | **POST** /food/products/classifyBatch | Classify Grocery Product Bulk
 [**convertAmounts**](OAIDefaultApi.md#convertamounts) | **GET** /recipes/convert | Convert Amounts
 [**createRecipeCard**](OAIDefaultApi.md#createrecipecard) | **POST** /recipes/visualizeRecipe | Create Recipe Card
+[**deleteFromMealPlan**](OAIDefaultApi.md#deletefrommealplan) | **DELETE** /mealplanner/{username}/items/{id} | Delete from Meal Plan
+[**deleteFromShoppingList**](OAIDefaultApi.md#deletefromshoppinglist) | **DELETE** /mealplanner/{username}/shopping-list/items/{id} | Delete from Shopping List
 [**detectFoodInText**](OAIDefaultApi.md#detectfoodintext) | **POST** /food/detect | Detect Food in Text
 [**extractRecipeFromWebsite**](OAIDefaultApi.md#extractrecipefromwebsite) | **GET** /recipes/extract | Extract Recipe from Website
 [**generateMealPlan**](OAIDefaultApi.md#generatemealplan) | **GET** /mealplanner/generate | Generate Meal Plan
+[**generateShoppingList**](OAIDefaultApi.md#generateshoppinglist) | **POST** /mealplanner/{username}/shopping-list/{start-date}/{end-date} | Generate Shopping List
 [**getARandomFoodJoke**](OAIDefaultApi.md#getarandomfoodjoke) | **GET** /food/jokes/random | Get a Random Food Joke
 [**getAnalyzedRecipeInstructions**](OAIDefaultApi.md#getanalyzedrecipeinstructions) | **GET** /recipes/{id}/analyzedInstructions | Get Analyzed Recipe Instructions
 [**getComparableProducts**](OAIDefaultApi.md#getcomparableproducts) | **GET** /food/products/upc/{upc}/comparable | Get Comparable Products
@@ -26,6 +31,9 @@ Method | HTTP request | Description
 [**getIngredientInformation**](OAIDefaultApi.md#getingredientinformation) | **GET** /food/ingredients/{id}/information | Get Ingredient Information
 [**getIngredientSubstitutes**](OAIDefaultApi.md#getingredientsubstitutes) | **GET** /food/ingredients/substitutes | Get Ingredient Substitutes
 [**getIngredientSubstitutesByID**](OAIDefaultApi.md#getingredientsubstitutesbyid) | **GET** /food/ingredients/{id}/substitutes | Get Ingredient Substitutes by ID
+[**getMealPlanTemplate**](OAIDefaultApi.md#getmealplantemplate) | **GET** /mealplanner/{username}/templates/{id} | Get Meal Plan Template
+[**getMealPlanTemplates**](OAIDefaultApi.md#getmealplantemplates) | **GET** /mealplanner/{username}/templates | Get Meal Plan Templates
+[**getMealPlanWeek**](OAIDefaultApi.md#getmealplanweek) | **GET** /mealplanner/{username}/week/{start-date} | Get Meal Plan Week
 [**getMenuItemInformation**](OAIDefaultApi.md#getmenuiteminformation) | **GET** /food/menuItems/{id} | Get Menu Item Information
 [**getProductInformation**](OAIDefaultApi.md#getproductinformation) | **GET** /food/products/{id} | Get Product Information
 [**getRandomFoodTrivia**](OAIDefaultApi.md#getrandomfoodtrivia) | **GET** /food/trivia/random | Get Random Food Trivia
@@ -36,14 +44,18 @@ Method | HTTP request | Description
 [**getRecipeIngredientsByID**](OAIDefaultApi.md#getrecipeingredientsbyid) | **GET** /recipes/{id}/ingredientWidget.json | Get Recipe Ingredients by ID
 [**getRecipeNutritionWidgetByID**](OAIDefaultApi.md#getrecipenutritionwidgetbyid) | **GET** /recipes/{id}/nutritionWidget.json | Get Recipe Nutrition Widget by ID
 [**getRecipePriceBreakdownByID**](OAIDefaultApi.md#getrecipepricebreakdownbyid) | **GET** /recipes/{id}/priceBreakdownWidget.json | Get Recipe Price Breakdown by ID
+[**getShoppingList**](OAIDefaultApi.md#getshoppinglist) | **GET** /mealplanner/{username}/shopping-list | Get Shopping List
 [**getSimilarRecipes**](OAIDefaultApi.md#getsimilarrecipes) | **GET** /recipes/{id}/similar | Get Similar Recipes
 [**getWineDescription**](OAIDefaultApi.md#getwinedescription) | **GET** /food/wine/description | Get Wine Description
 [**getWinePairing**](OAIDefaultApi.md#getwinepairing) | **GET** /food/wine/pairing | Get Wine Pairing
 [**getWineRecommendation**](OAIDefaultApi.md#getwinerecommendation) | **GET** /food/wine/recommendation | Get Wine Recommendation
 [**guessNutritionByDishName**](OAIDefaultApi.md#guessnutritionbydishname) | **GET** /recipes/guessNutrition | Guess Nutrition by Dish Name
+[**imageAnalysisByURL**](OAIDefaultApi.md#imageanalysisbyurl) | **GET** /food/images/analyze | Image Analysis by URL
+[**imageClassificationByURL**](OAIDefaultApi.md#imageclassificationbyurl) | **GET** /food/images/classify | Image Classification by URL
 [**mapIngredientsToGroceryProducts**](OAIDefaultApi.md#mapingredientstogroceryproducts) | **POST** /food/ingredients/map | Map Ingredients to Grocery Products
 [**parseIngredients**](OAIDefaultApi.md#parseingredients) | **POST** /recipes/parseIngredients | Parse Ingredients
 [**quickAnswer**](OAIDefaultApi.md#quickanswer) | **GET** /recipes/quickAnswer | Quick Answer
+[**searchCustomFoods**](OAIDefaultApi.md#searchcustomfoods) | **GET** /food/customFoods/search | Search Custom Foods
 [**searchFoodVideos**](OAIDefaultApi.md#searchfoodvideos) | **GET** /food/videos/search | Search Food Videos
 [**searchGroceryProducts**](OAIDefaultApi.md#searchgroceryproducts) | **GET** /food/products/search | Search Grocery Products
 [**searchGroceryProductsByUPC**](OAIDefaultApi.md#searchgroceryproductsbyupc) | **GET** /food/products/upc/{upc} | Search Grocery Products by UPC
@@ -66,6 +78,122 @@ Method | HTTP request | Description
 [**visualizeRecipeNutritionByID**](OAIDefaultApi.md#visualizerecipenutritionbyid) | **GET** /recipes/{id}/nutritionWidget | Visualize Recipe Nutrition by ID
 [**visualizeRecipePriceBreakdownByID**](OAIDefaultApi.md#visualizerecipepricebreakdownbyid) | **GET** /recipes/{id}/priceBreakdownWidget | Visualize Recipe Price Breakdown by ID
 
+
+# **addToMealPlan**
+```objc
+-(NSURLSessionTask*) addToMealPlanWithUsername: (NSString*) username
+    hash: (NSString*) hash
+    inlineObject9: (OAIInlineObject9*) inlineObject9
+        completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
+```
+
+Add to Meal Plan
+
+Add an item to the user's meal plan.
+
+### Example 
+```objc
+
+NSString* username = dsky; // The username.
+NSString* hash = 4b5v4398573406; // The private hash for the username.
+OAIInlineObject9* inlineObject9 = [[OAIInlineObject9 alloc] init]; // 
+
+OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
+
+// Add to Meal Plan
+[apiInstance addToMealPlanWithUsername:username
+              hash:hash
+              inlineObject9:inlineObject9
+          completionHandler: ^(NSObject* output, NSError* error) {
+                        if (output) {
+                            NSLog(@"%@", output);
+                        }
+                        if (error) {
+                            NSLog(@"Error calling OAIDefaultApi->addToMealPlan: %@", error);
+                        }
+                    }];
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **NSString***| The username. | 
+ **hash** | **NSString***| The private hash for the username. | 
+ **inlineObject9** | [**OAIInlineObject9***](OAIInlineObject9.md)|  | 
+
+### Return type
+
+**NSObject***
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: 
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **addToShoppingList**
+```objc
+-(NSURLSessionTask*) addToShoppingListWithUsername: (NSString*) username
+    hash: (NSString*) hash
+    inlineObject12: (OAIInlineObject12*) inlineObject12
+        completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
+```
+
+Add to Shopping List
+
+Add an item to the current shopping list of a user.
+
+### Example 
+```objc
+
+NSString* username = dsky; // The username.
+NSString* hash = 4b5v4398573406; // The private hash for the username.
+OAIInlineObject12* inlineObject12 = [[OAIInlineObject12 alloc] init]; // 
+
+OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
+
+// Add to Shopping List
+[apiInstance addToShoppingListWithUsername:username
+              hash:hash
+              inlineObject12:inlineObject12
+          completionHandler: ^(NSObject* output, NSError* error) {
+                        if (output) {
+                            NSLog(@"%@", output);
+                        }
+                        if (error) {
+                            NSLog(@"Error calling OAIDefaultApi->addToShoppingList: %@", error);
+                        }
+                    }];
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **NSString***| The username. | 
+ **hash** | **NSString***| The private hash for the username. | 
+ **inlineObject12** | [**OAIInlineObject12***](OAIInlineObject12.md)|  | 
+
+### Return type
+
+**NSObject***
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: 
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **analyzeARecipeSearchQuery**
 ```objc
@@ -709,6 +837,130 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **deleteFromMealPlan**
+```objc
+-(NSURLSessionTask*) deleteFromMealPlanWithUsername: (NSString*) username
+    _id: (NSNumber*) _id
+    hash: (NSString*) hash
+    inlineObject10: (OAIInlineObject10*) inlineObject10
+        completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
+```
+
+Delete from Meal Plan
+
+Delete an item from the user's meal plan.
+
+### Example 
+```objc
+
+NSString* username = dsky; // The username.
+NSNumber* _id = 15678; // The shopping list item id.
+NSString* hash = 4b5v4398573406; // The private hash for the username.
+OAIInlineObject10* inlineObject10 = [[OAIInlineObject10 alloc] init]; // 
+
+OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
+
+// Delete from Meal Plan
+[apiInstance deleteFromMealPlanWithUsername:username
+              _id:_id
+              hash:hash
+              inlineObject10:inlineObject10
+          completionHandler: ^(NSObject* output, NSError* error) {
+                        if (output) {
+                            NSLog(@"%@", output);
+                        }
+                        if (error) {
+                            NSLog(@"Error calling OAIDefaultApi->deleteFromMealPlan: %@", error);
+                        }
+                    }];
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **NSString***| The username. | 
+ **_id** | **NSNumber***| The shopping list item id. | 
+ **hash** | **NSString***| The private hash for the username. | 
+ **inlineObject10** | [**OAIInlineObject10***](OAIInlineObject10.md)|  | 
+
+### Return type
+
+**NSObject***
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: 
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **deleteFromShoppingList**
+```objc
+-(NSURLSessionTask*) deleteFromShoppingListWithUsername: (NSString*) username
+    _id: (NSNumber*) _id
+    hash: (NSString*) hash
+    inlineObject13: (OAIInlineObject13*) inlineObject13
+        completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
+```
+
+Delete from Shopping List
+
+Delete an item from the current shopping list of the user.
+
+### Example 
+```objc
+
+NSString* username = dsky; // The username.
+NSNumber* _id = 15678; // The shopping list item id.
+NSString* hash = 4b5v4398573406; // The private hash for the username.
+OAIInlineObject13* inlineObject13 = [[OAIInlineObject13 alloc] init]; // 
+
+OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
+
+// Delete from Shopping List
+[apiInstance deleteFromShoppingListWithUsername:username
+              _id:_id
+              hash:hash
+              inlineObject13:inlineObject13
+          completionHandler: ^(NSObject* output, NSError* error) {
+                        if (output) {
+                            NSLog(@"%@", output);
+                        }
+                        if (error) {
+                            NSLog(@"Error calling OAIDefaultApi->deleteFromShoppingList: %@", error);
+                        }
+                    }];
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **NSString***| The username. | 
+ **_id** | **NSNumber***| The shopping list item id. | 
+ **hash** | **NSString***| The private hash for the username. | 
+ **inlineObject13** | [**OAIInlineObject13***](OAIInlineObject13.md)|  | 
+
+### Return type
+
+**NSObject***
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: 
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **detectFoodInText**
 ```objc
 -(NSURLSessionTask*) detectFoodInTextWithText: (NSString*) text
@@ -763,6 +1015,7 @@ No authorization required
 ```objc
 -(NSURLSessionTask*) extractRecipeFromWebsiteWithUrl: (NSString*) url
     forceExtraction: (NSNumber*) forceExtraction
+    analyze: (NSNumber*) analyze
         completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
 ```
 
@@ -775,12 +1028,14 @@ This endpoint lets you extract recipe data such as title, ingredients, and instr
 
 NSString* url = https://foodista.com/recipe/ZHK4KPB6/chocolate-crinkle-cookies; // The URL of the recipe page.
 NSNumber* forceExtraction = true; // If true, the extraction will be triggered whether we already know the recipe or not. Use this only if information is missing as this operation is slower. (optional)
+NSNumber* analyze = false; // If true, the recipe will be analyzed and classified resolving in more data such as cuisines, dish types, and more. (optional)
 
 OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
 
 // Extract Recipe from Website
 [apiInstance extractRecipeFromWebsiteWithUrl:url
               forceExtraction:forceExtraction
+              analyze:analyze
           completionHandler: ^(NSObject* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
@@ -797,6 +1052,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **url** | **NSString***| The URL of the recipe page. | 
  **forceExtraction** | **NSNumber***| If true, the extraction will be triggered whether we already know the recipe or not. Use this only if information is missing as this operation is slower. | [optional] 
+ **analyze** | **NSNumber***| If true, the recipe will be analyzed and classified resolving in more data such as cuisines, dish types, and more. | [optional] 
 
 ### Return type
 
@@ -871,6 +1127,72 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **generateShoppingList**
+```objc
+-(NSURLSessionTask*) generateShoppingListWithUsername: (NSString*) username
+    startDate: (NSString*) startDate
+    endDate: (NSString*) endDate
+    hash: (NSString*) hash
+    inlineObject11: (OAIInlineObject11*) inlineObject11
+        completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
+```
+
+Generate Shopping List
+
+Generate the shopping list for a user from the meal planner in a given time frame.
+
+### Example 
+```objc
+
+NSString* username = dsky; // The username.
+NSString* startDate = 2020-06-01; // The start date in the format yyyy-mm-dd.
+NSString* endDate = 2020-06-07; // The end date in the format yyyy-mm-dd.
+NSString* hash = 4b5v4398573406; // The private hash for the username.
+OAIInlineObject11* inlineObject11 = [[OAIInlineObject11 alloc] init]; // 
+
+OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
+
+// Generate Shopping List
+[apiInstance generateShoppingListWithUsername:username
+              startDate:startDate
+              endDate:endDate
+              hash:hash
+              inlineObject11:inlineObject11
+          completionHandler: ^(NSObject* output, NSError* error) {
+                        if (output) {
+                            NSLog(@"%@", output);
+                        }
+                        if (error) {
+                            NSLog(@"Error calling OAIDefaultApi->generateShoppingList: %@", error);
+                        }
+                    }];
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **NSString***| The username. | 
+ **startDate** | **NSString***| The start date in the format yyyy-mm-dd. | 
+ **endDate** | **NSString***| The end date in the format yyyy-mm-dd. | 
+ **hash** | **NSString***| The private hash for the username. | 
+ **inlineObject11** | [**OAIInlineObject11***](OAIInlineObject11.md)|  | 
+
+### Return type
+
+**NSObject***
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: 
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1287,6 +1609,176 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **getMealPlanTemplate**
+```objc
+-(NSURLSessionTask*) getMealPlanTemplateWithUsername: (NSString*) username
+    _id: (NSNumber*) _id
+    hash: (NSString*) hash
+        completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
+```
+
+Get Meal Plan Template
+
+Get information about a meal plan template.
+
+### Example 
+```objc
+
+NSString* username = dsky; // The username.
+NSNumber* _id = 15678; // The shopping list item id.
+NSString* hash = 4b5v4398573406; // The private hash for the username.
+
+OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
+
+// Get Meal Plan Template
+[apiInstance getMealPlanTemplateWithUsername:username
+              _id:_id
+              hash:hash
+          completionHandler: ^(NSObject* output, NSError* error) {
+                        if (output) {
+                            NSLog(@"%@", output);
+                        }
+                        if (error) {
+                            NSLog(@"Error calling OAIDefaultApi->getMealPlanTemplate: %@", error);
+                        }
+                    }];
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **NSString***| The username. | 
+ **_id** | **NSNumber***| The shopping list item id. | 
+ **hash** | **NSString***| The private hash for the username. | 
+
+### Return type
+
+**NSObject***
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getMealPlanTemplates**
+```objc
+-(NSURLSessionTask*) getMealPlanTemplatesWithUsername: (NSString*) username
+    hash: (NSString*) hash
+        completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
+```
+
+Get Meal Plan Templates
+
+Get meal plan templates from user or public ones.
+
+### Example 
+```objc
+
+NSString* username = dsky; // The username.
+NSString* hash = 4b5v4398573406; // The private hash for the username.
+
+OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
+
+// Get Meal Plan Templates
+[apiInstance getMealPlanTemplatesWithUsername:username
+              hash:hash
+          completionHandler: ^(NSObject* output, NSError* error) {
+                        if (output) {
+                            NSLog(@"%@", output);
+                        }
+                        if (error) {
+                            NSLog(@"Error calling OAIDefaultApi->getMealPlanTemplates: %@", error);
+                        }
+                    }];
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **NSString***| The username. | 
+ **hash** | **NSString***| The private hash for the username. | 
+
+### Return type
+
+**NSObject***
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getMealPlanWeek**
+```objc
+-(NSURLSessionTask*) getMealPlanWeekWithUsername: (NSString*) username
+    startDate: (NSString*) startDate
+    hash: (NSString*) hash
+        completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
+```
+
+Get Meal Plan Week
+
+Retrieve a meal planned week for the given user. The username must be a spoonacular user and the hash must the the user's hash that can be found in his/her account.
+
+### Example 
+```objc
+
+NSString* username = dsky; // The username.
+NSString* startDate = 2020-06-01; // The start date of the meal planned week in the format yyyy-mm-dd.
+NSString* hash = 4b5v4398573406; // The private hash for the username.
+
+OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
+
+// Get Meal Plan Week
+[apiInstance getMealPlanWeekWithUsername:username
+              startDate:startDate
+              hash:hash
+          completionHandler: ^(NSObject* output, NSError* error) {
+                        if (output) {
+                            NSLog(@"%@", output);
+                        }
+                        if (error) {
+                            NSLog(@"Error calling OAIDefaultApi->getMealPlanWeek: %@", error);
+                        }
+                    }];
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **NSString***| The username. | 
+ **startDate** | **NSString***| The start date of the meal planned week in the format yyyy-mm-dd. | 
+ **hash** | **NSString***| The private hash for the username. | 
+
+### Return type
+
+**NSObject***
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **getMenuItemInformation**
 ```objc
 -(NSURLSessionTask*) getMenuItemInformationWithId: (NSNumber*) _id
@@ -1345,7 +1837,7 @@ No authorization required
 
 Get Product Information
 
-Use a product id to get full information about a product, such as ingredients, nutrition, etc.
+Use a product id to get full information about a product, such as ingredients, nutrition, etc. The nutritional information is per serving.
 
 ### Example 
 ```objc
@@ -1799,10 +2291,65 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **getShoppingList**
+```objc
+-(NSURLSessionTask*) getShoppingListWithUsername: (NSString*) username
+    hash: (NSString*) hash
+        completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
+```
+
+Get Shopping List
+
+Get the current shopping list for the given user.
+
+### Example 
+```objc
+
+NSString* username = dsky; // The username.
+NSString* hash = 4b5v4398573406; // The private hash for the username.
+
+OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
+
+// Get Shopping List
+[apiInstance getShoppingListWithUsername:username
+              hash:hash
+          completionHandler: ^(NSObject* output, NSError* error) {
+                        if (output) {
+                            NSLog(@"%@", output);
+                        }
+                        if (error) {
+                            NSLog(@"Error calling OAIDefaultApi->getShoppingList: %@", error);
+                        }
+                    }];
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **NSString***| The username. | 
+ **hash** | **NSString***| The private hash for the username. | 
+
+### Return type
+
+**NSObject***
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **getSimilarRecipes**
 ```objc
 -(NSURLSessionTask*) getSimilarRecipesWithId: (NSNumber*) _id
     number: (NSNumber*) number
+    limitLicense: (NSNumber*) limitLicense
         completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
 ```
 
@@ -1815,12 +2362,14 @@ Find recipes which are similar to the given one.
 
 NSNumber* _id = 715538; // The id of the source recipe for which similar recipes should be found.
 NSNumber* number = 1; // The number of random recipes to be returned (between 1 and 100). (optional)
+NSNumber* limitLicense = true; // Whether the recipes should have an open license that allows display with proper attribution. (optional)
 
 OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
 
 // Get Similar Recipes
 [apiInstance getSimilarRecipesWithId:_id
               number:number
+              limitLicense:limitLicense
           completionHandler: ^(NSObject* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
@@ -1837,6 +2386,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_id** | **NSNumber***| The id of the source recipe for which similar recipes should be found. | 
  **number** | **NSNumber***| The number of random recipes to be returned (between 1 and 100). | [optional] 
+ **limitLicense** | **NSNumber***| Whether the recipes should have an open license that allows display with proper attribution. | [optional] 
 
 ### Return type
 
@@ -2069,6 +2619,106 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **imageAnalysisByURL**
+```objc
+-(NSURLSessionTask*) imageAnalysisByURLWithImageUrl: (NSString*) imageUrl
+        completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
+```
+
+Image Analysis by URL
+
+Analyze a food image. The API tries to classify the image, guess the nutrition, and find a matching recipes. You can play around with that endpoint!
+
+### Example 
+```objc
+
+NSString* imageUrl = https://spoonacular.com/recipeImages/635350-240x150.jpg; // The URL of the image to be analyzed.
+
+OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
+
+// Image Analysis by URL
+[apiInstance imageAnalysisByURLWithImageUrl:imageUrl
+          completionHandler: ^(NSObject* output, NSError* error) {
+                        if (output) {
+                            NSLog(@"%@", output);
+                        }
+                        if (error) {
+                            NSLog(@"Error calling OAIDefaultApi->imageAnalysisByURL: %@", error);
+                        }
+                    }];
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **imageUrl** | **NSString***| The URL of the image to be analyzed. | 
+
+### Return type
+
+**NSObject***
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **imageClassificationByURL**
+```objc
+-(NSURLSessionTask*) imageClassificationByURLWithImageUrl: (NSString*) imageUrl
+        completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
+```
+
+Image Classification by URL
+
+Classify a food image. You can play around with that endpoint!
+
+### Example 
+```objc
+
+NSString* imageUrl = https://spoonacular.com/recipeImages/635350-240x150.jpg; // The URL of the image to be classified.
+
+OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
+
+// Image Classification by URL
+[apiInstance imageClassificationByURLWithImageUrl:imageUrl
+          completionHandler: ^(NSObject* output, NSError* error) {
+                        if (output) {
+                            NSLog(@"%@", output);
+                        }
+                        if (error) {
+                            NSLog(@"Error calling OAIDefaultApi->imageClassificationByURL: %@", error);
+                        }
+                    }];
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **imageUrl** | **NSString***| The URL of the image to be classified. | 
+
+### Return type
+
+**NSObject***
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **mapIngredientsToGroceryProducts**
 ```objc
 -(NSURLSessionTask*) mapIngredientsToGroceryProductsWithBody: (NSObject*) body
@@ -2227,6 +2877,72 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **searchCustomFoods**
+```objc
+-(NSURLSessionTask*) searchCustomFoodsWithQuery: (NSString*) query
+    username: (NSString*) username
+    hash: (NSString*) hash
+    offset: (NSNumber*) offset
+    number: (NSNumber*) number
+        completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
+```
+
+Search Custom Foods
+
+Search custom foods in a user's account.
+
+### Example 
+```objc
+
+NSString* query = brat; // The search query.
+NSString* username = dsky; // The username.
+NSString* hash = 4b5v4398573406; // The private hash for the username.
+NSNumber* offset = 0; // The number of results to skip (between 0 and 990). (optional)
+NSNumber* number = 10; // The number of expected results (between 1 and 100). (optional)
+
+OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
+
+// Search Custom Foods
+[apiInstance searchCustomFoodsWithQuery:query
+              username:username
+              hash:hash
+              offset:offset
+              number:number
+          completionHandler: ^(NSObject* output, NSError* error) {
+                        if (output) {
+                            NSLog(@"%@", output);
+                        }
+                        if (error) {
+                            NSLog(@"Error calling OAIDefaultApi->searchCustomFoods: %@", error);
+                        }
+                    }];
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **query** | **NSString***| The search query. | 
+ **username** | **NSString***| The username. | 
+ **hash** | **NSString***| The private hash for the username. | 
+ **offset** | **NSNumber***| The number of results to skip (between 0 and 990). | [optional] 
+ **number** | **NSNumber***| The number of expected results (between 1 and 100). | [optional] 
+
+### Return type
+
+**NSObject***
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **searchFoodVideos**
 ```objc
 -(NSURLSessionTask*) searchFoodVideosWithQuery: (NSString*) query
@@ -2345,7 +3061,7 @@ NSNumber* minProtein = 10; // The minimum amount of protein in grams the product
 NSNumber* maxProtein = 100; // The maximum amount of protein in grams the product can have. (optional)
 NSNumber* minFat = 1; // The minimum amount of fat in grams the product must have. (optional)
 NSNumber* maxFat = 100; // The maximum amount of fat in grams the product can have. (optional)
-NSNumber* offset = 0; // The offset number for paging (between 0 and 990). (optional)
+NSNumber* offset = 0; // The number of results to skip (between 0 and 990). (optional)
 NSNumber* number = 10; // The number of expected results (between 1 and 100). (optional)
 
 OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
@@ -2385,7 +3101,7 @@ Name | Type | Description  | Notes
  **maxProtein** | **NSNumber***| The maximum amount of protein in grams the product can have. | [optional] 
  **minFat** | **NSNumber***| The minimum amount of fat in grams the product must have. | [optional] 
  **maxFat** | **NSNumber***| The maximum amount of fat in grams the product can have. | [optional] 
- **offset** | **NSNumber***| The offset number for paging (between 0 and 990). | [optional] 
+ **offset** | **NSNumber***| The number of results to skip (between 0 and 990). | [optional] 
  **number** | **NSNumber***| The number of expected results (between 1 and 100). | [optional] 
 
 ### Return type
@@ -2637,7 +3353,7 @@ No authorization required
 
 Search Recipes by Ingredients
 
-Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don't currently have (post shopping).
+             Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don't currently have (post shopping).         
 
 ### Example 
 ```objc
@@ -2851,7 +3567,7 @@ NSNumber* minSugar = 0; // The minimum amount of sugar in grams the recipe must 
 NSNumber* maxSugar = 100; // The maximum amount of sugar in grams the recipe can have. (optional)
 NSNumber* minZinc = 0; // The minimum amount of zinc in milligrams the recipe must have. (optional)
 NSNumber* maxZinc = 100; // The maximum amount of zinc in milligrams the recipe can have. (optional)
-NSNumber* offset = 0; // The offset number for paging (between 0 and 990). (optional)
+NSNumber* offset = 0; // The number of results to skip (between 0 and 900). (optional)
 NSNumber* number = 10; // The number of expected results (between 1 and 100). (optional)
 NSNumber* random = false; // If true, every request will give you a random set of recipes within the requested limits. (optional)
 NSNumber* limitLicense = true; // Whether the recipes should have an open license that allows display with proper attribution. (optional)
@@ -3021,7 +3737,7 @@ Name | Type | Description  | Notes
  **maxSugar** | **NSNumber***| The maximum amount of sugar in grams the recipe can have. | [optional] 
  **minZinc** | **NSNumber***| The minimum amount of zinc in milligrams the recipe must have. | [optional] 
  **maxZinc** | **NSNumber***| The maximum amount of zinc in milligrams the recipe can have. | [optional] 
- **offset** | **NSNumber***| The offset number for paging (between 0 and 990). | [optional] 
+ **offset** | **NSNumber***| The number of results to skip (between 0 and 900). | [optional] 
  **number** | **NSNumber***| The number of expected results (between 1 and 100). | [optional] 
  **random** | **NSNumber***| If true, every request will give you a random set of recipes within the requested limits. | [optional] 
  **limitLicense** | **NSNumber***| Whether the recipes should have an open license that allows display with proper attribution. | [optional] 
@@ -3055,8 +3771,10 @@ No authorization required
     instructionsRequired: (NSNumber*) instructionsRequired
     fillIngredients: (NSNumber*) fillIngredients
     addRecipeInformation: (NSNumber*) addRecipeInformation
+    addRecipeNutrition: (NSNumber*) addRecipeNutrition
     author: (NSString*) author
     tags: (NSString*) tags
+    recipeBoxId: (NSNumber*) recipeBoxId
     titleMatch: (NSString*) titleMatch
     maxReadyTime: (NSNumber*) maxReadyTime
     ignorePantry: (NSNumber*) ignorePantry
@@ -3157,10 +3875,12 @@ NSString* includeIngredients = tomato,cheese; // A comma-separated list of ingre
 NSString* excludeIngredients = eggs; // A comma-separated list of ingredients or ingredient types that the recipes must not contain. (optional)
 NSString* type = main course; // The type of recipe. See a full list of supported meal types. (optional)
 NSNumber* instructionsRequired = true; // Whether the recipes must have instructions. (optional)
-NSNumber* fillIngredients = false; // Add information about the used and missing ingredients in each recipe. (optional)
-NSNumber* addRecipeInformation = false; // If set to true, you get more information about the recipes returned. This saves you from needing to call to get recipe information. (optional)
+NSNumber* fillIngredients = false; // Add information about the ingredients and whether they are used or missing in relation to the query. (optional)
+NSNumber* addRecipeInformation = false; // If set to true, you get more information about the recipes returned. (optional)
+NSNumber* addRecipeNutrition = false; // If set to true, you get nutritional information about each recipes returned. (optional)
 NSString* author = coffeebean; // The username of the recipe author. (optional)
-NSString* tags = myCustomTag; // User defined tags that have to match. (optional)
+NSString* tags = myCustomTag; // User defined tags that have to match. The author param has to be set. (optional)
+NSNumber* recipeBoxId = 2468; // The id of the recipe box to which the search should be limited to. (optional)
 NSString* titleMatch = Crock Pot; // Enter text that must be found in the title of the recipes. (optional)
 NSNumber* maxReadyTime = 20; // The maximum time in minutes it should take to prepare and cook the recipe. (optional)
 NSNumber* ignorePantry = true; // Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional)
@@ -3238,8 +3958,8 @@ NSNumber* minSugar = 0; // The minimum amount of sugar in grams the recipe must 
 NSNumber* maxSugar = 100; // The maximum amount of sugar in grams the recipe can have. (optional)
 NSNumber* minZinc = 0; // The minimum amount of zinc in milligrams the recipe must have. (optional)
 NSNumber* maxZinc = 100; // The maximum amount of zinc in milligrams the recipe can have. (optional)
-NSNumber* offset = 0; // The offset number for paging (between 0 and 990). (optional)
-NSNumber* number = 5; // The number of expected results (between 1 and 10). (optional)
+NSNumber* offset = 0; // The number of results to skip (between 0 and 900). (optional)
+NSNumber* number = 10; // The number of expected results (between 1 and 100). (optional)
 NSNumber* limitLicense = true; // Whether the recipes should have an open license that allows display with proper attribution. (optional)
 
 OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
@@ -3257,8 +3977,10 @@ OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
               instructionsRequired:instructionsRequired
               fillIngredients:fillIngredients
               addRecipeInformation:addRecipeInformation
+              addRecipeNutrition:addRecipeNutrition
               author:author
               tags:tags
+              recipeBoxId:recipeBoxId
               titleMatch:titleMatch
               maxReadyTime:maxReadyTime
               ignorePantry:ignorePantry
@@ -3363,10 +4085,12 @@ Name | Type | Description  | Notes
  **excludeIngredients** | **NSString***| A comma-separated list of ingredients or ingredient types that the recipes must not contain. | [optional] 
  **type** | **NSString***| The type of recipe. See a full list of supported meal types. | [optional] 
  **instructionsRequired** | **NSNumber***| Whether the recipes must have instructions. | [optional] 
- **fillIngredients** | **NSNumber***| Add information about the used and missing ingredients in each recipe. | [optional] 
- **addRecipeInformation** | **NSNumber***| If set to true, you get more information about the recipes returned. This saves you from needing to call to get recipe information. | [optional] 
+ **fillIngredients** | **NSNumber***| Add information about the ingredients and whether they are used or missing in relation to the query. | [optional] 
+ **addRecipeInformation** | **NSNumber***| If set to true, you get more information about the recipes returned. | [optional] 
+ **addRecipeNutrition** | **NSNumber***| If set to true, you get nutritional information about each recipes returned. | [optional] 
  **author** | **NSString***| The username of the recipe author. | [optional] 
- **tags** | **NSString***| User defined tags that have to match. | [optional] 
+ **tags** | **NSString***| User defined tags that have to match. The author param has to be set. | [optional] 
+ **recipeBoxId** | **NSNumber***| The id of the recipe box to which the search should be limited to. | [optional] 
  **titleMatch** | **NSString***| Enter text that must be found in the title of the recipes. | [optional] 
  **maxReadyTime** | **NSNumber***| The maximum time in minutes it should take to prepare and cook the recipe. | [optional] 
  **ignorePantry** | **NSNumber***| Whether to ignore typical pantry items, such as water, salt, flour, etc. | [optional] 
@@ -3444,8 +4168,8 @@ Name | Type | Description  | Notes
  **maxSugar** | **NSNumber***| The maximum amount of sugar in grams the recipe can have. | [optional] 
  **minZinc** | **NSNumber***| The minimum amount of zinc in milligrams the recipe must have. | [optional] 
  **maxZinc** | **NSNumber***| The maximum amount of zinc in milligrams the recipe can have. | [optional] 
- **offset** | **NSNumber***| The offset number for paging (between 0 and 990). | [optional] 
- **number** | **NSNumber***| The number of expected results (between 1 and 10). | [optional] 
+ **offset** | **NSNumber***| The number of results to skip (between 0 and 900). | [optional] 
+ **number** | **NSNumber***| The number of expected results (between 1 and 100). | [optional] 
  **limitLicense** | **NSNumber***| Whether the recipes should have an open license that allows display with proper attribution. | [optional] 
 
 ### Return type

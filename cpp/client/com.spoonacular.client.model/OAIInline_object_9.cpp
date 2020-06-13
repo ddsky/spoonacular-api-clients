@@ -38,8 +38,11 @@ OAIInline_object_9::~OAIInline_object_9() {
 void
 OAIInline_object_9::init() {
     
-    m_text_isSet = false;
-    m_text_isValid = false;
+    m_username_isSet = false;
+    m_username_isValid = false;
+    
+    m_hash_isSet = false;
+    m_hash_isValid = false;
     }
 
 void
@@ -53,7 +56,10 @@ OAIInline_object_9::fromJson(QString jsonString) {
 void
 OAIInline_object_9::fromJsonObject(QJsonObject json) {
     
-    m_text_isValid = ::OpenAPI::fromJsonValue(text, json[QString("text")]);
+    m_username_isValid = ::OpenAPI::fromJsonValue(username, json[QString("username")]);
+    
+    
+    m_hash_isValid = ::OpenAPI::fromJsonValue(hash, json[QString("hash")]);
     
     
 }
@@ -69,28 +75,44 @@ OAIInline_object_9::asJson () const {
 QJsonObject
 OAIInline_object_9::asJsonObject() const {
     QJsonObject obj;
-	if(m_text_isSet){
-        obj.insert(QString("text"), ::OpenAPI::toJsonValue(text));
+	if(m_username_isSet){
+        obj.insert(QString("username"), ::OpenAPI::toJsonValue(username));
+    }
+	if(m_hash_isSet){
+        obj.insert(QString("hash"), ::OpenAPI::toJsonValue(hash));
     }
     return obj;
 }
 
 
 QString
-OAIInline_object_9::getText() const {
-    return text;
+OAIInline_object_9::getUsername() const {
+    return username;
 }
 void
-OAIInline_object_9::setText(const QString &text) {
-    this->text = text;
-    this->m_text_isSet = true;
+OAIInline_object_9::setUsername(const QString &username) {
+    this->username = username;
+    this->m_username_isSet = true;
+}
+
+
+QString
+OAIInline_object_9::getHash() const {
+    return hash;
+}
+void
+OAIInline_object_9::setHash(const QString &hash) {
+    this->hash = hash;
+    this->m_hash_isSet = true;
 }
 
 bool
 OAIInline_object_9::isSet() const {
     bool isObjectUpdated = false;
     do{ 
-        if(m_text_isSet){ isObjectUpdated = true; break;}
+        if(m_username_isSet){ isObjectUpdated = true; break;}
+    
+        if(m_hash_isSet){ isObjectUpdated = true; break;}
     }while(false);
     return isObjectUpdated;
 }
@@ -98,7 +120,7 @@ OAIInline_object_9::isSet() const {
 bool
 OAIInline_object_9::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_text_isValid && true;
+    return m_username_isValid && m_hash_isValid && true;
 }
 
 }

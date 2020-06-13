@@ -8,18 +8,31 @@ import com.google.gson.annotations.SerializedName;
 @ApiModel(description = "")
 public class InlineObject9  {
   
-  @SerializedName("text")
-  private String text = null;
+  @SerializedName("username")
+  private String username = null;
+  @SerializedName("hash")
+  private String hash = null;
 
   /**
-   * The text in which food items, such as dish names and ingredients, should be detected in.
+   * The username.
    **/
-  @ApiModelProperty(required = true, value = "The text in which food items, such as dish names and ingredients, should be detected in.")
-  public String getText() {
-    return text;
+  @ApiModelProperty(required = true, value = "The username.")
+  public String getUsername() {
+    return username;
   }
-  public void setText(String text) {
-    this.text = text;
+  public void setUsername(String username) {
+    this.username = username;
+  }
+
+  /**
+   * The private hash for the username.
+   **/
+  @ApiModelProperty(required = true, value = "The private hash for the username.")
+  public String getHash() {
+    return hash;
+  }
+  public void setHash(String hash) {
+    this.hash = hash;
   }
 
 
@@ -32,13 +45,15 @@ public class InlineObject9  {
       return false;
     }
     InlineObject9 inlineObject9 = (InlineObject9) o;
-    return (this.text == null ? inlineObject9.text == null : this.text.equals(inlineObject9.text));
+    return (this.username == null ? inlineObject9.username == null : this.username.equals(inlineObject9.username)) &&
+        (this.hash == null ? inlineObject9.hash == null : this.hash.equals(inlineObject9.hash));
   }
 
   @Override
   public int hashCode() {
     int result = 17;
-    result = 31 * result + (this.text == null ? 0: this.text.hashCode());
+    result = 31 * result + (this.username == null ? 0: this.username.hashCode());
+    result = 31 * result + (this.hash == null ? 0: this.hash.hashCode());
     return result;
   }
 
@@ -47,7 +62,8 @@ public class InlineObject9  {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineObject9 {\n");
     
-    sb.append("  text: ").append(text).append("\n");
+    sb.append("  username: ").append(username).append("\n");
+    sb.append("  hash: ").append(hash).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

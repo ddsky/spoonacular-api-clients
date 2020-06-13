@@ -22,8 +22,11 @@
 
 @interface OAIInlineObject9 : OAIObject
 
-/* The text in which food items, such as dish names and ingredients, should be detected in. 
+/* The username. 
  */
-@property(nonatomic) NSString* text;
+@property(nonatomic) NSString* username;
+/* The private hash for the username. 
+ */
+@property(nonatomic) NSString* hash;
 
 @end

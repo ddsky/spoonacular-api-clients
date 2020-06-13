@@ -42,6 +42,26 @@ public class JsonUtil {
       return new TypeToken<List<InlineObject1>>(){}.getType();
     }
     
+    if ("InlineObject10".equalsIgnoreCase(className)) {
+      return new TypeToken<List<InlineObject10>>(){}.getType();
+    }
+    
+    if ("InlineObject11".equalsIgnoreCase(className)) {
+      return new TypeToken<List<InlineObject11>>(){}.getType();
+    }
+    
+    if ("InlineObject12".equalsIgnoreCase(className)) {
+      return new TypeToken<List<InlineObject12>>(){}.getType();
+    }
+    
+    if ("InlineObject13".equalsIgnoreCase(className)) {
+      return new TypeToken<List<InlineObject13>>(){}.getType();
+    }
+    
+    if ("InlineObject14".equalsIgnoreCase(className)) {
+      return new TypeToken<List<InlineObject14>>(){}.getType();
+    }
+    
     if ("InlineObject2".equalsIgnoreCase(className)) {
       return new TypeToken<List<InlineObject2>>(){}.getType();
     }
@@ -86,6 +106,26 @@ public class JsonUtil {
     
     if ("InlineObject1".equalsIgnoreCase(className)) {
       return new TypeToken<InlineObject1>(){}.getType();
+    }
+    
+    if ("InlineObject10".equalsIgnoreCase(className)) {
+      return new TypeToken<InlineObject10>(){}.getType();
+    }
+    
+    if ("InlineObject11".equalsIgnoreCase(className)) {
+      return new TypeToken<InlineObject11>(){}.getType();
+    }
+    
+    if ("InlineObject12".equalsIgnoreCase(className)) {
+      return new TypeToken<InlineObject12>(){}.getType();
+    }
+    
+    if ("InlineObject13".equalsIgnoreCase(className)) {
+      return new TypeToken<InlineObject13>(){}.getType();
+    }
+    
+    if ("InlineObject14".equalsIgnoreCase(className)) {
+      return new TypeToken<InlineObject14>(){}.getType();
     }
     
     if ("InlineObject2".equalsIgnoreCase(className)) {

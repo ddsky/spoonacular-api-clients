@@ -90,6 +90,91 @@ inlineObject1ShowBacklinkL f InlineObject1{..} = (\inlineObject1ShowBacklink -> 
 
 
 
+-- * InlineObject10
+
+-- | 'inlineObject10Username' Lens
+inlineObject10UsernameL :: Lens_' InlineObject10 (Text)
+inlineObject10UsernameL f InlineObject10{..} = (\inlineObject10Username -> InlineObject10 { inlineObject10Username, ..} ) <$> f inlineObject10Username
+{-# INLINE inlineObject10UsernameL #-}
+
+-- | 'inlineObject10Id' Lens
+inlineObject10IdL :: Lens_' InlineObject10 (Double)
+inlineObject10IdL f InlineObject10{..} = (\inlineObject10Id -> InlineObject10 { inlineObject10Id, ..} ) <$> f inlineObject10Id
+{-# INLINE inlineObject10IdL #-}
+
+-- | 'inlineObject10Hash' Lens
+inlineObject10HashL :: Lens_' InlineObject10 (Text)
+inlineObject10HashL f InlineObject10{..} = (\inlineObject10Hash -> InlineObject10 { inlineObject10Hash, ..} ) <$> f inlineObject10Hash
+{-# INLINE inlineObject10HashL #-}
+
+
+
+-- * InlineObject11
+
+-- | 'inlineObject11Username' Lens
+inlineObject11UsernameL :: Lens_' InlineObject11 (Text)
+inlineObject11UsernameL f InlineObject11{..} = (\inlineObject11Username -> InlineObject11 { inlineObject11Username, ..} ) <$> f inlineObject11Username
+{-# INLINE inlineObject11UsernameL #-}
+
+-- | 'inlineObject11StartDate' Lens
+inlineObject11StartDateL :: Lens_' InlineObject11 (Text)
+inlineObject11StartDateL f InlineObject11{..} = (\inlineObject11StartDate -> InlineObject11 { inlineObject11StartDate, ..} ) <$> f inlineObject11StartDate
+{-# INLINE inlineObject11StartDateL #-}
+
+-- | 'inlineObject11EndDate' Lens
+inlineObject11EndDateL :: Lens_' InlineObject11 (Text)
+inlineObject11EndDateL f InlineObject11{..} = (\inlineObject11EndDate -> InlineObject11 { inlineObject11EndDate, ..} ) <$> f inlineObject11EndDate
+{-# INLINE inlineObject11EndDateL #-}
+
+-- | 'inlineObject11Hash' Lens
+inlineObject11HashL :: Lens_' InlineObject11 (Text)
+inlineObject11HashL f InlineObject11{..} = (\inlineObject11Hash -> InlineObject11 { inlineObject11Hash, ..} ) <$> f inlineObject11Hash
+{-# INLINE inlineObject11HashL #-}
+
+
+
+-- * InlineObject12
+
+-- | 'inlineObject12Username' Lens
+inlineObject12UsernameL :: Lens_' InlineObject12 (Text)
+inlineObject12UsernameL f InlineObject12{..} = (\inlineObject12Username -> InlineObject12 { inlineObject12Username, ..} ) <$> f inlineObject12Username
+{-# INLINE inlineObject12UsernameL #-}
+
+-- | 'inlineObject12Hash' Lens
+inlineObject12HashL :: Lens_' InlineObject12 (Text)
+inlineObject12HashL f InlineObject12{..} = (\inlineObject12Hash -> InlineObject12 { inlineObject12Hash, ..} ) <$> f inlineObject12Hash
+{-# INLINE inlineObject12HashL #-}
+
+
+
+-- * InlineObject13
+
+-- | 'inlineObject13Username' Lens
+inlineObject13UsernameL :: Lens_' InlineObject13 (Text)
+inlineObject13UsernameL f InlineObject13{..} = (\inlineObject13Username -> InlineObject13 { inlineObject13Username, ..} ) <$> f inlineObject13Username
+{-# INLINE inlineObject13UsernameL #-}
+
+-- | 'inlineObject13Id' Lens
+inlineObject13IdL :: Lens_' InlineObject13 (Double)
+inlineObject13IdL f InlineObject13{..} = (\inlineObject13Id -> InlineObject13 { inlineObject13Id, ..} ) <$> f inlineObject13Id
+{-# INLINE inlineObject13IdL #-}
+
+-- | 'inlineObject13Hash' Lens
+inlineObject13HashL :: Lens_' InlineObject13 (Text)
+inlineObject13HashL f InlineObject13{..} = (\inlineObject13Hash -> InlineObject13 { inlineObject13Hash, ..} ) <$> f inlineObject13Hash
+{-# INLINE inlineObject13HashL #-}
+
+
+
+-- * InlineObject14
+
+-- | 'inlineObject14Text' Lens
+inlineObject14TextL :: Lens_' InlineObject14 (Text)
+inlineObject14TextL f InlineObject14{..} = (\inlineObject14Text -> InlineObject14 { inlineObject14Text, ..} ) <$> f inlineObject14Text
+{-# INLINE inlineObject14TextL #-}
+
+
+
 -- * InlineObject2
 
 -- | 'inlineObject2IngredientList' Lens
@@ -270,9 +355,14 @@ inlineObject8LocaleL f InlineObject8{..} = (\inlineObject8Locale -> InlineObject
 
 -- * InlineObject9
 
--- | 'inlineObject9Text' Lens
-inlineObject9TextL :: Lens_' InlineObject9 (Text)
-inlineObject9TextL f InlineObject9{..} = (\inlineObject9Text -> InlineObject9 { inlineObject9Text, ..} ) <$> f inlineObject9Text
-{-# INLINE inlineObject9TextL #-}
+-- | 'inlineObject9Username' Lens
+inlineObject9UsernameL :: Lens_' InlineObject9 (Text)
+inlineObject9UsernameL f InlineObject9{..} = (\inlineObject9Username -> InlineObject9 { inlineObject9Username, ..} ) <$> f inlineObject9Username
+{-# INLINE inlineObject9UsernameL #-}
+
+-- | 'inlineObject9Hash' Lens
+inlineObject9HashL :: Lens_' InlineObject9 (Text)
+inlineObject9HashL f InlineObject9{..} = (\inlineObject9Hash -> InlineObject9 { inlineObject9Hash, ..} ) <$> f inlineObject9Hash
+{-# INLINE inlineObject9HashL #-}
 
 

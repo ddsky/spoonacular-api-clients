@@ -32,6 +32,126 @@ OAIDefaultApi::OAIDefaultApi(QString host, QString basePath) {
 }
 
 void
+OAIDefaultApi::addToMealPlan(const QString& username, const QString& hash, const OAIInline_object_9& oai_inline_object_9) {
+    QString fullPath;
+    fullPath.append(this->host).append(this->basePath).append("/mealplanner/{username}/items");
+    QString usernamePathParam("{"); 
+    usernamePathParam.append("username").append("}");
+    fullPath.replace(usernamePathParam, QUrl::toPercentEncoding(::OpenAPI::toStringValue(username)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("hash"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(hash)));
+    
+    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker();
+    OAIHttpRequestInput input(fullPath, "POST");
+
+    
+    QString output = oai_inline_object_9.asJson();
+    input.request_body.append(output);
+    
+
+    foreach(QString key, this->defaultHeaders.keys()) {
+        input.headers.insert(key, this->defaultHeaders.value(key));
+    }
+
+    connect(worker,
+            &OAIHttpRequestWorker::on_execution_finished,
+            this,
+            &OAIDefaultApi::addToMealPlanCallback);
+
+    worker->execute(&input);
+}
+
+void
+OAIDefaultApi::addToMealPlanCallback(OAIHttpRequestWorker * worker) {
+    QString msg;
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        msg = QString("Success! %1 bytes").arg(worker->response.length());
+    }
+    else {
+        msg = "Error: " + worker->error_str;
+    }
+    OAIObject output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit addToMealPlanSignal(output);
+        emit addToMealPlanSignalFull(worker, output);
+    } else {
+        emit addToMealPlanSignalE(output, error_type, error_str);
+        emit addToMealPlanSignalEFull(worker, error_type, error_str);
+    }
+}
+
+void
+OAIDefaultApi::addToShoppingList(const QString& username, const QString& hash, const OAIInline_object_12& oai_inline_object_12) {
+    QString fullPath;
+    fullPath.append(this->host).append(this->basePath).append("/mealplanner/{username}/shopping-list/items");
+    QString usernamePathParam("{"); 
+    usernamePathParam.append("username").append("}");
+    fullPath.replace(usernamePathParam, QUrl::toPercentEncoding(::OpenAPI::toStringValue(username)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("hash"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(hash)));
+    
+    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker();
+    OAIHttpRequestInput input(fullPath, "POST");
+
+    
+    QString output = oai_inline_object_12.asJson();
+    input.request_body.append(output);
+    
+
+    foreach(QString key, this->defaultHeaders.keys()) {
+        input.headers.insert(key, this->defaultHeaders.value(key));
+    }
+
+    connect(worker,
+            &OAIHttpRequestWorker::on_execution_finished,
+            this,
+            &OAIDefaultApi::addToShoppingListCallback);
+
+    worker->execute(&input);
+}
+
+void
+OAIDefaultApi::addToShoppingListCallback(OAIHttpRequestWorker * worker) {
+    QString msg;
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        msg = QString("Success! %1 bytes").arg(worker->response.length());
+    }
+    else {
+        msg = "Error: " + worker->error_str;
+    }
+    OAIObject output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit addToShoppingListSignal(output);
+        emit addToShoppingListSignalFull(worker, output);
+    } else {
+        emit addToShoppingListSignalE(output, error_type, error_str);
+        emit addToShoppingListSignalEFull(worker, error_type, error_str);
+    }
+}
+
+void
 OAIDefaultApi::analyzeARecipeSearchQuery(const QString& q) {
     QString fullPath;
     fullPath.append(this->host).append(this->basePath).append("/recipes/queries/analyze");
@@ -716,6 +836,132 @@ OAIDefaultApi::createRecipeCardCallback(OAIHttpRequestWorker * worker) {
 }
 
 void
+OAIDefaultApi::deleteFromMealPlan(const QString& username, const OAINumber& id, const QString& hash, const OAIInline_object_10& oai_inline_object_10) {
+    QString fullPath;
+    fullPath.append(this->host).append(this->basePath).append("/mealplanner/{username}/items/{id}");
+    QString usernamePathParam("{"); 
+    usernamePathParam.append("username").append("}");
+    fullPath.replace(usernamePathParam, QUrl::toPercentEncoding(::OpenAPI::toStringValue(username)));
+    QString idPathParam("{"); 
+    idPathParam.append("id").append("}");
+    fullPath.replace(idPathParam, QUrl::toPercentEncoding(::OpenAPI::toStringValue(id)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("hash"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(hash)));
+    
+    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker();
+    OAIHttpRequestInput input(fullPath, "DELETE");
+
+    
+    QString output = oai_inline_object_10.asJson();
+    input.request_body.append(output);
+    
+
+    foreach(QString key, this->defaultHeaders.keys()) {
+        input.headers.insert(key, this->defaultHeaders.value(key));
+    }
+
+    connect(worker,
+            &OAIHttpRequestWorker::on_execution_finished,
+            this,
+            &OAIDefaultApi::deleteFromMealPlanCallback);
+
+    worker->execute(&input);
+}
+
+void
+OAIDefaultApi::deleteFromMealPlanCallback(OAIHttpRequestWorker * worker) {
+    QString msg;
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        msg = QString("Success! %1 bytes").arg(worker->response.length());
+    }
+    else {
+        msg = "Error: " + worker->error_str;
+    }
+    OAIObject output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit deleteFromMealPlanSignal(output);
+        emit deleteFromMealPlanSignalFull(worker, output);
+    } else {
+        emit deleteFromMealPlanSignalE(output, error_type, error_str);
+        emit deleteFromMealPlanSignalEFull(worker, error_type, error_str);
+    }
+}
+
+void
+OAIDefaultApi::deleteFromShoppingList(const QString& username, const OAINumber& id, const QString& hash, const OAIInline_object_13& oai_inline_object_13) {
+    QString fullPath;
+    fullPath.append(this->host).append(this->basePath).append("/mealplanner/{username}/shopping-list/items/{id}");
+    QString usernamePathParam("{"); 
+    usernamePathParam.append("username").append("}");
+    fullPath.replace(usernamePathParam, QUrl::toPercentEncoding(::OpenAPI::toStringValue(username)));
+    QString idPathParam("{"); 
+    idPathParam.append("id").append("}");
+    fullPath.replace(idPathParam, QUrl::toPercentEncoding(::OpenAPI::toStringValue(id)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("hash"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(hash)));
+    
+    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker();
+    OAIHttpRequestInput input(fullPath, "DELETE");
+
+    
+    QString output = oai_inline_object_13.asJson();
+    input.request_body.append(output);
+    
+
+    foreach(QString key, this->defaultHeaders.keys()) {
+        input.headers.insert(key, this->defaultHeaders.value(key));
+    }
+
+    connect(worker,
+            &OAIHttpRequestWorker::on_execution_finished,
+            this,
+            &OAIDefaultApi::deleteFromShoppingListCallback);
+
+    worker->execute(&input);
+}
+
+void
+OAIDefaultApi::deleteFromShoppingListCallback(OAIHttpRequestWorker * worker) {
+    QString msg;
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        msg = QString("Success! %1 bytes").arg(worker->response.length());
+    }
+    else {
+        msg = "Error: " + worker->error_str;
+    }
+    OAIObject output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit deleteFromShoppingListSignal(output);
+        emit deleteFromShoppingListSignalFull(worker, output);
+    } else {
+        emit deleteFromShoppingListSignalE(output, error_type, error_str);
+        emit deleteFromShoppingListSignalEFull(worker, error_type, error_str);
+    }
+}
+
+void
 OAIDefaultApi::detectFoodInText(const QString& text) {
     QString fullPath;
     fullPath.append(this->host).append(this->basePath).append("/food/detect");
@@ -764,7 +1010,7 @@ OAIDefaultApi::detectFoodInTextCallback(OAIHttpRequestWorker * worker) {
 }
 
 void
-OAIDefaultApi::extractRecipeFromWebsite(const QString& url, const bool& force_extraction) {
+OAIDefaultApi::extractRecipeFromWebsite(const QString& url, const bool& force_extraction, const bool& analyze) {
     QString fullPath;
     fullPath.append(this->host).append(this->basePath).append("/recipes/extract");
     
@@ -783,6 +1029,14 @@ OAIDefaultApi::extractRecipeFromWebsite(const QString& url, const bool& force_ex
     fullPath.append(QUrl::toPercentEncoding("forceExtraction"))
         .append("=")
         .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(force_extraction)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("analyze"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(analyze)));
     
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker();
     OAIHttpRequestInput input(fullPath, "GET");
@@ -898,6 +1152,72 @@ OAIDefaultApi::generateMealPlanCallback(OAIHttpRequestWorker * worker) {
     } else {
         emit generateMealPlanSignalE(output, error_type, error_str);
         emit generateMealPlanSignalEFull(worker, error_type, error_str);
+    }
+}
+
+void
+OAIDefaultApi::generateShoppingList(const QString& username, const QString& start_date, const QString& end_date, const QString& hash, const OAIInline_object_11& oai_inline_object_11) {
+    QString fullPath;
+    fullPath.append(this->host).append(this->basePath).append("/mealplanner/{username}/shopping-list/{start-date}/{end-date}");
+    QString usernamePathParam("{"); 
+    usernamePathParam.append("username").append("}");
+    fullPath.replace(usernamePathParam, QUrl::toPercentEncoding(::OpenAPI::toStringValue(username)));
+    QString start_datePathParam("{"); 
+    start_datePathParam.append("start-date").append("}");
+    fullPath.replace(start_datePathParam, QUrl::toPercentEncoding(::OpenAPI::toStringValue(start_date)));
+    QString end_datePathParam("{"); 
+    end_datePathParam.append("end-date").append("}");
+    fullPath.replace(end_datePathParam, QUrl::toPercentEncoding(::OpenAPI::toStringValue(end_date)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("hash"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(hash)));
+    
+    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker();
+    OAIHttpRequestInput input(fullPath, "POST");
+
+    
+    QString output = oai_inline_object_11.asJson();
+    input.request_body.append(output);
+    
+
+    foreach(QString key, this->defaultHeaders.keys()) {
+        input.headers.insert(key, this->defaultHeaders.value(key));
+    }
+
+    connect(worker,
+            &OAIHttpRequestWorker::on_execution_finished,
+            this,
+            &OAIDefaultApi::generateShoppingListCallback);
+
+    worker->execute(&input);
+}
+
+void
+OAIDefaultApi::generateShoppingListCallback(OAIHttpRequestWorker * worker) {
+    QString msg;
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        msg = QString("Success! %1 bytes").arg(worker->response.length());
+    }
+    else {
+        msg = "Error: " + worker->error_str;
+    }
+    OAIObject output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit generateShoppingListSignal(output);
+        emit generateShoppingListSignalFull(worker, output);
+    } else {
+        emit generateShoppingListSignalE(output, error_type, error_str);
+        emit generateShoppingListSignalEFull(worker, error_type, error_str);
     }
 }
 
@@ -1326,6 +1646,180 @@ OAIDefaultApi::getIngredientSubstitutesByIDCallback(OAIHttpRequestWorker * worke
     } else {
         emit getIngredientSubstitutesByIDSignalE(output, error_type, error_str);
         emit getIngredientSubstitutesByIDSignalEFull(worker, error_type, error_str);
+    }
+}
+
+void
+OAIDefaultApi::getMealPlanTemplate(const QString& username, const OAINumber& id, const QString& hash) {
+    QString fullPath;
+    fullPath.append(this->host).append(this->basePath).append("/mealplanner/{username}/templates/{id}");
+    QString usernamePathParam("{"); 
+    usernamePathParam.append("username").append("}");
+    fullPath.replace(usernamePathParam, QUrl::toPercentEncoding(::OpenAPI::toStringValue(username)));
+    QString idPathParam("{"); 
+    idPathParam.append("id").append("}");
+    fullPath.replace(idPathParam, QUrl::toPercentEncoding(::OpenAPI::toStringValue(id)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("hash"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(hash)));
+    
+    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker();
+    OAIHttpRequestInput input(fullPath, "GET");
+
+
+    foreach(QString key, this->defaultHeaders.keys()) {
+        input.headers.insert(key, this->defaultHeaders.value(key));
+    }
+
+    connect(worker,
+            &OAIHttpRequestWorker::on_execution_finished,
+            this,
+            &OAIDefaultApi::getMealPlanTemplateCallback);
+
+    worker->execute(&input);
+}
+
+void
+OAIDefaultApi::getMealPlanTemplateCallback(OAIHttpRequestWorker * worker) {
+    QString msg;
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        msg = QString("Success! %1 bytes").arg(worker->response.length());
+    }
+    else {
+        msg = "Error: " + worker->error_str;
+    }
+    OAIObject output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit getMealPlanTemplateSignal(output);
+        emit getMealPlanTemplateSignalFull(worker, output);
+    } else {
+        emit getMealPlanTemplateSignalE(output, error_type, error_str);
+        emit getMealPlanTemplateSignalEFull(worker, error_type, error_str);
+    }
+}
+
+void
+OAIDefaultApi::getMealPlanTemplates(const QString& username, const QString& hash) {
+    QString fullPath;
+    fullPath.append(this->host).append(this->basePath).append("/mealplanner/{username}/templates");
+    QString usernamePathParam("{"); 
+    usernamePathParam.append("username").append("}");
+    fullPath.replace(usernamePathParam, QUrl::toPercentEncoding(::OpenAPI::toStringValue(username)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("hash"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(hash)));
+    
+    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker();
+    OAIHttpRequestInput input(fullPath, "GET");
+
+
+    foreach(QString key, this->defaultHeaders.keys()) {
+        input.headers.insert(key, this->defaultHeaders.value(key));
+    }
+
+    connect(worker,
+            &OAIHttpRequestWorker::on_execution_finished,
+            this,
+            &OAIDefaultApi::getMealPlanTemplatesCallback);
+
+    worker->execute(&input);
+}
+
+void
+OAIDefaultApi::getMealPlanTemplatesCallback(OAIHttpRequestWorker * worker) {
+    QString msg;
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        msg = QString("Success! %1 bytes").arg(worker->response.length());
+    }
+    else {
+        msg = "Error: " + worker->error_str;
+    }
+    OAIObject output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit getMealPlanTemplatesSignal(output);
+        emit getMealPlanTemplatesSignalFull(worker, output);
+    } else {
+        emit getMealPlanTemplatesSignalE(output, error_type, error_str);
+        emit getMealPlanTemplatesSignalEFull(worker, error_type, error_str);
+    }
+}
+
+void
+OAIDefaultApi::getMealPlanWeek(const QString& username, const QString& start_date, const QString& hash) {
+    QString fullPath;
+    fullPath.append(this->host).append(this->basePath).append("/mealplanner/{username}/week/{start-date}");
+    QString usernamePathParam("{"); 
+    usernamePathParam.append("username").append("}");
+    fullPath.replace(usernamePathParam, QUrl::toPercentEncoding(::OpenAPI::toStringValue(username)));
+    QString start_datePathParam("{"); 
+    start_datePathParam.append("start-date").append("}");
+    fullPath.replace(start_datePathParam, QUrl::toPercentEncoding(::OpenAPI::toStringValue(start_date)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("hash"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(hash)));
+    
+    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker();
+    OAIHttpRequestInput input(fullPath, "GET");
+
+
+    foreach(QString key, this->defaultHeaders.keys()) {
+        input.headers.insert(key, this->defaultHeaders.value(key));
+    }
+
+    connect(worker,
+            &OAIHttpRequestWorker::on_execution_finished,
+            this,
+            &OAIDefaultApi::getMealPlanWeekCallback);
+
+    worker->execute(&input);
+}
+
+void
+OAIDefaultApi::getMealPlanWeekCallback(OAIHttpRequestWorker * worker) {
+    QString msg;
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        msg = QString("Success! %1 bytes").arg(worker->response.length());
+    }
+    else {
+        msg = "Error: " + worker->error_str;
+    }
+    OAIObject output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit getMealPlanWeekSignal(output);
+        emit getMealPlanWeekSignalFull(worker, output);
+    } else {
+        emit getMealPlanWeekSignalE(output, error_type, error_str);
+        emit getMealPlanWeekSignalEFull(worker, error_type, error_str);
     }
 }
 
@@ -1849,7 +2343,63 @@ OAIDefaultApi::getRecipePriceBreakdownByIDCallback(OAIHttpRequestWorker * worker
 }
 
 void
-OAIDefaultApi::getSimilarRecipes(const OAINumber& id, const OAINumber& number) {
+OAIDefaultApi::getShoppingList(const QString& username, const QString& hash) {
+    QString fullPath;
+    fullPath.append(this->host).append(this->basePath).append("/mealplanner/{username}/shopping-list");
+    QString usernamePathParam("{"); 
+    usernamePathParam.append("username").append("}");
+    fullPath.replace(usernamePathParam, QUrl::toPercentEncoding(::OpenAPI::toStringValue(username)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("hash"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(hash)));
+    
+    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker();
+    OAIHttpRequestInput input(fullPath, "GET");
+
+
+    foreach(QString key, this->defaultHeaders.keys()) {
+        input.headers.insert(key, this->defaultHeaders.value(key));
+    }
+
+    connect(worker,
+            &OAIHttpRequestWorker::on_execution_finished,
+            this,
+            &OAIDefaultApi::getShoppingListCallback);
+
+    worker->execute(&input);
+}
+
+void
+OAIDefaultApi::getShoppingListCallback(OAIHttpRequestWorker * worker) {
+    QString msg;
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        msg = QString("Success! %1 bytes").arg(worker->response.length());
+    }
+    else {
+        msg = "Error: " + worker->error_str;
+    }
+    OAIObject output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit getShoppingListSignal(output);
+        emit getShoppingListSignalFull(worker, output);
+    } else {
+        emit getShoppingListSignalE(output, error_type, error_str);
+        emit getShoppingListSignalEFull(worker, error_type, error_str);
+    }
+}
+
+void
+OAIDefaultApi::getSimilarRecipes(const OAINumber& id, const OAINumber& number, const bool& limit_license) {
     QString fullPath;
     fullPath.append(this->host).append(this->basePath).append("/recipes/{id}/similar");
     QString idPathParam("{"); 
@@ -1863,6 +2413,14 @@ OAIDefaultApi::getSimilarRecipes(const OAINumber& id, const OAINumber& number) {
     fullPath.append(QUrl::toPercentEncoding("number"))
         .append("=")
         .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(number)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("limitLicense"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(limit_license)));
     
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker();
     OAIHttpRequestInput input(fullPath, "GET");
@@ -2149,6 +2707,112 @@ OAIDefaultApi::guessNutritionByDishNameCallback(OAIHttpRequestWorker * worker) {
 }
 
 void
+OAIDefaultApi::imageAnalysisByURL(const QString& image_url) {
+    QString fullPath;
+    fullPath.append(this->host).append(this->basePath).append("/food/images/analyze");
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("imageUrl"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(image_url)));
+    
+    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker();
+    OAIHttpRequestInput input(fullPath, "GET");
+
+
+    foreach(QString key, this->defaultHeaders.keys()) {
+        input.headers.insert(key, this->defaultHeaders.value(key));
+    }
+
+    connect(worker,
+            &OAIHttpRequestWorker::on_execution_finished,
+            this,
+            &OAIDefaultApi::imageAnalysisByURLCallback);
+
+    worker->execute(&input);
+}
+
+void
+OAIDefaultApi::imageAnalysisByURLCallback(OAIHttpRequestWorker * worker) {
+    QString msg;
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        msg = QString("Success! %1 bytes").arg(worker->response.length());
+    }
+    else {
+        msg = "Error: " + worker->error_str;
+    }
+    OAIObject output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit imageAnalysisByURLSignal(output);
+        emit imageAnalysisByURLSignalFull(worker, output);
+    } else {
+        emit imageAnalysisByURLSignalE(output, error_type, error_str);
+        emit imageAnalysisByURLSignalEFull(worker, error_type, error_str);
+    }
+}
+
+void
+OAIDefaultApi::imageClassificationByURL(const QString& image_url) {
+    QString fullPath;
+    fullPath.append(this->host).append(this->basePath).append("/food/images/classify");
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("imageUrl"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(image_url)));
+    
+    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker();
+    OAIHttpRequestInput input(fullPath, "GET");
+
+
+    foreach(QString key, this->defaultHeaders.keys()) {
+        input.headers.insert(key, this->defaultHeaders.value(key));
+    }
+
+    connect(worker,
+            &OAIHttpRequestWorker::on_execution_finished,
+            this,
+            &OAIDefaultApi::imageClassificationByURLCallback);
+
+    worker->execute(&input);
+}
+
+void
+OAIDefaultApi::imageClassificationByURLCallback(OAIHttpRequestWorker * worker) {
+    QString msg;
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        msg = QString("Success! %1 bytes").arg(worker->response.length());
+    }
+    else {
+        msg = "Error: " + worker->error_str;
+    }
+    OAIObject output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit imageClassificationByURLSignal(output);
+        emit imageClassificationByURLSignalFull(worker, output);
+    } else {
+        emit imageClassificationByURLSignalE(output, error_type, error_str);
+        emit imageClassificationByURLSignalEFull(worker, error_type, error_str);
+    }
+}
+
+void
 OAIDefaultApi::mapIngredientsToGroceryProducts(const OAIObject& body) {
     QString fullPath;
     fullPath.append(this->host).append(this->basePath).append("/food/ingredients/map");
@@ -2301,6 +2965,91 @@ OAIDefaultApi::quickAnswerCallback(OAIHttpRequestWorker * worker) {
     } else {
         emit quickAnswerSignalE(output, error_type, error_str);
         emit quickAnswerSignalEFull(worker, error_type, error_str);
+    }
+}
+
+void
+OAIDefaultApi::searchCustomFoods(const QString& query, const QString& username, const QString& hash, const OAINumber& offset, const OAINumber& number) {
+    QString fullPath;
+    fullPath.append(this->host).append(this->basePath).append("/food/customFoods/search");
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("query"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(query)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("username"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(username)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("hash"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(hash)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("offset"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(offset)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("number"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(number)));
+    
+    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker();
+    OAIHttpRequestInput input(fullPath, "GET");
+
+
+    foreach(QString key, this->defaultHeaders.keys()) {
+        input.headers.insert(key, this->defaultHeaders.value(key));
+    }
+
+    connect(worker,
+            &OAIHttpRequestWorker::on_execution_finished,
+            this,
+            &OAIDefaultApi::searchCustomFoodsCallback);
+
+    worker->execute(&input);
+}
+
+void
+OAIDefaultApi::searchCustomFoodsCallback(OAIHttpRequestWorker * worker) {
+    QString msg;
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        msg = QString("Success! %1 bytes").arg(worker->response.length());
+    }
+    else {
+        msg = "Error: " + worker->error_str;
+    }
+    OAIObject output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit searchCustomFoodsSignal(output);
+        emit searchCustomFoodsSignalFull(worker, output);
+    } else {
+        emit searchCustomFoodsSignalE(output, error_type, error_str);
+        emit searchCustomFoodsSignalEFull(worker, error_type, error_str);
     }
 }
 
@@ -3599,7 +4348,7 @@ OAIDefaultApi::searchRecipesByNutrientsCallback(OAIHttpRequestWorker * worker) {
 }
 
 void
-OAIDefaultApi::searchRecipesComplex(const QString& query, const QString& cuisine, const QString& exclude_cuisine, const QString& diet, const QString& intolerances, const QString& equipment, const QString& include_ingredients, const QString& exclude_ingredients, const QString& type, const bool& instructions_required, const bool& fill_ingredients, const bool& add_recipe_information, const QString& author, const QString& tags, const QString& title_match, const OAINumber& max_ready_time, const bool& ignore_pantry, const QString& sort, const QString& sort_direction, const OAINumber& min_carbs, const OAINumber& max_carbs, const OAINumber& min_protein, const OAINumber& max_protein, const OAINumber& min_calories, const OAINumber& max_calories, const OAINumber& min_fat, const OAINumber& max_fat, const OAINumber& min_alcohol, const OAINumber& max_alcohol, const OAINumber& min_caffeine, const OAINumber& max_caffeine, const OAINumber& min_copper, const OAINumber& max_copper, const OAINumber& min_calcium, const OAINumber& max_calcium, const OAINumber& min_choline, const OAINumber& max_choline, const OAINumber& min_cholesterol, const OAINumber& max_cholesterol, const OAINumber& min_fluoride, const OAINumber& max_fluoride, const OAINumber& min_saturated_fat, const OAINumber& max_saturated_fat, const OAINumber& min_vitamin_a, const OAINumber& max_vitamin_a, const OAINumber& min_vitamin_c, const OAINumber& max_vitamin_c, const OAINumber& min_vitamin_d, const OAINumber& max_vitamin_d, const OAINumber& min_vitamin_e, const OAINumber& max_vitamin_e, const OAINumber& min_vitamin_k, const OAINumber& max_vitamin_k, const OAINumber& min_vitamin_b1, const OAINumber& max_vitamin_b1, const OAINumber& min_vitamin_b2, const OAINumber& max_vitamin_b2, const OAINumber& min_vitamin_b5, const OAINumber& max_vitamin_b5, const OAINumber& min_vitamin_b3, const OAINumber& max_vitamin_b3, const OAINumber& min_vitamin_b6, const OAINumber& max_vitamin_b6, const OAINumber& min_vitamin_b12, const OAINumber& max_vitamin_b12, const OAINumber& min_fiber, const OAINumber& max_fiber, const OAINumber& min_folate, const OAINumber& max_folate, const OAINumber& min_folic_acid, const OAINumber& max_folic_acid, const OAINumber& min_iodine, const OAINumber& max_iodine, const OAINumber& min_iron, const OAINumber& max_iron, const OAINumber& min_magnesium, const OAINumber& max_magnesium, const OAINumber& min_manganese, const OAINumber& max_manganese, const OAINumber& min_phosphorus, const OAINumber& max_phosphorus, const OAINumber& min_potassium, const OAINumber& max_potassium, const OAINumber& min_selenium, const OAINumber& max_selenium, const OAINumber& min_sodium, const OAINumber& max_sodium, const OAINumber& min_sugar, const OAINumber& max_sugar, const OAINumber& min_zinc, const OAINumber& max_zinc, const OAINumber& offset, const OAINumber& number, const bool& limit_license) {
+OAIDefaultApi::searchRecipesComplex(const QString& query, const QString& cuisine, const QString& exclude_cuisine, const QString& diet, const QString& intolerances, const QString& equipment, const QString& include_ingredients, const QString& exclude_ingredients, const QString& type, const bool& instructions_required, const bool& fill_ingredients, const bool& add_recipe_information, const bool& add_recipe_nutrition, const QString& author, const QString& tags, const OAINumber& recipe_box_id, const QString& title_match, const OAINumber& max_ready_time, const bool& ignore_pantry, const QString& sort, const QString& sort_direction, const OAINumber& min_carbs, const OAINumber& max_carbs, const OAINumber& min_protein, const OAINumber& max_protein, const OAINumber& min_calories, const OAINumber& max_calories, const OAINumber& min_fat, const OAINumber& max_fat, const OAINumber& min_alcohol, const OAINumber& max_alcohol, const OAINumber& min_caffeine, const OAINumber& max_caffeine, const OAINumber& min_copper, const OAINumber& max_copper, const OAINumber& min_calcium, const OAINumber& max_calcium, const OAINumber& min_choline, const OAINumber& max_choline, const OAINumber& min_cholesterol, const OAINumber& max_cholesterol, const OAINumber& min_fluoride, const OAINumber& max_fluoride, const OAINumber& min_saturated_fat, const OAINumber& max_saturated_fat, const OAINumber& min_vitamin_a, const OAINumber& max_vitamin_a, const OAINumber& min_vitamin_c, const OAINumber& max_vitamin_c, const OAINumber& min_vitamin_d, const OAINumber& max_vitamin_d, const OAINumber& min_vitamin_e, const OAINumber& max_vitamin_e, const OAINumber& min_vitamin_k, const OAINumber& max_vitamin_k, const OAINumber& min_vitamin_b1, const OAINumber& max_vitamin_b1, const OAINumber& min_vitamin_b2, const OAINumber& max_vitamin_b2, const OAINumber& min_vitamin_b5, const OAINumber& max_vitamin_b5, const OAINumber& min_vitamin_b3, const OAINumber& max_vitamin_b3, const OAINumber& min_vitamin_b6, const OAINumber& max_vitamin_b6, const OAINumber& min_vitamin_b12, const OAINumber& max_vitamin_b12, const OAINumber& min_fiber, const OAINumber& max_fiber, const OAINumber& min_folate, const OAINumber& max_folate, const OAINumber& min_folic_acid, const OAINumber& max_folic_acid, const OAINumber& min_iodine, const OAINumber& max_iodine, const OAINumber& min_iron, const OAINumber& max_iron, const OAINumber& min_magnesium, const OAINumber& max_magnesium, const OAINumber& min_manganese, const OAINumber& max_manganese, const OAINumber& min_phosphorus, const OAINumber& max_phosphorus, const OAINumber& min_potassium, const OAINumber& max_potassium, const OAINumber& min_selenium, const OAINumber& max_selenium, const OAINumber& min_sodium, const OAINumber& max_sodium, const OAINumber& min_sugar, const OAINumber& max_sugar, const OAINumber& min_zinc, const OAINumber& max_zinc, const OAINumber& offset, const OAINumber& number, const bool& limit_license) {
     QString fullPath;
     fullPath.append(this->host).append(this->basePath).append("/recipes/complexSearch");
     
@@ -3703,6 +4452,14 @@ OAIDefaultApi::searchRecipesComplex(const QString& query, const QString& cuisine
       fullPath.append("&");
     else
       fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("addRecipeNutrition"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(add_recipe_nutrition)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
     fullPath.append(QUrl::toPercentEncoding("author"))
         .append("=")
         .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(author)));
@@ -3714,6 +4471,14 @@ OAIDefaultApi::searchRecipesComplex(const QString& query, const QString& cuisine
     fullPath.append(QUrl::toPercentEncoding("tags"))
         .append("=")
         .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(tags)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("recipeBoxId"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(recipe_box_id)));
     
     if (fullPath.indexOf("?") > 0)
       fullPath.append("&");

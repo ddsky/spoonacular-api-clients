@@ -22,11 +22,12 @@ class InlineObject9 {
     /**
      * Constructs a new <code>InlineObject9</code>.
      * @alias module:com.spoonacular.client/com.spoonacular.client.model/InlineObject9
-     * @param text {String} The text in which food items, such as dish names and ingredients, should be detected in.
+     * @param username {String} The username.
+     * @param hash {String} The private hash for the username.
      */
-    constructor(text) { 
+    constructor(username, hash) { 
         
-        InlineObject9.initialize(this, text);
+        InlineObject9.initialize(this, username, hash);
     }
 
     /**
@@ -34,8 +35,9 @@ class InlineObject9 {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, text) { 
-        obj['text'] = text;
+    static initialize(obj, username, hash) { 
+        obj['username'] = username;
+        obj['hash'] = hash;
     }
 
     /**
@@ -49,8 +51,11 @@ class InlineObject9 {
         if (data) {
             obj = obj || new InlineObject9();
 
-            if (data.hasOwnProperty('text')) {
-                obj['text'] = ApiClient.convertToType(data['text'], 'String');
+            if (data.hasOwnProperty('username')) {
+                obj['username'] = ApiClient.convertToType(data['username'], 'String');
+            }
+            if (data.hasOwnProperty('hash')) {
+                obj['hash'] = ApiClient.convertToType(data['hash'], 'String');
             }
         }
         return obj;
@@ -60,10 +65,16 @@ class InlineObject9 {
 }
 
 /**
- * The text in which food items, such as dish names and ingredients, should be detected in.
- * @member {String} text
+ * The username.
+ * @member {String} username
  */
-InlineObject9.prototype['text'] = undefined;
+InlineObject9.prototype['username'] = undefined;
+
+/**
+ * The private hash for the username.
+ * @member {String} hash
+ */
+InlineObject9.prototype['hash'] = undefined;
 
 
 

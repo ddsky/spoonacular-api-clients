@@ -11,6 +11,8 @@
 package spoonacular
 
 type InlineObject9 struct {
-	// The text in which food items, such as dish names and ingredients, should be detected in.
-	Text string `json:"text"`
+	// The username.
+	Username string `json:"username"`
+	// The private hash for the username.
+	Hash string `json:"hash"`
 }

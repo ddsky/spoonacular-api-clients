@@ -161,21 +161,30 @@ __PACKAGE__->class_documentation({description => '',
 }                                 );
 
 __PACKAGE__->method_documentation({
-    'text' => {
+    'username' => {
         datatype => 'string',
-        base_name => 'text',
-        description => 'The text in which food items, such as dish names and ingredients, should be detected in.',
+        base_name => 'username',
+        description => 'The username.',
+        format => '',
+        read_only => '',
+            },
+    'hash' => {
+        datatype => 'string',
+        base_name => 'hash',
+        description => 'The private hash for the username.',
         format => '',
         read_only => '',
             },
 });
 
 __PACKAGE__->openapi_types( {
-    'text' => 'string'
+    'username' => 'string',
+    'hash' => 'string'
 } );
 
 __PACKAGE__->attribute_map( {
-    'text' => 'text'
+    'username' => 'username',
+    'hash' => 'hash'
 } );
 
 __PACKAGE__->mk_accessors(keys %{__PACKAGE__->attribute_map});

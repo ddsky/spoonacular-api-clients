@@ -2,12 +2,91 @@ package com.spoonacular;
 
 import com.spoonacular.client.ApiUtils
 import java.math.BigDecimal
+import com.spoonacular.client.model.InlineObject10
+import com.spoonacular.client.model.InlineObject11
+import com.spoonacular.client.model.InlineObject12
+import com.spoonacular.client.model.InlineObject13
 import com.spoonacular.client.model.InlineObject8
+import com.spoonacular.client.model.InlineObject9
 
 class DefaultApi {
     String basePath = "https://api.spoonacular.com"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
+
+    def addToMealPlan ( String username, String hash, InlineObject9 inlineObject9, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/mealplanner/${username}/items"
+
+        // params
+        def queryParams = [:]
+        def headerParams = [:]
+        def bodyParams
+        def contentType
+
+        // verify required params are set
+        if (username == null) {
+            throw new RuntimeException("missing required params username")
+        }
+        // verify required params are set
+        if (hash == null) {
+            throw new RuntimeException("missing required params hash")
+        }
+        // verify required params are set
+        if (inlineObject9 == null) {
+            throw new RuntimeException("missing required params inlineObject9")
+        }
+
+        if (hash != null) {
+            queryParams.put("hash", hash)
+        }
+
+
+        contentType = '';
+        bodyParams = inlineObject9
+
+
+        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
+                    "POST", "",
+                    Object.class )
+
+    }
+
+    def addToShoppingList ( String username, String hash, InlineObject12 inlineObject12, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/mealplanner/${username}/shopping-list/items"
+
+        // params
+        def queryParams = [:]
+        def headerParams = [:]
+        def bodyParams
+        def contentType
+
+        // verify required params are set
+        if (username == null) {
+            throw new RuntimeException("missing required params username")
+        }
+        // verify required params are set
+        if (hash == null) {
+            throw new RuntimeException("missing required params hash")
+        }
+        // verify required params are set
+        if (inlineObject12 == null) {
+            throw new RuntimeException("missing required params inlineObject12")
+        }
+
+        if (hash != null) {
+            queryParams.put("hash", hash)
+        }
+
+
+        contentType = '';
+        bodyParams = inlineObject12
+
+
+        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
+                    "POST", "",
+                    Object.class )
+
+    }
 
     def analyzeARecipeSearchQuery ( String q, Closure onSuccess, Closure onFailure)  {
         String resourcePath = "/recipes/queries/analyze"
@@ -392,6 +471,88 @@ class DefaultApi {
 
     }
 
+    def deleteFromMealPlan ( String username, BigDecimal id, String hash, InlineObject10 inlineObject10, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/mealplanner/${username}/items/${id}"
+
+        // params
+        def queryParams = [:]
+        def headerParams = [:]
+        def bodyParams
+        def contentType
+
+        // verify required params are set
+        if (username == null) {
+            throw new RuntimeException("missing required params username")
+        }
+        // verify required params are set
+        if (id == null) {
+            throw new RuntimeException("missing required params id")
+        }
+        // verify required params are set
+        if (hash == null) {
+            throw new RuntimeException("missing required params hash")
+        }
+        // verify required params are set
+        if (inlineObject10 == null) {
+            throw new RuntimeException("missing required params inlineObject10")
+        }
+
+        if (hash != null) {
+            queryParams.put("hash", hash)
+        }
+
+
+        contentType = '';
+        bodyParams = inlineObject10
+
+
+        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
+                    "DELETE", "",
+                    Object.class )
+
+    }
+
+    def deleteFromShoppingList ( String username, BigDecimal id, String hash, InlineObject13 inlineObject13, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/mealplanner/${username}/shopping-list/items/${id}"
+
+        // params
+        def queryParams = [:]
+        def headerParams = [:]
+        def bodyParams
+        def contentType
+
+        // verify required params are set
+        if (username == null) {
+            throw new RuntimeException("missing required params username")
+        }
+        // verify required params are set
+        if (id == null) {
+            throw new RuntimeException("missing required params id")
+        }
+        // verify required params are set
+        if (hash == null) {
+            throw new RuntimeException("missing required params hash")
+        }
+        // verify required params are set
+        if (inlineObject13 == null) {
+            throw new RuntimeException("missing required params inlineObject13")
+        }
+
+        if (hash != null) {
+            queryParams.put("hash", hash)
+        }
+
+
+        contentType = '';
+        bodyParams = inlineObject13
+
+
+        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
+                    "DELETE", "",
+                    Object.class )
+
+    }
+
     def detectFoodInText ( String text, Closure onSuccess, Closure onFailure)  {
         String resourcePath = "/food/detect"
 
@@ -418,7 +579,7 @@ class DefaultApi {
 
     }
 
-    def extractRecipeFromWebsite ( String url, Boolean forceExtraction, Closure onSuccess, Closure onFailure)  {
+    def extractRecipeFromWebsite ( String url, Boolean forceExtraction, Boolean analyze, Closure onSuccess, Closure onFailure)  {
         String resourcePath = "/recipes/extract"
 
         // params
@@ -437,6 +598,9 @@ class DefaultApi {
         }
         if (forceExtraction != null) {
             queryParams.put("forceExtraction", forceExtraction)
+        }
+        if (analyze != null) {
+            queryParams.put("analyze", analyze)
         }
 
 
@@ -476,6 +640,51 @@ class DefaultApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "GET", "",
+                    Object.class )
+
+    }
+
+    def generateShoppingList ( String username, String startDate, String endDate, String hash, InlineObject11 inlineObject11, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/mealplanner/${username}/shopping-list/${start-date}/${end-date}"
+
+        // params
+        def queryParams = [:]
+        def headerParams = [:]
+        def bodyParams
+        def contentType
+
+        // verify required params are set
+        if (username == null) {
+            throw new RuntimeException("missing required params username")
+        }
+        // verify required params are set
+        if (startDate == null) {
+            throw new RuntimeException("missing required params startDate")
+        }
+        // verify required params are set
+        if (endDate == null) {
+            throw new RuntimeException("missing required params endDate")
+        }
+        // verify required params are set
+        if (hash == null) {
+            throw new RuntimeException("missing required params hash")
+        }
+        // verify required params are set
+        if (inlineObject11 == null) {
+            throw new RuntimeException("missing required params inlineObject11")
+        }
+
+        if (hash != null) {
+            queryParams.put("hash", hash)
+        }
+
+
+        contentType = '';
+        bodyParams = inlineObject11
+
+
+        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
+                    "POST", "",
                     Object.class )
 
     }
@@ -679,6 +888,107 @@ class DefaultApi {
             throw new RuntimeException("missing required params id")
         }
 
+
+
+
+
+        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
+                    "GET", "",
+                    Object.class )
+
+    }
+
+    def getMealPlanTemplate ( String username, BigDecimal id, String hash, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/mealplanner/${username}/templates/${id}"
+
+        // params
+        def queryParams = [:]
+        def headerParams = [:]
+        def bodyParams
+        def contentType
+
+        // verify required params are set
+        if (username == null) {
+            throw new RuntimeException("missing required params username")
+        }
+        // verify required params are set
+        if (id == null) {
+            throw new RuntimeException("missing required params id")
+        }
+        // verify required params are set
+        if (hash == null) {
+            throw new RuntimeException("missing required params hash")
+        }
+
+        if (hash != null) {
+            queryParams.put("hash", hash)
+        }
+
+
+
+
+        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
+                    "GET", "",
+                    Object.class )
+
+    }
+
+    def getMealPlanTemplates ( String username, String hash, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/mealplanner/${username}/templates"
+
+        // params
+        def queryParams = [:]
+        def headerParams = [:]
+        def bodyParams
+        def contentType
+
+        // verify required params are set
+        if (username == null) {
+            throw new RuntimeException("missing required params username")
+        }
+        // verify required params are set
+        if (hash == null) {
+            throw new RuntimeException("missing required params hash")
+        }
+
+        if (hash != null) {
+            queryParams.put("hash", hash)
+        }
+
+
+
+
+        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
+                    "GET", "",
+                    Object.class )
+
+    }
+
+    def getMealPlanWeek ( String username, String startDate, String hash, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/mealplanner/${username}/week/${start-date}"
+
+        // params
+        def queryParams = [:]
+        def headerParams = [:]
+        def bodyParams
+        def contentType
+
+        // verify required params are set
+        if (username == null) {
+            throw new RuntimeException("missing required params username")
+        }
+        // verify required params are set
+        if (startDate == null) {
+            throw new RuntimeException("missing required params startDate")
+        }
+        // verify required params are set
+        if (hash == null) {
+            throw new RuntimeException("missing required params hash")
+        }
+
+        if (hash != null) {
+            queryParams.put("hash", hash)
+        }
 
 
 
@@ -939,7 +1249,38 @@ class DefaultApi {
 
     }
 
-    def getSimilarRecipes ( BigDecimal id, BigDecimal number, Closure onSuccess, Closure onFailure)  {
+    def getShoppingList ( String username, String hash, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/mealplanner/${username}/shopping-list"
+
+        // params
+        def queryParams = [:]
+        def headerParams = [:]
+        def bodyParams
+        def contentType
+
+        // verify required params are set
+        if (username == null) {
+            throw new RuntimeException("missing required params username")
+        }
+        // verify required params are set
+        if (hash == null) {
+            throw new RuntimeException("missing required params hash")
+        }
+
+        if (hash != null) {
+            queryParams.put("hash", hash)
+        }
+
+
+
+
+        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
+                    "GET", "",
+                    Object.class )
+
+    }
+
+    def getSimilarRecipes ( BigDecimal id, BigDecimal number, Boolean limitLicense, Closure onSuccess, Closure onFailure)  {
         String resourcePath = "/recipes/${id}/similar"
 
         // params
@@ -955,6 +1296,9 @@ class DefaultApi {
 
         if (number != null) {
             queryParams.put("number", number)
+        }
+        if (limitLicense != null) {
+            queryParams.put("limitLicense", limitLicense)
         }
 
 
@@ -1086,6 +1430,60 @@ class DefaultApi {
 
     }
 
+    def imageAnalysisByURL ( String imageUrl, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/food/images/analyze"
+
+        // params
+        def queryParams = [:]
+        def headerParams = [:]
+        def bodyParams
+        def contentType
+
+        // verify required params are set
+        if (imageUrl == null) {
+            throw new RuntimeException("missing required params imageUrl")
+        }
+
+        if (imageUrl != null) {
+            queryParams.put("imageUrl", imageUrl)
+        }
+
+
+
+
+        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
+                    "GET", "",
+                    Object.class )
+
+    }
+
+    def imageClassificationByURL ( String imageUrl, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/food/images/classify"
+
+        // params
+        def queryParams = [:]
+        def headerParams = [:]
+        def bodyParams
+        def contentType
+
+        // verify required params are set
+        if (imageUrl == null) {
+            throw new RuntimeException("missing required params imageUrl")
+        }
+
+        if (imageUrl != null) {
+            queryParams.put("imageUrl", imageUrl)
+        }
+
+
+
+
+        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
+                    "GET", "",
+                    Object.class )
+
+    }
+
     def mapIngredientsToGroceryProducts ( Object body, Closure onSuccess, Closure onFailure)  {
         String resourcePath = "/food/ingredients/map"
 
@@ -1161,6 +1559,53 @@ class DefaultApi {
 
         if (q != null) {
             queryParams.put("q", q)
+        }
+
+
+
+
+        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
+                    "GET", "",
+                    Object.class )
+
+    }
+
+    def searchCustomFoods ( String query, String username, String hash, BigDecimal offset, BigDecimal number, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/food/customFoods/search"
+
+        // params
+        def queryParams = [:]
+        def headerParams = [:]
+        def bodyParams
+        def contentType
+
+        // verify required params are set
+        if (query == null) {
+            throw new RuntimeException("missing required params query")
+        }
+        // verify required params are set
+        if (username == null) {
+            throw new RuntimeException("missing required params username")
+        }
+        // verify required params are set
+        if (hash == null) {
+            throw new RuntimeException("missing required params hash")
+        }
+
+        if (query != null) {
+            queryParams.put("query", query)
+        }
+        if (username != null) {
+            queryParams.put("username", username)
+        }
+        if (hash != null) {
+            queryParams.put("hash", hash)
+        }
+        if (offset != null) {
+            queryParams.put("offset", offset)
+        }
+        if (number != null) {
+            queryParams.put("number", number)
         }
 
 
@@ -1702,7 +2147,7 @@ class DefaultApi {
 
     }
 
-    def searchRecipesComplex ( String query, String cuisine, String excludeCuisine, String diet, String intolerances, String equipment, String includeIngredients, String excludeIngredients, String type, Boolean instructionsRequired, Boolean fillIngredients, Boolean addRecipeInformation, String author, String tags, String titleMatch, BigDecimal maxReadyTime, Boolean ignorePantry, String sort, String sortDirection, BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minFat, BigDecimal maxFat, BigDecimal minAlcohol, BigDecimal maxAlcohol, BigDecimal minCaffeine, BigDecimal maxCaffeine, BigDecimal minCopper, BigDecimal maxCopper, BigDecimal minCalcium, BigDecimal maxCalcium, BigDecimal minCholine, BigDecimal maxCholine, BigDecimal minCholesterol, BigDecimal maxCholesterol, BigDecimal minFluoride, BigDecimal maxFluoride, BigDecimal minSaturatedFat, BigDecimal maxSaturatedFat, BigDecimal minVitaminA, BigDecimal maxVitaminA, BigDecimal minVitaminC, BigDecimal maxVitaminC, BigDecimal minVitaminD, BigDecimal maxVitaminD, BigDecimal minVitaminE, BigDecimal maxVitaminE, BigDecimal minVitaminK, BigDecimal maxVitaminK, BigDecimal minVitaminB1, BigDecimal maxVitaminB1, BigDecimal minVitaminB2, BigDecimal maxVitaminB2, BigDecimal minVitaminB5, BigDecimal maxVitaminB5, BigDecimal minVitaminB3, BigDecimal maxVitaminB3, BigDecimal minVitaminB6, BigDecimal maxVitaminB6, BigDecimal minVitaminB12, BigDecimal maxVitaminB12, BigDecimal minFiber, BigDecimal maxFiber, BigDecimal minFolate, BigDecimal maxFolate, BigDecimal minFolicAcid, BigDecimal maxFolicAcid, BigDecimal minIodine, BigDecimal maxIodine, BigDecimal minIron, BigDecimal maxIron, BigDecimal minMagnesium, BigDecimal maxMagnesium, BigDecimal minManganese, BigDecimal maxManganese, BigDecimal minPhosphorus, BigDecimal maxPhosphorus, BigDecimal minPotassium, BigDecimal maxPotassium, BigDecimal minSelenium, BigDecimal maxSelenium, BigDecimal minSodium, BigDecimal maxSodium, BigDecimal minSugar, BigDecimal maxSugar, BigDecimal minZinc, BigDecimal maxZinc, BigDecimal offset, BigDecimal number, Boolean limitLicense, Closure onSuccess, Closure onFailure)  {
+    def searchRecipesComplex ( String query, String cuisine, String excludeCuisine, String diet, String intolerances, String equipment, String includeIngredients, String excludeIngredients, String type, Boolean instructionsRequired, Boolean fillIngredients, Boolean addRecipeInformation, Boolean addRecipeNutrition, String author, String tags, BigDecimal recipeBoxId, String titleMatch, BigDecimal maxReadyTime, Boolean ignorePantry, String sort, String sortDirection, BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minFat, BigDecimal maxFat, BigDecimal minAlcohol, BigDecimal maxAlcohol, BigDecimal minCaffeine, BigDecimal maxCaffeine, BigDecimal minCopper, BigDecimal maxCopper, BigDecimal minCalcium, BigDecimal maxCalcium, BigDecimal minCholine, BigDecimal maxCholine, BigDecimal minCholesterol, BigDecimal maxCholesterol, BigDecimal minFluoride, BigDecimal maxFluoride, BigDecimal minSaturatedFat, BigDecimal maxSaturatedFat, BigDecimal minVitaminA, BigDecimal maxVitaminA, BigDecimal minVitaminC, BigDecimal maxVitaminC, BigDecimal minVitaminD, BigDecimal maxVitaminD, BigDecimal minVitaminE, BigDecimal maxVitaminE, BigDecimal minVitaminK, BigDecimal maxVitaminK, BigDecimal minVitaminB1, BigDecimal maxVitaminB1, BigDecimal minVitaminB2, BigDecimal maxVitaminB2, BigDecimal minVitaminB5, BigDecimal maxVitaminB5, BigDecimal minVitaminB3, BigDecimal maxVitaminB3, BigDecimal minVitaminB6, BigDecimal maxVitaminB6, BigDecimal minVitaminB12, BigDecimal maxVitaminB12, BigDecimal minFiber, BigDecimal maxFiber, BigDecimal minFolate, BigDecimal maxFolate, BigDecimal minFolicAcid, BigDecimal maxFolicAcid, BigDecimal minIodine, BigDecimal maxIodine, BigDecimal minIron, BigDecimal maxIron, BigDecimal minMagnesium, BigDecimal maxMagnesium, BigDecimal minManganese, BigDecimal maxManganese, BigDecimal minPhosphorus, BigDecimal maxPhosphorus, BigDecimal minPotassium, BigDecimal maxPotassium, BigDecimal minSelenium, BigDecimal maxSelenium, BigDecimal minSodium, BigDecimal maxSodium, BigDecimal minSugar, BigDecimal maxSugar, BigDecimal minZinc, BigDecimal maxZinc, BigDecimal offset, BigDecimal number, Boolean limitLicense, Closure onSuccess, Closure onFailure)  {
         String resourcePath = "/recipes/complexSearch"
 
         // params
@@ -1752,11 +2197,17 @@ class DefaultApi {
         if (addRecipeInformation != null) {
             queryParams.put("addRecipeInformation", addRecipeInformation)
         }
+        if (addRecipeNutrition != null) {
+            queryParams.put("addRecipeNutrition", addRecipeNutrition)
+        }
         if (author != null) {
             queryParams.put("author", author)
         }
         if (tags != null) {
             queryParams.put("tags", tags)
+        }
+        if (recipeBoxId != null) {
+            queryParams.put("recipeBoxId", recipeBoxId)
         }
         if (titleMatch != null) {
             queryParams.put("titleMatch", titleMatch)

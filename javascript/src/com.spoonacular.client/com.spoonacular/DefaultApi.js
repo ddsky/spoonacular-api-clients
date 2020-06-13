@@ -13,7 +13,12 @@
 
 
 import ApiClient from "../ApiClient";
+import InlineObject10 from '../com.spoonacular.client.model/InlineObject10';
+import InlineObject11 from '../com.spoonacular.client.model/InlineObject11';
+import InlineObject12 from '../com.spoonacular.client.model/InlineObject12';
+import InlineObject13 from '../com.spoonacular.client.model/InlineObject13';
 import InlineObject8 from '../com.spoonacular.client.model/InlineObject8';
+import InlineObject9 from '../com.spoonacular.client.model/InlineObject9';
 
 /**
 * Default service.
@@ -33,6 +38,114 @@ export default class DefaultApi {
         this.apiClient = apiClient || ApiClient.instance;
     }
 
+
+    /**
+     * Callback function to receive the result of the addToMealPlan operation.
+     * @callback module:com.spoonacular.client/com.spoonacular/DefaultApi~addToMealPlanCallback
+     * @param {String} error Error message, if any.
+     * @param {Object} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Add to Meal Plan
+     * Add an item to the user's meal plan.
+     * @param {String} username The username.
+     * @param {String} hash The private hash for the username.
+     * @param {module:com.spoonacular.client/com.spoonacular.client.model/InlineObject9} inlineObject9 
+     * @param {module:com.spoonacular.client/com.spoonacular/DefaultApi~addToMealPlanCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Object}
+     */
+    addToMealPlan(username, hash, inlineObject9, callback) {
+      let postBody = inlineObject9;
+      // verify the required parameter 'username' is set
+      if (username === undefined || username === null) {
+        throw new Error("Missing the required parameter 'username' when calling addToMealPlan");
+      }
+      // verify the required parameter 'hash' is set
+      if (hash === undefined || hash === null) {
+        throw new Error("Missing the required parameter 'hash' when calling addToMealPlan");
+      }
+      // verify the required parameter 'inlineObject9' is set
+      if (inlineObject9 === undefined || inlineObject9 === null) {
+        throw new Error("Missing the required parameter 'inlineObject9' when calling addToMealPlan");
+      }
+
+      let pathParams = {
+        'username': username
+      };
+      let queryParams = {
+        'hash': hash
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [''];
+      let accepts = ['application/json'];
+      let returnType = Object;
+      return this.apiClient.callApi(
+        '/mealplanner/{username}/items', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the addToShoppingList operation.
+     * @callback module:com.spoonacular.client/com.spoonacular/DefaultApi~addToShoppingListCallback
+     * @param {String} error Error message, if any.
+     * @param {Object} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Add to Shopping List
+     * Add an item to the current shopping list of a user.
+     * @param {String} username The username.
+     * @param {String} hash The private hash for the username.
+     * @param {module:com.spoonacular.client/com.spoonacular.client.model/InlineObject12} inlineObject12 
+     * @param {module:com.spoonacular.client/com.spoonacular/DefaultApi~addToShoppingListCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Object}
+     */
+    addToShoppingList(username, hash, inlineObject12, callback) {
+      let postBody = inlineObject12;
+      // verify the required parameter 'username' is set
+      if (username === undefined || username === null) {
+        throw new Error("Missing the required parameter 'username' when calling addToShoppingList");
+      }
+      // verify the required parameter 'hash' is set
+      if (hash === undefined || hash === null) {
+        throw new Error("Missing the required parameter 'hash' when calling addToShoppingList");
+      }
+      // verify the required parameter 'inlineObject12' is set
+      if (inlineObject12 === undefined || inlineObject12 === null) {
+        throw new Error("Missing the required parameter 'inlineObject12' when calling addToShoppingList");
+      }
+
+      let pathParams = {
+        'username': username
+      };
+      let queryParams = {
+        'hash': hash
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [''];
+      let accepts = ['application/json'];
+      let returnType = Object;
+      return this.apiClient.callApi(
+        '/mealplanner/{username}/shopping-list/items', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
 
     /**
      * Callback function to receive the result of the analyzeARecipeSearchQuery operation.
@@ -610,6 +723,126 @@ export default class DefaultApi {
     }
 
     /**
+     * Callback function to receive the result of the deleteFromMealPlan operation.
+     * @callback module:com.spoonacular.client/com.spoonacular/DefaultApi~deleteFromMealPlanCallback
+     * @param {String} error Error message, if any.
+     * @param {Object} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Delete from Meal Plan
+     * Delete an item from the user's meal plan.
+     * @param {String} username The username.
+     * @param {Number} id The shopping list item id.
+     * @param {String} hash The private hash for the username.
+     * @param {module:com.spoonacular.client/com.spoonacular.client.model/InlineObject10} inlineObject10 
+     * @param {module:com.spoonacular.client/com.spoonacular/DefaultApi~deleteFromMealPlanCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Object}
+     */
+    deleteFromMealPlan(username, id, hash, inlineObject10, callback) {
+      let postBody = inlineObject10;
+      // verify the required parameter 'username' is set
+      if (username === undefined || username === null) {
+        throw new Error("Missing the required parameter 'username' when calling deleteFromMealPlan");
+      }
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling deleteFromMealPlan");
+      }
+      // verify the required parameter 'hash' is set
+      if (hash === undefined || hash === null) {
+        throw new Error("Missing the required parameter 'hash' when calling deleteFromMealPlan");
+      }
+      // verify the required parameter 'inlineObject10' is set
+      if (inlineObject10 === undefined || inlineObject10 === null) {
+        throw new Error("Missing the required parameter 'inlineObject10' when calling deleteFromMealPlan");
+      }
+
+      let pathParams = {
+        'username': username,
+        'id': id
+      };
+      let queryParams = {
+        'hash': hash
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [''];
+      let accepts = ['application/json'];
+      let returnType = Object;
+      return this.apiClient.callApi(
+        '/mealplanner/{username}/items/{id}', 'DELETE',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the deleteFromShoppingList operation.
+     * @callback module:com.spoonacular.client/com.spoonacular/DefaultApi~deleteFromShoppingListCallback
+     * @param {String} error Error message, if any.
+     * @param {Object} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Delete from Shopping List
+     * Delete an item from the current shopping list of the user.
+     * @param {String} username The username.
+     * @param {Number} id The shopping list item id.
+     * @param {String} hash The private hash for the username.
+     * @param {module:com.spoonacular.client/com.spoonacular.client.model/InlineObject13} inlineObject13 
+     * @param {module:com.spoonacular.client/com.spoonacular/DefaultApi~deleteFromShoppingListCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Object}
+     */
+    deleteFromShoppingList(username, id, hash, inlineObject13, callback) {
+      let postBody = inlineObject13;
+      // verify the required parameter 'username' is set
+      if (username === undefined || username === null) {
+        throw new Error("Missing the required parameter 'username' when calling deleteFromShoppingList");
+      }
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling deleteFromShoppingList");
+      }
+      // verify the required parameter 'hash' is set
+      if (hash === undefined || hash === null) {
+        throw new Error("Missing the required parameter 'hash' when calling deleteFromShoppingList");
+      }
+      // verify the required parameter 'inlineObject13' is set
+      if (inlineObject13 === undefined || inlineObject13 === null) {
+        throw new Error("Missing the required parameter 'inlineObject13' when calling deleteFromShoppingList");
+      }
+
+      let pathParams = {
+        'username': username,
+        'id': id
+      };
+      let queryParams = {
+        'hash': hash
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [''];
+      let accepts = ['application/json'];
+      let returnType = Object;
+      return this.apiClient.callApi(
+        '/mealplanner/{username}/shopping-list/items/{id}', 'DELETE',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the detectFoodInText operation.
      * @callback module:com.spoonacular.client/com.spoonacular/DefaultApi~detectFoodInTextCallback
      * @param {String} error Error message, if any.
@@ -666,6 +899,7 @@ export default class DefaultApi {
      * @param {String} url The URL of the recipe page.
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.forceExtraction If true, the extraction will be triggered whether we already know the recipe or not. Use this only if information is missing as this operation is slower.
+     * @param {Boolean} opts.analyze If true, the recipe will be analyzed and classified resolving in more data such as cuisines, dish types, and more.
      * @param {module:com.spoonacular.client/com.spoonacular/DefaultApi~extractRecipeFromWebsiteCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Object}
      */
@@ -681,7 +915,8 @@ export default class DefaultApi {
       };
       let queryParams = {
         'url': url,
-        'forceExtraction': opts['forceExtraction']
+        'forceExtraction': opts['forceExtraction'],
+        'analyze': opts['analyze']
       };
       let headerParams = {
       };
@@ -741,6 +976,72 @@ export default class DefaultApi {
       let returnType = Object;
       return this.apiClient.callApi(
         '/mealplanner/generate', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the generateShoppingList operation.
+     * @callback module:com.spoonacular.client/com.spoonacular/DefaultApi~generateShoppingListCallback
+     * @param {String} error Error message, if any.
+     * @param {Object} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Generate Shopping List
+     * Generate the shopping list for a user from the meal planner in a given time frame.
+     * @param {String} username The username.
+     * @param {String} startDate The start date in the format yyyy-mm-dd.
+     * @param {String} endDate The end date in the format yyyy-mm-dd.
+     * @param {String} hash The private hash for the username.
+     * @param {module:com.spoonacular.client/com.spoonacular.client.model/InlineObject11} inlineObject11 
+     * @param {module:com.spoonacular.client/com.spoonacular/DefaultApi~generateShoppingListCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Object}
+     */
+    generateShoppingList(username, startDate, endDate, hash, inlineObject11, callback) {
+      let postBody = inlineObject11;
+      // verify the required parameter 'username' is set
+      if (username === undefined || username === null) {
+        throw new Error("Missing the required parameter 'username' when calling generateShoppingList");
+      }
+      // verify the required parameter 'startDate' is set
+      if (startDate === undefined || startDate === null) {
+        throw new Error("Missing the required parameter 'startDate' when calling generateShoppingList");
+      }
+      // verify the required parameter 'endDate' is set
+      if (endDate === undefined || endDate === null) {
+        throw new Error("Missing the required parameter 'endDate' when calling generateShoppingList");
+      }
+      // verify the required parameter 'hash' is set
+      if (hash === undefined || hash === null) {
+        throw new Error("Missing the required parameter 'hash' when calling generateShoppingList");
+      }
+      // verify the required parameter 'inlineObject11' is set
+      if (inlineObject11 === undefined || inlineObject11 === null) {
+        throw new Error("Missing the required parameter 'inlineObject11' when calling generateShoppingList");
+      }
+
+      let pathParams = {
+        'username': username,
+        'start-date': startDate,
+        'end-date': endDate
+      };
+      let queryParams = {
+        'hash': hash
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [''];
+      let accepts = ['application/json'];
+      let returnType = Object;
+      return this.apiClient.callApi(
+        '/mealplanner/{username}/shopping-list/{start-date}/{end-date}', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -1099,6 +1400,165 @@ export default class DefaultApi {
     }
 
     /**
+     * Callback function to receive the result of the getMealPlanTemplate operation.
+     * @callback module:com.spoonacular.client/com.spoonacular/DefaultApi~getMealPlanTemplateCallback
+     * @param {String} error Error message, if any.
+     * @param {Object} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get Meal Plan Template
+     * Get information about a meal plan template.
+     * @param {String} username The username.
+     * @param {Number} id The shopping list item id.
+     * @param {String} hash The private hash for the username.
+     * @param {module:com.spoonacular.client/com.spoonacular/DefaultApi~getMealPlanTemplateCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Object}
+     */
+    getMealPlanTemplate(username, id, hash, callback) {
+      let postBody = null;
+      // verify the required parameter 'username' is set
+      if (username === undefined || username === null) {
+        throw new Error("Missing the required parameter 'username' when calling getMealPlanTemplate");
+      }
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling getMealPlanTemplate");
+      }
+      // verify the required parameter 'hash' is set
+      if (hash === undefined || hash === null) {
+        throw new Error("Missing the required parameter 'hash' when calling getMealPlanTemplate");
+      }
+
+      let pathParams = {
+        'username': username,
+        'id': id
+      };
+      let queryParams = {
+        'hash': hash
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = Object;
+      return this.apiClient.callApi(
+        '/mealplanner/{username}/templates/{id}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getMealPlanTemplates operation.
+     * @callback module:com.spoonacular.client/com.spoonacular/DefaultApi~getMealPlanTemplatesCallback
+     * @param {String} error Error message, if any.
+     * @param {Object} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get Meal Plan Templates
+     * Get meal plan templates from user or public ones.
+     * @param {String} username The username.
+     * @param {String} hash The private hash for the username.
+     * @param {module:com.spoonacular.client/com.spoonacular/DefaultApi~getMealPlanTemplatesCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Object}
+     */
+    getMealPlanTemplates(username, hash, callback) {
+      let postBody = null;
+      // verify the required parameter 'username' is set
+      if (username === undefined || username === null) {
+        throw new Error("Missing the required parameter 'username' when calling getMealPlanTemplates");
+      }
+      // verify the required parameter 'hash' is set
+      if (hash === undefined || hash === null) {
+        throw new Error("Missing the required parameter 'hash' when calling getMealPlanTemplates");
+      }
+
+      let pathParams = {
+        'username': username
+      };
+      let queryParams = {
+        'hash': hash
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = Object;
+      return this.apiClient.callApi(
+        '/mealplanner/{username}/templates', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getMealPlanWeek operation.
+     * @callback module:com.spoonacular.client/com.spoonacular/DefaultApi~getMealPlanWeekCallback
+     * @param {String} error Error message, if any.
+     * @param {Object} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get Meal Plan Week
+     * Retrieve a meal planned week for the given user. The username must be a spoonacular user and the hash must the the user's hash that can be found in his/her account.
+     * @param {String} username The username.
+     * @param {String} startDate The start date of the meal planned week in the format yyyy-mm-dd.
+     * @param {String} hash The private hash for the username.
+     * @param {module:com.spoonacular.client/com.spoonacular/DefaultApi~getMealPlanWeekCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Object}
+     */
+    getMealPlanWeek(username, startDate, hash, callback) {
+      let postBody = null;
+      // verify the required parameter 'username' is set
+      if (username === undefined || username === null) {
+        throw new Error("Missing the required parameter 'username' when calling getMealPlanWeek");
+      }
+      // verify the required parameter 'startDate' is set
+      if (startDate === undefined || startDate === null) {
+        throw new Error("Missing the required parameter 'startDate' when calling getMealPlanWeek");
+      }
+      // verify the required parameter 'hash' is set
+      if (hash === undefined || hash === null) {
+        throw new Error("Missing the required parameter 'hash' when calling getMealPlanWeek");
+      }
+
+      let pathParams = {
+        'username': username,
+        'start-date': startDate
+      };
+      let queryParams = {
+        'hash': hash
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = Object;
+      return this.apiClient.callApi(
+        '/mealplanner/{username}/week/{start-date}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the getMenuItemInformation operation.
      * @callback module:com.spoonacular.client/com.spoonacular/DefaultApi~getMenuItemInformationCallback
      * @param {String} error Error message, if any.
@@ -1151,7 +1611,7 @@ export default class DefaultApi {
 
     /**
      * Get Product Information
-     * Use a product id to get full information about a product, such as ingredients, nutrition, etc.
+     * Use a product id to get full information about a product, such as ingredients, nutrition, etc. The nutritional information is per serving.
      * @param {Number} id The id of the packaged food.
      * @param {module:com.spoonacular.client/com.spoonacular/DefaultApi~getProductInformationCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Object}
@@ -1533,6 +1993,55 @@ export default class DefaultApi {
     }
 
     /**
+     * Callback function to receive the result of the getShoppingList operation.
+     * @callback module:com.spoonacular.client/com.spoonacular/DefaultApi~getShoppingListCallback
+     * @param {String} error Error message, if any.
+     * @param {Object} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get Shopping List
+     * Get the current shopping list for the given user.
+     * @param {String} username The username.
+     * @param {String} hash The private hash for the username.
+     * @param {module:com.spoonacular.client/com.spoonacular/DefaultApi~getShoppingListCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Object}
+     */
+    getShoppingList(username, hash, callback) {
+      let postBody = null;
+      // verify the required parameter 'username' is set
+      if (username === undefined || username === null) {
+        throw new Error("Missing the required parameter 'username' when calling getShoppingList");
+      }
+      // verify the required parameter 'hash' is set
+      if (hash === undefined || hash === null) {
+        throw new Error("Missing the required parameter 'hash' when calling getShoppingList");
+      }
+
+      let pathParams = {
+        'username': username
+      };
+      let queryParams = {
+        'hash': hash
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = Object;
+      return this.apiClient.callApi(
+        '/mealplanner/{username}/shopping-list', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the getSimilarRecipes operation.
      * @callback module:com.spoonacular.client/com.spoonacular/DefaultApi~getSimilarRecipesCallback
      * @param {String} error Error message, if any.
@@ -1546,6 +2055,7 @@ export default class DefaultApi {
      * @param {Number} id The id of the source recipe for which similar recipes should be found.
      * @param {Object} opts Optional parameters
      * @param {Number} opts._number The number of random recipes to be returned (between 1 and 100).
+     * @param {Boolean} opts.limitLicense Whether the recipes should have an open license that allows display with proper attribution.
      * @param {module:com.spoonacular.client/com.spoonacular/DefaultApi~getSimilarRecipesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Object}
      */
@@ -1561,7 +2071,8 @@ export default class DefaultApi {
         'id': id
       };
       let queryParams = {
-        'number': opts['_number']
+        'number': opts['_number'],
+        'limitLicense': opts['limitLicense']
       };
       let headerParams = {
       };
@@ -1764,6 +2275,92 @@ export default class DefaultApi {
     }
 
     /**
+     * Callback function to receive the result of the imageAnalysisByURL operation.
+     * @callback module:com.spoonacular.client/com.spoonacular/DefaultApi~imageAnalysisByURLCallback
+     * @param {String} error Error message, if any.
+     * @param {Object} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Image Analysis by URL
+     * Analyze a food image. The API tries to classify the image, guess the nutrition, and find a matching recipes. You can play around with that endpoint!
+     * @param {String} imageUrl The URL of the image to be analyzed.
+     * @param {module:com.spoonacular.client/com.spoonacular/DefaultApi~imageAnalysisByURLCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Object}
+     */
+    imageAnalysisByURL(imageUrl, callback) {
+      let postBody = null;
+      // verify the required parameter 'imageUrl' is set
+      if (imageUrl === undefined || imageUrl === null) {
+        throw new Error("Missing the required parameter 'imageUrl' when calling imageAnalysisByURL");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'imageUrl': imageUrl
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = Object;
+      return this.apiClient.callApi(
+        '/food/images/analyze', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the imageClassificationByURL operation.
+     * @callback module:com.spoonacular.client/com.spoonacular/DefaultApi~imageClassificationByURLCallback
+     * @param {String} error Error message, if any.
+     * @param {Object} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Image Classification by URL
+     * Classify a food image. You can play around with that endpoint!
+     * @param {String} imageUrl The URL of the image to be classified.
+     * @param {module:com.spoonacular.client/com.spoonacular/DefaultApi~imageClassificationByURLCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Object}
+     */
+    imageClassificationByURL(imageUrl, callback) {
+      let postBody = null;
+      // verify the required parameter 'imageUrl' is set
+      if (imageUrl === undefined || imageUrl === null) {
+        throw new Error("Missing the required parameter 'imageUrl' when calling imageClassificationByURL");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'imageUrl': imageUrl
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = Object;
+      return this.apiClient.callApi(
+        '/food/images/classify', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the mapIngredientsToGroceryProducts operation.
      * @callback module:com.spoonacular.client/com.spoonacular/DefaultApi~mapIngredientsToGroceryProductsCallback
      * @param {String} error Error message, if any.
@@ -1902,6 +2499,67 @@ export default class DefaultApi {
     }
 
     /**
+     * Callback function to receive the result of the searchCustomFoods operation.
+     * @callback module:com.spoonacular.client/com.spoonacular/DefaultApi~searchCustomFoodsCallback
+     * @param {String} error Error message, if any.
+     * @param {Object} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Search Custom Foods
+     * Search custom foods in a user's account.
+     * @param {String} query The search query.
+     * @param {String} username The username.
+     * @param {String} hash The private hash for the username.
+     * @param {Object} opts Optional parameters
+     * @param {Number} opts.offset The number of results to skip (between 0 and 990).
+     * @param {Number} opts._number The number of expected results (between 1 and 100).
+     * @param {module:com.spoonacular.client/com.spoonacular/DefaultApi~searchCustomFoodsCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Object}
+     */
+    searchCustomFoods(query, username, hash, opts, callback) {
+      opts = opts || {};
+      let postBody = null;
+      // verify the required parameter 'query' is set
+      if (query === undefined || query === null) {
+        throw new Error("Missing the required parameter 'query' when calling searchCustomFoods");
+      }
+      // verify the required parameter 'username' is set
+      if (username === undefined || username === null) {
+        throw new Error("Missing the required parameter 'username' when calling searchCustomFoods");
+      }
+      // verify the required parameter 'hash' is set
+      if (hash === undefined || hash === null) {
+        throw new Error("Missing the required parameter 'hash' when calling searchCustomFoods");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'query': query,
+        'username': username,
+        'hash': hash,
+        'offset': opts['offset'],
+        'number': opts['_number']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = Object;
+      return this.apiClient.callApi(
+        '/food/customFoods/search', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the searchFoodVideos operation.
      * @callback module:com.spoonacular.client/com.spoonacular/DefaultApi~searchFoodVideosCallback
      * @param {String} error Error message, if any.
@@ -1985,7 +2643,7 @@ export default class DefaultApi {
      * @param {Number} opts.maxProtein The maximum amount of protein in grams the product can have.
      * @param {Number} opts.minFat The minimum amount of fat in grams the product must have.
      * @param {Number} opts.maxFat The maximum amount of fat in grams the product can have.
-     * @param {Number} opts.offset The offset number for paging (between 0 and 990).
+     * @param {Number} opts.offset The number of results to skip (between 0 and 990).
      * @param {Number} opts._number The number of expected results (between 1 and 100).
      * @param {module:com.spoonacular.client/com.spoonacular/DefaultApi~searchGroceryProductsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Object}
@@ -2208,7 +2866,7 @@ export default class DefaultApi {
 
     /**
      * Search Recipes by Ingredients
-     * Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don't currently have (post shopping).
+     *              Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don't currently have (post shopping).         
      * @param {String} ingredients A comma-separated list of ingredients that the recipes should contain.
      * @param {Object} opts Optional parameters
      * @param {Number} opts._number The maximum number of recipes to return (between 1 and 100). Defaults to 10.
@@ -2335,7 +2993,7 @@ export default class DefaultApi {
      * @param {Number} opts.maxSugar The maximum amount of sugar in grams the recipe can have.
      * @param {Number} opts.minZinc The minimum amount of zinc in milligrams the recipe must have.
      * @param {Number} opts.maxZinc The maximum amount of zinc in milligrams the recipe can have.
-     * @param {Number} opts.offset The offset number for paging (between 0 and 990).
+     * @param {Number} opts.offset The number of results to skip (between 0 and 900).
      * @param {Number} opts._number The number of expected results (between 1 and 100).
      * @param {Boolean} opts.random If true, every request will give you a random set of recipes within the requested limits.
      * @param {Boolean} opts.limitLicense Whether the recipes should have an open license that allows display with proper attribution.
@@ -2464,10 +3122,12 @@ export default class DefaultApi {
      * @param {String} opts.excludeIngredients A comma-separated list of ingredients or ingredient types that the recipes must not contain.
      * @param {String} opts.type The type of recipe. See a full list of supported meal types.
      * @param {Boolean} opts.instructionsRequired Whether the recipes must have instructions.
-     * @param {Boolean} opts.fillIngredients Add information about the used and missing ingredients in each recipe.
-     * @param {Boolean} opts.addRecipeInformation If set to true, you get more information about the recipes returned. This saves you from needing to call to get recipe information.
+     * @param {Boolean} opts.fillIngredients Add information about the ingredients and whether they are used or missing in relation to the query.
+     * @param {Boolean} opts.addRecipeInformation If set to true, you get more information about the recipes returned.
+     * @param {Boolean} opts.addRecipeNutrition If set to true, you get nutritional information about each recipes returned.
      * @param {String} opts.author The username of the recipe author.
-     * @param {String} opts.tags User defined tags that have to match.
+     * @param {String} opts.tags User defined tags that have to match. The author param has to be set.
+     * @param {Number} opts.recipeBoxId The id of the recipe box to which the search should be limited to.
      * @param {String} opts.titleMatch Enter text that must be found in the title of the recipes.
      * @param {Number} opts.maxReadyTime The maximum time in minutes it should take to prepare and cook the recipe.
      * @param {Boolean} opts.ignorePantry Whether to ignore typical pantry items, such as water, salt, flour, etc.
@@ -2545,8 +3205,8 @@ export default class DefaultApi {
      * @param {Number} opts.maxSugar The maximum amount of sugar in grams the recipe can have.
      * @param {Number} opts.minZinc The minimum amount of zinc in milligrams the recipe must have.
      * @param {Number} opts.maxZinc The maximum amount of zinc in milligrams the recipe can have.
-     * @param {Number} opts.offset The offset number for paging (between 0 and 990).
-     * @param {Number} opts._number The number of expected results (between 1 and 10).
+     * @param {Number} opts.offset The number of results to skip (between 0 and 900).
+     * @param {Number} opts._number The number of expected results (between 1 and 100).
      * @param {Boolean} opts.limitLicense Whether the recipes should have an open license that allows display with proper attribution.
      * @param {module:com.spoonacular.client/com.spoonacular/DefaultApi~searchRecipesComplexCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Object}
@@ -2574,8 +3234,10 @@ export default class DefaultApi {
         'instructionsRequired': opts['instructionsRequired'],
         'fillIngredients': opts['fillIngredients'],
         'addRecipeInformation': opts['addRecipeInformation'],
+        'addRecipeNutrition': opts['addRecipeNutrition'],
         'author': opts['author'],
         'tags': opts['tags'],
+        'recipeBoxId': opts['recipeBoxId'],
         'titleMatch': opts['titleMatch'],
         'maxReadyTime': opts['maxReadyTime'],
         'ignorePantry': opts['ignorePantry'],

@@ -29,6 +29,192 @@ var (
 type DefaultApiService service
 
 /*
+DefaultApiService Add to Meal Plan
+Add an item to the user&#39;s meal plan.
+ * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param username The username.
+ * @param hash The private hash for the username.
+ * @param inlineObject9
+@return map[string]interface{}
+*/
+func (a *DefaultApiService) AddToMealPlan(ctx context.Context, username string, hash string, inlineObject9 InlineObject9) (map[string]interface{}, *http.Response, error) {
+	var (
+		localVarHttpMethod   = strings.ToUpper("Post")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  map[string]interface{}
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BasePath + "/mealplanner/{username}/items"
+	localVarPath = strings.Replace(localVarPath, "{"+"username"+"}", fmt.Sprintf("%v", username), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	localVarQueryParams.Add("hash", parameterToString(hash, ""))
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{""}
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	// body params
+	localVarPostBody = &inlineObject9
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHttpResponse, err := a.client.callAPI(r)
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
+	localVarHttpResponse.Body.Close()
+	if err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	if localVarHttpResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHttpResponse.Status,
+		}
+		if localVarHttpResponse.StatusCode == 200 {
+			var v map[string]interface{}
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHttpResponse, nil
+}
+
+/*
+DefaultApiService Add to Shopping List
+Add an item to the current shopping list of a user.
+ * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param username The username.
+ * @param hash The private hash for the username.
+ * @param inlineObject12
+@return map[string]interface{}
+*/
+func (a *DefaultApiService) AddToShoppingList(ctx context.Context, username string, hash string, inlineObject12 InlineObject12) (map[string]interface{}, *http.Response, error) {
+	var (
+		localVarHttpMethod   = strings.ToUpper("Post")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  map[string]interface{}
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BasePath + "/mealplanner/{username}/shopping-list/items"
+	localVarPath = strings.Replace(localVarPath, "{"+"username"+"}", fmt.Sprintf("%v", username), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	localVarQueryParams.Add("hash", parameterToString(hash, ""))
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{""}
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	// body params
+	localVarPostBody = &inlineObject12
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHttpResponse, err := a.client.callAPI(r)
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
+	localVarHttpResponse.Body.Close()
+	if err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	if localVarHttpResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHttpResponse.Status,
+		}
+		if localVarHttpResponse.StatusCode == 200 {
+			var v map[string]interface{}
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHttpResponse, nil
+}
+
+/*
 DefaultApiService Analyze a Recipe Search Query
 Parse a recipe search query to find out its intention.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -1123,6 +1309,196 @@ func (a *DefaultApiService) CreateRecipeCard(ctx context.Context, title string, 
 }
 
 /*
+DefaultApiService Delete from Meal Plan
+Delete an item from the user&#39;s meal plan.
+ * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param username The username.
+ * @param id The shopping list item id.
+ * @param hash The private hash for the username.
+ * @param inlineObject10
+@return map[string]interface{}
+*/
+func (a *DefaultApiService) DeleteFromMealPlan(ctx context.Context, username string, id float32, hash string, inlineObject10 InlineObject10) (map[string]interface{}, *http.Response, error) {
+	var (
+		localVarHttpMethod   = strings.ToUpper("Delete")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  map[string]interface{}
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BasePath + "/mealplanner/{username}/items/{id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"username"+"}", fmt.Sprintf("%v", username), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", fmt.Sprintf("%v", id), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	localVarQueryParams.Add("hash", parameterToString(hash, ""))
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{""}
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	// body params
+	localVarPostBody = &inlineObject10
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHttpResponse, err := a.client.callAPI(r)
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
+	localVarHttpResponse.Body.Close()
+	if err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	if localVarHttpResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHttpResponse.Status,
+		}
+		if localVarHttpResponse.StatusCode == 200 {
+			var v map[string]interface{}
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHttpResponse, nil
+}
+
+/*
+DefaultApiService Delete from Shopping List
+Delete an item from the current shopping list of the user.
+ * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param username The username.
+ * @param id The shopping list item id.
+ * @param hash The private hash for the username.
+ * @param inlineObject13
+@return map[string]interface{}
+*/
+func (a *DefaultApiService) DeleteFromShoppingList(ctx context.Context, username string, id float32, hash string, inlineObject13 InlineObject13) (map[string]interface{}, *http.Response, error) {
+	var (
+		localVarHttpMethod   = strings.ToUpper("Delete")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  map[string]interface{}
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BasePath + "/mealplanner/{username}/shopping-list/items/{id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"username"+"}", fmt.Sprintf("%v", username), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", fmt.Sprintf("%v", id), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	localVarQueryParams.Add("hash", parameterToString(hash, ""))
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{""}
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	// body params
+	localVarPostBody = &inlineObject13
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHttpResponse, err := a.client.callAPI(r)
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
+	localVarHttpResponse.Body.Close()
+	if err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	if localVarHttpResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHttpResponse.Status,
+		}
+		if localVarHttpResponse.StatusCode == 200 {
+			var v map[string]interface{}
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHttpResponse, nil
+}
+
+/*
 DefaultApiService Detect Food in Text
 Take any text and find all mentions of food contained within it. This task is also called Named Entity Recognition (NER). In this case, the entities are foods. Either dishes, such as pizza or cheeseburger, or ingredients, such as cucumber or almonds.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -1217,11 +1593,13 @@ This endpoint lets you extract recipe data such as title, ingredients, and instr
  * @param url The URL of the recipe page.
  * @param optional nil or *ExtractRecipeFromWebsiteOpts - Optional Parameters:
  * @param "ForceExtraction" (optional.Bool) -  If true, the extraction will be triggered whether we already know the recipe or not. Use this only if information is missing as this operation is slower.
+ * @param "Analyze" (optional.Bool) -  If true, the recipe will be analyzed and classified resolving in more data such as cuisines, dish types, and more.
 @return map[string]interface{}
 */
 
 type ExtractRecipeFromWebsiteOpts struct {
 	ForceExtraction optional.Bool
+	Analyze optional.Bool
 }
 
 func (a *DefaultApiService) ExtractRecipeFromWebsite(ctx context.Context, url string, localVarOptionals *ExtractRecipeFromWebsiteOpts) (map[string]interface{}, *http.Response, error) {
@@ -1244,6 +1622,9 @@ func (a *DefaultApiService) ExtractRecipeFromWebsite(ctx context.Context, url st
 	localVarQueryParams.Add("url", parameterToString(url, ""))
 	if localVarOptionals != nil && localVarOptionals.ForceExtraction.IsSet() {
 		localVarQueryParams.Add("forceExtraction", parameterToString(localVarOptionals.ForceExtraction.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Analyze.IsSet() {
+		localVarQueryParams.Add("analyze", parameterToString(localVarOptionals.Analyze.Value(), ""))
 	}
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{}
@@ -1373,6 +1754,103 @@ func (a *DefaultApiService) GenerateMealPlan(ctx context.Context, localVarOption
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHttpResponse, err := a.client.callAPI(r)
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
+	localVarHttpResponse.Body.Close()
+	if err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	if localVarHttpResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHttpResponse.Status,
+		}
+		if localVarHttpResponse.StatusCode == 200 {
+			var v map[string]interface{}
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHttpResponse, nil
+}
+
+/*
+DefaultApiService Generate Shopping List
+Generate the shopping list for a user from the meal planner in a given time frame.
+ * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param username The username.
+ * @param startDate The start date in the format yyyy-mm-dd.
+ * @param endDate The end date in the format yyyy-mm-dd.
+ * @param hash The private hash for the username.
+ * @param inlineObject11
+@return map[string]interface{}
+*/
+func (a *DefaultApiService) GenerateShoppingList(ctx context.Context, username string, startDate string, endDate string, hash string, inlineObject11 InlineObject11) (map[string]interface{}, *http.Response, error) {
+	var (
+		localVarHttpMethod   = strings.ToUpper("Post")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  map[string]interface{}
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BasePath + "/mealplanner/{username}/shopping-list/{start-date}/{end-date}"
+	localVarPath = strings.Replace(localVarPath, "{"+"username"+"}", fmt.Sprintf("%v", username), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"start-date"+"}", fmt.Sprintf("%v", startDate), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"end-date"+"}", fmt.Sprintf("%v", endDate), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	localVarQueryParams.Add("hash", parameterToString(hash, ""))
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{""}
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	// body params
+	localVarPostBody = &inlineObject11
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2157,6 +2635,280 @@ func (a *DefaultApiService) GetIngredientSubstitutesByID(ctx context.Context, id
 }
 
 /*
+DefaultApiService Get Meal Plan Template
+Get information about a meal plan template.
+ * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param username The username.
+ * @param id The shopping list item id.
+ * @param hash The private hash for the username.
+@return map[string]interface{}
+*/
+func (a *DefaultApiService) GetMealPlanTemplate(ctx context.Context, username string, id float32, hash string) (map[string]interface{}, *http.Response, error) {
+	var (
+		localVarHttpMethod   = strings.ToUpper("Get")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  map[string]interface{}
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BasePath + "/mealplanner/{username}/templates/{id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"username"+"}", fmt.Sprintf("%v", username), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", fmt.Sprintf("%v", id), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	localVarQueryParams.Add("hash", parameterToString(hash, ""))
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHttpResponse, err := a.client.callAPI(r)
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
+	localVarHttpResponse.Body.Close()
+	if err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	if localVarHttpResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHttpResponse.Status,
+		}
+		if localVarHttpResponse.StatusCode == 200 {
+			var v map[string]interface{}
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHttpResponse, nil
+}
+
+/*
+DefaultApiService Get Meal Plan Templates
+Get meal plan templates from user or public ones.
+ * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param username The username.
+ * @param hash The private hash for the username.
+@return map[string]interface{}
+*/
+func (a *DefaultApiService) GetMealPlanTemplates(ctx context.Context, username string, hash string) (map[string]interface{}, *http.Response, error) {
+	var (
+		localVarHttpMethod   = strings.ToUpper("Get")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  map[string]interface{}
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BasePath + "/mealplanner/{username}/templates"
+	localVarPath = strings.Replace(localVarPath, "{"+"username"+"}", fmt.Sprintf("%v", username), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	localVarQueryParams.Add("hash", parameterToString(hash, ""))
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHttpResponse, err := a.client.callAPI(r)
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
+	localVarHttpResponse.Body.Close()
+	if err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	if localVarHttpResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHttpResponse.Status,
+		}
+		if localVarHttpResponse.StatusCode == 200 {
+			var v map[string]interface{}
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHttpResponse, nil
+}
+
+/*
+DefaultApiService Get Meal Plan Week
+Retrieve a meal planned week for the given user. The username must be a spoonacular user and the hash must the the user&#39;s hash that can be found in his/her account.
+ * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param username The username.
+ * @param startDate The start date of the meal planned week in the format yyyy-mm-dd.
+ * @param hash The private hash for the username.
+@return map[string]interface{}
+*/
+func (a *DefaultApiService) GetMealPlanWeek(ctx context.Context, username string, startDate string, hash string) (map[string]interface{}, *http.Response, error) {
+	var (
+		localVarHttpMethod   = strings.ToUpper("Get")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  map[string]interface{}
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BasePath + "/mealplanner/{username}/week/{start-date}"
+	localVarPath = strings.Replace(localVarPath, "{"+"username"+"}", fmt.Sprintf("%v", username), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"start-date"+"}", fmt.Sprintf("%v", startDate), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	localVarQueryParams.Add("hash", parameterToString(hash, ""))
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHttpResponse, err := a.client.callAPI(r)
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
+	localVarHttpResponse.Body.Close()
+	if err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	if localVarHttpResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHttpResponse.Status,
+		}
+		if localVarHttpResponse.StatusCode == 200 {
+			var v map[string]interface{}
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHttpResponse, nil
+}
+
+/*
 DefaultApiService Get Menu Item Information
 Use a menu item id to get all available information about a menu item, such as nutrition.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -2246,7 +2998,7 @@ func (a *DefaultApiService) GetMenuItemInformation(ctx context.Context, id float
 
 /*
 DefaultApiService Get Product Information
-Use a product id to get full information about a product, such as ingredients, nutrition, etc.
+Use a product id to get full information about a product, such as ingredients, nutrition, etc. The nutritional information is per serving.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The id of the packaged food.
 @return map[string]interface{}
@@ -3073,17 +3825,109 @@ func (a *DefaultApiService) GetRecipePriceBreakdownByID(ctx context.Context, id 
 }
 
 /*
+DefaultApiService Get Shopping List
+Get the current shopping list for the given user.
+ * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param username The username.
+ * @param hash The private hash for the username.
+@return map[string]interface{}
+*/
+func (a *DefaultApiService) GetShoppingList(ctx context.Context, username string, hash string) (map[string]interface{}, *http.Response, error) {
+	var (
+		localVarHttpMethod   = strings.ToUpper("Get")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  map[string]interface{}
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BasePath + "/mealplanner/{username}/shopping-list"
+	localVarPath = strings.Replace(localVarPath, "{"+"username"+"}", fmt.Sprintf("%v", username), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	localVarQueryParams.Add("hash", parameterToString(hash, ""))
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHttpResponse, err := a.client.callAPI(r)
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
+	localVarHttpResponse.Body.Close()
+	if err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	if localVarHttpResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHttpResponse.Status,
+		}
+		if localVarHttpResponse.StatusCode == 200 {
+			var v map[string]interface{}
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHttpResponse, nil
+}
+
+/*
 DefaultApiService Get Similar Recipes
 Find recipes which are similar to the given one.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The id of the source recipe for which similar recipes should be found.
  * @param optional nil or *GetSimilarRecipesOpts - Optional Parameters:
  * @param "Number" (optional.Float32) -  The number of random recipes to be returned (between 1 and 100).
+ * @param "LimitLicense" (optional.Bool) -  Whether the recipes should have an open license that allows display with proper attribution.
 @return map[string]interface{}
 */
 
 type GetSimilarRecipesOpts struct {
 	Number optional.Float32
+	LimitLicense optional.Bool
 }
 
 func (a *DefaultApiService) GetSimilarRecipes(ctx context.Context, id float32, localVarOptionals *GetSimilarRecipesOpts) (map[string]interface{}, *http.Response, error) {
@@ -3106,6 +3950,9 @@ func (a *DefaultApiService) GetSimilarRecipes(ctx context.Context, id float32, l
 
 	if localVarOptionals != nil && localVarOptionals.Number.IsSet() {
 		localVarQueryParams.Add("number", parameterToString(localVarOptionals.Number.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.LimitLicense.IsSet() {
+		localVarQueryParams.Add("limitLicense", parameterToString(localVarOptionals.LimitLicense.Value(), ""))
 	}
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{}
@@ -3553,6 +4400,182 @@ func (a *DefaultApiService) GuessNutritionByDishName(ctx context.Context, title 
 }
 
 /*
+DefaultApiService Image Analysis by URL
+Analyze a food image. The API tries to classify the image, guess the nutrition, and find a matching recipes. You can play around with that endpoint!
+ * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param imageUrl The URL of the image to be analyzed.
+@return map[string]interface{}
+*/
+func (a *DefaultApiService) ImageAnalysisByURL(ctx context.Context, imageUrl string) (map[string]interface{}, *http.Response, error) {
+	var (
+		localVarHttpMethod   = strings.ToUpper("Get")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  map[string]interface{}
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BasePath + "/food/images/analyze"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	localVarQueryParams.Add("imageUrl", parameterToString(imageUrl, ""))
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHttpResponse, err := a.client.callAPI(r)
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
+	localVarHttpResponse.Body.Close()
+	if err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	if localVarHttpResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHttpResponse.Status,
+		}
+		if localVarHttpResponse.StatusCode == 200 {
+			var v map[string]interface{}
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHttpResponse, nil
+}
+
+/*
+DefaultApiService Image Classification by URL
+Classify a food image. You can play around with that endpoint!
+ * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param imageUrl The URL of the image to be classified.
+@return map[string]interface{}
+*/
+func (a *DefaultApiService) ImageClassificationByURL(ctx context.Context, imageUrl string) (map[string]interface{}, *http.Response, error) {
+	var (
+		localVarHttpMethod   = strings.ToUpper("Get")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  map[string]interface{}
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BasePath + "/food/images/classify"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	localVarQueryParams.Add("imageUrl", parameterToString(imageUrl, ""))
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHttpResponse, err := a.client.callAPI(r)
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
+	localVarHttpResponse.Body.Close()
+	if err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	if localVarHttpResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHttpResponse.Status,
+		}
+		if localVarHttpResponse.StatusCode == 200 {
+			var v map[string]interface{}
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHttpResponse, nil
+}
+
+/*
 DefaultApiService Map Ingredients to Grocery Products
 Map a set of ingredients to products you can buy in the grocery store.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -3830,6 +4853,113 @@ func (a *DefaultApiService) QuickAnswer(ctx context.Context, q string) (map[stri
 }
 
 /*
+DefaultApiService Search Custom Foods
+Search custom foods in a user&#39;s account.
+ * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param query The search query.
+ * @param username The username.
+ * @param hash The private hash for the username.
+ * @param optional nil or *SearchCustomFoodsOpts - Optional Parameters:
+ * @param "Offset" (optional.Float32) -  The number of results to skip (between 0 and 990).
+ * @param "Number" (optional.Float32) -  The number of expected results (between 1 and 100).
+@return map[string]interface{}
+*/
+
+type SearchCustomFoodsOpts struct {
+	Offset optional.Float32
+	Number optional.Float32
+}
+
+func (a *DefaultApiService) SearchCustomFoods(ctx context.Context, query string, username string, hash string, localVarOptionals *SearchCustomFoodsOpts) (map[string]interface{}, *http.Response, error) {
+	var (
+		localVarHttpMethod   = strings.ToUpper("Get")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  map[string]interface{}
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BasePath + "/food/customFoods/search"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	localVarQueryParams.Add("query", parameterToString(query, ""))
+	localVarQueryParams.Add("username", parameterToString(username, ""))
+	localVarQueryParams.Add("hash", parameterToString(hash, ""))
+	if localVarOptionals != nil && localVarOptionals.Offset.IsSet() {
+		localVarQueryParams.Add("offset", parameterToString(localVarOptionals.Offset.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Number.IsSet() {
+		localVarQueryParams.Add("number", parameterToString(localVarOptionals.Number.Value(), ""))
+	}
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHttpResponse, err := a.client.callAPI(r)
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
+	localVarHttpResponse.Body.Close()
+	if err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	if localVarHttpResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHttpResponse.Status,
+		}
+		if localVarHttpResponse.StatusCode == 200 {
+			var v map[string]interface{}
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHttpResponse, nil
+}
+
+/*
 DefaultApiService Search Food Videos
 Find recipe and other food related videos.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -3981,7 +5111,7 @@ Search packaged food products, such as frozen pizza or Greek yogurt.
  * @param "MaxProtein" (optional.Float32) -  The maximum amount of protein in grams the product can have.
  * @param "MinFat" (optional.Float32) -  The minimum amount of fat in grams the product must have.
  * @param "MaxFat" (optional.Float32) -  The maximum amount of fat in grams the product can have.
- * @param "Offset" (optional.Float32) -  The offset number for paging (between 0 and 990).
+ * @param "Offset" (optional.Float32) -  The number of results to skip (between 0 and 990).
  * @param "Number" (optional.Float32) -  The number of expected results (between 1 and 100).
 @return map[string]interface{}
 */
@@ -4476,7 +5606,7 @@ func (a *DefaultApiService) SearchRecipes(ctx context.Context, query string, loc
 
 /*
 DefaultApiService Search Recipes by Ingredients
-Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don&#39;t currently have (post shopping).
+             Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don&#39;t currently have (post shopping).         
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param ingredients A comma-separated list of ingredients that the recipes should contain.
  * @param optional nil or *SearchRecipesByIngredientsOpts - Optional Parameters:
@@ -4664,7 +5794,7 @@ Find a set of recipes that adhere to the given nutritional limits. You may set l
  * @param "MaxSugar" (optional.Float32) -  The maximum amount of sugar in grams the recipe can have.
  * @param "MinZinc" (optional.Float32) -  The minimum amount of zinc in milligrams the recipe must have.
  * @param "MaxZinc" (optional.Float32) -  The maximum amount of zinc in milligrams the recipe can have.
- * @param "Offset" (optional.Float32) -  The offset number for paging (between 0 and 990).
+ * @param "Offset" (optional.Float32) -  The number of results to skip (between 0 and 900).
  * @param "Number" (optional.Float32) -  The number of expected results (between 1 and 100).
  * @param "Random" (optional.Bool) -  If true, every request will give you a random set of recipes within the requested limits.
  * @param "LimitLicense" (optional.Bool) -  Whether the recipes should have an open license that allows display with proper attribution.
@@ -5073,10 +6203,12 @@ Search through hundreds of thousands of recipes using advanced filtering and ran
  * @param "ExcludeIngredients" (optional.String) -  A comma-separated list of ingredients or ingredient types that the recipes must not contain.
  * @param "Type_" (optional.String) -  The type of recipe. See a full list of supported meal types.
  * @param "InstructionsRequired" (optional.Bool) -  Whether the recipes must have instructions.
- * @param "FillIngredients" (optional.Bool) -  Add information about the used and missing ingredients in each recipe.
- * @param "AddRecipeInformation" (optional.Bool) -  If set to true, you get more information about the recipes returned. This saves you from needing to call to get recipe information.
+ * @param "FillIngredients" (optional.Bool) -  Add information about the ingredients and whether they are used or missing in relation to the query.
+ * @param "AddRecipeInformation" (optional.Bool) -  If set to true, you get more information about the recipes returned.
+ * @param "AddRecipeNutrition" (optional.Bool) -  If set to true, you get nutritional information about each recipes returned.
  * @param "Author" (optional.String) -  The username of the recipe author.
- * @param "Tags" (optional.String) -  User defined tags that have to match.
+ * @param "Tags" (optional.String) -  User defined tags that have to match. The author param has to be set.
+ * @param "RecipeBoxId" (optional.Float32) -  The id of the recipe box to which the search should be limited to.
  * @param "TitleMatch" (optional.String) -  Enter text that must be found in the title of the recipes.
  * @param "MaxReadyTime" (optional.Float32) -  The maximum time in minutes it should take to prepare and cook the recipe.
  * @param "IgnorePantry" (optional.Bool) -  Whether to ignore typical pantry items, such as water, salt, flour, etc.
@@ -5154,8 +6286,8 @@ Search through hundreds of thousands of recipes using advanced filtering and ran
  * @param "MaxSugar" (optional.Float32) -  The maximum amount of sugar in grams the recipe can have.
  * @param "MinZinc" (optional.Float32) -  The minimum amount of zinc in milligrams the recipe must have.
  * @param "MaxZinc" (optional.Float32) -  The maximum amount of zinc in milligrams the recipe can have.
- * @param "Offset" (optional.Float32) -  The offset number for paging (between 0 and 990).
- * @param "Number" (optional.Float32) -  The number of expected results (between 1 and 10).
+ * @param "Offset" (optional.Float32) -  The number of results to skip (between 0 and 900).
+ * @param "Number" (optional.Float32) -  The number of expected results (between 1 and 100).
  * @param "LimitLicense" (optional.Bool) -  Whether the recipes should have an open license that allows display with proper attribution.
 @return map[string]interface{}
 */
@@ -5172,8 +6304,10 @@ type SearchRecipesComplexOpts struct {
 	InstructionsRequired optional.Bool
 	FillIngredients optional.Bool
 	AddRecipeInformation optional.Bool
+	AddRecipeNutrition optional.Bool
 	Author optional.String
 	Tags optional.String
+	RecipeBoxId optional.Float32
 	TitleMatch optional.String
 	MaxReadyTime optional.Float32
 	IgnorePantry optional.Bool
@@ -5307,11 +6441,17 @@ func (a *DefaultApiService) SearchRecipesComplex(ctx context.Context, query stri
 	if localVarOptionals != nil && localVarOptionals.AddRecipeInformation.IsSet() {
 		localVarQueryParams.Add("addRecipeInformation", parameterToString(localVarOptionals.AddRecipeInformation.Value(), ""))
 	}
+	if localVarOptionals != nil && localVarOptionals.AddRecipeNutrition.IsSet() {
+		localVarQueryParams.Add("addRecipeNutrition", parameterToString(localVarOptionals.AddRecipeNutrition.Value(), ""))
+	}
 	if localVarOptionals != nil && localVarOptionals.Author.IsSet() {
 		localVarQueryParams.Add("author", parameterToString(localVarOptionals.Author.Value(), ""))
 	}
 	if localVarOptionals != nil && localVarOptionals.Tags.IsSet() {
 		localVarQueryParams.Add("tags", parameterToString(localVarOptionals.Tags.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.RecipeBoxId.IsSet() {
+		localVarQueryParams.Add("recipeBoxId", parameterToString(localVarOptionals.RecipeBoxId.Value(), ""))
 	}
 	if localVarOptionals != nil && localVarOptionals.TitleMatch.IsSet() {
 		localVarQueryParams.Add("titleMatch", parameterToString(localVarOptionals.TitleMatch.Value(), ""))

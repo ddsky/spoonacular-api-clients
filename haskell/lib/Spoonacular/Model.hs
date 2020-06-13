@@ -70,8 +70,14 @@ import qualified Prelude as P
 -- ** AddRecipeInformation
 newtype AddRecipeInformation = AddRecipeInformation { unAddRecipeInformation :: Bool } deriving (P.Eq, P.Show)
 
+-- ** AddRecipeNutrition
+newtype AddRecipeNutrition = AddRecipeNutrition { unAddRecipeNutrition :: Bool } deriving (P.Eq, P.Show)
+
 -- ** Amount
 newtype Amount = Amount { unAmount :: Double } deriving (P.Eq, P.Show)
+
+-- ** Analyze
+newtype Analyze = Analyze { unAnalyze :: Bool } deriving (P.Eq, P.Show)
 
 -- ** Author
 newtype Author = Author { unAuthor :: Text } deriving (P.Eq, P.Show)
@@ -97,6 +103,9 @@ newtype DefaultCss = DefaultCss { unDefaultCss :: Bool } deriving (P.Eq, P.Show)
 -- ** Diet
 newtype Diet = Diet { unDiet :: Text } deriving (P.Eq, P.Show)
 
+-- ** EndDate
+newtype EndDate = EndDate { unEndDate :: Text } deriving (P.Eq, P.Show)
+
 -- ** Equipment
 newtype Equipment = Equipment { unEquipment :: Text } deriving (P.Eq, P.Show)
 
@@ -121,6 +130,9 @@ newtype Food = Food { unFood :: Text } deriving (P.Eq, P.Show)
 -- ** ForceExtraction
 newtype ForceExtraction = ForceExtraction { unForceExtraction :: Bool } deriving (P.Eq, P.Show)
 
+-- ** Hash
+newtype Hash = Hash { unHash :: Text } deriving (P.Eq, P.Show)
+
 -- ** Id
 newtype Id = Id { unId :: Double } deriving (P.Eq, P.Show)
 
@@ -132,6 +144,9 @@ newtype IgnorePantry = IgnorePantry { unIgnorePantry :: Bool } deriving (P.Eq, P
 
 -- ** Image
 newtype Image = Image { unImage :: FilePath } deriving (P.Eq, P.Show)
+
+-- ** ImageUrl
+newtype ImageUrl = ImageUrl { unImageUrl :: Text } deriving (P.Eq, P.Show)
 
 -- ** IncludeIngredients
 newtype IncludeIngredients = IncludeIngredients { unIncludeIngredients :: Text } deriving (P.Eq, P.Show)
@@ -436,6 +451,9 @@ newtype Ranking = Ranking { unRanking :: Double } deriving (P.Eq, P.Show)
 -- ** ReadyInMinutes
 newtype ReadyInMinutes = ReadyInMinutes { unReadyInMinutes :: Double } deriving (P.Eq, P.Show)
 
+-- ** RecipeBoxId
+newtype RecipeBoxId = RecipeBoxId { unRecipeBoxId :: Double } deriving (P.Eq, P.Show)
+
 -- ** Servings
 newtype Servings = Servings { unServings :: Double } deriving (P.Eq, P.Show)
 
@@ -456,6 +474,9 @@ newtype SourceAmount = SourceAmount { unSourceAmount :: Double } deriving (P.Eq,
 
 -- ** SourceUnit
 newtype SourceUnit = SourceUnit { unSourceUnit :: Text } deriving (P.Eq, P.Show)
+
+-- ** StartDate
+newtype StartDate = StartDate { unStartDate :: Text } deriving (P.Eq, P.Show)
 
 -- ** StepBreakdown
 newtype StepBreakdown = StepBreakdown { unStepBreakdown :: Bool } deriving (P.Eq, P.Show)
@@ -486,6 +507,9 @@ newtype Upc = Upc { unUpc :: Double } deriving (P.Eq, P.Show)
 
 -- ** Url
 newtype Url = Url { unUrl :: Text } deriving (P.Eq, P.Show)
+
+-- ** Username
+newtype Username = Username { unUsername :: Text } deriving (P.Eq, P.Show)
 
 -- ** View
 newtype View = View { unView :: Text } deriving (P.Eq, P.Show)
@@ -582,6 +606,191 @@ mkInlineObject1 inlineObject1IngredientList inlineObject1Servings =
   , inlineObject1Mode = Nothing
   , inlineObject1DefaultCss = Nothing
   , inlineObject1ShowBacklink = Nothing
+  }
+
+-- ** InlineObject10
+-- | InlineObject10
+data InlineObject10 = InlineObject10
+  { inlineObject10Username :: !(Text) -- ^ /Required/ "username" - The username.
+  , inlineObject10Id :: !(Double) -- ^ /Required/ "id" - The shopping list item id.
+  , inlineObject10Hash :: !(Text) -- ^ /Required/ "hash" - The private hash for the username.
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON InlineObject10
+instance A.FromJSON InlineObject10 where
+  parseJSON = A.withObject "InlineObject10" $ \o ->
+    InlineObject10
+      <$> (o .:  "username")
+      <*> (o .:  "id")
+      <*> (o .:  "hash")
+
+-- | ToJSON InlineObject10
+instance A.ToJSON InlineObject10 where
+  toJSON InlineObject10 {..} =
+   _omitNulls
+      [ "username" .= inlineObject10Username
+      , "id" .= inlineObject10Id
+      , "hash" .= inlineObject10Hash
+      ]
+
+
+-- | Construct a value of type 'InlineObject10' (by applying it's required fields, if any)
+mkInlineObject10
+  :: Text -- ^ 'inlineObject10Username': The username.
+  -> Double -- ^ 'inlineObject10Id': The shopping list item id.
+  -> Text -- ^ 'inlineObject10Hash': The private hash for the username.
+  -> InlineObject10
+mkInlineObject10 inlineObject10Username inlineObject10Id inlineObject10Hash =
+  InlineObject10
+  { inlineObject10Username
+  , inlineObject10Id
+  , inlineObject10Hash
+  }
+
+-- ** InlineObject11
+-- | InlineObject11
+data InlineObject11 = InlineObject11
+  { inlineObject11Username :: !(Text) -- ^ /Required/ "username" - The username.
+  , inlineObject11StartDate :: !(Text) -- ^ /Required/ "start-date" - The start date in the format yyyy-mm-dd.
+  , inlineObject11EndDate :: !(Text) -- ^ /Required/ "end-date" - The end date in the format yyyy-mm-dd.
+  , inlineObject11Hash :: !(Text) -- ^ /Required/ "hash" - The private hash for the username.
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON InlineObject11
+instance A.FromJSON InlineObject11 where
+  parseJSON = A.withObject "InlineObject11" $ \o ->
+    InlineObject11
+      <$> (o .:  "username")
+      <*> (o .:  "start-date")
+      <*> (o .:  "end-date")
+      <*> (o .:  "hash")
+
+-- | ToJSON InlineObject11
+instance A.ToJSON InlineObject11 where
+  toJSON InlineObject11 {..} =
+   _omitNulls
+      [ "username" .= inlineObject11Username
+      , "start-date" .= inlineObject11StartDate
+      , "end-date" .= inlineObject11EndDate
+      , "hash" .= inlineObject11Hash
+      ]
+
+
+-- | Construct a value of type 'InlineObject11' (by applying it's required fields, if any)
+mkInlineObject11
+  :: Text -- ^ 'inlineObject11Username': The username.
+  -> Text -- ^ 'inlineObject11StartDate': The start date in the format yyyy-mm-dd.
+  -> Text -- ^ 'inlineObject11EndDate': The end date in the format yyyy-mm-dd.
+  -> Text -- ^ 'inlineObject11Hash': The private hash for the username.
+  -> InlineObject11
+mkInlineObject11 inlineObject11Username inlineObject11StartDate inlineObject11EndDate inlineObject11Hash =
+  InlineObject11
+  { inlineObject11Username
+  , inlineObject11StartDate
+  , inlineObject11EndDate
+  , inlineObject11Hash
+  }
+
+-- ** InlineObject12
+-- | InlineObject12
+data InlineObject12 = InlineObject12
+  { inlineObject12Username :: !(Text) -- ^ /Required/ "username" - The username.
+  , inlineObject12Hash :: !(Text) -- ^ /Required/ "hash" - The private hash for the username.
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON InlineObject12
+instance A.FromJSON InlineObject12 where
+  parseJSON = A.withObject "InlineObject12" $ \o ->
+    InlineObject12
+      <$> (o .:  "username")
+      <*> (o .:  "hash")
+
+-- | ToJSON InlineObject12
+instance A.ToJSON InlineObject12 where
+  toJSON InlineObject12 {..} =
+   _omitNulls
+      [ "username" .= inlineObject12Username
+      , "hash" .= inlineObject12Hash
+      ]
+
+
+-- | Construct a value of type 'InlineObject12' (by applying it's required fields, if any)
+mkInlineObject12
+  :: Text -- ^ 'inlineObject12Username': The username.
+  -> Text -- ^ 'inlineObject12Hash': The private hash for the username.
+  -> InlineObject12
+mkInlineObject12 inlineObject12Username inlineObject12Hash =
+  InlineObject12
+  { inlineObject12Username
+  , inlineObject12Hash
+  }
+
+-- ** InlineObject13
+-- | InlineObject13
+data InlineObject13 = InlineObject13
+  { inlineObject13Username :: !(Text) -- ^ /Required/ "username" - The username.
+  , inlineObject13Id :: !(Double) -- ^ /Required/ "id" - The shopping list item id.
+  , inlineObject13Hash :: !(Text) -- ^ /Required/ "hash" - The private hash for the username.
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON InlineObject13
+instance A.FromJSON InlineObject13 where
+  parseJSON = A.withObject "InlineObject13" $ \o ->
+    InlineObject13
+      <$> (o .:  "username")
+      <*> (o .:  "id")
+      <*> (o .:  "hash")
+
+-- | ToJSON InlineObject13
+instance A.ToJSON InlineObject13 where
+  toJSON InlineObject13 {..} =
+   _omitNulls
+      [ "username" .= inlineObject13Username
+      , "id" .= inlineObject13Id
+      , "hash" .= inlineObject13Hash
+      ]
+
+
+-- | Construct a value of type 'InlineObject13' (by applying it's required fields, if any)
+mkInlineObject13
+  :: Text -- ^ 'inlineObject13Username': The username.
+  -> Double -- ^ 'inlineObject13Id': The shopping list item id.
+  -> Text -- ^ 'inlineObject13Hash': The private hash for the username.
+  -> InlineObject13
+mkInlineObject13 inlineObject13Username inlineObject13Id inlineObject13Hash =
+  InlineObject13
+  { inlineObject13Username
+  , inlineObject13Id
+  , inlineObject13Hash
+  }
+
+-- ** InlineObject14
+-- | InlineObject14
+data InlineObject14 = InlineObject14
+  { inlineObject14Text :: !(Text) -- ^ /Required/ "text" - The text in which food items, such as dish names and ingredients, should be detected in.
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON InlineObject14
+instance A.FromJSON InlineObject14 where
+  parseJSON = A.withObject "InlineObject14" $ \o ->
+    InlineObject14
+      <$> (o .:  "text")
+
+-- | ToJSON InlineObject14
+instance A.ToJSON InlineObject14 where
+  toJSON InlineObject14 {..} =
+   _omitNulls
+      [ "text" .= inlineObject14Text
+      ]
+
+
+-- | Construct a value of type 'InlineObject14' (by applying it's required fields, if any)
+mkInlineObject14
+  :: Text -- ^ 'inlineObject14Text': The text in which food items, such as dish names and ingredients, should be detected in.
+  -> InlineObject14
+mkInlineObject14 inlineObject14Text =
+  InlineObject14
+  { inlineObject14Text
   }
 
 -- ** InlineObject2
@@ -892,30 +1101,35 @@ mkInlineObject8 =
 -- ** InlineObject9
 -- | InlineObject9
 data InlineObject9 = InlineObject9
-  { inlineObject9Text :: !(Text) -- ^ /Required/ "text" - The text in which food items, such as dish names and ingredients, should be detected in.
+  { inlineObject9Username :: !(Text) -- ^ /Required/ "username" - The username.
+  , inlineObject9Hash :: !(Text) -- ^ /Required/ "hash" - The private hash for the username.
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON InlineObject9
 instance A.FromJSON InlineObject9 where
   parseJSON = A.withObject "InlineObject9" $ \o ->
     InlineObject9
-      <$> (o .:  "text")
+      <$> (o .:  "username")
+      <*> (o .:  "hash")
 
 -- | ToJSON InlineObject9
 instance A.ToJSON InlineObject9 where
   toJSON InlineObject9 {..} =
    _omitNulls
-      [ "text" .= inlineObject9Text
+      [ "username" .= inlineObject9Username
+      , "hash" .= inlineObject9Hash
       ]
 
 
 -- | Construct a value of type 'InlineObject9' (by applying it's required fields, if any)
 mkInlineObject9
-  :: Text -- ^ 'inlineObject9Text': The text in which food items, such as dish names and ingredients, should be detected in.
+  :: Text -- ^ 'inlineObject9Username': The username.
+  -> Text -- ^ 'inlineObject9Hash': The private hash for the username.
   -> InlineObject9
-mkInlineObject9 inlineObject9Text =
+mkInlineObject9 inlineObject9Username inlineObject9Hash =
   InlineObject9
-  { inlineObject9Text
+  { inlineObject9Username
+  , inlineObject9Hash
   }
 
 

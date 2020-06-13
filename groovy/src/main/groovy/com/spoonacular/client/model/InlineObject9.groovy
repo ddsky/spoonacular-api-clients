@@ -6,6 +6,8 @@ import io.swagger.annotations.ApiModelProperty;
 
 @Canonical
 class InlineObject9 {
-    /* The text in which food items, such as dish names and ingredients, should be detected in. */
-    String text
+    /* The username. */
+    String username
+    /* The private hash for the username. */
+    String hash
 }

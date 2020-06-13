@@ -17,6 +17,11 @@ from __future__ import absolute_import
 # import models into model package
 from spoonacular.com.spoonacular.client.model.inline_object import InlineObject
 from spoonacular.com.spoonacular.client.model.inline_object1 import InlineObject1
+from spoonacular.com.spoonacular.client.model.inline_object10 import InlineObject10
+from spoonacular.com.spoonacular.client.model.inline_object11 import InlineObject11
+from spoonacular.com.spoonacular.client.model.inline_object12 import InlineObject12
+from spoonacular.com.spoonacular.client.model.inline_object13 import InlineObject13
+from spoonacular.com.spoonacular.client.model.inline_object14 import InlineObject14
 from spoonacular.com.spoonacular.client.model.inline_object2 import InlineObject2
 from spoonacular.com.spoonacular.client.model.inline_object3 import InlineObject3
 from spoonacular.com.spoonacular.client.model.inline_object4 import InlineObject4

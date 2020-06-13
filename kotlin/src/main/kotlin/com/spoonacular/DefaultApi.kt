@@ -11,7 +11,12 @@
 */
 package com.spoonacular
 
+import com.spoonacular.client.model.InlineObject10
+import com.spoonacular.client.model.InlineObject11
+import com.spoonacular.client.model.InlineObject12
+import com.spoonacular.client.model.InlineObject13
 import com.spoonacular.client.model.InlineObject8
+import com.spoonacular.client.model.InlineObject9
 
 import spoonacular.infrastructure.ApiClient
 import spoonacular.infrastructure.ClientException
@@ -26,6 +31,72 @@ import spoonacular.infrastructure.Success
 import spoonacular.infrastructure.toMultiValue
 
 class DefaultApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiClient(basePath) {
+
+    /**
+    * Add to Meal Plan
+    * Add an item to the user&#39;s meal plan.
+    * @param username The username. 
+    * @param hash The private hash for the username. 
+    * @param inlineObject9  
+    * @return kotlin.Any
+    */
+    @Suppress("UNCHECKED_CAST")
+    fun addToMealPlan(username: kotlin.String, hash: kotlin.String, inlineObject9: InlineObject9) : kotlin.Any {
+        val localVariableBody: kotlin.Any? = inlineObject9
+        val localVariableQuery: MultiValueMap = mapOf("hash" to listOf("$hash"))
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        val localVariableConfig = RequestConfig(
+            RequestMethod.POST,
+            "/mealplanner/{username}/items".replace("{"+"username"+"}", "$username"),
+            query = localVariableQuery,
+            headers = localVariableHeaders
+        )
+        val response = request<kotlin.Any>(
+            localVariableConfig,
+            localVariableBody
+        )
+
+        return when (response.responseType) {
+            ResponseType.Success -> (response as Success<*>).data as kotlin.Any
+            ResponseType.Informational -> TODO()
+            ResponseType.Redirection -> TODO()
+            ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
+            ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
+        }
+    }
+
+    /**
+    * Add to Shopping List
+    * Add an item to the current shopping list of a user.
+    * @param username The username. 
+    * @param hash The private hash for the username. 
+    * @param inlineObject12  
+    * @return kotlin.Any
+    */
+    @Suppress("UNCHECKED_CAST")
+    fun addToShoppingList(username: kotlin.String, hash: kotlin.String, inlineObject12: InlineObject12) : kotlin.Any {
+        val localVariableBody: kotlin.Any? = inlineObject12
+        val localVariableQuery: MultiValueMap = mapOf("hash" to listOf("$hash"))
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        val localVariableConfig = RequestConfig(
+            RequestMethod.POST,
+            "/mealplanner/{username}/shopping-list/items".replace("{"+"username"+"}", "$username"),
+            query = localVariableQuery,
+            headers = localVariableHeaders
+        )
+        val response = request<kotlin.Any>(
+            localVariableConfig,
+            localVariableBody
+        )
+
+        return when (response.responseType) {
+            ResponseType.Success -> (response as Success<*>).data as kotlin.Any
+            ResponseType.Informational -> TODO()
+            ResponseType.Redirection -> TODO()
+            ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
+            ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
+        }
+    }
 
     /**
     * Analyze a Recipe Search Query
@@ -392,6 +463,74 @@ class DefaultApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiC
     }
 
     /**
+    * Delete from Meal Plan
+    * Delete an item from the user&#39;s meal plan.
+    * @param username The username. 
+    * @param id The shopping list item id. 
+    * @param hash The private hash for the username. 
+    * @param inlineObject10  
+    * @return kotlin.Any
+    */
+    @Suppress("UNCHECKED_CAST")
+    fun deleteFromMealPlan(username: kotlin.String, id: java.math.BigDecimal, hash: kotlin.String, inlineObject10: InlineObject10) : kotlin.Any {
+        val localVariableBody: kotlin.Any? = inlineObject10
+        val localVariableQuery: MultiValueMap = mapOf("hash" to listOf("$hash"))
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        val localVariableConfig = RequestConfig(
+            RequestMethod.DELETE,
+            "/mealplanner/{username}/items/{id}".replace("{"+"username"+"}", "$username").replace("{"+"id"+"}", "$id"),
+            query = localVariableQuery,
+            headers = localVariableHeaders
+        )
+        val response = request<kotlin.Any>(
+            localVariableConfig,
+            localVariableBody
+        )
+
+        return when (response.responseType) {
+            ResponseType.Success -> (response as Success<*>).data as kotlin.Any
+            ResponseType.Informational -> TODO()
+            ResponseType.Redirection -> TODO()
+            ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
+            ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
+        }
+    }
+
+    /**
+    * Delete from Shopping List
+    * Delete an item from the current shopping list of the user.
+    * @param username The username. 
+    * @param id The shopping list item id. 
+    * @param hash The private hash for the username. 
+    * @param inlineObject13  
+    * @return kotlin.Any
+    */
+    @Suppress("UNCHECKED_CAST")
+    fun deleteFromShoppingList(username: kotlin.String, id: java.math.BigDecimal, hash: kotlin.String, inlineObject13: InlineObject13) : kotlin.Any {
+        val localVariableBody: kotlin.Any? = inlineObject13
+        val localVariableQuery: MultiValueMap = mapOf("hash" to listOf("$hash"))
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        val localVariableConfig = RequestConfig(
+            RequestMethod.DELETE,
+            "/mealplanner/{username}/shopping-list/items/{id}".replace("{"+"username"+"}", "$username").replace("{"+"id"+"}", "$id"),
+            query = localVariableQuery,
+            headers = localVariableHeaders
+        )
+        val response = request<kotlin.Any>(
+            localVariableConfig,
+            localVariableBody
+        )
+
+        return when (response.responseType) {
+            ResponseType.Success -> (response as Success<*>).data as kotlin.Any
+            ResponseType.Informational -> TODO()
+            ResponseType.Redirection -> TODO()
+            ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
+            ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
+        }
+    }
+
+    /**
     * Detect Food in Text
     * Take any text and find all mentions of food contained within it. This task is also called Named Entity Recognition (NER). In this case, the entities are foods. Either dishes, such as pizza or cheeseburger, or ingredients, such as cucumber or almonds.
     * @param text The text in which food items, such as dish names and ingredients, should be detected in. 
@@ -427,12 +566,13 @@ class DefaultApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiC
     * This endpoint lets you extract recipe data such as title, ingredients, and instructions from any properly formatted Website.
     * @param url The URL of the recipe page. 
     * @param forceExtraction If true, the extraction will be triggered whether we already know the recipe or not. Use this only if information is missing as this operation is slower. (optional)
+    * @param analyze If true, the recipe will be analyzed and classified resolving in more data such as cuisines, dish types, and more. (optional)
     * @return kotlin.Any
     */
     @Suppress("UNCHECKED_CAST")
-    fun extractRecipeFromWebsite(url: kotlin.String, forceExtraction: kotlin.Boolean?) : kotlin.Any {
+    fun extractRecipeFromWebsite(url: kotlin.String, forceExtraction: kotlin.Boolean?, analyze: kotlin.Boolean?) : kotlin.Any {
         val localVariableBody: kotlin.Any? = null
-        val localVariableQuery: MultiValueMap = mapOf("url" to listOf("$url"), "forceExtraction" to listOf("$forceExtraction"))
+        val localVariableQuery: MultiValueMap = mapOf("url" to listOf("$url"), "forceExtraction" to listOf("$forceExtraction"), "analyze" to listOf("$analyze"))
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         val localVariableConfig = RequestConfig(
             RequestMethod.GET,
@@ -471,6 +611,41 @@ class DefaultApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiC
         val localVariableConfig = RequestConfig(
             RequestMethod.GET,
             "/mealplanner/generate",
+            query = localVariableQuery,
+            headers = localVariableHeaders
+        )
+        val response = request<kotlin.Any>(
+            localVariableConfig,
+            localVariableBody
+        )
+
+        return when (response.responseType) {
+            ResponseType.Success -> (response as Success<*>).data as kotlin.Any
+            ResponseType.Informational -> TODO()
+            ResponseType.Redirection -> TODO()
+            ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
+            ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
+        }
+    }
+
+    /**
+    * Generate Shopping List
+    * Generate the shopping list for a user from the meal planner in a given time frame.
+    * @param username The username. 
+    * @param startMinusDate The start date in the format yyyy-mm-dd. 
+    * @param endMinusDate The end date in the format yyyy-mm-dd. 
+    * @param hash The private hash for the username. 
+    * @param inlineObject11  
+    * @return kotlin.Any
+    */
+    @Suppress("UNCHECKED_CAST")
+    fun generateShoppingList(username: kotlin.String, startMinusDate: kotlin.String, endMinusDate: kotlin.String, hash: kotlin.String, inlineObject11: InlineObject11) : kotlin.Any {
+        val localVariableBody: kotlin.Any? = inlineObject11
+        val localVariableQuery: MultiValueMap = mapOf("hash" to listOf("$hash"))
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        val localVariableConfig = RequestConfig(
+            RequestMethod.POST,
+            "/mealplanner/{username}/shopping-list/{start-date}/{end-date}".replace("{"+"username"+"}", "$username").replace("{"+"start-date"+"}", "$startMinusDate").replace("{"+"end-date"+"}", "$endMinusDate"),
             query = localVariableQuery,
             headers = localVariableHeaders
         )
@@ -740,6 +915,104 @@ class DefaultApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiC
     }
 
     /**
+    * Get Meal Plan Template
+    * Get information about a meal plan template.
+    * @param username The username. 
+    * @param id The shopping list item id. 
+    * @param hash The private hash for the username. 
+    * @return kotlin.Any
+    */
+    @Suppress("UNCHECKED_CAST")
+    fun getMealPlanTemplate(username: kotlin.String, id: java.math.BigDecimal, hash: kotlin.String) : kotlin.Any {
+        val localVariableBody: kotlin.Any? = null
+        val localVariableQuery: MultiValueMap = mapOf("hash" to listOf("$hash"))
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        val localVariableConfig = RequestConfig(
+            RequestMethod.GET,
+            "/mealplanner/{username}/templates/{id}".replace("{"+"username"+"}", "$username").replace("{"+"id"+"}", "$id"),
+            query = localVariableQuery,
+            headers = localVariableHeaders
+        )
+        val response = request<kotlin.Any>(
+            localVariableConfig,
+            localVariableBody
+        )
+
+        return when (response.responseType) {
+            ResponseType.Success -> (response as Success<*>).data as kotlin.Any
+            ResponseType.Informational -> TODO()
+            ResponseType.Redirection -> TODO()
+            ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
+            ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
+        }
+    }
+
+    /**
+    * Get Meal Plan Templates
+    * Get meal plan templates from user or public ones.
+    * @param username The username. 
+    * @param hash The private hash for the username. 
+    * @return kotlin.Any
+    */
+    @Suppress("UNCHECKED_CAST")
+    fun getMealPlanTemplates(username: kotlin.String, hash: kotlin.String) : kotlin.Any {
+        val localVariableBody: kotlin.Any? = null
+        val localVariableQuery: MultiValueMap = mapOf("hash" to listOf("$hash"))
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        val localVariableConfig = RequestConfig(
+            RequestMethod.GET,
+            "/mealplanner/{username}/templates".replace("{"+"username"+"}", "$username"),
+            query = localVariableQuery,
+            headers = localVariableHeaders
+        )
+        val response = request<kotlin.Any>(
+            localVariableConfig,
+            localVariableBody
+        )
+
+        return when (response.responseType) {
+            ResponseType.Success -> (response as Success<*>).data as kotlin.Any
+            ResponseType.Informational -> TODO()
+            ResponseType.Redirection -> TODO()
+            ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
+            ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
+        }
+    }
+
+    /**
+    * Get Meal Plan Week
+    * Retrieve a meal planned week for the given user. The username must be a spoonacular user and the hash must the the user&#39;s hash that can be found in his/her account.
+    * @param username The username. 
+    * @param startMinusDate The start date of the meal planned week in the format yyyy-mm-dd. 
+    * @param hash The private hash for the username. 
+    * @return kotlin.Any
+    */
+    @Suppress("UNCHECKED_CAST")
+    fun getMealPlanWeek(username: kotlin.String, startMinusDate: kotlin.String, hash: kotlin.String) : kotlin.Any {
+        val localVariableBody: kotlin.Any? = null
+        val localVariableQuery: MultiValueMap = mapOf("hash" to listOf("$hash"))
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        val localVariableConfig = RequestConfig(
+            RequestMethod.GET,
+            "/mealplanner/{username}/week/{start-date}".replace("{"+"username"+"}", "$username").replace("{"+"start-date"+"}", "$startMinusDate"),
+            query = localVariableQuery,
+            headers = localVariableHeaders
+        )
+        val response = request<kotlin.Any>(
+            localVariableConfig,
+            localVariableBody
+        )
+
+        return when (response.responseType) {
+            ResponseType.Success -> (response as Success<*>).data as kotlin.Any
+            ResponseType.Informational -> TODO()
+            ResponseType.Redirection -> TODO()
+            ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
+            ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
+        }
+    }
+
+    /**
     * Get Menu Item Information
     * Use a menu item id to get all available information about a menu item, such as nutrition.
     * @param id The menu item id. 
@@ -772,7 +1045,7 @@ class DefaultApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiC
 
     /**
     * Get Product Information
-    * Use a product id to get full information about a product, such as ingredients, nutrition, etc.
+    * Use a product id to get full information about a product, such as ingredients, nutrition, etc. The nutritional information is per serving.
     * @param id The id of the packaged food. 
     * @return kotlin.Any
     */
@@ -1053,16 +1326,49 @@ class DefaultApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiC
     }
 
     /**
+    * Get Shopping List
+    * Get the current shopping list for the given user.
+    * @param username The username. 
+    * @param hash The private hash for the username. 
+    * @return kotlin.Any
+    */
+    @Suppress("UNCHECKED_CAST")
+    fun getShoppingList(username: kotlin.String, hash: kotlin.String) : kotlin.Any {
+        val localVariableBody: kotlin.Any? = null
+        val localVariableQuery: MultiValueMap = mapOf("hash" to listOf("$hash"))
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        val localVariableConfig = RequestConfig(
+            RequestMethod.GET,
+            "/mealplanner/{username}/shopping-list".replace("{"+"username"+"}", "$username"),
+            query = localVariableQuery,
+            headers = localVariableHeaders
+        )
+        val response = request<kotlin.Any>(
+            localVariableConfig,
+            localVariableBody
+        )
+
+        return when (response.responseType) {
+            ResponseType.Success -> (response as Success<*>).data as kotlin.Any
+            ResponseType.Informational -> TODO()
+            ResponseType.Redirection -> TODO()
+            ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
+            ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
+        }
+    }
+
+    /**
     * Get Similar Recipes
     * Find recipes which are similar to the given one.
     * @param id The id of the source recipe for which similar recipes should be found. 
     * @param number The number of random recipes to be returned (between 1 and 100). (optional)
+    * @param limitLicense Whether the recipes should have an open license that allows display with proper attribution. (optional)
     * @return kotlin.Any
     */
     @Suppress("UNCHECKED_CAST")
-    fun getSimilarRecipes(id: java.math.BigDecimal, number: java.math.BigDecimal?) : kotlin.Any {
+    fun getSimilarRecipes(id: java.math.BigDecimal, number: java.math.BigDecimal?, limitLicense: kotlin.Boolean?) : kotlin.Any {
         val localVariableBody: kotlin.Any? = null
-        val localVariableQuery: MultiValueMap = mapOf("number" to listOf("$number"))
+        val localVariableQuery: MultiValueMap = mapOf("number" to listOf("$number"), "limitLicense" to listOf("$limitLicense"))
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         val localVariableConfig = RequestConfig(
             RequestMethod.GET,
@@ -1213,6 +1519,68 @@ class DefaultApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiC
     }
 
     /**
+    * Image Analysis by URL
+    * Analyze a food image. The API tries to classify the image, guess the nutrition, and find a matching recipes. You can play around with that endpoint!
+    * @param imageUrl The URL of the image to be analyzed. 
+    * @return kotlin.Any
+    */
+    @Suppress("UNCHECKED_CAST")
+    fun imageAnalysisByURL(imageUrl: kotlin.String) : kotlin.Any {
+        val localVariableBody: kotlin.Any? = null
+        val localVariableQuery: MultiValueMap = mapOf("imageUrl" to listOf("$imageUrl"))
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        val localVariableConfig = RequestConfig(
+            RequestMethod.GET,
+            "/food/images/analyze",
+            query = localVariableQuery,
+            headers = localVariableHeaders
+        )
+        val response = request<kotlin.Any>(
+            localVariableConfig,
+            localVariableBody
+        )
+
+        return when (response.responseType) {
+            ResponseType.Success -> (response as Success<*>).data as kotlin.Any
+            ResponseType.Informational -> TODO()
+            ResponseType.Redirection -> TODO()
+            ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
+            ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
+        }
+    }
+
+    /**
+    * Image Classification by URL
+    * Classify a food image. You can play around with that endpoint!
+    * @param imageUrl The URL of the image to be classified. 
+    * @return kotlin.Any
+    */
+    @Suppress("UNCHECKED_CAST")
+    fun imageClassificationByURL(imageUrl: kotlin.String) : kotlin.Any {
+        val localVariableBody: kotlin.Any? = null
+        val localVariableQuery: MultiValueMap = mapOf("imageUrl" to listOf("$imageUrl"))
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        val localVariableConfig = RequestConfig(
+            RequestMethod.GET,
+            "/food/images/classify",
+            query = localVariableQuery,
+            headers = localVariableHeaders
+        )
+        val response = request<kotlin.Any>(
+            localVariableConfig,
+            localVariableBody
+        )
+
+        return when (response.responseType) {
+            ResponseType.Success -> (response as Success<*>).data as kotlin.Any
+            ResponseType.Informational -> TODO()
+            ResponseType.Redirection -> TODO()
+            ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
+            ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
+        }
+    }
+
+    /**
     * Map Ingredients to Grocery Products
     * Map a set of ingredients to products you can buy in the grocery store.
     * @param body  
@@ -1308,6 +1676,41 @@ class DefaultApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiC
     }
 
     /**
+    * Search Custom Foods
+    * Search custom foods in a user&#39;s account.
+    * @param query The search query. 
+    * @param username The username. 
+    * @param hash The private hash for the username. 
+    * @param offset The number of results to skip (between 0 and 990). (optional)
+    * @param number The number of expected results (between 1 and 100). (optional)
+    * @return kotlin.Any
+    */
+    @Suppress("UNCHECKED_CAST")
+    fun searchCustomFoods(query: kotlin.String, username: kotlin.String, hash: kotlin.String, offset: java.math.BigDecimal?, number: java.math.BigDecimal?) : kotlin.Any {
+        val localVariableBody: kotlin.Any? = null
+        val localVariableQuery: MultiValueMap = mapOf("query" to listOf("$query"), "username" to listOf("$username"), "hash" to listOf("$hash"), "offset" to listOf("$offset"), "number" to listOf("$number"))
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        val localVariableConfig = RequestConfig(
+            RequestMethod.GET,
+            "/food/customFoods/search",
+            query = localVariableQuery,
+            headers = localVariableHeaders
+        )
+        val response = request<kotlin.Any>(
+            localVariableConfig,
+            localVariableBody
+        )
+
+        return when (response.responseType) {
+            ResponseType.Success -> (response as Success<*>).data as kotlin.Any
+            ResponseType.Informational -> TODO()
+            ResponseType.Redirection -> TODO()
+            ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
+            ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
+        }
+    }
+
+    /**
     * Search Food Videos
     * Find recipe and other food related videos.
     * @param query The search query. 
@@ -1359,7 +1762,7 @@ class DefaultApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiC
     * @param maxProtein The maximum amount of protein in grams the product can have. (optional)
     * @param minFat The minimum amount of fat in grams the product must have. (optional)
     * @param maxFat The maximum amount of fat in grams the product can have. (optional)
-    * @param offset The offset number for paging (between 0 and 990). (optional)
+    * @param offset The number of results to skip (between 0 and 990). (optional)
     * @param number The number of expected results (between 1 and 100). (optional)
     * @return kotlin.Any
     */
@@ -1501,7 +1904,7 @@ class DefaultApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiC
 
     /**
     * Search Recipes by Ingredients
-    * Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don&#39;t currently have (post shopping).
+    *              Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don&#39;t currently have (post shopping).         
     * @param ingredients A comma-separated list of ingredients that the recipes should contain. 
     * @param number The maximum number of recipes to return (between 1 and 100). Defaults to 10. (optional)
     * @param limitLicense Whether the recipes should have an open license that allows display with proper attribution. (optional)
@@ -1609,7 +2012,7 @@ class DefaultApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiC
     * @param maxSugar The maximum amount of sugar in grams the recipe can have. (optional)
     * @param minZinc The minimum amount of zinc in milligrams the recipe must have. (optional)
     * @param maxZinc The maximum amount of zinc in milligrams the recipe can have. (optional)
-    * @param offset The offset number for paging (between 0 and 990). (optional)
+    * @param offset The number of results to skip (between 0 and 900). (optional)
     * @param number The number of expected results (between 1 and 100). (optional)
     * @param random If true, every request will give you a random set of recipes within the requested limits. (optional)
     * @param limitLicense Whether the recipes should have an open license that allows display with proper attribution. (optional)
@@ -1653,10 +2056,12 @@ class DefaultApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiC
     * @param excludeIngredients A comma-separated list of ingredients or ingredient types that the recipes must not contain. (optional)
     * @param type The type of recipe. See a full list of supported meal types. (optional)
     * @param instructionsRequired Whether the recipes must have instructions. (optional)
-    * @param fillIngredients Add information about the used and missing ingredients in each recipe. (optional)
-    * @param addRecipeInformation If set to true, you get more information about the recipes returned. This saves you from needing to call to get recipe information. (optional)
+    * @param fillIngredients Add information about the ingredients and whether they are used or missing in relation to the query. (optional)
+    * @param addRecipeInformation If set to true, you get more information about the recipes returned. (optional)
+    * @param addRecipeNutrition If set to true, you get nutritional information about each recipes returned. (optional)
     * @param author The username of the recipe author. (optional)
-    * @param tags User defined tags that have to match. (optional)
+    * @param tags User defined tags that have to match. The author param has to be set. (optional)
+    * @param recipeBoxId The id of the recipe box to which the search should be limited to. (optional)
     * @param titleMatch Enter text that must be found in the title of the recipes. (optional)
     * @param maxReadyTime The maximum time in minutes it should take to prepare and cook the recipe. (optional)
     * @param ignorePantry Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional)
@@ -1734,15 +2139,15 @@ class DefaultApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiC
     * @param maxSugar The maximum amount of sugar in grams the recipe can have. (optional)
     * @param minZinc The minimum amount of zinc in milligrams the recipe must have. (optional)
     * @param maxZinc The maximum amount of zinc in milligrams the recipe can have. (optional)
-    * @param offset The offset number for paging (between 0 and 990). (optional)
-    * @param number The number of expected results (between 1 and 10). (optional)
+    * @param offset The number of results to skip (between 0 and 900). (optional)
+    * @param number The number of expected results (between 1 and 100). (optional)
     * @param limitLicense Whether the recipes should have an open license that allows display with proper attribution. (optional)
     * @return kotlin.Any
     */
     @Suppress("UNCHECKED_CAST")
-    fun searchRecipesComplex(query: kotlin.String, cuisine: kotlin.String?, excludeCuisine: kotlin.String?, diet: kotlin.String?, intolerances: kotlin.String?, equipment: kotlin.String?, includeIngredients: kotlin.String?, excludeIngredients: kotlin.String?, type: kotlin.String?, instructionsRequired: kotlin.Boolean?, fillIngredients: kotlin.Boolean?, addRecipeInformation: kotlin.Boolean?, author: kotlin.String?, tags: kotlin.String?, titleMatch: kotlin.String?, maxReadyTime: java.math.BigDecimal?, ignorePantry: kotlin.Boolean?, sort: kotlin.String?, sortDirection: kotlin.String?, minCarbs: java.math.BigDecimal?, maxCarbs: java.math.BigDecimal?, minProtein: java.math.BigDecimal?, maxProtein: java.math.BigDecimal?, minCalories: java.math.BigDecimal?, maxCalories: java.math.BigDecimal?, minFat: java.math.BigDecimal?, maxFat: java.math.BigDecimal?, minAlcohol: java.math.BigDecimal?, maxAlcohol: java.math.BigDecimal?, minCaffeine: java.math.BigDecimal?, maxCaffeine: java.math.BigDecimal?, minCopper: java.math.BigDecimal?, maxCopper: java.math.BigDecimal?, minCalcium: java.math.BigDecimal?, maxCalcium: java.math.BigDecimal?, minCholine: java.math.BigDecimal?, maxCholine: java.math.BigDecimal?, minCholesterol: java.math.BigDecimal?, maxCholesterol: java.math.BigDecimal?, minFluoride: java.math.BigDecimal?, maxFluoride: java.math.BigDecimal?, minSaturatedFat: java.math.BigDecimal?, maxSaturatedFat: java.math.BigDecimal?, minVitaminA: java.math.BigDecimal?, maxVitaminA: java.math.BigDecimal?, minVitaminC: java.math.BigDecimal?, maxVitaminC: java.math.BigDecimal?, minVitaminD: java.math.BigDecimal?, maxVitaminD: java.math.BigDecimal?, minVitaminE: java.math.BigDecimal?, maxVitaminE: java.math.BigDecimal?, minVitaminK: java.math.BigDecimal?, maxVitaminK: java.math.BigDecimal?, minVitaminB1: java.math.BigDecimal?, maxVitaminB1: java.math.BigDecimal?, minVitaminB2: java.math.BigDecimal?, maxVitaminB2: java.math.BigDecimal?, minVitaminB5: java.math.BigDecimal?, maxVitaminB5: java.math.BigDecimal?, minVitaminB3: java.math.BigDecimal?, maxVitaminB3: java.math.BigDecimal?, minVitaminB6: java.math.BigDecimal?, maxVitaminB6: java.math.BigDecimal?, minVitaminB12: java.math.BigDecimal?, maxVitaminB12: java.math.BigDecimal?, minFiber: java.math.BigDecimal?, maxFiber: java.math.BigDecimal?, minFolate: java.math.BigDecimal?, maxFolate: java.math.BigDecimal?, minFolicAcid: java.math.BigDecimal?, maxFolicAcid: java.math.BigDecimal?, minIodine: java.math.BigDecimal?, maxIodine: java.math.BigDecimal?, minIron: java.math.BigDecimal?, maxIron: java.math.BigDecimal?, minMagnesium: java.math.BigDecimal?, maxMagnesium: java.math.BigDecimal?, minManganese: java.math.BigDecimal?, maxManganese: java.math.BigDecimal?, minPhosphorus: java.math.BigDecimal?, maxPhosphorus: java.math.BigDecimal?, minPotassium: java.math.BigDecimal?, maxPotassium: java.math.BigDecimal?, minSelenium: java.math.BigDecimal?, maxSelenium: java.math.BigDecimal?, minSodium: java.math.BigDecimal?, maxSodium: java.math.BigDecimal?, minSugar: java.math.BigDecimal?, maxSugar: java.math.BigDecimal?, minZinc: java.math.BigDecimal?, maxZinc: java.math.BigDecimal?, offset: java.math.BigDecimal?, number: java.math.BigDecimal?, limitLicense: kotlin.Boolean?) : kotlin.Any {
+    fun searchRecipesComplex(query: kotlin.String, cuisine: kotlin.String?, excludeCuisine: kotlin.String?, diet: kotlin.String?, intolerances: kotlin.String?, equipment: kotlin.String?, includeIngredients: kotlin.String?, excludeIngredients: kotlin.String?, type: kotlin.String?, instructionsRequired: kotlin.Boolean?, fillIngredients: kotlin.Boolean?, addRecipeInformation: kotlin.Boolean?, addRecipeNutrition: kotlin.Boolean?, author: kotlin.String?, tags: kotlin.String?, recipeBoxId: java.math.BigDecimal?, titleMatch: kotlin.String?, maxReadyTime: java.math.BigDecimal?, ignorePantry: kotlin.Boolean?, sort: kotlin.String?, sortDirection: kotlin.String?, minCarbs: java.math.BigDecimal?, maxCarbs: java.math.BigDecimal?, minProtein: java.math.BigDecimal?, maxProtein: java.math.BigDecimal?, minCalories: java.math.BigDecimal?, maxCalories: java.math.BigDecimal?, minFat: java.math.BigDecimal?, maxFat: java.math.BigDecimal?, minAlcohol: java.math.BigDecimal?, maxAlcohol: java.math.BigDecimal?, minCaffeine: java.math.BigDecimal?, maxCaffeine: java.math.BigDecimal?, minCopper: java.math.BigDecimal?, maxCopper: java.math.BigDecimal?, minCalcium: java.math.BigDecimal?, maxCalcium: java.math.BigDecimal?, minCholine: java.math.BigDecimal?, maxCholine: java.math.BigDecimal?, minCholesterol: java.math.BigDecimal?, maxCholesterol: java.math.BigDecimal?, minFluoride: java.math.BigDecimal?, maxFluoride: java.math.BigDecimal?, minSaturatedFat: java.math.BigDecimal?, maxSaturatedFat: java.math.BigDecimal?, minVitaminA: java.math.BigDecimal?, maxVitaminA: java.math.BigDecimal?, minVitaminC: java.math.BigDecimal?, maxVitaminC: java.math.BigDecimal?, minVitaminD: java.math.BigDecimal?, maxVitaminD: java.math.BigDecimal?, minVitaminE: java.math.BigDecimal?, maxVitaminE: java.math.BigDecimal?, minVitaminK: java.math.BigDecimal?, maxVitaminK: java.math.BigDecimal?, minVitaminB1: java.math.BigDecimal?, maxVitaminB1: java.math.BigDecimal?, minVitaminB2: java.math.BigDecimal?, maxVitaminB2: java.math.BigDecimal?, minVitaminB5: java.math.BigDecimal?, maxVitaminB5: java.math.BigDecimal?, minVitaminB3: java.math.BigDecimal?, maxVitaminB3: java.math.BigDecimal?, minVitaminB6: java.math.BigDecimal?, maxVitaminB6: java.math.BigDecimal?, minVitaminB12: java.math.BigDecimal?, maxVitaminB12: java.math.BigDecimal?, minFiber: java.math.BigDecimal?, maxFiber: java.math.BigDecimal?, minFolate: java.math.BigDecimal?, maxFolate: java.math.BigDecimal?, minFolicAcid: java.math.BigDecimal?, maxFolicAcid: java.math.BigDecimal?, minIodine: java.math.BigDecimal?, maxIodine: java.math.BigDecimal?, minIron: java.math.BigDecimal?, maxIron: java.math.BigDecimal?, minMagnesium: java.math.BigDecimal?, maxMagnesium: java.math.BigDecimal?, minManganese: java.math.BigDecimal?, maxManganese: java.math.BigDecimal?, minPhosphorus: java.math.BigDecimal?, maxPhosphorus: java.math.BigDecimal?, minPotassium: java.math.BigDecimal?, maxPotassium: java.math.BigDecimal?, minSelenium: java.math.BigDecimal?, maxSelenium: java.math.BigDecimal?, minSodium: java.math.BigDecimal?, maxSodium: java.math.BigDecimal?, minSugar: java.math.BigDecimal?, maxSugar: java.math.BigDecimal?, minZinc: java.math.BigDecimal?, maxZinc: java.math.BigDecimal?, offset: java.math.BigDecimal?, number: java.math.BigDecimal?, limitLicense: kotlin.Boolean?) : kotlin.Any {
         val localVariableBody: kotlin.Any? = null
-        val localVariableQuery: MultiValueMap = mapOf("query" to listOf("$query"), "cuisine" to listOf("$cuisine"), "excludeCuisine" to listOf("$excludeCuisine"), "diet" to listOf("$diet"), "intolerances" to listOf("$intolerances"), "equipment" to listOf("$equipment"), "includeIngredients" to listOf("$includeIngredients"), "excludeIngredients" to listOf("$excludeIngredients"), "type" to listOf("$type"), "instructionsRequired" to listOf("$instructionsRequired"), "fillIngredients" to listOf("$fillIngredients"), "addRecipeInformation" to listOf("$addRecipeInformation"), "author" to listOf("$author"), "tags" to listOf("$tags"), "titleMatch" to listOf("$titleMatch"), "maxReadyTime" to listOf("$maxReadyTime"), "ignorePantry" to listOf("$ignorePantry"), "sort" to listOf("$sort"), "sortDirection" to listOf("$sortDirection"), "minCarbs" to listOf("$minCarbs"), "maxCarbs" to listOf("$maxCarbs"), "minProtein" to listOf("$minProtein"), "maxProtein" to listOf("$maxProtein"), "minCalories" to listOf("$minCalories"), "maxCalories" to listOf("$maxCalories"), "minFat" to listOf("$minFat"), "maxFat" to listOf("$maxFat"), "minAlcohol" to listOf("$minAlcohol"), "maxAlcohol" to listOf("$maxAlcohol"), "minCaffeine" to listOf("$minCaffeine"), "maxCaffeine" to listOf("$maxCaffeine"), "minCopper" to listOf("$minCopper"), "maxCopper" to listOf("$maxCopper"), "minCalcium" to listOf("$minCalcium"), "maxCalcium" to listOf("$maxCalcium"), "minCholine" to listOf("$minCholine"), "maxCholine" to listOf("$maxCholine"), "minCholesterol" to listOf("$minCholesterol"), "maxCholesterol" to listOf("$maxCholesterol"), "minFluoride" to listOf("$minFluoride"), "maxFluoride" to listOf("$maxFluoride"), "minSaturatedFat" to listOf("$minSaturatedFat"), "maxSaturatedFat" to listOf("$maxSaturatedFat"), "minVitaminA" to listOf("$minVitaminA"), "maxVitaminA" to listOf("$maxVitaminA"), "minVitaminC" to listOf("$minVitaminC"), "maxVitaminC" to listOf("$maxVitaminC"), "minVitaminD" to listOf("$minVitaminD"), "maxVitaminD" to listOf("$maxVitaminD"), "minVitaminE" to listOf("$minVitaminE"), "maxVitaminE" to listOf("$maxVitaminE"), "minVitaminK" to listOf("$minVitaminK"), "maxVitaminK" to listOf("$maxVitaminK"), "minVitaminB1" to listOf("$minVitaminB1"), "maxVitaminB1" to listOf("$maxVitaminB1"), "minVitaminB2" to listOf("$minVitaminB2"), "maxVitaminB2" to listOf("$maxVitaminB2"), "minVitaminB5" to listOf("$minVitaminB5"), "maxVitaminB5" to listOf("$maxVitaminB5"), "minVitaminB3" to listOf("$minVitaminB3"), "maxVitaminB3" to listOf("$maxVitaminB3"), "minVitaminB6" to listOf("$minVitaminB6"), "maxVitaminB6" to listOf("$maxVitaminB6"), "minVitaminB12" to listOf("$minVitaminB12"), "maxVitaminB12" to listOf("$maxVitaminB12"), "minFiber" to listOf("$minFiber"), "maxFiber" to listOf("$maxFiber"), "minFolate" to listOf("$minFolate"), "maxFolate" to listOf("$maxFolate"), "minFolicAcid" to listOf("$minFolicAcid"), "maxFolicAcid" to listOf("$maxFolicAcid"), "minIodine" to listOf("$minIodine"), "maxIodine" to listOf("$maxIodine"), "minIron" to listOf("$minIron"), "maxIron" to listOf("$maxIron"), "minMagnesium" to listOf("$minMagnesium"), "maxMagnesium" to listOf("$maxMagnesium"), "minManganese" to listOf("$minManganese"), "maxManganese" to listOf("$maxManganese"), "minPhosphorus" to listOf("$minPhosphorus"), "maxPhosphorus" to listOf("$maxPhosphorus"), "minPotassium" to listOf("$minPotassium"), "maxPotassium" to listOf("$maxPotassium"), "minSelenium" to listOf("$minSelenium"), "maxSelenium" to listOf("$maxSelenium"), "minSodium" to listOf("$minSodium"), "maxSodium" to listOf("$maxSodium"), "minSugar" to listOf("$minSugar"), "maxSugar" to listOf("$maxSugar"), "minZinc" to listOf("$minZinc"), "maxZinc" to listOf("$maxZinc"), "offset" to listOf("$offset"), "number" to listOf("$number"), "limitLicense" to listOf("$limitLicense"))
+        val localVariableQuery: MultiValueMap = mapOf("query" to listOf("$query"), "cuisine" to listOf("$cuisine"), "excludeCuisine" to listOf("$excludeCuisine"), "diet" to listOf("$diet"), "intolerances" to listOf("$intolerances"), "equipment" to listOf("$equipment"), "includeIngredients" to listOf("$includeIngredients"), "excludeIngredients" to listOf("$excludeIngredients"), "type" to listOf("$type"), "instructionsRequired" to listOf("$instructionsRequired"), "fillIngredients" to listOf("$fillIngredients"), "addRecipeInformation" to listOf("$addRecipeInformation"), "addRecipeNutrition" to listOf("$addRecipeNutrition"), "author" to listOf("$author"), "tags" to listOf("$tags"), "recipeBoxId" to listOf("$recipeBoxId"), "titleMatch" to listOf("$titleMatch"), "maxReadyTime" to listOf("$maxReadyTime"), "ignorePantry" to listOf("$ignorePantry"), "sort" to listOf("$sort"), "sortDirection" to listOf("$sortDirection"), "minCarbs" to listOf("$minCarbs"), "maxCarbs" to listOf("$maxCarbs"), "minProtein" to listOf("$minProtein"), "maxProtein" to listOf("$maxProtein"), "minCalories" to listOf("$minCalories"), "maxCalories" to listOf("$maxCalories"), "minFat" to listOf("$minFat"), "maxFat" to listOf("$maxFat"), "minAlcohol" to listOf("$minAlcohol"), "maxAlcohol" to listOf("$maxAlcohol"), "minCaffeine" to listOf("$minCaffeine"), "maxCaffeine" to listOf("$maxCaffeine"), "minCopper" to listOf("$minCopper"), "maxCopper" to listOf("$maxCopper"), "minCalcium" to listOf("$minCalcium"), "maxCalcium" to listOf("$maxCalcium"), "minCholine" to listOf("$minCholine"), "maxCholine" to listOf("$maxCholine"), "minCholesterol" to listOf("$minCholesterol"), "maxCholesterol" to listOf("$maxCholesterol"), "minFluoride" to listOf("$minFluoride"), "maxFluoride" to listOf("$maxFluoride"), "minSaturatedFat" to listOf("$minSaturatedFat"), "maxSaturatedFat" to listOf("$maxSaturatedFat"), "minVitaminA" to listOf("$minVitaminA"), "maxVitaminA" to listOf("$maxVitaminA"), "minVitaminC" to listOf("$minVitaminC"), "maxVitaminC" to listOf("$maxVitaminC"), "minVitaminD" to listOf("$minVitaminD"), "maxVitaminD" to listOf("$maxVitaminD"), "minVitaminE" to listOf("$minVitaminE"), "maxVitaminE" to listOf("$maxVitaminE"), "minVitaminK" to listOf("$minVitaminK"), "maxVitaminK" to listOf("$maxVitaminK"), "minVitaminB1" to listOf("$minVitaminB1"), "maxVitaminB1" to listOf("$maxVitaminB1"), "minVitaminB2" to listOf("$minVitaminB2"), "maxVitaminB2" to listOf("$maxVitaminB2"), "minVitaminB5" to listOf("$minVitaminB5"), "maxVitaminB5" to listOf("$maxVitaminB5"), "minVitaminB3" to listOf("$minVitaminB3"), "maxVitaminB3" to listOf("$maxVitaminB3"), "minVitaminB6" to listOf("$minVitaminB6"), "maxVitaminB6" to listOf("$maxVitaminB6"), "minVitaminB12" to listOf("$minVitaminB12"), "maxVitaminB12" to listOf("$maxVitaminB12"), "minFiber" to listOf("$minFiber"), "maxFiber" to listOf("$maxFiber"), "minFolate" to listOf("$minFolate"), "maxFolate" to listOf("$maxFolate"), "minFolicAcid" to listOf("$minFolicAcid"), "maxFolicAcid" to listOf("$maxFolicAcid"), "minIodine" to listOf("$minIodine"), "maxIodine" to listOf("$maxIodine"), "minIron" to listOf("$minIron"), "maxIron" to listOf("$maxIron"), "minMagnesium" to listOf("$minMagnesium"), "maxMagnesium" to listOf("$maxMagnesium"), "minManganese" to listOf("$minManganese"), "maxManganese" to listOf("$maxManganese"), "minPhosphorus" to listOf("$minPhosphorus"), "maxPhosphorus" to listOf("$maxPhosphorus"), "minPotassium" to listOf("$minPotassium"), "maxPotassium" to listOf("$maxPotassium"), "minSelenium" to listOf("$minSelenium"), "maxSelenium" to listOf("$maxSelenium"), "minSodium" to listOf("$minSodium"), "maxSodium" to listOf("$maxSodium"), "minSugar" to listOf("$minSugar"), "maxSugar" to listOf("$maxSugar"), "minZinc" to listOf("$minZinc"), "maxZinc" to listOf("$maxZinc"), "offset" to listOf("$offset"), "number" to listOf("$number"), "limitLicense" to listOf("$limitLicense"))
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         val localVariableConfig = RequestConfig(
             RequestMethod.GET,

@@ -29,7 +29,7 @@ import java.math.BigDecimal;
 /**
  * InlineObject3
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-01-19T16:36:49.460+01:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-06-13T12:59:56.631+02:00[Europe/Berlin]")
 public class InlineObject3 {
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)

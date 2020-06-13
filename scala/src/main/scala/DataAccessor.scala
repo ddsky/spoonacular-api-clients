@@ -18,6 +18,18 @@ trait DataAccessor {
         * 
         * @return A Object
         */
+        def Default_addToMealPlan(username: String, hash: String, inlineObject9: InlineObject9): Either[CommonError,Object] = Left(TODO)
+
+        /**
+        * 
+        * @return A Object
+        */
+        def Default_addToShoppingList(username: String, hash: String, inlineObject12: InlineObject12): Either[CommonError,Object] = Left(TODO)
+
+        /**
+        * 
+        * @return A Object
+        */
         def Default_analyzeARecipeSearchQuery(q: String): Either[CommonError,Object] = Left(TODO)
 
         /**
@@ -84,19 +96,37 @@ trait DataAccessor {
         * 
         * @return A Object
         */
+        def Default_deleteFromMealPlan(username: String, id: BigDecimal, hash: String, inlineObject10: InlineObject10): Either[CommonError,Object] = Left(TODO)
+
+        /**
+        * 
+        * @return A Object
+        */
+        def Default_deleteFromShoppingList(username: String, id: BigDecimal, hash: String, inlineObject13: InlineObject13): Either[CommonError,Object] = Left(TODO)
+
+        /**
+        * 
+        * @return A Object
+        */
         def Default_detectFoodInText(text: String): Either[CommonError,Object] = Left(TODO)
 
         /**
         * 
         * @return A Object
         */
-        def Default_extractRecipeFromWebsite(url: String, forceExtraction: Option[Boolean]): Either[CommonError,Object] = Left(TODO)
+        def Default_extractRecipeFromWebsite(url: String, forceExtraction: Option[Boolean], analyze: Option[Boolean]): Either[CommonError,Object] = Left(TODO)
 
         /**
         * 
         * @return A Object
         */
         def Default_generateMealPlan(timeFrame: Option[String], targetCalories: Option[BigDecimal], diet: Option[String], exclude: Option[String]): Either[CommonError,Object] = Left(TODO)
+
+        /**
+        * 
+        * @return A Object
+        */
+        def Default_generateShoppingList(username: String, startDate: String, endDate: String, hash: String, inlineObject11: InlineObject11): Either[CommonError,Object] = Left(TODO)
 
         /**
         * 
@@ -145,6 +175,24 @@ trait DataAccessor {
         * @return A Object
         */
         def Default_getIngredientSubstitutesByID(id: BigDecimal): Either[CommonError,Object] = Left(TODO)
+
+        /**
+        * 
+        * @return A Object
+        */
+        def Default_getMealPlanTemplate(username: String, id: BigDecimal, hash: String): Either[CommonError,Object] = Left(TODO)
+
+        /**
+        * 
+        * @return A Object
+        */
+        def Default_getMealPlanTemplates(username: String, hash: String): Either[CommonError,Object] = Left(TODO)
+
+        /**
+        * 
+        * @return A Object
+        */
+        def Default_getMealPlanWeek(username: String, startDate: String, hash: String): Either[CommonError,Object] = Left(TODO)
 
         /**
         * 
@@ -210,7 +258,13 @@ trait DataAccessor {
         * 
         * @return A Object
         */
-        def Default_getSimilarRecipes(id: BigDecimal, number: Option[BigDecimal]): Either[CommonError,Object] = Left(TODO)
+        def Default_getShoppingList(username: String, hash: String): Either[CommonError,Object] = Left(TODO)
+
+        /**
+        * 
+        * @return A Object
+        */
+        def Default_getSimilarRecipes(id: BigDecimal, number: Option[BigDecimal], limitLicense: Option[Boolean]): Either[CommonError,Object] = Left(TODO)
 
         /**
         * 
@@ -240,6 +294,18 @@ trait DataAccessor {
         * 
         * @return A Object
         */
+        def Default_imageAnalysisByURL(imageUrl: String): Either[CommonError,Object] = Left(TODO)
+
+        /**
+        * 
+        * @return A Object
+        */
+        def Default_imageClassificationByURL(imageUrl: String): Either[CommonError,Object] = Left(TODO)
+
+        /**
+        * 
+        * @return A Object
+        */
         def Default_mapIngredientsToGroceryProducts(body: Object): Either[CommonError,Object] = Left(TODO)
 
         /**
@@ -253,6 +319,12 @@ trait DataAccessor {
         * @return A Object
         */
         def Default_quickAnswer(q: String): Either[CommonError,Object] = Left(TODO)
+
+        /**
+        * 
+        * @return A Object
+        */
+        def Default_searchCustomFoods(query: String, username: String, hash: String, offset: Option[BigDecimal], number: Option[BigDecimal]): Either[CommonError,Object] = Left(TODO)
 
         /**
         * 
@@ -300,7 +372,7 @@ trait DataAccessor {
         * 
         * @return A Object
         */
-        def Default_searchRecipesComplex(query: String, cuisine: Option[String], excludeCuisine: Option[String], diet: Option[String], intolerances: Option[String], equipment: Option[String], includeIngredients: Option[String], excludeIngredients: Option[String], _type: Option[String], instructionsRequired: Option[Boolean], fillIngredients: Option[Boolean], addRecipeInformation: Option[Boolean], author: Option[String], tags: Option[String], titleMatch: Option[String], maxReadyTime: Option[BigDecimal], ignorePantry: Option[Boolean], sort: Option[String], sortDirection: Option[String], minCarbs: Option[BigDecimal], maxCarbs: Option[BigDecimal], minProtein: Option[BigDecimal], maxProtein: Option[BigDecimal], minCalories: Option[BigDecimal], maxCalories: Option[BigDecimal], minFat: Option[BigDecimal], maxFat: Option[BigDecimal], minAlcohol: Option[BigDecimal], maxAlcohol: Option[BigDecimal], minCaffeine: Option[BigDecimal], maxCaffeine: Option[BigDecimal], minCopper: Option[BigDecimal], maxCopper: Option[BigDecimal], minCalcium: Option[BigDecimal], maxCalcium: Option[BigDecimal], minCholine: Option[BigDecimal], maxCholine: Option[BigDecimal], minCholesterol: Option[BigDecimal], maxCholesterol: Option[BigDecimal], minFluoride: Option[BigDecimal], maxFluoride: Option[BigDecimal], minSaturatedFat: Option[BigDecimal], maxSaturatedFat: Option[BigDecimal], minVitaminA: Option[BigDecimal], maxVitaminA: Option[BigDecimal], minVitaminC: Option[BigDecimal], maxVitaminC: Option[BigDecimal], minVitaminD: Option[BigDecimal], maxVitaminD: Option[BigDecimal], minVitaminE: Option[BigDecimal], maxVitaminE: Option[BigDecimal], minVitaminK: Option[BigDecimal], maxVitaminK: Option[BigDecimal], minVitaminB1: Option[BigDecimal], maxVitaminB1: Option[BigDecimal], minVitaminB2: Option[BigDecimal], maxVitaminB2: Option[BigDecimal], minVitaminB5: Option[BigDecimal], maxVitaminB5: Option[BigDecimal], minVitaminB3: Option[BigDecimal], maxVitaminB3: Option[BigDecimal], minVitaminB6: Option[BigDecimal], maxVitaminB6: Option[BigDecimal], minVitaminB12: Option[BigDecimal], maxVitaminB12: Option[BigDecimal], minFiber: Option[BigDecimal], maxFiber: Option[BigDecimal], minFolate: Option[BigDecimal], maxFolate: Option[BigDecimal], minFolicAcid: Option[BigDecimal], maxFolicAcid: Option[BigDecimal], minIodine: Option[BigDecimal], maxIodine: Option[BigDecimal], minIron: Option[BigDecimal], maxIron: Option[BigDecimal], minMagnesium: Option[BigDecimal], maxMagnesium: Option[BigDecimal], minManganese: Option[BigDecimal], maxManganese: Option[BigDecimal], minPhosphorus: Option[BigDecimal], maxPhosphorus: Option[BigDecimal], minPotassium: Option[BigDecimal], maxPotassium: Option[BigDecimal], minSelenium: Option[BigDecimal], maxSelenium: Option[BigDecimal], minSodium: Option[BigDecimal], maxSodium: Option[BigDecimal], minSugar: Option[BigDecimal], maxSugar: Option[BigDecimal], minZinc: Option[BigDecimal], maxZinc: Option[BigDecimal], offset: Option[BigDecimal], number: Option[BigDecimal], limitLicense: Option[Boolean]): Either[CommonError,Object] = Left(TODO)
+        def Default_searchRecipesComplex(query: String, cuisine: Option[String], excludeCuisine: Option[String], diet: Option[String], intolerances: Option[String], equipment: Option[String], includeIngredients: Option[String], excludeIngredients: Option[String], _type: Option[String], instructionsRequired: Option[Boolean], fillIngredients: Option[Boolean], addRecipeInformation: Option[Boolean], addRecipeNutrition: Option[Boolean], author: Option[String], tags: Option[String], recipeBoxId: Option[BigDecimal], titleMatch: Option[String], maxReadyTime: Option[BigDecimal], ignorePantry: Option[Boolean], sort: Option[String], sortDirection: Option[String], minCarbs: Option[BigDecimal], maxCarbs: Option[BigDecimal], minProtein: Option[BigDecimal], maxProtein: Option[BigDecimal], minCalories: Option[BigDecimal], maxCalories: Option[BigDecimal], minFat: Option[BigDecimal], maxFat: Option[BigDecimal], minAlcohol: Option[BigDecimal], maxAlcohol: Option[BigDecimal], minCaffeine: Option[BigDecimal], maxCaffeine: Option[BigDecimal], minCopper: Option[BigDecimal], maxCopper: Option[BigDecimal], minCalcium: Option[BigDecimal], maxCalcium: Option[BigDecimal], minCholine: Option[BigDecimal], maxCholine: Option[BigDecimal], minCholesterol: Option[BigDecimal], maxCholesterol: Option[BigDecimal], minFluoride: Option[BigDecimal], maxFluoride: Option[BigDecimal], minSaturatedFat: Option[BigDecimal], maxSaturatedFat: Option[BigDecimal], minVitaminA: Option[BigDecimal], maxVitaminA: Option[BigDecimal], minVitaminC: Option[BigDecimal], maxVitaminC: Option[BigDecimal], minVitaminD: Option[BigDecimal], maxVitaminD: Option[BigDecimal], minVitaminE: Option[BigDecimal], maxVitaminE: Option[BigDecimal], minVitaminK: Option[BigDecimal], maxVitaminK: Option[BigDecimal], minVitaminB1: Option[BigDecimal], maxVitaminB1: Option[BigDecimal], minVitaminB2: Option[BigDecimal], maxVitaminB2: Option[BigDecimal], minVitaminB5: Option[BigDecimal], maxVitaminB5: Option[BigDecimal], minVitaminB3: Option[BigDecimal], maxVitaminB3: Option[BigDecimal], minVitaminB6: Option[BigDecimal], maxVitaminB6: Option[BigDecimal], minVitaminB12: Option[BigDecimal], maxVitaminB12: Option[BigDecimal], minFiber: Option[BigDecimal], maxFiber: Option[BigDecimal], minFolate: Option[BigDecimal], maxFolate: Option[BigDecimal], minFolicAcid: Option[BigDecimal], maxFolicAcid: Option[BigDecimal], minIodine: Option[BigDecimal], maxIodine: Option[BigDecimal], minIron: Option[BigDecimal], maxIron: Option[BigDecimal], minMagnesium: Option[BigDecimal], maxMagnesium: Option[BigDecimal], minManganese: Option[BigDecimal], maxManganese: Option[BigDecimal], minPhosphorus: Option[BigDecimal], maxPhosphorus: Option[BigDecimal], minPotassium: Option[BigDecimal], maxPotassium: Option[BigDecimal], minSelenium: Option[BigDecimal], maxSelenium: Option[BigDecimal], minSodium: Option[BigDecimal], maxSodium: Option[BigDecimal], minSugar: Option[BigDecimal], maxSugar: Option[BigDecimal], minZinc: Option[BigDecimal], maxZinc: Option[BigDecimal], offset: Option[BigDecimal], number: Option[BigDecimal], limitLicense: Option[Boolean]): Either[CommonError,Object] = Left(TODO)
 
         /**
         * 

@@ -9,6 +9,8 @@ All URIs are relative to *https://api.spoonacular.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**add_to_meal_plan**](DefaultApi.md#add_to_meal_plan) | **POST** /mealplanner/{username}/items | Add to Meal Plan
+[**add_to_shopping_list**](DefaultApi.md#add_to_shopping_list) | **POST** /mealplanner/{username}/shopping-list/items | Add to Shopping List
 [**analyze_a_recipe_search_query**](DefaultApi.md#analyze_a_recipe_search_query) | **GET** /recipes/queries/analyze | Analyze a Recipe Search Query
 [**analyze_recipe_instructions**](DefaultApi.md#analyze_recipe_instructions) | **POST** /recipes/analyzeInstructions | Analyze Recipe Instructions
 [**autocomplete_ingredient_search**](DefaultApi.md#autocomplete_ingredient_search) | **GET** /food/ingredients/autocomplete | Autocomplete Ingredient Search
@@ -20,9 +22,12 @@ Method | HTTP request | Description
 [**classify_grocery_product_bulk**](DefaultApi.md#classify_grocery_product_bulk) | **POST** /food/products/classifyBatch | Classify Grocery Product Bulk
 [**convert_amounts**](DefaultApi.md#convert_amounts) | **GET** /recipes/convert | Convert Amounts
 [**create_recipe_card**](DefaultApi.md#create_recipe_card) | **POST** /recipes/visualizeRecipe | Create Recipe Card
+[**delete_from_meal_plan**](DefaultApi.md#delete_from_meal_plan) | **DELETE** /mealplanner/{username}/items/{id} | Delete from Meal Plan
+[**delete_from_shopping_list**](DefaultApi.md#delete_from_shopping_list) | **DELETE** /mealplanner/{username}/shopping-list/items/{id} | Delete from Shopping List
 [**detect_food_in_text**](DefaultApi.md#detect_food_in_text) | **POST** /food/detect | Detect Food in Text
 [**extract_recipe_from_website**](DefaultApi.md#extract_recipe_from_website) | **GET** /recipes/extract | Extract Recipe from Website
 [**generate_meal_plan**](DefaultApi.md#generate_meal_plan) | **GET** /mealplanner/generate | Generate Meal Plan
+[**generate_shopping_list**](DefaultApi.md#generate_shopping_list) | **POST** /mealplanner/{username}/shopping-list/{start-date}/{end-date} | Generate Shopping List
 [**get_a_random_food_joke**](DefaultApi.md#get_a_random_food_joke) | **GET** /food/jokes/random | Get a Random Food Joke
 [**get_analyzed_recipe_instructions**](DefaultApi.md#get_analyzed_recipe_instructions) | **GET** /recipes/{id}/analyzedInstructions | Get Analyzed Recipe Instructions
 [**get_comparable_products**](DefaultApi.md#get_comparable_products) | **GET** /food/products/upc/{upc}/comparable | Get Comparable Products
@@ -31,6 +36,9 @@ Method | HTTP request | Description
 [**get_ingredient_information**](DefaultApi.md#get_ingredient_information) | **GET** /food/ingredients/{id}/information | Get Ingredient Information
 [**get_ingredient_substitutes**](DefaultApi.md#get_ingredient_substitutes) | **GET** /food/ingredients/substitutes | Get Ingredient Substitutes
 [**get_ingredient_substitutes_by_id**](DefaultApi.md#get_ingredient_substitutes_by_id) | **GET** /food/ingredients/{id}/substitutes | Get Ingredient Substitutes by ID
+[**get_meal_plan_template**](DefaultApi.md#get_meal_plan_template) | **GET** /mealplanner/{username}/templates/{id} | Get Meal Plan Template
+[**get_meal_plan_templates**](DefaultApi.md#get_meal_plan_templates) | **GET** /mealplanner/{username}/templates | Get Meal Plan Templates
+[**get_meal_plan_week**](DefaultApi.md#get_meal_plan_week) | **GET** /mealplanner/{username}/week/{start-date} | Get Meal Plan Week
 [**get_menu_item_information**](DefaultApi.md#get_menu_item_information) | **GET** /food/menuItems/{id} | Get Menu Item Information
 [**get_product_information**](DefaultApi.md#get_product_information) | **GET** /food/products/{id} | Get Product Information
 [**get_random_food_trivia**](DefaultApi.md#get_random_food_trivia) | **GET** /food/trivia/random | Get Random Food Trivia
@@ -41,14 +49,18 @@ Method | HTTP request | Description
 [**get_recipe_ingredients_by_id**](DefaultApi.md#get_recipe_ingredients_by_id) | **GET** /recipes/{id}/ingredientWidget.json | Get Recipe Ingredients by ID
 [**get_recipe_nutrition_widget_by_id**](DefaultApi.md#get_recipe_nutrition_widget_by_id) | **GET** /recipes/{id}/nutritionWidget.json | Get Recipe Nutrition Widget by ID
 [**get_recipe_price_breakdown_by_id**](DefaultApi.md#get_recipe_price_breakdown_by_id) | **GET** /recipes/{id}/priceBreakdownWidget.json | Get Recipe Price Breakdown by ID
+[**get_shopping_list**](DefaultApi.md#get_shopping_list) | **GET** /mealplanner/{username}/shopping-list | Get Shopping List
 [**get_similar_recipes**](DefaultApi.md#get_similar_recipes) | **GET** /recipes/{id}/similar | Get Similar Recipes
 [**get_wine_description**](DefaultApi.md#get_wine_description) | **GET** /food/wine/description | Get Wine Description
 [**get_wine_pairing**](DefaultApi.md#get_wine_pairing) | **GET** /food/wine/pairing | Get Wine Pairing
 [**get_wine_recommendation**](DefaultApi.md#get_wine_recommendation) | **GET** /food/wine/recommendation | Get Wine Recommendation
 [**guess_nutrition_by_dish_name**](DefaultApi.md#guess_nutrition_by_dish_name) | **GET** /recipes/guessNutrition | Guess Nutrition by Dish Name
+[**image_analysis_by_url**](DefaultApi.md#image_analysis_by_url) | **GET** /food/images/analyze | Image Analysis by URL
+[**image_classification_by_url**](DefaultApi.md#image_classification_by_url) | **GET** /food/images/classify | Image Classification by URL
 [**map_ingredients_to_grocery_products**](DefaultApi.md#map_ingredients_to_grocery_products) | **POST** /food/ingredients/map | Map Ingredients to Grocery Products
 [**parse_ingredients**](DefaultApi.md#parse_ingredients) | **POST** /recipes/parseIngredients | Parse Ingredients
 [**quick_answer**](DefaultApi.md#quick_answer) | **GET** /recipes/quickAnswer | Quick Answer
+[**search_custom_foods**](DefaultApi.md#search_custom_foods) | **GET** /food/customFoods/search | Search Custom Foods
 [**search_food_videos**](DefaultApi.md#search_food_videos) | **GET** /food/videos/search | Search Food Videos
 [**search_grocery_products**](DefaultApi.md#search_grocery_products) | **GET** /food/products/search | Search Grocery Products
 [**search_grocery_products_by_upc**](DefaultApi.md#search_grocery_products_by_upc) | **GET** /food/products/upc/{upc} | Search Grocery Products by UPC
@@ -71,6 +83,106 @@ Method | HTTP request | Description
 [**visualize_recipe_nutrition_by_id**](DefaultApi.md#visualize_recipe_nutrition_by_id) | **GET** /recipes/{id}/nutritionWidget | Visualize Recipe Nutrition by ID
 [**visualize_recipe_price_breakdown_by_id**](DefaultApi.md#visualize_recipe_price_breakdown_by_id) | **GET** /recipes/{id}/priceBreakdownWidget | Visualize Recipe Price Breakdown by ID
 
+
+# **add_to_meal_plan**
+> object add_to_meal_plan(username => $username, hash => $hash, inline_object9 => $inline_object9)
+
+Add to Meal Plan
+
+Add an item to the user's meal plan.
+
+### Example 
+```perl
+use Data::Dumper;
+use WWW::OpenAPIClient::DefaultApi;
+my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+);
+
+my $username = dsky; # string | The username.
+my $hash = 4b5v4398573406; # string | The private hash for the username.
+my $inline_object9 = WWW::OpenAPIClient::Object::InlineObject9->new(); # InlineObject9 | 
+
+eval { 
+    my $result = $api_instance->add_to_meal_plan(username => $username, hash => $hash, inline_object9 => $inline_object9);
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling DefaultApi->add_to_meal_plan: $@\n";
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **string**| The username. | 
+ **hash** | **string**| The private hash for the username. | 
+ **inline_object9** | [**InlineObject9**](InlineObject9.md)|  | 
+
+### Return type
+
+**object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: 
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **add_to_shopping_list**
+> object add_to_shopping_list(username => $username, hash => $hash, inline_object12 => $inline_object12)
+
+Add to Shopping List
+
+Add an item to the current shopping list of a user.
+
+### Example 
+```perl
+use Data::Dumper;
+use WWW::OpenAPIClient::DefaultApi;
+my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+);
+
+my $username = dsky; # string | The username.
+my $hash = 4b5v4398573406; # string | The private hash for the username.
+my $inline_object12 = WWW::OpenAPIClient::Object::InlineObject12->new(); # InlineObject12 | 
+
+eval { 
+    my $result = $api_instance->add_to_shopping_list(username => $username, hash => $hash, inline_object12 => $inline_object12);
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling DefaultApi->add_to_shopping_list: $@\n";
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **string**| The username. | 
+ **hash** | **string**| The private hash for the username. | 
+ **inline_object12** | [**InlineObject12**](InlineObject12.md)|  | 
+
+### Return type
+
+**object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: 
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **analyze_a_recipe_search_query**
 > object analyze_a_recipe_search_query(q => $q)
@@ -624,6 +736,110 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **delete_from_meal_plan**
+> object delete_from_meal_plan(username => $username, id => $id, hash => $hash, inline_object10 => $inline_object10)
+
+Delete from Meal Plan
+
+Delete an item from the user's meal plan.
+
+### Example 
+```perl
+use Data::Dumper;
+use WWW::OpenAPIClient::DefaultApi;
+my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+);
+
+my $username = dsky; # string | The username.
+my $id = 15678; # double | The shopping list item id.
+my $hash = 4b5v4398573406; # string | The private hash for the username.
+my $inline_object10 = WWW::OpenAPIClient::Object::InlineObject10->new(); # InlineObject10 | 
+
+eval { 
+    my $result = $api_instance->delete_from_meal_plan(username => $username, id => $id, hash => $hash, inline_object10 => $inline_object10);
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling DefaultApi->delete_from_meal_plan: $@\n";
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **string**| The username. | 
+ **id** | **double**| The shopping list item id. | 
+ **hash** | **string**| The private hash for the username. | 
+ **inline_object10** | [**InlineObject10**](InlineObject10.md)|  | 
+
+### Return type
+
+**object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: 
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **delete_from_shopping_list**
+> object delete_from_shopping_list(username => $username, id => $id, hash => $hash, inline_object13 => $inline_object13)
+
+Delete from Shopping List
+
+Delete an item from the current shopping list of the user.
+
+### Example 
+```perl
+use Data::Dumper;
+use WWW::OpenAPIClient::DefaultApi;
+my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+);
+
+my $username = dsky; # string | The username.
+my $id = 15678; # double | The shopping list item id.
+my $hash = 4b5v4398573406; # string | The private hash for the username.
+my $inline_object13 = WWW::OpenAPIClient::Object::InlineObject13->new(); # InlineObject13 | 
+
+eval { 
+    my $result = $api_instance->delete_from_shopping_list(username => $username, id => $id, hash => $hash, inline_object13 => $inline_object13);
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling DefaultApi->delete_from_shopping_list: $@\n";
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **string**| The username. | 
+ **id** | **double**| The shopping list item id. | 
+ **hash** | **string**| The private hash for the username. | 
+ **inline_object13** | [**InlineObject13**](InlineObject13.md)|  | 
+
+### Return type
+
+**object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: 
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **detect_food_in_text**
 > object detect_food_in_text(text => $text)
 
@@ -671,7 +887,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **extract_recipe_from_website**
-> object extract_recipe_from_website(url => $url, force_extraction => $force_extraction)
+> object extract_recipe_from_website(url => $url, force_extraction => $force_extraction, analyze => $analyze)
 
 Extract Recipe from Website
 
@@ -686,9 +902,10 @@ my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
 
 my $url = https://foodista.com/recipe/ZHK4KPB6/chocolate-crinkle-cookies; # string | The URL of the recipe page.
 my $force_extraction = true; # boolean | If true, the extraction will be triggered whether we already know the recipe or not. Use this only if information is missing as this operation is slower.
+my $analyze = false; # boolean | If true, the recipe will be analyzed and classified resolving in more data such as cuisines, dish types, and more.
 
 eval { 
-    my $result = $api_instance->extract_recipe_from_website(url => $url, force_extraction => $force_extraction);
+    my $result = $api_instance->extract_recipe_from_website(url => $url, force_extraction => $force_extraction, analyze => $analyze);
     print Dumper($result);
 };
 if ($@) {
@@ -702,6 +919,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **url** | **string**| The URL of the recipe page. | 
  **force_extraction** | **boolean**| If true, the extraction will be triggered whether we already know the recipe or not. Use this only if information is missing as this operation is slower. | [optional] 
+ **analyze** | **boolean**| If true, the recipe will be analyzed and classified resolving in more data such as cuisines, dish types, and more. | [optional] 
 
 ### Return type
 
@@ -766,6 +984,60 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **generate_shopping_list**
+> object generate_shopping_list(username => $username, start_date => $start_date, end_date => $end_date, hash => $hash, inline_object11 => $inline_object11)
+
+Generate Shopping List
+
+Generate the shopping list for a user from the meal planner in a given time frame.
+
+### Example 
+```perl
+use Data::Dumper;
+use WWW::OpenAPIClient::DefaultApi;
+my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+);
+
+my $username = dsky; # string | The username.
+my $start_date = 2020-06-01; # string | The start date in the format yyyy-mm-dd.
+my $end_date = 2020-06-07; # string | The end date in the format yyyy-mm-dd.
+my $hash = 4b5v4398573406; # string | The private hash for the username.
+my $inline_object11 = WWW::OpenAPIClient::Object::InlineObject11->new(); # InlineObject11 | 
+
+eval { 
+    my $result = $api_instance->generate_shopping_list(username => $username, start_date => $start_date, end_date => $end_date, hash => $hash, inline_object11 => $inline_object11);
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling DefaultApi->generate_shopping_list: $@\n";
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **string**| The username. | 
+ **start_date** | **string**| The start date in the format yyyy-mm-dd. | 
+ **end_date** | **string**| The end date in the format yyyy-mm-dd. | 
+ **hash** | **string**| The private hash for the username. | 
+ **inline_object11** | [**InlineObject11**](InlineObject11.md)|  | 
+
+### Return type
+
+**object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: 
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1142,6 +1414,154 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_meal_plan_template**
+> object get_meal_plan_template(username => $username, id => $id, hash => $hash)
+
+Get Meal Plan Template
+
+Get information about a meal plan template.
+
+### Example 
+```perl
+use Data::Dumper;
+use WWW::OpenAPIClient::DefaultApi;
+my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+);
+
+my $username = dsky; # string | The username.
+my $id = 15678; # double | The shopping list item id.
+my $hash = 4b5v4398573406; # string | The private hash for the username.
+
+eval { 
+    my $result = $api_instance->get_meal_plan_template(username => $username, id => $id, hash => $hash);
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling DefaultApi->get_meal_plan_template: $@\n";
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **string**| The username. | 
+ **id** | **double**| The shopping list item id. | 
+ **hash** | **string**| The private hash for the username. | 
+
+### Return type
+
+**object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_meal_plan_templates**
+> object get_meal_plan_templates(username => $username, hash => $hash)
+
+Get Meal Plan Templates
+
+Get meal plan templates from user or public ones.
+
+### Example 
+```perl
+use Data::Dumper;
+use WWW::OpenAPIClient::DefaultApi;
+my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+);
+
+my $username = dsky; # string | The username.
+my $hash = 4b5v4398573406; # string | The private hash for the username.
+
+eval { 
+    my $result = $api_instance->get_meal_plan_templates(username => $username, hash => $hash);
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling DefaultApi->get_meal_plan_templates: $@\n";
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **string**| The username. | 
+ **hash** | **string**| The private hash for the username. | 
+
+### Return type
+
+**object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_meal_plan_week**
+> object get_meal_plan_week(username => $username, start_date => $start_date, hash => $hash)
+
+Get Meal Plan Week
+
+Retrieve a meal planned week for the given user. The username must be a spoonacular user and the hash must the the user's hash that can be found in his/her account.
+
+### Example 
+```perl
+use Data::Dumper;
+use WWW::OpenAPIClient::DefaultApi;
+my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+);
+
+my $username = dsky; # string | The username.
+my $start_date = 2020-06-01; # string | The start date of the meal planned week in the format yyyy-mm-dd.
+my $hash = 4b5v4398573406; # string | The private hash for the username.
+
+eval { 
+    my $result = $api_instance->get_meal_plan_week(username => $username, start_date => $start_date, hash => $hash);
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling DefaultApi->get_meal_plan_week: $@\n";
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **string**| The username. | 
+ **start_date** | **string**| The start date of the meal planned week in the format yyyy-mm-dd. | 
+ **hash** | **string**| The private hash for the username. | 
+
+### Return type
+
+**object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_menu_item_information**
 > object get_menu_item_information(id => $id)
 
@@ -1193,7 +1613,7 @@ No authorization required
 
 Get Product Information
 
-Use a product id to get full information about a product, such as ingredients, nutrition, etc.
+Use a product id to get full information about a product, such as ingredients, nutrition, etc. The nutritional information is per serving.
 
 ### Example 
 ```perl
@@ -1606,8 +2026,56 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_shopping_list**
+> object get_shopping_list(username => $username, hash => $hash)
+
+Get Shopping List
+
+Get the current shopping list for the given user.
+
+### Example 
+```perl
+use Data::Dumper;
+use WWW::OpenAPIClient::DefaultApi;
+my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+);
+
+my $username = dsky; # string | The username.
+my $hash = 4b5v4398573406; # string | The private hash for the username.
+
+eval { 
+    my $result = $api_instance->get_shopping_list(username => $username, hash => $hash);
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling DefaultApi->get_shopping_list: $@\n";
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **string**| The username. | 
+ **hash** | **string**| The private hash for the username. | 
+
+### Return type
+
+**object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_similar_recipes**
-> object get_similar_recipes(id => $id, number => $number)
+> object get_similar_recipes(id => $id, number => $number, limit_license => $limit_license)
 
 Get Similar Recipes
 
@@ -1622,9 +2090,10 @@ my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
 
 my $id = 715538; # double | The id of the source recipe for which similar recipes should be found.
 my $number = 1; # double | The number of random recipes to be returned (between 1 and 100).
+my $limit_license = true; # boolean | Whether the recipes should have an open license that allows display with proper attribution.
 
 eval { 
-    my $result = $api_instance->get_similar_recipes(id => $id, number => $number);
+    my $result = $api_instance->get_similar_recipes(id => $id, number => $number, limit_license => $limit_license);
     print Dumper($result);
 };
 if ($@) {
@@ -1638,6 +2107,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **double**| The id of the source recipe for which similar recipes should be found. | 
  **number** | **double**| The number of random recipes to be returned (between 1 and 100). | [optional] 
+ **limit_license** | **boolean**| Whether the recipes should have an open license that allows display with proper attribution. | [optional] 
 
 ### Return type
 
@@ -1846,6 +2316,98 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **image_analysis_by_url**
+> object image_analysis_by_url(image_url => $image_url)
+
+Image Analysis by URL
+
+Analyze a food image. The API tries to classify the image, guess the nutrition, and find a matching recipes. You can play around with that endpoint!
+
+### Example 
+```perl
+use Data::Dumper;
+use WWW::OpenAPIClient::DefaultApi;
+my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+);
+
+my $image_url = https://spoonacular.com/recipeImages/635350-240x150.jpg; # string | The URL of the image to be analyzed.
+
+eval { 
+    my $result = $api_instance->image_analysis_by_url(image_url => $image_url);
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling DefaultApi->image_analysis_by_url: $@\n";
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **image_url** | **string**| The URL of the image to be analyzed. | 
+
+### Return type
+
+**object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **image_classification_by_url**
+> object image_classification_by_url(image_url => $image_url)
+
+Image Classification by URL
+
+Classify a food image. You can play around with that endpoint!
+
+### Example 
+```perl
+use Data::Dumper;
+use WWW::OpenAPIClient::DefaultApi;
+my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+);
+
+my $image_url = https://spoonacular.com/recipeImages/635350-240x150.jpg; # string | The URL of the image to be classified.
+
+eval { 
+    my $result = $api_instance->image_classification_by_url(image_url => $image_url);
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling DefaultApi->image_classification_by_url: $@\n";
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **image_url** | **string**| The URL of the image to be classified. | 
+
+### Return type
+
+**object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **map_ingredients_to_grocery_products**
 > object map_ingredients_to_grocery_products(body => $body)
 
@@ -1988,6 +2550,60 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **search_custom_foods**
+> object search_custom_foods(query => $query, username => $username, hash => $hash, offset => $offset, number => $number)
+
+Search Custom Foods
+
+Search custom foods in a user's account.
+
+### Example 
+```perl
+use Data::Dumper;
+use WWW::OpenAPIClient::DefaultApi;
+my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+);
+
+my $query = brat; # string | The search query.
+my $username = dsky; # string | The username.
+my $hash = 4b5v4398573406; # string | The private hash for the username.
+my $offset = 0; # double | The number of results to skip (between 0 and 990).
+my $number = 10; # double | The number of expected results (between 1 and 100).
+
+eval { 
+    my $result = $api_instance->search_custom_foods(query => $query, username => $username, hash => $hash, offset => $offset, number => $number);
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling DefaultApi->search_custom_foods: $@\n";
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **query** | **string**| The search query. | 
+ **username** | **string**| The username. | 
+ **hash** | **string**| The private hash for the username. | 
+ **offset** | **double**| The number of results to skip (between 0 and 990). | [optional] 
+ **number** | **double**| The number of expected results (between 1 and 100). | [optional] 
+
+### Return type
+
+**object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **search_food_videos**
 > object search_food_videos(query => $query, type => $type, cuisine => $cuisine, diet => $diet, include_ingredients => $include_ingredients, exclude_ingredients => $exclude_ingredients, min_length => $min_length, max_length => $max_length, offset => $offset, number => $number)
 
@@ -2075,7 +2691,7 @@ my $min_protein = 10; # double | The minimum amount of protein in grams the prod
 my $max_protein = 100; # double | The maximum amount of protein in grams the product can have.
 my $min_fat = 1; # double | The minimum amount of fat in grams the product must have.
 my $max_fat = 100; # double | The maximum amount of fat in grams the product can have.
-my $offset = 0; # double | The offset number for paging (between 0 and 990).
+my $offset = 0; # double | The number of results to skip (between 0 and 990).
 my $number = 10; # double | The number of expected results (between 1 and 100).
 
 eval { 
@@ -2100,7 +2716,7 @@ Name | Type | Description  | Notes
  **max_protein** | **double**| The maximum amount of protein in grams the product can have. | [optional] 
  **min_fat** | **double**| The minimum amount of fat in grams the product must have. | [optional] 
  **max_fat** | **double**| The maximum amount of fat in grams the product can have. | [optional] 
- **offset** | **double**| The offset number for paging (between 0 and 990). | [optional] 
+ **offset** | **double**| The number of results to skip (between 0 and 990). | [optional] 
  **number** | **double**| The number of expected results (between 1 and 100). | [optional] 
 
 ### Return type
@@ -2297,7 +2913,7 @@ No authorization required
 
 Search Recipes by Ingredients
 
-Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don't currently have (post shopping).
+             Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don't currently have (post shopping).         
 
 ### Example 
 ```perl
@@ -2432,7 +3048,7 @@ my $min_sugar = 0; # double | The minimum amount of sugar in grams the recipe mu
 my $max_sugar = 100; # double | The maximum amount of sugar in grams the recipe can have.
 my $min_zinc = 0; # double | The minimum amount of zinc in milligrams the recipe must have.
 my $max_zinc = 100; # double | The maximum amount of zinc in milligrams the recipe can have.
-my $offset = 0; # double | The offset number for paging (between 0 and 990).
+my $offset = 0; # double | The number of results to skip (between 0 and 900).
 my $number = 10; # double | The number of expected results (between 1 and 100).
 my $random = false; # boolean | If true, every request will give you a random set of recipes within the requested limits.
 my $limit_license = true; # boolean | Whether the recipes should have an open license that allows display with proper attribution.
@@ -2522,7 +3138,7 @@ Name | Type | Description  | Notes
  **max_sugar** | **double**| The maximum amount of sugar in grams the recipe can have. | [optional] 
  **min_zinc** | **double**| The minimum amount of zinc in milligrams the recipe must have. | [optional] 
  **max_zinc** | **double**| The maximum amount of zinc in milligrams the recipe can have. | [optional] 
- **offset** | **double**| The offset number for paging (between 0 and 990). | [optional] 
+ **offset** | **double**| The number of results to skip (between 0 and 900). | [optional] 
  **number** | **double**| The number of expected results (between 1 and 100). | [optional] 
  **random** | **boolean**| If true, every request will give you a random set of recipes within the requested limits. | [optional] 
  **limit_license** | **boolean**| Whether the recipes should have an open license that allows display with proper attribution. | [optional] 
@@ -2543,7 +3159,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **search_recipes_complex**
-> object search_recipes_complex(query => $query, cuisine => $cuisine, exclude_cuisine => $exclude_cuisine, diet => $diet, intolerances => $intolerances, equipment => $equipment, include_ingredients => $include_ingredients, exclude_ingredients => $exclude_ingredients, type => $type, instructions_required => $instructions_required, fill_ingredients => $fill_ingredients, add_recipe_information => $add_recipe_information, author => $author, tags => $tags, title_match => $title_match, max_ready_time => $max_ready_time, ignore_pantry => $ignore_pantry, sort => $sort, sort_direction => $sort_direction, min_carbs => $min_carbs, max_carbs => $max_carbs, min_protein => $min_protein, max_protein => $max_protein, min_calories => $min_calories, max_calories => $max_calories, min_fat => $min_fat, max_fat => $max_fat, min_alcohol => $min_alcohol, max_alcohol => $max_alcohol, min_caffeine => $min_caffeine, max_caffeine => $max_caffeine, min_copper => $min_copper, max_copper => $max_copper, min_calcium => $min_calcium, max_calcium => $max_calcium, min_choline => $min_choline, max_choline => $max_choline, min_cholesterol => $min_cholesterol, max_cholesterol => $max_cholesterol, min_fluoride => $min_fluoride, max_fluoride => $max_fluoride, min_saturated_fat => $min_saturated_fat, max_saturated_fat => $max_saturated_fat, min_vitamin_a => $min_vitamin_a, max_vitamin_a => $max_vitamin_a, min_vitamin_c => $min_vitamin_c, max_vitamin_c => $max_vitamin_c, min_vitamin_d => $min_vitamin_d, max_vitamin_d => $max_vitamin_d, min_vitamin_e => $min_vitamin_e, max_vitamin_e => $max_vitamin_e, min_vitamin_k => $min_vitamin_k, max_vitamin_k => $max_vitamin_k, min_vitamin_b1 => $min_vitamin_b1, max_vitamin_b1 => $max_vitamin_b1, min_vitamin_b2 => $min_vitamin_b2, max_vitamin_b2 => $max_vitamin_b2, min_vitamin_b5 => $min_vitamin_b5, max_vitamin_b5 => $max_vitamin_b5, min_vitamin_b3 => $min_vitamin_b3, max_vitamin_b3 => $max_vitamin_b3, min_vitamin_b6 => $min_vitamin_b6, max_vitamin_b6 => $max_vitamin_b6, min_vitamin_b12 => $min_vitamin_b12, max_vitamin_b12 => $max_vitamin_b12, min_fiber => $min_fiber, max_fiber => $max_fiber, min_folate => $min_folate, max_folate => $max_folate, min_folic_acid => $min_folic_acid, max_folic_acid => $max_folic_acid, min_iodine => $min_iodine, max_iodine => $max_iodine, min_iron => $min_iron, max_iron => $max_iron, min_magnesium => $min_magnesium, max_magnesium => $max_magnesium, min_manganese => $min_manganese, max_manganese => $max_manganese, min_phosphorus => $min_phosphorus, max_phosphorus => $max_phosphorus, min_potassium => $min_potassium, max_potassium => $max_potassium, min_selenium => $min_selenium, max_selenium => $max_selenium, min_sodium => $min_sodium, max_sodium => $max_sodium, min_sugar => $min_sugar, max_sugar => $max_sugar, min_zinc => $min_zinc, max_zinc => $max_zinc, offset => $offset, number => $number, limit_license => $limit_license)
+> object search_recipes_complex(query => $query, cuisine => $cuisine, exclude_cuisine => $exclude_cuisine, diet => $diet, intolerances => $intolerances, equipment => $equipment, include_ingredients => $include_ingredients, exclude_ingredients => $exclude_ingredients, type => $type, instructions_required => $instructions_required, fill_ingredients => $fill_ingredients, add_recipe_information => $add_recipe_information, add_recipe_nutrition => $add_recipe_nutrition, author => $author, tags => $tags, recipe_box_id => $recipe_box_id, title_match => $title_match, max_ready_time => $max_ready_time, ignore_pantry => $ignore_pantry, sort => $sort, sort_direction => $sort_direction, min_carbs => $min_carbs, max_carbs => $max_carbs, min_protein => $min_protein, max_protein => $max_protein, min_calories => $min_calories, max_calories => $max_calories, min_fat => $min_fat, max_fat => $max_fat, min_alcohol => $min_alcohol, max_alcohol => $max_alcohol, min_caffeine => $min_caffeine, max_caffeine => $max_caffeine, min_copper => $min_copper, max_copper => $max_copper, min_calcium => $min_calcium, max_calcium => $max_calcium, min_choline => $min_choline, max_choline => $max_choline, min_cholesterol => $min_cholesterol, max_cholesterol => $max_cholesterol, min_fluoride => $min_fluoride, max_fluoride => $max_fluoride, min_saturated_fat => $min_saturated_fat, max_saturated_fat => $max_saturated_fat, min_vitamin_a => $min_vitamin_a, max_vitamin_a => $max_vitamin_a, min_vitamin_c => $min_vitamin_c, max_vitamin_c => $max_vitamin_c, min_vitamin_d => $min_vitamin_d, max_vitamin_d => $max_vitamin_d, min_vitamin_e => $min_vitamin_e, max_vitamin_e => $max_vitamin_e, min_vitamin_k => $min_vitamin_k, max_vitamin_k => $max_vitamin_k, min_vitamin_b1 => $min_vitamin_b1, max_vitamin_b1 => $max_vitamin_b1, min_vitamin_b2 => $min_vitamin_b2, max_vitamin_b2 => $max_vitamin_b2, min_vitamin_b5 => $min_vitamin_b5, max_vitamin_b5 => $max_vitamin_b5, min_vitamin_b3 => $min_vitamin_b3, max_vitamin_b3 => $max_vitamin_b3, min_vitamin_b6 => $min_vitamin_b6, max_vitamin_b6 => $max_vitamin_b6, min_vitamin_b12 => $min_vitamin_b12, max_vitamin_b12 => $max_vitamin_b12, min_fiber => $min_fiber, max_fiber => $max_fiber, min_folate => $min_folate, max_folate => $max_folate, min_folic_acid => $min_folic_acid, max_folic_acid => $max_folic_acid, min_iodine => $min_iodine, max_iodine => $max_iodine, min_iron => $min_iron, max_iron => $max_iron, min_magnesium => $min_magnesium, max_magnesium => $max_magnesium, min_manganese => $min_manganese, max_manganese => $max_manganese, min_phosphorus => $min_phosphorus, max_phosphorus => $max_phosphorus, min_potassium => $min_potassium, max_potassium => $max_potassium, min_selenium => $min_selenium, max_selenium => $max_selenium, min_sodium => $min_sodium, max_sodium => $max_sodium, min_sugar => $min_sugar, max_sugar => $max_sugar, min_zinc => $min_zinc, max_zinc => $max_zinc, offset => $offset, number => $number, limit_license => $limit_license)
 
 Search Recipes Complex
 
@@ -2566,10 +3182,12 @@ my $include_ingredients = tomato,cheese; # string | A comma-separated list of in
 my $exclude_ingredients = eggs; # string | A comma-separated list of ingredients or ingredient types that the recipes must not contain.
 my $type = main course; # string | The type of recipe. See a full list of supported meal types.
 my $instructions_required = true; # boolean | Whether the recipes must have instructions.
-my $fill_ingredients = false; # boolean | Add information about the used and missing ingredients in each recipe.
-my $add_recipe_information = false; # boolean | If set to true, you get more information about the recipes returned. This saves you from needing to call to get recipe information.
+my $fill_ingredients = false; # boolean | Add information about the ingredients and whether they are used or missing in relation to the query.
+my $add_recipe_information = false; # boolean | If set to true, you get more information about the recipes returned.
+my $add_recipe_nutrition = false; # boolean | If set to true, you get nutritional information about each recipes returned.
 my $author = coffeebean; # string | The username of the recipe author.
-my $tags = myCustomTag; # string | User defined tags that have to match.
+my $tags = myCustomTag; # string | User defined tags that have to match. The author param has to be set.
+my $recipe_box_id = 2468; # double | The id of the recipe box to which the search should be limited to.
 my $title_match = Crock Pot; # string | Enter text that must be found in the title of the recipes.
 my $max_ready_time = 20; # double | The maximum time in minutes it should take to prepare and cook the recipe.
 my $ignore_pantry = true; # boolean | Whether to ignore typical pantry items, such as water, salt, flour, etc.
@@ -2647,12 +3265,12 @@ my $min_sugar = 0; # double | The minimum amount of sugar in grams the recipe mu
 my $max_sugar = 100; # double | The maximum amount of sugar in grams the recipe can have.
 my $min_zinc = 0; # double | The minimum amount of zinc in milligrams the recipe must have.
 my $max_zinc = 100; # double | The maximum amount of zinc in milligrams the recipe can have.
-my $offset = 0; # double | The offset number for paging (between 0 and 990).
-my $number = 5; # double | The number of expected results (between 1 and 10).
+my $offset = 0; # double | The number of results to skip (between 0 and 900).
+my $number = 10; # double | The number of expected results (between 1 and 100).
 my $limit_license = true; # boolean | Whether the recipes should have an open license that allows display with proper attribution.
 
 eval { 
-    my $result = $api_instance->search_recipes_complex(query => $query, cuisine => $cuisine, exclude_cuisine => $exclude_cuisine, diet => $diet, intolerances => $intolerances, equipment => $equipment, include_ingredients => $include_ingredients, exclude_ingredients => $exclude_ingredients, type => $type, instructions_required => $instructions_required, fill_ingredients => $fill_ingredients, add_recipe_information => $add_recipe_information, author => $author, tags => $tags, title_match => $title_match, max_ready_time => $max_ready_time, ignore_pantry => $ignore_pantry, sort => $sort, sort_direction => $sort_direction, min_carbs => $min_carbs, max_carbs => $max_carbs, min_protein => $min_protein, max_protein => $max_protein, min_calories => $min_calories, max_calories => $max_calories, min_fat => $min_fat, max_fat => $max_fat, min_alcohol => $min_alcohol, max_alcohol => $max_alcohol, min_caffeine => $min_caffeine, max_caffeine => $max_caffeine, min_copper => $min_copper, max_copper => $max_copper, min_calcium => $min_calcium, max_calcium => $max_calcium, min_choline => $min_choline, max_choline => $max_choline, min_cholesterol => $min_cholesterol, max_cholesterol => $max_cholesterol, min_fluoride => $min_fluoride, max_fluoride => $max_fluoride, min_saturated_fat => $min_saturated_fat, max_saturated_fat => $max_saturated_fat, min_vitamin_a => $min_vitamin_a, max_vitamin_a => $max_vitamin_a, min_vitamin_c => $min_vitamin_c, max_vitamin_c => $max_vitamin_c, min_vitamin_d => $min_vitamin_d, max_vitamin_d => $max_vitamin_d, min_vitamin_e => $min_vitamin_e, max_vitamin_e => $max_vitamin_e, min_vitamin_k => $min_vitamin_k, max_vitamin_k => $max_vitamin_k, min_vitamin_b1 => $min_vitamin_b1, max_vitamin_b1 => $max_vitamin_b1, min_vitamin_b2 => $min_vitamin_b2, max_vitamin_b2 => $max_vitamin_b2, min_vitamin_b5 => $min_vitamin_b5, max_vitamin_b5 => $max_vitamin_b5, min_vitamin_b3 => $min_vitamin_b3, max_vitamin_b3 => $max_vitamin_b3, min_vitamin_b6 => $min_vitamin_b6, max_vitamin_b6 => $max_vitamin_b6, min_vitamin_b12 => $min_vitamin_b12, max_vitamin_b12 => $max_vitamin_b12, min_fiber => $min_fiber, max_fiber => $max_fiber, min_folate => $min_folate, max_folate => $max_folate, min_folic_acid => $min_folic_acid, max_folic_acid => $max_folic_acid, min_iodine => $min_iodine, max_iodine => $max_iodine, min_iron => $min_iron, max_iron => $max_iron, min_magnesium => $min_magnesium, max_magnesium => $max_magnesium, min_manganese => $min_manganese, max_manganese => $max_manganese, min_phosphorus => $min_phosphorus, max_phosphorus => $max_phosphorus, min_potassium => $min_potassium, max_potassium => $max_potassium, min_selenium => $min_selenium, max_selenium => $max_selenium, min_sodium => $min_sodium, max_sodium => $max_sodium, min_sugar => $min_sugar, max_sugar => $max_sugar, min_zinc => $min_zinc, max_zinc => $max_zinc, offset => $offset, number => $number, limit_license => $limit_license);
+    my $result = $api_instance->search_recipes_complex(query => $query, cuisine => $cuisine, exclude_cuisine => $exclude_cuisine, diet => $diet, intolerances => $intolerances, equipment => $equipment, include_ingredients => $include_ingredients, exclude_ingredients => $exclude_ingredients, type => $type, instructions_required => $instructions_required, fill_ingredients => $fill_ingredients, add_recipe_information => $add_recipe_information, add_recipe_nutrition => $add_recipe_nutrition, author => $author, tags => $tags, recipe_box_id => $recipe_box_id, title_match => $title_match, max_ready_time => $max_ready_time, ignore_pantry => $ignore_pantry, sort => $sort, sort_direction => $sort_direction, min_carbs => $min_carbs, max_carbs => $max_carbs, min_protein => $min_protein, max_protein => $max_protein, min_calories => $min_calories, max_calories => $max_calories, min_fat => $min_fat, max_fat => $max_fat, min_alcohol => $min_alcohol, max_alcohol => $max_alcohol, min_caffeine => $min_caffeine, max_caffeine => $max_caffeine, min_copper => $min_copper, max_copper => $max_copper, min_calcium => $min_calcium, max_calcium => $max_calcium, min_choline => $min_choline, max_choline => $max_choline, min_cholesterol => $min_cholesterol, max_cholesterol => $max_cholesterol, min_fluoride => $min_fluoride, max_fluoride => $max_fluoride, min_saturated_fat => $min_saturated_fat, max_saturated_fat => $max_saturated_fat, min_vitamin_a => $min_vitamin_a, max_vitamin_a => $max_vitamin_a, min_vitamin_c => $min_vitamin_c, max_vitamin_c => $max_vitamin_c, min_vitamin_d => $min_vitamin_d, max_vitamin_d => $max_vitamin_d, min_vitamin_e => $min_vitamin_e, max_vitamin_e => $max_vitamin_e, min_vitamin_k => $min_vitamin_k, max_vitamin_k => $max_vitamin_k, min_vitamin_b1 => $min_vitamin_b1, max_vitamin_b1 => $max_vitamin_b1, min_vitamin_b2 => $min_vitamin_b2, max_vitamin_b2 => $max_vitamin_b2, min_vitamin_b5 => $min_vitamin_b5, max_vitamin_b5 => $max_vitamin_b5, min_vitamin_b3 => $min_vitamin_b3, max_vitamin_b3 => $max_vitamin_b3, min_vitamin_b6 => $min_vitamin_b6, max_vitamin_b6 => $max_vitamin_b6, min_vitamin_b12 => $min_vitamin_b12, max_vitamin_b12 => $max_vitamin_b12, min_fiber => $min_fiber, max_fiber => $max_fiber, min_folate => $min_folate, max_folate => $max_folate, min_folic_acid => $min_folic_acid, max_folic_acid => $max_folic_acid, min_iodine => $min_iodine, max_iodine => $max_iodine, min_iron => $min_iron, max_iron => $max_iron, min_magnesium => $min_magnesium, max_magnesium => $max_magnesium, min_manganese => $min_manganese, max_manganese => $max_manganese, min_phosphorus => $min_phosphorus, max_phosphorus => $max_phosphorus, min_potassium => $min_potassium, max_potassium => $max_potassium, min_selenium => $min_selenium, max_selenium => $max_selenium, min_sodium => $min_sodium, max_sodium => $max_sodium, min_sugar => $min_sugar, max_sugar => $max_sugar, min_zinc => $min_zinc, max_zinc => $max_zinc, offset => $offset, number => $number, limit_license => $limit_license);
     print Dumper($result);
 };
 if ($@) {
@@ -2674,10 +3292,12 @@ Name | Type | Description  | Notes
  **exclude_ingredients** | **string**| A comma-separated list of ingredients or ingredient types that the recipes must not contain. | [optional] 
  **type** | **string**| The type of recipe. See a full list of supported meal types. | [optional] 
  **instructions_required** | **boolean**| Whether the recipes must have instructions. | [optional] 
- **fill_ingredients** | **boolean**| Add information about the used and missing ingredients in each recipe. | [optional] 
- **add_recipe_information** | **boolean**| If set to true, you get more information about the recipes returned. This saves you from needing to call to get recipe information. | [optional] 
+ **fill_ingredients** | **boolean**| Add information about the ingredients and whether they are used or missing in relation to the query. | [optional] 
+ **add_recipe_information** | **boolean**| If set to true, you get more information about the recipes returned. | [optional] 
+ **add_recipe_nutrition** | **boolean**| If set to true, you get nutritional information about each recipes returned. | [optional] 
  **author** | **string**| The username of the recipe author. | [optional] 
- **tags** | **string**| User defined tags that have to match. | [optional] 
+ **tags** | **string**| User defined tags that have to match. The author param has to be set. | [optional] 
+ **recipe_box_id** | **double**| The id of the recipe box to which the search should be limited to. | [optional] 
  **title_match** | **string**| Enter text that must be found in the title of the recipes. | [optional] 
  **max_ready_time** | **double**| The maximum time in minutes it should take to prepare and cook the recipe. | [optional] 
  **ignore_pantry** | **boolean**| Whether to ignore typical pantry items, such as water, salt, flour, etc. | [optional] 
@@ -2755,8 +3375,8 @@ Name | Type | Description  | Notes
  **max_sugar** | **double**| The maximum amount of sugar in grams the recipe can have. | [optional] 
  **min_zinc** | **double**| The minimum amount of zinc in milligrams the recipe must have. | [optional] 
  **max_zinc** | **double**| The maximum amount of zinc in milligrams the recipe can have. | [optional] 
- **offset** | **double**| The offset number for paging (between 0 and 990). | [optional] 
- **number** | **double**| The number of expected results (between 1 and 10). | [optional] 
+ **offset** | **double**| The number of results to skip (between 0 and 900). | [optional] 
+ **number** | **double**| The number of expected results (between 1 and 100). | [optional] 
  **limit_license** | **boolean**| Whether the recipes should have an open license that allows display with proper attribution. | [optional] 
 
 ### Return type

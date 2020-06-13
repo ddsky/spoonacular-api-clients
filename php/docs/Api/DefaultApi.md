@@ -4,6 +4,8 @@ All URIs are relative to *https://api.spoonacular.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**addToMealPlan**](DefaultApi.md#addToMealPlan) | **POST** /mealplanner/{username}/items | Add to Meal Plan
+[**addToShoppingList**](DefaultApi.md#addToShoppingList) | **POST** /mealplanner/{username}/shopping-list/items | Add to Shopping List
 [**analyzeARecipeSearchQuery**](DefaultApi.md#analyzeARecipeSearchQuery) | **GET** /recipes/queries/analyze | Analyze a Recipe Search Query
 [**analyzeRecipeInstructions**](DefaultApi.md#analyzeRecipeInstructions) | **POST** /recipes/analyzeInstructions | Analyze Recipe Instructions
 [**autocompleteIngredientSearch**](DefaultApi.md#autocompleteIngredientSearch) | **GET** /food/ingredients/autocomplete | Autocomplete Ingredient Search
@@ -15,9 +17,12 @@ Method | HTTP request | Description
 [**classifyGroceryProductBulk**](DefaultApi.md#classifyGroceryProductBulk) | **POST** /food/products/classifyBatch | Classify Grocery Product Bulk
 [**convertAmounts**](DefaultApi.md#convertAmounts) | **GET** /recipes/convert | Convert Amounts
 [**createRecipeCard**](DefaultApi.md#createRecipeCard) | **POST** /recipes/visualizeRecipe | Create Recipe Card
+[**deleteFromMealPlan**](DefaultApi.md#deleteFromMealPlan) | **DELETE** /mealplanner/{username}/items/{id} | Delete from Meal Plan
+[**deleteFromShoppingList**](DefaultApi.md#deleteFromShoppingList) | **DELETE** /mealplanner/{username}/shopping-list/items/{id} | Delete from Shopping List
 [**detectFoodInText**](DefaultApi.md#detectFoodInText) | **POST** /food/detect | Detect Food in Text
 [**extractRecipeFromWebsite**](DefaultApi.md#extractRecipeFromWebsite) | **GET** /recipes/extract | Extract Recipe from Website
 [**generateMealPlan**](DefaultApi.md#generateMealPlan) | **GET** /mealplanner/generate | Generate Meal Plan
+[**generateShoppingList**](DefaultApi.md#generateShoppingList) | **POST** /mealplanner/{username}/shopping-list/{start-date}/{end-date} | Generate Shopping List
 [**getARandomFoodJoke**](DefaultApi.md#getARandomFoodJoke) | **GET** /food/jokes/random | Get a Random Food Joke
 [**getAnalyzedRecipeInstructions**](DefaultApi.md#getAnalyzedRecipeInstructions) | **GET** /recipes/{id}/analyzedInstructions | Get Analyzed Recipe Instructions
 [**getComparableProducts**](DefaultApi.md#getComparableProducts) | **GET** /food/products/upc/{upc}/comparable | Get Comparable Products
@@ -26,6 +31,9 @@ Method | HTTP request | Description
 [**getIngredientInformation**](DefaultApi.md#getIngredientInformation) | **GET** /food/ingredients/{id}/information | Get Ingredient Information
 [**getIngredientSubstitutes**](DefaultApi.md#getIngredientSubstitutes) | **GET** /food/ingredients/substitutes | Get Ingredient Substitutes
 [**getIngredientSubstitutesByID**](DefaultApi.md#getIngredientSubstitutesByID) | **GET** /food/ingredients/{id}/substitutes | Get Ingredient Substitutes by ID
+[**getMealPlanTemplate**](DefaultApi.md#getMealPlanTemplate) | **GET** /mealplanner/{username}/templates/{id} | Get Meal Plan Template
+[**getMealPlanTemplates**](DefaultApi.md#getMealPlanTemplates) | **GET** /mealplanner/{username}/templates | Get Meal Plan Templates
+[**getMealPlanWeek**](DefaultApi.md#getMealPlanWeek) | **GET** /mealplanner/{username}/week/{start-date} | Get Meal Plan Week
 [**getMenuItemInformation**](DefaultApi.md#getMenuItemInformation) | **GET** /food/menuItems/{id} | Get Menu Item Information
 [**getProductInformation**](DefaultApi.md#getProductInformation) | **GET** /food/products/{id} | Get Product Information
 [**getRandomFoodTrivia**](DefaultApi.md#getRandomFoodTrivia) | **GET** /food/trivia/random | Get Random Food Trivia
@@ -36,14 +44,18 @@ Method | HTTP request | Description
 [**getRecipeIngredientsByID**](DefaultApi.md#getRecipeIngredientsByID) | **GET** /recipes/{id}/ingredientWidget.json | Get Recipe Ingredients by ID
 [**getRecipeNutritionWidgetByID**](DefaultApi.md#getRecipeNutritionWidgetByID) | **GET** /recipes/{id}/nutritionWidget.json | Get Recipe Nutrition Widget by ID
 [**getRecipePriceBreakdownByID**](DefaultApi.md#getRecipePriceBreakdownByID) | **GET** /recipes/{id}/priceBreakdownWidget.json | Get Recipe Price Breakdown by ID
+[**getShoppingList**](DefaultApi.md#getShoppingList) | **GET** /mealplanner/{username}/shopping-list | Get Shopping List
 [**getSimilarRecipes**](DefaultApi.md#getSimilarRecipes) | **GET** /recipes/{id}/similar | Get Similar Recipes
 [**getWineDescription**](DefaultApi.md#getWineDescription) | **GET** /food/wine/description | Get Wine Description
 [**getWinePairing**](DefaultApi.md#getWinePairing) | **GET** /food/wine/pairing | Get Wine Pairing
 [**getWineRecommendation**](DefaultApi.md#getWineRecommendation) | **GET** /food/wine/recommendation | Get Wine Recommendation
 [**guessNutritionByDishName**](DefaultApi.md#guessNutritionByDishName) | **GET** /recipes/guessNutrition | Guess Nutrition by Dish Name
+[**imageAnalysisByURL**](DefaultApi.md#imageAnalysisByURL) | **GET** /food/images/analyze | Image Analysis by URL
+[**imageClassificationByURL**](DefaultApi.md#imageClassificationByURL) | **GET** /food/images/classify | Image Classification by URL
 [**mapIngredientsToGroceryProducts**](DefaultApi.md#mapIngredientsToGroceryProducts) | **POST** /food/ingredients/map | Map Ingredients to Grocery Products
 [**parseIngredients**](DefaultApi.md#parseIngredients) | **POST** /recipes/parseIngredients | Parse Ingredients
 [**quickAnswer**](DefaultApi.md#quickAnswer) | **GET** /recipes/quickAnswer | Quick Answer
+[**searchCustomFoods**](DefaultApi.md#searchCustomFoods) | **GET** /food/customFoods/search | Search Custom Foods
 [**searchFoodVideos**](DefaultApi.md#searchFoodVideos) | **GET** /food/videos/search | Search Food Videos
 [**searchGroceryProducts**](DefaultApi.md#searchGroceryProducts) | **GET** /food/products/search | Search Grocery Products
 [**searchGroceryProductsByUPC**](DefaultApi.md#searchGroceryProductsByUPC) | **GET** /food/products/upc/{upc} | Search Grocery Products by UPC
@@ -66,6 +78,126 @@ Method | HTTP request | Description
 [**visualizeRecipeNutritionByID**](DefaultApi.md#visualizeRecipeNutritionByID) | **GET** /recipes/{id}/nutritionWidget | Visualize Recipe Nutrition by ID
 [**visualizeRecipePriceBreakdownByID**](DefaultApi.md#visualizeRecipePriceBreakdownByID) | **GET** /recipes/{id}/priceBreakdownWidget | Visualize Recipe Price Breakdown by ID
 
+
+
+## addToMealPlan
+
+> object addToMealPlan($username, $hash, $inline_object9)
+
+Add to Meal Plan
+
+Add an item to the user's meal plan.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+$apiInstance = new com.spoonacular.client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$username = dsky; // string | The username.
+$hash = 4b5v4398573406; // string | The private hash for the username.
+$inline_object9 = new \com.spoonacular.client\com.spoonacular.client.model\InlineObject9(); // \com.spoonacular.client\com.spoonacular.client.model\InlineObject9 | 
+
+try {
+    $result = $apiInstance->addToMealPlan($username, $hash, $inline_object9);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DefaultApi->addToMealPlan: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **string**| The username. |
+ **hash** | **string**| The private hash for the username. |
+ **inline_object9** | [**\com.spoonacular.client\com.spoonacular.client.model\InlineObject9**](../Model/InlineObject9.md)|  |
+
+### Return type
+
+**object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: 
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## addToShoppingList
+
+> object addToShoppingList($username, $hash, $inline_object12)
+
+Add to Shopping List
+
+Add an item to the current shopping list of a user.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+$apiInstance = new com.spoonacular.client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$username = dsky; // string | The username.
+$hash = 4b5v4398573406; // string | The private hash for the username.
+$inline_object12 = new \com.spoonacular.client\com.spoonacular.client.model\InlineObject12(); // \com.spoonacular.client\com.spoonacular.client.model\InlineObject12 | 
+
+try {
+    $result = $apiInstance->addToShoppingList($username, $hash, $inline_object12);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DefaultApi->addToShoppingList: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **string**| The username. |
+ **hash** | **string**| The private hash for the username. |
+ **inline_object12** | [**\com.spoonacular.client\com.spoonacular.client.model\InlineObject12**](../Model/InlineObject12.md)|  |
+
+### Return type
+
+**object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: 
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
 
 
 ## analyzeARecipeSearchQuery
@@ -730,6 +862,130 @@ No authorization required
 [[Back to README]](../../README.md)
 
 
+## deleteFromMealPlan
+
+> object deleteFromMealPlan($username, $id, $hash, $inline_object10)
+
+Delete from Meal Plan
+
+Delete an item from the user's meal plan.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+$apiInstance = new com.spoonacular.client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$username = dsky; // string | The username.
+$id = 15678; // float | The shopping list item id.
+$hash = 4b5v4398573406; // string | The private hash for the username.
+$inline_object10 = new \com.spoonacular.client\com.spoonacular.client.model\InlineObject10(); // \com.spoonacular.client\com.spoonacular.client.model\InlineObject10 | 
+
+try {
+    $result = $apiInstance->deleteFromMealPlan($username, $id, $hash, $inline_object10);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DefaultApi->deleteFromMealPlan: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **string**| The username. |
+ **id** | **float**| The shopping list item id. |
+ **hash** | **string**| The private hash for the username. |
+ **inline_object10** | [**\com.spoonacular.client\com.spoonacular.client.model\InlineObject10**](../Model/InlineObject10.md)|  |
+
+### Return type
+
+**object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: 
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## deleteFromShoppingList
+
+> object deleteFromShoppingList($username, $id, $hash, $inline_object13)
+
+Delete from Shopping List
+
+Delete an item from the current shopping list of the user.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+$apiInstance = new com.spoonacular.client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$username = dsky; // string | The username.
+$id = 15678; // float | The shopping list item id.
+$hash = 4b5v4398573406; // string | The private hash for the username.
+$inline_object13 = new \com.spoonacular.client\com.spoonacular.client.model\InlineObject13(); // \com.spoonacular.client\com.spoonacular.client.model\InlineObject13 | 
+
+try {
+    $result = $apiInstance->deleteFromShoppingList($username, $id, $hash, $inline_object13);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DefaultApi->deleteFromShoppingList: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **string**| The username. |
+ **id** | **float**| The shopping list item id. |
+ **hash** | **string**| The private hash for the username. |
+ **inline_object13** | [**\com.spoonacular.client\com.spoonacular.client.model\InlineObject13**](../Model/InlineObject13.md)|  |
+
+### Return type
+
+**object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: 
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
 ## detectFoodInText
 
 > object detectFoodInText($text)
@@ -788,7 +1044,7 @@ No authorization required
 
 ## extractRecipeFromWebsite
 
-> object extractRecipeFromWebsite($url, $force_extraction)
+> object extractRecipeFromWebsite($url, $force_extraction, $analyze)
 
 Extract Recipe from Website
 
@@ -808,9 +1064,10 @@ $apiInstance = new com.spoonacular.client\Api\DefaultApi(
 );
 $url = https://foodista.com/recipe/ZHK4KPB6/chocolate-crinkle-cookies; // string | The URL of the recipe page.
 $force_extraction = true; // bool | If true, the extraction will be triggered whether we already know the recipe or not. Use this only if information is missing as this operation is slower.
+$analyze = false; // bool | If true, the recipe will be analyzed and classified resolving in more data such as cuisines, dish types, and more.
 
 try {
-    $result = $apiInstance->extractRecipeFromWebsite($url, $force_extraction);
+    $result = $apiInstance->extractRecipeFromWebsite($url, $force_extraction, $analyze);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->extractRecipeFromWebsite: ', $e->getMessage(), PHP_EOL;
@@ -825,6 +1082,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **url** | **string**| The URL of the recipe page. |
  **force_extraction** | **bool**| If true, the extraction will be triggered whether we already know the recipe or not. Use this only if information is missing as this operation is slower. | [optional]
+ **analyze** | **bool**| If true, the recipe will be analyzed and classified resolving in more data such as cuisines, dish types, and more. | [optional]
 
 ### Return type
 
@@ -899,6 +1157,70 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## generateShoppingList
+
+> object generateShoppingList($username, $start_date, $end_date, $hash, $inline_object11)
+
+Generate Shopping List
+
+Generate the shopping list for a user from the meal planner in a given time frame.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+$apiInstance = new com.spoonacular.client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$username = dsky; // string | The username.
+$start_date = 2020-06-01; // string | The start date in the format yyyy-mm-dd.
+$end_date = 2020-06-07; // string | The end date in the format yyyy-mm-dd.
+$hash = 4b5v4398573406; // string | The private hash for the username.
+$inline_object11 = new \com.spoonacular.client\com.spoonacular.client.model\InlineObject11(); // \com.spoonacular.client\com.spoonacular.client.model\InlineObject11 | 
+
+try {
+    $result = $apiInstance->generateShoppingList($username, $start_date, $end_date, $hash, $inline_object11);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DefaultApi->generateShoppingList: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **string**| The username. |
+ **start_date** | **string**| The start date in the format yyyy-mm-dd. |
+ **end_date** | **string**| The end date in the format yyyy-mm-dd. |
+ **hash** | **string**| The private hash for the username. |
+ **inline_object11** | [**\com.spoonacular.client\com.spoonacular.client.model\InlineObject11**](../Model/InlineObject11.md)|  |
+
+### Return type
+
+**object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: 
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
@@ -1358,6 +1680,184 @@ No authorization required
 [[Back to README]](../../README.md)
 
 
+## getMealPlanTemplate
+
+> object getMealPlanTemplate($username, $id, $hash)
+
+Get Meal Plan Template
+
+Get information about a meal plan template.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+$apiInstance = new com.spoonacular.client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$username = dsky; // string | The username.
+$id = 15678; // float | The shopping list item id.
+$hash = 4b5v4398573406; // string | The private hash for the username.
+
+try {
+    $result = $apiInstance->getMealPlanTemplate($username, $id, $hash);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DefaultApi->getMealPlanTemplate: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **string**| The username. |
+ **id** | **float**| The shopping list item id. |
+ **hash** | **string**| The private hash for the username. |
+
+### Return type
+
+**object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## getMealPlanTemplates
+
+> object getMealPlanTemplates($username, $hash)
+
+Get Meal Plan Templates
+
+Get meal plan templates from user or public ones.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+$apiInstance = new com.spoonacular.client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$username = dsky; // string | The username.
+$hash = 4b5v4398573406; // string | The private hash for the username.
+
+try {
+    $result = $apiInstance->getMealPlanTemplates($username, $hash);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DefaultApi->getMealPlanTemplates: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **string**| The username. |
+ **hash** | **string**| The private hash for the username. |
+
+### Return type
+
+**object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## getMealPlanWeek
+
+> object getMealPlanWeek($username, $start_date, $hash)
+
+Get Meal Plan Week
+
+Retrieve a meal planned week for the given user. The username must be a spoonacular user and the hash must the the user's hash that can be found in his/her account.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+$apiInstance = new com.spoonacular.client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$username = dsky; // string | The username.
+$start_date = 2020-06-01; // string | The start date of the meal planned week in the format yyyy-mm-dd.
+$hash = 4b5v4398573406; // string | The private hash for the username.
+
+try {
+    $result = $apiInstance->getMealPlanWeek($username, $start_date, $hash);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DefaultApi->getMealPlanWeek: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **string**| The username. |
+ **start_date** | **string**| The start date of the meal planned week in the format yyyy-mm-dd. |
+ **hash** | **string**| The private hash for the username. |
+
+### Return type
+
+**object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
 ## getMenuItemInformation
 
 > object getMenuItemInformation($id)
@@ -1420,7 +1920,7 @@ No authorization required
 
 Get Product Information
 
-Use a product id to get full information about a product, such as ingredients, nutrition, etc.
+Use a product id to get full information about a product, such as ingredients, nutrition, etc. The nutritional information is per serving.
 
 ### Example
 
@@ -1922,9 +2422,67 @@ No authorization required
 [[Back to README]](../../README.md)
 
 
+## getShoppingList
+
+> object getShoppingList($username, $hash)
+
+Get Shopping List
+
+Get the current shopping list for the given user.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+$apiInstance = new com.spoonacular.client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$username = dsky; // string | The username.
+$hash = 4b5v4398573406; // string | The private hash for the username.
+
+try {
+    $result = $apiInstance->getShoppingList($username, $hash);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DefaultApi->getShoppingList: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **string**| The username. |
+ **hash** | **string**| The private hash for the username. |
+
+### Return type
+
+**object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
 ## getSimilarRecipes
 
-> object getSimilarRecipes($id, $number)
+> object getSimilarRecipes($id, $number, $limit_license)
 
 Get Similar Recipes
 
@@ -1944,9 +2502,10 @@ $apiInstance = new com.spoonacular.client\Api\DefaultApi(
 );
 $id = 715538; // float | The id of the source recipe for which similar recipes should be found.
 $number = 1; // float | The number of random recipes to be returned (between 1 and 100).
+$limit_license = true; // bool | Whether the recipes should have an open license that allows display with proper attribution.
 
 try {
-    $result = $apiInstance->getSimilarRecipes($id, $number);
+    $result = $apiInstance->getSimilarRecipes($id, $number, $limit_license);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->getSimilarRecipes: ', $e->getMessage(), PHP_EOL;
@@ -1961,6 +2520,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **float**| The id of the source recipe for which similar recipes should be found. |
  **number** | **float**| The number of random recipes to be returned (between 1 and 100). | [optional]
+ **limit_license** | **bool**| Whether the recipes should have an open license that allows display with proper attribution. | [optional]
 
 ### Return type
 
@@ -2212,6 +2772,118 @@ No authorization required
 [[Back to README]](../../README.md)
 
 
+## imageAnalysisByURL
+
+> object imageAnalysisByURL($image_url)
+
+Image Analysis by URL
+
+Analyze a food image. The API tries to classify the image, guess the nutrition, and find a matching recipes. You can play around with that endpoint!
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+$apiInstance = new com.spoonacular.client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$image_url = https://spoonacular.com/recipeImages/635350-240x150.jpg; // string | The URL of the image to be analyzed.
+
+try {
+    $result = $apiInstance->imageAnalysisByURL($image_url);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DefaultApi->imageAnalysisByURL: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **image_url** | **string**| The URL of the image to be analyzed. |
+
+### Return type
+
+**object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## imageClassificationByURL
+
+> object imageClassificationByURL($image_url)
+
+Image Classification by URL
+
+Classify a food image. You can play around with that endpoint!
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+$apiInstance = new com.spoonacular.client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$image_url = https://spoonacular.com/recipeImages/635350-240x150.jpg; // string | The URL of the image to be classified.
+
+try {
+    $result = $apiInstance->imageClassificationByURL($image_url);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DefaultApi->imageClassificationByURL: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **image_url** | **string**| The URL of the image to be classified. |
+
+### Return type
+
+**object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
 ## mapIngredientsToGroceryProducts
 
 > object mapIngredientsToGroceryProducts($body)
@@ -2384,6 +3056,70 @@ No authorization required
 [[Back to README]](../../README.md)
 
 
+## searchCustomFoods
+
+> object searchCustomFoods($query, $username, $hash, $offset, $number)
+
+Search Custom Foods
+
+Search custom foods in a user's account.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+$apiInstance = new com.spoonacular.client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$query = brat; // string | The search query.
+$username = dsky; // string | The username.
+$hash = 4b5v4398573406; // string | The private hash for the username.
+$offset = 0; // float | The number of results to skip (between 0 and 990).
+$number = 10; // float | The number of expected results (between 1 and 100).
+
+try {
+    $result = $apiInstance->searchCustomFoods($query, $username, $hash, $offset, $number);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DefaultApi->searchCustomFoods: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **query** | **string**| The search query. |
+ **username** | **string**| The username. |
+ **hash** | **string**| The private hash for the username. |
+ **offset** | **float**| The number of results to skip (between 0 and 990). | [optional]
+ **number** | **float**| The number of expected results (between 1 and 100). | [optional]
+
+### Return type
+
+**object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
 ## searchFoodVideos
 
 > object searchFoodVideos($query, $type, $cuisine, $diet, $include_ingredients, $exclude_ingredients, $min_length, $max_length, $offset, $number)
@@ -2487,7 +3223,7 @@ $min_protein = 10; // float | The minimum amount of protein in grams the product
 $max_protein = 100; // float | The maximum amount of protein in grams the product can have.
 $min_fat = 1; // float | The minimum amount of fat in grams the product must have.
 $max_fat = 100; // float | The maximum amount of fat in grams the product can have.
-$offset = 0; // float | The offset number for paging (between 0 and 990).
+$offset = 0; // float | The number of results to skip (between 0 and 990).
 $number = 10; // float | The number of expected results (between 1 and 100).
 
 try {
@@ -2513,7 +3249,7 @@ Name | Type | Description  | Notes
  **max_protein** | **float**| The maximum amount of protein in grams the product can have. | [optional]
  **min_fat** | **float**| The minimum amount of fat in grams the product must have. | [optional]
  **max_fat** | **float**| The maximum amount of fat in grams the product can have. | [optional]
- **offset** | **float**| The offset number for paging (between 0 and 990). | [optional]
+ **offset** | **float**| The number of results to skip (between 0 and 990). | [optional]
  **number** | **float**| The number of expected results (between 1 and 100). | [optional]
 
 ### Return type
@@ -2894,7 +3630,7 @@ $min_sugar = 0; // float | The minimum amount of sugar in grams the recipe must 
 $max_sugar = 100; // float | The maximum amount of sugar in grams the recipe can have.
 $min_zinc = 0; // float | The minimum amount of zinc in milligrams the recipe must have.
 $max_zinc = 100; // float | The maximum amount of zinc in milligrams the recipe can have.
-$offset = 0; // float | The offset number for paging (between 0 and 990).
+$offset = 0; // float | The number of results to skip (between 0 and 900).
 $number = 10; // float | The number of expected results (between 1 and 100).
 $random = false; // bool | If true, every request will give you a random set of recipes within the requested limits.
 $limit_license = true; // bool | Whether the recipes should have an open license that allows display with proper attribution.
@@ -2985,7 +3721,7 @@ Name | Type | Description  | Notes
  **max_sugar** | **float**| The maximum amount of sugar in grams the recipe can have. | [optional]
  **min_zinc** | **float**| The minimum amount of zinc in milligrams the recipe must have. | [optional]
  **max_zinc** | **float**| The maximum amount of zinc in milligrams the recipe can have. | [optional]
- **offset** | **float**| The offset number for paging (between 0 and 990). | [optional]
+ **offset** | **float**| The number of results to skip (between 0 and 900). | [optional]
  **number** | **float**| The number of expected results (between 1 and 100). | [optional]
  **random** | **bool**| If true, every request will give you a random set of recipes within the requested limits. | [optional]
  **limit_license** | **bool**| Whether the recipes should have an open license that allows display with proper attribution. | [optional]
@@ -3010,7 +3746,7 @@ No authorization required
 
 ## searchRecipesComplex
 
-> object searchRecipesComplex($query, $cuisine, $exclude_cuisine, $diet, $intolerances, $equipment, $include_ingredients, $exclude_ingredients, $type, $instructions_required, $fill_ingredients, $add_recipe_information, $author, $tags, $title_match, $max_ready_time, $ignore_pantry, $sort, $sort_direction, $min_carbs, $max_carbs, $min_protein, $max_protein, $min_calories, $max_calories, $min_fat, $max_fat, $min_alcohol, $max_alcohol, $min_caffeine, $max_caffeine, $min_copper, $max_copper, $min_calcium, $max_calcium, $min_choline, $max_choline, $min_cholesterol, $max_cholesterol, $min_fluoride, $max_fluoride, $min_saturated_fat, $max_saturated_fat, $min_vitamin_a, $max_vitamin_a, $min_vitamin_c, $max_vitamin_c, $min_vitamin_d, $max_vitamin_d, $min_vitamin_e, $max_vitamin_e, $min_vitamin_k, $max_vitamin_k, $min_vitamin_b1, $max_vitamin_b1, $min_vitamin_b2, $max_vitamin_b2, $min_vitamin_b5, $max_vitamin_b5, $min_vitamin_b3, $max_vitamin_b3, $min_vitamin_b6, $max_vitamin_b6, $min_vitamin_b12, $max_vitamin_b12, $min_fiber, $max_fiber, $min_folate, $max_folate, $min_folic_acid, $max_folic_acid, $min_iodine, $max_iodine, $min_iron, $max_iron, $min_magnesium, $max_magnesium, $min_manganese, $max_manganese, $min_phosphorus, $max_phosphorus, $min_potassium, $max_potassium, $min_selenium, $max_selenium, $min_sodium, $max_sodium, $min_sugar, $max_sugar, $min_zinc, $max_zinc, $offset, $number, $limit_license)
+> object searchRecipesComplex($query, $cuisine, $exclude_cuisine, $diet, $intolerances, $equipment, $include_ingredients, $exclude_ingredients, $type, $instructions_required, $fill_ingredients, $add_recipe_information, $add_recipe_nutrition, $author, $tags, $recipe_box_id, $title_match, $max_ready_time, $ignore_pantry, $sort, $sort_direction, $min_carbs, $max_carbs, $min_protein, $max_protein, $min_calories, $max_calories, $min_fat, $max_fat, $min_alcohol, $max_alcohol, $min_caffeine, $max_caffeine, $min_copper, $max_copper, $min_calcium, $max_calcium, $min_choline, $max_choline, $min_cholesterol, $max_cholesterol, $min_fluoride, $max_fluoride, $min_saturated_fat, $max_saturated_fat, $min_vitamin_a, $max_vitamin_a, $min_vitamin_c, $max_vitamin_c, $min_vitamin_d, $max_vitamin_d, $min_vitamin_e, $max_vitamin_e, $min_vitamin_k, $max_vitamin_k, $min_vitamin_b1, $max_vitamin_b1, $min_vitamin_b2, $max_vitamin_b2, $min_vitamin_b5, $max_vitamin_b5, $min_vitamin_b3, $max_vitamin_b3, $min_vitamin_b6, $max_vitamin_b6, $min_vitamin_b12, $max_vitamin_b12, $min_fiber, $max_fiber, $min_folate, $max_folate, $min_folic_acid, $max_folic_acid, $min_iodine, $max_iodine, $min_iron, $max_iron, $min_magnesium, $max_magnesium, $min_manganese, $max_manganese, $min_phosphorus, $max_phosphorus, $min_potassium, $max_potassium, $min_selenium, $max_selenium, $min_sodium, $max_sodium, $min_sugar, $max_sugar, $min_zinc, $max_zinc, $offset, $number, $limit_license)
 
 Search Recipes Complex
 
@@ -3038,10 +3774,12 @@ $include_ingredients = tomato,cheese; // string | A comma-separated list of ingr
 $exclude_ingredients = eggs; // string | A comma-separated list of ingredients or ingredient types that the recipes must not contain.
 $type = main course; // string | The type of recipe. See a full list of supported meal types.
 $instructions_required = true; // bool | Whether the recipes must have instructions.
-$fill_ingredients = false; // bool | Add information about the used and missing ingredients in each recipe.
-$add_recipe_information = false; // bool | If set to true, you get more information about the recipes returned. This saves you from needing to call to get recipe information.
+$fill_ingredients = false; // bool | Add information about the ingredients and whether they are used or missing in relation to the query.
+$add_recipe_information = false; // bool | If set to true, you get more information about the recipes returned.
+$add_recipe_nutrition = false; // bool | If set to true, you get nutritional information about each recipes returned.
 $author = coffeebean; // string | The username of the recipe author.
-$tags = myCustomTag; // string | User defined tags that have to match.
+$tags = myCustomTag; // string | User defined tags that have to match. The author param has to be set.
+$recipe_box_id = 2468; // float | The id of the recipe box to which the search should be limited to.
 $title_match = Crock Pot; // string | Enter text that must be found in the title of the recipes.
 $max_ready_time = 20; // float | The maximum time in minutes it should take to prepare and cook the recipe.
 $ignore_pantry = true; // bool | Whether to ignore typical pantry items, such as water, salt, flour, etc.
@@ -3119,12 +3857,12 @@ $min_sugar = 0; // float | The minimum amount of sugar in grams the recipe must 
 $max_sugar = 100; // float | The maximum amount of sugar in grams the recipe can have.
 $min_zinc = 0; // float | The minimum amount of zinc in milligrams the recipe must have.
 $max_zinc = 100; // float | The maximum amount of zinc in milligrams the recipe can have.
-$offset = 0; // float | The offset number for paging (between 0 and 990).
-$number = 5; // float | The number of expected results (between 1 and 10).
+$offset = 0; // float | The number of results to skip (between 0 and 900).
+$number = 10; // float | The number of expected results (between 1 and 100).
 $limit_license = true; // bool | Whether the recipes should have an open license that allows display with proper attribution.
 
 try {
-    $result = $apiInstance->searchRecipesComplex($query, $cuisine, $exclude_cuisine, $diet, $intolerances, $equipment, $include_ingredients, $exclude_ingredients, $type, $instructions_required, $fill_ingredients, $add_recipe_information, $author, $tags, $title_match, $max_ready_time, $ignore_pantry, $sort, $sort_direction, $min_carbs, $max_carbs, $min_protein, $max_protein, $min_calories, $max_calories, $min_fat, $max_fat, $min_alcohol, $max_alcohol, $min_caffeine, $max_caffeine, $min_copper, $max_copper, $min_calcium, $max_calcium, $min_choline, $max_choline, $min_cholesterol, $max_cholesterol, $min_fluoride, $max_fluoride, $min_saturated_fat, $max_saturated_fat, $min_vitamin_a, $max_vitamin_a, $min_vitamin_c, $max_vitamin_c, $min_vitamin_d, $max_vitamin_d, $min_vitamin_e, $max_vitamin_e, $min_vitamin_k, $max_vitamin_k, $min_vitamin_b1, $max_vitamin_b1, $min_vitamin_b2, $max_vitamin_b2, $min_vitamin_b5, $max_vitamin_b5, $min_vitamin_b3, $max_vitamin_b3, $min_vitamin_b6, $max_vitamin_b6, $min_vitamin_b12, $max_vitamin_b12, $min_fiber, $max_fiber, $min_folate, $max_folate, $min_folic_acid, $max_folic_acid, $min_iodine, $max_iodine, $min_iron, $max_iron, $min_magnesium, $max_magnesium, $min_manganese, $max_manganese, $min_phosphorus, $max_phosphorus, $min_potassium, $max_potassium, $min_selenium, $max_selenium, $min_sodium, $max_sodium, $min_sugar, $max_sugar, $min_zinc, $max_zinc, $offset, $number, $limit_license);
+    $result = $apiInstance->searchRecipesComplex($query, $cuisine, $exclude_cuisine, $diet, $intolerances, $equipment, $include_ingredients, $exclude_ingredients, $type, $instructions_required, $fill_ingredients, $add_recipe_information, $add_recipe_nutrition, $author, $tags, $recipe_box_id, $title_match, $max_ready_time, $ignore_pantry, $sort, $sort_direction, $min_carbs, $max_carbs, $min_protein, $max_protein, $min_calories, $max_calories, $min_fat, $max_fat, $min_alcohol, $max_alcohol, $min_caffeine, $max_caffeine, $min_copper, $max_copper, $min_calcium, $max_calcium, $min_choline, $max_choline, $min_cholesterol, $max_cholesterol, $min_fluoride, $max_fluoride, $min_saturated_fat, $max_saturated_fat, $min_vitamin_a, $max_vitamin_a, $min_vitamin_c, $max_vitamin_c, $min_vitamin_d, $max_vitamin_d, $min_vitamin_e, $max_vitamin_e, $min_vitamin_k, $max_vitamin_k, $min_vitamin_b1, $max_vitamin_b1, $min_vitamin_b2, $max_vitamin_b2, $min_vitamin_b5, $max_vitamin_b5, $min_vitamin_b3, $max_vitamin_b3, $min_vitamin_b6, $max_vitamin_b6, $min_vitamin_b12, $max_vitamin_b12, $min_fiber, $max_fiber, $min_folate, $max_folate, $min_folic_acid, $max_folic_acid, $min_iodine, $max_iodine, $min_iron, $max_iron, $min_magnesium, $max_magnesium, $min_manganese, $max_manganese, $min_phosphorus, $max_phosphorus, $min_potassium, $max_potassium, $min_selenium, $max_selenium, $min_sodium, $max_sodium, $min_sugar, $max_sugar, $min_zinc, $max_zinc, $offset, $number, $limit_license);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->searchRecipesComplex: ', $e->getMessage(), PHP_EOL;
@@ -3147,10 +3885,12 @@ Name | Type | Description  | Notes
  **exclude_ingredients** | **string**| A comma-separated list of ingredients or ingredient types that the recipes must not contain. | [optional]
  **type** | **string**| The type of recipe. See a full list of supported meal types. | [optional]
  **instructions_required** | **bool**| Whether the recipes must have instructions. | [optional]
- **fill_ingredients** | **bool**| Add information about the used and missing ingredients in each recipe. | [optional]
- **add_recipe_information** | **bool**| If set to true, you get more information about the recipes returned. This saves you from needing to call to get recipe information. | [optional]
+ **fill_ingredients** | **bool**| Add information about the ingredients and whether they are used or missing in relation to the query. | [optional]
+ **add_recipe_information** | **bool**| If set to true, you get more information about the recipes returned. | [optional]
+ **add_recipe_nutrition** | **bool**| If set to true, you get nutritional information about each recipes returned. | [optional]
  **author** | **string**| The username of the recipe author. | [optional]
- **tags** | **string**| User defined tags that have to match. | [optional]
+ **tags** | **string**| User defined tags that have to match. The author param has to be set. | [optional]
+ **recipe_box_id** | **float**| The id of the recipe box to which the search should be limited to. | [optional]
  **title_match** | **string**| Enter text that must be found in the title of the recipes. | [optional]
  **max_ready_time** | **float**| The maximum time in minutes it should take to prepare and cook the recipe. | [optional]
  **ignore_pantry** | **bool**| Whether to ignore typical pantry items, such as water, salt, flour, etc. | [optional]
@@ -3228,8 +3968,8 @@ Name | Type | Description  | Notes
  **max_sugar** | **float**| The maximum amount of sugar in grams the recipe can have. | [optional]
  **min_zinc** | **float**| The minimum amount of zinc in milligrams the recipe must have. | [optional]
  **max_zinc** | **float**| The maximum amount of zinc in milligrams the recipe can have. | [optional]
- **offset** | **float**| The offset number for paging (between 0 and 990). | [optional]
- **number** | **float**| The number of expected results (between 1 and 10). | [optional]
+ **offset** | **float**| The number of results to skip (between 0 and 900). | [optional]
+ **number** | **float**| The number of expected results (between 1 and 100). | [optional]
  **limit_license** | **bool**| Whether the recipes should have an open license that allows display with proper attribution. | [optional]
 
 ### Return type

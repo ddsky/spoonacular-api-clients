@@ -29,7 +29,12 @@ import java.io.IOException;
 
 import java.math.BigDecimal;
 import java.io.File;
+import com.spoonacular.client.model.InlineObject10;
+import com.spoonacular.client.model.InlineObject11;
+import com.spoonacular.client.model.InlineObject12;
+import com.spoonacular.client.model.InlineObject13;
 import com.spoonacular.client.model.InlineObject8;
+import com.spoonacular.client.model.InlineObject9;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -56,6 +61,246 @@ public class DefaultApi {
         this.localVarApiClient = apiClient;
     }
 
+    /**
+     * Build call for addToMealPlan
+     * @param username The username. (required)
+     * @param hash The private hash for the username. (required)
+     * @param inlineObject9  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Add-to-Meal-Plan">Add to Meal Plan Documentation</a>
+     */
+    public okhttp3.Call addToMealPlanCall(String username, String hash, InlineObject9 inlineObject9, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = inlineObject9;
+
+        // create path and map variables
+        String localVarPath = "/mealplanner/{username}/items"
+            .replaceAll("\\{" + "username" + "\\}", localVarApiClient.escapeString(username.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (hash != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("hash", hash));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            ""
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call addToMealPlanValidateBeforeCall(String username, String hash, InlineObject9 inlineObject9, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'username' is set
+        if (username == null) {
+            throw new ApiException("Missing the required parameter 'username' when calling addToMealPlan(Async)");
+        }
+        
+        // verify the required parameter 'hash' is set
+        if (hash == null) {
+            throw new ApiException("Missing the required parameter 'hash' when calling addToMealPlan(Async)");
+        }
+        
+        // verify the required parameter 'inlineObject9' is set
+        if (inlineObject9 == null) {
+            throw new ApiException("Missing the required parameter 'inlineObject9' when calling addToMealPlan(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = addToMealPlanCall(username, hash, inlineObject9, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Add to Meal Plan
+     * Add an item to the user&#39;s meal plan.
+     * @param username The username. (required)
+     * @param hash The private hash for the username. (required)
+     * @param inlineObject9  (required)
+     * @return Object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Add-to-Meal-Plan">Add to Meal Plan Documentation</a>
+     */
+    public Object addToMealPlan(String username, String hash, InlineObject9 inlineObject9) throws ApiException {
+        ApiResponse<Object> localVarResp = addToMealPlanWithHttpInfo(username, hash, inlineObject9);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Add to Meal Plan
+     * Add an item to the user&#39;s meal plan.
+     * @param username The username. (required)
+     * @param hash The private hash for the username. (required)
+     * @param inlineObject9  (required)
+     * @return ApiResponse&lt;Object&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Add-to-Meal-Plan">Add to Meal Plan Documentation</a>
+     */
+    public ApiResponse<Object> addToMealPlanWithHttpInfo(String username, String hash, InlineObject9 inlineObject9) throws ApiException {
+        okhttp3.Call localVarCall = addToMealPlanValidateBeforeCall(username, hash, inlineObject9, null);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Add to Meal Plan (asynchronously)
+     * Add an item to the user&#39;s meal plan.
+     * @param username The username. (required)
+     * @param hash The private hash for the username. (required)
+     * @param inlineObject9  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Add-to-Meal-Plan">Add to Meal Plan Documentation</a>
+     */
+    public okhttp3.Call addToMealPlanAsync(String username, String hash, InlineObject9 inlineObject9, final ApiCallback<Object> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = addToMealPlanValidateBeforeCall(username, hash, inlineObject9, _callback);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for addToShoppingList
+     * @param username The username. (required)
+     * @param hash The private hash for the username. (required)
+     * @param inlineObject12  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Add-to-Shopping-List">Add to Shopping List Documentation</a>
+     */
+    public okhttp3.Call addToShoppingListCall(String username, String hash, InlineObject12 inlineObject12, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = inlineObject12;
+
+        // create path and map variables
+        String localVarPath = "/mealplanner/{username}/shopping-list/items"
+            .replaceAll("\\{" + "username" + "\\}", localVarApiClient.escapeString(username.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (hash != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("hash", hash));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            ""
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call addToShoppingListValidateBeforeCall(String username, String hash, InlineObject12 inlineObject12, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'username' is set
+        if (username == null) {
+            throw new ApiException("Missing the required parameter 'username' when calling addToShoppingList(Async)");
+        }
+        
+        // verify the required parameter 'hash' is set
+        if (hash == null) {
+            throw new ApiException("Missing the required parameter 'hash' when calling addToShoppingList(Async)");
+        }
+        
+        // verify the required parameter 'inlineObject12' is set
+        if (inlineObject12 == null) {
+            throw new ApiException("Missing the required parameter 'inlineObject12' when calling addToShoppingList(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = addToShoppingListCall(username, hash, inlineObject12, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Add to Shopping List
+     * Add an item to the current shopping list of a user.
+     * @param username The username. (required)
+     * @param hash The private hash for the username. (required)
+     * @param inlineObject12  (required)
+     * @return Object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Add-to-Shopping-List">Add to Shopping List Documentation</a>
+     */
+    public Object addToShoppingList(String username, String hash, InlineObject12 inlineObject12) throws ApiException {
+        ApiResponse<Object> localVarResp = addToShoppingListWithHttpInfo(username, hash, inlineObject12);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Add to Shopping List
+     * Add an item to the current shopping list of a user.
+     * @param username The username. (required)
+     * @param hash The private hash for the username. (required)
+     * @param inlineObject12  (required)
+     * @return ApiResponse&lt;Object&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Add-to-Shopping-List">Add to Shopping List Documentation</a>
+     */
+    public ApiResponse<Object> addToShoppingListWithHttpInfo(String username, String hash, InlineObject12 inlineObject12) throws ApiException {
+        okhttp3.Call localVarCall = addToShoppingListValidateBeforeCall(username, hash, inlineObject12, null);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Add to Shopping List (asynchronously)
+     * Add an item to the current shopping list of a user.
+     * @param username The username. (required)
+     * @param hash The private hash for the username. (required)
+     * @param inlineObject12  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Add-to-Shopping-List">Add to Shopping List Documentation</a>
+     */
+    public okhttp3.Call addToShoppingListAsync(String username, String hash, InlineObject12 inlineObject12, final ApiCallback<Object> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = addToShoppingListValidateBeforeCall(username, hash, inlineObject12, _callback);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
     /**
      * Build call for analyzeARecipeSearchQuery
      * @param q The recipe search query. (required)
@@ -1399,6 +1644,266 @@ public class DefaultApi {
         return localVarCall;
     }
     /**
+     * Build call for deleteFromMealPlan
+     * @param username The username. (required)
+     * @param id The shopping list item id. (required)
+     * @param hash The private hash for the username. (required)
+     * @param inlineObject10  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Delete-from-Meal-Plan">Delete from Meal Plan Documentation</a>
+     */
+    public okhttp3.Call deleteFromMealPlanCall(String username, BigDecimal id, String hash, InlineObject10 inlineObject10, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = inlineObject10;
+
+        // create path and map variables
+        String localVarPath = "/mealplanner/{username}/items/{id}"
+            .replaceAll("\\{" + "username" + "\\}", localVarApiClient.escapeString(username.toString()))
+            .replaceAll("\\{" + "id" + "\\}", localVarApiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (hash != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("hash", hash));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            ""
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call deleteFromMealPlanValidateBeforeCall(String username, BigDecimal id, String hash, InlineObject10 inlineObject10, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'username' is set
+        if (username == null) {
+            throw new ApiException("Missing the required parameter 'username' when calling deleteFromMealPlan(Async)");
+        }
+        
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling deleteFromMealPlan(Async)");
+        }
+        
+        // verify the required parameter 'hash' is set
+        if (hash == null) {
+            throw new ApiException("Missing the required parameter 'hash' when calling deleteFromMealPlan(Async)");
+        }
+        
+        // verify the required parameter 'inlineObject10' is set
+        if (inlineObject10 == null) {
+            throw new ApiException("Missing the required parameter 'inlineObject10' when calling deleteFromMealPlan(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = deleteFromMealPlanCall(username, id, hash, inlineObject10, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Delete from Meal Plan
+     * Delete an item from the user&#39;s meal plan.
+     * @param username The username. (required)
+     * @param id The shopping list item id. (required)
+     * @param hash The private hash for the username. (required)
+     * @param inlineObject10  (required)
+     * @return Object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Delete-from-Meal-Plan">Delete from Meal Plan Documentation</a>
+     */
+    public Object deleteFromMealPlan(String username, BigDecimal id, String hash, InlineObject10 inlineObject10) throws ApiException {
+        ApiResponse<Object> localVarResp = deleteFromMealPlanWithHttpInfo(username, id, hash, inlineObject10);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Delete from Meal Plan
+     * Delete an item from the user&#39;s meal plan.
+     * @param username The username. (required)
+     * @param id The shopping list item id. (required)
+     * @param hash The private hash for the username. (required)
+     * @param inlineObject10  (required)
+     * @return ApiResponse&lt;Object&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Delete-from-Meal-Plan">Delete from Meal Plan Documentation</a>
+     */
+    public ApiResponse<Object> deleteFromMealPlanWithHttpInfo(String username, BigDecimal id, String hash, InlineObject10 inlineObject10) throws ApiException {
+        okhttp3.Call localVarCall = deleteFromMealPlanValidateBeforeCall(username, id, hash, inlineObject10, null);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Delete from Meal Plan (asynchronously)
+     * Delete an item from the user&#39;s meal plan.
+     * @param username The username. (required)
+     * @param id The shopping list item id. (required)
+     * @param hash The private hash for the username. (required)
+     * @param inlineObject10  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Delete-from-Meal-Plan">Delete from Meal Plan Documentation</a>
+     */
+    public okhttp3.Call deleteFromMealPlanAsync(String username, BigDecimal id, String hash, InlineObject10 inlineObject10, final ApiCallback<Object> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = deleteFromMealPlanValidateBeforeCall(username, id, hash, inlineObject10, _callback);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for deleteFromShoppingList
+     * @param username The username. (required)
+     * @param id The shopping list item id. (required)
+     * @param hash The private hash for the username. (required)
+     * @param inlineObject13  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Delete-from-Shopping-List">Delete from Shopping List Documentation</a>
+     */
+    public okhttp3.Call deleteFromShoppingListCall(String username, BigDecimal id, String hash, InlineObject13 inlineObject13, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = inlineObject13;
+
+        // create path and map variables
+        String localVarPath = "/mealplanner/{username}/shopping-list/items/{id}"
+            .replaceAll("\\{" + "username" + "\\}", localVarApiClient.escapeString(username.toString()))
+            .replaceAll("\\{" + "id" + "\\}", localVarApiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (hash != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("hash", hash));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            ""
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call deleteFromShoppingListValidateBeforeCall(String username, BigDecimal id, String hash, InlineObject13 inlineObject13, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'username' is set
+        if (username == null) {
+            throw new ApiException("Missing the required parameter 'username' when calling deleteFromShoppingList(Async)");
+        }
+        
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling deleteFromShoppingList(Async)");
+        }
+        
+        // verify the required parameter 'hash' is set
+        if (hash == null) {
+            throw new ApiException("Missing the required parameter 'hash' when calling deleteFromShoppingList(Async)");
+        }
+        
+        // verify the required parameter 'inlineObject13' is set
+        if (inlineObject13 == null) {
+            throw new ApiException("Missing the required parameter 'inlineObject13' when calling deleteFromShoppingList(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = deleteFromShoppingListCall(username, id, hash, inlineObject13, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Delete from Shopping List
+     * Delete an item from the current shopping list of the user.
+     * @param username The username. (required)
+     * @param id The shopping list item id. (required)
+     * @param hash The private hash for the username. (required)
+     * @param inlineObject13  (required)
+     * @return Object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Delete-from-Shopping-List">Delete from Shopping List Documentation</a>
+     */
+    public Object deleteFromShoppingList(String username, BigDecimal id, String hash, InlineObject13 inlineObject13) throws ApiException {
+        ApiResponse<Object> localVarResp = deleteFromShoppingListWithHttpInfo(username, id, hash, inlineObject13);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Delete from Shopping List
+     * Delete an item from the current shopping list of the user.
+     * @param username The username. (required)
+     * @param id The shopping list item id. (required)
+     * @param hash The private hash for the username. (required)
+     * @param inlineObject13  (required)
+     * @return ApiResponse&lt;Object&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Delete-from-Shopping-List">Delete from Shopping List Documentation</a>
+     */
+    public ApiResponse<Object> deleteFromShoppingListWithHttpInfo(String username, BigDecimal id, String hash, InlineObject13 inlineObject13) throws ApiException {
+        okhttp3.Call localVarCall = deleteFromShoppingListValidateBeforeCall(username, id, hash, inlineObject13, null);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Delete from Shopping List (asynchronously)
+     * Delete an item from the current shopping list of the user.
+     * @param username The username. (required)
+     * @param id The shopping list item id. (required)
+     * @param hash The private hash for the username. (required)
+     * @param inlineObject13  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Delete-from-Shopping-List">Delete from Shopping List Documentation</a>
+     */
+    public okhttp3.Call deleteFromShoppingListAsync(String username, BigDecimal id, String hash, InlineObject13 inlineObject13, final ApiCallback<Object> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = deleteFromShoppingListValidateBeforeCall(username, id, hash, inlineObject13, _callback);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for detectFoodInText
      * @param text The text in which food items, such as dish names and ingredients, should be detected in. (required)
      * @param _callback Callback for upload/download progress
@@ -1503,13 +2008,14 @@ public class DefaultApi {
      * Build call for extractRecipeFromWebsite
      * @param url The URL of the recipe page. (required)
      * @param forceExtraction If true, the extraction will be triggered whether we already know the recipe or not. Use this only if information is missing as this operation is slower. (optional)
+     * @param analyze If true, the recipe will be analyzed and classified resolving in more data such as cuisines, dish types, and more. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Extract-Recipe-from-Website">Extract Recipe from Website Documentation</a>
      */
-    public okhttp3.Call extractRecipeFromWebsiteCall(String url, Boolean forceExtraction, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call extractRecipeFromWebsiteCall(String url, Boolean forceExtraction, Boolean analyze, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = new Object();
 
         // create path and map variables
@@ -1523,6 +2029,10 @@ public class DefaultApi {
 
         if (forceExtraction != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("forceExtraction", forceExtraction));
+        }
+
+        if (analyze != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("analyze", analyze));
         }
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -1546,7 +2056,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call extractRecipeFromWebsiteValidateBeforeCall(String url, Boolean forceExtraction, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call extractRecipeFromWebsiteValidateBeforeCall(String url, Boolean forceExtraction, Boolean analyze, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'url' is set
         if (url == null) {
@@ -1554,7 +2064,7 @@ public class DefaultApi {
         }
         
 
-        okhttp3.Call localVarCall = extractRecipeFromWebsiteCall(url, forceExtraction, _callback);
+        okhttp3.Call localVarCall = extractRecipeFromWebsiteCall(url, forceExtraction, analyze, _callback);
         return localVarCall;
 
     }
@@ -1564,13 +2074,14 @@ public class DefaultApi {
      * This endpoint lets you extract recipe data such as title, ingredients, and instructions from any properly formatted Website.
      * @param url The URL of the recipe page. (required)
      * @param forceExtraction If true, the extraction will be triggered whether we already know the recipe or not. Use this only if information is missing as this operation is slower. (optional)
+     * @param analyze If true, the recipe will be analyzed and classified resolving in more data such as cuisines, dish types, and more. (optional)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Extract-Recipe-from-Website">Extract Recipe from Website Documentation</a>
      */
-    public Object extractRecipeFromWebsite(String url, Boolean forceExtraction) throws ApiException {
-        ApiResponse<Object> localVarResp = extractRecipeFromWebsiteWithHttpInfo(url, forceExtraction);
+    public Object extractRecipeFromWebsite(String url, Boolean forceExtraction, Boolean analyze) throws ApiException {
+        ApiResponse<Object> localVarResp = extractRecipeFromWebsiteWithHttpInfo(url, forceExtraction, analyze);
         return localVarResp.getData();
     }
 
@@ -1579,13 +2090,14 @@ public class DefaultApi {
      * This endpoint lets you extract recipe data such as title, ingredients, and instructions from any properly formatted Website.
      * @param url The URL of the recipe page. (required)
      * @param forceExtraction If true, the extraction will be triggered whether we already know the recipe or not. Use this only if information is missing as this operation is slower. (optional)
+     * @param analyze If true, the recipe will be analyzed and classified resolving in more data such as cuisines, dish types, and more. (optional)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Extract-Recipe-from-Website">Extract Recipe from Website Documentation</a>
      */
-    public ApiResponse<Object> extractRecipeFromWebsiteWithHttpInfo(String url, Boolean forceExtraction) throws ApiException {
-        okhttp3.Call localVarCall = extractRecipeFromWebsiteValidateBeforeCall(url, forceExtraction, null);
+    public ApiResponse<Object> extractRecipeFromWebsiteWithHttpInfo(String url, Boolean forceExtraction, Boolean analyze) throws ApiException {
+        okhttp3.Call localVarCall = extractRecipeFromWebsiteValidateBeforeCall(url, forceExtraction, analyze, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1595,15 +2107,16 @@ public class DefaultApi {
      * This endpoint lets you extract recipe data such as title, ingredients, and instructions from any properly formatted Website.
      * @param url The URL of the recipe page. (required)
      * @param forceExtraction If true, the extraction will be triggered whether we already know the recipe or not. Use this only if information is missing as this operation is slower. (optional)
+     * @param analyze If true, the recipe will be analyzed and classified resolving in more data such as cuisines, dish types, and more. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Extract-Recipe-from-Website">Extract Recipe from Website Documentation</a>
      */
-    public okhttp3.Call extractRecipeFromWebsiteAsync(String url, Boolean forceExtraction, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call extractRecipeFromWebsiteAsync(String url, Boolean forceExtraction, Boolean analyze, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = extractRecipeFromWebsiteValidateBeforeCall(url, forceExtraction, _callback);
+        okhttp3.Call localVarCall = extractRecipeFromWebsiteValidateBeforeCall(url, forceExtraction, analyze, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1724,6 +2237,146 @@ public class DefaultApi {
     public okhttp3.Call generateMealPlanAsync(String timeFrame, BigDecimal targetCalories, String diet, String exclude, final ApiCallback<Object> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = generateMealPlanValidateBeforeCall(timeFrame, targetCalories, diet, exclude, _callback);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for generateShoppingList
+     * @param username The username. (required)
+     * @param startDate The start date in the format yyyy-mm-dd. (required)
+     * @param endDate The end date in the format yyyy-mm-dd. (required)
+     * @param hash The private hash for the username. (required)
+     * @param inlineObject11  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Generate-Shopping-List">Generate Shopping List Documentation</a>
+     */
+    public okhttp3.Call generateShoppingListCall(String username, String startDate, String endDate, String hash, InlineObject11 inlineObject11, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = inlineObject11;
+
+        // create path and map variables
+        String localVarPath = "/mealplanner/{username}/shopping-list/{start-date}/{end-date}"
+            .replaceAll("\\{" + "username" + "\\}", localVarApiClient.escapeString(username.toString()))
+            .replaceAll("\\{" + "start-date" + "\\}", localVarApiClient.escapeString(startDate.toString()))
+            .replaceAll("\\{" + "end-date" + "\\}", localVarApiClient.escapeString(endDate.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (hash != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("hash", hash));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            ""
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call generateShoppingListValidateBeforeCall(String username, String startDate, String endDate, String hash, InlineObject11 inlineObject11, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'username' is set
+        if (username == null) {
+            throw new ApiException("Missing the required parameter 'username' when calling generateShoppingList(Async)");
+        }
+        
+        // verify the required parameter 'startDate' is set
+        if (startDate == null) {
+            throw new ApiException("Missing the required parameter 'startDate' when calling generateShoppingList(Async)");
+        }
+        
+        // verify the required parameter 'endDate' is set
+        if (endDate == null) {
+            throw new ApiException("Missing the required parameter 'endDate' when calling generateShoppingList(Async)");
+        }
+        
+        // verify the required parameter 'hash' is set
+        if (hash == null) {
+            throw new ApiException("Missing the required parameter 'hash' when calling generateShoppingList(Async)");
+        }
+        
+        // verify the required parameter 'inlineObject11' is set
+        if (inlineObject11 == null) {
+            throw new ApiException("Missing the required parameter 'inlineObject11' when calling generateShoppingList(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = generateShoppingListCall(username, startDate, endDate, hash, inlineObject11, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Generate Shopping List
+     * Generate the shopping list for a user from the meal planner in a given time frame.
+     * @param username The username. (required)
+     * @param startDate The start date in the format yyyy-mm-dd. (required)
+     * @param endDate The end date in the format yyyy-mm-dd. (required)
+     * @param hash The private hash for the username. (required)
+     * @param inlineObject11  (required)
+     * @return Object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Generate-Shopping-List">Generate Shopping List Documentation</a>
+     */
+    public Object generateShoppingList(String username, String startDate, String endDate, String hash, InlineObject11 inlineObject11) throws ApiException {
+        ApiResponse<Object> localVarResp = generateShoppingListWithHttpInfo(username, startDate, endDate, hash, inlineObject11);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Generate Shopping List
+     * Generate the shopping list for a user from the meal planner in a given time frame.
+     * @param username The username. (required)
+     * @param startDate The start date in the format yyyy-mm-dd. (required)
+     * @param endDate The end date in the format yyyy-mm-dd. (required)
+     * @param hash The private hash for the username. (required)
+     * @param inlineObject11  (required)
+     * @return ApiResponse&lt;Object&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Generate-Shopping-List">Generate Shopping List Documentation</a>
+     */
+    public ApiResponse<Object> generateShoppingListWithHttpInfo(String username, String startDate, String endDate, String hash, InlineObject11 inlineObject11) throws ApiException {
+        okhttp3.Call localVarCall = generateShoppingListValidateBeforeCall(username, startDate, endDate, hash, inlineObject11, null);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Generate Shopping List (asynchronously)
+     * Generate the shopping list for a user from the meal planner in a given time frame.
+     * @param username The username. (required)
+     * @param startDate The start date in the format yyyy-mm-dd. (required)
+     * @param endDate The end date in the format yyyy-mm-dd. (required)
+     * @param hash The private hash for the username. (required)
+     * @param inlineObject11  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Generate-Shopping-List">Generate Shopping List Documentation</a>
+     */
+    public okhttp3.Call generateShoppingListAsync(String username, String startDate, String endDate, String hash, InlineObject11 inlineObject11, final ApiCallback<Object> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = generateShoppingListValidateBeforeCall(username, startDate, endDate, hash, inlineObject11, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2544,6 +3197,359 @@ public class DefaultApi {
         return localVarCall;
     }
     /**
+     * Build call for getMealPlanTemplate
+     * @param username The username. (required)
+     * @param id The shopping list item id. (required)
+     * @param hash The private hash for the username. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Get-Meal-Plan-Template">Get Meal Plan Template Documentation</a>
+     */
+    public okhttp3.Call getMealPlanTemplateCall(String username, BigDecimal id, String hash, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = new Object();
+
+        // create path and map variables
+        String localVarPath = "/mealplanner/{username}/templates/{id}"
+            .replaceAll("\\{" + "username" + "\\}", localVarApiClient.escapeString(username.toString()))
+            .replaceAll("\\{" + "id" + "\\}", localVarApiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (hash != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("hash", hash));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getMealPlanTemplateValidateBeforeCall(String username, BigDecimal id, String hash, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'username' is set
+        if (username == null) {
+            throw new ApiException("Missing the required parameter 'username' when calling getMealPlanTemplate(Async)");
+        }
+        
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling getMealPlanTemplate(Async)");
+        }
+        
+        // verify the required parameter 'hash' is set
+        if (hash == null) {
+            throw new ApiException("Missing the required parameter 'hash' when calling getMealPlanTemplate(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = getMealPlanTemplateCall(username, id, hash, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Get Meal Plan Template
+     * Get information about a meal plan template.
+     * @param username The username. (required)
+     * @param id The shopping list item id. (required)
+     * @param hash The private hash for the username. (required)
+     * @return Object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Get-Meal-Plan-Template">Get Meal Plan Template Documentation</a>
+     */
+    public Object getMealPlanTemplate(String username, BigDecimal id, String hash) throws ApiException {
+        ApiResponse<Object> localVarResp = getMealPlanTemplateWithHttpInfo(username, id, hash);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get Meal Plan Template
+     * Get information about a meal plan template.
+     * @param username The username. (required)
+     * @param id The shopping list item id. (required)
+     * @param hash The private hash for the username. (required)
+     * @return ApiResponse&lt;Object&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Get-Meal-Plan-Template">Get Meal Plan Template Documentation</a>
+     */
+    public ApiResponse<Object> getMealPlanTemplateWithHttpInfo(String username, BigDecimal id, String hash) throws ApiException {
+        okhttp3.Call localVarCall = getMealPlanTemplateValidateBeforeCall(username, id, hash, null);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get Meal Plan Template (asynchronously)
+     * Get information about a meal plan template.
+     * @param username The username. (required)
+     * @param id The shopping list item id. (required)
+     * @param hash The private hash for the username. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Get-Meal-Plan-Template">Get Meal Plan Template Documentation</a>
+     */
+    public okhttp3.Call getMealPlanTemplateAsync(String username, BigDecimal id, String hash, final ApiCallback<Object> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getMealPlanTemplateValidateBeforeCall(username, id, hash, _callback);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getMealPlanTemplates
+     * @param username The username. (required)
+     * @param hash The private hash for the username. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Get-Meal-Plan-Templates">Get Meal Plan Templates Documentation</a>
+     */
+    public okhttp3.Call getMealPlanTemplatesCall(String username, String hash, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = new Object();
+
+        // create path and map variables
+        String localVarPath = "/mealplanner/{username}/templates"
+            .replaceAll("\\{" + "username" + "\\}", localVarApiClient.escapeString(username.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (hash != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("hash", hash));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getMealPlanTemplatesValidateBeforeCall(String username, String hash, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'username' is set
+        if (username == null) {
+            throw new ApiException("Missing the required parameter 'username' when calling getMealPlanTemplates(Async)");
+        }
+        
+        // verify the required parameter 'hash' is set
+        if (hash == null) {
+            throw new ApiException("Missing the required parameter 'hash' when calling getMealPlanTemplates(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = getMealPlanTemplatesCall(username, hash, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Get Meal Plan Templates
+     * Get meal plan templates from user or public ones.
+     * @param username The username. (required)
+     * @param hash The private hash for the username. (required)
+     * @return Object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Get-Meal-Plan-Templates">Get Meal Plan Templates Documentation</a>
+     */
+    public Object getMealPlanTemplates(String username, String hash) throws ApiException {
+        ApiResponse<Object> localVarResp = getMealPlanTemplatesWithHttpInfo(username, hash);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get Meal Plan Templates
+     * Get meal plan templates from user or public ones.
+     * @param username The username. (required)
+     * @param hash The private hash for the username. (required)
+     * @return ApiResponse&lt;Object&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Get-Meal-Plan-Templates">Get Meal Plan Templates Documentation</a>
+     */
+    public ApiResponse<Object> getMealPlanTemplatesWithHttpInfo(String username, String hash) throws ApiException {
+        okhttp3.Call localVarCall = getMealPlanTemplatesValidateBeforeCall(username, hash, null);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get Meal Plan Templates (asynchronously)
+     * Get meal plan templates from user or public ones.
+     * @param username The username. (required)
+     * @param hash The private hash for the username. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Get-Meal-Plan-Templates">Get Meal Plan Templates Documentation</a>
+     */
+    public okhttp3.Call getMealPlanTemplatesAsync(String username, String hash, final ApiCallback<Object> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getMealPlanTemplatesValidateBeforeCall(username, hash, _callback);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getMealPlanWeek
+     * @param username The username. (required)
+     * @param startDate The start date of the meal planned week in the format yyyy-mm-dd. (required)
+     * @param hash The private hash for the username. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Get-Meal-Plan-Week">Get Meal Plan Week Documentation</a>
+     */
+    public okhttp3.Call getMealPlanWeekCall(String username, String startDate, String hash, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = new Object();
+
+        // create path and map variables
+        String localVarPath = "/mealplanner/{username}/week/{start-date}"
+            .replaceAll("\\{" + "username" + "\\}", localVarApiClient.escapeString(username.toString()))
+            .replaceAll("\\{" + "start-date" + "\\}", localVarApiClient.escapeString(startDate.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (hash != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("hash", hash));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getMealPlanWeekValidateBeforeCall(String username, String startDate, String hash, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'username' is set
+        if (username == null) {
+            throw new ApiException("Missing the required parameter 'username' when calling getMealPlanWeek(Async)");
+        }
+        
+        // verify the required parameter 'startDate' is set
+        if (startDate == null) {
+            throw new ApiException("Missing the required parameter 'startDate' when calling getMealPlanWeek(Async)");
+        }
+        
+        // verify the required parameter 'hash' is set
+        if (hash == null) {
+            throw new ApiException("Missing the required parameter 'hash' when calling getMealPlanWeek(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = getMealPlanWeekCall(username, startDate, hash, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Get Meal Plan Week
+     * Retrieve a meal planned week for the given user. The username must be a spoonacular user and the hash must the the user&#39;s hash that can be found in his/her account.
+     * @param username The username. (required)
+     * @param startDate The start date of the meal planned week in the format yyyy-mm-dd. (required)
+     * @param hash The private hash for the username. (required)
+     * @return Object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Get-Meal-Plan-Week">Get Meal Plan Week Documentation</a>
+     */
+    public Object getMealPlanWeek(String username, String startDate, String hash) throws ApiException {
+        ApiResponse<Object> localVarResp = getMealPlanWeekWithHttpInfo(username, startDate, hash);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get Meal Plan Week
+     * Retrieve a meal planned week for the given user. The username must be a spoonacular user and the hash must the the user&#39;s hash that can be found in his/her account.
+     * @param username The username. (required)
+     * @param startDate The start date of the meal planned week in the format yyyy-mm-dd. (required)
+     * @param hash The private hash for the username. (required)
+     * @return ApiResponse&lt;Object&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Get-Meal-Plan-Week">Get Meal Plan Week Documentation</a>
+     */
+    public ApiResponse<Object> getMealPlanWeekWithHttpInfo(String username, String startDate, String hash) throws ApiException {
+        okhttp3.Call localVarCall = getMealPlanWeekValidateBeforeCall(username, startDate, hash, null);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get Meal Plan Week (asynchronously)
+     * Retrieve a meal planned week for the given user. The username must be a spoonacular user and the hash must the the user&#39;s hash that can be found in his/her account.
+     * @param username The username. (required)
+     * @param startDate The start date of the meal planned week in the format yyyy-mm-dd. (required)
+     * @param hash The private hash for the username. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Get-Meal-Plan-Week">Get Meal Plan Week Documentation</a>
+     */
+    public okhttp3.Call getMealPlanWeekAsync(String username, String startDate, String hash, final ApiCallback<Object> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getMealPlanWeekValidateBeforeCall(username, startDate, hash, _callback);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for getMenuItemInformation
      * @param id The menu item id. (required)
      * @param _callback Callback for upload/download progress
@@ -2695,7 +3701,7 @@ public class DefaultApi {
 
     /**
      * Get Product Information
-     * Use a product id to get full information about a product, such as ingredients, nutrition, etc.
+     * Use a product id to get full information about a product, such as ingredients, nutrition, etc. The nutritional information is per serving.
      * @param id The id of the packaged food. (required)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2709,7 +3715,7 @@ public class DefaultApi {
 
     /**
      * Get Product Information
-     * Use a product id to get full information about a product, such as ingredients, nutrition, etc.
+     * Use a product id to get full information about a product, such as ingredients, nutrition, etc. The nutritional information is per serving.
      * @param id The id of the packaged food. (required)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2724,7 +3730,7 @@ public class DefaultApi {
 
     /**
      * Get Product Information (asynchronously)
-     * Use a product id to get full information about a product, such as ingredients, nutrition, etc.
+     * Use a product id to get full information about a product, such as ingredients, nutrition, etc. The nutritional information is per serving.
      * @param id The id of the packaged food. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -3547,26 +4553,26 @@ public class DefaultApi {
         return localVarCall;
     }
     /**
-     * Build call for getSimilarRecipes
-     * @param id The id of the source recipe for which similar recipes should be found. (required)
-     * @param number The number of random recipes to be returned (between 1 and 100). (optional)
+     * Build call for getShoppingList
+     * @param username The username. (required)
+     * @param hash The private hash for the username. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Get-Similar-Recipes">Get Similar Recipes Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Get-Shopping-List">Get Shopping List Documentation</a>
      */
-    public okhttp3.Call getSimilarRecipesCall(BigDecimal id, BigDecimal number, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getShoppingListCall(String username, String hash, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = new Object();
 
         // create path and map variables
-        String localVarPath = "/recipes/{id}/similar"
-            .replaceAll("\\{" + "id" + "\\}", localVarApiClient.escapeString(id.toString()));
+        String localVarPath = "/mealplanner/{username}/shopping-list"
+            .replaceAll("\\{" + "username" + "\\}", localVarApiClient.escapeString(username.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (number != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("number", number));
+        if (hash != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("hash", hash));
         }
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -3590,7 +4596,123 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getSimilarRecipesValidateBeforeCall(BigDecimal id, BigDecimal number, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getShoppingListValidateBeforeCall(String username, String hash, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'username' is set
+        if (username == null) {
+            throw new ApiException("Missing the required parameter 'username' when calling getShoppingList(Async)");
+        }
+        
+        // verify the required parameter 'hash' is set
+        if (hash == null) {
+            throw new ApiException("Missing the required parameter 'hash' when calling getShoppingList(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = getShoppingListCall(username, hash, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Get Shopping List
+     * Get the current shopping list for the given user.
+     * @param username The username. (required)
+     * @param hash The private hash for the username. (required)
+     * @return Object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Get-Shopping-List">Get Shopping List Documentation</a>
+     */
+    public Object getShoppingList(String username, String hash) throws ApiException {
+        ApiResponse<Object> localVarResp = getShoppingListWithHttpInfo(username, hash);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get Shopping List
+     * Get the current shopping list for the given user.
+     * @param username The username. (required)
+     * @param hash The private hash for the username. (required)
+     * @return ApiResponse&lt;Object&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Get-Shopping-List">Get Shopping List Documentation</a>
+     */
+    public ApiResponse<Object> getShoppingListWithHttpInfo(String username, String hash) throws ApiException {
+        okhttp3.Call localVarCall = getShoppingListValidateBeforeCall(username, hash, null);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get Shopping List (asynchronously)
+     * Get the current shopping list for the given user.
+     * @param username The username. (required)
+     * @param hash The private hash for the username. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Get-Shopping-List">Get Shopping List Documentation</a>
+     */
+    public okhttp3.Call getShoppingListAsync(String username, String hash, final ApiCallback<Object> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getShoppingListValidateBeforeCall(username, hash, _callback);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getSimilarRecipes
+     * @param id The id of the source recipe for which similar recipes should be found. (required)
+     * @param number The number of random recipes to be returned (between 1 and 100). (optional)
+     * @param limitLicense Whether the recipes should have an open license that allows display with proper attribution. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Get-Similar-Recipes">Get Similar Recipes Documentation</a>
+     */
+    public okhttp3.Call getSimilarRecipesCall(BigDecimal id, BigDecimal number, Boolean limitLicense, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = new Object();
+
+        // create path and map variables
+        String localVarPath = "/recipes/{id}/similar"
+            .replaceAll("\\{" + "id" + "\\}", localVarApiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (number != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("number", number));
+        }
+
+        if (limitLicense != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limitLicense", limitLicense));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getSimilarRecipesValidateBeforeCall(BigDecimal id, BigDecimal number, Boolean limitLicense, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'id' is set
         if (id == null) {
@@ -3598,7 +4720,7 @@ public class DefaultApi {
         }
         
 
-        okhttp3.Call localVarCall = getSimilarRecipesCall(id, number, _callback);
+        okhttp3.Call localVarCall = getSimilarRecipesCall(id, number, limitLicense, _callback);
         return localVarCall;
 
     }
@@ -3608,13 +4730,14 @@ public class DefaultApi {
      * Find recipes which are similar to the given one.
      * @param id The id of the source recipe for which similar recipes should be found. (required)
      * @param number The number of random recipes to be returned (between 1 and 100). (optional)
+     * @param limitLicense Whether the recipes should have an open license that allows display with proper attribution. (optional)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Get-Similar-Recipes">Get Similar Recipes Documentation</a>
      */
-    public Object getSimilarRecipes(BigDecimal id, BigDecimal number) throws ApiException {
-        ApiResponse<Object> localVarResp = getSimilarRecipesWithHttpInfo(id, number);
+    public Object getSimilarRecipes(BigDecimal id, BigDecimal number, Boolean limitLicense) throws ApiException {
+        ApiResponse<Object> localVarResp = getSimilarRecipesWithHttpInfo(id, number, limitLicense);
         return localVarResp.getData();
     }
 
@@ -3623,13 +4746,14 @@ public class DefaultApi {
      * Find recipes which are similar to the given one.
      * @param id The id of the source recipe for which similar recipes should be found. (required)
      * @param number The number of random recipes to be returned (between 1 and 100). (optional)
+     * @param limitLicense Whether the recipes should have an open license that allows display with proper attribution. (optional)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Get-Similar-Recipes">Get Similar Recipes Documentation</a>
      */
-    public ApiResponse<Object> getSimilarRecipesWithHttpInfo(BigDecimal id, BigDecimal number) throws ApiException {
-        okhttp3.Call localVarCall = getSimilarRecipesValidateBeforeCall(id, number, null);
+    public ApiResponse<Object> getSimilarRecipesWithHttpInfo(BigDecimal id, BigDecimal number, Boolean limitLicense) throws ApiException {
+        okhttp3.Call localVarCall = getSimilarRecipesValidateBeforeCall(id, number, limitLicense, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3639,15 +4763,16 @@ public class DefaultApi {
      * Find recipes which are similar to the given one.
      * @param id The id of the source recipe for which similar recipes should be found. (required)
      * @param number The number of random recipes to be returned (between 1 and 100). (optional)
+     * @param limitLicense Whether the recipes should have an open license that allows display with proper attribution. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Get-Similar-Recipes">Get Similar Recipes Documentation</a>
      */
-    public okhttp3.Call getSimilarRecipesAsync(BigDecimal id, BigDecimal number, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call getSimilarRecipesAsync(BigDecimal id, BigDecimal number, Boolean limitLicense, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getSimilarRecipesValidateBeforeCall(id, number, _callback);
+        okhttp3.Call localVarCall = getSimilarRecipesValidateBeforeCall(id, number, limitLicense, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -4089,6 +5214,208 @@ public class DefaultApi {
         return localVarCall;
     }
     /**
+     * Build call for imageAnalysisByURL
+     * @param imageUrl The URL of the image to be analyzed. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Image-Analysis-by-URL">Image Analysis by URL Documentation</a>
+     */
+    public okhttp3.Call imageAnalysisByURLCall(String imageUrl, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = new Object();
+
+        // create path and map variables
+        String localVarPath = "/food/images/analyze";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (imageUrl != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("imageUrl", imageUrl));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call imageAnalysisByURLValidateBeforeCall(String imageUrl, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'imageUrl' is set
+        if (imageUrl == null) {
+            throw new ApiException("Missing the required parameter 'imageUrl' when calling imageAnalysisByURL(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = imageAnalysisByURLCall(imageUrl, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Image Analysis by URL
+     * Analyze a food image. The API tries to classify the image, guess the nutrition, and find a matching recipes. You can play around with that endpoint!
+     * @param imageUrl The URL of the image to be analyzed. (required)
+     * @return Object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Image-Analysis-by-URL">Image Analysis by URL Documentation</a>
+     */
+    public Object imageAnalysisByURL(String imageUrl) throws ApiException {
+        ApiResponse<Object> localVarResp = imageAnalysisByURLWithHttpInfo(imageUrl);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Image Analysis by URL
+     * Analyze a food image. The API tries to classify the image, guess the nutrition, and find a matching recipes. You can play around with that endpoint!
+     * @param imageUrl The URL of the image to be analyzed. (required)
+     * @return ApiResponse&lt;Object&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Image-Analysis-by-URL">Image Analysis by URL Documentation</a>
+     */
+    public ApiResponse<Object> imageAnalysisByURLWithHttpInfo(String imageUrl) throws ApiException {
+        okhttp3.Call localVarCall = imageAnalysisByURLValidateBeforeCall(imageUrl, null);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Image Analysis by URL (asynchronously)
+     * Analyze a food image. The API tries to classify the image, guess the nutrition, and find a matching recipes. You can play around with that endpoint!
+     * @param imageUrl The URL of the image to be analyzed. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Image-Analysis-by-URL">Image Analysis by URL Documentation</a>
+     */
+    public okhttp3.Call imageAnalysisByURLAsync(String imageUrl, final ApiCallback<Object> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = imageAnalysisByURLValidateBeforeCall(imageUrl, _callback);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for imageClassificationByURL
+     * @param imageUrl The URL of the image to be classified. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Image-Classification-by-URL">Image Classification by URL Documentation</a>
+     */
+    public okhttp3.Call imageClassificationByURLCall(String imageUrl, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = new Object();
+
+        // create path and map variables
+        String localVarPath = "/food/images/classify";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (imageUrl != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("imageUrl", imageUrl));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call imageClassificationByURLValidateBeforeCall(String imageUrl, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'imageUrl' is set
+        if (imageUrl == null) {
+            throw new ApiException("Missing the required parameter 'imageUrl' when calling imageClassificationByURL(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = imageClassificationByURLCall(imageUrl, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Image Classification by URL
+     * Classify a food image. You can play around with that endpoint!
+     * @param imageUrl The URL of the image to be classified. (required)
+     * @return Object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Image-Classification-by-URL">Image Classification by URL Documentation</a>
+     */
+    public Object imageClassificationByURL(String imageUrl) throws ApiException {
+        ApiResponse<Object> localVarResp = imageClassificationByURLWithHttpInfo(imageUrl);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Image Classification by URL
+     * Classify a food image. You can play around with that endpoint!
+     * @param imageUrl The URL of the image to be classified. (required)
+     * @return ApiResponse&lt;Object&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Image-Classification-by-URL">Image Classification by URL Documentation</a>
+     */
+    public ApiResponse<Object> imageClassificationByURLWithHttpInfo(String imageUrl) throws ApiException {
+        okhttp3.Call localVarCall = imageClassificationByURLValidateBeforeCall(imageUrl, null);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Image Classification by URL (asynchronously)
+     * Classify a food image. You can play around with that endpoint!
+     * @param imageUrl The URL of the image to be classified. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Image-Classification-by-URL">Image Classification by URL Documentation</a>
+     */
+    public okhttp3.Call imageClassificationByURLAsync(String imageUrl, final ApiCallback<Object> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = imageClassificationByURLValidateBeforeCall(imageUrl, _callback);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for mapIngredientsToGroceryProducts
      * @param body  (required)
      * @param _callback Callback for upload/download progress
@@ -4409,6 +5736,149 @@ public class DefaultApi {
         return localVarCall;
     }
     /**
+     * Build call for searchCustomFoods
+     * @param query The search query. (required)
+     * @param username The username. (required)
+     * @param hash The private hash for the username. (required)
+     * @param offset The number of results to skip (between 0 and 990). (optional)
+     * @param number The number of expected results (between 1 and 100). (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Search-Custom-Foods">Search Custom Foods Documentation</a>
+     */
+    public okhttp3.Call searchCustomFoodsCall(String query, String username, String hash, BigDecimal offset, BigDecimal number, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = new Object();
+
+        // create path and map variables
+        String localVarPath = "/food/customFoods/search";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (query != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("query", query));
+        }
+
+        if (username != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("username", username));
+        }
+
+        if (hash != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("hash", hash));
+        }
+
+        if (offset != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("offset", offset));
+        }
+
+        if (number != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("number", number));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call searchCustomFoodsValidateBeforeCall(String query, String username, String hash, BigDecimal offset, BigDecimal number, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'query' is set
+        if (query == null) {
+            throw new ApiException("Missing the required parameter 'query' when calling searchCustomFoods(Async)");
+        }
+        
+        // verify the required parameter 'username' is set
+        if (username == null) {
+            throw new ApiException("Missing the required parameter 'username' when calling searchCustomFoods(Async)");
+        }
+        
+        // verify the required parameter 'hash' is set
+        if (hash == null) {
+            throw new ApiException("Missing the required parameter 'hash' when calling searchCustomFoods(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = searchCustomFoodsCall(query, username, hash, offset, number, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Search Custom Foods
+     * Search custom foods in a user&#39;s account.
+     * @param query The search query. (required)
+     * @param username The username. (required)
+     * @param hash The private hash for the username. (required)
+     * @param offset The number of results to skip (between 0 and 990). (optional)
+     * @param number The number of expected results (between 1 and 100). (optional)
+     * @return Object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Search-Custom-Foods">Search Custom Foods Documentation</a>
+     */
+    public Object searchCustomFoods(String query, String username, String hash, BigDecimal offset, BigDecimal number) throws ApiException {
+        ApiResponse<Object> localVarResp = searchCustomFoodsWithHttpInfo(query, username, hash, offset, number);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Search Custom Foods
+     * Search custom foods in a user&#39;s account.
+     * @param query The search query. (required)
+     * @param username The username. (required)
+     * @param hash The private hash for the username. (required)
+     * @param offset The number of results to skip (between 0 and 990). (optional)
+     * @param number The number of expected results (between 1 and 100). (optional)
+     * @return ApiResponse&lt;Object&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Search-Custom-Foods">Search Custom Foods Documentation</a>
+     */
+    public ApiResponse<Object> searchCustomFoodsWithHttpInfo(String query, String username, String hash, BigDecimal offset, BigDecimal number) throws ApiException {
+        okhttp3.Call localVarCall = searchCustomFoodsValidateBeforeCall(query, username, hash, offset, number, null);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Search Custom Foods (asynchronously)
+     * Search custom foods in a user&#39;s account.
+     * @param query The search query. (required)
+     * @param username The username. (required)
+     * @param hash The private hash for the username. (required)
+     * @param offset The number of results to skip (between 0 and 990). (optional)
+     * @param number The number of expected results (between 1 and 100). (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Search-Custom-Foods">Search Custom Foods Documentation</a>
+     */
+    public okhttp3.Call searchCustomFoodsAsync(String query, String username, String hash, BigDecimal offset, BigDecimal number, final ApiCallback<Object> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = searchCustomFoodsValidateBeforeCall(query, username, hash, offset, number, _callback);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for searchFoodVideos
      * @param query The search query. (required)
      * @param type The type of the recipes. See a full list of supported meal types. (optional)
@@ -4592,7 +6062,7 @@ public class DefaultApi {
      * @param maxProtein The maximum amount of protein in grams the product can have. (optional)
      * @param minFat The minimum amount of fat in grams the product must have. (optional)
      * @param maxFat The maximum amount of fat in grams the product can have. (optional)
-     * @param offset The offset number for paging (between 0 and 990). (optional)
+     * @param offset The number of results to skip (between 0 and 990). (optional)
      * @param number The number of expected results (between 1 and 100). (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -4698,7 +6168,7 @@ public class DefaultApi {
      * @param maxProtein The maximum amount of protein in grams the product can have. (optional)
      * @param minFat The minimum amount of fat in grams the product must have. (optional)
      * @param maxFat The maximum amount of fat in grams the product can have. (optional)
-     * @param offset The offset number for paging (between 0 and 990). (optional)
+     * @param offset The number of results to skip (between 0 and 990). (optional)
      * @param number The number of expected results (between 1 and 100). (optional)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4722,7 +6192,7 @@ public class DefaultApi {
      * @param maxProtein The maximum amount of protein in grams the product can have. (optional)
      * @param minFat The minimum amount of fat in grams the product must have. (optional)
      * @param maxFat The maximum amount of fat in grams the product can have. (optional)
-     * @param offset The offset number for paging (between 0 and 990). (optional)
+     * @param offset The number of results to skip (between 0 and 990). (optional)
      * @param number The number of expected results (between 1 and 100). (optional)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4747,7 +6217,7 @@ public class DefaultApi {
      * @param maxProtein The maximum amount of protein in grams the product can have. (optional)
      * @param minFat The minimum amount of fat in grams the product must have. (optional)
      * @param maxFat The maximum amount of fat in grams the product can have. (optional)
-     * @param offset The offset number for paging (between 0 and 990). (optional)
+     * @param offset The number of results to skip (between 0 and 990). (optional)
      * @param number The number of expected results (between 1 and 100). (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -5283,7 +6753,7 @@ public class DefaultApi {
 
     /**
      * Search Recipes by Ingredients
-     * Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don&#39;t currently have (post shopping).
+     *              Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don&#39;t currently have (post shopping).         
      * @param ingredients A comma-separated list of ingredients that the recipes should contain. (required)
      * @param number The maximum number of recipes to return (between 1 and 100). Defaults to 10. (optional)
      * @param limitLicense Whether the recipes should have an open license that allows display with proper attribution. (optional)
@@ -5301,7 +6771,7 @@ public class DefaultApi {
 
     /**
      * Search Recipes by Ingredients
-     * Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don&#39;t currently have (post shopping).
+     *              Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don&#39;t currently have (post shopping).         
      * @param ingredients A comma-separated list of ingredients that the recipes should contain. (required)
      * @param number The maximum number of recipes to return (between 1 and 100). Defaults to 10. (optional)
      * @param limitLicense Whether the recipes should have an open license that allows display with proper attribution. (optional)
@@ -5320,7 +6790,7 @@ public class DefaultApi {
 
     /**
      * Search Recipes by Ingredients (asynchronously)
-     * Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don&#39;t currently have (post shopping).
+     *              Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don&#39;t currently have (post shopping).         
      * @param ingredients A comma-separated list of ingredients that the recipes should contain. (required)
      * @param number The maximum number of recipes to return (between 1 and 100). Defaults to 10. (optional)
      * @param limitLicense Whether the recipes should have an open license that allows display with proper attribution. (optional)
@@ -5413,7 +6883,7 @@ public class DefaultApi {
      * @param maxSugar The maximum amount of sugar in grams the recipe can have. (optional)
      * @param minZinc The minimum amount of zinc in milligrams the recipe must have. (optional)
      * @param maxZinc The maximum amount of zinc in milligrams the recipe can have. (optional)
-     * @param offset The offset number for paging (between 0 and 990). (optional)
+     * @param offset The number of results to skip (between 0 and 900). (optional)
      * @param number The number of expected results (between 1 and 100). (optional)
      * @param random If true, every request will give you a random set of recipes within the requested limits. (optional)
      * @param limitLicense Whether the recipes should have an open license that allows display with proper attribution. (optional)
@@ -5839,7 +7309,7 @@ public class DefaultApi {
      * @param maxSugar The maximum amount of sugar in grams the recipe can have. (optional)
      * @param minZinc The minimum amount of zinc in milligrams the recipe must have. (optional)
      * @param maxZinc The maximum amount of zinc in milligrams the recipe can have. (optional)
-     * @param offset The offset number for paging (between 0 and 990). (optional)
+     * @param offset The number of results to skip (between 0 and 900). (optional)
      * @param number The number of expected results (between 1 and 100). (optional)
      * @param random If true, every request will give you a random set of recipes within the requested limits. (optional)
      * @param limitLicense Whether the recipes should have an open license that allows display with proper attribution. (optional)
@@ -5928,7 +7398,7 @@ public class DefaultApi {
      * @param maxSugar The maximum amount of sugar in grams the recipe can have. (optional)
      * @param minZinc The minimum amount of zinc in milligrams the recipe must have. (optional)
      * @param maxZinc The maximum amount of zinc in milligrams the recipe can have. (optional)
-     * @param offset The offset number for paging (between 0 and 990). (optional)
+     * @param offset The number of results to skip (between 0 and 900). (optional)
      * @param number The number of expected results (between 1 and 100). (optional)
      * @param random If true, every request will give you a random set of recipes within the requested limits. (optional)
      * @param limitLicense Whether the recipes should have an open license that allows display with proper attribution. (optional)
@@ -6018,7 +7488,7 @@ public class DefaultApi {
      * @param maxSugar The maximum amount of sugar in grams the recipe can have. (optional)
      * @param minZinc The minimum amount of zinc in milligrams the recipe must have. (optional)
      * @param maxZinc The maximum amount of zinc in milligrams the recipe can have. (optional)
-     * @param offset The offset number for paging (between 0 and 990). (optional)
+     * @param offset The number of results to skip (between 0 and 900). (optional)
      * @param number The number of expected results (between 1 and 100). (optional)
      * @param random If true, every request will give you a random set of recipes within the requested limits. (optional)
      * @param limitLicense Whether the recipes should have an open license that allows display with proper attribution. (optional)
@@ -6047,10 +7517,12 @@ public class DefaultApi {
      * @param excludeIngredients A comma-separated list of ingredients or ingredient types that the recipes must not contain. (optional)
      * @param type The type of recipe. See a full list of supported meal types. (optional)
      * @param instructionsRequired Whether the recipes must have instructions. (optional)
-     * @param fillIngredients Add information about the used and missing ingredients in each recipe. (optional)
-     * @param addRecipeInformation If set to true, you get more information about the recipes returned. This saves you from needing to call to get recipe information. (optional)
+     * @param fillIngredients Add information about the ingredients and whether they are used or missing in relation to the query. (optional)
+     * @param addRecipeInformation If set to true, you get more information about the recipes returned. (optional)
+     * @param addRecipeNutrition If set to true, you get nutritional information about each recipes returned. (optional)
      * @param author The username of the recipe author. (optional)
-     * @param tags User defined tags that have to match. (optional)
+     * @param tags User defined tags that have to match. The author param has to be set. (optional)
+     * @param recipeBoxId The id of the recipe box to which the search should be limited to. (optional)
      * @param titleMatch Enter text that must be found in the title of the recipes. (optional)
      * @param maxReadyTime The maximum time in minutes it should take to prepare and cook the recipe. (optional)
      * @param ignorePantry Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional)
@@ -6128,8 +7600,8 @@ public class DefaultApi {
      * @param maxSugar The maximum amount of sugar in grams the recipe can have. (optional)
      * @param minZinc The minimum amount of zinc in milligrams the recipe must have. (optional)
      * @param maxZinc The maximum amount of zinc in milligrams the recipe can have. (optional)
-     * @param offset The offset number for paging (between 0 and 990). (optional)
-     * @param number The number of expected results (between 1 and 10). (optional)
+     * @param offset The number of results to skip (between 0 and 900). (optional)
+     * @param number The number of expected results (between 1 and 100). (optional)
      * @param limitLicense Whether the recipes should have an open license that allows display with proper attribution. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -6137,7 +7609,7 @@ public class DefaultApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Search-Recipes-Complex">Search Recipes Complex Documentation</a>
      */
-    public okhttp3.Call searchRecipesComplexCall(String query, String cuisine, String excludeCuisine, String diet, String intolerances, String equipment, String includeIngredients, String excludeIngredients, String type, Boolean instructionsRequired, Boolean fillIngredients, Boolean addRecipeInformation, String author, String tags, String titleMatch, BigDecimal maxReadyTime, Boolean ignorePantry, String sort, String sortDirection, BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minFat, BigDecimal maxFat, BigDecimal minAlcohol, BigDecimal maxAlcohol, BigDecimal minCaffeine, BigDecimal maxCaffeine, BigDecimal minCopper, BigDecimal maxCopper, BigDecimal minCalcium, BigDecimal maxCalcium, BigDecimal minCholine, BigDecimal maxCholine, BigDecimal minCholesterol, BigDecimal maxCholesterol, BigDecimal minFluoride, BigDecimal maxFluoride, BigDecimal minSaturatedFat, BigDecimal maxSaturatedFat, BigDecimal minVitaminA, BigDecimal maxVitaminA, BigDecimal minVitaminC, BigDecimal maxVitaminC, BigDecimal minVitaminD, BigDecimal maxVitaminD, BigDecimal minVitaminE, BigDecimal maxVitaminE, BigDecimal minVitaminK, BigDecimal maxVitaminK, BigDecimal minVitaminB1, BigDecimal maxVitaminB1, BigDecimal minVitaminB2, BigDecimal maxVitaminB2, BigDecimal minVitaminB5, BigDecimal maxVitaminB5, BigDecimal minVitaminB3, BigDecimal maxVitaminB3, BigDecimal minVitaminB6, BigDecimal maxVitaminB6, BigDecimal minVitaminB12, BigDecimal maxVitaminB12, BigDecimal minFiber, BigDecimal maxFiber, BigDecimal minFolate, BigDecimal maxFolate, BigDecimal minFolicAcid, BigDecimal maxFolicAcid, BigDecimal minIodine, BigDecimal maxIodine, BigDecimal minIron, BigDecimal maxIron, BigDecimal minMagnesium, BigDecimal maxMagnesium, BigDecimal minManganese, BigDecimal maxManganese, BigDecimal minPhosphorus, BigDecimal maxPhosphorus, BigDecimal minPotassium, BigDecimal maxPotassium, BigDecimal minSelenium, BigDecimal maxSelenium, BigDecimal minSodium, BigDecimal maxSodium, BigDecimal minSugar, BigDecimal maxSugar, BigDecimal minZinc, BigDecimal maxZinc, BigDecimal offset, BigDecimal number, Boolean limitLicense, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchRecipesComplexCall(String query, String cuisine, String excludeCuisine, String diet, String intolerances, String equipment, String includeIngredients, String excludeIngredients, String type, Boolean instructionsRequired, Boolean fillIngredients, Boolean addRecipeInformation, Boolean addRecipeNutrition, String author, String tags, BigDecimal recipeBoxId, String titleMatch, BigDecimal maxReadyTime, Boolean ignorePantry, String sort, String sortDirection, BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minFat, BigDecimal maxFat, BigDecimal minAlcohol, BigDecimal maxAlcohol, BigDecimal minCaffeine, BigDecimal maxCaffeine, BigDecimal minCopper, BigDecimal maxCopper, BigDecimal minCalcium, BigDecimal maxCalcium, BigDecimal minCholine, BigDecimal maxCholine, BigDecimal minCholesterol, BigDecimal maxCholesterol, BigDecimal minFluoride, BigDecimal maxFluoride, BigDecimal minSaturatedFat, BigDecimal maxSaturatedFat, BigDecimal minVitaminA, BigDecimal maxVitaminA, BigDecimal minVitaminC, BigDecimal maxVitaminC, BigDecimal minVitaminD, BigDecimal maxVitaminD, BigDecimal minVitaminE, BigDecimal maxVitaminE, BigDecimal minVitaminK, BigDecimal maxVitaminK, BigDecimal minVitaminB1, BigDecimal maxVitaminB1, BigDecimal minVitaminB2, BigDecimal maxVitaminB2, BigDecimal minVitaminB5, BigDecimal maxVitaminB5, BigDecimal minVitaminB3, BigDecimal maxVitaminB3, BigDecimal minVitaminB6, BigDecimal maxVitaminB6, BigDecimal minVitaminB12, BigDecimal maxVitaminB12, BigDecimal minFiber, BigDecimal maxFiber, BigDecimal minFolate, BigDecimal maxFolate, BigDecimal minFolicAcid, BigDecimal maxFolicAcid, BigDecimal minIodine, BigDecimal maxIodine, BigDecimal minIron, BigDecimal maxIron, BigDecimal minMagnesium, BigDecimal maxMagnesium, BigDecimal minManganese, BigDecimal maxManganese, BigDecimal minPhosphorus, BigDecimal maxPhosphorus, BigDecimal minPotassium, BigDecimal maxPotassium, BigDecimal minSelenium, BigDecimal maxSelenium, BigDecimal minSodium, BigDecimal maxSodium, BigDecimal minSugar, BigDecimal maxSugar, BigDecimal minZinc, BigDecimal maxZinc, BigDecimal offset, BigDecimal number, Boolean limitLicense, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = new Object();
 
         // create path and map variables
@@ -6193,12 +7665,20 @@ public class DefaultApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("addRecipeInformation", addRecipeInformation));
         }
 
+        if (addRecipeNutrition != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("addRecipeNutrition", addRecipeNutrition));
+        }
+
         if (author != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("author", author));
         }
 
         if (tags != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("tags", tags));
+        }
+
+        if (recipeBoxId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("recipeBoxId", recipeBoxId));
         }
 
         if (titleMatch != null) {
@@ -6542,7 +8022,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchRecipesComplexValidateBeforeCall(String query, String cuisine, String excludeCuisine, String diet, String intolerances, String equipment, String includeIngredients, String excludeIngredients, String type, Boolean instructionsRequired, Boolean fillIngredients, Boolean addRecipeInformation, String author, String tags, String titleMatch, BigDecimal maxReadyTime, Boolean ignorePantry, String sort, String sortDirection, BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minFat, BigDecimal maxFat, BigDecimal minAlcohol, BigDecimal maxAlcohol, BigDecimal minCaffeine, BigDecimal maxCaffeine, BigDecimal minCopper, BigDecimal maxCopper, BigDecimal minCalcium, BigDecimal maxCalcium, BigDecimal minCholine, BigDecimal maxCholine, BigDecimal minCholesterol, BigDecimal maxCholesterol, BigDecimal minFluoride, BigDecimal maxFluoride, BigDecimal minSaturatedFat, BigDecimal maxSaturatedFat, BigDecimal minVitaminA, BigDecimal maxVitaminA, BigDecimal minVitaminC, BigDecimal maxVitaminC, BigDecimal minVitaminD, BigDecimal maxVitaminD, BigDecimal minVitaminE, BigDecimal maxVitaminE, BigDecimal minVitaminK, BigDecimal maxVitaminK, BigDecimal minVitaminB1, BigDecimal maxVitaminB1, BigDecimal minVitaminB2, BigDecimal maxVitaminB2, BigDecimal minVitaminB5, BigDecimal maxVitaminB5, BigDecimal minVitaminB3, BigDecimal maxVitaminB3, BigDecimal minVitaminB6, BigDecimal maxVitaminB6, BigDecimal minVitaminB12, BigDecimal maxVitaminB12, BigDecimal minFiber, BigDecimal maxFiber, BigDecimal minFolate, BigDecimal maxFolate, BigDecimal minFolicAcid, BigDecimal maxFolicAcid, BigDecimal minIodine, BigDecimal maxIodine, BigDecimal minIron, BigDecimal maxIron, BigDecimal minMagnesium, BigDecimal maxMagnesium, BigDecimal minManganese, BigDecimal maxManganese, BigDecimal minPhosphorus, BigDecimal maxPhosphorus, BigDecimal minPotassium, BigDecimal maxPotassium, BigDecimal minSelenium, BigDecimal maxSelenium, BigDecimal minSodium, BigDecimal maxSodium, BigDecimal minSugar, BigDecimal maxSugar, BigDecimal minZinc, BigDecimal maxZinc, BigDecimal offset, BigDecimal number, Boolean limitLicense, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call searchRecipesComplexValidateBeforeCall(String query, String cuisine, String excludeCuisine, String diet, String intolerances, String equipment, String includeIngredients, String excludeIngredients, String type, Boolean instructionsRequired, Boolean fillIngredients, Boolean addRecipeInformation, Boolean addRecipeNutrition, String author, String tags, BigDecimal recipeBoxId, String titleMatch, BigDecimal maxReadyTime, Boolean ignorePantry, String sort, String sortDirection, BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minFat, BigDecimal maxFat, BigDecimal minAlcohol, BigDecimal maxAlcohol, BigDecimal minCaffeine, BigDecimal maxCaffeine, BigDecimal minCopper, BigDecimal maxCopper, BigDecimal minCalcium, BigDecimal maxCalcium, BigDecimal minCholine, BigDecimal maxCholine, BigDecimal minCholesterol, BigDecimal maxCholesterol, BigDecimal minFluoride, BigDecimal maxFluoride, BigDecimal minSaturatedFat, BigDecimal maxSaturatedFat, BigDecimal minVitaminA, BigDecimal maxVitaminA, BigDecimal minVitaminC, BigDecimal maxVitaminC, BigDecimal minVitaminD, BigDecimal maxVitaminD, BigDecimal minVitaminE, BigDecimal maxVitaminE, BigDecimal minVitaminK, BigDecimal maxVitaminK, BigDecimal minVitaminB1, BigDecimal maxVitaminB1, BigDecimal minVitaminB2, BigDecimal maxVitaminB2, BigDecimal minVitaminB5, BigDecimal maxVitaminB5, BigDecimal minVitaminB3, BigDecimal maxVitaminB3, BigDecimal minVitaminB6, BigDecimal maxVitaminB6, BigDecimal minVitaminB12, BigDecimal maxVitaminB12, BigDecimal minFiber, BigDecimal maxFiber, BigDecimal minFolate, BigDecimal maxFolate, BigDecimal minFolicAcid, BigDecimal maxFolicAcid, BigDecimal minIodine, BigDecimal maxIodine, BigDecimal minIron, BigDecimal maxIron, BigDecimal minMagnesium, BigDecimal maxMagnesium, BigDecimal minManganese, BigDecimal maxManganese, BigDecimal minPhosphorus, BigDecimal maxPhosphorus, BigDecimal minPotassium, BigDecimal maxPotassium, BigDecimal minSelenium, BigDecimal maxSelenium, BigDecimal minSodium, BigDecimal maxSodium, BigDecimal minSugar, BigDecimal maxSugar, BigDecimal minZinc, BigDecimal maxZinc, BigDecimal offset, BigDecimal number, Boolean limitLicense, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'query' is set
         if (query == null) {
@@ -6550,7 +8030,7 @@ public class DefaultApi {
         }
         
 
-        okhttp3.Call localVarCall = searchRecipesComplexCall(query, cuisine, excludeCuisine, diet, intolerances, equipment, includeIngredients, excludeIngredients, type, instructionsRequired, fillIngredients, addRecipeInformation, author, tags, titleMatch, maxReadyTime, ignorePantry, sort, sortDirection, minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, limitLicense, _callback);
+        okhttp3.Call localVarCall = searchRecipesComplexCall(query, cuisine, excludeCuisine, diet, intolerances, equipment, includeIngredients, excludeIngredients, type, instructionsRequired, fillIngredients, addRecipeInformation, addRecipeNutrition, author, tags, recipeBoxId, titleMatch, maxReadyTime, ignorePantry, sort, sortDirection, minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, limitLicense, _callback);
         return localVarCall;
 
     }
@@ -6568,10 +8048,12 @@ public class DefaultApi {
      * @param excludeIngredients A comma-separated list of ingredients or ingredient types that the recipes must not contain. (optional)
      * @param type The type of recipe. See a full list of supported meal types. (optional)
      * @param instructionsRequired Whether the recipes must have instructions. (optional)
-     * @param fillIngredients Add information about the used and missing ingredients in each recipe. (optional)
-     * @param addRecipeInformation If set to true, you get more information about the recipes returned. This saves you from needing to call to get recipe information. (optional)
+     * @param fillIngredients Add information about the ingredients and whether they are used or missing in relation to the query. (optional)
+     * @param addRecipeInformation If set to true, you get more information about the recipes returned. (optional)
+     * @param addRecipeNutrition If set to true, you get nutritional information about each recipes returned. (optional)
      * @param author The username of the recipe author. (optional)
-     * @param tags User defined tags that have to match. (optional)
+     * @param tags User defined tags that have to match. The author param has to be set. (optional)
+     * @param recipeBoxId The id of the recipe box to which the search should be limited to. (optional)
      * @param titleMatch Enter text that must be found in the title of the recipes. (optional)
      * @param maxReadyTime The maximum time in minutes it should take to prepare and cook the recipe. (optional)
      * @param ignorePantry Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional)
@@ -6649,16 +8131,16 @@ public class DefaultApi {
      * @param maxSugar The maximum amount of sugar in grams the recipe can have. (optional)
      * @param minZinc The minimum amount of zinc in milligrams the recipe must have. (optional)
      * @param maxZinc The maximum amount of zinc in milligrams the recipe can have. (optional)
-     * @param offset The offset number for paging (between 0 and 990). (optional)
-     * @param number The number of expected results (between 1 and 10). (optional)
+     * @param offset The number of results to skip (between 0 and 900). (optional)
+     * @param number The number of expected results (between 1 and 100). (optional)
      * @param limitLicense Whether the recipes should have an open license that allows display with proper attribution. (optional)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Search-Recipes-Complex">Search Recipes Complex Documentation</a>
      */
-    public Object searchRecipesComplex(String query, String cuisine, String excludeCuisine, String diet, String intolerances, String equipment, String includeIngredients, String excludeIngredients, String type, Boolean instructionsRequired, Boolean fillIngredients, Boolean addRecipeInformation, String author, String tags, String titleMatch, BigDecimal maxReadyTime, Boolean ignorePantry, String sort, String sortDirection, BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minFat, BigDecimal maxFat, BigDecimal minAlcohol, BigDecimal maxAlcohol, BigDecimal minCaffeine, BigDecimal maxCaffeine, BigDecimal minCopper, BigDecimal maxCopper, BigDecimal minCalcium, BigDecimal maxCalcium, BigDecimal minCholine, BigDecimal maxCholine, BigDecimal minCholesterol, BigDecimal maxCholesterol, BigDecimal minFluoride, BigDecimal maxFluoride, BigDecimal minSaturatedFat, BigDecimal maxSaturatedFat, BigDecimal minVitaminA, BigDecimal maxVitaminA, BigDecimal minVitaminC, BigDecimal maxVitaminC, BigDecimal minVitaminD, BigDecimal maxVitaminD, BigDecimal minVitaminE, BigDecimal maxVitaminE, BigDecimal minVitaminK, BigDecimal maxVitaminK, BigDecimal minVitaminB1, BigDecimal maxVitaminB1, BigDecimal minVitaminB2, BigDecimal maxVitaminB2, BigDecimal minVitaminB5, BigDecimal maxVitaminB5, BigDecimal minVitaminB3, BigDecimal maxVitaminB3, BigDecimal minVitaminB6, BigDecimal maxVitaminB6, BigDecimal minVitaminB12, BigDecimal maxVitaminB12, BigDecimal minFiber, BigDecimal maxFiber, BigDecimal minFolate, BigDecimal maxFolate, BigDecimal minFolicAcid, BigDecimal maxFolicAcid, BigDecimal minIodine, BigDecimal maxIodine, BigDecimal minIron, BigDecimal maxIron, BigDecimal minMagnesium, BigDecimal maxMagnesium, BigDecimal minManganese, BigDecimal maxManganese, BigDecimal minPhosphorus, BigDecimal maxPhosphorus, BigDecimal minPotassium, BigDecimal maxPotassium, BigDecimal minSelenium, BigDecimal maxSelenium, BigDecimal minSodium, BigDecimal maxSodium, BigDecimal minSugar, BigDecimal maxSugar, BigDecimal minZinc, BigDecimal maxZinc, BigDecimal offset, BigDecimal number, Boolean limitLicense) throws ApiException {
-        ApiResponse<Object> localVarResp = searchRecipesComplexWithHttpInfo(query, cuisine, excludeCuisine, diet, intolerances, equipment, includeIngredients, excludeIngredients, type, instructionsRequired, fillIngredients, addRecipeInformation, author, tags, titleMatch, maxReadyTime, ignorePantry, sort, sortDirection, minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, limitLicense);
+    public Object searchRecipesComplex(String query, String cuisine, String excludeCuisine, String diet, String intolerances, String equipment, String includeIngredients, String excludeIngredients, String type, Boolean instructionsRequired, Boolean fillIngredients, Boolean addRecipeInformation, Boolean addRecipeNutrition, String author, String tags, BigDecimal recipeBoxId, String titleMatch, BigDecimal maxReadyTime, Boolean ignorePantry, String sort, String sortDirection, BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minFat, BigDecimal maxFat, BigDecimal minAlcohol, BigDecimal maxAlcohol, BigDecimal minCaffeine, BigDecimal maxCaffeine, BigDecimal minCopper, BigDecimal maxCopper, BigDecimal minCalcium, BigDecimal maxCalcium, BigDecimal minCholine, BigDecimal maxCholine, BigDecimal minCholesterol, BigDecimal maxCholesterol, BigDecimal minFluoride, BigDecimal maxFluoride, BigDecimal minSaturatedFat, BigDecimal maxSaturatedFat, BigDecimal minVitaminA, BigDecimal maxVitaminA, BigDecimal minVitaminC, BigDecimal maxVitaminC, BigDecimal minVitaminD, BigDecimal maxVitaminD, BigDecimal minVitaminE, BigDecimal maxVitaminE, BigDecimal minVitaminK, BigDecimal maxVitaminK, BigDecimal minVitaminB1, BigDecimal maxVitaminB1, BigDecimal minVitaminB2, BigDecimal maxVitaminB2, BigDecimal minVitaminB5, BigDecimal maxVitaminB5, BigDecimal minVitaminB3, BigDecimal maxVitaminB3, BigDecimal minVitaminB6, BigDecimal maxVitaminB6, BigDecimal minVitaminB12, BigDecimal maxVitaminB12, BigDecimal minFiber, BigDecimal maxFiber, BigDecimal minFolate, BigDecimal maxFolate, BigDecimal minFolicAcid, BigDecimal maxFolicAcid, BigDecimal minIodine, BigDecimal maxIodine, BigDecimal minIron, BigDecimal maxIron, BigDecimal minMagnesium, BigDecimal maxMagnesium, BigDecimal minManganese, BigDecimal maxManganese, BigDecimal minPhosphorus, BigDecimal maxPhosphorus, BigDecimal minPotassium, BigDecimal maxPotassium, BigDecimal minSelenium, BigDecimal maxSelenium, BigDecimal minSodium, BigDecimal maxSodium, BigDecimal minSugar, BigDecimal maxSugar, BigDecimal minZinc, BigDecimal maxZinc, BigDecimal offset, BigDecimal number, Boolean limitLicense) throws ApiException {
+        ApiResponse<Object> localVarResp = searchRecipesComplexWithHttpInfo(query, cuisine, excludeCuisine, diet, intolerances, equipment, includeIngredients, excludeIngredients, type, instructionsRequired, fillIngredients, addRecipeInformation, addRecipeNutrition, author, tags, recipeBoxId, titleMatch, maxReadyTime, ignorePantry, sort, sortDirection, minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, limitLicense);
         return localVarResp.getData();
     }
 
@@ -6675,10 +8157,12 @@ public class DefaultApi {
      * @param excludeIngredients A comma-separated list of ingredients or ingredient types that the recipes must not contain. (optional)
      * @param type The type of recipe. See a full list of supported meal types. (optional)
      * @param instructionsRequired Whether the recipes must have instructions. (optional)
-     * @param fillIngredients Add information about the used and missing ingredients in each recipe. (optional)
-     * @param addRecipeInformation If set to true, you get more information about the recipes returned. This saves you from needing to call to get recipe information. (optional)
+     * @param fillIngredients Add information about the ingredients and whether they are used or missing in relation to the query. (optional)
+     * @param addRecipeInformation If set to true, you get more information about the recipes returned. (optional)
+     * @param addRecipeNutrition If set to true, you get nutritional information about each recipes returned. (optional)
      * @param author The username of the recipe author. (optional)
-     * @param tags User defined tags that have to match. (optional)
+     * @param tags User defined tags that have to match. The author param has to be set. (optional)
+     * @param recipeBoxId The id of the recipe box to which the search should be limited to. (optional)
      * @param titleMatch Enter text that must be found in the title of the recipes. (optional)
      * @param maxReadyTime The maximum time in minutes it should take to prepare and cook the recipe. (optional)
      * @param ignorePantry Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional)
@@ -6756,16 +8240,16 @@ public class DefaultApi {
      * @param maxSugar The maximum amount of sugar in grams the recipe can have. (optional)
      * @param minZinc The minimum amount of zinc in milligrams the recipe must have. (optional)
      * @param maxZinc The maximum amount of zinc in milligrams the recipe can have. (optional)
-     * @param offset The offset number for paging (between 0 and 990). (optional)
-     * @param number The number of expected results (between 1 and 10). (optional)
+     * @param offset The number of results to skip (between 0 and 900). (optional)
+     * @param number The number of expected results (between 1 and 100). (optional)
      * @param limitLicense Whether the recipes should have an open license that allows display with proper attribution. (optional)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Search-Recipes-Complex">Search Recipes Complex Documentation</a>
      */
-    public ApiResponse<Object> searchRecipesComplexWithHttpInfo(String query, String cuisine, String excludeCuisine, String diet, String intolerances, String equipment, String includeIngredients, String excludeIngredients, String type, Boolean instructionsRequired, Boolean fillIngredients, Boolean addRecipeInformation, String author, String tags, String titleMatch, BigDecimal maxReadyTime, Boolean ignorePantry, String sort, String sortDirection, BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minFat, BigDecimal maxFat, BigDecimal minAlcohol, BigDecimal maxAlcohol, BigDecimal minCaffeine, BigDecimal maxCaffeine, BigDecimal minCopper, BigDecimal maxCopper, BigDecimal minCalcium, BigDecimal maxCalcium, BigDecimal minCholine, BigDecimal maxCholine, BigDecimal minCholesterol, BigDecimal maxCholesterol, BigDecimal minFluoride, BigDecimal maxFluoride, BigDecimal minSaturatedFat, BigDecimal maxSaturatedFat, BigDecimal minVitaminA, BigDecimal maxVitaminA, BigDecimal minVitaminC, BigDecimal maxVitaminC, BigDecimal minVitaminD, BigDecimal maxVitaminD, BigDecimal minVitaminE, BigDecimal maxVitaminE, BigDecimal minVitaminK, BigDecimal maxVitaminK, BigDecimal minVitaminB1, BigDecimal maxVitaminB1, BigDecimal minVitaminB2, BigDecimal maxVitaminB2, BigDecimal minVitaminB5, BigDecimal maxVitaminB5, BigDecimal minVitaminB3, BigDecimal maxVitaminB3, BigDecimal minVitaminB6, BigDecimal maxVitaminB6, BigDecimal minVitaminB12, BigDecimal maxVitaminB12, BigDecimal minFiber, BigDecimal maxFiber, BigDecimal minFolate, BigDecimal maxFolate, BigDecimal minFolicAcid, BigDecimal maxFolicAcid, BigDecimal minIodine, BigDecimal maxIodine, BigDecimal minIron, BigDecimal maxIron, BigDecimal minMagnesium, BigDecimal maxMagnesium, BigDecimal minManganese, BigDecimal maxManganese, BigDecimal minPhosphorus, BigDecimal maxPhosphorus, BigDecimal minPotassium, BigDecimal maxPotassium, BigDecimal minSelenium, BigDecimal maxSelenium, BigDecimal minSodium, BigDecimal maxSodium, BigDecimal minSugar, BigDecimal maxSugar, BigDecimal minZinc, BigDecimal maxZinc, BigDecimal offset, BigDecimal number, Boolean limitLicense) throws ApiException {
-        okhttp3.Call localVarCall = searchRecipesComplexValidateBeforeCall(query, cuisine, excludeCuisine, diet, intolerances, equipment, includeIngredients, excludeIngredients, type, instructionsRequired, fillIngredients, addRecipeInformation, author, tags, titleMatch, maxReadyTime, ignorePantry, sort, sortDirection, minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, limitLicense, null);
+    public ApiResponse<Object> searchRecipesComplexWithHttpInfo(String query, String cuisine, String excludeCuisine, String diet, String intolerances, String equipment, String includeIngredients, String excludeIngredients, String type, Boolean instructionsRequired, Boolean fillIngredients, Boolean addRecipeInformation, Boolean addRecipeNutrition, String author, String tags, BigDecimal recipeBoxId, String titleMatch, BigDecimal maxReadyTime, Boolean ignorePantry, String sort, String sortDirection, BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minFat, BigDecimal maxFat, BigDecimal minAlcohol, BigDecimal maxAlcohol, BigDecimal minCaffeine, BigDecimal maxCaffeine, BigDecimal minCopper, BigDecimal maxCopper, BigDecimal minCalcium, BigDecimal maxCalcium, BigDecimal minCholine, BigDecimal maxCholine, BigDecimal minCholesterol, BigDecimal maxCholesterol, BigDecimal minFluoride, BigDecimal maxFluoride, BigDecimal minSaturatedFat, BigDecimal maxSaturatedFat, BigDecimal minVitaminA, BigDecimal maxVitaminA, BigDecimal minVitaminC, BigDecimal maxVitaminC, BigDecimal minVitaminD, BigDecimal maxVitaminD, BigDecimal minVitaminE, BigDecimal maxVitaminE, BigDecimal minVitaminK, BigDecimal maxVitaminK, BigDecimal minVitaminB1, BigDecimal maxVitaminB1, BigDecimal minVitaminB2, BigDecimal maxVitaminB2, BigDecimal minVitaminB5, BigDecimal maxVitaminB5, BigDecimal minVitaminB3, BigDecimal maxVitaminB3, BigDecimal minVitaminB6, BigDecimal maxVitaminB6, BigDecimal minVitaminB12, BigDecimal maxVitaminB12, BigDecimal minFiber, BigDecimal maxFiber, BigDecimal minFolate, BigDecimal maxFolate, BigDecimal minFolicAcid, BigDecimal maxFolicAcid, BigDecimal minIodine, BigDecimal maxIodine, BigDecimal minIron, BigDecimal maxIron, BigDecimal minMagnesium, BigDecimal maxMagnesium, BigDecimal minManganese, BigDecimal maxManganese, BigDecimal minPhosphorus, BigDecimal maxPhosphorus, BigDecimal minPotassium, BigDecimal maxPotassium, BigDecimal minSelenium, BigDecimal maxSelenium, BigDecimal minSodium, BigDecimal maxSodium, BigDecimal minSugar, BigDecimal maxSugar, BigDecimal minZinc, BigDecimal maxZinc, BigDecimal offset, BigDecimal number, Boolean limitLicense) throws ApiException {
+        okhttp3.Call localVarCall = searchRecipesComplexValidateBeforeCall(query, cuisine, excludeCuisine, diet, intolerances, equipment, includeIngredients, excludeIngredients, type, instructionsRequired, fillIngredients, addRecipeInformation, addRecipeNutrition, author, tags, recipeBoxId, titleMatch, maxReadyTime, ignorePantry, sort, sortDirection, minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, limitLicense, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -6783,10 +8267,12 @@ public class DefaultApi {
      * @param excludeIngredients A comma-separated list of ingredients or ingredient types that the recipes must not contain. (optional)
      * @param type The type of recipe. See a full list of supported meal types. (optional)
      * @param instructionsRequired Whether the recipes must have instructions. (optional)
-     * @param fillIngredients Add information about the used and missing ingredients in each recipe. (optional)
-     * @param addRecipeInformation If set to true, you get more information about the recipes returned. This saves you from needing to call to get recipe information. (optional)
+     * @param fillIngredients Add information about the ingredients and whether they are used or missing in relation to the query. (optional)
+     * @param addRecipeInformation If set to true, you get more information about the recipes returned. (optional)
+     * @param addRecipeNutrition If set to true, you get nutritional information about each recipes returned. (optional)
      * @param author The username of the recipe author. (optional)
-     * @param tags User defined tags that have to match. (optional)
+     * @param tags User defined tags that have to match. The author param has to be set. (optional)
+     * @param recipeBoxId The id of the recipe box to which the search should be limited to. (optional)
      * @param titleMatch Enter text that must be found in the title of the recipes. (optional)
      * @param maxReadyTime The maximum time in minutes it should take to prepare and cook the recipe. (optional)
      * @param ignorePantry Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional)
@@ -6864,8 +8350,8 @@ public class DefaultApi {
      * @param maxSugar The maximum amount of sugar in grams the recipe can have. (optional)
      * @param minZinc The minimum amount of zinc in milligrams the recipe must have. (optional)
      * @param maxZinc The maximum amount of zinc in milligrams the recipe can have. (optional)
-     * @param offset The offset number for paging (between 0 and 990). (optional)
-     * @param number The number of expected results (between 1 and 10). (optional)
+     * @param offset The number of results to skip (between 0 and 900). (optional)
+     * @param number The number of expected results (between 1 and 100). (optional)
      * @param limitLicense Whether the recipes should have an open license that allows display with proper attribution. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -6873,9 +8359,9 @@ public class DefaultApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Search-Recipes-Complex">Search Recipes Complex Documentation</a>
      */
-    public okhttp3.Call searchRecipesComplexAsync(String query, String cuisine, String excludeCuisine, String diet, String intolerances, String equipment, String includeIngredients, String excludeIngredients, String type, Boolean instructionsRequired, Boolean fillIngredients, Boolean addRecipeInformation, String author, String tags, String titleMatch, BigDecimal maxReadyTime, Boolean ignorePantry, String sort, String sortDirection, BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minFat, BigDecimal maxFat, BigDecimal minAlcohol, BigDecimal maxAlcohol, BigDecimal minCaffeine, BigDecimal maxCaffeine, BigDecimal minCopper, BigDecimal maxCopper, BigDecimal minCalcium, BigDecimal maxCalcium, BigDecimal minCholine, BigDecimal maxCholine, BigDecimal minCholesterol, BigDecimal maxCholesterol, BigDecimal minFluoride, BigDecimal maxFluoride, BigDecimal minSaturatedFat, BigDecimal maxSaturatedFat, BigDecimal minVitaminA, BigDecimal maxVitaminA, BigDecimal minVitaminC, BigDecimal maxVitaminC, BigDecimal minVitaminD, BigDecimal maxVitaminD, BigDecimal minVitaminE, BigDecimal maxVitaminE, BigDecimal minVitaminK, BigDecimal maxVitaminK, BigDecimal minVitaminB1, BigDecimal maxVitaminB1, BigDecimal minVitaminB2, BigDecimal maxVitaminB2, BigDecimal minVitaminB5, BigDecimal maxVitaminB5, BigDecimal minVitaminB3, BigDecimal maxVitaminB3, BigDecimal minVitaminB6, BigDecimal maxVitaminB6, BigDecimal minVitaminB12, BigDecimal maxVitaminB12, BigDecimal minFiber, BigDecimal maxFiber, BigDecimal minFolate, BigDecimal maxFolate, BigDecimal minFolicAcid, BigDecimal maxFolicAcid, BigDecimal minIodine, BigDecimal maxIodine, BigDecimal minIron, BigDecimal maxIron, BigDecimal minMagnesium, BigDecimal maxMagnesium, BigDecimal minManganese, BigDecimal maxManganese, BigDecimal minPhosphorus, BigDecimal maxPhosphorus, BigDecimal minPotassium, BigDecimal maxPotassium, BigDecimal minSelenium, BigDecimal maxSelenium, BigDecimal minSodium, BigDecimal maxSodium, BigDecimal minSugar, BigDecimal maxSugar, BigDecimal minZinc, BigDecimal maxZinc, BigDecimal offset, BigDecimal number, Boolean limitLicense, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call searchRecipesComplexAsync(String query, String cuisine, String excludeCuisine, String diet, String intolerances, String equipment, String includeIngredients, String excludeIngredients, String type, Boolean instructionsRequired, Boolean fillIngredients, Boolean addRecipeInformation, Boolean addRecipeNutrition, String author, String tags, BigDecimal recipeBoxId, String titleMatch, BigDecimal maxReadyTime, Boolean ignorePantry, String sort, String sortDirection, BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minFat, BigDecimal maxFat, BigDecimal minAlcohol, BigDecimal maxAlcohol, BigDecimal minCaffeine, BigDecimal maxCaffeine, BigDecimal minCopper, BigDecimal maxCopper, BigDecimal minCalcium, BigDecimal maxCalcium, BigDecimal minCholine, BigDecimal maxCholine, BigDecimal minCholesterol, BigDecimal maxCholesterol, BigDecimal minFluoride, BigDecimal maxFluoride, BigDecimal minSaturatedFat, BigDecimal maxSaturatedFat, BigDecimal minVitaminA, BigDecimal maxVitaminA, BigDecimal minVitaminC, BigDecimal maxVitaminC, BigDecimal minVitaminD, BigDecimal maxVitaminD, BigDecimal minVitaminE, BigDecimal maxVitaminE, BigDecimal minVitaminK, BigDecimal maxVitaminK, BigDecimal minVitaminB1, BigDecimal maxVitaminB1, BigDecimal minVitaminB2, BigDecimal maxVitaminB2, BigDecimal minVitaminB5, BigDecimal maxVitaminB5, BigDecimal minVitaminB3, BigDecimal maxVitaminB3, BigDecimal minVitaminB6, BigDecimal maxVitaminB6, BigDecimal minVitaminB12, BigDecimal maxVitaminB12, BigDecimal minFiber, BigDecimal maxFiber, BigDecimal minFolate, BigDecimal maxFolate, BigDecimal minFolicAcid, BigDecimal maxFolicAcid, BigDecimal minIodine, BigDecimal maxIodine, BigDecimal minIron, BigDecimal maxIron, BigDecimal minMagnesium, BigDecimal maxMagnesium, BigDecimal minManganese, BigDecimal maxManganese, BigDecimal minPhosphorus, BigDecimal maxPhosphorus, BigDecimal minPotassium, BigDecimal maxPotassium, BigDecimal minSelenium, BigDecimal maxSelenium, BigDecimal minSodium, BigDecimal maxSodium, BigDecimal minSugar, BigDecimal maxSugar, BigDecimal minZinc, BigDecimal maxZinc, BigDecimal offset, BigDecimal number, Boolean limitLicense, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchRecipesComplexValidateBeforeCall(query, cuisine, excludeCuisine, diet, intolerances, equipment, includeIngredients, excludeIngredients, type, instructionsRequired, fillIngredients, addRecipeInformation, author, tags, titleMatch, maxReadyTime, ignorePantry, sort, sortDirection, minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, limitLicense, _callback);
+        okhttp3.Call localVarCall = searchRecipesComplexValidateBeforeCall(query, cuisine, excludeCuisine, diet, intolerances, equipment, includeIngredients, excludeIngredients, type, instructionsRequired, fillIngredients, addRecipeInformation, addRecipeNutrition, author, tags, recipeBoxId, titleMatch, maxReadyTime, ignorePantry, sort, sortDirection, minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, limitLicense, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
