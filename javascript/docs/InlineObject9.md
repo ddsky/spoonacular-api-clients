@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**text** | **String** | The text in which food items, such as dish names and ingredients, should be detected in. | 
+**username** | **String** | The username. | 
+**hash** | **String** | The private hash for the username. | 
 
 

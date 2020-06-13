@@ -116,6 +116,608 @@ class DefaultApi
     }
 
     /**
+     * Operation addToMealPlan
+     *
+     * Add to Meal Plan
+     *
+     * @param  string $username The username. (required)
+     * @param  string $hash The private hash for the username. (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject9 $inline_object9 inline_object9 (required)
+     *
+     * @throws \com.spoonacular.client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return object
+     */
+    public function addToMealPlan($username, $hash, $inline_object9)
+    {
+        list($response) = $this->addToMealPlanWithHttpInfo($username, $hash, $inline_object9);
+        return $response;
+    }
+
+    /**
+     * Operation addToMealPlanWithHttpInfo
+     *
+     * Add to Meal Plan
+     *
+     * @param  string $username The username. (required)
+     * @param  string $hash The private hash for the username. (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject9 $inline_object9 (required)
+     *
+     * @throws \com.spoonacular.client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of object, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function addToMealPlanWithHttpInfo($username, $hash, $inline_object9)
+    {
+        $request = $this->addToMealPlanRequest($username, $hash, $inline_object9);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('object' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, 'object', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'object';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'object',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation addToMealPlanAsync
+     *
+     * Add to Meal Plan
+     *
+     * @param  string $username The username. (required)
+     * @param  string $hash The private hash for the username. (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject9 $inline_object9 (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function addToMealPlanAsync($username, $hash, $inline_object9)
+    {
+        return $this->addToMealPlanAsyncWithHttpInfo($username, $hash, $inline_object9)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation addToMealPlanAsyncWithHttpInfo
+     *
+     * Add to Meal Plan
+     *
+     * @param  string $username The username. (required)
+     * @param  string $hash The private hash for the username. (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject9 $inline_object9 (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function addToMealPlanAsyncWithHttpInfo($username, $hash, $inline_object9)
+    {
+        $returnType = 'object';
+        $request = $this->addToMealPlanRequest($username, $hash, $inline_object9);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'addToMealPlan'
+     *
+     * @param  string $username The username. (required)
+     * @param  string $hash The private hash for the username. (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject9 $inline_object9 (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function addToMealPlanRequest($username, $hash, $inline_object9)
+    {
+        // verify the required parameter 'username' is set
+        if ($username === null || (is_array($username) && count($username) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $username when calling addToMealPlan'
+            );
+        }
+        // verify the required parameter 'hash' is set
+        if ($hash === null || (is_array($hash) && count($hash) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $hash when calling addToMealPlan'
+            );
+        }
+        // verify the required parameter 'inline_object9' is set
+        if ($inline_object9 === null || (is_array($inline_object9) && count($inline_object9) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $inline_object9 when calling addToMealPlan'
+            );
+        }
+
+        $resourcePath = '/mealplanner/{username}/items';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($hash !== null) {
+            $queryParams['hash'] = ObjectSerializer::toQueryValue($hash);
+        }
+
+        // path params
+        if ($username !== null) {
+            $resourcePath = str_replace(
+                '{' . 'username' . '}',
+                ObjectSerializer::toPathValue($username),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+        if (isset($inline_object9)) {
+            $_tempBody = $inline_object9;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation addToShoppingList
+     *
+     * Add to Shopping List
+     *
+     * @param  string $username The username. (required)
+     * @param  string $hash The private hash for the username. (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject12 $inline_object12 inline_object12 (required)
+     *
+     * @throws \com.spoonacular.client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return object
+     */
+    public function addToShoppingList($username, $hash, $inline_object12)
+    {
+        list($response) = $this->addToShoppingListWithHttpInfo($username, $hash, $inline_object12);
+        return $response;
+    }
+
+    /**
+     * Operation addToShoppingListWithHttpInfo
+     *
+     * Add to Shopping List
+     *
+     * @param  string $username The username. (required)
+     * @param  string $hash The private hash for the username. (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject12 $inline_object12 (required)
+     *
+     * @throws \com.spoonacular.client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of object, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function addToShoppingListWithHttpInfo($username, $hash, $inline_object12)
+    {
+        $request = $this->addToShoppingListRequest($username, $hash, $inline_object12);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('object' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, 'object', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'object';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'object',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation addToShoppingListAsync
+     *
+     * Add to Shopping List
+     *
+     * @param  string $username The username. (required)
+     * @param  string $hash The private hash for the username. (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject12 $inline_object12 (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function addToShoppingListAsync($username, $hash, $inline_object12)
+    {
+        return $this->addToShoppingListAsyncWithHttpInfo($username, $hash, $inline_object12)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation addToShoppingListAsyncWithHttpInfo
+     *
+     * Add to Shopping List
+     *
+     * @param  string $username The username. (required)
+     * @param  string $hash The private hash for the username. (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject12 $inline_object12 (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function addToShoppingListAsyncWithHttpInfo($username, $hash, $inline_object12)
+    {
+        $returnType = 'object';
+        $request = $this->addToShoppingListRequest($username, $hash, $inline_object12);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'addToShoppingList'
+     *
+     * @param  string $username The username. (required)
+     * @param  string $hash The private hash for the username. (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject12 $inline_object12 (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function addToShoppingListRequest($username, $hash, $inline_object12)
+    {
+        // verify the required parameter 'username' is set
+        if ($username === null || (is_array($username) && count($username) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $username when calling addToShoppingList'
+            );
+        }
+        // verify the required parameter 'hash' is set
+        if ($hash === null || (is_array($hash) && count($hash) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $hash when calling addToShoppingList'
+            );
+        }
+        // verify the required parameter 'inline_object12' is set
+        if ($inline_object12 === null || (is_array($inline_object12) && count($inline_object12) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $inline_object12 when calling addToShoppingList'
+            );
+        }
+
+        $resourcePath = '/mealplanner/{username}/shopping-list/items';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($hash !== null) {
+            $queryParams['hash'] = ObjectSerializer::toQueryValue($hash);
+        }
+
+        // path params
+        if ($username !== null) {
+            $resourcePath = str_replace(
+                '{' . 'username' . '}',
+                ObjectSerializer::toPathValue($username),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+        if (isset($inline_object12)) {
+            $_tempBody = $inline_object12;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation analyzeARecipeSearchQuery
      *
      * Analyze a Recipe Search Query
@@ -3336,6 +3938,646 @@ class DefaultApi
     }
 
     /**
+     * Operation deleteFromMealPlan
+     *
+     * Delete from Meal Plan
+     *
+     * @param  string $username The username. (required)
+     * @param  float $id The shopping list item id. (required)
+     * @param  string $hash The private hash for the username. (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject10 $inline_object10 inline_object10 (required)
+     *
+     * @throws \com.spoonacular.client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return object
+     */
+    public function deleteFromMealPlan($username, $id, $hash, $inline_object10)
+    {
+        list($response) = $this->deleteFromMealPlanWithHttpInfo($username, $id, $hash, $inline_object10);
+        return $response;
+    }
+
+    /**
+     * Operation deleteFromMealPlanWithHttpInfo
+     *
+     * Delete from Meal Plan
+     *
+     * @param  string $username The username. (required)
+     * @param  float $id The shopping list item id. (required)
+     * @param  string $hash The private hash for the username. (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject10 $inline_object10 (required)
+     *
+     * @throws \com.spoonacular.client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of object, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteFromMealPlanWithHttpInfo($username, $id, $hash, $inline_object10)
+    {
+        $request = $this->deleteFromMealPlanRequest($username, $id, $hash, $inline_object10);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('object' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, 'object', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'object';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'object',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation deleteFromMealPlanAsync
+     *
+     * Delete from Meal Plan
+     *
+     * @param  string $username The username. (required)
+     * @param  float $id The shopping list item id. (required)
+     * @param  string $hash The private hash for the username. (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject10 $inline_object10 (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteFromMealPlanAsync($username, $id, $hash, $inline_object10)
+    {
+        return $this->deleteFromMealPlanAsyncWithHttpInfo($username, $id, $hash, $inline_object10)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation deleteFromMealPlanAsyncWithHttpInfo
+     *
+     * Delete from Meal Plan
+     *
+     * @param  string $username The username. (required)
+     * @param  float $id The shopping list item id. (required)
+     * @param  string $hash The private hash for the username. (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject10 $inline_object10 (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteFromMealPlanAsyncWithHttpInfo($username, $id, $hash, $inline_object10)
+    {
+        $returnType = 'object';
+        $request = $this->deleteFromMealPlanRequest($username, $id, $hash, $inline_object10);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'deleteFromMealPlan'
+     *
+     * @param  string $username The username. (required)
+     * @param  float $id The shopping list item id. (required)
+     * @param  string $hash The private hash for the username. (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject10 $inline_object10 (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function deleteFromMealPlanRequest($username, $id, $hash, $inline_object10)
+    {
+        // verify the required parameter 'username' is set
+        if ($username === null || (is_array($username) && count($username) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $username when calling deleteFromMealPlan'
+            );
+        }
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling deleteFromMealPlan'
+            );
+        }
+        // verify the required parameter 'hash' is set
+        if ($hash === null || (is_array($hash) && count($hash) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $hash when calling deleteFromMealPlan'
+            );
+        }
+        // verify the required parameter 'inline_object10' is set
+        if ($inline_object10 === null || (is_array($inline_object10) && count($inline_object10) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $inline_object10 when calling deleteFromMealPlan'
+            );
+        }
+
+        $resourcePath = '/mealplanner/{username}/items/{id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($hash !== null) {
+            $queryParams['hash'] = ObjectSerializer::toQueryValue($hash);
+        }
+
+        // path params
+        if ($username !== null) {
+            $resourcePath = str_replace(
+                '{' . 'username' . '}',
+                ObjectSerializer::toPathValue($username),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+        if (isset($inline_object10)) {
+            $_tempBody = $inline_object10;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'DELETE',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation deleteFromShoppingList
+     *
+     * Delete from Shopping List
+     *
+     * @param  string $username The username. (required)
+     * @param  float $id The shopping list item id. (required)
+     * @param  string $hash The private hash for the username. (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject13 $inline_object13 inline_object13 (required)
+     *
+     * @throws \com.spoonacular.client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return object
+     */
+    public function deleteFromShoppingList($username, $id, $hash, $inline_object13)
+    {
+        list($response) = $this->deleteFromShoppingListWithHttpInfo($username, $id, $hash, $inline_object13);
+        return $response;
+    }
+
+    /**
+     * Operation deleteFromShoppingListWithHttpInfo
+     *
+     * Delete from Shopping List
+     *
+     * @param  string $username The username. (required)
+     * @param  float $id The shopping list item id. (required)
+     * @param  string $hash The private hash for the username. (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject13 $inline_object13 (required)
+     *
+     * @throws \com.spoonacular.client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of object, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteFromShoppingListWithHttpInfo($username, $id, $hash, $inline_object13)
+    {
+        $request = $this->deleteFromShoppingListRequest($username, $id, $hash, $inline_object13);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('object' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, 'object', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'object';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'object',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation deleteFromShoppingListAsync
+     *
+     * Delete from Shopping List
+     *
+     * @param  string $username The username. (required)
+     * @param  float $id The shopping list item id. (required)
+     * @param  string $hash The private hash for the username. (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject13 $inline_object13 (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteFromShoppingListAsync($username, $id, $hash, $inline_object13)
+    {
+        return $this->deleteFromShoppingListAsyncWithHttpInfo($username, $id, $hash, $inline_object13)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation deleteFromShoppingListAsyncWithHttpInfo
+     *
+     * Delete from Shopping List
+     *
+     * @param  string $username The username. (required)
+     * @param  float $id The shopping list item id. (required)
+     * @param  string $hash The private hash for the username. (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject13 $inline_object13 (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteFromShoppingListAsyncWithHttpInfo($username, $id, $hash, $inline_object13)
+    {
+        $returnType = 'object';
+        $request = $this->deleteFromShoppingListRequest($username, $id, $hash, $inline_object13);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'deleteFromShoppingList'
+     *
+     * @param  string $username The username. (required)
+     * @param  float $id The shopping list item id. (required)
+     * @param  string $hash The private hash for the username. (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject13 $inline_object13 (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function deleteFromShoppingListRequest($username, $id, $hash, $inline_object13)
+    {
+        // verify the required parameter 'username' is set
+        if ($username === null || (is_array($username) && count($username) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $username when calling deleteFromShoppingList'
+            );
+        }
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling deleteFromShoppingList'
+            );
+        }
+        // verify the required parameter 'hash' is set
+        if ($hash === null || (is_array($hash) && count($hash) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $hash when calling deleteFromShoppingList'
+            );
+        }
+        // verify the required parameter 'inline_object13' is set
+        if ($inline_object13 === null || (is_array($inline_object13) && count($inline_object13) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $inline_object13 when calling deleteFromShoppingList'
+            );
+        }
+
+        $resourcePath = '/mealplanner/{username}/shopping-list/items/{id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($hash !== null) {
+            $queryParams['hash'] = ObjectSerializer::toQueryValue($hash);
+        }
+
+        // path params
+        if ($username !== null) {
+            $resourcePath = str_replace(
+                '{' . 'username' . '}',
+                ObjectSerializer::toPathValue($username),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+        if (isset($inline_object13)) {
+            $_tempBody = $inline_object13;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'DELETE',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation detectFoodInText
      *
      * Detect Food in Text
@@ -3610,14 +4852,15 @@ class DefaultApi
      *
      * @param  string $url The URL of the recipe page. (required)
      * @param  bool $force_extraction If true, the extraction will be triggered whether we already know the recipe or not. Use this only if information is missing as this operation is slower. (optional)
+     * @param  bool $analyze If true, the recipe will be analyzed and classified resolving in more data such as cuisines, dish types, and more. (optional)
      *
      * @throws \com.spoonacular.client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return object
      */
-    public function extractRecipeFromWebsite($url, $force_extraction = null)
+    public function extractRecipeFromWebsite($url, $force_extraction = null, $analyze = null)
     {
-        list($response) = $this->extractRecipeFromWebsiteWithHttpInfo($url, $force_extraction);
+        list($response) = $this->extractRecipeFromWebsiteWithHttpInfo($url, $force_extraction, $analyze);
         return $response;
     }
 
@@ -3628,14 +4871,15 @@ class DefaultApi
      *
      * @param  string $url The URL of the recipe page. (required)
      * @param  bool $force_extraction If true, the extraction will be triggered whether we already know the recipe or not. Use this only if information is missing as this operation is slower. (optional)
+     * @param  bool $analyze If true, the recipe will be analyzed and classified resolving in more data such as cuisines, dish types, and more. (optional)
      *
      * @throws \com.spoonacular.client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
-    public function extractRecipeFromWebsiteWithHttpInfo($url, $force_extraction = null)
+    public function extractRecipeFromWebsiteWithHttpInfo($url, $force_extraction = null, $analyze = null)
     {
-        $request = $this->extractRecipeFromWebsiteRequest($url, $force_extraction);
+        $request = $this->extractRecipeFromWebsiteRequest($url, $force_extraction, $analyze);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3717,13 +4961,14 @@ class DefaultApi
      *
      * @param  string $url The URL of the recipe page. (required)
      * @param  bool $force_extraction If true, the extraction will be triggered whether we already know the recipe or not. Use this only if information is missing as this operation is slower. (optional)
+     * @param  bool $analyze If true, the recipe will be analyzed and classified resolving in more data such as cuisines, dish types, and more. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function extractRecipeFromWebsiteAsync($url, $force_extraction = null)
+    public function extractRecipeFromWebsiteAsync($url, $force_extraction = null, $analyze = null)
     {
-        return $this->extractRecipeFromWebsiteAsyncWithHttpInfo($url, $force_extraction)
+        return $this->extractRecipeFromWebsiteAsyncWithHttpInfo($url, $force_extraction, $analyze)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3738,14 +4983,15 @@ class DefaultApi
      *
      * @param  string $url The URL of the recipe page. (required)
      * @param  bool $force_extraction If true, the extraction will be triggered whether we already know the recipe or not. Use this only if information is missing as this operation is slower. (optional)
+     * @param  bool $analyze If true, the recipe will be analyzed and classified resolving in more data such as cuisines, dish types, and more. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function extractRecipeFromWebsiteAsyncWithHttpInfo($url, $force_extraction = null)
+    public function extractRecipeFromWebsiteAsyncWithHttpInfo($url, $force_extraction = null, $analyze = null)
     {
         $returnType = 'object';
-        $request = $this->extractRecipeFromWebsiteRequest($url, $force_extraction);
+        $request = $this->extractRecipeFromWebsiteRequest($url, $force_extraction, $analyze);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3786,11 +5032,12 @@ class DefaultApi
      *
      * @param  string $url The URL of the recipe page. (required)
      * @param  bool $force_extraction If true, the extraction will be triggered whether we already know the recipe or not. Use this only if information is missing as this operation is slower. (optional)
+     * @param  bool $analyze If true, the recipe will be analyzed and classified resolving in more data such as cuisines, dish types, and more. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function extractRecipeFromWebsiteRequest($url, $force_extraction = null)
+    protected function extractRecipeFromWebsiteRequest($url, $force_extraction = null, $analyze = null)
     {
         // verify the required parameter 'url' is set
         if ($url === null || (is_array($url) && count($url) === 0)) {
@@ -3813,6 +5060,10 @@ class DefaultApi
         // query params
         if ($force_extraction !== null) {
             $queryParams['forceExtraction'] = ObjectSerializer::toQueryValue($force_extraction);
+        }
+        // query params
+        if ($analyze !== null) {
+            $queryParams['analyze'] = ObjectSerializer::toQueryValue($analyze);
         }
 
 
@@ -4163,6 +5414,345 @@ class DefaultApi
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
             'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation generateShoppingList
+     *
+     * Generate Shopping List
+     *
+     * @param  string $username The username. (required)
+     * @param  string $start_date The start date in the format yyyy-mm-dd. (required)
+     * @param  string $end_date The end date in the format yyyy-mm-dd. (required)
+     * @param  string $hash The private hash for the username. (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject11 $inline_object11 inline_object11 (required)
+     *
+     * @throws \com.spoonacular.client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return object
+     */
+    public function generateShoppingList($username, $start_date, $end_date, $hash, $inline_object11)
+    {
+        list($response) = $this->generateShoppingListWithHttpInfo($username, $start_date, $end_date, $hash, $inline_object11);
+        return $response;
+    }
+
+    /**
+     * Operation generateShoppingListWithHttpInfo
+     *
+     * Generate Shopping List
+     *
+     * @param  string $username The username. (required)
+     * @param  string $start_date The start date in the format yyyy-mm-dd. (required)
+     * @param  string $end_date The end date in the format yyyy-mm-dd. (required)
+     * @param  string $hash The private hash for the username. (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject11 $inline_object11 (required)
+     *
+     * @throws \com.spoonacular.client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of object, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function generateShoppingListWithHttpInfo($username, $start_date, $end_date, $hash, $inline_object11)
+    {
+        $request = $this->generateShoppingListRequest($username, $start_date, $end_date, $hash, $inline_object11);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('object' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, 'object', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'object';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'object',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation generateShoppingListAsync
+     *
+     * Generate Shopping List
+     *
+     * @param  string $username The username. (required)
+     * @param  string $start_date The start date in the format yyyy-mm-dd. (required)
+     * @param  string $end_date The end date in the format yyyy-mm-dd. (required)
+     * @param  string $hash The private hash for the username. (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject11 $inline_object11 (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function generateShoppingListAsync($username, $start_date, $end_date, $hash, $inline_object11)
+    {
+        return $this->generateShoppingListAsyncWithHttpInfo($username, $start_date, $end_date, $hash, $inline_object11)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation generateShoppingListAsyncWithHttpInfo
+     *
+     * Generate Shopping List
+     *
+     * @param  string $username The username. (required)
+     * @param  string $start_date The start date in the format yyyy-mm-dd. (required)
+     * @param  string $end_date The end date in the format yyyy-mm-dd. (required)
+     * @param  string $hash The private hash for the username. (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject11 $inline_object11 (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function generateShoppingListAsyncWithHttpInfo($username, $start_date, $end_date, $hash, $inline_object11)
+    {
+        $returnType = 'object';
+        $request = $this->generateShoppingListRequest($username, $start_date, $end_date, $hash, $inline_object11);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'generateShoppingList'
+     *
+     * @param  string $username The username. (required)
+     * @param  string $start_date The start date in the format yyyy-mm-dd. (required)
+     * @param  string $end_date The end date in the format yyyy-mm-dd. (required)
+     * @param  string $hash The private hash for the username. (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject11 $inline_object11 (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function generateShoppingListRequest($username, $start_date, $end_date, $hash, $inline_object11)
+    {
+        // verify the required parameter 'username' is set
+        if ($username === null || (is_array($username) && count($username) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $username when calling generateShoppingList'
+            );
+        }
+        // verify the required parameter 'start_date' is set
+        if ($start_date === null || (is_array($start_date) && count($start_date) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $start_date when calling generateShoppingList'
+            );
+        }
+        // verify the required parameter 'end_date' is set
+        if ($end_date === null || (is_array($end_date) && count($end_date) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $end_date when calling generateShoppingList'
+            );
+        }
+        // verify the required parameter 'hash' is set
+        if ($hash === null || (is_array($hash) && count($hash) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $hash when calling generateShoppingList'
+            );
+        }
+        // verify the required parameter 'inline_object11' is set
+        if ($inline_object11 === null || (is_array($inline_object11) && count($inline_object11) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $inline_object11 when calling generateShoppingList'
+            );
+        }
+
+        $resourcePath = '/mealplanner/{username}/shopping-list/{start-date}/{end-date}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($hash !== null) {
+            $queryParams['hash'] = ObjectSerializer::toQueryValue($hash);
+        }
+
+        // path params
+        if ($username !== null) {
+            $resourcePath = str_replace(
+                '{' . 'username' . '}',
+                ObjectSerializer::toPathValue($username),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($start_date !== null) {
+            $resourcePath = str_replace(
+                '{' . 'start-date' . '}',
+                ObjectSerializer::toPathValue($start_date),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($end_date !== null) {
+            $resourcePath = str_replace(
+                '{' . 'end-date' . '}',
+                ObjectSerializer::toPathValue($end_date),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+        if (isset($inline_object11)) {
+            $_tempBody = $inline_object11;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
@@ -6282,6 +7872,905 @@ class DefaultApi
             $resourcePath = str_replace(
                 '{' . 'id' . '}',
                 ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getMealPlanTemplate
+     *
+     * Get Meal Plan Template
+     *
+     * @param  string $username The username. (required)
+     * @param  float $id The shopping list item id. (required)
+     * @param  string $hash The private hash for the username. (required)
+     *
+     * @throws \com.spoonacular.client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return object
+     */
+    public function getMealPlanTemplate($username, $id, $hash)
+    {
+        list($response) = $this->getMealPlanTemplateWithHttpInfo($username, $id, $hash);
+        return $response;
+    }
+
+    /**
+     * Operation getMealPlanTemplateWithHttpInfo
+     *
+     * Get Meal Plan Template
+     *
+     * @param  string $username The username. (required)
+     * @param  float $id The shopping list item id. (required)
+     * @param  string $hash The private hash for the username. (required)
+     *
+     * @throws \com.spoonacular.client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of object, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getMealPlanTemplateWithHttpInfo($username, $id, $hash)
+    {
+        $request = $this->getMealPlanTemplateRequest($username, $id, $hash);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('object' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, 'object', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'object';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'object',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getMealPlanTemplateAsync
+     *
+     * Get Meal Plan Template
+     *
+     * @param  string $username The username. (required)
+     * @param  float $id The shopping list item id. (required)
+     * @param  string $hash The private hash for the username. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getMealPlanTemplateAsync($username, $id, $hash)
+    {
+        return $this->getMealPlanTemplateAsyncWithHttpInfo($username, $id, $hash)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getMealPlanTemplateAsyncWithHttpInfo
+     *
+     * Get Meal Plan Template
+     *
+     * @param  string $username The username. (required)
+     * @param  float $id The shopping list item id. (required)
+     * @param  string $hash The private hash for the username. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getMealPlanTemplateAsyncWithHttpInfo($username, $id, $hash)
+    {
+        $returnType = 'object';
+        $request = $this->getMealPlanTemplateRequest($username, $id, $hash);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getMealPlanTemplate'
+     *
+     * @param  string $username The username. (required)
+     * @param  float $id The shopping list item id. (required)
+     * @param  string $hash The private hash for the username. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getMealPlanTemplateRequest($username, $id, $hash)
+    {
+        // verify the required parameter 'username' is set
+        if ($username === null || (is_array($username) && count($username) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $username when calling getMealPlanTemplate'
+            );
+        }
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling getMealPlanTemplate'
+            );
+        }
+        // verify the required parameter 'hash' is set
+        if ($hash === null || (is_array($hash) && count($hash) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $hash when calling getMealPlanTemplate'
+            );
+        }
+
+        $resourcePath = '/mealplanner/{username}/templates/{id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($hash !== null) {
+            $queryParams['hash'] = ObjectSerializer::toQueryValue($hash);
+        }
+
+        // path params
+        if ($username !== null) {
+            $resourcePath = str_replace(
+                '{' . 'username' . '}',
+                ObjectSerializer::toPathValue($username),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getMealPlanTemplates
+     *
+     * Get Meal Plan Templates
+     *
+     * @param  string $username The username. (required)
+     * @param  string $hash The private hash for the username. (required)
+     *
+     * @throws \com.spoonacular.client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return object
+     */
+    public function getMealPlanTemplates($username, $hash)
+    {
+        list($response) = $this->getMealPlanTemplatesWithHttpInfo($username, $hash);
+        return $response;
+    }
+
+    /**
+     * Operation getMealPlanTemplatesWithHttpInfo
+     *
+     * Get Meal Plan Templates
+     *
+     * @param  string $username The username. (required)
+     * @param  string $hash The private hash for the username. (required)
+     *
+     * @throws \com.spoonacular.client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of object, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getMealPlanTemplatesWithHttpInfo($username, $hash)
+    {
+        $request = $this->getMealPlanTemplatesRequest($username, $hash);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('object' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, 'object', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'object';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'object',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getMealPlanTemplatesAsync
+     *
+     * Get Meal Plan Templates
+     *
+     * @param  string $username The username. (required)
+     * @param  string $hash The private hash for the username. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getMealPlanTemplatesAsync($username, $hash)
+    {
+        return $this->getMealPlanTemplatesAsyncWithHttpInfo($username, $hash)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getMealPlanTemplatesAsyncWithHttpInfo
+     *
+     * Get Meal Plan Templates
+     *
+     * @param  string $username The username. (required)
+     * @param  string $hash The private hash for the username. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getMealPlanTemplatesAsyncWithHttpInfo($username, $hash)
+    {
+        $returnType = 'object';
+        $request = $this->getMealPlanTemplatesRequest($username, $hash);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getMealPlanTemplates'
+     *
+     * @param  string $username The username. (required)
+     * @param  string $hash The private hash for the username. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getMealPlanTemplatesRequest($username, $hash)
+    {
+        // verify the required parameter 'username' is set
+        if ($username === null || (is_array($username) && count($username) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $username when calling getMealPlanTemplates'
+            );
+        }
+        // verify the required parameter 'hash' is set
+        if ($hash === null || (is_array($hash) && count($hash) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $hash when calling getMealPlanTemplates'
+            );
+        }
+
+        $resourcePath = '/mealplanner/{username}/templates';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($hash !== null) {
+            $queryParams['hash'] = ObjectSerializer::toQueryValue($hash);
+        }
+
+        // path params
+        if ($username !== null) {
+            $resourcePath = str_replace(
+                '{' . 'username' . '}',
+                ObjectSerializer::toPathValue($username),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getMealPlanWeek
+     *
+     * Get Meal Plan Week
+     *
+     * @param  string $username The username. (required)
+     * @param  string $start_date The start date of the meal planned week in the format yyyy-mm-dd. (required)
+     * @param  string $hash The private hash for the username. (required)
+     *
+     * @throws \com.spoonacular.client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return object
+     */
+    public function getMealPlanWeek($username, $start_date, $hash)
+    {
+        list($response) = $this->getMealPlanWeekWithHttpInfo($username, $start_date, $hash);
+        return $response;
+    }
+
+    /**
+     * Operation getMealPlanWeekWithHttpInfo
+     *
+     * Get Meal Plan Week
+     *
+     * @param  string $username The username. (required)
+     * @param  string $start_date The start date of the meal planned week in the format yyyy-mm-dd. (required)
+     * @param  string $hash The private hash for the username. (required)
+     *
+     * @throws \com.spoonacular.client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of object, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getMealPlanWeekWithHttpInfo($username, $start_date, $hash)
+    {
+        $request = $this->getMealPlanWeekRequest($username, $start_date, $hash);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('object' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, 'object', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'object';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'object',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getMealPlanWeekAsync
+     *
+     * Get Meal Plan Week
+     *
+     * @param  string $username The username. (required)
+     * @param  string $start_date The start date of the meal planned week in the format yyyy-mm-dd. (required)
+     * @param  string $hash The private hash for the username. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getMealPlanWeekAsync($username, $start_date, $hash)
+    {
+        return $this->getMealPlanWeekAsyncWithHttpInfo($username, $start_date, $hash)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getMealPlanWeekAsyncWithHttpInfo
+     *
+     * Get Meal Plan Week
+     *
+     * @param  string $username The username. (required)
+     * @param  string $start_date The start date of the meal planned week in the format yyyy-mm-dd. (required)
+     * @param  string $hash The private hash for the username. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getMealPlanWeekAsyncWithHttpInfo($username, $start_date, $hash)
+    {
+        $returnType = 'object';
+        $request = $this->getMealPlanWeekRequest($username, $start_date, $hash);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getMealPlanWeek'
+     *
+     * @param  string $username The username. (required)
+     * @param  string $start_date The start date of the meal planned week in the format yyyy-mm-dd. (required)
+     * @param  string $hash The private hash for the username. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getMealPlanWeekRequest($username, $start_date, $hash)
+    {
+        // verify the required parameter 'username' is set
+        if ($username === null || (is_array($username) && count($username) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $username when calling getMealPlanWeek'
+            );
+        }
+        // verify the required parameter 'start_date' is set
+        if ($start_date === null || (is_array($start_date) && count($start_date) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $start_date when calling getMealPlanWeek'
+            );
+        }
+        // verify the required parameter 'hash' is set
+        if ($hash === null || (is_array($hash) && count($hash) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $hash when calling getMealPlanWeek'
+            );
+        }
+
+        $resourcePath = '/mealplanner/{username}/week/{start-date}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($hash !== null) {
+            $queryParams['hash'] = ObjectSerializer::toQueryValue($hash);
+        }
+
+        // path params
+        if ($username !== null) {
+            $resourcePath = str_replace(
+                '{' . 'username' . '}',
+                ObjectSerializer::toPathValue($username),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($start_date !== null) {
+            $resourcePath = str_replace(
+                '{' . 'start-date' . '}',
+                ObjectSerializer::toPathValue($start_date),
                 $resourcePath
             );
         }
@@ -9074,20 +11563,308 @@ class DefaultApi
     }
 
     /**
+     * Operation getShoppingList
+     *
+     * Get Shopping List
+     *
+     * @param  string $username The username. (required)
+     * @param  string $hash The private hash for the username. (required)
+     *
+     * @throws \com.spoonacular.client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return object
+     */
+    public function getShoppingList($username, $hash)
+    {
+        list($response) = $this->getShoppingListWithHttpInfo($username, $hash);
+        return $response;
+    }
+
+    /**
+     * Operation getShoppingListWithHttpInfo
+     *
+     * Get Shopping List
+     *
+     * @param  string $username The username. (required)
+     * @param  string $hash The private hash for the username. (required)
+     *
+     * @throws \com.spoonacular.client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of object, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getShoppingListWithHttpInfo($username, $hash)
+    {
+        $request = $this->getShoppingListRequest($username, $hash);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('object' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, 'object', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'object';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'object',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getShoppingListAsync
+     *
+     * Get Shopping List
+     *
+     * @param  string $username The username. (required)
+     * @param  string $hash The private hash for the username. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getShoppingListAsync($username, $hash)
+    {
+        return $this->getShoppingListAsyncWithHttpInfo($username, $hash)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getShoppingListAsyncWithHttpInfo
+     *
+     * Get Shopping List
+     *
+     * @param  string $username The username. (required)
+     * @param  string $hash The private hash for the username. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getShoppingListAsyncWithHttpInfo($username, $hash)
+    {
+        $returnType = 'object';
+        $request = $this->getShoppingListRequest($username, $hash);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getShoppingList'
+     *
+     * @param  string $username The username. (required)
+     * @param  string $hash The private hash for the username. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getShoppingListRequest($username, $hash)
+    {
+        // verify the required parameter 'username' is set
+        if ($username === null || (is_array($username) && count($username) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $username when calling getShoppingList'
+            );
+        }
+        // verify the required parameter 'hash' is set
+        if ($hash === null || (is_array($hash) && count($hash) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $hash when calling getShoppingList'
+            );
+        }
+
+        $resourcePath = '/mealplanner/{username}/shopping-list';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($hash !== null) {
+            $queryParams['hash'] = ObjectSerializer::toQueryValue($hash);
+        }
+
+        // path params
+        if ($username !== null) {
+            $resourcePath = str_replace(
+                '{' . 'username' . '}',
+                ObjectSerializer::toPathValue($username),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation getSimilarRecipes
      *
      * Get Similar Recipes
      *
      * @param  float $id The id of the source recipe for which similar recipes should be found. (required)
      * @param  float $number The number of random recipes to be returned (between 1 and 100). (optional)
+     * @param  bool $limit_license Whether the recipes should have an open license that allows display with proper attribution. (optional)
      *
      * @throws \com.spoonacular.client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return object
      */
-    public function getSimilarRecipes($id, $number = null)
+    public function getSimilarRecipes($id, $number = null, $limit_license = null)
     {
-        list($response) = $this->getSimilarRecipesWithHttpInfo($id, $number);
+        list($response) = $this->getSimilarRecipesWithHttpInfo($id, $number, $limit_license);
         return $response;
     }
 
@@ -9098,14 +11875,15 @@ class DefaultApi
      *
      * @param  float $id The id of the source recipe for which similar recipes should be found. (required)
      * @param  float $number The number of random recipes to be returned (between 1 and 100). (optional)
+     * @param  bool $limit_license Whether the recipes should have an open license that allows display with proper attribution. (optional)
      *
      * @throws \com.spoonacular.client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSimilarRecipesWithHttpInfo($id, $number = null)
+    public function getSimilarRecipesWithHttpInfo($id, $number = null, $limit_license = null)
     {
-        $request = $this->getSimilarRecipesRequest($id, $number);
+        $request = $this->getSimilarRecipesRequest($id, $number, $limit_license);
 
         try {
             $options = $this->createHttpClientOption();
@@ -9187,13 +11965,14 @@ class DefaultApi
      *
      * @param  float $id The id of the source recipe for which similar recipes should be found. (required)
      * @param  float $number The number of random recipes to be returned (between 1 and 100). (optional)
+     * @param  bool $limit_license Whether the recipes should have an open license that allows display with proper attribution. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSimilarRecipesAsync($id, $number = null)
+    public function getSimilarRecipesAsync($id, $number = null, $limit_license = null)
     {
-        return $this->getSimilarRecipesAsyncWithHttpInfo($id, $number)
+        return $this->getSimilarRecipesAsyncWithHttpInfo($id, $number, $limit_license)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -9208,14 +11987,15 @@ class DefaultApi
      *
      * @param  float $id The id of the source recipe for which similar recipes should be found. (required)
      * @param  float $number The number of random recipes to be returned (between 1 and 100). (optional)
+     * @param  bool $limit_license Whether the recipes should have an open license that allows display with proper attribution. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSimilarRecipesAsyncWithHttpInfo($id, $number = null)
+    public function getSimilarRecipesAsyncWithHttpInfo($id, $number = null, $limit_license = null)
     {
         $returnType = 'object';
-        $request = $this->getSimilarRecipesRequest($id, $number);
+        $request = $this->getSimilarRecipesRequest($id, $number, $limit_license);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -9256,11 +12036,12 @@ class DefaultApi
      *
      * @param  float $id The id of the source recipe for which similar recipes should be found. (required)
      * @param  float $number The number of random recipes to be returned (between 1 and 100). (optional)
+     * @param  bool $limit_license Whether the recipes should have an open license that allows display with proper attribution. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getSimilarRecipesRequest($id, $number = null)
+    protected function getSimilarRecipesRequest($id, $number = null, $limit_license = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -9279,6 +12060,10 @@ class DefaultApi
         // query params
         if ($number !== null) {
             $queryParams['number'] = ObjectSerializer::toQueryValue($number);
+        }
+        // query params
+        if ($limit_license !== null) {
+            $queryParams['limitLicense'] = ObjectSerializer::toQueryValue($limit_license);
         }
 
         // path params
@@ -10463,6 +13248,542 @@ class DefaultApi
     }
 
     /**
+     * Operation imageAnalysisByURL
+     *
+     * Image Analysis by URL
+     *
+     * @param  string $image_url The URL of the image to be analyzed. (required)
+     *
+     * @throws \com.spoonacular.client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return object
+     */
+    public function imageAnalysisByURL($image_url)
+    {
+        list($response) = $this->imageAnalysisByURLWithHttpInfo($image_url);
+        return $response;
+    }
+
+    /**
+     * Operation imageAnalysisByURLWithHttpInfo
+     *
+     * Image Analysis by URL
+     *
+     * @param  string $image_url The URL of the image to be analyzed. (required)
+     *
+     * @throws \com.spoonacular.client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of object, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function imageAnalysisByURLWithHttpInfo($image_url)
+    {
+        $request = $this->imageAnalysisByURLRequest($image_url);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('object' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, 'object', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'object';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'object',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation imageAnalysisByURLAsync
+     *
+     * Image Analysis by URL
+     *
+     * @param  string $image_url The URL of the image to be analyzed. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function imageAnalysisByURLAsync($image_url)
+    {
+        return $this->imageAnalysisByURLAsyncWithHttpInfo($image_url)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation imageAnalysisByURLAsyncWithHttpInfo
+     *
+     * Image Analysis by URL
+     *
+     * @param  string $image_url The URL of the image to be analyzed. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function imageAnalysisByURLAsyncWithHttpInfo($image_url)
+    {
+        $returnType = 'object';
+        $request = $this->imageAnalysisByURLRequest($image_url);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'imageAnalysisByURL'
+     *
+     * @param  string $image_url The URL of the image to be analyzed. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function imageAnalysisByURLRequest($image_url)
+    {
+        // verify the required parameter 'image_url' is set
+        if ($image_url === null || (is_array($image_url) && count($image_url) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $image_url when calling imageAnalysisByURL'
+            );
+        }
+
+        $resourcePath = '/food/images/analyze';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($image_url !== null) {
+            $queryParams['imageUrl'] = ObjectSerializer::toQueryValue($image_url);
+        }
+
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation imageClassificationByURL
+     *
+     * Image Classification by URL
+     *
+     * @param  string $image_url The URL of the image to be classified. (required)
+     *
+     * @throws \com.spoonacular.client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return object
+     */
+    public function imageClassificationByURL($image_url)
+    {
+        list($response) = $this->imageClassificationByURLWithHttpInfo($image_url);
+        return $response;
+    }
+
+    /**
+     * Operation imageClassificationByURLWithHttpInfo
+     *
+     * Image Classification by URL
+     *
+     * @param  string $image_url The URL of the image to be classified. (required)
+     *
+     * @throws \com.spoonacular.client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of object, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function imageClassificationByURLWithHttpInfo($image_url)
+    {
+        $request = $this->imageClassificationByURLRequest($image_url);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('object' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, 'object', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'object';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'object',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation imageClassificationByURLAsync
+     *
+     * Image Classification by URL
+     *
+     * @param  string $image_url The URL of the image to be classified. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function imageClassificationByURLAsync($image_url)
+    {
+        return $this->imageClassificationByURLAsyncWithHttpInfo($image_url)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation imageClassificationByURLAsyncWithHttpInfo
+     *
+     * Image Classification by URL
+     *
+     * @param  string $image_url The URL of the image to be classified. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function imageClassificationByURLAsyncWithHttpInfo($image_url)
+    {
+        $returnType = 'object';
+        $request = $this->imageClassificationByURLRequest($image_url);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'imageClassificationByURL'
+     *
+     * @param  string $image_url The URL of the image to be classified. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function imageClassificationByURLRequest($image_url)
+    {
+        // verify the required parameter 'image_url' is set
+        if ($image_url === null || (is_array($image_url) && count($image_url) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $image_url when calling imageClassificationByURL'
+            );
+        }
+
+        $resourcePath = '/food/images/classify';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($image_url !== null) {
+            $queryParams['imageUrl'] = ObjectSerializer::toQueryValue($image_url);
+        }
+
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation mapIngredientsToGroceryProducts
      *
      * Map Ingredients to Grocery Products
@@ -11290,6 +14611,322 @@ class DefaultApi
     }
 
     /**
+     * Operation searchCustomFoods
+     *
+     * Search Custom Foods
+     *
+     * @param  string $query The search query. (required)
+     * @param  string $username The username. (required)
+     * @param  string $hash The private hash for the username. (required)
+     * @param  float $offset The number of results to skip (between 0 and 990). (optional)
+     * @param  float $number The number of expected results (between 1 and 100). (optional)
+     *
+     * @throws \com.spoonacular.client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return object
+     */
+    public function searchCustomFoods($query, $username, $hash, $offset = null, $number = null)
+    {
+        list($response) = $this->searchCustomFoodsWithHttpInfo($query, $username, $hash, $offset, $number);
+        return $response;
+    }
+
+    /**
+     * Operation searchCustomFoodsWithHttpInfo
+     *
+     * Search Custom Foods
+     *
+     * @param  string $query The search query. (required)
+     * @param  string $username The username. (required)
+     * @param  string $hash The private hash for the username. (required)
+     * @param  float $offset The number of results to skip (between 0 and 990). (optional)
+     * @param  float $number The number of expected results (between 1 and 100). (optional)
+     *
+     * @throws \com.spoonacular.client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of object, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function searchCustomFoodsWithHttpInfo($query, $username, $hash, $offset = null, $number = null)
+    {
+        $request = $this->searchCustomFoodsRequest($query, $username, $hash, $offset, $number);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('object' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, 'object', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'object';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'object',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation searchCustomFoodsAsync
+     *
+     * Search Custom Foods
+     *
+     * @param  string $query The search query. (required)
+     * @param  string $username The username. (required)
+     * @param  string $hash The private hash for the username. (required)
+     * @param  float $offset The number of results to skip (between 0 and 990). (optional)
+     * @param  float $number The number of expected results (between 1 and 100). (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function searchCustomFoodsAsync($query, $username, $hash, $offset = null, $number = null)
+    {
+        return $this->searchCustomFoodsAsyncWithHttpInfo($query, $username, $hash, $offset, $number)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation searchCustomFoodsAsyncWithHttpInfo
+     *
+     * Search Custom Foods
+     *
+     * @param  string $query The search query. (required)
+     * @param  string $username The username. (required)
+     * @param  string $hash The private hash for the username. (required)
+     * @param  float $offset The number of results to skip (between 0 and 990). (optional)
+     * @param  float $number The number of expected results (between 1 and 100). (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function searchCustomFoodsAsyncWithHttpInfo($query, $username, $hash, $offset = null, $number = null)
+    {
+        $returnType = 'object';
+        $request = $this->searchCustomFoodsRequest($query, $username, $hash, $offset, $number);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'searchCustomFoods'
+     *
+     * @param  string $query The search query. (required)
+     * @param  string $username The username. (required)
+     * @param  string $hash The private hash for the username. (required)
+     * @param  float $offset The number of results to skip (between 0 and 990). (optional)
+     * @param  float $number The number of expected results (between 1 and 100). (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function searchCustomFoodsRequest($query, $username, $hash, $offset = null, $number = null)
+    {
+        // verify the required parameter 'query' is set
+        if ($query === null || (is_array($query) && count($query) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $query when calling searchCustomFoods'
+            );
+        }
+        // verify the required parameter 'username' is set
+        if ($username === null || (is_array($username) && count($username) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $username when calling searchCustomFoods'
+            );
+        }
+        // verify the required parameter 'hash' is set
+        if ($hash === null || (is_array($hash) && count($hash) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $hash when calling searchCustomFoods'
+            );
+        }
+
+        $resourcePath = '/food/customFoods/search';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($query !== null) {
+            $queryParams['query'] = ObjectSerializer::toQueryValue($query);
+        }
+        // query params
+        if ($username !== null) {
+            $queryParams['username'] = ObjectSerializer::toQueryValue($username);
+        }
+        // query params
+        if ($hash !== null) {
+            $queryParams['hash'] = ObjectSerializer::toQueryValue($hash);
+        }
+        // query params
+        if ($offset !== null) {
+            $queryParams['offset'] = ObjectSerializer::toQueryValue($offset);
+        }
+        // query params
+        if ($number !== null) {
+            $queryParams['number'] = ObjectSerializer::toQueryValue($number);
+        }
+
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation searchFoodVideos
      *
      * Search Food Videos
@@ -11652,7 +15289,7 @@ class DefaultApi
      * @param  float $max_protein The maximum amount of protein in grams the product can have. (optional)
      * @param  float $min_fat The minimum amount of fat in grams the product must have. (optional)
      * @param  float $max_fat The maximum amount of fat in grams the product can have. (optional)
-     * @param  float $offset The offset number for paging (between 0 and 990). (optional)
+     * @param  float $offset The number of results to skip (between 0 and 990). (optional)
      * @param  float $number The number of expected results (between 1 and 100). (optional)
      *
      * @throws \com.spoonacular.client\ApiException on non-2xx response
@@ -11679,7 +15316,7 @@ class DefaultApi
      * @param  float $max_protein The maximum amount of protein in grams the product can have. (optional)
      * @param  float $min_fat The minimum amount of fat in grams the product must have. (optional)
      * @param  float $max_fat The maximum amount of fat in grams the product can have. (optional)
-     * @param  float $offset The offset number for paging (between 0 and 990). (optional)
+     * @param  float $offset The number of results to skip (between 0 and 990). (optional)
      * @param  float $number The number of expected results (between 1 and 100). (optional)
      *
      * @throws \com.spoonacular.client\ApiException on non-2xx response
@@ -11777,7 +15414,7 @@ class DefaultApi
      * @param  float $max_protein The maximum amount of protein in grams the product can have. (optional)
      * @param  float $min_fat The minimum amount of fat in grams the product must have. (optional)
      * @param  float $max_fat The maximum amount of fat in grams the product can have. (optional)
-     * @param  float $offset The offset number for paging (between 0 and 990). (optional)
+     * @param  float $offset The number of results to skip (between 0 and 990). (optional)
      * @param  float $number The number of expected results (between 1 and 100). (optional)
      *
      * @throws \InvalidArgumentException
@@ -11807,7 +15444,7 @@ class DefaultApi
      * @param  float $max_protein The maximum amount of protein in grams the product can have. (optional)
      * @param  float $min_fat The minimum amount of fat in grams the product must have. (optional)
      * @param  float $max_fat The maximum amount of fat in grams the product can have. (optional)
-     * @param  float $offset The offset number for paging (between 0 and 990). (optional)
+     * @param  float $offset The number of results to skip (between 0 and 990). (optional)
      * @param  float $number The number of expected results (between 1 and 100). (optional)
      *
      * @throws \InvalidArgumentException
@@ -11864,7 +15501,7 @@ class DefaultApi
      * @param  float $max_protein The maximum amount of protein in grams the product can have. (optional)
      * @param  float $min_fat The minimum amount of fat in grams the product must have. (optional)
      * @param  float $max_fat The maximum amount of fat in grams the product can have. (optional)
-     * @param  float $offset The offset number for paging (between 0 and 990). (optional)
+     * @param  float $offset The number of results to skip (between 0 and 990). (optional)
      * @param  float $number The number of expected results (between 1 and 100). (optional)
      *
      * @throws \InvalidArgumentException
@@ -13347,7 +16984,7 @@ class DefaultApi
      * @param  float $max_sugar The maximum amount of sugar in grams the recipe can have. (optional)
      * @param  float $min_zinc The minimum amount of zinc in milligrams the recipe must have. (optional)
      * @param  float $max_zinc The maximum amount of zinc in milligrams the recipe can have. (optional)
-     * @param  float $offset The offset number for paging (between 0 and 990). (optional)
+     * @param  float $offset The number of results to skip (between 0 and 900). (optional)
      * @param  float $number The number of expected results (between 1 and 100). (optional)
      * @param  bool $random If true, every request will give you a random set of recipes within the requested limits. (optional)
      * @param  bool $limit_license Whether the recipes should have an open license that allows display with proper attribution. (optional)
@@ -13439,7 +17076,7 @@ class DefaultApi
      * @param  float $max_sugar The maximum amount of sugar in grams the recipe can have. (optional)
      * @param  float $min_zinc The minimum amount of zinc in milligrams the recipe must have. (optional)
      * @param  float $max_zinc The maximum amount of zinc in milligrams the recipe can have. (optional)
-     * @param  float $offset The offset number for paging (between 0 and 990). (optional)
+     * @param  float $offset The number of results to skip (between 0 and 900). (optional)
      * @param  float $number The number of expected results (between 1 and 100). (optional)
      * @param  bool $random If true, every request will give you a random set of recipes within the requested limits. (optional)
      * @param  bool $limit_license Whether the recipes should have an open license that allows display with proper attribution. (optional)
@@ -13602,7 +17239,7 @@ class DefaultApi
      * @param  float $max_sugar The maximum amount of sugar in grams the recipe can have. (optional)
      * @param  float $min_zinc The minimum amount of zinc in milligrams the recipe must have. (optional)
      * @param  float $max_zinc The maximum amount of zinc in milligrams the recipe can have. (optional)
-     * @param  float $offset The offset number for paging (between 0 and 990). (optional)
+     * @param  float $offset The number of results to skip (between 0 and 900). (optional)
      * @param  float $number The number of expected results (between 1 and 100). (optional)
      * @param  bool $random If true, every request will give you a random set of recipes within the requested limits. (optional)
      * @param  bool $limit_license Whether the recipes should have an open license that allows display with proper attribution. (optional)
@@ -13697,7 +17334,7 @@ class DefaultApi
      * @param  float $max_sugar The maximum amount of sugar in grams the recipe can have. (optional)
      * @param  float $min_zinc The minimum amount of zinc in milligrams the recipe must have. (optional)
      * @param  float $max_zinc The maximum amount of zinc in milligrams the recipe can have. (optional)
-     * @param  float $offset The offset number for paging (between 0 and 990). (optional)
+     * @param  float $offset The number of results to skip (between 0 and 900). (optional)
      * @param  float $number The number of expected results (between 1 and 100). (optional)
      * @param  bool $random If true, every request will give you a random set of recipes within the requested limits. (optional)
      * @param  bool $limit_license Whether the recipes should have an open license that allows display with proper attribution. (optional)
@@ -13819,7 +17456,7 @@ class DefaultApi
      * @param  float $max_sugar The maximum amount of sugar in grams the recipe can have. (optional)
      * @param  float $min_zinc The minimum amount of zinc in milligrams the recipe must have. (optional)
      * @param  float $max_zinc The maximum amount of zinc in milligrams the recipe can have. (optional)
-     * @param  float $offset The offset number for paging (between 0 and 990). (optional)
+     * @param  float $offset The number of results to skip (between 0 and 900). (optional)
      * @param  float $number The number of expected results (between 1 and 100). (optional)
      * @param  bool $random If true, every request will give you a random set of recipes within the requested limits. (optional)
      * @param  bool $limit_license Whether the recipes should have an open license that allows display with proper attribution. (optional)
@@ -14222,10 +17859,12 @@ class DefaultApi
      * @param  string $exclude_ingredients A comma-separated list of ingredients or ingredient types that the recipes must not contain. (optional)
      * @param  string $type The type of recipe. See a full list of supported meal types. (optional)
      * @param  bool $instructions_required Whether the recipes must have instructions. (optional)
-     * @param  bool $fill_ingredients Add information about the used and missing ingredients in each recipe. (optional)
-     * @param  bool $add_recipe_information If set to true, you get more information about the recipes returned. This saves you from needing to call to get recipe information. (optional)
+     * @param  bool $fill_ingredients Add information about the ingredients and whether they are used or missing in relation to the query. (optional)
+     * @param  bool $add_recipe_information If set to true, you get more information about the recipes returned. (optional)
+     * @param  bool $add_recipe_nutrition If set to true, you get nutritional information about each recipes returned. (optional)
      * @param  string $author The username of the recipe author. (optional)
-     * @param  string $tags User defined tags that have to match. (optional)
+     * @param  string $tags User defined tags that have to match. The author param has to be set. (optional)
+     * @param  float $recipe_box_id The id of the recipe box to which the search should be limited to. (optional)
      * @param  string $title_match Enter text that must be found in the title of the recipes. (optional)
      * @param  float $max_ready_time The maximum time in minutes it should take to prepare and cook the recipe. (optional)
      * @param  bool $ignore_pantry Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional)
@@ -14303,17 +17942,17 @@ class DefaultApi
      * @param  float $max_sugar The maximum amount of sugar in grams the recipe can have. (optional)
      * @param  float $min_zinc The minimum amount of zinc in milligrams the recipe must have. (optional)
      * @param  float $max_zinc The maximum amount of zinc in milligrams the recipe can have. (optional)
-     * @param  float $offset The offset number for paging (between 0 and 990). (optional)
-     * @param  float $number The number of expected results (between 1 and 10). (optional)
+     * @param  float $offset The number of results to skip (between 0 and 900). (optional)
+     * @param  float $number The number of expected results (between 1 and 100). (optional)
      * @param  bool $limit_license Whether the recipes should have an open license that allows display with proper attribution. (optional)
      *
      * @throws \com.spoonacular.client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return object
      */
-    public function searchRecipesComplex($query, $cuisine = null, $exclude_cuisine = null, $diet = null, $intolerances = null, $equipment = null, $include_ingredients = null, $exclude_ingredients = null, $type = null, $instructions_required = null, $fill_ingredients = null, $add_recipe_information = null, $author = null, $tags = null, $title_match = null, $max_ready_time = null, $ignore_pantry = null, $sort = null, $sort_direction = null, $min_carbs = null, $max_carbs = null, $min_protein = null, $max_protein = null, $min_calories = null, $max_calories = null, $min_fat = null, $max_fat = null, $min_alcohol = null, $max_alcohol = null, $min_caffeine = null, $max_caffeine = null, $min_copper = null, $max_copper = null, $min_calcium = null, $max_calcium = null, $min_choline = null, $max_choline = null, $min_cholesterol = null, $max_cholesterol = null, $min_fluoride = null, $max_fluoride = null, $min_saturated_fat = null, $max_saturated_fat = null, $min_vitamin_a = null, $max_vitamin_a = null, $min_vitamin_c = null, $max_vitamin_c = null, $min_vitamin_d = null, $max_vitamin_d = null, $min_vitamin_e = null, $max_vitamin_e = null, $min_vitamin_k = null, $max_vitamin_k = null, $min_vitamin_b1 = null, $max_vitamin_b1 = null, $min_vitamin_b2 = null, $max_vitamin_b2 = null, $min_vitamin_b5 = null, $max_vitamin_b5 = null, $min_vitamin_b3 = null, $max_vitamin_b3 = null, $min_vitamin_b6 = null, $max_vitamin_b6 = null, $min_vitamin_b12 = null, $max_vitamin_b12 = null, $min_fiber = null, $max_fiber = null, $min_folate = null, $max_folate = null, $min_folic_acid = null, $max_folic_acid = null, $min_iodine = null, $max_iodine = null, $min_iron = null, $max_iron = null, $min_magnesium = null, $max_magnesium = null, $min_manganese = null, $max_manganese = null, $min_phosphorus = null, $max_phosphorus = null, $min_potassium = null, $max_potassium = null, $min_selenium = null, $max_selenium = null, $min_sodium = null, $max_sodium = null, $min_sugar = null, $max_sugar = null, $min_zinc = null, $max_zinc = null, $offset = null, $number = null, $limit_license = null)
+    public function searchRecipesComplex($query, $cuisine = null, $exclude_cuisine = null, $diet = null, $intolerances = null, $equipment = null, $include_ingredients = null, $exclude_ingredients = null, $type = null, $instructions_required = null, $fill_ingredients = null, $add_recipe_information = null, $add_recipe_nutrition = null, $author = null, $tags = null, $recipe_box_id = null, $title_match = null, $max_ready_time = null, $ignore_pantry = null, $sort = null, $sort_direction = null, $min_carbs = null, $max_carbs = null, $min_protein = null, $max_protein = null, $min_calories = null, $max_calories = null, $min_fat = null, $max_fat = null, $min_alcohol = null, $max_alcohol = null, $min_caffeine = null, $max_caffeine = null, $min_copper = null, $max_copper = null, $min_calcium = null, $max_calcium = null, $min_choline = null, $max_choline = null, $min_cholesterol = null, $max_cholesterol = null, $min_fluoride = null, $max_fluoride = null, $min_saturated_fat = null, $max_saturated_fat = null, $min_vitamin_a = null, $max_vitamin_a = null, $min_vitamin_c = null, $max_vitamin_c = null, $min_vitamin_d = null, $max_vitamin_d = null, $min_vitamin_e = null, $max_vitamin_e = null, $min_vitamin_k = null, $max_vitamin_k = null, $min_vitamin_b1 = null, $max_vitamin_b1 = null, $min_vitamin_b2 = null, $max_vitamin_b2 = null, $min_vitamin_b5 = null, $max_vitamin_b5 = null, $min_vitamin_b3 = null, $max_vitamin_b3 = null, $min_vitamin_b6 = null, $max_vitamin_b6 = null, $min_vitamin_b12 = null, $max_vitamin_b12 = null, $min_fiber = null, $max_fiber = null, $min_folate = null, $max_folate = null, $min_folic_acid = null, $max_folic_acid = null, $min_iodine = null, $max_iodine = null, $min_iron = null, $max_iron = null, $min_magnesium = null, $max_magnesium = null, $min_manganese = null, $max_manganese = null, $min_phosphorus = null, $max_phosphorus = null, $min_potassium = null, $max_potassium = null, $min_selenium = null, $max_selenium = null, $min_sodium = null, $max_sodium = null, $min_sugar = null, $max_sugar = null, $min_zinc = null, $max_zinc = null, $offset = null, $number = null, $limit_license = null)
     {
-        list($response) = $this->searchRecipesComplexWithHttpInfo($query, $cuisine, $exclude_cuisine, $diet, $intolerances, $equipment, $include_ingredients, $exclude_ingredients, $type, $instructions_required, $fill_ingredients, $add_recipe_information, $author, $tags, $title_match, $max_ready_time, $ignore_pantry, $sort, $sort_direction, $min_carbs, $max_carbs, $min_protein, $max_protein, $min_calories, $max_calories, $min_fat, $max_fat, $min_alcohol, $max_alcohol, $min_caffeine, $max_caffeine, $min_copper, $max_copper, $min_calcium, $max_calcium, $min_choline, $max_choline, $min_cholesterol, $max_cholesterol, $min_fluoride, $max_fluoride, $min_saturated_fat, $max_saturated_fat, $min_vitamin_a, $max_vitamin_a, $min_vitamin_c, $max_vitamin_c, $min_vitamin_d, $max_vitamin_d, $min_vitamin_e, $max_vitamin_e, $min_vitamin_k, $max_vitamin_k, $min_vitamin_b1, $max_vitamin_b1, $min_vitamin_b2, $max_vitamin_b2, $min_vitamin_b5, $max_vitamin_b5, $min_vitamin_b3, $max_vitamin_b3, $min_vitamin_b6, $max_vitamin_b6, $min_vitamin_b12, $max_vitamin_b12, $min_fiber, $max_fiber, $min_folate, $max_folate, $min_folic_acid, $max_folic_acid, $min_iodine, $max_iodine, $min_iron, $max_iron, $min_magnesium, $max_magnesium, $min_manganese, $max_manganese, $min_phosphorus, $max_phosphorus, $min_potassium, $max_potassium, $min_selenium, $max_selenium, $min_sodium, $max_sodium, $min_sugar, $max_sugar, $min_zinc, $max_zinc, $offset, $number, $limit_license);
+        list($response) = $this->searchRecipesComplexWithHttpInfo($query, $cuisine, $exclude_cuisine, $diet, $intolerances, $equipment, $include_ingredients, $exclude_ingredients, $type, $instructions_required, $fill_ingredients, $add_recipe_information, $add_recipe_nutrition, $author, $tags, $recipe_box_id, $title_match, $max_ready_time, $ignore_pantry, $sort, $sort_direction, $min_carbs, $max_carbs, $min_protein, $max_protein, $min_calories, $max_calories, $min_fat, $max_fat, $min_alcohol, $max_alcohol, $min_caffeine, $max_caffeine, $min_copper, $max_copper, $min_calcium, $max_calcium, $min_choline, $max_choline, $min_cholesterol, $max_cholesterol, $min_fluoride, $max_fluoride, $min_saturated_fat, $max_saturated_fat, $min_vitamin_a, $max_vitamin_a, $min_vitamin_c, $max_vitamin_c, $min_vitamin_d, $max_vitamin_d, $min_vitamin_e, $max_vitamin_e, $min_vitamin_k, $max_vitamin_k, $min_vitamin_b1, $max_vitamin_b1, $min_vitamin_b2, $max_vitamin_b2, $min_vitamin_b5, $max_vitamin_b5, $min_vitamin_b3, $max_vitamin_b3, $min_vitamin_b6, $max_vitamin_b6, $min_vitamin_b12, $max_vitamin_b12, $min_fiber, $max_fiber, $min_folate, $max_folate, $min_folic_acid, $max_folic_acid, $min_iodine, $max_iodine, $min_iron, $max_iron, $min_magnesium, $max_magnesium, $min_manganese, $max_manganese, $min_phosphorus, $max_phosphorus, $min_potassium, $max_potassium, $min_selenium, $max_selenium, $min_sodium, $max_sodium, $min_sugar, $max_sugar, $min_zinc, $max_zinc, $offset, $number, $limit_license);
         return $response;
     }
 
@@ -14332,10 +17971,12 @@ class DefaultApi
      * @param  string $exclude_ingredients A comma-separated list of ingredients or ingredient types that the recipes must not contain. (optional)
      * @param  string $type The type of recipe. See a full list of supported meal types. (optional)
      * @param  bool $instructions_required Whether the recipes must have instructions. (optional)
-     * @param  bool $fill_ingredients Add information about the used and missing ingredients in each recipe. (optional)
-     * @param  bool $add_recipe_information If set to true, you get more information about the recipes returned. This saves you from needing to call to get recipe information. (optional)
+     * @param  bool $fill_ingredients Add information about the ingredients and whether they are used or missing in relation to the query. (optional)
+     * @param  bool $add_recipe_information If set to true, you get more information about the recipes returned. (optional)
+     * @param  bool $add_recipe_nutrition If set to true, you get nutritional information about each recipes returned. (optional)
      * @param  string $author The username of the recipe author. (optional)
-     * @param  string $tags User defined tags that have to match. (optional)
+     * @param  string $tags User defined tags that have to match. The author param has to be set. (optional)
+     * @param  float $recipe_box_id The id of the recipe box to which the search should be limited to. (optional)
      * @param  string $title_match Enter text that must be found in the title of the recipes. (optional)
      * @param  float $max_ready_time The maximum time in minutes it should take to prepare and cook the recipe. (optional)
      * @param  bool $ignore_pantry Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional)
@@ -14413,17 +18054,17 @@ class DefaultApi
      * @param  float $max_sugar The maximum amount of sugar in grams the recipe can have. (optional)
      * @param  float $min_zinc The minimum amount of zinc in milligrams the recipe must have. (optional)
      * @param  float $max_zinc The maximum amount of zinc in milligrams the recipe can have. (optional)
-     * @param  float $offset The offset number for paging (between 0 and 990). (optional)
-     * @param  float $number The number of expected results (between 1 and 10). (optional)
+     * @param  float $offset The number of results to skip (between 0 and 900). (optional)
+     * @param  float $number The number of expected results (between 1 and 100). (optional)
      * @param  bool $limit_license Whether the recipes should have an open license that allows display with proper attribution. (optional)
      *
      * @throws \com.spoonacular.client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchRecipesComplexWithHttpInfo($query, $cuisine = null, $exclude_cuisine = null, $diet = null, $intolerances = null, $equipment = null, $include_ingredients = null, $exclude_ingredients = null, $type = null, $instructions_required = null, $fill_ingredients = null, $add_recipe_information = null, $author = null, $tags = null, $title_match = null, $max_ready_time = null, $ignore_pantry = null, $sort = null, $sort_direction = null, $min_carbs = null, $max_carbs = null, $min_protein = null, $max_protein = null, $min_calories = null, $max_calories = null, $min_fat = null, $max_fat = null, $min_alcohol = null, $max_alcohol = null, $min_caffeine = null, $max_caffeine = null, $min_copper = null, $max_copper = null, $min_calcium = null, $max_calcium = null, $min_choline = null, $max_choline = null, $min_cholesterol = null, $max_cholesterol = null, $min_fluoride = null, $max_fluoride = null, $min_saturated_fat = null, $max_saturated_fat = null, $min_vitamin_a = null, $max_vitamin_a = null, $min_vitamin_c = null, $max_vitamin_c = null, $min_vitamin_d = null, $max_vitamin_d = null, $min_vitamin_e = null, $max_vitamin_e = null, $min_vitamin_k = null, $max_vitamin_k = null, $min_vitamin_b1 = null, $max_vitamin_b1 = null, $min_vitamin_b2 = null, $max_vitamin_b2 = null, $min_vitamin_b5 = null, $max_vitamin_b5 = null, $min_vitamin_b3 = null, $max_vitamin_b3 = null, $min_vitamin_b6 = null, $max_vitamin_b6 = null, $min_vitamin_b12 = null, $max_vitamin_b12 = null, $min_fiber = null, $max_fiber = null, $min_folate = null, $max_folate = null, $min_folic_acid = null, $max_folic_acid = null, $min_iodine = null, $max_iodine = null, $min_iron = null, $max_iron = null, $min_magnesium = null, $max_magnesium = null, $min_manganese = null, $max_manganese = null, $min_phosphorus = null, $max_phosphorus = null, $min_potassium = null, $max_potassium = null, $min_selenium = null, $max_selenium = null, $min_sodium = null, $max_sodium = null, $min_sugar = null, $max_sugar = null, $min_zinc = null, $max_zinc = null, $offset = null, $number = null, $limit_license = null)
+    public function searchRecipesComplexWithHttpInfo($query, $cuisine = null, $exclude_cuisine = null, $diet = null, $intolerances = null, $equipment = null, $include_ingredients = null, $exclude_ingredients = null, $type = null, $instructions_required = null, $fill_ingredients = null, $add_recipe_information = null, $add_recipe_nutrition = null, $author = null, $tags = null, $recipe_box_id = null, $title_match = null, $max_ready_time = null, $ignore_pantry = null, $sort = null, $sort_direction = null, $min_carbs = null, $max_carbs = null, $min_protein = null, $max_protein = null, $min_calories = null, $max_calories = null, $min_fat = null, $max_fat = null, $min_alcohol = null, $max_alcohol = null, $min_caffeine = null, $max_caffeine = null, $min_copper = null, $max_copper = null, $min_calcium = null, $max_calcium = null, $min_choline = null, $max_choline = null, $min_cholesterol = null, $max_cholesterol = null, $min_fluoride = null, $max_fluoride = null, $min_saturated_fat = null, $max_saturated_fat = null, $min_vitamin_a = null, $max_vitamin_a = null, $min_vitamin_c = null, $max_vitamin_c = null, $min_vitamin_d = null, $max_vitamin_d = null, $min_vitamin_e = null, $max_vitamin_e = null, $min_vitamin_k = null, $max_vitamin_k = null, $min_vitamin_b1 = null, $max_vitamin_b1 = null, $min_vitamin_b2 = null, $max_vitamin_b2 = null, $min_vitamin_b5 = null, $max_vitamin_b5 = null, $min_vitamin_b3 = null, $max_vitamin_b3 = null, $min_vitamin_b6 = null, $max_vitamin_b6 = null, $min_vitamin_b12 = null, $max_vitamin_b12 = null, $min_fiber = null, $max_fiber = null, $min_folate = null, $max_folate = null, $min_folic_acid = null, $max_folic_acid = null, $min_iodine = null, $max_iodine = null, $min_iron = null, $max_iron = null, $min_magnesium = null, $max_magnesium = null, $min_manganese = null, $max_manganese = null, $min_phosphorus = null, $max_phosphorus = null, $min_potassium = null, $max_potassium = null, $min_selenium = null, $max_selenium = null, $min_sodium = null, $max_sodium = null, $min_sugar = null, $max_sugar = null, $min_zinc = null, $max_zinc = null, $offset = null, $number = null, $limit_license = null)
     {
-        $request = $this->searchRecipesComplexRequest($query, $cuisine, $exclude_cuisine, $diet, $intolerances, $equipment, $include_ingredients, $exclude_ingredients, $type, $instructions_required, $fill_ingredients, $add_recipe_information, $author, $tags, $title_match, $max_ready_time, $ignore_pantry, $sort, $sort_direction, $min_carbs, $max_carbs, $min_protein, $max_protein, $min_calories, $max_calories, $min_fat, $max_fat, $min_alcohol, $max_alcohol, $min_caffeine, $max_caffeine, $min_copper, $max_copper, $min_calcium, $max_calcium, $min_choline, $max_choline, $min_cholesterol, $max_cholesterol, $min_fluoride, $max_fluoride, $min_saturated_fat, $max_saturated_fat, $min_vitamin_a, $max_vitamin_a, $min_vitamin_c, $max_vitamin_c, $min_vitamin_d, $max_vitamin_d, $min_vitamin_e, $max_vitamin_e, $min_vitamin_k, $max_vitamin_k, $min_vitamin_b1, $max_vitamin_b1, $min_vitamin_b2, $max_vitamin_b2, $min_vitamin_b5, $max_vitamin_b5, $min_vitamin_b3, $max_vitamin_b3, $min_vitamin_b6, $max_vitamin_b6, $min_vitamin_b12, $max_vitamin_b12, $min_fiber, $max_fiber, $min_folate, $max_folate, $min_folic_acid, $max_folic_acid, $min_iodine, $max_iodine, $min_iron, $max_iron, $min_magnesium, $max_magnesium, $min_manganese, $max_manganese, $min_phosphorus, $max_phosphorus, $min_potassium, $max_potassium, $min_selenium, $max_selenium, $min_sodium, $max_sodium, $min_sugar, $max_sugar, $min_zinc, $max_zinc, $offset, $number, $limit_license);
+        $request = $this->searchRecipesComplexRequest($query, $cuisine, $exclude_cuisine, $diet, $intolerances, $equipment, $include_ingredients, $exclude_ingredients, $type, $instructions_required, $fill_ingredients, $add_recipe_information, $add_recipe_nutrition, $author, $tags, $recipe_box_id, $title_match, $max_ready_time, $ignore_pantry, $sort, $sort_direction, $min_carbs, $max_carbs, $min_protein, $max_protein, $min_calories, $max_calories, $min_fat, $max_fat, $min_alcohol, $max_alcohol, $min_caffeine, $max_caffeine, $min_copper, $max_copper, $min_calcium, $max_calcium, $min_choline, $max_choline, $min_cholesterol, $max_cholesterol, $min_fluoride, $max_fluoride, $min_saturated_fat, $max_saturated_fat, $min_vitamin_a, $max_vitamin_a, $min_vitamin_c, $max_vitamin_c, $min_vitamin_d, $max_vitamin_d, $min_vitamin_e, $max_vitamin_e, $min_vitamin_k, $max_vitamin_k, $min_vitamin_b1, $max_vitamin_b1, $min_vitamin_b2, $max_vitamin_b2, $min_vitamin_b5, $max_vitamin_b5, $min_vitamin_b3, $max_vitamin_b3, $min_vitamin_b6, $max_vitamin_b6, $min_vitamin_b12, $max_vitamin_b12, $min_fiber, $max_fiber, $min_folate, $max_folate, $min_folic_acid, $max_folic_acid, $min_iodine, $max_iodine, $min_iron, $max_iron, $min_magnesium, $max_magnesium, $min_manganese, $max_manganese, $min_phosphorus, $max_phosphorus, $min_potassium, $max_potassium, $min_selenium, $max_selenium, $min_sodium, $max_sodium, $min_sugar, $max_sugar, $min_zinc, $max_zinc, $offset, $number, $limit_license);
 
         try {
             $options = $this->createHttpClientOption();
@@ -14513,10 +18154,12 @@ class DefaultApi
      * @param  string $exclude_ingredients A comma-separated list of ingredients or ingredient types that the recipes must not contain. (optional)
      * @param  string $type The type of recipe. See a full list of supported meal types. (optional)
      * @param  bool $instructions_required Whether the recipes must have instructions. (optional)
-     * @param  bool $fill_ingredients Add information about the used and missing ingredients in each recipe. (optional)
-     * @param  bool $add_recipe_information If set to true, you get more information about the recipes returned. This saves you from needing to call to get recipe information. (optional)
+     * @param  bool $fill_ingredients Add information about the ingredients and whether they are used or missing in relation to the query. (optional)
+     * @param  bool $add_recipe_information If set to true, you get more information about the recipes returned. (optional)
+     * @param  bool $add_recipe_nutrition If set to true, you get nutritional information about each recipes returned. (optional)
      * @param  string $author The username of the recipe author. (optional)
-     * @param  string $tags User defined tags that have to match. (optional)
+     * @param  string $tags User defined tags that have to match. The author param has to be set. (optional)
+     * @param  float $recipe_box_id The id of the recipe box to which the search should be limited to. (optional)
      * @param  string $title_match Enter text that must be found in the title of the recipes. (optional)
      * @param  float $max_ready_time The maximum time in minutes it should take to prepare and cook the recipe. (optional)
      * @param  bool $ignore_pantry Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional)
@@ -14594,16 +18237,16 @@ class DefaultApi
      * @param  float $max_sugar The maximum amount of sugar in grams the recipe can have. (optional)
      * @param  float $min_zinc The minimum amount of zinc in milligrams the recipe must have. (optional)
      * @param  float $max_zinc The maximum amount of zinc in milligrams the recipe can have. (optional)
-     * @param  float $offset The offset number for paging (between 0 and 990). (optional)
-     * @param  float $number The number of expected results (between 1 and 10). (optional)
+     * @param  float $offset The number of results to skip (between 0 and 900). (optional)
+     * @param  float $number The number of expected results (between 1 and 100). (optional)
      * @param  bool $limit_license Whether the recipes should have an open license that allows display with proper attribution. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchRecipesComplexAsync($query, $cuisine = null, $exclude_cuisine = null, $diet = null, $intolerances = null, $equipment = null, $include_ingredients = null, $exclude_ingredients = null, $type = null, $instructions_required = null, $fill_ingredients = null, $add_recipe_information = null, $author = null, $tags = null, $title_match = null, $max_ready_time = null, $ignore_pantry = null, $sort = null, $sort_direction = null, $min_carbs = null, $max_carbs = null, $min_protein = null, $max_protein = null, $min_calories = null, $max_calories = null, $min_fat = null, $max_fat = null, $min_alcohol = null, $max_alcohol = null, $min_caffeine = null, $max_caffeine = null, $min_copper = null, $max_copper = null, $min_calcium = null, $max_calcium = null, $min_choline = null, $max_choline = null, $min_cholesterol = null, $max_cholesterol = null, $min_fluoride = null, $max_fluoride = null, $min_saturated_fat = null, $max_saturated_fat = null, $min_vitamin_a = null, $max_vitamin_a = null, $min_vitamin_c = null, $max_vitamin_c = null, $min_vitamin_d = null, $max_vitamin_d = null, $min_vitamin_e = null, $max_vitamin_e = null, $min_vitamin_k = null, $max_vitamin_k = null, $min_vitamin_b1 = null, $max_vitamin_b1 = null, $min_vitamin_b2 = null, $max_vitamin_b2 = null, $min_vitamin_b5 = null, $max_vitamin_b5 = null, $min_vitamin_b3 = null, $max_vitamin_b3 = null, $min_vitamin_b6 = null, $max_vitamin_b6 = null, $min_vitamin_b12 = null, $max_vitamin_b12 = null, $min_fiber = null, $max_fiber = null, $min_folate = null, $max_folate = null, $min_folic_acid = null, $max_folic_acid = null, $min_iodine = null, $max_iodine = null, $min_iron = null, $max_iron = null, $min_magnesium = null, $max_magnesium = null, $min_manganese = null, $max_manganese = null, $min_phosphorus = null, $max_phosphorus = null, $min_potassium = null, $max_potassium = null, $min_selenium = null, $max_selenium = null, $min_sodium = null, $max_sodium = null, $min_sugar = null, $max_sugar = null, $min_zinc = null, $max_zinc = null, $offset = null, $number = null, $limit_license = null)
+    public function searchRecipesComplexAsync($query, $cuisine = null, $exclude_cuisine = null, $diet = null, $intolerances = null, $equipment = null, $include_ingredients = null, $exclude_ingredients = null, $type = null, $instructions_required = null, $fill_ingredients = null, $add_recipe_information = null, $add_recipe_nutrition = null, $author = null, $tags = null, $recipe_box_id = null, $title_match = null, $max_ready_time = null, $ignore_pantry = null, $sort = null, $sort_direction = null, $min_carbs = null, $max_carbs = null, $min_protein = null, $max_protein = null, $min_calories = null, $max_calories = null, $min_fat = null, $max_fat = null, $min_alcohol = null, $max_alcohol = null, $min_caffeine = null, $max_caffeine = null, $min_copper = null, $max_copper = null, $min_calcium = null, $max_calcium = null, $min_choline = null, $max_choline = null, $min_cholesterol = null, $max_cholesterol = null, $min_fluoride = null, $max_fluoride = null, $min_saturated_fat = null, $max_saturated_fat = null, $min_vitamin_a = null, $max_vitamin_a = null, $min_vitamin_c = null, $max_vitamin_c = null, $min_vitamin_d = null, $max_vitamin_d = null, $min_vitamin_e = null, $max_vitamin_e = null, $min_vitamin_k = null, $max_vitamin_k = null, $min_vitamin_b1 = null, $max_vitamin_b1 = null, $min_vitamin_b2 = null, $max_vitamin_b2 = null, $min_vitamin_b5 = null, $max_vitamin_b5 = null, $min_vitamin_b3 = null, $max_vitamin_b3 = null, $min_vitamin_b6 = null, $max_vitamin_b6 = null, $min_vitamin_b12 = null, $max_vitamin_b12 = null, $min_fiber = null, $max_fiber = null, $min_folate = null, $max_folate = null, $min_folic_acid = null, $max_folic_acid = null, $min_iodine = null, $max_iodine = null, $min_iron = null, $max_iron = null, $min_magnesium = null, $max_magnesium = null, $min_manganese = null, $max_manganese = null, $min_phosphorus = null, $max_phosphorus = null, $min_potassium = null, $max_potassium = null, $min_selenium = null, $max_selenium = null, $min_sodium = null, $max_sodium = null, $min_sugar = null, $max_sugar = null, $min_zinc = null, $max_zinc = null, $offset = null, $number = null, $limit_license = null)
     {
-        return $this->searchRecipesComplexAsyncWithHttpInfo($query, $cuisine, $exclude_cuisine, $diet, $intolerances, $equipment, $include_ingredients, $exclude_ingredients, $type, $instructions_required, $fill_ingredients, $add_recipe_information, $author, $tags, $title_match, $max_ready_time, $ignore_pantry, $sort, $sort_direction, $min_carbs, $max_carbs, $min_protein, $max_protein, $min_calories, $max_calories, $min_fat, $max_fat, $min_alcohol, $max_alcohol, $min_caffeine, $max_caffeine, $min_copper, $max_copper, $min_calcium, $max_calcium, $min_choline, $max_choline, $min_cholesterol, $max_cholesterol, $min_fluoride, $max_fluoride, $min_saturated_fat, $max_saturated_fat, $min_vitamin_a, $max_vitamin_a, $min_vitamin_c, $max_vitamin_c, $min_vitamin_d, $max_vitamin_d, $min_vitamin_e, $max_vitamin_e, $min_vitamin_k, $max_vitamin_k, $min_vitamin_b1, $max_vitamin_b1, $min_vitamin_b2, $max_vitamin_b2, $min_vitamin_b5, $max_vitamin_b5, $min_vitamin_b3, $max_vitamin_b3, $min_vitamin_b6, $max_vitamin_b6, $min_vitamin_b12, $max_vitamin_b12, $min_fiber, $max_fiber, $min_folate, $max_folate, $min_folic_acid, $max_folic_acid, $min_iodine, $max_iodine, $min_iron, $max_iron, $min_magnesium, $max_magnesium, $min_manganese, $max_manganese, $min_phosphorus, $max_phosphorus, $min_potassium, $max_potassium, $min_selenium, $max_selenium, $min_sodium, $max_sodium, $min_sugar, $max_sugar, $min_zinc, $max_zinc, $offset, $number, $limit_license)
+        return $this->searchRecipesComplexAsyncWithHttpInfo($query, $cuisine, $exclude_cuisine, $diet, $intolerances, $equipment, $include_ingredients, $exclude_ingredients, $type, $instructions_required, $fill_ingredients, $add_recipe_information, $add_recipe_nutrition, $author, $tags, $recipe_box_id, $title_match, $max_ready_time, $ignore_pantry, $sort, $sort_direction, $min_carbs, $max_carbs, $min_protein, $max_protein, $min_calories, $max_calories, $min_fat, $max_fat, $min_alcohol, $max_alcohol, $min_caffeine, $max_caffeine, $min_copper, $max_copper, $min_calcium, $max_calcium, $min_choline, $max_choline, $min_cholesterol, $max_cholesterol, $min_fluoride, $max_fluoride, $min_saturated_fat, $max_saturated_fat, $min_vitamin_a, $max_vitamin_a, $min_vitamin_c, $max_vitamin_c, $min_vitamin_d, $max_vitamin_d, $min_vitamin_e, $max_vitamin_e, $min_vitamin_k, $max_vitamin_k, $min_vitamin_b1, $max_vitamin_b1, $min_vitamin_b2, $max_vitamin_b2, $min_vitamin_b5, $max_vitamin_b5, $min_vitamin_b3, $max_vitamin_b3, $min_vitamin_b6, $max_vitamin_b6, $min_vitamin_b12, $max_vitamin_b12, $min_fiber, $max_fiber, $min_folate, $max_folate, $min_folic_acid, $max_folic_acid, $min_iodine, $max_iodine, $min_iron, $max_iron, $min_magnesium, $max_magnesium, $min_manganese, $max_manganese, $min_phosphorus, $max_phosphorus, $min_potassium, $max_potassium, $min_selenium, $max_selenium, $min_sodium, $max_sodium, $min_sugar, $max_sugar, $min_zinc, $max_zinc, $offset, $number, $limit_license)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -14626,10 +18269,12 @@ class DefaultApi
      * @param  string $exclude_ingredients A comma-separated list of ingredients or ingredient types that the recipes must not contain. (optional)
      * @param  string $type The type of recipe. See a full list of supported meal types. (optional)
      * @param  bool $instructions_required Whether the recipes must have instructions. (optional)
-     * @param  bool $fill_ingredients Add information about the used and missing ingredients in each recipe. (optional)
-     * @param  bool $add_recipe_information If set to true, you get more information about the recipes returned. This saves you from needing to call to get recipe information. (optional)
+     * @param  bool $fill_ingredients Add information about the ingredients and whether they are used or missing in relation to the query. (optional)
+     * @param  bool $add_recipe_information If set to true, you get more information about the recipes returned. (optional)
+     * @param  bool $add_recipe_nutrition If set to true, you get nutritional information about each recipes returned. (optional)
      * @param  string $author The username of the recipe author. (optional)
-     * @param  string $tags User defined tags that have to match. (optional)
+     * @param  string $tags User defined tags that have to match. The author param has to be set. (optional)
+     * @param  float $recipe_box_id The id of the recipe box to which the search should be limited to. (optional)
      * @param  string $title_match Enter text that must be found in the title of the recipes. (optional)
      * @param  float $max_ready_time The maximum time in minutes it should take to prepare and cook the recipe. (optional)
      * @param  bool $ignore_pantry Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional)
@@ -14707,17 +18352,17 @@ class DefaultApi
      * @param  float $max_sugar The maximum amount of sugar in grams the recipe can have. (optional)
      * @param  float $min_zinc The minimum amount of zinc in milligrams the recipe must have. (optional)
      * @param  float $max_zinc The maximum amount of zinc in milligrams the recipe can have. (optional)
-     * @param  float $offset The offset number for paging (between 0 and 990). (optional)
-     * @param  float $number The number of expected results (between 1 and 10). (optional)
+     * @param  float $offset The number of results to skip (between 0 and 900). (optional)
+     * @param  float $number The number of expected results (between 1 and 100). (optional)
      * @param  bool $limit_license Whether the recipes should have an open license that allows display with proper attribution. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchRecipesComplexAsyncWithHttpInfo($query, $cuisine = null, $exclude_cuisine = null, $diet = null, $intolerances = null, $equipment = null, $include_ingredients = null, $exclude_ingredients = null, $type = null, $instructions_required = null, $fill_ingredients = null, $add_recipe_information = null, $author = null, $tags = null, $title_match = null, $max_ready_time = null, $ignore_pantry = null, $sort = null, $sort_direction = null, $min_carbs = null, $max_carbs = null, $min_protein = null, $max_protein = null, $min_calories = null, $max_calories = null, $min_fat = null, $max_fat = null, $min_alcohol = null, $max_alcohol = null, $min_caffeine = null, $max_caffeine = null, $min_copper = null, $max_copper = null, $min_calcium = null, $max_calcium = null, $min_choline = null, $max_choline = null, $min_cholesterol = null, $max_cholesterol = null, $min_fluoride = null, $max_fluoride = null, $min_saturated_fat = null, $max_saturated_fat = null, $min_vitamin_a = null, $max_vitamin_a = null, $min_vitamin_c = null, $max_vitamin_c = null, $min_vitamin_d = null, $max_vitamin_d = null, $min_vitamin_e = null, $max_vitamin_e = null, $min_vitamin_k = null, $max_vitamin_k = null, $min_vitamin_b1 = null, $max_vitamin_b1 = null, $min_vitamin_b2 = null, $max_vitamin_b2 = null, $min_vitamin_b5 = null, $max_vitamin_b5 = null, $min_vitamin_b3 = null, $max_vitamin_b3 = null, $min_vitamin_b6 = null, $max_vitamin_b6 = null, $min_vitamin_b12 = null, $max_vitamin_b12 = null, $min_fiber = null, $max_fiber = null, $min_folate = null, $max_folate = null, $min_folic_acid = null, $max_folic_acid = null, $min_iodine = null, $max_iodine = null, $min_iron = null, $max_iron = null, $min_magnesium = null, $max_magnesium = null, $min_manganese = null, $max_manganese = null, $min_phosphorus = null, $max_phosphorus = null, $min_potassium = null, $max_potassium = null, $min_selenium = null, $max_selenium = null, $min_sodium = null, $max_sodium = null, $min_sugar = null, $max_sugar = null, $min_zinc = null, $max_zinc = null, $offset = null, $number = null, $limit_license = null)
+    public function searchRecipesComplexAsyncWithHttpInfo($query, $cuisine = null, $exclude_cuisine = null, $diet = null, $intolerances = null, $equipment = null, $include_ingredients = null, $exclude_ingredients = null, $type = null, $instructions_required = null, $fill_ingredients = null, $add_recipe_information = null, $add_recipe_nutrition = null, $author = null, $tags = null, $recipe_box_id = null, $title_match = null, $max_ready_time = null, $ignore_pantry = null, $sort = null, $sort_direction = null, $min_carbs = null, $max_carbs = null, $min_protein = null, $max_protein = null, $min_calories = null, $max_calories = null, $min_fat = null, $max_fat = null, $min_alcohol = null, $max_alcohol = null, $min_caffeine = null, $max_caffeine = null, $min_copper = null, $max_copper = null, $min_calcium = null, $max_calcium = null, $min_choline = null, $max_choline = null, $min_cholesterol = null, $max_cholesterol = null, $min_fluoride = null, $max_fluoride = null, $min_saturated_fat = null, $max_saturated_fat = null, $min_vitamin_a = null, $max_vitamin_a = null, $min_vitamin_c = null, $max_vitamin_c = null, $min_vitamin_d = null, $max_vitamin_d = null, $min_vitamin_e = null, $max_vitamin_e = null, $min_vitamin_k = null, $max_vitamin_k = null, $min_vitamin_b1 = null, $max_vitamin_b1 = null, $min_vitamin_b2 = null, $max_vitamin_b2 = null, $min_vitamin_b5 = null, $max_vitamin_b5 = null, $min_vitamin_b3 = null, $max_vitamin_b3 = null, $min_vitamin_b6 = null, $max_vitamin_b6 = null, $min_vitamin_b12 = null, $max_vitamin_b12 = null, $min_fiber = null, $max_fiber = null, $min_folate = null, $max_folate = null, $min_folic_acid = null, $max_folic_acid = null, $min_iodine = null, $max_iodine = null, $min_iron = null, $max_iron = null, $min_magnesium = null, $max_magnesium = null, $min_manganese = null, $max_manganese = null, $min_phosphorus = null, $max_phosphorus = null, $min_potassium = null, $max_potassium = null, $min_selenium = null, $max_selenium = null, $min_sodium = null, $max_sodium = null, $min_sugar = null, $max_sugar = null, $min_zinc = null, $max_zinc = null, $offset = null, $number = null, $limit_license = null)
     {
         $returnType = 'object';
-        $request = $this->searchRecipesComplexRequest($query, $cuisine, $exclude_cuisine, $diet, $intolerances, $equipment, $include_ingredients, $exclude_ingredients, $type, $instructions_required, $fill_ingredients, $add_recipe_information, $author, $tags, $title_match, $max_ready_time, $ignore_pantry, $sort, $sort_direction, $min_carbs, $max_carbs, $min_protein, $max_protein, $min_calories, $max_calories, $min_fat, $max_fat, $min_alcohol, $max_alcohol, $min_caffeine, $max_caffeine, $min_copper, $max_copper, $min_calcium, $max_calcium, $min_choline, $max_choline, $min_cholesterol, $max_cholesterol, $min_fluoride, $max_fluoride, $min_saturated_fat, $max_saturated_fat, $min_vitamin_a, $max_vitamin_a, $min_vitamin_c, $max_vitamin_c, $min_vitamin_d, $max_vitamin_d, $min_vitamin_e, $max_vitamin_e, $min_vitamin_k, $max_vitamin_k, $min_vitamin_b1, $max_vitamin_b1, $min_vitamin_b2, $max_vitamin_b2, $min_vitamin_b5, $max_vitamin_b5, $min_vitamin_b3, $max_vitamin_b3, $min_vitamin_b6, $max_vitamin_b6, $min_vitamin_b12, $max_vitamin_b12, $min_fiber, $max_fiber, $min_folate, $max_folate, $min_folic_acid, $max_folic_acid, $min_iodine, $max_iodine, $min_iron, $max_iron, $min_magnesium, $max_magnesium, $min_manganese, $max_manganese, $min_phosphorus, $max_phosphorus, $min_potassium, $max_potassium, $min_selenium, $max_selenium, $min_sodium, $max_sodium, $min_sugar, $max_sugar, $min_zinc, $max_zinc, $offset, $number, $limit_license);
+        $request = $this->searchRecipesComplexRequest($query, $cuisine, $exclude_cuisine, $diet, $intolerances, $equipment, $include_ingredients, $exclude_ingredients, $type, $instructions_required, $fill_ingredients, $add_recipe_information, $add_recipe_nutrition, $author, $tags, $recipe_box_id, $title_match, $max_ready_time, $ignore_pantry, $sort, $sort_direction, $min_carbs, $max_carbs, $min_protein, $max_protein, $min_calories, $max_calories, $min_fat, $max_fat, $min_alcohol, $max_alcohol, $min_caffeine, $max_caffeine, $min_copper, $max_copper, $min_calcium, $max_calcium, $min_choline, $max_choline, $min_cholesterol, $max_cholesterol, $min_fluoride, $max_fluoride, $min_saturated_fat, $max_saturated_fat, $min_vitamin_a, $max_vitamin_a, $min_vitamin_c, $max_vitamin_c, $min_vitamin_d, $max_vitamin_d, $min_vitamin_e, $max_vitamin_e, $min_vitamin_k, $max_vitamin_k, $min_vitamin_b1, $max_vitamin_b1, $min_vitamin_b2, $max_vitamin_b2, $min_vitamin_b5, $max_vitamin_b5, $min_vitamin_b3, $max_vitamin_b3, $min_vitamin_b6, $max_vitamin_b6, $min_vitamin_b12, $max_vitamin_b12, $min_fiber, $max_fiber, $min_folate, $max_folate, $min_folic_acid, $max_folic_acid, $min_iodine, $max_iodine, $min_iron, $max_iron, $min_magnesium, $max_magnesium, $min_manganese, $max_manganese, $min_phosphorus, $max_phosphorus, $min_potassium, $max_potassium, $min_selenium, $max_selenium, $min_sodium, $max_sodium, $min_sugar, $max_sugar, $min_zinc, $max_zinc, $offset, $number, $limit_license);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -14766,10 +18411,12 @@ class DefaultApi
      * @param  string $exclude_ingredients A comma-separated list of ingredients or ingredient types that the recipes must not contain. (optional)
      * @param  string $type The type of recipe. See a full list of supported meal types. (optional)
      * @param  bool $instructions_required Whether the recipes must have instructions. (optional)
-     * @param  bool $fill_ingredients Add information about the used and missing ingredients in each recipe. (optional)
-     * @param  bool $add_recipe_information If set to true, you get more information about the recipes returned. This saves you from needing to call to get recipe information. (optional)
+     * @param  bool $fill_ingredients Add information about the ingredients and whether they are used or missing in relation to the query. (optional)
+     * @param  bool $add_recipe_information If set to true, you get more information about the recipes returned. (optional)
+     * @param  bool $add_recipe_nutrition If set to true, you get nutritional information about each recipes returned. (optional)
      * @param  string $author The username of the recipe author. (optional)
-     * @param  string $tags User defined tags that have to match. (optional)
+     * @param  string $tags User defined tags that have to match. The author param has to be set. (optional)
+     * @param  float $recipe_box_id The id of the recipe box to which the search should be limited to. (optional)
      * @param  string $title_match Enter text that must be found in the title of the recipes. (optional)
      * @param  float $max_ready_time The maximum time in minutes it should take to prepare and cook the recipe. (optional)
      * @param  bool $ignore_pantry Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional)
@@ -14847,14 +18494,14 @@ class DefaultApi
      * @param  float $max_sugar The maximum amount of sugar in grams the recipe can have. (optional)
      * @param  float $min_zinc The minimum amount of zinc in milligrams the recipe must have. (optional)
      * @param  float $max_zinc The maximum amount of zinc in milligrams the recipe can have. (optional)
-     * @param  float $offset The offset number for paging (between 0 and 990). (optional)
-     * @param  float $number The number of expected results (between 1 and 10). (optional)
+     * @param  float $offset The number of results to skip (between 0 and 900). (optional)
+     * @param  float $number The number of expected results (between 1 and 100). (optional)
      * @param  bool $limit_license Whether the recipes should have an open license that allows display with proper attribution. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function searchRecipesComplexRequest($query, $cuisine = null, $exclude_cuisine = null, $diet = null, $intolerances = null, $equipment = null, $include_ingredients = null, $exclude_ingredients = null, $type = null, $instructions_required = null, $fill_ingredients = null, $add_recipe_information = null, $author = null, $tags = null, $title_match = null, $max_ready_time = null, $ignore_pantry = null, $sort = null, $sort_direction = null, $min_carbs = null, $max_carbs = null, $min_protein = null, $max_protein = null, $min_calories = null, $max_calories = null, $min_fat = null, $max_fat = null, $min_alcohol = null, $max_alcohol = null, $min_caffeine = null, $max_caffeine = null, $min_copper = null, $max_copper = null, $min_calcium = null, $max_calcium = null, $min_choline = null, $max_choline = null, $min_cholesterol = null, $max_cholesterol = null, $min_fluoride = null, $max_fluoride = null, $min_saturated_fat = null, $max_saturated_fat = null, $min_vitamin_a = null, $max_vitamin_a = null, $min_vitamin_c = null, $max_vitamin_c = null, $min_vitamin_d = null, $max_vitamin_d = null, $min_vitamin_e = null, $max_vitamin_e = null, $min_vitamin_k = null, $max_vitamin_k = null, $min_vitamin_b1 = null, $max_vitamin_b1 = null, $min_vitamin_b2 = null, $max_vitamin_b2 = null, $min_vitamin_b5 = null, $max_vitamin_b5 = null, $min_vitamin_b3 = null, $max_vitamin_b3 = null, $min_vitamin_b6 = null, $max_vitamin_b6 = null, $min_vitamin_b12 = null, $max_vitamin_b12 = null, $min_fiber = null, $max_fiber = null, $min_folate = null, $max_folate = null, $min_folic_acid = null, $max_folic_acid = null, $min_iodine = null, $max_iodine = null, $min_iron = null, $max_iron = null, $min_magnesium = null, $max_magnesium = null, $min_manganese = null, $max_manganese = null, $min_phosphorus = null, $max_phosphorus = null, $min_potassium = null, $max_potassium = null, $min_selenium = null, $max_selenium = null, $min_sodium = null, $max_sodium = null, $min_sugar = null, $max_sugar = null, $min_zinc = null, $max_zinc = null, $offset = null, $number = null, $limit_license = null)
+    protected function searchRecipesComplexRequest($query, $cuisine = null, $exclude_cuisine = null, $diet = null, $intolerances = null, $equipment = null, $include_ingredients = null, $exclude_ingredients = null, $type = null, $instructions_required = null, $fill_ingredients = null, $add_recipe_information = null, $add_recipe_nutrition = null, $author = null, $tags = null, $recipe_box_id = null, $title_match = null, $max_ready_time = null, $ignore_pantry = null, $sort = null, $sort_direction = null, $min_carbs = null, $max_carbs = null, $min_protein = null, $max_protein = null, $min_calories = null, $max_calories = null, $min_fat = null, $max_fat = null, $min_alcohol = null, $max_alcohol = null, $min_caffeine = null, $max_caffeine = null, $min_copper = null, $max_copper = null, $min_calcium = null, $max_calcium = null, $min_choline = null, $max_choline = null, $min_cholesterol = null, $max_cholesterol = null, $min_fluoride = null, $max_fluoride = null, $min_saturated_fat = null, $max_saturated_fat = null, $min_vitamin_a = null, $max_vitamin_a = null, $min_vitamin_c = null, $max_vitamin_c = null, $min_vitamin_d = null, $max_vitamin_d = null, $min_vitamin_e = null, $max_vitamin_e = null, $min_vitamin_k = null, $max_vitamin_k = null, $min_vitamin_b1 = null, $max_vitamin_b1 = null, $min_vitamin_b2 = null, $max_vitamin_b2 = null, $min_vitamin_b5 = null, $max_vitamin_b5 = null, $min_vitamin_b3 = null, $max_vitamin_b3 = null, $min_vitamin_b6 = null, $max_vitamin_b6 = null, $min_vitamin_b12 = null, $max_vitamin_b12 = null, $min_fiber = null, $max_fiber = null, $min_folate = null, $max_folate = null, $min_folic_acid = null, $max_folic_acid = null, $min_iodine = null, $max_iodine = null, $min_iron = null, $max_iron = null, $min_magnesium = null, $max_magnesium = null, $min_manganese = null, $max_manganese = null, $min_phosphorus = null, $max_phosphorus = null, $min_potassium = null, $max_potassium = null, $min_selenium = null, $max_selenium = null, $min_sodium = null, $max_sodium = null, $min_sugar = null, $max_sugar = null, $min_zinc = null, $max_zinc = null, $offset = null, $number = null, $limit_license = null)
     {
         // verify the required parameter 'query' is set
         if ($query === null || (is_array($query) && count($query) === 0)) {
@@ -14919,12 +18566,20 @@ class DefaultApi
             $queryParams['addRecipeInformation'] = ObjectSerializer::toQueryValue($add_recipe_information);
         }
         // query params
+        if ($add_recipe_nutrition !== null) {
+            $queryParams['addRecipeNutrition'] = ObjectSerializer::toQueryValue($add_recipe_nutrition);
+        }
+        // query params
         if ($author !== null) {
             $queryParams['author'] = ObjectSerializer::toQueryValue($author);
         }
         // query params
         if ($tags !== null) {
             $queryParams['tags'] = ObjectSerializer::toQueryValue($tags);
+        }
+        // query params
+        if ($recipe_box_id !== null) {
+            $queryParams['recipeBoxId'] = ObjectSerializer::toQueryValue($recipe_box_id);
         }
         // query params
         if ($title_match !== null) {

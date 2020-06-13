@@ -4,6 +4,11 @@ HEADERS += \
 # Models
     $${PWD}/OAIInline_object.h \
     $${PWD}/OAIInline_object_1.h \
+    $${PWD}/OAIInline_object_10.h \
+    $${PWD}/OAIInline_object_11.h \
+    $${PWD}/OAIInline_object_12.h \
+    $${PWD}/OAIInline_object_13.h \
+    $${PWD}/OAIInline_object_14.h \
     $${PWD}/OAIInline_object_2.h \
     $${PWD}/OAIInline_object_3.h \
     $${PWD}/OAIInline_object_4.h \
@@ -24,6 +29,11 @@ SOURCES += \
 # Models
     $${PWD}/OAIInline_object.cpp \
     $${PWD}/OAIInline_object_1.cpp \
+    $${PWD}/OAIInline_object_10.cpp \
+    $${PWD}/OAIInline_object_11.cpp \
+    $${PWD}/OAIInline_object_12.cpp \
+    $${PWD}/OAIInline_object_13.cpp \
+    $${PWD}/OAIInline_object_14.cpp \
     $${PWD}/OAIInline_object_2.cpp \
     $${PWD}/OAIInline_object_3.cpp \
     $${PWD}/OAIInline_object_4.cpp \

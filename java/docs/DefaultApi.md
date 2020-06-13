@@ -4,6 +4,8 @@ All URIs are relative to *https://api.spoonacular.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**addToMealPlan**](DefaultApi.md#addToMealPlan) | **POST** /mealplanner/{username}/items | Add to Meal Plan
+[**addToShoppingList**](DefaultApi.md#addToShoppingList) | **POST** /mealplanner/{username}/shopping-list/items | Add to Shopping List
 [**analyzeARecipeSearchQuery**](DefaultApi.md#analyzeARecipeSearchQuery) | **GET** /recipes/queries/analyze | Analyze a Recipe Search Query
 [**analyzeRecipeInstructions**](DefaultApi.md#analyzeRecipeInstructions) | **POST** /recipes/analyzeInstructions | Analyze Recipe Instructions
 [**autocompleteIngredientSearch**](DefaultApi.md#autocompleteIngredientSearch) | **GET** /food/ingredients/autocomplete | Autocomplete Ingredient Search
@@ -15,9 +17,12 @@ Method | HTTP request | Description
 [**classifyGroceryProductBulk**](DefaultApi.md#classifyGroceryProductBulk) | **POST** /food/products/classifyBatch | Classify Grocery Product Bulk
 [**convertAmounts**](DefaultApi.md#convertAmounts) | **GET** /recipes/convert | Convert Amounts
 [**createRecipeCard**](DefaultApi.md#createRecipeCard) | **POST** /recipes/visualizeRecipe | Create Recipe Card
+[**deleteFromMealPlan**](DefaultApi.md#deleteFromMealPlan) | **DELETE** /mealplanner/{username}/items/{id} | Delete from Meal Plan
+[**deleteFromShoppingList**](DefaultApi.md#deleteFromShoppingList) | **DELETE** /mealplanner/{username}/shopping-list/items/{id} | Delete from Shopping List
 [**detectFoodInText**](DefaultApi.md#detectFoodInText) | **POST** /food/detect | Detect Food in Text
 [**extractRecipeFromWebsite**](DefaultApi.md#extractRecipeFromWebsite) | **GET** /recipes/extract | Extract Recipe from Website
 [**generateMealPlan**](DefaultApi.md#generateMealPlan) | **GET** /mealplanner/generate | Generate Meal Plan
+[**generateShoppingList**](DefaultApi.md#generateShoppingList) | **POST** /mealplanner/{username}/shopping-list/{start-date}/{end-date} | Generate Shopping List
 [**getARandomFoodJoke**](DefaultApi.md#getARandomFoodJoke) | **GET** /food/jokes/random | Get a Random Food Joke
 [**getAnalyzedRecipeInstructions**](DefaultApi.md#getAnalyzedRecipeInstructions) | **GET** /recipes/{id}/analyzedInstructions | Get Analyzed Recipe Instructions
 [**getComparableProducts**](DefaultApi.md#getComparableProducts) | **GET** /food/products/upc/{upc}/comparable | Get Comparable Products
@@ -26,6 +31,9 @@ Method | HTTP request | Description
 [**getIngredientInformation**](DefaultApi.md#getIngredientInformation) | **GET** /food/ingredients/{id}/information | Get Ingredient Information
 [**getIngredientSubstitutes**](DefaultApi.md#getIngredientSubstitutes) | **GET** /food/ingredients/substitutes | Get Ingredient Substitutes
 [**getIngredientSubstitutesByID**](DefaultApi.md#getIngredientSubstitutesByID) | **GET** /food/ingredients/{id}/substitutes | Get Ingredient Substitutes by ID
+[**getMealPlanTemplate**](DefaultApi.md#getMealPlanTemplate) | **GET** /mealplanner/{username}/templates/{id} | Get Meal Plan Template
+[**getMealPlanTemplates**](DefaultApi.md#getMealPlanTemplates) | **GET** /mealplanner/{username}/templates | Get Meal Plan Templates
+[**getMealPlanWeek**](DefaultApi.md#getMealPlanWeek) | **GET** /mealplanner/{username}/week/{start-date} | Get Meal Plan Week
 [**getMenuItemInformation**](DefaultApi.md#getMenuItemInformation) | **GET** /food/menuItems/{id} | Get Menu Item Information
 [**getProductInformation**](DefaultApi.md#getProductInformation) | **GET** /food/products/{id} | Get Product Information
 [**getRandomFoodTrivia**](DefaultApi.md#getRandomFoodTrivia) | **GET** /food/trivia/random | Get Random Food Trivia
@@ -36,14 +44,18 @@ Method | HTTP request | Description
 [**getRecipeIngredientsByID**](DefaultApi.md#getRecipeIngredientsByID) | **GET** /recipes/{id}/ingredientWidget.json | Get Recipe Ingredients by ID
 [**getRecipeNutritionWidgetByID**](DefaultApi.md#getRecipeNutritionWidgetByID) | **GET** /recipes/{id}/nutritionWidget.json | Get Recipe Nutrition Widget by ID
 [**getRecipePriceBreakdownByID**](DefaultApi.md#getRecipePriceBreakdownByID) | **GET** /recipes/{id}/priceBreakdownWidget.json | Get Recipe Price Breakdown by ID
+[**getShoppingList**](DefaultApi.md#getShoppingList) | **GET** /mealplanner/{username}/shopping-list | Get Shopping List
 [**getSimilarRecipes**](DefaultApi.md#getSimilarRecipes) | **GET** /recipes/{id}/similar | Get Similar Recipes
 [**getWineDescription**](DefaultApi.md#getWineDescription) | **GET** /food/wine/description | Get Wine Description
 [**getWinePairing**](DefaultApi.md#getWinePairing) | **GET** /food/wine/pairing | Get Wine Pairing
 [**getWineRecommendation**](DefaultApi.md#getWineRecommendation) | **GET** /food/wine/recommendation | Get Wine Recommendation
 [**guessNutritionByDishName**](DefaultApi.md#guessNutritionByDishName) | **GET** /recipes/guessNutrition | Guess Nutrition by Dish Name
+[**imageAnalysisByURL**](DefaultApi.md#imageAnalysisByURL) | **GET** /food/images/analyze | Image Analysis by URL
+[**imageClassificationByURL**](DefaultApi.md#imageClassificationByURL) | **GET** /food/images/classify | Image Classification by URL
 [**mapIngredientsToGroceryProducts**](DefaultApi.md#mapIngredientsToGroceryProducts) | **POST** /food/ingredients/map | Map Ingredients to Grocery Products
 [**parseIngredients**](DefaultApi.md#parseIngredients) | **POST** /recipes/parseIngredients | Parse Ingredients
 [**quickAnswer**](DefaultApi.md#quickAnswer) | **GET** /recipes/quickAnswer | Quick Answer
+[**searchCustomFoods**](DefaultApi.md#searchCustomFoods) | **GET** /food/customFoods/search | Search Custom Foods
 [**searchFoodVideos**](DefaultApi.md#searchFoodVideos) | **GET** /food/videos/search | Search Food Videos
 [**searchGroceryProducts**](DefaultApi.md#searchGroceryProducts) | **GET** /food/products/search | Search Grocery Products
 [**searchGroceryProductsByUPC**](DefaultApi.md#searchGroceryProductsByUPC) | **GET** /food/products/upc/{upc} | Search Grocery Products by UPC
@@ -66,6 +78,104 @@ Method | HTTP request | Description
 [**visualizeRecipeNutritionByID**](DefaultApi.md#visualizeRecipeNutritionByID) | **GET** /recipes/{id}/nutritionWidget | Visualize Recipe Nutrition by ID
 [**visualizeRecipePriceBreakdownByID**](DefaultApi.md#visualizeRecipePriceBreakdownByID) | **GET** /recipes/{id}/priceBreakdownWidget | Visualize Recipe Price Breakdown by ID
 
+
+<a name="addToMealPlan"></a>
+# **addToMealPlan**
+> Object addToMealPlan(username, hash, inlineObject9)
+
+Add to Meal Plan
+
+Add an item to the user&#39;s meal plan.
+
+### Example
+```java
+// Import classes:
+//import com.spoonacular.client.ApiException;
+//import com.spoonacular.DefaultApi;
+
+
+DefaultApi apiInstance = new DefaultApi();
+String username = dsky; // String | The username.
+String hash = 4b5v4398573406; // String | The private hash for the username.
+InlineObject9 inlineObject9 = new InlineObject9(); // InlineObject9 | 
+try {
+    Object result = apiInstance.addToMealPlan(username, hash, inlineObject9);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#addToMealPlan");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **String**| The username. |
+ **hash** | **String**| The private hash for the username. |
+ **inlineObject9** | [**InlineObject9**](InlineObject9.md)|  |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: 
+ - **Accept**: application/json
+
+<a name="addToShoppingList"></a>
+# **addToShoppingList**
+> Object addToShoppingList(username, hash, inlineObject12)
+
+Add to Shopping List
+
+Add an item to the current shopping list of a user.
+
+### Example
+```java
+// Import classes:
+//import com.spoonacular.client.ApiException;
+//import com.spoonacular.DefaultApi;
+
+
+DefaultApi apiInstance = new DefaultApi();
+String username = dsky; // String | The username.
+String hash = 4b5v4398573406; // String | The private hash for the username.
+InlineObject12 inlineObject12 = new InlineObject12(); // InlineObject12 | 
+try {
+    Object result = apiInstance.addToShoppingList(username, hash, inlineObject12);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#addToShoppingList");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **String**| The username. |
+ **hash** | **String**| The private hash for the username. |
+ **inlineObject12** | [**InlineObject12**](InlineObject12.md)|  |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: 
+ - **Accept**: application/json
 
 <a name="analyzeARecipeSearchQuery"></a>
 # **analyzeARecipeSearchQuery**
@@ -608,6 +718,108 @@ No authorization required
  - **Content-Type**: multipart/form-data
  - **Accept**: application/json
 
+<a name="deleteFromMealPlan"></a>
+# **deleteFromMealPlan**
+> Object deleteFromMealPlan(username, id, hash, inlineObject10)
+
+Delete from Meal Plan
+
+Delete an item from the user&#39;s meal plan.
+
+### Example
+```java
+// Import classes:
+//import com.spoonacular.client.ApiException;
+//import com.spoonacular.DefaultApi;
+
+
+DefaultApi apiInstance = new DefaultApi();
+String username = dsky; // String | The username.
+BigDecimal id = 15678; // BigDecimal | The shopping list item id.
+String hash = 4b5v4398573406; // String | The private hash for the username.
+InlineObject10 inlineObject10 = new InlineObject10(); // InlineObject10 | 
+try {
+    Object result = apiInstance.deleteFromMealPlan(username, id, hash, inlineObject10);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#deleteFromMealPlan");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **String**| The username. |
+ **id** | **BigDecimal**| The shopping list item id. |
+ **hash** | **String**| The private hash for the username. |
+ **inlineObject10** | [**InlineObject10**](InlineObject10.md)|  |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: 
+ - **Accept**: application/json
+
+<a name="deleteFromShoppingList"></a>
+# **deleteFromShoppingList**
+> Object deleteFromShoppingList(username, id, hash, inlineObject13)
+
+Delete from Shopping List
+
+Delete an item from the current shopping list of the user.
+
+### Example
+```java
+// Import classes:
+//import com.spoonacular.client.ApiException;
+//import com.spoonacular.DefaultApi;
+
+
+DefaultApi apiInstance = new DefaultApi();
+String username = dsky; // String | The username.
+BigDecimal id = 15678; // BigDecimal | The shopping list item id.
+String hash = 4b5v4398573406; // String | The private hash for the username.
+InlineObject13 inlineObject13 = new InlineObject13(); // InlineObject13 | 
+try {
+    Object result = apiInstance.deleteFromShoppingList(username, id, hash, inlineObject13);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#deleteFromShoppingList");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **String**| The username. |
+ **id** | **BigDecimal**| The shopping list item id. |
+ **hash** | **String**| The private hash for the username. |
+ **inlineObject13** | [**InlineObject13**](InlineObject13.md)|  |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: 
+ - **Accept**: application/json
+
 <a name="detectFoodInText"></a>
 # **detectFoodInText**
 > Object detectFoodInText(text)
@@ -655,7 +867,7 @@ No authorization required
 
 <a name="extractRecipeFromWebsite"></a>
 # **extractRecipeFromWebsite**
-> Object extractRecipeFromWebsite(url, forceExtraction)
+> Object extractRecipeFromWebsite(url, forceExtraction, analyze)
 
 Extract Recipe from Website
 
@@ -671,8 +883,9 @@ This endpoint lets you extract recipe data such as title, ingredients, and instr
 DefaultApi apiInstance = new DefaultApi();
 String url = https://foodista.com/recipe/ZHK4KPB6/chocolate-crinkle-cookies; // String | The URL of the recipe page.
 Boolean forceExtraction = true; // Boolean | If true, the extraction will be triggered whether we already know the recipe or not. Use this only if information is missing as this operation is slower.
+Boolean analyze = false; // Boolean | If true, the recipe will be analyzed and classified resolving in more data such as cuisines, dish types, and more.
 try {
-    Object result = apiInstance.extractRecipeFromWebsite(url, forceExtraction);
+    Object result = apiInstance.extractRecipeFromWebsite(url, forceExtraction, analyze);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DefaultApi#extractRecipeFromWebsite");
@@ -686,6 +899,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **url** | **String**| The URL of the recipe page. |
  **forceExtraction** | **Boolean**| If true, the extraction will be triggered whether we already know the recipe or not. Use this only if information is missing as this operation is slower. | [optional]
+ **analyze** | **Boolean**| If true, the recipe will be analyzed and classified resolving in more data such as cuisines, dish types, and more. | [optional]
 
 ### Return type
 
@@ -749,6 +963,59 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="generateShoppingList"></a>
+# **generateShoppingList**
+> Object generateShoppingList(username, startDate, endDate, hash, inlineObject11)
+
+Generate Shopping List
+
+Generate the shopping list for a user from the meal planner in a given time frame.
+
+### Example
+```java
+// Import classes:
+//import com.spoonacular.client.ApiException;
+//import com.spoonacular.DefaultApi;
+
+
+DefaultApi apiInstance = new DefaultApi();
+String username = dsky; // String | The username.
+String startDate = 2020-06-01; // String | The start date in the format yyyy-mm-dd.
+String endDate = 2020-06-07; // String | The end date in the format yyyy-mm-dd.
+String hash = 4b5v4398573406; // String | The private hash for the username.
+InlineObject11 inlineObject11 = new InlineObject11(); // InlineObject11 | 
+try {
+    Object result = apiInstance.generateShoppingList(username, startDate, endDate, hash, inlineObject11);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#generateShoppingList");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **String**| The username. |
+ **startDate** | **String**| The start date in the format yyyy-mm-dd. |
+ **endDate** | **String**| The end date in the format yyyy-mm-dd. |
+ **hash** | **String**| The private hash for the username. |
+ **inlineObject11** | [**InlineObject11**](InlineObject11.md)|  |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: 
  - **Accept**: application/json
 
 <a name="getARandomFoodJoke"></a>
@@ -1115,6 +1382,151 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+<a name="getMealPlanTemplate"></a>
+# **getMealPlanTemplate**
+> Object getMealPlanTemplate(username, id, hash)
+
+Get Meal Plan Template
+
+Get information about a meal plan template.
+
+### Example
+```java
+// Import classes:
+//import com.spoonacular.client.ApiException;
+//import com.spoonacular.DefaultApi;
+
+
+DefaultApi apiInstance = new DefaultApi();
+String username = dsky; // String | The username.
+BigDecimal id = 15678; // BigDecimal | The shopping list item id.
+String hash = 4b5v4398573406; // String | The private hash for the username.
+try {
+    Object result = apiInstance.getMealPlanTemplate(username, id, hash);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#getMealPlanTemplate");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **String**| The username. |
+ **id** | **BigDecimal**| The shopping list item id. |
+ **hash** | **String**| The private hash for the username. |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="getMealPlanTemplates"></a>
+# **getMealPlanTemplates**
+> Object getMealPlanTemplates(username, hash)
+
+Get Meal Plan Templates
+
+Get meal plan templates from user or public ones.
+
+### Example
+```java
+// Import classes:
+//import com.spoonacular.client.ApiException;
+//import com.spoonacular.DefaultApi;
+
+
+DefaultApi apiInstance = new DefaultApi();
+String username = dsky; // String | The username.
+String hash = 4b5v4398573406; // String | The private hash for the username.
+try {
+    Object result = apiInstance.getMealPlanTemplates(username, hash);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#getMealPlanTemplates");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **String**| The username. |
+ **hash** | **String**| The private hash for the username. |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="getMealPlanWeek"></a>
+# **getMealPlanWeek**
+> Object getMealPlanWeek(username, startDate, hash)
+
+Get Meal Plan Week
+
+Retrieve a meal planned week for the given user. The username must be a spoonacular user and the hash must the the user&#39;s hash that can be found in his/her account.
+
+### Example
+```java
+// Import classes:
+//import com.spoonacular.client.ApiException;
+//import com.spoonacular.DefaultApi;
+
+
+DefaultApi apiInstance = new DefaultApi();
+String username = dsky; // String | The username.
+String startDate = 2020-06-01; // String | The start date of the meal planned week in the format yyyy-mm-dd.
+String hash = 4b5v4398573406; // String | The private hash for the username.
+try {
+    Object result = apiInstance.getMealPlanWeek(username, startDate, hash);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#getMealPlanWeek");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **String**| The username. |
+ **startDate** | **String**| The start date of the meal planned week in the format yyyy-mm-dd. |
+ **hash** | **String**| The private hash for the username. |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 <a name="getMenuItemInformation"></a>
 # **getMenuItemInformation**
 > Object getMenuItemInformation(id)
@@ -1166,7 +1578,7 @@ No authorization required
 
 Get Product Information
 
-Use a product id to get full information about a product, such as ingredients, nutrition, etc.
+Use a product id to get full information about a product, such as ingredients, nutrition, etc. The nutritional information is per serving.
 
 ### Example
 ```java
@@ -1569,9 +1981,56 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+<a name="getShoppingList"></a>
+# **getShoppingList**
+> Object getShoppingList(username, hash)
+
+Get Shopping List
+
+Get the current shopping list for the given user.
+
+### Example
+```java
+// Import classes:
+//import com.spoonacular.client.ApiException;
+//import com.spoonacular.DefaultApi;
+
+
+DefaultApi apiInstance = new DefaultApi();
+String username = dsky; // String | The username.
+String hash = 4b5v4398573406; // String | The private hash for the username.
+try {
+    Object result = apiInstance.getShoppingList(username, hash);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#getShoppingList");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **String**| The username. |
+ **hash** | **String**| The private hash for the username. |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 <a name="getSimilarRecipes"></a>
 # **getSimilarRecipes**
-> Object getSimilarRecipes(id, number)
+> Object getSimilarRecipes(id, number, limitLicense)
 
 Get Similar Recipes
 
@@ -1587,8 +2046,9 @@ Find recipes which are similar to the given one.
 DefaultApi apiInstance = new DefaultApi();
 BigDecimal id = 715538; // BigDecimal | The id of the source recipe for which similar recipes should be found.
 BigDecimal number = 1; // BigDecimal | The number of random recipes to be returned (between 1 and 100).
+Boolean limitLicense = true; // Boolean | Whether the recipes should have an open license that allows display with proper attribution.
 try {
-    Object result = apiInstance.getSimilarRecipes(id, number);
+    Object result = apiInstance.getSimilarRecipes(id, number, limitLicense);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DefaultApi#getSimilarRecipes");
@@ -1602,6 +2062,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **BigDecimal**| The id of the source recipe for which similar recipes should be found. |
  **number** | **BigDecimal**| The number of random recipes to be returned (between 1 and 100). | [optional]
+ **limitLicense** | **Boolean**| Whether the recipes should have an open license that allows display with proper attribution. | [optional]
 
 ### Return type
 
@@ -1804,6 +2265,96 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+<a name="imageAnalysisByURL"></a>
+# **imageAnalysisByURL**
+> Object imageAnalysisByURL(imageUrl)
+
+Image Analysis by URL
+
+Analyze a food image. The API tries to classify the image, guess the nutrition, and find a matching recipes. You can play around with that endpoint!
+
+### Example
+```java
+// Import classes:
+//import com.spoonacular.client.ApiException;
+//import com.spoonacular.DefaultApi;
+
+
+DefaultApi apiInstance = new DefaultApi();
+String imageUrl = https://spoonacular.com/recipeImages/635350-240x150.jpg; // String | The URL of the image to be analyzed.
+try {
+    Object result = apiInstance.imageAnalysisByURL(imageUrl);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#imageAnalysisByURL");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **imageUrl** | **String**| The URL of the image to be analyzed. |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="imageClassificationByURL"></a>
+# **imageClassificationByURL**
+> Object imageClassificationByURL(imageUrl)
+
+Image Classification by URL
+
+Classify a food image. You can play around with that endpoint!
+
+### Example
+```java
+// Import classes:
+//import com.spoonacular.client.ApiException;
+//import com.spoonacular.DefaultApi;
+
+
+DefaultApi apiInstance = new DefaultApi();
+String imageUrl = https://spoonacular.com/recipeImages/635350-240x150.jpg; // String | The URL of the image to be classified.
+try {
+    Object result = apiInstance.imageClassificationByURL(imageUrl);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#imageClassificationByURL");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **imageUrl** | **String**| The URL of the image to be classified. |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 <a name="mapIngredientsToGroceryProducts"></a>
 # **mapIngredientsToGroceryProducts**
 > Object mapIngredientsToGroceryProducts(body)
@@ -1943,6 +2494,59 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+<a name="searchCustomFoods"></a>
+# **searchCustomFoods**
+> Object searchCustomFoods(query, username, hash, offset, number)
+
+Search Custom Foods
+
+Search custom foods in a user&#39;s account.
+
+### Example
+```java
+// Import classes:
+//import com.spoonacular.client.ApiException;
+//import com.spoonacular.DefaultApi;
+
+
+DefaultApi apiInstance = new DefaultApi();
+String query = brat; // String | The search query.
+String username = dsky; // String | The username.
+String hash = 4b5v4398573406; // String | The private hash for the username.
+BigDecimal offset = 0; // BigDecimal | The number of results to skip (between 0 and 990).
+BigDecimal number = 10; // BigDecimal | The number of expected results (between 1 and 100).
+try {
+    Object result = apiInstance.searchCustomFoods(query, username, hash, offset, number);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#searchCustomFoods");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **query** | **String**| The search query. |
+ **username** | **String**| The username. |
+ **hash** | **String**| The private hash for the username. |
+ **offset** | **BigDecimal**| The number of results to skip (between 0 and 990). | [optional]
+ **number** | **BigDecimal**| The number of expected results (between 1 and 100). | [optional]
+
+### Return type
+
+**Object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 <a name="searchFoodVideos"></a>
 # **searchFoodVideos**
 > Object searchFoodVideos(query, type, cuisine, diet, includeIngredients, excludeIngredients, minLength, maxLength, offset, number)
@@ -2031,7 +2635,7 @@ BigDecimal minProtein = 10; // BigDecimal | The minimum amount of protein in gra
 BigDecimal maxProtein = 100; // BigDecimal | The maximum amount of protein in grams the product can have.
 BigDecimal minFat = 1; // BigDecimal | The minimum amount of fat in grams the product must have.
 BigDecimal maxFat = 100; // BigDecimal | The maximum amount of fat in grams the product can have.
-BigDecimal offset = 0; // BigDecimal | The offset number for paging (between 0 and 990).
+BigDecimal offset = 0; // BigDecimal | The number of results to skip (between 0 and 990).
 BigDecimal number = 10; // BigDecimal | The number of expected results (between 1 and 100).
 try {
     Object result = apiInstance.searchGroceryProducts(query, minCalories, maxCalories, minCarbs, maxCarbs, minProtein, maxProtein, minFat, maxFat, offset, number);
@@ -2055,7 +2659,7 @@ Name | Type | Description  | Notes
  **maxProtein** | **BigDecimal**| The maximum amount of protein in grams the product can have. | [optional]
  **minFat** | **BigDecimal**| The minimum amount of fat in grams the product must have. | [optional]
  **maxFat** | **BigDecimal**| The maximum amount of fat in grams the product can have. | [optional]
- **offset** | **BigDecimal**| The offset number for paging (between 0 and 990). | [optional]
+ **offset** | **BigDecimal**| The number of results to skip (between 0 and 990). | [optional]
  **number** | **BigDecimal**| The number of expected results (between 1 and 100). | [optional]
 
 ### Return type
@@ -2248,7 +2852,7 @@ No authorization required
 
 Search Recipes by Ingredients
 
-Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don&#39;t currently have (post shopping).
+             Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don&#39;t currently have (post shopping).         
 
 ### Example
 ```java
@@ -2383,7 +2987,7 @@ BigDecimal minSugar = 0; // BigDecimal | The minimum amount of sugar in grams th
 BigDecimal maxSugar = 100; // BigDecimal | The maximum amount of sugar in grams the recipe can have.
 BigDecimal minZinc = 0; // BigDecimal | The minimum amount of zinc in milligrams the recipe must have.
 BigDecimal maxZinc = 100; // BigDecimal | The maximum amount of zinc in milligrams the recipe can have.
-BigDecimal offset = 0; // BigDecimal | The offset number for paging (between 0 and 990).
+BigDecimal offset = 0; // BigDecimal | The number of results to skip (between 0 and 900).
 BigDecimal number = 10; // BigDecimal | The number of expected results (between 1 and 100).
 Boolean random = false; // Boolean | If true, every request will give you a random set of recipes within the requested limits.
 Boolean limitLicense = true; // Boolean | Whether the recipes should have an open license that allows display with proper attribution.
@@ -2472,7 +3076,7 @@ Name | Type | Description  | Notes
  **maxSugar** | **BigDecimal**| The maximum amount of sugar in grams the recipe can have. | [optional]
  **minZinc** | **BigDecimal**| The minimum amount of zinc in milligrams the recipe must have. | [optional]
  **maxZinc** | **BigDecimal**| The maximum amount of zinc in milligrams the recipe can have. | [optional]
- **offset** | **BigDecimal**| The offset number for paging (between 0 and 990). | [optional]
+ **offset** | **BigDecimal**| The number of results to skip (between 0 and 900). | [optional]
  **number** | **BigDecimal**| The number of expected results (between 1 and 100). | [optional]
  **random** | **Boolean**| If true, every request will give you a random set of recipes within the requested limits. | [optional]
  **limitLicense** | **Boolean**| Whether the recipes should have an open license that allows display with proper attribution. | [optional]
@@ -2492,7 +3096,7 @@ No authorization required
 
 <a name="searchRecipesComplex"></a>
 # **searchRecipesComplex**
-> Object searchRecipesComplex(query, cuisine, excludeCuisine, diet, intolerances, equipment, includeIngredients, excludeIngredients, type, instructionsRequired, fillIngredients, addRecipeInformation, author, tags, titleMatch, maxReadyTime, ignorePantry, sort, sortDirection, minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, limitLicense)
+> Object searchRecipesComplex(query, cuisine, excludeCuisine, diet, intolerances, equipment, includeIngredients, excludeIngredients, type, instructionsRequired, fillIngredients, addRecipeInformation, addRecipeNutrition, author, tags, recipeBoxId, titleMatch, maxReadyTime, ignorePantry, sort, sortDirection, minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, limitLicense)
 
 Search Recipes Complex
 
@@ -2516,10 +3120,12 @@ String includeIngredients = tomato,cheese; // String | A comma-separated list of
 String excludeIngredients = eggs; // String | A comma-separated list of ingredients or ingredient types that the recipes must not contain.
 String type = main course; // String | The type of recipe. See a full list of supported meal types.
 Boolean instructionsRequired = true; // Boolean | Whether the recipes must have instructions.
-Boolean fillIngredients = false; // Boolean | Add information about the used and missing ingredients in each recipe.
-Boolean addRecipeInformation = false; // Boolean | If set to true, you get more information about the recipes returned. This saves you from needing to call to get recipe information.
+Boolean fillIngredients = false; // Boolean | Add information about the ingredients and whether they are used or missing in relation to the query.
+Boolean addRecipeInformation = false; // Boolean | If set to true, you get more information about the recipes returned.
+Boolean addRecipeNutrition = false; // Boolean | If set to true, you get nutritional information about each recipes returned.
 String author = coffeebean; // String | The username of the recipe author.
-String tags = myCustomTag; // String | User defined tags that have to match.
+String tags = myCustomTag; // String | User defined tags that have to match. The author param has to be set.
+BigDecimal recipeBoxId = 2468; // BigDecimal | The id of the recipe box to which the search should be limited to.
 String titleMatch = Crock Pot; // String | Enter text that must be found in the title of the recipes.
 BigDecimal maxReadyTime = 20; // BigDecimal | The maximum time in minutes it should take to prepare and cook the recipe.
 Boolean ignorePantry = true; // Boolean | Whether to ignore typical pantry items, such as water, salt, flour, etc.
@@ -2597,11 +3203,11 @@ BigDecimal minSugar = 0; // BigDecimal | The minimum amount of sugar in grams th
 BigDecimal maxSugar = 100; // BigDecimal | The maximum amount of sugar in grams the recipe can have.
 BigDecimal minZinc = 0; // BigDecimal | The minimum amount of zinc in milligrams the recipe must have.
 BigDecimal maxZinc = 100; // BigDecimal | The maximum amount of zinc in milligrams the recipe can have.
-BigDecimal offset = 0; // BigDecimal | The offset number for paging (between 0 and 990).
-BigDecimal number = 5; // BigDecimal | The number of expected results (between 1 and 10).
+BigDecimal offset = 0; // BigDecimal | The number of results to skip (between 0 and 900).
+BigDecimal number = 10; // BigDecimal | The number of expected results (between 1 and 100).
 Boolean limitLicense = true; // Boolean | Whether the recipes should have an open license that allows display with proper attribution.
 try {
-    Object result = apiInstance.searchRecipesComplex(query, cuisine, excludeCuisine, diet, intolerances, equipment, includeIngredients, excludeIngredients, type, instructionsRequired, fillIngredients, addRecipeInformation, author, tags, titleMatch, maxReadyTime, ignorePantry, sort, sortDirection, minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, limitLicense);
+    Object result = apiInstance.searchRecipesComplex(query, cuisine, excludeCuisine, diet, intolerances, equipment, includeIngredients, excludeIngredients, type, instructionsRequired, fillIngredients, addRecipeInformation, addRecipeNutrition, author, tags, recipeBoxId, titleMatch, maxReadyTime, ignorePantry, sort, sortDirection, minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, limitLicense);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DefaultApi#searchRecipesComplex");
@@ -2623,10 +3229,12 @@ Name | Type | Description  | Notes
  **excludeIngredients** | **String**| A comma-separated list of ingredients or ingredient types that the recipes must not contain. | [optional]
  **type** | **String**| The type of recipe. See a full list of supported meal types. | [optional]
  **instructionsRequired** | **Boolean**| Whether the recipes must have instructions. | [optional]
- **fillIngredients** | **Boolean**| Add information about the used and missing ingredients in each recipe. | [optional]
- **addRecipeInformation** | **Boolean**| If set to true, you get more information about the recipes returned. This saves you from needing to call to get recipe information. | [optional]
+ **fillIngredients** | **Boolean**| Add information about the ingredients and whether they are used or missing in relation to the query. | [optional]
+ **addRecipeInformation** | **Boolean**| If set to true, you get more information about the recipes returned. | [optional]
+ **addRecipeNutrition** | **Boolean**| If set to true, you get nutritional information about each recipes returned. | [optional]
  **author** | **String**| The username of the recipe author. | [optional]
- **tags** | **String**| User defined tags that have to match. | [optional]
+ **tags** | **String**| User defined tags that have to match. The author param has to be set. | [optional]
+ **recipeBoxId** | **BigDecimal**| The id of the recipe box to which the search should be limited to. | [optional]
  **titleMatch** | **String**| Enter text that must be found in the title of the recipes. | [optional]
  **maxReadyTime** | **BigDecimal**| The maximum time in minutes it should take to prepare and cook the recipe. | [optional]
  **ignorePantry** | **Boolean**| Whether to ignore typical pantry items, such as water, salt, flour, etc. | [optional]
@@ -2704,8 +3312,8 @@ Name | Type | Description  | Notes
  **maxSugar** | **BigDecimal**| The maximum amount of sugar in grams the recipe can have. | [optional]
  **minZinc** | **BigDecimal**| The minimum amount of zinc in milligrams the recipe must have. | [optional]
  **maxZinc** | **BigDecimal**| The maximum amount of zinc in milligrams the recipe can have. | [optional]
- **offset** | **BigDecimal**| The offset number for paging (between 0 and 990). | [optional]
- **number** | **BigDecimal**| The number of expected results (between 1 and 10). | [optional]
+ **offset** | **BigDecimal**| The number of results to skip (between 0 and 900). | [optional]
+ **number** | **BigDecimal**| The number of expected results (between 1 and 100). | [optional]
  **limitLicense** | **Boolean**| Whether the recipes should have an open license that allows display with proper attribution. | [optional]
 
 ### Return type

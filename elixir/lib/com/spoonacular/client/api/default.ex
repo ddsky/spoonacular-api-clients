@@ -12,6 +12,72 @@ defmodule com.spoonacular.client.Api.Default do
 
 
   @doc """
+  Add to Meal Plan
+  Add an item to the user's meal plan.
+
+  ## Parameters
+
+  - connection (com.spoonacular.client.Connection): Connection to server
+  - username (String.t): The username.
+  - hash (String.t): The private hash for the username.
+  - inline_object9 (InlineObject9): 
+  - opts (KeywordList): [optional] Optional parameters
+  ## Returns
+
+  {:ok, %com.spoonacular.client.Model.Map{}} on success
+  {:error, info} on failure
+  """
+  @spec add_to_meal_plan(Tesla.Env.client, String.t, String.t, com.spoonacular.client.Model.InlineObject9.t, keyword()) :: {:ok, Map.t} | {:error, Tesla.Env.t}
+  def add_to_meal_plan(connection, username, hash, inline_object9, _opts \\ []) do
+    %{}
+    |> method(:post)
+    |> url("/mealplanner/#{username}/items")
+    |> add_param(:query, :"hash", hash)
+    |> add_param(:body, :body, inline_object9)
+    |> Enum.into([])
+    |> (&Connection.request(connection, &1)).()
+    |> evaluate_response([
+      { 200, false},
+      { 401, false},
+      { 403, false},
+      { 404, false}
+    ])
+  end
+
+  @doc """
+  Add to Shopping List
+  Add an item to the current shopping list of a user.
+
+  ## Parameters
+
+  - connection (com.spoonacular.client.Connection): Connection to server
+  - username (String.t): The username.
+  - hash (String.t): The private hash for the username.
+  - inline_object12 (InlineObject12): 
+  - opts (KeywordList): [optional] Optional parameters
+  ## Returns
+
+  {:ok, %com.spoonacular.client.Model.Map{}} on success
+  {:error, info} on failure
+  """
+  @spec add_to_shopping_list(Tesla.Env.client, String.t, String.t, com.spoonacular.client.Model.InlineObject12.t, keyword()) :: {:ok, Map.t} | {:error, Tesla.Env.t}
+  def add_to_shopping_list(connection, username, hash, inline_object12, _opts \\ []) do
+    %{}
+    |> method(:post)
+    |> url("/mealplanner/#{username}/shopping-list/items")
+    |> add_param(:query, :"hash", hash)
+    |> add_param(:body, :body, inline_object12)
+    |> Enum.into([])
+    |> (&Connection.request(connection, &1)).()
+    |> evaluate_response([
+      { 200, false},
+      { 401, false},
+      { 403, false},
+      { 404, false}
+    ])
+  end
+
+  @doc """
   Analyze a Recipe Search Query
   Parse a recipe search query to find out its intention.
 
@@ -409,6 +475,74 @@ defmodule com.spoonacular.client.Api.Default do
   end
 
   @doc """
+  Delete from Meal Plan
+  Delete an item from the user's meal plan.
+
+  ## Parameters
+
+  - connection (com.spoonacular.client.Connection): Connection to server
+  - username (String.t): The username.
+  - id (float()): The shopping list item id.
+  - hash (String.t): The private hash for the username.
+  - inline_object10 (InlineObject10): 
+  - opts (KeywordList): [optional] Optional parameters
+  ## Returns
+
+  {:ok, %com.spoonacular.client.Model.Map{}} on success
+  {:error, info} on failure
+  """
+  @spec delete_from_meal_plan(Tesla.Env.client, String.t, float(), String.t, com.spoonacular.client.Model.InlineObject10.t, keyword()) :: {:ok, Map.t} | {:error, Tesla.Env.t}
+  def delete_from_meal_plan(connection, username, id, hash, inline_object10, _opts \\ []) do
+    %{}
+    |> method(:delete)
+    |> url("/mealplanner/#{username}/items/#{id}")
+    |> add_param(:query, :"hash", hash)
+    |> add_param(:body, :body, inline_object10)
+    |> Enum.into([])
+    |> (&Connection.request(connection, &1)).()
+    |> evaluate_response([
+      { 200, false},
+      { 401, false},
+      { 403, false},
+      { 404, false}
+    ])
+  end
+
+  @doc """
+  Delete from Shopping List
+  Delete an item from the current shopping list of the user.
+
+  ## Parameters
+
+  - connection (com.spoonacular.client.Connection): Connection to server
+  - username (String.t): The username.
+  - id (float()): The shopping list item id.
+  - hash (String.t): The private hash for the username.
+  - inline_object13 (InlineObject13): 
+  - opts (KeywordList): [optional] Optional parameters
+  ## Returns
+
+  {:ok, %com.spoonacular.client.Model.Map{}} on success
+  {:error, info} on failure
+  """
+  @spec delete_from_shopping_list(Tesla.Env.client, String.t, float(), String.t, com.spoonacular.client.Model.InlineObject13.t, keyword()) :: {:ok, Map.t} | {:error, Tesla.Env.t}
+  def delete_from_shopping_list(connection, username, id, hash, inline_object13, _opts \\ []) do
+    %{}
+    |> method(:delete)
+    |> url("/mealplanner/#{username}/shopping-list/items/#{id}")
+    |> add_param(:query, :"hash", hash)
+    |> add_param(:body, :body, inline_object13)
+    |> Enum.into([])
+    |> (&Connection.request(connection, &1)).()
+    |> evaluate_response([
+      { 200, false},
+      { 401, false},
+      { 403, false},
+      { 404, false}
+    ])
+  end
+
+  @doc """
   Detect Food in Text
   Take any text and find all mentions of food contained within it. This task is also called Named Entity Recognition (NER). In this case, the entities are foods. Either dishes, such as pizza or cheeseburger, or ingredients, such as cucumber or almonds.
 
@@ -448,6 +582,7 @@ defmodule com.spoonacular.client.Api.Default do
   - url (String.t): The URL of the recipe page.
   - opts (KeywordList): [optional] Optional parameters
     - :force_extraction (boolean()): If true, the extraction will be triggered whether we already know the recipe or not. Use this only if information is missing as this operation is slower.
+    - :analyze (boolean()): If true, the recipe will be analyzed and classified resolving in more data such as cuisines, dish types, and more.
   ## Returns
 
   {:ok, %com.spoonacular.client.Model.Map{}} on success
@@ -456,7 +591,8 @@ defmodule com.spoonacular.client.Api.Default do
   @spec extract_recipe_from_website(Tesla.Env.client, String.t, keyword()) :: {:ok, Map.t} | {:error, Tesla.Env.t}
   def extract_recipe_from_website(connection, url, opts \\ []) do
     optional_params = %{
-      :"forceExtraction" => :query
+      :"forceExtraction" => :query,
+      :"analyze" => :query
     }
     %{}
     |> method(:get)
@@ -502,6 +638,41 @@ defmodule com.spoonacular.client.Api.Default do
     |> method(:get)
     |> url("/mealplanner/generate")
     |> add_optional_params(optional_params, opts)
+    |> Enum.into([])
+    |> (&Connection.request(connection, &1)).()
+    |> evaluate_response([
+      { 200, false},
+      { 401, false},
+      { 403, false},
+      { 404, false}
+    ])
+  end
+
+  @doc """
+  Generate Shopping List
+  Generate the shopping list for a user from the meal planner in a given time frame.
+
+  ## Parameters
+
+  - connection (com.spoonacular.client.Connection): Connection to server
+  - username (String.t): The username.
+  - start_date (String.t): The start date in the format yyyy-mm-dd.
+  - end_date (String.t): The end date in the format yyyy-mm-dd.
+  - hash (String.t): The private hash for the username.
+  - inline_object11 (InlineObject11): 
+  - opts (KeywordList): [optional] Optional parameters
+  ## Returns
+
+  {:ok, %com.spoonacular.client.Model.Map{}} on success
+  {:error, info} on failure
+  """
+  @spec generate_shopping_list(Tesla.Env.client, String.t, String.t, String.t, String.t, com.spoonacular.client.Model.InlineObject11.t, keyword()) :: {:ok, Map.t} | {:error, Tesla.Env.t}
+  def generate_shopping_list(connection, username, start_date, end_date, hash, inline_object11, _opts \\ []) do
+    %{}
+    |> method(:post)
+    |> url("/mealplanner/#{username}/shopping-list/#{start_date}/#{end_date}")
+    |> add_param(:query, :"hash", hash)
+    |> add_param(:body, :body, inline_object11)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
@@ -764,6 +935,101 @@ defmodule com.spoonacular.client.Api.Default do
   end
 
   @doc """
+  Get Meal Plan Template
+  Get information about a meal plan template.
+
+  ## Parameters
+
+  - connection (com.spoonacular.client.Connection): Connection to server
+  - username (String.t): The username.
+  - id (float()): The shopping list item id.
+  - hash (String.t): The private hash for the username.
+  - opts (KeywordList): [optional] Optional parameters
+  ## Returns
+
+  {:ok, %com.spoonacular.client.Model.Map{}} on success
+  {:error, info} on failure
+  """
+  @spec get_meal_plan_template(Tesla.Env.client, String.t, float(), String.t, keyword()) :: {:ok, Map.t} | {:error, Tesla.Env.t}
+  def get_meal_plan_template(connection, username, id, hash, _opts \\ []) do
+    %{}
+    |> method(:get)
+    |> url("/mealplanner/#{username}/templates/#{id}")
+    |> add_param(:query, :"hash", hash)
+    |> Enum.into([])
+    |> (&Connection.request(connection, &1)).()
+    |> evaluate_response([
+      { 200, false},
+      { 401, false},
+      { 403, false},
+      { 404, false}
+    ])
+  end
+
+  @doc """
+  Get Meal Plan Templates
+  Get meal plan templates from user or public ones.
+
+  ## Parameters
+
+  - connection (com.spoonacular.client.Connection): Connection to server
+  - username (String.t): The username.
+  - hash (String.t): The private hash for the username.
+  - opts (KeywordList): [optional] Optional parameters
+  ## Returns
+
+  {:ok, %com.spoonacular.client.Model.Map{}} on success
+  {:error, info} on failure
+  """
+  @spec get_meal_plan_templates(Tesla.Env.client, String.t, String.t, keyword()) :: {:ok, Map.t} | {:error, Tesla.Env.t}
+  def get_meal_plan_templates(connection, username, hash, _opts \\ []) do
+    %{}
+    |> method(:get)
+    |> url("/mealplanner/#{username}/templates")
+    |> add_param(:query, :"hash", hash)
+    |> Enum.into([])
+    |> (&Connection.request(connection, &1)).()
+    |> evaluate_response([
+      { 200, false},
+      { 401, false},
+      { 403, false},
+      { 404, false}
+    ])
+  end
+
+  @doc """
+  Get Meal Plan Week
+  Retrieve a meal planned week for the given user. The username must be a spoonacular user and the hash must the the user's hash that can be found in his/her account.
+
+  ## Parameters
+
+  - connection (com.spoonacular.client.Connection): Connection to server
+  - username (String.t): The username.
+  - start_date (String.t): The start date of the meal planned week in the format yyyy-mm-dd.
+  - hash (String.t): The private hash for the username.
+  - opts (KeywordList): [optional] Optional parameters
+  ## Returns
+
+  {:ok, %com.spoonacular.client.Model.Map{}} on success
+  {:error, info} on failure
+  """
+  @spec get_meal_plan_week(Tesla.Env.client, String.t, String.t, String.t, keyword()) :: {:ok, Map.t} | {:error, Tesla.Env.t}
+  def get_meal_plan_week(connection, username, start_date, hash, _opts \\ []) do
+    %{}
+    |> method(:get)
+    |> url("/mealplanner/#{username}/week/#{start_date}")
+    |> add_param(:query, :"hash", hash)
+    |> Enum.into([])
+    |> (&Connection.request(connection, &1)).()
+    |> evaluate_response([
+      { 200, false},
+      { 401, false},
+      { 403, false},
+      { 404, false}
+    ])
+  end
+
+  @doc """
   Get Menu Item Information
   Use a menu item id to get all available information about a menu item, such as nutrition.
 
@@ -794,7 +1060,7 @@ defmodule com.spoonacular.client.Api.Default do
 
   @doc """
   Get Product Information
-  Use a product id to get full information about a product, such as ingredients, nutrition, etc.
+  Use a product id to get full information about a product, such as ingredients, nutrition, etc. The nutritional information is per serving.
 
   ## Parameters
 
@@ -1072,6 +1338,37 @@ defmodule com.spoonacular.client.Api.Default do
   end
 
   @doc """
+  Get Shopping List
+  Get the current shopping list for the given user.
+
+  ## Parameters
+
+  - connection (com.spoonacular.client.Connection): Connection to server
+  - username (String.t): The username.
+  - hash (String.t): The private hash for the username.
+  - opts (KeywordList): [optional] Optional parameters
+  ## Returns
+
+  {:ok, %com.spoonacular.client.Model.Map{}} on success
+  {:error, info} on failure
+  """
+  @spec get_shopping_list(Tesla.Env.client, String.t, String.t, keyword()) :: {:ok, Map.t} | {:error, Tesla.Env.t}
+  def get_shopping_list(connection, username, hash, _opts \\ []) do
+    %{}
+    |> method(:get)
+    |> url("/mealplanner/#{username}/shopping-list")
+    |> add_param(:query, :"hash", hash)
+    |> Enum.into([])
+    |> (&Connection.request(connection, &1)).()
+    |> evaluate_response([
+      { 200, false},
+      { 401, false},
+      { 403, false},
+      { 404, false}
+    ])
+  end
+
+  @doc """
   Get Similar Recipes
   Find recipes which are similar to the given one.
 
@@ -1081,6 +1378,7 @@ defmodule com.spoonacular.client.Api.Default do
   - id (float()): The id of the source recipe for which similar recipes should be found.
   - opts (KeywordList): [optional] Optional parameters
     - :number (float()): The number of random recipes to be returned (between 1 and 100).
+    - :limit_license (boolean()): Whether the recipes should have an open license that allows display with proper attribution.
   ## Returns
 
   {:ok, %com.spoonacular.client.Model.Map{}} on success
@@ -1089,7 +1387,8 @@ defmodule com.spoonacular.client.Api.Default do
   @spec get_similar_recipes(Tesla.Env.client, float(), keyword()) :: {:ok, Map.t} | {:error, Tesla.Env.t}
   def get_similar_recipes(connection, id, opts \\ []) do
     optional_params = %{
-      :"number" => :query
+      :"number" => :query,
+      :"limitLicense" => :query
     }
     %{}
     |> method(:get)
@@ -1240,6 +1539,66 @@ defmodule com.spoonacular.client.Api.Default do
   end
 
   @doc """
+  Image Analysis by URL
+  Analyze a food image. The API tries to classify the image, guess the nutrition, and find a matching recipes. You can play around with that endpoint!
+
+  ## Parameters
+
+  - connection (com.spoonacular.client.Connection): Connection to server
+  - image_url (String.t): The URL of the image to be analyzed.
+  - opts (KeywordList): [optional] Optional parameters
+  ## Returns
+
+  {:ok, %com.spoonacular.client.Model.Map{}} on success
+  {:error, info} on failure
+  """
+  @spec image_analysis_by_url(Tesla.Env.client, String.t, keyword()) :: {:ok, Map.t} | {:error, Tesla.Env.t}
+  def image_analysis_by_url(connection, image_url, _opts \\ []) do
+    %{}
+    |> method(:get)
+    |> url("/food/images/analyze")
+    |> add_param(:query, :"imageUrl", image_url)
+    |> Enum.into([])
+    |> (&Connection.request(connection, &1)).()
+    |> evaluate_response([
+      { 200, false},
+      { 401, false},
+      { 403, false},
+      { 404, false}
+    ])
+  end
+
+  @doc """
+  Image Classification by URL
+  Classify a food image. You can play around with that endpoint!
+
+  ## Parameters
+
+  - connection (com.spoonacular.client.Connection): Connection to server
+  - image_url (String.t): The URL of the image to be classified.
+  - opts (KeywordList): [optional] Optional parameters
+  ## Returns
+
+  {:ok, %com.spoonacular.client.Model.Map{}} on success
+  {:error, info} on failure
+  """
+  @spec image_classification_by_url(Tesla.Env.client, String.t, keyword()) :: {:ok, Map.t} | {:error, Tesla.Env.t}
+  def image_classification_by_url(connection, image_url, _opts \\ []) do
+    %{}
+    |> method(:get)
+    |> url("/food/images/classify")
+    |> add_param(:query, :"imageUrl", image_url)
+    |> Enum.into([])
+    |> (&Connection.request(connection, &1)).()
+    |> evaluate_response([
+      { 200, false},
+      { 401, false},
+      { 403, false},
+      { 404, false}
+    ])
+  end
+
+  @doc """
   Map Ingredients to Grocery Products
   Map a set of ingredients to products you can buy in the grocery store.
 
@@ -1337,6 +1696,47 @@ defmodule com.spoonacular.client.Api.Default do
   end
 
   @doc """
+  Search Custom Foods
+  Search custom foods in a user's account.
+
+  ## Parameters
+
+  - connection (com.spoonacular.client.Connection): Connection to server
+  - query (String.t): The search query.
+  - username (String.t): The username.
+  - hash (String.t): The private hash for the username.
+  - opts (KeywordList): [optional] Optional parameters
+    - :offset (float()): The number of results to skip (between 0 and 990).
+    - :number (float()): The number of expected results (between 1 and 100).
+  ## Returns
+
+  {:ok, %com.spoonacular.client.Model.Map{}} on success
+  {:error, info} on failure
+  """
+  @spec search_custom_foods(Tesla.Env.client, String.t, String.t, String.t, keyword()) :: {:ok, Map.t} | {:error, Tesla.Env.t}
+  def search_custom_foods(connection, query, username, hash, opts \\ []) do
+    optional_params = %{
+      :"offset" => :query,
+      :"number" => :query
+    }
+    %{}
+    |> method(:get)
+    |> url("/food/customFoods/search")
+    |> add_param(:query, :"query", query)
+    |> add_param(:query, :"username", username)
+    |> add_param(:query, :"hash", hash)
+    |> add_optional_params(optional_params, opts)
+    |> Enum.into([])
+    |> (&Connection.request(connection, &1)).()
+    |> evaluate_response([
+      { 200, false},
+      { 401, false},
+      { 403, false},
+      { 404, false}
+    ])
+  end
+
+  @doc """
   Search Food Videos
   Find recipe and other food related videos.
 
@@ -1404,7 +1804,7 @@ defmodule com.spoonacular.client.Api.Default do
     - :max_protein (float()): The maximum amount of protein in grams the product can have.
     - :min_fat (float()): The minimum amount of fat in grams the product must have.
     - :max_fat (float()): The maximum amount of fat in grams the product can have.
-    - :offset (float()): The offset number for paging (between 0 and 990).
+    - :offset (float()): The number of results to skip (between 0 and 990).
     - :number (float()): The number of expected results (between 1 and 100).
   ## Returns
 
@@ -1573,7 +1973,7 @@ defmodule com.spoonacular.client.Api.Default do
 
   @doc """
   Search Recipes by Ingredients
-  Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don't currently have (post shopping).
+               Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don't currently have (post shopping).         
 
   ## Parameters
 
@@ -1692,7 +2092,7 @@ defmodule com.spoonacular.client.Api.Default do
     - :max_sugar (float()): The maximum amount of sugar in grams the recipe can have.
     - :min_zinc (float()): The minimum amount of zinc in milligrams the recipe must have.
     - :max_zinc (float()): The maximum amount of zinc in milligrams the recipe can have.
-    - :offset (float()): The offset number for paging (between 0 and 990).
+    - :offset (float()): The number of results to skip (between 0 and 900).
     - :number (float()): The number of expected results (between 1 and 100).
     - :random (boolean()): If true, every request will give you a random set of recipes within the requested limits.
     - :limit_license (boolean()): Whether the recipes should have an open license that allows display with proper attribution.
@@ -1813,10 +2213,12 @@ defmodule com.spoonacular.client.Api.Default do
     - :exclude_ingredients (String.t): A comma-separated list of ingredients or ingredient types that the recipes must not contain.
     - :type (String.t): The type of recipe. See a full list of supported meal types.
     - :instructions_required (boolean()): Whether the recipes must have instructions.
-    - :fill_ingredients (boolean()): Add information about the used and missing ingredients in each recipe.
-    - :add_recipe_information (boolean()): If set to true, you get more information about the recipes returned. This saves you from needing to call to get recipe information.
+    - :fill_ingredients (boolean()): Add information about the ingredients and whether they are used or missing in relation to the query.
+    - :add_recipe_information (boolean()): If set to true, you get more information about the recipes returned.
+    - :add_recipe_nutrition (boolean()): If set to true, you get nutritional information about each recipes returned.
     - :author (String.t): The username of the recipe author.
-    - :tags (String.t): User defined tags that have to match.
+    - :tags (String.t): User defined tags that have to match. The author param has to be set.
+    - :recipe_box_id (float()): The id of the recipe box to which the search should be limited to.
     - :title_match (String.t): Enter text that must be found in the title of the recipes.
     - :max_ready_time (float()): The maximum time in minutes it should take to prepare and cook the recipe.
     - :ignore_pantry (boolean()): Whether to ignore typical pantry items, such as water, salt, flour, etc.
@@ -1894,8 +2296,8 @@ defmodule com.spoonacular.client.Api.Default do
     - :max_sugar (float()): The maximum amount of sugar in grams the recipe can have.
     - :min_zinc (float()): The minimum amount of zinc in milligrams the recipe must have.
     - :max_zinc (float()): The maximum amount of zinc in milligrams the recipe can have.
-    - :offset (float()): The offset number for paging (between 0 and 990).
-    - :number (float()): The number of expected results (between 1 and 10).
+    - :offset (float()): The number of results to skip (between 0 and 900).
+    - :number (float()): The number of expected results (between 1 and 100).
     - :limit_license (boolean()): Whether the recipes should have an open license that allows display with proper attribution.
   ## Returns
 
@@ -1916,8 +2318,10 @@ defmodule com.spoonacular.client.Api.Default do
       :"instructionsRequired" => :query,
       :"fillIngredients" => :query,
       :"addRecipeInformation" => :query,
+      :"addRecipeNutrition" => :query,
       :"author" => :query,
       :"tags" => :query,
+      :"recipeBoxId" => :query,
       :"titleMatch" => :query,
       :"maxReadyTime" => :query,
       :"ignorePantry" => :query,

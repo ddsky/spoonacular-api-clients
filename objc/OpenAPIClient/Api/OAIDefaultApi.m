@@ -1,7 +1,12 @@
 #import "OAIDefaultApi.h"
 #import "OAIQueryParamCollection.h"
 #import "OAIApiClient.h"
+#import "OAIInlineObject10.h"
+#import "OAIInlineObject11.h"
+#import "OAIInlineObject12.h"
+#import "OAIInlineObject13.h"
 #import "OAIInlineObject8.h"
+#import "OAIInlineObject9.h"
 
 
 @interface OAIDefaultApi ()
@@ -48,6 +53,206 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 }
 
 #pragma mark - Api Methods
+
+///
+/// Add to Meal Plan
+/// Add an item to the user's meal plan.
+///  @param username The username. 
+///
+///  @param hash The private hash for the username. 
+///
+///  @param inlineObject9  
+///
+///  @returns NSObject*
+///
+-(NSURLSessionTask*) addToMealPlanWithUsername: (NSString*) username
+    hash: (NSString*) hash
+    inlineObject9: (OAIInlineObject9*) inlineObject9
+    completionHandler: (void (^)(NSObject* output, NSError* error)) handler {
+    // verify the required parameter 'username' is set
+    if (username == nil) {
+        NSParameterAssert(username);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"username"] };
+            NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    // verify the required parameter 'hash' is set
+    if (hash == nil) {
+        NSParameterAssert(hash);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"hash"] };
+            NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    // verify the required parameter 'inlineObject9' is set
+    if (inlineObject9 == nil) {
+        NSParameterAssert(inlineObject9);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"inlineObject9"] };
+            NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/mealplanner/{username}/items"];
+
+    NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
+    if (username != nil) {
+        pathParams[@"username"] = username;
+    }
+
+    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    if (hash != nil) {
+        queryParams[@"hash"] = hash;
+    }
+    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
+    [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    // HTTP header `Accept`
+    NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
+    if(acceptHeader.length > 0) {
+        headerParams[@"Accept"] = acceptHeader;
+    }
+
+    // response content type
+    NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
+
+    // request content type
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@""]];
+
+    // Authentication setting
+    NSArray *authSettings = @[];
+
+    id bodyParam = nil;
+    NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
+    bodyParam = inlineObject9;
+
+    return [self.apiClient requestWithPath: resourcePath
+                                    method: @"POST"
+                                pathParams: pathParams
+                               queryParams: queryParams
+                                formParams: formParams
+                                     files: localVarFiles
+                                      body: bodyParam
+                              headerParams: headerParams
+                              authSettings: authSettings
+                        requestContentType: requestContentType
+                       responseContentType: responseContentType
+                              responseType: @"NSObject*"
+                           completionBlock: ^(id data, NSError *error) {
+                                if(handler) {
+                                    handler((NSObject*)data, error);
+                                }
+                            }];
+}
+
+///
+/// Add to Shopping List
+/// Add an item to the current shopping list of a user.
+///  @param username The username. 
+///
+///  @param hash The private hash for the username. 
+///
+///  @param inlineObject12  
+///
+///  @returns NSObject*
+///
+-(NSURLSessionTask*) addToShoppingListWithUsername: (NSString*) username
+    hash: (NSString*) hash
+    inlineObject12: (OAIInlineObject12*) inlineObject12
+    completionHandler: (void (^)(NSObject* output, NSError* error)) handler {
+    // verify the required parameter 'username' is set
+    if (username == nil) {
+        NSParameterAssert(username);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"username"] };
+            NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    // verify the required parameter 'hash' is set
+    if (hash == nil) {
+        NSParameterAssert(hash);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"hash"] };
+            NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    // verify the required parameter 'inlineObject12' is set
+    if (inlineObject12 == nil) {
+        NSParameterAssert(inlineObject12);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"inlineObject12"] };
+            NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/mealplanner/{username}/shopping-list/items"];
+
+    NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
+    if (username != nil) {
+        pathParams[@"username"] = username;
+    }
+
+    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    if (hash != nil) {
+        queryParams[@"hash"] = hash;
+    }
+    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
+    [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    // HTTP header `Accept`
+    NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
+    if(acceptHeader.length > 0) {
+        headerParams[@"Accept"] = acceptHeader;
+    }
+
+    // response content type
+    NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
+
+    // request content type
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@""]];
+
+    // Authentication setting
+    NSArray *authSettings = @[];
+
+    id bodyParam = nil;
+    NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
+    bodyParam = inlineObject12;
+
+    return [self.apiClient requestWithPath: resourcePath
+                                    method: @"POST"
+                                pathParams: pathParams
+                               queryParams: queryParams
+                                formParams: formParams
+                                     files: localVarFiles
+                                      body: bodyParam
+                              headerParams: headerParams
+                              authSettings: authSettings
+                        requestContentType: requestContentType
+                       responseContentType: responseContentType
+                              responseType: @"NSObject*"
+                           completionBlock: ^(id data, NSError *error) {
+                                if(handler) {
+                                    handler((NSObject*)data, error);
+                                }
+                            }];
+}
 
 ///
 /// Analyze a Recipe Search Query
@@ -1051,6 +1256,240 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 }
 
 ///
+/// Delete from Meal Plan
+/// Delete an item from the user's meal plan.
+///  @param username The username. 
+///
+///  @param _id The shopping list item id. 
+///
+///  @param hash The private hash for the username. 
+///
+///  @param inlineObject10  
+///
+///  @returns NSObject*
+///
+-(NSURLSessionTask*) deleteFromMealPlanWithUsername: (NSString*) username
+    _id: (NSNumber*) _id
+    hash: (NSString*) hash
+    inlineObject10: (OAIInlineObject10*) inlineObject10
+    completionHandler: (void (^)(NSObject* output, NSError* error)) handler {
+    // verify the required parameter 'username' is set
+    if (username == nil) {
+        NSParameterAssert(username);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"username"] };
+            NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    // verify the required parameter '_id' is set
+    if (_id == nil) {
+        NSParameterAssert(_id);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"_id"] };
+            NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    // verify the required parameter 'hash' is set
+    if (hash == nil) {
+        NSParameterAssert(hash);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"hash"] };
+            NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    // verify the required parameter 'inlineObject10' is set
+    if (inlineObject10 == nil) {
+        NSParameterAssert(inlineObject10);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"inlineObject10"] };
+            NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/mealplanner/{username}/items/{id}"];
+
+    NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
+    if (username != nil) {
+        pathParams[@"username"] = username;
+    }
+    if (_id != nil) {
+        pathParams[@"id"] = _id;
+    }
+
+    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    if (hash != nil) {
+        queryParams[@"hash"] = hash;
+    }
+    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
+    [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    // HTTP header `Accept`
+    NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
+    if(acceptHeader.length > 0) {
+        headerParams[@"Accept"] = acceptHeader;
+    }
+
+    // response content type
+    NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
+
+    // request content type
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@""]];
+
+    // Authentication setting
+    NSArray *authSettings = @[];
+
+    id bodyParam = nil;
+    NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
+    bodyParam = inlineObject10;
+
+    return [self.apiClient requestWithPath: resourcePath
+                                    method: @"DELETE"
+                                pathParams: pathParams
+                               queryParams: queryParams
+                                formParams: formParams
+                                     files: localVarFiles
+                                      body: bodyParam
+                              headerParams: headerParams
+                              authSettings: authSettings
+                        requestContentType: requestContentType
+                       responseContentType: responseContentType
+                              responseType: @"NSObject*"
+                           completionBlock: ^(id data, NSError *error) {
+                                if(handler) {
+                                    handler((NSObject*)data, error);
+                                }
+                            }];
+}
+
+///
+/// Delete from Shopping List
+/// Delete an item from the current shopping list of the user.
+///  @param username The username. 
+///
+///  @param _id The shopping list item id. 
+///
+///  @param hash The private hash for the username. 
+///
+///  @param inlineObject13  
+///
+///  @returns NSObject*
+///
+-(NSURLSessionTask*) deleteFromShoppingListWithUsername: (NSString*) username
+    _id: (NSNumber*) _id
+    hash: (NSString*) hash
+    inlineObject13: (OAIInlineObject13*) inlineObject13
+    completionHandler: (void (^)(NSObject* output, NSError* error)) handler {
+    // verify the required parameter 'username' is set
+    if (username == nil) {
+        NSParameterAssert(username);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"username"] };
+            NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    // verify the required parameter '_id' is set
+    if (_id == nil) {
+        NSParameterAssert(_id);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"_id"] };
+            NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    // verify the required parameter 'hash' is set
+    if (hash == nil) {
+        NSParameterAssert(hash);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"hash"] };
+            NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    // verify the required parameter 'inlineObject13' is set
+    if (inlineObject13 == nil) {
+        NSParameterAssert(inlineObject13);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"inlineObject13"] };
+            NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/mealplanner/{username}/shopping-list/items/{id}"];
+
+    NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
+    if (username != nil) {
+        pathParams[@"username"] = username;
+    }
+    if (_id != nil) {
+        pathParams[@"id"] = _id;
+    }
+
+    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    if (hash != nil) {
+        queryParams[@"hash"] = hash;
+    }
+    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
+    [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    // HTTP header `Accept`
+    NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
+    if(acceptHeader.length > 0) {
+        headerParams[@"Accept"] = acceptHeader;
+    }
+
+    // response content type
+    NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
+
+    // request content type
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@""]];
+
+    // Authentication setting
+    NSArray *authSettings = @[];
+
+    id bodyParam = nil;
+    NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
+    bodyParam = inlineObject13;
+
+    return [self.apiClient requestWithPath: resourcePath
+                                    method: @"DELETE"
+                                pathParams: pathParams
+                               queryParams: queryParams
+                                formParams: formParams
+                                     files: localVarFiles
+                                      body: bodyParam
+                              headerParams: headerParams
+                              authSettings: authSettings
+                        requestContentType: requestContentType
+                       responseContentType: responseContentType
+                              responseType: @"NSObject*"
+                           completionBlock: ^(id data, NSError *error) {
+                                if(handler) {
+                                    handler((NSObject*)data, error);
+                                }
+                            }];
+}
+
+///
 /// Detect Food in Text
 /// Take any text and find all mentions of food contained within it. This task is also called Named Entity Recognition (NER). In this case, the entities are foods. Either dishes, such as pizza or cheeseburger, or ingredients, such as cucumber or almonds.
 ///  @param text The text in which food items, such as dish names and ingredients, should be detected in. 
@@ -1125,10 +1564,13 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 ///
 ///  @param forceExtraction If true, the extraction will be triggered whether we already know the recipe or not. Use this only if information is missing as this operation is slower. (optional)
 ///
+///  @param analyze If true, the recipe will be analyzed and classified resolving in more data such as cuisines, dish types, and more. (optional)
+///
 ///  @returns NSObject*
 ///
 -(NSURLSessionTask*) extractRecipeFromWebsiteWithUrl: (NSString*) url
     forceExtraction: (NSNumber*) forceExtraction
+    analyze: (NSNumber*) analyze
     completionHandler: (void (^)(NSObject* output, NSError* error)) handler {
     // verify the required parameter 'url' is set
     if (url == nil) {
@@ -1151,6 +1593,9 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
     }
     if (forceExtraction != nil) {
         queryParams[@"forceExtraction"] = [forceExtraction isEqual:@(YES)] ? @"true" : @"false";
+    }
+    if (analyze != nil) {
+        queryParams[@"analyze"] = [analyze isEqual:@(YES)] ? @"true" : @"false";
     }
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
     [headerParams addEntriesFromDictionary:self.defaultHeaders];
@@ -1250,6 +1695,140 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 
     return [self.apiClient requestWithPath: resourcePath
                                     method: @"GET"
+                                pathParams: pathParams
+                               queryParams: queryParams
+                                formParams: formParams
+                                     files: localVarFiles
+                                      body: bodyParam
+                              headerParams: headerParams
+                              authSettings: authSettings
+                        requestContentType: requestContentType
+                       responseContentType: responseContentType
+                              responseType: @"NSObject*"
+                           completionBlock: ^(id data, NSError *error) {
+                                if(handler) {
+                                    handler((NSObject*)data, error);
+                                }
+                            }];
+}
+
+///
+/// Generate Shopping List
+/// Generate the shopping list for a user from the meal planner in a given time frame.
+///  @param username The username. 
+///
+///  @param startDate The start date in the format yyyy-mm-dd. 
+///
+///  @param endDate The end date in the format yyyy-mm-dd. 
+///
+///  @param hash The private hash for the username. 
+///
+///  @param inlineObject11  
+///
+///  @returns NSObject*
+///
+-(NSURLSessionTask*) generateShoppingListWithUsername: (NSString*) username
+    startDate: (NSString*) startDate
+    endDate: (NSString*) endDate
+    hash: (NSString*) hash
+    inlineObject11: (OAIInlineObject11*) inlineObject11
+    completionHandler: (void (^)(NSObject* output, NSError* error)) handler {
+    // verify the required parameter 'username' is set
+    if (username == nil) {
+        NSParameterAssert(username);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"username"] };
+            NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    // verify the required parameter 'startDate' is set
+    if (startDate == nil) {
+        NSParameterAssert(startDate);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"startDate"] };
+            NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    // verify the required parameter 'endDate' is set
+    if (endDate == nil) {
+        NSParameterAssert(endDate);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"endDate"] };
+            NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    // verify the required parameter 'hash' is set
+    if (hash == nil) {
+        NSParameterAssert(hash);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"hash"] };
+            NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    // verify the required parameter 'inlineObject11' is set
+    if (inlineObject11 == nil) {
+        NSParameterAssert(inlineObject11);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"inlineObject11"] };
+            NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/mealplanner/{username}/shopping-list/{start-date}/{end-date}"];
+
+    NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
+    if (username != nil) {
+        pathParams[@"username"] = username;
+    }
+    if (startDate != nil) {
+        pathParams[@"start-date"] = startDate;
+    }
+    if (endDate != nil) {
+        pathParams[@"end-date"] = endDate;
+    }
+
+    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    if (hash != nil) {
+        queryParams[@"hash"] = hash;
+    }
+    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
+    [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    // HTTP header `Accept`
+    NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
+    if(acceptHeader.length > 0) {
+        headerParams[@"Accept"] = acceptHeader;
+    }
+
+    // response content type
+    NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
+
+    // request content type
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@""]];
+
+    // Authentication setting
+    NSArray *authSettings = @[];
+
+    id bodyParam = nil;
+    NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
+    bodyParam = inlineObject11;
+
+    return [self.apiClient requestWithPath: resourcePath
+                                    method: @"POST"
                                 pathParams: pathParams
                                queryParams: queryParams
                                 formParams: formParams
@@ -1820,6 +2399,295 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 }
 
 ///
+/// Get Meal Plan Template
+/// Get information about a meal plan template.
+///  @param username The username. 
+///
+///  @param _id The shopping list item id. 
+///
+///  @param hash The private hash for the username. 
+///
+///  @returns NSObject*
+///
+-(NSURLSessionTask*) getMealPlanTemplateWithUsername: (NSString*) username
+    _id: (NSNumber*) _id
+    hash: (NSString*) hash
+    completionHandler: (void (^)(NSObject* output, NSError* error)) handler {
+    // verify the required parameter 'username' is set
+    if (username == nil) {
+        NSParameterAssert(username);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"username"] };
+            NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    // verify the required parameter '_id' is set
+    if (_id == nil) {
+        NSParameterAssert(_id);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"_id"] };
+            NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    // verify the required parameter 'hash' is set
+    if (hash == nil) {
+        NSParameterAssert(hash);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"hash"] };
+            NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/mealplanner/{username}/templates/{id}"];
+
+    NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
+    if (username != nil) {
+        pathParams[@"username"] = username;
+    }
+    if (_id != nil) {
+        pathParams[@"id"] = _id;
+    }
+
+    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    if (hash != nil) {
+        queryParams[@"hash"] = hash;
+    }
+    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
+    [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    // HTTP header `Accept`
+    NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
+    if(acceptHeader.length > 0) {
+        headerParams[@"Accept"] = acceptHeader;
+    }
+
+    // response content type
+    NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
+
+    // request content type
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
+
+    // Authentication setting
+    NSArray *authSettings = @[];
+
+    id bodyParam = nil;
+    NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
+
+    return [self.apiClient requestWithPath: resourcePath
+                                    method: @"GET"
+                                pathParams: pathParams
+                               queryParams: queryParams
+                                formParams: formParams
+                                     files: localVarFiles
+                                      body: bodyParam
+                              headerParams: headerParams
+                              authSettings: authSettings
+                        requestContentType: requestContentType
+                       responseContentType: responseContentType
+                              responseType: @"NSObject*"
+                           completionBlock: ^(id data, NSError *error) {
+                                if(handler) {
+                                    handler((NSObject*)data, error);
+                                }
+                            }];
+}
+
+///
+/// Get Meal Plan Templates
+/// Get meal plan templates from user or public ones.
+///  @param username The username. 
+///
+///  @param hash The private hash for the username. 
+///
+///  @returns NSObject*
+///
+-(NSURLSessionTask*) getMealPlanTemplatesWithUsername: (NSString*) username
+    hash: (NSString*) hash
+    completionHandler: (void (^)(NSObject* output, NSError* error)) handler {
+    // verify the required parameter 'username' is set
+    if (username == nil) {
+        NSParameterAssert(username);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"username"] };
+            NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    // verify the required parameter 'hash' is set
+    if (hash == nil) {
+        NSParameterAssert(hash);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"hash"] };
+            NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/mealplanner/{username}/templates"];
+
+    NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
+    if (username != nil) {
+        pathParams[@"username"] = username;
+    }
+
+    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    if (hash != nil) {
+        queryParams[@"hash"] = hash;
+    }
+    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
+    [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    // HTTP header `Accept`
+    NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
+    if(acceptHeader.length > 0) {
+        headerParams[@"Accept"] = acceptHeader;
+    }
+
+    // response content type
+    NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
+
+    // request content type
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
+
+    // Authentication setting
+    NSArray *authSettings = @[];
+
+    id bodyParam = nil;
+    NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
+
+    return [self.apiClient requestWithPath: resourcePath
+                                    method: @"GET"
+                                pathParams: pathParams
+                               queryParams: queryParams
+                                formParams: formParams
+                                     files: localVarFiles
+                                      body: bodyParam
+                              headerParams: headerParams
+                              authSettings: authSettings
+                        requestContentType: requestContentType
+                       responseContentType: responseContentType
+                              responseType: @"NSObject*"
+                           completionBlock: ^(id data, NSError *error) {
+                                if(handler) {
+                                    handler((NSObject*)data, error);
+                                }
+                            }];
+}
+
+///
+/// Get Meal Plan Week
+/// Retrieve a meal planned week for the given user. The username must be a spoonacular user and the hash must the the user's hash that can be found in his/her account.
+///  @param username The username. 
+///
+///  @param startDate The start date of the meal planned week in the format yyyy-mm-dd. 
+///
+///  @param hash The private hash for the username. 
+///
+///  @returns NSObject*
+///
+-(NSURLSessionTask*) getMealPlanWeekWithUsername: (NSString*) username
+    startDate: (NSString*) startDate
+    hash: (NSString*) hash
+    completionHandler: (void (^)(NSObject* output, NSError* error)) handler {
+    // verify the required parameter 'username' is set
+    if (username == nil) {
+        NSParameterAssert(username);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"username"] };
+            NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    // verify the required parameter 'startDate' is set
+    if (startDate == nil) {
+        NSParameterAssert(startDate);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"startDate"] };
+            NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    // verify the required parameter 'hash' is set
+    if (hash == nil) {
+        NSParameterAssert(hash);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"hash"] };
+            NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/mealplanner/{username}/week/{start-date}"];
+
+    NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
+    if (username != nil) {
+        pathParams[@"username"] = username;
+    }
+    if (startDate != nil) {
+        pathParams[@"start-date"] = startDate;
+    }
+
+    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    if (hash != nil) {
+        queryParams[@"hash"] = hash;
+    }
+    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
+    [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    // HTTP header `Accept`
+    NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
+    if(acceptHeader.length > 0) {
+        headerParams[@"Accept"] = acceptHeader;
+    }
+
+    // response content type
+    NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
+
+    // request content type
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
+
+    // Authentication setting
+    NSArray *authSettings = @[];
+
+    id bodyParam = nil;
+    NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
+
+    return [self.apiClient requestWithPath: resourcePath
+                                    method: @"GET"
+                                pathParams: pathParams
+                               queryParams: queryParams
+                                formParams: formParams
+                                     files: localVarFiles
+                                      body: bodyParam
+                              headerParams: headerParams
+                              authSettings: authSettings
+                        requestContentType: requestContentType
+                       responseContentType: responseContentType
+                              responseType: @"NSObject*"
+                           completionBlock: ^(id data, NSError *error) {
+                                if(handler) {
+                                    handler((NSObject*)data, error);
+                                }
+                            }];
+}
+
+///
 /// Get Menu Item Information
 /// Use a menu item id to get all available information about a menu item, such as nutrition.
 ///  @param _id The menu item id. 
@@ -1889,7 +2757,7 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 
 ///
 /// Get Product Information
-/// Use a product id to get full information about a product, such as ingredients, nutrition, etc.
+/// Use a product id to get full information about a product, such as ingredients, nutrition, etc. The nutritional information is per serving.
 ///  @param _id The id of the packaged food. 
 ///
 ///  @returns NSObject*
@@ -2497,16 +3365,104 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 }
 
 ///
+/// Get Shopping List
+/// Get the current shopping list for the given user.
+///  @param username The username. 
+///
+///  @param hash The private hash for the username. 
+///
+///  @returns NSObject*
+///
+-(NSURLSessionTask*) getShoppingListWithUsername: (NSString*) username
+    hash: (NSString*) hash
+    completionHandler: (void (^)(NSObject* output, NSError* error)) handler {
+    // verify the required parameter 'username' is set
+    if (username == nil) {
+        NSParameterAssert(username);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"username"] };
+            NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    // verify the required parameter 'hash' is set
+    if (hash == nil) {
+        NSParameterAssert(hash);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"hash"] };
+            NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/mealplanner/{username}/shopping-list"];
+
+    NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
+    if (username != nil) {
+        pathParams[@"username"] = username;
+    }
+
+    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    if (hash != nil) {
+        queryParams[@"hash"] = hash;
+    }
+    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
+    [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    // HTTP header `Accept`
+    NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
+    if(acceptHeader.length > 0) {
+        headerParams[@"Accept"] = acceptHeader;
+    }
+
+    // response content type
+    NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
+
+    // request content type
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
+
+    // Authentication setting
+    NSArray *authSettings = @[];
+
+    id bodyParam = nil;
+    NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
+
+    return [self.apiClient requestWithPath: resourcePath
+                                    method: @"GET"
+                                pathParams: pathParams
+                               queryParams: queryParams
+                                formParams: formParams
+                                     files: localVarFiles
+                                      body: bodyParam
+                              headerParams: headerParams
+                              authSettings: authSettings
+                        requestContentType: requestContentType
+                       responseContentType: responseContentType
+                              responseType: @"NSObject*"
+                           completionBlock: ^(id data, NSError *error) {
+                                if(handler) {
+                                    handler((NSObject*)data, error);
+                                }
+                            }];
+}
+
+///
 /// Get Similar Recipes
 /// Find recipes which are similar to the given one.
 ///  @param _id The id of the source recipe for which similar recipes should be found. 
 ///
 ///  @param number The number of random recipes to be returned (between 1 and 100). (optional)
 ///
+///  @param limitLicense Whether the recipes should have an open license that allows display with proper attribution. (optional)
+///
 ///  @returns NSObject*
 ///
 -(NSURLSessionTask*) getSimilarRecipesWithId: (NSNumber*) _id
     number: (NSNumber*) number
+    limitLicense: (NSNumber*) limitLicense
     completionHandler: (void (^)(NSObject* output, NSError* error)) handler {
     // verify the required parameter '_id' is set
     if (_id == nil) {
@@ -2529,6 +3485,9 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (number != nil) {
         queryParams[@"number"] = number;
+    }
+    if (limitLicense != nil) {
+        queryParams[@"limitLicense"] = [limitLicense isEqual:@(YES)] ? @"true" : @"false";
     }
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
     [headerParams addEntriesFromDictionary:self.defaultHeaders];
@@ -2867,6 +3826,142 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 }
 
 ///
+/// Image Analysis by URL
+/// Analyze a food image. The API tries to classify the image, guess the nutrition, and find a matching recipes. You can play around with that endpoint!
+///  @param imageUrl The URL of the image to be analyzed. 
+///
+///  @returns NSObject*
+///
+-(NSURLSessionTask*) imageAnalysisByURLWithImageUrl: (NSString*) imageUrl
+    completionHandler: (void (^)(NSObject* output, NSError* error)) handler {
+    // verify the required parameter 'imageUrl' is set
+    if (imageUrl == nil) {
+        NSParameterAssert(imageUrl);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"imageUrl"] };
+            NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/food/images/analyze"];
+
+    NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
+
+    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    if (imageUrl != nil) {
+        queryParams[@"imageUrl"] = imageUrl;
+    }
+    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
+    [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    // HTTP header `Accept`
+    NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
+    if(acceptHeader.length > 0) {
+        headerParams[@"Accept"] = acceptHeader;
+    }
+
+    // response content type
+    NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
+
+    // request content type
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
+
+    // Authentication setting
+    NSArray *authSettings = @[];
+
+    id bodyParam = nil;
+    NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
+
+    return [self.apiClient requestWithPath: resourcePath
+                                    method: @"GET"
+                                pathParams: pathParams
+                               queryParams: queryParams
+                                formParams: formParams
+                                     files: localVarFiles
+                                      body: bodyParam
+                              headerParams: headerParams
+                              authSettings: authSettings
+                        requestContentType: requestContentType
+                       responseContentType: responseContentType
+                              responseType: @"NSObject*"
+                           completionBlock: ^(id data, NSError *error) {
+                                if(handler) {
+                                    handler((NSObject*)data, error);
+                                }
+                            }];
+}
+
+///
+/// Image Classification by URL
+/// Classify a food image. You can play around with that endpoint!
+///  @param imageUrl The URL of the image to be classified. 
+///
+///  @returns NSObject*
+///
+-(NSURLSessionTask*) imageClassificationByURLWithImageUrl: (NSString*) imageUrl
+    completionHandler: (void (^)(NSObject* output, NSError* error)) handler {
+    // verify the required parameter 'imageUrl' is set
+    if (imageUrl == nil) {
+        NSParameterAssert(imageUrl);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"imageUrl"] };
+            NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/food/images/classify"];
+
+    NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
+
+    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    if (imageUrl != nil) {
+        queryParams[@"imageUrl"] = imageUrl;
+    }
+    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
+    [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    // HTTP header `Accept`
+    NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
+    if(acceptHeader.length > 0) {
+        headerParams[@"Accept"] = acceptHeader;
+    }
+
+    // response content type
+    NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
+
+    // request content type
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
+
+    // Authentication setting
+    NSArray *authSettings = @[];
+
+    id bodyParam = nil;
+    NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
+
+    return [self.apiClient requestWithPath: resourcePath
+                                    method: @"GET"
+                                pathParams: pathParams
+                               queryParams: queryParams
+                                formParams: formParams
+                                     files: localVarFiles
+                                      body: bodyParam
+                              headerParams: headerParams
+                              authSettings: authSettings
+                        requestContentType: requestContentType
+                       responseContentType: responseContentType
+                              responseType: @"NSObject*"
+                           completionBlock: ^(id data, NSError *error) {
+                                if(handler) {
+                                    handler((NSObject*)data, error);
+                                }
+                            }];
+}
+
+///
 /// Map Ingredients to Grocery Products
 /// Map a set of ingredients to products you can buy in the grocery store.
 ///  @param body  
@@ -3092,6 +4187,120 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 }
 
 ///
+/// Search Custom Foods
+/// Search custom foods in a user's account.
+///  @param query The search query. 
+///
+///  @param username The username. 
+///
+///  @param hash The private hash for the username. 
+///
+///  @param offset The number of results to skip (between 0 and 990). (optional)
+///
+///  @param number The number of expected results (between 1 and 100). (optional)
+///
+///  @returns NSObject*
+///
+-(NSURLSessionTask*) searchCustomFoodsWithQuery: (NSString*) query
+    username: (NSString*) username
+    hash: (NSString*) hash
+    offset: (NSNumber*) offset
+    number: (NSNumber*) number
+    completionHandler: (void (^)(NSObject* output, NSError* error)) handler {
+    // verify the required parameter 'query' is set
+    if (query == nil) {
+        NSParameterAssert(query);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"query"] };
+            NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    // verify the required parameter 'username' is set
+    if (username == nil) {
+        NSParameterAssert(username);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"username"] };
+            NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    // verify the required parameter 'hash' is set
+    if (hash == nil) {
+        NSParameterAssert(hash);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"hash"] };
+            NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/food/customFoods/search"];
+
+    NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
+
+    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    if (query != nil) {
+        queryParams[@"query"] = query;
+    }
+    if (username != nil) {
+        queryParams[@"username"] = username;
+    }
+    if (hash != nil) {
+        queryParams[@"hash"] = hash;
+    }
+    if (offset != nil) {
+        queryParams[@"offset"] = offset;
+    }
+    if (number != nil) {
+        queryParams[@"number"] = number;
+    }
+    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
+    [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    // HTTP header `Accept`
+    NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
+    if(acceptHeader.length > 0) {
+        headerParams[@"Accept"] = acceptHeader;
+    }
+
+    // response content type
+    NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
+
+    // request content type
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
+
+    // Authentication setting
+    NSArray *authSettings = @[];
+
+    id bodyParam = nil;
+    NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
+
+    return [self.apiClient requestWithPath: resourcePath
+                                    method: @"GET"
+                                pathParams: pathParams
+                               queryParams: queryParams
+                                formParams: formParams
+                                     files: localVarFiles
+                                      body: bodyParam
+                              headerParams: headerParams
+                              authSettings: authSettings
+                        requestContentType: requestContentType
+                       responseContentType: responseContentType
+                              responseType: @"NSObject*"
+                           completionBlock: ^(id data, NSError *error) {
+                                if(handler) {
+                                    handler((NSObject*)data, error);
+                                }
+                            }];
+}
+
+///
 /// Search Food Videos
 /// Find recipe and other food related videos.
 ///  @param query The search query. 
@@ -3234,7 +4443,7 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 ///
 ///  @param maxFat The maximum amount of fat in grams the product can have. (optional)
 ///
-///  @param offset The offset number for paging (between 0 and 990). (optional)
+///  @param offset The number of results to skip (between 0 and 990). (optional)
 ///
 ///  @param number The number of expected results (between 1 and 100). (optional)
 ///
@@ -3655,7 +4864,7 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 
 ///
 /// Search Recipes by Ingredients
-/// Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don't currently have (post shopping).
+///              Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don't currently have (post shopping).         
 ///  @param ingredients A comma-separated list of ingredients that the recipes should contain. 
 ///
 ///  @param number The maximum number of recipes to return (between 1 and 100). Defaults to 10. (optional)
@@ -3892,7 +5101,7 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 ///
 ///  @param maxZinc The maximum amount of zinc in milligrams the recipe can have. (optional)
 ///
-///  @param offset The offset number for paging (between 0 and 990). (optional)
+///  @param offset The number of results to skip (between 0 and 900). (optional)
 ///
 ///  @param number The number of expected results (between 1 and 100). (optional)
 ///
@@ -4275,13 +5484,17 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 ///
 ///  @param instructionsRequired Whether the recipes must have instructions. (optional)
 ///
-///  @param fillIngredients Add information about the used and missing ingredients in each recipe. (optional)
+///  @param fillIngredients Add information about the ingredients and whether they are used or missing in relation to the query. (optional)
 ///
-///  @param addRecipeInformation If set to true, you get more information about the recipes returned. This saves you from needing to call to get recipe information. (optional)
+///  @param addRecipeInformation If set to true, you get more information about the recipes returned. (optional)
+///
+///  @param addRecipeNutrition If set to true, you get nutritional information about each recipes returned. (optional)
 ///
 ///  @param author The username of the recipe author. (optional)
 ///
-///  @param tags User defined tags that have to match. (optional)
+///  @param tags User defined tags that have to match. The author param has to be set. (optional)
+///
+///  @param recipeBoxId The id of the recipe box to which the search should be limited to. (optional)
 ///
 ///  @param titleMatch Enter text that must be found in the title of the recipes. (optional)
 ///
@@ -4437,9 +5650,9 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 ///
 ///  @param maxZinc The maximum amount of zinc in milligrams the recipe can have. (optional)
 ///
-///  @param offset The offset number for paging (between 0 and 990). (optional)
+///  @param offset The number of results to skip (between 0 and 900). (optional)
 ///
-///  @param number The number of expected results (between 1 and 10). (optional)
+///  @param number The number of expected results (between 1 and 100). (optional)
 ///
 ///  @param limitLicense Whether the recipes should have an open license that allows display with proper attribution. (optional)
 ///
@@ -4457,8 +5670,10 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
     instructionsRequired: (NSNumber*) instructionsRequired
     fillIngredients: (NSNumber*) fillIngredients
     addRecipeInformation: (NSNumber*) addRecipeInformation
+    addRecipeNutrition: (NSNumber*) addRecipeNutrition
     author: (NSString*) author
     tags: (NSString*) tags
+    recipeBoxId: (NSNumber*) recipeBoxId
     titleMatch: (NSString*) titleMatch
     maxReadyTime: (NSNumber*) maxReadyTime
     ignorePantry: (NSNumber*) ignorePantry
@@ -4592,11 +5807,17 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
     if (addRecipeInformation != nil) {
         queryParams[@"addRecipeInformation"] = [addRecipeInformation isEqual:@(YES)] ? @"true" : @"false";
     }
+    if (addRecipeNutrition != nil) {
+        queryParams[@"addRecipeNutrition"] = [addRecipeNutrition isEqual:@(YES)] ? @"true" : @"false";
+    }
     if (author != nil) {
         queryParams[@"author"] = author;
     }
     if (tags != nil) {
         queryParams[@"tags"] = tags;
+    }
+    if (recipeBoxId != nil) {
+        queryParams[@"recipeBoxId"] = recipeBoxId;
     }
     if (titleMatch != nil) {
         queryParams[@"titleMatch"] = titleMatch;

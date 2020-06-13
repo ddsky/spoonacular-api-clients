@@ -19,6 +19,160 @@ module OpenapiClient
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
+    # Add to Meal Plan
+    # Add an item to the user's meal plan.
+    # @param username [String] The username.
+    # @param hash [String] The private hash for the username.
+    # @param inline_object9 [InlineObject9] 
+    # @param [Hash] opts the optional parameters
+    # @return [Object]
+    def add_to_meal_plan(username, hash, inline_object9, opts = {})
+      data, _status_code, _headers = add_to_meal_plan_with_http_info(username, hash, inline_object9, opts)
+      data
+    end
+
+    # Add to Meal Plan
+    # Add an item to the user&#39;s meal plan.
+    # @param username [String] The username.
+    # @param hash [String] The private hash for the username.
+    # @param inline_object9 [InlineObject9] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
+    def add_to_meal_plan_with_http_info(username, hash, inline_object9, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DefaultApi.add_to_meal_plan ...'
+      end
+      # verify the required parameter 'username' is set
+      if @api_client.config.client_side_validation && username.nil?
+        fail ArgumentError, "Missing the required parameter 'username' when calling DefaultApi.add_to_meal_plan"
+      end
+      # verify the required parameter 'hash' is set
+      if @api_client.config.client_side_validation && hash.nil?
+        fail ArgumentError, "Missing the required parameter 'hash' when calling DefaultApi.add_to_meal_plan"
+      end
+      # verify the required parameter 'inline_object9' is set
+      if @api_client.config.client_side_validation && inline_object9.nil?
+        fail ArgumentError, "Missing the required parameter 'inline_object9' when calling DefaultApi.add_to_meal_plan"
+      end
+      # resource path
+      local_var_path = '/mealplanner/{username}/items'.sub('{' + 'username' + '}', username.to_s)
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'hash'] = hash
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type([''])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] || @api_client.object_to_http_body(inline_object9) 
+
+      # return_type
+      return_type = opts[:return_type] || 'Object' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || []
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DefaultApi#add_to_meal_plan\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Add to Shopping List
+    # Add an item to the current shopping list of a user.
+    # @param username [String] The username.
+    # @param hash [String] The private hash for the username.
+    # @param inline_object12 [InlineObject12] 
+    # @param [Hash] opts the optional parameters
+    # @return [Object]
+    def add_to_shopping_list(username, hash, inline_object12, opts = {})
+      data, _status_code, _headers = add_to_shopping_list_with_http_info(username, hash, inline_object12, opts)
+      data
+    end
+
+    # Add to Shopping List
+    # Add an item to the current shopping list of a user.
+    # @param username [String] The username.
+    # @param hash [String] The private hash for the username.
+    # @param inline_object12 [InlineObject12] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
+    def add_to_shopping_list_with_http_info(username, hash, inline_object12, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DefaultApi.add_to_shopping_list ...'
+      end
+      # verify the required parameter 'username' is set
+      if @api_client.config.client_side_validation && username.nil?
+        fail ArgumentError, "Missing the required parameter 'username' when calling DefaultApi.add_to_shopping_list"
+      end
+      # verify the required parameter 'hash' is set
+      if @api_client.config.client_side_validation && hash.nil?
+        fail ArgumentError, "Missing the required parameter 'hash' when calling DefaultApi.add_to_shopping_list"
+      end
+      # verify the required parameter 'inline_object12' is set
+      if @api_client.config.client_side_validation && inline_object12.nil?
+        fail ArgumentError, "Missing the required parameter 'inline_object12' when calling DefaultApi.add_to_shopping_list"
+      end
+      # resource path
+      local_var_path = '/mealplanner/{username}/shopping-list/items'.sub('{' + 'username' + '}', username.to_s)
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'hash'] = hash
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type([''])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] || @api_client.object_to_http_body(inline_object12) 
+
+      # return_type
+      return_type = opts[:return_type] || 'Object' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || []
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DefaultApi#add_to_shopping_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Analyze a Recipe Search Query
     # Parse a recipe search query to find out its intention.
     # @param q [String] The recipe search query.
@@ -833,6 +987,172 @@ module OpenapiClient
       return data, status_code, headers
     end
 
+    # Delete from Meal Plan
+    # Delete an item from the user's meal plan.
+    # @param username [String] The username.
+    # @param id [Float] The shopping list item id.
+    # @param hash [String] The private hash for the username.
+    # @param inline_object10 [InlineObject10] 
+    # @param [Hash] opts the optional parameters
+    # @return [Object]
+    def delete_from_meal_plan(username, id, hash, inline_object10, opts = {})
+      data, _status_code, _headers = delete_from_meal_plan_with_http_info(username, id, hash, inline_object10, opts)
+      data
+    end
+
+    # Delete from Meal Plan
+    # Delete an item from the user&#39;s meal plan.
+    # @param username [String] The username.
+    # @param id [Float] The shopping list item id.
+    # @param hash [String] The private hash for the username.
+    # @param inline_object10 [InlineObject10] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
+    def delete_from_meal_plan_with_http_info(username, id, hash, inline_object10, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DefaultApi.delete_from_meal_plan ...'
+      end
+      # verify the required parameter 'username' is set
+      if @api_client.config.client_side_validation && username.nil?
+        fail ArgumentError, "Missing the required parameter 'username' when calling DefaultApi.delete_from_meal_plan"
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling DefaultApi.delete_from_meal_plan"
+      end
+      # verify the required parameter 'hash' is set
+      if @api_client.config.client_side_validation && hash.nil?
+        fail ArgumentError, "Missing the required parameter 'hash' when calling DefaultApi.delete_from_meal_plan"
+      end
+      # verify the required parameter 'inline_object10' is set
+      if @api_client.config.client_side_validation && inline_object10.nil?
+        fail ArgumentError, "Missing the required parameter 'inline_object10' when calling DefaultApi.delete_from_meal_plan"
+      end
+      # resource path
+      local_var_path = '/mealplanner/{username}/items/{id}'.sub('{' + 'username' + '}', username.to_s).sub('{' + 'id' + '}', id.to_s)
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'hash'] = hash
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type([''])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] || @api_client.object_to_http_body(inline_object10) 
+
+      # return_type
+      return_type = opts[:return_type] || 'Object' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || []
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DefaultApi#delete_from_meal_plan\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete from Shopping List
+    # Delete an item from the current shopping list of the user.
+    # @param username [String] The username.
+    # @param id [Float] The shopping list item id.
+    # @param hash [String] The private hash for the username.
+    # @param inline_object13 [InlineObject13] 
+    # @param [Hash] opts the optional parameters
+    # @return [Object]
+    def delete_from_shopping_list(username, id, hash, inline_object13, opts = {})
+      data, _status_code, _headers = delete_from_shopping_list_with_http_info(username, id, hash, inline_object13, opts)
+      data
+    end
+
+    # Delete from Shopping List
+    # Delete an item from the current shopping list of the user.
+    # @param username [String] The username.
+    # @param id [Float] The shopping list item id.
+    # @param hash [String] The private hash for the username.
+    # @param inline_object13 [InlineObject13] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
+    def delete_from_shopping_list_with_http_info(username, id, hash, inline_object13, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DefaultApi.delete_from_shopping_list ...'
+      end
+      # verify the required parameter 'username' is set
+      if @api_client.config.client_side_validation && username.nil?
+        fail ArgumentError, "Missing the required parameter 'username' when calling DefaultApi.delete_from_shopping_list"
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling DefaultApi.delete_from_shopping_list"
+      end
+      # verify the required parameter 'hash' is set
+      if @api_client.config.client_side_validation && hash.nil?
+        fail ArgumentError, "Missing the required parameter 'hash' when calling DefaultApi.delete_from_shopping_list"
+      end
+      # verify the required parameter 'inline_object13' is set
+      if @api_client.config.client_side_validation && inline_object13.nil?
+        fail ArgumentError, "Missing the required parameter 'inline_object13' when calling DefaultApi.delete_from_shopping_list"
+      end
+      # resource path
+      local_var_path = '/mealplanner/{username}/shopping-list/items/{id}'.sub('{' + 'username' + '}', username.to_s).sub('{' + 'id' + '}', id.to_s)
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'hash'] = hash
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type([''])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] || @api_client.object_to_http_body(inline_object13) 
+
+      # return_type
+      return_type = opts[:return_type] || 'Object' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || []
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DefaultApi#delete_from_shopping_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Detect Food in Text
     # Take any text and find all mentions of food contained within it. This task is also called Named Entity Recognition (NER). In this case, the entities are foods. Either dishes, such as pizza or cheeseburger, or ingredients, such as cucumber or almonds.
     # @param text [String] The text in which food items, such as dish names and ingredients, should be detected in.
@@ -903,6 +1223,7 @@ module OpenapiClient
     # @param url [String] The URL of the recipe page.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :force_extraction If true, the extraction will be triggered whether we already know the recipe or not. Use this only if information is missing as this operation is slower.
+    # @option opts [Boolean] :analyze If true, the recipe will be analyzed and classified resolving in more data such as cuisines, dish types, and more.
     # @return [Object]
     def extract_recipe_from_website(url, opts = {})
       data, _status_code, _headers = extract_recipe_from_website_with_http_info(url, opts)
@@ -914,6 +1235,7 @@ module OpenapiClient
     # @param url [String] The URL of the recipe page.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :force_extraction If true, the extraction will be triggered whether we already know the recipe or not. Use this only if information is missing as this operation is slower.
+    # @option opts [Boolean] :analyze If true, the recipe will be analyzed and classified resolving in more data such as cuisines, dish types, and more.
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def extract_recipe_from_website_with_http_info(url, opts = {})
       if @api_client.config.debugging
@@ -930,6 +1252,7 @@ module OpenapiClient
       query_params = opts[:query_params] || {}
       query_params[:'url'] = url
       query_params[:'forceExtraction'] = opts[:'force_extraction'] if !opts[:'force_extraction'].nil?
+      query_params[:'analyze'] = opts[:'analyze'] if !opts[:'analyze'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -1028,6 +1351,95 @@ module OpenapiClient
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: DefaultApi#generate_meal_plan\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Generate Shopping List
+    # Generate the shopping list for a user from the meal planner in a given time frame.
+    # @param username [String] The username.
+    # @param start_date [String] The start date in the format yyyy-mm-dd.
+    # @param end_date [String] The end date in the format yyyy-mm-dd.
+    # @param hash [String] The private hash for the username.
+    # @param inline_object11 [InlineObject11] 
+    # @param [Hash] opts the optional parameters
+    # @return [Object]
+    def generate_shopping_list(username, start_date, end_date, hash, inline_object11, opts = {})
+      data, _status_code, _headers = generate_shopping_list_with_http_info(username, start_date, end_date, hash, inline_object11, opts)
+      data
+    end
+
+    # Generate Shopping List
+    # Generate the shopping list for a user from the meal planner in a given time frame.
+    # @param username [String] The username.
+    # @param start_date [String] The start date in the format yyyy-mm-dd.
+    # @param end_date [String] The end date in the format yyyy-mm-dd.
+    # @param hash [String] The private hash for the username.
+    # @param inline_object11 [InlineObject11] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
+    def generate_shopping_list_with_http_info(username, start_date, end_date, hash, inline_object11, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DefaultApi.generate_shopping_list ...'
+      end
+      # verify the required parameter 'username' is set
+      if @api_client.config.client_side_validation && username.nil?
+        fail ArgumentError, "Missing the required parameter 'username' when calling DefaultApi.generate_shopping_list"
+      end
+      # verify the required parameter 'start_date' is set
+      if @api_client.config.client_side_validation && start_date.nil?
+        fail ArgumentError, "Missing the required parameter 'start_date' when calling DefaultApi.generate_shopping_list"
+      end
+      # verify the required parameter 'end_date' is set
+      if @api_client.config.client_side_validation && end_date.nil?
+        fail ArgumentError, "Missing the required parameter 'end_date' when calling DefaultApi.generate_shopping_list"
+      end
+      # verify the required parameter 'hash' is set
+      if @api_client.config.client_side_validation && hash.nil?
+        fail ArgumentError, "Missing the required parameter 'hash' when calling DefaultApi.generate_shopping_list"
+      end
+      # verify the required parameter 'inline_object11' is set
+      if @api_client.config.client_side_validation && inline_object11.nil?
+        fail ArgumentError, "Missing the required parameter 'inline_object11' when calling DefaultApi.generate_shopping_list"
+      end
+      # resource path
+      local_var_path = '/mealplanner/{username}/shopping-list/{start-date}/{end-date}'.sub('{' + 'username' + '}', username.to_s).sub('{' + 'start-date' + '}', start_date.to_s).sub('{' + 'end-date' + '}', end_date.to_s)
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'hash'] = hash
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type([''])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] || @api_client.object_to_http_body(inline_object11) 
+
+      # return_type
+      return_type = opts[:return_type] || 'Object' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || []
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DefaultApi#generate_shopping_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1537,6 +1949,225 @@ module OpenapiClient
       return data, status_code, headers
     end
 
+    # Get Meal Plan Template
+    # Get information about a meal plan template.
+    # @param username [String] The username.
+    # @param id [Float] The shopping list item id.
+    # @param hash [String] The private hash for the username.
+    # @param [Hash] opts the optional parameters
+    # @return [Object]
+    def get_meal_plan_template(username, id, hash, opts = {})
+      data, _status_code, _headers = get_meal_plan_template_with_http_info(username, id, hash, opts)
+      data
+    end
+
+    # Get Meal Plan Template
+    # Get information about a meal plan template.
+    # @param username [String] The username.
+    # @param id [Float] The shopping list item id.
+    # @param hash [String] The private hash for the username.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
+    def get_meal_plan_template_with_http_info(username, id, hash, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DefaultApi.get_meal_plan_template ...'
+      end
+      # verify the required parameter 'username' is set
+      if @api_client.config.client_side_validation && username.nil?
+        fail ArgumentError, "Missing the required parameter 'username' when calling DefaultApi.get_meal_plan_template"
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling DefaultApi.get_meal_plan_template"
+      end
+      # verify the required parameter 'hash' is set
+      if @api_client.config.client_side_validation && hash.nil?
+        fail ArgumentError, "Missing the required parameter 'hash' when calling DefaultApi.get_meal_plan_template"
+      end
+      # resource path
+      local_var_path = '/mealplanner/{username}/templates/{id}'.sub('{' + 'username' + '}', username.to_s).sub('{' + 'id' + '}', id.to_s)
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'hash'] = hash
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] 
+
+      # return_type
+      return_type = opts[:return_type] || 'Object' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || []
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DefaultApi#get_meal_plan_template\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get Meal Plan Templates
+    # Get meal plan templates from user or public ones.
+    # @param username [String] The username.
+    # @param hash [String] The private hash for the username.
+    # @param [Hash] opts the optional parameters
+    # @return [Object]
+    def get_meal_plan_templates(username, hash, opts = {})
+      data, _status_code, _headers = get_meal_plan_templates_with_http_info(username, hash, opts)
+      data
+    end
+
+    # Get Meal Plan Templates
+    # Get meal plan templates from user or public ones.
+    # @param username [String] The username.
+    # @param hash [String] The private hash for the username.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
+    def get_meal_plan_templates_with_http_info(username, hash, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DefaultApi.get_meal_plan_templates ...'
+      end
+      # verify the required parameter 'username' is set
+      if @api_client.config.client_side_validation && username.nil?
+        fail ArgumentError, "Missing the required parameter 'username' when calling DefaultApi.get_meal_plan_templates"
+      end
+      # verify the required parameter 'hash' is set
+      if @api_client.config.client_side_validation && hash.nil?
+        fail ArgumentError, "Missing the required parameter 'hash' when calling DefaultApi.get_meal_plan_templates"
+      end
+      # resource path
+      local_var_path = '/mealplanner/{username}/templates'.sub('{' + 'username' + '}', username.to_s)
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'hash'] = hash
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] 
+
+      # return_type
+      return_type = opts[:return_type] || 'Object' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || []
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DefaultApi#get_meal_plan_templates\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get Meal Plan Week
+    # Retrieve a meal planned week for the given user. The username must be a spoonacular user and the hash must the the user's hash that can be found in his/her account.
+    # @param username [String] The username.
+    # @param start_date [String] The start date of the meal planned week in the format yyyy-mm-dd.
+    # @param hash [String] The private hash for the username.
+    # @param [Hash] opts the optional parameters
+    # @return [Object]
+    def get_meal_plan_week(username, start_date, hash, opts = {})
+      data, _status_code, _headers = get_meal_plan_week_with_http_info(username, start_date, hash, opts)
+      data
+    end
+
+    # Get Meal Plan Week
+    # Retrieve a meal planned week for the given user. The username must be a spoonacular user and the hash must the the user&#39;s hash that can be found in his/her account.
+    # @param username [String] The username.
+    # @param start_date [String] The start date of the meal planned week in the format yyyy-mm-dd.
+    # @param hash [String] The private hash for the username.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
+    def get_meal_plan_week_with_http_info(username, start_date, hash, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DefaultApi.get_meal_plan_week ...'
+      end
+      # verify the required parameter 'username' is set
+      if @api_client.config.client_side_validation && username.nil?
+        fail ArgumentError, "Missing the required parameter 'username' when calling DefaultApi.get_meal_plan_week"
+      end
+      # verify the required parameter 'start_date' is set
+      if @api_client.config.client_side_validation && start_date.nil?
+        fail ArgumentError, "Missing the required parameter 'start_date' when calling DefaultApi.get_meal_plan_week"
+      end
+      # verify the required parameter 'hash' is set
+      if @api_client.config.client_side_validation && hash.nil?
+        fail ArgumentError, "Missing the required parameter 'hash' when calling DefaultApi.get_meal_plan_week"
+      end
+      # resource path
+      local_var_path = '/mealplanner/{username}/week/{start-date}'.sub('{' + 'username' + '}', username.to_s).sub('{' + 'start-date' + '}', start_date.to_s)
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'hash'] = hash
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] 
+
+      # return_type
+      return_type = opts[:return_type] || 'Object' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || []
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DefaultApi#get_meal_plan_week\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get Menu Item Information
     # Use a menu item id to get all available information about a menu item, such as nutrition.
     # @param id [Float] The menu item id.
@@ -1600,7 +2231,7 @@ module OpenapiClient
     end
 
     # Get Product Information
-    # Use a product id to get full information about a product, such as ingredients, nutrition, etc.
+    # Use a product id to get full information about a product, such as ingredients, nutrition, etc. The nutritional information is per serving.
     # @param id [Float] The id of the packaged food.
     # @param [Hash] opts the optional parameters
     # @return [Object]
@@ -1610,7 +2241,7 @@ module OpenapiClient
     end
 
     # Get Product Information
-    # Use a product id to get full information about a product, such as ingredients, nutrition, etc.
+    # Use a product id to get full information about a product, such as ingredients, nutrition, etc. The nutritional information is per serving.
     # @param id [Float] The id of the packaged food.
     # @param [Hash] opts the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
@@ -2161,11 +2792,81 @@ module OpenapiClient
       return data, status_code, headers
     end
 
+    # Get Shopping List
+    # Get the current shopping list for the given user.
+    # @param username [String] The username.
+    # @param hash [String] The private hash for the username.
+    # @param [Hash] opts the optional parameters
+    # @return [Object]
+    def get_shopping_list(username, hash, opts = {})
+      data, _status_code, _headers = get_shopping_list_with_http_info(username, hash, opts)
+      data
+    end
+
+    # Get Shopping List
+    # Get the current shopping list for the given user.
+    # @param username [String] The username.
+    # @param hash [String] The private hash for the username.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
+    def get_shopping_list_with_http_info(username, hash, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DefaultApi.get_shopping_list ...'
+      end
+      # verify the required parameter 'username' is set
+      if @api_client.config.client_side_validation && username.nil?
+        fail ArgumentError, "Missing the required parameter 'username' when calling DefaultApi.get_shopping_list"
+      end
+      # verify the required parameter 'hash' is set
+      if @api_client.config.client_side_validation && hash.nil?
+        fail ArgumentError, "Missing the required parameter 'hash' when calling DefaultApi.get_shopping_list"
+      end
+      # resource path
+      local_var_path = '/mealplanner/{username}/shopping-list'.sub('{' + 'username' + '}', username.to_s)
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'hash'] = hash
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] 
+
+      # return_type
+      return_type = opts[:return_type] || 'Object' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || []
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DefaultApi#get_shopping_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get Similar Recipes
     # Find recipes which are similar to the given one.
     # @param id [Float] The id of the source recipe for which similar recipes should be found.
     # @param [Hash] opts the optional parameters
     # @option opts [Float] :number The number of random recipes to be returned (between 1 and 100).
+    # @option opts [Boolean] :limit_license Whether the recipes should have an open license that allows display with proper attribution.
     # @return [Object]
     def get_similar_recipes(id, opts = {})
       data, _status_code, _headers = get_similar_recipes_with_http_info(id, opts)
@@ -2177,6 +2878,7 @@ module OpenapiClient
     # @param id [Float] The id of the source recipe for which similar recipes should be found.
     # @param [Hash] opts the optional parameters
     # @option opts [Float] :number The number of random recipes to be returned (between 1 and 100).
+    # @option opts [Boolean] :limit_license Whether the recipes should have an open license that allows display with proper attribution.
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def get_similar_recipes_with_http_info(id, opts = {})
       if @api_client.config.debugging
@@ -2192,6 +2894,7 @@ module OpenapiClient
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'number'] = opts[:'number'] if !opts[:'number'].nil?
+      query_params[:'limitLicense'] = opts[:'limit_license'] if !opts[:'limit_license'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -2490,6 +3193,132 @@ module OpenapiClient
       return data, status_code, headers
     end
 
+    # Image Analysis by URL
+    # Analyze a food image. The API tries to classify the image, guess the nutrition, and find a matching recipes. You can play around with that endpoint!
+    # @param image_url [String] The URL of the image to be analyzed.
+    # @param [Hash] opts the optional parameters
+    # @return [Object]
+    def image_analysis_by_url(image_url, opts = {})
+      data, _status_code, _headers = image_analysis_by_url_with_http_info(image_url, opts)
+      data
+    end
+
+    # Image Analysis by URL
+    # Analyze a food image. The API tries to classify the image, guess the nutrition, and find a matching recipes. You can play around with that endpoint!
+    # @param image_url [String] The URL of the image to be analyzed.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
+    def image_analysis_by_url_with_http_info(image_url, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DefaultApi.image_analysis_by_url ...'
+      end
+      # verify the required parameter 'image_url' is set
+      if @api_client.config.client_side_validation && image_url.nil?
+        fail ArgumentError, "Missing the required parameter 'image_url' when calling DefaultApi.image_analysis_by_url"
+      end
+      # resource path
+      local_var_path = '/food/images/analyze'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'imageUrl'] = image_url
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] 
+
+      # return_type
+      return_type = opts[:return_type] || 'Object' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || []
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DefaultApi#image_analysis_by_url\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Image Classification by URL
+    # Classify a food image. You can play around with that endpoint!
+    # @param image_url [String] The URL of the image to be classified.
+    # @param [Hash] opts the optional parameters
+    # @return [Object]
+    def image_classification_by_url(image_url, opts = {})
+      data, _status_code, _headers = image_classification_by_url_with_http_info(image_url, opts)
+      data
+    end
+
+    # Image Classification by URL
+    # Classify a food image. You can play around with that endpoint!
+    # @param image_url [String] The URL of the image to be classified.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
+    def image_classification_by_url_with_http_info(image_url, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DefaultApi.image_classification_by_url ...'
+      end
+      # verify the required parameter 'image_url' is set
+      if @api_client.config.client_side_validation && image_url.nil?
+        fail ArgumentError, "Missing the required parameter 'image_url' when calling DefaultApi.image_classification_by_url"
+      end
+      # resource path
+      local_var_path = '/food/images/classify'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'imageUrl'] = image_url
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] 
+
+      # return_type
+      return_type = opts[:return_type] || 'Object' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || []
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DefaultApi#image_classification_by_url\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Map Ingredients to Grocery Products
     # Map a set of ingredients to products you can buy in the grocery store.
     # @param body [Object] 
@@ -2692,6 +3521,89 @@ module OpenapiClient
       return data, status_code, headers
     end
 
+    # Search Custom Foods
+    # Search custom foods in a user's account.
+    # @param query [String] The search query.
+    # @param username [String] The username.
+    # @param hash [String] The private hash for the username.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Float] :offset The number of results to skip (between 0 and 990).
+    # @option opts [Float] :number The number of expected results (between 1 and 100).
+    # @return [Object]
+    def search_custom_foods(query, username, hash, opts = {})
+      data, _status_code, _headers = search_custom_foods_with_http_info(query, username, hash, opts)
+      data
+    end
+
+    # Search Custom Foods
+    # Search custom foods in a user&#39;s account.
+    # @param query [String] The search query.
+    # @param username [String] The username.
+    # @param hash [String] The private hash for the username.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Float] :offset The number of results to skip (between 0 and 990).
+    # @option opts [Float] :number The number of expected results (between 1 and 100).
+    # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
+    def search_custom_foods_with_http_info(query, username, hash, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DefaultApi.search_custom_foods ...'
+      end
+      # verify the required parameter 'query' is set
+      if @api_client.config.client_side_validation && query.nil?
+        fail ArgumentError, "Missing the required parameter 'query' when calling DefaultApi.search_custom_foods"
+      end
+      # verify the required parameter 'username' is set
+      if @api_client.config.client_side_validation && username.nil?
+        fail ArgumentError, "Missing the required parameter 'username' when calling DefaultApi.search_custom_foods"
+      end
+      # verify the required parameter 'hash' is set
+      if @api_client.config.client_side_validation && hash.nil?
+        fail ArgumentError, "Missing the required parameter 'hash' when calling DefaultApi.search_custom_foods"
+      end
+      # resource path
+      local_var_path = '/food/customFoods/search'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'query'] = query
+      query_params[:'username'] = username
+      query_params[:'hash'] = hash
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'number'] = opts[:'number'] if !opts[:'number'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] 
+
+      # return_type
+      return_type = opts[:return_type] || 'Object' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || []
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DefaultApi#search_custom_foods\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Search Food Videos
     # Find recipe and other food related videos.
     # @param query [String] The search query.
@@ -2794,7 +3706,7 @@ module OpenapiClient
     # @option opts [Float] :max_protein The maximum amount of protein in grams the product can have.
     # @option opts [Float] :min_fat The minimum amount of fat in grams the product must have.
     # @option opts [Float] :max_fat The maximum amount of fat in grams the product can have.
-    # @option opts [Float] :offset The offset number for paging (between 0 and 990).
+    # @option opts [Float] :offset The number of results to skip (between 0 and 990).
     # @option opts [Float] :number The number of expected results (between 1 and 100).
     # @return [Object]
     def search_grocery_products(query, opts = {})
@@ -2814,7 +3726,7 @@ module OpenapiClient
     # @option opts [Float] :max_protein The maximum amount of protein in grams the product can have.
     # @option opts [Float] :min_fat The minimum amount of fat in grams the product must have.
     # @option opts [Float] :max_fat The maximum amount of fat in grams the product can have.
-    # @option opts [Float] :offset The offset number for paging (between 0 and 990).
+    # @option opts [Float] :offset The number of results to skip (between 0 and 990).
     # @option opts [Float] :number The number of expected results (between 1 and 100).
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def search_grocery_products_with_http_info(query, opts = {})
@@ -3118,7 +4030,7 @@ module OpenapiClient
     end
 
     # Search Recipes by Ingredients
-    # Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don't currently have (post shopping).
+    #              Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don't currently have (post shopping).         
     # @param ingredients [String] A comma-separated list of ingredients that the recipes should contain.
     # @param [Hash] opts the optional parameters
     # @option opts [Float] :number The maximum number of recipes to return (between 1 and 100). Defaults to 10.
@@ -3132,7 +4044,7 @@ module OpenapiClient
     end
 
     # Search Recipes by Ingredients
-    # Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don&#39;t currently have (post shopping).
+    #              Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don&#39;t currently have (post shopping).         
     # @param ingredients [String] A comma-separated list of ingredients that the recipes should contain.
     # @param [Hash] opts the optional parameters
     # @option opts [Float] :number The maximum number of recipes to return (between 1 and 100). Defaults to 10.
@@ -3267,7 +4179,7 @@ module OpenapiClient
     # @option opts [Float] :max_sugar The maximum amount of sugar in grams the recipe can have.
     # @option opts [Float] :min_zinc The minimum amount of zinc in milligrams the recipe must have.
     # @option opts [Float] :max_zinc The maximum amount of zinc in milligrams the recipe can have.
-    # @option opts [Float] :offset The offset number for paging (between 0 and 990).
+    # @option opts [Float] :offset The number of results to skip (between 0 and 900).
     # @option opts [Float] :number The number of expected results (between 1 and 100).
     # @option opts [Boolean] :random If true, every request will give you a random set of recipes within the requested limits.
     # @option opts [Boolean] :limit_license Whether the recipes should have an open license that allows display with proper attribution.
@@ -3352,7 +4264,7 @@ module OpenapiClient
     # @option opts [Float] :max_sugar The maximum amount of sugar in grams the recipe can have.
     # @option opts [Float] :min_zinc The minimum amount of zinc in milligrams the recipe must have.
     # @option opts [Float] :max_zinc The maximum amount of zinc in milligrams the recipe can have.
-    # @option opts [Float] :offset The offset number for paging (between 0 and 990).
+    # @option opts [Float] :offset The number of results to skip (between 0 and 900).
     # @option opts [Float] :number The number of expected results (between 1 and 100).
     # @option opts [Boolean] :random If true, every request will give you a random set of recipes within the requested limits.
     # @option opts [Boolean] :limit_license Whether the recipes should have an open license that allows display with proper attribution.
@@ -3489,10 +4401,12 @@ module OpenapiClient
     # @option opts [String] :exclude_ingredients A comma-separated list of ingredients or ingredient types that the recipes must not contain.
     # @option opts [String] :type The type of recipe. See a full list of supported meal types.
     # @option opts [Boolean] :instructions_required Whether the recipes must have instructions.
-    # @option opts [Boolean] :fill_ingredients Add information about the used and missing ingredients in each recipe.
-    # @option opts [Boolean] :add_recipe_information If set to true, you get more information about the recipes returned. This saves you from needing to call to get recipe information.
+    # @option opts [Boolean] :fill_ingredients Add information about the ingredients and whether they are used or missing in relation to the query.
+    # @option opts [Boolean] :add_recipe_information If set to true, you get more information about the recipes returned.
+    # @option opts [Boolean] :add_recipe_nutrition If set to true, you get nutritional information about each recipes returned.
     # @option opts [String] :author The username of the recipe author.
-    # @option opts [String] :tags User defined tags that have to match.
+    # @option opts [String] :tags User defined tags that have to match. The author param has to be set.
+    # @option opts [Float] :recipe_box_id The id of the recipe box to which the search should be limited to.
     # @option opts [String] :title_match Enter text that must be found in the title of the recipes.
     # @option opts [Float] :max_ready_time The maximum time in minutes it should take to prepare and cook the recipe.
     # @option opts [Boolean] :ignore_pantry Whether to ignore typical pantry items, such as water, salt, flour, etc.
@@ -3570,8 +4484,8 @@ module OpenapiClient
     # @option opts [Float] :max_sugar The maximum amount of sugar in grams the recipe can have.
     # @option opts [Float] :min_zinc The minimum amount of zinc in milligrams the recipe must have.
     # @option opts [Float] :max_zinc The maximum amount of zinc in milligrams the recipe can have.
-    # @option opts [Float] :offset The offset number for paging (between 0 and 990).
-    # @option opts [Float] :number The number of expected results (between 1 and 10).
+    # @option opts [Float] :offset The number of results to skip (between 0 and 900).
+    # @option opts [Float] :number The number of expected results (between 1 and 100).
     # @option opts [Boolean] :limit_license Whether the recipes should have an open license that allows display with proper attribution.
     # @return [Object]
     def search_recipes_complex(query, opts = {})
@@ -3592,10 +4506,12 @@ module OpenapiClient
     # @option opts [String] :exclude_ingredients A comma-separated list of ingredients or ingredient types that the recipes must not contain.
     # @option opts [String] :type The type of recipe. See a full list of supported meal types.
     # @option opts [Boolean] :instructions_required Whether the recipes must have instructions.
-    # @option opts [Boolean] :fill_ingredients Add information about the used and missing ingredients in each recipe.
-    # @option opts [Boolean] :add_recipe_information If set to true, you get more information about the recipes returned. This saves you from needing to call to get recipe information.
+    # @option opts [Boolean] :fill_ingredients Add information about the ingredients and whether they are used or missing in relation to the query.
+    # @option opts [Boolean] :add_recipe_information If set to true, you get more information about the recipes returned.
+    # @option opts [Boolean] :add_recipe_nutrition If set to true, you get nutritional information about each recipes returned.
     # @option opts [String] :author The username of the recipe author.
-    # @option opts [String] :tags User defined tags that have to match.
+    # @option opts [String] :tags User defined tags that have to match. The author param has to be set.
+    # @option opts [Float] :recipe_box_id The id of the recipe box to which the search should be limited to.
     # @option opts [String] :title_match Enter text that must be found in the title of the recipes.
     # @option opts [Float] :max_ready_time The maximum time in minutes it should take to prepare and cook the recipe.
     # @option opts [Boolean] :ignore_pantry Whether to ignore typical pantry items, such as water, salt, flour, etc.
@@ -3673,8 +4589,8 @@ module OpenapiClient
     # @option opts [Float] :max_sugar The maximum amount of sugar in grams the recipe can have.
     # @option opts [Float] :min_zinc The minimum amount of zinc in milligrams the recipe must have.
     # @option opts [Float] :max_zinc The maximum amount of zinc in milligrams the recipe can have.
-    # @option opts [Float] :offset The offset number for paging (between 0 and 990).
-    # @option opts [Float] :number The number of expected results (between 1 and 10).
+    # @option opts [Float] :offset The number of results to skip (between 0 and 900).
+    # @option opts [Float] :number The number of expected results (between 1 and 100).
     # @option opts [Boolean] :limit_license Whether the recipes should have an open license that allows display with proper attribution.
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def search_recipes_complex_with_http_info(query, opts = {})
@@ -3702,8 +4618,10 @@ module OpenapiClient
       query_params[:'instructionsRequired'] = opts[:'instructions_required'] if !opts[:'instructions_required'].nil?
       query_params[:'fillIngredients'] = opts[:'fill_ingredients'] if !opts[:'fill_ingredients'].nil?
       query_params[:'addRecipeInformation'] = opts[:'add_recipe_information'] if !opts[:'add_recipe_information'].nil?
+      query_params[:'addRecipeNutrition'] = opts[:'add_recipe_nutrition'] if !opts[:'add_recipe_nutrition'].nil?
       query_params[:'author'] = opts[:'author'] if !opts[:'author'].nil?
       query_params[:'tags'] = opts[:'tags'] if !opts[:'tags'].nil?
+      query_params[:'recipeBoxId'] = opts[:'recipe_box_id'] if !opts[:'recipe_box_id'].nil?
       query_params[:'titleMatch'] = opts[:'title_match'] if !opts[:'title_match'].nil?
       query_params[:'maxReadyTime'] = opts[:'max_ready_time'] if !opts[:'max_ready_time'].nil?
       query_params[:'ignorePantry'] = opts[:'ignore_pantry'] if !opts[:'ignore_pantry'].nil?

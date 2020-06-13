@@ -1,5 +1,10 @@
 #import <Foundation/Foundation.h>
+#import "OAIInlineObject10.h"
+#import "OAIInlineObject11.h"
+#import "OAIInlineObject12.h"
+#import "OAIInlineObject13.h"
 #import "OAIInlineObject8.h"
+#import "OAIInlineObject9.h"
 #import "OAIApi.h"
 
 /**
@@ -22,6 +27,44 @@ extern NSString* kOAIDefaultApiErrorDomain;
 extern NSInteger kOAIDefaultApiMissingParamErrorCode;
 
 -(instancetype) initWithApiClient:(OAIApiClient *)apiClient NS_DESIGNATED_INITIALIZER;
+
+/// Add to Meal Plan
+/// Add an item to the user's meal plan.
+///
+/// @param username The username.
+/// @param hash The private hash for the username.
+/// @param inlineObject9 
+/// 
+///  code:200 message:"Success",
+///  code:401 message:"Unauthorized",
+///  code:403 message:"Forbidden",
+///  code:404 message:"Not Found"
+///
+/// @return NSObject*
+-(NSURLSessionTask*) addToMealPlanWithUsername: (NSString*) username
+    hash: (NSString*) hash
+    inlineObject9: (OAIInlineObject9*) inlineObject9
+    completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
+
+
+/// Add to Shopping List
+/// Add an item to the current shopping list of a user.
+///
+/// @param username The username.
+/// @param hash The private hash for the username.
+/// @param inlineObject12 
+/// 
+///  code:200 message:"Success",
+///  code:401 message:"Unauthorized",
+///  code:403 message:"Forbidden",
+///  code:404 message:"Not Found"
+///
+/// @return NSObject*
+-(NSURLSessionTask*) addToShoppingListWithUsername: (NSString*) username
+    hash: (NSString*) hash
+    inlineObject12: (OAIInlineObject12*) inlineObject12
+    completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
+
 
 /// Analyze a Recipe Search Query
 /// Parse a recipe search query to find out its intention.
@@ -234,6 +277,48 @@ extern NSInteger kOAIDefaultApiMissingParamErrorCode;
     completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
 
 
+/// Delete from Meal Plan
+/// Delete an item from the user's meal plan.
+///
+/// @param username The username.
+/// @param _id The shopping list item id.
+/// @param hash The private hash for the username.
+/// @param inlineObject10 
+/// 
+///  code:200 message:"Success",
+///  code:401 message:"Unauthorized",
+///  code:403 message:"Forbidden",
+///  code:404 message:"Not Found"
+///
+/// @return NSObject*
+-(NSURLSessionTask*) deleteFromMealPlanWithUsername: (NSString*) username
+    _id: (NSNumber*) _id
+    hash: (NSString*) hash
+    inlineObject10: (OAIInlineObject10*) inlineObject10
+    completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
+
+
+/// Delete from Shopping List
+/// Delete an item from the current shopping list of the user.
+///
+/// @param username The username.
+/// @param _id The shopping list item id.
+/// @param hash The private hash for the username.
+/// @param inlineObject13 
+/// 
+///  code:200 message:"Success",
+///  code:401 message:"Unauthorized",
+///  code:403 message:"Forbidden",
+///  code:404 message:"Not Found"
+///
+/// @return NSObject*
+-(NSURLSessionTask*) deleteFromShoppingListWithUsername: (NSString*) username
+    _id: (NSNumber*) _id
+    hash: (NSString*) hash
+    inlineObject13: (OAIInlineObject13*) inlineObject13
+    completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
+
+
 /// Detect Food in Text
 /// Take any text and find all mentions of food contained within it. This task is also called Named Entity Recognition (NER). In this case, the entities are foods. Either dishes, such as pizza or cheeseburger, or ingredients, such as cucumber or almonds.
 ///
@@ -254,6 +339,7 @@ extern NSInteger kOAIDefaultApiMissingParamErrorCode;
 ///
 /// @param url The URL of the recipe page.
 /// @param forceExtraction If true, the extraction will be triggered whether we already know the recipe or not. Use this only if information is missing as this operation is slower. (optional)
+/// @param analyze If true, the recipe will be analyzed and classified resolving in more data such as cuisines, dish types, and more. (optional)
 /// 
 ///  code:200 message:"Success",
 ///  code:401 message:"Unauthorized",
@@ -263,6 +349,7 @@ extern NSInteger kOAIDefaultApiMissingParamErrorCode;
 /// @return NSObject*
 -(NSURLSessionTask*) extractRecipeFromWebsiteWithUrl: (NSString*) url
     forceExtraction: (NSNumber*) forceExtraction
+    analyze: (NSNumber*) analyze
     completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
 
 
@@ -284,6 +371,29 @@ extern NSInteger kOAIDefaultApiMissingParamErrorCode;
     targetCalories: (NSNumber*) targetCalories
     diet: (NSString*) diet
     exclude: (NSString*) exclude
+    completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
+
+
+/// Generate Shopping List
+/// Generate the shopping list for a user from the meal planner in a given time frame.
+///
+/// @param username The username.
+/// @param startDate The start date in the format yyyy-mm-dd.
+/// @param endDate The end date in the format yyyy-mm-dd.
+/// @param hash The private hash for the username.
+/// @param inlineObject11 
+/// 
+///  code:200 message:"Success",
+///  code:401 message:"Unauthorized",
+///  code:403 message:"Forbidden",
+///  code:404 message:"Not Found"
+///
+/// @return NSObject*
+-(NSURLSessionTask*) generateShoppingListWithUsername: (NSString*) username
+    startDate: (NSString*) startDate
+    endDate: (NSString*) endDate
+    hash: (NSString*) hash
+    inlineObject11: (OAIInlineObject11*) inlineObject11
     completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
 
 
@@ -414,6 +524,61 @@ extern NSInteger kOAIDefaultApiMissingParamErrorCode;
     completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
 
 
+/// Get Meal Plan Template
+/// Get information about a meal plan template.
+///
+/// @param username The username.
+/// @param _id The shopping list item id.
+/// @param hash The private hash for the username.
+/// 
+///  code:200 message:"Success",
+///  code:401 message:"Unauthorized",
+///  code:403 message:"Forbidden",
+///  code:404 message:"Not Found"
+///
+/// @return NSObject*
+-(NSURLSessionTask*) getMealPlanTemplateWithUsername: (NSString*) username
+    _id: (NSNumber*) _id
+    hash: (NSString*) hash
+    completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
+
+
+/// Get Meal Plan Templates
+/// Get meal plan templates from user or public ones.
+///
+/// @param username The username.
+/// @param hash The private hash for the username.
+/// 
+///  code:200 message:"Success",
+///  code:401 message:"Unauthorized",
+///  code:403 message:"Forbidden",
+///  code:404 message:"Not Found"
+///
+/// @return NSObject*
+-(NSURLSessionTask*) getMealPlanTemplatesWithUsername: (NSString*) username
+    hash: (NSString*) hash
+    completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
+
+
+/// Get Meal Plan Week
+/// Retrieve a meal planned week for the given user. The username must be a spoonacular user and the hash must the the user's hash that can be found in his/her account.
+///
+/// @param username The username.
+/// @param startDate The start date of the meal planned week in the format yyyy-mm-dd.
+/// @param hash The private hash for the username.
+/// 
+///  code:200 message:"Success",
+///  code:401 message:"Unauthorized",
+///  code:403 message:"Forbidden",
+///  code:404 message:"Not Found"
+///
+/// @return NSObject*
+-(NSURLSessionTask*) getMealPlanWeekWithUsername: (NSString*) username
+    startDate: (NSString*) startDate
+    hash: (NSString*) hash
+    completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
+
+
 /// Get Menu Item Information
 /// Use a menu item id to get all available information about a menu item, such as nutrition.
 ///
@@ -430,7 +595,7 @@ extern NSInteger kOAIDefaultApiMissingParamErrorCode;
 
 
 /// Get Product Information
-/// Use a product id to get full information about a product, such as ingredients, nutrition, etc.
+/// Use a product id to get full information about a product, such as ingredients, nutrition, etc. The nutritional information is per serving.
 ///
 /// @param _id The id of the packaged food.
 /// 
@@ -571,11 +736,29 @@ extern NSInteger kOAIDefaultApiMissingParamErrorCode;
     completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
 
 
+/// Get Shopping List
+/// Get the current shopping list for the given user.
+///
+/// @param username The username.
+/// @param hash The private hash for the username.
+/// 
+///  code:200 message:"Success",
+///  code:401 message:"Unauthorized",
+///  code:403 message:"Forbidden",
+///  code:404 message:"Not Found"
+///
+/// @return NSObject*
+-(NSURLSessionTask*) getShoppingListWithUsername: (NSString*) username
+    hash: (NSString*) hash
+    completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
+
+
 /// Get Similar Recipes
 /// Find recipes which are similar to the given one.
 ///
 /// @param _id The id of the source recipe for which similar recipes should be found.
 /// @param number The number of random recipes to be returned (between 1 and 100). (optional)
+/// @param limitLicense Whether the recipes should have an open license that allows display with proper attribution. (optional)
 /// 
 ///  code:200 message:"Success",
 ///  code:401 message:"Unauthorized",
@@ -585,6 +768,7 @@ extern NSInteger kOAIDefaultApiMissingParamErrorCode;
 /// @return NSObject*
 -(NSURLSessionTask*) getSimilarRecipesWithId: (NSNumber*) _id
     number: (NSNumber*) number
+    limitLicense: (NSNumber*) limitLicense
     completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
 
 
@@ -656,6 +840,36 @@ extern NSInteger kOAIDefaultApiMissingParamErrorCode;
     completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
 
 
+/// Image Analysis by URL
+/// Analyze a food image. The API tries to classify the image, guess the nutrition, and find a matching recipes. You can play around with that endpoint!
+///
+/// @param imageUrl The URL of the image to be analyzed.
+/// 
+///  code:200 message:"Success",
+///  code:401 message:"Unauthorized",
+///  code:403 message:"Forbidden",
+///  code:404 message:"Not Found"
+///
+/// @return NSObject*
+-(NSURLSessionTask*) imageAnalysisByURLWithImageUrl: (NSString*) imageUrl
+    completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
+
+
+/// Image Classification by URL
+/// Classify a food image. You can play around with that endpoint!
+///
+/// @param imageUrl The URL of the image to be classified.
+/// 
+///  code:200 message:"Success",
+///  code:401 message:"Unauthorized",
+///  code:403 message:"Forbidden",
+///  code:404 message:"Not Found"
+///
+/// @return NSObject*
+-(NSURLSessionTask*) imageClassificationByURLWithImageUrl: (NSString*) imageUrl
+    completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
+
+
 /// Map Ingredients to Grocery Products
 /// Map a set of ingredients to products you can buy in the grocery store.
 ///
@@ -705,6 +919,29 @@ extern NSInteger kOAIDefaultApiMissingParamErrorCode;
     completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
 
 
+/// Search Custom Foods
+/// Search custom foods in a user's account.
+///
+/// @param query The search query.
+/// @param username The username.
+/// @param hash The private hash for the username.
+/// @param offset The number of results to skip (between 0 and 990). (optional)
+/// @param number The number of expected results (between 1 and 100). (optional)
+/// 
+///  code:200 message:"Success",
+///  code:401 message:"Unauthorized",
+///  code:403 message:"Forbidden",
+///  code:404 message:"Not Found"
+///
+/// @return NSObject*
+-(NSURLSessionTask*) searchCustomFoodsWithQuery: (NSString*) query
+    username: (NSString*) username
+    hash: (NSString*) hash
+    offset: (NSNumber*) offset
+    number: (NSNumber*) number
+    completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
+
+
 /// Search Food Videos
 /// Find recipe and other food related videos.
 ///
@@ -750,7 +987,7 @@ extern NSInteger kOAIDefaultApiMissingParamErrorCode;
 /// @param maxProtein The maximum amount of protein in grams the product can have. (optional)
 /// @param minFat The minimum amount of fat in grams the product must have. (optional)
 /// @param maxFat The maximum amount of fat in grams the product can have. (optional)
-/// @param offset The offset number for paging (between 0 and 990). (optional)
+/// @param offset The number of results to skip (between 0 and 990). (optional)
 /// @param number The number of expected results (between 1 and 100). (optional)
 /// 
 ///  code:200 message:"Success",
@@ -855,7 +1092,7 @@ extern NSInteger kOAIDefaultApiMissingParamErrorCode;
 
 
 /// Search Recipes by Ingredients
-/// Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don't currently have (post shopping).
+///              Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don't currently have (post shopping).         
 ///
 /// @param ingredients A comma-separated list of ingredients that the recipes should contain.
 /// @param number The maximum number of recipes to return (between 1 and 100). Defaults to 10. (optional)
@@ -952,7 +1189,7 @@ extern NSInteger kOAIDefaultApiMissingParamErrorCode;
 /// @param maxSugar The maximum amount of sugar in grams the recipe can have. (optional)
 /// @param minZinc The minimum amount of zinc in milligrams the recipe must have. (optional)
 /// @param maxZinc The maximum amount of zinc in milligrams the recipe can have. (optional)
-/// @param offset The offset number for paging (between 0 and 990). (optional)
+/// @param offset The number of results to skip (between 0 and 900). (optional)
 /// @param number The number of expected results (between 1 and 100). (optional)
 /// @param random If true, every request will give you a random set of recipes within the requested limits. (optional)
 /// @param limitLicense Whether the recipes should have an open license that allows display with proper attribution. (optional)
@@ -1055,10 +1292,12 @@ extern NSInteger kOAIDefaultApiMissingParamErrorCode;
 /// @param excludeIngredients A comma-separated list of ingredients or ingredient types that the recipes must not contain. (optional)
 /// @param type The type of recipe. See a full list of supported meal types. (optional)
 /// @param instructionsRequired Whether the recipes must have instructions. (optional)
-/// @param fillIngredients Add information about the used and missing ingredients in each recipe. (optional)
-/// @param addRecipeInformation If set to true, you get more information about the recipes returned. This saves you from needing to call to get recipe information. (optional)
+/// @param fillIngredients Add information about the ingredients and whether they are used or missing in relation to the query. (optional)
+/// @param addRecipeInformation If set to true, you get more information about the recipes returned. (optional)
+/// @param addRecipeNutrition If set to true, you get nutritional information about each recipes returned. (optional)
 /// @param author The username of the recipe author. (optional)
-/// @param tags User defined tags that have to match. (optional)
+/// @param tags User defined tags that have to match. The author param has to be set. (optional)
+/// @param recipeBoxId The id of the recipe box to which the search should be limited to. (optional)
 /// @param titleMatch Enter text that must be found in the title of the recipes. (optional)
 /// @param maxReadyTime The maximum time in minutes it should take to prepare and cook the recipe. (optional)
 /// @param ignorePantry Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional)
@@ -1136,8 +1375,8 @@ extern NSInteger kOAIDefaultApiMissingParamErrorCode;
 /// @param maxSugar The maximum amount of sugar in grams the recipe can have. (optional)
 /// @param minZinc The minimum amount of zinc in milligrams the recipe must have. (optional)
 /// @param maxZinc The maximum amount of zinc in milligrams the recipe can have. (optional)
-/// @param offset The offset number for paging (between 0 and 990). (optional)
-/// @param number The number of expected results (between 1 and 10). (optional)
+/// @param offset The number of results to skip (between 0 and 900). (optional)
+/// @param number The number of expected results (between 1 and 100). (optional)
 /// @param limitLicense Whether the recipes should have an open license that allows display with proper attribution. (optional)
 /// 
 ///  code:200 message:"Success",
@@ -1158,8 +1397,10 @@ extern NSInteger kOAIDefaultApiMissingParamErrorCode;
     instructionsRequired: (NSNumber*) instructionsRequired
     fillIngredients: (NSNumber*) fillIngredients
     addRecipeInformation: (NSNumber*) addRecipeInformation
+    addRecipeNutrition: (NSNumber*) addRecipeNutrition
     author: (NSString*) author
     tags: (NSString*) tags
+    recipeBoxId: (NSNumber*) recipeBoxId
     titleMatch: (NSString*) titleMatch
     maxReadyTime: (NSNumber*) maxReadyTime
     ignorePantry: (NSNumber*) ignorePantry

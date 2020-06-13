@@ -22,7 +22,12 @@ import java.util.*;
 
 import java.math.BigDecimal;
 import java.io.File;
+import com.spoonacular.client.model.InlineObject10;
+import com.spoonacular.client.model.InlineObject11;
+import com.spoonacular.client.model.InlineObject12;
+import com.spoonacular.client.model.InlineObject13;
 import com.spoonacular.client.model.InlineObject8;
+import com.spoonacular.client.model.InlineObject9;
 
 import org.apache.http.entity.mime.MultipartEntityBuilder;
 
@@ -50,6 +55,132 @@ public class DefaultApi {
     return basePath;
   }
 
+  /**
+   * Add to Meal Plan
+   * Add an item to the user&#39;s meal plan.
+   * @param username The username.
+   * @param hash The private hash for the username.
+   * @param inlineObject9 
+   * @return Object
+   */
+  public Object  addToMealPlan (String username, String hash, InlineObject9 inlineObject9) throws ApiException {
+    Object localVarPostBody = inlineObject9;
+    // verify the required parameter 'username' is set
+    if (username == null) {
+       throw new ApiException(400, "Missing the required parameter 'username' when calling addToMealPlan");
+    }
+    // verify the required parameter 'hash' is set
+    if (hash == null) {
+       throw new ApiException(400, "Missing the required parameter 'hash' when calling addToMealPlan");
+    }
+    // verify the required parameter 'inlineObject9' is set
+    if (inlineObject9 == null) {
+       throw new ApiException(400, "Missing the required parameter 'inlineObject9' when calling addToMealPlan");
+    }
+
+    // create path and map variables
+    String localVarPath = "/mealplanner/{username}/items".replaceAll("\\{format\\}","json").replaceAll("\\{" + "username" + "\\}", apiInvoker.escapeString(username.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> localVarFormParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "hash", hash));
+
+
+    String[] localVarContentTypes = {
+      ""
+    };
+    String localVarContentType = localVarContentTypes.length > 0 ? localVarContentTypes[0] : "application/json";
+
+    if (localVarContentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      
+
+      localVarPostBody = localVarBuilder.build();
+    } else {
+      // normal form params
+          }
+
+    try {
+      String localVarResponse = apiInvoker.invokeAPI(basePath, localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarContentType);
+      if(localVarResponse != null){
+        return (Object) ApiInvoker.deserialize(localVarResponse, "", Object.class);
+      }
+      else {
+        return null;
+      }
+    } catch (ApiException ex) {
+      throw ex;
+    }
+  }
+  /**
+   * Add to Shopping List
+   * Add an item to the current shopping list of a user.
+   * @param username The username.
+   * @param hash The private hash for the username.
+   * @param inlineObject12 
+   * @return Object
+   */
+  public Object  addToShoppingList (String username, String hash, InlineObject12 inlineObject12) throws ApiException {
+    Object localVarPostBody = inlineObject12;
+    // verify the required parameter 'username' is set
+    if (username == null) {
+       throw new ApiException(400, "Missing the required parameter 'username' when calling addToShoppingList");
+    }
+    // verify the required parameter 'hash' is set
+    if (hash == null) {
+       throw new ApiException(400, "Missing the required parameter 'hash' when calling addToShoppingList");
+    }
+    // verify the required parameter 'inlineObject12' is set
+    if (inlineObject12 == null) {
+       throw new ApiException(400, "Missing the required parameter 'inlineObject12' when calling addToShoppingList");
+    }
+
+    // create path and map variables
+    String localVarPath = "/mealplanner/{username}/shopping-list/items".replaceAll("\\{format\\}","json").replaceAll("\\{" + "username" + "\\}", apiInvoker.escapeString(username.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> localVarFormParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "hash", hash));
+
+
+    String[] localVarContentTypes = {
+      ""
+    };
+    String localVarContentType = localVarContentTypes.length > 0 ? localVarContentTypes[0] : "application/json";
+
+    if (localVarContentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      
+
+      localVarPostBody = localVarBuilder.build();
+    } else {
+      // normal form params
+          }
+
+    try {
+      String localVarResponse = apiInvoker.invokeAPI(basePath, localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarContentType);
+      if(localVarResponse != null){
+        return (Object) ApiInvoker.deserialize(localVarResponse, "", Object.class);
+      }
+      else {
+        return null;
+      }
+    } catch (ApiException ex) {
+      throw ex;
+    }
+  }
   /**
    * Analyze a Recipe Search Query
    * Parse a recipe search query to find out its intention.
@@ -782,6 +913,142 @@ localVarFormParams.put("source", ApiInvoker.parameterToString(source));
     }
   }
   /**
+   * Delete from Meal Plan
+   * Delete an item from the user&#39;s meal plan.
+   * @param username The username.
+   * @param id The shopping list item id.
+   * @param hash The private hash for the username.
+   * @param inlineObject10 
+   * @return Object
+   */
+  public Object  deleteFromMealPlan (String username, BigDecimal id, String hash, InlineObject10 inlineObject10) throws ApiException {
+    Object localVarPostBody = inlineObject10;
+    // verify the required parameter 'username' is set
+    if (username == null) {
+       throw new ApiException(400, "Missing the required parameter 'username' when calling deleteFromMealPlan");
+    }
+    // verify the required parameter 'id' is set
+    if (id == null) {
+       throw new ApiException(400, "Missing the required parameter 'id' when calling deleteFromMealPlan");
+    }
+    // verify the required parameter 'hash' is set
+    if (hash == null) {
+       throw new ApiException(400, "Missing the required parameter 'hash' when calling deleteFromMealPlan");
+    }
+    // verify the required parameter 'inlineObject10' is set
+    if (inlineObject10 == null) {
+       throw new ApiException(400, "Missing the required parameter 'inlineObject10' when calling deleteFromMealPlan");
+    }
+
+    // create path and map variables
+    String localVarPath = "/mealplanner/{username}/items/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "username" + "\\}", apiInvoker.escapeString(username.toString())).replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> localVarFormParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "hash", hash));
+
+
+    String[] localVarContentTypes = {
+      ""
+    };
+    String localVarContentType = localVarContentTypes.length > 0 ? localVarContentTypes[0] : "application/json";
+
+    if (localVarContentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      
+
+      localVarPostBody = localVarBuilder.build();
+    } else {
+      // normal form params
+          }
+
+    try {
+      String localVarResponse = apiInvoker.invokeAPI(basePath, localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarContentType);
+      if(localVarResponse != null){
+        return (Object) ApiInvoker.deserialize(localVarResponse, "", Object.class);
+      }
+      else {
+        return null;
+      }
+    } catch (ApiException ex) {
+      throw ex;
+    }
+  }
+  /**
+   * Delete from Shopping List
+   * Delete an item from the current shopping list of the user.
+   * @param username The username.
+   * @param id The shopping list item id.
+   * @param hash The private hash for the username.
+   * @param inlineObject13 
+   * @return Object
+   */
+  public Object  deleteFromShoppingList (String username, BigDecimal id, String hash, InlineObject13 inlineObject13) throws ApiException {
+    Object localVarPostBody = inlineObject13;
+    // verify the required parameter 'username' is set
+    if (username == null) {
+       throw new ApiException(400, "Missing the required parameter 'username' when calling deleteFromShoppingList");
+    }
+    // verify the required parameter 'id' is set
+    if (id == null) {
+       throw new ApiException(400, "Missing the required parameter 'id' when calling deleteFromShoppingList");
+    }
+    // verify the required parameter 'hash' is set
+    if (hash == null) {
+       throw new ApiException(400, "Missing the required parameter 'hash' when calling deleteFromShoppingList");
+    }
+    // verify the required parameter 'inlineObject13' is set
+    if (inlineObject13 == null) {
+       throw new ApiException(400, "Missing the required parameter 'inlineObject13' when calling deleteFromShoppingList");
+    }
+
+    // create path and map variables
+    String localVarPath = "/mealplanner/{username}/shopping-list/items/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "username" + "\\}", apiInvoker.escapeString(username.toString())).replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> localVarFormParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "hash", hash));
+
+
+    String[] localVarContentTypes = {
+      ""
+    };
+    String localVarContentType = localVarContentTypes.length > 0 ? localVarContentTypes[0] : "application/json";
+
+    if (localVarContentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      
+
+      localVarPostBody = localVarBuilder.build();
+    } else {
+      // normal form params
+          }
+
+    try {
+      String localVarResponse = apiInvoker.invokeAPI(basePath, localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarContentType);
+      if(localVarResponse != null){
+        return (Object) ApiInvoker.deserialize(localVarResponse, "", Object.class);
+      }
+      else {
+        return null;
+      }
+    } catch (ApiException ex) {
+      throw ex;
+    }
+  }
+  /**
    * Detect Food in Text
    * Take any text and find all mentions of food contained within it. This task is also called Named Entity Recognition (NER). In this case, the entities are foods. Either dishes, such as pizza or cheeseburger, or ingredients, such as cucumber or almonds.
    * @param text The text in which food items, such as dish names and ingredients, should be detected in.
@@ -843,9 +1110,10 @@ localVarFormParams.put("source", ApiInvoker.parameterToString(source));
    * This endpoint lets you extract recipe data such as title, ingredients, and instructions from any properly formatted Website.
    * @param url The URL of the recipe page.
    * @param forceExtraction If true, the extraction will be triggered whether we already know the recipe or not. Use this only if information is missing as this operation is slower.
+   * @param analyze If true, the recipe will be analyzed and classified resolving in more data such as cuisines, dish types, and more.
    * @return Object
    */
-  public Object  extractRecipeFromWebsite (String url, Boolean forceExtraction) throws ApiException {
+  public Object  extractRecipeFromWebsite (String url, Boolean forceExtraction, Boolean analyze) throws ApiException {
     Object localVarPostBody = null;
     // verify the required parameter 'url' is set
     if (url == null) {
@@ -864,6 +1132,7 @@ localVarFormParams.put("source", ApiInvoker.parameterToString(source));
 
     localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "url", url));
     localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "forceExtraction", forceExtraction));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "analyze", analyze));
 
 
     String[] localVarContentTypes = {
@@ -938,6 +1207,79 @@ localVarFormParams.put("source", ApiInvoker.parameterToString(source));
 
     try {
       String localVarResponse = apiInvoker.invokeAPI(basePath, localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarContentType);
+      if(localVarResponse != null){
+        return (Object) ApiInvoker.deserialize(localVarResponse, "", Object.class);
+      }
+      else {
+        return null;
+      }
+    } catch (ApiException ex) {
+      throw ex;
+    }
+  }
+  /**
+   * Generate Shopping List
+   * Generate the shopping list for a user from the meal planner in a given time frame.
+   * @param username The username.
+   * @param startDate The start date in the format yyyy-mm-dd.
+   * @param endDate The end date in the format yyyy-mm-dd.
+   * @param hash The private hash for the username.
+   * @param inlineObject11 
+   * @return Object
+   */
+  public Object  generateShoppingList (String username, String startDate, String endDate, String hash, InlineObject11 inlineObject11) throws ApiException {
+    Object localVarPostBody = inlineObject11;
+    // verify the required parameter 'username' is set
+    if (username == null) {
+       throw new ApiException(400, "Missing the required parameter 'username' when calling generateShoppingList");
+    }
+    // verify the required parameter 'startDate' is set
+    if (startDate == null) {
+       throw new ApiException(400, "Missing the required parameter 'startDate' when calling generateShoppingList");
+    }
+    // verify the required parameter 'endDate' is set
+    if (endDate == null) {
+       throw new ApiException(400, "Missing the required parameter 'endDate' when calling generateShoppingList");
+    }
+    // verify the required parameter 'hash' is set
+    if (hash == null) {
+       throw new ApiException(400, "Missing the required parameter 'hash' when calling generateShoppingList");
+    }
+    // verify the required parameter 'inlineObject11' is set
+    if (inlineObject11 == null) {
+       throw new ApiException(400, "Missing the required parameter 'inlineObject11' when calling generateShoppingList");
+    }
+
+    // create path and map variables
+    String localVarPath = "/mealplanner/{username}/shopping-list/{start-date}/{end-date}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "username" + "\\}", apiInvoker.escapeString(username.toString())).replaceAll("\\{" + "start-date" + "\\}", apiInvoker.escapeString(startDate.toString())).replaceAll("\\{" + "end-date" + "\\}", apiInvoker.escapeString(endDate.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> localVarFormParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "hash", hash));
+
+
+    String[] localVarContentTypes = {
+      ""
+    };
+    String localVarContentType = localVarContentTypes.length > 0 ? localVarContentTypes[0] : "application/json";
+
+    if (localVarContentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      
+
+      localVarPostBody = localVarBuilder.build();
+    } else {
+      // normal form params
+          }
+
+    try {
+      String localVarResponse = apiInvoker.invokeAPI(basePath, localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarContentType);
       if(localVarResponse != null){
         return (Object) ApiInvoker.deserialize(localVarResponse, "", Object.class);
       }
@@ -1371,6 +1713,190 @@ localVarFormParams.put("source", ApiInvoker.parameterToString(source));
     }
   }
   /**
+   * Get Meal Plan Template
+   * Get information about a meal plan template.
+   * @param username The username.
+   * @param id The shopping list item id.
+   * @param hash The private hash for the username.
+   * @return Object
+   */
+  public Object  getMealPlanTemplate (String username, BigDecimal id, String hash) throws ApiException {
+    Object localVarPostBody = null;
+    // verify the required parameter 'username' is set
+    if (username == null) {
+       throw new ApiException(400, "Missing the required parameter 'username' when calling getMealPlanTemplate");
+    }
+    // verify the required parameter 'id' is set
+    if (id == null) {
+       throw new ApiException(400, "Missing the required parameter 'id' when calling getMealPlanTemplate");
+    }
+    // verify the required parameter 'hash' is set
+    if (hash == null) {
+       throw new ApiException(400, "Missing the required parameter 'hash' when calling getMealPlanTemplate");
+    }
+
+    // create path and map variables
+    String localVarPath = "/mealplanner/{username}/templates/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "username" + "\\}", apiInvoker.escapeString(username.toString())).replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> localVarFormParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "hash", hash));
+
+
+    String[] localVarContentTypes = {
+      
+    };
+    String localVarContentType = localVarContentTypes.length > 0 ? localVarContentTypes[0] : "application/json";
+
+    if (localVarContentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      
+
+      localVarPostBody = localVarBuilder.build();
+    } else {
+      // normal form params
+          }
+
+    try {
+      String localVarResponse = apiInvoker.invokeAPI(basePath, localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarContentType);
+      if(localVarResponse != null){
+        return (Object) ApiInvoker.deserialize(localVarResponse, "", Object.class);
+      }
+      else {
+        return null;
+      }
+    } catch (ApiException ex) {
+      throw ex;
+    }
+  }
+  /**
+   * Get Meal Plan Templates
+   * Get meal plan templates from user or public ones.
+   * @param username The username.
+   * @param hash The private hash for the username.
+   * @return Object
+   */
+  public Object  getMealPlanTemplates (String username, String hash) throws ApiException {
+    Object localVarPostBody = null;
+    // verify the required parameter 'username' is set
+    if (username == null) {
+       throw new ApiException(400, "Missing the required parameter 'username' when calling getMealPlanTemplates");
+    }
+    // verify the required parameter 'hash' is set
+    if (hash == null) {
+       throw new ApiException(400, "Missing the required parameter 'hash' when calling getMealPlanTemplates");
+    }
+
+    // create path and map variables
+    String localVarPath = "/mealplanner/{username}/templates".replaceAll("\\{format\\}","json").replaceAll("\\{" + "username" + "\\}", apiInvoker.escapeString(username.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> localVarFormParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "hash", hash));
+
+
+    String[] localVarContentTypes = {
+      
+    };
+    String localVarContentType = localVarContentTypes.length > 0 ? localVarContentTypes[0] : "application/json";
+
+    if (localVarContentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      
+
+      localVarPostBody = localVarBuilder.build();
+    } else {
+      // normal form params
+          }
+
+    try {
+      String localVarResponse = apiInvoker.invokeAPI(basePath, localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarContentType);
+      if(localVarResponse != null){
+        return (Object) ApiInvoker.deserialize(localVarResponse, "", Object.class);
+      }
+      else {
+        return null;
+      }
+    } catch (ApiException ex) {
+      throw ex;
+    }
+  }
+  /**
+   * Get Meal Plan Week
+   * Retrieve a meal planned week for the given user. The username must be a spoonacular user and the hash must the the user&#39;s hash that can be found in his/her account.
+   * @param username The username.
+   * @param startDate The start date of the meal planned week in the format yyyy-mm-dd.
+   * @param hash The private hash for the username.
+   * @return Object
+   */
+  public Object  getMealPlanWeek (String username, String startDate, String hash) throws ApiException {
+    Object localVarPostBody = null;
+    // verify the required parameter 'username' is set
+    if (username == null) {
+       throw new ApiException(400, "Missing the required parameter 'username' when calling getMealPlanWeek");
+    }
+    // verify the required parameter 'startDate' is set
+    if (startDate == null) {
+       throw new ApiException(400, "Missing the required parameter 'startDate' when calling getMealPlanWeek");
+    }
+    // verify the required parameter 'hash' is set
+    if (hash == null) {
+       throw new ApiException(400, "Missing the required parameter 'hash' when calling getMealPlanWeek");
+    }
+
+    // create path and map variables
+    String localVarPath = "/mealplanner/{username}/week/{start-date}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "username" + "\\}", apiInvoker.escapeString(username.toString())).replaceAll("\\{" + "start-date" + "\\}", apiInvoker.escapeString(startDate.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> localVarFormParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "hash", hash));
+
+
+    String[] localVarContentTypes = {
+      
+    };
+    String localVarContentType = localVarContentTypes.length > 0 ? localVarContentTypes[0] : "application/json";
+
+    if (localVarContentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      
+
+      localVarPostBody = localVarBuilder.build();
+    } else {
+      // normal form params
+          }
+
+    try {
+      String localVarResponse = apiInvoker.invokeAPI(basePath, localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarContentType);
+      if(localVarResponse != null){
+        return (Object) ApiInvoker.deserialize(localVarResponse, "", Object.class);
+      }
+      else {
+        return null;
+      }
+    } catch (ApiException ex) {
+      throw ex;
+    }
+  }
+  /**
    * Get Menu Item Information
    * Use a menu item id to get all available information about a menu item, such as nutrition.
    * @param id The menu item id.
@@ -1424,7 +1950,7 @@ localVarFormParams.put("source", ApiInvoker.parameterToString(source));
   }
   /**
    * Get Product Information
-   * Use a product id to get full information about a product, such as ingredients, nutrition, etc.
+   * Use a product id to get full information about a product, such as ingredients, nutrition, etc. The nutritional information is per serving.
    * @param id The id of the packaged food.
    * @return Object
    */
@@ -1892,13 +2418,72 @@ localVarFormParams.put("source", ApiInvoker.parameterToString(source));
     }
   }
   /**
+   * Get Shopping List
+   * Get the current shopping list for the given user.
+   * @param username The username.
+   * @param hash The private hash for the username.
+   * @return Object
+   */
+  public Object  getShoppingList (String username, String hash) throws ApiException {
+    Object localVarPostBody = null;
+    // verify the required parameter 'username' is set
+    if (username == null) {
+       throw new ApiException(400, "Missing the required parameter 'username' when calling getShoppingList");
+    }
+    // verify the required parameter 'hash' is set
+    if (hash == null) {
+       throw new ApiException(400, "Missing the required parameter 'hash' when calling getShoppingList");
+    }
+
+    // create path and map variables
+    String localVarPath = "/mealplanner/{username}/shopping-list".replaceAll("\\{format\\}","json").replaceAll("\\{" + "username" + "\\}", apiInvoker.escapeString(username.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> localVarFormParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "hash", hash));
+
+
+    String[] localVarContentTypes = {
+      
+    };
+    String localVarContentType = localVarContentTypes.length > 0 ? localVarContentTypes[0] : "application/json";
+
+    if (localVarContentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      
+
+      localVarPostBody = localVarBuilder.build();
+    } else {
+      // normal form params
+          }
+
+    try {
+      String localVarResponse = apiInvoker.invokeAPI(basePath, localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarContentType);
+      if(localVarResponse != null){
+        return (Object) ApiInvoker.deserialize(localVarResponse, "", Object.class);
+      }
+      else {
+        return null;
+      }
+    } catch (ApiException ex) {
+      throw ex;
+    }
+  }
+  /**
    * Get Similar Recipes
    * Find recipes which are similar to the given one.
    * @param id The id of the source recipe for which similar recipes should be found.
    * @param number The number of random recipes to be returned (between 1 and 100).
+   * @param limitLicense Whether the recipes should have an open license that allows display with proper attribution.
    * @return Object
    */
-  public Object  getSimilarRecipes (BigDecimal id, BigDecimal number) throws ApiException {
+  public Object  getSimilarRecipes (BigDecimal id, BigDecimal number, Boolean limitLicense) throws ApiException {
     Object localVarPostBody = null;
     // verify the required parameter 'id' is set
     if (id == null) {
@@ -1916,6 +2501,7 @@ localVarFormParams.put("source", ApiInvoker.parameterToString(source));
     Map<String, String> localVarFormParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "number", number));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "limitLicense", limitLicense));
 
 
     String[] localVarContentTypes = {
@@ -2166,6 +2752,112 @@ localVarFormParams.put("source", ApiInvoker.parameterToString(source));
     }
   }
   /**
+   * Image Analysis by URL
+   * Analyze a food image. The API tries to classify the image, guess the nutrition, and find a matching recipes. You can play around with that endpoint!
+   * @param imageUrl The URL of the image to be analyzed.
+   * @return Object
+   */
+  public Object  imageAnalysisByURL (String imageUrl) throws ApiException {
+    Object localVarPostBody = null;
+    // verify the required parameter 'imageUrl' is set
+    if (imageUrl == null) {
+       throw new ApiException(400, "Missing the required parameter 'imageUrl' when calling imageAnalysisByURL");
+    }
+
+    // create path and map variables
+    String localVarPath = "/food/images/analyze".replaceAll("\\{format\\}","json");
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> localVarFormParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "imageUrl", imageUrl));
+
+
+    String[] localVarContentTypes = {
+      
+    };
+    String localVarContentType = localVarContentTypes.length > 0 ? localVarContentTypes[0] : "application/json";
+
+    if (localVarContentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      
+
+      localVarPostBody = localVarBuilder.build();
+    } else {
+      // normal form params
+          }
+
+    try {
+      String localVarResponse = apiInvoker.invokeAPI(basePath, localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarContentType);
+      if(localVarResponse != null){
+        return (Object) ApiInvoker.deserialize(localVarResponse, "", Object.class);
+      }
+      else {
+        return null;
+      }
+    } catch (ApiException ex) {
+      throw ex;
+    }
+  }
+  /**
+   * Image Classification by URL
+   * Classify a food image. You can play around with that endpoint!
+   * @param imageUrl The URL of the image to be classified.
+   * @return Object
+   */
+  public Object  imageClassificationByURL (String imageUrl) throws ApiException {
+    Object localVarPostBody = null;
+    // verify the required parameter 'imageUrl' is set
+    if (imageUrl == null) {
+       throw new ApiException(400, "Missing the required parameter 'imageUrl' when calling imageClassificationByURL");
+    }
+
+    // create path and map variables
+    String localVarPath = "/food/images/classify".replaceAll("\\{format\\}","json");
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> localVarFormParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "imageUrl", imageUrl));
+
+
+    String[] localVarContentTypes = {
+      
+    };
+    String localVarContentType = localVarContentTypes.length > 0 ? localVarContentTypes[0] : "application/json";
+
+    if (localVarContentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      
+
+      localVarPostBody = localVarBuilder.build();
+    } else {
+      // normal form params
+          }
+
+    try {
+      String localVarResponse = apiInvoker.invokeAPI(basePath, localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarContentType);
+      if(localVarResponse != null){
+        return (Object) ApiInvoker.deserialize(localVarResponse, "", Object.class);
+      }
+      else {
+        return null;
+      }
+    } catch (ApiException ex) {
+      throw ex;
+    }
+  }
+  /**
    * Map Ingredients to Grocery Products
    * Map a set of ingredients to products you can buy in the grocery store.
    * @param body 
@@ -2344,6 +3036,75 @@ localVarFormParams.put("includeNutrition", ApiInvoker.parameterToString(includeN
     }
   }
   /**
+   * Search Custom Foods
+   * Search custom foods in a user&#39;s account.
+   * @param query The search query.
+   * @param username The username.
+   * @param hash The private hash for the username.
+   * @param offset The number of results to skip (between 0 and 990).
+   * @param number The number of expected results (between 1 and 100).
+   * @return Object
+   */
+  public Object  searchCustomFoods (String query, String username, String hash, BigDecimal offset, BigDecimal number) throws ApiException {
+    Object localVarPostBody = null;
+    // verify the required parameter 'query' is set
+    if (query == null) {
+       throw new ApiException(400, "Missing the required parameter 'query' when calling searchCustomFoods");
+    }
+    // verify the required parameter 'username' is set
+    if (username == null) {
+       throw new ApiException(400, "Missing the required parameter 'username' when calling searchCustomFoods");
+    }
+    // verify the required parameter 'hash' is set
+    if (hash == null) {
+       throw new ApiException(400, "Missing the required parameter 'hash' when calling searchCustomFoods");
+    }
+
+    // create path and map variables
+    String localVarPath = "/food/customFoods/search".replaceAll("\\{format\\}","json");
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> localVarFormParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "query", query));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "username", username));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "hash", hash));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "offset", offset));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "number", number));
+
+
+    String[] localVarContentTypes = {
+      
+    };
+    String localVarContentType = localVarContentTypes.length > 0 ? localVarContentTypes[0] : "application/json";
+
+    if (localVarContentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      
+
+      localVarPostBody = localVarBuilder.build();
+    } else {
+      // normal form params
+          }
+
+    try {
+      String localVarResponse = apiInvoker.invokeAPI(basePath, localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarContentType);
+      if(localVarResponse != null){
+        return (Object) ApiInvoker.deserialize(localVarResponse, "", Object.class);
+      }
+      else {
+        return null;
+      }
+    } catch (ApiException ex) {
+      throw ex;
+    }
+  }
+  /**
    * Search Food Videos
    * Find recipe and other food related videos.
    * @param query The search query.
@@ -2426,7 +3187,7 @@ localVarFormParams.put("includeNutrition", ApiInvoker.parameterToString(includeN
    * @param maxProtein The maximum amount of protein in grams the product can have.
    * @param minFat The minimum amount of fat in grams the product must have.
    * @param maxFat The maximum amount of fat in grams the product can have.
-   * @param offset The offset number for paging (between 0 and 990).
+   * @param offset The number of results to skip (between 0 and 990).
    * @param number The number of expected results (between 1 and 100).
    * @return Object
    */
@@ -2683,7 +3444,7 @@ localVarFormParams.put("includeNutrition", ApiInvoker.parameterToString(includeN
   }
   /**
    * Search Recipes by Ingredients
-   * Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don&#39;t currently have (post shopping).
+   *              Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don&#39;t currently have (post shopping).         
    * @param ingredients A comma-separated list of ingredients that the recipes should contain.
    * @param number The maximum number of recipes to return (between 1 and 100). Defaults to 10.
    * @param limitLicense Whether the recipes should have an open license that allows display with proper attribution.
@@ -2817,7 +3578,7 @@ localVarFormParams.put("includeNutrition", ApiInvoker.parameterToString(includeN
    * @param maxSugar The maximum amount of sugar in grams the recipe can have.
    * @param minZinc The minimum amount of zinc in milligrams the recipe must have.
    * @param maxZinc The maximum amount of zinc in milligrams the recipe can have.
-   * @param offset The offset number for paging (between 0 and 990).
+   * @param offset The number of results to skip (between 0 and 900).
    * @param number The number of expected results (between 1 and 100).
    * @param random If true, every request will give you a random set of recipes within the requested limits.
    * @param limitLicense Whether the recipes should have an open license that allows display with proper attribution.
@@ -2954,10 +3715,12 @@ localVarFormParams.put("includeNutrition", ApiInvoker.parameterToString(includeN
    * @param excludeIngredients A comma-separated list of ingredients or ingredient types that the recipes must not contain.
    * @param type The type of recipe. See a full list of supported meal types.
    * @param instructionsRequired Whether the recipes must have instructions.
-   * @param fillIngredients Add information about the used and missing ingredients in each recipe.
-   * @param addRecipeInformation If set to true, you get more information about the recipes returned. This saves you from needing to call to get recipe information.
+   * @param fillIngredients Add information about the ingredients and whether they are used or missing in relation to the query.
+   * @param addRecipeInformation If set to true, you get more information about the recipes returned.
+   * @param addRecipeNutrition If set to true, you get nutritional information about each recipes returned.
    * @param author The username of the recipe author.
-   * @param tags User defined tags that have to match.
+   * @param tags User defined tags that have to match. The author param has to be set.
+   * @param recipeBoxId The id of the recipe box to which the search should be limited to.
    * @param titleMatch Enter text that must be found in the title of the recipes.
    * @param maxReadyTime The maximum time in minutes it should take to prepare and cook the recipe.
    * @param ignorePantry Whether to ignore typical pantry items, such as water, salt, flour, etc.
@@ -3035,12 +3798,12 @@ localVarFormParams.put("includeNutrition", ApiInvoker.parameterToString(includeN
    * @param maxSugar The maximum amount of sugar in grams the recipe can have.
    * @param minZinc The minimum amount of zinc in milligrams the recipe must have.
    * @param maxZinc The maximum amount of zinc in milligrams the recipe can have.
-   * @param offset The offset number for paging (between 0 and 990).
-   * @param number The number of expected results (between 1 and 10).
+   * @param offset The number of results to skip (between 0 and 900).
+   * @param number The number of expected results (between 1 and 100).
    * @param limitLicense Whether the recipes should have an open license that allows display with proper attribution.
    * @return Object
    */
-  public Object  searchRecipesComplex (String query, String cuisine, String excludeCuisine, String diet, String intolerances, String equipment, String includeIngredients, String excludeIngredients, String type, Boolean instructionsRequired, Boolean fillIngredients, Boolean addRecipeInformation, String author, String tags, String titleMatch, BigDecimal maxReadyTime, Boolean ignorePantry, String sort, String sortDirection, BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minFat, BigDecimal maxFat, BigDecimal minAlcohol, BigDecimal maxAlcohol, BigDecimal minCaffeine, BigDecimal maxCaffeine, BigDecimal minCopper, BigDecimal maxCopper, BigDecimal minCalcium, BigDecimal maxCalcium, BigDecimal minCholine, BigDecimal maxCholine, BigDecimal minCholesterol, BigDecimal maxCholesterol, BigDecimal minFluoride, BigDecimal maxFluoride, BigDecimal minSaturatedFat, BigDecimal maxSaturatedFat, BigDecimal minVitaminA, BigDecimal maxVitaminA, BigDecimal minVitaminC, BigDecimal maxVitaminC, BigDecimal minVitaminD, BigDecimal maxVitaminD, BigDecimal minVitaminE, BigDecimal maxVitaminE, BigDecimal minVitaminK, BigDecimal maxVitaminK, BigDecimal minVitaminB1, BigDecimal maxVitaminB1, BigDecimal minVitaminB2, BigDecimal maxVitaminB2, BigDecimal minVitaminB5, BigDecimal maxVitaminB5, BigDecimal minVitaminB3, BigDecimal maxVitaminB3, BigDecimal minVitaminB6, BigDecimal maxVitaminB6, BigDecimal minVitaminB12, BigDecimal maxVitaminB12, BigDecimal minFiber, BigDecimal maxFiber, BigDecimal minFolate, BigDecimal maxFolate, BigDecimal minFolicAcid, BigDecimal maxFolicAcid, BigDecimal minIodine, BigDecimal maxIodine, BigDecimal minIron, BigDecimal maxIron, BigDecimal minMagnesium, BigDecimal maxMagnesium, BigDecimal minManganese, BigDecimal maxManganese, BigDecimal minPhosphorus, BigDecimal maxPhosphorus, BigDecimal minPotassium, BigDecimal maxPotassium, BigDecimal minSelenium, BigDecimal maxSelenium, BigDecimal minSodium, BigDecimal maxSodium, BigDecimal minSugar, BigDecimal maxSugar, BigDecimal minZinc, BigDecimal maxZinc, BigDecimal offset, BigDecimal number, Boolean limitLicense) throws ApiException {
+  public Object  searchRecipesComplex (String query, String cuisine, String excludeCuisine, String diet, String intolerances, String equipment, String includeIngredients, String excludeIngredients, String type, Boolean instructionsRequired, Boolean fillIngredients, Boolean addRecipeInformation, Boolean addRecipeNutrition, String author, String tags, BigDecimal recipeBoxId, String titleMatch, BigDecimal maxReadyTime, Boolean ignorePantry, String sort, String sortDirection, BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minFat, BigDecimal maxFat, BigDecimal minAlcohol, BigDecimal maxAlcohol, BigDecimal minCaffeine, BigDecimal maxCaffeine, BigDecimal minCopper, BigDecimal maxCopper, BigDecimal minCalcium, BigDecimal maxCalcium, BigDecimal minCholine, BigDecimal maxCholine, BigDecimal minCholesterol, BigDecimal maxCholesterol, BigDecimal minFluoride, BigDecimal maxFluoride, BigDecimal minSaturatedFat, BigDecimal maxSaturatedFat, BigDecimal minVitaminA, BigDecimal maxVitaminA, BigDecimal minVitaminC, BigDecimal maxVitaminC, BigDecimal minVitaminD, BigDecimal maxVitaminD, BigDecimal minVitaminE, BigDecimal maxVitaminE, BigDecimal minVitaminK, BigDecimal maxVitaminK, BigDecimal minVitaminB1, BigDecimal maxVitaminB1, BigDecimal minVitaminB2, BigDecimal maxVitaminB2, BigDecimal minVitaminB5, BigDecimal maxVitaminB5, BigDecimal minVitaminB3, BigDecimal maxVitaminB3, BigDecimal minVitaminB6, BigDecimal maxVitaminB6, BigDecimal minVitaminB12, BigDecimal maxVitaminB12, BigDecimal minFiber, BigDecimal maxFiber, BigDecimal minFolate, BigDecimal maxFolate, BigDecimal minFolicAcid, BigDecimal maxFolicAcid, BigDecimal minIodine, BigDecimal maxIodine, BigDecimal minIron, BigDecimal maxIron, BigDecimal minMagnesium, BigDecimal maxMagnesium, BigDecimal minManganese, BigDecimal maxManganese, BigDecimal minPhosphorus, BigDecimal maxPhosphorus, BigDecimal minPotassium, BigDecimal maxPotassium, BigDecimal minSelenium, BigDecimal maxSelenium, BigDecimal minSodium, BigDecimal maxSodium, BigDecimal minSugar, BigDecimal maxSugar, BigDecimal minZinc, BigDecimal maxZinc, BigDecimal offset, BigDecimal number, Boolean limitLicense) throws ApiException {
     Object localVarPostBody = null;
     // verify the required parameter 'query' is set
     if (query == null) {
@@ -3069,8 +3832,10 @@ localVarFormParams.put("includeNutrition", ApiInvoker.parameterToString(includeN
     localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "instructionsRequired", instructionsRequired));
     localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "fillIngredients", fillIngredients));
     localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "addRecipeInformation", addRecipeInformation));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "addRecipeNutrition", addRecipeNutrition));
     localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "author", author));
     localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "tags", tags));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "recipeBoxId", recipeBoxId));
     localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "titleMatch", titleMatch));
     localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "maxReadyTime", maxReadyTime));
     localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "ignorePantry", ignorePantry));

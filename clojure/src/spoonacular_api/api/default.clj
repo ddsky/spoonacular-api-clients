@@ -5,16 +5,71 @@
             [orchestra.core :refer [defn-spec]]
             [spoonacular-api.specs.inline-object-3 :refer :all]
             [spoonacular-api.specs.inline-object-2 :refer :all]
+            [spoonacular-api.specs.inline-object-10 :refer :all]
             [spoonacular-api.specs.inline-object-5 :refer :all]
+            [spoonacular-api.specs.inline-object-11 :refer :all]
             [spoonacular-api.specs.inline-object-4 :refer :all]
+            [spoonacular-api.specs.inline-object-12 :refer :all]
             [spoonacular-api.specs.inline-object-7 :refer :all]
+            [spoonacular-api.specs.inline-object-13 :refer :all]
             [spoonacular-api.specs.inline-object-6 :refer :all]
+            [spoonacular-api.specs.inline-object-14 :refer :all]
             [spoonacular-api.specs.inline-object-9 :refer :all]
-            [spoonacular-api.specs.inline-object :refer :all]
             [spoonacular-api.specs.inline-object-8 :refer :all]
             [spoonacular-api.specs.inline-object-1 :refer :all]
+            [spoonacular-api.specs.inline-object :refer :all]
             )
   (:import (java.io File)))
+
+
+(defn-spec add-to-meal-plan-with-http-info any?
+  "Add to Meal Plan
+  Add an item to the user's meal plan."
+  [username string?, hash string?, inline-object-9 inline-object-9]
+  (check-required-params username hash inline-object-9)
+  (call-api "/mealplanner/{username}/items" :post
+            {:path-params   {"username" username }
+             :header-params {}
+             :query-params  {"hash" hash }
+             :form-params   {}
+             :body-param    inline-object-9
+             :content-types [""]
+             :accepts       ["application/json"]
+             :auth-names    []}))
+
+(defn-spec add-to-meal-plan any?
+  "Add to Meal Plan
+  Add an item to the user's meal plan."
+  [username string?, hash string?, inline-object-9 inline-object-9]
+  (let [res (:data (add-to-meal-plan-with-http-info username hash inline-object-9))]
+    (if (:decode-models *api-context*)
+       (st/decode any? res st/string-transformer)
+       res)))
+
+
+(defn-spec add-to-shopping-list-with-http-info any?
+  "Add to Shopping List
+  Add an item to the current shopping list of a user."
+  [username string?, hash string?, inline-object-12 inline-object-12]
+  (check-required-params username hash inline-object-12)
+  (call-api "/mealplanner/{username}/shopping-list/items" :post
+            {:path-params   {"username" username }
+             :header-params {}
+             :query-params  {"hash" hash }
+             :form-params   {}
+             :body-param    inline-object-12
+             :content-types [""]
+             :accepts       ["application/json"]
+             :auth-names    []}))
+
+(defn-spec add-to-shopping-list any?
+  "Add to Shopping List
+  Add an item to the current shopping list of a user."
+  [username string?, hash string?, inline-object-12 inline-object-12]
+  (let [res (:data (add-to-shopping-list-with-http-info username hash inline-object-12))]
+    (if (:decode-models *api-context*)
+       (st/decode any? res st/string-transformer)
+       res)))
 
 
 (defn-spec analyze-a-recipe-search-query-with-http-info any?
@@ -297,6 +352,56 @@
         res))))
 
 
+(defn-spec delete-from-meal-plan-with-http-info any?
+  "Delete from Meal Plan
+  Delete an item from the user's meal plan."
+  [username string?, id float?, hash string?, inline-object-10 inline-object-10]
+  (check-required-params username id hash inline-object-10)
+  (call-api "/mealplanner/{username}/items/{id}" :delete
+            {:path-params   {"username" username "id" id }
+             :header-params {}
+             :query-params  {"hash" hash }
+             :form-params   {}
+             :body-param    inline-object-10
+             :content-types [""]
+             :accepts       ["application/json"]
+             :auth-names    []}))
+
+(defn-spec delete-from-meal-plan any?
+  "Delete from Meal Plan
+  Delete an item from the user's meal plan."
+  [username string?, id float?, hash string?, inline-object-10 inline-object-10]
+  (let [res (:data (delete-from-meal-plan-with-http-info username id hash inline-object-10))]
+    (if (:decode-models *api-context*)
+       (st/decode any? res st/string-transformer)
+       res)))
+
+
+(defn-spec delete-from-shopping-list-with-http-info any?
+  "Delete from Shopping List
+  Delete an item from the current shopping list of the user."
+  [username string?, id float?, hash string?, inline-object-13 inline-object-13]
+  (check-required-params username id hash inline-object-13)
+  (call-api "/mealplanner/{username}/shopping-list/items/{id}" :delete
+            {:path-params   {"username" username "id" id }
+             :header-params {}
+             :query-params  {"hash" hash }
+             :form-params   {}
+             :body-param    inline-object-13
+             :content-types [""]
+             :accepts       ["application/json"]
+             :auth-names    []}))
+
+(defn-spec delete-from-shopping-list any?
+  "Delete from Shopping List
+  Delete an item from the current shopping list of the user."
+  [username string?, id float?, hash string?, inline-object-13 inline-object-13]
+  (let [res (:data (delete-from-shopping-list-with-http-info username id hash inline-object-13))]
+    (if (:decode-models *api-context*)
+       (st/decode any? res st/string-transformer)
+       res)))
+
+
 (defn-spec detect-food-in-text-with-http-info any?
   "Detect Food in Text
   Take any text and find all mentions of food contained within it. This task is also called Named Entity Recognition (NER). In this case, the entities are foods. Either dishes, such as pizza or cheeseburger, or ingredients, such as cucumber or almonds."
@@ -325,12 +430,12 @@
   "Extract Recipe from Website
   This endpoint lets you extract recipe data such as title, ingredients, and instructions from any properly formatted Website."
   ([url string?, ] (extract-recipe-from-website-with-http-info url nil))
-  ([url string?, {:keys [forceExtraction]} (s/map-of keyword? any?)]
+  ([url string?, {:keys [forceExtraction analyze]} (s/map-of keyword? any?)]
    (check-required-params url)
    (call-api "/recipes/extract" :get
              {:path-params   {}
               :header-params {}
-              :query-params  {"url" url "forceExtraction" forceExtraction }
+              :query-params  {"url" url "forceExtraction" forceExtraction "analyze" analyze }
               :form-params   {}
               :content-types []
               :accepts       ["application/json"]
@@ -370,6 +475,31 @@
      (if (:decode-models *api-context*)
         (st/decode any? res st/string-transformer)
         res))))
+
+
+(defn-spec generate-shopping-list-with-http-info any?
+  "Generate Shopping List
+  Generate the shopping list for a user from the meal planner in a given time frame."
+  [username string?, start-date string?, end-date string?, hash string?, inline-object-11 inline-object-11]
+  (check-required-params username start-date end-date hash inline-object-11)
+  (call-api "/mealplanner/{username}/shopping-list/{start-date}/{end-date}" :post
+            {:path-params   {"username" username "start-date" start-date "end-date" end-date }
+             :header-params {}
+             :query-params  {"hash" hash }
+             :form-params   {}
+             :body-param    inline-object-11
+             :content-types [""]
+             :accepts       ["application/json"]
+             :auth-names    []}))
+
+(defn-spec generate-shopping-list any?
+  "Generate Shopping List
+  Generate the shopping list for a user from the meal planner in a given time frame."
+  [username string?, start-date string?, end-date string?, hash string?, inline-object-11 inline-object-11]
+  (let [res (:data (generate-shopping-list-with-http-info username start-date end-date hash inline-object-11))]
+    (if (:decode-models *api-context*)
+       (st/decode any? res st/string-transformer)
+       res)))
 
 
 (defn-spec get-a-random-food-joke-with-http-info any?
@@ -569,6 +699,78 @@
        res)))
 
 
+(defn-spec get-meal-plan-template-with-http-info any?
+  "Get Meal Plan Template
+  Get information about a meal plan template."
+  [username string?, id float?, hash string?]
+  (check-required-params username id hash)
+  (call-api "/mealplanner/{username}/templates/{id}" :get
+            {:path-params   {"username" username "id" id }
+             :header-params {}
+             :query-params  {"hash" hash }
+             :form-params   {}
+             :content-types []
+             :accepts       ["application/json"]
+             :auth-names    []}))
+
+(defn-spec get-meal-plan-template any?
+  "Get Meal Plan Template
+  Get information about a meal plan template."
+  [username string?, id float?, hash string?]
+  (let [res (:data (get-meal-plan-template-with-http-info username id hash))]
+    (if (:decode-models *api-context*)
+       (st/decode any? res st/string-transformer)
+       res)))
+
+
+(defn-spec get-meal-plan-templates-with-http-info any?
+  "Get Meal Plan Templates
+  Get meal plan templates from user or public ones."
+  [username string?, hash string?]
+  (check-required-params username hash)
+  (call-api "/mealplanner/{username}/templates" :get
+            {:path-params   {"username" username }
+             :header-params {}
+             :query-params  {"hash" hash }
+             :form-params   {}
+             :content-types []
+             :accepts       ["application/json"]
+             :auth-names    []}))
+
+(defn-spec get-meal-plan-templates any?
+  "Get Meal Plan Templates
+  Get meal plan templates from user or public ones."
+  [username string?, hash string?]
+  (let [res (:data (get-meal-plan-templates-with-http-info username hash))]
+    (if (:decode-models *api-context*)
+       (st/decode any? res st/string-transformer)
+       res)))
+
+
+(defn-spec get-meal-plan-week-with-http-info any?
+  "Get Meal Plan Week
+  Retrieve a meal planned week for the given user. The username must be a spoonacular user and the hash must the the user's hash that can be found in his/her account."
+  [username string?, start-date string?, hash string?]
+  (check-required-params username start-date hash)
+  (call-api "/mealplanner/{username}/week/{start-date}" :get
+            {:path-params   {"username" username "start-date" start-date }
+             :header-params {}
+             :query-params  {"hash" hash }
+             :form-params   {}
+             :content-types []
+             :accepts       ["application/json"]
+             :auth-names    []}))
+
+(defn-spec get-meal-plan-week any?
+  "Get Meal Plan Week
+  Retrieve a meal planned week for the given user. The username must be a spoonacular user and the hash must the the user's hash that can be found in his/her account."
+  [username string?, start-date string?, hash string?]
+  (let [res (:data (get-meal-plan-week-with-http-info username start-date hash))]
+    (if (:decode-models *api-context*)
+       (st/decode any? res st/string-transformer)
+       res)))
+
+
 (defn-spec get-menu-item-information-with-http-info any?
   "Get Menu Item Information
   Use a menu item id to get all available information about a menu item, such as nutrition."
@@ -595,7 +797,7 @@
 
 (defn-spec get-product-information-with-http-info any?
   "Get Product Information
-  Use a product id to get full information about a product, such as ingredients, nutrition, etc."
+  Use a product id to get full information about a product, such as ingredients, nutrition, etc. The nutritional information is per serving."
   [id float?]
   (check-required-params id)
   (call-api "/food/products/{id}" :get
@@ -609,7 +811,7 @@
 
 (defn-spec get-product-information any?
   "Get Product Information
-  Use a product id to get full information about a product, such as ingredients, nutrition, etc."
+  Use a product id to get full information about a product, such as ingredients, nutrition, etc. The nutritional information is per serving."
   [id float?]
   (let [res (:data (get-product-information-with-http-info id))]
     (if (:decode-models *api-context*)
@@ -813,16 +1015,40 @@
        res)))
 
 
+(defn-spec get-shopping-list-with-http-info any?
+  "Get Shopping List
+  Get the current shopping list for the given user."
+  [username string?, hash string?]
+  (check-required-params username hash)
+  (call-api "/mealplanner/{username}/shopping-list" :get
+            {:path-params   {"username" username }
+             :header-params {}
+             :query-params  {"hash" hash }
+             :form-params   {}
+             :content-types []
+             :accepts       ["application/json"]
+             :auth-names    []}))
+
+(defn-spec get-shopping-list any?
+  "Get Shopping List
+  Get the current shopping list for the given user."
+  [username string?, hash string?]
+  (let [res (:data (get-shopping-list-with-http-info username hash))]
+    (if (:decode-models *api-context*)
+       (st/decode any? res st/string-transformer)
+       res)))
+
+
 (defn-spec get-similar-recipes-with-http-info any?
   "Get Similar Recipes
   Find recipes which are similar to the given one."
   ([id float?, ] (get-similar-recipes-with-http-info id nil))
-  ([id float?, {:keys [number]} (s/map-of keyword? any?)]
+  ([id float?, {:keys [number limitLicense]} (s/map-of keyword? any?)]
    (check-required-params id)
    (call-api "/recipes/{id}/similar" :get
              {:path-params   {"id" id }
               :header-params {}
-              :query-params  {"number" number }
+              :query-params  {"number" number "limitLicense" limitLicense }
               :form-params   {}
               :content-types []
               :accepts       ["application/json"]
@@ -939,6 +1165,54 @@
        res)))
 
 
+(defn-spec image-analysis-by-url-with-http-info any?
+  "Image Analysis by URL
+  Analyze a food image. The API tries to classify the image, guess the nutrition, and find a matching recipes. You can play around with that endpoint!"
+  [imageUrl string?]
+  (check-required-params imageUrl)
+  (call-api "/food/images/analyze" :get
+            {:path-params   {}
+             :header-params {}
+             :query-params  {"imageUrl" imageUrl }
+             :form-params   {}
+             :content-types []
+             :accepts       ["application/json"]
+             :auth-names    []}))
+
+(defn-spec image-analysis-by-url any?
+  "Image Analysis by URL
+  Analyze a food image. The API tries to classify the image, guess the nutrition, and find a matching recipes. You can play around with that endpoint!"
+  [imageUrl string?]
+  (let [res (:data (image-analysis-by-url-with-http-info imageUrl))]
+    (if (:decode-models *api-context*)
+       (st/decode any? res st/string-transformer)
+       res)))
+
+
+(defn-spec image-classification-by-url-with-http-info any?
+  "Image Classification by URL
+  Classify a food image. You can play around with that endpoint!"
+  [imageUrl string?]
+  (check-required-params imageUrl)
+  (call-api "/food/images/classify" :get
+            {:path-params   {}
+             :header-params {}
+             :query-params  {"imageUrl" imageUrl }
+             :form-params   {}
+             :content-types []
+             :accepts       ["application/json"]
+             :auth-names    []}))
+
+(defn-spec image-classification-by-url any?
+  "Image Classification by URL
+  Classify a food image. You can play around with that endpoint!"
+  [imageUrl string?]
+  (let [res (:data (image-classification-by-url-with-http-info imageUrl))]
+    (if (:decode-models *api-context*)
+       (st/decode any? res st/string-transformer)
+       res)))
+
+
 (defn-spec map-ingredients-to-grocery-products-with-http-info any?
   "Map Ingredients to Grocery Products
   Map a set of ingredients to products you can buy in the grocery store."
@@ -1012,6 +1286,32 @@
     (if (:decode-models *api-context*)
        (st/decode any? res st/string-transformer)
        res)))
+
+
+(defn-spec search-custom-foods-with-http-info any?
+  "Search Custom Foods
+  Search custom foods in a user's account."
+  ([query string?, username string?, hash string?, ] (search-custom-foods-with-http-info query username hash nil))
+  ([query string?, username string?, hash string?, {:keys [offset number]} (s/map-of keyword? any?)]
+   (check-required-params query username hash)
+   (call-api "/food/customFoods/search" :get
+             {:path-params   {}
+              :header-params {}
+              :query-params  {"query" query "username" username "hash" hash "offset" offset "number" number }
+              :form-params   {}
+              :content-types []
+              :accepts       ["application/json"]
+              :auth-names    []})))
+
+(defn-spec search-custom-foods any?
+  "Search Custom Foods
+  Search custom foods in a user's account."
+  ([query string?, username string?, hash string?, ] (search-custom-foods query username hash nil))
+  ([query string?, username string?, hash string?, optional-params any?]
+   (let [res (:data (search-custom-foods-with-http-info query username hash optional-params))]
+     (if (:decode-models *api-context*)
+        (st/decode any? res st/string-transformer)
+        res))))
 
 
 (defn-spec search-food-videos-with-http-info any?
@@ -1197,12 +1497,12 @@
   "Search Recipes Complex
   Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint."
   ([query string?, ] (search-recipes-complex-with-http-info query nil))
-  ([query string?, {:keys [cuisine excludeCuisine diet intolerances equipment includeIngredients excludeIngredients type instructionsRequired fillIngredients addRecipeInformation author tags titleMatch maxReadyTime ignorePantry sort sortDirection minCarbs maxCarbs minProtein maxProtein minCalories maxCalories minFat maxFat minAlcohol maxAlcohol minCaffeine maxCaffeine minCopper maxCopper minCalcium maxCalcium minCholine maxCholine minCholesterol maxCholesterol minFluoride maxFluoride minSaturatedFat maxSaturatedFat minVitaminA maxVitaminA minVitaminC maxVitaminC minVitaminD maxVitaminD minVitaminE maxVitaminE minVitaminK maxVitaminK minVitaminB1 maxVitaminB1 minVitaminB2 maxVitaminB2 minVitaminB5 maxVitaminB5 minVitaminB3 maxVitaminB3 minVitaminB6 maxVitaminB6 minVitaminB12 maxVitaminB12 minFiber maxFiber minFolate maxFolate minFolicAcid maxFolicAcid minIodine maxIodine minIron maxIron minMagnesium maxMagnesium minManganese maxManganese minPhosphorus maxPhosphorus minPotassium maxPotassium minSelenium maxSelenium minSodium maxSodium minSugar maxSugar minZinc maxZinc offset number limitLicense]} (s/map-of keyword? any?)]
+  ([query string?, {:keys [cuisine excludeCuisine diet intolerances equipment includeIngredients excludeIngredients type instructionsRequired fillIngredients addRecipeInformation addRecipeNutrition author tags recipeBoxId titleMatch maxReadyTime ignorePantry sort sortDirection minCarbs maxCarbs minProtein maxProtein minCalories maxCalories minFat maxFat minAlcohol maxAlcohol minCaffeine maxCaffeine minCopper maxCopper minCalcium maxCalcium minCholine maxCholine minCholesterol maxCholesterol minFluoride maxFluoride minSaturatedFat maxSaturatedFat minVitaminA maxVitaminA minVitaminC maxVitaminC minVitaminD maxVitaminD minVitaminE maxVitaminE minVitaminK maxVitaminK minVitaminB1 maxVitaminB1 minVitaminB2 maxVitaminB2 minVitaminB5 maxVitaminB5 minVitaminB3 maxVitaminB3 minVitaminB6 maxVitaminB6 minVitaminB12 maxVitaminB12 minFiber maxFiber minFolate maxFolate minFolicAcid maxFolicAcid minIodine maxIodine minIron maxIron minMagnesium maxMagnesium minManganese maxManganese minPhosphorus maxPhosphorus minPotassium maxPotassium minSelenium maxSelenium minSodium maxSodium minSugar maxSugar minZinc maxZinc offset number limitLicense]} (s/map-of keyword? any?)]
    (check-required-params query)
    (call-api "/recipes/complexSearch" :get
              {:path-params   {}
               :header-params {}
-              :query-params  {"query" query "cuisine" cuisine "excludeCuisine" excludeCuisine "diet" diet "intolerances" intolerances "equipment" equipment "includeIngredients" includeIngredients "excludeIngredients" excludeIngredients "type" type "instructionsRequired" instructionsRequired "fillIngredients" fillIngredients "addRecipeInformation" addRecipeInformation "author" author "tags" tags "titleMatch" titleMatch "maxReadyTime" maxReadyTime "ignorePantry" ignorePantry "sort" sort "sortDirection" sortDirection "minCarbs" minCarbs "maxCarbs" maxCarbs "minProtein" minProtein "maxProtein" maxProtein "minCalories" minCalories "maxCalories" maxCalories "minFat" minFat "maxFat" maxFat "minAlcohol" minAlcohol "maxAlcohol" maxAlcohol "minCaffeine" minCaffeine "maxCaffeine" maxCaffeine "minCopper" minCopper "maxCopper" maxCopper "minCalcium" minCalcium "maxCalcium" maxCalcium "minCholine" minCholine "maxCholine" maxCholine "minCholesterol" minCholesterol "maxCholesterol" maxCholesterol "minFluoride" minFluoride "maxFluoride" maxFluoride "minSaturatedFat" minSaturatedFat "maxSaturatedFat" maxSaturatedFat "minVitaminA" minVitaminA "maxVitaminA" maxVitaminA "minVitaminC" minVitaminC "maxVitaminC" maxVitaminC "minVitaminD" minVitaminD "maxVitaminD" maxVitaminD "minVitaminE" minVitaminE "maxVitaminE" maxVitaminE "minVitaminK" minVitaminK "maxVitaminK" maxVitaminK "minVitaminB1" minVitaminB1 "maxVitaminB1" maxVitaminB1 "minVitaminB2" minVitaminB2 "maxVitaminB2" maxVitaminB2 "minVitaminB5" minVitaminB5 "maxVitaminB5" maxVitaminB5 "minVitaminB3" minVitaminB3 "maxVitaminB3" maxVitaminB3 "minVitaminB6" minVitaminB6 "maxVitaminB6" maxVitaminB6 "minVitaminB12" minVitaminB12 "maxVitaminB12" maxVitaminB12 "minFiber" minFiber "maxFiber" maxFiber "minFolate" minFolate "maxFolate" maxFolate "minFolicAcid" minFolicAcid "maxFolicAcid" maxFolicAcid "minIodine" minIodine "maxIodine" maxIodine "minIron" minIron "maxIron" maxIron "minMagnesium" minMagnesium "maxMagnesium" maxMagnesium "minManganese" minManganese "maxManganese" maxManganese "minPhosphorus" minPhosphorus "maxPhosphorus" maxPhosphorus "minPotassium" minPotassium "maxPotassium" maxPotassium "minSelenium" minSelenium "maxSelenium" maxSelenium "minSodium" minSodium "maxSodium" maxSodium "minSugar" minSugar "maxSugar" maxSugar "minZinc" minZinc "maxZinc" maxZinc "offset" offset "number" number "limitLicense" limitLicense }
+              :query-params  {"query" query "cuisine" cuisine "excludeCuisine" excludeCuisine "diet" diet "intolerances" intolerances "equipment" equipment "includeIngredients" includeIngredients "excludeIngredients" excludeIngredients "type" type "instructionsRequired" instructionsRequired "fillIngredients" fillIngredients "addRecipeInformation" addRecipeInformation "addRecipeNutrition" addRecipeNutrition "author" author "tags" tags "recipeBoxId" recipeBoxId "titleMatch" titleMatch "maxReadyTime" maxReadyTime "ignorePantry" ignorePantry "sort" sort "sortDirection" sortDirection "minCarbs" minCarbs "maxCarbs" maxCarbs "minProtein" minProtein "maxProtein" maxProtein "minCalories" minCalories "maxCalories" maxCalories "minFat" minFat "maxFat" maxFat "minAlcohol" minAlcohol "maxAlcohol" maxAlcohol "minCaffeine" minCaffeine "maxCaffeine" maxCaffeine "minCopper" minCopper "maxCopper" maxCopper "minCalcium" minCalcium "maxCalcium" maxCalcium "minCholine" minCholine "maxCholine" maxCholine "minCholesterol" minCholesterol "maxCholesterol" maxCholesterol "minFluoride" minFluoride "maxFluoride" maxFluoride "minSaturatedFat" minSaturatedFat "maxSaturatedFat" maxSaturatedFat "minVitaminA" minVitaminA "maxVitaminA" maxVitaminA "minVitaminC" minVitaminC "maxVitaminC" maxVitaminC "minVitaminD" minVitaminD "maxVitaminD" maxVitaminD "minVitaminE" minVitaminE "maxVitaminE" maxVitaminE "minVitaminK" minVitaminK "maxVitaminK" maxVitaminK "minVitaminB1" minVitaminB1 "maxVitaminB1" maxVitaminB1 "minVitaminB2" minVitaminB2 "maxVitaminB2" maxVitaminB2 "minVitaminB5" minVitaminB5 "maxVitaminB5" maxVitaminB5 "minVitaminB3" minVitaminB3 "maxVitaminB3" maxVitaminB3 "minVitaminB6" minVitaminB6 "maxVitaminB6" maxVitaminB6 "minVitaminB12" minVitaminB12 "maxVitaminB12" maxVitaminB12 "minFiber" minFiber "maxFiber" maxFiber "minFolate" minFolate "maxFolate" maxFolate "minFolicAcid" minFolicAcid "maxFolicAcid" maxFolicAcid "minIodine" minIodine "maxIodine" maxIodine "minIron" minIron "maxIron" maxIron "minMagnesium" minMagnesium "maxMagnesium" maxMagnesium "minManganese" minManganese "maxManganese" maxManganese "minPhosphorus" minPhosphorus "maxPhosphorus" maxPhosphorus "minPotassium" minPotassium "maxPotassium" maxPotassium "minSelenium" minSelenium "maxSelenium" maxSelenium "minSodium" minSodium "maxSodium" maxSodium "minSugar" minSugar "maxSugar" maxSugar "minZinc" minZinc "maxZinc" maxZinc "offset" offset "number" number "limitLicense" limitLicense }
               :form-params   {}
               :content-types []
               :accepts       ["application/json"]

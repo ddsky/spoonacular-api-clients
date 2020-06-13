@@ -31,6 +31,8 @@ impl<C: hyper::client::Connect> DefaultApiClient<C> {
 }
 
 pub trait DefaultApi {
+    fn add_to_meal_plan(&self, username: &str, hash: &str, inline_object9: ::models::InlineObject9) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>>;
+    fn add_to_shopping_list(&self, username: &str, hash: &str, inline_object12: ::models::InlineObject12) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>>;
     fn analyze_a_recipe_search_query(&self, q: &str) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>>;
     fn analyze_recipe_instructions(&self, instructions: &str) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>>;
     fn autocomplete_ingredient_search(&self, query: &str, number: f32, meta_information: bool, intolerances: bool) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>>;
@@ -42,9 +44,12 @@ pub trait DefaultApi {
     fn classify_grocery_product_bulk(&self, body: Value, locale: &str) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>>;
     fn convert_amounts(&self, ingredient_name: &str, source_amount: f32, source_unit: &str, target_unit: &str) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>>;
     fn create_recipe_card(&self, title: &str, image: &std::path::Path, ingredients: &str, instructions: &str, ready_in_minutes: f32, servings: f32, mask: &str, background_image: &str, author: &str, background_color: &str, font_color: &str, source: &str) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>>;
+    fn delete_from_meal_plan(&self, username: &str, id: f32, hash: &str, inline_object10: ::models::InlineObject10) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>>;
+    fn delete_from_shopping_list(&self, username: &str, id: f32, hash: &str, inline_object13: ::models::InlineObject13) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>>;
     fn detect_food_in_text(&self, text: &str) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>>;
-    fn extract_recipe_from_website(&self, url: &str, force_extraction: bool) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>>;
+    fn extract_recipe_from_website(&self, url: &str, force_extraction: bool, analyze: bool) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>>;
     fn generate_meal_plan(&self, time_frame: &str, target_calories: f32, diet: &str, exclude: &str) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>>;
+    fn generate_shopping_list(&self, username: &str, start_date: &str, end_date: &str, hash: &str, inline_object11: ::models::InlineObject11) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>>;
     fn get_a_random_food_joke(&self, ) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>>;
     fn get_analyzed_recipe_instructions(&self, id: f32, step_breakdown: bool) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>>;
     fn get_comparable_products(&self, upc: f32) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>>;
@@ -53,6 +58,9 @@ pub trait DefaultApi {
     fn get_ingredient_information(&self, id: f32, amount: f32, unit: &str) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>>;
     fn get_ingredient_substitutes(&self, ingredient_name: &str) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>>;
     fn get_ingredient_substitutes_by_id(&self, id: f32) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>>;
+    fn get_meal_plan_template(&self, username: &str, id: f32, hash: &str) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>>;
+    fn get_meal_plan_templates(&self, username: &str, hash: &str) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>>;
+    fn get_meal_plan_week(&self, username: &str, start_date: &str, hash: &str) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>>;
     fn get_menu_item_information(&self, id: f32) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>>;
     fn get_product_information(&self, id: f32) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>>;
     fn get_random_food_trivia(&self, ) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>>;
@@ -63,14 +71,18 @@ pub trait DefaultApi {
     fn get_recipe_ingredients_by_id(&self, id: f32) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>>;
     fn get_recipe_nutrition_widget_by_id(&self, id: f32) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>>;
     fn get_recipe_price_breakdown_by_id(&self, id: f32) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>>;
-    fn get_similar_recipes(&self, id: f32, number: f32) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>>;
+    fn get_shopping_list(&self, username: &str, hash: &str) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>>;
+    fn get_similar_recipes(&self, id: f32, number: f32, limit_license: bool) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>>;
     fn get_wine_description(&self, wine: &str) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>>;
     fn get_wine_pairing(&self, food: &str, max_price: f32) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>>;
     fn get_wine_recommendation(&self, wine: &str, max_price: f32, min_rating: f32, number: f32) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>>;
     fn guess_nutrition_by_dish_name(&self, title: &str) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>>;
+    fn image_analysis_by_url(&self, image_url: &str) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>>;
+    fn image_classification_by_url(&self, image_url: &str) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>>;
     fn map_ingredients_to_grocery_products(&self, body: Value) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>>;
     fn parse_ingredients(&self, ingredient_list: &str, servings: f32, include_nutrition: bool) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>>;
     fn quick_answer(&self, q: &str) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>>;
+    fn search_custom_foods(&self, query: &str, username: &str, hash: &str, offset: f32, number: f32) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>>;
     fn search_food_videos(&self, query: &str, _type: &str, cuisine: &str, diet: &str, include_ingredients: &str, exclude_ingredients: &str, min_length: f32, max_length: f32, offset: f32, number: f32) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>>;
     fn search_grocery_products(&self, query: &str, min_calories: f32, max_calories: f32, min_carbs: f32, max_carbs: f32, min_protein: f32, max_protein: f32, min_fat: f32, max_fat: f32, offset: f32, number: f32) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>>;
     fn search_grocery_products_by_upc(&self, upc: f32) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>>;
@@ -78,7 +90,7 @@ pub trait DefaultApi {
     fn search_recipes(&self, query: &str, cuisine: &str, diet: &str, exclude_ingredients: &str, intolerances: &str, offset: f32, number: f32, limit_license: bool, instructions_required: bool) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>>;
     fn search_recipes_by_ingredients(&self, ingredients: &str, number: f32, limit_license: bool, ranking: f32, ignore_pantry: bool) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>>;
     fn search_recipes_by_nutrients(&self, min_carbs: f32, max_carbs: f32, min_protein: f32, max_protein: f32, min_calories: f32, max_calories: f32, min_fat: f32, max_fat: f32, min_alcohol: f32, max_alcohol: f32, min_caffeine: f32, max_caffeine: f32, min_copper: f32, max_copper: f32, min_calcium: f32, max_calcium: f32, min_choline: f32, max_choline: f32, min_cholesterol: f32, max_cholesterol: f32, min_fluoride: f32, max_fluoride: f32, min_saturated_fat: f32, max_saturated_fat: f32, min_vitamin_a: f32, max_vitamin_a: f32, min_vitamin_c: f32, max_vitamin_c: f32, min_vitamin_d: f32, max_vitamin_d: f32, min_vitamin_e: f32, max_vitamin_e: f32, min_vitamin_k: f32, max_vitamin_k: f32, min_vitamin_b1: f32, max_vitamin_b1: f32, min_vitamin_b2: f32, max_vitamin_b2: f32, min_vitamin_b5: f32, max_vitamin_b5: f32, min_vitamin_b3: f32, max_vitamin_b3: f32, min_vitamin_b6: f32, max_vitamin_b6: f32, min_vitamin_b12: f32, max_vitamin_b12: f32, min_fiber: f32, max_fiber: f32, min_folate: f32, max_folate: f32, min_folic_acid: f32, max_folic_acid: f32, min_iodine: f32, max_iodine: f32, min_iron: f32, max_iron: f32, min_magnesium: f32, max_magnesium: f32, min_manganese: f32, max_manganese: f32, min_phosphorus: f32, max_phosphorus: f32, min_potassium: f32, max_potassium: f32, min_selenium: f32, max_selenium: f32, min_sodium: f32, max_sodium: f32, min_sugar: f32, max_sugar: f32, min_zinc: f32, max_zinc: f32, offset: f32, number: f32, random: bool, limit_license: bool) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>>;
-    fn search_recipes_complex(&self, query: &str, cuisine: &str, exclude_cuisine: &str, diet: &str, intolerances: &str, equipment: &str, include_ingredients: &str, exclude_ingredients: &str, _type: &str, instructions_required: bool, fill_ingredients: bool, add_recipe_information: bool, author: &str, tags: &str, title_match: &str, max_ready_time: f32, ignore_pantry: bool, sort: &str, sort_direction: &str, min_carbs: f32, max_carbs: f32, min_protein: f32, max_protein: f32, min_calories: f32, max_calories: f32, min_fat: f32, max_fat: f32, min_alcohol: f32, max_alcohol: f32, min_caffeine: f32, max_caffeine: f32, min_copper: f32, max_copper: f32, min_calcium: f32, max_calcium: f32, min_choline: f32, max_choline: f32, min_cholesterol: f32, max_cholesterol: f32, min_fluoride: f32, max_fluoride: f32, min_saturated_fat: f32, max_saturated_fat: f32, min_vitamin_a: f32, max_vitamin_a: f32, min_vitamin_c: f32, max_vitamin_c: f32, min_vitamin_d: f32, max_vitamin_d: f32, min_vitamin_e: f32, max_vitamin_e: f32, min_vitamin_k: f32, max_vitamin_k: f32, min_vitamin_b1: f32, max_vitamin_b1: f32, min_vitamin_b2: f32, max_vitamin_b2: f32, min_vitamin_b5: f32, max_vitamin_b5: f32, min_vitamin_b3: f32, max_vitamin_b3: f32, min_vitamin_b6: f32, max_vitamin_b6: f32, min_vitamin_b12: f32, max_vitamin_b12: f32, min_fiber: f32, max_fiber: f32, min_folate: f32, max_folate: f32, min_folic_acid: f32, max_folic_acid: f32, min_iodine: f32, max_iodine: f32, min_iron: f32, max_iron: f32, min_magnesium: f32, max_magnesium: f32, min_manganese: f32, max_manganese: f32, min_phosphorus: f32, max_phosphorus: f32, min_potassium: f32, max_potassium: f32, min_selenium: f32, max_selenium: f32, min_sodium: f32, max_sodium: f32, min_sugar: f32, max_sugar: f32, min_zinc: f32, max_zinc: f32, offset: f32, number: f32, limit_license: bool) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>>;
+    fn search_recipes_complex(&self, query: &str, cuisine: &str, exclude_cuisine: &str, diet: &str, intolerances: &str, equipment: &str, include_ingredients: &str, exclude_ingredients: &str, _type: &str, instructions_required: bool, fill_ingredients: bool, add_recipe_information: bool, add_recipe_nutrition: bool, author: &str, tags: &str, recipe_box_id: f32, title_match: &str, max_ready_time: f32, ignore_pantry: bool, sort: &str, sort_direction: &str, min_carbs: f32, max_carbs: f32, min_protein: f32, max_protein: f32, min_calories: f32, max_calories: f32, min_fat: f32, max_fat: f32, min_alcohol: f32, max_alcohol: f32, min_caffeine: f32, max_caffeine: f32, min_copper: f32, max_copper: f32, min_calcium: f32, max_calcium: f32, min_choline: f32, max_choline: f32, min_cholesterol: f32, max_cholesterol: f32, min_fluoride: f32, max_fluoride: f32, min_saturated_fat: f32, max_saturated_fat: f32, min_vitamin_a: f32, max_vitamin_a: f32, min_vitamin_c: f32, max_vitamin_c: f32, min_vitamin_d: f32, max_vitamin_d: f32, min_vitamin_e: f32, max_vitamin_e: f32, min_vitamin_k: f32, max_vitamin_k: f32, min_vitamin_b1: f32, max_vitamin_b1: f32, min_vitamin_b2: f32, max_vitamin_b2: f32, min_vitamin_b5: f32, max_vitamin_b5: f32, min_vitamin_b3: f32, max_vitamin_b3: f32, min_vitamin_b6: f32, max_vitamin_b6: f32, min_vitamin_b12: f32, max_vitamin_b12: f32, min_fiber: f32, max_fiber: f32, min_folate: f32, max_folate: f32, min_folic_acid: f32, max_folic_acid: f32, min_iodine: f32, max_iodine: f32, min_iron: f32, max_iron: f32, min_magnesium: f32, max_magnesium: f32, min_manganese: f32, max_manganese: f32, min_phosphorus: f32, max_phosphorus: f32, min_potassium: f32, max_potassium: f32, min_selenium: f32, max_selenium: f32, min_sodium: f32, max_sodium: f32, min_sugar: f32, max_sugar: f32, min_zinc: f32, max_zinc: f32, offset: f32, number: f32, limit_license: bool) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>>;
     fn search_site_content(&self, query: &str) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>>;
     fn summarize_recipe(&self, id: f32) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>>;
     fn talk_to_chatbot(&self, text: &str, context_id: &str) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>>;
@@ -96,6 +108,22 @@ pub trait DefaultApi {
 
 
 impl<C: hyper::client::Connect>DefaultApi for DefaultApiClient<C> {
+    fn add_to_meal_plan(&self, username: &str, hash: &str, inline_object9: ::models::InlineObject9) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
+        __internal_request::Request::new(hyper::Method::Post, "/mealplanner/{username}/items".to_string())
+            .with_query_param("hash".to_string(), hash.to_string())
+            .with_path_param("username".to_string(), username.to_string())
+            .with_body_param(inline_object9)
+            .execute(self.configuration.borrow())
+    }
+
+    fn add_to_shopping_list(&self, username: &str, hash: &str, inline_object12: ::models::InlineObject12) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
+        __internal_request::Request::new(hyper::Method::Post, "/mealplanner/{username}/shopping-list/items".to_string())
+            .with_query_param("hash".to_string(), hash.to_string())
+            .with_path_param("username".to_string(), username.to_string())
+            .with_body_param(inline_object12)
+            .execute(self.configuration.borrow())
+    }
+
     fn analyze_a_recipe_search_query(&self, q: &str) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/recipes/queries/analyze".to_string())
             .with_query_param("q".to_string(), q.to_string())
@@ -185,16 +213,35 @@ impl<C: hyper::client::Connect>DefaultApi for DefaultApiClient<C> {
             .execute(self.configuration.borrow())
     }
 
+    fn delete_from_meal_plan(&self, username: &str, id: f32, hash: &str, inline_object10: ::models::InlineObject10) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
+        __internal_request::Request::new(hyper::Method::Delete, "/mealplanner/{username}/items/{id}".to_string())
+            .with_query_param("hash".to_string(), hash.to_string())
+            .with_path_param("username".to_string(), username.to_string())
+            .with_path_param("id".to_string(), id.to_string())
+            .with_body_param(inline_object10)
+            .execute(self.configuration.borrow())
+    }
+
+    fn delete_from_shopping_list(&self, username: &str, id: f32, hash: &str, inline_object13: ::models::InlineObject13) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
+        __internal_request::Request::new(hyper::Method::Delete, "/mealplanner/{username}/shopping-list/items/{id}".to_string())
+            .with_query_param("hash".to_string(), hash.to_string())
+            .with_path_param("username".to_string(), username.to_string())
+            .with_path_param("id".to_string(), id.to_string())
+            .with_body_param(inline_object13)
+            .execute(self.configuration.borrow())
+    }
+
     fn detect_food_in_text(&self, text: &str) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Post, "/food/detect".to_string())
             .with_form_param("text".to_string(), text.to_string())
             .execute(self.configuration.borrow())
     }
 
-    fn extract_recipe_from_website(&self, url: &str, force_extraction: bool) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
+    fn extract_recipe_from_website(&self, url: &str, force_extraction: bool, analyze: bool) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/recipes/extract".to_string())
             .with_query_param("url".to_string(), url.to_string())
             .with_query_param("forceExtraction".to_string(), force_extraction.to_string())
+            .with_query_param("analyze".to_string(), analyze.to_string())
             .execute(self.configuration.borrow())
     }
 
@@ -204,6 +251,16 @@ impl<C: hyper::client::Connect>DefaultApi for DefaultApiClient<C> {
             .with_query_param("targetCalories".to_string(), target_calories.to_string())
             .with_query_param("diet".to_string(), diet.to_string())
             .with_query_param("exclude".to_string(), exclude.to_string())
+            .execute(self.configuration.borrow())
+    }
+
+    fn generate_shopping_list(&self, username: &str, start_date: &str, end_date: &str, hash: &str, inline_object11: ::models::InlineObject11) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
+        __internal_request::Request::new(hyper::Method::Post, "/mealplanner/{username}/shopping-list/{start-date}/{end-date}".to_string())
+            .with_query_param("hash".to_string(), hash.to_string())
+            .with_path_param("username".to_string(), username.to_string())
+            .with_path_param("start-date".to_string(), start_date.to_string())
+            .with_path_param("end-date".to_string(), end_date.to_string())
+            .with_body_param(inline_object11)
             .execute(self.configuration.borrow())
     }
 
@@ -255,6 +312,29 @@ impl<C: hyper::client::Connect>DefaultApi for DefaultApiClient<C> {
     fn get_ingredient_substitutes_by_id(&self, id: f32) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/food/ingredients/{id}/substitutes".to_string())
             .with_path_param("id".to_string(), id.to_string())
+            .execute(self.configuration.borrow())
+    }
+
+    fn get_meal_plan_template(&self, username: &str, id: f32, hash: &str) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
+        __internal_request::Request::new(hyper::Method::Get, "/mealplanner/{username}/templates/{id}".to_string())
+            .with_query_param("hash".to_string(), hash.to_string())
+            .with_path_param("username".to_string(), username.to_string())
+            .with_path_param("id".to_string(), id.to_string())
+            .execute(self.configuration.borrow())
+    }
+
+    fn get_meal_plan_templates(&self, username: &str, hash: &str) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
+        __internal_request::Request::new(hyper::Method::Get, "/mealplanner/{username}/templates".to_string())
+            .with_query_param("hash".to_string(), hash.to_string())
+            .with_path_param("username".to_string(), username.to_string())
+            .execute(self.configuration.borrow())
+    }
+
+    fn get_meal_plan_week(&self, username: &str, start_date: &str, hash: &str) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
+        __internal_request::Request::new(hyper::Method::Get, "/mealplanner/{username}/week/{start-date}".to_string())
+            .with_query_param("hash".to_string(), hash.to_string())
+            .with_path_param("username".to_string(), username.to_string())
+            .with_path_param("start-date".to_string(), start_date.to_string())
             .execute(self.configuration.borrow())
     }
 
@@ -321,9 +401,17 @@ impl<C: hyper::client::Connect>DefaultApi for DefaultApiClient<C> {
             .execute(self.configuration.borrow())
     }
 
-    fn get_similar_recipes(&self, id: f32, number: f32) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
+    fn get_shopping_list(&self, username: &str, hash: &str) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
+        __internal_request::Request::new(hyper::Method::Get, "/mealplanner/{username}/shopping-list".to_string())
+            .with_query_param("hash".to_string(), hash.to_string())
+            .with_path_param("username".to_string(), username.to_string())
+            .execute(self.configuration.borrow())
+    }
+
+    fn get_similar_recipes(&self, id: f32, number: f32, limit_license: bool) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/recipes/{id}/similar".to_string())
             .with_query_param("number".to_string(), number.to_string())
+            .with_query_param("limitLicense".to_string(), limit_license.to_string())
             .with_path_param("id".to_string(), id.to_string())
             .execute(self.configuration.borrow())
     }
@@ -356,6 +444,18 @@ impl<C: hyper::client::Connect>DefaultApi for DefaultApiClient<C> {
             .execute(self.configuration.borrow())
     }
 
+    fn image_analysis_by_url(&self, image_url: &str) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
+        __internal_request::Request::new(hyper::Method::Get, "/food/images/analyze".to_string())
+            .with_query_param("imageUrl".to_string(), image_url.to_string())
+            .execute(self.configuration.borrow())
+    }
+
+    fn image_classification_by_url(&self, image_url: &str) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
+        __internal_request::Request::new(hyper::Method::Get, "/food/images/classify".to_string())
+            .with_query_param("imageUrl".to_string(), image_url.to_string())
+            .execute(self.configuration.borrow())
+    }
+
     fn map_ingredients_to_grocery_products(&self, body: Value) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Post, "/food/ingredients/map".to_string())
             .with_body_param(body)
@@ -373,6 +473,16 @@ impl<C: hyper::client::Connect>DefaultApi for DefaultApiClient<C> {
     fn quick_answer(&self, q: &str) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/recipes/quickAnswer".to_string())
             .with_query_param("q".to_string(), q.to_string())
+            .execute(self.configuration.borrow())
+    }
+
+    fn search_custom_foods(&self, query: &str, username: &str, hash: &str, offset: f32, number: f32) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
+        __internal_request::Request::new(hyper::Method::Get, "/food/customFoods/search".to_string())
+            .with_query_param("query".to_string(), query.to_string())
+            .with_query_param("username".to_string(), username.to_string())
+            .with_query_param("hash".to_string(), hash.to_string())
+            .with_query_param("offset".to_string(), offset.to_string())
+            .with_query_param("number".to_string(), number.to_string())
             .execute(self.configuration.borrow())
     }
 
@@ -534,7 +644,7 @@ impl<C: hyper::client::Connect>DefaultApi for DefaultApiClient<C> {
             .execute(self.configuration.borrow())
     }
 
-    fn search_recipes_complex(&self, query: &str, cuisine: &str, exclude_cuisine: &str, diet: &str, intolerances: &str, equipment: &str, include_ingredients: &str, exclude_ingredients: &str, _type: &str, instructions_required: bool, fill_ingredients: bool, add_recipe_information: bool, author: &str, tags: &str, title_match: &str, max_ready_time: f32, ignore_pantry: bool, sort: &str, sort_direction: &str, min_carbs: f32, max_carbs: f32, min_protein: f32, max_protein: f32, min_calories: f32, max_calories: f32, min_fat: f32, max_fat: f32, min_alcohol: f32, max_alcohol: f32, min_caffeine: f32, max_caffeine: f32, min_copper: f32, max_copper: f32, min_calcium: f32, max_calcium: f32, min_choline: f32, max_choline: f32, min_cholesterol: f32, max_cholesterol: f32, min_fluoride: f32, max_fluoride: f32, min_saturated_fat: f32, max_saturated_fat: f32, min_vitamin_a: f32, max_vitamin_a: f32, min_vitamin_c: f32, max_vitamin_c: f32, min_vitamin_d: f32, max_vitamin_d: f32, min_vitamin_e: f32, max_vitamin_e: f32, min_vitamin_k: f32, max_vitamin_k: f32, min_vitamin_b1: f32, max_vitamin_b1: f32, min_vitamin_b2: f32, max_vitamin_b2: f32, min_vitamin_b5: f32, max_vitamin_b5: f32, min_vitamin_b3: f32, max_vitamin_b3: f32, min_vitamin_b6: f32, max_vitamin_b6: f32, min_vitamin_b12: f32, max_vitamin_b12: f32, min_fiber: f32, max_fiber: f32, min_folate: f32, max_folate: f32, min_folic_acid: f32, max_folic_acid: f32, min_iodine: f32, max_iodine: f32, min_iron: f32, max_iron: f32, min_magnesium: f32, max_magnesium: f32, min_manganese: f32, max_manganese: f32, min_phosphorus: f32, max_phosphorus: f32, min_potassium: f32, max_potassium: f32, min_selenium: f32, max_selenium: f32, min_sodium: f32, max_sodium: f32, min_sugar: f32, max_sugar: f32, min_zinc: f32, max_zinc: f32, offset: f32, number: f32, limit_license: bool) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
+    fn search_recipes_complex(&self, query: &str, cuisine: &str, exclude_cuisine: &str, diet: &str, intolerances: &str, equipment: &str, include_ingredients: &str, exclude_ingredients: &str, _type: &str, instructions_required: bool, fill_ingredients: bool, add_recipe_information: bool, add_recipe_nutrition: bool, author: &str, tags: &str, recipe_box_id: f32, title_match: &str, max_ready_time: f32, ignore_pantry: bool, sort: &str, sort_direction: &str, min_carbs: f32, max_carbs: f32, min_protein: f32, max_protein: f32, min_calories: f32, max_calories: f32, min_fat: f32, max_fat: f32, min_alcohol: f32, max_alcohol: f32, min_caffeine: f32, max_caffeine: f32, min_copper: f32, max_copper: f32, min_calcium: f32, max_calcium: f32, min_choline: f32, max_choline: f32, min_cholesterol: f32, max_cholesterol: f32, min_fluoride: f32, max_fluoride: f32, min_saturated_fat: f32, max_saturated_fat: f32, min_vitamin_a: f32, max_vitamin_a: f32, min_vitamin_c: f32, max_vitamin_c: f32, min_vitamin_d: f32, max_vitamin_d: f32, min_vitamin_e: f32, max_vitamin_e: f32, min_vitamin_k: f32, max_vitamin_k: f32, min_vitamin_b1: f32, max_vitamin_b1: f32, min_vitamin_b2: f32, max_vitamin_b2: f32, min_vitamin_b5: f32, max_vitamin_b5: f32, min_vitamin_b3: f32, max_vitamin_b3: f32, min_vitamin_b6: f32, max_vitamin_b6: f32, min_vitamin_b12: f32, max_vitamin_b12: f32, min_fiber: f32, max_fiber: f32, min_folate: f32, max_folate: f32, min_folic_acid: f32, max_folic_acid: f32, min_iodine: f32, max_iodine: f32, min_iron: f32, max_iron: f32, min_magnesium: f32, max_magnesium: f32, min_manganese: f32, max_manganese: f32, min_phosphorus: f32, max_phosphorus: f32, min_potassium: f32, max_potassium: f32, min_selenium: f32, max_selenium: f32, min_sodium: f32, max_sodium: f32, min_sugar: f32, max_sugar: f32, min_zinc: f32, max_zinc: f32, offset: f32, number: f32, limit_license: bool) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/recipes/complexSearch".to_string())
             .with_query_param("query".to_string(), query.to_string())
             .with_query_param("cuisine".to_string(), cuisine.to_string())
@@ -548,8 +658,10 @@ impl<C: hyper::client::Connect>DefaultApi for DefaultApiClient<C> {
             .with_query_param("instructionsRequired".to_string(), instructions_required.to_string())
             .with_query_param("fillIngredients".to_string(), fill_ingredients.to_string())
             .with_query_param("addRecipeInformation".to_string(), add_recipe_information.to_string())
+            .with_query_param("addRecipeNutrition".to_string(), add_recipe_nutrition.to_string())
             .with_query_param("author".to_string(), author.to_string())
             .with_query_param("tags".to_string(), tags.to_string())
+            .with_query_param("recipeBoxId".to_string(), recipe_box_id.to_string())
             .with_query_param("titleMatch".to_string(), title_match.to_string())
             .with_query_param("maxReadyTime".to_string(), max_ready_time.to_string())
             .with_query_param("ignorePantry".to_string(), ignore_pantry.to_string())

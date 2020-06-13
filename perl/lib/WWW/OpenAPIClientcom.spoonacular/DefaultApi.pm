@@ -49,6 +49,204 @@ sub new {
 
 
 #
+# add_to_meal_plan
+#
+# Add to Meal Plan
+# 
+# @param string $username The username. (required)
+# @param string $hash The private hash for the username. (required)
+# @param InlineObject9 $inline_object9  (required)
+{
+    my $params = {
+    'username' => {
+        data_type => 'string',
+        description => 'The username.',
+        required => '1',
+    },
+    'hash' => {
+        data_type => 'string',
+        description => 'The private hash for the username.',
+        required => '1',
+    },
+    'inline_object9' => {
+        data_type => 'InlineObject9',
+        description => '',
+        required => '1',
+    },
+    };
+    __PACKAGE__->method_documentation->{ 'add_to_meal_plan' } = { 
+        summary => 'Add to Meal Plan',
+        params => $params,
+        returns => 'object',
+        };
+}
+# @return object
+#
+sub add_to_meal_plan {
+    my ($self, %args) = @_;
+
+    # verify the required parameter 'username' is set
+    unless (exists $args{'username'}) {
+      croak("Missing the required parameter 'username' when calling add_to_meal_plan");
+    }
+
+    # verify the required parameter 'hash' is set
+    unless (exists $args{'hash'}) {
+      croak("Missing the required parameter 'hash' when calling add_to_meal_plan");
+    }
+
+    # verify the required parameter 'inline_object9' is set
+    unless (exists $args{'inline_object9'}) {
+      croak("Missing the required parameter 'inline_object9' when calling add_to_meal_plan");
+    }
+
+    # parse inputs
+    my $_resource_path = '/mealplanner/{username}/items';
+
+    my $_method = 'POST';
+    my $query_params = {};
+    my $header_params = {};
+    my $form_params = {};
+
+    # 'Accept' and 'Content-Type' header
+    my $_header_accept = $self->{api_client}->select_header_accept('application/json');
+    if ($_header_accept) {
+        $header_params->{'Accept'} = $_header_accept;
+    }
+    $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type('');
+
+    # query params
+    if ( exists $args{'hash'}) {
+        $query_params->{'hash'} = $self->{api_client}->to_query_value($args{'hash'});
+    }
+
+    # path params
+    if ( exists $args{'username'}) {
+        my $_base_variable = "{" . "username" . "}";
+        my $_base_value = $self->{api_client}->to_path_value($args{'username'});
+        $_resource_path =~ s/$_base_variable/$_base_value/g;
+    }
+
+    my $_body_data;
+    # body params
+    if ( exists $args{'inline_object9'}) {
+        $_body_data = $args{'inline_object9'};
+    }
+
+    # authentication setting, if any
+    my $auth_settings = [qw()];
+
+    # make the API Call
+    my $response = $self->{api_client}->call_api($_resource_path, $_method,
+                                           $query_params, $form_params,
+                                           $header_params, $_body_data, $auth_settings);
+    if (!$response) {
+        return;
+    }
+    my $_response_object = $self->{api_client}->deserialize('object', $response);
+    return $_response_object;
+}
+
+#
+# add_to_shopping_list
+#
+# Add to Shopping List
+# 
+# @param string $username The username. (required)
+# @param string $hash The private hash for the username. (required)
+# @param InlineObject12 $inline_object12  (required)
+{
+    my $params = {
+    'username' => {
+        data_type => 'string',
+        description => 'The username.',
+        required => '1',
+    },
+    'hash' => {
+        data_type => 'string',
+        description => 'The private hash for the username.',
+        required => '1',
+    },
+    'inline_object12' => {
+        data_type => 'InlineObject12',
+        description => '',
+        required => '1',
+    },
+    };
+    __PACKAGE__->method_documentation->{ 'add_to_shopping_list' } = { 
+        summary => 'Add to Shopping List',
+        params => $params,
+        returns => 'object',
+        };
+}
+# @return object
+#
+sub add_to_shopping_list {
+    my ($self, %args) = @_;
+
+    # verify the required parameter 'username' is set
+    unless (exists $args{'username'}) {
+      croak("Missing the required parameter 'username' when calling add_to_shopping_list");
+    }
+
+    # verify the required parameter 'hash' is set
+    unless (exists $args{'hash'}) {
+      croak("Missing the required parameter 'hash' when calling add_to_shopping_list");
+    }
+
+    # verify the required parameter 'inline_object12' is set
+    unless (exists $args{'inline_object12'}) {
+      croak("Missing the required parameter 'inline_object12' when calling add_to_shopping_list");
+    }
+
+    # parse inputs
+    my $_resource_path = '/mealplanner/{username}/shopping-list/items';
+
+    my $_method = 'POST';
+    my $query_params = {};
+    my $header_params = {};
+    my $form_params = {};
+
+    # 'Accept' and 'Content-Type' header
+    my $_header_accept = $self->{api_client}->select_header_accept('application/json');
+    if ($_header_accept) {
+        $header_params->{'Accept'} = $_header_accept;
+    }
+    $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type('');
+
+    # query params
+    if ( exists $args{'hash'}) {
+        $query_params->{'hash'} = $self->{api_client}->to_query_value($args{'hash'});
+    }
+
+    # path params
+    if ( exists $args{'username'}) {
+        my $_base_variable = "{" . "username" . "}";
+        my $_base_value = $self->{api_client}->to_path_value($args{'username'});
+        $_resource_path =~ s/$_base_variable/$_base_value/g;
+    }
+
+    my $_body_data;
+    # body params
+    if ( exists $args{'inline_object12'}) {
+        $_body_data = $args{'inline_object12'};
+    }
+
+    # authentication setting, if any
+    my $auth_settings = [qw()];
+
+    # make the API Call
+    my $response = $self->{api_client}->call_api($_resource_path, $_method,
+                                           $query_params, $form_params,
+                                           $header_params, $_body_data, $auth_settings);
+    if (!$response) {
+        return;
+    }
+    my $_response_object = $self->{api_client}->deserialize('object', $response);
+    return $_response_object;
+}
+
+#
 # analyze_a_recipe_search_query
 #
 # Analyze a Recipe Search Query
@@ -1073,6 +1271,240 @@ sub create_recipe_card {
 }
 
 #
+# delete_from_meal_plan
+#
+# Delete from Meal Plan
+# 
+# @param string $username The username. (required)
+# @param double $id The shopping list item id. (required)
+# @param string $hash The private hash for the username. (required)
+# @param InlineObject10 $inline_object10  (required)
+{
+    my $params = {
+    'username' => {
+        data_type => 'string',
+        description => 'The username.',
+        required => '1',
+    },
+    'id' => {
+        data_type => 'double',
+        description => 'The shopping list item id.',
+        required => '1',
+    },
+    'hash' => {
+        data_type => 'string',
+        description => 'The private hash for the username.',
+        required => '1',
+    },
+    'inline_object10' => {
+        data_type => 'InlineObject10',
+        description => '',
+        required => '1',
+    },
+    };
+    __PACKAGE__->method_documentation->{ 'delete_from_meal_plan' } = { 
+        summary => 'Delete from Meal Plan',
+        params => $params,
+        returns => 'object',
+        };
+}
+# @return object
+#
+sub delete_from_meal_plan {
+    my ($self, %args) = @_;
+
+    # verify the required parameter 'username' is set
+    unless (exists $args{'username'}) {
+      croak("Missing the required parameter 'username' when calling delete_from_meal_plan");
+    }
+
+    # verify the required parameter 'id' is set
+    unless (exists $args{'id'}) {
+      croak("Missing the required parameter 'id' when calling delete_from_meal_plan");
+    }
+
+    # verify the required parameter 'hash' is set
+    unless (exists $args{'hash'}) {
+      croak("Missing the required parameter 'hash' when calling delete_from_meal_plan");
+    }
+
+    # verify the required parameter 'inline_object10' is set
+    unless (exists $args{'inline_object10'}) {
+      croak("Missing the required parameter 'inline_object10' when calling delete_from_meal_plan");
+    }
+
+    # parse inputs
+    my $_resource_path = '/mealplanner/{username}/items/{id}';
+
+    my $_method = 'DELETE';
+    my $query_params = {};
+    my $header_params = {};
+    my $form_params = {};
+
+    # 'Accept' and 'Content-Type' header
+    my $_header_accept = $self->{api_client}->select_header_accept('application/json');
+    if ($_header_accept) {
+        $header_params->{'Accept'} = $_header_accept;
+    }
+    $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type('');
+
+    # query params
+    if ( exists $args{'hash'}) {
+        $query_params->{'hash'} = $self->{api_client}->to_query_value($args{'hash'});
+    }
+
+    # path params
+    if ( exists $args{'username'}) {
+        my $_base_variable = "{" . "username" . "}";
+        my $_base_value = $self->{api_client}->to_path_value($args{'username'});
+        $_resource_path =~ s/$_base_variable/$_base_value/g;
+    }
+
+    # path params
+    if ( exists $args{'id'}) {
+        my $_base_variable = "{" . "id" . "}";
+        my $_base_value = $self->{api_client}->to_path_value($args{'id'});
+        $_resource_path =~ s/$_base_variable/$_base_value/g;
+    }
+
+    my $_body_data;
+    # body params
+    if ( exists $args{'inline_object10'}) {
+        $_body_data = $args{'inline_object10'};
+    }
+
+    # authentication setting, if any
+    my $auth_settings = [qw()];
+
+    # make the API Call
+    my $response = $self->{api_client}->call_api($_resource_path, $_method,
+                                           $query_params, $form_params,
+                                           $header_params, $_body_data, $auth_settings);
+    if (!$response) {
+        return;
+    }
+    my $_response_object = $self->{api_client}->deserialize('object', $response);
+    return $_response_object;
+}
+
+#
+# delete_from_shopping_list
+#
+# Delete from Shopping List
+# 
+# @param string $username The username. (required)
+# @param double $id The shopping list item id. (required)
+# @param string $hash The private hash for the username. (required)
+# @param InlineObject13 $inline_object13  (required)
+{
+    my $params = {
+    'username' => {
+        data_type => 'string',
+        description => 'The username.',
+        required => '1',
+    },
+    'id' => {
+        data_type => 'double',
+        description => 'The shopping list item id.',
+        required => '1',
+    },
+    'hash' => {
+        data_type => 'string',
+        description => 'The private hash for the username.',
+        required => '1',
+    },
+    'inline_object13' => {
+        data_type => 'InlineObject13',
+        description => '',
+        required => '1',
+    },
+    };
+    __PACKAGE__->method_documentation->{ 'delete_from_shopping_list' } = { 
+        summary => 'Delete from Shopping List',
+        params => $params,
+        returns => 'object',
+        };
+}
+# @return object
+#
+sub delete_from_shopping_list {
+    my ($self, %args) = @_;
+
+    # verify the required parameter 'username' is set
+    unless (exists $args{'username'}) {
+      croak("Missing the required parameter 'username' when calling delete_from_shopping_list");
+    }
+
+    # verify the required parameter 'id' is set
+    unless (exists $args{'id'}) {
+      croak("Missing the required parameter 'id' when calling delete_from_shopping_list");
+    }
+
+    # verify the required parameter 'hash' is set
+    unless (exists $args{'hash'}) {
+      croak("Missing the required parameter 'hash' when calling delete_from_shopping_list");
+    }
+
+    # verify the required parameter 'inline_object13' is set
+    unless (exists $args{'inline_object13'}) {
+      croak("Missing the required parameter 'inline_object13' when calling delete_from_shopping_list");
+    }
+
+    # parse inputs
+    my $_resource_path = '/mealplanner/{username}/shopping-list/items/{id}';
+
+    my $_method = 'DELETE';
+    my $query_params = {};
+    my $header_params = {};
+    my $form_params = {};
+
+    # 'Accept' and 'Content-Type' header
+    my $_header_accept = $self->{api_client}->select_header_accept('application/json');
+    if ($_header_accept) {
+        $header_params->{'Accept'} = $_header_accept;
+    }
+    $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type('');
+
+    # query params
+    if ( exists $args{'hash'}) {
+        $query_params->{'hash'} = $self->{api_client}->to_query_value($args{'hash'});
+    }
+
+    # path params
+    if ( exists $args{'username'}) {
+        my $_base_variable = "{" . "username" . "}";
+        my $_base_value = $self->{api_client}->to_path_value($args{'username'});
+        $_resource_path =~ s/$_base_variable/$_base_value/g;
+    }
+
+    # path params
+    if ( exists $args{'id'}) {
+        my $_base_variable = "{" . "id" . "}";
+        my $_base_value = $self->{api_client}->to_path_value($args{'id'});
+        $_resource_path =~ s/$_base_variable/$_base_value/g;
+    }
+
+    my $_body_data;
+    # body params
+    if ( exists $args{'inline_object13'}) {
+        $_body_data = $args{'inline_object13'};
+    }
+
+    # authentication setting, if any
+    my $auth_settings = [qw()];
+
+    # make the API Call
+    my $response = $self->{api_client}->call_api($_resource_path, $_method,
+                                           $query_params, $form_params,
+                                           $header_params, $_body_data, $auth_settings);
+    if (!$response) {
+        return;
+    }
+    my $_response_object = $self->{api_client}->deserialize('object', $response);
+    return $_response_object;
+}
+
+#
 # detect_food_in_text
 #
 # Detect Food in Text
@@ -1144,6 +1576,7 @@ sub detect_food_in_text {
 # 
 # @param string $url The URL of the recipe page. (required)
 # @param boolean $force_extraction If true, the extraction will be triggered whether we already know the recipe or not. Use this only if information is missing as this operation is slower. (optional)
+# @param boolean $analyze If true, the recipe will be analyzed and classified resolving in more data such as cuisines, dish types, and more. (optional)
 {
     my $params = {
     'url' => {
@@ -1154,6 +1587,11 @@ sub detect_food_in_text {
     'force_extraction' => {
         data_type => 'boolean',
         description => 'If true, the extraction will be triggered whether we already know the recipe or not. Use this only if information is missing as this operation is slower.',
+        required => '0',
+    },
+    'analyze' => {
+        data_type => 'boolean',
+        description => 'If true, the recipe will be analyzed and classified resolving in more data such as cuisines, dish types, and more.',
         required => '0',
     },
     };
@@ -1196,6 +1634,11 @@ sub extract_recipe_from_website {
     # query params
     if ( exists $args{'force_extraction'}) {
         $query_params->{'forceExtraction'} = $self->{api_client}->to_query_value($args{'force_extraction'});
+    }
+
+    # query params
+    if ( exists $args{'analyze'}) {
+        $query_params->{'analyze'} = $self->{api_client}->to_query_value($args{'analyze'});
     }
 
     my $_body_data;
@@ -1292,6 +1735,141 @@ sub generate_meal_plan {
     }
 
     my $_body_data;
+    # authentication setting, if any
+    my $auth_settings = [qw()];
+
+    # make the API Call
+    my $response = $self->{api_client}->call_api($_resource_path, $_method,
+                                           $query_params, $form_params,
+                                           $header_params, $_body_data, $auth_settings);
+    if (!$response) {
+        return;
+    }
+    my $_response_object = $self->{api_client}->deserialize('object', $response);
+    return $_response_object;
+}
+
+#
+# generate_shopping_list
+#
+# Generate Shopping List
+# 
+# @param string $username The username. (required)
+# @param string $start_date The start date in the format yyyy-mm-dd. (required)
+# @param string $end_date The end date in the format yyyy-mm-dd. (required)
+# @param string $hash The private hash for the username. (required)
+# @param InlineObject11 $inline_object11  (required)
+{
+    my $params = {
+    'username' => {
+        data_type => 'string',
+        description => 'The username.',
+        required => '1',
+    },
+    'start_date' => {
+        data_type => 'string',
+        description => 'The start date in the format yyyy-mm-dd.',
+        required => '1',
+    },
+    'end_date' => {
+        data_type => 'string',
+        description => 'The end date in the format yyyy-mm-dd.',
+        required => '1',
+    },
+    'hash' => {
+        data_type => 'string',
+        description => 'The private hash for the username.',
+        required => '1',
+    },
+    'inline_object11' => {
+        data_type => 'InlineObject11',
+        description => '',
+        required => '1',
+    },
+    };
+    __PACKAGE__->method_documentation->{ 'generate_shopping_list' } = { 
+        summary => 'Generate Shopping List',
+        params => $params,
+        returns => 'object',
+        };
+}
+# @return object
+#
+sub generate_shopping_list {
+    my ($self, %args) = @_;
+
+    # verify the required parameter 'username' is set
+    unless (exists $args{'username'}) {
+      croak("Missing the required parameter 'username' when calling generate_shopping_list");
+    }
+
+    # verify the required parameter 'start_date' is set
+    unless (exists $args{'start_date'}) {
+      croak("Missing the required parameter 'start_date' when calling generate_shopping_list");
+    }
+
+    # verify the required parameter 'end_date' is set
+    unless (exists $args{'end_date'}) {
+      croak("Missing the required parameter 'end_date' when calling generate_shopping_list");
+    }
+
+    # verify the required parameter 'hash' is set
+    unless (exists $args{'hash'}) {
+      croak("Missing the required parameter 'hash' when calling generate_shopping_list");
+    }
+
+    # verify the required parameter 'inline_object11' is set
+    unless (exists $args{'inline_object11'}) {
+      croak("Missing the required parameter 'inline_object11' when calling generate_shopping_list");
+    }
+
+    # parse inputs
+    my $_resource_path = '/mealplanner/{username}/shopping-list/{start-date}/{end-date}';
+
+    my $_method = 'POST';
+    my $query_params = {};
+    my $header_params = {};
+    my $form_params = {};
+
+    # 'Accept' and 'Content-Type' header
+    my $_header_accept = $self->{api_client}->select_header_accept('application/json');
+    if ($_header_accept) {
+        $header_params->{'Accept'} = $_header_accept;
+    }
+    $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type('');
+
+    # query params
+    if ( exists $args{'hash'}) {
+        $query_params->{'hash'} = $self->{api_client}->to_query_value($args{'hash'});
+    }
+
+    # path params
+    if ( exists $args{'username'}) {
+        my $_base_variable = "{" . "username" . "}";
+        my $_base_value = $self->{api_client}->to_path_value($args{'username'});
+        $_resource_path =~ s/$_base_variable/$_base_value/g;
+    }
+
+    # path params
+    if ( exists $args{'start_date'}) {
+        my $_base_variable = "{" . "start-date" . "}";
+        my $_base_value = $self->{api_client}->to_path_value($args{'start_date'});
+        $_resource_path =~ s/$_base_variable/$_base_value/g;
+    }
+
+    # path params
+    if ( exists $args{'end_date'}) {
+        my $_base_variable = "{" . "end-date" . "}";
+        my $_base_value = $self->{api_client}->to_path_value($args{'end_date'});
+        $_resource_path =~ s/$_base_variable/$_base_value/g;
+    }
+
+    my $_body_data;
+    # body params
+    if ( exists $args{'inline_object11'}) {
+        $_body_data = $args{'inline_object11'};
+    }
+
     # authentication setting, if any
     my $auth_settings = [qw()];
 
@@ -1844,6 +2422,291 @@ sub get_ingredient_substitutes_by_id {
     if ( exists $args{'id'}) {
         my $_base_variable = "{" . "id" . "}";
         my $_base_value = $self->{api_client}->to_path_value($args{'id'});
+        $_resource_path =~ s/$_base_variable/$_base_value/g;
+    }
+
+    my $_body_data;
+    # authentication setting, if any
+    my $auth_settings = [qw()];
+
+    # make the API Call
+    my $response = $self->{api_client}->call_api($_resource_path, $_method,
+                                           $query_params, $form_params,
+                                           $header_params, $_body_data, $auth_settings);
+    if (!$response) {
+        return;
+    }
+    my $_response_object = $self->{api_client}->deserialize('object', $response);
+    return $_response_object;
+}
+
+#
+# get_meal_plan_template
+#
+# Get Meal Plan Template
+# 
+# @param string $username The username. (required)
+# @param double $id The shopping list item id. (required)
+# @param string $hash The private hash for the username. (required)
+{
+    my $params = {
+    'username' => {
+        data_type => 'string',
+        description => 'The username.',
+        required => '1',
+    },
+    'id' => {
+        data_type => 'double',
+        description => 'The shopping list item id.',
+        required => '1',
+    },
+    'hash' => {
+        data_type => 'string',
+        description => 'The private hash for the username.',
+        required => '1',
+    },
+    };
+    __PACKAGE__->method_documentation->{ 'get_meal_plan_template' } = { 
+        summary => 'Get Meal Plan Template',
+        params => $params,
+        returns => 'object',
+        };
+}
+# @return object
+#
+sub get_meal_plan_template {
+    my ($self, %args) = @_;
+
+    # verify the required parameter 'username' is set
+    unless (exists $args{'username'}) {
+      croak("Missing the required parameter 'username' when calling get_meal_plan_template");
+    }
+
+    # verify the required parameter 'id' is set
+    unless (exists $args{'id'}) {
+      croak("Missing the required parameter 'id' when calling get_meal_plan_template");
+    }
+
+    # verify the required parameter 'hash' is set
+    unless (exists $args{'hash'}) {
+      croak("Missing the required parameter 'hash' when calling get_meal_plan_template");
+    }
+
+    # parse inputs
+    my $_resource_path = '/mealplanner/{username}/templates/{id}';
+
+    my $_method = 'GET';
+    my $query_params = {};
+    my $header_params = {};
+    my $form_params = {};
+
+    # 'Accept' and 'Content-Type' header
+    my $_header_accept = $self->{api_client}->select_header_accept('application/json');
+    if ($_header_accept) {
+        $header_params->{'Accept'} = $_header_accept;
+    }
+    $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
+
+    # query params
+    if ( exists $args{'hash'}) {
+        $query_params->{'hash'} = $self->{api_client}->to_query_value($args{'hash'});
+    }
+
+    # path params
+    if ( exists $args{'username'}) {
+        my $_base_variable = "{" . "username" . "}";
+        my $_base_value = $self->{api_client}->to_path_value($args{'username'});
+        $_resource_path =~ s/$_base_variable/$_base_value/g;
+    }
+
+    # path params
+    if ( exists $args{'id'}) {
+        my $_base_variable = "{" . "id" . "}";
+        my $_base_value = $self->{api_client}->to_path_value($args{'id'});
+        $_resource_path =~ s/$_base_variable/$_base_value/g;
+    }
+
+    my $_body_data;
+    # authentication setting, if any
+    my $auth_settings = [qw()];
+
+    # make the API Call
+    my $response = $self->{api_client}->call_api($_resource_path, $_method,
+                                           $query_params, $form_params,
+                                           $header_params, $_body_data, $auth_settings);
+    if (!$response) {
+        return;
+    }
+    my $_response_object = $self->{api_client}->deserialize('object', $response);
+    return $_response_object;
+}
+
+#
+# get_meal_plan_templates
+#
+# Get Meal Plan Templates
+# 
+# @param string $username The username. (required)
+# @param string $hash The private hash for the username. (required)
+{
+    my $params = {
+    'username' => {
+        data_type => 'string',
+        description => 'The username.',
+        required => '1',
+    },
+    'hash' => {
+        data_type => 'string',
+        description => 'The private hash for the username.',
+        required => '1',
+    },
+    };
+    __PACKAGE__->method_documentation->{ 'get_meal_plan_templates' } = { 
+        summary => 'Get Meal Plan Templates',
+        params => $params,
+        returns => 'object',
+        };
+}
+# @return object
+#
+sub get_meal_plan_templates {
+    my ($self, %args) = @_;
+
+    # verify the required parameter 'username' is set
+    unless (exists $args{'username'}) {
+      croak("Missing the required parameter 'username' when calling get_meal_plan_templates");
+    }
+
+    # verify the required parameter 'hash' is set
+    unless (exists $args{'hash'}) {
+      croak("Missing the required parameter 'hash' when calling get_meal_plan_templates");
+    }
+
+    # parse inputs
+    my $_resource_path = '/mealplanner/{username}/templates';
+
+    my $_method = 'GET';
+    my $query_params = {};
+    my $header_params = {};
+    my $form_params = {};
+
+    # 'Accept' and 'Content-Type' header
+    my $_header_accept = $self->{api_client}->select_header_accept('application/json');
+    if ($_header_accept) {
+        $header_params->{'Accept'} = $_header_accept;
+    }
+    $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
+
+    # query params
+    if ( exists $args{'hash'}) {
+        $query_params->{'hash'} = $self->{api_client}->to_query_value($args{'hash'});
+    }
+
+    # path params
+    if ( exists $args{'username'}) {
+        my $_base_variable = "{" . "username" . "}";
+        my $_base_value = $self->{api_client}->to_path_value($args{'username'});
+        $_resource_path =~ s/$_base_variable/$_base_value/g;
+    }
+
+    my $_body_data;
+    # authentication setting, if any
+    my $auth_settings = [qw()];
+
+    # make the API Call
+    my $response = $self->{api_client}->call_api($_resource_path, $_method,
+                                           $query_params, $form_params,
+                                           $header_params, $_body_data, $auth_settings);
+    if (!$response) {
+        return;
+    }
+    my $_response_object = $self->{api_client}->deserialize('object', $response);
+    return $_response_object;
+}
+
+#
+# get_meal_plan_week
+#
+# Get Meal Plan Week
+# 
+# @param string $username The username. (required)
+# @param string $start_date The start date of the meal planned week in the format yyyy-mm-dd. (required)
+# @param string $hash The private hash for the username. (required)
+{
+    my $params = {
+    'username' => {
+        data_type => 'string',
+        description => 'The username.',
+        required => '1',
+    },
+    'start_date' => {
+        data_type => 'string',
+        description => 'The start date of the meal planned week in the format yyyy-mm-dd.',
+        required => '1',
+    },
+    'hash' => {
+        data_type => 'string',
+        description => 'The private hash for the username.',
+        required => '1',
+    },
+    };
+    __PACKAGE__->method_documentation->{ 'get_meal_plan_week' } = { 
+        summary => 'Get Meal Plan Week',
+        params => $params,
+        returns => 'object',
+        };
+}
+# @return object
+#
+sub get_meal_plan_week {
+    my ($self, %args) = @_;
+
+    # verify the required parameter 'username' is set
+    unless (exists $args{'username'}) {
+      croak("Missing the required parameter 'username' when calling get_meal_plan_week");
+    }
+
+    # verify the required parameter 'start_date' is set
+    unless (exists $args{'start_date'}) {
+      croak("Missing the required parameter 'start_date' when calling get_meal_plan_week");
+    }
+
+    # verify the required parameter 'hash' is set
+    unless (exists $args{'hash'}) {
+      croak("Missing the required parameter 'hash' when calling get_meal_plan_week");
+    }
+
+    # parse inputs
+    my $_resource_path = '/mealplanner/{username}/week/{start-date}';
+
+    my $_method = 'GET';
+    my $query_params = {};
+    my $header_params = {};
+    my $form_params = {};
+
+    # 'Accept' and 'Content-Type' header
+    my $_header_accept = $self->{api_client}->select_header_accept('application/json');
+    if ($_header_accept) {
+        $header_params->{'Accept'} = $_header_accept;
+    }
+    $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
+
+    # query params
+    if ( exists $args{'hash'}) {
+        $query_params->{'hash'} = $self->{api_client}->to_query_value($args{'hash'});
+    }
+
+    # path params
+    if ( exists $args{'username'}) {
+        my $_base_variable = "{" . "username" . "}";
+        my $_base_value = $self->{api_client}->to_path_value($args{'username'});
+        $_resource_path =~ s/$_base_variable/$_base_value/g;
+    }
+
+    # path params
+    if ( exists $args{'start_date'}) {
+        my $_base_variable = "{" . "start-date" . "}";
+        my $_base_value = $self->{api_client}->to_path_value($args{'start_date'});
         $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
@@ -2550,12 +3413,96 @@ sub get_recipe_price_breakdown_by_id {
 }
 
 #
+# get_shopping_list
+#
+# Get Shopping List
+# 
+# @param string $username The username. (required)
+# @param string $hash The private hash for the username. (required)
+{
+    my $params = {
+    'username' => {
+        data_type => 'string',
+        description => 'The username.',
+        required => '1',
+    },
+    'hash' => {
+        data_type => 'string',
+        description => 'The private hash for the username.',
+        required => '1',
+    },
+    };
+    __PACKAGE__->method_documentation->{ 'get_shopping_list' } = { 
+        summary => 'Get Shopping List',
+        params => $params,
+        returns => 'object',
+        };
+}
+# @return object
+#
+sub get_shopping_list {
+    my ($self, %args) = @_;
+
+    # verify the required parameter 'username' is set
+    unless (exists $args{'username'}) {
+      croak("Missing the required parameter 'username' when calling get_shopping_list");
+    }
+
+    # verify the required parameter 'hash' is set
+    unless (exists $args{'hash'}) {
+      croak("Missing the required parameter 'hash' when calling get_shopping_list");
+    }
+
+    # parse inputs
+    my $_resource_path = '/mealplanner/{username}/shopping-list';
+
+    my $_method = 'GET';
+    my $query_params = {};
+    my $header_params = {};
+    my $form_params = {};
+
+    # 'Accept' and 'Content-Type' header
+    my $_header_accept = $self->{api_client}->select_header_accept('application/json');
+    if ($_header_accept) {
+        $header_params->{'Accept'} = $_header_accept;
+    }
+    $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
+
+    # query params
+    if ( exists $args{'hash'}) {
+        $query_params->{'hash'} = $self->{api_client}->to_query_value($args{'hash'});
+    }
+
+    # path params
+    if ( exists $args{'username'}) {
+        my $_base_variable = "{" . "username" . "}";
+        my $_base_value = $self->{api_client}->to_path_value($args{'username'});
+        $_resource_path =~ s/$_base_variable/$_base_value/g;
+    }
+
+    my $_body_data;
+    # authentication setting, if any
+    my $auth_settings = [qw()];
+
+    # make the API Call
+    my $response = $self->{api_client}->call_api($_resource_path, $_method,
+                                           $query_params, $form_params,
+                                           $header_params, $_body_data, $auth_settings);
+    if (!$response) {
+        return;
+    }
+    my $_response_object = $self->{api_client}->deserialize('object', $response);
+    return $_response_object;
+}
+
+#
 # get_similar_recipes
 #
 # Get Similar Recipes
 # 
 # @param double $id The id of the source recipe for which similar recipes should be found. (required)
 # @param double $number The number of random recipes to be returned (between 1 and 100). (optional)
+# @param boolean $limit_license Whether the recipes should have an open license that allows display with proper attribution. (optional)
 {
     my $params = {
     'id' => {
@@ -2566,6 +3513,11 @@ sub get_recipe_price_breakdown_by_id {
     'number' => {
         data_type => 'double',
         description => 'The number of random recipes to be returned (between 1 and 100).',
+        required => '0',
+    },
+    'limit_license' => {
+        data_type => 'boolean',
+        description => 'Whether the recipes should have an open license that allows display with proper attribution.',
         required => '0',
     },
     };
@@ -2603,6 +3555,11 @@ sub get_similar_recipes {
     # query params
     if ( exists $args{'number'}) {
         $query_params->{'number'} = $self->{api_client}->to_query_value($args{'number'});
+    }
+
+    # query params
+    if ( exists $args{'limit_license'}) {
+        $query_params->{'limitLicense'} = $self->{api_client}->to_query_value($args{'limit_license'});
     }
 
     # path params
@@ -2932,6 +3889,136 @@ sub guess_nutrition_by_dish_name {
 }
 
 #
+# image_analysis_by_url
+#
+# Image Analysis by URL
+# 
+# @param string $image_url The URL of the image to be analyzed. (required)
+{
+    my $params = {
+    'image_url' => {
+        data_type => 'string',
+        description => 'The URL of the image to be analyzed.',
+        required => '1',
+    },
+    };
+    __PACKAGE__->method_documentation->{ 'image_analysis_by_url' } = { 
+        summary => 'Image Analysis by URL',
+        params => $params,
+        returns => 'object',
+        };
+}
+# @return object
+#
+sub image_analysis_by_url {
+    my ($self, %args) = @_;
+
+    # verify the required parameter 'image_url' is set
+    unless (exists $args{'image_url'}) {
+      croak("Missing the required parameter 'image_url' when calling image_analysis_by_url");
+    }
+
+    # parse inputs
+    my $_resource_path = '/food/images/analyze';
+
+    my $_method = 'GET';
+    my $query_params = {};
+    my $header_params = {};
+    my $form_params = {};
+
+    # 'Accept' and 'Content-Type' header
+    my $_header_accept = $self->{api_client}->select_header_accept('application/json');
+    if ($_header_accept) {
+        $header_params->{'Accept'} = $_header_accept;
+    }
+    $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
+
+    # query params
+    if ( exists $args{'image_url'}) {
+        $query_params->{'imageUrl'} = $self->{api_client}->to_query_value($args{'image_url'});
+    }
+
+    my $_body_data;
+    # authentication setting, if any
+    my $auth_settings = [qw()];
+
+    # make the API Call
+    my $response = $self->{api_client}->call_api($_resource_path, $_method,
+                                           $query_params, $form_params,
+                                           $header_params, $_body_data, $auth_settings);
+    if (!$response) {
+        return;
+    }
+    my $_response_object = $self->{api_client}->deserialize('object', $response);
+    return $_response_object;
+}
+
+#
+# image_classification_by_url
+#
+# Image Classification by URL
+# 
+# @param string $image_url The URL of the image to be classified. (required)
+{
+    my $params = {
+    'image_url' => {
+        data_type => 'string',
+        description => 'The URL of the image to be classified.',
+        required => '1',
+    },
+    };
+    __PACKAGE__->method_documentation->{ 'image_classification_by_url' } = { 
+        summary => 'Image Classification by URL',
+        params => $params,
+        returns => 'object',
+        };
+}
+# @return object
+#
+sub image_classification_by_url {
+    my ($self, %args) = @_;
+
+    # verify the required parameter 'image_url' is set
+    unless (exists $args{'image_url'}) {
+      croak("Missing the required parameter 'image_url' when calling image_classification_by_url");
+    }
+
+    # parse inputs
+    my $_resource_path = '/food/images/classify';
+
+    my $_method = 'GET';
+    my $query_params = {};
+    my $header_params = {};
+    my $form_params = {};
+
+    # 'Accept' and 'Content-Type' header
+    my $_header_accept = $self->{api_client}->select_header_accept('application/json');
+    if ($_header_accept) {
+        $header_params->{'Accept'} = $_header_accept;
+    }
+    $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
+
+    # query params
+    if ( exists $args{'image_url'}) {
+        $query_params->{'imageUrl'} = $self->{api_client}->to_query_value($args{'image_url'});
+    }
+
+    my $_body_data;
+    # authentication setting, if any
+    my $auth_settings = [qw()];
+
+    # make the API Call
+    my $response = $self->{api_client}->call_api($_resource_path, $_method,
+                                           $query_params, $form_params,
+                                           $header_params, $_body_data, $auth_settings);
+    if (!$response) {
+        return;
+    }
+    my $_response_object = $self->{api_client}->deserialize('object', $response);
+    return $_response_object;
+}
+
+#
 # map_ingredients_to_grocery_products
 #
 # Map Ingredients to Grocery Products
@@ -3154,6 +4241,125 @@ sub quick_answer {
 }
 
 #
+# search_custom_foods
+#
+# Search Custom Foods
+# 
+# @param string $query The search query. (required)
+# @param string $username The username. (required)
+# @param string $hash The private hash for the username. (required)
+# @param double $offset The number of results to skip (between 0 and 990). (optional)
+# @param double $number The number of expected results (between 1 and 100). (optional)
+{
+    my $params = {
+    'query' => {
+        data_type => 'string',
+        description => 'The search query.',
+        required => '1',
+    },
+    'username' => {
+        data_type => 'string',
+        description => 'The username.',
+        required => '1',
+    },
+    'hash' => {
+        data_type => 'string',
+        description => 'The private hash for the username.',
+        required => '1',
+    },
+    'offset' => {
+        data_type => 'double',
+        description => 'The number of results to skip (between 0 and 990).',
+        required => '0',
+    },
+    'number' => {
+        data_type => 'double',
+        description => 'The number of expected results (between 1 and 100).',
+        required => '0',
+    },
+    };
+    __PACKAGE__->method_documentation->{ 'search_custom_foods' } = { 
+        summary => 'Search Custom Foods',
+        params => $params,
+        returns => 'object',
+        };
+}
+# @return object
+#
+sub search_custom_foods {
+    my ($self, %args) = @_;
+
+    # verify the required parameter 'query' is set
+    unless (exists $args{'query'}) {
+      croak("Missing the required parameter 'query' when calling search_custom_foods");
+    }
+
+    # verify the required parameter 'username' is set
+    unless (exists $args{'username'}) {
+      croak("Missing the required parameter 'username' when calling search_custom_foods");
+    }
+
+    # verify the required parameter 'hash' is set
+    unless (exists $args{'hash'}) {
+      croak("Missing the required parameter 'hash' when calling search_custom_foods");
+    }
+
+    # parse inputs
+    my $_resource_path = '/food/customFoods/search';
+
+    my $_method = 'GET';
+    my $query_params = {};
+    my $header_params = {};
+    my $form_params = {};
+
+    # 'Accept' and 'Content-Type' header
+    my $_header_accept = $self->{api_client}->select_header_accept('application/json');
+    if ($_header_accept) {
+        $header_params->{'Accept'} = $_header_accept;
+    }
+    $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
+
+    # query params
+    if ( exists $args{'query'}) {
+        $query_params->{'query'} = $self->{api_client}->to_query_value($args{'query'});
+    }
+
+    # query params
+    if ( exists $args{'username'}) {
+        $query_params->{'username'} = $self->{api_client}->to_query_value($args{'username'});
+    }
+
+    # query params
+    if ( exists $args{'hash'}) {
+        $query_params->{'hash'} = $self->{api_client}->to_query_value($args{'hash'});
+    }
+
+    # query params
+    if ( exists $args{'offset'}) {
+        $query_params->{'offset'} = $self->{api_client}->to_query_value($args{'offset'});
+    }
+
+    # query params
+    if ( exists $args{'number'}) {
+        $query_params->{'number'} = $self->{api_client}->to_query_value($args{'number'});
+    }
+
+    my $_body_data;
+    # authentication setting, if any
+    my $auth_settings = [qw()];
+
+    # make the API Call
+    my $response = $self->{api_client}->call_api($_resource_path, $_method,
+                                           $query_params, $form_params,
+                                           $header_params, $_body_data, $auth_settings);
+    if (!$response) {
+        return;
+    }
+    my $_response_object = $self->{api_client}->deserialize('object', $response);
+    return $_response_object;
+}
+
+#
 # search_food_videos
 #
 # Search Food Videos
@@ -3331,7 +4537,7 @@ sub search_food_videos {
 # @param double $max_protein The maximum amount of protein in grams the product can have. (optional)
 # @param double $min_fat The minimum amount of fat in grams the product must have. (optional)
 # @param double $max_fat The maximum amount of fat in grams the product can have. (optional)
-# @param double $offset The offset number for paging (between 0 and 990). (optional)
+# @param double $offset The number of results to skip (between 0 and 990). (optional)
 # @param double $number The number of expected results (between 1 and 100). (optional)
 {
     my $params = {
@@ -3382,7 +4588,7 @@ sub search_food_videos {
     },
     'offset' => {
         data_type => 'double',
-        description => 'The offset number for paging (between 0 and 990).',
+        description => 'The number of results to skip (between 0 and 990).',
         required => '0',
     },
     'number' => {
@@ -4073,7 +5279,7 @@ sub search_recipes_by_ingredients {
 # @param double $max_sugar The maximum amount of sugar in grams the recipe can have. (optional)
 # @param double $min_zinc The minimum amount of zinc in milligrams the recipe must have. (optional)
 # @param double $max_zinc The maximum amount of zinc in milligrams the recipe can have. (optional)
-# @param double $offset The offset number for paging (between 0 and 990). (optional)
+# @param double $offset The number of results to skip (between 0 and 900). (optional)
 # @param double $number The number of expected results (between 1 and 100). (optional)
 # @param boolean $random If true, every request will give you a random set of recipes within the requested limits. (optional)
 # @param boolean $limit_license Whether the recipes should have an open license that allows display with proper attribution. (optional)
@@ -4441,7 +5647,7 @@ sub search_recipes_by_ingredients {
     },
     'offset' => {
         data_type => 'double',
-        description => 'The offset number for paging (between 0 and 990).',
+        description => 'The number of results to skip (between 0 and 900).',
         required => '0',
     },
     'number' => {
@@ -4896,10 +6102,12 @@ sub search_recipes_by_nutrients {
 # @param string $exclude_ingredients A comma-separated list of ingredients or ingredient types that the recipes must not contain. (optional)
 # @param string $type The type of recipe. See a full list of supported meal types. (optional)
 # @param boolean $instructions_required Whether the recipes must have instructions. (optional)
-# @param boolean $fill_ingredients Add information about the used and missing ingredients in each recipe. (optional)
-# @param boolean $add_recipe_information If set to true, you get more information about the recipes returned. This saves you from needing to call to get recipe information. (optional)
+# @param boolean $fill_ingredients Add information about the ingredients and whether they are used or missing in relation to the query. (optional)
+# @param boolean $add_recipe_information If set to true, you get more information about the recipes returned. (optional)
+# @param boolean $add_recipe_nutrition If set to true, you get nutritional information about each recipes returned. (optional)
 # @param string $author The username of the recipe author. (optional)
-# @param string $tags User defined tags that have to match. (optional)
+# @param string $tags User defined tags that have to match. The author param has to be set. (optional)
+# @param double $recipe_box_id The id of the recipe box to which the search should be limited to. (optional)
 # @param string $title_match Enter text that must be found in the title of the recipes. (optional)
 # @param double $max_ready_time The maximum time in minutes it should take to prepare and cook the recipe. (optional)
 # @param boolean $ignore_pantry Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional)
@@ -4977,8 +6185,8 @@ sub search_recipes_by_nutrients {
 # @param double $max_sugar The maximum amount of sugar in grams the recipe can have. (optional)
 # @param double $min_zinc The minimum amount of zinc in milligrams the recipe must have. (optional)
 # @param double $max_zinc The maximum amount of zinc in milligrams the recipe can have. (optional)
-# @param double $offset The offset number for paging (between 0 and 990). (optional)
-# @param double $number The number of expected results (between 1 and 10). (optional)
+# @param double $offset The number of results to skip (between 0 and 900). (optional)
+# @param double $number The number of expected results (between 1 and 100). (optional)
 # @param boolean $limit_license Whether the recipes should have an open license that allows display with proper attribution. (optional)
 {
     my $params = {
@@ -5034,12 +6242,17 @@ sub search_recipes_by_nutrients {
     },
     'fill_ingredients' => {
         data_type => 'boolean',
-        description => 'Add information about the used and missing ingredients in each recipe.',
+        description => 'Add information about the ingredients and whether they are used or missing in relation to the query.',
         required => '0',
     },
     'add_recipe_information' => {
         data_type => 'boolean',
-        description => 'If set to true, you get more information about the recipes returned. This saves you from needing to call to get recipe information.',
+        description => 'If set to true, you get more information about the recipes returned.',
+        required => '0',
+    },
+    'add_recipe_nutrition' => {
+        data_type => 'boolean',
+        description => 'If set to true, you get nutritional information about each recipes returned.',
         required => '0',
     },
     'author' => {
@@ -5049,7 +6262,12 @@ sub search_recipes_by_nutrients {
     },
     'tags' => {
         data_type => 'string',
-        description => 'User defined tags that have to match.',
+        description => 'User defined tags that have to match. The author param has to be set.',
+        required => '0',
+    },
+    'recipe_box_id' => {
+        data_type => 'double',
+        description => 'The id of the recipe box to which the search should be limited to.',
         required => '0',
     },
     'title_match' => {
@@ -5439,12 +6657,12 @@ sub search_recipes_by_nutrients {
     },
     'offset' => {
         data_type => 'double',
-        description => 'The offset number for paging (between 0 and 990).',
+        description => 'The number of results to skip (between 0 and 900).',
         required => '0',
     },
     'number' => {
         data_type => 'double',
-        description => 'The number of expected results (between 1 and 10).',
+        description => 'The number of expected results (between 1 and 100).',
         required => '0',
     },
     'limit_license' => {
@@ -5545,6 +6763,11 @@ sub search_recipes_complex {
     }
 
     # query params
+    if ( exists $args{'add_recipe_nutrition'}) {
+        $query_params->{'addRecipeNutrition'} = $self->{api_client}->to_query_value($args{'add_recipe_nutrition'});
+    }
+
+    # query params
     if ( exists $args{'author'}) {
         $query_params->{'author'} = $self->{api_client}->to_query_value($args{'author'});
     }
@@ -5552,6 +6775,11 @@ sub search_recipes_complex {
     # query params
     if ( exists $args{'tags'}) {
         $query_params->{'tags'} = $self->{api_client}->to_query_value($args{'tags'});
+    }
+
+    # query params
+    if ( exists $args{'recipe_box_id'}) {
+        $query_params->{'recipeBoxId'} = $self->{api_client}->to_query_value($args{'recipe_box_id'});
     }
 
     # query params

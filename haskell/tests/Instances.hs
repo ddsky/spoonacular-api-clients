@@ -127,6 +127,54 @@ genInlineObject1 n =
     <*> arbitraryReducedMaybe n -- inlineObject1DefaultCss :: Maybe Bool
     <*> arbitraryReducedMaybe n -- inlineObject1ShowBacklink :: Maybe Bool
   
+instance Arbitrary InlineObject10 where
+  arbitrary = sized genInlineObject10
+
+genInlineObject10 :: Int -> Gen InlineObject10
+genInlineObject10 n =
+  InlineObject10
+    <$> arbitrary -- inlineObject10Username :: Text
+    <*> arbitrary -- inlineObject10Id :: Double
+    <*> arbitrary -- inlineObject10Hash :: Text
+  
+instance Arbitrary InlineObject11 where
+  arbitrary = sized genInlineObject11
+
+genInlineObject11 :: Int -> Gen InlineObject11
+genInlineObject11 n =
+  InlineObject11
+    <$> arbitrary -- inlineObject11Username :: Text
+    <*> arbitrary -- inlineObject11StartDate :: Text
+    <*> arbitrary -- inlineObject11EndDate :: Text
+    <*> arbitrary -- inlineObject11Hash :: Text
+  
+instance Arbitrary InlineObject12 where
+  arbitrary = sized genInlineObject12
+
+genInlineObject12 :: Int -> Gen InlineObject12
+genInlineObject12 n =
+  InlineObject12
+    <$> arbitrary -- inlineObject12Username :: Text
+    <*> arbitrary -- inlineObject12Hash :: Text
+  
+instance Arbitrary InlineObject13 where
+  arbitrary = sized genInlineObject13
+
+genInlineObject13 :: Int -> Gen InlineObject13
+genInlineObject13 n =
+  InlineObject13
+    <$> arbitrary -- inlineObject13Username :: Text
+    <*> arbitrary -- inlineObject13Id :: Double
+    <*> arbitrary -- inlineObject13Hash :: Text
+  
+instance Arbitrary InlineObject14 where
+  arbitrary = sized genInlineObject14
+
+genInlineObject14 :: Int -> Gen InlineObject14
+genInlineObject14 n =
+  InlineObject14
+    <$> arbitrary -- inlineObject14Text :: Text
+  
 instance Arbitrary InlineObject2 where
   arbitrary = sized genInlineObject2
 
@@ -212,7 +260,8 @@ instance Arbitrary InlineObject9 where
 genInlineObject9 :: Int -> Gen InlineObject9
 genInlineObject9 n =
   InlineObject9
-    <$> arbitrary -- inlineObject9Text :: Text
+    <$> arbitrary -- inlineObject9Username :: Text
+    <*> arbitrary -- inlineObject9Hash :: Text
   
 
 

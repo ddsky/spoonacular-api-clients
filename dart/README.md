@@ -47,13 +47,15 @@ import 'package:openapi/api.dart';
 
 
 var api_instance = new DefaultApi();
-var q = salmon with fusilli and no nuts; // String | The recipe search query.
+var username = dsky; // String | The username.
+var hash = 4b5v4398573406; // String | The private hash for the username.
+var inlineObject9 = new InlineObject9(); // InlineObject9 | 
 
 try {
-    var result = api_instance.analyzeARecipeSearchQuery(q);
+    var result = api_instance.addToMealPlan(username, hash, inlineObject9);
     print(result);
 } catch (e) {
-    print("Exception when calling DefaultApi->analyzeARecipeSearchQuery: $e\n");
+    print("Exception when calling DefaultApi->addToMealPlan: $e\n");
 }
 
 ```
@@ -64,6 +66,8 @@ All URIs are relative to *https://api.spoonacular.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*DefaultApi* | [**addToMealPlan**](docs\/DefaultApi.md#addtomealplan) | **POST** /mealplanner/{username}/items | Add to Meal Plan
+*DefaultApi* | [**addToShoppingList**](docs\/DefaultApi.md#addtoshoppinglist) | **POST** /mealplanner/{username}/shopping-list/items | Add to Shopping List
 *DefaultApi* | [**analyzeARecipeSearchQuery**](docs\/DefaultApi.md#analyzearecipesearchquery) | **GET** /recipes/queries/analyze | Analyze a Recipe Search Query
 *DefaultApi* | [**analyzeRecipeInstructions**](docs\/DefaultApi.md#analyzerecipeinstructions) | **POST** /recipes/analyzeInstructions | Analyze Recipe Instructions
 *DefaultApi* | [**autocompleteIngredientSearch**](docs\/DefaultApi.md#autocompleteingredientsearch) | **GET** /food/ingredients/autocomplete | Autocomplete Ingredient Search
@@ -75,9 +79,12 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**classifyGroceryProductBulk**](docs\/DefaultApi.md#classifygroceryproductbulk) | **POST** /food/products/classifyBatch | Classify Grocery Product Bulk
 *DefaultApi* | [**convertAmounts**](docs\/DefaultApi.md#convertamounts) | **GET** /recipes/convert | Convert Amounts
 *DefaultApi* | [**createRecipeCard**](docs\/DefaultApi.md#createrecipecard) | **POST** /recipes/visualizeRecipe | Create Recipe Card
+*DefaultApi* | [**deleteFromMealPlan**](docs\/DefaultApi.md#deletefrommealplan) | **DELETE** /mealplanner/{username}/items/{id} | Delete from Meal Plan
+*DefaultApi* | [**deleteFromShoppingList**](docs\/DefaultApi.md#deletefromshoppinglist) | **DELETE** /mealplanner/{username}/shopping-list/items/{id} | Delete from Shopping List
 *DefaultApi* | [**detectFoodInText**](docs\/DefaultApi.md#detectfoodintext) | **POST** /food/detect | Detect Food in Text
 *DefaultApi* | [**extractRecipeFromWebsite**](docs\/DefaultApi.md#extractrecipefromwebsite) | **GET** /recipes/extract | Extract Recipe from Website
 *DefaultApi* | [**generateMealPlan**](docs\/DefaultApi.md#generatemealplan) | **GET** /mealplanner/generate | Generate Meal Plan
+*DefaultApi* | [**generateShoppingList**](docs\/DefaultApi.md#generateshoppinglist) | **POST** /mealplanner/{username}/shopping-list/{start-date}/{end-date} | Generate Shopping List
 *DefaultApi* | [**getARandomFoodJoke**](docs\/DefaultApi.md#getarandomfoodjoke) | **GET** /food/jokes/random | Get a Random Food Joke
 *DefaultApi* | [**getAnalyzedRecipeInstructions**](docs\/DefaultApi.md#getanalyzedrecipeinstructions) | **GET** /recipes/{id}/analyzedInstructions | Get Analyzed Recipe Instructions
 *DefaultApi* | [**getComparableProducts**](docs\/DefaultApi.md#getcomparableproducts) | **GET** /food/products/upc/{upc}/comparable | Get Comparable Products
@@ -86,6 +93,9 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**getIngredientInformation**](docs\/DefaultApi.md#getingredientinformation) | **GET** /food/ingredients/{id}/information | Get Ingredient Information
 *DefaultApi* | [**getIngredientSubstitutes**](docs\/DefaultApi.md#getingredientsubstitutes) | **GET** /food/ingredients/substitutes | Get Ingredient Substitutes
 *DefaultApi* | [**getIngredientSubstitutesByID**](docs\/DefaultApi.md#getingredientsubstitutesbyid) | **GET** /food/ingredients/{id}/substitutes | Get Ingredient Substitutes by ID
+*DefaultApi* | [**getMealPlanTemplate**](docs\/DefaultApi.md#getmealplantemplate) | **GET** /mealplanner/{username}/templates/{id} | Get Meal Plan Template
+*DefaultApi* | [**getMealPlanTemplates**](docs\/DefaultApi.md#getmealplantemplates) | **GET** /mealplanner/{username}/templates | Get Meal Plan Templates
+*DefaultApi* | [**getMealPlanWeek**](docs\/DefaultApi.md#getmealplanweek) | **GET** /mealplanner/{username}/week/{start-date} | Get Meal Plan Week
 *DefaultApi* | [**getMenuItemInformation**](docs\/DefaultApi.md#getmenuiteminformation) | **GET** /food/menuItems/{id} | Get Menu Item Information
 *DefaultApi* | [**getProductInformation**](docs\/DefaultApi.md#getproductinformation) | **GET** /food/products/{id} | Get Product Information
 *DefaultApi* | [**getRandomFoodTrivia**](docs\/DefaultApi.md#getrandomfoodtrivia) | **GET** /food/trivia/random | Get Random Food Trivia
@@ -96,14 +106,18 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**getRecipeIngredientsByID**](docs\/DefaultApi.md#getrecipeingredientsbyid) | **GET** /recipes/{id}/ingredientWidget.json | Get Recipe Ingredients by ID
 *DefaultApi* | [**getRecipeNutritionWidgetByID**](docs\/DefaultApi.md#getrecipenutritionwidgetbyid) | **GET** /recipes/{id}/nutritionWidget.json | Get Recipe Nutrition Widget by ID
 *DefaultApi* | [**getRecipePriceBreakdownByID**](docs\/DefaultApi.md#getrecipepricebreakdownbyid) | **GET** /recipes/{id}/priceBreakdownWidget.json | Get Recipe Price Breakdown by ID
+*DefaultApi* | [**getShoppingList**](docs\/DefaultApi.md#getshoppinglist) | **GET** /mealplanner/{username}/shopping-list | Get Shopping List
 *DefaultApi* | [**getSimilarRecipes**](docs\/DefaultApi.md#getsimilarrecipes) | **GET** /recipes/{id}/similar | Get Similar Recipes
 *DefaultApi* | [**getWineDescription**](docs\/DefaultApi.md#getwinedescription) | **GET** /food/wine/description | Get Wine Description
 *DefaultApi* | [**getWinePairing**](docs\/DefaultApi.md#getwinepairing) | **GET** /food/wine/pairing | Get Wine Pairing
 *DefaultApi* | [**getWineRecommendation**](docs\/DefaultApi.md#getwinerecommendation) | **GET** /food/wine/recommendation | Get Wine Recommendation
 *DefaultApi* | [**guessNutritionByDishName**](docs\/DefaultApi.md#guessnutritionbydishname) | **GET** /recipes/guessNutrition | Guess Nutrition by Dish Name
+*DefaultApi* | [**imageAnalysisByURL**](docs\/DefaultApi.md#imageanalysisbyurl) | **GET** /food/images/analyze | Image Analysis by URL
+*DefaultApi* | [**imageClassificationByURL**](docs\/DefaultApi.md#imageclassificationbyurl) | **GET** /food/images/classify | Image Classification by URL
 *DefaultApi* | [**mapIngredientsToGroceryProducts**](docs\/DefaultApi.md#mapingredientstogroceryproducts) | **POST** /food/ingredients/map | Map Ingredients to Grocery Products
 *DefaultApi* | [**parseIngredients**](docs\/DefaultApi.md#parseingredients) | **POST** /recipes/parseIngredients | Parse Ingredients
 *DefaultApi* | [**quickAnswer**](docs\/DefaultApi.md#quickanswer) | **GET** /recipes/quickAnswer | Quick Answer
+*DefaultApi* | [**searchCustomFoods**](docs\/DefaultApi.md#searchcustomfoods) | **GET** /food/customFoods/search | Search Custom Foods
 *DefaultApi* | [**searchFoodVideos**](docs\/DefaultApi.md#searchfoodvideos) | **GET** /food/videos/search | Search Food Videos
 *DefaultApi* | [**searchGroceryProducts**](docs\/DefaultApi.md#searchgroceryproducts) | **GET** /food/products/search | Search Grocery Products
 *DefaultApi* | [**searchGroceryProductsByUPC**](docs\/DefaultApi.md#searchgroceryproductsbyupc) | **GET** /food/products/upc/{upc} | Search Grocery Products by UPC
@@ -131,6 +145,11 @@ Class | Method | HTTP request | Description
 
  - [InlineObject](docs\/InlineObject.md)
  - [InlineObject1](docs\/InlineObject1.md)
+ - [InlineObject10](docs\/InlineObject10.md)
+ - [InlineObject11](docs\/InlineObject11.md)
+ - [InlineObject12](docs\/InlineObject12.md)
+ - [InlineObject13](docs\/InlineObject13.md)
+ - [InlineObject14](docs\/InlineObject14.md)
  - [InlineObject2](docs\/InlineObject2.md)
  - [InlineObject3](docs\/InlineObject3.md)
  - [InlineObject4](docs\/InlineObject4.md)

@@ -15,6 +15,11 @@
 import ApiClient from './ApiClient';
 import InlineObject from './com.spoonacular.client.model/InlineObject';
 import InlineObject1 from './com.spoonacular.client.model/InlineObject1';
+import InlineObject10 from './com.spoonacular.client.model/InlineObject10';
+import InlineObject11 from './com.spoonacular.client.model/InlineObject11';
+import InlineObject12 from './com.spoonacular.client.model/InlineObject12';
+import InlineObject13 from './com.spoonacular.client.model/InlineObject13';
+import InlineObject14 from './com.spoonacular.client.model/InlineObject14';
 import InlineObject2 from './com.spoonacular.client.model/InlineObject2';
 import InlineObject3 from './com.spoonacular.client.model/InlineObject3';
 import InlineObject4 from './com.spoonacular.client.model/InlineObject4';
@@ -75,6 +80,36 @@ export {
      * @property {module:com.spoonacular.client/com.spoonacular.client.model/InlineObject1}
      */
     InlineObject1,
+
+    /**
+     * The InlineObject10 model constructor.
+     * @property {module:com.spoonacular.client/com.spoonacular.client.model/InlineObject10}
+     */
+    InlineObject10,
+
+    /**
+     * The InlineObject11 model constructor.
+     * @property {module:com.spoonacular.client/com.spoonacular.client.model/InlineObject11}
+     */
+    InlineObject11,
+
+    /**
+     * The InlineObject12 model constructor.
+     * @property {module:com.spoonacular.client/com.spoonacular.client.model/InlineObject12}
+     */
+    InlineObject12,
+
+    /**
+     * The InlineObject13 model constructor.
+     * @property {module:com.spoonacular.client/com.spoonacular.client.model/InlineObject13}
+     */
+    InlineObject13,
+
+    /**
+     * The InlineObject14 model constructor.
+     * @property {module:com.spoonacular.client/com.spoonacular.client.model/InlineObject14}
+     */
+    InlineObject14,
 
     /**
      * The InlineObject2 model constructor.

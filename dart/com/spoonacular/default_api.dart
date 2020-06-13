@@ -7,6 +7,120 @@ class DefaultApi {
 
   DefaultApi([ApiClient apiClient]) : apiClient = apiClient ?? defaultApiClient;
 
+  /// Add to Meal Plan
+  ///
+  /// Add an item to the user&#39;s meal plan.
+  Future<Object> addToMealPlan(String username, String hash, InlineObject9 inlineObject9) async {
+    Object postBody = inlineObject9;
+
+    // verify required params are set
+    if(username == null) {
+     throw new ApiException(400, "Missing required param: username");
+    }
+    if(hash == null) {
+     throw new ApiException(400, "Missing required param: hash");
+    }
+    if(inlineObject9 == null) {
+     throw new ApiException(400, "Missing required param: inlineObject9");
+    }
+
+    // create path and map variables
+    String path = "/mealplanner/{username}/items".replaceAll("{format}","json").replaceAll("{" + "username" + "}", username.toString());
+
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+      queryParams.addAll(_convertParametersForCollectionFormat("", "hash", hash));
+
+    List<String> contentTypes = [""];
+
+    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
+    List<String> authNames = [];
+
+    if(contentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = new MultipartRequest(null, null);
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
+    }
+
+    var response = await apiClient.invokeAPI(path,
+                                             'POST',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             contentType,
+                                             authNames);
+
+    if(response.statusCode >= 400) {
+      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
+    } else if(response.body != null) {
+      return apiClient.deserialize(_decodeBodyBytes(response), 'Object') as Object;
+    } else {
+      return null;
+    }
+  }
+  /// Add to Shopping List
+  ///
+  /// Add an item to the current shopping list of a user.
+  Future<Object> addToShoppingList(String username, String hash, InlineObject12 inlineObject12) async {
+    Object postBody = inlineObject12;
+
+    // verify required params are set
+    if(username == null) {
+     throw new ApiException(400, "Missing required param: username");
+    }
+    if(hash == null) {
+     throw new ApiException(400, "Missing required param: hash");
+    }
+    if(inlineObject12 == null) {
+     throw new ApiException(400, "Missing required param: inlineObject12");
+    }
+
+    // create path and map variables
+    String path = "/mealplanner/{username}/shopping-list/items".replaceAll("{format}","json").replaceAll("{" + "username" + "}", username.toString());
+
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+      queryParams.addAll(_convertParametersForCollectionFormat("", "hash", hash));
+
+    List<String> contentTypes = [""];
+
+    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
+    List<String> authNames = [];
+
+    if(contentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = new MultipartRequest(null, null);
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
+    }
+
+    var response = await apiClient.invokeAPI(path,
+                                             'POST',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             contentType,
+                                             authNames);
+
+    if(response.statusCode >= 400) {
+      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
+    } else if(response.body != null) {
+      return apiClient.deserialize(_decodeBodyBytes(response), 'Object') as Object;
+    } else {
+      return null;
+    }
+  }
   /// Analyze a Recipe Search Query
   ///
   /// Parse a recipe search query to find out its intention.
@@ -712,6 +826,126 @@ class DefaultApi {
       return null;
     }
   }
+  /// Delete from Meal Plan
+  ///
+  /// Delete an item from the user&#39;s meal plan.
+  Future<Object> deleteFromMealPlan(String username, num id, String hash, InlineObject10 inlineObject10) async {
+    Object postBody = inlineObject10;
+
+    // verify required params are set
+    if(username == null) {
+     throw new ApiException(400, "Missing required param: username");
+    }
+    if(id == null) {
+     throw new ApiException(400, "Missing required param: id");
+    }
+    if(hash == null) {
+     throw new ApiException(400, "Missing required param: hash");
+    }
+    if(inlineObject10 == null) {
+     throw new ApiException(400, "Missing required param: inlineObject10");
+    }
+
+    // create path and map variables
+    String path = "/mealplanner/{username}/items/{id}".replaceAll("{format}","json").replaceAll("{" + "username" + "}", username.toString()).replaceAll("{" + "id" + "}", id.toString());
+
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+      queryParams.addAll(_convertParametersForCollectionFormat("", "hash", hash));
+
+    List<String> contentTypes = [""];
+
+    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
+    List<String> authNames = [];
+
+    if(contentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = new MultipartRequest(null, null);
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
+    }
+
+    var response = await apiClient.invokeAPI(path,
+                                             'DELETE',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             contentType,
+                                             authNames);
+
+    if(response.statusCode >= 400) {
+      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
+    } else if(response.body != null) {
+      return apiClient.deserialize(_decodeBodyBytes(response), 'Object') as Object;
+    } else {
+      return null;
+    }
+  }
+  /// Delete from Shopping List
+  ///
+  /// Delete an item from the current shopping list of the user.
+  Future<Object> deleteFromShoppingList(String username, num id, String hash, InlineObject13 inlineObject13) async {
+    Object postBody = inlineObject13;
+
+    // verify required params are set
+    if(username == null) {
+     throw new ApiException(400, "Missing required param: username");
+    }
+    if(id == null) {
+     throw new ApiException(400, "Missing required param: id");
+    }
+    if(hash == null) {
+     throw new ApiException(400, "Missing required param: hash");
+    }
+    if(inlineObject13 == null) {
+     throw new ApiException(400, "Missing required param: inlineObject13");
+    }
+
+    // create path and map variables
+    String path = "/mealplanner/{username}/shopping-list/items/{id}".replaceAll("{format}","json").replaceAll("{" + "username" + "}", username.toString()).replaceAll("{" + "id" + "}", id.toString());
+
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+      queryParams.addAll(_convertParametersForCollectionFormat("", "hash", hash));
+
+    List<String> contentTypes = [""];
+
+    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
+    List<String> authNames = [];
+
+    if(contentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = new MultipartRequest(null, null);
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
+    }
+
+    var response = await apiClient.invokeAPI(path,
+                                             'DELETE',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             contentType,
+                                             authNames);
+
+    if(response.statusCode >= 400) {
+      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
+    } else if(response.body != null) {
+      return apiClient.deserialize(_decodeBodyBytes(response), 'Object') as Object;
+    } else {
+      return null;
+    }
+  }
   /// Detect Food in Text
   ///
   /// Take any text and find all mentions of food contained within it. This task is also called Named Entity Recognition (NER). In this case, the entities are foods. Either dishes, such as pizza or cheeseburger, or ingredients, such as cucumber or almonds.
@@ -771,7 +1005,7 @@ class DefaultApi {
   /// Extract Recipe from Website
   ///
   /// This endpoint lets you extract recipe data such as title, ingredients, and instructions from any properly formatted Website.
-  Future<Object> extractRecipeFromWebsite(String url, { bool forceExtraction }) async {
+  Future<Object> extractRecipeFromWebsite(String url, { bool forceExtraction, bool analyze }) async {
     Object postBody;
 
     // verify required params are set
@@ -789,6 +1023,9 @@ class DefaultApi {
       queryParams.addAll(_convertParametersForCollectionFormat("", "url", url));
     if(forceExtraction != null) {
       queryParams.addAll(_convertParametersForCollectionFormat("", "forceExtraction", forceExtraction));
+    }
+    if(analyze != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "analyze", analyze));
     }
 
     List<String> contentTypes = [];
@@ -866,6 +1103,69 @@ class DefaultApi {
 
     var response = await apiClient.invokeAPI(path,
                                              'GET',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             contentType,
+                                             authNames);
+
+    if(response.statusCode >= 400) {
+      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
+    } else if(response.body != null) {
+      return apiClient.deserialize(_decodeBodyBytes(response), 'Object') as Object;
+    } else {
+      return null;
+    }
+  }
+  /// Generate Shopping List
+  ///
+  /// Generate the shopping list for a user from the meal planner in a given time frame.
+  Future<Object> generateShoppingList(String username, String startDate, String endDate, String hash, InlineObject11 inlineObject11) async {
+    Object postBody = inlineObject11;
+
+    // verify required params are set
+    if(username == null) {
+     throw new ApiException(400, "Missing required param: username");
+    }
+    if(startDate == null) {
+     throw new ApiException(400, "Missing required param: startDate");
+    }
+    if(endDate == null) {
+     throw new ApiException(400, "Missing required param: endDate");
+    }
+    if(hash == null) {
+     throw new ApiException(400, "Missing required param: hash");
+    }
+    if(inlineObject11 == null) {
+     throw new ApiException(400, "Missing required param: inlineObject11");
+    }
+
+    // create path and map variables
+    String path = "/mealplanner/{username}/shopping-list/{start-date}/{end-date}".replaceAll("{format}","json").replaceAll("{" + "username" + "}", username.toString()).replaceAll("{" + "start-date" + "}", startDate.toString()).replaceAll("{" + "end-date" + "}", endDate.toString());
+
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+      queryParams.addAll(_convertParametersForCollectionFormat("", "hash", hash));
+
+    List<String> contentTypes = [""];
+
+    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
+    List<String> authNames = [];
+
+    if(contentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = new MultipartRequest(null, null);
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
+    }
+
+    var response = await apiClient.invokeAPI(path,
+                                             'POST',
                                              queryParams,
                                              postBody,
                                              headerParams,
@@ -1293,6 +1593,174 @@ class DefaultApi {
       return null;
     }
   }
+  /// Get Meal Plan Template
+  ///
+  /// Get information about a meal plan template.
+  Future<Object> getMealPlanTemplate(String username, num id, String hash) async {
+    Object postBody;
+
+    // verify required params are set
+    if(username == null) {
+     throw new ApiException(400, "Missing required param: username");
+    }
+    if(id == null) {
+     throw new ApiException(400, "Missing required param: id");
+    }
+    if(hash == null) {
+     throw new ApiException(400, "Missing required param: hash");
+    }
+
+    // create path and map variables
+    String path = "/mealplanner/{username}/templates/{id}".replaceAll("{format}","json").replaceAll("{" + "username" + "}", username.toString()).replaceAll("{" + "id" + "}", id.toString());
+
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+      queryParams.addAll(_convertParametersForCollectionFormat("", "hash", hash));
+
+    List<String> contentTypes = [];
+
+    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
+    List<String> authNames = [];
+
+    if(contentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = new MultipartRequest(null, null);
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
+    }
+
+    var response = await apiClient.invokeAPI(path,
+                                             'GET',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             contentType,
+                                             authNames);
+
+    if(response.statusCode >= 400) {
+      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
+    } else if(response.body != null) {
+      return apiClient.deserialize(_decodeBodyBytes(response), 'Object') as Object;
+    } else {
+      return null;
+    }
+  }
+  /// Get Meal Plan Templates
+  ///
+  /// Get meal plan templates from user or public ones.
+  Future<Object> getMealPlanTemplates(String username, String hash) async {
+    Object postBody;
+
+    // verify required params are set
+    if(username == null) {
+     throw new ApiException(400, "Missing required param: username");
+    }
+    if(hash == null) {
+     throw new ApiException(400, "Missing required param: hash");
+    }
+
+    // create path and map variables
+    String path = "/mealplanner/{username}/templates".replaceAll("{format}","json").replaceAll("{" + "username" + "}", username.toString());
+
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+      queryParams.addAll(_convertParametersForCollectionFormat("", "hash", hash));
+
+    List<String> contentTypes = [];
+
+    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
+    List<String> authNames = [];
+
+    if(contentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = new MultipartRequest(null, null);
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
+    }
+
+    var response = await apiClient.invokeAPI(path,
+                                             'GET',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             contentType,
+                                             authNames);
+
+    if(response.statusCode >= 400) {
+      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
+    } else if(response.body != null) {
+      return apiClient.deserialize(_decodeBodyBytes(response), 'Object') as Object;
+    } else {
+      return null;
+    }
+  }
+  /// Get Meal Plan Week
+  ///
+  /// Retrieve a meal planned week for the given user. The username must be a spoonacular user and the hash must the the user&#39;s hash that can be found in his/her account.
+  Future<Object> getMealPlanWeek(String username, String startDate, String hash) async {
+    Object postBody;
+
+    // verify required params are set
+    if(username == null) {
+     throw new ApiException(400, "Missing required param: username");
+    }
+    if(startDate == null) {
+     throw new ApiException(400, "Missing required param: startDate");
+    }
+    if(hash == null) {
+     throw new ApiException(400, "Missing required param: hash");
+    }
+
+    // create path and map variables
+    String path = "/mealplanner/{username}/week/{start-date}".replaceAll("{format}","json").replaceAll("{" + "username" + "}", username.toString()).replaceAll("{" + "start-date" + "}", startDate.toString());
+
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+      queryParams.addAll(_convertParametersForCollectionFormat("", "hash", hash));
+
+    List<String> contentTypes = [];
+
+    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
+    List<String> authNames = [];
+
+    if(contentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = new MultipartRequest(null, null);
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
+    }
+
+    var response = await apiClient.invokeAPI(path,
+                                             'GET',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             contentType,
+                                             authNames);
+
+    if(response.statusCode >= 400) {
+      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
+    } else if(response.body != null) {
+      return apiClient.deserialize(_decodeBodyBytes(response), 'Object') as Object;
+    } else {
+      return null;
+    }
+  }
   /// Get Menu Item Information
   ///
   /// Use a menu item id to get all available information about a menu item, such as nutrition.
@@ -1345,7 +1813,7 @@ class DefaultApi {
   }
   /// Get Product Information
   ///
-  /// Use a product id to get full information about a product, such as ingredients, nutrition, etc.
+  /// Use a product id to get full information about a product, such as ingredients, nutrition, etc. The nutritional information is per serving.
   Future<Object> getProductInformation(num id) async {
     Object postBody;
 
@@ -1803,10 +2271,64 @@ class DefaultApi {
       return null;
     }
   }
+  /// Get Shopping List
+  ///
+  /// Get the current shopping list for the given user.
+  Future<Object> getShoppingList(String username, String hash) async {
+    Object postBody;
+
+    // verify required params are set
+    if(username == null) {
+     throw new ApiException(400, "Missing required param: username");
+    }
+    if(hash == null) {
+     throw new ApiException(400, "Missing required param: hash");
+    }
+
+    // create path and map variables
+    String path = "/mealplanner/{username}/shopping-list".replaceAll("{format}","json").replaceAll("{" + "username" + "}", username.toString());
+
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+      queryParams.addAll(_convertParametersForCollectionFormat("", "hash", hash));
+
+    List<String> contentTypes = [];
+
+    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
+    List<String> authNames = [];
+
+    if(contentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = new MultipartRequest(null, null);
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
+    }
+
+    var response = await apiClient.invokeAPI(path,
+                                             'GET',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             contentType,
+                                             authNames);
+
+    if(response.statusCode >= 400) {
+      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
+    } else if(response.body != null) {
+      return apiClient.deserialize(_decodeBodyBytes(response), 'Object') as Object;
+    } else {
+      return null;
+    }
+  }
   /// Get Similar Recipes
   ///
   /// Find recipes which are similar to the given one.
-  Future<Object> getSimilarRecipes(num id, { num number }) async {
+  Future<Object> getSimilarRecipes(num id, { num number, bool limitLicense }) async {
     Object postBody;
 
     // verify required params are set
@@ -1823,6 +2345,9 @@ class DefaultApi {
     Map<String, String> formParams = {};
     if(number != null) {
       queryParams.addAll(_convertParametersForCollectionFormat("", "number", number));
+    }
+    if(limitLicense != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "limitLicense", limitLicense));
     }
 
     List<String> contentTypes = [];
@@ -2072,6 +2597,108 @@ class DefaultApi {
       return null;
     }
   }
+  /// Image Analysis by URL
+  ///
+  /// Analyze a food image. The API tries to classify the image, guess the nutrition, and find a matching recipes. You can play around with that endpoint!
+  Future<Object> imageAnalysisByURL(String imageUrl) async {
+    Object postBody;
+
+    // verify required params are set
+    if(imageUrl == null) {
+     throw new ApiException(400, "Missing required param: imageUrl");
+    }
+
+    // create path and map variables
+    String path = "/food/images/analyze".replaceAll("{format}","json");
+
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+      queryParams.addAll(_convertParametersForCollectionFormat("", "imageUrl", imageUrl));
+
+    List<String> contentTypes = [];
+
+    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
+    List<String> authNames = [];
+
+    if(contentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = new MultipartRequest(null, null);
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
+    }
+
+    var response = await apiClient.invokeAPI(path,
+                                             'GET',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             contentType,
+                                             authNames);
+
+    if(response.statusCode >= 400) {
+      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
+    } else if(response.body != null) {
+      return apiClient.deserialize(_decodeBodyBytes(response), 'Object') as Object;
+    } else {
+      return null;
+    }
+  }
+  /// Image Classification by URL
+  ///
+  /// Classify a food image. You can play around with that endpoint!
+  Future<Object> imageClassificationByURL(String imageUrl) async {
+    Object postBody;
+
+    // verify required params are set
+    if(imageUrl == null) {
+     throw new ApiException(400, "Missing required param: imageUrl");
+    }
+
+    // create path and map variables
+    String path = "/food/images/classify".replaceAll("{format}","json");
+
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+      queryParams.addAll(_convertParametersForCollectionFormat("", "imageUrl", imageUrl));
+
+    List<String> contentTypes = [];
+
+    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
+    List<String> authNames = [];
+
+    if(contentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = new MultipartRequest(null, null);
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
+    }
+
+    var response = await apiClient.invokeAPI(path,
+                                             'GET',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             contentType,
+                                             authNames);
+
+    if(response.statusCode >= 400) {
+      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
+    } else if(response.body != null) {
+      return apiClient.deserialize(_decodeBodyBytes(response), 'Object') as Object;
+    } else {
+      return null;
+    }
+  }
   /// Map Ingredients to Grocery Products
   ///
   /// Map a set of ingredients to products you can buy in the grocery store.
@@ -2212,6 +2839,71 @@ class DefaultApi {
     Map<String, String> headerParams = {};
     Map<String, String> formParams = {};
       queryParams.addAll(_convertParametersForCollectionFormat("", "q", q));
+
+    List<String> contentTypes = [];
+
+    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
+    List<String> authNames = [];
+
+    if(contentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = new MultipartRequest(null, null);
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
+    }
+
+    var response = await apiClient.invokeAPI(path,
+                                             'GET',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             contentType,
+                                             authNames);
+
+    if(response.statusCode >= 400) {
+      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
+    } else if(response.body != null) {
+      return apiClient.deserialize(_decodeBodyBytes(response), 'Object') as Object;
+    } else {
+      return null;
+    }
+  }
+  /// Search Custom Foods
+  ///
+  /// Search custom foods in a user&#39;s account.
+  Future<Object> searchCustomFoods(String query, String username, String hash, { num offset, num number }) async {
+    Object postBody;
+
+    // verify required params are set
+    if(query == null) {
+     throw new ApiException(400, "Missing required param: query");
+    }
+    if(username == null) {
+     throw new ApiException(400, "Missing required param: username");
+    }
+    if(hash == null) {
+     throw new ApiException(400, "Missing required param: hash");
+    }
+
+    // create path and map variables
+    String path = "/food/customFoods/search".replaceAll("{format}","json");
+
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+      queryParams.addAll(_convertParametersForCollectionFormat("", "query", query));
+      queryParams.addAll(_convertParametersForCollectionFormat("", "username", username));
+      queryParams.addAll(_convertParametersForCollectionFormat("", "hash", hash));
+    if(offset != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "offset", offset));
+    }
+    if(number != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "number", number));
+    }
 
     List<String> contentTypes = [];
 
@@ -2611,7 +3303,7 @@ class DefaultApi {
   }
   /// Search Recipes by Ingredients
   ///
-  /// Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don&#39;t currently have (post shopping).
+  ///              Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don&#39;t currently have (post shopping).         
   Future<Object> searchRecipesByIngredients(String ingredients, { num number, bool limitLicense, num ranking, bool ignorePantry }) async {
     Object postBody;
 
@@ -2950,7 +3642,7 @@ class DefaultApi {
   /// Search Recipes Complex
   ///
   /// Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint.
-  Future<Object> searchRecipesComplex(String query, { String cuisine, String excludeCuisine, String diet, String intolerances, String equipment, String includeIngredients, String excludeIngredients, String type, bool instructionsRequired, bool fillIngredients, bool addRecipeInformation, String author, String tags, String titleMatch, num maxReadyTime, bool ignorePantry, String sort, String sortDirection, num minCarbs, num maxCarbs, num minProtein, num maxProtein, num minCalories, num maxCalories, num minFat, num maxFat, num minAlcohol, num maxAlcohol, num minCaffeine, num maxCaffeine, num minCopper, num maxCopper, num minCalcium, num maxCalcium, num minCholine, num maxCholine, num minCholesterol, num maxCholesterol, num minFluoride, num maxFluoride, num minSaturatedFat, num maxSaturatedFat, num minVitaminA, num maxVitaminA, num minVitaminC, num maxVitaminC, num minVitaminD, num maxVitaminD, num minVitaminE, num maxVitaminE, num minVitaminK, num maxVitaminK, num minVitaminB1, num maxVitaminB1, num minVitaminB2, num maxVitaminB2, num minVitaminB5, num maxVitaminB5, num minVitaminB3, num maxVitaminB3, num minVitaminB6, num maxVitaminB6, num minVitaminB12, num maxVitaminB12, num minFiber, num maxFiber, num minFolate, num maxFolate, num minFolicAcid, num maxFolicAcid, num minIodine, num maxIodine, num minIron, num maxIron, num minMagnesium, num maxMagnesium, num minManganese, num maxManganese, num minPhosphorus, num maxPhosphorus, num minPotassium, num maxPotassium, num minSelenium, num maxSelenium, num minSodium, num maxSodium, num minSugar, num maxSugar, num minZinc, num maxZinc, num offset, num number, bool limitLicense }) async {
+  Future<Object> searchRecipesComplex(String query, { String cuisine, String excludeCuisine, String diet, String intolerances, String equipment, String includeIngredients, String excludeIngredients, String type, bool instructionsRequired, bool fillIngredients, bool addRecipeInformation, bool addRecipeNutrition, String author, String tags, num recipeBoxId, String titleMatch, num maxReadyTime, bool ignorePantry, String sort, String sortDirection, num minCarbs, num maxCarbs, num minProtein, num maxProtein, num minCalories, num maxCalories, num minFat, num maxFat, num minAlcohol, num maxAlcohol, num minCaffeine, num maxCaffeine, num minCopper, num maxCopper, num minCalcium, num maxCalcium, num minCholine, num maxCholine, num minCholesterol, num maxCholesterol, num minFluoride, num maxFluoride, num minSaturatedFat, num maxSaturatedFat, num minVitaminA, num maxVitaminA, num minVitaminC, num maxVitaminC, num minVitaminD, num maxVitaminD, num minVitaminE, num maxVitaminE, num minVitaminK, num maxVitaminK, num minVitaminB1, num maxVitaminB1, num minVitaminB2, num maxVitaminB2, num minVitaminB5, num maxVitaminB5, num minVitaminB3, num maxVitaminB3, num minVitaminB6, num maxVitaminB6, num minVitaminB12, num maxVitaminB12, num minFiber, num maxFiber, num minFolate, num maxFolate, num minFolicAcid, num maxFolicAcid, num minIodine, num maxIodine, num minIron, num maxIron, num minMagnesium, num maxMagnesium, num minManganese, num maxManganese, num minPhosphorus, num maxPhosphorus, num minPotassium, num maxPotassium, num minSelenium, num maxSelenium, num minSodium, num maxSodium, num minSugar, num maxSugar, num minZinc, num maxZinc, num offset, num number, bool limitLicense }) async {
     Object postBody;
 
     // verify required params are set
@@ -2999,11 +3691,17 @@ class DefaultApi {
     if(addRecipeInformation != null) {
       queryParams.addAll(_convertParametersForCollectionFormat("", "addRecipeInformation", addRecipeInformation));
     }
+    if(addRecipeNutrition != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "addRecipeNutrition", addRecipeNutrition));
+    }
     if(author != null) {
       queryParams.addAll(_convertParametersForCollectionFormat("", "author", author));
     }
     if(tags != null) {
       queryParams.addAll(_convertParametersForCollectionFormat("", "tags", tags));
+    }
+    if(recipeBoxId != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "recipeBoxId", recipeBoxId));
     }
     if(titleMatch != null) {
       queryParams.addAll(_convertParametersForCollectionFormat("", "titleMatch", titleMatch));

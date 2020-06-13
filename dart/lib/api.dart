@@ -16,6 +16,11 @@ part 'api/default_api.dart';
 
 part 'model/inline_object.dart';
 part 'model/inline_object1.dart';
+part 'model/inline_object10.dart';
+part 'model/inline_object11.dart';
+part 'model/inline_object12.dart';
+part 'model/inline_object13.dart';
+part 'model/inline_object14.dart';
 part 'model/inline_object2.dart';
 part 'model/inline_object3.dart';
 part 'model/inline_object4.dart';

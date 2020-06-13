@@ -4,6 +4,8 @@ All URIs are relative to *https://api.spoonacular.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**AddToMealPlan**](DefaultApi.md#addtomealplan) | **POST** /mealplanner/{username}/items | Add to Meal Plan
+[**AddToShoppingList**](DefaultApi.md#addtoshoppinglist) | **POST** /mealplanner/{username}/shopping-list/items | Add to Shopping List
 [**AnalyzeARecipeSearchQuery**](DefaultApi.md#analyzearecipesearchquery) | **GET** /recipes/queries/analyze | Analyze a Recipe Search Query
 [**AnalyzeRecipeInstructions**](DefaultApi.md#analyzerecipeinstructions) | **POST** /recipes/analyzeInstructions | Analyze Recipe Instructions
 [**AutocompleteIngredientSearch**](DefaultApi.md#autocompleteingredientsearch) | **GET** /food/ingredients/autocomplete | Autocomplete Ingredient Search
@@ -15,9 +17,12 @@ Method | HTTP request | Description
 [**ClassifyGroceryProductBulk**](DefaultApi.md#classifygroceryproductbulk) | **POST** /food/products/classifyBatch | Classify Grocery Product Bulk
 [**ConvertAmounts**](DefaultApi.md#convertamounts) | **GET** /recipes/convert | Convert Amounts
 [**CreateRecipeCard**](DefaultApi.md#createrecipecard) | **POST** /recipes/visualizeRecipe | Create Recipe Card
+[**DeleteFromMealPlan**](DefaultApi.md#deletefrommealplan) | **DELETE** /mealplanner/{username}/items/{id} | Delete from Meal Plan
+[**DeleteFromShoppingList**](DefaultApi.md#deletefromshoppinglist) | **DELETE** /mealplanner/{username}/shopping-list/items/{id} | Delete from Shopping List
 [**DetectFoodInText**](DefaultApi.md#detectfoodintext) | **POST** /food/detect | Detect Food in Text
 [**ExtractRecipeFromWebsite**](DefaultApi.md#extractrecipefromwebsite) | **GET** /recipes/extract | Extract Recipe from Website
 [**GenerateMealPlan**](DefaultApi.md#generatemealplan) | **GET** /mealplanner/generate | Generate Meal Plan
+[**GenerateShoppingList**](DefaultApi.md#generateshoppinglist) | **POST** /mealplanner/{username}/shopping-list/{start-date}/{end-date} | Generate Shopping List
 [**GetARandomFoodJoke**](DefaultApi.md#getarandomfoodjoke) | **GET** /food/jokes/random | Get a Random Food Joke
 [**GetAnalyzedRecipeInstructions**](DefaultApi.md#getanalyzedrecipeinstructions) | **GET** /recipes/{id}/analyzedInstructions | Get Analyzed Recipe Instructions
 [**GetComparableProducts**](DefaultApi.md#getcomparableproducts) | **GET** /food/products/upc/{upc}/comparable | Get Comparable Products
@@ -26,6 +31,9 @@ Method | HTTP request | Description
 [**GetIngredientInformation**](DefaultApi.md#getingredientinformation) | **GET** /food/ingredients/{id}/information | Get Ingredient Information
 [**GetIngredientSubstitutes**](DefaultApi.md#getingredientsubstitutes) | **GET** /food/ingredients/substitutes | Get Ingredient Substitutes
 [**GetIngredientSubstitutesByID**](DefaultApi.md#getingredientsubstitutesbyid) | **GET** /food/ingredients/{id}/substitutes | Get Ingredient Substitutes by ID
+[**GetMealPlanTemplate**](DefaultApi.md#getmealplantemplate) | **GET** /mealplanner/{username}/templates/{id} | Get Meal Plan Template
+[**GetMealPlanTemplates**](DefaultApi.md#getmealplantemplates) | **GET** /mealplanner/{username}/templates | Get Meal Plan Templates
+[**GetMealPlanWeek**](DefaultApi.md#getmealplanweek) | **GET** /mealplanner/{username}/week/{start-date} | Get Meal Plan Week
 [**GetMenuItemInformation**](DefaultApi.md#getmenuiteminformation) | **GET** /food/menuItems/{id} | Get Menu Item Information
 [**GetProductInformation**](DefaultApi.md#getproductinformation) | **GET** /food/products/{id} | Get Product Information
 [**GetRandomFoodTrivia**](DefaultApi.md#getrandomfoodtrivia) | **GET** /food/trivia/random | Get Random Food Trivia
@@ -36,14 +44,18 @@ Method | HTTP request | Description
 [**GetRecipeIngredientsByID**](DefaultApi.md#getrecipeingredientsbyid) | **GET** /recipes/{id}/ingredientWidget.json | Get Recipe Ingredients by ID
 [**GetRecipeNutritionWidgetByID**](DefaultApi.md#getrecipenutritionwidgetbyid) | **GET** /recipes/{id}/nutritionWidget.json | Get Recipe Nutrition Widget by ID
 [**GetRecipePriceBreakdownByID**](DefaultApi.md#getrecipepricebreakdownbyid) | **GET** /recipes/{id}/priceBreakdownWidget.json | Get Recipe Price Breakdown by ID
+[**GetShoppingList**](DefaultApi.md#getshoppinglist) | **GET** /mealplanner/{username}/shopping-list | Get Shopping List
 [**GetSimilarRecipes**](DefaultApi.md#getsimilarrecipes) | **GET** /recipes/{id}/similar | Get Similar Recipes
 [**GetWineDescription**](DefaultApi.md#getwinedescription) | **GET** /food/wine/description | Get Wine Description
 [**GetWinePairing**](DefaultApi.md#getwinepairing) | **GET** /food/wine/pairing | Get Wine Pairing
 [**GetWineRecommendation**](DefaultApi.md#getwinerecommendation) | **GET** /food/wine/recommendation | Get Wine Recommendation
 [**GuessNutritionByDishName**](DefaultApi.md#guessnutritionbydishname) | **GET** /recipes/guessNutrition | Guess Nutrition by Dish Name
+[**ImageAnalysisByURL**](DefaultApi.md#imageanalysisbyurl) | **GET** /food/images/analyze | Image Analysis by URL
+[**ImageClassificationByURL**](DefaultApi.md#imageclassificationbyurl) | **GET** /food/images/classify | Image Classification by URL
 [**MapIngredientsToGroceryProducts**](DefaultApi.md#mapingredientstogroceryproducts) | **POST** /food/ingredients/map | Map Ingredients to Grocery Products
 [**ParseIngredients**](DefaultApi.md#parseingredients) | **POST** /recipes/parseIngredients | Parse Ingredients
 [**QuickAnswer**](DefaultApi.md#quickanswer) | **GET** /recipes/quickAnswer | Quick Answer
+[**SearchCustomFoods**](DefaultApi.md#searchcustomfoods) | **GET** /food/customFoods/search | Search Custom Foods
 [**SearchFoodVideos**](DefaultApi.md#searchfoodvideos) | **GET** /food/videos/search | Search Food Videos
 [**SearchGroceryProducts**](DefaultApi.md#searchgroceryproducts) | **GET** /food/products/search | Search Grocery Products
 [**SearchGroceryProductsByUPC**](DefaultApi.md#searchgroceryproductsbyupc) | **GET** /food/products/upc/{upc} | Search Grocery Products by UPC
@@ -66,6 +78,138 @@ Method | HTTP request | Description
 [**VisualizeRecipeNutritionByID**](DefaultApi.md#visualizerecipenutritionbyid) | **GET** /recipes/{id}/nutritionWidget | Visualize Recipe Nutrition by ID
 [**VisualizeRecipePriceBreakdownByID**](DefaultApi.md#visualizerecipepricebreakdownbyid) | **GET** /recipes/{id}/priceBreakdownWidget | Visualize Recipe Price Breakdown by ID
 
+
+<a name="addtomealplan"></a>
+# **AddToMealPlan**
+> Object AddToMealPlan (string username, string hash, InlineObject9 inlineObject9)
+
+Add to Meal Plan
+
+Add an item to the user's meal plan.
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using com.spoonacular;
+using Org.OpenAPITools.Client;
+using com.spoonacular.client.model;
+
+namespace Example
+{
+    public class AddToMealPlanExample
+    {
+        public void main()
+        {
+            
+            var apiInstance = new DefaultApi();
+            var username = dsky;  // string | The username.
+            var hash = 4b5v4398573406;  // string | The private hash for the username.
+            var inlineObject9 = new InlineObject9(); // InlineObject9 | 
+
+            try
+            {
+                // Add to Meal Plan
+                Object result = apiInstance.AddToMealPlan(username, hash, inlineObject9);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling DefaultApi.AddToMealPlan: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **string**| The username. | 
+ **hash** | **string**| The private hash for the username. | 
+ **inlineObject9** | [**InlineObject9**](InlineObject9.md)|  | 
+
+### Return type
+
+**Object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: 
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="addtoshoppinglist"></a>
+# **AddToShoppingList**
+> Object AddToShoppingList (string username, string hash, InlineObject12 inlineObject12)
+
+Add to Shopping List
+
+Add an item to the current shopping list of a user.
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using com.spoonacular;
+using Org.OpenAPITools.Client;
+using com.spoonacular.client.model;
+
+namespace Example
+{
+    public class AddToShoppingListExample
+    {
+        public void main()
+        {
+            
+            var apiInstance = new DefaultApi();
+            var username = dsky;  // string | The username.
+            var hash = 4b5v4398573406;  // string | The private hash for the username.
+            var inlineObject12 = new InlineObject12(); // InlineObject12 | 
+
+            try
+            {
+                // Add to Shopping List
+                Object result = apiInstance.AddToShoppingList(username, hash, inlineObject12);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling DefaultApi.AddToShoppingList: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **string**| The username. | 
+ **hash** | **string**| The private hash for the username. | 
+ **inlineObject12** | [**InlineObject12**](InlineObject12.md)|  | 
+
+### Return type
+
+**Object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: 
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="analyzearecipesearchquery"></a>
 # **AnalyzeARecipeSearchQuery**
@@ -795,6 +939,142 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="deletefrommealplan"></a>
+# **DeleteFromMealPlan**
+> Object DeleteFromMealPlan (string username, decimal? id, string hash, InlineObject10 inlineObject10)
+
+Delete from Meal Plan
+
+Delete an item from the user's meal plan.
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using com.spoonacular;
+using Org.OpenAPITools.Client;
+using com.spoonacular.client.model;
+
+namespace Example
+{
+    public class DeleteFromMealPlanExample
+    {
+        public void main()
+        {
+            
+            var apiInstance = new DefaultApi();
+            var username = dsky;  // string | The username.
+            var id = 15678;  // decimal? | The shopping list item id.
+            var hash = 4b5v4398573406;  // string | The private hash for the username.
+            var inlineObject10 = new InlineObject10(); // InlineObject10 | 
+
+            try
+            {
+                // Delete from Meal Plan
+                Object result = apiInstance.DeleteFromMealPlan(username, id, hash, inlineObject10);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling DefaultApi.DeleteFromMealPlan: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **string**| The username. | 
+ **id** | **decimal?**| The shopping list item id. | 
+ **hash** | **string**| The private hash for the username. | 
+ **inlineObject10** | [**InlineObject10**](InlineObject10.md)|  | 
+
+### Return type
+
+**Object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: 
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="deletefromshoppinglist"></a>
+# **DeleteFromShoppingList**
+> Object DeleteFromShoppingList (string username, decimal? id, string hash, InlineObject13 inlineObject13)
+
+Delete from Shopping List
+
+Delete an item from the current shopping list of the user.
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using com.spoonacular;
+using Org.OpenAPITools.Client;
+using com.spoonacular.client.model;
+
+namespace Example
+{
+    public class DeleteFromShoppingListExample
+    {
+        public void main()
+        {
+            
+            var apiInstance = new DefaultApi();
+            var username = dsky;  // string | The username.
+            var id = 15678;  // decimal? | The shopping list item id.
+            var hash = 4b5v4398573406;  // string | The private hash for the username.
+            var inlineObject13 = new InlineObject13(); // InlineObject13 | 
+
+            try
+            {
+                // Delete from Shopping List
+                Object result = apiInstance.DeleteFromShoppingList(username, id, hash, inlineObject13);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling DefaultApi.DeleteFromShoppingList: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **string**| The username. | 
+ **id** | **decimal?**| The shopping list item id. | 
+ **hash** | **string**| The private hash for the username. | 
+ **inlineObject13** | [**InlineObject13**](InlineObject13.md)|  | 
+
+### Return type
+
+**Object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: 
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="detectfoodintext"></a>
 # **DetectFoodInText**
 > Object DetectFoodInText (string text)
@@ -859,7 +1139,7 @@ No authorization required
 
 <a name="extractrecipefromwebsite"></a>
 # **ExtractRecipeFromWebsite**
-> Object ExtractRecipeFromWebsite (string url, bool? forceExtraction)
+> Object ExtractRecipeFromWebsite (string url, bool? forceExtraction, bool? analyze)
 
 Extract Recipe from Website
 
@@ -883,11 +1163,12 @@ namespace Example
             var apiInstance = new DefaultApi();
             var url = https://foodista.com/recipe/ZHK4KPB6/chocolate-crinkle-cookies;  // string | The URL of the recipe page.
             var forceExtraction = true;  // bool? | If true, the extraction will be triggered whether we already know the recipe or not. Use this only if information is missing as this operation is slower. (optional) 
+            var analyze = false;  // bool? | If true, the recipe will be analyzed and classified resolving in more data such as cuisines, dish types, and more. (optional) 
 
             try
             {
                 // Extract Recipe from Website
-                Object result = apiInstance.ExtractRecipeFromWebsite(url, forceExtraction);
+                Object result = apiInstance.ExtractRecipeFromWebsite(url, forceExtraction, analyze);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -905,6 +1186,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **url** | **string**| The URL of the recipe page. | 
  **forceExtraction** | **bool?**| If true, the extraction will be triggered whether we already know the recipe or not. Use this only if information is missing as this operation is slower. | [optional] 
+ **analyze** | **bool?**| If true, the recipe will be analyzed and classified resolving in more data such as cuisines, dish types, and more. | [optional] 
 
 ### Return type
 
@@ -985,6 +1267,76 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="generateshoppinglist"></a>
+# **GenerateShoppingList**
+> Object GenerateShoppingList (string username, string startDate, string endDate, string hash, InlineObject11 inlineObject11)
+
+Generate Shopping List
+
+Generate the shopping list for a user from the meal planner in a given time frame.
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using com.spoonacular;
+using Org.OpenAPITools.Client;
+using com.spoonacular.client.model;
+
+namespace Example
+{
+    public class GenerateShoppingListExample
+    {
+        public void main()
+        {
+            
+            var apiInstance = new DefaultApi();
+            var username = dsky;  // string | The username.
+            var startDate = 2020-06-01;  // string | The start date in the format yyyy-mm-dd.
+            var endDate = 2020-06-07;  // string | The end date in the format yyyy-mm-dd.
+            var hash = 4b5v4398573406;  // string | The private hash for the username.
+            var inlineObject11 = new InlineObject11(); // InlineObject11 | 
+
+            try
+            {
+                // Generate Shopping List
+                Object result = apiInstance.GenerateShoppingList(username, startDate, endDate, hash, inlineObject11);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling DefaultApi.GenerateShoppingList: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **string**| The username. | 
+ **startDate** | **string**| The start date in the format yyyy-mm-dd. | 
+ **endDate** | **string**| The end date in the format yyyy-mm-dd. | 
+ **hash** | **string**| The private hash for the username. | 
+ **inlineObject11** | [**InlineObject11**](InlineObject11.md)|  | 
+
+### Return type
+
+**Object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: 
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1489,6 +1841,202 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="getmealplantemplate"></a>
+# **GetMealPlanTemplate**
+> Object GetMealPlanTemplate (string username, decimal? id, string hash)
+
+Get Meal Plan Template
+
+Get information about a meal plan template.
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using com.spoonacular;
+using Org.OpenAPITools.Client;
+using com.spoonacular.client.model;
+
+namespace Example
+{
+    public class GetMealPlanTemplateExample
+    {
+        public void main()
+        {
+            
+            var apiInstance = new DefaultApi();
+            var username = dsky;  // string | The username.
+            var id = 15678;  // decimal? | The shopping list item id.
+            var hash = 4b5v4398573406;  // string | The private hash for the username.
+
+            try
+            {
+                // Get Meal Plan Template
+                Object result = apiInstance.GetMealPlanTemplate(username, id, hash);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling DefaultApi.GetMealPlanTemplate: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **string**| The username. | 
+ **id** | **decimal?**| The shopping list item id. | 
+ **hash** | **string**| The private hash for the username. | 
+
+### Return type
+
+**Object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getmealplantemplates"></a>
+# **GetMealPlanTemplates**
+> Object GetMealPlanTemplates (string username, string hash)
+
+Get Meal Plan Templates
+
+Get meal plan templates from user or public ones.
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using com.spoonacular;
+using Org.OpenAPITools.Client;
+using com.spoonacular.client.model;
+
+namespace Example
+{
+    public class GetMealPlanTemplatesExample
+    {
+        public void main()
+        {
+            
+            var apiInstance = new DefaultApi();
+            var username = dsky;  // string | The username.
+            var hash = 4b5v4398573406;  // string | The private hash for the username.
+
+            try
+            {
+                // Get Meal Plan Templates
+                Object result = apiInstance.GetMealPlanTemplates(username, hash);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling DefaultApi.GetMealPlanTemplates: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **string**| The username. | 
+ **hash** | **string**| The private hash for the username. | 
+
+### Return type
+
+**Object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getmealplanweek"></a>
+# **GetMealPlanWeek**
+> Object GetMealPlanWeek (string username, string startDate, string hash)
+
+Get Meal Plan Week
+
+Retrieve a meal planned week for the given user. The username must be a spoonacular user and the hash must the the user's hash that can be found in his/her account.
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using com.spoonacular;
+using Org.OpenAPITools.Client;
+using com.spoonacular.client.model;
+
+namespace Example
+{
+    public class GetMealPlanWeekExample
+    {
+        public void main()
+        {
+            
+            var apiInstance = new DefaultApi();
+            var username = dsky;  // string | The username.
+            var startDate = 2020-06-01;  // string | The start date of the meal planned week in the format yyyy-mm-dd.
+            var hash = 4b5v4398573406;  // string | The private hash for the username.
+
+            try
+            {
+                // Get Meal Plan Week
+                Object result = apiInstance.GetMealPlanWeek(username, startDate, hash);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling DefaultApi.GetMealPlanWeek: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **string**| The username. | 
+ **startDate** | **string**| The start date of the meal planned week in the format yyyy-mm-dd. | 
+ **hash** | **string**| The private hash for the username. | 
+
+### Return type
+
+**Object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="getmenuiteminformation"></a>
 # **GetMenuItemInformation**
 > Object GetMenuItemInformation (decimal? id)
@@ -1557,7 +2105,7 @@ No authorization required
 
 Get Product Information
 
-Use a product id to get full information about a product, such as ingredients, nutrition, etc.
+Use a product id to get full information about a product, such as ingredients, nutrition, etc. The nutritional information is per serving.
 
 ### Example
 ```csharp
@@ -2113,9 +2661,73 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="getshoppinglist"></a>
+# **GetShoppingList**
+> Object GetShoppingList (string username, string hash)
+
+Get Shopping List
+
+Get the current shopping list for the given user.
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using com.spoonacular;
+using Org.OpenAPITools.Client;
+using com.spoonacular.client.model;
+
+namespace Example
+{
+    public class GetShoppingListExample
+    {
+        public void main()
+        {
+            
+            var apiInstance = new DefaultApi();
+            var username = dsky;  // string | The username.
+            var hash = 4b5v4398573406;  // string | The private hash for the username.
+
+            try
+            {
+                // Get Shopping List
+                Object result = apiInstance.GetShoppingList(username, hash);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling DefaultApi.GetShoppingList: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **string**| The username. | 
+ **hash** | **string**| The private hash for the username. | 
+
+### Return type
+
+**Object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="getsimilarrecipes"></a>
 # **GetSimilarRecipes**
-> Object GetSimilarRecipes (decimal? id, decimal? number)
+> Object GetSimilarRecipes (decimal? id, decimal? number, bool? limitLicense)
 
 Get Similar Recipes
 
@@ -2139,11 +2751,12 @@ namespace Example
             var apiInstance = new DefaultApi();
             var id = 715538;  // decimal? | The id of the source recipe for which similar recipes should be found.
             var number = 1;  // decimal? | The number of random recipes to be returned (between 1 and 100). (optional) 
+            var limitLicense = true;  // bool? | Whether the recipes should have an open license that allows display with proper attribution. (optional) 
 
             try
             {
                 // Get Similar Recipes
-                Object result = apiInstance.GetSimilarRecipes(id, number);
+                Object result = apiInstance.GetSimilarRecipes(id, number, limitLicense);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -2161,6 +2774,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **decimal?**| The id of the source recipe for which similar recipes should be found. | 
  **number** | **decimal?**| The number of random recipes to be returned (between 1 and 100). | [optional] 
+ **limitLicense** | **bool?**| Whether the recipes should have an open license that allows display with proper attribution. | [optional] 
 
 ### Return type
 
@@ -2433,6 +3047,130 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="imageanalysisbyurl"></a>
+# **ImageAnalysisByURL**
+> Object ImageAnalysisByURL (string imageUrl)
+
+Image Analysis by URL
+
+Analyze a food image. The API tries to classify the image, guess the nutrition, and find a matching recipes. You can play around with that endpoint!
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using com.spoonacular;
+using Org.OpenAPITools.Client;
+using com.spoonacular.client.model;
+
+namespace Example
+{
+    public class ImageAnalysisByURLExample
+    {
+        public void main()
+        {
+            
+            var apiInstance = new DefaultApi();
+            var imageUrl = https://spoonacular.com/recipeImages/635350-240x150.jpg;  // string | The URL of the image to be analyzed.
+
+            try
+            {
+                // Image Analysis by URL
+                Object result = apiInstance.ImageAnalysisByURL(imageUrl);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling DefaultApi.ImageAnalysisByURL: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **imageUrl** | **string**| The URL of the image to be analyzed. | 
+
+### Return type
+
+**Object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="imageclassificationbyurl"></a>
+# **ImageClassificationByURL**
+> Object ImageClassificationByURL (string imageUrl)
+
+Image Classification by URL
+
+Classify a food image. You can play around with that endpoint!
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using com.spoonacular;
+using Org.OpenAPITools.Client;
+using com.spoonacular.client.model;
+
+namespace Example
+{
+    public class ImageClassificationByURLExample
+    {
+        public void main()
+        {
+            
+            var apiInstance = new DefaultApi();
+            var imageUrl = https://spoonacular.com/recipeImages/635350-240x150.jpg;  // string | The URL of the image to be classified.
+
+            try
+            {
+                // Image Classification by URL
+                Object result = apiInstance.ImageClassificationByURL(imageUrl);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling DefaultApi.ImageClassificationByURL: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **imageUrl** | **string**| The URL of the image to be classified. | 
+
+### Return type
+
+**Object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="mapingredientstogroceryproducts"></a>
 # **MapIngredientsToGroceryProducts**
 > Object MapIngredientsToGroceryProducts (Object body)
@@ -2623,6 +3361,76 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="searchcustomfoods"></a>
+# **SearchCustomFoods**
+> Object SearchCustomFoods (string query, string username, string hash, decimal? offset, decimal? number)
+
+Search Custom Foods
+
+Search custom foods in a user's account.
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using com.spoonacular;
+using Org.OpenAPITools.Client;
+using com.spoonacular.client.model;
+
+namespace Example
+{
+    public class SearchCustomFoodsExample
+    {
+        public void main()
+        {
+            
+            var apiInstance = new DefaultApi();
+            var query = brat;  // string | The search query.
+            var username = dsky;  // string | The username.
+            var hash = 4b5v4398573406;  // string | The private hash for the username.
+            var offset = 0;  // decimal? | The number of results to skip (between 0 and 990). (optional) 
+            var number = 10;  // decimal? | The number of expected results (between 1 and 100). (optional) 
+
+            try
+            {
+                // Search Custom Foods
+                Object result = apiInstance.SearchCustomFoods(query, username, hash, offset, number);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling DefaultApi.SearchCustomFoods: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **query** | **string**| The search query. | 
+ **username** | **string**| The username. | 
+ **hash** | **string**| The private hash for the username. | 
+ **offset** | **decimal?**| The number of results to skip (between 0 and 990). | [optional] 
+ **number** | **decimal?**| The number of expected results (between 1 and 100). | [optional] 
+
+### Return type
+
+**Object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="searchfoodvideos"></a>
 # **SearchFoodVideos**
 > Object SearchFoodVideos (string query, string type, string cuisine, string diet, string includeIngredients, string excludeIngredients, decimal? minLength, decimal? maxLength, decimal? offset, decimal? number)
@@ -2736,7 +3544,7 @@ namespace Example
             var maxProtein = 100;  // decimal? | The maximum amount of protein in grams the product can have. (optional) 
             var minFat = 1;  // decimal? | The minimum amount of fat in grams the product must have. (optional) 
             var maxFat = 100;  // decimal? | The maximum amount of fat in grams the product can have. (optional) 
-            var offset = 0;  // decimal? | The offset number for paging (between 0 and 990). (optional) 
+            var offset = 0;  // decimal? | The number of results to skip (between 0 and 990). (optional) 
             var number = 10;  // decimal? | The number of expected results (between 1 and 100). (optional) 
 
             try
@@ -2767,7 +3575,7 @@ Name | Type | Description  | Notes
  **maxProtein** | **decimal?**| The maximum amount of protein in grams the product can have. | [optional] 
  **minFat** | **decimal?**| The minimum amount of fat in grams the product must have. | [optional] 
  **maxFat** | **decimal?**| The maximum amount of fat in grams the product can have. | [optional] 
- **offset** | **decimal?**| The offset number for paging (between 0 and 990). | [optional] 
+ **offset** | **decimal?**| The number of results to skip (between 0 and 990). | [optional] 
  **number** | **decimal?**| The number of expected results (between 1 and 100). | [optional] 
 
 ### Return type
@@ -3013,7 +3821,7 @@ No authorization required
 
 Search Recipes by Ingredients
 
-Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don't currently have (post shopping).
+             Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don't currently have (post shopping).         
 
 ### Example
 ```csharp
@@ -3173,7 +3981,7 @@ namespace Example
             var maxSugar = 100;  // decimal? | The maximum amount of sugar in grams the recipe can have. (optional) 
             var minZinc = 0;  // decimal? | The minimum amount of zinc in milligrams the recipe must have. (optional) 
             var maxZinc = 100;  // decimal? | The maximum amount of zinc in milligrams the recipe can have. (optional) 
-            var offset = 0;  // decimal? | The offset number for paging (between 0 and 990). (optional) 
+            var offset = 0;  // decimal? | The number of results to skip (between 0 and 900). (optional) 
             var number = 10;  // decimal? | The number of expected results (between 1 and 100). (optional) 
             var random = false;  // bool? | If true, every request will give you a random set of recipes within the requested limits. (optional) 
             var limitLicense = true;  // bool? | Whether the recipes should have an open license that allows display with proper attribution. (optional) 
@@ -3269,7 +4077,7 @@ Name | Type | Description  | Notes
  **maxSugar** | **decimal?**| The maximum amount of sugar in grams the recipe can have. | [optional] 
  **minZinc** | **decimal?**| The minimum amount of zinc in milligrams the recipe must have. | [optional] 
  **maxZinc** | **decimal?**| The maximum amount of zinc in milligrams the recipe can have. | [optional] 
- **offset** | **decimal?**| The offset number for paging (between 0 and 990). | [optional] 
+ **offset** | **decimal?**| The number of results to skip (between 0 and 900). | [optional] 
  **number** | **decimal?**| The number of expected results (between 1 and 100). | [optional] 
  **random** | **bool?**| If true, every request will give you a random set of recipes within the requested limits. | [optional] 
  **limitLicense** | **bool?**| Whether the recipes should have an open license that allows display with proper attribution. | [optional] 
@@ -3291,7 +4099,7 @@ No authorization required
 
 <a name="searchrecipescomplex"></a>
 # **SearchRecipesComplex**
-> Object SearchRecipesComplex (string query, string cuisine, string excludeCuisine, string diet, string intolerances, string equipment, string includeIngredients, string excludeIngredients, string type, bool? instructionsRequired, bool? fillIngredients, bool? addRecipeInformation, string author, string tags, string titleMatch, decimal? maxReadyTime, bool? ignorePantry, string sort, string sortDirection, decimal? minCarbs, decimal? maxCarbs, decimal? minProtein, decimal? maxProtein, decimal? minCalories, decimal? maxCalories, decimal? minFat, decimal? maxFat, decimal? minAlcohol, decimal? maxAlcohol, decimal? minCaffeine, decimal? maxCaffeine, decimal? minCopper, decimal? maxCopper, decimal? minCalcium, decimal? maxCalcium, decimal? minCholine, decimal? maxCholine, decimal? minCholesterol, decimal? maxCholesterol, decimal? minFluoride, decimal? maxFluoride, decimal? minSaturatedFat, decimal? maxSaturatedFat, decimal? minVitaminA, decimal? maxVitaminA, decimal? minVitaminC, decimal? maxVitaminC, decimal? minVitaminD, decimal? maxVitaminD, decimal? minVitaminE, decimal? maxVitaminE, decimal? minVitaminK, decimal? maxVitaminK, decimal? minVitaminB1, decimal? maxVitaminB1, decimal? minVitaminB2, decimal? maxVitaminB2, decimal? minVitaminB5, decimal? maxVitaminB5, decimal? minVitaminB3, decimal? maxVitaminB3, decimal? minVitaminB6, decimal? maxVitaminB6, decimal? minVitaminB12, decimal? maxVitaminB12, decimal? minFiber, decimal? maxFiber, decimal? minFolate, decimal? maxFolate, decimal? minFolicAcid, decimal? maxFolicAcid, decimal? minIodine, decimal? maxIodine, decimal? minIron, decimal? maxIron, decimal? minMagnesium, decimal? maxMagnesium, decimal? minManganese, decimal? maxManganese, decimal? minPhosphorus, decimal? maxPhosphorus, decimal? minPotassium, decimal? maxPotassium, decimal? minSelenium, decimal? maxSelenium, decimal? minSodium, decimal? maxSodium, decimal? minSugar, decimal? maxSugar, decimal? minZinc, decimal? maxZinc, decimal? offset, decimal? number, bool? limitLicense)
+> Object SearchRecipesComplex (string query, string cuisine, string excludeCuisine, string diet, string intolerances, string equipment, string includeIngredients, string excludeIngredients, string type, bool? instructionsRequired, bool? fillIngredients, bool? addRecipeInformation, bool? addRecipeNutrition, string author, string tags, decimal? recipeBoxId, string titleMatch, decimal? maxReadyTime, bool? ignorePantry, string sort, string sortDirection, decimal? minCarbs, decimal? maxCarbs, decimal? minProtein, decimal? maxProtein, decimal? minCalories, decimal? maxCalories, decimal? minFat, decimal? maxFat, decimal? minAlcohol, decimal? maxAlcohol, decimal? minCaffeine, decimal? maxCaffeine, decimal? minCopper, decimal? maxCopper, decimal? minCalcium, decimal? maxCalcium, decimal? minCholine, decimal? maxCholine, decimal? minCholesterol, decimal? maxCholesterol, decimal? minFluoride, decimal? maxFluoride, decimal? minSaturatedFat, decimal? maxSaturatedFat, decimal? minVitaminA, decimal? maxVitaminA, decimal? minVitaminC, decimal? maxVitaminC, decimal? minVitaminD, decimal? maxVitaminD, decimal? minVitaminE, decimal? maxVitaminE, decimal? minVitaminK, decimal? maxVitaminK, decimal? minVitaminB1, decimal? maxVitaminB1, decimal? minVitaminB2, decimal? maxVitaminB2, decimal? minVitaminB5, decimal? maxVitaminB5, decimal? minVitaminB3, decimal? maxVitaminB3, decimal? minVitaminB6, decimal? maxVitaminB6, decimal? minVitaminB12, decimal? maxVitaminB12, decimal? minFiber, decimal? maxFiber, decimal? minFolate, decimal? maxFolate, decimal? minFolicAcid, decimal? maxFolicAcid, decimal? minIodine, decimal? maxIodine, decimal? minIron, decimal? maxIron, decimal? minMagnesium, decimal? maxMagnesium, decimal? minManganese, decimal? maxManganese, decimal? minPhosphorus, decimal? maxPhosphorus, decimal? minPotassium, decimal? maxPotassium, decimal? minSelenium, decimal? maxSelenium, decimal? minSodium, decimal? maxSodium, decimal? minSugar, decimal? maxSugar, decimal? minZinc, decimal? maxZinc, decimal? offset, decimal? number, bool? limitLicense)
 
 Search Recipes Complex
 
@@ -3323,10 +4131,12 @@ namespace Example
             var excludeIngredients = eggs;  // string | A comma-separated list of ingredients or ingredient types that the recipes must not contain. (optional) 
             var type = main course;  // string | The type of recipe. See a full list of supported meal types. (optional) 
             var instructionsRequired = true;  // bool? | Whether the recipes must have instructions. (optional) 
-            var fillIngredients = false;  // bool? | Add information about the used and missing ingredients in each recipe. (optional) 
-            var addRecipeInformation = false;  // bool? | If set to true, you get more information about the recipes returned. This saves you from needing to call to get recipe information. (optional) 
+            var fillIngredients = false;  // bool? | Add information about the ingredients and whether they are used or missing in relation to the query. (optional) 
+            var addRecipeInformation = false;  // bool? | If set to true, you get more information about the recipes returned. (optional) 
+            var addRecipeNutrition = false;  // bool? | If set to true, you get nutritional information about each recipes returned. (optional) 
             var author = coffeebean;  // string | The username of the recipe author. (optional) 
-            var tags = myCustomTag;  // string | User defined tags that have to match. (optional) 
+            var tags = myCustomTag;  // string | User defined tags that have to match. The author param has to be set. (optional) 
+            var recipeBoxId = 2468;  // decimal? | The id of the recipe box to which the search should be limited to. (optional) 
             var titleMatch = Crock Pot;  // string | Enter text that must be found in the title of the recipes. (optional) 
             var maxReadyTime = 20;  // decimal? | The maximum time in minutes it should take to prepare and cook the recipe. (optional) 
             var ignorePantry = true;  // bool? | Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional) 
@@ -3404,14 +4214,14 @@ namespace Example
             var maxSugar = 100;  // decimal? | The maximum amount of sugar in grams the recipe can have. (optional) 
             var minZinc = 0;  // decimal? | The minimum amount of zinc in milligrams the recipe must have. (optional) 
             var maxZinc = 100;  // decimal? | The maximum amount of zinc in milligrams the recipe can have. (optional) 
-            var offset = 0;  // decimal? | The offset number for paging (between 0 and 990). (optional) 
-            var number = 5;  // decimal? | The number of expected results (between 1 and 10). (optional) 
+            var offset = 0;  // decimal? | The number of results to skip (between 0 and 900). (optional) 
+            var number = 10;  // decimal? | The number of expected results (between 1 and 100). (optional) 
             var limitLicense = true;  // bool? | Whether the recipes should have an open license that allows display with proper attribution. (optional) 
 
             try
             {
                 // Search Recipes Complex
-                Object result = apiInstance.SearchRecipesComplex(query, cuisine, excludeCuisine, diet, intolerances, equipment, includeIngredients, excludeIngredients, type, instructionsRequired, fillIngredients, addRecipeInformation, author, tags, titleMatch, maxReadyTime, ignorePantry, sort, sortDirection, minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, limitLicense);
+                Object result = apiInstance.SearchRecipesComplex(query, cuisine, excludeCuisine, diet, intolerances, equipment, includeIngredients, excludeIngredients, type, instructionsRequired, fillIngredients, addRecipeInformation, addRecipeNutrition, author, tags, recipeBoxId, titleMatch, maxReadyTime, ignorePantry, sort, sortDirection, minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, limitLicense);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -3437,10 +4247,12 @@ Name | Type | Description  | Notes
  **excludeIngredients** | **string**| A comma-separated list of ingredients or ingredient types that the recipes must not contain. | [optional] 
  **type** | **string**| The type of recipe. See a full list of supported meal types. | [optional] 
  **instructionsRequired** | **bool?**| Whether the recipes must have instructions. | [optional] 
- **fillIngredients** | **bool?**| Add information about the used and missing ingredients in each recipe. | [optional] 
- **addRecipeInformation** | **bool?**| If set to true, you get more information about the recipes returned. This saves you from needing to call to get recipe information. | [optional] 
+ **fillIngredients** | **bool?**| Add information about the ingredients and whether they are used or missing in relation to the query. | [optional] 
+ **addRecipeInformation** | **bool?**| If set to true, you get more information about the recipes returned. | [optional] 
+ **addRecipeNutrition** | **bool?**| If set to true, you get nutritional information about each recipes returned. | [optional] 
  **author** | **string**| The username of the recipe author. | [optional] 
- **tags** | **string**| User defined tags that have to match. | [optional] 
+ **tags** | **string**| User defined tags that have to match. The author param has to be set. | [optional] 
+ **recipeBoxId** | **decimal?**| The id of the recipe box to which the search should be limited to. | [optional] 
  **titleMatch** | **string**| Enter text that must be found in the title of the recipes. | [optional] 
  **maxReadyTime** | **decimal?**| The maximum time in minutes it should take to prepare and cook the recipe. | [optional] 
  **ignorePantry** | **bool?**| Whether to ignore typical pantry items, such as water, salt, flour, etc. | [optional] 
@@ -3518,8 +4330,8 @@ Name | Type | Description  | Notes
  **maxSugar** | **decimal?**| The maximum amount of sugar in grams the recipe can have. | [optional] 
  **minZinc** | **decimal?**| The minimum amount of zinc in milligrams the recipe must have. | [optional] 
  **maxZinc** | **decimal?**| The maximum amount of zinc in milligrams the recipe can have. | [optional] 
- **offset** | **decimal?**| The offset number for paging (between 0 and 990). | [optional] 
- **number** | **decimal?**| The number of expected results (between 1 and 10). | [optional] 
+ **offset** | **decimal?**| The number of results to skip (between 0 and 900). | [optional] 
+ **number** | **decimal?**| The number of expected results (between 1 and 100). | [optional] 
  **limitLicense** | **bool?**| Whether the recipes should have an open license that allows display with proper attribution. | [optional] 
 
 ### Return type

@@ -17,7 +17,12 @@ require 'openapi_client/version'
 require 'openapi_client/configuration'
 
 # Models
+require 'openapi_client/models/inline_object10'
+require 'openapi_client/models/inline_object11'
+require 'openapi_client/models/inline_object12'
+require 'openapi_client/models/inline_object13'
 require 'openapi_client/models/inline_object8'
+require 'openapi_client/models/inline_object9'
 
 # APIs
 require 'openapi_client/api/default_api'
