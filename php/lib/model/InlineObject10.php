@@ -58,7 +58,7 @@ class InlineObject10 implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'username' => 'string',
-        'id' => 'float',
+        'date' => 'string',
         'hash' => 'string'
     ];
 
@@ -69,7 +69,7 @@ class InlineObject10 implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'username' => null,
-        'id' => null,
+        'date' => null,
         'hash' => null
     ];
 
@@ -101,7 +101,7 @@ class InlineObject10 implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'username' => 'username',
-        'id' => 'id',
+        'date' => 'date',
         'hash' => 'hash'
     ];
 
@@ -112,7 +112,7 @@ class InlineObject10 implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'username' => 'setUsername',
-        'id' => 'setId',
+        'date' => 'setDate',
         'hash' => 'setHash'
     ];
 
@@ -123,7 +123,7 @@ class InlineObject10 implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'username' => 'getUsername',
-        'id' => 'getId',
+        'date' => 'getDate',
         'hash' => 'getHash'
     ];
 
@@ -188,7 +188,7 @@ class InlineObject10 implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['username'] = isset($data['username']) ? $data['username'] : null;
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['date'] = isset($data['date']) ? $data['date'] : null;
         $this->container['hash'] = isset($data['hash']) ? $data['hash'] : null;
     }
 
@@ -204,8 +204,8 @@ class InlineObject10 implements ModelInterface, ArrayAccess
         if ($this->container['username'] === null) {
             $invalidProperties[] = "'username' can't be null";
         }
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
+        if ($this->container['date'] === null) {
+            $invalidProperties[] = "'date' can't be null";
         }
         if ($this->container['hash'] === null) {
             $invalidProperties[] = "'hash' can't be null";
@@ -250,25 +250,25 @@ class InlineObject10 implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets id
+     * Gets date
      *
-     * @return float
+     * @return string
      */
-    public function getId()
+    public function getDate()
     {
-        return $this->container['id'];
+        return $this->container['date'];
     }
 
     /**
-     * Sets id
+     * Sets date
      *
-     * @param float $id The shopping list item id.
+     * @param string $date The date in the format yyyy-mm-dd.
      *
      * @return $this
      */
-    public function setId($id)
+    public function setDate($date)
     {
-        $this->container['id'] = $id;
+        $this->container['date'] = $date;
 
         return $this;
     }

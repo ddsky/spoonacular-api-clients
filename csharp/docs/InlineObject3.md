@@ -3,18 +3,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Title** | **string** | The title of the recipe. | 
-**Image** | **System.IO.Stream** | The binary image of the recipe as jpg. | 
-**Ingredients** | **string** | The ingredient list of the recipe, one ingredient per line (separate lines with \\n). | 
-**Instructions** | **string** | The instructions to make the recipe. One step per line (separate lines with \\n). | 
-**ReadyInMinutes** | **decimal?** | The number of minutes it takes to get the recipe on the table. | 
-**Servings** | **decimal?** | The number of servings the recipe makes. | 
-**Mask** | **string** | The mask to put over the recipe image (\&quot;ellipseMask\&quot;, \&quot;diamondMask\&quot;, \&quot;starMask\&quot;, \&quot;heartMask\&quot;, \&quot;potMask\&quot;, \&quot;fishMask\&quot;). | 
-**BackgroundImage** | **string** | The background image (\&quot;none\&quot;,\&quot;background1\&quot;, or \&quot;background2\&quot;). | 
-**Author** | **string** | The author of the recipe. | [optional] 
-**BackgroundColor** | **string** | The background color for the recipe card as a hex-string. | [optional] 
-**FontColor** | **string** | The font color for the recipe card as a hex-string. | [optional] 
-**Source** | **string** | The source of the recipe. | [optional] 
+**Instructions** | **string** | The recipe&#39;s instructions. | 
+**View** | **string** | How to visualize the equipment, either \&quot;grid\&quot; or \&quot;list\&quot;. | [optional] 
+**DefaultCss** | **bool?** | Whether the default CSS should be added to the response. | [optional] 
+**ShowBacklink** | **bool?** | Whether to show a backlink to spoonacular. If set false, this call counts against your quota. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -15,12 +15,32 @@ package com.spoonacular.client.model
 import com.squareup.moshi.Json
 /**
  * 
- * @param locale The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).
+ * @param ingredientList The ingredient list of the recipe, one ingredient per line.
+ * @param servings The number of servings.
+ * @param measure The original system of measurement, either \"metric\" or \"us\".
+ * @param view How to visualize the ingredients, either \"grid\" or \"list\".
+ * @param defaultCss Whether the default CSS should be added to the response.
+ * @param showBacklink Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
  */
 data class InlineObject8 (
-    /* The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). */
-    @Json(name = "locale")
-    val locale: kotlin.String? = null
+    /* The ingredient list of the recipe, one ingredient per line. */
+    @Json(name = "ingredientList")
+    val ingredientList: kotlin.String,
+    /* The number of servings. */
+    @Json(name = "servings")
+    val servings: java.math.BigDecimal,
+    /* The original system of measurement, either \"metric\" or \"us\". */
+    @Json(name = "measure")
+    val measure: kotlin.String? = null,
+    /* How to visualize the ingredients, either \"grid\" or \"list\". */
+    @Json(name = "view")
+    val view: kotlin.String? = null,
+    /* Whether the default CSS should be added to the response. */
+    @Json(name = "defaultCss")
+    val defaultCss: kotlin.Boolean? = null,
+    /* Whether to show a backlink to spoonacular. If set false, this call counts against your quota. */
+    @Json(name = "showBacklink")
+    val showBacklink: kotlin.Boolean? = null
 ) {
 
 }

@@ -22,116 +22,28 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.File;
 import java.io.IOException;
-import java.math.BigDecimal;
 
 /**
  * InlineObject3
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-06-13T12:59:56.631+02:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-11-01T21:23:09.595+01:00[Europe/Berlin]")
 public class InlineObject3 {
-  public static final String SERIALIZED_NAME_TITLE = "title";
-  @SerializedName(SERIALIZED_NAME_TITLE)
-  private String title;
-
-  public static final String SERIALIZED_NAME_IMAGE = "image";
-  @SerializedName(SERIALIZED_NAME_IMAGE)
-  private File image;
-
-  public static final String SERIALIZED_NAME_INGREDIENTS = "ingredients";
-  @SerializedName(SERIALIZED_NAME_INGREDIENTS)
-  private String ingredients;
-
   public static final String SERIALIZED_NAME_INSTRUCTIONS = "instructions";
   @SerializedName(SERIALIZED_NAME_INSTRUCTIONS)
   private String instructions;
 
-  public static final String SERIALIZED_NAME_READY_IN_MINUTES = "readyInMinutes";
-  @SerializedName(SERIALIZED_NAME_READY_IN_MINUTES)
-  private BigDecimal readyInMinutes;
+  public static final String SERIALIZED_NAME_VIEW = "view";
+  @SerializedName(SERIALIZED_NAME_VIEW)
+  private String view;
 
-  public static final String SERIALIZED_NAME_SERVINGS = "servings";
-  @SerializedName(SERIALIZED_NAME_SERVINGS)
-  private BigDecimal servings;
+  public static final String SERIALIZED_NAME_DEFAULT_CSS = "defaultCss";
+  @SerializedName(SERIALIZED_NAME_DEFAULT_CSS)
+  private Boolean defaultCss;
 
-  public static final String SERIALIZED_NAME_MASK = "mask";
-  @SerializedName(SERIALIZED_NAME_MASK)
-  private String mask;
-
-  public static final String SERIALIZED_NAME_BACKGROUND_IMAGE = "backgroundImage";
-  @SerializedName(SERIALIZED_NAME_BACKGROUND_IMAGE)
-  private String backgroundImage;
-
-  public static final String SERIALIZED_NAME_AUTHOR = "author";
-  @SerializedName(SERIALIZED_NAME_AUTHOR)
-  private String author;
-
-  public static final String SERIALIZED_NAME_BACKGROUND_COLOR = "backgroundColor";
-  @SerializedName(SERIALIZED_NAME_BACKGROUND_COLOR)
-  private String backgroundColor;
-
-  public static final String SERIALIZED_NAME_FONT_COLOR = "fontColor";
-  @SerializedName(SERIALIZED_NAME_FONT_COLOR)
-  private String fontColor;
-
-  public static final String SERIALIZED_NAME_SOURCE = "source";
-  @SerializedName(SERIALIZED_NAME_SOURCE)
-  private String source;
-
-  public InlineObject3 title(String title) {
-    this.title = title;
-    return this;
-  }
-
-   /**
-   * The title of the recipe.
-   * @return title
-  **/
-  @ApiModelProperty(example = "My recipe", required = true, value = "The title of the recipe.")
-  public String getTitle() {
-    return title;
-  }
-
-  public void setTitle(String title) {
-    this.title = title;
-  }
-
-  public InlineObject3 image(File image) {
-    this.image = image;
-    return this;
-  }
-
-   /**
-   * The binary image of the recipe as jpg.
-   * @return image
-  **/
-  @ApiModelProperty(required = true, value = "The binary image of the recipe as jpg.")
-  public File getImage() {
-    return image;
-  }
-
-  public void setImage(File image) {
-    this.image = image;
-  }
-
-  public InlineObject3 ingredients(String ingredients) {
-    this.ingredients = ingredients;
-    return this;
-  }
-
-   /**
-   * The ingredient list of the recipe, one ingredient per line (separate lines with \\n).
-   * @return ingredients
-  **/
-  @ApiModelProperty(example = "2 cups of green beans", required = true, value = "The ingredient list of the recipe, one ingredient per line (separate lines with \\n).")
-  public String getIngredients() {
-    return ingredients;
-  }
-
-  public void setIngredients(String ingredients) {
-    this.ingredients = ingredients;
-  }
+  public static final String SERIALIZED_NAME_SHOW_BACKLINK = "showBacklink";
+  @SerializedName(SERIALIZED_NAME_SHOW_BACKLINK)
+  private Boolean showBacklink;
 
   public InlineObject3 instructions(String instructions) {
     this.instructions = instructions;
@@ -139,10 +51,10 @@ public class InlineObject3 {
   }
 
    /**
-   * The instructions to make the recipe. One step per line (separate lines with \\n).
+   * The recipe&#39;s instructions.
    * @return instructions
   **/
-  @ApiModelProperty(example = "cook the beans", required = true, value = "The instructions to make the recipe. One step per line (separate lines with \\n).")
+  @ApiModelProperty(example = "Preheat oven. Cut cucumber with a knife and put in a blender.", required = true, value = "The recipe's instructions.")
   public String getInstructions() {
     return instructions;
   }
@@ -151,148 +63,58 @@ public class InlineObject3 {
     this.instructions = instructions;
   }
 
-  public InlineObject3 readyInMinutes(BigDecimal readyInMinutes) {
-    this.readyInMinutes = readyInMinutes;
+  public InlineObject3 view(String view) {
+    this.view = view;
     return this;
   }
 
    /**
-   * The number of minutes it takes to get the recipe on the table.
-   * @return readyInMinutes
+   * How to visualize the equipment, either \&quot;grid\&quot; or \&quot;list\&quot;.
+   * @return view
   **/
-  @ApiModelProperty(example = "60", required = true, value = "The number of minutes it takes to get the recipe on the table.")
-  public BigDecimal getReadyInMinutes() {
-    return readyInMinutes;
+  @ApiModelProperty(example = "grid", value = "How to visualize the equipment, either \"grid\" or \"list\".")
+  public String getView() {
+    return view;
   }
 
-  public void setReadyInMinutes(BigDecimal readyInMinutes) {
-    this.readyInMinutes = readyInMinutes;
+  public void setView(String view) {
+    this.view = view;
   }
 
-  public InlineObject3 servings(BigDecimal servings) {
-    this.servings = servings;
+  public InlineObject3 defaultCss(Boolean defaultCss) {
+    this.defaultCss = defaultCss;
     return this;
   }
 
    /**
-   * The number of servings the recipe makes.
-   * @return servings
+   * Whether the default CSS should be added to the response.
+   * @return defaultCss
   **/
-  @ApiModelProperty(example = "2", required = true, value = "The number of servings the recipe makes.")
-  public BigDecimal getServings() {
-    return servings;
+  @ApiModelProperty(example = "true", value = "Whether the default CSS should be added to the response.")
+  public Boolean getDefaultCss() {
+    return defaultCss;
   }
 
-  public void setServings(BigDecimal servings) {
-    this.servings = servings;
+  public void setDefaultCss(Boolean defaultCss) {
+    this.defaultCss = defaultCss;
   }
 
-  public InlineObject3 mask(String mask) {
-    this.mask = mask;
+  public InlineObject3 showBacklink(Boolean showBacklink) {
+    this.showBacklink = showBacklink;
     return this;
   }
 
    /**
-   * The mask to put over the recipe image (\&quot;ellipseMask\&quot;, \&quot;diamondMask\&quot;, \&quot;starMask\&quot;, \&quot;heartMask\&quot;, \&quot;potMask\&quot;, \&quot;fishMask\&quot;).
-   * @return mask
+   * Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
+   * @return showBacklink
   **/
-  @ApiModelProperty(example = "ellipseMask", required = true, value = "The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\").")
-  public String getMask() {
-    return mask;
+  @ApiModelProperty(example = "true", value = "Whether to show a backlink to spoonacular. If set false, this call counts against your quota.")
+  public Boolean getShowBacklink() {
+    return showBacklink;
   }
 
-  public void setMask(String mask) {
-    this.mask = mask;
-  }
-
-  public InlineObject3 backgroundImage(String backgroundImage) {
-    this.backgroundImage = backgroundImage;
-    return this;
-  }
-
-   /**
-   * The background image (\&quot;none\&quot;,\&quot;background1\&quot;, or \&quot;background2\&quot;).
-   * @return backgroundImage
-  **/
-  @ApiModelProperty(example = "background1", required = true, value = "The background image (\"none\",\"background1\", or \"background2\").")
-  public String getBackgroundImage() {
-    return backgroundImage;
-  }
-
-  public void setBackgroundImage(String backgroundImage) {
-    this.backgroundImage = backgroundImage;
-  }
-
-  public InlineObject3 author(String author) {
-    this.author = author;
-    return this;
-  }
-
-   /**
-   * The author of the recipe.
-   * @return author
-  **/
-  @ApiModelProperty(example = "Anna Banana", value = "The author of the recipe.")
-  public String getAuthor() {
-    return author;
-  }
-
-  public void setAuthor(String author) {
-    this.author = author;
-  }
-
-  public InlineObject3 backgroundColor(String backgroundColor) {
-    this.backgroundColor = backgroundColor;
-    return this;
-  }
-
-   /**
-   * The background color for the recipe card as a hex-string.
-   * @return backgroundColor
-  **/
-  @ApiModelProperty(example = "#ffffff", value = "The background color for the recipe card as a hex-string.")
-  public String getBackgroundColor() {
-    return backgroundColor;
-  }
-
-  public void setBackgroundColor(String backgroundColor) {
-    this.backgroundColor = backgroundColor;
-  }
-
-  public InlineObject3 fontColor(String fontColor) {
-    this.fontColor = fontColor;
-    return this;
-  }
-
-   /**
-   * The font color for the recipe card as a hex-string.
-   * @return fontColor
-  **/
-  @ApiModelProperty(example = "#333333", value = "The font color for the recipe card as a hex-string.")
-  public String getFontColor() {
-    return fontColor;
-  }
-
-  public void setFontColor(String fontColor) {
-    this.fontColor = fontColor;
-  }
-
-  public InlineObject3 source(String source) {
-    this.source = source;
-    return this;
-  }
-
-   /**
-   * The source of the recipe.
-   * @return source
-  **/
-  @ApiModelProperty(example = "spoonacular.com", value = "The source of the recipe.")
-  public String getSource() {
-    return source;
-  }
-
-  public void setSource(String source) {
-    this.source = source;
+  public void setShowBacklink(Boolean showBacklink) {
+    this.showBacklink = showBacklink;
   }
 
 
@@ -305,23 +127,15 @@ public class InlineObject3 {
       return false;
     }
     InlineObject3 inlineObject3 = (InlineObject3) o;
-    return Objects.equals(this.title, inlineObject3.title) &&
-        Objects.equals(this.image, inlineObject3.image) &&
-        Objects.equals(this.ingredients, inlineObject3.ingredients) &&
-        Objects.equals(this.instructions, inlineObject3.instructions) &&
-        Objects.equals(this.readyInMinutes, inlineObject3.readyInMinutes) &&
-        Objects.equals(this.servings, inlineObject3.servings) &&
-        Objects.equals(this.mask, inlineObject3.mask) &&
-        Objects.equals(this.backgroundImage, inlineObject3.backgroundImage) &&
-        Objects.equals(this.author, inlineObject3.author) &&
-        Objects.equals(this.backgroundColor, inlineObject3.backgroundColor) &&
-        Objects.equals(this.fontColor, inlineObject3.fontColor) &&
-        Objects.equals(this.source, inlineObject3.source);
+    return Objects.equals(this.instructions, inlineObject3.instructions) &&
+        Objects.equals(this.view, inlineObject3.view) &&
+        Objects.equals(this.defaultCss, inlineObject3.defaultCss) &&
+        Objects.equals(this.showBacklink, inlineObject3.showBacklink);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(title, image, ingredients, instructions, readyInMinutes, servings, mask, backgroundImage, author, backgroundColor, fontColor, source);
+    return Objects.hash(instructions, view, defaultCss, showBacklink);
   }
 
 
@@ -329,18 +143,10 @@ public class InlineObject3 {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineObject3 {\n");
-    sb.append("    title: ").append(toIndentedString(title)).append("\n");
-    sb.append("    image: ").append(toIndentedString(image)).append("\n");
-    sb.append("    ingredients: ").append(toIndentedString(ingredients)).append("\n");
     sb.append("    instructions: ").append(toIndentedString(instructions)).append("\n");
-    sb.append("    readyInMinutes: ").append(toIndentedString(readyInMinutes)).append("\n");
-    sb.append("    servings: ").append(toIndentedString(servings)).append("\n");
-    sb.append("    mask: ").append(toIndentedString(mask)).append("\n");
-    sb.append("    backgroundImage: ").append(toIndentedString(backgroundImage)).append("\n");
-    sb.append("    author: ").append(toIndentedString(author)).append("\n");
-    sb.append("    backgroundColor: ").append(toIndentedString(backgroundColor)).append("\n");
-    sb.append("    fontColor: ").append(toIndentedString(fontColor)).append("\n");
-    sb.append("    source: ").append(toIndentedString(source)).append("\n");
+    sb.append("    view: ").append(toIndentedString(view)).append("\n");
+    sb.append("    defaultCss: ").append(toIndentedString(defaultCss)).append("\n");
+    sb.append("    showBacklink: ").append(toIndentedString(showBacklink)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -14,19 +14,15 @@ use serde_json::Value;
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct InlineObject9 {
-    /// The username.
-    #[serde(rename = "username")]
-    pub username: String,
-    /// The private hash for the username.
-    #[serde(rename = "hash")]
-    pub hash: String,
+    /// The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).
+    #[serde(rename = "locale")]
+    pub locale: Option<String>,
 }
 
 impl InlineObject9 {
-    pub fn new(username: String, hash: String) -> InlineObject9 {
+    pub fn new() -> InlineObject9 {
         InlineObject9 {
-            username: username,
-            hash: hash,
+            locale: None,
         }
     }
 }

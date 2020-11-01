@@ -92,121 +92,6 @@ servers:
 security:
 - api_key: []
 paths:
-  /recipes/search:
-    get:
-      deprecated: false
-      description: Our recipe API includes over 360,000 recipes as well as an open
-        source recipe database. Consider using the "Search Recipes Complex" endpoint
-        for much more flexibility.
-      externalDocs:
-        description: Read entire docs
-        url: https://spoonacular.com/food-api/docs#Search-Recipes
-      operationId: searchRecipes
-      parameters:
-      - description: The (natural language) recipe search query.
-        explode: false
-        in: query
-        name: query
-        required: true
-        schema:
-          example: burger
-          type: string
-        style: form
-      - description: The cuisine(s) of the recipes. One or more comma separated. See
-          a full list of supported cuisines.
-        explode: false
-        in: query
-        name: cuisine
-        required: false
-        schema:
-          example: italian
-          type: string
-        style: form
-      - description: The diet for which the recipes must be suitable. See a full list
-          of supported diets.
-        explode: false
-        in: query
-        name: diet
-        required: false
-        schema:
-          example: vegetarian
-          type: string
-        style: form
-      - description: A comma-separated list of ingredients or ingredient types that
-          the recipes must not contain.
-        explode: false
-        in: query
-        name: excludeIngredients
-        required: false
-        schema:
-          example: eggs
-          type: string
-        style: form
-      - description: 'A comma-separated list of intolerances. All recipes returned
-          must not contain ingredients that are not suitable for people with the intolerances
-          entered. See a full list of supported intolerances. Please note: due to
-          the automatic nature of the recipe analysis, the API cannot be 100% accurate
-          in all cases. Please advise your users to seek professional help with medical
-          issues.'
-        explode: false
-        in: query
-        name: intolerances
-        required: false
-        schema:
-          example: gluten
-          type: string
-        style: form
-      - description: The number of results to skip (between 0 and 900).
-        explode: false
-        in: query
-        name: offset
-        required: false
-        schema:
-          example: 0
-          type: number
-        style: form
-      - description: The number of results to return (between 1 and 100).
-        explode: false
-        in: query
-        name: number
-        required: false
-        schema:
-          example: 10
-          type: number
-        style: form
-      - description: Whether the recipes should have an open license that allows display
-          with proper attribution.
-        explode: false
-        in: query
-        name: limitLicense
-        required: false
-        schema:
-          example: true
-          type: boolean
-        style: form
-      - description: Whether the recipes must have instructions.
-        explode: false
-        in: query
-        name: instructionsRequired
-        required: false
-        schema:
-          example: true
-          type: boolean
-        style: form
-      responses:
-        200:
-          content:
-            application/json:
-              schema:
-                type: object
-          description: Success
-        401:
-          description: Unauthorized
-        403:
-          description: Forbidden
-        404:
-          description: Not Found
-      summary: Search Recipes
   /recipes/findByIngredients:
     get:
       deprecated: false
@@ -753,7 +638,7 @@ paths:
           example: 100
           type: number
         style: form
-      - description: The minimum amount of folate in grams the recipe must have.
+      - description: The minimum amount of folate in micrograms the recipe must have.
         explode: false
         in: query
         name: minFolate
@@ -762,7 +647,7 @@ paths:
           example: 0
           type: number
         style: form
-      - description: The maximum amount of folate in grams the recipe can have.
+      - description: The maximum amount of folate in micrograms the recipe can have.
         explode: false
         in: query
         name: maxFolate
@@ -771,7 +656,8 @@ paths:
           example: 100
           type: number
         style: form
-      - description: The minimum amount of folic acid in grams the recipe must have.
+      - description: The minimum amount of folic acid in micrograms the recipe must
+          have.
         explode: false
         in: query
         name: minFolicAcid
@@ -780,7 +666,8 @@ paths:
           example: 0
           type: number
         style: form
-      - description: The maximum amount of folic acid in grams the recipe can have.
+      - description: The maximum amount of folic acid in micrograms the recipe can
+          have.
         explode: false
         in: query
         name: maxFolicAcid
@@ -789,7 +676,7 @@ paths:
           example: 100
           type: number
         style: form
-      - description: The minimum amount of iodine in grams the recipe must have.
+      - description: The minimum amount of iodine in micrograms the recipe must have.
         explode: false
         in: query
         name: minIodine
@@ -798,7 +685,7 @@ paths:
           example: 0
           type: number
         style: form
-      - description: The maximum amount of iodine in grams the recipe can have.
+      - description: The maximum amount of iodine in micrograms the recipe can have.
         explode: false
         in: query
         name: maxIodine
@@ -905,7 +792,8 @@ paths:
           example: 100
           type: number
         style: form
-      - description: The minimum amount of selenium in grams the recipe must have.
+      - description: The minimum amount of selenium in micrograms the recipe must
+          have.
         explode: false
         in: query
         name: minSelenium
@@ -914,7 +802,7 @@ paths:
           example: 0
           type: number
         style: form
-      - description: The maximum amount of selenium in grams the recipe can have.
+      - description: The maximum amount of selenium in micrograms the recipe can have.
         explode: false
         in: query
         name: maxSelenium
@@ -1037,8 +925,8 @@ paths:
         and by nutrients into one endpoint.'
       externalDocs:
         description: Read entire docs
-        url: https://spoonacular.com/food-api/docs#Search-Recipes-Complex
-      operationId: searchRecipesComplex
+        url: https://spoonacular.com/food-api/docs#Search-Recipes
+      operationId: searchRecipes
       parameters:
       - description: The (natural language) recipe search query.
         explode: false
@@ -1702,7 +1590,7 @@ paths:
           example: 100
           type: number
         style: form
-      - description: The minimum amount of folate in grams the recipe must have.
+      - description: The minimum amount of folate in micrograms the recipe must have.
         explode: false
         in: query
         name: minFolate
@@ -1711,7 +1599,7 @@ paths:
           example: 0
           type: number
         style: form
-      - description: The maximum amount of folate in grams the recipe can have.
+      - description: The maximum amount of folate in micrograms the recipe can have.
         explode: false
         in: query
         name: maxFolate
@@ -1720,7 +1608,8 @@ paths:
           example: 100
           type: number
         style: form
-      - description: The minimum amount of folic acid in grams the recipe must have.
+      - description: The minimum amount of folic acid in micrograms the recipe must
+          have.
         explode: false
         in: query
         name: minFolicAcid
@@ -1729,7 +1618,8 @@ paths:
           example: 0
           type: number
         style: form
-      - description: The maximum amount of folic acid in grams the recipe can have.
+      - description: The maximum amount of folic acid in micrograms the recipe can
+          have.
         explode: false
         in: query
         name: maxFolicAcid
@@ -1738,7 +1628,7 @@ paths:
           example: 100
           type: number
         style: form
-      - description: The minimum amount of iodine in grams the recipe must have.
+      - description: The minimum amount of iodine in micrograms the recipe must have.
         explode: false
         in: query
         name: minIodine
@@ -1747,7 +1637,7 @@ paths:
           example: 0
           type: number
         style: form
-      - description: The maximum amount of iodine in grams the recipe can have.
+      - description: The maximum amount of iodine in micrograms the recipe can have.
         explode: false
         in: query
         name: maxIodine
@@ -1854,7 +1744,8 @@ paths:
           example: 100
           type: number
         style: form
-      - description: The minimum amount of selenium in grams the recipe must have.
+      - description: The minimum amount of selenium in micrograms the recipe must
+          have.
         explode: false
         in: query
         name: minSelenium
@@ -1863,7 +1754,7 @@ paths:
           example: 0
           type: number
         style: form
-      - description: The maximum amount of selenium in grams the recipe can have.
+      - description: The maximum amount of selenium in micrograms the recipe can have.
         explode: false
         in: query
         name: maxSelenium
@@ -1967,7 +1858,7 @@ paths:
           description: Forbidden
         404:
           description: Not Found
-      summary: Search Recipes Complex
+      summary: Search Recipes
   /recipes/{id}/information:
     get:
       deprecated: false
@@ -2203,6 +2094,39 @@ paths:
         404:
           description: Not Found
       summary: Autocomplete Recipe Search
+  /recipes/{id}/tasteWidget.json:
+    get:
+      deprecated: false
+      description: Get a recipe's taste. The tastes supported are sweet, salty, sour,
+        bitter, savory, and fatty.
+      externalDocs:
+        description: Read entire docs
+        url: https://spoonacular.com/food-api/docs#Get-Recipe-Taste-by-ID
+      operationId: getRecipeTasteByID
+      parameters:
+      - description: The recipe id.
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          example: 69095
+          type: number
+        style: simple
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Success
+        401:
+          description: Unauthorized
+        403:
+          description: Forbidden
+        404:
+          description: Not Found
+      summary: Get Recipe Taste by ID
   /recipes/{id}/equipmentWidget.json:
     get:
       deprecated: false
@@ -2468,6 +2392,39 @@ paths:
         404:
           description: Not Found
       summary: Visualize Recipe Ingredients by ID
+  /recipes/{id}/tasteWidget:
+    get:
+      deprecated: false
+      description: Get a recipe's taste. The tastes supported are sweet, salty, sour,
+        bitter, savory, and fatty.
+      externalDocs:
+        description: Read entire docs
+        url: https://spoonacular.com/food-api/docs#Visualize-Recipe-Taste-by-ID
+      operationId: visualizeRecipeTasteByID
+      parameters:
+      - description: The recipe id.
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          example: 69095
+          type: number
+        style: simple
+      responses:
+        200:
+          content:
+            text/html:
+              schema:
+                type: string
+          description: Success
+        401:
+          description: Unauthorized
+        403:
+          description: Forbidden
+        404:
+          description: Not Found
+      summary: Visualize Recipe Taste by ID
   /recipes/{id}/equipmentWidget:
     get:
       deprecated: false
@@ -2550,18 +2507,57 @@ paths:
         404:
           description: Not Found
       summary: Visualize Recipe Price Breakdown by ID
+  /recipes/visualizeTaste:
+    post:
+      deprecated: false
+      description: Visualize a recipe's taste information as HTML including CSS. You
+        can play around with that endpoint!
+      externalDocs:
+        description: Read entire docs
+        url: https://spoonacular.com/food-api/docs#Visualize-Recipe-Taste
+      operationId: visualizeRecipeTaste
+      parameters: []
+      requestBody:
+        $ref: '#/components/requestBodies/inline_object'
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              properties:
+                ingredientList:
+                  description: The ingredient list of the recipe, one ingredient per
+                    line.
+                  example: 1 lemon
+                  type: string
+              required:
+              - ingredientList
+              type: object
+        required: true
+      responses:
+        200:
+          content:
+            text/html:
+              schema:
+                type: string
+          description: Success
+        401:
+          description: Unauthorized
+        403:
+          description: Forbidden
+        404:
+          description: Not Found
+      summary: Visualize Recipe Taste
   /recipes/visualizeNutrition:
     post:
       deprecated: false
       description: Visualize a recipe's nutritional information as HTML including
-        CSS
+        CSS. You can play around with that endpoint!
       externalDocs:
         description: Read entire docs
         url: https://spoonacular.com/food-api/docs#Visualize-Recipe-Nutrition
       operationId: visualizeRecipeNutrition
       parameters: []
       requestBody:
-        $ref: '#/components/requestBodies/inline_object'
+        $ref: '#/components/requestBodies/inline_object_1'
         content:
           application/x-www-form-urlencoded:
             schema:
@@ -2606,14 +2602,15 @@ paths:
   /recipes/visualizePriceEstimator:
     post:
       deprecated: false
-      description: Visualize the price breakdown of a recipe.
+      description: Visualize the price breakdown of a recipe. You can play around
+        with that endpoint!
       externalDocs:
         description: Read entire docs
         url: https://spoonacular.com/food-api/docs#Visualize-Price-Breakdown
       operationId: visualizePriceBreakdown
       parameters: []
       requestBody:
-        $ref: '#/components/requestBodies/inline_object_1'
+        $ref: '#/components/requestBodies/inline_object_2'
         content:
           application/x-www-form-urlencoded:
             schema:
@@ -2663,27 +2660,23 @@ paths:
   /recipes/visualizeEquipment:
     post:
       deprecated: false
-      description: Visualize the equipment used to make a recipe.
+      description: Visualize the equipment used to make a recipe. You can play around
+        with that endpoint!
       externalDocs:
         description: Read entire docs
         url: https://spoonacular.com/food-api/docs#Visualize-Equipment
       operationId: visualizeEquipment
       parameters: []
       requestBody:
-        $ref: '#/components/requestBodies/inline_object_2'
+        $ref: '#/components/requestBodies/inline_object_3'
         content:
           application/x-www-form-urlencoded:
             schema:
               properties:
-                ingredientList:
-                  description: The ingredient list of the recipe, one ingredient per
-                    line.
-                  example: 3 oz flour
+                instructions:
+                  description: The recipe's instructions.
+                  example: Preheat oven. Cut cucumber with a knife and put in a blender.
                   type: string
-                servings:
-                  description: The number of servings.
-                  example: 2
-                  type: number
                 view:
                   description: How to visualize the equipment, either "grid" or "list".
                   example: grid
@@ -2698,8 +2691,7 @@ paths:
                   example: true
                   type: boolean
               required:
-              - ingredientList
-              - servings
+              - instructions
               type: object
         required: true
       responses:
@@ -2759,7 +2751,7 @@ paths:
       operationId: createRecipeCard
       parameters: []
       requestBody:
-        $ref: '#/components/requestBodies/inline_object_3'
+        $ref: '#/components/requestBodies/inline_object_4'
         content:
           multipart/form-data:
             schema:
@@ -2844,21 +2836,25 @@ paths:
   /recipes/analyzeInstructions:
     post:
       deprecated: false
-      description: Extract ingredients and equipment from the recipe's instructions.
+      description: This endpoint allows you to break down instructions into atomic
+        steps. Furthermore, each step will contain the ingredients and equipment required.
+        Additionally, all ingredients and equipment from the recipe's instructions
+        will be extracted independently of the step they're used in.
       externalDocs:
         description: Read entire docs
         url: https://spoonacular.com/food-api/docs#Analyze-Recipe-Instructions
       operationId: analyzeRecipeInstructions
       parameters: []
       requestBody:
-        $ref: '#/components/requestBodies/inline_object_4'
+        $ref: '#/components/requestBodies/inline_object_5'
         content:
           application/x-www-form-urlencoded:
             schema:
               properties:
                 instructions:
                   description: The instructions to be analyzed.
-                  example: Put the garlic in a pan and then add the onion.
+                  example: Put the garlic in a pan and then add the onion. Add some
+                    salt and oregano.
                   type: string
               required:
               - instructions
@@ -2888,7 +2884,7 @@ paths:
       operationId: classifyCuisine
       parameters: []
       requestBody:
-        $ref: '#/components/requestBodies/inline_object_5'
+        $ref: '#/components/requestBodies/inline_object_6'
         content:
           application/x-www-form-urlencoded:
             schema:
@@ -3027,7 +3023,7 @@ paths:
       operationId: parseIngredients
       parameters: []
       requestBody:
-        $ref: '#/components/requestBodies/inline_object_6'
+        $ref: '#/components/requestBodies/inline_object_7'
         content:
           application/x-www-form-urlencoded:
             schema:
@@ -3035,16 +3031,16 @@ paths:
                 ingredientList:
                   description: The ingredient list of the recipe, one ingredient per
                     line.
-                  example: 3 oz pork shoulder
+                  example: 1 cup green tea
                   type: string
                 servings:
                   description: The number of servings that you can make from the ingredients.
-                  example: 2
+                  example: 1
                   type: number
                 includeNutrition:
                   description: Whether nutrition data should be added to correctly
                     parsed ingredients.
-                  example: false
+                  example: true
                   type: boolean
               required:
               - ingredientList
@@ -3065,6 +3061,37 @@ paths:
         404:
           description: Not Found
       summary: Parse Ingredients
+  /food/ingredients/glycemicLoad:
+    post:
+      deprecated: false
+      description: Retrieve the glycemic index for a list of ingredients and compute
+        the individual and total glycemic load.
+      externalDocs:
+        description: Read entire docs
+        url: https://spoonacular.com/food-api/docs#Compute-Glycemic-Load
+      operationId: computeGlycemicLoad
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties: {}
+              type: object
+        required: true
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Success
+        401:
+          description: Unauthorized
+        403:
+          description: Forbidden
+        404:
+          description: Not Found
+      summary: Compute Glycemic Load
   /food/ingredients/autocomplete:
     get:
       deprecated: false
@@ -3109,8 +3136,8 @@ paths:
         name: intolerances
         required: false
         schema:
-          example: false
-          type: boolean
+          example: egg
+          type: string
         style: form
       responses:
         200:
@@ -3126,6 +3153,166 @@ paths:
         404:
           description: Not Found
       summary: Autocomplete Ingredient Search
+  /food/ingredients/search:
+    get:
+      deprecated: false
+      description: Search for simple whole foods (e.g. fruits, vegetables, nuts, grains,
+        meat, fish, dairy etc.).
+      externalDocs:
+        description: Read entire docs
+        url: https://spoonacular.com/food-api/docs#Ingredient-Search
+      operationId: ingredientSearch
+      parameters:
+      - description: The partial or full ingredient name.
+        explode: false
+        in: query
+        name: query
+        required: true
+        schema:
+          example: apple
+          type: string
+        style: form
+      - description: Whether to add children of found foods.
+        explode: false
+        in: query
+        name: addChildren
+        required: false
+        schema:
+          example: true
+          type: boolean
+        style: form
+      - description: The minimum percentage of protein the food must have (between
+          0 and 100).
+        explode: false
+        in: query
+        name: minProteinPercent
+        required: false
+        schema:
+          example: 10
+          type: number
+        style: form
+      - description: The maximum percentage of protein the food can have (between
+          0 and 100).
+        explode: false
+        in: query
+        name: maxProteinPercent
+        required: false
+        schema:
+          example: 90
+          type: number
+        style: form
+      - description: The minimum percentage of fat the food must have (between 0 and
+          100).
+        explode: false
+        in: query
+        name: minFatPercent
+        required: false
+        schema:
+          example: 10
+          type: number
+        style: form
+      - description: The maximum percentage of fat the food can have (between 0 and
+          100).
+        explode: false
+        in: query
+        name: maxFatPercent
+        required: false
+        schema:
+          example: 90
+          type: number
+        style: form
+      - description: The minimum percentage of carbs the food must have (between 0
+          and 100).
+        explode: false
+        in: query
+        name: minCarbsPercent
+        required: false
+        schema:
+          example: 10
+          type: number
+        style: form
+      - description: The maximum percentage of carbs the food can have (between 0
+          and 100).
+        explode: false
+        in: query
+        name: maxCarbsPercent
+        required: false
+        schema:
+          example: 90
+          type: number
+        style: form
+      - description: Whether to return more meta information about the ingredients.
+        explode: false
+        in: query
+        name: metaInformation
+        required: false
+        schema:
+          example: false
+          type: boolean
+        style: form
+      - description: A comma-separated list of intolerances. All recipes returned
+          must not contain ingredients that are not suitable for people with the intolerances
+          entered. See a full list of supported intolerances.
+        explode: false
+        in: query
+        name: intolerances
+        required: false
+        schema:
+          example: egg
+          type: string
+        style: form
+      - description: The strategy to sort recipes by. See a full list of supported
+          sorting options.
+        explode: false
+        in: query
+        name: sort
+        required: false
+        schema:
+          example: calories
+          type: string
+        style: form
+      - description: The direction in which to sort. Must be either 'asc' (ascending)
+          or 'desc' (descending).
+        explode: false
+        in: query
+        name: sortDirection
+        required: false
+        schema:
+          example: asc
+          type: string
+        style: form
+      - description: The number of results to skip (between 0 and 990).
+        explode: false
+        in: query
+        name: offset
+        required: false
+        schema:
+          example: 0
+          type: number
+        style: form
+      - description: The number of expected results (between 1 and 100).
+        explode: false
+        in: query
+        name: number
+        required: false
+        schema:
+          example: 10
+          type: number
+        style: form
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Success
+        401:
+          description: Unauthorized
+        403:
+          description: Forbidden
+        404:
+          description: Not Found
+      summary: Ingredient Search
   /food/ingredients/substitutes:
     get:
       deprecated: false
@@ -3193,14 +3380,15 @@ paths:
   /recipes/visualizeIngredients:
     post:
       deprecated: false
-      description: Visualize ingredients of a recipe.
+      description: Visualize ingredients of a recipe. You can play around with that
+        endpoint!
       externalDocs:
         description: Read entire docs
         url: https://spoonacular.com/food-api/docs#Visualize-Ingredients
       operationId: visualizeIngredients
       parameters: []
       requestBody:
-        $ref: '#/components/requestBodies/inline_object_7'
+        $ref: '#/components/requestBodies/inline_object_8'
         content:
           application/x-www-form-urlencoded:
             schema:
@@ -3689,7 +3877,7 @@ paths:
           type: string
         style: form
       requestBody:
-        $ref: '#/components/requestBodies/inline_object_8'
+        $ref: '#/components/requestBodies/inline_object_9'
         content:
           application/json:
             schema:
@@ -4180,6 +4368,81 @@ paths:
         404:
           description: Not Found
       summary: Get Meal Plan Week
+  /mealplanner/{username}/day/{date}:
+    delete:
+      deprecated: false
+      description: Delete all planned items from the user's meal plan for a specific
+        day.
+      externalDocs:
+        description: Read entire docs
+        url: https://spoonacular.com/food-api/docs#Clear-Meal-Plan-Day
+      operationId: clearMealPlanDay
+      parameters:
+      - description: The username.
+        explode: false
+        in: path
+        name: username
+        required: true
+        schema:
+          example: dsky
+          type: string
+        style: simple
+      - description: The date in the format yyyy-mm-dd.
+        explode: false
+        in: path
+        name: date
+        required: true
+        schema:
+          example: 2020-06-01
+          type: string
+        style: simple
+      - description: The private hash for the username.
+        explode: false
+        in: query
+        name: hash
+        required: true
+        schema:
+          example: 4b5v4398573406
+          type: string
+        style: form
+      requestBody:
+        $ref: '#/components/requestBodies/inline_object_10'
+        content:
+          ?
+          : schema:
+              properties:
+                username:
+                  description: The username.
+                  example: dsky
+                  type: string
+                date:
+                  description: The date in the format yyyy-mm-dd.
+                  example: 2020-06-01
+                  type: string
+                hash:
+                  description: The private hash for the username.
+                  example: 4b5v4398573406
+                  type: string
+              required:
+              - date
+              - hash
+              - username
+              type: object
+        required: true
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Success
+        401:
+          description: Unauthorized
+        403:
+          description: Forbidden
+        404:
+          description: Not Found
+      summary: Clear Meal Plan Day
   /mealplanner/{username}/items:
     post:
       deprecated: false
@@ -4208,7 +4471,7 @@ paths:
           type: string
         style: form
       requestBody:
-        $ref: '#/components/requestBodies/inline_object_9'
+        $ref: '#/components/requestBodies/inline_object_11'
         content:
           ?
           : schema:
@@ -4277,7 +4540,7 @@ paths:
           type: string
         style: form
       requestBody:
-        $ref: '#/components/requestBodies/inline_object_10'
+        $ref: '#/components/requestBodies/inline_object_12'
         content:
           ?
           : schema:
@@ -4493,7 +4756,7 @@ paths:
           type: string
         style: form
       requestBody:
-        $ref: '#/components/requestBodies/inline_object_11'
+        $ref: '#/components/requestBodies/inline_object_13'
         content:
           ?
           : schema:
@@ -4535,6 +4798,37 @@ paths:
         404:
           description: Not Found
       summary: Generate Shopping List
+  /users/connect:
+    post:
+      deprecated: false
+      description: In order to call user-specific endpoints, you need to connect your
+        app's users to spoonacular users.
+      externalDocs:
+        description: Read entire docs
+        url: https://spoonacular.com/food-api/docs#Connect-User
+      operationId: connectUser
+      parameters: []
+      requestBody:
+        content:
+          ?
+          : schema:
+              properties: {}
+              type: object
+        required: true
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Success
+        401:
+          description: Unauthorized
+        403:
+          description: Forbidden
+        404:
+          description: Not Found
+      summary: Connect User
   /mealplanner/{username}/shopping-list/items:
     post:
       deprecated: false
@@ -4563,7 +4857,7 @@ paths:
           type: string
         style: form
       requestBody:
-        $ref: '#/components/requestBodies/inline_object_12'
+        $ref: '#/components/requestBodies/inline_object_14'
         content:
           ?
           : schema:
@@ -4632,7 +4926,7 @@ paths:
           type: string
         style: form
       requestBody:
-        $ref: '#/components/requestBodies/inline_object_13'
+        $ref: '#/components/requestBodies/inline_object_15'
         content:
           ?
           : schema:
@@ -4951,7 +5245,7 @@ paths:
       operationId: detectFoodInText
       parameters: []
       requestBody:
-        $ref: '#/components/requestBodies/inline_object_14'
+        $ref: '#/components/requestBodies/inline_object_16'
         content:
           application/x-www-form-urlencoded:
             schema:
@@ -5017,6 +5311,57 @@ paths:
         404:
           description: Not Found
       summary: Search Site Content
+  /food/search:
+    get:
+      deprecated: false
+      description: Search all food content with one call. That includes recipes, grocery
+        products, menu items, simple foods (ingredients), and food videos.
+      externalDocs:
+        description: Read entire docs
+        url: https://spoonacular.com/food-api/docs#Search-All-Food
+      operationId: searchAllFood
+      parameters:
+      - description: The search query.
+        explode: false
+        in: query
+        name: query
+        required: true
+        schema:
+          example: apple
+          type: string
+        style: form
+      - description: The number of results to skip (between 0 and 990).
+        explode: false
+        in: query
+        name: offset
+        required: false
+        schema:
+          example: 0
+          type: number
+        style: form
+      - description: The number of expected results (between 1 and 100).
+        explode: false
+        in: query
+        name: number
+        required: false
+        schema:
+          example: 10
+          type: number
+        style: form
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Success
+        401:
+          description: Unauthorized
+        403:
+          description: Forbidden
+        404:
+          description: Not Found
+      summary: Search All Food
   /food/videos/search:
     get:
       deprecated: false
@@ -5330,8 +5675,8 @@ components:
       required: true
     inline_object_9:
       content:
-        ?
-        : schema:
+        application/json:
+          schema:
             $ref: '#/components/schemas/inline_object_9'
       required: true
     inline_object_10:
@@ -5342,7 +5687,7 @@ components:
       required: true
     inline_object_8:
       content:
-        application/json:
+        application/x-www-form-urlencoded:
           schema:
             $ref: '#/components/schemas/inline_object_8'
       required: true
@@ -5378,13 +5723,13 @@ components:
       required: true
     inline_object_14:
       content:
-        application/x-www-form-urlencoded:
-          schema:
+        ?
+        : schema:
             $ref: '#/components/schemas/inline_object_14'
       required: true
     inline_object_4:
       content:
-        application/x-www-form-urlencoded:
+        multipart/form-data:
           schema:
             $ref: '#/components/schemas/inline_object_4'
       required: true
@@ -5396,15 +5741,27 @@ components:
       required: true
     inline_object_3:
       content:
-        multipart/form-data:
+        application/x-www-form-urlencoded:
           schema:
             $ref: '#/components/schemas/inline_object_3'
+      required: true
+    inline_object_16:
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/inline_object_16'
       required: true
     inline_object_2:
       content:
         application/x-www-form-urlencoded:
           schema:
             $ref: '#/components/schemas/inline_object_2'
+      required: true
+    inline_object_15:
+      content:
+        ?
+        : schema:
+            $ref: '#/components/schemas/inline_object_15'
       required: true
     inline_object:
       content:
@@ -5414,6 +5771,15 @@ components:
       required: true
   schemas:
     inline_object:
+      properties:
+        ingredientList:
+          description: The ingredient list of the recipe, one ingredient per line.
+          example: 1 lemon
+          type: string
+      required:
+      - ingredientList
+      type: object
+    inline_object_1:
       properties:
         ingredientList:
           description: The ingredient list of the recipe, one ingredient per line.
@@ -5436,7 +5802,7 @@ components:
       - ingredientList
       - servings
       type: object
-    inline_object_1:
+    inline_object_2:
       properties:
         ingredientList:
           description: The ingredient list of the recipe, one ingredient per line.
@@ -5464,16 +5830,12 @@ components:
       - ingredientList
       - servings
       type: object
-    inline_object_2:
+    inline_object_3:
       properties:
-        ingredientList:
-          description: The ingredient list of the recipe, one ingredient per line.
-          example: 3 oz flour
+        instructions:
+          description: The recipe's instructions.
+          example: Preheat oven. Cut cucumber with a knife and put in a blender.
           type: string
-        servings:
-          description: The number of servings.
-          example: 2
-          type: number
         view:
           description: How to visualize the equipment, either "grid" or "list".
           example: grid
@@ -5488,10 +5850,9 @@ components:
           example: true
           type: boolean
       required:
-      - ingredientList
-      - servings
+      - instructions
       type: object
-    inline_object_3:
+    inline_object_4:
       properties:
         title:
           description: The title of the recipe.
@@ -5554,16 +5915,17 @@ components:
       - servings
       - title
       type: object
-    inline_object_4:
+    inline_object_5:
       properties:
         instructions:
           description: The instructions to be analyzed.
-          example: Put the garlic in a pan and then add the onion.
+          example: Put the garlic in a pan and then add the onion. Add some salt and
+            oregano.
           type: string
       required:
       - instructions
       type: object
-    inline_object_5:
+    inline_object_6:
       properties:
         title:
           description: The title of the recipe.
@@ -5578,26 +5940,26 @@ components:
       - ingredientList
       - title
       type: object
-    inline_object_6:
+    inline_object_7:
       properties:
         ingredientList:
           description: The ingredient list of the recipe, one ingredient per line.
-          example: 3 oz pork shoulder
+          example: 1 cup green tea
           type: string
         servings:
           description: The number of servings that you can make from the ingredients.
-          example: 2
+          example: 1
           type: number
         includeNutrition:
           description: Whether nutrition data should be added to correctly parsed
             ingredients.
-          example: false
+          example: true
           type: boolean
       required:
       - ingredientList
       - servings
       type: object
-    inline_object_7:
+    inline_object_8:
       properties:
         ingredientList:
           description: The ingredient list of the recipe, one ingredient per line.
@@ -5628,7 +5990,7 @@ components:
       - ingredientList
       - servings
       type: object
-    inline_object_8:
+    inline_object_9:
       properties:
         locale:
           description: The display name of the returned category, supported is en_US
@@ -5636,7 +5998,26 @@ components:
           example: en_US
           type: string
       type: object
-    inline_object_9:
+    inline_object_10:
+      properties:
+        username:
+          description: The username.
+          example: dsky
+          type: string
+        date:
+          description: The date in the format yyyy-mm-dd.
+          example: 2020-06-01
+          type: string
+        hash:
+          description: The private hash for the username.
+          example: 4b5v4398573406
+          type: string
+      required:
+      - date
+      - hash
+      - username
+      type: object
+    inline_object_11:
       properties:
         username:
           description: The username.
@@ -5650,7 +6031,7 @@ components:
       - hash
       - username
       type: object
-    inline_object_10:
+    inline_object_12:
       properties:
         username:
           description: The username.
@@ -5669,7 +6050,7 @@ components:
       - id
       - username
       type: object
-    inline_object_11:
+    inline_object_13:
       properties:
         username:
           description: The username.
@@ -5693,7 +6074,7 @@ components:
       - start-date
       - username
       type: object
-    inline_object_12:
+    inline_object_14:
       properties:
         username:
           description: The username.
@@ -5707,7 +6088,7 @@ components:
       - hash
       - username
       type: object
-    inline_object_13:
+    inline_object_15:
       properties:
         username:
           description: The username.
@@ -5726,7 +6107,7 @@ components:
       - id
       - username
       type: object
-    inline_object_14:
+    inline_object_16:
       properties:
         text:
           description: The text in which food items, such as dish names and ingredients,

@@ -27,50 +27,28 @@ import java.io.IOException;
 /**
  * InlineObject9
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-06-13T12:59:56.631+02:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-11-01T21:23:09.595+01:00[Europe/Berlin]")
 public class InlineObject9 {
-  public static final String SERIALIZED_NAME_USERNAME = "username";
-  @SerializedName(SERIALIZED_NAME_USERNAME)
-  private String username;
+  public static final String SERIALIZED_NAME_LOCALE = "locale";
+  @SerializedName(SERIALIZED_NAME_LOCALE)
+  private String locale;
 
-  public static final String SERIALIZED_NAME_HASH = "hash";
-  @SerializedName(SERIALIZED_NAME_HASH)
-  private String hash;
-
-  public InlineObject9 username(String username) {
-    this.username = username;
+  public InlineObject9 locale(String locale) {
+    this.locale = locale;
     return this;
   }
 
    /**
-   * The username.
-   * @return username
+   * The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).
+   * @return locale
   **/
-  @ApiModelProperty(example = "dsky", required = true, value = "The username.")
-  public String getUsername() {
-    return username;
+  @ApiModelProperty(example = "en_US", value = "The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).")
+  public String getLocale() {
+    return locale;
   }
 
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-  public InlineObject9 hash(String hash) {
-    this.hash = hash;
-    return this;
-  }
-
-   /**
-   * The private hash for the username.
-   * @return hash
-  **/
-  @ApiModelProperty(example = "4b5v4398573406", required = true, value = "The private hash for the username.")
-  public String getHash() {
-    return hash;
-  }
-
-  public void setHash(String hash) {
-    this.hash = hash;
+  public void setLocale(String locale) {
+    this.locale = locale;
   }
 
 
@@ -83,13 +61,12 @@ public class InlineObject9 {
       return false;
     }
     InlineObject9 inlineObject9 = (InlineObject9) o;
-    return Objects.equals(this.username, inlineObject9.username) &&
-        Objects.equals(this.hash, inlineObject9.hash);
+    return Objects.equals(this.locale, inlineObject9.locale);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(username, hash);
+    return Objects.hash(locale);
   }
 
 
@@ -97,8 +74,7 @@ public class InlineObject9 {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineObject9 {\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
-    sb.append("    hash: ").append(toIndentedString(hash)).append("\n");
+    sb.append("    locale: ").append(toIndentedString(locale)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -19,9 +19,14 @@ local function cast_inline_object_8(t)
 	return setmetatable(t, inline_object_8_mt)
 end
 
-local function new_inline_object_8(locale)
+local function new_inline_object_8(ingredient_list, servings, measure, view, default_css, show_backlink)
 	return cast_inline_object_8({
-		["locale"] = locale;
+		["ingredientList"] = ingredient_list;
+		["servings"] = servings;
+		["measure"] = measure;
+		["view"] = view;
+		["defaultCss"] = default_css;
+		["showBacklink"] = show_backlink;
 	})
 end
 

@@ -15,12 +15,16 @@ package com.spoonacular.client.model
 import com.squareup.moshi.Json
 /**
  * 
- * @param text The text in which food items, such as dish names and ingredients, should be detected in.
+ * @param username The username.
+ * @param hash The private hash for the username.
  */
 data class InlineObject14 (
-    /* The text in which food items, such as dish names and ingredients, should be detected in. */
-    @Json(name = "text")
-    val text: kotlin.String
+    /* The username. */
+    @Json(name = "username")
+    val username: kotlin.String,
+    /* The private hash for the username. */
+    @Json(name = "hash")
+    val hash: kotlin.String
 ) {
 
 }

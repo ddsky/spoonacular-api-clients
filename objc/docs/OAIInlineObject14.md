@@ -3,7 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**text** | **NSString*** | The text in which food items, such as dish names and ingredients, should be detected in. | 
+**username** | **NSString*** | The username. | 
+**hash** | **NSString*** | The private hash for the username. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

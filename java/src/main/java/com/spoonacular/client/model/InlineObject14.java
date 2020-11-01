@@ -27,28 +27,50 @@ import java.io.IOException;
 /**
  * InlineObject14
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-06-13T12:59:56.631+02:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-11-01T21:23:09.595+01:00[Europe/Berlin]")
 public class InlineObject14 {
-  public static final String SERIALIZED_NAME_TEXT = "text";
-  @SerializedName(SERIALIZED_NAME_TEXT)
-  private String text;
+  public static final String SERIALIZED_NAME_USERNAME = "username";
+  @SerializedName(SERIALIZED_NAME_USERNAME)
+  private String username;
 
-  public InlineObject14 text(String text) {
-    this.text = text;
+  public static final String SERIALIZED_NAME_HASH = "hash";
+  @SerializedName(SERIALIZED_NAME_HASH)
+  private String hash;
+
+  public InlineObject14 username(String username) {
+    this.username = username;
     return this;
   }
 
    /**
-   * The text in which food items, such as dish names and ingredients, should be detected in.
-   * @return text
+   * The username.
+   * @return username
   **/
-  @ApiModelProperty(example = "I like to eat delicious tacos. The only thing better is a cheeseburger with cheddar. But then again, pizza with pepperoni, mushrooms, and tomatoes is so good too!", required = true, value = "The text in which food items, such as dish names and ingredients, should be detected in.")
-  public String getText() {
-    return text;
+  @ApiModelProperty(example = "dsky", required = true, value = "The username.")
+  public String getUsername() {
+    return username;
   }
 
-  public void setText(String text) {
-    this.text = text;
+  public void setUsername(String username) {
+    this.username = username;
+  }
+
+  public InlineObject14 hash(String hash) {
+    this.hash = hash;
+    return this;
+  }
+
+   /**
+   * The private hash for the username.
+   * @return hash
+  **/
+  @ApiModelProperty(example = "4b5v4398573406", required = true, value = "The private hash for the username.")
+  public String getHash() {
+    return hash;
+  }
+
+  public void setHash(String hash) {
+    this.hash = hash;
   }
 
 
@@ -61,12 +83,13 @@ public class InlineObject14 {
       return false;
     }
     InlineObject14 inlineObject14 = (InlineObject14) o;
-    return Objects.equals(this.text, inlineObject14.text);
+    return Objects.equals(this.username, inlineObject14.username) &&
+        Objects.equals(this.hash, inlineObject14.hash);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(text);
+    return Objects.hash(username, hash);
   }
 
 
@@ -74,7 +97,8 @@ public class InlineObject14 {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineObject14 {\n");
-    sb.append("    text: ").append(toIndentedString(text)).append("\n");
+    sb.append("    username: ").append(toIndentedString(username)).append("\n");
+    sb.append("    hash: ").append(toIndentedString(hash)).append("\n");
     sb.append("}");
     return sb.toString();
   }

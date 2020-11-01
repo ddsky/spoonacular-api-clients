@@ -57,7 +57,18 @@ class InlineObject4 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'instructions' => 'string'
+        'title' => 'string',
+        'image' => '\SplFileObject',
+        'ingredients' => 'string',
+        'instructions' => 'string',
+        'ready_in_minutes' => 'float',
+        'servings' => 'float',
+        'mask' => 'string',
+        'background_image' => 'string',
+        'author' => 'string',
+        'background_color' => 'string',
+        'font_color' => 'string',
+        'source' => 'string'
     ];
 
     /**
@@ -66,7 +77,18 @@ class InlineObject4 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'instructions' => null
+        'title' => null,
+        'image' => 'binary',
+        'ingredients' => null,
+        'instructions' => null,
+        'ready_in_minutes' => null,
+        'servings' => null,
+        'mask' => null,
+        'background_image' => null,
+        'author' => null,
+        'background_color' => null,
+        'font_color' => null,
+        'source' => null
     ];
 
     /**
@@ -96,7 +118,18 @@ class InlineObject4 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'instructions' => 'instructions'
+        'title' => 'title',
+        'image' => 'image',
+        'ingredients' => 'ingredients',
+        'instructions' => 'instructions',
+        'ready_in_minutes' => 'readyInMinutes',
+        'servings' => 'servings',
+        'mask' => 'mask',
+        'background_image' => 'backgroundImage',
+        'author' => 'author',
+        'background_color' => 'backgroundColor',
+        'font_color' => 'fontColor',
+        'source' => 'source'
     ];
 
     /**
@@ -105,7 +138,18 @@ class InlineObject4 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'instructions' => 'setInstructions'
+        'title' => 'setTitle',
+        'image' => 'setImage',
+        'ingredients' => 'setIngredients',
+        'instructions' => 'setInstructions',
+        'ready_in_minutes' => 'setReadyInMinutes',
+        'servings' => 'setServings',
+        'mask' => 'setMask',
+        'background_image' => 'setBackgroundImage',
+        'author' => 'setAuthor',
+        'background_color' => 'setBackgroundColor',
+        'font_color' => 'setFontColor',
+        'source' => 'setSource'
     ];
 
     /**
@@ -114,7 +158,18 @@ class InlineObject4 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'instructions' => 'getInstructions'
+        'title' => 'getTitle',
+        'image' => 'getImage',
+        'ingredients' => 'getIngredients',
+        'instructions' => 'getInstructions',
+        'ready_in_minutes' => 'getReadyInMinutes',
+        'servings' => 'getServings',
+        'mask' => 'getMask',
+        'background_image' => 'getBackgroundImage',
+        'author' => 'getAuthor',
+        'background_color' => 'getBackgroundColor',
+        'font_color' => 'getFontColor',
+        'source' => 'getSource'
     ];
 
     /**
@@ -177,7 +232,18 @@ class InlineObject4 implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['title'] = isset($data['title']) ? $data['title'] : null;
+        $this->container['image'] = isset($data['image']) ? $data['image'] : null;
+        $this->container['ingredients'] = isset($data['ingredients']) ? $data['ingredients'] : null;
         $this->container['instructions'] = isset($data['instructions']) ? $data['instructions'] : null;
+        $this->container['ready_in_minutes'] = isset($data['ready_in_minutes']) ? $data['ready_in_minutes'] : null;
+        $this->container['servings'] = isset($data['servings']) ? $data['servings'] : null;
+        $this->container['mask'] = isset($data['mask']) ? $data['mask'] : null;
+        $this->container['background_image'] = isset($data['background_image']) ? $data['background_image'] : null;
+        $this->container['author'] = isset($data['author']) ? $data['author'] : null;
+        $this->container['background_color'] = isset($data['background_color']) ? $data['background_color'] : null;
+        $this->container['font_color'] = isset($data['font_color']) ? $data['font_color'] : null;
+        $this->container['source'] = isset($data['source']) ? $data['source'] : null;
     }
 
     /**
@@ -189,8 +255,29 @@ class InlineObject4 implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['title'] === null) {
+            $invalidProperties[] = "'title' can't be null";
+        }
+        if ($this->container['image'] === null) {
+            $invalidProperties[] = "'image' can't be null";
+        }
+        if ($this->container['ingredients'] === null) {
+            $invalidProperties[] = "'ingredients' can't be null";
+        }
         if ($this->container['instructions'] === null) {
             $invalidProperties[] = "'instructions' can't be null";
+        }
+        if ($this->container['ready_in_minutes'] === null) {
+            $invalidProperties[] = "'ready_in_minutes' can't be null";
+        }
+        if ($this->container['servings'] === null) {
+            $invalidProperties[] = "'servings' can't be null";
+        }
+        if ($this->container['mask'] === null) {
+            $invalidProperties[] = "'mask' can't be null";
+        }
+        if ($this->container['background_image'] === null) {
+            $invalidProperties[] = "'background_image' can't be null";
         }
         return $invalidProperties;
     }
@@ -208,6 +295,78 @@ class InlineObject4 implements ModelInterface, ArrayAccess
 
 
     /**
+     * Gets title
+     *
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->container['title'];
+    }
+
+    /**
+     * Sets title
+     *
+     * @param string $title The title of the recipe.
+     *
+     * @return $this
+     */
+    public function setTitle($title)
+    {
+        $this->container['title'] = $title;
+
+        return $this;
+    }
+
+    /**
+     * Gets image
+     *
+     * @return \SplFileObject
+     */
+    public function getImage()
+    {
+        return $this->container['image'];
+    }
+
+    /**
+     * Sets image
+     *
+     * @param \SplFileObject $image The binary image of the recipe as jpg.
+     *
+     * @return $this
+     */
+    public function setImage($image)
+    {
+        $this->container['image'] = $image;
+
+        return $this;
+    }
+
+    /**
+     * Gets ingredients
+     *
+     * @return string
+     */
+    public function getIngredients()
+    {
+        return $this->container['ingredients'];
+    }
+
+    /**
+     * Sets ingredients
+     *
+     * @param string $ingredients The ingredient list of the recipe, one ingredient per line (separate lines with \\n).
+     *
+     * @return $this
+     */
+    public function setIngredients($ingredients)
+    {
+        $this->container['ingredients'] = $ingredients;
+
+        return $this;
+    }
+
+    /**
      * Gets instructions
      *
      * @return string
@@ -220,13 +379,205 @@ class InlineObject4 implements ModelInterface, ArrayAccess
     /**
      * Sets instructions
      *
-     * @param string $instructions The instructions to be analyzed.
+     * @param string $instructions The instructions to make the recipe. One step per line (separate lines with \\n).
      *
      * @return $this
      */
     public function setInstructions($instructions)
     {
         $this->container['instructions'] = $instructions;
+
+        return $this;
+    }
+
+    /**
+     * Gets ready_in_minutes
+     *
+     * @return float
+     */
+    public function getReadyInMinutes()
+    {
+        return $this->container['ready_in_minutes'];
+    }
+
+    /**
+     * Sets ready_in_minutes
+     *
+     * @param float $ready_in_minutes The number of minutes it takes to get the recipe on the table.
+     *
+     * @return $this
+     */
+    public function setReadyInMinutes($ready_in_minutes)
+    {
+        $this->container['ready_in_minutes'] = $ready_in_minutes;
+
+        return $this;
+    }
+
+    /**
+     * Gets servings
+     *
+     * @return float
+     */
+    public function getServings()
+    {
+        return $this->container['servings'];
+    }
+
+    /**
+     * Sets servings
+     *
+     * @param float $servings The number of servings the recipe makes.
+     *
+     * @return $this
+     */
+    public function setServings($servings)
+    {
+        $this->container['servings'] = $servings;
+
+        return $this;
+    }
+
+    /**
+     * Gets mask
+     *
+     * @return string
+     */
+    public function getMask()
+    {
+        return $this->container['mask'];
+    }
+
+    /**
+     * Sets mask
+     *
+     * @param string $mask The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\").
+     *
+     * @return $this
+     */
+    public function setMask($mask)
+    {
+        $this->container['mask'] = $mask;
+
+        return $this;
+    }
+
+    /**
+     * Gets background_image
+     *
+     * @return string
+     */
+    public function getBackgroundImage()
+    {
+        return $this->container['background_image'];
+    }
+
+    /**
+     * Sets background_image
+     *
+     * @param string $background_image The background image (\"none\",\"background1\", or \"background2\").
+     *
+     * @return $this
+     */
+    public function setBackgroundImage($background_image)
+    {
+        $this->container['background_image'] = $background_image;
+
+        return $this;
+    }
+
+    /**
+     * Gets author
+     *
+     * @return string|null
+     */
+    public function getAuthor()
+    {
+        return $this->container['author'];
+    }
+
+    /**
+     * Sets author
+     *
+     * @param string|null $author The author of the recipe.
+     *
+     * @return $this
+     */
+    public function setAuthor($author)
+    {
+        $this->container['author'] = $author;
+
+        return $this;
+    }
+
+    /**
+     * Gets background_color
+     *
+     * @return string|null
+     */
+    public function getBackgroundColor()
+    {
+        return $this->container['background_color'];
+    }
+
+    /**
+     * Sets background_color
+     *
+     * @param string|null $background_color The background color for the recipe card as a hex-string.
+     *
+     * @return $this
+     */
+    public function setBackgroundColor($background_color)
+    {
+        $this->container['background_color'] = $background_color;
+
+        return $this;
+    }
+
+    /**
+     * Gets font_color
+     *
+     * @return string|null
+     */
+    public function getFontColor()
+    {
+        return $this->container['font_color'];
+    }
+
+    /**
+     * Sets font_color
+     *
+     * @param string|null $font_color The font color for the recipe card as a hex-string.
+     *
+     * @return $this
+     */
+    public function setFontColor($font_color)
+    {
+        $this->container['font_color'] = $font_color;
+
+        return $this;
+    }
+
+    /**
+     * Gets source
+     *
+     * @return string|null
+     */
+    public function getSource()
+    {
+        return $this->container['source'];
+    }
+
+    /**
+     * Sets source
+     *
+     * @param string|null $source The source of the recipe.
+     *
+     * @return $this
+     */
+    public function setSource($source)
+    {
+        $this->container['source'] = $source;
 
         return $this;
     }

@@ -5,8 +5,6 @@ class InlineObject1 {
   String ingredientList = null;
   /* The number of servings. */
   num servings = null;
-  /* The mode in which the widget should be delivered. 1 = separate views (compact), 2 = all in one view (full). */
-  num mode = null;
   /* Whether the default CSS should be added to the response. */
   bool defaultCss = null;
   /* Whether to show a backlink to spoonacular. If set false, this call counts against your quota. */
@@ -15,7 +13,7 @@ class InlineObject1 {
 
   @override
   String toString() {
-    return 'InlineObject1[ingredientList=$ingredientList, servings=$servings, mode=$mode, defaultCss=$defaultCss, showBacklink=$showBacklink, ]';
+    return 'InlineObject1[ingredientList=$ingredientList, servings=$servings, defaultCss=$defaultCss, showBacklink=$showBacklink, ]';
   }
 
   InlineObject1.fromJson(Map<String, dynamic> json) {
@@ -29,11 +27,6 @@ class InlineObject1 {
       servings = null;
     } else {
           servings = json['servings'];
-    }
-    if (json['mode'] == null) {
-      mode = null;
-    } else {
-          mode = json['mode'];
     }
     if (json['defaultCss'] == null) {
       defaultCss = null;
@@ -53,8 +46,6 @@ class InlineObject1 {
       json['ingredientList'] = ingredientList;
     if (servings != null)
       json['servings'] = servings;
-    if (mode != null)
-      json['mode'] = mode;
     if (defaultCss != null)
       json['defaultCss'] = defaultCss;
     if (showBacklink != null)

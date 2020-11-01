@@ -22,12 +22,11 @@ class InlineObject5 {
     /**
      * Constructs a new <code>InlineObject5</code>.
      * @alias module:com.spoonacular.client/com.spoonacular.client.model/InlineObject5
-     * @param title {String} The title of the recipe.
-     * @param ingredientList {String} The ingredient list of the recipe, one ingredient per line (separate lines with \\n).
+     * @param instructions {String} The instructions to be analyzed.
      */
-    constructor(title, ingredientList) { 
+    constructor(instructions) { 
         
-        InlineObject5.initialize(this, title, ingredientList);
+        InlineObject5.initialize(this, instructions);
     }
 
     /**
@@ -35,9 +34,8 @@ class InlineObject5 {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, title, ingredientList) { 
-        obj['title'] = title;
-        obj['ingredientList'] = ingredientList;
+    static initialize(obj, instructions) { 
+        obj['instructions'] = instructions;
     }
 
     /**
@@ -51,11 +49,8 @@ class InlineObject5 {
         if (data) {
             obj = obj || new InlineObject5();
 
-            if (data.hasOwnProperty('title')) {
-                obj['title'] = ApiClient.convertToType(data['title'], 'String');
-            }
-            if (data.hasOwnProperty('ingredientList')) {
-                obj['ingredientList'] = ApiClient.convertToType(data['ingredientList'], 'String');
+            if (data.hasOwnProperty('instructions')) {
+                obj['instructions'] = ApiClient.convertToType(data['instructions'], 'String');
             }
         }
         return obj;
@@ -65,16 +60,10 @@ class InlineObject5 {
 }
 
 /**
- * The title of the recipe.
- * @member {String} title
+ * The instructions to be analyzed.
+ * @member {String} instructions
  */
-InlineObject5.prototype['title'] = undefined;
-
-/**
- * The ingredient list of the recipe, one ingredient per line (separate lines with \\n).
- * @member {String} ingredientList
- */
-InlineObject5.prototype['ingredientList'] = undefined;
+InlineObject5.prototype['instructions'] = undefined;
 
 
 

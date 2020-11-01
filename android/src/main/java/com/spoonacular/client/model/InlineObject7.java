@@ -13,14 +13,8 @@ public class InlineObject7  {
   private String ingredientList = null;
   @SerializedName("servings")
   private BigDecimal servings = null;
-  @SerializedName("measure")
-  private String measure = null;
-  @SerializedName("view")
-  private String view = null;
-  @SerializedName("defaultCss")
-  private Boolean defaultCss = null;
-  @SerializedName("showBacklink")
-  private Boolean showBacklink = null;
+  @SerializedName("includeNutrition")
+  private Boolean includeNutrition = null;
 
   /**
    * The ingredient list of the recipe, one ingredient per line.
@@ -34,9 +28,9 @@ public class InlineObject7  {
   }
 
   /**
-   * The number of servings.
+   * The number of servings that you can make from the ingredients.
    **/
-  @ApiModelProperty(required = true, value = "The number of servings.")
+  @ApiModelProperty(required = true, value = "The number of servings that you can make from the ingredients.")
   public BigDecimal getServings() {
     return servings;
   }
@@ -45,47 +39,14 @@ public class InlineObject7  {
   }
 
   /**
-   * The original system of measurement, either \"metric\" or \"us\".
+   * Whether nutrition data should be added to correctly parsed ingredients.
    **/
-  @ApiModelProperty(value = "The original system of measurement, either \"metric\" or \"us\".")
-  public String getMeasure() {
-    return measure;
+  @ApiModelProperty(value = "Whether nutrition data should be added to correctly parsed ingredients.")
+  public Boolean getIncludeNutrition() {
+    return includeNutrition;
   }
-  public void setMeasure(String measure) {
-    this.measure = measure;
-  }
-
-  /**
-   * How to visualize the ingredients, either \"grid\" or \"list\".
-   **/
-  @ApiModelProperty(value = "How to visualize the ingredients, either \"grid\" or \"list\".")
-  public String getView() {
-    return view;
-  }
-  public void setView(String view) {
-    this.view = view;
-  }
-
-  /**
-   * Whether the default CSS should be added to the response.
-   **/
-  @ApiModelProperty(value = "Whether the default CSS should be added to the response.")
-  public Boolean getDefaultCss() {
-    return defaultCss;
-  }
-  public void setDefaultCss(Boolean defaultCss) {
-    this.defaultCss = defaultCss;
-  }
-
-  /**
-   * Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
-   **/
-  @ApiModelProperty(value = "Whether to show a backlink to spoonacular. If set false, this call counts against your quota.")
-  public Boolean getShowBacklink() {
-    return showBacklink;
-  }
-  public void setShowBacklink(Boolean showBacklink) {
-    this.showBacklink = showBacklink;
+  public void setIncludeNutrition(Boolean includeNutrition) {
+    this.includeNutrition = includeNutrition;
   }
 
 
@@ -100,10 +61,7 @@ public class InlineObject7  {
     InlineObject7 inlineObject7 = (InlineObject7) o;
     return (this.ingredientList == null ? inlineObject7.ingredientList == null : this.ingredientList.equals(inlineObject7.ingredientList)) &&
         (this.servings == null ? inlineObject7.servings == null : this.servings.equals(inlineObject7.servings)) &&
-        (this.measure == null ? inlineObject7.measure == null : this.measure.equals(inlineObject7.measure)) &&
-        (this.view == null ? inlineObject7.view == null : this.view.equals(inlineObject7.view)) &&
-        (this.defaultCss == null ? inlineObject7.defaultCss == null : this.defaultCss.equals(inlineObject7.defaultCss)) &&
-        (this.showBacklink == null ? inlineObject7.showBacklink == null : this.showBacklink.equals(inlineObject7.showBacklink));
+        (this.includeNutrition == null ? inlineObject7.includeNutrition == null : this.includeNutrition.equals(inlineObject7.includeNutrition));
   }
 
   @Override
@@ -111,10 +69,7 @@ public class InlineObject7  {
     int result = 17;
     result = 31 * result + (this.ingredientList == null ? 0: this.ingredientList.hashCode());
     result = 31 * result + (this.servings == null ? 0: this.servings.hashCode());
-    result = 31 * result + (this.measure == null ? 0: this.measure.hashCode());
-    result = 31 * result + (this.view == null ? 0: this.view.hashCode());
-    result = 31 * result + (this.defaultCss == null ? 0: this.defaultCss.hashCode());
-    result = 31 * result + (this.showBacklink == null ? 0: this.showBacklink.hashCode());
+    result = 31 * result + (this.includeNutrition == null ? 0: this.includeNutrition.hashCode());
     return result;
   }
 
@@ -125,10 +80,7 @@ public class InlineObject7  {
     
     sb.append("  ingredientList: ").append(ingredientList).append("\n");
     sb.append("  servings: ").append(servings).append("\n");
-    sb.append("  measure: ").append(measure).append("\n");
-    sb.append("  view: ").append(view).append("\n");
-    sb.append("  defaultCss: ").append(defaultCss).append("\n");
-    sb.append("  showBacklink: ").append(showBacklink).append("\n");
+    sb.append("  includeNutrition: ").append(includeNutrition).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

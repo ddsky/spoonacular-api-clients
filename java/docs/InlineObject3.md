@@ -6,18 +6,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**title** | **String** | The title of the recipe. | 
-**image** | [**File**](File.md) | The binary image of the recipe as jpg. | 
-**ingredients** | **String** | The ingredient list of the recipe, one ingredient per line (separate lines with \\n). | 
-**instructions** | **String** | The instructions to make the recipe. One step per line (separate lines with \\n). | 
-**readyInMinutes** | [**BigDecimal**](BigDecimal.md) | The number of minutes it takes to get the recipe on the table. | 
-**servings** | [**BigDecimal**](BigDecimal.md) | The number of servings the recipe makes. | 
-**mask** | **String** | The mask to put over the recipe image (\&quot;ellipseMask\&quot;, \&quot;diamondMask\&quot;, \&quot;starMask\&quot;, \&quot;heartMask\&quot;, \&quot;potMask\&quot;, \&quot;fishMask\&quot;). | 
-**backgroundImage** | **String** | The background image (\&quot;none\&quot;,\&quot;background1\&quot;, or \&quot;background2\&quot;). | 
-**author** | **String** | The author of the recipe. |  [optional]
-**backgroundColor** | **String** | The background color for the recipe card as a hex-string. |  [optional]
-**fontColor** | **String** | The font color for the recipe card as a hex-string. |  [optional]
-**source** | **String** | The source of the recipe. |  [optional]
+**instructions** | **String** | The recipe&#39;s instructions. | 
+**view** | **String** | How to visualize the equipment, either \&quot;grid\&quot; or \&quot;list\&quot;. |  [optional]
+**defaultCss** | **Boolean** | Whether the default CSS should be added to the response. |  [optional]
+**showBacklink** | **Boolean** | Whether to show a backlink to spoonacular. If set false, this call counts against your quota. |  [optional]
 
 
 

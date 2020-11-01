@@ -22,11 +22,18 @@ class InlineObject4 {
     /**
      * Constructs a new <code>InlineObject4</code>.
      * @alias module:com.spoonacular.client/com.spoonacular.client.model/InlineObject4
-     * @param instructions {String} The instructions to be analyzed.
+     * @param title {String} The title of the recipe.
+     * @param image {File} The binary image of the recipe as jpg.
+     * @param ingredients {String} The ingredient list of the recipe, one ingredient per line (separate lines with \\n).
+     * @param instructions {String} The instructions to make the recipe. One step per line (separate lines with \\n).
+     * @param readyInMinutes {Number} The number of minutes it takes to get the recipe on the table.
+     * @param servings {Number} The number of servings the recipe makes.
+     * @param mask {String} The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\").
+     * @param backgroundImage {String} The background image (\"none\",\"background1\", or \"background2\").
      */
-    constructor(instructions) { 
+    constructor(title, image, ingredients, instructions, readyInMinutes, servings, mask, backgroundImage) { 
         
-        InlineObject4.initialize(this, instructions);
+        InlineObject4.initialize(this, title, image, ingredients, instructions, readyInMinutes, servings, mask, backgroundImage);
     }
 
     /**
@@ -34,8 +41,15 @@ class InlineObject4 {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, instructions) { 
+    static initialize(obj, title, image, ingredients, instructions, readyInMinutes, servings, mask, backgroundImage) { 
+        obj['title'] = title;
+        obj['image'] = image;
+        obj['ingredients'] = ingredients;
         obj['instructions'] = instructions;
+        obj['readyInMinutes'] = readyInMinutes;
+        obj['servings'] = servings;
+        obj['mask'] = mask;
+        obj['backgroundImage'] = backgroundImage;
     }
 
     /**
@@ -49,8 +63,41 @@ class InlineObject4 {
         if (data) {
             obj = obj || new InlineObject4();
 
+            if (data.hasOwnProperty('title')) {
+                obj['title'] = ApiClient.convertToType(data['title'], 'String');
+            }
+            if (data.hasOwnProperty('image')) {
+                obj['image'] = ApiClient.convertToType(data['image'], File);
+            }
+            if (data.hasOwnProperty('ingredients')) {
+                obj['ingredients'] = ApiClient.convertToType(data['ingredients'], 'String');
+            }
             if (data.hasOwnProperty('instructions')) {
                 obj['instructions'] = ApiClient.convertToType(data['instructions'], 'String');
+            }
+            if (data.hasOwnProperty('readyInMinutes')) {
+                obj['readyInMinutes'] = ApiClient.convertToType(data['readyInMinutes'], 'Number');
+            }
+            if (data.hasOwnProperty('servings')) {
+                obj['servings'] = ApiClient.convertToType(data['servings'], 'Number');
+            }
+            if (data.hasOwnProperty('mask')) {
+                obj['mask'] = ApiClient.convertToType(data['mask'], 'String');
+            }
+            if (data.hasOwnProperty('backgroundImage')) {
+                obj['backgroundImage'] = ApiClient.convertToType(data['backgroundImage'], 'String');
+            }
+            if (data.hasOwnProperty('author')) {
+                obj['author'] = ApiClient.convertToType(data['author'], 'String');
+            }
+            if (data.hasOwnProperty('backgroundColor')) {
+                obj['backgroundColor'] = ApiClient.convertToType(data['backgroundColor'], 'String');
+            }
+            if (data.hasOwnProperty('fontColor')) {
+                obj['fontColor'] = ApiClient.convertToType(data['fontColor'], 'String');
+            }
+            if (data.hasOwnProperty('source')) {
+                obj['source'] = ApiClient.convertToType(data['source'], 'String');
             }
         }
         return obj;
@@ -60,10 +107,76 @@ class InlineObject4 {
 }
 
 /**
- * The instructions to be analyzed.
+ * The title of the recipe.
+ * @member {String} title
+ */
+InlineObject4.prototype['title'] = undefined;
+
+/**
+ * The binary image of the recipe as jpg.
+ * @member {File} image
+ */
+InlineObject4.prototype['image'] = undefined;
+
+/**
+ * The ingredient list of the recipe, one ingredient per line (separate lines with \\n).
+ * @member {String} ingredients
+ */
+InlineObject4.prototype['ingredients'] = undefined;
+
+/**
+ * The instructions to make the recipe. One step per line (separate lines with \\n).
  * @member {String} instructions
  */
 InlineObject4.prototype['instructions'] = undefined;
+
+/**
+ * The number of minutes it takes to get the recipe on the table.
+ * @member {Number} readyInMinutes
+ */
+InlineObject4.prototype['readyInMinutes'] = undefined;
+
+/**
+ * The number of servings the recipe makes.
+ * @member {Number} servings
+ */
+InlineObject4.prototype['servings'] = undefined;
+
+/**
+ * The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\").
+ * @member {String} mask
+ */
+InlineObject4.prototype['mask'] = undefined;
+
+/**
+ * The background image (\"none\",\"background1\", or \"background2\").
+ * @member {String} backgroundImage
+ */
+InlineObject4.prototype['backgroundImage'] = undefined;
+
+/**
+ * The author of the recipe.
+ * @member {String} author
+ */
+InlineObject4.prototype['author'] = undefined;
+
+/**
+ * The background color for the recipe card as a hex-string.
+ * @member {String} backgroundColor
+ */
+InlineObject4.prototype['backgroundColor'] = undefined;
+
+/**
+ * The font color for the recipe card as a hex-string.
+ * @member {String} fontColor
+ */
+InlineObject4.prototype['fontColor'] = undefined;
+
+/**
+ * The source of the recipe.
+ * @member {String} source
+ */
+InlineObject4.prototype['source'] = undefined;
 
 
 

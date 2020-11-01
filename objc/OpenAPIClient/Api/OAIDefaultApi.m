@@ -5,7 +5,8 @@
 #import "OAIInlineObject11.h"
 #import "OAIInlineObject12.h"
 #import "OAIInlineObject13.h"
-#import "OAIInlineObject8.h"
+#import "OAIInlineObject14.h"
+#import "OAIInlineObject15.h"
 #import "OAIInlineObject9.h"
 
 
@@ -61,13 +62,13 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 ///
 ///  @param hash The private hash for the username. 
 ///
-///  @param inlineObject9  
+///  @param inlineObject11  
 ///
 ///  @returns NSObject*
 ///
 -(NSURLSessionTask*) addToMealPlanWithUsername: (NSString*) username
     hash: (NSString*) hash
-    inlineObject9: (OAIInlineObject9*) inlineObject9
+    inlineObject11: (OAIInlineObject11*) inlineObject11
     completionHandler: (void (^)(NSObject* output, NSError* error)) handler {
     // verify the required parameter 'username' is set
     if (username == nil) {
@@ -91,11 +92,11 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    // verify the required parameter 'inlineObject9' is set
-    if (inlineObject9 == nil) {
-        NSParameterAssert(inlineObject9);
+    // verify the required parameter 'inlineObject11' is set
+    if (inlineObject11 == nil) {
+        NSParameterAssert(inlineObject11);
         if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"inlineObject9"] };
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"inlineObject11"] };
             NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
             handler(nil, error);
         }
@@ -133,7 +134,7 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
-    bodyParam = inlineObject9;
+    bodyParam = inlineObject11;
 
     return [self.apiClient requestWithPath: resourcePath
                                     method: @"POST"
@@ -161,13 +162,13 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 ///
 ///  @param hash The private hash for the username. 
 ///
-///  @param inlineObject12  
+///  @param inlineObject14  
 ///
 ///  @returns NSObject*
 ///
 -(NSURLSessionTask*) addToShoppingListWithUsername: (NSString*) username
     hash: (NSString*) hash
-    inlineObject12: (OAIInlineObject12*) inlineObject12
+    inlineObject14: (OAIInlineObject14*) inlineObject14
     completionHandler: (void (^)(NSObject* output, NSError* error)) handler {
     // verify the required parameter 'username' is set
     if (username == nil) {
@@ -191,11 +192,11 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    // verify the required parameter 'inlineObject12' is set
-    if (inlineObject12 == nil) {
-        NSParameterAssert(inlineObject12);
+    // verify the required parameter 'inlineObject14' is set
+    if (inlineObject14 == nil) {
+        NSParameterAssert(inlineObject14);
         if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"inlineObject12"] };
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"inlineObject14"] };
             NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
             handler(nil, error);
         }
@@ -233,7 +234,7 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
-    bodyParam = inlineObject12;
+    bodyParam = inlineObject14;
 
     return [self.apiClient requestWithPath: resourcePath
                                     method: @"POST"
@@ -324,7 +325,7 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 
 ///
 /// Analyze Recipe Instructions
-/// Extract ingredients and equipment from the recipe's instructions.
+/// This endpoint allows you to break down instructions into atomic steps. Furthermore, each step will contain the ingredients and equipment required. Additionally, all ingredients and equipment from the recipe's instructions will be extracted independently of the step they're used in.
 ///  @param instructions The instructions to be analyzed. 
 ///
 ///  @returns NSObject*
@@ -406,7 +407,7 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 -(NSURLSessionTask*) autocompleteIngredientSearchWithQuery: (NSString*) query
     number: (NSNumber*) number
     metaInformation: (NSNumber*) metaInformation
-    intolerances: (NSNumber*) intolerances
+    intolerances: (NSString*) intolerances
     completionHandler: (void (^)(NSObject* output, NSError* error)) handler {
     // verify the required parameter 'query' is set
     if (query == nil) {
@@ -434,7 +435,7 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
         queryParams[@"metaInformation"] = [metaInformation isEqual:@(YES)] ? @"true" : @"false";
     }
     if (intolerances != nil) {
-        queryParams[@"intolerances"] = [intolerances isEqual:@(YES)] ? @"true" : @"false";
+        queryParams[@"intolerances"] = intolerances;
     }
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
     [headerParams addEntriesFromDictionary:self.defaultHeaders];
@@ -786,20 +787,20 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 ///
 /// Classify Grocery Product
 /// This endpoint allows you to match a packaged food to a basic category, e.g. a specific brand of milk to the category milk.
-///  @param inlineObject8  
+///  @param inlineObject9  
 ///
 ///  @param locale The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). (optional)
 ///
 ///  @returns NSObject*
 ///
--(NSURLSessionTask*) classifyGroceryProductWithInlineObject8: (OAIInlineObject8*) inlineObject8
+-(NSURLSessionTask*) classifyGroceryProductWithInlineObject9: (OAIInlineObject9*) inlineObject9
     locale: (NSString*) locale
     completionHandler: (void (^)(NSObject* output, NSError* error)) handler {
-    // verify the required parameter 'inlineObject8' is set
-    if (inlineObject8 == nil) {
-        NSParameterAssert(inlineObject8);
+    // verify the required parameter 'inlineObject9' is set
+    if (inlineObject9 == nil) {
+        NSParameterAssert(inlineObject9);
         if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"inlineObject8"] };
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"inlineObject9"] };
             NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
             handler(nil, error);
         }
@@ -834,7 +835,7 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
-    bodyParam = inlineObject8;
+    bodyParam = inlineObject9;
 
     return [self.apiClient requestWithPath: resourcePath
                                     method: @"POST"
@@ -899,6 +900,255 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 
     // request content type
     NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+
+    // Authentication setting
+    NSArray *authSettings = @[];
+
+    id bodyParam = nil;
+    NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
+    bodyParam = body;
+
+    return [self.apiClient requestWithPath: resourcePath
+                                    method: @"POST"
+                                pathParams: pathParams
+                               queryParams: queryParams
+                                formParams: formParams
+                                     files: localVarFiles
+                                      body: bodyParam
+                              headerParams: headerParams
+                              authSettings: authSettings
+                        requestContentType: requestContentType
+                       responseContentType: responseContentType
+                              responseType: @"NSObject*"
+                           completionBlock: ^(id data, NSError *error) {
+                                if(handler) {
+                                    handler((NSObject*)data, error);
+                                }
+                            }];
+}
+
+///
+/// Clear Meal Plan Day
+/// Delete all planned items from the user's meal plan for a specific day.
+///  @param username The username. 
+///
+///  @param date The date in the format yyyy-mm-dd. 
+///
+///  @param hash The private hash for the username. 
+///
+///  @param inlineObject10  
+///
+///  @returns NSObject*
+///
+-(NSURLSessionTask*) clearMealPlanDayWithUsername: (NSString*) username
+    date: (NSString*) date
+    hash: (NSString*) hash
+    inlineObject10: (OAIInlineObject10*) inlineObject10
+    completionHandler: (void (^)(NSObject* output, NSError* error)) handler {
+    // verify the required parameter 'username' is set
+    if (username == nil) {
+        NSParameterAssert(username);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"username"] };
+            NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    // verify the required parameter 'date' is set
+    if (date == nil) {
+        NSParameterAssert(date);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"date"] };
+            NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    // verify the required parameter 'hash' is set
+    if (hash == nil) {
+        NSParameterAssert(hash);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"hash"] };
+            NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    // verify the required parameter 'inlineObject10' is set
+    if (inlineObject10 == nil) {
+        NSParameterAssert(inlineObject10);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"inlineObject10"] };
+            NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/mealplanner/{username}/day/{date}"];
+
+    NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
+    if (username != nil) {
+        pathParams[@"username"] = username;
+    }
+    if (date != nil) {
+        pathParams[@"date"] = date;
+    }
+
+    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    if (hash != nil) {
+        queryParams[@"hash"] = hash;
+    }
+    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
+    [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    // HTTP header `Accept`
+    NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
+    if(acceptHeader.length > 0) {
+        headerParams[@"Accept"] = acceptHeader;
+    }
+
+    // response content type
+    NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
+
+    // request content type
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@""]];
+
+    // Authentication setting
+    NSArray *authSettings = @[];
+
+    id bodyParam = nil;
+    NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
+    bodyParam = inlineObject10;
+
+    return [self.apiClient requestWithPath: resourcePath
+                                    method: @"DELETE"
+                                pathParams: pathParams
+                               queryParams: queryParams
+                                formParams: formParams
+                                     files: localVarFiles
+                                      body: bodyParam
+                              headerParams: headerParams
+                              authSettings: authSettings
+                        requestContentType: requestContentType
+                       responseContentType: responseContentType
+                              responseType: @"NSObject*"
+                           completionBlock: ^(id data, NSError *error) {
+                                if(handler) {
+                                    handler((NSObject*)data, error);
+                                }
+                            }];
+}
+
+///
+/// Compute Glycemic Load
+/// Retrieve the glycemic index for a list of ingredients and compute the individual and total glycemic load.
+///  @param body  
+///
+///  @returns NSObject*
+///
+-(NSURLSessionTask*) computeGlycemicLoadWithBody: (NSObject*) body
+    completionHandler: (void (^)(NSObject* output, NSError* error)) handler {
+    // verify the required parameter 'body' is set
+    if (body == nil) {
+        NSParameterAssert(body);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"body"] };
+            NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/food/ingredients/glycemicLoad"];
+
+    NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
+
+    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
+    [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    // HTTP header `Accept`
+    NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
+    if(acceptHeader.length > 0) {
+        headerParams[@"Accept"] = acceptHeader;
+    }
+
+    // response content type
+    NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
+
+    // request content type
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+
+    // Authentication setting
+    NSArray *authSettings = @[];
+
+    id bodyParam = nil;
+    NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
+    bodyParam = body;
+
+    return [self.apiClient requestWithPath: resourcePath
+                                    method: @"POST"
+                                pathParams: pathParams
+                               queryParams: queryParams
+                                formParams: formParams
+                                     files: localVarFiles
+                                      body: bodyParam
+                              headerParams: headerParams
+                              authSettings: authSettings
+                        requestContentType: requestContentType
+                       responseContentType: responseContentType
+                              responseType: @"NSObject*"
+                           completionBlock: ^(id data, NSError *error) {
+                                if(handler) {
+                                    handler((NSObject*)data, error);
+                                }
+                            }];
+}
+
+///
+/// Connect User
+/// In order to call user-specific endpoints, you need to connect your app's users to spoonacular users.
+///  @param body  
+///
+///  @returns NSObject*
+///
+-(NSURLSessionTask*) connectUserWithBody: (NSObject*) body
+    completionHandler: (void (^)(NSObject* output, NSError* error)) handler {
+    // verify the required parameter 'body' is set
+    if (body == nil) {
+        NSParameterAssert(body);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"body"] };
+            NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/users/connect"];
+
+    NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
+
+    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
+    [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    // HTTP header `Accept`
+    NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
+    if(acceptHeader.length > 0) {
+        headerParams[@"Accept"] = acceptHeader;
+    }
+
+    // response content type
+    NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
+
+    // request content type
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@""]];
 
     // Authentication setting
     NSArray *authSettings = @[];
@@ -1264,14 +1514,14 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 ///
 ///  @param hash The private hash for the username. 
 ///
-///  @param inlineObject10  
+///  @param inlineObject12  
 ///
 ///  @returns NSObject*
 ///
 -(NSURLSessionTask*) deleteFromMealPlanWithUsername: (NSString*) username
     _id: (NSNumber*) _id
     hash: (NSString*) hash
-    inlineObject10: (OAIInlineObject10*) inlineObject10
+    inlineObject12: (OAIInlineObject12*) inlineObject12
     completionHandler: (void (^)(NSObject* output, NSError* error)) handler {
     // verify the required parameter 'username' is set
     if (username == nil) {
@@ -1306,11 +1556,11 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    // verify the required parameter 'inlineObject10' is set
-    if (inlineObject10 == nil) {
-        NSParameterAssert(inlineObject10);
+    // verify the required parameter 'inlineObject12' is set
+    if (inlineObject12 == nil) {
+        NSParameterAssert(inlineObject12);
         if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"inlineObject10"] };
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"inlineObject12"] };
             NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
             handler(nil, error);
         }
@@ -1351,7 +1601,7 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
-    bodyParam = inlineObject10;
+    bodyParam = inlineObject12;
 
     return [self.apiClient requestWithPath: resourcePath
                                     method: @"DELETE"
@@ -1381,14 +1631,14 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 ///
 ///  @param hash The private hash for the username. 
 ///
-///  @param inlineObject13  
+///  @param inlineObject15  
 ///
 ///  @returns NSObject*
 ///
 -(NSURLSessionTask*) deleteFromShoppingListWithUsername: (NSString*) username
     _id: (NSNumber*) _id
     hash: (NSString*) hash
-    inlineObject13: (OAIInlineObject13*) inlineObject13
+    inlineObject15: (OAIInlineObject15*) inlineObject15
     completionHandler: (void (^)(NSObject* output, NSError* error)) handler {
     // verify the required parameter 'username' is set
     if (username == nil) {
@@ -1423,11 +1673,11 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    // verify the required parameter 'inlineObject13' is set
-    if (inlineObject13 == nil) {
-        NSParameterAssert(inlineObject13);
+    // verify the required parameter 'inlineObject15' is set
+    if (inlineObject15 == nil) {
+        NSParameterAssert(inlineObject15);
         if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"inlineObject13"] };
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"inlineObject15"] };
             NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
             handler(nil, error);
         }
@@ -1468,7 +1718,7 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
-    bodyParam = inlineObject13;
+    bodyParam = inlineObject15;
 
     return [self.apiClient requestWithPath: resourcePath
                                     method: @"DELETE"
@@ -1723,7 +1973,7 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 ///
 ///  @param hash The private hash for the username. 
 ///
-///  @param inlineObject11  
+///  @param inlineObject13  
 ///
 ///  @returns NSObject*
 ///
@@ -1731,7 +1981,7 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
     startDate: (NSString*) startDate
     endDate: (NSString*) endDate
     hash: (NSString*) hash
-    inlineObject11: (OAIInlineObject11*) inlineObject11
+    inlineObject13: (OAIInlineObject13*) inlineObject13
     completionHandler: (void (^)(NSObject* output, NSError* error)) handler {
     // verify the required parameter 'username' is set
     if (username == nil) {
@@ -1777,11 +2027,11 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    // verify the required parameter 'inlineObject11' is set
-    if (inlineObject11 == nil) {
-        NSParameterAssert(inlineObject11);
+    // verify the required parameter 'inlineObject13' is set
+    if (inlineObject13 == nil) {
+        NSParameterAssert(inlineObject13);
         if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"inlineObject11"] };
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"inlineObject13"] };
             NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
             handler(nil, error);
         }
@@ -1825,7 +2075,7 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
-    bodyParam = inlineObject11;
+    bodyParam = inlineObject13;
 
     return [self.apiClient requestWithPath: resourcePath
                                     method: @"POST"
@@ -3365,6 +3615,74 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 }
 
 ///
+/// Get Recipe Taste by ID
+/// Get a recipe's taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
+///  @param _id The recipe id. 
+///
+///  @returns NSObject*
+///
+-(NSURLSessionTask*) getRecipeTasteByIDWithId: (NSNumber*) _id
+    completionHandler: (void (^)(NSObject* output, NSError* error)) handler {
+    // verify the required parameter '_id' is set
+    if (_id == nil) {
+        NSParameterAssert(_id);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"_id"] };
+            NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/recipes/{id}/tasteWidget.json"];
+
+    NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
+    if (_id != nil) {
+        pathParams[@"id"] = _id;
+    }
+
+    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
+    [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    // HTTP header `Accept`
+    NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
+    if(acceptHeader.length > 0) {
+        headerParams[@"Accept"] = acceptHeader;
+    }
+
+    // response content type
+    NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
+
+    // request content type
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
+
+    // Authentication setting
+    NSArray *authSettings = @[];
+
+    id bodyParam = nil;
+    NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
+
+    return [self.apiClient requestWithPath: resourcePath
+                                    method: @"GET"
+                                pathParams: pathParams
+                               queryParams: queryParams
+                                formParams: formParams
+                                     files: localVarFiles
+                                      body: bodyParam
+                              headerParams: headerParams
+                              authSettings: authSettings
+                        requestContentType: requestContentType
+                       responseContentType: responseContentType
+                              responseType: @"NSObject*"
+                           completionBlock: ^(id data, NSError *error) {
+                                if(handler) {
+                                    handler((NSObject*)data, error);
+                                }
+                            }];
+}
+
+///
 /// Get Shopping List
 /// Get the current shopping list for the given user.
 ///  @param username The username. 
@@ -3962,6 +4280,152 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 }
 
 ///
+/// Ingredient Search
+/// Search for simple whole foods (e.g. fruits, vegetables, nuts, grains, meat, fish, dairy etc.).
+///  @param query The partial or full ingredient name. 
+///
+///  @param addChildren Whether to add children of found foods. (optional)
+///
+///  @param minProteinPercent The minimum percentage of protein the food must have (between 0 and 100). (optional)
+///
+///  @param maxProteinPercent The maximum percentage of protein the food can have (between 0 and 100). (optional)
+///
+///  @param minFatPercent The minimum percentage of fat the food must have (between 0 and 100). (optional)
+///
+///  @param maxFatPercent The maximum percentage of fat the food can have (between 0 and 100). (optional)
+///
+///  @param minCarbsPercent The minimum percentage of carbs the food must have (between 0 and 100). (optional)
+///
+///  @param maxCarbsPercent The maximum percentage of carbs the food can have (between 0 and 100). (optional)
+///
+///  @param metaInformation Whether to return more meta information about the ingredients. (optional)
+///
+///  @param intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
+///
+///  @param sort The strategy to sort recipes by. See a full list of supported sorting options. (optional)
+///
+///  @param sortDirection The direction in which to sort. Must be either 'asc' (ascending) or 'desc' (descending). (optional)
+///
+///  @param offset The number of results to skip (between 0 and 990). (optional)
+///
+///  @param number The number of expected results (between 1 and 100). (optional)
+///
+///  @returns NSObject*
+///
+-(NSURLSessionTask*) ingredientSearchWithQuery: (NSString*) query
+    addChildren: (NSNumber*) addChildren
+    minProteinPercent: (NSNumber*) minProteinPercent
+    maxProteinPercent: (NSNumber*) maxProteinPercent
+    minFatPercent: (NSNumber*) minFatPercent
+    maxFatPercent: (NSNumber*) maxFatPercent
+    minCarbsPercent: (NSNumber*) minCarbsPercent
+    maxCarbsPercent: (NSNumber*) maxCarbsPercent
+    metaInformation: (NSNumber*) metaInformation
+    intolerances: (NSString*) intolerances
+    sort: (NSString*) sort
+    sortDirection: (NSString*) sortDirection
+    offset: (NSNumber*) offset
+    number: (NSNumber*) number
+    completionHandler: (void (^)(NSObject* output, NSError* error)) handler {
+    // verify the required parameter 'query' is set
+    if (query == nil) {
+        NSParameterAssert(query);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"query"] };
+            NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/food/ingredients/search"];
+
+    NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
+
+    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    if (query != nil) {
+        queryParams[@"query"] = query;
+    }
+    if (addChildren != nil) {
+        queryParams[@"addChildren"] = [addChildren isEqual:@(YES)] ? @"true" : @"false";
+    }
+    if (minProteinPercent != nil) {
+        queryParams[@"minProteinPercent"] = minProteinPercent;
+    }
+    if (maxProteinPercent != nil) {
+        queryParams[@"maxProteinPercent"] = maxProteinPercent;
+    }
+    if (minFatPercent != nil) {
+        queryParams[@"minFatPercent"] = minFatPercent;
+    }
+    if (maxFatPercent != nil) {
+        queryParams[@"maxFatPercent"] = maxFatPercent;
+    }
+    if (minCarbsPercent != nil) {
+        queryParams[@"minCarbsPercent"] = minCarbsPercent;
+    }
+    if (maxCarbsPercent != nil) {
+        queryParams[@"maxCarbsPercent"] = maxCarbsPercent;
+    }
+    if (metaInformation != nil) {
+        queryParams[@"metaInformation"] = [metaInformation isEqual:@(YES)] ? @"true" : @"false";
+    }
+    if (intolerances != nil) {
+        queryParams[@"intolerances"] = intolerances;
+    }
+    if (sort != nil) {
+        queryParams[@"sort"] = sort;
+    }
+    if (sortDirection != nil) {
+        queryParams[@"sortDirection"] = sortDirection;
+    }
+    if (offset != nil) {
+        queryParams[@"offset"] = offset;
+    }
+    if (number != nil) {
+        queryParams[@"number"] = number;
+    }
+    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
+    [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    // HTTP header `Accept`
+    NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
+    if(acceptHeader.length > 0) {
+        headerParams[@"Accept"] = acceptHeader;
+    }
+
+    // response content type
+    NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
+
+    // request content type
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
+
+    // Authentication setting
+    NSArray *authSettings = @[];
+
+    id bodyParam = nil;
+    NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
+
+    return [self.apiClient requestWithPath: resourcePath
+                                    method: @"GET"
+                                pathParams: pathParams
+                               queryParams: queryParams
+                                formParams: formParams
+                                     files: localVarFiles
+                                      body: bodyParam
+                              headerParams: headerParams
+                              authSettings: authSettings
+                        requestContentType: requestContentType
+                       responseContentType: responseContentType
+                              responseType: @"NSObject*"
+                           completionBlock: ^(id data, NSError *error) {
+                                if(handler) {
+                                    handler((NSObject*)data, error);
+                                }
+                            }];
+}
+
+///
 /// Map Ingredients to Grocery Products
 /// Map a set of ingredients to products you can buy in the grocery store.
 ///  @param body  
@@ -4145,6 +4609,86 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (q != nil) {
         queryParams[@"q"] = q;
+    }
+    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
+    [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    // HTTP header `Accept`
+    NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
+    if(acceptHeader.length > 0) {
+        headerParams[@"Accept"] = acceptHeader;
+    }
+
+    // response content type
+    NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
+
+    // request content type
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
+
+    // Authentication setting
+    NSArray *authSettings = @[];
+
+    id bodyParam = nil;
+    NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
+
+    return [self.apiClient requestWithPath: resourcePath
+                                    method: @"GET"
+                                pathParams: pathParams
+                               queryParams: queryParams
+                                formParams: formParams
+                                     files: localVarFiles
+                                      body: bodyParam
+                              headerParams: headerParams
+                              authSettings: authSettings
+                        requestContentType: requestContentType
+                       responseContentType: responseContentType
+                              responseType: @"NSObject*"
+                           completionBlock: ^(id data, NSError *error) {
+                                if(handler) {
+                                    handler((NSObject*)data, error);
+                                }
+                            }];
+}
+
+///
+/// Search All Food
+/// Search all food content with one call. That includes recipes, grocery products, menu items, simple foods (ingredients), and food videos.
+///  @param query The search query. 
+///
+///  @param offset The number of results to skip (between 0 and 990). (optional)
+///
+///  @param number The number of expected results (between 1 and 100). (optional)
+///
+///  @returns NSObject*
+///
+-(NSURLSessionTask*) searchAllFoodWithQuery: (NSString*) query
+    offset: (NSNumber*) offset
+    number: (NSNumber*) number
+    completionHandler: (void (^)(NSObject* output, NSError* error)) handler {
+    // verify the required parameter 'query' is set
+    if (query == nil) {
+        NSParameterAssert(query);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"query"] };
+            NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/food/search"];
+
+    NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
+
+    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    if (query != nil) {
+        queryParams[@"query"] = query;
+    }
+    if (offset != nil) {
+        queryParams[@"offset"] = offset;
+    }
+    if (number != nil) {
+        queryParams[@"number"] = number;
     }
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
     [headerParams addEntriesFromDictionary:self.defaultHeaders];
@@ -4748,721 +5292,6 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 
 ///
 /// Search Recipes
-/// Our recipe API includes over 360,000 recipes as well as an open source recipe database. Consider using the \"Search Recipes Complex\" endpoint for much more flexibility.
-///  @param query The (natural language) recipe search query. 
-///
-///  @param cuisine The cuisine(s) of the recipes. One or more comma separated. See a full list of supported cuisines. (optional)
-///
-///  @param diet The diet for which the recipes must be suitable. See a full list of supported diets. (optional)
-///
-///  @param excludeIngredients A comma-separated list of ingredients or ingredient types that the recipes must not contain. (optional)
-///
-///  @param intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. Please note: due to the automatic nature of the recipe analysis, the API cannot be 100% accurate in all cases. Please advise your users to seek professional help with medical issues. (optional)
-///
-///  @param offset The number of results to skip (between 0 and 900). (optional)
-///
-///  @param number The number of results to return (between 1 and 100). (optional)
-///
-///  @param limitLicense Whether the recipes should have an open license that allows display with proper attribution. (optional)
-///
-///  @param instructionsRequired Whether the recipes must have instructions. (optional)
-///
-///  @returns NSObject*
-///
--(NSURLSessionTask*) searchRecipesWithQuery: (NSString*) query
-    cuisine: (NSString*) cuisine
-    diet: (NSString*) diet
-    excludeIngredients: (NSString*) excludeIngredients
-    intolerances: (NSString*) intolerances
-    offset: (NSNumber*) offset
-    number: (NSNumber*) number
-    limitLicense: (NSNumber*) limitLicense
-    instructionsRequired: (NSNumber*) instructionsRequired
-    completionHandler: (void (^)(NSObject* output, NSError* error)) handler {
-    // verify the required parameter 'query' is set
-    if (query == nil) {
-        NSParameterAssert(query);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"query"] };
-            NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/recipes/search"];
-
-    NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-
-    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
-    if (query != nil) {
-        queryParams[@"query"] = query;
-    }
-    if (cuisine != nil) {
-        queryParams[@"cuisine"] = cuisine;
-    }
-    if (diet != nil) {
-        queryParams[@"diet"] = diet;
-    }
-    if (excludeIngredients != nil) {
-        queryParams[@"excludeIngredients"] = excludeIngredients;
-    }
-    if (intolerances != nil) {
-        queryParams[@"intolerances"] = intolerances;
-    }
-    if (offset != nil) {
-        queryParams[@"offset"] = offset;
-    }
-    if (number != nil) {
-        queryParams[@"number"] = number;
-    }
-    if (limitLicense != nil) {
-        queryParams[@"limitLicense"] = [limitLicense isEqual:@(YES)] ? @"true" : @"false";
-    }
-    if (instructionsRequired != nil) {
-        queryParams[@"instructionsRequired"] = [instructionsRequired isEqual:@(YES)] ? @"true" : @"false";
-    }
-    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
-    [headerParams addEntriesFromDictionary:self.defaultHeaders];
-    // HTTP header `Accept`
-    NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
-    if(acceptHeader.length > 0) {
-        headerParams[@"Accept"] = acceptHeader;
-    }
-
-    // response content type
-    NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
-
-    // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
-
-    // Authentication setting
-    NSArray *authSettings = @[];
-
-    id bodyParam = nil;
-    NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
-    NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
-
-    return [self.apiClient requestWithPath: resourcePath
-                                    method: @"GET"
-                                pathParams: pathParams
-                               queryParams: queryParams
-                                formParams: formParams
-                                     files: localVarFiles
-                                      body: bodyParam
-                              headerParams: headerParams
-                              authSettings: authSettings
-                        requestContentType: requestContentType
-                       responseContentType: responseContentType
-                              responseType: @"NSObject*"
-                           completionBlock: ^(id data, NSError *error) {
-                                if(handler) {
-                                    handler((NSObject*)data, error);
-                                }
-                            }];
-}
-
-///
-/// Search Recipes by Ingredients
-///              Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don't currently have (post shopping).         
-///  @param ingredients A comma-separated list of ingredients that the recipes should contain. 
-///
-///  @param number The maximum number of recipes to return (between 1 and 100). Defaults to 10. (optional)
-///
-///  @param limitLicense Whether the recipes should have an open license that allows display with proper attribution. (optional)
-///
-///  @param ranking Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. (optional)
-///
-///  @param ignorePantry Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional)
-///
-///  @returns NSObject*
-///
--(NSURLSessionTask*) searchRecipesByIngredientsWithIngredients: (NSString*) ingredients
-    number: (NSNumber*) number
-    limitLicense: (NSNumber*) limitLicense
-    ranking: (NSNumber*) ranking
-    ignorePantry: (NSNumber*) ignorePantry
-    completionHandler: (void (^)(NSObject* output, NSError* error)) handler {
-    // verify the required parameter 'ingredients' is set
-    if (ingredients == nil) {
-        NSParameterAssert(ingredients);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"ingredients"] };
-            NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/recipes/findByIngredients"];
-
-    NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-
-    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
-    if (ingredients != nil) {
-        queryParams[@"ingredients"] = ingredients;
-    }
-    if (number != nil) {
-        queryParams[@"number"] = number;
-    }
-    if (limitLicense != nil) {
-        queryParams[@"limitLicense"] = [limitLicense isEqual:@(YES)] ? @"true" : @"false";
-    }
-    if (ranking != nil) {
-        queryParams[@"ranking"] = ranking;
-    }
-    if (ignorePantry != nil) {
-        queryParams[@"ignorePantry"] = [ignorePantry isEqual:@(YES)] ? @"true" : @"false";
-    }
-    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
-    [headerParams addEntriesFromDictionary:self.defaultHeaders];
-    // HTTP header `Accept`
-    NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
-    if(acceptHeader.length > 0) {
-        headerParams[@"Accept"] = acceptHeader;
-    }
-
-    // response content type
-    NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
-
-    // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
-
-    // Authentication setting
-    NSArray *authSettings = @[];
-
-    id bodyParam = nil;
-    NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
-    NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
-
-    return [self.apiClient requestWithPath: resourcePath
-                                    method: @"GET"
-                                pathParams: pathParams
-                               queryParams: queryParams
-                                formParams: formParams
-                                     files: localVarFiles
-                                      body: bodyParam
-                              headerParams: headerParams
-                              authSettings: authSettings
-                        requestContentType: requestContentType
-                       responseContentType: responseContentType
-                              responseType: @"NSObject*"
-                           completionBlock: ^(id data, NSError *error) {
-                                if(handler) {
-                                    handler((NSObject*)data, error);
-                                }
-                            }];
-}
-
-///
-/// Search Recipes by Nutrients
-/// Find a set of recipes that adhere to the given nutritional limits. You may set limits for macronutrients (calories, protein, fat, and carbohydrate) and/or many micronutrients.
-///  @param minCarbs The minimum amount of carbohydrates in grams the recipe must have. (optional)
-///
-///  @param maxCarbs The maximum amount of carbohydrates in grams the recipe can have. (optional)
-///
-///  @param minProtein The minimum amount of protein in grams the recipe must have. (optional)
-///
-///  @param maxProtein The maximum amount of protein in grams the recipe can have. (optional)
-///
-///  @param minCalories The minimum amount of calories the recipe must have. (optional)
-///
-///  @param maxCalories The maximum amount of calories the recipe can have. (optional)
-///
-///  @param minFat The minimum amount of fat in grams the recipe must have. (optional)
-///
-///  @param maxFat The maximum amount of fat in grams the recipe can have. (optional)
-///
-///  @param minAlcohol The minimum amount of alcohol in grams the recipe must have. (optional)
-///
-///  @param maxAlcohol The maximum amount of alcohol in grams the recipe can have. (optional)
-///
-///  @param minCaffeine The minimum amount of caffeine in milligrams the recipe must have. (optional)
-///
-///  @param maxCaffeine The maximum amount of caffeine in milligrams the recipe can have. (optional)
-///
-///  @param minCopper The minimum amount of copper in milligrams the recipe must have. (optional)
-///
-///  @param maxCopper The maximum amount of copper in milligrams the recipe can have. (optional)
-///
-///  @param minCalcium The minimum amount of calcium in milligrams the recipe must have. (optional)
-///
-///  @param maxCalcium The maximum amount of calcium in milligrams the recipe can have. (optional)
-///
-///  @param minCholine The minimum amount of choline in milligrams the recipe must have. (optional)
-///
-///  @param maxCholine The maximum amount of choline in milligrams the recipe can have. (optional)
-///
-///  @param minCholesterol The minimum amount of cholesterol in milligrams the recipe must have. (optional)
-///
-///  @param maxCholesterol The maximum amount of cholesterol in milligrams the recipe can have. (optional)
-///
-///  @param minFluoride The minimum amount of fluoride in milligrams the recipe must have. (optional)
-///
-///  @param maxFluoride The maximum amount of fluoride in milligrams the recipe can have. (optional)
-///
-///  @param minSaturatedFat The minimum amount of saturated fat in grams the recipe must have. (optional)
-///
-///  @param maxSaturatedFat The maximum amount of saturated fat in grams the recipe can have. (optional)
-///
-///  @param minVitaminA The minimum amount of Vitamin A in IU the recipe must have. (optional)
-///
-///  @param maxVitaminA The maximum amount of Vitamin A in IU the recipe can have. (optional)
-///
-///  @param minVitaminC The minimum amount of Vitamin C in milligrams the recipe must have. (optional)
-///
-///  @param maxVitaminC The maximum amount of Vitamin C in milligrams the recipe can have. (optional)
-///
-///  @param minVitaminD The minimum amount of Vitamin D in micrograms the recipe must have. (optional)
-///
-///  @param maxVitaminD The maximum amount of Vitamin D in micrograms the recipe can have. (optional)
-///
-///  @param minVitaminE The minimum amount of Vitamin E in milligrams the recipe must have. (optional)
-///
-///  @param maxVitaminE The maximum amount of Vitamin E in milligrams the recipe can have. (optional)
-///
-///  @param minVitaminK The minimum amount of Vitamin K in micrograms the recipe must have. (optional)
-///
-///  @param maxVitaminK The maximum amount of Vitamin K in micrograms the recipe can have. (optional)
-///
-///  @param minVitaminB1 The minimum amount of Vitamin B1 in milligrams the recipe must have. (optional)
-///
-///  @param maxVitaminB1 The maximum amount of Vitamin B1 in milligrams the recipe can have. (optional)
-///
-///  @param minVitaminB2 The minimum amount of Vitamin B2 in milligrams the recipe must have. (optional)
-///
-///  @param maxVitaminB2 The maximum amount of Vitamin B2 in milligrams the recipe can have. (optional)
-///
-///  @param minVitaminB5 The minimum amount of Vitamin B5 in milligrams the recipe must have. (optional)
-///
-///  @param maxVitaminB5 The maximum amount of Vitamin B5 in milligrams the recipe can have. (optional)
-///
-///  @param minVitaminB3 The minimum amount of Vitamin B3 in milligrams the recipe must have. (optional)
-///
-///  @param maxVitaminB3 The maximum amount of Vitamin B3 in milligrams the recipe can have. (optional)
-///
-///  @param minVitaminB6 The minimum amount of Vitamin B6 in milligrams the recipe must have. (optional)
-///
-///  @param maxVitaminB6 The maximum amount of Vitamin B6 in milligrams the recipe can have. (optional)
-///
-///  @param minVitaminB12 The minimum amount of Vitamin B12 in micrograms the recipe must have. (optional)
-///
-///  @param maxVitaminB12 The maximum amount of Vitamin B12 in micrograms the recipe can have. (optional)
-///
-///  @param minFiber The minimum amount of fiber in grams the recipe must have. (optional)
-///
-///  @param maxFiber The maximum amount of fiber in grams the recipe can have. (optional)
-///
-///  @param minFolate The minimum amount of folate in grams the recipe must have. (optional)
-///
-///  @param maxFolate The maximum amount of folate in grams the recipe can have. (optional)
-///
-///  @param minFolicAcid The minimum amount of folic acid in grams the recipe must have. (optional)
-///
-///  @param maxFolicAcid The maximum amount of folic acid in grams the recipe can have. (optional)
-///
-///  @param minIodine The minimum amount of iodine in grams the recipe must have. (optional)
-///
-///  @param maxIodine The maximum amount of iodine in grams the recipe can have. (optional)
-///
-///  @param minIron The minimum amount of iron in milligrams the recipe must have. (optional)
-///
-///  @param maxIron The maximum amount of iron in milligrams the recipe can have. (optional)
-///
-///  @param minMagnesium The minimum amount of magnesium in milligrams the recipe must have. (optional)
-///
-///  @param maxMagnesium The maximum amount of magnesium in milligrams the recipe can have. (optional)
-///
-///  @param minManganese The minimum amount of manganese in milligrams the recipe must have. (optional)
-///
-///  @param maxManganese The maximum amount of manganese in milligrams the recipe can have. (optional)
-///
-///  @param minPhosphorus The minimum amount of phosphorus in milligrams the recipe must have. (optional)
-///
-///  @param maxPhosphorus The maximum amount of phosphorus in milligrams the recipe can have. (optional)
-///
-///  @param minPotassium The minimum amount of potassium in milligrams the recipe must have. (optional)
-///
-///  @param maxPotassium The maximum amount of potassium in milligrams the recipe can have. (optional)
-///
-///  @param minSelenium The minimum amount of selenium in grams the recipe must have. (optional)
-///
-///  @param maxSelenium The maximum amount of selenium in grams the recipe can have. (optional)
-///
-///  @param minSodium The minimum amount of sodium in milligrams the recipe must have. (optional)
-///
-///  @param maxSodium The maximum amount of sodium in milligrams the recipe can have. (optional)
-///
-///  @param minSugar The minimum amount of sugar in grams the recipe must have. (optional)
-///
-///  @param maxSugar The maximum amount of sugar in grams the recipe can have. (optional)
-///
-///  @param minZinc The minimum amount of zinc in milligrams the recipe must have. (optional)
-///
-///  @param maxZinc The maximum amount of zinc in milligrams the recipe can have. (optional)
-///
-///  @param offset The number of results to skip (between 0 and 900). (optional)
-///
-///  @param number The number of expected results (between 1 and 100). (optional)
-///
-///  @param random If true, every request will give you a random set of recipes within the requested limits. (optional)
-///
-///  @param limitLicense Whether the recipes should have an open license that allows display with proper attribution. (optional)
-///
-///  @returns NSObject*
-///
--(NSURLSessionTask*) searchRecipesByNutrientsWithMinCarbs: (NSNumber*) minCarbs
-    maxCarbs: (NSNumber*) maxCarbs
-    minProtein: (NSNumber*) minProtein
-    maxProtein: (NSNumber*) maxProtein
-    minCalories: (NSNumber*) minCalories
-    maxCalories: (NSNumber*) maxCalories
-    minFat: (NSNumber*) minFat
-    maxFat: (NSNumber*) maxFat
-    minAlcohol: (NSNumber*) minAlcohol
-    maxAlcohol: (NSNumber*) maxAlcohol
-    minCaffeine: (NSNumber*) minCaffeine
-    maxCaffeine: (NSNumber*) maxCaffeine
-    minCopper: (NSNumber*) minCopper
-    maxCopper: (NSNumber*) maxCopper
-    minCalcium: (NSNumber*) minCalcium
-    maxCalcium: (NSNumber*) maxCalcium
-    minCholine: (NSNumber*) minCholine
-    maxCholine: (NSNumber*) maxCholine
-    minCholesterol: (NSNumber*) minCholesterol
-    maxCholesterol: (NSNumber*) maxCholesterol
-    minFluoride: (NSNumber*) minFluoride
-    maxFluoride: (NSNumber*) maxFluoride
-    minSaturatedFat: (NSNumber*) minSaturatedFat
-    maxSaturatedFat: (NSNumber*) maxSaturatedFat
-    minVitaminA: (NSNumber*) minVitaminA
-    maxVitaminA: (NSNumber*) maxVitaminA
-    minVitaminC: (NSNumber*) minVitaminC
-    maxVitaminC: (NSNumber*) maxVitaminC
-    minVitaminD: (NSNumber*) minVitaminD
-    maxVitaminD: (NSNumber*) maxVitaminD
-    minVitaminE: (NSNumber*) minVitaminE
-    maxVitaminE: (NSNumber*) maxVitaminE
-    minVitaminK: (NSNumber*) minVitaminK
-    maxVitaminK: (NSNumber*) maxVitaminK
-    minVitaminB1: (NSNumber*) minVitaminB1
-    maxVitaminB1: (NSNumber*) maxVitaminB1
-    minVitaminB2: (NSNumber*) minVitaminB2
-    maxVitaminB2: (NSNumber*) maxVitaminB2
-    minVitaminB5: (NSNumber*) minVitaminB5
-    maxVitaminB5: (NSNumber*) maxVitaminB5
-    minVitaminB3: (NSNumber*) minVitaminB3
-    maxVitaminB3: (NSNumber*) maxVitaminB3
-    minVitaminB6: (NSNumber*) minVitaminB6
-    maxVitaminB6: (NSNumber*) maxVitaminB6
-    minVitaminB12: (NSNumber*) minVitaminB12
-    maxVitaminB12: (NSNumber*) maxVitaminB12
-    minFiber: (NSNumber*) minFiber
-    maxFiber: (NSNumber*) maxFiber
-    minFolate: (NSNumber*) minFolate
-    maxFolate: (NSNumber*) maxFolate
-    minFolicAcid: (NSNumber*) minFolicAcid
-    maxFolicAcid: (NSNumber*) maxFolicAcid
-    minIodine: (NSNumber*) minIodine
-    maxIodine: (NSNumber*) maxIodine
-    minIron: (NSNumber*) minIron
-    maxIron: (NSNumber*) maxIron
-    minMagnesium: (NSNumber*) minMagnesium
-    maxMagnesium: (NSNumber*) maxMagnesium
-    minManganese: (NSNumber*) minManganese
-    maxManganese: (NSNumber*) maxManganese
-    minPhosphorus: (NSNumber*) minPhosphorus
-    maxPhosphorus: (NSNumber*) maxPhosphorus
-    minPotassium: (NSNumber*) minPotassium
-    maxPotassium: (NSNumber*) maxPotassium
-    minSelenium: (NSNumber*) minSelenium
-    maxSelenium: (NSNumber*) maxSelenium
-    minSodium: (NSNumber*) minSodium
-    maxSodium: (NSNumber*) maxSodium
-    minSugar: (NSNumber*) minSugar
-    maxSugar: (NSNumber*) maxSugar
-    minZinc: (NSNumber*) minZinc
-    maxZinc: (NSNumber*) maxZinc
-    offset: (NSNumber*) offset
-    number: (NSNumber*) number
-    random: (NSNumber*) random
-    limitLicense: (NSNumber*) limitLicense
-    completionHandler: (void (^)(NSObject* output, NSError* error)) handler {
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/recipes/findByNutrients"];
-
-    NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-
-    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
-    if (minCarbs != nil) {
-        queryParams[@"minCarbs"] = minCarbs;
-    }
-    if (maxCarbs != nil) {
-        queryParams[@"maxCarbs"] = maxCarbs;
-    }
-    if (minProtein != nil) {
-        queryParams[@"minProtein"] = minProtein;
-    }
-    if (maxProtein != nil) {
-        queryParams[@"maxProtein"] = maxProtein;
-    }
-    if (minCalories != nil) {
-        queryParams[@"minCalories"] = minCalories;
-    }
-    if (maxCalories != nil) {
-        queryParams[@"maxCalories"] = maxCalories;
-    }
-    if (minFat != nil) {
-        queryParams[@"minFat"] = minFat;
-    }
-    if (maxFat != nil) {
-        queryParams[@"maxFat"] = maxFat;
-    }
-    if (minAlcohol != nil) {
-        queryParams[@"minAlcohol"] = minAlcohol;
-    }
-    if (maxAlcohol != nil) {
-        queryParams[@"maxAlcohol"] = maxAlcohol;
-    }
-    if (minCaffeine != nil) {
-        queryParams[@"minCaffeine"] = minCaffeine;
-    }
-    if (maxCaffeine != nil) {
-        queryParams[@"maxCaffeine"] = maxCaffeine;
-    }
-    if (minCopper != nil) {
-        queryParams[@"minCopper"] = minCopper;
-    }
-    if (maxCopper != nil) {
-        queryParams[@"maxCopper"] = maxCopper;
-    }
-    if (minCalcium != nil) {
-        queryParams[@"minCalcium"] = minCalcium;
-    }
-    if (maxCalcium != nil) {
-        queryParams[@"maxCalcium"] = maxCalcium;
-    }
-    if (minCholine != nil) {
-        queryParams[@"minCholine"] = minCholine;
-    }
-    if (maxCholine != nil) {
-        queryParams[@"maxCholine"] = maxCholine;
-    }
-    if (minCholesterol != nil) {
-        queryParams[@"minCholesterol"] = minCholesterol;
-    }
-    if (maxCholesterol != nil) {
-        queryParams[@"maxCholesterol"] = maxCholesterol;
-    }
-    if (minFluoride != nil) {
-        queryParams[@"minFluoride"] = minFluoride;
-    }
-    if (maxFluoride != nil) {
-        queryParams[@"maxFluoride"] = maxFluoride;
-    }
-    if (minSaturatedFat != nil) {
-        queryParams[@"minSaturatedFat"] = minSaturatedFat;
-    }
-    if (maxSaturatedFat != nil) {
-        queryParams[@"maxSaturatedFat"] = maxSaturatedFat;
-    }
-    if (minVitaminA != nil) {
-        queryParams[@"minVitaminA"] = minVitaminA;
-    }
-    if (maxVitaminA != nil) {
-        queryParams[@"maxVitaminA"] = maxVitaminA;
-    }
-    if (minVitaminC != nil) {
-        queryParams[@"minVitaminC"] = minVitaminC;
-    }
-    if (maxVitaminC != nil) {
-        queryParams[@"maxVitaminC"] = maxVitaminC;
-    }
-    if (minVitaminD != nil) {
-        queryParams[@"minVitaminD"] = minVitaminD;
-    }
-    if (maxVitaminD != nil) {
-        queryParams[@"maxVitaminD"] = maxVitaminD;
-    }
-    if (minVitaminE != nil) {
-        queryParams[@"minVitaminE"] = minVitaminE;
-    }
-    if (maxVitaminE != nil) {
-        queryParams[@"maxVitaminE"] = maxVitaminE;
-    }
-    if (minVitaminK != nil) {
-        queryParams[@"minVitaminK"] = minVitaminK;
-    }
-    if (maxVitaminK != nil) {
-        queryParams[@"maxVitaminK"] = maxVitaminK;
-    }
-    if (minVitaminB1 != nil) {
-        queryParams[@"minVitaminB1"] = minVitaminB1;
-    }
-    if (maxVitaminB1 != nil) {
-        queryParams[@"maxVitaminB1"] = maxVitaminB1;
-    }
-    if (minVitaminB2 != nil) {
-        queryParams[@"minVitaminB2"] = minVitaminB2;
-    }
-    if (maxVitaminB2 != nil) {
-        queryParams[@"maxVitaminB2"] = maxVitaminB2;
-    }
-    if (minVitaminB5 != nil) {
-        queryParams[@"minVitaminB5"] = minVitaminB5;
-    }
-    if (maxVitaminB5 != nil) {
-        queryParams[@"maxVitaminB5"] = maxVitaminB5;
-    }
-    if (minVitaminB3 != nil) {
-        queryParams[@"minVitaminB3"] = minVitaminB3;
-    }
-    if (maxVitaminB3 != nil) {
-        queryParams[@"maxVitaminB3"] = maxVitaminB3;
-    }
-    if (minVitaminB6 != nil) {
-        queryParams[@"minVitaminB6"] = minVitaminB6;
-    }
-    if (maxVitaminB6 != nil) {
-        queryParams[@"maxVitaminB6"] = maxVitaminB6;
-    }
-    if (minVitaminB12 != nil) {
-        queryParams[@"minVitaminB12"] = minVitaminB12;
-    }
-    if (maxVitaminB12 != nil) {
-        queryParams[@"maxVitaminB12"] = maxVitaminB12;
-    }
-    if (minFiber != nil) {
-        queryParams[@"minFiber"] = minFiber;
-    }
-    if (maxFiber != nil) {
-        queryParams[@"maxFiber"] = maxFiber;
-    }
-    if (minFolate != nil) {
-        queryParams[@"minFolate"] = minFolate;
-    }
-    if (maxFolate != nil) {
-        queryParams[@"maxFolate"] = maxFolate;
-    }
-    if (minFolicAcid != nil) {
-        queryParams[@"minFolicAcid"] = minFolicAcid;
-    }
-    if (maxFolicAcid != nil) {
-        queryParams[@"maxFolicAcid"] = maxFolicAcid;
-    }
-    if (minIodine != nil) {
-        queryParams[@"minIodine"] = minIodine;
-    }
-    if (maxIodine != nil) {
-        queryParams[@"maxIodine"] = maxIodine;
-    }
-    if (minIron != nil) {
-        queryParams[@"minIron"] = minIron;
-    }
-    if (maxIron != nil) {
-        queryParams[@"maxIron"] = maxIron;
-    }
-    if (minMagnesium != nil) {
-        queryParams[@"minMagnesium"] = minMagnesium;
-    }
-    if (maxMagnesium != nil) {
-        queryParams[@"maxMagnesium"] = maxMagnesium;
-    }
-    if (minManganese != nil) {
-        queryParams[@"minManganese"] = minManganese;
-    }
-    if (maxManganese != nil) {
-        queryParams[@"maxManganese"] = maxManganese;
-    }
-    if (minPhosphorus != nil) {
-        queryParams[@"minPhosphorus"] = minPhosphorus;
-    }
-    if (maxPhosphorus != nil) {
-        queryParams[@"maxPhosphorus"] = maxPhosphorus;
-    }
-    if (minPotassium != nil) {
-        queryParams[@"minPotassium"] = minPotassium;
-    }
-    if (maxPotassium != nil) {
-        queryParams[@"maxPotassium"] = maxPotassium;
-    }
-    if (minSelenium != nil) {
-        queryParams[@"minSelenium"] = minSelenium;
-    }
-    if (maxSelenium != nil) {
-        queryParams[@"maxSelenium"] = maxSelenium;
-    }
-    if (minSodium != nil) {
-        queryParams[@"minSodium"] = minSodium;
-    }
-    if (maxSodium != nil) {
-        queryParams[@"maxSodium"] = maxSodium;
-    }
-    if (minSugar != nil) {
-        queryParams[@"minSugar"] = minSugar;
-    }
-    if (maxSugar != nil) {
-        queryParams[@"maxSugar"] = maxSugar;
-    }
-    if (minZinc != nil) {
-        queryParams[@"minZinc"] = minZinc;
-    }
-    if (maxZinc != nil) {
-        queryParams[@"maxZinc"] = maxZinc;
-    }
-    if (offset != nil) {
-        queryParams[@"offset"] = offset;
-    }
-    if (number != nil) {
-        queryParams[@"number"] = number;
-    }
-    if (random != nil) {
-        queryParams[@"random"] = [random isEqual:@(YES)] ? @"true" : @"false";
-    }
-    if (limitLicense != nil) {
-        queryParams[@"limitLicense"] = [limitLicense isEqual:@(YES)] ? @"true" : @"false";
-    }
-    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
-    [headerParams addEntriesFromDictionary:self.defaultHeaders];
-    // HTTP header `Accept`
-    NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
-    if(acceptHeader.length > 0) {
-        headerParams[@"Accept"] = acceptHeader;
-    }
-
-    // response content type
-    NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
-
-    // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
-
-    // Authentication setting
-    NSArray *authSettings = @[];
-
-    id bodyParam = nil;
-    NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
-    NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
-
-    return [self.apiClient requestWithPath: resourcePath
-                                    method: @"GET"
-                                pathParams: pathParams
-                               queryParams: queryParams
-                                formParams: formParams
-                                     files: localVarFiles
-                                      body: bodyParam
-                              headerParams: headerParams
-                              authSettings: authSettings
-                        requestContentType: requestContentType
-                       responseContentType: responseContentType
-                              responseType: @"NSObject*"
-                           completionBlock: ^(id data, NSError *error) {
-                                if(handler) {
-                                    handler((NSObject*)data, error);
-                                }
-                            }];
-}
-
-///
-/// Search Recipes Complex
 /// Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint.
 ///  @param query The (natural language) recipe search query. 
 ///
@@ -5602,17 +5431,17 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 ///
 ///  @param maxFiber The maximum amount of fiber in grams the recipe can have. (optional)
 ///
-///  @param minFolate The minimum amount of folate in grams the recipe must have. (optional)
+///  @param minFolate The minimum amount of folate in micrograms the recipe must have. (optional)
 ///
-///  @param maxFolate The maximum amount of folate in grams the recipe can have. (optional)
+///  @param maxFolate The maximum amount of folate in micrograms the recipe can have. (optional)
 ///
-///  @param minFolicAcid The minimum amount of folic acid in grams the recipe must have. (optional)
+///  @param minFolicAcid The minimum amount of folic acid in micrograms the recipe must have. (optional)
 ///
-///  @param maxFolicAcid The maximum amount of folic acid in grams the recipe can have. (optional)
+///  @param maxFolicAcid The maximum amount of folic acid in micrograms the recipe can have. (optional)
 ///
-///  @param minIodine The minimum amount of iodine in grams the recipe must have. (optional)
+///  @param minIodine The minimum amount of iodine in micrograms the recipe must have. (optional)
 ///
-///  @param maxIodine The maximum amount of iodine in grams the recipe can have. (optional)
+///  @param maxIodine The maximum amount of iodine in micrograms the recipe can have. (optional)
 ///
 ///  @param minIron The minimum amount of iron in milligrams the recipe must have. (optional)
 ///
@@ -5634,9 +5463,9 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 ///
 ///  @param maxPotassium The maximum amount of potassium in milligrams the recipe can have. (optional)
 ///
-///  @param minSelenium The minimum amount of selenium in grams the recipe must have. (optional)
+///  @param minSelenium The minimum amount of selenium in micrograms the recipe must have. (optional)
 ///
-///  @param maxSelenium The maximum amount of selenium in grams the recipe can have. (optional)
+///  @param maxSelenium The maximum amount of selenium in micrograms the recipe can have. (optional)
 ///
 ///  @param minSodium The minimum amount of sodium in milligrams the recipe must have. (optional)
 ///
@@ -5658,7 +5487,7 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSObject*
 ///
--(NSURLSessionTask*) searchRecipesComplexWithQuery: (NSString*) query
+-(NSURLSessionTask*) searchRecipesWithQuery: (NSString*) query
     cuisine: (NSString*) cuisine
     excludeCuisine: (NSString*) excludeCuisine
     diet: (NSString*) diet
@@ -6100,6 +5929,605 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 }
 
 ///
+/// Search Recipes by Ingredients
+///              Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don't currently have (post shopping).         
+///  @param ingredients A comma-separated list of ingredients that the recipes should contain. 
+///
+///  @param number The maximum number of recipes to return (between 1 and 100). Defaults to 10. (optional)
+///
+///  @param limitLicense Whether the recipes should have an open license that allows display with proper attribution. (optional)
+///
+///  @param ranking Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. (optional)
+///
+///  @param ignorePantry Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional)
+///
+///  @returns NSObject*
+///
+-(NSURLSessionTask*) searchRecipesByIngredientsWithIngredients: (NSString*) ingredients
+    number: (NSNumber*) number
+    limitLicense: (NSNumber*) limitLicense
+    ranking: (NSNumber*) ranking
+    ignorePantry: (NSNumber*) ignorePantry
+    completionHandler: (void (^)(NSObject* output, NSError* error)) handler {
+    // verify the required parameter 'ingredients' is set
+    if (ingredients == nil) {
+        NSParameterAssert(ingredients);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"ingredients"] };
+            NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/recipes/findByIngredients"];
+
+    NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
+
+    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    if (ingredients != nil) {
+        queryParams[@"ingredients"] = ingredients;
+    }
+    if (number != nil) {
+        queryParams[@"number"] = number;
+    }
+    if (limitLicense != nil) {
+        queryParams[@"limitLicense"] = [limitLicense isEqual:@(YES)] ? @"true" : @"false";
+    }
+    if (ranking != nil) {
+        queryParams[@"ranking"] = ranking;
+    }
+    if (ignorePantry != nil) {
+        queryParams[@"ignorePantry"] = [ignorePantry isEqual:@(YES)] ? @"true" : @"false";
+    }
+    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
+    [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    // HTTP header `Accept`
+    NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
+    if(acceptHeader.length > 0) {
+        headerParams[@"Accept"] = acceptHeader;
+    }
+
+    // response content type
+    NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
+
+    // request content type
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
+
+    // Authentication setting
+    NSArray *authSettings = @[];
+
+    id bodyParam = nil;
+    NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
+
+    return [self.apiClient requestWithPath: resourcePath
+                                    method: @"GET"
+                                pathParams: pathParams
+                               queryParams: queryParams
+                                formParams: formParams
+                                     files: localVarFiles
+                                      body: bodyParam
+                              headerParams: headerParams
+                              authSettings: authSettings
+                        requestContentType: requestContentType
+                       responseContentType: responseContentType
+                              responseType: @"NSObject*"
+                           completionBlock: ^(id data, NSError *error) {
+                                if(handler) {
+                                    handler((NSObject*)data, error);
+                                }
+                            }];
+}
+
+///
+/// Search Recipes by Nutrients
+/// Find a set of recipes that adhere to the given nutritional limits. You may set limits for macronutrients (calories, protein, fat, and carbohydrate) and/or many micronutrients.
+///  @param minCarbs The minimum amount of carbohydrates in grams the recipe must have. (optional)
+///
+///  @param maxCarbs The maximum amount of carbohydrates in grams the recipe can have. (optional)
+///
+///  @param minProtein The minimum amount of protein in grams the recipe must have. (optional)
+///
+///  @param maxProtein The maximum amount of protein in grams the recipe can have. (optional)
+///
+///  @param minCalories The minimum amount of calories the recipe must have. (optional)
+///
+///  @param maxCalories The maximum amount of calories the recipe can have. (optional)
+///
+///  @param minFat The minimum amount of fat in grams the recipe must have. (optional)
+///
+///  @param maxFat The maximum amount of fat in grams the recipe can have. (optional)
+///
+///  @param minAlcohol The minimum amount of alcohol in grams the recipe must have. (optional)
+///
+///  @param maxAlcohol The maximum amount of alcohol in grams the recipe can have. (optional)
+///
+///  @param minCaffeine The minimum amount of caffeine in milligrams the recipe must have. (optional)
+///
+///  @param maxCaffeine The maximum amount of caffeine in milligrams the recipe can have. (optional)
+///
+///  @param minCopper The minimum amount of copper in milligrams the recipe must have. (optional)
+///
+///  @param maxCopper The maximum amount of copper in milligrams the recipe can have. (optional)
+///
+///  @param minCalcium The minimum amount of calcium in milligrams the recipe must have. (optional)
+///
+///  @param maxCalcium The maximum amount of calcium in milligrams the recipe can have. (optional)
+///
+///  @param minCholine The minimum amount of choline in milligrams the recipe must have. (optional)
+///
+///  @param maxCholine The maximum amount of choline in milligrams the recipe can have. (optional)
+///
+///  @param minCholesterol The minimum amount of cholesterol in milligrams the recipe must have. (optional)
+///
+///  @param maxCholesterol The maximum amount of cholesterol in milligrams the recipe can have. (optional)
+///
+///  @param minFluoride The minimum amount of fluoride in milligrams the recipe must have. (optional)
+///
+///  @param maxFluoride The maximum amount of fluoride in milligrams the recipe can have. (optional)
+///
+///  @param minSaturatedFat The minimum amount of saturated fat in grams the recipe must have. (optional)
+///
+///  @param maxSaturatedFat The maximum amount of saturated fat in grams the recipe can have. (optional)
+///
+///  @param minVitaminA The minimum amount of Vitamin A in IU the recipe must have. (optional)
+///
+///  @param maxVitaminA The maximum amount of Vitamin A in IU the recipe can have. (optional)
+///
+///  @param minVitaminC The minimum amount of Vitamin C in milligrams the recipe must have. (optional)
+///
+///  @param maxVitaminC The maximum amount of Vitamin C in milligrams the recipe can have. (optional)
+///
+///  @param minVitaminD The minimum amount of Vitamin D in micrograms the recipe must have. (optional)
+///
+///  @param maxVitaminD The maximum amount of Vitamin D in micrograms the recipe can have. (optional)
+///
+///  @param minVitaminE The minimum amount of Vitamin E in milligrams the recipe must have. (optional)
+///
+///  @param maxVitaminE The maximum amount of Vitamin E in milligrams the recipe can have. (optional)
+///
+///  @param minVitaminK The minimum amount of Vitamin K in micrograms the recipe must have. (optional)
+///
+///  @param maxVitaminK The maximum amount of Vitamin K in micrograms the recipe can have. (optional)
+///
+///  @param minVitaminB1 The minimum amount of Vitamin B1 in milligrams the recipe must have. (optional)
+///
+///  @param maxVitaminB1 The maximum amount of Vitamin B1 in milligrams the recipe can have. (optional)
+///
+///  @param minVitaminB2 The minimum amount of Vitamin B2 in milligrams the recipe must have. (optional)
+///
+///  @param maxVitaminB2 The maximum amount of Vitamin B2 in milligrams the recipe can have. (optional)
+///
+///  @param minVitaminB5 The minimum amount of Vitamin B5 in milligrams the recipe must have. (optional)
+///
+///  @param maxVitaminB5 The maximum amount of Vitamin B5 in milligrams the recipe can have. (optional)
+///
+///  @param minVitaminB3 The minimum amount of Vitamin B3 in milligrams the recipe must have. (optional)
+///
+///  @param maxVitaminB3 The maximum amount of Vitamin B3 in milligrams the recipe can have. (optional)
+///
+///  @param minVitaminB6 The minimum amount of Vitamin B6 in milligrams the recipe must have. (optional)
+///
+///  @param maxVitaminB6 The maximum amount of Vitamin B6 in milligrams the recipe can have. (optional)
+///
+///  @param minVitaminB12 The minimum amount of Vitamin B12 in micrograms the recipe must have. (optional)
+///
+///  @param maxVitaminB12 The maximum amount of Vitamin B12 in micrograms the recipe can have. (optional)
+///
+///  @param minFiber The minimum amount of fiber in grams the recipe must have. (optional)
+///
+///  @param maxFiber The maximum amount of fiber in grams the recipe can have. (optional)
+///
+///  @param minFolate The minimum amount of folate in micrograms the recipe must have. (optional)
+///
+///  @param maxFolate The maximum amount of folate in micrograms the recipe can have. (optional)
+///
+///  @param minFolicAcid The minimum amount of folic acid in micrograms the recipe must have. (optional)
+///
+///  @param maxFolicAcid The maximum amount of folic acid in micrograms the recipe can have. (optional)
+///
+///  @param minIodine The minimum amount of iodine in micrograms the recipe must have. (optional)
+///
+///  @param maxIodine The maximum amount of iodine in micrograms the recipe can have. (optional)
+///
+///  @param minIron The minimum amount of iron in milligrams the recipe must have. (optional)
+///
+///  @param maxIron The maximum amount of iron in milligrams the recipe can have. (optional)
+///
+///  @param minMagnesium The minimum amount of magnesium in milligrams the recipe must have. (optional)
+///
+///  @param maxMagnesium The maximum amount of magnesium in milligrams the recipe can have. (optional)
+///
+///  @param minManganese The minimum amount of manganese in milligrams the recipe must have. (optional)
+///
+///  @param maxManganese The maximum amount of manganese in milligrams the recipe can have. (optional)
+///
+///  @param minPhosphorus The minimum amount of phosphorus in milligrams the recipe must have. (optional)
+///
+///  @param maxPhosphorus The maximum amount of phosphorus in milligrams the recipe can have. (optional)
+///
+///  @param minPotassium The minimum amount of potassium in milligrams the recipe must have. (optional)
+///
+///  @param maxPotassium The maximum amount of potassium in milligrams the recipe can have. (optional)
+///
+///  @param minSelenium The minimum amount of selenium in micrograms the recipe must have. (optional)
+///
+///  @param maxSelenium The maximum amount of selenium in micrograms the recipe can have. (optional)
+///
+///  @param minSodium The minimum amount of sodium in milligrams the recipe must have. (optional)
+///
+///  @param maxSodium The maximum amount of sodium in milligrams the recipe can have. (optional)
+///
+///  @param minSugar The minimum amount of sugar in grams the recipe must have. (optional)
+///
+///  @param maxSugar The maximum amount of sugar in grams the recipe can have. (optional)
+///
+///  @param minZinc The minimum amount of zinc in milligrams the recipe must have. (optional)
+///
+///  @param maxZinc The maximum amount of zinc in milligrams the recipe can have. (optional)
+///
+///  @param offset The number of results to skip (between 0 and 900). (optional)
+///
+///  @param number The number of expected results (between 1 and 100). (optional)
+///
+///  @param random If true, every request will give you a random set of recipes within the requested limits. (optional)
+///
+///  @param limitLicense Whether the recipes should have an open license that allows display with proper attribution. (optional)
+///
+///  @returns NSObject*
+///
+-(NSURLSessionTask*) searchRecipesByNutrientsWithMinCarbs: (NSNumber*) minCarbs
+    maxCarbs: (NSNumber*) maxCarbs
+    minProtein: (NSNumber*) minProtein
+    maxProtein: (NSNumber*) maxProtein
+    minCalories: (NSNumber*) minCalories
+    maxCalories: (NSNumber*) maxCalories
+    minFat: (NSNumber*) minFat
+    maxFat: (NSNumber*) maxFat
+    minAlcohol: (NSNumber*) minAlcohol
+    maxAlcohol: (NSNumber*) maxAlcohol
+    minCaffeine: (NSNumber*) minCaffeine
+    maxCaffeine: (NSNumber*) maxCaffeine
+    minCopper: (NSNumber*) minCopper
+    maxCopper: (NSNumber*) maxCopper
+    minCalcium: (NSNumber*) minCalcium
+    maxCalcium: (NSNumber*) maxCalcium
+    minCholine: (NSNumber*) minCholine
+    maxCholine: (NSNumber*) maxCholine
+    minCholesterol: (NSNumber*) minCholesterol
+    maxCholesterol: (NSNumber*) maxCholesterol
+    minFluoride: (NSNumber*) minFluoride
+    maxFluoride: (NSNumber*) maxFluoride
+    minSaturatedFat: (NSNumber*) minSaturatedFat
+    maxSaturatedFat: (NSNumber*) maxSaturatedFat
+    minVitaminA: (NSNumber*) minVitaminA
+    maxVitaminA: (NSNumber*) maxVitaminA
+    minVitaminC: (NSNumber*) minVitaminC
+    maxVitaminC: (NSNumber*) maxVitaminC
+    minVitaminD: (NSNumber*) minVitaminD
+    maxVitaminD: (NSNumber*) maxVitaminD
+    minVitaminE: (NSNumber*) minVitaminE
+    maxVitaminE: (NSNumber*) maxVitaminE
+    minVitaminK: (NSNumber*) minVitaminK
+    maxVitaminK: (NSNumber*) maxVitaminK
+    minVitaminB1: (NSNumber*) minVitaminB1
+    maxVitaminB1: (NSNumber*) maxVitaminB1
+    minVitaminB2: (NSNumber*) minVitaminB2
+    maxVitaminB2: (NSNumber*) maxVitaminB2
+    minVitaminB5: (NSNumber*) minVitaminB5
+    maxVitaminB5: (NSNumber*) maxVitaminB5
+    minVitaminB3: (NSNumber*) minVitaminB3
+    maxVitaminB3: (NSNumber*) maxVitaminB3
+    minVitaminB6: (NSNumber*) minVitaminB6
+    maxVitaminB6: (NSNumber*) maxVitaminB6
+    minVitaminB12: (NSNumber*) minVitaminB12
+    maxVitaminB12: (NSNumber*) maxVitaminB12
+    minFiber: (NSNumber*) minFiber
+    maxFiber: (NSNumber*) maxFiber
+    minFolate: (NSNumber*) minFolate
+    maxFolate: (NSNumber*) maxFolate
+    minFolicAcid: (NSNumber*) minFolicAcid
+    maxFolicAcid: (NSNumber*) maxFolicAcid
+    minIodine: (NSNumber*) minIodine
+    maxIodine: (NSNumber*) maxIodine
+    minIron: (NSNumber*) minIron
+    maxIron: (NSNumber*) maxIron
+    minMagnesium: (NSNumber*) minMagnesium
+    maxMagnesium: (NSNumber*) maxMagnesium
+    minManganese: (NSNumber*) minManganese
+    maxManganese: (NSNumber*) maxManganese
+    minPhosphorus: (NSNumber*) minPhosphorus
+    maxPhosphorus: (NSNumber*) maxPhosphorus
+    minPotassium: (NSNumber*) minPotassium
+    maxPotassium: (NSNumber*) maxPotassium
+    minSelenium: (NSNumber*) minSelenium
+    maxSelenium: (NSNumber*) maxSelenium
+    minSodium: (NSNumber*) minSodium
+    maxSodium: (NSNumber*) maxSodium
+    minSugar: (NSNumber*) minSugar
+    maxSugar: (NSNumber*) maxSugar
+    minZinc: (NSNumber*) minZinc
+    maxZinc: (NSNumber*) maxZinc
+    offset: (NSNumber*) offset
+    number: (NSNumber*) number
+    random: (NSNumber*) random
+    limitLicense: (NSNumber*) limitLicense
+    completionHandler: (void (^)(NSObject* output, NSError* error)) handler {
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/recipes/findByNutrients"];
+
+    NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
+
+    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    if (minCarbs != nil) {
+        queryParams[@"minCarbs"] = minCarbs;
+    }
+    if (maxCarbs != nil) {
+        queryParams[@"maxCarbs"] = maxCarbs;
+    }
+    if (minProtein != nil) {
+        queryParams[@"minProtein"] = minProtein;
+    }
+    if (maxProtein != nil) {
+        queryParams[@"maxProtein"] = maxProtein;
+    }
+    if (minCalories != nil) {
+        queryParams[@"minCalories"] = minCalories;
+    }
+    if (maxCalories != nil) {
+        queryParams[@"maxCalories"] = maxCalories;
+    }
+    if (minFat != nil) {
+        queryParams[@"minFat"] = minFat;
+    }
+    if (maxFat != nil) {
+        queryParams[@"maxFat"] = maxFat;
+    }
+    if (minAlcohol != nil) {
+        queryParams[@"minAlcohol"] = minAlcohol;
+    }
+    if (maxAlcohol != nil) {
+        queryParams[@"maxAlcohol"] = maxAlcohol;
+    }
+    if (minCaffeine != nil) {
+        queryParams[@"minCaffeine"] = minCaffeine;
+    }
+    if (maxCaffeine != nil) {
+        queryParams[@"maxCaffeine"] = maxCaffeine;
+    }
+    if (minCopper != nil) {
+        queryParams[@"minCopper"] = minCopper;
+    }
+    if (maxCopper != nil) {
+        queryParams[@"maxCopper"] = maxCopper;
+    }
+    if (minCalcium != nil) {
+        queryParams[@"minCalcium"] = minCalcium;
+    }
+    if (maxCalcium != nil) {
+        queryParams[@"maxCalcium"] = maxCalcium;
+    }
+    if (minCholine != nil) {
+        queryParams[@"minCholine"] = minCholine;
+    }
+    if (maxCholine != nil) {
+        queryParams[@"maxCholine"] = maxCholine;
+    }
+    if (minCholesterol != nil) {
+        queryParams[@"minCholesterol"] = minCholesterol;
+    }
+    if (maxCholesterol != nil) {
+        queryParams[@"maxCholesterol"] = maxCholesterol;
+    }
+    if (minFluoride != nil) {
+        queryParams[@"minFluoride"] = minFluoride;
+    }
+    if (maxFluoride != nil) {
+        queryParams[@"maxFluoride"] = maxFluoride;
+    }
+    if (minSaturatedFat != nil) {
+        queryParams[@"minSaturatedFat"] = minSaturatedFat;
+    }
+    if (maxSaturatedFat != nil) {
+        queryParams[@"maxSaturatedFat"] = maxSaturatedFat;
+    }
+    if (minVitaminA != nil) {
+        queryParams[@"minVitaminA"] = minVitaminA;
+    }
+    if (maxVitaminA != nil) {
+        queryParams[@"maxVitaminA"] = maxVitaminA;
+    }
+    if (minVitaminC != nil) {
+        queryParams[@"minVitaminC"] = minVitaminC;
+    }
+    if (maxVitaminC != nil) {
+        queryParams[@"maxVitaminC"] = maxVitaminC;
+    }
+    if (minVitaminD != nil) {
+        queryParams[@"minVitaminD"] = minVitaminD;
+    }
+    if (maxVitaminD != nil) {
+        queryParams[@"maxVitaminD"] = maxVitaminD;
+    }
+    if (minVitaminE != nil) {
+        queryParams[@"minVitaminE"] = minVitaminE;
+    }
+    if (maxVitaminE != nil) {
+        queryParams[@"maxVitaminE"] = maxVitaminE;
+    }
+    if (minVitaminK != nil) {
+        queryParams[@"minVitaminK"] = minVitaminK;
+    }
+    if (maxVitaminK != nil) {
+        queryParams[@"maxVitaminK"] = maxVitaminK;
+    }
+    if (minVitaminB1 != nil) {
+        queryParams[@"minVitaminB1"] = minVitaminB1;
+    }
+    if (maxVitaminB1 != nil) {
+        queryParams[@"maxVitaminB1"] = maxVitaminB1;
+    }
+    if (minVitaminB2 != nil) {
+        queryParams[@"minVitaminB2"] = minVitaminB2;
+    }
+    if (maxVitaminB2 != nil) {
+        queryParams[@"maxVitaminB2"] = maxVitaminB2;
+    }
+    if (minVitaminB5 != nil) {
+        queryParams[@"minVitaminB5"] = minVitaminB5;
+    }
+    if (maxVitaminB5 != nil) {
+        queryParams[@"maxVitaminB5"] = maxVitaminB5;
+    }
+    if (minVitaminB3 != nil) {
+        queryParams[@"minVitaminB3"] = minVitaminB3;
+    }
+    if (maxVitaminB3 != nil) {
+        queryParams[@"maxVitaminB3"] = maxVitaminB3;
+    }
+    if (minVitaminB6 != nil) {
+        queryParams[@"minVitaminB6"] = minVitaminB6;
+    }
+    if (maxVitaminB6 != nil) {
+        queryParams[@"maxVitaminB6"] = maxVitaminB6;
+    }
+    if (minVitaminB12 != nil) {
+        queryParams[@"minVitaminB12"] = minVitaminB12;
+    }
+    if (maxVitaminB12 != nil) {
+        queryParams[@"maxVitaminB12"] = maxVitaminB12;
+    }
+    if (minFiber != nil) {
+        queryParams[@"minFiber"] = minFiber;
+    }
+    if (maxFiber != nil) {
+        queryParams[@"maxFiber"] = maxFiber;
+    }
+    if (minFolate != nil) {
+        queryParams[@"minFolate"] = minFolate;
+    }
+    if (maxFolate != nil) {
+        queryParams[@"maxFolate"] = maxFolate;
+    }
+    if (minFolicAcid != nil) {
+        queryParams[@"minFolicAcid"] = minFolicAcid;
+    }
+    if (maxFolicAcid != nil) {
+        queryParams[@"maxFolicAcid"] = maxFolicAcid;
+    }
+    if (minIodine != nil) {
+        queryParams[@"minIodine"] = minIodine;
+    }
+    if (maxIodine != nil) {
+        queryParams[@"maxIodine"] = maxIodine;
+    }
+    if (minIron != nil) {
+        queryParams[@"minIron"] = minIron;
+    }
+    if (maxIron != nil) {
+        queryParams[@"maxIron"] = maxIron;
+    }
+    if (minMagnesium != nil) {
+        queryParams[@"minMagnesium"] = minMagnesium;
+    }
+    if (maxMagnesium != nil) {
+        queryParams[@"maxMagnesium"] = maxMagnesium;
+    }
+    if (minManganese != nil) {
+        queryParams[@"minManganese"] = minManganese;
+    }
+    if (maxManganese != nil) {
+        queryParams[@"maxManganese"] = maxManganese;
+    }
+    if (minPhosphorus != nil) {
+        queryParams[@"minPhosphorus"] = minPhosphorus;
+    }
+    if (maxPhosphorus != nil) {
+        queryParams[@"maxPhosphorus"] = maxPhosphorus;
+    }
+    if (minPotassium != nil) {
+        queryParams[@"minPotassium"] = minPotassium;
+    }
+    if (maxPotassium != nil) {
+        queryParams[@"maxPotassium"] = maxPotassium;
+    }
+    if (minSelenium != nil) {
+        queryParams[@"minSelenium"] = minSelenium;
+    }
+    if (maxSelenium != nil) {
+        queryParams[@"maxSelenium"] = maxSelenium;
+    }
+    if (minSodium != nil) {
+        queryParams[@"minSodium"] = minSodium;
+    }
+    if (maxSodium != nil) {
+        queryParams[@"maxSodium"] = maxSodium;
+    }
+    if (minSugar != nil) {
+        queryParams[@"minSugar"] = minSugar;
+    }
+    if (maxSugar != nil) {
+        queryParams[@"maxSugar"] = maxSugar;
+    }
+    if (minZinc != nil) {
+        queryParams[@"minZinc"] = minZinc;
+    }
+    if (maxZinc != nil) {
+        queryParams[@"maxZinc"] = maxZinc;
+    }
+    if (offset != nil) {
+        queryParams[@"offset"] = offset;
+    }
+    if (number != nil) {
+        queryParams[@"number"] = number;
+    }
+    if (random != nil) {
+        queryParams[@"random"] = [random isEqual:@(YES)] ? @"true" : @"false";
+    }
+    if (limitLicense != nil) {
+        queryParams[@"limitLicense"] = [limitLicense isEqual:@(YES)] ? @"true" : @"false";
+    }
+    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
+    [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    // HTTP header `Accept`
+    NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
+    if(acceptHeader.length > 0) {
+        headerParams[@"Accept"] = acceptHeader;
+    }
+
+    // response content type
+    NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
+
+    // request content type
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
+
+    // Authentication setting
+    NSArray *authSettings = @[];
+
+    id bodyParam = nil;
+    NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
+
+    return [self.apiClient requestWithPath: resourcePath
+                                    method: @"GET"
+                                pathParams: pathParams
+                               queryParams: queryParams
+                                formParams: formParams
+                                     files: localVarFiles
+                                      body: bodyParam
+                              headerParams: headerParams
+                              authSettings: authSettings
+                        requestContentType: requestContentType
+                       responseContentType: responseContentType
+                              responseType: @"NSObject*"
+                           completionBlock: ^(id data, NSError *error) {
+                                if(handler) {
+                                    handler((NSObject*)data, error);
+                                }
+                            }];
+}
+
+///
 /// Search Site Content
 /// Search spoonacular's site content. You'll be able to find everything that you could also find using the search suggestions on spoonacular.com. This is a suggest API so you can send partial strings as queries.
 ///  @param query The query to search for. You can also use partial queries such as \"spagh\" to already find spaghetti recipes, articles, grocery products, and other content. 
@@ -6311,10 +6739,8 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 
 ///
 /// Visualize Equipment
-/// Visualize the equipment used to make a recipe.
-///  @param ingredientList The ingredient list of the recipe, one ingredient per line. 
-///
-///  @param servings The number of servings. 
+/// Visualize the equipment used to make a recipe. You can play around with that endpoint!
+///  @param instructions The recipe's instructions. 
 ///
 ///  @param view How to visualize the equipment, either \\\"grid\\\" or \\\"list\\\". (optional)
 ///
@@ -6324,28 +6750,16 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSString*
 ///
--(NSURLSessionTask*) visualizeEquipmentWithIngredientList: (NSString*) ingredientList
-    servings: (NSNumber*) servings
+-(NSURLSessionTask*) visualizeEquipmentWithInstructions: (NSString*) instructions
     view: (NSString*) view
     defaultCss: (NSNumber*) defaultCss
     showBacklink: (NSNumber*) showBacklink
     completionHandler: (void (^)(NSString* output, NSError* error)) handler {
-    // verify the required parameter 'ingredientList' is set
-    if (ingredientList == nil) {
-        NSParameterAssert(ingredientList);
+    // verify the required parameter 'instructions' is set
+    if (instructions == nil) {
+        NSParameterAssert(instructions);
         if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"ingredientList"] };
-            NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    // verify the required parameter 'servings' is set
-    if (servings == nil) {
-        NSParameterAssert(servings);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"servings"] };
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"instructions"] };
             NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
             handler(nil, error);
         }
@@ -6377,11 +6791,8 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
-    if (ingredientList) {
-        formParams[@"ingredientList"] = ingredientList;
-    }
-    if (servings) {
-        formParams[@"servings"] = servings;
+    if (instructions) {
+        formParams[@"instructions"] = instructions;
     }
     if (view) {
         formParams[@"view"] = view;
@@ -6414,7 +6825,7 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 
 ///
 /// Visualize Ingredients
-/// Visualize ingredients of a recipe.
+/// Visualize ingredients of a recipe. You can play around with that endpoint!
 ///  @param ingredientList The ingredient list of the recipe, one ingredient per line. 
 ///
 ///  @param servings The number of servings. 
@@ -6597,7 +7008,7 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 
 ///
 /// Visualize Price Breakdown
-/// Visualize the price breakdown of a recipe.
+/// Visualize the price breakdown of a recipe. You can play around with that endpoint!
 ///  @param ingredientList The ingredient list of the recipe, one ingredient per line. 
 ///
 ///  @param servings The number of servings. 
@@ -6922,7 +7333,7 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 
 ///
 /// Visualize Recipe Nutrition
-/// Visualize a recipe's nutritional information as HTML including CSS
+/// Visualize a recipe's nutritional information as HTML including CSS. You can play around with that endpoint!
 ///  @param ingredientList The ingredient list of the recipe, one ingredient per line. 
 ///
 ///  @param servings The number of servings. 
@@ -7125,6 +7536,142 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
     if (defaultCss != nil) {
         queryParams[@"defaultCss"] = [defaultCss isEqual:@(YES)] ? @"true" : @"false";
     }
+    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
+    [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    // HTTP header `Accept`
+    NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"text/html"]];
+    if(acceptHeader.length > 0) {
+        headerParams[@"Accept"] = acceptHeader;
+    }
+
+    // response content type
+    NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
+
+    // request content type
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
+
+    // Authentication setting
+    NSArray *authSettings = @[];
+
+    id bodyParam = nil;
+    NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
+
+    return [self.apiClient requestWithPath: resourcePath
+                                    method: @"GET"
+                                pathParams: pathParams
+                               queryParams: queryParams
+                                formParams: formParams
+                                     files: localVarFiles
+                                      body: bodyParam
+                              headerParams: headerParams
+                              authSettings: authSettings
+                        requestContentType: requestContentType
+                       responseContentType: responseContentType
+                              responseType: @"NSString*"
+                           completionBlock: ^(id data, NSError *error) {
+                                if(handler) {
+                                    handler((NSString*)data, error);
+                                }
+                            }];
+}
+
+///
+/// Visualize Recipe Taste
+/// Visualize a recipe's taste information as HTML including CSS. You can play around with that endpoint!
+///  @param ingredientList The ingredient list of the recipe, one ingredient per line. 
+///
+///  @returns NSString*
+///
+-(NSURLSessionTask*) visualizeRecipeTasteWithIngredientList: (NSString*) ingredientList
+    completionHandler: (void (^)(NSString* output, NSError* error)) handler {
+    // verify the required parameter 'ingredientList' is set
+    if (ingredientList == nil) {
+        NSParameterAssert(ingredientList);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"ingredientList"] };
+            NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/recipes/visualizeTaste"];
+
+    NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
+
+    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
+    [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    // HTTP header `Accept`
+    NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"text/html"]];
+    if(acceptHeader.length > 0) {
+        headerParams[@"Accept"] = acceptHeader;
+    }
+
+    // response content type
+    NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
+
+    // request content type
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/x-www-form-urlencoded"]];
+
+    // Authentication setting
+    NSArray *authSettings = @[];
+
+    id bodyParam = nil;
+    NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
+    if (ingredientList) {
+        formParams[@"ingredientList"] = ingredientList;
+    }
+
+    return [self.apiClient requestWithPath: resourcePath
+                                    method: @"POST"
+                                pathParams: pathParams
+                               queryParams: queryParams
+                                formParams: formParams
+                                     files: localVarFiles
+                                      body: bodyParam
+                              headerParams: headerParams
+                              authSettings: authSettings
+                        requestContentType: requestContentType
+                       responseContentType: responseContentType
+                              responseType: @"NSString*"
+                           completionBlock: ^(id data, NSError *error) {
+                                if(handler) {
+                                    handler((NSString*)data, error);
+                                }
+                            }];
+}
+
+///
+/// Visualize Recipe Taste by ID
+/// Get a recipe's taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
+///  @param _id The recipe id. 
+///
+///  @returns NSString*
+///
+-(NSURLSessionTask*) visualizeRecipeTasteByIDWithId: (NSNumber*) _id
+    completionHandler: (void (^)(NSString* output, NSError* error)) handler {
+    // verify the required parameter '_id' is set
+    if (_id == nil) {
+        NSParameterAssert(_id);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"_id"] };
+            NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/recipes/{id}/tasteWidget"];
+
+    NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
+    if (_id != nil) {
+        pathParams[@"id"] = _id;
+    }
+
+    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
     [headerParams addEntriesFromDictionary:self.defaultHeaders];
     // HTTP header `Accept`

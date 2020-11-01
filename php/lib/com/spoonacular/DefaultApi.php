@@ -122,15 +122,15 @@ class DefaultApi
      *
      * @param  string $username The username. (required)
      * @param  string $hash The private hash for the username. (required)
-     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject9 $inline_object9 inline_object9 (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject11 $inline_object11 inline_object11 (required)
      *
      * @throws \com.spoonacular.client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return object
      */
-    public function addToMealPlan($username, $hash, $inline_object9)
+    public function addToMealPlan($username, $hash, $inline_object11)
     {
-        list($response) = $this->addToMealPlanWithHttpInfo($username, $hash, $inline_object9);
+        list($response) = $this->addToMealPlanWithHttpInfo($username, $hash, $inline_object11);
         return $response;
     }
 
@@ -141,15 +141,15 @@ class DefaultApi
      *
      * @param  string $username The username. (required)
      * @param  string $hash The private hash for the username. (required)
-     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject9 $inline_object9 (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject11 $inline_object11 (required)
      *
      * @throws \com.spoonacular.client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
-    public function addToMealPlanWithHttpInfo($username, $hash, $inline_object9)
+    public function addToMealPlanWithHttpInfo($username, $hash, $inline_object11)
     {
-        $request = $this->addToMealPlanRequest($username, $hash, $inline_object9);
+        $request = $this->addToMealPlanRequest($username, $hash, $inline_object11);
 
         try {
             $options = $this->createHttpClientOption();
@@ -231,14 +231,14 @@ class DefaultApi
      *
      * @param  string $username The username. (required)
      * @param  string $hash The private hash for the username. (required)
-     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject9 $inline_object9 (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject11 $inline_object11 (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addToMealPlanAsync($username, $hash, $inline_object9)
+    public function addToMealPlanAsync($username, $hash, $inline_object11)
     {
-        return $this->addToMealPlanAsyncWithHttpInfo($username, $hash, $inline_object9)
+        return $this->addToMealPlanAsyncWithHttpInfo($username, $hash, $inline_object11)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -253,15 +253,15 @@ class DefaultApi
      *
      * @param  string $username The username. (required)
      * @param  string $hash The private hash for the username. (required)
-     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject9 $inline_object9 (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject11 $inline_object11 (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addToMealPlanAsyncWithHttpInfo($username, $hash, $inline_object9)
+    public function addToMealPlanAsyncWithHttpInfo($username, $hash, $inline_object11)
     {
         $returnType = 'object';
-        $request = $this->addToMealPlanRequest($username, $hash, $inline_object9);
+        $request = $this->addToMealPlanRequest($username, $hash, $inline_object11);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -302,12 +302,12 @@ class DefaultApi
      *
      * @param  string $username The username. (required)
      * @param  string $hash The private hash for the username. (required)
-     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject9 $inline_object9 (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject11 $inline_object11 (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function addToMealPlanRequest($username, $hash, $inline_object9)
+    protected function addToMealPlanRequest($username, $hash, $inline_object11)
     {
         // verify the required parameter 'username' is set
         if ($username === null || (is_array($username) && count($username) === 0)) {
@@ -321,10 +321,10 @@ class DefaultApi
                 'Missing the required parameter $hash when calling addToMealPlan'
             );
         }
-        // verify the required parameter 'inline_object9' is set
-        if ($inline_object9 === null || (is_array($inline_object9) && count($inline_object9) === 0)) {
+        // verify the required parameter 'inline_object11' is set
+        if ($inline_object11 === null || (is_array($inline_object11) && count($inline_object11) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $inline_object9 when calling addToMealPlan'
+                'Missing the required parameter $inline_object11 when calling addToMealPlan'
             );
         }
 
@@ -351,8 +351,8 @@ class DefaultApi
 
         // body params
         $_tempBody = null;
-        if (isset($inline_object9)) {
-            $_tempBody = $inline_object9;
+        if (isset($inline_object11)) {
+            $_tempBody = $inline_object11;
         }
 
         if ($multipart) {
@@ -423,15 +423,15 @@ class DefaultApi
      *
      * @param  string $username The username. (required)
      * @param  string $hash The private hash for the username. (required)
-     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject12 $inline_object12 inline_object12 (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject14 $inline_object14 inline_object14 (required)
      *
      * @throws \com.spoonacular.client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return object
      */
-    public function addToShoppingList($username, $hash, $inline_object12)
+    public function addToShoppingList($username, $hash, $inline_object14)
     {
-        list($response) = $this->addToShoppingListWithHttpInfo($username, $hash, $inline_object12);
+        list($response) = $this->addToShoppingListWithHttpInfo($username, $hash, $inline_object14);
         return $response;
     }
 
@@ -442,15 +442,15 @@ class DefaultApi
      *
      * @param  string $username The username. (required)
      * @param  string $hash The private hash for the username. (required)
-     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject12 $inline_object12 (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject14 $inline_object14 (required)
      *
      * @throws \com.spoonacular.client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
-    public function addToShoppingListWithHttpInfo($username, $hash, $inline_object12)
+    public function addToShoppingListWithHttpInfo($username, $hash, $inline_object14)
     {
-        $request = $this->addToShoppingListRequest($username, $hash, $inline_object12);
+        $request = $this->addToShoppingListRequest($username, $hash, $inline_object14);
 
         try {
             $options = $this->createHttpClientOption();
@@ -532,14 +532,14 @@ class DefaultApi
      *
      * @param  string $username The username. (required)
      * @param  string $hash The private hash for the username. (required)
-     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject12 $inline_object12 (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject14 $inline_object14 (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addToShoppingListAsync($username, $hash, $inline_object12)
+    public function addToShoppingListAsync($username, $hash, $inline_object14)
     {
-        return $this->addToShoppingListAsyncWithHttpInfo($username, $hash, $inline_object12)
+        return $this->addToShoppingListAsyncWithHttpInfo($username, $hash, $inline_object14)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -554,15 +554,15 @@ class DefaultApi
      *
      * @param  string $username The username. (required)
      * @param  string $hash The private hash for the username. (required)
-     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject12 $inline_object12 (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject14 $inline_object14 (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addToShoppingListAsyncWithHttpInfo($username, $hash, $inline_object12)
+    public function addToShoppingListAsyncWithHttpInfo($username, $hash, $inline_object14)
     {
         $returnType = 'object';
-        $request = $this->addToShoppingListRequest($username, $hash, $inline_object12);
+        $request = $this->addToShoppingListRequest($username, $hash, $inline_object14);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -603,12 +603,12 @@ class DefaultApi
      *
      * @param  string $username The username. (required)
      * @param  string $hash The private hash for the username. (required)
-     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject12 $inline_object12 (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject14 $inline_object14 (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function addToShoppingListRequest($username, $hash, $inline_object12)
+    protected function addToShoppingListRequest($username, $hash, $inline_object14)
     {
         // verify the required parameter 'username' is set
         if ($username === null || (is_array($username) && count($username) === 0)) {
@@ -622,10 +622,10 @@ class DefaultApi
                 'Missing the required parameter $hash when calling addToShoppingList'
             );
         }
-        // verify the required parameter 'inline_object12' is set
-        if ($inline_object12 === null || (is_array($inline_object12) && count($inline_object12) === 0)) {
+        // verify the required parameter 'inline_object14' is set
+        if ($inline_object14 === null || (is_array($inline_object14) && count($inline_object14) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $inline_object12 when calling addToShoppingList'
+                'Missing the required parameter $inline_object14 when calling addToShoppingList'
             );
         }
 
@@ -652,8 +652,8 @@ class DefaultApi
 
         // body params
         $_tempBody = null;
-        if (isset($inline_object12)) {
-            $_tempBody = $inline_object12;
+        if (isset($inline_object14)) {
+            $_tempBody = $inline_object14;
         }
 
         if ($multipart) {
@@ -1261,7 +1261,7 @@ class DefaultApi
      * @param  string $query The partial or full ingredient name. (required)
      * @param  float $number The number of results to return (between 1 and 100). (optional)
      * @param  bool $meta_information Whether to return more meta information about the ingredients. (optional)
-     * @param  bool $intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
+     * @param  string $intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
      *
      * @throws \com.spoonacular.client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1281,7 +1281,7 @@ class DefaultApi
      * @param  string $query The partial or full ingredient name. (required)
      * @param  float $number The number of results to return (between 1 and 100). (optional)
      * @param  bool $meta_information Whether to return more meta information about the ingredients. (optional)
-     * @param  bool $intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
+     * @param  string $intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
      *
      * @throws \com.spoonacular.client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1372,7 +1372,7 @@ class DefaultApi
      * @param  string $query The partial or full ingredient name. (required)
      * @param  float $number The number of results to return (between 1 and 100). (optional)
      * @param  bool $meta_information Whether to return more meta information about the ingredients. (optional)
-     * @param  bool $intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
+     * @param  string $intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1395,7 +1395,7 @@ class DefaultApi
      * @param  string $query The partial or full ingredient name. (required)
      * @param  float $number The number of results to return (between 1 and 100). (optional)
      * @param  bool $meta_information Whether to return more meta information about the ingredients. (optional)
-     * @param  bool $intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
+     * @param  string $intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1445,7 +1445,7 @@ class DefaultApi
      * @param  string $query The partial or full ingredient name. (required)
      * @param  float $number The number of results to return (between 1 and 100). (optional)
      * @param  bool $meta_information Whether to return more meta information about the ingredients. (optional)
-     * @param  bool $intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
+     * @param  string $intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2667,16 +2667,16 @@ class DefaultApi
      *
      * Classify Grocery Product
      *
-     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject8 $inline_object8 inline_object8 (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject9 $inline_object9 inline_object9 (required)
      * @param  string $locale The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). (optional)
      *
      * @throws \com.spoonacular.client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return object
      */
-    public function classifyGroceryProduct($inline_object8, $locale = null)
+    public function classifyGroceryProduct($inline_object9, $locale = null)
     {
-        list($response) = $this->classifyGroceryProductWithHttpInfo($inline_object8, $locale);
+        list($response) = $this->classifyGroceryProductWithHttpInfo($inline_object9, $locale);
         return $response;
     }
 
@@ -2685,16 +2685,16 @@ class DefaultApi
      *
      * Classify Grocery Product
      *
-     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject8 $inline_object8 (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject9 $inline_object9 (required)
      * @param  string $locale The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). (optional)
      *
      * @throws \com.spoonacular.client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
-    public function classifyGroceryProductWithHttpInfo($inline_object8, $locale = null)
+    public function classifyGroceryProductWithHttpInfo($inline_object9, $locale = null)
     {
-        $request = $this->classifyGroceryProductRequest($inline_object8, $locale);
+        $request = $this->classifyGroceryProductRequest($inline_object9, $locale);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2774,15 +2774,15 @@ class DefaultApi
      *
      * Classify Grocery Product
      *
-     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject8 $inline_object8 (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject9 $inline_object9 (required)
      * @param  string $locale The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function classifyGroceryProductAsync($inline_object8, $locale = null)
+    public function classifyGroceryProductAsync($inline_object9, $locale = null)
     {
-        return $this->classifyGroceryProductAsyncWithHttpInfo($inline_object8, $locale)
+        return $this->classifyGroceryProductAsyncWithHttpInfo($inline_object9, $locale)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2795,16 +2795,16 @@ class DefaultApi
      *
      * Classify Grocery Product
      *
-     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject8 $inline_object8 (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject9 $inline_object9 (required)
      * @param  string $locale The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function classifyGroceryProductAsyncWithHttpInfo($inline_object8, $locale = null)
+    public function classifyGroceryProductAsyncWithHttpInfo($inline_object9, $locale = null)
     {
         $returnType = 'object';
-        $request = $this->classifyGroceryProductRequest($inline_object8, $locale);
+        $request = $this->classifyGroceryProductRequest($inline_object9, $locale);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2843,18 +2843,18 @@ class DefaultApi
     /**
      * Create request for operation 'classifyGroceryProduct'
      *
-     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject8 $inline_object8 (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject9 $inline_object9 (required)
      * @param  string $locale The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function classifyGroceryProductRequest($inline_object8, $locale = null)
+    protected function classifyGroceryProductRequest($inline_object9, $locale = null)
     {
-        // verify the required parameter 'inline_object8' is set
-        if ($inline_object8 === null || (is_array($inline_object8) && count($inline_object8) === 0)) {
+        // verify the required parameter 'inline_object9' is set
+        if ($inline_object9 === null || (is_array($inline_object9) && count($inline_object9) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $inline_object8 when calling classifyGroceryProduct'
+                'Missing the required parameter $inline_object9 when calling classifyGroceryProduct'
             );
         }
 
@@ -2873,8 +2873,8 @@ class DefaultApi
 
         // body params
         $_tempBody = null;
-        if (isset($inline_object8)) {
-            $_tempBody = $inline_object8;
+        if (isset($inline_object9)) {
+            $_tempBody = $inline_object9;
         }
 
         if ($multipart) {
@@ -3161,6 +3161,860 @@ class DefaultApi
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
                 ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation clearMealPlanDay
+     *
+     * Clear Meal Plan Day
+     *
+     * @param  string $username The username. (required)
+     * @param  string $date The date in the format yyyy-mm-dd. (required)
+     * @param  string $hash The private hash for the username. (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject10 $inline_object10 inline_object10 (required)
+     *
+     * @throws \com.spoonacular.client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return object
+     */
+    public function clearMealPlanDay($username, $date, $hash, $inline_object10)
+    {
+        list($response) = $this->clearMealPlanDayWithHttpInfo($username, $date, $hash, $inline_object10);
+        return $response;
+    }
+
+    /**
+     * Operation clearMealPlanDayWithHttpInfo
+     *
+     * Clear Meal Plan Day
+     *
+     * @param  string $username The username. (required)
+     * @param  string $date The date in the format yyyy-mm-dd. (required)
+     * @param  string $hash The private hash for the username. (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject10 $inline_object10 (required)
+     *
+     * @throws \com.spoonacular.client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of object, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function clearMealPlanDayWithHttpInfo($username, $date, $hash, $inline_object10)
+    {
+        $request = $this->clearMealPlanDayRequest($username, $date, $hash, $inline_object10);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('object' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, 'object', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'object';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'object',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation clearMealPlanDayAsync
+     *
+     * Clear Meal Plan Day
+     *
+     * @param  string $username The username. (required)
+     * @param  string $date The date in the format yyyy-mm-dd. (required)
+     * @param  string $hash The private hash for the username. (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject10 $inline_object10 (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function clearMealPlanDayAsync($username, $date, $hash, $inline_object10)
+    {
+        return $this->clearMealPlanDayAsyncWithHttpInfo($username, $date, $hash, $inline_object10)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation clearMealPlanDayAsyncWithHttpInfo
+     *
+     * Clear Meal Plan Day
+     *
+     * @param  string $username The username. (required)
+     * @param  string $date The date in the format yyyy-mm-dd. (required)
+     * @param  string $hash The private hash for the username. (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject10 $inline_object10 (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function clearMealPlanDayAsyncWithHttpInfo($username, $date, $hash, $inline_object10)
+    {
+        $returnType = 'object';
+        $request = $this->clearMealPlanDayRequest($username, $date, $hash, $inline_object10);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'clearMealPlanDay'
+     *
+     * @param  string $username The username. (required)
+     * @param  string $date The date in the format yyyy-mm-dd. (required)
+     * @param  string $hash The private hash for the username. (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject10 $inline_object10 (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function clearMealPlanDayRequest($username, $date, $hash, $inline_object10)
+    {
+        // verify the required parameter 'username' is set
+        if ($username === null || (is_array($username) && count($username) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $username when calling clearMealPlanDay'
+            );
+        }
+        // verify the required parameter 'date' is set
+        if ($date === null || (is_array($date) && count($date) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $date when calling clearMealPlanDay'
+            );
+        }
+        // verify the required parameter 'hash' is set
+        if ($hash === null || (is_array($hash) && count($hash) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $hash when calling clearMealPlanDay'
+            );
+        }
+        // verify the required parameter 'inline_object10' is set
+        if ($inline_object10 === null || (is_array($inline_object10) && count($inline_object10) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $inline_object10 when calling clearMealPlanDay'
+            );
+        }
+
+        $resourcePath = '/mealplanner/{username}/day/{date}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($hash !== null) {
+            $queryParams['hash'] = ObjectSerializer::toQueryValue($hash);
+        }
+
+        // path params
+        if ($username !== null) {
+            $resourcePath = str_replace(
+                '{' . 'username' . '}',
+                ObjectSerializer::toPathValue($username),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($date !== null) {
+            $resourcePath = str_replace(
+                '{' . 'date' . '}',
+                ObjectSerializer::toPathValue($date),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+        if (isset($inline_object10)) {
+            $_tempBody = $inline_object10;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'DELETE',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation computeGlycemicLoad
+     *
+     * Compute Glycemic Load
+     *
+     * @param  object $body body (required)
+     *
+     * @throws \com.spoonacular.client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return object
+     */
+    public function computeGlycemicLoad($body)
+    {
+        list($response) = $this->computeGlycemicLoadWithHttpInfo($body);
+        return $response;
+    }
+
+    /**
+     * Operation computeGlycemicLoadWithHttpInfo
+     *
+     * Compute Glycemic Load
+     *
+     * @param  object $body (required)
+     *
+     * @throws \com.spoonacular.client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of object, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function computeGlycemicLoadWithHttpInfo($body)
+    {
+        $request = $this->computeGlycemicLoadRequest($body);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('object' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, 'object', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'object';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'object',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation computeGlycemicLoadAsync
+     *
+     * Compute Glycemic Load
+     *
+     * @param  object $body (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function computeGlycemicLoadAsync($body)
+    {
+        return $this->computeGlycemicLoadAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation computeGlycemicLoadAsyncWithHttpInfo
+     *
+     * Compute Glycemic Load
+     *
+     * @param  object $body (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function computeGlycemicLoadAsyncWithHttpInfo($body)
+    {
+        $returnType = 'object';
+        $request = $this->computeGlycemicLoadRequest($body);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'computeGlycemicLoad'
+     *
+     * @param  object $body (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function computeGlycemicLoadRequest($body)
+    {
+        // verify the required parameter 'body' is set
+        if ($body === null || (is_array($body) && count($body) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $body when calling computeGlycemicLoad'
+            );
+        }
+
+        $resourcePath = '/food/ingredients/glycemicLoad';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // body params
+        $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation connectUser
+     *
+     * Connect User
+     *
+     * @param  object $body body (required)
+     *
+     * @throws \com.spoonacular.client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return object
+     */
+    public function connectUser($body)
+    {
+        list($response) = $this->connectUserWithHttpInfo($body);
+        return $response;
+    }
+
+    /**
+     * Operation connectUserWithHttpInfo
+     *
+     * Connect User
+     *
+     * @param  object $body (required)
+     *
+     * @throws \com.spoonacular.client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of object, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function connectUserWithHttpInfo($body)
+    {
+        $request = $this->connectUserRequest($body);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('object' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, 'object', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'object';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'object',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation connectUserAsync
+     *
+     * Connect User
+     *
+     * @param  object $body (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function connectUserAsync($body)
+    {
+        return $this->connectUserAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation connectUserAsyncWithHttpInfo
+     *
+     * Connect User
+     *
+     * @param  object $body (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function connectUserAsyncWithHttpInfo($body)
+    {
+        $returnType = 'object';
+        $request = $this->connectUserRequest($body);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'connectUser'
+     *
+     * @param  object $body (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function connectUserRequest($body)
+    {
+        // verify the required parameter 'body' is set
+        if ($body === null || (is_array($body) && count($body) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $body when calling connectUser'
+            );
+        }
+
+        $resourcePath = '/users/connect';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // body params
+        $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['']
             );
         }
 
@@ -3945,15 +4799,15 @@ class DefaultApi
      * @param  string $username The username. (required)
      * @param  float $id The shopping list item id. (required)
      * @param  string $hash The private hash for the username. (required)
-     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject10 $inline_object10 inline_object10 (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject12 $inline_object12 inline_object12 (required)
      *
      * @throws \com.spoonacular.client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return object
      */
-    public function deleteFromMealPlan($username, $id, $hash, $inline_object10)
+    public function deleteFromMealPlan($username, $id, $hash, $inline_object12)
     {
-        list($response) = $this->deleteFromMealPlanWithHttpInfo($username, $id, $hash, $inline_object10);
+        list($response) = $this->deleteFromMealPlanWithHttpInfo($username, $id, $hash, $inline_object12);
         return $response;
     }
 
@@ -3965,15 +4819,15 @@ class DefaultApi
      * @param  string $username The username. (required)
      * @param  float $id The shopping list item id. (required)
      * @param  string $hash The private hash for the username. (required)
-     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject10 $inline_object10 (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject12 $inline_object12 (required)
      *
      * @throws \com.spoonacular.client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteFromMealPlanWithHttpInfo($username, $id, $hash, $inline_object10)
+    public function deleteFromMealPlanWithHttpInfo($username, $id, $hash, $inline_object12)
     {
-        $request = $this->deleteFromMealPlanRequest($username, $id, $hash, $inline_object10);
+        $request = $this->deleteFromMealPlanRequest($username, $id, $hash, $inline_object12);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4056,14 +4910,14 @@ class DefaultApi
      * @param  string $username The username. (required)
      * @param  float $id The shopping list item id. (required)
      * @param  string $hash The private hash for the username. (required)
-     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject10 $inline_object10 (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject12 $inline_object12 (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteFromMealPlanAsync($username, $id, $hash, $inline_object10)
+    public function deleteFromMealPlanAsync($username, $id, $hash, $inline_object12)
     {
-        return $this->deleteFromMealPlanAsyncWithHttpInfo($username, $id, $hash, $inline_object10)
+        return $this->deleteFromMealPlanAsyncWithHttpInfo($username, $id, $hash, $inline_object12)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4079,15 +4933,15 @@ class DefaultApi
      * @param  string $username The username. (required)
      * @param  float $id The shopping list item id. (required)
      * @param  string $hash The private hash for the username. (required)
-     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject10 $inline_object10 (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject12 $inline_object12 (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteFromMealPlanAsyncWithHttpInfo($username, $id, $hash, $inline_object10)
+    public function deleteFromMealPlanAsyncWithHttpInfo($username, $id, $hash, $inline_object12)
     {
         $returnType = 'object';
-        $request = $this->deleteFromMealPlanRequest($username, $id, $hash, $inline_object10);
+        $request = $this->deleteFromMealPlanRequest($username, $id, $hash, $inline_object12);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4129,12 +4983,12 @@ class DefaultApi
      * @param  string $username The username. (required)
      * @param  float $id The shopping list item id. (required)
      * @param  string $hash The private hash for the username. (required)
-     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject10 $inline_object10 (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject12 $inline_object12 (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function deleteFromMealPlanRequest($username, $id, $hash, $inline_object10)
+    protected function deleteFromMealPlanRequest($username, $id, $hash, $inline_object12)
     {
         // verify the required parameter 'username' is set
         if ($username === null || (is_array($username) && count($username) === 0)) {
@@ -4154,10 +5008,10 @@ class DefaultApi
                 'Missing the required parameter $hash when calling deleteFromMealPlan'
             );
         }
-        // verify the required parameter 'inline_object10' is set
-        if ($inline_object10 === null || (is_array($inline_object10) && count($inline_object10) === 0)) {
+        // verify the required parameter 'inline_object12' is set
+        if ($inline_object12 === null || (is_array($inline_object12) && count($inline_object12) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $inline_object10 when calling deleteFromMealPlan'
+                'Missing the required parameter $inline_object12 when calling deleteFromMealPlan'
             );
         }
 
@@ -4192,8 +5046,8 @@ class DefaultApi
 
         // body params
         $_tempBody = null;
-        if (isset($inline_object10)) {
-            $_tempBody = $inline_object10;
+        if (isset($inline_object12)) {
+            $_tempBody = $inline_object12;
         }
 
         if ($multipart) {
@@ -4265,15 +5119,15 @@ class DefaultApi
      * @param  string $username The username. (required)
      * @param  float $id The shopping list item id. (required)
      * @param  string $hash The private hash for the username. (required)
-     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject13 $inline_object13 inline_object13 (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject15 $inline_object15 inline_object15 (required)
      *
      * @throws \com.spoonacular.client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return object
      */
-    public function deleteFromShoppingList($username, $id, $hash, $inline_object13)
+    public function deleteFromShoppingList($username, $id, $hash, $inline_object15)
     {
-        list($response) = $this->deleteFromShoppingListWithHttpInfo($username, $id, $hash, $inline_object13);
+        list($response) = $this->deleteFromShoppingListWithHttpInfo($username, $id, $hash, $inline_object15);
         return $response;
     }
 
@@ -4285,15 +5139,15 @@ class DefaultApi
      * @param  string $username The username. (required)
      * @param  float $id The shopping list item id. (required)
      * @param  string $hash The private hash for the username. (required)
-     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject13 $inline_object13 (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject15 $inline_object15 (required)
      *
      * @throws \com.spoonacular.client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteFromShoppingListWithHttpInfo($username, $id, $hash, $inline_object13)
+    public function deleteFromShoppingListWithHttpInfo($username, $id, $hash, $inline_object15)
     {
-        $request = $this->deleteFromShoppingListRequest($username, $id, $hash, $inline_object13);
+        $request = $this->deleteFromShoppingListRequest($username, $id, $hash, $inline_object15);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4376,14 +5230,14 @@ class DefaultApi
      * @param  string $username The username. (required)
      * @param  float $id The shopping list item id. (required)
      * @param  string $hash The private hash for the username. (required)
-     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject13 $inline_object13 (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject15 $inline_object15 (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteFromShoppingListAsync($username, $id, $hash, $inline_object13)
+    public function deleteFromShoppingListAsync($username, $id, $hash, $inline_object15)
     {
-        return $this->deleteFromShoppingListAsyncWithHttpInfo($username, $id, $hash, $inline_object13)
+        return $this->deleteFromShoppingListAsyncWithHttpInfo($username, $id, $hash, $inline_object15)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4399,15 +5253,15 @@ class DefaultApi
      * @param  string $username The username. (required)
      * @param  float $id The shopping list item id. (required)
      * @param  string $hash The private hash for the username. (required)
-     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject13 $inline_object13 (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject15 $inline_object15 (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteFromShoppingListAsyncWithHttpInfo($username, $id, $hash, $inline_object13)
+    public function deleteFromShoppingListAsyncWithHttpInfo($username, $id, $hash, $inline_object15)
     {
         $returnType = 'object';
-        $request = $this->deleteFromShoppingListRequest($username, $id, $hash, $inline_object13);
+        $request = $this->deleteFromShoppingListRequest($username, $id, $hash, $inline_object15);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4449,12 +5303,12 @@ class DefaultApi
      * @param  string $username The username. (required)
      * @param  float $id The shopping list item id. (required)
      * @param  string $hash The private hash for the username. (required)
-     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject13 $inline_object13 (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject15 $inline_object15 (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function deleteFromShoppingListRequest($username, $id, $hash, $inline_object13)
+    protected function deleteFromShoppingListRequest($username, $id, $hash, $inline_object15)
     {
         // verify the required parameter 'username' is set
         if ($username === null || (is_array($username) && count($username) === 0)) {
@@ -4474,10 +5328,10 @@ class DefaultApi
                 'Missing the required parameter $hash when calling deleteFromShoppingList'
             );
         }
-        // verify the required parameter 'inline_object13' is set
-        if ($inline_object13 === null || (is_array($inline_object13) && count($inline_object13) === 0)) {
+        // verify the required parameter 'inline_object15' is set
+        if ($inline_object15 === null || (is_array($inline_object15) && count($inline_object15) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $inline_object13 when calling deleteFromShoppingList'
+                'Missing the required parameter $inline_object15 when calling deleteFromShoppingList'
             );
         }
 
@@ -4512,8 +5366,8 @@ class DefaultApi
 
         // body params
         $_tempBody = null;
-        if (isset($inline_object13)) {
-            $_tempBody = $inline_object13;
+        if (isset($inline_object15)) {
+            $_tempBody = $inline_object15;
         }
 
         if ($multipart) {
@@ -5429,15 +6283,15 @@ class DefaultApi
      * @param  string $start_date The start date in the format yyyy-mm-dd. (required)
      * @param  string $end_date The end date in the format yyyy-mm-dd. (required)
      * @param  string $hash The private hash for the username. (required)
-     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject11 $inline_object11 inline_object11 (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject13 $inline_object13 inline_object13 (required)
      *
      * @throws \com.spoonacular.client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return object
      */
-    public function generateShoppingList($username, $start_date, $end_date, $hash, $inline_object11)
+    public function generateShoppingList($username, $start_date, $end_date, $hash, $inline_object13)
     {
-        list($response) = $this->generateShoppingListWithHttpInfo($username, $start_date, $end_date, $hash, $inline_object11);
+        list($response) = $this->generateShoppingListWithHttpInfo($username, $start_date, $end_date, $hash, $inline_object13);
         return $response;
     }
 
@@ -5450,15 +6304,15 @@ class DefaultApi
      * @param  string $start_date The start date in the format yyyy-mm-dd. (required)
      * @param  string $end_date The end date in the format yyyy-mm-dd. (required)
      * @param  string $hash The private hash for the username. (required)
-     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject11 $inline_object11 (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject13 $inline_object13 (required)
      *
      * @throws \com.spoonacular.client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
-    public function generateShoppingListWithHttpInfo($username, $start_date, $end_date, $hash, $inline_object11)
+    public function generateShoppingListWithHttpInfo($username, $start_date, $end_date, $hash, $inline_object13)
     {
-        $request = $this->generateShoppingListRequest($username, $start_date, $end_date, $hash, $inline_object11);
+        $request = $this->generateShoppingListRequest($username, $start_date, $end_date, $hash, $inline_object13);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5542,14 +6396,14 @@ class DefaultApi
      * @param  string $start_date The start date in the format yyyy-mm-dd. (required)
      * @param  string $end_date The end date in the format yyyy-mm-dd. (required)
      * @param  string $hash The private hash for the username. (required)
-     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject11 $inline_object11 (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject13 $inline_object13 (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function generateShoppingListAsync($username, $start_date, $end_date, $hash, $inline_object11)
+    public function generateShoppingListAsync($username, $start_date, $end_date, $hash, $inline_object13)
     {
-        return $this->generateShoppingListAsyncWithHttpInfo($username, $start_date, $end_date, $hash, $inline_object11)
+        return $this->generateShoppingListAsyncWithHttpInfo($username, $start_date, $end_date, $hash, $inline_object13)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5566,15 +6420,15 @@ class DefaultApi
      * @param  string $start_date The start date in the format yyyy-mm-dd. (required)
      * @param  string $end_date The end date in the format yyyy-mm-dd. (required)
      * @param  string $hash The private hash for the username. (required)
-     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject11 $inline_object11 (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject13 $inline_object13 (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function generateShoppingListAsyncWithHttpInfo($username, $start_date, $end_date, $hash, $inline_object11)
+    public function generateShoppingListAsyncWithHttpInfo($username, $start_date, $end_date, $hash, $inline_object13)
     {
         $returnType = 'object';
-        $request = $this->generateShoppingListRequest($username, $start_date, $end_date, $hash, $inline_object11);
+        $request = $this->generateShoppingListRequest($username, $start_date, $end_date, $hash, $inline_object13);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5617,12 +6471,12 @@ class DefaultApi
      * @param  string $start_date The start date in the format yyyy-mm-dd. (required)
      * @param  string $end_date The end date in the format yyyy-mm-dd. (required)
      * @param  string $hash The private hash for the username. (required)
-     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject11 $inline_object11 (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject13 $inline_object13 (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function generateShoppingListRequest($username, $start_date, $end_date, $hash, $inline_object11)
+    protected function generateShoppingListRequest($username, $start_date, $end_date, $hash, $inline_object13)
     {
         // verify the required parameter 'username' is set
         if ($username === null || (is_array($username) && count($username) === 0)) {
@@ -5648,10 +6502,10 @@ class DefaultApi
                 'Missing the required parameter $hash when calling generateShoppingList'
             );
         }
-        // verify the required parameter 'inline_object11' is set
-        if ($inline_object11 === null || (is_array($inline_object11) && count($inline_object11) === 0)) {
+        // verify the required parameter 'inline_object13' is set
+        if ($inline_object13 === null || (is_array($inline_object13) && count($inline_object13) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $inline_object11 when calling generateShoppingList'
+                'Missing the required parameter $inline_object13 when calling generateShoppingList'
             );
         }
 
@@ -5694,8 +6548,8 @@ class DefaultApi
 
         // body params
         $_tempBody = null;
-        if (isset($inline_object11)) {
-            $_tempBody = $inline_object11;
+        if (isset($inline_object13)) {
+            $_tempBody = $inline_object13;
         }
 
         if ($multipart) {
@@ -11563,6 +12417,278 @@ class DefaultApi
     }
 
     /**
+     * Operation getRecipeTasteByID
+     *
+     * Get Recipe Taste by ID
+     *
+     * @param  float $id The recipe id. (required)
+     *
+     * @throws \com.spoonacular.client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return object
+     */
+    public function getRecipeTasteByID($id)
+    {
+        list($response) = $this->getRecipeTasteByIDWithHttpInfo($id);
+        return $response;
+    }
+
+    /**
+     * Operation getRecipeTasteByIDWithHttpInfo
+     *
+     * Get Recipe Taste by ID
+     *
+     * @param  float $id The recipe id. (required)
+     *
+     * @throws \com.spoonacular.client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of object, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getRecipeTasteByIDWithHttpInfo($id)
+    {
+        $request = $this->getRecipeTasteByIDRequest($id);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('object' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, 'object', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'object';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'object',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getRecipeTasteByIDAsync
+     *
+     * Get Recipe Taste by ID
+     *
+     * @param  float $id The recipe id. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getRecipeTasteByIDAsync($id)
+    {
+        return $this->getRecipeTasteByIDAsyncWithHttpInfo($id)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getRecipeTasteByIDAsyncWithHttpInfo
+     *
+     * Get Recipe Taste by ID
+     *
+     * @param  float $id The recipe id. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getRecipeTasteByIDAsyncWithHttpInfo($id)
+    {
+        $returnType = 'object';
+        $request = $this->getRecipeTasteByIDRequest($id);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getRecipeTasteByID'
+     *
+     * @param  float $id The recipe id. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getRecipeTasteByIDRequest($id)
+    {
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling getRecipeTasteByID'
+            );
+        }
+
+        $resourcePath = '/recipes/{id}/tasteWidget.json';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation getShoppingList
      *
      * Get Shopping List
@@ -13784,6 +14910,391 @@ class DefaultApi
     }
 
     /**
+     * Operation ingredientSearch
+     *
+     * Ingredient Search
+     *
+     * @param  string $query The partial or full ingredient name. (required)
+     * @param  bool $add_children Whether to add children of found foods. (optional)
+     * @param  float $min_protein_percent The minimum percentage of protein the food must have (between 0 and 100). (optional)
+     * @param  float $max_protein_percent The maximum percentage of protein the food can have (between 0 and 100). (optional)
+     * @param  float $min_fat_percent The minimum percentage of fat the food must have (between 0 and 100). (optional)
+     * @param  float $max_fat_percent The maximum percentage of fat the food can have (between 0 and 100). (optional)
+     * @param  float $min_carbs_percent The minimum percentage of carbs the food must have (between 0 and 100). (optional)
+     * @param  float $max_carbs_percent The maximum percentage of carbs the food can have (between 0 and 100). (optional)
+     * @param  bool $meta_information Whether to return more meta information about the ingredients. (optional)
+     * @param  string $intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
+     * @param  string $sort The strategy to sort recipes by. See a full list of supported sorting options. (optional)
+     * @param  string $sort_direction The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending). (optional)
+     * @param  float $offset The number of results to skip (between 0 and 990). (optional)
+     * @param  float $number The number of expected results (between 1 and 100). (optional)
+     *
+     * @throws \com.spoonacular.client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return object
+     */
+    public function ingredientSearch($query, $add_children = null, $min_protein_percent = null, $max_protein_percent = null, $min_fat_percent = null, $max_fat_percent = null, $min_carbs_percent = null, $max_carbs_percent = null, $meta_information = null, $intolerances = null, $sort = null, $sort_direction = null, $offset = null, $number = null)
+    {
+        list($response) = $this->ingredientSearchWithHttpInfo($query, $add_children, $min_protein_percent, $max_protein_percent, $min_fat_percent, $max_fat_percent, $min_carbs_percent, $max_carbs_percent, $meta_information, $intolerances, $sort, $sort_direction, $offset, $number);
+        return $response;
+    }
+
+    /**
+     * Operation ingredientSearchWithHttpInfo
+     *
+     * Ingredient Search
+     *
+     * @param  string $query The partial or full ingredient name. (required)
+     * @param  bool $add_children Whether to add children of found foods. (optional)
+     * @param  float $min_protein_percent The minimum percentage of protein the food must have (between 0 and 100). (optional)
+     * @param  float $max_protein_percent The maximum percentage of protein the food can have (between 0 and 100). (optional)
+     * @param  float $min_fat_percent The minimum percentage of fat the food must have (between 0 and 100). (optional)
+     * @param  float $max_fat_percent The maximum percentage of fat the food can have (between 0 and 100). (optional)
+     * @param  float $min_carbs_percent The minimum percentage of carbs the food must have (between 0 and 100). (optional)
+     * @param  float $max_carbs_percent The maximum percentage of carbs the food can have (between 0 and 100). (optional)
+     * @param  bool $meta_information Whether to return more meta information about the ingredients. (optional)
+     * @param  string $intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
+     * @param  string $sort The strategy to sort recipes by. See a full list of supported sorting options. (optional)
+     * @param  string $sort_direction The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending). (optional)
+     * @param  float $offset The number of results to skip (between 0 and 990). (optional)
+     * @param  float $number The number of expected results (between 1 and 100). (optional)
+     *
+     * @throws \com.spoonacular.client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of object, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function ingredientSearchWithHttpInfo($query, $add_children = null, $min_protein_percent = null, $max_protein_percent = null, $min_fat_percent = null, $max_fat_percent = null, $min_carbs_percent = null, $max_carbs_percent = null, $meta_information = null, $intolerances = null, $sort = null, $sort_direction = null, $offset = null, $number = null)
+    {
+        $request = $this->ingredientSearchRequest($query, $add_children, $min_protein_percent, $max_protein_percent, $min_fat_percent, $max_fat_percent, $min_carbs_percent, $max_carbs_percent, $meta_information, $intolerances, $sort, $sort_direction, $offset, $number);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('object' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, 'object', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'object';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'object',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation ingredientSearchAsync
+     *
+     * Ingredient Search
+     *
+     * @param  string $query The partial or full ingredient name. (required)
+     * @param  bool $add_children Whether to add children of found foods. (optional)
+     * @param  float $min_protein_percent The minimum percentage of protein the food must have (between 0 and 100). (optional)
+     * @param  float $max_protein_percent The maximum percentage of protein the food can have (between 0 and 100). (optional)
+     * @param  float $min_fat_percent The minimum percentage of fat the food must have (between 0 and 100). (optional)
+     * @param  float $max_fat_percent The maximum percentage of fat the food can have (between 0 and 100). (optional)
+     * @param  float $min_carbs_percent The minimum percentage of carbs the food must have (between 0 and 100). (optional)
+     * @param  float $max_carbs_percent The maximum percentage of carbs the food can have (between 0 and 100). (optional)
+     * @param  bool $meta_information Whether to return more meta information about the ingredients. (optional)
+     * @param  string $intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
+     * @param  string $sort The strategy to sort recipes by. See a full list of supported sorting options. (optional)
+     * @param  string $sort_direction The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending). (optional)
+     * @param  float $offset The number of results to skip (between 0 and 990). (optional)
+     * @param  float $number The number of expected results (between 1 and 100). (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function ingredientSearchAsync($query, $add_children = null, $min_protein_percent = null, $max_protein_percent = null, $min_fat_percent = null, $max_fat_percent = null, $min_carbs_percent = null, $max_carbs_percent = null, $meta_information = null, $intolerances = null, $sort = null, $sort_direction = null, $offset = null, $number = null)
+    {
+        return $this->ingredientSearchAsyncWithHttpInfo($query, $add_children, $min_protein_percent, $max_protein_percent, $min_fat_percent, $max_fat_percent, $min_carbs_percent, $max_carbs_percent, $meta_information, $intolerances, $sort, $sort_direction, $offset, $number)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation ingredientSearchAsyncWithHttpInfo
+     *
+     * Ingredient Search
+     *
+     * @param  string $query The partial or full ingredient name. (required)
+     * @param  bool $add_children Whether to add children of found foods. (optional)
+     * @param  float $min_protein_percent The minimum percentage of protein the food must have (between 0 and 100). (optional)
+     * @param  float $max_protein_percent The maximum percentage of protein the food can have (between 0 and 100). (optional)
+     * @param  float $min_fat_percent The minimum percentage of fat the food must have (between 0 and 100). (optional)
+     * @param  float $max_fat_percent The maximum percentage of fat the food can have (between 0 and 100). (optional)
+     * @param  float $min_carbs_percent The minimum percentage of carbs the food must have (between 0 and 100). (optional)
+     * @param  float $max_carbs_percent The maximum percentage of carbs the food can have (between 0 and 100). (optional)
+     * @param  bool $meta_information Whether to return more meta information about the ingredients. (optional)
+     * @param  string $intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
+     * @param  string $sort The strategy to sort recipes by. See a full list of supported sorting options. (optional)
+     * @param  string $sort_direction The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending). (optional)
+     * @param  float $offset The number of results to skip (between 0 and 990). (optional)
+     * @param  float $number The number of expected results (between 1 and 100). (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function ingredientSearchAsyncWithHttpInfo($query, $add_children = null, $min_protein_percent = null, $max_protein_percent = null, $min_fat_percent = null, $max_fat_percent = null, $min_carbs_percent = null, $max_carbs_percent = null, $meta_information = null, $intolerances = null, $sort = null, $sort_direction = null, $offset = null, $number = null)
+    {
+        $returnType = 'object';
+        $request = $this->ingredientSearchRequest($query, $add_children, $min_protein_percent, $max_protein_percent, $min_fat_percent, $max_fat_percent, $min_carbs_percent, $max_carbs_percent, $meta_information, $intolerances, $sort, $sort_direction, $offset, $number);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'ingredientSearch'
+     *
+     * @param  string $query The partial or full ingredient name. (required)
+     * @param  bool $add_children Whether to add children of found foods. (optional)
+     * @param  float $min_protein_percent The minimum percentage of protein the food must have (between 0 and 100). (optional)
+     * @param  float $max_protein_percent The maximum percentage of protein the food can have (between 0 and 100). (optional)
+     * @param  float $min_fat_percent The minimum percentage of fat the food must have (between 0 and 100). (optional)
+     * @param  float $max_fat_percent The maximum percentage of fat the food can have (between 0 and 100). (optional)
+     * @param  float $min_carbs_percent The minimum percentage of carbs the food must have (between 0 and 100). (optional)
+     * @param  float $max_carbs_percent The maximum percentage of carbs the food can have (between 0 and 100). (optional)
+     * @param  bool $meta_information Whether to return more meta information about the ingredients. (optional)
+     * @param  string $intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
+     * @param  string $sort The strategy to sort recipes by. See a full list of supported sorting options. (optional)
+     * @param  string $sort_direction The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending). (optional)
+     * @param  float $offset The number of results to skip (between 0 and 990). (optional)
+     * @param  float $number The number of expected results (between 1 and 100). (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function ingredientSearchRequest($query, $add_children = null, $min_protein_percent = null, $max_protein_percent = null, $min_fat_percent = null, $max_fat_percent = null, $min_carbs_percent = null, $max_carbs_percent = null, $meta_information = null, $intolerances = null, $sort = null, $sort_direction = null, $offset = null, $number = null)
+    {
+        // verify the required parameter 'query' is set
+        if ($query === null || (is_array($query) && count($query) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $query when calling ingredientSearch'
+            );
+        }
+
+        $resourcePath = '/food/ingredients/search';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($query !== null) {
+            $queryParams['query'] = ObjectSerializer::toQueryValue($query);
+        }
+        // query params
+        if ($add_children !== null) {
+            $queryParams['addChildren'] = ObjectSerializer::toQueryValue($add_children);
+        }
+        // query params
+        if ($min_protein_percent !== null) {
+            $queryParams['minProteinPercent'] = ObjectSerializer::toQueryValue($min_protein_percent);
+        }
+        // query params
+        if ($max_protein_percent !== null) {
+            $queryParams['maxProteinPercent'] = ObjectSerializer::toQueryValue($max_protein_percent);
+        }
+        // query params
+        if ($min_fat_percent !== null) {
+            $queryParams['minFatPercent'] = ObjectSerializer::toQueryValue($min_fat_percent);
+        }
+        // query params
+        if ($max_fat_percent !== null) {
+            $queryParams['maxFatPercent'] = ObjectSerializer::toQueryValue($max_fat_percent);
+        }
+        // query params
+        if ($min_carbs_percent !== null) {
+            $queryParams['minCarbsPercent'] = ObjectSerializer::toQueryValue($min_carbs_percent);
+        }
+        // query params
+        if ($max_carbs_percent !== null) {
+            $queryParams['maxCarbsPercent'] = ObjectSerializer::toQueryValue($max_carbs_percent);
+        }
+        // query params
+        if ($meta_information !== null) {
+            $queryParams['metaInformation'] = ObjectSerializer::toQueryValue($meta_information);
+        }
+        // query params
+        if ($intolerances !== null) {
+            $queryParams['intolerances'] = ObjectSerializer::toQueryValue($intolerances);
+        }
+        // query params
+        if ($sort !== null) {
+            $queryParams['sort'] = ObjectSerializer::toQueryValue($sort);
+        }
+        // query params
+        if ($sort_direction !== null) {
+            $queryParams['sortDirection'] = ObjectSerializer::toQueryValue($sort_direction);
+        }
+        // query params
+        if ($offset !== null) {
+            $queryParams['offset'] = ObjectSerializer::toQueryValue($offset);
+        }
+        // query params
+        if ($number !== null) {
+            $queryParams['number'] = ObjectSerializer::toQueryValue($number);
+        }
+
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation mapIngredientsToGroceryProducts
      *
      * Map Ingredients to Grocery Products
@@ -14543,6 +16054,292 @@ class DefaultApi
         // query params
         if ($q !== null) {
             $queryParams['q'] = ObjectSerializer::toQueryValue($q);
+        }
+
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation searchAllFood
+     *
+     * Search All Food
+     *
+     * @param  string $query The search query. (required)
+     * @param  float $offset The number of results to skip (between 0 and 990). (optional)
+     * @param  float $number The number of expected results (between 1 and 100). (optional)
+     *
+     * @throws \com.spoonacular.client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return object
+     */
+    public function searchAllFood($query, $offset = null, $number = null)
+    {
+        list($response) = $this->searchAllFoodWithHttpInfo($query, $offset, $number);
+        return $response;
+    }
+
+    /**
+     * Operation searchAllFoodWithHttpInfo
+     *
+     * Search All Food
+     *
+     * @param  string $query The search query. (required)
+     * @param  float $offset The number of results to skip (between 0 and 990). (optional)
+     * @param  float $number The number of expected results (between 1 and 100). (optional)
+     *
+     * @throws \com.spoonacular.client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of object, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function searchAllFoodWithHttpInfo($query, $offset = null, $number = null)
+    {
+        $request = $this->searchAllFoodRequest($query, $offset, $number);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('object' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, 'object', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'object';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'object',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation searchAllFoodAsync
+     *
+     * Search All Food
+     *
+     * @param  string $query The search query. (required)
+     * @param  float $offset The number of results to skip (between 0 and 990). (optional)
+     * @param  float $number The number of expected results (between 1 and 100). (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function searchAllFoodAsync($query, $offset = null, $number = null)
+    {
+        return $this->searchAllFoodAsyncWithHttpInfo($query, $offset, $number)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation searchAllFoodAsyncWithHttpInfo
+     *
+     * Search All Food
+     *
+     * @param  string $query The search query. (required)
+     * @param  float $offset The number of results to skip (between 0 and 990). (optional)
+     * @param  float $number The number of expected results (between 1 and 100). (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function searchAllFoodAsyncWithHttpInfo($query, $offset = null, $number = null)
+    {
+        $returnType = 'object';
+        $request = $this->searchAllFoodRequest($query, $offset, $number);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'searchAllFood'
+     *
+     * @param  string $query The search query. (required)
+     * @param  float $offset The number of results to skip (between 0 and 990). (optional)
+     * @param  float $number The number of expected results (between 1 and 100). (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function searchAllFoodRequest($query, $offset = null, $number = null)
+    {
+        // verify the required parameter 'query' is set
+        if ($query === null || (is_array($query) && count($query) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $query when calling searchAllFood'
+            );
+        }
+
+        $resourcePath = '/food/search';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($query !== null) {
+            $queryParams['query'] = ObjectSerializer::toQueryValue($query);
+        }
+        // query params
+        if ($offset !== null) {
+            $queryParams['offset'] = ObjectSerializer::toQueryValue($offset);
+        }
+        // query params
+        if ($number !== null) {
+            $queryParams['number'] = ObjectSerializer::toQueryValue($number);
         }
 
 
@@ -16269,22 +18066,109 @@ class DefaultApi
      * Search Recipes
      *
      * @param  string $query The (natural language) recipe search query. (required)
-     * @param  string $cuisine The cuisine(s) of the recipes. One or more comma separated. See a full list of supported cuisines. (optional)
+     * @param  string $cuisine The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as &#39;OR&#39;). See a full list of supported cuisines. (optional)
+     * @param  string $exclude_cuisine The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as &#39;AND&#39;). See a full list of supported cuisines. (optional)
      * @param  string $diet The diet for which the recipes must be suitable. See a full list of supported diets. (optional)
+     * @param  string $intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
+     * @param  string $equipment The equipment required. Multiple values will be interpreted as &#39;or&#39;. For example, value could be \&quot;blender, frying pan, bowl\&quot;. (optional)
+     * @param  string $include_ingredients A comma-separated list of ingredients that should/must be used in the recipes. (optional)
      * @param  string $exclude_ingredients A comma-separated list of ingredients or ingredient types that the recipes must not contain. (optional)
-     * @param  string $intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. Please note: due to the automatic nature of the recipe analysis, the API cannot be 100% accurate in all cases. Please advise your users to seek professional help with medical issues. (optional)
-     * @param  float $offset The number of results to skip (between 0 and 900). (optional)
-     * @param  float $number The number of results to return (between 1 and 100). (optional)
-     * @param  bool $limit_license Whether the recipes should have an open license that allows display with proper attribution. (optional)
+     * @param  string $type The type of recipe. See a full list of supported meal types. (optional)
      * @param  bool $instructions_required Whether the recipes must have instructions. (optional)
+     * @param  bool $fill_ingredients Add information about the ingredients and whether they are used or missing in relation to the query. (optional)
+     * @param  bool $add_recipe_information If set to true, you get more information about the recipes returned. (optional)
+     * @param  bool $add_recipe_nutrition If set to true, you get nutritional information about each recipes returned. (optional)
+     * @param  string $author The username of the recipe author. (optional)
+     * @param  string $tags User defined tags that have to match. The author param has to be set. (optional)
+     * @param  float $recipe_box_id The id of the recipe box to which the search should be limited to. (optional)
+     * @param  string $title_match Enter text that must be found in the title of the recipes. (optional)
+     * @param  float $max_ready_time The maximum time in minutes it should take to prepare and cook the recipe. (optional)
+     * @param  bool $ignore_pantry Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional)
+     * @param  string $sort The strategy to sort recipes by. See a full list of supported sorting options. (optional)
+     * @param  string $sort_direction The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending). (optional)
+     * @param  float $min_carbs The minimum amount of carbohydrates in grams the recipe must have. (optional)
+     * @param  float $max_carbs The maximum amount of carbohydrates in grams the recipe can have. (optional)
+     * @param  float $min_protein The minimum amount of protein in grams the recipe must have. (optional)
+     * @param  float $max_protein The maximum amount of protein in grams the recipe can have. (optional)
+     * @param  float $min_calories The minimum amount of calories the recipe must have. (optional)
+     * @param  float $max_calories The maximum amount of calories the recipe can have. (optional)
+     * @param  float $min_fat The minimum amount of fat in grams the recipe must have. (optional)
+     * @param  float $max_fat The maximum amount of fat in grams the recipe can have. (optional)
+     * @param  float $min_alcohol The minimum amount of alcohol in grams the recipe must have. (optional)
+     * @param  float $max_alcohol The maximum amount of alcohol in grams the recipe can have. (optional)
+     * @param  float $min_caffeine The minimum amount of caffeine in milligrams the recipe must have. (optional)
+     * @param  float $max_caffeine The maximum amount of caffeine in milligrams the recipe can have. (optional)
+     * @param  float $min_copper The minimum amount of copper in milligrams the recipe must have. (optional)
+     * @param  float $max_copper The maximum amount of copper in milligrams the recipe can have. (optional)
+     * @param  float $min_calcium The minimum amount of calcium in milligrams the recipe must have. (optional)
+     * @param  float $max_calcium The maximum amount of calcium in milligrams the recipe can have. (optional)
+     * @param  float $min_choline The minimum amount of choline in milligrams the recipe must have. (optional)
+     * @param  float $max_choline The maximum amount of choline in milligrams the recipe can have. (optional)
+     * @param  float $min_cholesterol The minimum amount of cholesterol in milligrams the recipe must have. (optional)
+     * @param  float $max_cholesterol The maximum amount of cholesterol in milligrams the recipe can have. (optional)
+     * @param  float $min_fluoride The minimum amount of fluoride in milligrams the recipe must have. (optional)
+     * @param  float $max_fluoride The maximum amount of fluoride in milligrams the recipe can have. (optional)
+     * @param  float $min_saturated_fat The minimum amount of saturated fat in grams the recipe must have. (optional)
+     * @param  float $max_saturated_fat The maximum amount of saturated fat in grams the recipe can have. (optional)
+     * @param  float $min_vitamin_a The minimum amount of Vitamin A in IU the recipe must have. (optional)
+     * @param  float $max_vitamin_a The maximum amount of Vitamin A in IU the recipe can have. (optional)
+     * @param  float $min_vitamin_c The minimum amount of Vitamin C milligrams the recipe must have. (optional)
+     * @param  float $max_vitamin_c The maximum amount of Vitamin C in milligrams the recipe can have. (optional)
+     * @param  float $min_vitamin_d The minimum amount of Vitamin D in micrograms the recipe must have. (optional)
+     * @param  float $max_vitamin_d The maximum amount of Vitamin D in micrograms the recipe can have. (optional)
+     * @param  float $min_vitamin_e The minimum amount of Vitamin E in milligrams the recipe must have. (optional)
+     * @param  float $max_vitamin_e The maximum amount of Vitamin E in milligrams the recipe can have. (optional)
+     * @param  float $min_vitamin_k The minimum amount of Vitamin K in micrograms the recipe must have. (optional)
+     * @param  float $max_vitamin_k The maximum amount of Vitamin K in micrograms the recipe can have. (optional)
+     * @param  float $min_vitamin_b1 The minimum amount of Vitamin B1 in milligrams the recipe must have. (optional)
+     * @param  float $max_vitamin_b1 The maximum amount of Vitamin B1 in milligrams the recipe can have. (optional)
+     * @param  float $min_vitamin_b2 The minimum amount of Vitamin B2 in milligrams the recipe must have. (optional)
+     * @param  float $max_vitamin_b2 The maximum amount of Vitamin B2 in milligrams the recipe can have. (optional)
+     * @param  float $min_vitamin_b5 The minimum amount of Vitamin B5 in milligrams the recipe must have. (optional)
+     * @param  float $max_vitamin_b5 The maximum amount of Vitamin B5 in milligrams the recipe can have. (optional)
+     * @param  float $min_vitamin_b3 The minimum amount of Vitamin B3 in milligrams the recipe must have. (optional)
+     * @param  float $max_vitamin_b3 The maximum amount of Vitamin B3 in milligrams the recipe can have. (optional)
+     * @param  float $min_vitamin_b6 The minimum amount of Vitamin B6 in milligrams the recipe must have. (optional)
+     * @param  float $max_vitamin_b6 The maximum amount of Vitamin B6 in milligrams the recipe can have. (optional)
+     * @param  float $min_vitamin_b12 The minimum amount of Vitamin B12 in micrograms the recipe must have. (optional)
+     * @param  float $max_vitamin_b12 The maximum amount of Vitamin B12 in micrograms the recipe can have. (optional)
+     * @param  float $min_fiber The minimum amount of fiber in grams the recipe must have. (optional)
+     * @param  float $max_fiber The maximum amount of fiber in grams the recipe can have. (optional)
+     * @param  float $min_folate The minimum amount of folate in micrograms the recipe must have. (optional)
+     * @param  float $max_folate The maximum amount of folate in micrograms the recipe can have. (optional)
+     * @param  float $min_folic_acid The minimum amount of folic acid in micrograms the recipe must have. (optional)
+     * @param  float $max_folic_acid The maximum amount of folic acid in micrograms the recipe can have. (optional)
+     * @param  float $min_iodine The minimum amount of iodine in micrograms the recipe must have. (optional)
+     * @param  float $max_iodine The maximum amount of iodine in micrograms the recipe can have. (optional)
+     * @param  float $min_iron The minimum amount of iron in milligrams the recipe must have. (optional)
+     * @param  float $max_iron The maximum amount of iron in milligrams the recipe can have. (optional)
+     * @param  float $min_magnesium The minimum amount of magnesium in milligrams the recipe must have. (optional)
+     * @param  float $max_magnesium The maximum amount of magnesium in milligrams the recipe can have. (optional)
+     * @param  float $min_manganese The minimum amount of manganese in milligrams the recipe must have. (optional)
+     * @param  float $max_manganese The maximum amount of manganese in milligrams the recipe can have. (optional)
+     * @param  float $min_phosphorus The minimum amount of phosphorus in milligrams the recipe must have. (optional)
+     * @param  float $max_phosphorus The maximum amount of phosphorus in milligrams the recipe can have. (optional)
+     * @param  float $min_potassium The minimum amount of potassium in milligrams the recipe must have. (optional)
+     * @param  float $max_potassium The maximum amount of potassium in milligrams the recipe can have. (optional)
+     * @param  float $min_selenium The minimum amount of selenium in micrograms the recipe must have. (optional)
+     * @param  float $max_selenium The maximum amount of selenium in micrograms the recipe can have. (optional)
+     * @param  float $min_sodium The minimum amount of sodium in milligrams the recipe must have. (optional)
+     * @param  float $max_sodium The maximum amount of sodium in milligrams the recipe can have. (optional)
+     * @param  float $min_sugar The minimum amount of sugar in grams the recipe must have. (optional)
+     * @param  float $max_sugar The maximum amount of sugar in grams the recipe can have. (optional)
+     * @param  float $min_zinc The minimum amount of zinc in milligrams the recipe must have. (optional)
+     * @param  float $max_zinc The maximum amount of zinc in milligrams the recipe can have. (optional)
+     * @param  float $offset The number of results to skip (between 0 and 900). (optional)
+     * @param  float $number The number of expected results (between 1 and 100). (optional)
+     * @param  bool $limit_license Whether the recipes should have an open license that allows display with proper attribution. (optional)
      *
      * @throws \com.spoonacular.client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return object
      */
-    public function searchRecipes($query, $cuisine = null, $diet = null, $exclude_ingredients = null, $intolerances = null, $offset = null, $number = null, $limit_license = null, $instructions_required = null)
+    public function searchRecipes($query, $cuisine = null, $exclude_cuisine = null, $diet = null, $intolerances = null, $equipment = null, $include_ingredients = null, $exclude_ingredients = null, $type = null, $instructions_required = null, $fill_ingredients = null, $add_recipe_information = null, $add_recipe_nutrition = null, $author = null, $tags = null, $recipe_box_id = null, $title_match = null, $max_ready_time = null, $ignore_pantry = null, $sort = null, $sort_direction = null, $min_carbs = null, $max_carbs = null, $min_protein = null, $max_protein = null, $min_calories = null, $max_calories = null, $min_fat = null, $max_fat = null, $min_alcohol = null, $max_alcohol = null, $min_caffeine = null, $max_caffeine = null, $min_copper = null, $max_copper = null, $min_calcium = null, $max_calcium = null, $min_choline = null, $max_choline = null, $min_cholesterol = null, $max_cholesterol = null, $min_fluoride = null, $max_fluoride = null, $min_saturated_fat = null, $max_saturated_fat = null, $min_vitamin_a = null, $max_vitamin_a = null, $min_vitamin_c = null, $max_vitamin_c = null, $min_vitamin_d = null, $max_vitamin_d = null, $min_vitamin_e = null, $max_vitamin_e = null, $min_vitamin_k = null, $max_vitamin_k = null, $min_vitamin_b1 = null, $max_vitamin_b1 = null, $min_vitamin_b2 = null, $max_vitamin_b2 = null, $min_vitamin_b5 = null, $max_vitamin_b5 = null, $min_vitamin_b3 = null, $max_vitamin_b3 = null, $min_vitamin_b6 = null, $max_vitamin_b6 = null, $min_vitamin_b12 = null, $max_vitamin_b12 = null, $min_fiber = null, $max_fiber = null, $min_folate = null, $max_folate = null, $min_folic_acid = null, $max_folic_acid = null, $min_iodine = null, $max_iodine = null, $min_iron = null, $max_iron = null, $min_magnesium = null, $max_magnesium = null, $min_manganese = null, $max_manganese = null, $min_phosphorus = null, $max_phosphorus = null, $min_potassium = null, $max_potassium = null, $min_selenium = null, $max_selenium = null, $min_sodium = null, $max_sodium = null, $min_sugar = null, $max_sugar = null, $min_zinc = null, $max_zinc = null, $offset = null, $number = null, $limit_license = null)
     {
-        list($response) = $this->searchRecipesWithHttpInfo($query, $cuisine, $diet, $exclude_ingredients, $intolerances, $offset, $number, $limit_license, $instructions_required);
+        list($response) = $this->searchRecipesWithHttpInfo($query, $cuisine, $exclude_cuisine, $diet, $intolerances, $equipment, $include_ingredients, $exclude_ingredients, $type, $instructions_required, $fill_ingredients, $add_recipe_information, $add_recipe_nutrition, $author, $tags, $recipe_box_id, $title_match, $max_ready_time, $ignore_pantry, $sort, $sort_direction, $min_carbs, $max_carbs, $min_protein, $max_protein, $min_calories, $max_calories, $min_fat, $max_fat, $min_alcohol, $max_alcohol, $min_caffeine, $max_caffeine, $min_copper, $max_copper, $min_calcium, $max_calcium, $min_choline, $max_choline, $min_cholesterol, $max_cholesterol, $min_fluoride, $max_fluoride, $min_saturated_fat, $max_saturated_fat, $min_vitamin_a, $max_vitamin_a, $min_vitamin_c, $max_vitamin_c, $min_vitamin_d, $max_vitamin_d, $min_vitamin_e, $max_vitamin_e, $min_vitamin_k, $max_vitamin_k, $min_vitamin_b1, $max_vitamin_b1, $min_vitamin_b2, $max_vitamin_b2, $min_vitamin_b5, $max_vitamin_b5, $min_vitamin_b3, $max_vitamin_b3, $min_vitamin_b6, $max_vitamin_b6, $min_vitamin_b12, $max_vitamin_b12, $min_fiber, $max_fiber, $min_folate, $max_folate, $min_folic_acid, $max_folic_acid, $min_iodine, $max_iodine, $min_iron, $max_iron, $min_magnesium, $max_magnesium, $min_manganese, $max_manganese, $min_phosphorus, $max_phosphorus, $min_potassium, $max_potassium, $min_selenium, $max_selenium, $min_sodium, $max_sodium, $min_sugar, $max_sugar, $min_zinc, $max_zinc, $offset, $number, $limit_license);
         return $response;
     }
 
@@ -16294,22 +18178,109 @@ class DefaultApi
      * Search Recipes
      *
      * @param  string $query The (natural language) recipe search query. (required)
-     * @param  string $cuisine The cuisine(s) of the recipes. One or more comma separated. See a full list of supported cuisines. (optional)
+     * @param  string $cuisine The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as &#39;OR&#39;). See a full list of supported cuisines. (optional)
+     * @param  string $exclude_cuisine The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as &#39;AND&#39;). See a full list of supported cuisines. (optional)
      * @param  string $diet The diet for which the recipes must be suitable. See a full list of supported diets. (optional)
+     * @param  string $intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
+     * @param  string $equipment The equipment required. Multiple values will be interpreted as &#39;or&#39;. For example, value could be \&quot;blender, frying pan, bowl\&quot;. (optional)
+     * @param  string $include_ingredients A comma-separated list of ingredients that should/must be used in the recipes. (optional)
      * @param  string $exclude_ingredients A comma-separated list of ingredients or ingredient types that the recipes must not contain. (optional)
-     * @param  string $intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. Please note: due to the automatic nature of the recipe analysis, the API cannot be 100% accurate in all cases. Please advise your users to seek professional help with medical issues. (optional)
-     * @param  float $offset The number of results to skip (between 0 and 900). (optional)
-     * @param  float $number The number of results to return (between 1 and 100). (optional)
-     * @param  bool $limit_license Whether the recipes should have an open license that allows display with proper attribution. (optional)
+     * @param  string $type The type of recipe. See a full list of supported meal types. (optional)
      * @param  bool $instructions_required Whether the recipes must have instructions. (optional)
+     * @param  bool $fill_ingredients Add information about the ingredients and whether they are used or missing in relation to the query. (optional)
+     * @param  bool $add_recipe_information If set to true, you get more information about the recipes returned. (optional)
+     * @param  bool $add_recipe_nutrition If set to true, you get nutritional information about each recipes returned. (optional)
+     * @param  string $author The username of the recipe author. (optional)
+     * @param  string $tags User defined tags that have to match. The author param has to be set. (optional)
+     * @param  float $recipe_box_id The id of the recipe box to which the search should be limited to. (optional)
+     * @param  string $title_match Enter text that must be found in the title of the recipes. (optional)
+     * @param  float $max_ready_time The maximum time in minutes it should take to prepare and cook the recipe. (optional)
+     * @param  bool $ignore_pantry Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional)
+     * @param  string $sort The strategy to sort recipes by. See a full list of supported sorting options. (optional)
+     * @param  string $sort_direction The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending). (optional)
+     * @param  float $min_carbs The minimum amount of carbohydrates in grams the recipe must have. (optional)
+     * @param  float $max_carbs The maximum amount of carbohydrates in grams the recipe can have. (optional)
+     * @param  float $min_protein The minimum amount of protein in grams the recipe must have. (optional)
+     * @param  float $max_protein The maximum amount of protein in grams the recipe can have. (optional)
+     * @param  float $min_calories The minimum amount of calories the recipe must have. (optional)
+     * @param  float $max_calories The maximum amount of calories the recipe can have. (optional)
+     * @param  float $min_fat The minimum amount of fat in grams the recipe must have. (optional)
+     * @param  float $max_fat The maximum amount of fat in grams the recipe can have. (optional)
+     * @param  float $min_alcohol The minimum amount of alcohol in grams the recipe must have. (optional)
+     * @param  float $max_alcohol The maximum amount of alcohol in grams the recipe can have. (optional)
+     * @param  float $min_caffeine The minimum amount of caffeine in milligrams the recipe must have. (optional)
+     * @param  float $max_caffeine The maximum amount of caffeine in milligrams the recipe can have. (optional)
+     * @param  float $min_copper The minimum amount of copper in milligrams the recipe must have. (optional)
+     * @param  float $max_copper The maximum amount of copper in milligrams the recipe can have. (optional)
+     * @param  float $min_calcium The minimum amount of calcium in milligrams the recipe must have. (optional)
+     * @param  float $max_calcium The maximum amount of calcium in milligrams the recipe can have. (optional)
+     * @param  float $min_choline The minimum amount of choline in milligrams the recipe must have. (optional)
+     * @param  float $max_choline The maximum amount of choline in milligrams the recipe can have. (optional)
+     * @param  float $min_cholesterol The minimum amount of cholesterol in milligrams the recipe must have. (optional)
+     * @param  float $max_cholesterol The maximum amount of cholesterol in milligrams the recipe can have. (optional)
+     * @param  float $min_fluoride The minimum amount of fluoride in milligrams the recipe must have. (optional)
+     * @param  float $max_fluoride The maximum amount of fluoride in milligrams the recipe can have. (optional)
+     * @param  float $min_saturated_fat The minimum amount of saturated fat in grams the recipe must have. (optional)
+     * @param  float $max_saturated_fat The maximum amount of saturated fat in grams the recipe can have. (optional)
+     * @param  float $min_vitamin_a The minimum amount of Vitamin A in IU the recipe must have. (optional)
+     * @param  float $max_vitamin_a The maximum amount of Vitamin A in IU the recipe can have. (optional)
+     * @param  float $min_vitamin_c The minimum amount of Vitamin C milligrams the recipe must have. (optional)
+     * @param  float $max_vitamin_c The maximum amount of Vitamin C in milligrams the recipe can have. (optional)
+     * @param  float $min_vitamin_d The minimum amount of Vitamin D in micrograms the recipe must have. (optional)
+     * @param  float $max_vitamin_d The maximum amount of Vitamin D in micrograms the recipe can have. (optional)
+     * @param  float $min_vitamin_e The minimum amount of Vitamin E in milligrams the recipe must have. (optional)
+     * @param  float $max_vitamin_e The maximum amount of Vitamin E in milligrams the recipe can have. (optional)
+     * @param  float $min_vitamin_k The minimum amount of Vitamin K in micrograms the recipe must have. (optional)
+     * @param  float $max_vitamin_k The maximum amount of Vitamin K in micrograms the recipe can have. (optional)
+     * @param  float $min_vitamin_b1 The minimum amount of Vitamin B1 in milligrams the recipe must have. (optional)
+     * @param  float $max_vitamin_b1 The maximum amount of Vitamin B1 in milligrams the recipe can have. (optional)
+     * @param  float $min_vitamin_b2 The minimum amount of Vitamin B2 in milligrams the recipe must have. (optional)
+     * @param  float $max_vitamin_b2 The maximum amount of Vitamin B2 in milligrams the recipe can have. (optional)
+     * @param  float $min_vitamin_b5 The minimum amount of Vitamin B5 in milligrams the recipe must have. (optional)
+     * @param  float $max_vitamin_b5 The maximum amount of Vitamin B5 in milligrams the recipe can have. (optional)
+     * @param  float $min_vitamin_b3 The minimum amount of Vitamin B3 in milligrams the recipe must have. (optional)
+     * @param  float $max_vitamin_b3 The maximum amount of Vitamin B3 in milligrams the recipe can have. (optional)
+     * @param  float $min_vitamin_b6 The minimum amount of Vitamin B6 in milligrams the recipe must have. (optional)
+     * @param  float $max_vitamin_b6 The maximum amount of Vitamin B6 in milligrams the recipe can have. (optional)
+     * @param  float $min_vitamin_b12 The minimum amount of Vitamin B12 in micrograms the recipe must have. (optional)
+     * @param  float $max_vitamin_b12 The maximum amount of Vitamin B12 in micrograms the recipe can have. (optional)
+     * @param  float $min_fiber The minimum amount of fiber in grams the recipe must have. (optional)
+     * @param  float $max_fiber The maximum amount of fiber in grams the recipe can have. (optional)
+     * @param  float $min_folate The minimum amount of folate in micrograms the recipe must have. (optional)
+     * @param  float $max_folate The maximum amount of folate in micrograms the recipe can have. (optional)
+     * @param  float $min_folic_acid The minimum amount of folic acid in micrograms the recipe must have. (optional)
+     * @param  float $max_folic_acid The maximum amount of folic acid in micrograms the recipe can have. (optional)
+     * @param  float $min_iodine The minimum amount of iodine in micrograms the recipe must have. (optional)
+     * @param  float $max_iodine The maximum amount of iodine in micrograms the recipe can have. (optional)
+     * @param  float $min_iron The minimum amount of iron in milligrams the recipe must have. (optional)
+     * @param  float $max_iron The maximum amount of iron in milligrams the recipe can have. (optional)
+     * @param  float $min_magnesium The minimum amount of magnesium in milligrams the recipe must have. (optional)
+     * @param  float $max_magnesium The maximum amount of magnesium in milligrams the recipe can have. (optional)
+     * @param  float $min_manganese The minimum amount of manganese in milligrams the recipe must have. (optional)
+     * @param  float $max_manganese The maximum amount of manganese in milligrams the recipe can have. (optional)
+     * @param  float $min_phosphorus The minimum amount of phosphorus in milligrams the recipe must have. (optional)
+     * @param  float $max_phosphorus The maximum amount of phosphorus in milligrams the recipe can have. (optional)
+     * @param  float $min_potassium The minimum amount of potassium in milligrams the recipe must have. (optional)
+     * @param  float $max_potassium The maximum amount of potassium in milligrams the recipe can have. (optional)
+     * @param  float $min_selenium The minimum amount of selenium in micrograms the recipe must have. (optional)
+     * @param  float $max_selenium The maximum amount of selenium in micrograms the recipe can have. (optional)
+     * @param  float $min_sodium The minimum amount of sodium in milligrams the recipe must have. (optional)
+     * @param  float $max_sodium The maximum amount of sodium in milligrams the recipe can have. (optional)
+     * @param  float $min_sugar The minimum amount of sugar in grams the recipe must have. (optional)
+     * @param  float $max_sugar The maximum amount of sugar in grams the recipe can have. (optional)
+     * @param  float $min_zinc The minimum amount of zinc in milligrams the recipe must have. (optional)
+     * @param  float $max_zinc The maximum amount of zinc in milligrams the recipe can have. (optional)
+     * @param  float $offset The number of results to skip (between 0 and 900). (optional)
+     * @param  float $number The number of expected results (between 1 and 100). (optional)
+     * @param  bool $limit_license Whether the recipes should have an open license that allows display with proper attribution. (optional)
      *
      * @throws \com.spoonacular.client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchRecipesWithHttpInfo($query, $cuisine = null, $diet = null, $exclude_ingredients = null, $intolerances = null, $offset = null, $number = null, $limit_license = null, $instructions_required = null)
+    public function searchRecipesWithHttpInfo($query, $cuisine = null, $exclude_cuisine = null, $diet = null, $intolerances = null, $equipment = null, $include_ingredients = null, $exclude_ingredients = null, $type = null, $instructions_required = null, $fill_ingredients = null, $add_recipe_information = null, $add_recipe_nutrition = null, $author = null, $tags = null, $recipe_box_id = null, $title_match = null, $max_ready_time = null, $ignore_pantry = null, $sort = null, $sort_direction = null, $min_carbs = null, $max_carbs = null, $min_protein = null, $max_protein = null, $min_calories = null, $max_calories = null, $min_fat = null, $max_fat = null, $min_alcohol = null, $max_alcohol = null, $min_caffeine = null, $max_caffeine = null, $min_copper = null, $max_copper = null, $min_calcium = null, $max_calcium = null, $min_choline = null, $max_choline = null, $min_cholesterol = null, $max_cholesterol = null, $min_fluoride = null, $max_fluoride = null, $min_saturated_fat = null, $max_saturated_fat = null, $min_vitamin_a = null, $max_vitamin_a = null, $min_vitamin_c = null, $max_vitamin_c = null, $min_vitamin_d = null, $max_vitamin_d = null, $min_vitamin_e = null, $max_vitamin_e = null, $min_vitamin_k = null, $max_vitamin_k = null, $min_vitamin_b1 = null, $max_vitamin_b1 = null, $min_vitamin_b2 = null, $max_vitamin_b2 = null, $min_vitamin_b5 = null, $max_vitamin_b5 = null, $min_vitamin_b3 = null, $max_vitamin_b3 = null, $min_vitamin_b6 = null, $max_vitamin_b6 = null, $min_vitamin_b12 = null, $max_vitamin_b12 = null, $min_fiber = null, $max_fiber = null, $min_folate = null, $max_folate = null, $min_folic_acid = null, $max_folic_acid = null, $min_iodine = null, $max_iodine = null, $min_iron = null, $max_iron = null, $min_magnesium = null, $max_magnesium = null, $min_manganese = null, $max_manganese = null, $min_phosphorus = null, $max_phosphorus = null, $min_potassium = null, $max_potassium = null, $min_selenium = null, $max_selenium = null, $min_sodium = null, $max_sodium = null, $min_sugar = null, $max_sugar = null, $min_zinc = null, $max_zinc = null, $offset = null, $number = null, $limit_license = null)
     {
-        $request = $this->searchRecipesRequest($query, $cuisine, $diet, $exclude_ingredients, $intolerances, $offset, $number, $limit_license, $instructions_required);
+        $request = $this->searchRecipesRequest($query, $cuisine, $exclude_cuisine, $diet, $intolerances, $equipment, $include_ingredients, $exclude_ingredients, $type, $instructions_required, $fill_ingredients, $add_recipe_information, $add_recipe_nutrition, $author, $tags, $recipe_box_id, $title_match, $max_ready_time, $ignore_pantry, $sort, $sort_direction, $min_carbs, $max_carbs, $min_protein, $max_protein, $min_calories, $max_calories, $min_fat, $max_fat, $min_alcohol, $max_alcohol, $min_caffeine, $max_caffeine, $min_copper, $max_copper, $min_calcium, $max_calcium, $min_choline, $max_choline, $min_cholesterol, $max_cholesterol, $min_fluoride, $max_fluoride, $min_saturated_fat, $max_saturated_fat, $min_vitamin_a, $max_vitamin_a, $min_vitamin_c, $max_vitamin_c, $min_vitamin_d, $max_vitamin_d, $min_vitamin_e, $max_vitamin_e, $min_vitamin_k, $max_vitamin_k, $min_vitamin_b1, $max_vitamin_b1, $min_vitamin_b2, $max_vitamin_b2, $min_vitamin_b5, $max_vitamin_b5, $min_vitamin_b3, $max_vitamin_b3, $min_vitamin_b6, $max_vitamin_b6, $min_vitamin_b12, $max_vitamin_b12, $min_fiber, $max_fiber, $min_folate, $max_folate, $min_folic_acid, $max_folic_acid, $min_iodine, $max_iodine, $min_iron, $max_iron, $min_magnesium, $max_magnesium, $min_manganese, $max_manganese, $min_phosphorus, $max_phosphorus, $min_potassium, $max_potassium, $min_selenium, $max_selenium, $min_sodium, $max_sodium, $min_sugar, $max_sugar, $min_zinc, $max_zinc, $offset, $number, $limit_license);
 
         try {
             $options = $this->createHttpClientOption();
@@ -16390,21 +18361,108 @@ class DefaultApi
      * Search Recipes
      *
      * @param  string $query The (natural language) recipe search query. (required)
-     * @param  string $cuisine The cuisine(s) of the recipes. One or more comma separated. See a full list of supported cuisines. (optional)
+     * @param  string $cuisine The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as &#39;OR&#39;). See a full list of supported cuisines. (optional)
+     * @param  string $exclude_cuisine The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as &#39;AND&#39;). See a full list of supported cuisines. (optional)
      * @param  string $diet The diet for which the recipes must be suitable. See a full list of supported diets. (optional)
+     * @param  string $intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
+     * @param  string $equipment The equipment required. Multiple values will be interpreted as &#39;or&#39;. For example, value could be \&quot;blender, frying pan, bowl\&quot;. (optional)
+     * @param  string $include_ingredients A comma-separated list of ingredients that should/must be used in the recipes. (optional)
      * @param  string $exclude_ingredients A comma-separated list of ingredients or ingredient types that the recipes must not contain. (optional)
-     * @param  string $intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. Please note: due to the automatic nature of the recipe analysis, the API cannot be 100% accurate in all cases. Please advise your users to seek professional help with medical issues. (optional)
-     * @param  float $offset The number of results to skip (between 0 and 900). (optional)
-     * @param  float $number The number of results to return (between 1 and 100). (optional)
-     * @param  bool $limit_license Whether the recipes should have an open license that allows display with proper attribution. (optional)
+     * @param  string $type The type of recipe. See a full list of supported meal types. (optional)
      * @param  bool $instructions_required Whether the recipes must have instructions. (optional)
+     * @param  bool $fill_ingredients Add information about the ingredients and whether they are used or missing in relation to the query. (optional)
+     * @param  bool $add_recipe_information If set to true, you get more information about the recipes returned. (optional)
+     * @param  bool $add_recipe_nutrition If set to true, you get nutritional information about each recipes returned. (optional)
+     * @param  string $author The username of the recipe author. (optional)
+     * @param  string $tags User defined tags that have to match. The author param has to be set. (optional)
+     * @param  float $recipe_box_id The id of the recipe box to which the search should be limited to. (optional)
+     * @param  string $title_match Enter text that must be found in the title of the recipes. (optional)
+     * @param  float $max_ready_time The maximum time in minutes it should take to prepare and cook the recipe. (optional)
+     * @param  bool $ignore_pantry Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional)
+     * @param  string $sort The strategy to sort recipes by. See a full list of supported sorting options. (optional)
+     * @param  string $sort_direction The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending). (optional)
+     * @param  float $min_carbs The minimum amount of carbohydrates in grams the recipe must have. (optional)
+     * @param  float $max_carbs The maximum amount of carbohydrates in grams the recipe can have. (optional)
+     * @param  float $min_protein The minimum amount of protein in grams the recipe must have. (optional)
+     * @param  float $max_protein The maximum amount of protein in grams the recipe can have. (optional)
+     * @param  float $min_calories The minimum amount of calories the recipe must have. (optional)
+     * @param  float $max_calories The maximum amount of calories the recipe can have. (optional)
+     * @param  float $min_fat The minimum amount of fat in grams the recipe must have. (optional)
+     * @param  float $max_fat The maximum amount of fat in grams the recipe can have. (optional)
+     * @param  float $min_alcohol The minimum amount of alcohol in grams the recipe must have. (optional)
+     * @param  float $max_alcohol The maximum amount of alcohol in grams the recipe can have. (optional)
+     * @param  float $min_caffeine The minimum amount of caffeine in milligrams the recipe must have. (optional)
+     * @param  float $max_caffeine The maximum amount of caffeine in milligrams the recipe can have. (optional)
+     * @param  float $min_copper The minimum amount of copper in milligrams the recipe must have. (optional)
+     * @param  float $max_copper The maximum amount of copper in milligrams the recipe can have. (optional)
+     * @param  float $min_calcium The minimum amount of calcium in milligrams the recipe must have. (optional)
+     * @param  float $max_calcium The maximum amount of calcium in milligrams the recipe can have. (optional)
+     * @param  float $min_choline The minimum amount of choline in milligrams the recipe must have. (optional)
+     * @param  float $max_choline The maximum amount of choline in milligrams the recipe can have. (optional)
+     * @param  float $min_cholesterol The minimum amount of cholesterol in milligrams the recipe must have. (optional)
+     * @param  float $max_cholesterol The maximum amount of cholesterol in milligrams the recipe can have. (optional)
+     * @param  float $min_fluoride The minimum amount of fluoride in milligrams the recipe must have. (optional)
+     * @param  float $max_fluoride The maximum amount of fluoride in milligrams the recipe can have. (optional)
+     * @param  float $min_saturated_fat The minimum amount of saturated fat in grams the recipe must have. (optional)
+     * @param  float $max_saturated_fat The maximum amount of saturated fat in grams the recipe can have. (optional)
+     * @param  float $min_vitamin_a The minimum amount of Vitamin A in IU the recipe must have. (optional)
+     * @param  float $max_vitamin_a The maximum amount of Vitamin A in IU the recipe can have. (optional)
+     * @param  float $min_vitamin_c The minimum amount of Vitamin C milligrams the recipe must have. (optional)
+     * @param  float $max_vitamin_c The maximum amount of Vitamin C in milligrams the recipe can have. (optional)
+     * @param  float $min_vitamin_d The minimum amount of Vitamin D in micrograms the recipe must have. (optional)
+     * @param  float $max_vitamin_d The maximum amount of Vitamin D in micrograms the recipe can have. (optional)
+     * @param  float $min_vitamin_e The minimum amount of Vitamin E in milligrams the recipe must have. (optional)
+     * @param  float $max_vitamin_e The maximum amount of Vitamin E in milligrams the recipe can have. (optional)
+     * @param  float $min_vitamin_k The minimum amount of Vitamin K in micrograms the recipe must have. (optional)
+     * @param  float $max_vitamin_k The maximum amount of Vitamin K in micrograms the recipe can have. (optional)
+     * @param  float $min_vitamin_b1 The minimum amount of Vitamin B1 in milligrams the recipe must have. (optional)
+     * @param  float $max_vitamin_b1 The maximum amount of Vitamin B1 in milligrams the recipe can have. (optional)
+     * @param  float $min_vitamin_b2 The minimum amount of Vitamin B2 in milligrams the recipe must have. (optional)
+     * @param  float $max_vitamin_b2 The maximum amount of Vitamin B2 in milligrams the recipe can have. (optional)
+     * @param  float $min_vitamin_b5 The minimum amount of Vitamin B5 in milligrams the recipe must have. (optional)
+     * @param  float $max_vitamin_b5 The maximum amount of Vitamin B5 in milligrams the recipe can have. (optional)
+     * @param  float $min_vitamin_b3 The minimum amount of Vitamin B3 in milligrams the recipe must have. (optional)
+     * @param  float $max_vitamin_b3 The maximum amount of Vitamin B3 in milligrams the recipe can have. (optional)
+     * @param  float $min_vitamin_b6 The minimum amount of Vitamin B6 in milligrams the recipe must have. (optional)
+     * @param  float $max_vitamin_b6 The maximum amount of Vitamin B6 in milligrams the recipe can have. (optional)
+     * @param  float $min_vitamin_b12 The minimum amount of Vitamin B12 in micrograms the recipe must have. (optional)
+     * @param  float $max_vitamin_b12 The maximum amount of Vitamin B12 in micrograms the recipe can have. (optional)
+     * @param  float $min_fiber The minimum amount of fiber in grams the recipe must have. (optional)
+     * @param  float $max_fiber The maximum amount of fiber in grams the recipe can have. (optional)
+     * @param  float $min_folate The minimum amount of folate in micrograms the recipe must have. (optional)
+     * @param  float $max_folate The maximum amount of folate in micrograms the recipe can have. (optional)
+     * @param  float $min_folic_acid The minimum amount of folic acid in micrograms the recipe must have. (optional)
+     * @param  float $max_folic_acid The maximum amount of folic acid in micrograms the recipe can have. (optional)
+     * @param  float $min_iodine The minimum amount of iodine in micrograms the recipe must have. (optional)
+     * @param  float $max_iodine The maximum amount of iodine in micrograms the recipe can have. (optional)
+     * @param  float $min_iron The minimum amount of iron in milligrams the recipe must have. (optional)
+     * @param  float $max_iron The maximum amount of iron in milligrams the recipe can have. (optional)
+     * @param  float $min_magnesium The minimum amount of magnesium in milligrams the recipe must have. (optional)
+     * @param  float $max_magnesium The maximum amount of magnesium in milligrams the recipe can have. (optional)
+     * @param  float $min_manganese The minimum amount of manganese in milligrams the recipe must have. (optional)
+     * @param  float $max_manganese The maximum amount of manganese in milligrams the recipe can have. (optional)
+     * @param  float $min_phosphorus The minimum amount of phosphorus in milligrams the recipe must have. (optional)
+     * @param  float $max_phosphorus The maximum amount of phosphorus in milligrams the recipe can have. (optional)
+     * @param  float $min_potassium The minimum amount of potassium in milligrams the recipe must have. (optional)
+     * @param  float $max_potassium The maximum amount of potassium in milligrams the recipe can have. (optional)
+     * @param  float $min_selenium The minimum amount of selenium in micrograms the recipe must have. (optional)
+     * @param  float $max_selenium The maximum amount of selenium in micrograms the recipe can have. (optional)
+     * @param  float $min_sodium The minimum amount of sodium in milligrams the recipe must have. (optional)
+     * @param  float $max_sodium The maximum amount of sodium in milligrams the recipe can have. (optional)
+     * @param  float $min_sugar The minimum amount of sugar in grams the recipe must have. (optional)
+     * @param  float $max_sugar The maximum amount of sugar in grams the recipe can have. (optional)
+     * @param  float $min_zinc The minimum amount of zinc in milligrams the recipe must have. (optional)
+     * @param  float $max_zinc The maximum amount of zinc in milligrams the recipe can have. (optional)
+     * @param  float $offset The number of results to skip (between 0 and 900). (optional)
+     * @param  float $number The number of expected results (between 1 and 100). (optional)
+     * @param  bool $limit_license Whether the recipes should have an open license that allows display with proper attribution. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchRecipesAsync($query, $cuisine = null, $diet = null, $exclude_ingredients = null, $intolerances = null, $offset = null, $number = null, $limit_license = null, $instructions_required = null)
+    public function searchRecipesAsync($query, $cuisine = null, $exclude_cuisine = null, $diet = null, $intolerances = null, $equipment = null, $include_ingredients = null, $exclude_ingredients = null, $type = null, $instructions_required = null, $fill_ingredients = null, $add_recipe_information = null, $add_recipe_nutrition = null, $author = null, $tags = null, $recipe_box_id = null, $title_match = null, $max_ready_time = null, $ignore_pantry = null, $sort = null, $sort_direction = null, $min_carbs = null, $max_carbs = null, $min_protein = null, $max_protein = null, $min_calories = null, $max_calories = null, $min_fat = null, $max_fat = null, $min_alcohol = null, $max_alcohol = null, $min_caffeine = null, $max_caffeine = null, $min_copper = null, $max_copper = null, $min_calcium = null, $max_calcium = null, $min_choline = null, $max_choline = null, $min_cholesterol = null, $max_cholesterol = null, $min_fluoride = null, $max_fluoride = null, $min_saturated_fat = null, $max_saturated_fat = null, $min_vitamin_a = null, $max_vitamin_a = null, $min_vitamin_c = null, $max_vitamin_c = null, $min_vitamin_d = null, $max_vitamin_d = null, $min_vitamin_e = null, $max_vitamin_e = null, $min_vitamin_k = null, $max_vitamin_k = null, $min_vitamin_b1 = null, $max_vitamin_b1 = null, $min_vitamin_b2 = null, $max_vitamin_b2 = null, $min_vitamin_b5 = null, $max_vitamin_b5 = null, $min_vitamin_b3 = null, $max_vitamin_b3 = null, $min_vitamin_b6 = null, $max_vitamin_b6 = null, $min_vitamin_b12 = null, $max_vitamin_b12 = null, $min_fiber = null, $max_fiber = null, $min_folate = null, $max_folate = null, $min_folic_acid = null, $max_folic_acid = null, $min_iodine = null, $max_iodine = null, $min_iron = null, $max_iron = null, $min_magnesium = null, $max_magnesium = null, $min_manganese = null, $max_manganese = null, $min_phosphorus = null, $max_phosphorus = null, $min_potassium = null, $max_potassium = null, $min_selenium = null, $max_selenium = null, $min_sodium = null, $max_sodium = null, $min_sugar = null, $max_sugar = null, $min_zinc = null, $max_zinc = null, $offset = null, $number = null, $limit_license = null)
     {
-        return $this->searchRecipesAsyncWithHttpInfo($query, $cuisine, $diet, $exclude_ingredients, $intolerances, $offset, $number, $limit_license, $instructions_required)
+        return $this->searchRecipesAsyncWithHttpInfo($query, $cuisine, $exclude_cuisine, $diet, $intolerances, $equipment, $include_ingredients, $exclude_ingredients, $type, $instructions_required, $fill_ingredients, $add_recipe_information, $add_recipe_nutrition, $author, $tags, $recipe_box_id, $title_match, $max_ready_time, $ignore_pantry, $sort, $sort_direction, $min_carbs, $max_carbs, $min_protein, $max_protein, $min_calories, $max_calories, $min_fat, $max_fat, $min_alcohol, $max_alcohol, $min_caffeine, $max_caffeine, $min_copper, $max_copper, $min_calcium, $max_calcium, $min_choline, $max_choline, $min_cholesterol, $max_cholesterol, $min_fluoride, $max_fluoride, $min_saturated_fat, $max_saturated_fat, $min_vitamin_a, $max_vitamin_a, $min_vitamin_c, $max_vitamin_c, $min_vitamin_d, $max_vitamin_d, $min_vitamin_e, $max_vitamin_e, $min_vitamin_k, $max_vitamin_k, $min_vitamin_b1, $max_vitamin_b1, $min_vitamin_b2, $max_vitamin_b2, $min_vitamin_b5, $max_vitamin_b5, $min_vitamin_b3, $max_vitamin_b3, $min_vitamin_b6, $max_vitamin_b6, $min_vitamin_b12, $max_vitamin_b12, $min_fiber, $max_fiber, $min_folate, $max_folate, $min_folic_acid, $max_folic_acid, $min_iodine, $max_iodine, $min_iron, $max_iron, $min_magnesium, $max_magnesium, $min_manganese, $max_manganese, $min_phosphorus, $max_phosphorus, $min_potassium, $max_potassium, $min_selenium, $max_selenium, $min_sodium, $max_sodium, $min_sugar, $max_sugar, $min_zinc, $max_zinc, $offset, $number, $limit_license)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -16418,22 +18476,109 @@ class DefaultApi
      * Search Recipes
      *
      * @param  string $query The (natural language) recipe search query. (required)
-     * @param  string $cuisine The cuisine(s) of the recipes. One or more comma separated. See a full list of supported cuisines. (optional)
+     * @param  string $cuisine The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as &#39;OR&#39;). See a full list of supported cuisines. (optional)
+     * @param  string $exclude_cuisine The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as &#39;AND&#39;). See a full list of supported cuisines. (optional)
      * @param  string $diet The diet for which the recipes must be suitable. See a full list of supported diets. (optional)
+     * @param  string $intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
+     * @param  string $equipment The equipment required. Multiple values will be interpreted as &#39;or&#39;. For example, value could be \&quot;blender, frying pan, bowl\&quot;. (optional)
+     * @param  string $include_ingredients A comma-separated list of ingredients that should/must be used in the recipes. (optional)
      * @param  string $exclude_ingredients A comma-separated list of ingredients or ingredient types that the recipes must not contain. (optional)
-     * @param  string $intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. Please note: due to the automatic nature of the recipe analysis, the API cannot be 100% accurate in all cases. Please advise your users to seek professional help with medical issues. (optional)
-     * @param  float $offset The number of results to skip (between 0 and 900). (optional)
-     * @param  float $number The number of results to return (between 1 and 100). (optional)
-     * @param  bool $limit_license Whether the recipes should have an open license that allows display with proper attribution. (optional)
+     * @param  string $type The type of recipe. See a full list of supported meal types. (optional)
      * @param  bool $instructions_required Whether the recipes must have instructions. (optional)
+     * @param  bool $fill_ingredients Add information about the ingredients and whether they are used or missing in relation to the query. (optional)
+     * @param  bool $add_recipe_information If set to true, you get more information about the recipes returned. (optional)
+     * @param  bool $add_recipe_nutrition If set to true, you get nutritional information about each recipes returned. (optional)
+     * @param  string $author The username of the recipe author. (optional)
+     * @param  string $tags User defined tags that have to match. The author param has to be set. (optional)
+     * @param  float $recipe_box_id The id of the recipe box to which the search should be limited to. (optional)
+     * @param  string $title_match Enter text that must be found in the title of the recipes. (optional)
+     * @param  float $max_ready_time The maximum time in minutes it should take to prepare and cook the recipe. (optional)
+     * @param  bool $ignore_pantry Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional)
+     * @param  string $sort The strategy to sort recipes by. See a full list of supported sorting options. (optional)
+     * @param  string $sort_direction The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending). (optional)
+     * @param  float $min_carbs The minimum amount of carbohydrates in grams the recipe must have. (optional)
+     * @param  float $max_carbs The maximum amount of carbohydrates in grams the recipe can have. (optional)
+     * @param  float $min_protein The minimum amount of protein in grams the recipe must have. (optional)
+     * @param  float $max_protein The maximum amount of protein in grams the recipe can have. (optional)
+     * @param  float $min_calories The minimum amount of calories the recipe must have. (optional)
+     * @param  float $max_calories The maximum amount of calories the recipe can have. (optional)
+     * @param  float $min_fat The minimum amount of fat in grams the recipe must have. (optional)
+     * @param  float $max_fat The maximum amount of fat in grams the recipe can have. (optional)
+     * @param  float $min_alcohol The minimum amount of alcohol in grams the recipe must have. (optional)
+     * @param  float $max_alcohol The maximum amount of alcohol in grams the recipe can have. (optional)
+     * @param  float $min_caffeine The minimum amount of caffeine in milligrams the recipe must have. (optional)
+     * @param  float $max_caffeine The maximum amount of caffeine in milligrams the recipe can have. (optional)
+     * @param  float $min_copper The minimum amount of copper in milligrams the recipe must have. (optional)
+     * @param  float $max_copper The maximum amount of copper in milligrams the recipe can have. (optional)
+     * @param  float $min_calcium The minimum amount of calcium in milligrams the recipe must have. (optional)
+     * @param  float $max_calcium The maximum amount of calcium in milligrams the recipe can have. (optional)
+     * @param  float $min_choline The minimum amount of choline in milligrams the recipe must have. (optional)
+     * @param  float $max_choline The maximum amount of choline in milligrams the recipe can have. (optional)
+     * @param  float $min_cholesterol The minimum amount of cholesterol in milligrams the recipe must have. (optional)
+     * @param  float $max_cholesterol The maximum amount of cholesterol in milligrams the recipe can have. (optional)
+     * @param  float $min_fluoride The minimum amount of fluoride in milligrams the recipe must have. (optional)
+     * @param  float $max_fluoride The maximum amount of fluoride in milligrams the recipe can have. (optional)
+     * @param  float $min_saturated_fat The minimum amount of saturated fat in grams the recipe must have. (optional)
+     * @param  float $max_saturated_fat The maximum amount of saturated fat in grams the recipe can have. (optional)
+     * @param  float $min_vitamin_a The minimum amount of Vitamin A in IU the recipe must have. (optional)
+     * @param  float $max_vitamin_a The maximum amount of Vitamin A in IU the recipe can have. (optional)
+     * @param  float $min_vitamin_c The minimum amount of Vitamin C milligrams the recipe must have. (optional)
+     * @param  float $max_vitamin_c The maximum amount of Vitamin C in milligrams the recipe can have. (optional)
+     * @param  float $min_vitamin_d The minimum amount of Vitamin D in micrograms the recipe must have. (optional)
+     * @param  float $max_vitamin_d The maximum amount of Vitamin D in micrograms the recipe can have. (optional)
+     * @param  float $min_vitamin_e The minimum amount of Vitamin E in milligrams the recipe must have. (optional)
+     * @param  float $max_vitamin_e The maximum amount of Vitamin E in milligrams the recipe can have. (optional)
+     * @param  float $min_vitamin_k The minimum amount of Vitamin K in micrograms the recipe must have. (optional)
+     * @param  float $max_vitamin_k The maximum amount of Vitamin K in micrograms the recipe can have. (optional)
+     * @param  float $min_vitamin_b1 The minimum amount of Vitamin B1 in milligrams the recipe must have. (optional)
+     * @param  float $max_vitamin_b1 The maximum amount of Vitamin B1 in milligrams the recipe can have. (optional)
+     * @param  float $min_vitamin_b2 The minimum amount of Vitamin B2 in milligrams the recipe must have. (optional)
+     * @param  float $max_vitamin_b2 The maximum amount of Vitamin B2 in milligrams the recipe can have. (optional)
+     * @param  float $min_vitamin_b5 The minimum amount of Vitamin B5 in milligrams the recipe must have. (optional)
+     * @param  float $max_vitamin_b5 The maximum amount of Vitamin B5 in milligrams the recipe can have. (optional)
+     * @param  float $min_vitamin_b3 The minimum amount of Vitamin B3 in milligrams the recipe must have. (optional)
+     * @param  float $max_vitamin_b3 The maximum amount of Vitamin B3 in milligrams the recipe can have. (optional)
+     * @param  float $min_vitamin_b6 The minimum amount of Vitamin B6 in milligrams the recipe must have. (optional)
+     * @param  float $max_vitamin_b6 The maximum amount of Vitamin B6 in milligrams the recipe can have. (optional)
+     * @param  float $min_vitamin_b12 The minimum amount of Vitamin B12 in micrograms the recipe must have. (optional)
+     * @param  float $max_vitamin_b12 The maximum amount of Vitamin B12 in micrograms the recipe can have. (optional)
+     * @param  float $min_fiber The minimum amount of fiber in grams the recipe must have. (optional)
+     * @param  float $max_fiber The maximum amount of fiber in grams the recipe can have. (optional)
+     * @param  float $min_folate The minimum amount of folate in micrograms the recipe must have. (optional)
+     * @param  float $max_folate The maximum amount of folate in micrograms the recipe can have. (optional)
+     * @param  float $min_folic_acid The minimum amount of folic acid in micrograms the recipe must have. (optional)
+     * @param  float $max_folic_acid The maximum amount of folic acid in micrograms the recipe can have. (optional)
+     * @param  float $min_iodine The minimum amount of iodine in micrograms the recipe must have. (optional)
+     * @param  float $max_iodine The maximum amount of iodine in micrograms the recipe can have. (optional)
+     * @param  float $min_iron The minimum amount of iron in milligrams the recipe must have. (optional)
+     * @param  float $max_iron The maximum amount of iron in milligrams the recipe can have. (optional)
+     * @param  float $min_magnesium The minimum amount of magnesium in milligrams the recipe must have. (optional)
+     * @param  float $max_magnesium The maximum amount of magnesium in milligrams the recipe can have. (optional)
+     * @param  float $min_manganese The minimum amount of manganese in milligrams the recipe must have. (optional)
+     * @param  float $max_manganese The maximum amount of manganese in milligrams the recipe can have. (optional)
+     * @param  float $min_phosphorus The minimum amount of phosphorus in milligrams the recipe must have. (optional)
+     * @param  float $max_phosphorus The maximum amount of phosphorus in milligrams the recipe can have. (optional)
+     * @param  float $min_potassium The minimum amount of potassium in milligrams the recipe must have. (optional)
+     * @param  float $max_potassium The maximum amount of potassium in milligrams the recipe can have. (optional)
+     * @param  float $min_selenium The minimum amount of selenium in micrograms the recipe must have. (optional)
+     * @param  float $max_selenium The maximum amount of selenium in micrograms the recipe can have. (optional)
+     * @param  float $min_sodium The minimum amount of sodium in milligrams the recipe must have. (optional)
+     * @param  float $max_sodium The maximum amount of sodium in milligrams the recipe can have. (optional)
+     * @param  float $min_sugar The minimum amount of sugar in grams the recipe must have. (optional)
+     * @param  float $max_sugar The maximum amount of sugar in grams the recipe can have. (optional)
+     * @param  float $min_zinc The minimum amount of zinc in milligrams the recipe must have. (optional)
+     * @param  float $max_zinc The maximum amount of zinc in milligrams the recipe can have. (optional)
+     * @param  float $offset The number of results to skip (between 0 and 900). (optional)
+     * @param  float $number The number of expected results (between 1 and 100). (optional)
+     * @param  bool $limit_license Whether the recipes should have an open license that allows display with proper attribution. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchRecipesAsyncWithHttpInfo($query, $cuisine = null, $diet = null, $exclude_ingredients = null, $intolerances = null, $offset = null, $number = null, $limit_license = null, $instructions_required = null)
+    public function searchRecipesAsyncWithHttpInfo($query, $cuisine = null, $exclude_cuisine = null, $diet = null, $intolerances = null, $equipment = null, $include_ingredients = null, $exclude_ingredients = null, $type = null, $instructions_required = null, $fill_ingredients = null, $add_recipe_information = null, $add_recipe_nutrition = null, $author = null, $tags = null, $recipe_box_id = null, $title_match = null, $max_ready_time = null, $ignore_pantry = null, $sort = null, $sort_direction = null, $min_carbs = null, $max_carbs = null, $min_protein = null, $max_protein = null, $min_calories = null, $max_calories = null, $min_fat = null, $max_fat = null, $min_alcohol = null, $max_alcohol = null, $min_caffeine = null, $max_caffeine = null, $min_copper = null, $max_copper = null, $min_calcium = null, $max_calcium = null, $min_choline = null, $max_choline = null, $min_cholesterol = null, $max_cholesterol = null, $min_fluoride = null, $max_fluoride = null, $min_saturated_fat = null, $max_saturated_fat = null, $min_vitamin_a = null, $max_vitamin_a = null, $min_vitamin_c = null, $max_vitamin_c = null, $min_vitamin_d = null, $max_vitamin_d = null, $min_vitamin_e = null, $max_vitamin_e = null, $min_vitamin_k = null, $max_vitamin_k = null, $min_vitamin_b1 = null, $max_vitamin_b1 = null, $min_vitamin_b2 = null, $max_vitamin_b2 = null, $min_vitamin_b5 = null, $max_vitamin_b5 = null, $min_vitamin_b3 = null, $max_vitamin_b3 = null, $min_vitamin_b6 = null, $max_vitamin_b6 = null, $min_vitamin_b12 = null, $max_vitamin_b12 = null, $min_fiber = null, $max_fiber = null, $min_folate = null, $max_folate = null, $min_folic_acid = null, $max_folic_acid = null, $min_iodine = null, $max_iodine = null, $min_iron = null, $max_iron = null, $min_magnesium = null, $max_magnesium = null, $min_manganese = null, $max_manganese = null, $min_phosphorus = null, $max_phosphorus = null, $min_potassium = null, $max_potassium = null, $min_selenium = null, $max_selenium = null, $min_sodium = null, $max_sodium = null, $min_sugar = null, $max_sugar = null, $min_zinc = null, $max_zinc = null, $offset = null, $number = null, $limit_license = null)
     {
         $returnType = 'object';
-        $request = $this->searchRecipesRequest($query, $cuisine, $diet, $exclude_ingredients, $intolerances, $offset, $number, $limit_license, $instructions_required);
+        $request = $this->searchRecipesRequest($query, $cuisine, $exclude_cuisine, $diet, $intolerances, $equipment, $include_ingredients, $exclude_ingredients, $type, $instructions_required, $fill_ingredients, $add_recipe_information, $add_recipe_nutrition, $author, $tags, $recipe_box_id, $title_match, $max_ready_time, $ignore_pantry, $sort, $sort_direction, $min_carbs, $max_carbs, $min_protein, $max_protein, $min_calories, $max_calories, $min_fat, $max_fat, $min_alcohol, $max_alcohol, $min_caffeine, $max_caffeine, $min_copper, $max_copper, $min_calcium, $max_calcium, $min_choline, $max_choline, $min_cholesterol, $max_cholesterol, $min_fluoride, $max_fluoride, $min_saturated_fat, $max_saturated_fat, $min_vitamin_a, $max_vitamin_a, $min_vitamin_c, $max_vitamin_c, $min_vitamin_d, $max_vitamin_d, $min_vitamin_e, $max_vitamin_e, $min_vitamin_k, $max_vitamin_k, $min_vitamin_b1, $max_vitamin_b1, $min_vitamin_b2, $max_vitamin_b2, $min_vitamin_b5, $max_vitamin_b5, $min_vitamin_b3, $max_vitamin_b3, $min_vitamin_b6, $max_vitamin_b6, $min_vitamin_b12, $max_vitamin_b12, $min_fiber, $max_fiber, $min_folate, $max_folate, $min_folic_acid, $max_folic_acid, $min_iodine, $max_iodine, $min_iron, $max_iron, $min_magnesium, $max_magnesium, $min_manganese, $max_manganese, $min_phosphorus, $max_phosphorus, $min_potassium, $max_potassium, $min_selenium, $max_selenium, $min_sodium, $max_sodium, $min_sugar, $max_sugar, $min_zinc, $max_zinc, $offset, $number, $limit_license);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -16473,19 +18618,106 @@ class DefaultApi
      * Create request for operation 'searchRecipes'
      *
      * @param  string $query The (natural language) recipe search query. (required)
-     * @param  string $cuisine The cuisine(s) of the recipes. One or more comma separated. See a full list of supported cuisines. (optional)
+     * @param  string $cuisine The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as &#39;OR&#39;). See a full list of supported cuisines. (optional)
+     * @param  string $exclude_cuisine The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as &#39;AND&#39;). See a full list of supported cuisines. (optional)
      * @param  string $diet The diet for which the recipes must be suitable. See a full list of supported diets. (optional)
+     * @param  string $intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
+     * @param  string $equipment The equipment required. Multiple values will be interpreted as &#39;or&#39;. For example, value could be \&quot;blender, frying pan, bowl\&quot;. (optional)
+     * @param  string $include_ingredients A comma-separated list of ingredients that should/must be used in the recipes. (optional)
      * @param  string $exclude_ingredients A comma-separated list of ingredients or ingredient types that the recipes must not contain. (optional)
-     * @param  string $intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. Please note: due to the automatic nature of the recipe analysis, the API cannot be 100% accurate in all cases. Please advise your users to seek professional help with medical issues. (optional)
-     * @param  float $offset The number of results to skip (between 0 and 900). (optional)
-     * @param  float $number The number of results to return (between 1 and 100). (optional)
-     * @param  bool $limit_license Whether the recipes should have an open license that allows display with proper attribution. (optional)
+     * @param  string $type The type of recipe. See a full list of supported meal types. (optional)
      * @param  bool $instructions_required Whether the recipes must have instructions. (optional)
+     * @param  bool $fill_ingredients Add information about the ingredients and whether they are used or missing in relation to the query. (optional)
+     * @param  bool $add_recipe_information If set to true, you get more information about the recipes returned. (optional)
+     * @param  bool $add_recipe_nutrition If set to true, you get nutritional information about each recipes returned. (optional)
+     * @param  string $author The username of the recipe author. (optional)
+     * @param  string $tags User defined tags that have to match. The author param has to be set. (optional)
+     * @param  float $recipe_box_id The id of the recipe box to which the search should be limited to. (optional)
+     * @param  string $title_match Enter text that must be found in the title of the recipes. (optional)
+     * @param  float $max_ready_time The maximum time in minutes it should take to prepare and cook the recipe. (optional)
+     * @param  bool $ignore_pantry Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional)
+     * @param  string $sort The strategy to sort recipes by. See a full list of supported sorting options. (optional)
+     * @param  string $sort_direction The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending). (optional)
+     * @param  float $min_carbs The minimum amount of carbohydrates in grams the recipe must have. (optional)
+     * @param  float $max_carbs The maximum amount of carbohydrates in grams the recipe can have. (optional)
+     * @param  float $min_protein The minimum amount of protein in grams the recipe must have. (optional)
+     * @param  float $max_protein The maximum amount of protein in grams the recipe can have. (optional)
+     * @param  float $min_calories The minimum amount of calories the recipe must have. (optional)
+     * @param  float $max_calories The maximum amount of calories the recipe can have. (optional)
+     * @param  float $min_fat The minimum amount of fat in grams the recipe must have. (optional)
+     * @param  float $max_fat The maximum amount of fat in grams the recipe can have. (optional)
+     * @param  float $min_alcohol The minimum amount of alcohol in grams the recipe must have. (optional)
+     * @param  float $max_alcohol The maximum amount of alcohol in grams the recipe can have. (optional)
+     * @param  float $min_caffeine The minimum amount of caffeine in milligrams the recipe must have. (optional)
+     * @param  float $max_caffeine The maximum amount of caffeine in milligrams the recipe can have. (optional)
+     * @param  float $min_copper The minimum amount of copper in milligrams the recipe must have. (optional)
+     * @param  float $max_copper The maximum amount of copper in milligrams the recipe can have. (optional)
+     * @param  float $min_calcium The minimum amount of calcium in milligrams the recipe must have. (optional)
+     * @param  float $max_calcium The maximum amount of calcium in milligrams the recipe can have. (optional)
+     * @param  float $min_choline The minimum amount of choline in milligrams the recipe must have. (optional)
+     * @param  float $max_choline The maximum amount of choline in milligrams the recipe can have. (optional)
+     * @param  float $min_cholesterol The minimum amount of cholesterol in milligrams the recipe must have. (optional)
+     * @param  float $max_cholesterol The maximum amount of cholesterol in milligrams the recipe can have. (optional)
+     * @param  float $min_fluoride The minimum amount of fluoride in milligrams the recipe must have. (optional)
+     * @param  float $max_fluoride The maximum amount of fluoride in milligrams the recipe can have. (optional)
+     * @param  float $min_saturated_fat The minimum amount of saturated fat in grams the recipe must have. (optional)
+     * @param  float $max_saturated_fat The maximum amount of saturated fat in grams the recipe can have. (optional)
+     * @param  float $min_vitamin_a The minimum amount of Vitamin A in IU the recipe must have. (optional)
+     * @param  float $max_vitamin_a The maximum amount of Vitamin A in IU the recipe can have. (optional)
+     * @param  float $min_vitamin_c The minimum amount of Vitamin C milligrams the recipe must have. (optional)
+     * @param  float $max_vitamin_c The maximum amount of Vitamin C in milligrams the recipe can have. (optional)
+     * @param  float $min_vitamin_d The minimum amount of Vitamin D in micrograms the recipe must have. (optional)
+     * @param  float $max_vitamin_d The maximum amount of Vitamin D in micrograms the recipe can have. (optional)
+     * @param  float $min_vitamin_e The minimum amount of Vitamin E in milligrams the recipe must have. (optional)
+     * @param  float $max_vitamin_e The maximum amount of Vitamin E in milligrams the recipe can have. (optional)
+     * @param  float $min_vitamin_k The minimum amount of Vitamin K in micrograms the recipe must have. (optional)
+     * @param  float $max_vitamin_k The maximum amount of Vitamin K in micrograms the recipe can have. (optional)
+     * @param  float $min_vitamin_b1 The minimum amount of Vitamin B1 in milligrams the recipe must have. (optional)
+     * @param  float $max_vitamin_b1 The maximum amount of Vitamin B1 in milligrams the recipe can have. (optional)
+     * @param  float $min_vitamin_b2 The minimum amount of Vitamin B2 in milligrams the recipe must have. (optional)
+     * @param  float $max_vitamin_b2 The maximum amount of Vitamin B2 in milligrams the recipe can have. (optional)
+     * @param  float $min_vitamin_b5 The minimum amount of Vitamin B5 in milligrams the recipe must have. (optional)
+     * @param  float $max_vitamin_b5 The maximum amount of Vitamin B5 in milligrams the recipe can have. (optional)
+     * @param  float $min_vitamin_b3 The minimum amount of Vitamin B3 in milligrams the recipe must have. (optional)
+     * @param  float $max_vitamin_b3 The maximum amount of Vitamin B3 in milligrams the recipe can have. (optional)
+     * @param  float $min_vitamin_b6 The minimum amount of Vitamin B6 in milligrams the recipe must have. (optional)
+     * @param  float $max_vitamin_b6 The maximum amount of Vitamin B6 in milligrams the recipe can have. (optional)
+     * @param  float $min_vitamin_b12 The minimum amount of Vitamin B12 in micrograms the recipe must have. (optional)
+     * @param  float $max_vitamin_b12 The maximum amount of Vitamin B12 in micrograms the recipe can have. (optional)
+     * @param  float $min_fiber The minimum amount of fiber in grams the recipe must have. (optional)
+     * @param  float $max_fiber The maximum amount of fiber in grams the recipe can have. (optional)
+     * @param  float $min_folate The minimum amount of folate in micrograms the recipe must have. (optional)
+     * @param  float $max_folate The maximum amount of folate in micrograms the recipe can have. (optional)
+     * @param  float $min_folic_acid The minimum amount of folic acid in micrograms the recipe must have. (optional)
+     * @param  float $max_folic_acid The maximum amount of folic acid in micrograms the recipe can have. (optional)
+     * @param  float $min_iodine The minimum amount of iodine in micrograms the recipe must have. (optional)
+     * @param  float $max_iodine The maximum amount of iodine in micrograms the recipe can have. (optional)
+     * @param  float $min_iron The minimum amount of iron in milligrams the recipe must have. (optional)
+     * @param  float $max_iron The maximum amount of iron in milligrams the recipe can have. (optional)
+     * @param  float $min_magnesium The minimum amount of magnesium in milligrams the recipe must have. (optional)
+     * @param  float $max_magnesium The maximum amount of magnesium in milligrams the recipe can have. (optional)
+     * @param  float $min_manganese The minimum amount of manganese in milligrams the recipe must have. (optional)
+     * @param  float $max_manganese The maximum amount of manganese in milligrams the recipe can have. (optional)
+     * @param  float $min_phosphorus The minimum amount of phosphorus in milligrams the recipe must have. (optional)
+     * @param  float $max_phosphorus The maximum amount of phosphorus in milligrams the recipe can have. (optional)
+     * @param  float $min_potassium The minimum amount of potassium in milligrams the recipe must have. (optional)
+     * @param  float $max_potassium The maximum amount of potassium in milligrams the recipe can have. (optional)
+     * @param  float $min_selenium The minimum amount of selenium in micrograms the recipe must have. (optional)
+     * @param  float $max_selenium The maximum amount of selenium in micrograms the recipe can have. (optional)
+     * @param  float $min_sodium The minimum amount of sodium in milligrams the recipe must have. (optional)
+     * @param  float $max_sodium The maximum amount of sodium in milligrams the recipe can have. (optional)
+     * @param  float $min_sugar The minimum amount of sugar in grams the recipe must have. (optional)
+     * @param  float $max_sugar The maximum amount of sugar in grams the recipe can have. (optional)
+     * @param  float $min_zinc The minimum amount of zinc in milligrams the recipe must have. (optional)
+     * @param  float $max_zinc The maximum amount of zinc in milligrams the recipe can have. (optional)
+     * @param  float $offset The number of results to skip (between 0 and 900). (optional)
+     * @param  float $number The number of expected results (between 1 and 100). (optional)
+     * @param  bool $limit_license Whether the recipes should have an open license that allows display with proper attribution. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function searchRecipesRequest($query, $cuisine = null, $diet = null, $exclude_ingredients = null, $intolerances = null, $offset = null, $number = null, $limit_license = null, $instructions_required = null)
+    protected function searchRecipesRequest($query, $cuisine = null, $exclude_cuisine = null, $diet = null, $intolerances = null, $equipment = null, $include_ingredients = null, $exclude_ingredients = null, $type = null, $instructions_required = null, $fill_ingredients = null, $add_recipe_information = null, $add_recipe_nutrition = null, $author = null, $tags = null, $recipe_box_id = null, $title_match = null, $max_ready_time = null, $ignore_pantry = null, $sort = null, $sort_direction = null, $min_carbs = null, $max_carbs = null, $min_protein = null, $max_protein = null, $min_calories = null, $max_calories = null, $min_fat = null, $max_fat = null, $min_alcohol = null, $max_alcohol = null, $min_caffeine = null, $max_caffeine = null, $min_copper = null, $max_copper = null, $min_calcium = null, $max_calcium = null, $min_choline = null, $max_choline = null, $min_cholesterol = null, $max_cholesterol = null, $min_fluoride = null, $max_fluoride = null, $min_saturated_fat = null, $max_saturated_fat = null, $min_vitamin_a = null, $max_vitamin_a = null, $min_vitamin_c = null, $max_vitamin_c = null, $min_vitamin_d = null, $max_vitamin_d = null, $min_vitamin_e = null, $max_vitamin_e = null, $min_vitamin_k = null, $max_vitamin_k = null, $min_vitamin_b1 = null, $max_vitamin_b1 = null, $min_vitamin_b2 = null, $max_vitamin_b2 = null, $min_vitamin_b5 = null, $max_vitamin_b5 = null, $min_vitamin_b3 = null, $max_vitamin_b3 = null, $min_vitamin_b6 = null, $max_vitamin_b6 = null, $min_vitamin_b12 = null, $max_vitamin_b12 = null, $min_fiber = null, $max_fiber = null, $min_folate = null, $max_folate = null, $min_folic_acid = null, $max_folic_acid = null, $min_iodine = null, $max_iodine = null, $min_iron = null, $max_iron = null, $min_magnesium = null, $max_magnesium = null, $min_manganese = null, $max_manganese = null, $min_phosphorus = null, $max_phosphorus = null, $min_potassium = null, $max_potassium = null, $min_selenium = null, $max_selenium = null, $min_sodium = null, $max_sodium = null, $min_sugar = null, $max_sugar = null, $min_zinc = null, $max_zinc = null, $offset = null, $number = null, $limit_license = null)
     {
         // verify the required parameter 'query' is set
         if ($query === null || (is_array($query) && count($query) === 0)) {
@@ -16494,7 +18726,7 @@ class DefaultApi
             );
         }
 
-        $resourcePath = '/recipes/search';
+        $resourcePath = '/recipes/complexSearch';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -16510,16 +18742,368 @@ class DefaultApi
             $queryParams['cuisine'] = ObjectSerializer::toQueryValue($cuisine);
         }
         // query params
+        if ($exclude_cuisine !== null) {
+            $queryParams['excludeCuisine'] = ObjectSerializer::toQueryValue($exclude_cuisine);
+        }
+        // query params
         if ($diet !== null) {
             $queryParams['diet'] = ObjectSerializer::toQueryValue($diet);
+        }
+        // query params
+        if ($intolerances !== null) {
+            $queryParams['intolerances'] = ObjectSerializer::toQueryValue($intolerances);
+        }
+        // query params
+        if ($equipment !== null) {
+            $queryParams['equipment'] = ObjectSerializer::toQueryValue($equipment);
+        }
+        // query params
+        if ($include_ingredients !== null) {
+            $queryParams['includeIngredients'] = ObjectSerializer::toQueryValue($include_ingredients);
         }
         // query params
         if ($exclude_ingredients !== null) {
             $queryParams['excludeIngredients'] = ObjectSerializer::toQueryValue($exclude_ingredients);
         }
         // query params
-        if ($intolerances !== null) {
-            $queryParams['intolerances'] = ObjectSerializer::toQueryValue($intolerances);
+        if ($type !== null) {
+            $queryParams['type'] = ObjectSerializer::toQueryValue($type);
+        }
+        // query params
+        if ($instructions_required !== null) {
+            $queryParams['instructionsRequired'] = ObjectSerializer::toQueryValue($instructions_required);
+        }
+        // query params
+        if ($fill_ingredients !== null) {
+            $queryParams['fillIngredients'] = ObjectSerializer::toQueryValue($fill_ingredients);
+        }
+        // query params
+        if ($add_recipe_information !== null) {
+            $queryParams['addRecipeInformation'] = ObjectSerializer::toQueryValue($add_recipe_information);
+        }
+        // query params
+        if ($add_recipe_nutrition !== null) {
+            $queryParams['addRecipeNutrition'] = ObjectSerializer::toQueryValue($add_recipe_nutrition);
+        }
+        // query params
+        if ($author !== null) {
+            $queryParams['author'] = ObjectSerializer::toQueryValue($author);
+        }
+        // query params
+        if ($tags !== null) {
+            $queryParams['tags'] = ObjectSerializer::toQueryValue($tags);
+        }
+        // query params
+        if ($recipe_box_id !== null) {
+            $queryParams['recipeBoxId'] = ObjectSerializer::toQueryValue($recipe_box_id);
+        }
+        // query params
+        if ($title_match !== null) {
+            $queryParams['titleMatch'] = ObjectSerializer::toQueryValue($title_match);
+        }
+        // query params
+        if ($max_ready_time !== null) {
+            $queryParams['maxReadyTime'] = ObjectSerializer::toQueryValue($max_ready_time);
+        }
+        // query params
+        if ($ignore_pantry !== null) {
+            $queryParams['ignorePantry'] = ObjectSerializer::toQueryValue($ignore_pantry);
+        }
+        // query params
+        if ($sort !== null) {
+            $queryParams['sort'] = ObjectSerializer::toQueryValue($sort);
+        }
+        // query params
+        if ($sort_direction !== null) {
+            $queryParams['sortDirection'] = ObjectSerializer::toQueryValue($sort_direction);
+        }
+        // query params
+        if ($min_carbs !== null) {
+            $queryParams['minCarbs'] = ObjectSerializer::toQueryValue($min_carbs);
+        }
+        // query params
+        if ($max_carbs !== null) {
+            $queryParams['maxCarbs'] = ObjectSerializer::toQueryValue($max_carbs);
+        }
+        // query params
+        if ($min_protein !== null) {
+            $queryParams['minProtein'] = ObjectSerializer::toQueryValue($min_protein);
+        }
+        // query params
+        if ($max_protein !== null) {
+            $queryParams['maxProtein'] = ObjectSerializer::toQueryValue($max_protein);
+        }
+        // query params
+        if ($min_calories !== null) {
+            $queryParams['minCalories'] = ObjectSerializer::toQueryValue($min_calories);
+        }
+        // query params
+        if ($max_calories !== null) {
+            $queryParams['maxCalories'] = ObjectSerializer::toQueryValue($max_calories);
+        }
+        // query params
+        if ($min_fat !== null) {
+            $queryParams['minFat'] = ObjectSerializer::toQueryValue($min_fat);
+        }
+        // query params
+        if ($max_fat !== null) {
+            $queryParams['maxFat'] = ObjectSerializer::toQueryValue($max_fat);
+        }
+        // query params
+        if ($min_alcohol !== null) {
+            $queryParams['minAlcohol'] = ObjectSerializer::toQueryValue($min_alcohol);
+        }
+        // query params
+        if ($max_alcohol !== null) {
+            $queryParams['maxAlcohol'] = ObjectSerializer::toQueryValue($max_alcohol);
+        }
+        // query params
+        if ($min_caffeine !== null) {
+            $queryParams['minCaffeine'] = ObjectSerializer::toQueryValue($min_caffeine);
+        }
+        // query params
+        if ($max_caffeine !== null) {
+            $queryParams['maxCaffeine'] = ObjectSerializer::toQueryValue($max_caffeine);
+        }
+        // query params
+        if ($min_copper !== null) {
+            $queryParams['minCopper'] = ObjectSerializer::toQueryValue($min_copper);
+        }
+        // query params
+        if ($max_copper !== null) {
+            $queryParams['maxCopper'] = ObjectSerializer::toQueryValue($max_copper);
+        }
+        // query params
+        if ($min_calcium !== null) {
+            $queryParams['minCalcium'] = ObjectSerializer::toQueryValue($min_calcium);
+        }
+        // query params
+        if ($max_calcium !== null) {
+            $queryParams['maxCalcium'] = ObjectSerializer::toQueryValue($max_calcium);
+        }
+        // query params
+        if ($min_choline !== null) {
+            $queryParams['minCholine'] = ObjectSerializer::toQueryValue($min_choline);
+        }
+        // query params
+        if ($max_choline !== null) {
+            $queryParams['maxCholine'] = ObjectSerializer::toQueryValue($max_choline);
+        }
+        // query params
+        if ($min_cholesterol !== null) {
+            $queryParams['minCholesterol'] = ObjectSerializer::toQueryValue($min_cholesterol);
+        }
+        // query params
+        if ($max_cholesterol !== null) {
+            $queryParams['maxCholesterol'] = ObjectSerializer::toQueryValue($max_cholesterol);
+        }
+        // query params
+        if ($min_fluoride !== null) {
+            $queryParams['minFluoride'] = ObjectSerializer::toQueryValue($min_fluoride);
+        }
+        // query params
+        if ($max_fluoride !== null) {
+            $queryParams['maxFluoride'] = ObjectSerializer::toQueryValue($max_fluoride);
+        }
+        // query params
+        if ($min_saturated_fat !== null) {
+            $queryParams['minSaturatedFat'] = ObjectSerializer::toQueryValue($min_saturated_fat);
+        }
+        // query params
+        if ($max_saturated_fat !== null) {
+            $queryParams['maxSaturatedFat'] = ObjectSerializer::toQueryValue($max_saturated_fat);
+        }
+        // query params
+        if ($min_vitamin_a !== null) {
+            $queryParams['minVitaminA'] = ObjectSerializer::toQueryValue($min_vitamin_a);
+        }
+        // query params
+        if ($max_vitamin_a !== null) {
+            $queryParams['maxVitaminA'] = ObjectSerializer::toQueryValue($max_vitamin_a);
+        }
+        // query params
+        if ($min_vitamin_c !== null) {
+            $queryParams['minVitaminC'] = ObjectSerializer::toQueryValue($min_vitamin_c);
+        }
+        // query params
+        if ($max_vitamin_c !== null) {
+            $queryParams['maxVitaminC'] = ObjectSerializer::toQueryValue($max_vitamin_c);
+        }
+        // query params
+        if ($min_vitamin_d !== null) {
+            $queryParams['minVitaminD'] = ObjectSerializer::toQueryValue($min_vitamin_d);
+        }
+        // query params
+        if ($max_vitamin_d !== null) {
+            $queryParams['maxVitaminD'] = ObjectSerializer::toQueryValue($max_vitamin_d);
+        }
+        // query params
+        if ($min_vitamin_e !== null) {
+            $queryParams['minVitaminE'] = ObjectSerializer::toQueryValue($min_vitamin_e);
+        }
+        // query params
+        if ($max_vitamin_e !== null) {
+            $queryParams['maxVitaminE'] = ObjectSerializer::toQueryValue($max_vitamin_e);
+        }
+        // query params
+        if ($min_vitamin_k !== null) {
+            $queryParams['minVitaminK'] = ObjectSerializer::toQueryValue($min_vitamin_k);
+        }
+        // query params
+        if ($max_vitamin_k !== null) {
+            $queryParams['maxVitaminK'] = ObjectSerializer::toQueryValue($max_vitamin_k);
+        }
+        // query params
+        if ($min_vitamin_b1 !== null) {
+            $queryParams['minVitaminB1'] = ObjectSerializer::toQueryValue($min_vitamin_b1);
+        }
+        // query params
+        if ($max_vitamin_b1 !== null) {
+            $queryParams['maxVitaminB1'] = ObjectSerializer::toQueryValue($max_vitamin_b1);
+        }
+        // query params
+        if ($min_vitamin_b2 !== null) {
+            $queryParams['minVitaminB2'] = ObjectSerializer::toQueryValue($min_vitamin_b2);
+        }
+        // query params
+        if ($max_vitamin_b2 !== null) {
+            $queryParams['maxVitaminB2'] = ObjectSerializer::toQueryValue($max_vitamin_b2);
+        }
+        // query params
+        if ($min_vitamin_b5 !== null) {
+            $queryParams['minVitaminB5'] = ObjectSerializer::toQueryValue($min_vitamin_b5);
+        }
+        // query params
+        if ($max_vitamin_b5 !== null) {
+            $queryParams['maxVitaminB5'] = ObjectSerializer::toQueryValue($max_vitamin_b5);
+        }
+        // query params
+        if ($min_vitamin_b3 !== null) {
+            $queryParams['minVitaminB3'] = ObjectSerializer::toQueryValue($min_vitamin_b3);
+        }
+        // query params
+        if ($max_vitamin_b3 !== null) {
+            $queryParams['maxVitaminB3'] = ObjectSerializer::toQueryValue($max_vitamin_b3);
+        }
+        // query params
+        if ($min_vitamin_b6 !== null) {
+            $queryParams['minVitaminB6'] = ObjectSerializer::toQueryValue($min_vitamin_b6);
+        }
+        // query params
+        if ($max_vitamin_b6 !== null) {
+            $queryParams['maxVitaminB6'] = ObjectSerializer::toQueryValue($max_vitamin_b6);
+        }
+        // query params
+        if ($min_vitamin_b12 !== null) {
+            $queryParams['minVitaminB12'] = ObjectSerializer::toQueryValue($min_vitamin_b12);
+        }
+        // query params
+        if ($max_vitamin_b12 !== null) {
+            $queryParams['maxVitaminB12'] = ObjectSerializer::toQueryValue($max_vitamin_b12);
+        }
+        // query params
+        if ($min_fiber !== null) {
+            $queryParams['minFiber'] = ObjectSerializer::toQueryValue($min_fiber);
+        }
+        // query params
+        if ($max_fiber !== null) {
+            $queryParams['maxFiber'] = ObjectSerializer::toQueryValue($max_fiber);
+        }
+        // query params
+        if ($min_folate !== null) {
+            $queryParams['minFolate'] = ObjectSerializer::toQueryValue($min_folate);
+        }
+        // query params
+        if ($max_folate !== null) {
+            $queryParams['maxFolate'] = ObjectSerializer::toQueryValue($max_folate);
+        }
+        // query params
+        if ($min_folic_acid !== null) {
+            $queryParams['minFolicAcid'] = ObjectSerializer::toQueryValue($min_folic_acid);
+        }
+        // query params
+        if ($max_folic_acid !== null) {
+            $queryParams['maxFolicAcid'] = ObjectSerializer::toQueryValue($max_folic_acid);
+        }
+        // query params
+        if ($min_iodine !== null) {
+            $queryParams['minIodine'] = ObjectSerializer::toQueryValue($min_iodine);
+        }
+        // query params
+        if ($max_iodine !== null) {
+            $queryParams['maxIodine'] = ObjectSerializer::toQueryValue($max_iodine);
+        }
+        // query params
+        if ($min_iron !== null) {
+            $queryParams['minIron'] = ObjectSerializer::toQueryValue($min_iron);
+        }
+        // query params
+        if ($max_iron !== null) {
+            $queryParams['maxIron'] = ObjectSerializer::toQueryValue($max_iron);
+        }
+        // query params
+        if ($min_magnesium !== null) {
+            $queryParams['minMagnesium'] = ObjectSerializer::toQueryValue($min_magnesium);
+        }
+        // query params
+        if ($max_magnesium !== null) {
+            $queryParams['maxMagnesium'] = ObjectSerializer::toQueryValue($max_magnesium);
+        }
+        // query params
+        if ($min_manganese !== null) {
+            $queryParams['minManganese'] = ObjectSerializer::toQueryValue($min_manganese);
+        }
+        // query params
+        if ($max_manganese !== null) {
+            $queryParams['maxManganese'] = ObjectSerializer::toQueryValue($max_manganese);
+        }
+        // query params
+        if ($min_phosphorus !== null) {
+            $queryParams['minPhosphorus'] = ObjectSerializer::toQueryValue($min_phosphorus);
+        }
+        // query params
+        if ($max_phosphorus !== null) {
+            $queryParams['maxPhosphorus'] = ObjectSerializer::toQueryValue($max_phosphorus);
+        }
+        // query params
+        if ($min_potassium !== null) {
+            $queryParams['minPotassium'] = ObjectSerializer::toQueryValue($min_potassium);
+        }
+        // query params
+        if ($max_potassium !== null) {
+            $queryParams['maxPotassium'] = ObjectSerializer::toQueryValue($max_potassium);
+        }
+        // query params
+        if ($min_selenium !== null) {
+            $queryParams['minSelenium'] = ObjectSerializer::toQueryValue($min_selenium);
+        }
+        // query params
+        if ($max_selenium !== null) {
+            $queryParams['maxSelenium'] = ObjectSerializer::toQueryValue($max_selenium);
+        }
+        // query params
+        if ($min_sodium !== null) {
+            $queryParams['minSodium'] = ObjectSerializer::toQueryValue($min_sodium);
+        }
+        // query params
+        if ($max_sodium !== null) {
+            $queryParams['maxSodium'] = ObjectSerializer::toQueryValue($max_sodium);
+        }
+        // query params
+        if ($min_sugar !== null) {
+            $queryParams['minSugar'] = ObjectSerializer::toQueryValue($min_sugar);
+        }
+        // query params
+        if ($max_sugar !== null) {
+            $queryParams['maxSugar'] = ObjectSerializer::toQueryValue($max_sugar);
+        }
+        // query params
+        if ($min_zinc !== null) {
+            $queryParams['minZinc'] = ObjectSerializer::toQueryValue($min_zinc);
+        }
+        // query params
+        if ($max_zinc !== null) {
+            $queryParams['maxZinc'] = ObjectSerializer::toQueryValue($max_zinc);
         }
         // query params
         if ($offset !== null) {
@@ -16532,10 +19116,6 @@ class DefaultApi
         // query params
         if ($limit_license !== null) {
             $queryParams['limitLicense'] = ObjectSerializer::toQueryValue($limit_license);
-        }
-        // query params
-        if ($instructions_required !== null) {
-            $queryParams['instructionsRequired'] = ObjectSerializer::toQueryValue($instructions_required);
         }
 
 
@@ -16960,12 +19540,12 @@ class DefaultApi
      * @param  float $max_vitamin_b12 The maximum amount of Vitamin B12 in micrograms the recipe can have. (optional)
      * @param  float $min_fiber The minimum amount of fiber in grams the recipe must have. (optional)
      * @param  float $max_fiber The maximum amount of fiber in grams the recipe can have. (optional)
-     * @param  float $min_folate The minimum amount of folate in grams the recipe must have. (optional)
-     * @param  float $max_folate The maximum amount of folate in grams the recipe can have. (optional)
-     * @param  float $min_folic_acid The minimum amount of folic acid in grams the recipe must have. (optional)
-     * @param  float $max_folic_acid The maximum amount of folic acid in grams the recipe can have. (optional)
-     * @param  float $min_iodine The minimum amount of iodine in grams the recipe must have. (optional)
-     * @param  float $max_iodine The maximum amount of iodine in grams the recipe can have. (optional)
+     * @param  float $min_folate The minimum amount of folate in micrograms the recipe must have. (optional)
+     * @param  float $max_folate The maximum amount of folate in micrograms the recipe can have. (optional)
+     * @param  float $min_folic_acid The minimum amount of folic acid in micrograms the recipe must have. (optional)
+     * @param  float $max_folic_acid The maximum amount of folic acid in micrograms the recipe can have. (optional)
+     * @param  float $min_iodine The minimum amount of iodine in micrograms the recipe must have. (optional)
+     * @param  float $max_iodine The maximum amount of iodine in micrograms the recipe can have. (optional)
      * @param  float $min_iron The minimum amount of iron in milligrams the recipe must have. (optional)
      * @param  float $max_iron The maximum amount of iron in milligrams the recipe can have. (optional)
      * @param  float $min_magnesium The minimum amount of magnesium in milligrams the recipe must have. (optional)
@@ -16976,8 +19556,8 @@ class DefaultApi
      * @param  float $max_phosphorus The maximum amount of phosphorus in milligrams the recipe can have. (optional)
      * @param  float $min_potassium The minimum amount of potassium in milligrams the recipe must have. (optional)
      * @param  float $max_potassium The maximum amount of potassium in milligrams the recipe can have. (optional)
-     * @param  float $min_selenium The minimum amount of selenium in grams the recipe must have. (optional)
-     * @param  float $max_selenium The maximum amount of selenium in grams the recipe can have. (optional)
+     * @param  float $min_selenium The minimum amount of selenium in micrograms the recipe must have. (optional)
+     * @param  float $max_selenium The maximum amount of selenium in micrograms the recipe can have. (optional)
      * @param  float $min_sodium The minimum amount of sodium in milligrams the recipe must have. (optional)
      * @param  float $max_sodium The maximum amount of sodium in milligrams the recipe can have. (optional)
      * @param  float $min_sugar The minimum amount of sugar in grams the recipe must have. (optional)
@@ -17052,12 +19632,12 @@ class DefaultApi
      * @param  float $max_vitamin_b12 The maximum amount of Vitamin B12 in micrograms the recipe can have. (optional)
      * @param  float $min_fiber The minimum amount of fiber in grams the recipe must have. (optional)
      * @param  float $max_fiber The maximum amount of fiber in grams the recipe can have. (optional)
-     * @param  float $min_folate The minimum amount of folate in grams the recipe must have. (optional)
-     * @param  float $max_folate The maximum amount of folate in grams the recipe can have. (optional)
-     * @param  float $min_folic_acid The minimum amount of folic acid in grams the recipe must have. (optional)
-     * @param  float $max_folic_acid The maximum amount of folic acid in grams the recipe can have. (optional)
-     * @param  float $min_iodine The minimum amount of iodine in grams the recipe must have. (optional)
-     * @param  float $max_iodine The maximum amount of iodine in grams the recipe can have. (optional)
+     * @param  float $min_folate The minimum amount of folate in micrograms the recipe must have. (optional)
+     * @param  float $max_folate The maximum amount of folate in micrograms the recipe can have. (optional)
+     * @param  float $min_folic_acid The minimum amount of folic acid in micrograms the recipe must have. (optional)
+     * @param  float $max_folic_acid The maximum amount of folic acid in micrograms the recipe can have. (optional)
+     * @param  float $min_iodine The minimum amount of iodine in micrograms the recipe must have. (optional)
+     * @param  float $max_iodine The maximum amount of iodine in micrograms the recipe can have. (optional)
      * @param  float $min_iron The minimum amount of iron in milligrams the recipe must have. (optional)
      * @param  float $max_iron The maximum amount of iron in milligrams the recipe can have. (optional)
      * @param  float $min_magnesium The minimum amount of magnesium in milligrams the recipe must have. (optional)
@@ -17068,8 +19648,8 @@ class DefaultApi
      * @param  float $max_phosphorus The maximum amount of phosphorus in milligrams the recipe can have. (optional)
      * @param  float $min_potassium The minimum amount of potassium in milligrams the recipe must have. (optional)
      * @param  float $max_potassium The maximum amount of potassium in milligrams the recipe can have. (optional)
-     * @param  float $min_selenium The minimum amount of selenium in grams the recipe must have. (optional)
-     * @param  float $max_selenium The maximum amount of selenium in grams the recipe can have. (optional)
+     * @param  float $min_selenium The minimum amount of selenium in micrograms the recipe must have. (optional)
+     * @param  float $max_selenium The maximum amount of selenium in micrograms the recipe can have. (optional)
      * @param  float $min_sodium The minimum amount of sodium in milligrams the recipe must have. (optional)
      * @param  float $max_sodium The maximum amount of sodium in milligrams the recipe can have. (optional)
      * @param  float $min_sugar The minimum amount of sugar in grams the recipe must have. (optional)
@@ -17215,12 +19795,12 @@ class DefaultApi
      * @param  float $max_vitamin_b12 The maximum amount of Vitamin B12 in micrograms the recipe can have. (optional)
      * @param  float $min_fiber The minimum amount of fiber in grams the recipe must have. (optional)
      * @param  float $max_fiber The maximum amount of fiber in grams the recipe can have. (optional)
-     * @param  float $min_folate The minimum amount of folate in grams the recipe must have. (optional)
-     * @param  float $max_folate The maximum amount of folate in grams the recipe can have. (optional)
-     * @param  float $min_folic_acid The minimum amount of folic acid in grams the recipe must have. (optional)
-     * @param  float $max_folic_acid The maximum amount of folic acid in grams the recipe can have. (optional)
-     * @param  float $min_iodine The minimum amount of iodine in grams the recipe must have. (optional)
-     * @param  float $max_iodine The maximum amount of iodine in grams the recipe can have. (optional)
+     * @param  float $min_folate The minimum amount of folate in micrograms the recipe must have. (optional)
+     * @param  float $max_folate The maximum amount of folate in micrograms the recipe can have. (optional)
+     * @param  float $min_folic_acid The minimum amount of folic acid in micrograms the recipe must have. (optional)
+     * @param  float $max_folic_acid The maximum amount of folic acid in micrograms the recipe can have. (optional)
+     * @param  float $min_iodine The minimum amount of iodine in micrograms the recipe must have. (optional)
+     * @param  float $max_iodine The maximum amount of iodine in micrograms the recipe can have. (optional)
      * @param  float $min_iron The minimum amount of iron in milligrams the recipe must have. (optional)
      * @param  float $max_iron The maximum amount of iron in milligrams the recipe can have. (optional)
      * @param  float $min_magnesium The minimum amount of magnesium in milligrams the recipe must have. (optional)
@@ -17231,8 +19811,8 @@ class DefaultApi
      * @param  float $max_phosphorus The maximum amount of phosphorus in milligrams the recipe can have. (optional)
      * @param  float $min_potassium The minimum amount of potassium in milligrams the recipe must have. (optional)
      * @param  float $max_potassium The maximum amount of potassium in milligrams the recipe can have. (optional)
-     * @param  float $min_selenium The minimum amount of selenium in grams the recipe must have. (optional)
-     * @param  float $max_selenium The maximum amount of selenium in grams the recipe can have. (optional)
+     * @param  float $min_selenium The minimum amount of selenium in micrograms the recipe must have. (optional)
+     * @param  float $max_selenium The maximum amount of selenium in micrograms the recipe can have. (optional)
      * @param  float $min_sodium The minimum amount of sodium in milligrams the recipe must have. (optional)
      * @param  float $max_sodium The maximum amount of sodium in milligrams the recipe can have. (optional)
      * @param  float $min_sugar The minimum amount of sugar in grams the recipe must have. (optional)
@@ -17310,12 +19890,12 @@ class DefaultApi
      * @param  float $max_vitamin_b12 The maximum amount of Vitamin B12 in micrograms the recipe can have. (optional)
      * @param  float $min_fiber The minimum amount of fiber in grams the recipe must have. (optional)
      * @param  float $max_fiber The maximum amount of fiber in grams the recipe can have. (optional)
-     * @param  float $min_folate The minimum amount of folate in grams the recipe must have. (optional)
-     * @param  float $max_folate The maximum amount of folate in grams the recipe can have. (optional)
-     * @param  float $min_folic_acid The minimum amount of folic acid in grams the recipe must have. (optional)
-     * @param  float $max_folic_acid The maximum amount of folic acid in grams the recipe can have. (optional)
-     * @param  float $min_iodine The minimum amount of iodine in grams the recipe must have. (optional)
-     * @param  float $max_iodine The maximum amount of iodine in grams the recipe can have. (optional)
+     * @param  float $min_folate The minimum amount of folate in micrograms the recipe must have. (optional)
+     * @param  float $max_folate The maximum amount of folate in micrograms the recipe can have. (optional)
+     * @param  float $min_folic_acid The minimum amount of folic acid in micrograms the recipe must have. (optional)
+     * @param  float $max_folic_acid The maximum amount of folic acid in micrograms the recipe can have. (optional)
+     * @param  float $min_iodine The minimum amount of iodine in micrograms the recipe must have. (optional)
+     * @param  float $max_iodine The maximum amount of iodine in micrograms the recipe can have. (optional)
      * @param  float $min_iron The minimum amount of iron in milligrams the recipe must have. (optional)
      * @param  float $max_iron The maximum amount of iron in milligrams the recipe can have. (optional)
      * @param  float $min_magnesium The minimum amount of magnesium in milligrams the recipe must have. (optional)
@@ -17326,8 +19906,8 @@ class DefaultApi
      * @param  float $max_phosphorus The maximum amount of phosphorus in milligrams the recipe can have. (optional)
      * @param  float $min_potassium The minimum amount of potassium in milligrams the recipe must have. (optional)
      * @param  float $max_potassium The maximum amount of potassium in milligrams the recipe can have. (optional)
-     * @param  float $min_selenium The minimum amount of selenium in grams the recipe must have. (optional)
-     * @param  float $max_selenium The maximum amount of selenium in grams the recipe can have. (optional)
+     * @param  float $min_selenium The minimum amount of selenium in micrograms the recipe must have. (optional)
+     * @param  float $max_selenium The maximum amount of selenium in micrograms the recipe can have. (optional)
      * @param  float $min_sodium The minimum amount of sodium in milligrams the recipe must have. (optional)
      * @param  float $max_sodium The maximum amount of sodium in milligrams the recipe can have. (optional)
      * @param  float $min_sugar The minimum amount of sugar in grams the recipe must have. (optional)
@@ -17432,12 +20012,12 @@ class DefaultApi
      * @param  float $max_vitamin_b12 The maximum amount of Vitamin B12 in micrograms the recipe can have. (optional)
      * @param  float $min_fiber The minimum amount of fiber in grams the recipe must have. (optional)
      * @param  float $max_fiber The maximum amount of fiber in grams the recipe can have. (optional)
-     * @param  float $min_folate The minimum amount of folate in grams the recipe must have. (optional)
-     * @param  float $max_folate The maximum amount of folate in grams the recipe can have. (optional)
-     * @param  float $min_folic_acid The minimum amount of folic acid in grams the recipe must have. (optional)
-     * @param  float $max_folic_acid The maximum amount of folic acid in grams the recipe can have. (optional)
-     * @param  float $min_iodine The minimum amount of iodine in grams the recipe must have. (optional)
-     * @param  float $max_iodine The maximum amount of iodine in grams the recipe can have. (optional)
+     * @param  float $min_folate The minimum amount of folate in micrograms the recipe must have. (optional)
+     * @param  float $max_folate The maximum amount of folate in micrograms the recipe can have. (optional)
+     * @param  float $min_folic_acid The minimum amount of folic acid in micrograms the recipe must have. (optional)
+     * @param  float $max_folic_acid The maximum amount of folic acid in micrograms the recipe can have. (optional)
+     * @param  float $min_iodine The minimum amount of iodine in micrograms the recipe must have. (optional)
+     * @param  float $max_iodine The maximum amount of iodine in micrograms the recipe can have. (optional)
      * @param  float $min_iron The minimum amount of iron in milligrams the recipe must have. (optional)
      * @param  float $max_iron The maximum amount of iron in milligrams the recipe can have. (optional)
      * @param  float $min_magnesium The minimum amount of magnesium in milligrams the recipe must have. (optional)
@@ -17448,8 +20028,8 @@ class DefaultApi
      * @param  float $max_phosphorus The maximum amount of phosphorus in milligrams the recipe can have. (optional)
      * @param  float $min_potassium The minimum amount of potassium in milligrams the recipe must have. (optional)
      * @param  float $max_potassium The maximum amount of potassium in milligrams the recipe can have. (optional)
-     * @param  float $min_selenium The minimum amount of selenium in grams the recipe must have. (optional)
-     * @param  float $max_selenium The maximum amount of selenium in grams the recipe can have. (optional)
+     * @param  float $min_selenium The minimum amount of selenium in micrograms the recipe must have. (optional)
+     * @param  float $max_selenium The maximum amount of selenium in micrograms the recipe can have. (optional)
      * @param  float $min_sodium The minimum amount of sodium in milligrams the recipe must have. (optional)
      * @param  float $max_sodium The maximum amount of sodium in milligrams the recipe can have. (optional)
      * @param  float $min_sugar The minimum amount of sugar in grams the recipe must have. (optional)
@@ -17773,1129 +20353,6 @@ class DefaultApi
         // query params
         if ($random !== null) {
             $queryParams['random'] = ObjectSerializer::toQueryValue($random);
-        }
-        // query params
-        if ($limit_license !== null) {
-            $queryParams['limitLicense'] = ObjectSerializer::toQueryValue($limit_license);
-        }
-
-
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
-            } else {
-                $httpBody = $_tempBody;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation searchRecipesComplex
-     *
-     * Search Recipes Complex
-     *
-     * @param  string $query The (natural language) recipe search query. (required)
-     * @param  string $cuisine The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as &#39;OR&#39;). See a full list of supported cuisines. (optional)
-     * @param  string $exclude_cuisine The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as &#39;AND&#39;). See a full list of supported cuisines. (optional)
-     * @param  string $diet The diet for which the recipes must be suitable. See a full list of supported diets. (optional)
-     * @param  string $intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
-     * @param  string $equipment The equipment required. Multiple values will be interpreted as &#39;or&#39;. For example, value could be \&quot;blender, frying pan, bowl\&quot;. (optional)
-     * @param  string $include_ingredients A comma-separated list of ingredients that should/must be used in the recipes. (optional)
-     * @param  string $exclude_ingredients A comma-separated list of ingredients or ingredient types that the recipes must not contain. (optional)
-     * @param  string $type The type of recipe. See a full list of supported meal types. (optional)
-     * @param  bool $instructions_required Whether the recipes must have instructions. (optional)
-     * @param  bool $fill_ingredients Add information about the ingredients and whether they are used or missing in relation to the query. (optional)
-     * @param  bool $add_recipe_information If set to true, you get more information about the recipes returned. (optional)
-     * @param  bool $add_recipe_nutrition If set to true, you get nutritional information about each recipes returned. (optional)
-     * @param  string $author The username of the recipe author. (optional)
-     * @param  string $tags User defined tags that have to match. The author param has to be set. (optional)
-     * @param  float $recipe_box_id The id of the recipe box to which the search should be limited to. (optional)
-     * @param  string $title_match Enter text that must be found in the title of the recipes. (optional)
-     * @param  float $max_ready_time The maximum time in minutes it should take to prepare and cook the recipe. (optional)
-     * @param  bool $ignore_pantry Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional)
-     * @param  string $sort The strategy to sort recipes by. See a full list of supported sorting options. (optional)
-     * @param  string $sort_direction The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending). (optional)
-     * @param  float $min_carbs The minimum amount of carbohydrates in grams the recipe must have. (optional)
-     * @param  float $max_carbs The maximum amount of carbohydrates in grams the recipe can have. (optional)
-     * @param  float $min_protein The minimum amount of protein in grams the recipe must have. (optional)
-     * @param  float $max_protein The maximum amount of protein in grams the recipe can have. (optional)
-     * @param  float $min_calories The minimum amount of calories the recipe must have. (optional)
-     * @param  float $max_calories The maximum amount of calories the recipe can have. (optional)
-     * @param  float $min_fat The minimum amount of fat in grams the recipe must have. (optional)
-     * @param  float $max_fat The maximum amount of fat in grams the recipe can have. (optional)
-     * @param  float $min_alcohol The minimum amount of alcohol in grams the recipe must have. (optional)
-     * @param  float $max_alcohol The maximum amount of alcohol in grams the recipe can have. (optional)
-     * @param  float $min_caffeine The minimum amount of caffeine in milligrams the recipe must have. (optional)
-     * @param  float $max_caffeine The maximum amount of caffeine in milligrams the recipe can have. (optional)
-     * @param  float $min_copper The minimum amount of copper in milligrams the recipe must have. (optional)
-     * @param  float $max_copper The maximum amount of copper in milligrams the recipe can have. (optional)
-     * @param  float $min_calcium The minimum amount of calcium in milligrams the recipe must have. (optional)
-     * @param  float $max_calcium The maximum amount of calcium in milligrams the recipe can have. (optional)
-     * @param  float $min_choline The minimum amount of choline in milligrams the recipe must have. (optional)
-     * @param  float $max_choline The maximum amount of choline in milligrams the recipe can have. (optional)
-     * @param  float $min_cholesterol The minimum amount of cholesterol in milligrams the recipe must have. (optional)
-     * @param  float $max_cholesterol The maximum amount of cholesterol in milligrams the recipe can have. (optional)
-     * @param  float $min_fluoride The minimum amount of fluoride in milligrams the recipe must have. (optional)
-     * @param  float $max_fluoride The maximum amount of fluoride in milligrams the recipe can have. (optional)
-     * @param  float $min_saturated_fat The minimum amount of saturated fat in grams the recipe must have. (optional)
-     * @param  float $max_saturated_fat The maximum amount of saturated fat in grams the recipe can have. (optional)
-     * @param  float $min_vitamin_a The minimum amount of Vitamin A in IU the recipe must have. (optional)
-     * @param  float $max_vitamin_a The maximum amount of Vitamin A in IU the recipe can have. (optional)
-     * @param  float $min_vitamin_c The minimum amount of Vitamin C milligrams the recipe must have. (optional)
-     * @param  float $max_vitamin_c The maximum amount of Vitamin C in milligrams the recipe can have. (optional)
-     * @param  float $min_vitamin_d The minimum amount of Vitamin D in micrograms the recipe must have. (optional)
-     * @param  float $max_vitamin_d The maximum amount of Vitamin D in micrograms the recipe can have. (optional)
-     * @param  float $min_vitamin_e The minimum amount of Vitamin E in milligrams the recipe must have. (optional)
-     * @param  float $max_vitamin_e The maximum amount of Vitamin E in milligrams the recipe can have. (optional)
-     * @param  float $min_vitamin_k The minimum amount of Vitamin K in micrograms the recipe must have. (optional)
-     * @param  float $max_vitamin_k The maximum amount of Vitamin K in micrograms the recipe can have. (optional)
-     * @param  float $min_vitamin_b1 The minimum amount of Vitamin B1 in milligrams the recipe must have. (optional)
-     * @param  float $max_vitamin_b1 The maximum amount of Vitamin B1 in milligrams the recipe can have. (optional)
-     * @param  float $min_vitamin_b2 The minimum amount of Vitamin B2 in milligrams the recipe must have. (optional)
-     * @param  float $max_vitamin_b2 The maximum amount of Vitamin B2 in milligrams the recipe can have. (optional)
-     * @param  float $min_vitamin_b5 The minimum amount of Vitamin B5 in milligrams the recipe must have. (optional)
-     * @param  float $max_vitamin_b5 The maximum amount of Vitamin B5 in milligrams the recipe can have. (optional)
-     * @param  float $min_vitamin_b3 The minimum amount of Vitamin B3 in milligrams the recipe must have. (optional)
-     * @param  float $max_vitamin_b3 The maximum amount of Vitamin B3 in milligrams the recipe can have. (optional)
-     * @param  float $min_vitamin_b6 The minimum amount of Vitamin B6 in milligrams the recipe must have. (optional)
-     * @param  float $max_vitamin_b6 The maximum amount of Vitamin B6 in milligrams the recipe can have. (optional)
-     * @param  float $min_vitamin_b12 The minimum amount of Vitamin B12 in micrograms the recipe must have. (optional)
-     * @param  float $max_vitamin_b12 The maximum amount of Vitamin B12 in micrograms the recipe can have. (optional)
-     * @param  float $min_fiber The minimum amount of fiber in grams the recipe must have. (optional)
-     * @param  float $max_fiber The maximum amount of fiber in grams the recipe can have. (optional)
-     * @param  float $min_folate The minimum amount of folate in grams the recipe must have. (optional)
-     * @param  float $max_folate The maximum amount of folate in grams the recipe can have. (optional)
-     * @param  float $min_folic_acid The minimum amount of folic acid in grams the recipe must have. (optional)
-     * @param  float $max_folic_acid The maximum amount of folic acid in grams the recipe can have. (optional)
-     * @param  float $min_iodine The minimum amount of iodine in grams the recipe must have. (optional)
-     * @param  float $max_iodine The maximum amount of iodine in grams the recipe can have. (optional)
-     * @param  float $min_iron The minimum amount of iron in milligrams the recipe must have. (optional)
-     * @param  float $max_iron The maximum amount of iron in milligrams the recipe can have. (optional)
-     * @param  float $min_magnesium The minimum amount of magnesium in milligrams the recipe must have. (optional)
-     * @param  float $max_magnesium The maximum amount of magnesium in milligrams the recipe can have. (optional)
-     * @param  float $min_manganese The minimum amount of manganese in milligrams the recipe must have. (optional)
-     * @param  float $max_manganese The maximum amount of manganese in milligrams the recipe can have. (optional)
-     * @param  float $min_phosphorus The minimum amount of phosphorus in milligrams the recipe must have. (optional)
-     * @param  float $max_phosphorus The maximum amount of phosphorus in milligrams the recipe can have. (optional)
-     * @param  float $min_potassium The minimum amount of potassium in milligrams the recipe must have. (optional)
-     * @param  float $max_potassium The maximum amount of potassium in milligrams the recipe can have. (optional)
-     * @param  float $min_selenium The minimum amount of selenium in grams the recipe must have. (optional)
-     * @param  float $max_selenium The maximum amount of selenium in grams the recipe can have. (optional)
-     * @param  float $min_sodium The minimum amount of sodium in milligrams the recipe must have. (optional)
-     * @param  float $max_sodium The maximum amount of sodium in milligrams the recipe can have. (optional)
-     * @param  float $min_sugar The minimum amount of sugar in grams the recipe must have. (optional)
-     * @param  float $max_sugar The maximum amount of sugar in grams the recipe can have. (optional)
-     * @param  float $min_zinc The minimum amount of zinc in milligrams the recipe must have. (optional)
-     * @param  float $max_zinc The maximum amount of zinc in milligrams the recipe can have. (optional)
-     * @param  float $offset The number of results to skip (between 0 and 900). (optional)
-     * @param  float $number The number of expected results (between 1 and 100). (optional)
-     * @param  bool $limit_license Whether the recipes should have an open license that allows display with proper attribution. (optional)
-     *
-     * @throws \com.spoonacular.client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return object
-     */
-    public function searchRecipesComplex($query, $cuisine = null, $exclude_cuisine = null, $diet = null, $intolerances = null, $equipment = null, $include_ingredients = null, $exclude_ingredients = null, $type = null, $instructions_required = null, $fill_ingredients = null, $add_recipe_information = null, $add_recipe_nutrition = null, $author = null, $tags = null, $recipe_box_id = null, $title_match = null, $max_ready_time = null, $ignore_pantry = null, $sort = null, $sort_direction = null, $min_carbs = null, $max_carbs = null, $min_protein = null, $max_protein = null, $min_calories = null, $max_calories = null, $min_fat = null, $max_fat = null, $min_alcohol = null, $max_alcohol = null, $min_caffeine = null, $max_caffeine = null, $min_copper = null, $max_copper = null, $min_calcium = null, $max_calcium = null, $min_choline = null, $max_choline = null, $min_cholesterol = null, $max_cholesterol = null, $min_fluoride = null, $max_fluoride = null, $min_saturated_fat = null, $max_saturated_fat = null, $min_vitamin_a = null, $max_vitamin_a = null, $min_vitamin_c = null, $max_vitamin_c = null, $min_vitamin_d = null, $max_vitamin_d = null, $min_vitamin_e = null, $max_vitamin_e = null, $min_vitamin_k = null, $max_vitamin_k = null, $min_vitamin_b1 = null, $max_vitamin_b1 = null, $min_vitamin_b2 = null, $max_vitamin_b2 = null, $min_vitamin_b5 = null, $max_vitamin_b5 = null, $min_vitamin_b3 = null, $max_vitamin_b3 = null, $min_vitamin_b6 = null, $max_vitamin_b6 = null, $min_vitamin_b12 = null, $max_vitamin_b12 = null, $min_fiber = null, $max_fiber = null, $min_folate = null, $max_folate = null, $min_folic_acid = null, $max_folic_acid = null, $min_iodine = null, $max_iodine = null, $min_iron = null, $max_iron = null, $min_magnesium = null, $max_magnesium = null, $min_manganese = null, $max_manganese = null, $min_phosphorus = null, $max_phosphorus = null, $min_potassium = null, $max_potassium = null, $min_selenium = null, $max_selenium = null, $min_sodium = null, $max_sodium = null, $min_sugar = null, $max_sugar = null, $min_zinc = null, $max_zinc = null, $offset = null, $number = null, $limit_license = null)
-    {
-        list($response) = $this->searchRecipesComplexWithHttpInfo($query, $cuisine, $exclude_cuisine, $diet, $intolerances, $equipment, $include_ingredients, $exclude_ingredients, $type, $instructions_required, $fill_ingredients, $add_recipe_information, $add_recipe_nutrition, $author, $tags, $recipe_box_id, $title_match, $max_ready_time, $ignore_pantry, $sort, $sort_direction, $min_carbs, $max_carbs, $min_protein, $max_protein, $min_calories, $max_calories, $min_fat, $max_fat, $min_alcohol, $max_alcohol, $min_caffeine, $max_caffeine, $min_copper, $max_copper, $min_calcium, $max_calcium, $min_choline, $max_choline, $min_cholesterol, $max_cholesterol, $min_fluoride, $max_fluoride, $min_saturated_fat, $max_saturated_fat, $min_vitamin_a, $max_vitamin_a, $min_vitamin_c, $max_vitamin_c, $min_vitamin_d, $max_vitamin_d, $min_vitamin_e, $max_vitamin_e, $min_vitamin_k, $max_vitamin_k, $min_vitamin_b1, $max_vitamin_b1, $min_vitamin_b2, $max_vitamin_b2, $min_vitamin_b5, $max_vitamin_b5, $min_vitamin_b3, $max_vitamin_b3, $min_vitamin_b6, $max_vitamin_b6, $min_vitamin_b12, $max_vitamin_b12, $min_fiber, $max_fiber, $min_folate, $max_folate, $min_folic_acid, $max_folic_acid, $min_iodine, $max_iodine, $min_iron, $max_iron, $min_magnesium, $max_magnesium, $min_manganese, $max_manganese, $min_phosphorus, $max_phosphorus, $min_potassium, $max_potassium, $min_selenium, $max_selenium, $min_sodium, $max_sodium, $min_sugar, $max_sugar, $min_zinc, $max_zinc, $offset, $number, $limit_license);
-        return $response;
-    }
-
-    /**
-     * Operation searchRecipesComplexWithHttpInfo
-     *
-     * Search Recipes Complex
-     *
-     * @param  string $query The (natural language) recipe search query. (required)
-     * @param  string $cuisine The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as &#39;OR&#39;). See a full list of supported cuisines. (optional)
-     * @param  string $exclude_cuisine The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as &#39;AND&#39;). See a full list of supported cuisines. (optional)
-     * @param  string $diet The diet for which the recipes must be suitable. See a full list of supported diets. (optional)
-     * @param  string $intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
-     * @param  string $equipment The equipment required. Multiple values will be interpreted as &#39;or&#39;. For example, value could be \&quot;blender, frying pan, bowl\&quot;. (optional)
-     * @param  string $include_ingredients A comma-separated list of ingredients that should/must be used in the recipes. (optional)
-     * @param  string $exclude_ingredients A comma-separated list of ingredients or ingredient types that the recipes must not contain. (optional)
-     * @param  string $type The type of recipe. See a full list of supported meal types. (optional)
-     * @param  bool $instructions_required Whether the recipes must have instructions. (optional)
-     * @param  bool $fill_ingredients Add information about the ingredients and whether they are used or missing in relation to the query. (optional)
-     * @param  bool $add_recipe_information If set to true, you get more information about the recipes returned. (optional)
-     * @param  bool $add_recipe_nutrition If set to true, you get nutritional information about each recipes returned. (optional)
-     * @param  string $author The username of the recipe author. (optional)
-     * @param  string $tags User defined tags that have to match. The author param has to be set. (optional)
-     * @param  float $recipe_box_id The id of the recipe box to which the search should be limited to. (optional)
-     * @param  string $title_match Enter text that must be found in the title of the recipes. (optional)
-     * @param  float $max_ready_time The maximum time in minutes it should take to prepare and cook the recipe. (optional)
-     * @param  bool $ignore_pantry Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional)
-     * @param  string $sort The strategy to sort recipes by. See a full list of supported sorting options. (optional)
-     * @param  string $sort_direction The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending). (optional)
-     * @param  float $min_carbs The minimum amount of carbohydrates in grams the recipe must have. (optional)
-     * @param  float $max_carbs The maximum amount of carbohydrates in grams the recipe can have. (optional)
-     * @param  float $min_protein The minimum amount of protein in grams the recipe must have. (optional)
-     * @param  float $max_protein The maximum amount of protein in grams the recipe can have. (optional)
-     * @param  float $min_calories The minimum amount of calories the recipe must have. (optional)
-     * @param  float $max_calories The maximum amount of calories the recipe can have. (optional)
-     * @param  float $min_fat The minimum amount of fat in grams the recipe must have. (optional)
-     * @param  float $max_fat The maximum amount of fat in grams the recipe can have. (optional)
-     * @param  float $min_alcohol The minimum amount of alcohol in grams the recipe must have. (optional)
-     * @param  float $max_alcohol The maximum amount of alcohol in grams the recipe can have. (optional)
-     * @param  float $min_caffeine The minimum amount of caffeine in milligrams the recipe must have. (optional)
-     * @param  float $max_caffeine The maximum amount of caffeine in milligrams the recipe can have. (optional)
-     * @param  float $min_copper The minimum amount of copper in milligrams the recipe must have. (optional)
-     * @param  float $max_copper The maximum amount of copper in milligrams the recipe can have. (optional)
-     * @param  float $min_calcium The minimum amount of calcium in milligrams the recipe must have. (optional)
-     * @param  float $max_calcium The maximum amount of calcium in milligrams the recipe can have. (optional)
-     * @param  float $min_choline The minimum amount of choline in milligrams the recipe must have. (optional)
-     * @param  float $max_choline The maximum amount of choline in milligrams the recipe can have. (optional)
-     * @param  float $min_cholesterol The minimum amount of cholesterol in milligrams the recipe must have. (optional)
-     * @param  float $max_cholesterol The maximum amount of cholesterol in milligrams the recipe can have. (optional)
-     * @param  float $min_fluoride The minimum amount of fluoride in milligrams the recipe must have. (optional)
-     * @param  float $max_fluoride The maximum amount of fluoride in milligrams the recipe can have. (optional)
-     * @param  float $min_saturated_fat The minimum amount of saturated fat in grams the recipe must have. (optional)
-     * @param  float $max_saturated_fat The maximum amount of saturated fat in grams the recipe can have. (optional)
-     * @param  float $min_vitamin_a The minimum amount of Vitamin A in IU the recipe must have. (optional)
-     * @param  float $max_vitamin_a The maximum amount of Vitamin A in IU the recipe can have. (optional)
-     * @param  float $min_vitamin_c The minimum amount of Vitamin C milligrams the recipe must have. (optional)
-     * @param  float $max_vitamin_c The maximum amount of Vitamin C in milligrams the recipe can have. (optional)
-     * @param  float $min_vitamin_d The minimum amount of Vitamin D in micrograms the recipe must have. (optional)
-     * @param  float $max_vitamin_d The maximum amount of Vitamin D in micrograms the recipe can have. (optional)
-     * @param  float $min_vitamin_e The minimum amount of Vitamin E in milligrams the recipe must have. (optional)
-     * @param  float $max_vitamin_e The maximum amount of Vitamin E in milligrams the recipe can have. (optional)
-     * @param  float $min_vitamin_k The minimum amount of Vitamin K in micrograms the recipe must have. (optional)
-     * @param  float $max_vitamin_k The maximum amount of Vitamin K in micrograms the recipe can have. (optional)
-     * @param  float $min_vitamin_b1 The minimum amount of Vitamin B1 in milligrams the recipe must have. (optional)
-     * @param  float $max_vitamin_b1 The maximum amount of Vitamin B1 in milligrams the recipe can have. (optional)
-     * @param  float $min_vitamin_b2 The minimum amount of Vitamin B2 in milligrams the recipe must have. (optional)
-     * @param  float $max_vitamin_b2 The maximum amount of Vitamin B2 in milligrams the recipe can have. (optional)
-     * @param  float $min_vitamin_b5 The minimum amount of Vitamin B5 in milligrams the recipe must have. (optional)
-     * @param  float $max_vitamin_b5 The maximum amount of Vitamin B5 in milligrams the recipe can have. (optional)
-     * @param  float $min_vitamin_b3 The minimum amount of Vitamin B3 in milligrams the recipe must have. (optional)
-     * @param  float $max_vitamin_b3 The maximum amount of Vitamin B3 in milligrams the recipe can have. (optional)
-     * @param  float $min_vitamin_b6 The minimum amount of Vitamin B6 in milligrams the recipe must have. (optional)
-     * @param  float $max_vitamin_b6 The maximum amount of Vitamin B6 in milligrams the recipe can have. (optional)
-     * @param  float $min_vitamin_b12 The minimum amount of Vitamin B12 in micrograms the recipe must have. (optional)
-     * @param  float $max_vitamin_b12 The maximum amount of Vitamin B12 in micrograms the recipe can have. (optional)
-     * @param  float $min_fiber The minimum amount of fiber in grams the recipe must have. (optional)
-     * @param  float $max_fiber The maximum amount of fiber in grams the recipe can have. (optional)
-     * @param  float $min_folate The minimum amount of folate in grams the recipe must have. (optional)
-     * @param  float $max_folate The maximum amount of folate in grams the recipe can have. (optional)
-     * @param  float $min_folic_acid The minimum amount of folic acid in grams the recipe must have. (optional)
-     * @param  float $max_folic_acid The maximum amount of folic acid in grams the recipe can have. (optional)
-     * @param  float $min_iodine The minimum amount of iodine in grams the recipe must have. (optional)
-     * @param  float $max_iodine The maximum amount of iodine in grams the recipe can have. (optional)
-     * @param  float $min_iron The minimum amount of iron in milligrams the recipe must have. (optional)
-     * @param  float $max_iron The maximum amount of iron in milligrams the recipe can have. (optional)
-     * @param  float $min_magnesium The minimum amount of magnesium in milligrams the recipe must have. (optional)
-     * @param  float $max_magnesium The maximum amount of magnesium in milligrams the recipe can have. (optional)
-     * @param  float $min_manganese The minimum amount of manganese in milligrams the recipe must have. (optional)
-     * @param  float $max_manganese The maximum amount of manganese in milligrams the recipe can have. (optional)
-     * @param  float $min_phosphorus The minimum amount of phosphorus in milligrams the recipe must have. (optional)
-     * @param  float $max_phosphorus The maximum amount of phosphorus in milligrams the recipe can have. (optional)
-     * @param  float $min_potassium The minimum amount of potassium in milligrams the recipe must have. (optional)
-     * @param  float $max_potassium The maximum amount of potassium in milligrams the recipe can have. (optional)
-     * @param  float $min_selenium The minimum amount of selenium in grams the recipe must have. (optional)
-     * @param  float $max_selenium The maximum amount of selenium in grams the recipe can have. (optional)
-     * @param  float $min_sodium The minimum amount of sodium in milligrams the recipe must have. (optional)
-     * @param  float $max_sodium The maximum amount of sodium in milligrams the recipe can have. (optional)
-     * @param  float $min_sugar The minimum amount of sugar in grams the recipe must have. (optional)
-     * @param  float $max_sugar The maximum amount of sugar in grams the recipe can have. (optional)
-     * @param  float $min_zinc The minimum amount of zinc in milligrams the recipe must have. (optional)
-     * @param  float $max_zinc The maximum amount of zinc in milligrams the recipe can have. (optional)
-     * @param  float $offset The number of results to skip (between 0 and 900). (optional)
-     * @param  float $number The number of expected results (between 1 and 100). (optional)
-     * @param  bool $limit_license Whether the recipes should have an open license that allows display with proper attribution. (optional)
-     *
-     * @throws \com.spoonacular.client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of object, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function searchRecipesComplexWithHttpInfo($query, $cuisine = null, $exclude_cuisine = null, $diet = null, $intolerances = null, $equipment = null, $include_ingredients = null, $exclude_ingredients = null, $type = null, $instructions_required = null, $fill_ingredients = null, $add_recipe_information = null, $add_recipe_nutrition = null, $author = null, $tags = null, $recipe_box_id = null, $title_match = null, $max_ready_time = null, $ignore_pantry = null, $sort = null, $sort_direction = null, $min_carbs = null, $max_carbs = null, $min_protein = null, $max_protein = null, $min_calories = null, $max_calories = null, $min_fat = null, $max_fat = null, $min_alcohol = null, $max_alcohol = null, $min_caffeine = null, $max_caffeine = null, $min_copper = null, $max_copper = null, $min_calcium = null, $max_calcium = null, $min_choline = null, $max_choline = null, $min_cholesterol = null, $max_cholesterol = null, $min_fluoride = null, $max_fluoride = null, $min_saturated_fat = null, $max_saturated_fat = null, $min_vitamin_a = null, $max_vitamin_a = null, $min_vitamin_c = null, $max_vitamin_c = null, $min_vitamin_d = null, $max_vitamin_d = null, $min_vitamin_e = null, $max_vitamin_e = null, $min_vitamin_k = null, $max_vitamin_k = null, $min_vitamin_b1 = null, $max_vitamin_b1 = null, $min_vitamin_b2 = null, $max_vitamin_b2 = null, $min_vitamin_b5 = null, $max_vitamin_b5 = null, $min_vitamin_b3 = null, $max_vitamin_b3 = null, $min_vitamin_b6 = null, $max_vitamin_b6 = null, $min_vitamin_b12 = null, $max_vitamin_b12 = null, $min_fiber = null, $max_fiber = null, $min_folate = null, $max_folate = null, $min_folic_acid = null, $max_folic_acid = null, $min_iodine = null, $max_iodine = null, $min_iron = null, $max_iron = null, $min_magnesium = null, $max_magnesium = null, $min_manganese = null, $max_manganese = null, $min_phosphorus = null, $max_phosphorus = null, $min_potassium = null, $max_potassium = null, $min_selenium = null, $max_selenium = null, $min_sodium = null, $max_sodium = null, $min_sugar = null, $max_sugar = null, $min_zinc = null, $max_zinc = null, $offset = null, $number = null, $limit_license = null)
-    {
-        $request = $this->searchRecipesComplexRequest($query, $cuisine, $exclude_cuisine, $diet, $intolerances, $equipment, $include_ingredients, $exclude_ingredients, $type, $instructions_required, $fill_ingredients, $add_recipe_information, $add_recipe_nutrition, $author, $tags, $recipe_box_id, $title_match, $max_ready_time, $ignore_pantry, $sort, $sort_direction, $min_carbs, $max_carbs, $min_protein, $max_protein, $min_calories, $max_calories, $min_fat, $max_fat, $min_alcohol, $max_alcohol, $min_caffeine, $max_caffeine, $min_copper, $max_copper, $min_calcium, $max_calcium, $min_choline, $max_choline, $min_cholesterol, $max_cholesterol, $min_fluoride, $max_fluoride, $min_saturated_fat, $max_saturated_fat, $min_vitamin_a, $max_vitamin_a, $min_vitamin_c, $max_vitamin_c, $min_vitamin_d, $max_vitamin_d, $min_vitamin_e, $max_vitamin_e, $min_vitamin_k, $max_vitamin_k, $min_vitamin_b1, $max_vitamin_b1, $min_vitamin_b2, $max_vitamin_b2, $min_vitamin_b5, $max_vitamin_b5, $min_vitamin_b3, $max_vitamin_b3, $min_vitamin_b6, $max_vitamin_b6, $min_vitamin_b12, $max_vitamin_b12, $min_fiber, $max_fiber, $min_folate, $max_folate, $min_folic_acid, $max_folic_acid, $min_iodine, $max_iodine, $min_iron, $max_iron, $min_magnesium, $max_magnesium, $min_manganese, $max_manganese, $min_phosphorus, $max_phosphorus, $min_potassium, $max_potassium, $min_selenium, $max_selenium, $min_sodium, $max_sodium, $min_sugar, $max_sugar, $min_zinc, $max_zinc, $offset, $number, $limit_license);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            switch($statusCode) {
-                case 200:
-                    if ('object' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, 'object', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = 'object';
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        'object',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation searchRecipesComplexAsync
-     *
-     * Search Recipes Complex
-     *
-     * @param  string $query The (natural language) recipe search query. (required)
-     * @param  string $cuisine The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as &#39;OR&#39;). See a full list of supported cuisines. (optional)
-     * @param  string $exclude_cuisine The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as &#39;AND&#39;). See a full list of supported cuisines. (optional)
-     * @param  string $diet The diet for which the recipes must be suitable. See a full list of supported diets. (optional)
-     * @param  string $intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
-     * @param  string $equipment The equipment required. Multiple values will be interpreted as &#39;or&#39;. For example, value could be \&quot;blender, frying pan, bowl\&quot;. (optional)
-     * @param  string $include_ingredients A comma-separated list of ingredients that should/must be used in the recipes. (optional)
-     * @param  string $exclude_ingredients A comma-separated list of ingredients or ingredient types that the recipes must not contain. (optional)
-     * @param  string $type The type of recipe. See a full list of supported meal types. (optional)
-     * @param  bool $instructions_required Whether the recipes must have instructions. (optional)
-     * @param  bool $fill_ingredients Add information about the ingredients and whether they are used or missing in relation to the query. (optional)
-     * @param  bool $add_recipe_information If set to true, you get more information about the recipes returned. (optional)
-     * @param  bool $add_recipe_nutrition If set to true, you get nutritional information about each recipes returned. (optional)
-     * @param  string $author The username of the recipe author. (optional)
-     * @param  string $tags User defined tags that have to match. The author param has to be set. (optional)
-     * @param  float $recipe_box_id The id of the recipe box to which the search should be limited to. (optional)
-     * @param  string $title_match Enter text that must be found in the title of the recipes. (optional)
-     * @param  float $max_ready_time The maximum time in minutes it should take to prepare and cook the recipe. (optional)
-     * @param  bool $ignore_pantry Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional)
-     * @param  string $sort The strategy to sort recipes by. See a full list of supported sorting options. (optional)
-     * @param  string $sort_direction The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending). (optional)
-     * @param  float $min_carbs The minimum amount of carbohydrates in grams the recipe must have. (optional)
-     * @param  float $max_carbs The maximum amount of carbohydrates in grams the recipe can have. (optional)
-     * @param  float $min_protein The minimum amount of protein in grams the recipe must have. (optional)
-     * @param  float $max_protein The maximum amount of protein in grams the recipe can have. (optional)
-     * @param  float $min_calories The minimum amount of calories the recipe must have. (optional)
-     * @param  float $max_calories The maximum amount of calories the recipe can have. (optional)
-     * @param  float $min_fat The minimum amount of fat in grams the recipe must have. (optional)
-     * @param  float $max_fat The maximum amount of fat in grams the recipe can have. (optional)
-     * @param  float $min_alcohol The minimum amount of alcohol in grams the recipe must have. (optional)
-     * @param  float $max_alcohol The maximum amount of alcohol in grams the recipe can have. (optional)
-     * @param  float $min_caffeine The minimum amount of caffeine in milligrams the recipe must have. (optional)
-     * @param  float $max_caffeine The maximum amount of caffeine in milligrams the recipe can have. (optional)
-     * @param  float $min_copper The minimum amount of copper in milligrams the recipe must have. (optional)
-     * @param  float $max_copper The maximum amount of copper in milligrams the recipe can have. (optional)
-     * @param  float $min_calcium The minimum amount of calcium in milligrams the recipe must have. (optional)
-     * @param  float $max_calcium The maximum amount of calcium in milligrams the recipe can have. (optional)
-     * @param  float $min_choline The minimum amount of choline in milligrams the recipe must have. (optional)
-     * @param  float $max_choline The maximum amount of choline in milligrams the recipe can have. (optional)
-     * @param  float $min_cholesterol The minimum amount of cholesterol in milligrams the recipe must have. (optional)
-     * @param  float $max_cholesterol The maximum amount of cholesterol in milligrams the recipe can have. (optional)
-     * @param  float $min_fluoride The minimum amount of fluoride in milligrams the recipe must have. (optional)
-     * @param  float $max_fluoride The maximum amount of fluoride in milligrams the recipe can have. (optional)
-     * @param  float $min_saturated_fat The minimum amount of saturated fat in grams the recipe must have. (optional)
-     * @param  float $max_saturated_fat The maximum amount of saturated fat in grams the recipe can have. (optional)
-     * @param  float $min_vitamin_a The minimum amount of Vitamin A in IU the recipe must have. (optional)
-     * @param  float $max_vitamin_a The maximum amount of Vitamin A in IU the recipe can have. (optional)
-     * @param  float $min_vitamin_c The minimum amount of Vitamin C milligrams the recipe must have. (optional)
-     * @param  float $max_vitamin_c The maximum amount of Vitamin C in milligrams the recipe can have. (optional)
-     * @param  float $min_vitamin_d The minimum amount of Vitamin D in micrograms the recipe must have. (optional)
-     * @param  float $max_vitamin_d The maximum amount of Vitamin D in micrograms the recipe can have. (optional)
-     * @param  float $min_vitamin_e The minimum amount of Vitamin E in milligrams the recipe must have. (optional)
-     * @param  float $max_vitamin_e The maximum amount of Vitamin E in milligrams the recipe can have. (optional)
-     * @param  float $min_vitamin_k The minimum amount of Vitamin K in micrograms the recipe must have. (optional)
-     * @param  float $max_vitamin_k The maximum amount of Vitamin K in micrograms the recipe can have. (optional)
-     * @param  float $min_vitamin_b1 The minimum amount of Vitamin B1 in milligrams the recipe must have. (optional)
-     * @param  float $max_vitamin_b1 The maximum amount of Vitamin B1 in milligrams the recipe can have. (optional)
-     * @param  float $min_vitamin_b2 The minimum amount of Vitamin B2 in milligrams the recipe must have. (optional)
-     * @param  float $max_vitamin_b2 The maximum amount of Vitamin B2 in milligrams the recipe can have. (optional)
-     * @param  float $min_vitamin_b5 The minimum amount of Vitamin B5 in milligrams the recipe must have. (optional)
-     * @param  float $max_vitamin_b5 The maximum amount of Vitamin B5 in milligrams the recipe can have. (optional)
-     * @param  float $min_vitamin_b3 The minimum amount of Vitamin B3 in milligrams the recipe must have. (optional)
-     * @param  float $max_vitamin_b3 The maximum amount of Vitamin B3 in milligrams the recipe can have. (optional)
-     * @param  float $min_vitamin_b6 The minimum amount of Vitamin B6 in milligrams the recipe must have. (optional)
-     * @param  float $max_vitamin_b6 The maximum amount of Vitamin B6 in milligrams the recipe can have. (optional)
-     * @param  float $min_vitamin_b12 The minimum amount of Vitamin B12 in micrograms the recipe must have. (optional)
-     * @param  float $max_vitamin_b12 The maximum amount of Vitamin B12 in micrograms the recipe can have. (optional)
-     * @param  float $min_fiber The minimum amount of fiber in grams the recipe must have. (optional)
-     * @param  float $max_fiber The maximum amount of fiber in grams the recipe can have. (optional)
-     * @param  float $min_folate The minimum amount of folate in grams the recipe must have. (optional)
-     * @param  float $max_folate The maximum amount of folate in grams the recipe can have. (optional)
-     * @param  float $min_folic_acid The minimum amount of folic acid in grams the recipe must have. (optional)
-     * @param  float $max_folic_acid The maximum amount of folic acid in grams the recipe can have. (optional)
-     * @param  float $min_iodine The minimum amount of iodine in grams the recipe must have. (optional)
-     * @param  float $max_iodine The maximum amount of iodine in grams the recipe can have. (optional)
-     * @param  float $min_iron The minimum amount of iron in milligrams the recipe must have. (optional)
-     * @param  float $max_iron The maximum amount of iron in milligrams the recipe can have. (optional)
-     * @param  float $min_magnesium The minimum amount of magnesium in milligrams the recipe must have. (optional)
-     * @param  float $max_magnesium The maximum amount of magnesium in milligrams the recipe can have. (optional)
-     * @param  float $min_manganese The minimum amount of manganese in milligrams the recipe must have. (optional)
-     * @param  float $max_manganese The maximum amount of manganese in milligrams the recipe can have. (optional)
-     * @param  float $min_phosphorus The minimum amount of phosphorus in milligrams the recipe must have. (optional)
-     * @param  float $max_phosphorus The maximum amount of phosphorus in milligrams the recipe can have. (optional)
-     * @param  float $min_potassium The minimum amount of potassium in milligrams the recipe must have. (optional)
-     * @param  float $max_potassium The maximum amount of potassium in milligrams the recipe can have. (optional)
-     * @param  float $min_selenium The minimum amount of selenium in grams the recipe must have. (optional)
-     * @param  float $max_selenium The maximum amount of selenium in grams the recipe can have. (optional)
-     * @param  float $min_sodium The minimum amount of sodium in milligrams the recipe must have. (optional)
-     * @param  float $max_sodium The maximum amount of sodium in milligrams the recipe can have. (optional)
-     * @param  float $min_sugar The minimum amount of sugar in grams the recipe must have. (optional)
-     * @param  float $max_sugar The maximum amount of sugar in grams the recipe can have. (optional)
-     * @param  float $min_zinc The minimum amount of zinc in milligrams the recipe must have. (optional)
-     * @param  float $max_zinc The maximum amount of zinc in milligrams the recipe can have. (optional)
-     * @param  float $offset The number of results to skip (between 0 and 900). (optional)
-     * @param  float $number The number of expected results (between 1 and 100). (optional)
-     * @param  bool $limit_license Whether the recipes should have an open license that allows display with proper attribution. (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function searchRecipesComplexAsync($query, $cuisine = null, $exclude_cuisine = null, $diet = null, $intolerances = null, $equipment = null, $include_ingredients = null, $exclude_ingredients = null, $type = null, $instructions_required = null, $fill_ingredients = null, $add_recipe_information = null, $add_recipe_nutrition = null, $author = null, $tags = null, $recipe_box_id = null, $title_match = null, $max_ready_time = null, $ignore_pantry = null, $sort = null, $sort_direction = null, $min_carbs = null, $max_carbs = null, $min_protein = null, $max_protein = null, $min_calories = null, $max_calories = null, $min_fat = null, $max_fat = null, $min_alcohol = null, $max_alcohol = null, $min_caffeine = null, $max_caffeine = null, $min_copper = null, $max_copper = null, $min_calcium = null, $max_calcium = null, $min_choline = null, $max_choline = null, $min_cholesterol = null, $max_cholesterol = null, $min_fluoride = null, $max_fluoride = null, $min_saturated_fat = null, $max_saturated_fat = null, $min_vitamin_a = null, $max_vitamin_a = null, $min_vitamin_c = null, $max_vitamin_c = null, $min_vitamin_d = null, $max_vitamin_d = null, $min_vitamin_e = null, $max_vitamin_e = null, $min_vitamin_k = null, $max_vitamin_k = null, $min_vitamin_b1 = null, $max_vitamin_b1 = null, $min_vitamin_b2 = null, $max_vitamin_b2 = null, $min_vitamin_b5 = null, $max_vitamin_b5 = null, $min_vitamin_b3 = null, $max_vitamin_b3 = null, $min_vitamin_b6 = null, $max_vitamin_b6 = null, $min_vitamin_b12 = null, $max_vitamin_b12 = null, $min_fiber = null, $max_fiber = null, $min_folate = null, $max_folate = null, $min_folic_acid = null, $max_folic_acid = null, $min_iodine = null, $max_iodine = null, $min_iron = null, $max_iron = null, $min_magnesium = null, $max_magnesium = null, $min_manganese = null, $max_manganese = null, $min_phosphorus = null, $max_phosphorus = null, $min_potassium = null, $max_potassium = null, $min_selenium = null, $max_selenium = null, $min_sodium = null, $max_sodium = null, $min_sugar = null, $max_sugar = null, $min_zinc = null, $max_zinc = null, $offset = null, $number = null, $limit_license = null)
-    {
-        return $this->searchRecipesComplexAsyncWithHttpInfo($query, $cuisine, $exclude_cuisine, $diet, $intolerances, $equipment, $include_ingredients, $exclude_ingredients, $type, $instructions_required, $fill_ingredients, $add_recipe_information, $add_recipe_nutrition, $author, $tags, $recipe_box_id, $title_match, $max_ready_time, $ignore_pantry, $sort, $sort_direction, $min_carbs, $max_carbs, $min_protein, $max_protein, $min_calories, $max_calories, $min_fat, $max_fat, $min_alcohol, $max_alcohol, $min_caffeine, $max_caffeine, $min_copper, $max_copper, $min_calcium, $max_calcium, $min_choline, $max_choline, $min_cholesterol, $max_cholesterol, $min_fluoride, $max_fluoride, $min_saturated_fat, $max_saturated_fat, $min_vitamin_a, $max_vitamin_a, $min_vitamin_c, $max_vitamin_c, $min_vitamin_d, $max_vitamin_d, $min_vitamin_e, $max_vitamin_e, $min_vitamin_k, $max_vitamin_k, $min_vitamin_b1, $max_vitamin_b1, $min_vitamin_b2, $max_vitamin_b2, $min_vitamin_b5, $max_vitamin_b5, $min_vitamin_b3, $max_vitamin_b3, $min_vitamin_b6, $max_vitamin_b6, $min_vitamin_b12, $max_vitamin_b12, $min_fiber, $max_fiber, $min_folate, $max_folate, $min_folic_acid, $max_folic_acid, $min_iodine, $max_iodine, $min_iron, $max_iron, $min_magnesium, $max_magnesium, $min_manganese, $max_manganese, $min_phosphorus, $max_phosphorus, $min_potassium, $max_potassium, $min_selenium, $max_selenium, $min_sodium, $max_sodium, $min_sugar, $max_sugar, $min_zinc, $max_zinc, $offset, $number, $limit_license)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation searchRecipesComplexAsyncWithHttpInfo
-     *
-     * Search Recipes Complex
-     *
-     * @param  string $query The (natural language) recipe search query. (required)
-     * @param  string $cuisine The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as &#39;OR&#39;). See a full list of supported cuisines. (optional)
-     * @param  string $exclude_cuisine The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as &#39;AND&#39;). See a full list of supported cuisines. (optional)
-     * @param  string $diet The diet for which the recipes must be suitable. See a full list of supported diets. (optional)
-     * @param  string $intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
-     * @param  string $equipment The equipment required. Multiple values will be interpreted as &#39;or&#39;. For example, value could be \&quot;blender, frying pan, bowl\&quot;. (optional)
-     * @param  string $include_ingredients A comma-separated list of ingredients that should/must be used in the recipes. (optional)
-     * @param  string $exclude_ingredients A comma-separated list of ingredients or ingredient types that the recipes must not contain. (optional)
-     * @param  string $type The type of recipe. See a full list of supported meal types. (optional)
-     * @param  bool $instructions_required Whether the recipes must have instructions. (optional)
-     * @param  bool $fill_ingredients Add information about the ingredients and whether they are used or missing in relation to the query. (optional)
-     * @param  bool $add_recipe_information If set to true, you get more information about the recipes returned. (optional)
-     * @param  bool $add_recipe_nutrition If set to true, you get nutritional information about each recipes returned. (optional)
-     * @param  string $author The username of the recipe author. (optional)
-     * @param  string $tags User defined tags that have to match. The author param has to be set. (optional)
-     * @param  float $recipe_box_id The id of the recipe box to which the search should be limited to. (optional)
-     * @param  string $title_match Enter text that must be found in the title of the recipes. (optional)
-     * @param  float $max_ready_time The maximum time in minutes it should take to prepare and cook the recipe. (optional)
-     * @param  bool $ignore_pantry Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional)
-     * @param  string $sort The strategy to sort recipes by. See a full list of supported sorting options. (optional)
-     * @param  string $sort_direction The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending). (optional)
-     * @param  float $min_carbs The minimum amount of carbohydrates in grams the recipe must have. (optional)
-     * @param  float $max_carbs The maximum amount of carbohydrates in grams the recipe can have. (optional)
-     * @param  float $min_protein The minimum amount of protein in grams the recipe must have. (optional)
-     * @param  float $max_protein The maximum amount of protein in grams the recipe can have. (optional)
-     * @param  float $min_calories The minimum amount of calories the recipe must have. (optional)
-     * @param  float $max_calories The maximum amount of calories the recipe can have. (optional)
-     * @param  float $min_fat The minimum amount of fat in grams the recipe must have. (optional)
-     * @param  float $max_fat The maximum amount of fat in grams the recipe can have. (optional)
-     * @param  float $min_alcohol The minimum amount of alcohol in grams the recipe must have. (optional)
-     * @param  float $max_alcohol The maximum amount of alcohol in grams the recipe can have. (optional)
-     * @param  float $min_caffeine The minimum amount of caffeine in milligrams the recipe must have. (optional)
-     * @param  float $max_caffeine The maximum amount of caffeine in milligrams the recipe can have. (optional)
-     * @param  float $min_copper The minimum amount of copper in milligrams the recipe must have. (optional)
-     * @param  float $max_copper The maximum amount of copper in milligrams the recipe can have. (optional)
-     * @param  float $min_calcium The minimum amount of calcium in milligrams the recipe must have. (optional)
-     * @param  float $max_calcium The maximum amount of calcium in milligrams the recipe can have. (optional)
-     * @param  float $min_choline The minimum amount of choline in milligrams the recipe must have. (optional)
-     * @param  float $max_choline The maximum amount of choline in milligrams the recipe can have. (optional)
-     * @param  float $min_cholesterol The minimum amount of cholesterol in milligrams the recipe must have. (optional)
-     * @param  float $max_cholesterol The maximum amount of cholesterol in milligrams the recipe can have. (optional)
-     * @param  float $min_fluoride The minimum amount of fluoride in milligrams the recipe must have. (optional)
-     * @param  float $max_fluoride The maximum amount of fluoride in milligrams the recipe can have. (optional)
-     * @param  float $min_saturated_fat The minimum amount of saturated fat in grams the recipe must have. (optional)
-     * @param  float $max_saturated_fat The maximum amount of saturated fat in grams the recipe can have. (optional)
-     * @param  float $min_vitamin_a The minimum amount of Vitamin A in IU the recipe must have. (optional)
-     * @param  float $max_vitamin_a The maximum amount of Vitamin A in IU the recipe can have. (optional)
-     * @param  float $min_vitamin_c The minimum amount of Vitamin C milligrams the recipe must have. (optional)
-     * @param  float $max_vitamin_c The maximum amount of Vitamin C in milligrams the recipe can have. (optional)
-     * @param  float $min_vitamin_d The minimum amount of Vitamin D in micrograms the recipe must have. (optional)
-     * @param  float $max_vitamin_d The maximum amount of Vitamin D in micrograms the recipe can have. (optional)
-     * @param  float $min_vitamin_e The minimum amount of Vitamin E in milligrams the recipe must have. (optional)
-     * @param  float $max_vitamin_e The maximum amount of Vitamin E in milligrams the recipe can have. (optional)
-     * @param  float $min_vitamin_k The minimum amount of Vitamin K in micrograms the recipe must have. (optional)
-     * @param  float $max_vitamin_k The maximum amount of Vitamin K in micrograms the recipe can have. (optional)
-     * @param  float $min_vitamin_b1 The minimum amount of Vitamin B1 in milligrams the recipe must have. (optional)
-     * @param  float $max_vitamin_b1 The maximum amount of Vitamin B1 in milligrams the recipe can have. (optional)
-     * @param  float $min_vitamin_b2 The minimum amount of Vitamin B2 in milligrams the recipe must have. (optional)
-     * @param  float $max_vitamin_b2 The maximum amount of Vitamin B2 in milligrams the recipe can have. (optional)
-     * @param  float $min_vitamin_b5 The minimum amount of Vitamin B5 in milligrams the recipe must have. (optional)
-     * @param  float $max_vitamin_b5 The maximum amount of Vitamin B5 in milligrams the recipe can have. (optional)
-     * @param  float $min_vitamin_b3 The minimum amount of Vitamin B3 in milligrams the recipe must have. (optional)
-     * @param  float $max_vitamin_b3 The maximum amount of Vitamin B3 in milligrams the recipe can have. (optional)
-     * @param  float $min_vitamin_b6 The minimum amount of Vitamin B6 in milligrams the recipe must have. (optional)
-     * @param  float $max_vitamin_b6 The maximum amount of Vitamin B6 in milligrams the recipe can have. (optional)
-     * @param  float $min_vitamin_b12 The minimum amount of Vitamin B12 in micrograms the recipe must have. (optional)
-     * @param  float $max_vitamin_b12 The maximum amount of Vitamin B12 in micrograms the recipe can have. (optional)
-     * @param  float $min_fiber The minimum amount of fiber in grams the recipe must have. (optional)
-     * @param  float $max_fiber The maximum amount of fiber in grams the recipe can have. (optional)
-     * @param  float $min_folate The minimum amount of folate in grams the recipe must have. (optional)
-     * @param  float $max_folate The maximum amount of folate in grams the recipe can have. (optional)
-     * @param  float $min_folic_acid The minimum amount of folic acid in grams the recipe must have. (optional)
-     * @param  float $max_folic_acid The maximum amount of folic acid in grams the recipe can have. (optional)
-     * @param  float $min_iodine The minimum amount of iodine in grams the recipe must have. (optional)
-     * @param  float $max_iodine The maximum amount of iodine in grams the recipe can have. (optional)
-     * @param  float $min_iron The minimum amount of iron in milligrams the recipe must have. (optional)
-     * @param  float $max_iron The maximum amount of iron in milligrams the recipe can have. (optional)
-     * @param  float $min_magnesium The minimum amount of magnesium in milligrams the recipe must have. (optional)
-     * @param  float $max_magnesium The maximum amount of magnesium in milligrams the recipe can have. (optional)
-     * @param  float $min_manganese The minimum amount of manganese in milligrams the recipe must have. (optional)
-     * @param  float $max_manganese The maximum amount of manganese in milligrams the recipe can have. (optional)
-     * @param  float $min_phosphorus The minimum amount of phosphorus in milligrams the recipe must have. (optional)
-     * @param  float $max_phosphorus The maximum amount of phosphorus in milligrams the recipe can have. (optional)
-     * @param  float $min_potassium The minimum amount of potassium in milligrams the recipe must have. (optional)
-     * @param  float $max_potassium The maximum amount of potassium in milligrams the recipe can have. (optional)
-     * @param  float $min_selenium The minimum amount of selenium in grams the recipe must have. (optional)
-     * @param  float $max_selenium The maximum amount of selenium in grams the recipe can have. (optional)
-     * @param  float $min_sodium The minimum amount of sodium in milligrams the recipe must have. (optional)
-     * @param  float $max_sodium The maximum amount of sodium in milligrams the recipe can have. (optional)
-     * @param  float $min_sugar The minimum amount of sugar in grams the recipe must have. (optional)
-     * @param  float $max_sugar The maximum amount of sugar in grams the recipe can have. (optional)
-     * @param  float $min_zinc The minimum amount of zinc in milligrams the recipe must have. (optional)
-     * @param  float $max_zinc The maximum amount of zinc in milligrams the recipe can have. (optional)
-     * @param  float $offset The number of results to skip (between 0 and 900). (optional)
-     * @param  float $number The number of expected results (between 1 and 100). (optional)
-     * @param  bool $limit_license Whether the recipes should have an open license that allows display with proper attribution. (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function searchRecipesComplexAsyncWithHttpInfo($query, $cuisine = null, $exclude_cuisine = null, $diet = null, $intolerances = null, $equipment = null, $include_ingredients = null, $exclude_ingredients = null, $type = null, $instructions_required = null, $fill_ingredients = null, $add_recipe_information = null, $add_recipe_nutrition = null, $author = null, $tags = null, $recipe_box_id = null, $title_match = null, $max_ready_time = null, $ignore_pantry = null, $sort = null, $sort_direction = null, $min_carbs = null, $max_carbs = null, $min_protein = null, $max_protein = null, $min_calories = null, $max_calories = null, $min_fat = null, $max_fat = null, $min_alcohol = null, $max_alcohol = null, $min_caffeine = null, $max_caffeine = null, $min_copper = null, $max_copper = null, $min_calcium = null, $max_calcium = null, $min_choline = null, $max_choline = null, $min_cholesterol = null, $max_cholesterol = null, $min_fluoride = null, $max_fluoride = null, $min_saturated_fat = null, $max_saturated_fat = null, $min_vitamin_a = null, $max_vitamin_a = null, $min_vitamin_c = null, $max_vitamin_c = null, $min_vitamin_d = null, $max_vitamin_d = null, $min_vitamin_e = null, $max_vitamin_e = null, $min_vitamin_k = null, $max_vitamin_k = null, $min_vitamin_b1 = null, $max_vitamin_b1 = null, $min_vitamin_b2 = null, $max_vitamin_b2 = null, $min_vitamin_b5 = null, $max_vitamin_b5 = null, $min_vitamin_b3 = null, $max_vitamin_b3 = null, $min_vitamin_b6 = null, $max_vitamin_b6 = null, $min_vitamin_b12 = null, $max_vitamin_b12 = null, $min_fiber = null, $max_fiber = null, $min_folate = null, $max_folate = null, $min_folic_acid = null, $max_folic_acid = null, $min_iodine = null, $max_iodine = null, $min_iron = null, $max_iron = null, $min_magnesium = null, $max_magnesium = null, $min_manganese = null, $max_manganese = null, $min_phosphorus = null, $max_phosphorus = null, $min_potassium = null, $max_potassium = null, $min_selenium = null, $max_selenium = null, $min_sodium = null, $max_sodium = null, $min_sugar = null, $max_sugar = null, $min_zinc = null, $max_zinc = null, $offset = null, $number = null, $limit_license = null)
-    {
-        $returnType = 'object';
-        $request = $this->searchRecipesComplexRequest($query, $cuisine, $exclude_cuisine, $diet, $intolerances, $equipment, $include_ingredients, $exclude_ingredients, $type, $instructions_required, $fill_ingredients, $add_recipe_information, $add_recipe_nutrition, $author, $tags, $recipe_box_id, $title_match, $max_ready_time, $ignore_pantry, $sort, $sort_direction, $min_carbs, $max_carbs, $min_protein, $max_protein, $min_calories, $max_calories, $min_fat, $max_fat, $min_alcohol, $max_alcohol, $min_caffeine, $max_caffeine, $min_copper, $max_copper, $min_calcium, $max_calcium, $min_choline, $max_choline, $min_cholesterol, $max_cholesterol, $min_fluoride, $max_fluoride, $min_saturated_fat, $max_saturated_fat, $min_vitamin_a, $max_vitamin_a, $min_vitamin_c, $max_vitamin_c, $min_vitamin_d, $max_vitamin_d, $min_vitamin_e, $max_vitamin_e, $min_vitamin_k, $max_vitamin_k, $min_vitamin_b1, $max_vitamin_b1, $min_vitamin_b2, $max_vitamin_b2, $min_vitamin_b5, $max_vitamin_b5, $min_vitamin_b3, $max_vitamin_b3, $min_vitamin_b6, $max_vitamin_b6, $min_vitamin_b12, $max_vitamin_b12, $min_fiber, $max_fiber, $min_folate, $max_folate, $min_folic_acid, $max_folic_acid, $min_iodine, $max_iodine, $min_iron, $max_iron, $min_magnesium, $max_magnesium, $min_manganese, $max_manganese, $min_phosphorus, $max_phosphorus, $min_potassium, $max_potassium, $min_selenium, $max_selenium, $min_sodium, $max_sodium, $min_sugar, $max_sugar, $min_zinc, $max_zinc, $offset, $number, $limit_license);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'searchRecipesComplex'
-     *
-     * @param  string $query The (natural language) recipe search query. (required)
-     * @param  string $cuisine The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as &#39;OR&#39;). See a full list of supported cuisines. (optional)
-     * @param  string $exclude_cuisine The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as &#39;AND&#39;). See a full list of supported cuisines. (optional)
-     * @param  string $diet The diet for which the recipes must be suitable. See a full list of supported diets. (optional)
-     * @param  string $intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
-     * @param  string $equipment The equipment required. Multiple values will be interpreted as &#39;or&#39;. For example, value could be \&quot;blender, frying pan, bowl\&quot;. (optional)
-     * @param  string $include_ingredients A comma-separated list of ingredients that should/must be used in the recipes. (optional)
-     * @param  string $exclude_ingredients A comma-separated list of ingredients or ingredient types that the recipes must not contain. (optional)
-     * @param  string $type The type of recipe. See a full list of supported meal types. (optional)
-     * @param  bool $instructions_required Whether the recipes must have instructions. (optional)
-     * @param  bool $fill_ingredients Add information about the ingredients and whether they are used or missing in relation to the query. (optional)
-     * @param  bool $add_recipe_information If set to true, you get more information about the recipes returned. (optional)
-     * @param  bool $add_recipe_nutrition If set to true, you get nutritional information about each recipes returned. (optional)
-     * @param  string $author The username of the recipe author. (optional)
-     * @param  string $tags User defined tags that have to match. The author param has to be set. (optional)
-     * @param  float $recipe_box_id The id of the recipe box to which the search should be limited to. (optional)
-     * @param  string $title_match Enter text that must be found in the title of the recipes. (optional)
-     * @param  float $max_ready_time The maximum time in minutes it should take to prepare and cook the recipe. (optional)
-     * @param  bool $ignore_pantry Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional)
-     * @param  string $sort The strategy to sort recipes by. See a full list of supported sorting options. (optional)
-     * @param  string $sort_direction The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending). (optional)
-     * @param  float $min_carbs The minimum amount of carbohydrates in grams the recipe must have. (optional)
-     * @param  float $max_carbs The maximum amount of carbohydrates in grams the recipe can have. (optional)
-     * @param  float $min_protein The minimum amount of protein in grams the recipe must have. (optional)
-     * @param  float $max_protein The maximum amount of protein in grams the recipe can have. (optional)
-     * @param  float $min_calories The minimum amount of calories the recipe must have. (optional)
-     * @param  float $max_calories The maximum amount of calories the recipe can have. (optional)
-     * @param  float $min_fat The minimum amount of fat in grams the recipe must have. (optional)
-     * @param  float $max_fat The maximum amount of fat in grams the recipe can have. (optional)
-     * @param  float $min_alcohol The minimum amount of alcohol in grams the recipe must have. (optional)
-     * @param  float $max_alcohol The maximum amount of alcohol in grams the recipe can have. (optional)
-     * @param  float $min_caffeine The minimum amount of caffeine in milligrams the recipe must have. (optional)
-     * @param  float $max_caffeine The maximum amount of caffeine in milligrams the recipe can have. (optional)
-     * @param  float $min_copper The minimum amount of copper in milligrams the recipe must have. (optional)
-     * @param  float $max_copper The maximum amount of copper in milligrams the recipe can have. (optional)
-     * @param  float $min_calcium The minimum amount of calcium in milligrams the recipe must have. (optional)
-     * @param  float $max_calcium The maximum amount of calcium in milligrams the recipe can have. (optional)
-     * @param  float $min_choline The minimum amount of choline in milligrams the recipe must have. (optional)
-     * @param  float $max_choline The maximum amount of choline in milligrams the recipe can have. (optional)
-     * @param  float $min_cholesterol The minimum amount of cholesterol in milligrams the recipe must have. (optional)
-     * @param  float $max_cholesterol The maximum amount of cholesterol in milligrams the recipe can have. (optional)
-     * @param  float $min_fluoride The minimum amount of fluoride in milligrams the recipe must have. (optional)
-     * @param  float $max_fluoride The maximum amount of fluoride in milligrams the recipe can have. (optional)
-     * @param  float $min_saturated_fat The minimum amount of saturated fat in grams the recipe must have. (optional)
-     * @param  float $max_saturated_fat The maximum amount of saturated fat in grams the recipe can have. (optional)
-     * @param  float $min_vitamin_a The minimum amount of Vitamin A in IU the recipe must have. (optional)
-     * @param  float $max_vitamin_a The maximum amount of Vitamin A in IU the recipe can have. (optional)
-     * @param  float $min_vitamin_c The minimum amount of Vitamin C milligrams the recipe must have. (optional)
-     * @param  float $max_vitamin_c The maximum amount of Vitamin C in milligrams the recipe can have. (optional)
-     * @param  float $min_vitamin_d The minimum amount of Vitamin D in micrograms the recipe must have. (optional)
-     * @param  float $max_vitamin_d The maximum amount of Vitamin D in micrograms the recipe can have. (optional)
-     * @param  float $min_vitamin_e The minimum amount of Vitamin E in milligrams the recipe must have. (optional)
-     * @param  float $max_vitamin_e The maximum amount of Vitamin E in milligrams the recipe can have. (optional)
-     * @param  float $min_vitamin_k The minimum amount of Vitamin K in micrograms the recipe must have. (optional)
-     * @param  float $max_vitamin_k The maximum amount of Vitamin K in micrograms the recipe can have. (optional)
-     * @param  float $min_vitamin_b1 The minimum amount of Vitamin B1 in milligrams the recipe must have. (optional)
-     * @param  float $max_vitamin_b1 The maximum amount of Vitamin B1 in milligrams the recipe can have. (optional)
-     * @param  float $min_vitamin_b2 The minimum amount of Vitamin B2 in milligrams the recipe must have. (optional)
-     * @param  float $max_vitamin_b2 The maximum amount of Vitamin B2 in milligrams the recipe can have. (optional)
-     * @param  float $min_vitamin_b5 The minimum amount of Vitamin B5 in milligrams the recipe must have. (optional)
-     * @param  float $max_vitamin_b5 The maximum amount of Vitamin B5 in milligrams the recipe can have. (optional)
-     * @param  float $min_vitamin_b3 The minimum amount of Vitamin B3 in milligrams the recipe must have. (optional)
-     * @param  float $max_vitamin_b3 The maximum amount of Vitamin B3 in milligrams the recipe can have. (optional)
-     * @param  float $min_vitamin_b6 The minimum amount of Vitamin B6 in milligrams the recipe must have. (optional)
-     * @param  float $max_vitamin_b6 The maximum amount of Vitamin B6 in milligrams the recipe can have. (optional)
-     * @param  float $min_vitamin_b12 The minimum amount of Vitamin B12 in micrograms the recipe must have. (optional)
-     * @param  float $max_vitamin_b12 The maximum amount of Vitamin B12 in micrograms the recipe can have. (optional)
-     * @param  float $min_fiber The minimum amount of fiber in grams the recipe must have. (optional)
-     * @param  float $max_fiber The maximum amount of fiber in grams the recipe can have. (optional)
-     * @param  float $min_folate The minimum amount of folate in grams the recipe must have. (optional)
-     * @param  float $max_folate The maximum amount of folate in grams the recipe can have. (optional)
-     * @param  float $min_folic_acid The minimum amount of folic acid in grams the recipe must have. (optional)
-     * @param  float $max_folic_acid The maximum amount of folic acid in grams the recipe can have. (optional)
-     * @param  float $min_iodine The minimum amount of iodine in grams the recipe must have. (optional)
-     * @param  float $max_iodine The maximum amount of iodine in grams the recipe can have. (optional)
-     * @param  float $min_iron The minimum amount of iron in milligrams the recipe must have. (optional)
-     * @param  float $max_iron The maximum amount of iron in milligrams the recipe can have. (optional)
-     * @param  float $min_magnesium The minimum amount of magnesium in milligrams the recipe must have. (optional)
-     * @param  float $max_magnesium The maximum amount of magnesium in milligrams the recipe can have. (optional)
-     * @param  float $min_manganese The minimum amount of manganese in milligrams the recipe must have. (optional)
-     * @param  float $max_manganese The maximum amount of manganese in milligrams the recipe can have. (optional)
-     * @param  float $min_phosphorus The minimum amount of phosphorus in milligrams the recipe must have. (optional)
-     * @param  float $max_phosphorus The maximum amount of phosphorus in milligrams the recipe can have. (optional)
-     * @param  float $min_potassium The minimum amount of potassium in milligrams the recipe must have. (optional)
-     * @param  float $max_potassium The maximum amount of potassium in milligrams the recipe can have. (optional)
-     * @param  float $min_selenium The minimum amount of selenium in grams the recipe must have. (optional)
-     * @param  float $max_selenium The maximum amount of selenium in grams the recipe can have. (optional)
-     * @param  float $min_sodium The minimum amount of sodium in milligrams the recipe must have. (optional)
-     * @param  float $max_sodium The maximum amount of sodium in milligrams the recipe can have. (optional)
-     * @param  float $min_sugar The minimum amount of sugar in grams the recipe must have. (optional)
-     * @param  float $max_sugar The maximum amount of sugar in grams the recipe can have. (optional)
-     * @param  float $min_zinc The minimum amount of zinc in milligrams the recipe must have. (optional)
-     * @param  float $max_zinc The maximum amount of zinc in milligrams the recipe can have. (optional)
-     * @param  float $offset The number of results to skip (between 0 and 900). (optional)
-     * @param  float $number The number of expected results (between 1 and 100). (optional)
-     * @param  bool $limit_license Whether the recipes should have an open license that allows display with proper attribution. (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function searchRecipesComplexRequest($query, $cuisine = null, $exclude_cuisine = null, $diet = null, $intolerances = null, $equipment = null, $include_ingredients = null, $exclude_ingredients = null, $type = null, $instructions_required = null, $fill_ingredients = null, $add_recipe_information = null, $add_recipe_nutrition = null, $author = null, $tags = null, $recipe_box_id = null, $title_match = null, $max_ready_time = null, $ignore_pantry = null, $sort = null, $sort_direction = null, $min_carbs = null, $max_carbs = null, $min_protein = null, $max_protein = null, $min_calories = null, $max_calories = null, $min_fat = null, $max_fat = null, $min_alcohol = null, $max_alcohol = null, $min_caffeine = null, $max_caffeine = null, $min_copper = null, $max_copper = null, $min_calcium = null, $max_calcium = null, $min_choline = null, $max_choline = null, $min_cholesterol = null, $max_cholesterol = null, $min_fluoride = null, $max_fluoride = null, $min_saturated_fat = null, $max_saturated_fat = null, $min_vitamin_a = null, $max_vitamin_a = null, $min_vitamin_c = null, $max_vitamin_c = null, $min_vitamin_d = null, $max_vitamin_d = null, $min_vitamin_e = null, $max_vitamin_e = null, $min_vitamin_k = null, $max_vitamin_k = null, $min_vitamin_b1 = null, $max_vitamin_b1 = null, $min_vitamin_b2 = null, $max_vitamin_b2 = null, $min_vitamin_b5 = null, $max_vitamin_b5 = null, $min_vitamin_b3 = null, $max_vitamin_b3 = null, $min_vitamin_b6 = null, $max_vitamin_b6 = null, $min_vitamin_b12 = null, $max_vitamin_b12 = null, $min_fiber = null, $max_fiber = null, $min_folate = null, $max_folate = null, $min_folic_acid = null, $max_folic_acid = null, $min_iodine = null, $max_iodine = null, $min_iron = null, $max_iron = null, $min_magnesium = null, $max_magnesium = null, $min_manganese = null, $max_manganese = null, $min_phosphorus = null, $max_phosphorus = null, $min_potassium = null, $max_potassium = null, $min_selenium = null, $max_selenium = null, $min_sodium = null, $max_sodium = null, $min_sugar = null, $max_sugar = null, $min_zinc = null, $max_zinc = null, $offset = null, $number = null, $limit_license = null)
-    {
-        // verify the required parameter 'query' is set
-        if ($query === null || (is_array($query) && count($query) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $query when calling searchRecipesComplex'
-            );
-        }
-
-        $resourcePath = '/recipes/complexSearch';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        if ($query !== null) {
-            $queryParams['query'] = ObjectSerializer::toQueryValue($query);
-        }
-        // query params
-        if ($cuisine !== null) {
-            $queryParams['cuisine'] = ObjectSerializer::toQueryValue($cuisine);
-        }
-        // query params
-        if ($exclude_cuisine !== null) {
-            $queryParams['excludeCuisine'] = ObjectSerializer::toQueryValue($exclude_cuisine);
-        }
-        // query params
-        if ($diet !== null) {
-            $queryParams['diet'] = ObjectSerializer::toQueryValue($diet);
-        }
-        // query params
-        if ($intolerances !== null) {
-            $queryParams['intolerances'] = ObjectSerializer::toQueryValue($intolerances);
-        }
-        // query params
-        if ($equipment !== null) {
-            $queryParams['equipment'] = ObjectSerializer::toQueryValue($equipment);
-        }
-        // query params
-        if ($include_ingredients !== null) {
-            $queryParams['includeIngredients'] = ObjectSerializer::toQueryValue($include_ingredients);
-        }
-        // query params
-        if ($exclude_ingredients !== null) {
-            $queryParams['excludeIngredients'] = ObjectSerializer::toQueryValue($exclude_ingredients);
-        }
-        // query params
-        if ($type !== null) {
-            $queryParams['type'] = ObjectSerializer::toQueryValue($type);
-        }
-        // query params
-        if ($instructions_required !== null) {
-            $queryParams['instructionsRequired'] = ObjectSerializer::toQueryValue($instructions_required);
-        }
-        // query params
-        if ($fill_ingredients !== null) {
-            $queryParams['fillIngredients'] = ObjectSerializer::toQueryValue($fill_ingredients);
-        }
-        // query params
-        if ($add_recipe_information !== null) {
-            $queryParams['addRecipeInformation'] = ObjectSerializer::toQueryValue($add_recipe_information);
-        }
-        // query params
-        if ($add_recipe_nutrition !== null) {
-            $queryParams['addRecipeNutrition'] = ObjectSerializer::toQueryValue($add_recipe_nutrition);
-        }
-        // query params
-        if ($author !== null) {
-            $queryParams['author'] = ObjectSerializer::toQueryValue($author);
-        }
-        // query params
-        if ($tags !== null) {
-            $queryParams['tags'] = ObjectSerializer::toQueryValue($tags);
-        }
-        // query params
-        if ($recipe_box_id !== null) {
-            $queryParams['recipeBoxId'] = ObjectSerializer::toQueryValue($recipe_box_id);
-        }
-        // query params
-        if ($title_match !== null) {
-            $queryParams['titleMatch'] = ObjectSerializer::toQueryValue($title_match);
-        }
-        // query params
-        if ($max_ready_time !== null) {
-            $queryParams['maxReadyTime'] = ObjectSerializer::toQueryValue($max_ready_time);
-        }
-        // query params
-        if ($ignore_pantry !== null) {
-            $queryParams['ignorePantry'] = ObjectSerializer::toQueryValue($ignore_pantry);
-        }
-        // query params
-        if ($sort !== null) {
-            $queryParams['sort'] = ObjectSerializer::toQueryValue($sort);
-        }
-        // query params
-        if ($sort_direction !== null) {
-            $queryParams['sortDirection'] = ObjectSerializer::toQueryValue($sort_direction);
-        }
-        // query params
-        if ($min_carbs !== null) {
-            $queryParams['minCarbs'] = ObjectSerializer::toQueryValue($min_carbs);
-        }
-        // query params
-        if ($max_carbs !== null) {
-            $queryParams['maxCarbs'] = ObjectSerializer::toQueryValue($max_carbs);
-        }
-        // query params
-        if ($min_protein !== null) {
-            $queryParams['minProtein'] = ObjectSerializer::toQueryValue($min_protein);
-        }
-        // query params
-        if ($max_protein !== null) {
-            $queryParams['maxProtein'] = ObjectSerializer::toQueryValue($max_protein);
-        }
-        // query params
-        if ($min_calories !== null) {
-            $queryParams['minCalories'] = ObjectSerializer::toQueryValue($min_calories);
-        }
-        // query params
-        if ($max_calories !== null) {
-            $queryParams['maxCalories'] = ObjectSerializer::toQueryValue($max_calories);
-        }
-        // query params
-        if ($min_fat !== null) {
-            $queryParams['minFat'] = ObjectSerializer::toQueryValue($min_fat);
-        }
-        // query params
-        if ($max_fat !== null) {
-            $queryParams['maxFat'] = ObjectSerializer::toQueryValue($max_fat);
-        }
-        // query params
-        if ($min_alcohol !== null) {
-            $queryParams['minAlcohol'] = ObjectSerializer::toQueryValue($min_alcohol);
-        }
-        // query params
-        if ($max_alcohol !== null) {
-            $queryParams['maxAlcohol'] = ObjectSerializer::toQueryValue($max_alcohol);
-        }
-        // query params
-        if ($min_caffeine !== null) {
-            $queryParams['minCaffeine'] = ObjectSerializer::toQueryValue($min_caffeine);
-        }
-        // query params
-        if ($max_caffeine !== null) {
-            $queryParams['maxCaffeine'] = ObjectSerializer::toQueryValue($max_caffeine);
-        }
-        // query params
-        if ($min_copper !== null) {
-            $queryParams['minCopper'] = ObjectSerializer::toQueryValue($min_copper);
-        }
-        // query params
-        if ($max_copper !== null) {
-            $queryParams['maxCopper'] = ObjectSerializer::toQueryValue($max_copper);
-        }
-        // query params
-        if ($min_calcium !== null) {
-            $queryParams['minCalcium'] = ObjectSerializer::toQueryValue($min_calcium);
-        }
-        // query params
-        if ($max_calcium !== null) {
-            $queryParams['maxCalcium'] = ObjectSerializer::toQueryValue($max_calcium);
-        }
-        // query params
-        if ($min_choline !== null) {
-            $queryParams['minCholine'] = ObjectSerializer::toQueryValue($min_choline);
-        }
-        // query params
-        if ($max_choline !== null) {
-            $queryParams['maxCholine'] = ObjectSerializer::toQueryValue($max_choline);
-        }
-        // query params
-        if ($min_cholesterol !== null) {
-            $queryParams['minCholesterol'] = ObjectSerializer::toQueryValue($min_cholesterol);
-        }
-        // query params
-        if ($max_cholesterol !== null) {
-            $queryParams['maxCholesterol'] = ObjectSerializer::toQueryValue($max_cholesterol);
-        }
-        // query params
-        if ($min_fluoride !== null) {
-            $queryParams['minFluoride'] = ObjectSerializer::toQueryValue($min_fluoride);
-        }
-        // query params
-        if ($max_fluoride !== null) {
-            $queryParams['maxFluoride'] = ObjectSerializer::toQueryValue($max_fluoride);
-        }
-        // query params
-        if ($min_saturated_fat !== null) {
-            $queryParams['minSaturatedFat'] = ObjectSerializer::toQueryValue($min_saturated_fat);
-        }
-        // query params
-        if ($max_saturated_fat !== null) {
-            $queryParams['maxSaturatedFat'] = ObjectSerializer::toQueryValue($max_saturated_fat);
-        }
-        // query params
-        if ($min_vitamin_a !== null) {
-            $queryParams['minVitaminA'] = ObjectSerializer::toQueryValue($min_vitamin_a);
-        }
-        // query params
-        if ($max_vitamin_a !== null) {
-            $queryParams['maxVitaminA'] = ObjectSerializer::toQueryValue($max_vitamin_a);
-        }
-        // query params
-        if ($min_vitamin_c !== null) {
-            $queryParams['minVitaminC'] = ObjectSerializer::toQueryValue($min_vitamin_c);
-        }
-        // query params
-        if ($max_vitamin_c !== null) {
-            $queryParams['maxVitaminC'] = ObjectSerializer::toQueryValue($max_vitamin_c);
-        }
-        // query params
-        if ($min_vitamin_d !== null) {
-            $queryParams['minVitaminD'] = ObjectSerializer::toQueryValue($min_vitamin_d);
-        }
-        // query params
-        if ($max_vitamin_d !== null) {
-            $queryParams['maxVitaminD'] = ObjectSerializer::toQueryValue($max_vitamin_d);
-        }
-        // query params
-        if ($min_vitamin_e !== null) {
-            $queryParams['minVitaminE'] = ObjectSerializer::toQueryValue($min_vitamin_e);
-        }
-        // query params
-        if ($max_vitamin_e !== null) {
-            $queryParams['maxVitaminE'] = ObjectSerializer::toQueryValue($max_vitamin_e);
-        }
-        // query params
-        if ($min_vitamin_k !== null) {
-            $queryParams['minVitaminK'] = ObjectSerializer::toQueryValue($min_vitamin_k);
-        }
-        // query params
-        if ($max_vitamin_k !== null) {
-            $queryParams['maxVitaminK'] = ObjectSerializer::toQueryValue($max_vitamin_k);
-        }
-        // query params
-        if ($min_vitamin_b1 !== null) {
-            $queryParams['minVitaminB1'] = ObjectSerializer::toQueryValue($min_vitamin_b1);
-        }
-        // query params
-        if ($max_vitamin_b1 !== null) {
-            $queryParams['maxVitaminB1'] = ObjectSerializer::toQueryValue($max_vitamin_b1);
-        }
-        // query params
-        if ($min_vitamin_b2 !== null) {
-            $queryParams['minVitaminB2'] = ObjectSerializer::toQueryValue($min_vitamin_b2);
-        }
-        // query params
-        if ($max_vitamin_b2 !== null) {
-            $queryParams['maxVitaminB2'] = ObjectSerializer::toQueryValue($max_vitamin_b2);
-        }
-        // query params
-        if ($min_vitamin_b5 !== null) {
-            $queryParams['minVitaminB5'] = ObjectSerializer::toQueryValue($min_vitamin_b5);
-        }
-        // query params
-        if ($max_vitamin_b5 !== null) {
-            $queryParams['maxVitaminB5'] = ObjectSerializer::toQueryValue($max_vitamin_b5);
-        }
-        // query params
-        if ($min_vitamin_b3 !== null) {
-            $queryParams['minVitaminB3'] = ObjectSerializer::toQueryValue($min_vitamin_b3);
-        }
-        // query params
-        if ($max_vitamin_b3 !== null) {
-            $queryParams['maxVitaminB3'] = ObjectSerializer::toQueryValue($max_vitamin_b3);
-        }
-        // query params
-        if ($min_vitamin_b6 !== null) {
-            $queryParams['minVitaminB6'] = ObjectSerializer::toQueryValue($min_vitamin_b6);
-        }
-        // query params
-        if ($max_vitamin_b6 !== null) {
-            $queryParams['maxVitaminB6'] = ObjectSerializer::toQueryValue($max_vitamin_b6);
-        }
-        // query params
-        if ($min_vitamin_b12 !== null) {
-            $queryParams['minVitaminB12'] = ObjectSerializer::toQueryValue($min_vitamin_b12);
-        }
-        // query params
-        if ($max_vitamin_b12 !== null) {
-            $queryParams['maxVitaminB12'] = ObjectSerializer::toQueryValue($max_vitamin_b12);
-        }
-        // query params
-        if ($min_fiber !== null) {
-            $queryParams['minFiber'] = ObjectSerializer::toQueryValue($min_fiber);
-        }
-        // query params
-        if ($max_fiber !== null) {
-            $queryParams['maxFiber'] = ObjectSerializer::toQueryValue($max_fiber);
-        }
-        // query params
-        if ($min_folate !== null) {
-            $queryParams['minFolate'] = ObjectSerializer::toQueryValue($min_folate);
-        }
-        // query params
-        if ($max_folate !== null) {
-            $queryParams['maxFolate'] = ObjectSerializer::toQueryValue($max_folate);
-        }
-        // query params
-        if ($min_folic_acid !== null) {
-            $queryParams['minFolicAcid'] = ObjectSerializer::toQueryValue($min_folic_acid);
-        }
-        // query params
-        if ($max_folic_acid !== null) {
-            $queryParams['maxFolicAcid'] = ObjectSerializer::toQueryValue($max_folic_acid);
-        }
-        // query params
-        if ($min_iodine !== null) {
-            $queryParams['minIodine'] = ObjectSerializer::toQueryValue($min_iodine);
-        }
-        // query params
-        if ($max_iodine !== null) {
-            $queryParams['maxIodine'] = ObjectSerializer::toQueryValue($max_iodine);
-        }
-        // query params
-        if ($min_iron !== null) {
-            $queryParams['minIron'] = ObjectSerializer::toQueryValue($min_iron);
-        }
-        // query params
-        if ($max_iron !== null) {
-            $queryParams['maxIron'] = ObjectSerializer::toQueryValue($max_iron);
-        }
-        // query params
-        if ($min_magnesium !== null) {
-            $queryParams['minMagnesium'] = ObjectSerializer::toQueryValue($min_magnesium);
-        }
-        // query params
-        if ($max_magnesium !== null) {
-            $queryParams['maxMagnesium'] = ObjectSerializer::toQueryValue($max_magnesium);
-        }
-        // query params
-        if ($min_manganese !== null) {
-            $queryParams['minManganese'] = ObjectSerializer::toQueryValue($min_manganese);
-        }
-        // query params
-        if ($max_manganese !== null) {
-            $queryParams['maxManganese'] = ObjectSerializer::toQueryValue($max_manganese);
-        }
-        // query params
-        if ($min_phosphorus !== null) {
-            $queryParams['minPhosphorus'] = ObjectSerializer::toQueryValue($min_phosphorus);
-        }
-        // query params
-        if ($max_phosphorus !== null) {
-            $queryParams['maxPhosphorus'] = ObjectSerializer::toQueryValue($max_phosphorus);
-        }
-        // query params
-        if ($min_potassium !== null) {
-            $queryParams['minPotassium'] = ObjectSerializer::toQueryValue($min_potassium);
-        }
-        // query params
-        if ($max_potassium !== null) {
-            $queryParams['maxPotassium'] = ObjectSerializer::toQueryValue($max_potassium);
-        }
-        // query params
-        if ($min_selenium !== null) {
-            $queryParams['minSelenium'] = ObjectSerializer::toQueryValue($min_selenium);
-        }
-        // query params
-        if ($max_selenium !== null) {
-            $queryParams['maxSelenium'] = ObjectSerializer::toQueryValue($max_selenium);
-        }
-        // query params
-        if ($min_sodium !== null) {
-            $queryParams['minSodium'] = ObjectSerializer::toQueryValue($min_sodium);
-        }
-        // query params
-        if ($max_sodium !== null) {
-            $queryParams['maxSodium'] = ObjectSerializer::toQueryValue($max_sodium);
-        }
-        // query params
-        if ($min_sugar !== null) {
-            $queryParams['minSugar'] = ObjectSerializer::toQueryValue($min_sugar);
-        }
-        // query params
-        if ($max_sugar !== null) {
-            $queryParams['maxSugar'] = ObjectSerializer::toQueryValue($max_sugar);
-        }
-        // query params
-        if ($min_zinc !== null) {
-            $queryParams['minZinc'] = ObjectSerializer::toQueryValue($min_zinc);
-        }
-        // query params
-        if ($max_zinc !== null) {
-            $queryParams['maxZinc'] = ObjectSerializer::toQueryValue($max_zinc);
-        }
-        // query params
-        if ($offset !== null) {
-            $queryParams['offset'] = ObjectSerializer::toQueryValue($offset);
-        }
-        // query params
-        if ($number !== null) {
-            $queryParams['number'] = ObjectSerializer::toQueryValue($number);
         }
         // query params
         if ($limit_license !== null) {
@@ -19789,8 +21246,7 @@ class DefaultApi
      *
      * Visualize Equipment
      *
-     * @param  string $ingredient_list The ingredient list of the recipe, one ingredient per line. (required)
-     * @param  float $servings The number of servings. (required)
+     * @param  string $instructions The recipe&#39;s instructions. (required)
      * @param  string $view How to visualize the equipment, either \\\&quot;grid\\\&quot; or \\\&quot;list\\\&quot;. (optional)
      * @param  bool $default_css Whether the default CSS should be added to the response. (optional)
      * @param  bool $show_backlink Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)
@@ -19799,9 +21255,9 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return string
      */
-    public function visualizeEquipment($ingredient_list, $servings, $view = null, $default_css = null, $show_backlink = null)
+    public function visualizeEquipment($instructions, $view = null, $default_css = null, $show_backlink = null)
     {
-        list($response) = $this->visualizeEquipmentWithHttpInfo($ingredient_list, $servings, $view, $default_css, $show_backlink);
+        list($response) = $this->visualizeEquipmentWithHttpInfo($instructions, $view, $default_css, $show_backlink);
         return $response;
     }
 
@@ -19810,8 +21266,7 @@ class DefaultApi
      *
      * Visualize Equipment
      *
-     * @param  string $ingredient_list The ingredient list of the recipe, one ingredient per line. (required)
-     * @param  float $servings The number of servings. (required)
+     * @param  string $instructions The recipe&#39;s instructions. (required)
      * @param  string $view How to visualize the equipment, either \\\&quot;grid\\\&quot; or \\\&quot;list\\\&quot;. (optional)
      * @param  bool $default_css Whether the default CSS should be added to the response. (optional)
      * @param  bool $show_backlink Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)
@@ -19820,9 +21275,9 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return array of string, HTTP status code, HTTP response headers (array of strings)
      */
-    public function visualizeEquipmentWithHttpInfo($ingredient_list, $servings, $view = null, $default_css = null, $show_backlink = null)
+    public function visualizeEquipmentWithHttpInfo($instructions, $view = null, $default_css = null, $show_backlink = null)
     {
-        $request = $this->visualizeEquipmentRequest($ingredient_list, $servings, $view, $default_css, $show_backlink);
+        $request = $this->visualizeEquipmentRequest($instructions, $view, $default_css, $show_backlink);
 
         try {
             $options = $this->createHttpClientOption();
@@ -19902,8 +21357,7 @@ class DefaultApi
      *
      * Visualize Equipment
      *
-     * @param  string $ingredient_list The ingredient list of the recipe, one ingredient per line. (required)
-     * @param  float $servings The number of servings. (required)
+     * @param  string $instructions The recipe&#39;s instructions. (required)
      * @param  string $view How to visualize the equipment, either \\\&quot;grid\\\&quot; or \\\&quot;list\\\&quot;. (optional)
      * @param  bool $default_css Whether the default CSS should be added to the response. (optional)
      * @param  bool $show_backlink Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)
@@ -19911,9 +21365,9 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function visualizeEquipmentAsync($ingredient_list, $servings, $view = null, $default_css = null, $show_backlink = null)
+    public function visualizeEquipmentAsync($instructions, $view = null, $default_css = null, $show_backlink = null)
     {
-        return $this->visualizeEquipmentAsyncWithHttpInfo($ingredient_list, $servings, $view, $default_css, $show_backlink)
+        return $this->visualizeEquipmentAsyncWithHttpInfo($instructions, $view, $default_css, $show_backlink)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -19926,8 +21380,7 @@ class DefaultApi
      *
      * Visualize Equipment
      *
-     * @param  string $ingredient_list The ingredient list of the recipe, one ingredient per line. (required)
-     * @param  float $servings The number of servings. (required)
+     * @param  string $instructions The recipe&#39;s instructions. (required)
      * @param  string $view How to visualize the equipment, either \\\&quot;grid\\\&quot; or \\\&quot;list\\\&quot;. (optional)
      * @param  bool $default_css Whether the default CSS should be added to the response. (optional)
      * @param  bool $show_backlink Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)
@@ -19935,10 +21388,10 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function visualizeEquipmentAsyncWithHttpInfo($ingredient_list, $servings, $view = null, $default_css = null, $show_backlink = null)
+    public function visualizeEquipmentAsyncWithHttpInfo($instructions, $view = null, $default_css = null, $show_backlink = null)
     {
         $returnType = 'string';
-        $request = $this->visualizeEquipmentRequest($ingredient_list, $servings, $view, $default_css, $show_backlink);
+        $request = $this->visualizeEquipmentRequest($instructions, $view, $default_css, $show_backlink);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -19977,8 +21430,7 @@ class DefaultApi
     /**
      * Create request for operation 'visualizeEquipment'
      *
-     * @param  string $ingredient_list The ingredient list of the recipe, one ingredient per line. (required)
-     * @param  float $servings The number of servings. (required)
+     * @param  string $instructions The recipe&#39;s instructions. (required)
      * @param  string $view How to visualize the equipment, either \\\&quot;grid\\\&quot; or \\\&quot;list\\\&quot;. (optional)
      * @param  bool $default_css Whether the default CSS should be added to the response. (optional)
      * @param  bool $show_backlink Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)
@@ -19986,18 +21438,12 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function visualizeEquipmentRequest($ingredient_list, $servings, $view = null, $default_css = null, $show_backlink = null)
+    protected function visualizeEquipmentRequest($instructions, $view = null, $default_css = null, $show_backlink = null)
     {
-        // verify the required parameter 'ingredient_list' is set
-        if ($ingredient_list === null || (is_array($ingredient_list) && count($ingredient_list) === 0)) {
+        // verify the required parameter 'instructions' is set
+        if ($instructions === null || (is_array($instructions) && count($instructions) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ingredient_list when calling visualizeEquipment'
-            );
-        }
-        // verify the required parameter 'servings' is set
-        if ($servings === null || (is_array($servings) && count($servings) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $servings when calling visualizeEquipment'
+                'Missing the required parameter $instructions when calling visualizeEquipment'
             );
         }
 
@@ -20011,12 +21457,8 @@ class DefaultApi
 
 
         // form params
-        if ($ingredient_list !== null) {
-            $formParams['ingredientList'] = ObjectSerializer::toFormValue($ingredient_list);
-        }
-        // form params
-        if ($servings !== null) {
-            $formParams['servings'] = ObjectSerializer::toFormValue($servings);
+        if ($instructions !== null) {
+            $formParams['instructions'] = ObjectSerializer::toFormValue($instructions);
         }
         // form params
         if ($view !== null) {
@@ -22636,6 +24078,546 @@ class DefaultApi
         if ($default_css !== null) {
             $queryParams['defaultCss'] = ObjectSerializer::toQueryValue($default_css);
         }
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['text/html']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['text/html'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation visualizeRecipeTaste
+     *
+     * Visualize Recipe Taste
+     *
+     * @param  string $ingredient_list The ingredient list of the recipe, one ingredient per line. (required)
+     *
+     * @throws \com.spoonacular.client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return string
+     */
+    public function visualizeRecipeTaste($ingredient_list)
+    {
+        list($response) = $this->visualizeRecipeTasteWithHttpInfo($ingredient_list);
+        return $response;
+    }
+
+    /**
+     * Operation visualizeRecipeTasteWithHttpInfo
+     *
+     * Visualize Recipe Taste
+     *
+     * @param  string $ingredient_list The ingredient list of the recipe, one ingredient per line. (required)
+     *
+     * @throws \com.spoonacular.client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of string, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function visualizeRecipeTasteWithHttpInfo($ingredient_list)
+    {
+        $request = $this->visualizeRecipeTasteRequest($ingredient_list);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('string' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, 'string', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'string';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'string',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation visualizeRecipeTasteAsync
+     *
+     * Visualize Recipe Taste
+     *
+     * @param  string $ingredient_list The ingredient list of the recipe, one ingredient per line. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function visualizeRecipeTasteAsync($ingredient_list)
+    {
+        return $this->visualizeRecipeTasteAsyncWithHttpInfo($ingredient_list)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation visualizeRecipeTasteAsyncWithHttpInfo
+     *
+     * Visualize Recipe Taste
+     *
+     * @param  string $ingredient_list The ingredient list of the recipe, one ingredient per line. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function visualizeRecipeTasteAsyncWithHttpInfo($ingredient_list)
+    {
+        $returnType = 'string';
+        $request = $this->visualizeRecipeTasteRequest($ingredient_list);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'visualizeRecipeTaste'
+     *
+     * @param  string $ingredient_list The ingredient list of the recipe, one ingredient per line. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function visualizeRecipeTasteRequest($ingredient_list)
+    {
+        // verify the required parameter 'ingredient_list' is set
+        if ($ingredient_list === null || (is_array($ingredient_list) && count($ingredient_list) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $ingredient_list when calling visualizeRecipeTaste'
+            );
+        }
+
+        $resourcePath = '/recipes/visualizeTaste';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // form params
+        if ($ingredient_list !== null) {
+            $formParams['ingredientList'] = ObjectSerializer::toFormValue($ingredient_list);
+        }
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['text/html']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['text/html'],
+                ['application/x-www-form-urlencoded']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation visualizeRecipeTasteByID
+     *
+     * Visualize Recipe Taste by ID
+     *
+     * @param  float $id The recipe id. (required)
+     *
+     * @throws \com.spoonacular.client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return string
+     */
+    public function visualizeRecipeTasteByID($id)
+    {
+        list($response) = $this->visualizeRecipeTasteByIDWithHttpInfo($id);
+        return $response;
+    }
+
+    /**
+     * Operation visualizeRecipeTasteByIDWithHttpInfo
+     *
+     * Visualize Recipe Taste by ID
+     *
+     * @param  float $id The recipe id. (required)
+     *
+     * @throws \com.spoonacular.client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of string, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function visualizeRecipeTasteByIDWithHttpInfo($id)
+    {
+        $request = $this->visualizeRecipeTasteByIDRequest($id);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('string' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, 'string', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'string';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'string',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation visualizeRecipeTasteByIDAsync
+     *
+     * Visualize Recipe Taste by ID
+     *
+     * @param  float $id The recipe id. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function visualizeRecipeTasteByIDAsync($id)
+    {
+        return $this->visualizeRecipeTasteByIDAsyncWithHttpInfo($id)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation visualizeRecipeTasteByIDAsyncWithHttpInfo
+     *
+     * Visualize Recipe Taste by ID
+     *
+     * @param  float $id The recipe id. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function visualizeRecipeTasteByIDAsyncWithHttpInfo($id)
+    {
+        $returnType = 'string';
+        $request = $this->visualizeRecipeTasteByIDRequest($id);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'visualizeRecipeTasteByID'
+     *
+     * @param  float $id The recipe id. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function visualizeRecipeTasteByIDRequest($id)
+    {
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling visualizeRecipeTasteByID'
+            );
+        }
+
+        $resourcePath = '/recipes/{id}/tasteWidget';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
 
         // path params
         if ($id !== null) {

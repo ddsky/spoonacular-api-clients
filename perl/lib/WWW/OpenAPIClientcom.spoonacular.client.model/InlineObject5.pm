@@ -161,30 +161,21 @@ __PACKAGE__->class_documentation({description => '',
 }                                 );
 
 __PACKAGE__->method_documentation({
-    'title' => {
+    'instructions' => {
         datatype => 'string',
-        base_name => 'title',
-        description => 'The title of the recipe.',
-        format => '',
-        read_only => '',
-            },
-    'ingredient_list' => {
-        datatype => 'string',
-        base_name => 'ingredientList',
-        description => 'The ingredient list of the recipe, one ingredient per line (separate lines with \\n).',
+        base_name => 'instructions',
+        description => 'The instructions to be analyzed.',
         format => '',
         read_only => '',
             },
 });
 
 __PACKAGE__->openapi_types( {
-    'title' => 'string',
-    'ingredient_list' => 'string'
+    'instructions' => 'string'
 } );
 
 __PACKAGE__->attribute_map( {
-    'title' => 'title',
-    'ingredient_list' => 'ingredientList'
+    'instructions' => 'instructions'
 } );
 
 __PACKAGE__->mk_accessors(keys %{__PACKAGE__->attribute_map});

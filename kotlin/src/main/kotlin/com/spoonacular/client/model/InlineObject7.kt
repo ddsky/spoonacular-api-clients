@@ -16,31 +16,19 @@ import com.squareup.moshi.Json
 /**
  * 
  * @param ingredientList The ingredient list of the recipe, one ingredient per line.
- * @param servings The number of servings.
- * @param measure The original system of measurement, either \"metric\" or \"us\".
- * @param view How to visualize the ingredients, either \"grid\" or \"list\".
- * @param defaultCss Whether the default CSS should be added to the response.
- * @param showBacklink Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
+ * @param servings The number of servings that you can make from the ingredients.
+ * @param includeNutrition Whether nutrition data should be added to correctly parsed ingredients.
  */
 data class InlineObject7 (
     /* The ingredient list of the recipe, one ingredient per line. */
     @Json(name = "ingredientList")
     val ingredientList: kotlin.String,
-    /* The number of servings. */
+    /* The number of servings that you can make from the ingredients. */
     @Json(name = "servings")
     val servings: java.math.BigDecimal,
-    /* The original system of measurement, either \"metric\" or \"us\". */
-    @Json(name = "measure")
-    val measure: kotlin.String? = null,
-    /* How to visualize the ingredients, either \"grid\" or \"list\". */
-    @Json(name = "view")
-    val view: kotlin.String? = null,
-    /* Whether the default CSS should be added to the response. */
-    @Json(name = "defaultCss")
-    val defaultCss: kotlin.Boolean? = null,
-    /* Whether to show a backlink to spoonacular. If set false, this call counts against your quota. */
-    @Json(name = "showBacklink")
-    val showBacklink: kotlin.Boolean? = null
+    /* Whether nutrition data should be added to correctly parsed ingredients. */
+    @Json(name = "includeNutrition")
+    val includeNutrition: kotlin.Boolean? = null
 ) {
 
 }

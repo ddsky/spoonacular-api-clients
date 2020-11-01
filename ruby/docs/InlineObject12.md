@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **username** | **String** | The username. | 
+**id** | **Float** | The shopping list item id. | 
 **hash** | **String** | The private hash for the username. | 
 
 ## Code Sample
@@ -13,6 +14,7 @@ Name | Type | Description | Notes
 require 'OpenapiClient'
 
 instance = OpenapiClient::InlineObject12.new(username: dsky,
+                                 id: 15678,
                                  hash: 4b5v4398573406)
 ```
 

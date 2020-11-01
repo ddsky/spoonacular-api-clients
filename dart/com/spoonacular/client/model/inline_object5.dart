@@ -1,37 +1,28 @@
 part of openapi.api;
 
 class InlineObject5 {
-  /* The title of the recipe. */
-  String title = null;
-  /* The ingredient list of the recipe, one ingredient per line (separate lines with \\n). */
-  String ingredientList = null;
+  /* The instructions to be analyzed. */
+  String instructions = null;
   InlineObject5();
 
   @override
   String toString() {
-    return 'InlineObject5[title=$title, ingredientList=$ingredientList, ]';
+    return 'InlineObject5[instructions=$instructions, ]';
   }
 
   InlineObject5.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    if (json['title'] == null) {
-      title = null;
+    if (json['instructions'] == null) {
+      instructions = null;
     } else {
-          title = json['title'];
-    }
-    if (json['ingredientList'] == null) {
-      ingredientList = null;
-    } else {
-          ingredientList = json['ingredientList'];
+          instructions = json['instructions'];
     }
   }
 
   Map<String, dynamic> toJson() {
     Map <String, dynamic> json = {};
-    if (title != null)
-      json['title'] = title;
-    if (ingredientList != null)
-      json['ingredientList'] = ingredientList;
+    if (instructions != null)
+      json['instructions'] = instructions;
     return json;
   }
 

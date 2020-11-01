@@ -1,6 +1,5 @@
 package com.spoonacular.client.model;
 
-import java.math.BigDecimal;
 
 import io.swagger.annotations.*;
 import com.google.gson.annotations.SerializedName;
@@ -11,8 +10,8 @@ public class InlineObject10  {
   
   @SerializedName("username")
   private String username = null;
-  @SerializedName("id")
-  private BigDecimal id = null;
+  @SerializedName("date")
+  private String date = null;
   @SerializedName("hash")
   private String hash = null;
 
@@ -28,14 +27,14 @@ public class InlineObject10  {
   }
 
   /**
-   * The shopping list item id.
+   * The date in the format yyyy-mm-dd.
    **/
-  @ApiModelProperty(required = true, value = "The shopping list item id.")
-  public BigDecimal getId() {
-    return id;
+  @ApiModelProperty(required = true, value = "The date in the format yyyy-mm-dd.")
+  public String getDate() {
+    return date;
   }
-  public void setId(BigDecimal id) {
-    this.id = id;
+  public void setDate(String date) {
+    this.date = date;
   }
 
   /**
@@ -60,7 +59,7 @@ public class InlineObject10  {
     }
     InlineObject10 inlineObject10 = (InlineObject10) o;
     return (this.username == null ? inlineObject10.username == null : this.username.equals(inlineObject10.username)) &&
-        (this.id == null ? inlineObject10.id == null : this.id.equals(inlineObject10.id)) &&
+        (this.date == null ? inlineObject10.date == null : this.date.equals(inlineObject10.date)) &&
         (this.hash == null ? inlineObject10.hash == null : this.hash.equals(inlineObject10.hash));
   }
 
@@ -68,7 +67,7 @@ public class InlineObject10  {
   public int hashCode() {
     int result = 17;
     result = 31 * result + (this.username == null ? 0: this.username.hashCode());
-    result = 31 * result + (this.id == null ? 0: this.id.hashCode());
+    result = 31 * result + (this.date == null ? 0: this.date.hashCode());
     result = 31 * result + (this.hash == null ? 0: this.hash.hashCode());
     return result;
   }
@@ -79,7 +78,7 @@ public class InlineObject10  {
     sb.append("class InlineObject10 {\n");
     
     sb.append("  username: ").append(username).append("\n");
-    sb.append("  id: ").append(id).append("\n");
+    sb.append("  date: ").append(date).append("\n");
     sb.append("  hash: ").append(hash).append("\n");
     sb.append("}\n");
     return sb.toString();

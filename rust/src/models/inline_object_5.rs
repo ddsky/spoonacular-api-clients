@@ -14,19 +14,15 @@ use serde_json::Value;
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct InlineObject5 {
-    /// The title of the recipe.
-    #[serde(rename = "title")]
-    pub title: String,
-    /// The ingredient list of the recipe, one ingredient per line (separate lines with \\n).
-    #[serde(rename = "ingredientList")]
-    pub ingredient_list: String,
+    /// The instructions to be analyzed.
+    #[serde(rename = "instructions")]
+    pub instructions: String,
 }
 
 impl InlineObject5 {
-    pub fn new(title: String, ingredient_list: String) -> InlineObject5 {
+    pub fn new(instructions: String) -> InlineObject5 {
         InlineObject5 {
-            title: title,
-            ingredient_list: ingredient_list,
+            instructions: instructions,
         }
     }
 }

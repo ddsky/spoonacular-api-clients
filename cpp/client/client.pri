@@ -9,6 +9,8 @@ HEADERS += \
     $${PWD}/OAIInline_object_12.h \
     $${PWD}/OAIInline_object_13.h \
     $${PWD}/OAIInline_object_14.h \
+    $${PWD}/OAIInline_object_15.h \
+    $${PWD}/OAIInline_object_16.h \
     $${PWD}/OAIInline_object_2.h \
     $${PWD}/OAIInline_object_3.h \
     $${PWD}/OAIInline_object_4.h \
@@ -34,6 +36,8 @@ SOURCES += \
     $${PWD}/OAIInline_object_12.cpp \
     $${PWD}/OAIInline_object_13.cpp \
     $${PWD}/OAIInline_object_14.cpp \
+    $${PWD}/OAIInline_object_15.cpp \
+    $${PWD}/OAIInline_object_16.cpp \
     $${PWD}/OAIInline_object_2.cpp \
     $${PWD}/OAIInline_object_3.cpp \
     $${PWD}/OAIInline_object_4.cpp \

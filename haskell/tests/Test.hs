@@ -27,6 +27,8 @@ main =
       propMimeEq MimeJSON (Proxy :: Proxy InlineObject12)
       propMimeEq MimeJSON (Proxy :: Proxy InlineObject13)
       propMimeEq MimeJSON (Proxy :: Proxy InlineObject14)
+      propMimeEq MimeJSON (Proxy :: Proxy InlineObject15)
+      propMimeEq MimeJSON (Proxy :: Proxy InlineObject16)
       propMimeEq MimeJSON (Proxy :: Proxy InlineObject2)
       propMimeEq MimeJSON (Proxy :: Proxy InlineObject3)
       propMimeEq MimeJSON (Proxy :: Proxy InlineObject4)

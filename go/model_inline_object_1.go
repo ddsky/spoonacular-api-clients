@@ -15,8 +15,6 @@ type InlineObject1 struct {
 	IngredientList string `json:"ingredientList"`
 	// The number of servings.
 	Servings float32 `json:"servings"`
-	// The mode in which the widget should be delivered. 1 = separate views (compact), 2 = all in one view (full).
-	Mode float32 `json:"mode,omitempty"`
 	// Whether the default CSS should be added to the response.
 	DefaultCss bool `json:"defaultCss,omitempty"`
 	// Whether to show a backlink to spoonacular. If set false, this call counts against your quota.

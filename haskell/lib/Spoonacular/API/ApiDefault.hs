@@ -67,18 +67,18 @@ import qualified Prelude as P
 -- Add an item to the user's meal plan.
 -- 
 addToMealPlan 
-  :: (Consumes AddToMealPlan , MimeRender  InlineObject9)
-  => InlineObject9 -- ^ "inlineObject9"
+  :: (Consumes AddToMealPlan , MimeRender  InlineObject11)
+  => InlineObject11 -- ^ "inlineObject11"
   -> Username -- ^ "username" -  The username.
   -> Hash -- ^ "hash" -  The private hash for the username.
   -> SpoonacularRequest AddToMealPlan  A.Value MimeJSON
-addToMealPlan inlineObject9 (Username username) (Hash hash) =
+addToMealPlan inlineObject11 (Username username) (Hash hash) =
   _mkRequest "POST" ["/mealplanner/",toPath username,"/items"]
-    `setBodyParam` inlineObject9
+    `setBodyParam` inlineObject11
     `setQuery` toQuery ("hash", Just hash)
 
 data AddToMealPlan 
-instance HasBodyParam AddToMealPlan InlineObject9 
+instance HasBodyParam AddToMealPlan InlineObject11 
 
 -- | @@
 instance Consumes AddToMealPlan 
@@ -96,18 +96,18 @@ instance Produces AddToMealPlan MimeJSON
 -- Add an item to the current shopping list of a user.
 -- 
 addToShoppingList 
-  :: (Consumes AddToShoppingList , MimeRender  InlineObject12)
-  => InlineObject12 -- ^ "inlineObject12"
+  :: (Consumes AddToShoppingList , MimeRender  InlineObject14)
+  => InlineObject14 -- ^ "inlineObject14"
   -> Username -- ^ "username" -  The username.
   -> Hash -- ^ "hash" -  The private hash for the username.
   -> SpoonacularRequest AddToShoppingList  A.Value MimeJSON
-addToShoppingList inlineObject12 (Username username) (Hash hash) =
+addToShoppingList inlineObject14 (Username username) (Hash hash) =
   _mkRequest "POST" ["/mealplanner/",toPath username,"/shopping-list/items"]
-    `setBodyParam` inlineObject12
+    `setBodyParam` inlineObject14
     `setQuery` toQuery ("hash", Just hash)
 
 data AddToShoppingList 
-instance HasBodyParam AddToShoppingList InlineObject12 
+instance HasBodyParam AddToShoppingList InlineObject14 
 
 -- | @@
 instance Consumes AddToShoppingList 
@@ -142,7 +142,7 @@ instance Produces AnalyzeARecipeSearchQuery MimeJSON
 -- 
 -- Analyze Recipe Instructions
 -- 
--- Extract ingredients and equipment from the recipe's instructions.
+-- This endpoint allows you to break down instructions into atomic steps. Furthermore, each step will contain the ingredients and equipment required. Additionally, all ingredients and equipment from the recipe's instructions will be extracted independently of the step they're used in.
 -- 
 analyzeRecipeInstructions 
   :: (Consumes AnalyzeRecipeInstructions MimeFormUrlEncoded)
@@ -189,8 +189,8 @@ instance HasOptionalParam AutocompleteIngredientSearch MetaInformation where
     req `setQuery` toQuery ("metaInformation", Just xs)
 
 -- | /Optional Param/ "intolerances" - A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
-instance HasOptionalParam AutocompleteIngredientSearch IntolerancesBool where
-  applyOptionalParam req (IntolerancesBool xs) =
+instance HasOptionalParam AutocompleteIngredientSearch Intolerances where
+  applyOptionalParam req (Intolerances xs) =
     req `setQuery` toQuery ("intolerances", Just xs)
 -- | @application/json@
 instance Produces AutocompleteIngredientSearch MimeJSON
@@ -307,15 +307,15 @@ instance Produces ClassifyCuisine MimeJSON
 -- This endpoint allows you to match a packaged food to a basic category, e.g. a specific brand of milk to the category milk.
 -- 
 classifyGroceryProduct 
-  :: (Consumes ClassifyGroceryProduct MimeJSON, MimeRender MimeJSON InlineObject8)
-  => InlineObject8 -- ^ "inlineObject8"
+  :: (Consumes ClassifyGroceryProduct MimeJSON, MimeRender MimeJSON InlineObject9)
+  => InlineObject9 -- ^ "inlineObject9"
   -> SpoonacularRequest ClassifyGroceryProduct MimeJSON A.Value MimeJSON
-classifyGroceryProduct inlineObject8 =
+classifyGroceryProduct inlineObject9 =
   _mkRequest "POST" ["/food/products/classify"]
-    `setBodyParam` inlineObject8
+    `setBodyParam` inlineObject9
 
 data ClassifyGroceryProduct 
-instance HasBodyParam ClassifyGroceryProduct InlineObject8 
+instance HasBodyParam ClassifyGroceryProduct InlineObject9 
 
 -- | /Optional Param/ "locale" - The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).
 instance HasOptionalParam ClassifyGroceryProduct Locale where
@@ -358,6 +358,88 @@ instance Consumes ClassifyGroceryProductBulk MimeJSON
 
 -- | @application/json@
 instance Produces ClassifyGroceryProductBulk MimeJSON
+
+
+-- *** clearMealPlanDay
+
+-- | @DELETE \/mealplanner\/{username}\/day\/{date}@
+-- 
+-- Clear Meal Plan Day
+-- 
+-- Delete all planned items from the user's meal plan for a specific day.
+-- 
+clearMealPlanDay 
+  :: (Consumes ClearMealPlanDay , MimeRender  InlineObject10)
+  => InlineObject10 -- ^ "inlineObject10"
+  -> Username -- ^ "username" -  The username.
+  -> ParamDate -- ^ "date" -  The date in the format yyyy-mm-dd.
+  -> Hash -- ^ "hash" -  The private hash for the username.
+  -> SpoonacularRequest ClearMealPlanDay  A.Value MimeJSON
+clearMealPlanDay inlineObject10 (Username username) (ParamDate date) (Hash hash) =
+  _mkRequest "DELETE" ["/mealplanner/",toPath username,"/day/",toPath date]
+    `setBodyParam` inlineObject10
+    `setQuery` toQuery ("hash", Just hash)
+
+data ClearMealPlanDay 
+instance HasBodyParam ClearMealPlanDay InlineObject10 
+
+-- | @@
+instance Consumes ClearMealPlanDay 
+
+-- | @application/json@
+instance Produces ClearMealPlanDay MimeJSON
+
+
+-- *** computeGlycemicLoad
+
+-- | @POST \/food\/ingredients\/glycemicLoad@
+-- 
+-- Compute Glycemic Load
+-- 
+-- Retrieve the glycemic index for a list of ingredients and compute the individual and total glycemic load.
+-- 
+computeGlycemicLoad 
+  :: (Consumes ComputeGlycemicLoad MimeJSON, MimeRender MimeJSON Body)
+  => Body -- ^ "body"
+  -> SpoonacularRequest ComputeGlycemicLoad MimeJSON A.Value MimeJSON
+computeGlycemicLoad body =
+  _mkRequest "POST" ["/food/ingredients/glycemicLoad"]
+    `setBodyParam` body
+
+data ComputeGlycemicLoad 
+instance HasBodyParam ComputeGlycemicLoad Body 
+
+-- | @application/json@
+instance Consumes ComputeGlycemicLoad MimeJSON
+
+-- | @application/json@
+instance Produces ComputeGlycemicLoad MimeJSON
+
+
+-- *** connectUser
+
+-- | @POST \/users\/connect@
+-- 
+-- Connect User
+-- 
+-- In order to call user-specific endpoints, you need to connect your app's users to spoonacular users.
+-- 
+connectUser 
+  :: (Consumes ConnectUser , MimeRender  Body)
+  => Body -- ^ "body"
+  -> SpoonacularRequest ConnectUser  A.Value MimeJSON
+connectUser body =
+  _mkRequest "POST" ["/users/connect"]
+    `setBodyParam` body
+
+data ConnectUser 
+instance HasBodyParam ConnectUser Body 
+
+-- | @@
+instance Consumes ConnectUser 
+
+-- | @application/json@
+instance Produces ConnectUser MimeJSON
 
 
 -- *** convertAmounts
@@ -454,19 +536,19 @@ instance Produces CreateRecipeCard MimeJSON
 -- Delete an item from the user's meal plan.
 -- 
 deleteFromMealPlan 
-  :: (Consumes DeleteFromMealPlan , MimeRender  InlineObject10)
-  => InlineObject10 -- ^ "inlineObject10"
+  :: (Consumes DeleteFromMealPlan , MimeRender  InlineObject12)
+  => InlineObject12 -- ^ "inlineObject12"
   -> Username -- ^ "username" -  The username.
   -> Id -- ^ "id" -  The shopping list item id.
   -> Hash -- ^ "hash" -  The private hash for the username.
   -> SpoonacularRequest DeleteFromMealPlan  A.Value MimeJSON
-deleteFromMealPlan inlineObject10 (Username username) (Id id) (Hash hash) =
+deleteFromMealPlan inlineObject12 (Username username) (Id id) (Hash hash) =
   _mkRequest "DELETE" ["/mealplanner/",toPath username,"/items/",toPath id]
-    `setBodyParam` inlineObject10
+    `setBodyParam` inlineObject12
     `setQuery` toQuery ("hash", Just hash)
 
 data DeleteFromMealPlan 
-instance HasBodyParam DeleteFromMealPlan InlineObject10 
+instance HasBodyParam DeleteFromMealPlan InlineObject12 
 
 -- | @@
 instance Consumes DeleteFromMealPlan 
@@ -484,19 +566,19 @@ instance Produces DeleteFromMealPlan MimeJSON
 -- Delete an item from the current shopping list of the user.
 -- 
 deleteFromShoppingList 
-  :: (Consumes DeleteFromShoppingList , MimeRender  InlineObject13)
-  => InlineObject13 -- ^ "inlineObject13"
+  :: (Consumes DeleteFromShoppingList , MimeRender  InlineObject15)
+  => InlineObject15 -- ^ "inlineObject15"
   -> Username -- ^ "username" -  The username.
   -> Id -- ^ "id" -  The shopping list item id.
   -> Hash -- ^ "hash" -  The private hash for the username.
   -> SpoonacularRequest DeleteFromShoppingList  A.Value MimeJSON
-deleteFromShoppingList inlineObject13 (Username username) (Id id) (Hash hash) =
+deleteFromShoppingList inlineObject15 (Username username) (Id id) (Hash hash) =
   _mkRequest "DELETE" ["/mealplanner/",toPath username,"/shopping-list/items/",toPath id]
-    `setBodyParam` inlineObject13
+    `setBodyParam` inlineObject15
     `setQuery` toQuery ("hash", Just hash)
 
 data DeleteFromShoppingList 
-instance HasBodyParam DeleteFromShoppingList InlineObject13 
+instance HasBodyParam DeleteFromShoppingList InlineObject15 
 
 -- | @@
 instance Consumes DeleteFromShoppingList 
@@ -607,20 +689,20 @@ instance Produces GenerateMealPlan MimeJSON
 -- Generate the shopping list for a user from the meal planner in a given time frame.
 -- 
 generateShoppingList 
-  :: (Consumes GenerateShoppingList , MimeRender  InlineObject11)
-  => InlineObject11 -- ^ "inlineObject11"
+  :: (Consumes GenerateShoppingList , MimeRender  InlineObject13)
+  => InlineObject13 -- ^ "inlineObject13"
   -> Username -- ^ "username" -  The username.
   -> StartDate -- ^ "startDate" -  The start date in the format yyyy-mm-dd.
   -> EndDate -- ^ "endDate" -  The end date in the format yyyy-mm-dd.
   -> Hash -- ^ "hash" -  The private hash for the username.
   -> SpoonacularRequest GenerateShoppingList  A.Value MimeJSON
-generateShoppingList inlineObject11 (Username username) (StartDate startDate) (EndDate endDate) (Hash hash) =
+generateShoppingList inlineObject13 (Username username) (StartDate startDate) (EndDate endDate) (Hash hash) =
   _mkRequest "POST" ["/mealplanner/",toPath username,"/shopping-list/",toPath startDate,"/",toPath endDate]
-    `setBodyParam` inlineObject11
+    `setBodyParam` inlineObject13
     `setQuery` toQuery ("hash", Just hash)
 
 data GenerateShoppingList 
-instance HasBodyParam GenerateShoppingList InlineObject11 
+instance HasBodyParam GenerateShoppingList InlineObject13 
 
 -- | @@
 instance Consumes GenerateShoppingList 
@@ -1082,6 +1164,25 @@ data GetRecipePriceBreakdownByID
 instance Produces GetRecipePriceBreakdownByID MimeJSON
 
 
+-- *** getRecipeTasteByID
+
+-- | @GET \/recipes\/{id}\/tasteWidget.json@
+-- 
+-- Get Recipe Taste by ID
+-- 
+-- Get a recipe's taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
+-- 
+getRecipeTasteByID 
+  :: Id -- ^ "id" -  The recipe id.
+  -> SpoonacularRequest GetRecipeTasteByID MimeNoContent A.Value MimeJSON
+getRecipeTasteByID (Id id) =
+  _mkRequest "GET" ["/recipes/",toPath id,"/tasteWidget.json"]
+
+data GetRecipeTasteByID  
+-- | @application/json@
+instance Produces GetRecipeTasteByID MimeJSON
+
+
 -- *** getShoppingList
 
 -- | @GET \/mealplanner\/{username}\/shopping-list@
@@ -1272,6 +1373,91 @@ data ImageClassificationByURL
 instance Produces ImageClassificationByURL MimeJSON
 
 
+-- *** ingredientSearch
+
+-- | @GET \/food\/ingredients\/search@
+-- 
+-- Ingredient Search
+-- 
+-- Search for simple whole foods (e.g. fruits, vegetables, nuts, grains, meat, fish, dairy etc.).
+-- 
+ingredientSearch 
+  :: Query -- ^ "query" -  The partial or full ingredient name.
+  -> SpoonacularRequest IngredientSearch MimeNoContent A.Value MimeJSON
+ingredientSearch (Query query) =
+  _mkRequest "GET" ["/food/ingredients/search"]
+    `setQuery` toQuery ("query", Just query)
+
+data IngredientSearch  
+
+-- | /Optional Param/ "addChildren" - Whether to add children of found foods.
+instance HasOptionalParam IngredientSearch AddChildren where
+  applyOptionalParam req (AddChildren xs) =
+    req `setQuery` toQuery ("addChildren", Just xs)
+
+-- | /Optional Param/ "minProteinPercent" - The minimum percentage of protein the food must have (between 0 and 100).
+instance HasOptionalParam IngredientSearch MinProteinPercent where
+  applyOptionalParam req (MinProteinPercent xs) =
+    req `setQuery` toQuery ("minProteinPercent", Just xs)
+
+-- | /Optional Param/ "maxProteinPercent" - The maximum percentage of protein the food can have (between 0 and 100).
+instance HasOptionalParam IngredientSearch MaxProteinPercent where
+  applyOptionalParam req (MaxProteinPercent xs) =
+    req `setQuery` toQuery ("maxProteinPercent", Just xs)
+
+-- | /Optional Param/ "minFatPercent" - The minimum percentage of fat the food must have (between 0 and 100).
+instance HasOptionalParam IngredientSearch MinFatPercent where
+  applyOptionalParam req (MinFatPercent xs) =
+    req `setQuery` toQuery ("minFatPercent", Just xs)
+
+-- | /Optional Param/ "maxFatPercent" - The maximum percentage of fat the food can have (between 0 and 100).
+instance HasOptionalParam IngredientSearch MaxFatPercent where
+  applyOptionalParam req (MaxFatPercent xs) =
+    req `setQuery` toQuery ("maxFatPercent", Just xs)
+
+-- | /Optional Param/ "minCarbsPercent" - The minimum percentage of carbs the food must have (between 0 and 100).
+instance HasOptionalParam IngredientSearch MinCarbsPercent where
+  applyOptionalParam req (MinCarbsPercent xs) =
+    req `setQuery` toQuery ("minCarbsPercent", Just xs)
+
+-- | /Optional Param/ "maxCarbsPercent" - The maximum percentage of carbs the food can have (between 0 and 100).
+instance HasOptionalParam IngredientSearch MaxCarbsPercent where
+  applyOptionalParam req (MaxCarbsPercent xs) =
+    req `setQuery` toQuery ("maxCarbsPercent", Just xs)
+
+-- | /Optional Param/ "metaInformation" - Whether to return more meta information about the ingredients.
+instance HasOptionalParam IngredientSearch MetaInformation where
+  applyOptionalParam req (MetaInformation xs) =
+    req `setQuery` toQuery ("metaInformation", Just xs)
+
+-- | /Optional Param/ "intolerances" - A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
+instance HasOptionalParam IngredientSearch Intolerances where
+  applyOptionalParam req (Intolerances xs) =
+    req `setQuery` toQuery ("intolerances", Just xs)
+
+-- | /Optional Param/ "sort" - The strategy to sort recipes by. See a full list of supported sorting options.
+instance HasOptionalParam IngredientSearch Sort where
+  applyOptionalParam req (Sort xs) =
+    req `setQuery` toQuery ("sort", Just xs)
+
+-- | /Optional Param/ "sortDirection" - The direction in which to sort. Must be either 'asc' (ascending) or 'desc' (descending).
+instance HasOptionalParam IngredientSearch SortDirection where
+  applyOptionalParam req (SortDirection xs) =
+    req `setQuery` toQuery ("sortDirection", Just xs)
+
+-- | /Optional Param/ "offset" - The number of results to skip (between 0 and 990).
+instance HasOptionalParam IngredientSearch Offset where
+  applyOptionalParam req (Offset xs) =
+    req `setQuery` toQuery ("offset", Just xs)
+
+-- | /Optional Param/ "number" - The number of expected results (between 1 and 100).
+instance HasOptionalParam IngredientSearch Number where
+  applyOptionalParam req (Number xs) =
+    req `setQuery` toQuery ("number", Just xs)
+-- | @application/json@
+instance Produces IngredientSearch MimeJSON
+
+
 -- *** mapIngredientsToGroceryProducts
 
 -- | @POST \/food\/ingredients\/map@
@@ -1348,6 +1534,36 @@ quickAnswer (Q q) =
 data QuickAnswer  
 -- | @application/json@
 instance Produces QuickAnswer MimeJSON
+
+
+-- *** searchAllFood
+
+-- | @GET \/food\/search@
+-- 
+-- Search All Food
+-- 
+-- Search all food content with one call. That includes recipes, grocery products, menu items, simple foods (ingredients), and food videos.
+-- 
+searchAllFood 
+  :: Query -- ^ "query" -  The search query.
+  -> SpoonacularRequest SearchAllFood MimeNoContent A.Value MimeJSON
+searchAllFood (Query query) =
+  _mkRequest "GET" ["/food/search"]
+    `setQuery` toQuery ("query", Just query)
+
+data SearchAllFood  
+
+-- | /Optional Param/ "offset" - The number of results to skip (between 0 and 990).
+instance HasOptionalParam SearchAllFood Offset where
+  applyOptionalParam req (Offset xs) =
+    req `setQuery` toQuery ("offset", Just xs)
+
+-- | /Optional Param/ "number" - The number of expected results (between 1 and 100).
+instance HasOptionalParam SearchAllFood Number where
+  applyOptionalParam req (Number xs) =
+    req `setQuery` toQuery ("number", Just xs)
+-- | @application/json@
+instance Produces SearchAllFood MimeJSON
 
 
 -- *** searchCustomFoods
@@ -1610,47 +1826,487 @@ instance Produces SearchMenuItems MimeJSON
 
 -- *** searchRecipes
 
--- | @GET \/recipes\/search@
+-- | @GET \/recipes\/complexSearch@
 -- 
 -- Search Recipes
 -- 
--- Our recipe API includes over 360,000 recipes as well as an open source recipe database. Consider using the \"Search Recipes Complex\" endpoint for much more flexibility.
+-- Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint.
 -- 
 searchRecipes 
   :: Query -- ^ "query" -  The (natural language) recipe search query.
   -> SpoonacularRequest SearchRecipes MimeNoContent A.Value MimeJSON
 searchRecipes (Query query) =
-  _mkRequest "GET" ["/recipes/search"]
+  _mkRequest "GET" ["/recipes/complexSearch"]
     `setQuery` toQuery ("query", Just query)
 
 data SearchRecipes  
 
--- | /Optional Param/ "cuisine" - The cuisine(s) of the recipes. One or more comma separated. See a full list of supported cuisines.
+-- | /Optional Param/ "cuisine" - The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as 'OR'). See a full list of supported cuisines.
 instance HasOptionalParam SearchRecipes Cuisine where
   applyOptionalParam req (Cuisine xs) =
     req `setQuery` toQuery ("cuisine", Just xs)
+
+-- | /Optional Param/ "excludeCuisine" - The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as 'AND'). See a full list of supported cuisines.
+instance HasOptionalParam SearchRecipes ExcludeCuisine where
+  applyOptionalParam req (ExcludeCuisine xs) =
+    req `setQuery` toQuery ("excludeCuisine", Just xs)
 
 -- | /Optional Param/ "diet" - The diet for which the recipes must be suitable. See a full list of supported diets.
 instance HasOptionalParam SearchRecipes Diet where
   applyOptionalParam req (Diet xs) =
     req `setQuery` toQuery ("diet", Just xs)
 
+-- | /Optional Param/ "intolerances" - A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
+instance HasOptionalParam SearchRecipes Intolerances where
+  applyOptionalParam req (Intolerances xs) =
+    req `setQuery` toQuery ("intolerances", Just xs)
+
+-- | /Optional Param/ "equipment" - The equipment required. Multiple values will be interpreted as 'or'. For example, value could be \"blender, frying pan, bowl\".
+instance HasOptionalParam SearchRecipes Equipment where
+  applyOptionalParam req (Equipment xs) =
+    req `setQuery` toQuery ("equipment", Just xs)
+
+-- | /Optional Param/ "includeIngredients" - A comma-separated list of ingredients that should/must be used in the recipes.
+instance HasOptionalParam SearchRecipes IncludeIngredients where
+  applyOptionalParam req (IncludeIngredients xs) =
+    req `setQuery` toQuery ("includeIngredients", Just xs)
+
 -- | /Optional Param/ "excludeIngredients" - A comma-separated list of ingredients or ingredient types that the recipes must not contain.
 instance HasOptionalParam SearchRecipes ExcludeIngredients where
   applyOptionalParam req (ExcludeIngredients xs) =
     req `setQuery` toQuery ("excludeIngredients", Just xs)
 
--- | /Optional Param/ "intolerances" - A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. Please note: due to the automatic nature of the recipe analysis, the API cannot be 100% accurate in all cases. Please advise your users to seek professional help with medical issues.
-instance HasOptionalParam SearchRecipes Intolerances where
-  applyOptionalParam req (Intolerances xs) =
-    req `setQuery` toQuery ("intolerances", Just xs)
+-- | /Optional Param/ "type" - The type of recipe. See a full list of supported meal types.
+instance HasOptionalParam SearchRecipes ParamType where
+  applyOptionalParam req (ParamType xs) =
+    req `setQuery` toQuery ("type", Just xs)
+
+-- | /Optional Param/ "instructionsRequired" - Whether the recipes must have instructions.
+instance HasOptionalParam SearchRecipes InstructionsRequired where
+  applyOptionalParam req (InstructionsRequired xs) =
+    req `setQuery` toQuery ("instructionsRequired", Just xs)
+
+-- | /Optional Param/ "fillIngredients" - Add information about the ingredients and whether they are used or missing in relation to the query.
+instance HasOptionalParam SearchRecipes FillIngredients where
+  applyOptionalParam req (FillIngredients xs) =
+    req `setQuery` toQuery ("fillIngredients", Just xs)
+
+-- | /Optional Param/ "addRecipeInformation" - If set to true, you get more information about the recipes returned.
+instance HasOptionalParam SearchRecipes AddRecipeInformation where
+  applyOptionalParam req (AddRecipeInformation xs) =
+    req `setQuery` toQuery ("addRecipeInformation", Just xs)
+
+-- | /Optional Param/ "addRecipeNutrition" - If set to true, you get nutritional information about each recipes returned.
+instance HasOptionalParam SearchRecipes AddRecipeNutrition where
+  applyOptionalParam req (AddRecipeNutrition xs) =
+    req `setQuery` toQuery ("addRecipeNutrition", Just xs)
+
+-- | /Optional Param/ "author" - The username of the recipe author.
+instance HasOptionalParam SearchRecipes Author where
+  applyOptionalParam req (Author xs) =
+    req `setQuery` toQuery ("author", Just xs)
+
+-- | /Optional Param/ "tags" - User defined tags that have to match. The author param has to be set.
+instance HasOptionalParam SearchRecipes Tags where
+  applyOptionalParam req (Tags xs) =
+    req `setQuery` toQuery ("tags", Just xs)
+
+-- | /Optional Param/ "recipeBoxId" - The id of the recipe box to which the search should be limited to.
+instance HasOptionalParam SearchRecipes RecipeBoxId where
+  applyOptionalParam req (RecipeBoxId xs) =
+    req `setQuery` toQuery ("recipeBoxId", Just xs)
+
+-- | /Optional Param/ "titleMatch" - Enter text that must be found in the title of the recipes.
+instance HasOptionalParam SearchRecipes TitleMatch where
+  applyOptionalParam req (TitleMatch xs) =
+    req `setQuery` toQuery ("titleMatch", Just xs)
+
+-- | /Optional Param/ "maxReadyTime" - The maximum time in minutes it should take to prepare and cook the recipe.
+instance HasOptionalParam SearchRecipes MaxReadyTime where
+  applyOptionalParam req (MaxReadyTime xs) =
+    req `setQuery` toQuery ("maxReadyTime", Just xs)
+
+-- | /Optional Param/ "ignorePantry" - Whether to ignore typical pantry items, such as water, salt, flour, etc.
+instance HasOptionalParam SearchRecipes IgnorePantry where
+  applyOptionalParam req (IgnorePantry xs) =
+    req `setQuery` toQuery ("ignorePantry", Just xs)
+
+-- | /Optional Param/ "sort" - The strategy to sort recipes by. See a full list of supported sorting options.
+instance HasOptionalParam SearchRecipes Sort where
+  applyOptionalParam req (Sort xs) =
+    req `setQuery` toQuery ("sort", Just xs)
+
+-- | /Optional Param/ "sortDirection" - The direction in which to sort. Must be either 'asc' (ascending) or 'desc' (descending).
+instance HasOptionalParam SearchRecipes SortDirection where
+  applyOptionalParam req (SortDirection xs) =
+    req `setQuery` toQuery ("sortDirection", Just xs)
+
+-- | /Optional Param/ "minCarbs" - The minimum amount of carbohydrates in grams the recipe must have.
+instance HasOptionalParam SearchRecipes MinCarbs where
+  applyOptionalParam req (MinCarbs xs) =
+    req `setQuery` toQuery ("minCarbs", Just xs)
+
+-- | /Optional Param/ "maxCarbs" - The maximum amount of carbohydrates in grams the recipe can have.
+instance HasOptionalParam SearchRecipes MaxCarbs where
+  applyOptionalParam req (MaxCarbs xs) =
+    req `setQuery` toQuery ("maxCarbs", Just xs)
+
+-- | /Optional Param/ "minProtein" - The minimum amount of protein in grams the recipe must have.
+instance HasOptionalParam SearchRecipes MinProtein where
+  applyOptionalParam req (MinProtein xs) =
+    req `setQuery` toQuery ("minProtein", Just xs)
+
+-- | /Optional Param/ "maxProtein" - The maximum amount of protein in grams the recipe can have.
+instance HasOptionalParam SearchRecipes MaxProtein where
+  applyOptionalParam req (MaxProtein xs) =
+    req `setQuery` toQuery ("maxProtein", Just xs)
+
+-- | /Optional Param/ "minCalories" - The minimum amount of calories the recipe must have.
+instance HasOptionalParam SearchRecipes MinCalories where
+  applyOptionalParam req (MinCalories xs) =
+    req `setQuery` toQuery ("minCalories", Just xs)
+
+-- | /Optional Param/ "maxCalories" - The maximum amount of calories the recipe can have.
+instance HasOptionalParam SearchRecipes MaxCalories where
+  applyOptionalParam req (MaxCalories xs) =
+    req `setQuery` toQuery ("maxCalories", Just xs)
+
+-- | /Optional Param/ "minFat" - The minimum amount of fat in grams the recipe must have.
+instance HasOptionalParam SearchRecipes MinFat where
+  applyOptionalParam req (MinFat xs) =
+    req `setQuery` toQuery ("minFat", Just xs)
+
+-- | /Optional Param/ "maxFat" - The maximum amount of fat in grams the recipe can have.
+instance HasOptionalParam SearchRecipes MaxFat where
+  applyOptionalParam req (MaxFat xs) =
+    req `setQuery` toQuery ("maxFat", Just xs)
+
+-- | /Optional Param/ "minAlcohol" - The minimum amount of alcohol in grams the recipe must have.
+instance HasOptionalParam SearchRecipes MinAlcohol where
+  applyOptionalParam req (MinAlcohol xs) =
+    req `setQuery` toQuery ("minAlcohol", Just xs)
+
+-- | /Optional Param/ "maxAlcohol" - The maximum amount of alcohol in grams the recipe can have.
+instance HasOptionalParam SearchRecipes MaxAlcohol where
+  applyOptionalParam req (MaxAlcohol xs) =
+    req `setQuery` toQuery ("maxAlcohol", Just xs)
+
+-- | /Optional Param/ "minCaffeine" - The minimum amount of caffeine in milligrams the recipe must have.
+instance HasOptionalParam SearchRecipes MinCaffeine where
+  applyOptionalParam req (MinCaffeine xs) =
+    req `setQuery` toQuery ("minCaffeine", Just xs)
+
+-- | /Optional Param/ "maxCaffeine" - The maximum amount of caffeine in milligrams the recipe can have.
+instance HasOptionalParam SearchRecipes MaxCaffeine where
+  applyOptionalParam req (MaxCaffeine xs) =
+    req `setQuery` toQuery ("maxCaffeine", Just xs)
+
+-- | /Optional Param/ "minCopper" - The minimum amount of copper in milligrams the recipe must have.
+instance HasOptionalParam SearchRecipes MinCopper where
+  applyOptionalParam req (MinCopper xs) =
+    req `setQuery` toQuery ("minCopper", Just xs)
+
+-- | /Optional Param/ "maxCopper" - The maximum amount of copper in milligrams the recipe can have.
+instance HasOptionalParam SearchRecipes MaxCopper where
+  applyOptionalParam req (MaxCopper xs) =
+    req `setQuery` toQuery ("maxCopper", Just xs)
+
+-- | /Optional Param/ "minCalcium" - The minimum amount of calcium in milligrams the recipe must have.
+instance HasOptionalParam SearchRecipes MinCalcium where
+  applyOptionalParam req (MinCalcium xs) =
+    req `setQuery` toQuery ("minCalcium", Just xs)
+
+-- | /Optional Param/ "maxCalcium" - The maximum amount of calcium in milligrams the recipe can have.
+instance HasOptionalParam SearchRecipes MaxCalcium where
+  applyOptionalParam req (MaxCalcium xs) =
+    req `setQuery` toQuery ("maxCalcium", Just xs)
+
+-- | /Optional Param/ "minCholine" - The minimum amount of choline in milligrams the recipe must have.
+instance HasOptionalParam SearchRecipes MinCholine where
+  applyOptionalParam req (MinCholine xs) =
+    req `setQuery` toQuery ("minCholine", Just xs)
+
+-- | /Optional Param/ "maxCholine" - The maximum amount of choline in milligrams the recipe can have.
+instance HasOptionalParam SearchRecipes MaxCholine where
+  applyOptionalParam req (MaxCholine xs) =
+    req `setQuery` toQuery ("maxCholine", Just xs)
+
+-- | /Optional Param/ "minCholesterol" - The minimum amount of cholesterol in milligrams the recipe must have.
+instance HasOptionalParam SearchRecipes MinCholesterol where
+  applyOptionalParam req (MinCholesterol xs) =
+    req `setQuery` toQuery ("minCholesterol", Just xs)
+
+-- | /Optional Param/ "maxCholesterol" - The maximum amount of cholesterol in milligrams the recipe can have.
+instance HasOptionalParam SearchRecipes MaxCholesterol where
+  applyOptionalParam req (MaxCholesterol xs) =
+    req `setQuery` toQuery ("maxCholesterol", Just xs)
+
+-- | /Optional Param/ "minFluoride" - The minimum amount of fluoride in milligrams the recipe must have.
+instance HasOptionalParam SearchRecipes MinFluoride where
+  applyOptionalParam req (MinFluoride xs) =
+    req `setQuery` toQuery ("minFluoride", Just xs)
+
+-- | /Optional Param/ "maxFluoride" - The maximum amount of fluoride in milligrams the recipe can have.
+instance HasOptionalParam SearchRecipes MaxFluoride where
+  applyOptionalParam req (MaxFluoride xs) =
+    req `setQuery` toQuery ("maxFluoride", Just xs)
+
+-- | /Optional Param/ "minSaturatedFat" - The minimum amount of saturated fat in grams the recipe must have.
+instance HasOptionalParam SearchRecipes MinSaturatedFat where
+  applyOptionalParam req (MinSaturatedFat xs) =
+    req `setQuery` toQuery ("minSaturatedFat", Just xs)
+
+-- | /Optional Param/ "maxSaturatedFat" - The maximum amount of saturated fat in grams the recipe can have.
+instance HasOptionalParam SearchRecipes MaxSaturatedFat where
+  applyOptionalParam req (MaxSaturatedFat xs) =
+    req `setQuery` toQuery ("maxSaturatedFat", Just xs)
+
+-- | /Optional Param/ "minVitaminA" - The minimum amount of Vitamin A in IU the recipe must have.
+instance HasOptionalParam SearchRecipes MinVitaminA where
+  applyOptionalParam req (MinVitaminA xs) =
+    req `setQuery` toQuery ("minVitaminA", Just xs)
+
+-- | /Optional Param/ "maxVitaminA" - The maximum amount of Vitamin A in IU the recipe can have.
+instance HasOptionalParam SearchRecipes MaxVitaminA where
+  applyOptionalParam req (MaxVitaminA xs) =
+    req `setQuery` toQuery ("maxVitaminA", Just xs)
+
+-- | /Optional Param/ "minVitaminC" - The minimum amount of Vitamin C milligrams the recipe must have.
+instance HasOptionalParam SearchRecipes MinVitaminC where
+  applyOptionalParam req (MinVitaminC xs) =
+    req `setQuery` toQuery ("minVitaminC", Just xs)
+
+-- | /Optional Param/ "maxVitaminC" - The maximum amount of Vitamin C in milligrams the recipe can have.
+instance HasOptionalParam SearchRecipes MaxVitaminC where
+  applyOptionalParam req (MaxVitaminC xs) =
+    req `setQuery` toQuery ("maxVitaminC", Just xs)
+
+-- | /Optional Param/ "minVitaminD" - The minimum amount of Vitamin D in micrograms the recipe must have.
+instance HasOptionalParam SearchRecipes MinVitaminD where
+  applyOptionalParam req (MinVitaminD xs) =
+    req `setQuery` toQuery ("minVitaminD", Just xs)
+
+-- | /Optional Param/ "maxVitaminD" - The maximum amount of Vitamin D in micrograms the recipe can have.
+instance HasOptionalParam SearchRecipes MaxVitaminD where
+  applyOptionalParam req (MaxVitaminD xs) =
+    req `setQuery` toQuery ("maxVitaminD", Just xs)
+
+-- | /Optional Param/ "minVitaminE" - The minimum amount of Vitamin E in milligrams the recipe must have.
+instance HasOptionalParam SearchRecipes MinVitaminE where
+  applyOptionalParam req (MinVitaminE xs) =
+    req `setQuery` toQuery ("minVitaminE", Just xs)
+
+-- | /Optional Param/ "maxVitaminE" - The maximum amount of Vitamin E in milligrams the recipe can have.
+instance HasOptionalParam SearchRecipes MaxVitaminE where
+  applyOptionalParam req (MaxVitaminE xs) =
+    req `setQuery` toQuery ("maxVitaminE", Just xs)
+
+-- | /Optional Param/ "minVitaminK" - The minimum amount of Vitamin K in micrograms the recipe must have.
+instance HasOptionalParam SearchRecipes MinVitaminK where
+  applyOptionalParam req (MinVitaminK xs) =
+    req `setQuery` toQuery ("minVitaminK", Just xs)
+
+-- | /Optional Param/ "maxVitaminK" - The maximum amount of Vitamin K in micrograms the recipe can have.
+instance HasOptionalParam SearchRecipes MaxVitaminK where
+  applyOptionalParam req (MaxVitaminK xs) =
+    req `setQuery` toQuery ("maxVitaminK", Just xs)
+
+-- | /Optional Param/ "minVitaminB1" - The minimum amount of Vitamin B1 in milligrams the recipe must have.
+instance HasOptionalParam SearchRecipes MinVitaminB1 where
+  applyOptionalParam req (MinVitaminB1 xs) =
+    req `setQuery` toQuery ("minVitaminB1", Just xs)
+
+-- | /Optional Param/ "maxVitaminB1" - The maximum amount of Vitamin B1 in milligrams the recipe can have.
+instance HasOptionalParam SearchRecipes MaxVitaminB1 where
+  applyOptionalParam req (MaxVitaminB1 xs) =
+    req `setQuery` toQuery ("maxVitaminB1", Just xs)
+
+-- | /Optional Param/ "minVitaminB2" - The minimum amount of Vitamin B2 in milligrams the recipe must have.
+instance HasOptionalParam SearchRecipes MinVitaminB2 where
+  applyOptionalParam req (MinVitaminB2 xs) =
+    req `setQuery` toQuery ("minVitaminB2", Just xs)
+
+-- | /Optional Param/ "maxVitaminB2" - The maximum amount of Vitamin B2 in milligrams the recipe can have.
+instance HasOptionalParam SearchRecipes MaxVitaminB2 where
+  applyOptionalParam req (MaxVitaminB2 xs) =
+    req `setQuery` toQuery ("maxVitaminB2", Just xs)
+
+-- | /Optional Param/ "minVitaminB5" - The minimum amount of Vitamin B5 in milligrams the recipe must have.
+instance HasOptionalParam SearchRecipes MinVitaminB5 where
+  applyOptionalParam req (MinVitaminB5 xs) =
+    req `setQuery` toQuery ("minVitaminB5", Just xs)
+
+-- | /Optional Param/ "maxVitaminB5" - The maximum amount of Vitamin B5 in milligrams the recipe can have.
+instance HasOptionalParam SearchRecipes MaxVitaminB5 where
+  applyOptionalParam req (MaxVitaminB5 xs) =
+    req `setQuery` toQuery ("maxVitaminB5", Just xs)
+
+-- | /Optional Param/ "minVitaminB3" - The minimum amount of Vitamin B3 in milligrams the recipe must have.
+instance HasOptionalParam SearchRecipes MinVitaminB3 where
+  applyOptionalParam req (MinVitaminB3 xs) =
+    req `setQuery` toQuery ("minVitaminB3", Just xs)
+
+-- | /Optional Param/ "maxVitaminB3" - The maximum amount of Vitamin B3 in milligrams the recipe can have.
+instance HasOptionalParam SearchRecipes MaxVitaminB3 where
+  applyOptionalParam req (MaxVitaminB3 xs) =
+    req `setQuery` toQuery ("maxVitaminB3", Just xs)
+
+-- | /Optional Param/ "minVitaminB6" - The minimum amount of Vitamin B6 in milligrams the recipe must have.
+instance HasOptionalParam SearchRecipes MinVitaminB6 where
+  applyOptionalParam req (MinVitaminB6 xs) =
+    req `setQuery` toQuery ("minVitaminB6", Just xs)
+
+-- | /Optional Param/ "maxVitaminB6" - The maximum amount of Vitamin B6 in milligrams the recipe can have.
+instance HasOptionalParam SearchRecipes MaxVitaminB6 where
+  applyOptionalParam req (MaxVitaminB6 xs) =
+    req `setQuery` toQuery ("maxVitaminB6", Just xs)
+
+-- | /Optional Param/ "minVitaminB12" - The minimum amount of Vitamin B12 in micrograms the recipe must have.
+instance HasOptionalParam SearchRecipes MinVitaminB12 where
+  applyOptionalParam req (MinVitaminB12 xs) =
+    req `setQuery` toQuery ("minVitaminB12", Just xs)
+
+-- | /Optional Param/ "maxVitaminB12" - The maximum amount of Vitamin B12 in micrograms the recipe can have.
+instance HasOptionalParam SearchRecipes MaxVitaminB12 where
+  applyOptionalParam req (MaxVitaminB12 xs) =
+    req `setQuery` toQuery ("maxVitaminB12", Just xs)
+
+-- | /Optional Param/ "minFiber" - The minimum amount of fiber in grams the recipe must have.
+instance HasOptionalParam SearchRecipes MinFiber where
+  applyOptionalParam req (MinFiber xs) =
+    req `setQuery` toQuery ("minFiber", Just xs)
+
+-- | /Optional Param/ "maxFiber" - The maximum amount of fiber in grams the recipe can have.
+instance HasOptionalParam SearchRecipes MaxFiber where
+  applyOptionalParam req (MaxFiber xs) =
+    req `setQuery` toQuery ("maxFiber", Just xs)
+
+-- | /Optional Param/ "minFolate" - The minimum amount of folate in micrograms the recipe must have.
+instance HasOptionalParam SearchRecipes MinFolate where
+  applyOptionalParam req (MinFolate xs) =
+    req `setQuery` toQuery ("minFolate", Just xs)
+
+-- | /Optional Param/ "maxFolate" - The maximum amount of folate in micrograms the recipe can have.
+instance HasOptionalParam SearchRecipes MaxFolate where
+  applyOptionalParam req (MaxFolate xs) =
+    req `setQuery` toQuery ("maxFolate", Just xs)
+
+-- | /Optional Param/ "minFolicAcid" - The minimum amount of folic acid in micrograms the recipe must have.
+instance HasOptionalParam SearchRecipes MinFolicAcid where
+  applyOptionalParam req (MinFolicAcid xs) =
+    req `setQuery` toQuery ("minFolicAcid", Just xs)
+
+-- | /Optional Param/ "maxFolicAcid" - The maximum amount of folic acid in micrograms the recipe can have.
+instance HasOptionalParam SearchRecipes MaxFolicAcid where
+  applyOptionalParam req (MaxFolicAcid xs) =
+    req `setQuery` toQuery ("maxFolicAcid", Just xs)
+
+-- | /Optional Param/ "minIodine" - The minimum amount of iodine in micrograms the recipe must have.
+instance HasOptionalParam SearchRecipes MinIodine where
+  applyOptionalParam req (MinIodine xs) =
+    req `setQuery` toQuery ("minIodine", Just xs)
+
+-- | /Optional Param/ "maxIodine" - The maximum amount of iodine in micrograms the recipe can have.
+instance HasOptionalParam SearchRecipes MaxIodine where
+  applyOptionalParam req (MaxIodine xs) =
+    req `setQuery` toQuery ("maxIodine", Just xs)
+
+-- | /Optional Param/ "minIron" - The minimum amount of iron in milligrams the recipe must have.
+instance HasOptionalParam SearchRecipes MinIron where
+  applyOptionalParam req (MinIron xs) =
+    req `setQuery` toQuery ("minIron", Just xs)
+
+-- | /Optional Param/ "maxIron" - The maximum amount of iron in milligrams the recipe can have.
+instance HasOptionalParam SearchRecipes MaxIron where
+  applyOptionalParam req (MaxIron xs) =
+    req `setQuery` toQuery ("maxIron", Just xs)
+
+-- | /Optional Param/ "minMagnesium" - The minimum amount of magnesium in milligrams the recipe must have.
+instance HasOptionalParam SearchRecipes MinMagnesium where
+  applyOptionalParam req (MinMagnesium xs) =
+    req `setQuery` toQuery ("minMagnesium", Just xs)
+
+-- | /Optional Param/ "maxMagnesium" - The maximum amount of magnesium in milligrams the recipe can have.
+instance HasOptionalParam SearchRecipes MaxMagnesium where
+  applyOptionalParam req (MaxMagnesium xs) =
+    req `setQuery` toQuery ("maxMagnesium", Just xs)
+
+-- | /Optional Param/ "minManganese" - The minimum amount of manganese in milligrams the recipe must have.
+instance HasOptionalParam SearchRecipes MinManganese where
+  applyOptionalParam req (MinManganese xs) =
+    req `setQuery` toQuery ("minManganese", Just xs)
+
+-- | /Optional Param/ "maxManganese" - The maximum amount of manganese in milligrams the recipe can have.
+instance HasOptionalParam SearchRecipes MaxManganese where
+  applyOptionalParam req (MaxManganese xs) =
+    req `setQuery` toQuery ("maxManganese", Just xs)
+
+-- | /Optional Param/ "minPhosphorus" - The minimum amount of phosphorus in milligrams the recipe must have.
+instance HasOptionalParam SearchRecipes MinPhosphorus where
+  applyOptionalParam req (MinPhosphorus xs) =
+    req `setQuery` toQuery ("minPhosphorus", Just xs)
+
+-- | /Optional Param/ "maxPhosphorus" - The maximum amount of phosphorus in milligrams the recipe can have.
+instance HasOptionalParam SearchRecipes MaxPhosphorus where
+  applyOptionalParam req (MaxPhosphorus xs) =
+    req `setQuery` toQuery ("maxPhosphorus", Just xs)
+
+-- | /Optional Param/ "minPotassium" - The minimum amount of potassium in milligrams the recipe must have.
+instance HasOptionalParam SearchRecipes MinPotassium where
+  applyOptionalParam req (MinPotassium xs) =
+    req `setQuery` toQuery ("minPotassium", Just xs)
+
+-- | /Optional Param/ "maxPotassium" - The maximum amount of potassium in milligrams the recipe can have.
+instance HasOptionalParam SearchRecipes MaxPotassium where
+  applyOptionalParam req (MaxPotassium xs) =
+    req `setQuery` toQuery ("maxPotassium", Just xs)
+
+-- | /Optional Param/ "minSelenium" - The minimum amount of selenium in micrograms the recipe must have.
+instance HasOptionalParam SearchRecipes MinSelenium where
+  applyOptionalParam req (MinSelenium xs) =
+    req `setQuery` toQuery ("minSelenium", Just xs)
+
+-- | /Optional Param/ "maxSelenium" - The maximum amount of selenium in micrograms the recipe can have.
+instance HasOptionalParam SearchRecipes MaxSelenium where
+  applyOptionalParam req (MaxSelenium xs) =
+    req `setQuery` toQuery ("maxSelenium", Just xs)
+
+-- | /Optional Param/ "minSodium" - The minimum amount of sodium in milligrams the recipe must have.
+instance HasOptionalParam SearchRecipes MinSodium where
+  applyOptionalParam req (MinSodium xs) =
+    req `setQuery` toQuery ("minSodium", Just xs)
+
+-- | /Optional Param/ "maxSodium" - The maximum amount of sodium in milligrams the recipe can have.
+instance HasOptionalParam SearchRecipes MaxSodium where
+  applyOptionalParam req (MaxSodium xs) =
+    req `setQuery` toQuery ("maxSodium", Just xs)
+
+-- | /Optional Param/ "minSugar" - The minimum amount of sugar in grams the recipe must have.
+instance HasOptionalParam SearchRecipes MinSugar where
+  applyOptionalParam req (MinSugar xs) =
+    req `setQuery` toQuery ("minSugar", Just xs)
+
+-- | /Optional Param/ "maxSugar" - The maximum amount of sugar in grams the recipe can have.
+instance HasOptionalParam SearchRecipes MaxSugar where
+  applyOptionalParam req (MaxSugar xs) =
+    req `setQuery` toQuery ("maxSugar", Just xs)
+
+-- | /Optional Param/ "minZinc" - The minimum amount of zinc in milligrams the recipe must have.
+instance HasOptionalParam SearchRecipes MinZinc where
+  applyOptionalParam req (MinZinc xs) =
+    req `setQuery` toQuery ("minZinc", Just xs)
+
+-- | /Optional Param/ "maxZinc" - The maximum amount of zinc in milligrams the recipe can have.
+instance HasOptionalParam SearchRecipes MaxZinc where
+  applyOptionalParam req (MaxZinc xs) =
+    req `setQuery` toQuery ("maxZinc", Just xs)
 
 -- | /Optional Param/ "offset" - The number of results to skip (between 0 and 900).
 instance HasOptionalParam SearchRecipes Offset where
   applyOptionalParam req (Offset xs) =
     req `setQuery` toQuery ("offset", Just xs)
 
--- | /Optional Param/ "number" - The number of results to return (between 1 and 100).
+-- | /Optional Param/ "number" - The number of expected results (between 1 and 100).
 instance HasOptionalParam SearchRecipes Number where
   applyOptionalParam req (Number xs) =
     req `setQuery` toQuery ("number", Just xs)
@@ -1659,11 +2315,6 @@ instance HasOptionalParam SearchRecipes Number where
 instance HasOptionalParam SearchRecipes LimitLicense where
   applyOptionalParam req (LimitLicense xs) =
     req `setQuery` toQuery ("limitLicense", Just xs)
-
--- | /Optional Param/ "instructionsRequired" - Whether the recipes must have instructions.
-instance HasOptionalParam SearchRecipes InstructionsRequired where
-  applyOptionalParam req (InstructionsRequired xs) =
-    req `setQuery` toQuery ("instructionsRequired", Just xs)
 -- | @application/json@
 instance Produces SearchRecipes MimeJSON
 
@@ -1963,32 +2614,32 @@ instance HasOptionalParam SearchRecipesByNutrients MaxFiber where
   applyOptionalParam req (MaxFiber xs) =
     req `setQuery` toQuery ("maxFiber", Just xs)
 
--- | /Optional Param/ "minFolate" - The minimum amount of folate in grams the recipe must have.
+-- | /Optional Param/ "minFolate" - The minimum amount of folate in micrograms the recipe must have.
 instance HasOptionalParam SearchRecipesByNutrients MinFolate where
   applyOptionalParam req (MinFolate xs) =
     req `setQuery` toQuery ("minFolate", Just xs)
 
--- | /Optional Param/ "maxFolate" - The maximum amount of folate in grams the recipe can have.
+-- | /Optional Param/ "maxFolate" - The maximum amount of folate in micrograms the recipe can have.
 instance HasOptionalParam SearchRecipesByNutrients MaxFolate where
   applyOptionalParam req (MaxFolate xs) =
     req `setQuery` toQuery ("maxFolate", Just xs)
 
--- | /Optional Param/ "minFolicAcid" - The minimum amount of folic acid in grams the recipe must have.
+-- | /Optional Param/ "minFolicAcid" - The minimum amount of folic acid in micrograms the recipe must have.
 instance HasOptionalParam SearchRecipesByNutrients MinFolicAcid where
   applyOptionalParam req (MinFolicAcid xs) =
     req `setQuery` toQuery ("minFolicAcid", Just xs)
 
--- | /Optional Param/ "maxFolicAcid" - The maximum amount of folic acid in grams the recipe can have.
+-- | /Optional Param/ "maxFolicAcid" - The maximum amount of folic acid in micrograms the recipe can have.
 instance HasOptionalParam SearchRecipesByNutrients MaxFolicAcid where
   applyOptionalParam req (MaxFolicAcid xs) =
     req `setQuery` toQuery ("maxFolicAcid", Just xs)
 
--- | /Optional Param/ "minIodine" - The minimum amount of iodine in grams the recipe must have.
+-- | /Optional Param/ "minIodine" - The minimum amount of iodine in micrograms the recipe must have.
 instance HasOptionalParam SearchRecipesByNutrients MinIodine where
   applyOptionalParam req (MinIodine xs) =
     req `setQuery` toQuery ("minIodine", Just xs)
 
--- | /Optional Param/ "maxIodine" - The maximum amount of iodine in grams the recipe can have.
+-- | /Optional Param/ "maxIodine" - The maximum amount of iodine in micrograms the recipe can have.
 instance HasOptionalParam SearchRecipesByNutrients MaxIodine where
   applyOptionalParam req (MaxIodine xs) =
     req `setQuery` toQuery ("maxIodine", Just xs)
@@ -2043,12 +2694,12 @@ instance HasOptionalParam SearchRecipesByNutrients MaxPotassium where
   applyOptionalParam req (MaxPotassium xs) =
     req `setQuery` toQuery ("maxPotassium", Just xs)
 
--- | /Optional Param/ "minSelenium" - The minimum amount of selenium in grams the recipe must have.
+-- | /Optional Param/ "minSelenium" - The minimum amount of selenium in micrograms the recipe must have.
 instance HasOptionalParam SearchRecipesByNutrients MinSelenium where
   applyOptionalParam req (MinSelenium xs) =
     req `setQuery` toQuery ("minSelenium", Just xs)
 
--- | /Optional Param/ "maxSelenium" - The maximum amount of selenium in grams the recipe can have.
+-- | /Optional Param/ "maxSelenium" - The maximum amount of selenium in micrograms the recipe can have.
 instance HasOptionalParam SearchRecipesByNutrients MaxSelenium where
   applyOptionalParam req (MaxSelenium xs) =
     req `setQuery` toQuery ("maxSelenium", Just xs)
@@ -2104,501 +2755,6 @@ instance HasOptionalParam SearchRecipesByNutrients LimitLicense where
     req `setQuery` toQuery ("limitLicense", Just xs)
 -- | @application/json@
 instance Produces SearchRecipesByNutrients MimeJSON
-
-
--- *** searchRecipesComplex
-
--- | @GET \/recipes\/complexSearch@
--- 
--- Search Recipes Complex
--- 
--- Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint.
--- 
-searchRecipesComplex 
-  :: Query -- ^ "query" -  The (natural language) recipe search query.
-  -> SpoonacularRequest SearchRecipesComplex MimeNoContent A.Value MimeJSON
-searchRecipesComplex (Query query) =
-  _mkRequest "GET" ["/recipes/complexSearch"]
-    `setQuery` toQuery ("query", Just query)
-
-data SearchRecipesComplex  
-
--- | /Optional Param/ "cuisine" - The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as 'OR'). See a full list of supported cuisines.
-instance HasOptionalParam SearchRecipesComplex Cuisine where
-  applyOptionalParam req (Cuisine xs) =
-    req `setQuery` toQuery ("cuisine", Just xs)
-
--- | /Optional Param/ "excludeCuisine" - The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as 'AND'). See a full list of supported cuisines.
-instance HasOptionalParam SearchRecipesComplex ExcludeCuisine where
-  applyOptionalParam req (ExcludeCuisine xs) =
-    req `setQuery` toQuery ("excludeCuisine", Just xs)
-
--- | /Optional Param/ "diet" - The diet for which the recipes must be suitable. See a full list of supported diets.
-instance HasOptionalParam SearchRecipesComplex Diet where
-  applyOptionalParam req (Diet xs) =
-    req `setQuery` toQuery ("diet", Just xs)
-
--- | /Optional Param/ "intolerances" - A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
-instance HasOptionalParam SearchRecipesComplex Intolerances where
-  applyOptionalParam req (Intolerances xs) =
-    req `setQuery` toQuery ("intolerances", Just xs)
-
--- | /Optional Param/ "equipment" - The equipment required. Multiple values will be interpreted as 'or'. For example, value could be \"blender, frying pan, bowl\".
-instance HasOptionalParam SearchRecipesComplex Equipment where
-  applyOptionalParam req (Equipment xs) =
-    req `setQuery` toQuery ("equipment", Just xs)
-
--- | /Optional Param/ "includeIngredients" - A comma-separated list of ingredients that should/must be used in the recipes.
-instance HasOptionalParam SearchRecipesComplex IncludeIngredients where
-  applyOptionalParam req (IncludeIngredients xs) =
-    req `setQuery` toQuery ("includeIngredients", Just xs)
-
--- | /Optional Param/ "excludeIngredients" - A comma-separated list of ingredients or ingredient types that the recipes must not contain.
-instance HasOptionalParam SearchRecipesComplex ExcludeIngredients where
-  applyOptionalParam req (ExcludeIngredients xs) =
-    req `setQuery` toQuery ("excludeIngredients", Just xs)
-
--- | /Optional Param/ "type" - The type of recipe. See a full list of supported meal types.
-instance HasOptionalParam SearchRecipesComplex ParamType where
-  applyOptionalParam req (ParamType xs) =
-    req `setQuery` toQuery ("type", Just xs)
-
--- | /Optional Param/ "instructionsRequired" - Whether the recipes must have instructions.
-instance HasOptionalParam SearchRecipesComplex InstructionsRequired where
-  applyOptionalParam req (InstructionsRequired xs) =
-    req `setQuery` toQuery ("instructionsRequired", Just xs)
-
--- | /Optional Param/ "fillIngredients" - Add information about the ingredients and whether they are used or missing in relation to the query.
-instance HasOptionalParam SearchRecipesComplex FillIngredients where
-  applyOptionalParam req (FillIngredients xs) =
-    req `setQuery` toQuery ("fillIngredients", Just xs)
-
--- | /Optional Param/ "addRecipeInformation" - If set to true, you get more information about the recipes returned.
-instance HasOptionalParam SearchRecipesComplex AddRecipeInformation where
-  applyOptionalParam req (AddRecipeInformation xs) =
-    req `setQuery` toQuery ("addRecipeInformation", Just xs)
-
--- | /Optional Param/ "addRecipeNutrition" - If set to true, you get nutritional information about each recipes returned.
-instance HasOptionalParam SearchRecipesComplex AddRecipeNutrition where
-  applyOptionalParam req (AddRecipeNutrition xs) =
-    req `setQuery` toQuery ("addRecipeNutrition", Just xs)
-
--- | /Optional Param/ "author" - The username of the recipe author.
-instance HasOptionalParam SearchRecipesComplex Author where
-  applyOptionalParam req (Author xs) =
-    req `setQuery` toQuery ("author", Just xs)
-
--- | /Optional Param/ "tags" - User defined tags that have to match. The author param has to be set.
-instance HasOptionalParam SearchRecipesComplex Tags where
-  applyOptionalParam req (Tags xs) =
-    req `setQuery` toQuery ("tags", Just xs)
-
--- | /Optional Param/ "recipeBoxId" - The id of the recipe box to which the search should be limited to.
-instance HasOptionalParam SearchRecipesComplex RecipeBoxId where
-  applyOptionalParam req (RecipeBoxId xs) =
-    req `setQuery` toQuery ("recipeBoxId", Just xs)
-
--- | /Optional Param/ "titleMatch" - Enter text that must be found in the title of the recipes.
-instance HasOptionalParam SearchRecipesComplex TitleMatch where
-  applyOptionalParam req (TitleMatch xs) =
-    req `setQuery` toQuery ("titleMatch", Just xs)
-
--- | /Optional Param/ "maxReadyTime" - The maximum time in minutes it should take to prepare and cook the recipe.
-instance HasOptionalParam SearchRecipesComplex MaxReadyTime where
-  applyOptionalParam req (MaxReadyTime xs) =
-    req `setQuery` toQuery ("maxReadyTime", Just xs)
-
--- | /Optional Param/ "ignorePantry" - Whether to ignore typical pantry items, such as water, salt, flour, etc.
-instance HasOptionalParam SearchRecipesComplex IgnorePantry where
-  applyOptionalParam req (IgnorePantry xs) =
-    req `setQuery` toQuery ("ignorePantry", Just xs)
-
--- | /Optional Param/ "sort" - The strategy to sort recipes by. See a full list of supported sorting options.
-instance HasOptionalParam SearchRecipesComplex Sort where
-  applyOptionalParam req (Sort xs) =
-    req `setQuery` toQuery ("sort", Just xs)
-
--- | /Optional Param/ "sortDirection" - The direction in which to sort. Must be either 'asc' (ascending) or 'desc' (descending).
-instance HasOptionalParam SearchRecipesComplex SortDirection where
-  applyOptionalParam req (SortDirection xs) =
-    req `setQuery` toQuery ("sortDirection", Just xs)
-
--- | /Optional Param/ "minCarbs" - The minimum amount of carbohydrates in grams the recipe must have.
-instance HasOptionalParam SearchRecipesComplex MinCarbs where
-  applyOptionalParam req (MinCarbs xs) =
-    req `setQuery` toQuery ("minCarbs", Just xs)
-
--- | /Optional Param/ "maxCarbs" - The maximum amount of carbohydrates in grams the recipe can have.
-instance HasOptionalParam SearchRecipesComplex MaxCarbs where
-  applyOptionalParam req (MaxCarbs xs) =
-    req `setQuery` toQuery ("maxCarbs", Just xs)
-
--- | /Optional Param/ "minProtein" - The minimum amount of protein in grams the recipe must have.
-instance HasOptionalParam SearchRecipesComplex MinProtein where
-  applyOptionalParam req (MinProtein xs) =
-    req `setQuery` toQuery ("minProtein", Just xs)
-
--- | /Optional Param/ "maxProtein" - The maximum amount of protein in grams the recipe can have.
-instance HasOptionalParam SearchRecipesComplex MaxProtein where
-  applyOptionalParam req (MaxProtein xs) =
-    req `setQuery` toQuery ("maxProtein", Just xs)
-
--- | /Optional Param/ "minCalories" - The minimum amount of calories the recipe must have.
-instance HasOptionalParam SearchRecipesComplex MinCalories where
-  applyOptionalParam req (MinCalories xs) =
-    req `setQuery` toQuery ("minCalories", Just xs)
-
--- | /Optional Param/ "maxCalories" - The maximum amount of calories the recipe can have.
-instance HasOptionalParam SearchRecipesComplex MaxCalories where
-  applyOptionalParam req (MaxCalories xs) =
-    req `setQuery` toQuery ("maxCalories", Just xs)
-
--- | /Optional Param/ "minFat" - The minimum amount of fat in grams the recipe must have.
-instance HasOptionalParam SearchRecipesComplex MinFat where
-  applyOptionalParam req (MinFat xs) =
-    req `setQuery` toQuery ("minFat", Just xs)
-
--- | /Optional Param/ "maxFat" - The maximum amount of fat in grams the recipe can have.
-instance HasOptionalParam SearchRecipesComplex MaxFat where
-  applyOptionalParam req (MaxFat xs) =
-    req `setQuery` toQuery ("maxFat", Just xs)
-
--- | /Optional Param/ "minAlcohol" - The minimum amount of alcohol in grams the recipe must have.
-instance HasOptionalParam SearchRecipesComplex MinAlcohol where
-  applyOptionalParam req (MinAlcohol xs) =
-    req `setQuery` toQuery ("minAlcohol", Just xs)
-
--- | /Optional Param/ "maxAlcohol" - The maximum amount of alcohol in grams the recipe can have.
-instance HasOptionalParam SearchRecipesComplex MaxAlcohol where
-  applyOptionalParam req (MaxAlcohol xs) =
-    req `setQuery` toQuery ("maxAlcohol", Just xs)
-
--- | /Optional Param/ "minCaffeine" - The minimum amount of caffeine in milligrams the recipe must have.
-instance HasOptionalParam SearchRecipesComplex MinCaffeine where
-  applyOptionalParam req (MinCaffeine xs) =
-    req `setQuery` toQuery ("minCaffeine", Just xs)
-
--- | /Optional Param/ "maxCaffeine" - The maximum amount of caffeine in milligrams the recipe can have.
-instance HasOptionalParam SearchRecipesComplex MaxCaffeine where
-  applyOptionalParam req (MaxCaffeine xs) =
-    req `setQuery` toQuery ("maxCaffeine", Just xs)
-
--- | /Optional Param/ "minCopper" - The minimum amount of copper in milligrams the recipe must have.
-instance HasOptionalParam SearchRecipesComplex MinCopper where
-  applyOptionalParam req (MinCopper xs) =
-    req `setQuery` toQuery ("minCopper", Just xs)
-
--- | /Optional Param/ "maxCopper" - The maximum amount of copper in milligrams the recipe can have.
-instance HasOptionalParam SearchRecipesComplex MaxCopper where
-  applyOptionalParam req (MaxCopper xs) =
-    req `setQuery` toQuery ("maxCopper", Just xs)
-
--- | /Optional Param/ "minCalcium" - The minimum amount of calcium in milligrams the recipe must have.
-instance HasOptionalParam SearchRecipesComplex MinCalcium where
-  applyOptionalParam req (MinCalcium xs) =
-    req `setQuery` toQuery ("minCalcium", Just xs)
-
--- | /Optional Param/ "maxCalcium" - The maximum amount of calcium in milligrams the recipe can have.
-instance HasOptionalParam SearchRecipesComplex MaxCalcium where
-  applyOptionalParam req (MaxCalcium xs) =
-    req `setQuery` toQuery ("maxCalcium", Just xs)
-
--- | /Optional Param/ "minCholine" - The minimum amount of choline in milligrams the recipe must have.
-instance HasOptionalParam SearchRecipesComplex MinCholine where
-  applyOptionalParam req (MinCholine xs) =
-    req `setQuery` toQuery ("minCholine", Just xs)
-
--- | /Optional Param/ "maxCholine" - The maximum amount of choline in milligrams the recipe can have.
-instance HasOptionalParam SearchRecipesComplex MaxCholine where
-  applyOptionalParam req (MaxCholine xs) =
-    req `setQuery` toQuery ("maxCholine", Just xs)
-
--- | /Optional Param/ "minCholesterol" - The minimum amount of cholesterol in milligrams the recipe must have.
-instance HasOptionalParam SearchRecipesComplex MinCholesterol where
-  applyOptionalParam req (MinCholesterol xs) =
-    req `setQuery` toQuery ("minCholesterol", Just xs)
-
--- | /Optional Param/ "maxCholesterol" - The maximum amount of cholesterol in milligrams the recipe can have.
-instance HasOptionalParam SearchRecipesComplex MaxCholesterol where
-  applyOptionalParam req (MaxCholesterol xs) =
-    req `setQuery` toQuery ("maxCholesterol", Just xs)
-
--- | /Optional Param/ "minFluoride" - The minimum amount of fluoride in milligrams the recipe must have.
-instance HasOptionalParam SearchRecipesComplex MinFluoride where
-  applyOptionalParam req (MinFluoride xs) =
-    req `setQuery` toQuery ("minFluoride", Just xs)
-
--- | /Optional Param/ "maxFluoride" - The maximum amount of fluoride in milligrams the recipe can have.
-instance HasOptionalParam SearchRecipesComplex MaxFluoride where
-  applyOptionalParam req (MaxFluoride xs) =
-    req `setQuery` toQuery ("maxFluoride", Just xs)
-
--- | /Optional Param/ "minSaturatedFat" - The minimum amount of saturated fat in grams the recipe must have.
-instance HasOptionalParam SearchRecipesComplex MinSaturatedFat where
-  applyOptionalParam req (MinSaturatedFat xs) =
-    req `setQuery` toQuery ("minSaturatedFat", Just xs)
-
--- | /Optional Param/ "maxSaturatedFat" - The maximum amount of saturated fat in grams the recipe can have.
-instance HasOptionalParam SearchRecipesComplex MaxSaturatedFat where
-  applyOptionalParam req (MaxSaturatedFat xs) =
-    req `setQuery` toQuery ("maxSaturatedFat", Just xs)
-
--- | /Optional Param/ "minVitaminA" - The minimum amount of Vitamin A in IU the recipe must have.
-instance HasOptionalParam SearchRecipesComplex MinVitaminA where
-  applyOptionalParam req (MinVitaminA xs) =
-    req `setQuery` toQuery ("minVitaminA", Just xs)
-
--- | /Optional Param/ "maxVitaminA" - The maximum amount of Vitamin A in IU the recipe can have.
-instance HasOptionalParam SearchRecipesComplex MaxVitaminA where
-  applyOptionalParam req (MaxVitaminA xs) =
-    req `setQuery` toQuery ("maxVitaminA", Just xs)
-
--- | /Optional Param/ "minVitaminC" - The minimum amount of Vitamin C milligrams the recipe must have.
-instance HasOptionalParam SearchRecipesComplex MinVitaminC where
-  applyOptionalParam req (MinVitaminC xs) =
-    req `setQuery` toQuery ("minVitaminC", Just xs)
-
--- | /Optional Param/ "maxVitaminC" - The maximum amount of Vitamin C in milligrams the recipe can have.
-instance HasOptionalParam SearchRecipesComplex MaxVitaminC where
-  applyOptionalParam req (MaxVitaminC xs) =
-    req `setQuery` toQuery ("maxVitaminC", Just xs)
-
--- | /Optional Param/ "minVitaminD" - The minimum amount of Vitamin D in micrograms the recipe must have.
-instance HasOptionalParam SearchRecipesComplex MinVitaminD where
-  applyOptionalParam req (MinVitaminD xs) =
-    req `setQuery` toQuery ("minVitaminD", Just xs)
-
--- | /Optional Param/ "maxVitaminD" - The maximum amount of Vitamin D in micrograms the recipe can have.
-instance HasOptionalParam SearchRecipesComplex MaxVitaminD where
-  applyOptionalParam req (MaxVitaminD xs) =
-    req `setQuery` toQuery ("maxVitaminD", Just xs)
-
--- | /Optional Param/ "minVitaminE" - The minimum amount of Vitamin E in milligrams the recipe must have.
-instance HasOptionalParam SearchRecipesComplex MinVitaminE where
-  applyOptionalParam req (MinVitaminE xs) =
-    req `setQuery` toQuery ("minVitaminE", Just xs)
-
--- | /Optional Param/ "maxVitaminE" - The maximum amount of Vitamin E in milligrams the recipe can have.
-instance HasOptionalParam SearchRecipesComplex MaxVitaminE where
-  applyOptionalParam req (MaxVitaminE xs) =
-    req `setQuery` toQuery ("maxVitaminE", Just xs)
-
--- | /Optional Param/ "minVitaminK" - The minimum amount of Vitamin K in micrograms the recipe must have.
-instance HasOptionalParam SearchRecipesComplex MinVitaminK where
-  applyOptionalParam req (MinVitaminK xs) =
-    req `setQuery` toQuery ("minVitaminK", Just xs)
-
--- | /Optional Param/ "maxVitaminK" - The maximum amount of Vitamin K in micrograms the recipe can have.
-instance HasOptionalParam SearchRecipesComplex MaxVitaminK where
-  applyOptionalParam req (MaxVitaminK xs) =
-    req `setQuery` toQuery ("maxVitaminK", Just xs)
-
--- | /Optional Param/ "minVitaminB1" - The minimum amount of Vitamin B1 in milligrams the recipe must have.
-instance HasOptionalParam SearchRecipesComplex MinVitaminB1 where
-  applyOptionalParam req (MinVitaminB1 xs) =
-    req `setQuery` toQuery ("minVitaminB1", Just xs)
-
--- | /Optional Param/ "maxVitaminB1" - The maximum amount of Vitamin B1 in milligrams the recipe can have.
-instance HasOptionalParam SearchRecipesComplex MaxVitaminB1 where
-  applyOptionalParam req (MaxVitaminB1 xs) =
-    req `setQuery` toQuery ("maxVitaminB1", Just xs)
-
--- | /Optional Param/ "minVitaminB2" - The minimum amount of Vitamin B2 in milligrams the recipe must have.
-instance HasOptionalParam SearchRecipesComplex MinVitaminB2 where
-  applyOptionalParam req (MinVitaminB2 xs) =
-    req `setQuery` toQuery ("minVitaminB2", Just xs)
-
--- | /Optional Param/ "maxVitaminB2" - The maximum amount of Vitamin B2 in milligrams the recipe can have.
-instance HasOptionalParam SearchRecipesComplex MaxVitaminB2 where
-  applyOptionalParam req (MaxVitaminB2 xs) =
-    req `setQuery` toQuery ("maxVitaminB2", Just xs)
-
--- | /Optional Param/ "minVitaminB5" - The minimum amount of Vitamin B5 in milligrams the recipe must have.
-instance HasOptionalParam SearchRecipesComplex MinVitaminB5 where
-  applyOptionalParam req (MinVitaminB5 xs) =
-    req `setQuery` toQuery ("minVitaminB5", Just xs)
-
--- | /Optional Param/ "maxVitaminB5" - The maximum amount of Vitamin B5 in milligrams the recipe can have.
-instance HasOptionalParam SearchRecipesComplex MaxVitaminB5 where
-  applyOptionalParam req (MaxVitaminB5 xs) =
-    req `setQuery` toQuery ("maxVitaminB5", Just xs)
-
--- | /Optional Param/ "minVitaminB3" - The minimum amount of Vitamin B3 in milligrams the recipe must have.
-instance HasOptionalParam SearchRecipesComplex MinVitaminB3 where
-  applyOptionalParam req (MinVitaminB3 xs) =
-    req `setQuery` toQuery ("minVitaminB3", Just xs)
-
--- | /Optional Param/ "maxVitaminB3" - The maximum amount of Vitamin B3 in milligrams the recipe can have.
-instance HasOptionalParam SearchRecipesComplex MaxVitaminB3 where
-  applyOptionalParam req (MaxVitaminB3 xs) =
-    req `setQuery` toQuery ("maxVitaminB3", Just xs)
-
--- | /Optional Param/ "minVitaminB6" - The minimum amount of Vitamin B6 in milligrams the recipe must have.
-instance HasOptionalParam SearchRecipesComplex MinVitaminB6 where
-  applyOptionalParam req (MinVitaminB6 xs) =
-    req `setQuery` toQuery ("minVitaminB6", Just xs)
-
--- | /Optional Param/ "maxVitaminB6" - The maximum amount of Vitamin B6 in milligrams the recipe can have.
-instance HasOptionalParam SearchRecipesComplex MaxVitaminB6 where
-  applyOptionalParam req (MaxVitaminB6 xs) =
-    req `setQuery` toQuery ("maxVitaminB6", Just xs)
-
--- | /Optional Param/ "minVitaminB12" - The minimum amount of Vitamin B12 in micrograms the recipe must have.
-instance HasOptionalParam SearchRecipesComplex MinVitaminB12 where
-  applyOptionalParam req (MinVitaminB12 xs) =
-    req `setQuery` toQuery ("minVitaminB12", Just xs)
-
--- | /Optional Param/ "maxVitaminB12" - The maximum amount of Vitamin B12 in micrograms the recipe can have.
-instance HasOptionalParam SearchRecipesComplex MaxVitaminB12 where
-  applyOptionalParam req (MaxVitaminB12 xs) =
-    req `setQuery` toQuery ("maxVitaminB12", Just xs)
-
--- | /Optional Param/ "minFiber" - The minimum amount of fiber in grams the recipe must have.
-instance HasOptionalParam SearchRecipesComplex MinFiber where
-  applyOptionalParam req (MinFiber xs) =
-    req `setQuery` toQuery ("minFiber", Just xs)
-
--- | /Optional Param/ "maxFiber" - The maximum amount of fiber in grams the recipe can have.
-instance HasOptionalParam SearchRecipesComplex MaxFiber where
-  applyOptionalParam req (MaxFiber xs) =
-    req `setQuery` toQuery ("maxFiber", Just xs)
-
--- | /Optional Param/ "minFolate" - The minimum amount of folate in grams the recipe must have.
-instance HasOptionalParam SearchRecipesComplex MinFolate where
-  applyOptionalParam req (MinFolate xs) =
-    req `setQuery` toQuery ("minFolate", Just xs)
-
--- | /Optional Param/ "maxFolate" - The maximum amount of folate in grams the recipe can have.
-instance HasOptionalParam SearchRecipesComplex MaxFolate where
-  applyOptionalParam req (MaxFolate xs) =
-    req `setQuery` toQuery ("maxFolate", Just xs)
-
--- | /Optional Param/ "minFolicAcid" - The minimum amount of folic acid in grams the recipe must have.
-instance HasOptionalParam SearchRecipesComplex MinFolicAcid where
-  applyOptionalParam req (MinFolicAcid xs) =
-    req `setQuery` toQuery ("minFolicAcid", Just xs)
-
--- | /Optional Param/ "maxFolicAcid" - The maximum amount of folic acid in grams the recipe can have.
-instance HasOptionalParam SearchRecipesComplex MaxFolicAcid where
-  applyOptionalParam req (MaxFolicAcid xs) =
-    req `setQuery` toQuery ("maxFolicAcid", Just xs)
-
--- | /Optional Param/ "minIodine" - The minimum amount of iodine in grams the recipe must have.
-instance HasOptionalParam SearchRecipesComplex MinIodine where
-  applyOptionalParam req (MinIodine xs) =
-    req `setQuery` toQuery ("minIodine", Just xs)
-
--- | /Optional Param/ "maxIodine" - The maximum amount of iodine in grams the recipe can have.
-instance HasOptionalParam SearchRecipesComplex MaxIodine where
-  applyOptionalParam req (MaxIodine xs) =
-    req `setQuery` toQuery ("maxIodine", Just xs)
-
--- | /Optional Param/ "minIron" - The minimum amount of iron in milligrams the recipe must have.
-instance HasOptionalParam SearchRecipesComplex MinIron where
-  applyOptionalParam req (MinIron xs) =
-    req `setQuery` toQuery ("minIron", Just xs)
-
--- | /Optional Param/ "maxIron" - The maximum amount of iron in milligrams the recipe can have.
-instance HasOptionalParam SearchRecipesComplex MaxIron where
-  applyOptionalParam req (MaxIron xs) =
-    req `setQuery` toQuery ("maxIron", Just xs)
-
--- | /Optional Param/ "minMagnesium" - The minimum amount of magnesium in milligrams the recipe must have.
-instance HasOptionalParam SearchRecipesComplex MinMagnesium where
-  applyOptionalParam req (MinMagnesium xs) =
-    req `setQuery` toQuery ("minMagnesium", Just xs)
-
--- | /Optional Param/ "maxMagnesium" - The maximum amount of magnesium in milligrams the recipe can have.
-instance HasOptionalParam SearchRecipesComplex MaxMagnesium where
-  applyOptionalParam req (MaxMagnesium xs) =
-    req `setQuery` toQuery ("maxMagnesium", Just xs)
-
--- | /Optional Param/ "minManganese" - The minimum amount of manganese in milligrams the recipe must have.
-instance HasOptionalParam SearchRecipesComplex MinManganese where
-  applyOptionalParam req (MinManganese xs) =
-    req `setQuery` toQuery ("minManganese", Just xs)
-
--- | /Optional Param/ "maxManganese" - The maximum amount of manganese in milligrams the recipe can have.
-instance HasOptionalParam SearchRecipesComplex MaxManganese where
-  applyOptionalParam req (MaxManganese xs) =
-    req `setQuery` toQuery ("maxManganese", Just xs)
-
--- | /Optional Param/ "minPhosphorus" - The minimum amount of phosphorus in milligrams the recipe must have.
-instance HasOptionalParam SearchRecipesComplex MinPhosphorus where
-  applyOptionalParam req (MinPhosphorus xs) =
-    req `setQuery` toQuery ("minPhosphorus", Just xs)
-
--- | /Optional Param/ "maxPhosphorus" - The maximum amount of phosphorus in milligrams the recipe can have.
-instance HasOptionalParam SearchRecipesComplex MaxPhosphorus where
-  applyOptionalParam req (MaxPhosphorus xs) =
-    req `setQuery` toQuery ("maxPhosphorus", Just xs)
-
--- | /Optional Param/ "minPotassium" - The minimum amount of potassium in milligrams the recipe must have.
-instance HasOptionalParam SearchRecipesComplex MinPotassium where
-  applyOptionalParam req (MinPotassium xs) =
-    req `setQuery` toQuery ("minPotassium", Just xs)
-
--- | /Optional Param/ "maxPotassium" - The maximum amount of potassium in milligrams the recipe can have.
-instance HasOptionalParam SearchRecipesComplex MaxPotassium where
-  applyOptionalParam req (MaxPotassium xs) =
-    req `setQuery` toQuery ("maxPotassium", Just xs)
-
--- | /Optional Param/ "minSelenium" - The minimum amount of selenium in grams the recipe must have.
-instance HasOptionalParam SearchRecipesComplex MinSelenium where
-  applyOptionalParam req (MinSelenium xs) =
-    req `setQuery` toQuery ("minSelenium", Just xs)
-
--- | /Optional Param/ "maxSelenium" - The maximum amount of selenium in grams the recipe can have.
-instance HasOptionalParam SearchRecipesComplex MaxSelenium where
-  applyOptionalParam req (MaxSelenium xs) =
-    req `setQuery` toQuery ("maxSelenium", Just xs)
-
--- | /Optional Param/ "minSodium" - The minimum amount of sodium in milligrams the recipe must have.
-instance HasOptionalParam SearchRecipesComplex MinSodium where
-  applyOptionalParam req (MinSodium xs) =
-    req `setQuery` toQuery ("minSodium", Just xs)
-
--- | /Optional Param/ "maxSodium" - The maximum amount of sodium in milligrams the recipe can have.
-instance HasOptionalParam SearchRecipesComplex MaxSodium where
-  applyOptionalParam req (MaxSodium xs) =
-    req `setQuery` toQuery ("maxSodium", Just xs)
-
--- | /Optional Param/ "minSugar" - The minimum amount of sugar in grams the recipe must have.
-instance HasOptionalParam SearchRecipesComplex MinSugar where
-  applyOptionalParam req (MinSugar xs) =
-    req `setQuery` toQuery ("minSugar", Just xs)
-
--- | /Optional Param/ "maxSugar" - The maximum amount of sugar in grams the recipe can have.
-instance HasOptionalParam SearchRecipesComplex MaxSugar where
-  applyOptionalParam req (MaxSugar xs) =
-    req `setQuery` toQuery ("maxSugar", Just xs)
-
--- | /Optional Param/ "minZinc" - The minimum amount of zinc in milligrams the recipe must have.
-instance HasOptionalParam SearchRecipesComplex MinZinc where
-  applyOptionalParam req (MinZinc xs) =
-    req `setQuery` toQuery ("minZinc", Just xs)
-
--- | /Optional Param/ "maxZinc" - The maximum amount of zinc in milligrams the recipe can have.
-instance HasOptionalParam SearchRecipesComplex MaxZinc where
-  applyOptionalParam req (MaxZinc xs) =
-    req `setQuery` toQuery ("maxZinc", Just xs)
-
--- | /Optional Param/ "offset" - The number of results to skip (between 0 and 900).
-instance HasOptionalParam SearchRecipesComplex Offset where
-  applyOptionalParam req (Offset xs) =
-    req `setQuery` toQuery ("offset", Just xs)
-
--- | /Optional Param/ "number" - The number of expected results (between 1 and 100).
-instance HasOptionalParam SearchRecipesComplex Number where
-  applyOptionalParam req (Number xs) =
-    req `setQuery` toQuery ("number", Just xs)
-
--- | /Optional Param/ "limitLicense" - Whether the recipes should have an open license that allows display with proper attribution.
-instance HasOptionalParam SearchRecipesComplex LimitLicense where
-  applyOptionalParam req (LimitLicense xs) =
-    req `setQuery` toQuery ("limitLicense", Just xs)
--- | @application/json@
-instance Produces SearchRecipesComplex MimeJSON
 
 
 -- *** searchSiteContent
@@ -2671,17 +2827,15 @@ instance Produces TalkToChatbot MimeJSON
 -- 
 -- Visualize Equipment
 -- 
--- Visualize the equipment used to make a recipe.
+-- Visualize the equipment used to make a recipe. You can play around with that endpoint!
 -- 
 visualizeEquipment 
   :: (Consumes VisualizeEquipment MimeFormUrlEncoded)
-  => IngredientList -- ^ "ingredientList" -  The ingredient list of the recipe, one ingredient per line.
-  -> Servings -- ^ "servings" -  The number of servings.
+  => Instructions -- ^ "instructions" -  The recipe's instructions.
   -> SpoonacularRequest VisualizeEquipment MimeFormUrlEncoded Text MimeTextHtml
-visualizeEquipment (IngredientList ingredientList) (Servings servings) =
+visualizeEquipment (Instructions instructions) =
   _mkRequest "POST" ["/recipes/visualizeEquipment"]
-    `addForm` toForm ("ingredientList", ingredientList)
-    `addForm` toForm ("servings", servings)
+    `addForm` toForm ("instructions", instructions)
 
 data VisualizeEquipment  
 
@@ -2713,7 +2867,7 @@ instance Produces VisualizeEquipment MimeTextHtml
 -- 
 -- Visualize Ingredients
 -- 
--- Visualize ingredients of a recipe.
+-- Visualize ingredients of a recipe. You can play around with that endpoint!
 -- 
 visualizeIngredients 
   :: (Consumes VisualizeIngredients MimeFormUrlEncoded)
@@ -2784,7 +2938,7 @@ instance Produces VisualizeMenuItemNutritionByID MimeTextHtml
 -- 
 -- Visualize Price Breakdown
 -- 
--- Visualize the price breakdown of a recipe.
+-- Visualize the price breakdown of a recipe. You can play around with that endpoint!
 -- 
 visualizePriceBreakdown 
   :: (Consumes VisualizePriceBreakdown MimeFormUrlEncoded)
@@ -2898,7 +3052,7 @@ instance Produces VisualizeRecipeIngredientsByID MimeTextHtml
 -- 
 -- Visualize Recipe Nutrition
 -- 
--- Visualize a recipe's nutritional information as HTML including CSS
+-- Visualize a recipe's nutritional information as HTML including CSS. You can play around with that endpoint!
 -- 
 visualizeRecipeNutrition 
   :: (Consumes VisualizeRecipeNutrition MimeFormUrlEncoded)
@@ -2975,4 +3129,48 @@ instance HasOptionalParam VisualizeRecipePriceBreakdownByID DefaultCss where
     req `setQuery` toQuery ("defaultCss", Just xs)
 -- | @text/html@
 instance Produces VisualizeRecipePriceBreakdownByID MimeTextHtml
+
+
+-- *** visualizeRecipeTaste
+
+-- | @POST \/recipes\/visualizeTaste@
+-- 
+-- Visualize Recipe Taste
+-- 
+-- Visualize a recipe's taste information as HTML including CSS. You can play around with that endpoint!
+-- 
+visualizeRecipeTaste 
+  :: (Consumes VisualizeRecipeTaste MimeFormUrlEncoded)
+  => IngredientList -- ^ "ingredientList" -  The ingredient list of the recipe, one ingredient per line.
+  -> SpoonacularRequest VisualizeRecipeTaste MimeFormUrlEncoded Text MimeTextHtml
+visualizeRecipeTaste (IngredientList ingredientList) =
+  _mkRequest "POST" ["/recipes/visualizeTaste"]
+    `addForm` toForm ("ingredientList", ingredientList)
+
+data VisualizeRecipeTaste  
+
+-- | @application/x-www-form-urlencoded@
+instance Consumes VisualizeRecipeTaste MimeFormUrlEncoded
+
+-- | @text/html@
+instance Produces VisualizeRecipeTaste MimeTextHtml
+
+
+-- *** visualizeRecipeTasteByID
+
+-- | @GET \/recipes\/{id}\/tasteWidget@
+-- 
+-- Visualize Recipe Taste by ID
+-- 
+-- Get a recipe's taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
+-- 
+visualizeRecipeTasteByID 
+  :: Id -- ^ "id" -  The recipe id.
+  -> SpoonacularRequest VisualizeRecipeTasteByID MimeNoContent Text MimeTextHtml
+visualizeRecipeTasteByID (Id id) =
+  _mkRequest "GET" ["/recipes/",toPath id,"/tasteWidget"]
+
+data VisualizeRecipeTasteByID  
+-- | @text/html@
+instance Produces VisualizeRecipeTasteByID MimeTextHtml
 

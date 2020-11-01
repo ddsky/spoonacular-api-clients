@@ -111,9 +111,6 @@ genInlineObject :: Int -> Gen InlineObject
 genInlineObject n =
   InlineObject
     <$> arbitrary -- inlineObjectIngredientList :: Text
-    <*> arbitrary -- inlineObjectServings :: Double
-    <*> arbitraryReducedMaybe n -- inlineObjectDefaultCss :: Maybe Bool
-    <*> arbitraryReducedMaybe n -- inlineObjectShowBacklink :: Maybe Bool
   
 instance Arbitrary InlineObject1 where
   arbitrary = sized genInlineObject1
@@ -123,7 +120,6 @@ genInlineObject1 n =
   InlineObject1
     <$> arbitrary -- inlineObject1IngredientList :: Text
     <*> arbitrary -- inlineObject1Servings :: Double
-    <*> arbitraryReducedMaybe n -- inlineObject1Mode :: Maybe Double
     <*> arbitraryReducedMaybe n -- inlineObject1DefaultCss :: Maybe Bool
     <*> arbitraryReducedMaybe n -- inlineObject1ShowBacklink :: Maybe Bool
   
@@ -134,7 +130,7 @@ genInlineObject10 :: Int -> Gen InlineObject10
 genInlineObject10 n =
   InlineObject10
     <$> arbitrary -- inlineObject10Username :: Text
-    <*> arbitrary -- inlineObject10Id :: Double
+    <*> arbitrary -- inlineObject10Date :: Text
     <*> arbitrary -- inlineObject10Hash :: Text
   
 instance Arbitrary InlineObject11 where
@@ -144,8 +140,6 @@ genInlineObject11 :: Int -> Gen InlineObject11
 genInlineObject11 n =
   InlineObject11
     <$> arbitrary -- inlineObject11Username :: Text
-    <*> arbitrary -- inlineObject11StartDate :: Text
-    <*> arbitrary -- inlineObject11EndDate :: Text
     <*> arbitrary -- inlineObject11Hash :: Text
   
 instance Arbitrary InlineObject12 where
@@ -155,6 +149,7 @@ genInlineObject12 :: Int -> Gen InlineObject12
 genInlineObject12 n =
   InlineObject12
     <$> arbitrary -- inlineObject12Username :: Text
+    <*> arbitrary -- inlineObject12Id :: Double
     <*> arbitrary -- inlineObject12Hash :: Text
   
 instance Arbitrary InlineObject13 where
@@ -164,7 +159,8 @@ genInlineObject13 :: Int -> Gen InlineObject13
 genInlineObject13 n =
   InlineObject13
     <$> arbitrary -- inlineObject13Username :: Text
-    <*> arbitrary -- inlineObject13Id :: Double
+    <*> arbitrary -- inlineObject13StartDate :: Text
+    <*> arbitrary -- inlineObject13EndDate :: Text
     <*> arbitrary -- inlineObject13Hash :: Text
   
 instance Arbitrary InlineObject14 where
@@ -173,7 +169,26 @@ instance Arbitrary InlineObject14 where
 genInlineObject14 :: Int -> Gen InlineObject14
 genInlineObject14 n =
   InlineObject14
-    <$> arbitrary -- inlineObject14Text :: Text
+    <$> arbitrary -- inlineObject14Username :: Text
+    <*> arbitrary -- inlineObject14Hash :: Text
+  
+instance Arbitrary InlineObject15 where
+  arbitrary = sized genInlineObject15
+
+genInlineObject15 :: Int -> Gen InlineObject15
+genInlineObject15 n =
+  InlineObject15
+    <$> arbitrary -- inlineObject15Username :: Text
+    <*> arbitrary -- inlineObject15Id :: Double
+    <*> arbitrary -- inlineObject15Hash :: Text
+  
+instance Arbitrary InlineObject16 where
+  arbitrary = sized genInlineObject16
+
+genInlineObject16 :: Int -> Gen InlineObject16
+genInlineObject16 n =
+  InlineObject16
+    <$> arbitrary -- inlineObject16Text :: Text
   
 instance Arbitrary InlineObject2 where
   arbitrary = sized genInlineObject2
@@ -183,7 +198,7 @@ genInlineObject2 n =
   InlineObject2
     <$> arbitrary -- inlineObject2IngredientList :: Text
     <*> arbitrary -- inlineObject2Servings :: Double
-    <*> arbitraryReducedMaybe n -- inlineObject2View :: Maybe Text
+    <*> arbitraryReducedMaybe n -- inlineObject2Mode :: Maybe Double
     <*> arbitraryReducedMaybe n -- inlineObject2DefaultCss :: Maybe Bool
     <*> arbitraryReducedMaybe n -- inlineObject2ShowBacklink :: Maybe Bool
   
@@ -193,18 +208,10 @@ instance Arbitrary InlineObject3 where
 genInlineObject3 :: Int -> Gen InlineObject3
 genInlineObject3 n =
   InlineObject3
-    <$> arbitrary -- inlineObject3Title :: Text
-    <*> arbitrary -- inlineObject3Image :: FilePath
-    <*> arbitrary -- inlineObject3Ingredients :: Text
-    <*> arbitrary -- inlineObject3Instructions :: Text
-    <*> arbitrary -- inlineObject3ReadyInMinutes :: Double
-    <*> arbitrary -- inlineObject3Servings :: Double
-    <*> arbitrary -- inlineObject3Mask :: Text
-    <*> arbitrary -- inlineObject3BackgroundImage :: Text
-    <*> arbitraryReducedMaybe n -- inlineObject3Author :: Maybe Text
-    <*> arbitraryReducedMaybe n -- inlineObject3BackgroundColor :: Maybe Text
-    <*> arbitraryReducedMaybe n -- inlineObject3FontColor :: Maybe Text
-    <*> arbitraryReducedMaybe n -- inlineObject3Source :: Maybe Text
+    <$> arbitrary -- inlineObject3Instructions :: Text
+    <*> arbitraryReducedMaybe n -- inlineObject3View :: Maybe Text
+    <*> arbitraryReducedMaybe n -- inlineObject3DefaultCss :: Maybe Bool
+    <*> arbitraryReducedMaybe n -- inlineObject3ShowBacklink :: Maybe Bool
   
 instance Arbitrary InlineObject4 where
   arbitrary = sized genInlineObject4
@@ -212,7 +219,18 @@ instance Arbitrary InlineObject4 where
 genInlineObject4 :: Int -> Gen InlineObject4
 genInlineObject4 n =
   InlineObject4
-    <$> arbitrary -- inlineObject4Instructions :: Text
+    <$> arbitrary -- inlineObject4Title :: Text
+    <*> arbitrary -- inlineObject4Image :: FilePath
+    <*> arbitrary -- inlineObject4Ingredients :: Text
+    <*> arbitrary -- inlineObject4Instructions :: Text
+    <*> arbitrary -- inlineObject4ReadyInMinutes :: Double
+    <*> arbitrary -- inlineObject4Servings :: Double
+    <*> arbitrary -- inlineObject4Mask :: Text
+    <*> arbitrary -- inlineObject4BackgroundImage :: Text
+    <*> arbitraryReducedMaybe n -- inlineObject4Author :: Maybe Text
+    <*> arbitraryReducedMaybe n -- inlineObject4BackgroundColor :: Maybe Text
+    <*> arbitraryReducedMaybe n -- inlineObject4FontColor :: Maybe Text
+    <*> arbitraryReducedMaybe n -- inlineObject4Source :: Maybe Text
   
 instance Arbitrary InlineObject5 where
   arbitrary = sized genInlineObject5
@@ -220,8 +238,7 @@ instance Arbitrary InlineObject5 where
 genInlineObject5 :: Int -> Gen InlineObject5
 genInlineObject5 n =
   InlineObject5
-    <$> arbitrary -- inlineObject5Title :: Text
-    <*> arbitrary -- inlineObject5IngredientList :: Text
+    <$> arbitrary -- inlineObject5Instructions :: Text
   
 instance Arbitrary InlineObject6 where
   arbitrary = sized genInlineObject6
@@ -229,9 +246,8 @@ instance Arbitrary InlineObject6 where
 genInlineObject6 :: Int -> Gen InlineObject6
 genInlineObject6 n =
   InlineObject6
-    <$> arbitrary -- inlineObject6IngredientList :: Text
-    <*> arbitrary -- inlineObject6Servings :: Double
-    <*> arbitraryReducedMaybe n -- inlineObject6IncludeNutrition :: Maybe Bool
+    <$> arbitrary -- inlineObject6Title :: Text
+    <*> arbitrary -- inlineObject6IngredientList :: Text
   
 instance Arbitrary InlineObject7 where
   arbitrary = sized genInlineObject7
@@ -241,10 +257,7 @@ genInlineObject7 n =
   InlineObject7
     <$> arbitrary -- inlineObject7IngredientList :: Text
     <*> arbitrary -- inlineObject7Servings :: Double
-    <*> arbitraryReducedMaybe n -- inlineObject7Measure :: Maybe Text
-    <*> arbitraryReducedMaybe n -- inlineObject7View :: Maybe Text
-    <*> arbitraryReducedMaybe n -- inlineObject7DefaultCss :: Maybe Bool
-    <*> arbitraryReducedMaybe n -- inlineObject7ShowBacklink :: Maybe Bool
+    <*> arbitraryReducedMaybe n -- inlineObject7IncludeNutrition :: Maybe Bool
   
 instance Arbitrary InlineObject8 where
   arbitrary = sized genInlineObject8
@@ -252,7 +265,12 @@ instance Arbitrary InlineObject8 where
 genInlineObject8 :: Int -> Gen InlineObject8
 genInlineObject8 n =
   InlineObject8
-    <$> arbitraryReducedMaybe n -- inlineObject8Locale :: Maybe Text
+    <$> arbitrary -- inlineObject8IngredientList :: Text
+    <*> arbitrary -- inlineObject8Servings :: Double
+    <*> arbitraryReducedMaybe n -- inlineObject8Measure :: Maybe Text
+    <*> arbitraryReducedMaybe n -- inlineObject8View :: Maybe Text
+    <*> arbitraryReducedMaybe n -- inlineObject8DefaultCss :: Maybe Bool
+    <*> arbitraryReducedMaybe n -- inlineObject8ShowBacklink :: Maybe Bool
   
 instance Arbitrary InlineObject9 where
   arbitrary = sized genInlineObject9
@@ -260,8 +278,7 @@ instance Arbitrary InlineObject9 where
 genInlineObject9 :: Int -> Gen InlineObject9
 genInlineObject9 n =
   InlineObject9
-    <$> arbitrary -- inlineObject9Username :: Text
-    <*> arbitrary -- inlineObject9Hash :: Text
+    <$> arbitraryReducedMaybe n -- inlineObject9Locale :: Maybe Text
   
 
 

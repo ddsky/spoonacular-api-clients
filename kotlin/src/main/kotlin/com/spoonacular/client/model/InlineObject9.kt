@@ -15,16 +15,12 @@ package com.spoonacular.client.model
 import com.squareup.moshi.Json
 /**
  * 
- * @param username The username.
- * @param hash The private hash for the username.
+ * @param locale The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).
  */
 data class InlineObject9 (
-    /* The username. */
-    @Json(name = "username")
-    val username: kotlin.String,
-    /* The private hash for the username. */
-    @Json(name = "hash")
-    val hash: kotlin.String
+    /* The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). */
+    @Json(name = "locale")
+    val locale: kotlin.String? = null
 ) {
 
 }

@@ -161,21 +161,66 @@ __PACKAGE__->class_documentation({description => '',
 }                                 );
 
 __PACKAGE__->method_documentation({
-    'locale' => {
+    'ingredient_list' => {
         datatype => 'string',
-        base_name => 'locale',
-        description => 'The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).',
+        base_name => 'ingredientList',
+        description => 'The ingredient list of the recipe, one ingredient per line.',
+        format => '',
+        read_only => '',
+            },
+    'servings' => {
+        datatype => 'double',
+        base_name => 'servings',
+        description => 'The number of servings.',
+        format => '',
+        read_only => '',
+            },
+    'measure' => {
+        datatype => 'string',
+        base_name => 'measure',
+        description => 'The original system of measurement, either \&quot;metric\&quot; or \&quot;us\&quot;.',
+        format => '',
+        read_only => '',
+            },
+    'view' => {
+        datatype => 'string',
+        base_name => 'view',
+        description => 'How to visualize the ingredients, either \&quot;grid\&quot; or \&quot;list\&quot;.',
+        format => '',
+        read_only => '',
+            },
+    'default_css' => {
+        datatype => 'boolean',
+        base_name => 'defaultCss',
+        description => 'Whether the default CSS should be added to the response.',
+        format => '',
+        read_only => '',
+            },
+    'show_backlink' => {
+        datatype => 'boolean',
+        base_name => 'showBacklink',
+        description => 'Whether to show a backlink to spoonacular. If set false, this call counts against your quota.',
         format => '',
         read_only => '',
             },
 });
 
 __PACKAGE__->openapi_types( {
-    'locale' => 'string'
+    'ingredient_list' => 'string',
+    'servings' => 'double',
+    'measure' => 'string',
+    'view' => 'string',
+    'default_css' => 'boolean',
+    'show_backlink' => 'boolean'
 } );
 
 __PACKAGE__->attribute_map( {
-    'locale' => 'locale'
+    'ingredient_list' => 'ingredientList',
+    'servings' => 'servings',
+    'measure' => 'measure',
+    'view' => 'view',
+    'default_css' => 'defaultCss',
+    'show_backlink' => 'showBacklink'
 } );
 
 __PACKAGE__->mk_accessors(keys %{__PACKAGE__->attribute_map});

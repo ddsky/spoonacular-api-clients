@@ -22,8 +22,6 @@
 #include <QJsonObject>
 
 
-#include "OAIHttpRequest.h"
-#include "com.spoonacular.client.model\OAINumber.h"
 #include <QString>
 
 #include "OAIObject.h"
@@ -43,52 +41,20 @@ public:
     void fromJson(QString jsonString) override;
 
     
-    QString getTitle() const;
-    void setTitle(const QString &title);
-
-    
-    OAIHttpRequestInputFileElement* getImage() const;
-    void setImage(const OAIHttpRequestInputFileElement* &image);
-
-    
-    QString getIngredients() const;
-    void setIngredients(const QString &ingredients);
-
-    
     QString getInstructions() const;
     void setInstructions(const QString &instructions);
 
     
-    OAINumber getReadyInMinutes() const;
-    void setReadyInMinutes(const OAINumber &ready_in_minutes);
+    QString getView() const;
+    void setView(const QString &view);
 
     
-    OAINumber getServings() const;
-    void setServings(const OAINumber &servings);
+    bool isDefaultCss() const;
+    void setDefaultCss(const bool &default_css);
 
     
-    QString getMask() const;
-    void setMask(const QString &mask);
-
-    
-    QString getBackgroundImage() const;
-    void setBackgroundImage(const QString &background_image);
-
-    
-    QString getAuthor() const;
-    void setAuthor(const QString &author);
-
-    
-    QString getBackgroundColor() const;
-    void setBackgroundColor(const QString &background_color);
-
-    
-    QString getFontColor() const;
-    void setFontColor(const QString &font_color);
-
-    
-    QString getSource() const;
-    void setSource(const QString &source);
+    bool isShowBacklink() const;
+    void setShowBacklink(const bool &show_backlink);
 
     
     
@@ -98,53 +64,21 @@ public:
 private:
     void init();
     
-    QString title;
-    bool m_title_isSet;
-    bool m_title_isValid;
-    
-    OAIHttpRequestInputFileElement* image;
-    bool m_image_isSet;
-    bool m_image_isValid;
-    
-    QString ingredients;
-    bool m_ingredients_isSet;
-    bool m_ingredients_isValid;
-    
     QString instructions;
     bool m_instructions_isSet;
     bool m_instructions_isValid;
     
-    OAINumber ready_in_minutes;
-    bool m_ready_in_minutes_isSet;
-    bool m_ready_in_minutes_isValid;
+    QString view;
+    bool m_view_isSet;
+    bool m_view_isValid;
     
-    OAINumber servings;
-    bool m_servings_isSet;
-    bool m_servings_isValid;
+    bool default_css;
+    bool m_default_css_isSet;
+    bool m_default_css_isValid;
     
-    QString mask;
-    bool m_mask_isSet;
-    bool m_mask_isValid;
-    
-    QString background_image;
-    bool m_background_image_isSet;
-    bool m_background_image_isValid;
-    
-    QString author;
-    bool m_author_isSet;
-    bool m_author_isValid;
-    
-    QString background_color;
-    bool m_background_color_isSet;
-    bool m_background_color_isValid;
-    
-    QString font_color;
-    bool m_font_color_isSet;
-    bool m_font_color_isValid;
-    
-    QString source;
-    bool m_source_isSet;
-    bool m_source_isValid;
+    bool show_backlink;
+    bool m_show_backlink_isSet;
+    bool m_show_backlink_isValid;
     
     };
 

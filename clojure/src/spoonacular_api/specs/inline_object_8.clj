@@ -7,7 +7,12 @@
 
 (def inline-object-8-data
   {
-   (ds/opt :locale) string?
+   (ds/req :ingredientList) string?
+   (ds/req :servings) float?
+   (ds/opt :measure) string?
+   (ds/opt :view) string?
+   (ds/opt :defaultCss) boolean?
+   (ds/opt :showBacklink) boolean?
    })
 
 (def inline-object-8-spec

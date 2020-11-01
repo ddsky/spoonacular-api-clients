@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **username** | **String** | The username. | 
-**id** | **Number** | The shopping list item id. | 
+**_date** | **String** | The date in the format yyyy-mm-dd. | 
 **hash** | **String** | The private hash for the username. | 
 
 

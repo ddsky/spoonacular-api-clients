@@ -8,7 +8,7 @@
 (def inline-object-10-data
   {
    (ds/req :username) string?
-   (ds/req :id) float?
+   (ds/req :date) string?
    (ds/req :hash) string?
    })
 

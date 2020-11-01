@@ -13,20 +13,12 @@ namespace spoonacular.Model {
   [DataContract]
   public class InlineObject9 {
     /// <summary>
-    /// The username.
+    /// The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).
     /// </summary>
-    /// <value>The username.</value>
-    [DataMember(Name="username", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "username")]
-    public string Username { get; set; }
-
-    /// <summary>
-    /// The private hash for the username.
-    /// </summary>
-    /// <value>The private hash for the username.</value>
-    [DataMember(Name="hash", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "hash")]
-    public string Hash { get; set; }
+    /// <value>The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).</value>
+    [DataMember(Name="locale", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "locale")]
+    public string Locale { get; set; }
 
 
     /// <summary>
@@ -36,8 +28,7 @@ namespace spoonacular.Model {
     public override string ToString()  {
       var sb = new StringBuilder();
       sb.Append("class InlineObject9 {\n");
-      sb.Append("  Username: ").Append(Username).Append("\n");
-      sb.Append("  Hash: ").Append(Hash).Append("\n");
+      sb.Append("  Locale: ").Append(Locale).Append("\n");
       sb.Append("}\n");
       return sb.ToString();
     }

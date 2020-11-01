@@ -32,7 +32,7 @@ OAIDefaultApi::OAIDefaultApi(QString host, QString basePath) {
 }
 
 void
-OAIDefaultApi::addToMealPlan(const QString& username, const QString& hash, const OAIInline_object_9& oai_inline_object_9) {
+OAIDefaultApi::addToMealPlan(const QString& username, const QString& hash, const OAIInline_object_11& oai_inline_object_11) {
     QString fullPath;
     fullPath.append(this->host).append(this->basePath).append("/mealplanner/{username}/items");
     QString usernamePathParam("{"); 
@@ -51,7 +51,7 @@ OAIDefaultApi::addToMealPlan(const QString& username, const QString& hash, const
     OAIHttpRequestInput input(fullPath, "POST");
 
     
-    QString output = oai_inline_object_9.asJson();
+    QString output = oai_inline_object_11.asJson();
     input.request_body.append(output);
     
 
@@ -92,7 +92,7 @@ OAIDefaultApi::addToMealPlanCallback(OAIHttpRequestWorker * worker) {
 }
 
 void
-OAIDefaultApi::addToShoppingList(const QString& username, const QString& hash, const OAIInline_object_12& oai_inline_object_12) {
+OAIDefaultApi::addToShoppingList(const QString& username, const QString& hash, const OAIInline_object_14& oai_inline_object_14) {
     QString fullPath;
     fullPath.append(this->host).append(this->basePath).append("/mealplanner/{username}/shopping-list/items");
     QString usernamePathParam("{"); 
@@ -111,7 +111,7 @@ OAIDefaultApi::addToShoppingList(const QString& username, const QString& hash, c
     OAIHttpRequestInput input(fullPath, "POST");
 
     
-    QString output = oai_inline_object_12.asJson();
+    QString output = oai_inline_object_14.asJson();
     input.request_body.append(output);
     
 
@@ -253,7 +253,7 @@ OAIDefaultApi::analyzeRecipeInstructionsCallback(OAIHttpRequestWorker * worker) 
 }
 
 void
-OAIDefaultApi::autocompleteIngredientSearch(const QString& query, const OAINumber& number, const bool& meta_information, const bool& intolerances) {
+OAIDefaultApi::autocompleteIngredientSearch(const QString& query, const OAINumber& number, const bool& meta_information, const QString& intolerances) {
     QString fullPath;
     fullPath.append(this->host).append(this->basePath).append("/food/ingredients/autocomplete");
     
@@ -564,7 +564,7 @@ OAIDefaultApi::classifyCuisineCallback(OAIHttpRequestWorker * worker) {
 }
 
 void
-OAIDefaultApi::classifyGroceryProduct(const OAIInline_object_8& oai_inline_object_8, const QString& locale) {
+OAIDefaultApi::classifyGroceryProduct(const OAIInline_object_9& oai_inline_object_9, const QString& locale) {
     QString fullPath;
     fullPath.append(this->host).append(this->basePath).append("/food/products/classify");
     
@@ -580,7 +580,7 @@ OAIDefaultApi::classifyGroceryProduct(const OAIInline_object_8& oai_inline_objec
     OAIHttpRequestInput input(fullPath, "POST");
 
     
-    QString output = oai_inline_object_8.asJson();
+    QString output = oai_inline_object_9.asJson();
     input.request_body.append(output);
     
 
@@ -674,6 +674,167 @@ OAIDefaultApi::classifyGroceryProductBulkCallback(OAIHttpRequestWorker * worker)
     } else {
         emit classifyGroceryProductBulkSignalE(output, error_type, error_str);
         emit classifyGroceryProductBulkSignalEFull(worker, error_type, error_str);
+    }
+}
+
+void
+OAIDefaultApi::clearMealPlanDay(const QString& username, const QString& date, const QString& hash, const OAIInline_object_10& oai_inline_object_10) {
+    QString fullPath;
+    fullPath.append(this->host).append(this->basePath).append("/mealplanner/{username}/day/{date}");
+    QString usernamePathParam("{"); 
+    usernamePathParam.append("username").append("}");
+    fullPath.replace(usernamePathParam, QUrl::toPercentEncoding(::OpenAPI::toStringValue(username)));
+    QString datePathParam("{"); 
+    datePathParam.append("date").append("}");
+    fullPath.replace(datePathParam, QUrl::toPercentEncoding(::OpenAPI::toStringValue(date)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("hash"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(hash)));
+    
+    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker();
+    OAIHttpRequestInput input(fullPath, "DELETE");
+
+    
+    QString output = oai_inline_object_10.asJson();
+    input.request_body.append(output);
+    
+
+    foreach(QString key, this->defaultHeaders.keys()) {
+        input.headers.insert(key, this->defaultHeaders.value(key));
+    }
+
+    connect(worker,
+            &OAIHttpRequestWorker::on_execution_finished,
+            this,
+            &OAIDefaultApi::clearMealPlanDayCallback);
+
+    worker->execute(&input);
+}
+
+void
+OAIDefaultApi::clearMealPlanDayCallback(OAIHttpRequestWorker * worker) {
+    QString msg;
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        msg = QString("Success! %1 bytes").arg(worker->response.length());
+    }
+    else {
+        msg = "Error: " + worker->error_str;
+    }
+    OAIObject output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit clearMealPlanDaySignal(output);
+        emit clearMealPlanDaySignalFull(worker, output);
+    } else {
+        emit clearMealPlanDaySignalE(output, error_type, error_str);
+        emit clearMealPlanDaySignalEFull(worker, error_type, error_str);
+    }
+}
+
+void
+OAIDefaultApi::computeGlycemicLoad(const OAIObject& body) {
+    QString fullPath;
+    fullPath.append(this->host).append(this->basePath).append("/food/ingredients/glycemicLoad");
+    
+    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker();
+    OAIHttpRequestInput input(fullPath, "POST");
+
+    
+    QString output = body.asJson();
+    input.request_body.append(output);
+    
+
+    foreach(QString key, this->defaultHeaders.keys()) {
+        input.headers.insert(key, this->defaultHeaders.value(key));
+    }
+
+    connect(worker,
+            &OAIHttpRequestWorker::on_execution_finished,
+            this,
+            &OAIDefaultApi::computeGlycemicLoadCallback);
+
+    worker->execute(&input);
+}
+
+void
+OAIDefaultApi::computeGlycemicLoadCallback(OAIHttpRequestWorker * worker) {
+    QString msg;
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        msg = QString("Success! %1 bytes").arg(worker->response.length());
+    }
+    else {
+        msg = "Error: " + worker->error_str;
+    }
+    OAIObject output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit computeGlycemicLoadSignal(output);
+        emit computeGlycemicLoadSignalFull(worker, output);
+    } else {
+        emit computeGlycemicLoadSignalE(output, error_type, error_str);
+        emit computeGlycemicLoadSignalEFull(worker, error_type, error_str);
+    }
+}
+
+void
+OAIDefaultApi::connectUser(const OAIObject& body) {
+    QString fullPath;
+    fullPath.append(this->host).append(this->basePath).append("/users/connect");
+    
+    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker();
+    OAIHttpRequestInput input(fullPath, "POST");
+
+    
+    QString output = body.asJson();
+    input.request_body.append(output);
+    
+
+    foreach(QString key, this->defaultHeaders.keys()) {
+        input.headers.insert(key, this->defaultHeaders.value(key));
+    }
+
+    connect(worker,
+            &OAIHttpRequestWorker::on_execution_finished,
+            this,
+            &OAIDefaultApi::connectUserCallback);
+
+    worker->execute(&input);
+}
+
+void
+OAIDefaultApi::connectUserCallback(OAIHttpRequestWorker * worker) {
+    QString msg;
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        msg = QString("Success! %1 bytes").arg(worker->response.length());
+    }
+    else {
+        msg = "Error: " + worker->error_str;
+    }
+    OAIObject output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit connectUserSignal(output);
+        emit connectUserSignalFull(worker, output);
+    } else {
+        emit connectUserSignalE(output, error_type, error_str);
+        emit connectUserSignalEFull(worker, error_type, error_str);
     }
 }
 
@@ -836,7 +997,7 @@ OAIDefaultApi::createRecipeCardCallback(OAIHttpRequestWorker * worker) {
 }
 
 void
-OAIDefaultApi::deleteFromMealPlan(const QString& username, const OAINumber& id, const QString& hash, const OAIInline_object_10& oai_inline_object_10) {
+OAIDefaultApi::deleteFromMealPlan(const QString& username, const OAINumber& id, const QString& hash, const OAIInline_object_12& oai_inline_object_12) {
     QString fullPath;
     fullPath.append(this->host).append(this->basePath).append("/mealplanner/{username}/items/{id}");
     QString usernamePathParam("{"); 
@@ -858,7 +1019,7 @@ OAIDefaultApi::deleteFromMealPlan(const QString& username, const OAINumber& id, 
     OAIHttpRequestInput input(fullPath, "DELETE");
 
     
-    QString output = oai_inline_object_10.asJson();
+    QString output = oai_inline_object_12.asJson();
     input.request_body.append(output);
     
 
@@ -899,7 +1060,7 @@ OAIDefaultApi::deleteFromMealPlanCallback(OAIHttpRequestWorker * worker) {
 }
 
 void
-OAIDefaultApi::deleteFromShoppingList(const QString& username, const OAINumber& id, const QString& hash, const OAIInline_object_13& oai_inline_object_13) {
+OAIDefaultApi::deleteFromShoppingList(const QString& username, const OAINumber& id, const QString& hash, const OAIInline_object_15& oai_inline_object_15) {
     QString fullPath;
     fullPath.append(this->host).append(this->basePath).append("/mealplanner/{username}/shopping-list/items/{id}");
     QString usernamePathParam("{"); 
@@ -921,7 +1082,7 @@ OAIDefaultApi::deleteFromShoppingList(const QString& username, const OAINumber& 
     OAIHttpRequestInput input(fullPath, "DELETE");
 
     
-    QString output = oai_inline_object_13.asJson();
+    QString output = oai_inline_object_15.asJson();
     input.request_body.append(output);
     
 
@@ -1156,7 +1317,7 @@ OAIDefaultApi::generateMealPlanCallback(OAIHttpRequestWorker * worker) {
 }
 
 void
-OAIDefaultApi::generateShoppingList(const QString& username, const QString& start_date, const QString& end_date, const QString& hash, const OAIInline_object_11& oai_inline_object_11) {
+OAIDefaultApi::generateShoppingList(const QString& username, const QString& start_date, const QString& end_date, const QString& hash, const OAIInline_object_13& oai_inline_object_13) {
     QString fullPath;
     fullPath.append(this->host).append(this->basePath).append("/mealplanner/{username}/shopping-list/{start-date}/{end-date}");
     QString usernamePathParam("{"); 
@@ -1181,7 +1342,7 @@ OAIDefaultApi::generateShoppingList(const QString& username, const QString& star
     OAIHttpRequestInput input(fullPath, "POST");
 
     
-    QString output = oai_inline_object_11.asJson();
+    QString output = oai_inline_object_13.asJson();
     input.request_body.append(output);
     
 
@@ -2343,6 +2504,54 @@ OAIDefaultApi::getRecipePriceBreakdownByIDCallback(OAIHttpRequestWorker * worker
 }
 
 void
+OAIDefaultApi::getRecipeTasteByID(const OAINumber& id) {
+    QString fullPath;
+    fullPath.append(this->host).append(this->basePath).append("/recipes/{id}/tasteWidget.json");
+    QString idPathParam("{"); 
+    idPathParam.append("id").append("}");
+    fullPath.replace(idPathParam, QUrl::toPercentEncoding(::OpenAPI::toStringValue(id)));
+    
+    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker();
+    OAIHttpRequestInput input(fullPath, "GET");
+
+
+    foreach(QString key, this->defaultHeaders.keys()) {
+        input.headers.insert(key, this->defaultHeaders.value(key));
+    }
+
+    connect(worker,
+            &OAIHttpRequestWorker::on_execution_finished,
+            this,
+            &OAIDefaultApi::getRecipeTasteByIDCallback);
+
+    worker->execute(&input);
+}
+
+void
+OAIDefaultApi::getRecipeTasteByIDCallback(OAIHttpRequestWorker * worker) {
+    QString msg;
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        msg = QString("Success! %1 bytes").arg(worker->response.length());
+    }
+    else {
+        msg = "Error: " + worker->error_str;
+    }
+    OAIObject output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit getRecipeTasteByIDSignal(output);
+        emit getRecipeTasteByIDSignalFull(worker, output);
+    } else {
+        emit getRecipeTasteByIDSignalE(output, error_type, error_str);
+        emit getRecipeTasteByIDSignalEFull(worker, error_type, error_str);
+    }
+}
+
+void
 OAIDefaultApi::getShoppingList(const QString& username, const QString& hash) {
     QString fullPath;
     fullPath.append(this->host).append(this->basePath).append("/mealplanner/{username}/shopping-list");
@@ -2813,6 +3022,163 @@ OAIDefaultApi::imageClassificationByURLCallback(OAIHttpRequestWorker * worker) {
 }
 
 void
+OAIDefaultApi::ingredientSearch(const QString& query, const bool& add_children, const OAINumber& min_protein_percent, const OAINumber& max_protein_percent, const OAINumber& min_fat_percent, const OAINumber& max_fat_percent, const OAINumber& min_carbs_percent, const OAINumber& max_carbs_percent, const bool& meta_information, const QString& intolerances, const QString& sort, const QString& sort_direction, const OAINumber& offset, const OAINumber& number) {
+    QString fullPath;
+    fullPath.append(this->host).append(this->basePath).append("/food/ingredients/search");
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("query"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(query)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("addChildren"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(add_children)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("minProteinPercent"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_protein_percent)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("maxProteinPercent"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_protein_percent)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("minFatPercent"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_fat_percent)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("maxFatPercent"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_fat_percent)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("minCarbsPercent"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_carbs_percent)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("maxCarbsPercent"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_carbs_percent)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("metaInformation"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(meta_information)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("intolerances"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(intolerances)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("sort"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(sort)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("sortDirection"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(sort_direction)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("offset"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(offset)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("number"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(number)));
+    
+    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker();
+    OAIHttpRequestInput input(fullPath, "GET");
+
+
+    foreach(QString key, this->defaultHeaders.keys()) {
+        input.headers.insert(key, this->defaultHeaders.value(key));
+    }
+
+    connect(worker,
+            &OAIHttpRequestWorker::on_execution_finished,
+            this,
+            &OAIDefaultApi::ingredientSearchCallback);
+
+    worker->execute(&input);
+}
+
+void
+OAIDefaultApi::ingredientSearchCallback(OAIHttpRequestWorker * worker) {
+    QString msg;
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        msg = QString("Success! %1 bytes").arg(worker->response.length());
+    }
+    else {
+        msg = "Error: " + worker->error_str;
+    }
+    OAIObject output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit ingredientSearchSignal(output);
+        emit ingredientSearchSignalFull(worker, output);
+    } else {
+        emit ingredientSearchSignalE(output, error_type, error_str);
+        emit ingredientSearchSignalEFull(worker, error_type, error_str);
+    }
+}
+
+void
 OAIDefaultApi::mapIngredientsToGroceryProducts(const OAIObject& body) {
     QString fullPath;
     fullPath.append(this->host).append(this->basePath).append("/food/ingredients/map");
@@ -2965,6 +3331,75 @@ OAIDefaultApi::quickAnswerCallback(OAIHttpRequestWorker * worker) {
     } else {
         emit quickAnswerSignalE(output, error_type, error_str);
         emit quickAnswerSignalEFull(worker, error_type, error_str);
+    }
+}
+
+void
+OAIDefaultApi::searchAllFood(const QString& query, const OAINumber& offset, const OAINumber& number) {
+    QString fullPath;
+    fullPath.append(this->host).append(this->basePath).append("/food/search");
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("query"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(query)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("offset"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(offset)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("number"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(number)));
+    
+    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker();
+    OAIHttpRequestInput input(fullPath, "GET");
+
+
+    foreach(QString key, this->defaultHeaders.keys()) {
+        input.headers.insert(key, this->defaultHeaders.value(key));
+    }
+
+    connect(worker,
+            &OAIHttpRequestWorker::on_execution_finished,
+            this,
+            &OAIDefaultApi::searchAllFoodCallback);
+
+    worker->execute(&input);
+}
+
+void
+OAIDefaultApi::searchAllFoodCallback(OAIHttpRequestWorker * worker) {
+    QString msg;
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        msg = QString("Success! %1 bytes").arg(worker->response.length());
+    }
+    else {
+        msg = "Error: " + worker->error_str;
+    }
+    OAIObject output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit searchAllFoodSignal(output);
+        emit searchAllFoodSignalFull(worker, output);
+    } else {
+        emit searchAllFoodSignalE(output, error_type, error_str);
+        emit searchAllFoodSignalEFull(worker, error_type, error_str);
     }
 }
 
@@ -3493,862 +3928,7 @@ OAIDefaultApi::searchMenuItemsCallback(OAIHttpRequestWorker * worker) {
 }
 
 void
-OAIDefaultApi::searchRecipes(const QString& query, const QString& cuisine, const QString& diet, const QString& exclude_ingredients, const QString& intolerances, const OAINumber& offset, const OAINumber& number, const bool& limit_license, const bool& instructions_required) {
-    QString fullPath;
-    fullPath.append(this->host).append(this->basePath).append("/recipes/search");
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("query"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(query)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("cuisine"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(cuisine)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("diet"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(diet)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("excludeIngredients"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(exclude_ingredients)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("intolerances"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(intolerances)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("offset"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(offset)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("number"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(number)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("limitLicense"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(limit_license)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("instructionsRequired"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(instructions_required)));
-    
-    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker();
-    OAIHttpRequestInput input(fullPath, "GET");
-
-
-    foreach(QString key, this->defaultHeaders.keys()) {
-        input.headers.insert(key, this->defaultHeaders.value(key));
-    }
-
-    connect(worker,
-            &OAIHttpRequestWorker::on_execution_finished,
-            this,
-            &OAIDefaultApi::searchRecipesCallback);
-
-    worker->execute(&input);
-}
-
-void
-OAIDefaultApi::searchRecipesCallback(OAIHttpRequestWorker * worker) {
-    QString msg;
-    QString error_str = worker->error_str;
-    QNetworkReply::NetworkError error_type = worker->error_type;
-
-    if (worker->error_type == QNetworkReply::NoError) {
-        msg = QString("Success! %1 bytes").arg(worker->response.length());
-    }
-    else {
-        msg = "Error: " + worker->error_str;
-    }
-    OAIObject output(QString(worker->response));
-    worker->deleteLater();
-
-    if (worker->error_type == QNetworkReply::NoError) {
-        emit searchRecipesSignal(output);
-        emit searchRecipesSignalFull(worker, output);
-    } else {
-        emit searchRecipesSignalE(output, error_type, error_str);
-        emit searchRecipesSignalEFull(worker, error_type, error_str);
-    }
-}
-
-void
-OAIDefaultApi::searchRecipesByIngredients(const QString& ingredients, const OAINumber& number, const bool& limit_license, const OAINumber& ranking, const bool& ignore_pantry) {
-    QString fullPath;
-    fullPath.append(this->host).append(this->basePath).append("/recipes/findByIngredients");
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("ingredients"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(ingredients)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("number"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(number)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("limitLicense"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(limit_license)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("ranking"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(ranking)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("ignorePantry"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(ignore_pantry)));
-    
-    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker();
-    OAIHttpRequestInput input(fullPath, "GET");
-
-
-    foreach(QString key, this->defaultHeaders.keys()) {
-        input.headers.insert(key, this->defaultHeaders.value(key));
-    }
-
-    connect(worker,
-            &OAIHttpRequestWorker::on_execution_finished,
-            this,
-            &OAIDefaultApi::searchRecipesByIngredientsCallback);
-
-    worker->execute(&input);
-}
-
-void
-OAIDefaultApi::searchRecipesByIngredientsCallback(OAIHttpRequestWorker * worker) {
-    QString msg;
-    QString error_str = worker->error_str;
-    QNetworkReply::NetworkError error_type = worker->error_type;
-
-    if (worker->error_type == QNetworkReply::NoError) {
-        msg = QString("Success! %1 bytes").arg(worker->response.length());
-    }
-    else {
-        msg = "Error: " + worker->error_str;
-    }
-    OAIObject output(QString(worker->response));
-    worker->deleteLater();
-
-    if (worker->error_type == QNetworkReply::NoError) {
-        emit searchRecipesByIngredientsSignal(output);
-        emit searchRecipesByIngredientsSignalFull(worker, output);
-    } else {
-        emit searchRecipesByIngredientsSignalE(output, error_type, error_str);
-        emit searchRecipesByIngredientsSignalEFull(worker, error_type, error_str);
-    }
-}
-
-void
-OAIDefaultApi::searchRecipesByNutrients(const OAINumber& min_carbs, const OAINumber& max_carbs, const OAINumber& min_protein, const OAINumber& max_protein, const OAINumber& min_calories, const OAINumber& max_calories, const OAINumber& min_fat, const OAINumber& max_fat, const OAINumber& min_alcohol, const OAINumber& max_alcohol, const OAINumber& min_caffeine, const OAINumber& max_caffeine, const OAINumber& min_copper, const OAINumber& max_copper, const OAINumber& min_calcium, const OAINumber& max_calcium, const OAINumber& min_choline, const OAINumber& max_choline, const OAINumber& min_cholesterol, const OAINumber& max_cholesterol, const OAINumber& min_fluoride, const OAINumber& max_fluoride, const OAINumber& min_saturated_fat, const OAINumber& max_saturated_fat, const OAINumber& min_vitamin_a, const OAINumber& max_vitamin_a, const OAINumber& min_vitamin_c, const OAINumber& max_vitamin_c, const OAINumber& min_vitamin_d, const OAINumber& max_vitamin_d, const OAINumber& min_vitamin_e, const OAINumber& max_vitamin_e, const OAINumber& min_vitamin_k, const OAINumber& max_vitamin_k, const OAINumber& min_vitamin_b1, const OAINumber& max_vitamin_b1, const OAINumber& min_vitamin_b2, const OAINumber& max_vitamin_b2, const OAINumber& min_vitamin_b5, const OAINumber& max_vitamin_b5, const OAINumber& min_vitamin_b3, const OAINumber& max_vitamin_b3, const OAINumber& min_vitamin_b6, const OAINumber& max_vitamin_b6, const OAINumber& min_vitamin_b12, const OAINumber& max_vitamin_b12, const OAINumber& min_fiber, const OAINumber& max_fiber, const OAINumber& min_folate, const OAINumber& max_folate, const OAINumber& min_folic_acid, const OAINumber& max_folic_acid, const OAINumber& min_iodine, const OAINumber& max_iodine, const OAINumber& min_iron, const OAINumber& max_iron, const OAINumber& min_magnesium, const OAINumber& max_magnesium, const OAINumber& min_manganese, const OAINumber& max_manganese, const OAINumber& min_phosphorus, const OAINumber& max_phosphorus, const OAINumber& min_potassium, const OAINumber& max_potassium, const OAINumber& min_selenium, const OAINumber& max_selenium, const OAINumber& min_sodium, const OAINumber& max_sodium, const OAINumber& min_sugar, const OAINumber& max_sugar, const OAINumber& min_zinc, const OAINumber& max_zinc, const OAINumber& offset, const OAINumber& number, const bool& random, const bool& limit_license) {
-    QString fullPath;
-    fullPath.append(this->host).append(this->basePath).append("/recipes/findByNutrients");
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("minCarbs"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_carbs)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("maxCarbs"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_carbs)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("minProtein"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_protein)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("maxProtein"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_protein)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("minCalories"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_calories)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("maxCalories"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_calories)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("minFat"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_fat)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("maxFat"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_fat)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("minAlcohol"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_alcohol)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("maxAlcohol"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_alcohol)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("minCaffeine"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_caffeine)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("maxCaffeine"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_caffeine)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("minCopper"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_copper)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("maxCopper"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_copper)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("minCalcium"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_calcium)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("maxCalcium"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_calcium)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("minCholine"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_choline)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("maxCholine"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_choline)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("minCholesterol"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_cholesterol)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("maxCholesterol"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_cholesterol)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("minFluoride"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_fluoride)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("maxFluoride"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_fluoride)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("minSaturatedFat"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_saturated_fat)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("maxSaturatedFat"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_saturated_fat)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("minVitaminA"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_vitamin_a)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("maxVitaminA"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_vitamin_a)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("minVitaminC"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_vitamin_c)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("maxVitaminC"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_vitamin_c)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("minVitaminD"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_vitamin_d)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("maxVitaminD"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_vitamin_d)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("minVitaminE"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_vitamin_e)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("maxVitaminE"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_vitamin_e)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("minVitaminK"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_vitamin_k)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("maxVitaminK"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_vitamin_k)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("minVitaminB1"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_vitamin_b1)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("maxVitaminB1"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_vitamin_b1)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("minVitaminB2"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_vitamin_b2)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("maxVitaminB2"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_vitamin_b2)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("minVitaminB5"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_vitamin_b5)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("maxVitaminB5"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_vitamin_b5)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("minVitaminB3"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_vitamin_b3)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("maxVitaminB3"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_vitamin_b3)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("minVitaminB6"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_vitamin_b6)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("maxVitaminB6"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_vitamin_b6)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("minVitaminB12"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_vitamin_b12)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("maxVitaminB12"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_vitamin_b12)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("minFiber"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_fiber)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("maxFiber"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_fiber)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("minFolate"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_folate)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("maxFolate"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_folate)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("minFolicAcid"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_folic_acid)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("maxFolicAcid"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_folic_acid)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("minIodine"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_iodine)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("maxIodine"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_iodine)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("minIron"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_iron)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("maxIron"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_iron)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("minMagnesium"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_magnesium)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("maxMagnesium"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_magnesium)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("minManganese"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_manganese)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("maxManganese"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_manganese)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("minPhosphorus"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_phosphorus)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("maxPhosphorus"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_phosphorus)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("minPotassium"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_potassium)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("maxPotassium"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_potassium)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("minSelenium"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_selenium)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("maxSelenium"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_selenium)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("minSodium"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_sodium)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("maxSodium"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_sodium)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("minSugar"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_sugar)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("maxSugar"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_sugar)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("minZinc"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_zinc)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("maxZinc"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_zinc)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("offset"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(offset)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("number"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(number)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("random"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(random)));
-    
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("limitLicense"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(limit_license)));
-    
-    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker();
-    OAIHttpRequestInput input(fullPath, "GET");
-
-
-    foreach(QString key, this->defaultHeaders.keys()) {
-        input.headers.insert(key, this->defaultHeaders.value(key));
-    }
-
-    connect(worker,
-            &OAIHttpRequestWorker::on_execution_finished,
-            this,
-            &OAIDefaultApi::searchRecipesByNutrientsCallback);
-
-    worker->execute(&input);
-}
-
-void
-OAIDefaultApi::searchRecipesByNutrientsCallback(OAIHttpRequestWorker * worker) {
-    QString msg;
-    QString error_str = worker->error_str;
-    QNetworkReply::NetworkError error_type = worker->error_type;
-
-    if (worker->error_type == QNetworkReply::NoError) {
-        msg = QString("Success! %1 bytes").arg(worker->response.length());
-    }
-    else {
-        msg = "Error: " + worker->error_str;
-    }
-    OAIObject output(QString(worker->response));
-    worker->deleteLater();
-
-    if (worker->error_type == QNetworkReply::NoError) {
-        emit searchRecipesByNutrientsSignal(output);
-        emit searchRecipesByNutrientsSignalFull(worker, output);
-    } else {
-        emit searchRecipesByNutrientsSignalE(output, error_type, error_str);
-        emit searchRecipesByNutrientsSignalEFull(worker, error_type, error_str);
-    }
-}
-
-void
-OAIDefaultApi::searchRecipesComplex(const QString& query, const QString& cuisine, const QString& exclude_cuisine, const QString& diet, const QString& intolerances, const QString& equipment, const QString& include_ingredients, const QString& exclude_ingredients, const QString& type, const bool& instructions_required, const bool& fill_ingredients, const bool& add_recipe_information, const bool& add_recipe_nutrition, const QString& author, const QString& tags, const OAINumber& recipe_box_id, const QString& title_match, const OAINumber& max_ready_time, const bool& ignore_pantry, const QString& sort, const QString& sort_direction, const OAINumber& min_carbs, const OAINumber& max_carbs, const OAINumber& min_protein, const OAINumber& max_protein, const OAINumber& min_calories, const OAINumber& max_calories, const OAINumber& min_fat, const OAINumber& max_fat, const OAINumber& min_alcohol, const OAINumber& max_alcohol, const OAINumber& min_caffeine, const OAINumber& max_caffeine, const OAINumber& min_copper, const OAINumber& max_copper, const OAINumber& min_calcium, const OAINumber& max_calcium, const OAINumber& min_choline, const OAINumber& max_choline, const OAINumber& min_cholesterol, const OAINumber& max_cholesterol, const OAINumber& min_fluoride, const OAINumber& max_fluoride, const OAINumber& min_saturated_fat, const OAINumber& max_saturated_fat, const OAINumber& min_vitamin_a, const OAINumber& max_vitamin_a, const OAINumber& min_vitamin_c, const OAINumber& max_vitamin_c, const OAINumber& min_vitamin_d, const OAINumber& max_vitamin_d, const OAINumber& min_vitamin_e, const OAINumber& max_vitamin_e, const OAINumber& min_vitamin_k, const OAINumber& max_vitamin_k, const OAINumber& min_vitamin_b1, const OAINumber& max_vitamin_b1, const OAINumber& min_vitamin_b2, const OAINumber& max_vitamin_b2, const OAINumber& min_vitamin_b5, const OAINumber& max_vitamin_b5, const OAINumber& min_vitamin_b3, const OAINumber& max_vitamin_b3, const OAINumber& min_vitamin_b6, const OAINumber& max_vitamin_b6, const OAINumber& min_vitamin_b12, const OAINumber& max_vitamin_b12, const OAINumber& min_fiber, const OAINumber& max_fiber, const OAINumber& min_folate, const OAINumber& max_folate, const OAINumber& min_folic_acid, const OAINumber& max_folic_acid, const OAINumber& min_iodine, const OAINumber& max_iodine, const OAINumber& min_iron, const OAINumber& max_iron, const OAINumber& min_magnesium, const OAINumber& max_magnesium, const OAINumber& min_manganese, const OAINumber& max_manganese, const OAINumber& min_phosphorus, const OAINumber& max_phosphorus, const OAINumber& min_potassium, const OAINumber& max_potassium, const OAINumber& min_selenium, const OAINumber& max_selenium, const OAINumber& min_sodium, const OAINumber& max_sodium, const OAINumber& min_sugar, const OAINumber& max_sugar, const OAINumber& min_zinc, const OAINumber& max_zinc, const OAINumber& offset, const OAINumber& number, const bool& limit_license) {
+OAIDefaultApi::searchRecipes(const QString& query, const QString& cuisine, const QString& exclude_cuisine, const QString& diet, const QString& intolerances, const QString& equipment, const QString& include_ingredients, const QString& exclude_ingredients, const QString& type, const bool& instructions_required, const bool& fill_ingredients, const bool& add_recipe_information, const bool& add_recipe_nutrition, const QString& author, const QString& tags, const OAINumber& recipe_box_id, const QString& title_match, const OAINumber& max_ready_time, const bool& ignore_pantry, const QString& sort, const QString& sort_direction, const OAINumber& min_carbs, const OAINumber& max_carbs, const OAINumber& min_protein, const OAINumber& max_protein, const OAINumber& min_calories, const OAINumber& max_calories, const OAINumber& min_fat, const OAINumber& max_fat, const OAINumber& min_alcohol, const OAINumber& max_alcohol, const OAINumber& min_caffeine, const OAINumber& max_caffeine, const OAINumber& min_copper, const OAINumber& max_copper, const OAINumber& min_calcium, const OAINumber& max_calcium, const OAINumber& min_choline, const OAINumber& max_choline, const OAINumber& min_cholesterol, const OAINumber& max_cholesterol, const OAINumber& min_fluoride, const OAINumber& max_fluoride, const OAINumber& min_saturated_fat, const OAINumber& max_saturated_fat, const OAINumber& min_vitamin_a, const OAINumber& max_vitamin_a, const OAINumber& min_vitamin_c, const OAINumber& max_vitamin_c, const OAINumber& min_vitamin_d, const OAINumber& max_vitamin_d, const OAINumber& min_vitamin_e, const OAINumber& max_vitamin_e, const OAINumber& min_vitamin_k, const OAINumber& max_vitamin_k, const OAINumber& min_vitamin_b1, const OAINumber& max_vitamin_b1, const OAINumber& min_vitamin_b2, const OAINumber& max_vitamin_b2, const OAINumber& min_vitamin_b5, const OAINumber& max_vitamin_b5, const OAINumber& min_vitamin_b3, const OAINumber& max_vitamin_b3, const OAINumber& min_vitamin_b6, const OAINumber& max_vitamin_b6, const OAINumber& min_vitamin_b12, const OAINumber& max_vitamin_b12, const OAINumber& min_fiber, const OAINumber& max_fiber, const OAINumber& min_folate, const OAINumber& max_folate, const OAINumber& min_folic_acid, const OAINumber& max_folic_acid, const OAINumber& min_iodine, const OAINumber& max_iodine, const OAINumber& min_iron, const OAINumber& max_iron, const OAINumber& min_magnesium, const OAINumber& max_magnesium, const OAINumber& min_manganese, const OAINumber& max_manganese, const OAINumber& min_phosphorus, const OAINumber& max_phosphorus, const OAINumber& min_potassium, const OAINumber& max_potassium, const OAINumber& min_selenium, const OAINumber& max_selenium, const OAINumber& min_sodium, const OAINumber& max_sodium, const OAINumber& min_sugar, const OAINumber& max_sugar, const OAINumber& min_zinc, const OAINumber& max_zinc, const OAINumber& offset, const OAINumber& number, const bool& limit_license) {
     QString fullPath;
     fullPath.append(this->host).append(this->basePath).append("/recipes/complexSearch");
     
@@ -5131,13 +4711,13 @@ OAIDefaultApi::searchRecipesComplex(const QString& query, const QString& cuisine
     connect(worker,
             &OAIHttpRequestWorker::on_execution_finished,
             this,
-            &OAIDefaultApi::searchRecipesComplexCallback);
+            &OAIDefaultApi::searchRecipesCallback);
 
     worker->execute(&input);
 }
 
 void
-OAIDefaultApi::searchRecipesComplexCallback(OAIHttpRequestWorker * worker) {
+OAIDefaultApi::searchRecipesCallback(OAIHttpRequestWorker * worker) {
     QString msg;
     QString error_str = worker->error_str;
     QNetworkReply::NetworkError error_type = worker->error_type;
@@ -5152,11 +4732,749 @@ OAIDefaultApi::searchRecipesComplexCallback(OAIHttpRequestWorker * worker) {
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit searchRecipesComplexSignal(output);
-        emit searchRecipesComplexSignalFull(worker, output);
+        emit searchRecipesSignal(output);
+        emit searchRecipesSignalFull(worker, output);
     } else {
-        emit searchRecipesComplexSignalE(output, error_type, error_str);
-        emit searchRecipesComplexSignalEFull(worker, error_type, error_str);
+        emit searchRecipesSignalE(output, error_type, error_str);
+        emit searchRecipesSignalEFull(worker, error_type, error_str);
+    }
+}
+
+void
+OAIDefaultApi::searchRecipesByIngredients(const QString& ingredients, const OAINumber& number, const bool& limit_license, const OAINumber& ranking, const bool& ignore_pantry) {
+    QString fullPath;
+    fullPath.append(this->host).append(this->basePath).append("/recipes/findByIngredients");
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("ingredients"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(ingredients)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("number"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(number)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("limitLicense"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(limit_license)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("ranking"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(ranking)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("ignorePantry"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(ignore_pantry)));
+    
+    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker();
+    OAIHttpRequestInput input(fullPath, "GET");
+
+
+    foreach(QString key, this->defaultHeaders.keys()) {
+        input.headers.insert(key, this->defaultHeaders.value(key));
+    }
+
+    connect(worker,
+            &OAIHttpRequestWorker::on_execution_finished,
+            this,
+            &OAIDefaultApi::searchRecipesByIngredientsCallback);
+
+    worker->execute(&input);
+}
+
+void
+OAIDefaultApi::searchRecipesByIngredientsCallback(OAIHttpRequestWorker * worker) {
+    QString msg;
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        msg = QString("Success! %1 bytes").arg(worker->response.length());
+    }
+    else {
+        msg = "Error: " + worker->error_str;
+    }
+    OAIObject output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit searchRecipesByIngredientsSignal(output);
+        emit searchRecipesByIngredientsSignalFull(worker, output);
+    } else {
+        emit searchRecipesByIngredientsSignalE(output, error_type, error_str);
+        emit searchRecipesByIngredientsSignalEFull(worker, error_type, error_str);
+    }
+}
+
+void
+OAIDefaultApi::searchRecipesByNutrients(const OAINumber& min_carbs, const OAINumber& max_carbs, const OAINumber& min_protein, const OAINumber& max_protein, const OAINumber& min_calories, const OAINumber& max_calories, const OAINumber& min_fat, const OAINumber& max_fat, const OAINumber& min_alcohol, const OAINumber& max_alcohol, const OAINumber& min_caffeine, const OAINumber& max_caffeine, const OAINumber& min_copper, const OAINumber& max_copper, const OAINumber& min_calcium, const OAINumber& max_calcium, const OAINumber& min_choline, const OAINumber& max_choline, const OAINumber& min_cholesterol, const OAINumber& max_cholesterol, const OAINumber& min_fluoride, const OAINumber& max_fluoride, const OAINumber& min_saturated_fat, const OAINumber& max_saturated_fat, const OAINumber& min_vitamin_a, const OAINumber& max_vitamin_a, const OAINumber& min_vitamin_c, const OAINumber& max_vitamin_c, const OAINumber& min_vitamin_d, const OAINumber& max_vitamin_d, const OAINumber& min_vitamin_e, const OAINumber& max_vitamin_e, const OAINumber& min_vitamin_k, const OAINumber& max_vitamin_k, const OAINumber& min_vitamin_b1, const OAINumber& max_vitamin_b1, const OAINumber& min_vitamin_b2, const OAINumber& max_vitamin_b2, const OAINumber& min_vitamin_b5, const OAINumber& max_vitamin_b5, const OAINumber& min_vitamin_b3, const OAINumber& max_vitamin_b3, const OAINumber& min_vitamin_b6, const OAINumber& max_vitamin_b6, const OAINumber& min_vitamin_b12, const OAINumber& max_vitamin_b12, const OAINumber& min_fiber, const OAINumber& max_fiber, const OAINumber& min_folate, const OAINumber& max_folate, const OAINumber& min_folic_acid, const OAINumber& max_folic_acid, const OAINumber& min_iodine, const OAINumber& max_iodine, const OAINumber& min_iron, const OAINumber& max_iron, const OAINumber& min_magnesium, const OAINumber& max_magnesium, const OAINumber& min_manganese, const OAINumber& max_manganese, const OAINumber& min_phosphorus, const OAINumber& max_phosphorus, const OAINumber& min_potassium, const OAINumber& max_potassium, const OAINumber& min_selenium, const OAINumber& max_selenium, const OAINumber& min_sodium, const OAINumber& max_sodium, const OAINumber& min_sugar, const OAINumber& max_sugar, const OAINumber& min_zinc, const OAINumber& max_zinc, const OAINumber& offset, const OAINumber& number, const bool& random, const bool& limit_license) {
+    QString fullPath;
+    fullPath.append(this->host).append(this->basePath).append("/recipes/findByNutrients");
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("minCarbs"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_carbs)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("maxCarbs"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_carbs)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("minProtein"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_protein)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("maxProtein"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_protein)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("minCalories"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_calories)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("maxCalories"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_calories)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("minFat"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_fat)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("maxFat"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_fat)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("minAlcohol"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_alcohol)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("maxAlcohol"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_alcohol)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("minCaffeine"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_caffeine)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("maxCaffeine"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_caffeine)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("minCopper"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_copper)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("maxCopper"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_copper)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("minCalcium"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_calcium)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("maxCalcium"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_calcium)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("minCholine"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_choline)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("maxCholine"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_choline)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("minCholesterol"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_cholesterol)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("maxCholesterol"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_cholesterol)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("minFluoride"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_fluoride)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("maxFluoride"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_fluoride)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("minSaturatedFat"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_saturated_fat)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("maxSaturatedFat"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_saturated_fat)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("minVitaminA"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_vitamin_a)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("maxVitaminA"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_vitamin_a)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("minVitaminC"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_vitamin_c)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("maxVitaminC"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_vitamin_c)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("minVitaminD"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_vitamin_d)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("maxVitaminD"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_vitamin_d)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("minVitaminE"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_vitamin_e)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("maxVitaminE"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_vitamin_e)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("minVitaminK"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_vitamin_k)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("maxVitaminK"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_vitamin_k)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("minVitaminB1"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_vitamin_b1)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("maxVitaminB1"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_vitamin_b1)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("minVitaminB2"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_vitamin_b2)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("maxVitaminB2"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_vitamin_b2)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("minVitaminB5"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_vitamin_b5)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("maxVitaminB5"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_vitamin_b5)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("minVitaminB3"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_vitamin_b3)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("maxVitaminB3"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_vitamin_b3)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("minVitaminB6"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_vitamin_b6)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("maxVitaminB6"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_vitamin_b6)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("minVitaminB12"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_vitamin_b12)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("maxVitaminB12"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_vitamin_b12)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("minFiber"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_fiber)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("maxFiber"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_fiber)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("minFolate"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_folate)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("maxFolate"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_folate)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("minFolicAcid"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_folic_acid)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("maxFolicAcid"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_folic_acid)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("minIodine"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_iodine)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("maxIodine"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_iodine)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("minIron"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_iron)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("maxIron"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_iron)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("minMagnesium"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_magnesium)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("maxMagnesium"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_magnesium)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("minManganese"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_manganese)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("maxManganese"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_manganese)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("minPhosphorus"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_phosphorus)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("maxPhosphorus"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_phosphorus)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("minPotassium"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_potassium)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("maxPotassium"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_potassium)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("minSelenium"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_selenium)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("maxSelenium"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_selenium)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("minSodium"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_sodium)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("maxSodium"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_sodium)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("minSugar"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_sugar)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("maxSugar"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_sugar)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("minZinc"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_zinc)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("maxZinc"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_zinc)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("offset"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(offset)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("number"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(number)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("random"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(random)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("limitLicense"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(limit_license)));
+    
+    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker();
+    OAIHttpRequestInput input(fullPath, "GET");
+
+
+    foreach(QString key, this->defaultHeaders.keys()) {
+        input.headers.insert(key, this->defaultHeaders.value(key));
+    }
+
+    connect(worker,
+            &OAIHttpRequestWorker::on_execution_finished,
+            this,
+            &OAIDefaultApi::searchRecipesByNutrientsCallback);
+
+    worker->execute(&input);
+}
+
+void
+OAIDefaultApi::searchRecipesByNutrientsCallback(OAIHttpRequestWorker * worker) {
+    QString msg;
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        msg = QString("Success! %1 bytes").arg(worker->response.length());
+    }
+    else {
+        msg = "Error: " + worker->error_str;
+    }
+    OAIObject output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit searchRecipesByNutrientsSignal(output);
+        emit searchRecipesByNutrientsSignalFull(worker, output);
+    } else {
+        emit searchRecipesByNutrientsSignalE(output, error_type, error_str);
+        emit searchRecipesByNutrientsSignalEFull(worker, error_type, error_str);
     }
 }
 
@@ -5323,17 +5641,14 @@ OAIDefaultApi::talkToChatbotCallback(OAIHttpRequestWorker * worker) {
 }
 
 void
-OAIDefaultApi::visualizeEquipment(const QString& ingredient_list, const OAINumber& servings, const QString& view, const bool& default_css, const bool& show_backlink) {
+OAIDefaultApi::visualizeEquipment(const QString& instructions, const QString& view, const bool& default_css, const bool& show_backlink) {
     QString fullPath;
     fullPath.append(this->host).append(this->basePath).append("/recipes/visualizeEquipment");
     
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker();
     OAIHttpRequestInput input(fullPath, "POST");
-    if (ingredient_list != nullptr) {
-        input.add_var("ingredientList", ingredient_list);
-    }
-        if (servings != nullptr) {
-        input.add_var("servings", servings);
+    if (instructions != nullptr) {
+        input.add_var("instructions", instructions);
     }
         if (view != nullptr) {
         input.add_var("view", view);
@@ -5905,6 +6220,104 @@ OAIDefaultApi::visualizeRecipePriceBreakdownByIDCallback(OAIHttpRequestWorker * 
     } else {
         emit visualizeRecipePriceBreakdownByIDSignalE(output, error_type, error_str);
         emit visualizeRecipePriceBreakdownByIDSignalEFull(worker, error_type, error_str);
+    }
+}
+
+void
+OAIDefaultApi::visualizeRecipeTaste(const QString& ingredient_list) {
+    QString fullPath;
+    fullPath.append(this->host).append(this->basePath).append("/recipes/visualizeTaste");
+    
+    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker();
+    OAIHttpRequestInput input(fullPath, "POST");
+    if (ingredient_list != nullptr) {
+        input.add_var("ingredientList", ingredient_list);
+    }
+    
+
+    foreach(QString key, this->defaultHeaders.keys()) {
+        input.headers.insert(key, this->defaultHeaders.value(key));
+    }
+
+    connect(worker,
+            &OAIHttpRequestWorker::on_execution_finished,
+            this,
+            &OAIDefaultApi::visualizeRecipeTasteCallback);
+
+    worker->execute(&input);
+}
+
+void
+OAIDefaultApi::visualizeRecipeTasteCallback(OAIHttpRequestWorker * worker) {
+    QString msg;
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        msg = QString("Success! %1 bytes").arg(worker->response.length());
+    }
+    else {
+        msg = "Error: " + worker->error_str;
+    }
+    QString output;  
+    ::OpenAPI::fromStringValue(QString(worker->response), output);
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit visualizeRecipeTasteSignal(output);
+        emit visualizeRecipeTasteSignalFull(worker, output);
+    } else {
+        emit visualizeRecipeTasteSignalE(output, error_type, error_str);
+        emit visualizeRecipeTasteSignalEFull(worker, error_type, error_str);
+    }
+}
+
+void
+OAIDefaultApi::visualizeRecipeTasteByID(const OAINumber& id) {
+    QString fullPath;
+    fullPath.append(this->host).append(this->basePath).append("/recipes/{id}/tasteWidget");
+    QString idPathParam("{"); 
+    idPathParam.append("id").append("}");
+    fullPath.replace(idPathParam, QUrl::toPercentEncoding(::OpenAPI::toStringValue(id)));
+    
+    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker();
+    OAIHttpRequestInput input(fullPath, "GET");
+
+
+    foreach(QString key, this->defaultHeaders.keys()) {
+        input.headers.insert(key, this->defaultHeaders.value(key));
+    }
+
+    connect(worker,
+            &OAIHttpRequestWorker::on_execution_finished,
+            this,
+            &OAIDefaultApi::visualizeRecipeTasteByIDCallback);
+
+    worker->execute(&input);
+}
+
+void
+OAIDefaultApi::visualizeRecipeTasteByIDCallback(OAIHttpRequestWorker * worker) {
+    QString msg;
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        msg = QString("Success! %1 bytes").arg(worker->response.length());
+    }
+    else {
+        msg = "Error: " + worker->error_str;
+    }
+    QString output;  
+    ::OpenAPI::fromStringValue(QString(worker->response), output);
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit visualizeRecipeTasteByIDSignal(output);
+        emit visualizeRecipeTasteByIDSignalFull(worker, output);
+    } else {
+        emit visualizeRecipeTasteByIDSignalE(output, error_type, error_str);
+        emit visualizeRecipeTasteByIDSignalEFull(worker, error_type, error_str);
     }
 }
 

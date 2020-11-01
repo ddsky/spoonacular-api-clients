@@ -50,20 +50,8 @@ public:
     void setServings(const OAINumber &servings);
 
     
-    QString getMeasure() const;
-    void setMeasure(const QString &measure);
-
-    
-    QString getView() const;
-    void setView(const QString &view);
-
-    
-    bool isDefaultCss() const;
-    void setDefaultCss(const bool &default_css);
-
-    
-    bool isShowBacklink() const;
-    void setShowBacklink(const bool &show_backlink);
+    bool isIncludeNutrition() const;
+    void setIncludeNutrition(const bool &include_nutrition);
 
     
     
@@ -81,21 +69,9 @@ private:
     bool m_servings_isSet;
     bool m_servings_isValid;
     
-    QString measure;
-    bool m_measure_isSet;
-    bool m_measure_isValid;
-    
-    QString view;
-    bool m_view_isSet;
-    bool m_view_isValid;
-    
-    bool default_css;
-    bool m_default_css_isSet;
-    bool m_default_css_isValid;
-    
-    bool show_backlink;
-    bool m_show_backlink_isSet;
-    bool m_show_backlink_isValid;
+    bool include_nutrition;
+    bool m_include_nutrition_isSet;
+    bool m_include_nutrition_isValid;
     
     };
 

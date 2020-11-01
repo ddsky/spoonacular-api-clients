@@ -35,9 +35,9 @@ Then, run:
 def apiInstance = new DefaultApi()
 def username = dsky // String | The username.
 def hash = 4b5v4398573406 // String | The private hash for the username.
-def inlineObject9 = new InlineObject9() // InlineObject9 | 
+def inlineObject11 = new InlineObject11() // InlineObject11 | 
 
-apiInstance.addToMealPlan(username, hash, inlineObject9)
+apiInstance.addToMealPlan(username, hash, inlineObject11)
     {
     // on success
     def result = (Object)it

@@ -38,11 +38,8 @@ OAIInline_object_5::~OAIInline_object_5() {
 void
 OAIInline_object_5::init() {
     
-    m_title_isSet = false;
-    m_title_isValid = false;
-    
-    m_ingredient_list_isSet = false;
-    m_ingredient_list_isValid = false;
+    m_instructions_isSet = false;
+    m_instructions_isValid = false;
     }
 
 void
@@ -56,10 +53,7 @@ OAIInline_object_5::fromJson(QString jsonString) {
 void
 OAIInline_object_5::fromJsonObject(QJsonObject json) {
     
-    m_title_isValid = ::OpenAPI::fromJsonValue(title, json[QString("title")]);
-    
-    
-    m_ingredient_list_isValid = ::OpenAPI::fromJsonValue(ingredient_list, json[QString("ingredientList")]);
+    m_instructions_isValid = ::OpenAPI::fromJsonValue(instructions, json[QString("instructions")]);
     
     
 }
@@ -75,44 +69,28 @@ OAIInline_object_5::asJson () const {
 QJsonObject
 OAIInline_object_5::asJsonObject() const {
     QJsonObject obj;
-	if(m_title_isSet){
-        obj.insert(QString("title"), ::OpenAPI::toJsonValue(title));
-    }
-	if(m_ingredient_list_isSet){
-        obj.insert(QString("ingredientList"), ::OpenAPI::toJsonValue(ingredient_list));
+	if(m_instructions_isSet){
+        obj.insert(QString("instructions"), ::OpenAPI::toJsonValue(instructions));
     }
     return obj;
 }
 
 
 QString
-OAIInline_object_5::getTitle() const {
-    return title;
+OAIInline_object_5::getInstructions() const {
+    return instructions;
 }
 void
-OAIInline_object_5::setTitle(const QString &title) {
-    this->title = title;
-    this->m_title_isSet = true;
-}
-
-
-QString
-OAIInline_object_5::getIngredientList() const {
-    return ingredient_list;
-}
-void
-OAIInline_object_5::setIngredientList(const QString &ingredient_list) {
-    this->ingredient_list = ingredient_list;
-    this->m_ingredient_list_isSet = true;
+OAIInline_object_5::setInstructions(const QString &instructions) {
+    this->instructions = instructions;
+    this->m_instructions_isSet = true;
 }
 
 bool
 OAIInline_object_5::isSet() const {
     bool isObjectUpdated = false;
     do{ 
-        if(m_title_isSet){ isObjectUpdated = true; break;}
-    
-        if(m_ingredient_list_isSet){ isObjectUpdated = true; break;}
+        if(m_instructions_isSet){ isObjectUpdated = true; break;}
     }while(false);
     return isObjectUpdated;
 }
@@ -120,7 +98,7 @@ OAIInline_object_5::isSet() const {
 bool
 OAIInline_object_5::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_title_isValid && m_ingredient_list_isValid && true;
+    return m_instructions_isValid && true;
 }
 
 }

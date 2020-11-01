@@ -4,8 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**title** | **String** | The title of the recipe. | 
-**ingredient_list** | **String** | The ingredient list of the recipe, one ingredient per line (separate lines with \\n). | 
+**instructions** | **String** | The instructions to be analyzed. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

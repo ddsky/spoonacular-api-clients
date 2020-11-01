@@ -13,28 +13,20 @@ namespace spoonacular.Model {
   [DataContract]
   public class InlineObject6 {
     /// <summary>
-    /// The ingredient list of the recipe, one ingredient per line.
+    /// The title of the recipe.
     /// </summary>
-    /// <value>The ingredient list of the recipe, one ingredient per line.</value>
+    /// <value>The title of the recipe.</value>
+    [DataMember(Name="title", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "title")]
+    public string Title { get; set; }
+
+    /// <summary>
+    /// The ingredient list of the recipe, one ingredient per line (separate lines with \\n).
+    /// </summary>
+    /// <value>The ingredient list of the recipe, one ingredient per line (separate lines with \\n).</value>
     [DataMember(Name="ingredientList", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "ingredientList")]
     public string IngredientList { get; set; }
-
-    /// <summary>
-    /// The number of servings that you can make from the ingredients.
-    /// </summary>
-    /// <value>The number of servings that you can make from the ingredients.</value>
-    [DataMember(Name="servings", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "servings")]
-    public decimal? Servings { get; set; }
-
-    /// <summary>
-    /// Whether nutrition data should be added to correctly parsed ingredients.
-    /// </summary>
-    /// <value>Whether nutrition data should be added to correctly parsed ingredients.</value>
-    [DataMember(Name="includeNutrition", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "includeNutrition")]
-    public bool? IncludeNutrition { get; set; }
 
 
     /// <summary>
@@ -44,9 +36,8 @@ namespace spoonacular.Model {
     public override string ToString()  {
       var sb = new StringBuilder();
       sb.Append("class InlineObject6 {\n");
+      sb.Append("  Title: ").Append(Title).Append("\n");
       sb.Append("  IngredientList: ").Append(IngredientList).Append("\n");
-      sb.Append("  Servings: ").Append(Servings).Append("\n");
-      sb.Append("  IncludeNutrition: ").Append(IncludeNutrition).Append("\n");
       sb.Append("}\n");
       return sb.ToString();
     }

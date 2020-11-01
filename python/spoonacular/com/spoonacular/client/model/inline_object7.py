@@ -34,42 +34,27 @@ class InlineObject7(object):
     openapi_types = {
         'ingredient_list': 'str',
         'servings': 'float',
-        'measure': 'str',
-        'view': 'str',
-        'default_css': 'bool',
-        'show_backlink': 'bool'
+        'include_nutrition': 'bool'
     }
 
     attribute_map = {
         'ingredient_list': 'ingredientList',
         'servings': 'servings',
-        'measure': 'measure',
-        'view': 'view',
-        'default_css': 'defaultCss',
-        'show_backlink': 'showBacklink'
+        'include_nutrition': 'includeNutrition'
     }
 
-    def __init__(self, ingredient_list=None, servings=None, measure=None, view=None, default_css=None, show_backlink=None):  # noqa: E501
+    def __init__(self, ingredient_list=None, servings=None, include_nutrition=None):  # noqa: E501
         """InlineObject7 - a model defined in OpenAPI"""  # noqa: E501
 
         self._ingredient_list = None
         self._servings = None
-        self._measure = None
-        self._view = None
-        self._default_css = None
-        self._show_backlink = None
+        self._include_nutrition = None
         self.discriminator = None
 
         self.ingredient_list = ingredient_list
         self.servings = servings
-        if measure is not None:
-            self.measure = measure
-        if view is not None:
-            self.view = view
-        if default_css is not None:
-            self.default_css = default_css
-        if show_backlink is not None:
-            self.show_backlink = show_backlink
+        if include_nutrition is not None:
+            self.include_nutrition = include_nutrition
 
     @property
     def ingredient_list(self):
@@ -100,7 +85,7 @@ class InlineObject7(object):
     def servings(self):
         """Gets the servings of this InlineObject7.  # noqa: E501
 
-        The number of servings.  # noqa: E501
+        The number of servings that you can make from the ingredients.  # noqa: E501
 
         :return: The servings of this InlineObject7.  # noqa: E501
         :rtype: float
@@ -111,7 +96,7 @@ class InlineObject7(object):
     def servings(self, servings):
         """Sets the servings of this InlineObject7.
 
-        The number of servings.  # noqa: E501
+        The number of servings that you can make from the ingredients.  # noqa: E501
 
         :param servings: The servings of this InlineObject7.  # noqa: E501
         :type: float
@@ -122,96 +107,27 @@ class InlineObject7(object):
         self._servings = servings
 
     @property
-    def measure(self):
-        """Gets the measure of this InlineObject7.  # noqa: E501
+    def include_nutrition(self):
+        """Gets the include_nutrition of this InlineObject7.  # noqa: E501
 
-        The original system of measurement, either \"metric\" or \"us\".  # noqa: E501
+        Whether nutrition data should be added to correctly parsed ingredients.  # noqa: E501
 
-        :return: The measure of this InlineObject7.  # noqa: E501
-        :rtype: str
-        """
-        return self._measure
-
-    @measure.setter
-    def measure(self, measure):
-        """Sets the measure of this InlineObject7.
-
-        The original system of measurement, either \"metric\" or \"us\".  # noqa: E501
-
-        :param measure: The measure of this InlineObject7.  # noqa: E501
-        :type: str
-        """
-
-        self._measure = measure
-
-    @property
-    def view(self):
-        """Gets the view of this InlineObject7.  # noqa: E501
-
-        How to visualize the ingredients, either \"grid\" or \"list\".  # noqa: E501
-
-        :return: The view of this InlineObject7.  # noqa: E501
-        :rtype: str
-        """
-        return self._view
-
-    @view.setter
-    def view(self, view):
-        """Sets the view of this InlineObject7.
-
-        How to visualize the ingredients, either \"grid\" or \"list\".  # noqa: E501
-
-        :param view: The view of this InlineObject7.  # noqa: E501
-        :type: str
-        """
-
-        self._view = view
-
-    @property
-    def default_css(self):
-        """Gets the default_css of this InlineObject7.  # noqa: E501
-
-        Whether the default CSS should be added to the response.  # noqa: E501
-
-        :return: The default_css of this InlineObject7.  # noqa: E501
+        :return: The include_nutrition of this InlineObject7.  # noqa: E501
         :rtype: bool
         """
-        return self._default_css
+        return self._include_nutrition
 
-    @default_css.setter
-    def default_css(self, default_css):
-        """Sets the default_css of this InlineObject7.
+    @include_nutrition.setter
+    def include_nutrition(self, include_nutrition):
+        """Sets the include_nutrition of this InlineObject7.
 
-        Whether the default CSS should be added to the response.  # noqa: E501
+        Whether nutrition data should be added to correctly parsed ingredients.  # noqa: E501
 
-        :param default_css: The default_css of this InlineObject7.  # noqa: E501
+        :param include_nutrition: The include_nutrition of this InlineObject7.  # noqa: E501
         :type: bool
         """
 
-        self._default_css = default_css
-
-    @property
-    def show_backlink(self):
-        """Gets the show_backlink of this InlineObject7.  # noqa: E501
-
-        Whether to show a backlink to spoonacular. If set false, this call counts against your quota.  # noqa: E501
-
-        :return: The show_backlink of this InlineObject7.  # noqa: E501
-        :rtype: bool
-        """
-        return self._show_backlink
-
-    @show_backlink.setter
-    def show_backlink(self, show_backlink):
-        """Sets the show_backlink of this InlineObject7.
-
-        Whether to show a backlink to spoonacular. If set false, this call counts against your quota.  # noqa: E501
-
-        :param show_backlink: The show_backlink of this InlineObject7.  # noqa: E501
-        :type: bool
-        """
-
-        self._show_backlink = show_backlink
+        self._include_nutrition = include_nutrition
 
     def to_dict(self):
         """Returns the model properties as a dict"""

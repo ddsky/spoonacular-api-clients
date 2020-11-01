@@ -171,35 +171,14 @@ __PACKAGE__->method_documentation({
     'servings' => {
         datatype => 'double',
         base_name => 'servings',
-        description => 'The number of servings.',
+        description => 'The number of servings that you can make from the ingredients.',
         format => '',
         read_only => '',
             },
-    'measure' => {
-        datatype => 'string',
-        base_name => 'measure',
-        description => 'The original system of measurement, either \&quot;metric\&quot; or \&quot;us\&quot;.',
-        format => '',
-        read_only => '',
-            },
-    'view' => {
-        datatype => 'string',
-        base_name => 'view',
-        description => 'How to visualize the ingredients, either \&quot;grid\&quot; or \&quot;list\&quot;.',
-        format => '',
-        read_only => '',
-            },
-    'default_css' => {
+    'include_nutrition' => {
         datatype => 'boolean',
-        base_name => 'defaultCss',
-        description => 'Whether the default CSS should be added to the response.',
-        format => '',
-        read_only => '',
-            },
-    'show_backlink' => {
-        datatype => 'boolean',
-        base_name => 'showBacklink',
-        description => 'Whether to show a backlink to spoonacular. If set false, this call counts against your quota.',
+        base_name => 'includeNutrition',
+        description => 'Whether nutrition data should be added to correctly parsed ingredients.',
         format => '',
         read_only => '',
             },
@@ -208,19 +187,13 @@ __PACKAGE__->method_documentation({
 __PACKAGE__->openapi_types( {
     'ingredient_list' => 'string',
     'servings' => 'double',
-    'measure' => 'string',
-    'view' => 'string',
-    'default_css' => 'boolean',
-    'show_backlink' => 'boolean'
+    'include_nutrition' => 'boolean'
 } );
 
 __PACKAGE__->attribute_map( {
     'ingredient_list' => 'ingredientList',
     'servings' => 'servings',
-    'measure' => 'measure',
-    'view' => 'view',
-    'default_css' => 'defaultCss',
-    'show_backlink' => 'showBacklink'
+    'include_nutrition' => 'includeNutrition'
 } );
 
 __PACKAGE__->mk_accessors(keys %{__PACKAGE__->attribute_map});

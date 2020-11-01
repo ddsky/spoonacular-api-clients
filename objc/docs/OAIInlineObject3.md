@@ -3,18 +3,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**title** | **NSString*** | The title of the recipe. | 
-**image** | **NSURL*** | The binary image of the recipe as jpg. | 
-**ingredients** | **NSString*** | The ingredient list of the recipe, one ingredient per line (separate lines with \\n). | 
-**instructions** | **NSString*** | The instructions to make the recipe. One step per line (separate lines with \\n). | 
-**readyInMinutes** | **NSNumber*** | The number of minutes it takes to get the recipe on the table. | 
-**servings** | **NSNumber*** | The number of servings the recipe makes. | 
-**mask** | **NSString*** | The mask to put over the recipe image (\&quot;ellipseMask\&quot;, \&quot;diamondMask\&quot;, \&quot;starMask\&quot;, \&quot;heartMask\&quot;, \&quot;potMask\&quot;, \&quot;fishMask\&quot;). | 
-**backgroundImage** | **NSString*** | The background image (\&quot;none\&quot;,\&quot;background1\&quot;, or \&quot;background2\&quot;). | 
-**author** | **NSString*** | The author of the recipe. | [optional] 
-**backgroundColor** | **NSString*** | The background color for the recipe card as a hex-string. | [optional] 
-**fontColor** | **NSString*** | The font color for the recipe card as a hex-string. | [optional] 
-**source** | **NSString*** | The source of the recipe. | [optional] 
+**instructions** | **NSString*** | The recipe&#39;s instructions. | 
+**view** | **NSString*** | How to visualize the equipment, either \&quot;grid\&quot; or \&quot;list\&quot;. | [optional] 
+**defaultCss** | **NSNumber*** | Whether the default CSS should be added to the response. | [optional] 
+**showBacklink** | **NSNumber*** | Whether to show a backlink to spoonacular. If set false, this call counts against your quota. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

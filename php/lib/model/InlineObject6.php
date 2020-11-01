@@ -57,9 +57,8 @@ class InlineObject6 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'ingredient_list' => 'string',
-        'servings' => 'float',
-        'include_nutrition' => 'bool'
+        'title' => 'string',
+        'ingredient_list' => 'string'
     ];
 
     /**
@@ -68,9 +67,8 @@ class InlineObject6 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'ingredient_list' => null,
-        'servings' => null,
-        'include_nutrition' => null
+        'title' => null,
+        'ingredient_list' => null
     ];
 
     /**
@@ -100,9 +98,8 @@ class InlineObject6 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'ingredient_list' => 'ingredientList',
-        'servings' => 'servings',
-        'include_nutrition' => 'includeNutrition'
+        'title' => 'title',
+        'ingredient_list' => 'ingredientList'
     ];
 
     /**
@@ -111,9 +108,8 @@ class InlineObject6 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'ingredient_list' => 'setIngredientList',
-        'servings' => 'setServings',
-        'include_nutrition' => 'setIncludeNutrition'
+        'title' => 'setTitle',
+        'ingredient_list' => 'setIngredientList'
     ];
 
     /**
@@ -122,9 +118,8 @@ class InlineObject6 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'ingredient_list' => 'getIngredientList',
-        'servings' => 'getServings',
-        'include_nutrition' => 'getIncludeNutrition'
+        'title' => 'getTitle',
+        'ingredient_list' => 'getIngredientList'
     ];
 
     /**
@@ -187,9 +182,8 @@ class InlineObject6 implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['title'] = isset($data['title']) ? $data['title'] : null;
         $this->container['ingredient_list'] = isset($data['ingredient_list']) ? $data['ingredient_list'] : null;
-        $this->container['servings'] = isset($data['servings']) ? $data['servings'] : null;
-        $this->container['include_nutrition'] = isset($data['include_nutrition']) ? $data['include_nutrition'] : null;
     }
 
     /**
@@ -201,11 +195,11 @@ class InlineObject6 implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['title'] === null) {
+            $invalidProperties[] = "'title' can't be null";
+        }
         if ($this->container['ingredient_list'] === null) {
             $invalidProperties[] = "'ingredient_list' can't be null";
-        }
-        if ($this->container['servings'] === null) {
-            $invalidProperties[] = "'servings' can't be null";
         }
         return $invalidProperties;
     }
@@ -223,6 +217,30 @@ class InlineObject6 implements ModelInterface, ArrayAccess
 
 
     /**
+     * Gets title
+     *
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->container['title'];
+    }
+
+    /**
+     * Sets title
+     *
+     * @param string $title The title of the recipe.
+     *
+     * @return $this
+     */
+    public function setTitle($title)
+    {
+        $this->container['title'] = $title;
+
+        return $this;
+    }
+
+    /**
      * Gets ingredient_list
      *
      * @return string
@@ -235,61 +253,13 @@ class InlineObject6 implements ModelInterface, ArrayAccess
     /**
      * Sets ingredient_list
      *
-     * @param string $ingredient_list The ingredient list of the recipe, one ingredient per line.
+     * @param string $ingredient_list The ingredient list of the recipe, one ingredient per line (separate lines with \\n).
      *
      * @return $this
      */
     public function setIngredientList($ingredient_list)
     {
         $this->container['ingredient_list'] = $ingredient_list;
-
-        return $this;
-    }
-
-    /**
-     * Gets servings
-     *
-     * @return float
-     */
-    public function getServings()
-    {
-        return $this->container['servings'];
-    }
-
-    /**
-     * Sets servings
-     *
-     * @param float $servings The number of servings that you can make from the ingredients.
-     *
-     * @return $this
-     */
-    public function setServings($servings)
-    {
-        $this->container['servings'] = $servings;
-
-        return $this;
-    }
-
-    /**
-     * Gets include_nutrition
-     *
-     * @return bool|null
-     */
-    public function getIncludeNutrition()
-    {
-        return $this->container['include_nutrition'];
-    }
-
-    /**
-     * Sets include_nutrition
-     *
-     * @param bool|null $include_nutrition Whether nutrition data should be added to correctly parsed ingredients.
-     *
-     * @return $this
-     */
-    public function setIncludeNutrition($include_nutrition)
-    {
-        $this->container['include_nutrition'] = $include_nutrition;
 
         return $this;
     }

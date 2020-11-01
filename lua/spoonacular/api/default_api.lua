@@ -21,7 +21,8 @@ local spoonacular_inline_object_10 = require "spoonacular.model.inline_object_10
 local spoonacular_inline_object_11 = require "spoonacular.model.inline_object_11"
 local spoonacular_inline_object_12 = require "spoonacular.model.inline_object_12"
 local spoonacular_inline_object_13 = require "spoonacular.model.inline_object_13"
-local spoonacular_inline_object_8 = require "spoonacular.model.inline_object_8"
+local spoonacular_inline_object_14 = require "spoonacular.model.inline_object_14"
+local spoonacular_inline_object_15 = require "spoonacular.model.inline_object_15"
 local spoonacular_inline_object_9 = require "spoonacular.model.inline_object_9"
 
 local default_api = {}
@@ -50,7 +51,7 @@ local function new_default_api(authority, basePath, schemes)
 	}, default_api_mt)
 end
 
-function default_api:add_to_meal_plan(username, hash, inline_object_9)
+function default_api:add_to_meal_plan(username, hash, inline_object_11)
 	local req = http_request.new_from_uri({
 		scheme = self.default_scheme;
 		host = self.host;
@@ -69,7 +70,7 @@ function default_api:add_to_meal_plan(username, hash, inline_object_9)
 	--local var_accept = { "application/json" }
 	req.headers:upsert("content-type", "application/json")
 
-	req:set_body(dkjson.encode(inline_object_9))
+	req:set_body(dkjson.encode(inline_object_11))
 
 
 	-- make the HTTP call
@@ -102,7 +103,7 @@ function default_api:add_to_meal_plan(username, hash, inline_object_9)
 	end
 end
 
-function default_api:add_to_shopping_list(username, hash, inline_object_12)
+function default_api:add_to_shopping_list(username, hash, inline_object_14)
 	local req = http_request.new_from_uri({
 		scheme = self.default_scheme;
 		host = self.host;
@@ -121,7 +122,7 @@ function default_api:add_to_shopping_list(username, hash, inline_object_12)
 	--local var_accept = { "application/json" }
 	req.headers:upsert("content-type", "application/json")
 
-	req:set_body(dkjson.encode(inline_object_12))
+	req:set_body(dkjson.encode(inline_object_14))
 
 
 	-- make the HTTP call
@@ -491,7 +492,7 @@ function default_api:classify_cuisine(title, ingredient_list)
 	end
 end
 
-function default_api:classify_grocery_product(inline_object_8, locale)
+function default_api:classify_grocery_product(inline_object_9, locale)
 	local req = http_request.new_from_uri({
 		scheme = self.default_scheme;
 		host = self.host;
@@ -510,7 +511,7 @@ function default_api:classify_grocery_product(inline_object_8, locale)
 	--local var_accept = { "application/json" }
 	req.headers:upsert("content-type", "application/json")
 
-	req:set_body(dkjson.encode(inline_object_8))
+	req:set_body(dkjson.encode(inline_object_9))
 
 
 	-- make the HTTP call
@@ -557,6 +558,162 @@ function default_api:classify_grocery_product_bulk(body, locale)
 	-- TODO: create a function to select proper accept
 	--local var_content_type = { "application/json" }
 	req.headers:upsert("accept", "application/json")
+
+	-- TODO: create a function to select proper content-type
+	--local var_accept = { "application/json" }
+	req.headers:upsert("content-type", "application/json")
+
+	req:set_body(dkjson.encode(body))
+
+
+	-- make the HTTP call
+	local headers, stream, errno = req:go()
+	if not headers then
+		return nil, stream, errno
+	end
+	local http_status = headers:get(":status")
+	if http_status:sub(1,1) == "2" then
+		local body, err, errno2 = stream:get_body_as_string()
+		-- exception when getting the HTTP body
+		if not body then
+			return nil, err, errno2
+		end
+		stream:shutdown()
+		local result, _, err3 = dkjson.decode(body)
+		-- exception when decoding the HTTP body
+		if result == nil then
+			return nil, err3
+		end
+		return spoonacular_TODO_OBJECT_MAPPING.cast(result), headers
+	else
+		local body, err, errno2 = stream:get_body_as_string()
+		if not body then
+			return nil, err, errno2
+		end
+		stream:shutdown()
+		-- return the error message (http body)
+		return nil, http_status, body
+	end
+end
+
+function default_api:clear_meal_plan_day(username, date, hash, inline_object_10)
+	local req = http_request.new_from_uri({
+		scheme = self.default_scheme;
+		host = self.host;
+		port = self.port;
+		path = string.format("%s/mealplanner/%s/day/%s?hash=%s",
+			self.basePath, username, date, http_util.encodeURIComponent(hash));
+	})
+
+	-- set HTTP verb
+	req.headers:upsert(":method", "DELETE")
+	-- TODO: create a function to select proper accept
+	--local var_content_type = { "" }
+	req.headers:upsert("accept", "")
+
+	-- TODO: create a function to select proper content-type
+	--local var_accept = { "application/json" }
+	req.headers:upsert("content-type", "application/json")
+
+	req:set_body(dkjson.encode(inline_object_10))
+
+
+	-- make the HTTP call
+	local headers, stream, errno = req:go()
+	if not headers then
+		return nil, stream, errno
+	end
+	local http_status = headers:get(":status")
+	if http_status:sub(1,1) == "2" then
+		local body, err, errno2 = stream:get_body_as_string()
+		-- exception when getting the HTTP body
+		if not body then
+			return nil, err, errno2
+		end
+		stream:shutdown()
+		local result, _, err3 = dkjson.decode(body)
+		-- exception when decoding the HTTP body
+		if result == nil then
+			return nil, err3
+		end
+		return spoonacular_TODO_OBJECT_MAPPING.cast(result), headers
+	else
+		local body, err, errno2 = stream:get_body_as_string()
+		if not body then
+			return nil, err, errno2
+		end
+		stream:shutdown()
+		-- return the error message (http body)
+		return nil, http_status, body
+	end
+end
+
+function default_api:compute_glycemic_load(body)
+	local req = http_request.new_from_uri({
+		scheme = self.default_scheme;
+		host = self.host;
+		port = self.port;
+		path = string.format("%s/food/ingredients/glycemicLoad",
+			self.basePath);
+	})
+
+	-- set HTTP verb
+	req.headers:upsert(":method", "POST")
+	-- TODO: create a function to select proper accept
+	--local var_content_type = { "application/json" }
+	req.headers:upsert("accept", "application/json")
+
+	-- TODO: create a function to select proper content-type
+	--local var_accept = { "application/json" }
+	req.headers:upsert("content-type", "application/json")
+
+	req:set_body(dkjson.encode(body))
+
+
+	-- make the HTTP call
+	local headers, stream, errno = req:go()
+	if not headers then
+		return nil, stream, errno
+	end
+	local http_status = headers:get(":status")
+	if http_status:sub(1,1) == "2" then
+		local body, err, errno2 = stream:get_body_as_string()
+		-- exception when getting the HTTP body
+		if not body then
+			return nil, err, errno2
+		end
+		stream:shutdown()
+		local result, _, err3 = dkjson.decode(body)
+		-- exception when decoding the HTTP body
+		if result == nil then
+			return nil, err3
+		end
+		return spoonacular_TODO_OBJECT_MAPPING.cast(result), headers
+	else
+		local body, err, errno2 = stream:get_body_as_string()
+		if not body then
+			return nil, err, errno2
+		end
+		stream:shutdown()
+		-- return the error message (http body)
+		return nil, http_status, body
+	end
+end
+
+function default_api:connect_user(body)
+	local req = http_request.new_from_uri({
+		scheme = self.default_scheme;
+		host = self.host;
+		port = self.port;
+		path = string.format("%s/users/connect",
+			self.basePath);
+	})
+
+	-- set HTTP verb
+	req.headers:upsert(":method", "POST")
+	-- TODO: create a function to select proper accept
+	--local var_content_type = { "" }
+	req.headers:upsert("accept", "")
 
 	-- TODO: create a function to select proper content-type
 	--local var_accept = { "application/json" }
@@ -705,7 +862,7 @@ function default_api:create_recipe_card(title, image, ingredients, instructions,
 	end
 end
 
-function default_api:delete_from_meal_plan(username, id, hash, inline_object_10)
+function default_api:delete_from_meal_plan(username, id, hash, inline_object_12)
 	local req = http_request.new_from_uri({
 		scheme = self.default_scheme;
 		host = self.host;
@@ -724,7 +881,7 @@ function default_api:delete_from_meal_plan(username, id, hash, inline_object_10)
 	--local var_accept = { "application/json" }
 	req.headers:upsert("content-type", "application/json")
 
-	req:set_body(dkjson.encode(inline_object_10))
+	req:set_body(dkjson.encode(inline_object_12))
 
 
 	-- make the HTTP call
@@ -757,7 +914,7 @@ function default_api:delete_from_meal_plan(username, id, hash, inline_object_10)
 	end
 end
 
-function default_api:delete_from_shopping_list(username, id, hash, inline_object_13)
+function default_api:delete_from_shopping_list(username, id, hash, inline_object_15)
 	local req = http_request.new_from_uri({
 		scheme = self.default_scheme;
 		host = self.host;
@@ -776,7 +933,7 @@ function default_api:delete_from_shopping_list(username, id, hash, inline_object
 	--local var_accept = { "application/json" }
 	req.headers:upsert("content-type", "application/json")
 
-	req:set_body(dkjson.encode(inline_object_13))
+	req:set_body(dkjson.encode(inline_object_15))
 
 
 	-- make the HTTP call
@@ -954,7 +1111,7 @@ function default_api:generate_meal_plan(time_frame, target_calories, diet, exclu
 	end
 end
 
-function default_api:generate_shopping_list(username, start_date, end_date, hash, inline_object_11)
+function default_api:generate_shopping_list(username, start_date, end_date, hash, inline_object_13)
 	local req = http_request.new_from_uri({
 		scheme = self.default_scheme;
 		host = self.host;
@@ -973,7 +1130,7 @@ function default_api:generate_shopping_list(username, start_date, end_date, hash
 	--local var_accept = { "application/json" }
 	req.headers:upsert("content-type", "application/json")
 
-	req:set_body(dkjson.encode(inline_object_11))
+	req:set_body(dkjson.encode(inline_object_13))
 
 
 	-- make the HTTP call
@@ -1972,6 +2129,52 @@ function default_api:get_recipe_price_breakdown_by_id(id)
 	end
 end
 
+function default_api:get_recipe_taste_by_id(id)
+	local req = http_request.new_from_uri({
+		scheme = self.default_scheme;
+		host = self.host;
+		port = self.port;
+		path = string.format("%s/recipes/%s/tasteWidget.json",
+			self.basePath, id);
+	})
+
+	-- set HTTP verb
+	req.headers:upsert(":method", "GET")
+	-- TODO: create a function to select proper content-type
+	--local var_accept = { "application/json" }
+	req.headers:upsert("content-type", "application/json")
+
+
+	-- make the HTTP call
+	local headers, stream, errno = req:go()
+	if not headers then
+		return nil, stream, errno
+	end
+	local http_status = headers:get(":status")
+	if http_status:sub(1,1) == "2" then
+		local body, err, errno2 = stream:get_body_as_string()
+		-- exception when getting the HTTP body
+		if not body then
+			return nil, err, errno2
+		end
+		stream:shutdown()
+		local result, _, err3 = dkjson.decode(body)
+		-- exception when decoding the HTTP body
+		if result == nil then
+			return nil, err3
+		end
+		return spoonacular_TODO_OBJECT_MAPPING.cast(result), headers
+	else
+		local body, err, errno2 = stream:get_body_as_string()
+		if not body then
+			return nil, err, errno2
+		end
+		stream:shutdown()
+		-- return the error message (http body)
+		return nil, http_status, body
+	end
+end
+
 function default_api:get_shopping_list(username, hash)
 	local req = http_request.new_from_uri({
 		scheme = self.default_scheme;
@@ -2340,6 +2543,52 @@ function default_api:image_classification_by_url(image_url)
 	end
 end
 
+function default_api:ingredient_search(query, add_children, min_protein_percent, max_protein_percent, min_fat_percent, max_fat_percent, min_carbs_percent, max_carbs_percent, meta_information, intolerances, sort, sort_direction, offset, Number_)
+	local req = http_request.new_from_uri({
+		scheme = self.default_scheme;
+		host = self.host;
+		port = self.port;
+		path = string.format("%s/food/ingredients/search?query=%s&addChildren=%s&minProteinPercent=%s&maxProteinPercent=%s&minFatPercent=%s&maxFatPercent=%s&minCarbsPercent=%s&maxCarbsPercent=%s&metaInformation=%s&intolerances=%s&sort=%s&sortDirection=%s&offset=%s&number=%s",
+			self.basePath, http_util.encodeURIComponent(query), http_util.encodeURIComponent(add_children), http_util.encodeURIComponent(min_protein_percent), http_util.encodeURIComponent(max_protein_percent), http_util.encodeURIComponent(min_fat_percent), http_util.encodeURIComponent(max_fat_percent), http_util.encodeURIComponent(min_carbs_percent), http_util.encodeURIComponent(max_carbs_percent), http_util.encodeURIComponent(meta_information), http_util.encodeURIComponent(intolerances), http_util.encodeURIComponent(sort), http_util.encodeURIComponent(sort_direction), http_util.encodeURIComponent(offset), http_util.encodeURIComponent(Number_));
+	})
+
+	-- set HTTP verb
+	req.headers:upsert(":method", "GET")
+	-- TODO: create a function to select proper content-type
+	--local var_accept = { "application/json" }
+	req.headers:upsert("content-type", "application/json")
+
+
+	-- make the HTTP call
+	local headers, stream, errno = req:go()
+	if not headers then
+		return nil, stream, errno
+	end
+	local http_status = headers:get(":status")
+	if http_status:sub(1,1) == "2" then
+		local body, err, errno2 = stream:get_body_as_string()
+		-- exception when getting the HTTP body
+		if not body then
+			return nil, err, errno2
+		end
+		stream:shutdown()
+		local result, _, err3 = dkjson.decode(body)
+		-- exception when decoding the HTTP body
+		if result == nil then
+			return nil, err3
+		end
+		return spoonacular_TODO_OBJECT_MAPPING.cast(result), headers
+	else
+		local body, err, errno2 = stream:get_body_as_string()
+		if not body then
+			return nil, err, errno2
+		end
+		stream:shutdown()
+		-- return the error message (http body)
+		return nil, http_status, body
+	end
+end
+
 function default_api:map_ingredients_to_grocery_products(body)
 	local req = http_request.new_from_uri({
 		scheme = self.default_scheme;
@@ -2454,6 +2703,52 @@ function default_api:quick_answer(q)
 		port = self.port;
 		path = string.format("%s/recipes/quickAnswer?q=%s",
 			self.basePath, http_util.encodeURIComponent(q));
+	})
+
+	-- set HTTP verb
+	req.headers:upsert(":method", "GET")
+	-- TODO: create a function to select proper content-type
+	--local var_accept = { "application/json" }
+	req.headers:upsert("content-type", "application/json")
+
+
+	-- make the HTTP call
+	local headers, stream, errno = req:go()
+	if not headers then
+		return nil, stream, errno
+	end
+	local http_status = headers:get(":status")
+	if http_status:sub(1,1) == "2" then
+		local body, err, errno2 = stream:get_body_as_string()
+		-- exception when getting the HTTP body
+		if not body then
+			return nil, err, errno2
+		end
+		stream:shutdown()
+		local result, _, err3 = dkjson.decode(body)
+		-- exception when decoding the HTTP body
+		if result == nil then
+			return nil, err3
+		end
+		return spoonacular_TODO_OBJECT_MAPPING.cast(result), headers
+	else
+		local body, err, errno2 = stream:get_body_as_string()
+		if not body then
+			return nil, err, errno2
+		end
+		stream:shutdown()
+		-- return the error message (http body)
+		return nil, http_status, body
+	end
+end
+
+function default_api:search_all_food(query, offset, Number_)
+	local req = http_request.new_from_uri({
+		scheme = self.default_scheme;
+		host = self.host;
+		port = self.port;
+		path = string.format("%s/food/search?query=%s&offset=%s&number=%s",
+			self.basePath, http_util.encodeURIComponent(query), http_util.encodeURIComponent(offset), http_util.encodeURIComponent(Number_));
 	})
 
 	-- set HTTP verb
@@ -2723,13 +3018,13 @@ function default_api:search_menu_items(query, min_calories, max_calories, min_ca
 	end
 end
 
-function default_api:search_recipes(query, cuisine, diet, exclude_ingredients, intolerances, offset, Number_, limit_license, instructions_required)
+function default_api:search_recipes(query, cuisine, exclude_cuisine, diet, intolerances, equipment, include_ingredients, exclude_ingredients, type, instructions_required, fill_ingredients, add_recipe_information, add_recipe_nutrition, author, tags, recipe_box_id, title_match, max_ready_time, ignore_pantry, sort, sort_direction, min_carbs, max_carbs, min_protein, max_protein, min_calories, max_calories, min_fat, max_fat, min_alcohol, max_alcohol, min_caffeine, max_caffeine, min_copper, max_copper, min_calcium, max_calcium, min_choline, max_choline, min_cholesterol, max_cholesterol, min_fluoride, max_fluoride, min_saturated_fat, max_saturated_fat, min_vitamin_a, max_vitamin_a, min_vitamin_c, max_vitamin_c, min_vitamin_d, max_vitamin_d, min_vitamin_e, max_vitamin_e, min_vitamin_k, max_vitamin_k, min_vitamin_b1, max_vitamin_b1, min_vitamin_b2, max_vitamin_b2, min_vitamin_b5, max_vitamin_b5, min_vitamin_b3, max_vitamin_b3, min_vitamin_b6, max_vitamin_b6, min_vitamin_b12, max_vitamin_b12, min_fiber, max_fiber, min_folate, max_folate, min_folic_acid, max_folic_acid, min_iodine, max_iodine, min_iron, max_iron, min_magnesium, max_magnesium, min_manganese, max_manganese, min_phosphorus, max_phosphorus, min_potassium, max_potassium, min_selenium, max_selenium, min_sodium, max_sodium, min_sugar, max_sugar, min_zinc, max_zinc, offset, Number_, limit_license)
 	local req = http_request.new_from_uri({
 		scheme = self.default_scheme;
 		host = self.host;
 		port = self.port;
-		path = string.format("%s/recipes/search?query=%s&cuisine=%s&diet=%s&excludeIngredients=%s&intolerances=%s&offset=%s&number=%s&limitLicense=%s&instructionsRequired=%s",
-			self.basePath, http_util.encodeURIComponent(query), http_util.encodeURIComponent(cuisine), http_util.encodeURIComponent(diet), http_util.encodeURIComponent(exclude_ingredients), http_util.encodeURIComponent(intolerances), http_util.encodeURIComponent(offset), http_util.encodeURIComponent(Number_), http_util.encodeURIComponent(limit_license), http_util.encodeURIComponent(instructions_required));
+		path = string.format("%s/recipes/complexSearch?query=%s&cuisine=%s&excludeCuisine=%s&diet=%s&intolerances=%s&equipment=%s&includeIngredients=%s&excludeIngredients=%s&type=%s&instructionsRequired=%s&fillIngredients=%s&addRecipeInformation=%s&addRecipeNutrition=%s&author=%s&tags=%s&recipeBoxId=%s&titleMatch=%s&maxReadyTime=%s&ignorePantry=%s&sort=%s&sortDirection=%s&minCarbs=%s&maxCarbs=%s&minProtein=%s&maxProtein=%s&minCalories=%s&maxCalories=%s&minFat=%s&maxFat=%s&minAlcohol=%s&maxAlcohol=%s&minCaffeine=%s&maxCaffeine=%s&minCopper=%s&maxCopper=%s&minCalcium=%s&maxCalcium=%s&minCholine=%s&maxCholine=%s&minCholesterol=%s&maxCholesterol=%s&minFluoride=%s&maxFluoride=%s&minSaturatedFat=%s&maxSaturatedFat=%s&minVitaminA=%s&maxVitaminA=%s&minVitaminC=%s&maxVitaminC=%s&minVitaminD=%s&maxVitaminD=%s&minVitaminE=%s&maxVitaminE=%s&minVitaminK=%s&maxVitaminK=%s&minVitaminB1=%s&maxVitaminB1=%s&minVitaminB2=%s&maxVitaminB2=%s&minVitaminB5=%s&maxVitaminB5=%s&minVitaminB3=%s&maxVitaminB3=%s&minVitaminB6=%s&maxVitaminB6=%s&minVitaminB12=%s&maxVitaminB12=%s&minFiber=%s&maxFiber=%s&minFolate=%s&maxFolate=%s&minFolicAcid=%s&maxFolicAcid=%s&minIodine=%s&maxIodine=%s&minIron=%s&maxIron=%s&minMagnesium=%s&maxMagnesium=%s&minManganese=%s&maxManganese=%s&minPhosphorus=%s&maxPhosphorus=%s&minPotassium=%s&maxPotassium=%s&minSelenium=%s&maxSelenium=%s&minSodium=%s&maxSodium=%s&minSugar=%s&maxSugar=%s&minZinc=%s&maxZinc=%s&offset=%s&number=%s&limitLicense=%s",
+			self.basePath, http_util.encodeURIComponent(query), http_util.encodeURIComponent(cuisine), http_util.encodeURIComponent(exclude_cuisine), http_util.encodeURIComponent(diet), http_util.encodeURIComponent(intolerances), http_util.encodeURIComponent(equipment), http_util.encodeURIComponent(include_ingredients), http_util.encodeURIComponent(exclude_ingredients), http_util.encodeURIComponent(type), http_util.encodeURIComponent(instructions_required), http_util.encodeURIComponent(fill_ingredients), http_util.encodeURIComponent(add_recipe_information), http_util.encodeURIComponent(add_recipe_nutrition), http_util.encodeURIComponent(author), http_util.encodeURIComponent(tags), http_util.encodeURIComponent(recipe_box_id), http_util.encodeURIComponent(title_match), http_util.encodeURIComponent(max_ready_time), http_util.encodeURIComponent(ignore_pantry), http_util.encodeURIComponent(sort), http_util.encodeURIComponent(sort_direction), http_util.encodeURIComponent(min_carbs), http_util.encodeURIComponent(max_carbs), http_util.encodeURIComponent(min_protein), http_util.encodeURIComponent(max_protein), http_util.encodeURIComponent(min_calories), http_util.encodeURIComponent(max_calories), http_util.encodeURIComponent(min_fat), http_util.encodeURIComponent(max_fat), http_util.encodeURIComponent(min_alcohol), http_util.encodeURIComponent(max_alcohol), http_util.encodeURIComponent(min_caffeine), http_util.encodeURIComponent(max_caffeine), http_util.encodeURIComponent(min_copper), http_util.encodeURIComponent(max_copper), http_util.encodeURIComponent(min_calcium), http_util.encodeURIComponent(max_calcium), http_util.encodeURIComponent(min_choline), http_util.encodeURIComponent(max_choline), http_util.encodeURIComponent(min_cholesterol), http_util.encodeURIComponent(max_cholesterol), http_util.encodeURIComponent(min_fluoride), http_util.encodeURIComponent(max_fluoride), http_util.encodeURIComponent(min_saturated_fat), http_util.encodeURIComponent(max_saturated_fat), http_util.encodeURIComponent(min_vitamin_a), http_util.encodeURIComponent(max_vitamin_a), http_util.encodeURIComponent(min_vitamin_c), http_util.encodeURIComponent(max_vitamin_c), http_util.encodeURIComponent(min_vitamin_d), http_util.encodeURIComponent(max_vitamin_d), http_util.encodeURIComponent(min_vitamin_e), http_util.encodeURIComponent(max_vitamin_e), http_util.encodeURIComponent(min_vitamin_k), http_util.encodeURIComponent(max_vitamin_k), http_util.encodeURIComponent(min_vitamin_b1), http_util.encodeURIComponent(max_vitamin_b1), http_util.encodeURIComponent(min_vitamin_b2), http_util.encodeURIComponent(max_vitamin_b2), http_util.encodeURIComponent(min_vitamin_b5), http_util.encodeURIComponent(max_vitamin_b5), http_util.encodeURIComponent(min_vitamin_b3), http_util.encodeURIComponent(max_vitamin_b3), http_util.encodeURIComponent(min_vitamin_b6), http_util.encodeURIComponent(max_vitamin_b6), http_util.encodeURIComponent(min_vitamin_b12), http_util.encodeURIComponent(max_vitamin_b12), http_util.encodeURIComponent(min_fiber), http_util.encodeURIComponent(max_fiber), http_util.encodeURIComponent(min_folate), http_util.encodeURIComponent(max_folate), http_util.encodeURIComponent(min_folic_acid), http_util.encodeURIComponent(max_folic_acid), http_util.encodeURIComponent(min_iodine), http_util.encodeURIComponent(max_iodine), http_util.encodeURIComponent(min_iron), http_util.encodeURIComponent(max_iron), http_util.encodeURIComponent(min_magnesium), http_util.encodeURIComponent(max_magnesium), http_util.encodeURIComponent(min_manganese), http_util.encodeURIComponent(max_manganese), http_util.encodeURIComponent(min_phosphorus), http_util.encodeURIComponent(max_phosphorus), http_util.encodeURIComponent(min_potassium), http_util.encodeURIComponent(max_potassium), http_util.encodeURIComponent(min_selenium), http_util.encodeURIComponent(max_selenium), http_util.encodeURIComponent(min_sodium), http_util.encodeURIComponent(max_sodium), http_util.encodeURIComponent(min_sugar), http_util.encodeURIComponent(max_sugar), http_util.encodeURIComponent(min_zinc), http_util.encodeURIComponent(max_zinc), http_util.encodeURIComponent(offset), http_util.encodeURIComponent(Number_), http_util.encodeURIComponent(limit_license));
 	})
 
 	-- set HTTP verb
@@ -2822,52 +3117,6 @@ function default_api:search_recipes_by_nutrients(min_carbs, max_carbs, min_prote
 		port = self.port;
 		path = string.format("%s/recipes/findByNutrients?minCarbs=%s&maxCarbs=%s&minProtein=%s&maxProtein=%s&minCalories=%s&maxCalories=%s&minFat=%s&maxFat=%s&minAlcohol=%s&maxAlcohol=%s&minCaffeine=%s&maxCaffeine=%s&minCopper=%s&maxCopper=%s&minCalcium=%s&maxCalcium=%s&minCholine=%s&maxCholine=%s&minCholesterol=%s&maxCholesterol=%s&minFluoride=%s&maxFluoride=%s&minSaturatedFat=%s&maxSaturatedFat=%s&minVitaminA=%s&maxVitaminA=%s&minVitaminC=%s&maxVitaminC=%s&minVitaminD=%s&maxVitaminD=%s&minVitaminE=%s&maxVitaminE=%s&minVitaminK=%s&maxVitaminK=%s&minVitaminB1=%s&maxVitaminB1=%s&minVitaminB2=%s&maxVitaminB2=%s&minVitaminB5=%s&maxVitaminB5=%s&minVitaminB3=%s&maxVitaminB3=%s&minVitaminB6=%s&maxVitaminB6=%s&minVitaminB12=%s&maxVitaminB12=%s&minFiber=%s&maxFiber=%s&minFolate=%s&maxFolate=%s&minFolicAcid=%s&maxFolicAcid=%s&minIodine=%s&maxIodine=%s&minIron=%s&maxIron=%s&minMagnesium=%s&maxMagnesium=%s&minManganese=%s&maxManganese=%s&minPhosphorus=%s&maxPhosphorus=%s&minPotassium=%s&maxPotassium=%s&minSelenium=%s&maxSelenium=%s&minSodium=%s&maxSodium=%s&minSugar=%s&maxSugar=%s&minZinc=%s&maxZinc=%s&offset=%s&number=%s&random=%s&limitLicense=%s",
 			self.basePath, http_util.encodeURIComponent(min_carbs), http_util.encodeURIComponent(max_carbs), http_util.encodeURIComponent(min_protein), http_util.encodeURIComponent(max_protein), http_util.encodeURIComponent(min_calories), http_util.encodeURIComponent(max_calories), http_util.encodeURIComponent(min_fat), http_util.encodeURIComponent(max_fat), http_util.encodeURIComponent(min_alcohol), http_util.encodeURIComponent(max_alcohol), http_util.encodeURIComponent(min_caffeine), http_util.encodeURIComponent(max_caffeine), http_util.encodeURIComponent(min_copper), http_util.encodeURIComponent(max_copper), http_util.encodeURIComponent(min_calcium), http_util.encodeURIComponent(max_calcium), http_util.encodeURIComponent(min_choline), http_util.encodeURIComponent(max_choline), http_util.encodeURIComponent(min_cholesterol), http_util.encodeURIComponent(max_cholesterol), http_util.encodeURIComponent(min_fluoride), http_util.encodeURIComponent(max_fluoride), http_util.encodeURIComponent(min_saturated_fat), http_util.encodeURIComponent(max_saturated_fat), http_util.encodeURIComponent(min_vitamin_a), http_util.encodeURIComponent(max_vitamin_a), http_util.encodeURIComponent(min_vitamin_c), http_util.encodeURIComponent(max_vitamin_c), http_util.encodeURIComponent(min_vitamin_d), http_util.encodeURIComponent(max_vitamin_d), http_util.encodeURIComponent(min_vitamin_e), http_util.encodeURIComponent(max_vitamin_e), http_util.encodeURIComponent(min_vitamin_k), http_util.encodeURIComponent(max_vitamin_k), http_util.encodeURIComponent(min_vitamin_b1), http_util.encodeURIComponent(max_vitamin_b1), http_util.encodeURIComponent(min_vitamin_b2), http_util.encodeURIComponent(max_vitamin_b2), http_util.encodeURIComponent(min_vitamin_b5), http_util.encodeURIComponent(max_vitamin_b5), http_util.encodeURIComponent(min_vitamin_b3), http_util.encodeURIComponent(max_vitamin_b3), http_util.encodeURIComponent(min_vitamin_b6), http_util.encodeURIComponent(max_vitamin_b6), http_util.encodeURIComponent(min_vitamin_b12), http_util.encodeURIComponent(max_vitamin_b12), http_util.encodeURIComponent(min_fiber), http_util.encodeURIComponent(max_fiber), http_util.encodeURIComponent(min_folate), http_util.encodeURIComponent(max_folate), http_util.encodeURIComponent(min_folic_acid), http_util.encodeURIComponent(max_folic_acid), http_util.encodeURIComponent(min_iodine), http_util.encodeURIComponent(max_iodine), http_util.encodeURIComponent(min_iron), http_util.encodeURIComponent(max_iron), http_util.encodeURIComponent(min_magnesium), http_util.encodeURIComponent(max_magnesium), http_util.encodeURIComponent(min_manganese), http_util.encodeURIComponent(max_manganese), http_util.encodeURIComponent(min_phosphorus), http_util.encodeURIComponent(max_phosphorus), http_util.encodeURIComponent(min_potassium), http_util.encodeURIComponent(max_potassium), http_util.encodeURIComponent(min_selenium), http_util.encodeURIComponent(max_selenium), http_util.encodeURIComponent(min_sodium), http_util.encodeURIComponent(max_sodium), http_util.encodeURIComponent(min_sugar), http_util.encodeURIComponent(max_sugar), http_util.encodeURIComponent(min_zinc), http_util.encodeURIComponent(max_zinc), http_util.encodeURIComponent(offset), http_util.encodeURIComponent(Number_), http_util.encodeURIComponent(random), http_util.encodeURIComponent(limit_license));
-	})
-
-	-- set HTTP verb
-	req.headers:upsert(":method", "GET")
-	-- TODO: create a function to select proper content-type
-	--local var_accept = { "application/json" }
-	req.headers:upsert("content-type", "application/json")
-
-
-	-- make the HTTP call
-	local headers, stream, errno = req:go()
-	if not headers then
-		return nil, stream, errno
-	end
-	local http_status = headers:get(":status")
-	if http_status:sub(1,1) == "2" then
-		local body, err, errno2 = stream:get_body_as_string()
-		-- exception when getting the HTTP body
-		if not body then
-			return nil, err, errno2
-		end
-		stream:shutdown()
-		local result, _, err3 = dkjson.decode(body)
-		-- exception when decoding the HTTP body
-		if result == nil then
-			return nil, err3
-		end
-		return spoonacular_TODO_OBJECT_MAPPING.cast(result), headers
-	else
-		local body, err, errno2 = stream:get_body_as_string()
-		if not body then
-			return nil, err, errno2
-		end
-		stream:shutdown()
-		-- return the error message (http body)
-		return nil, http_status, body
-	end
-end
-
-function default_api:search_recipes_complex(query, cuisine, exclude_cuisine, diet, intolerances, equipment, include_ingredients, exclude_ingredients, type, instructions_required, fill_ingredients, add_recipe_information, add_recipe_nutrition, author, tags, recipe_box_id, title_match, max_ready_time, ignore_pantry, sort, sort_direction, min_carbs, max_carbs, min_protein, max_protein, min_calories, max_calories, min_fat, max_fat, min_alcohol, max_alcohol, min_caffeine, max_caffeine, min_copper, max_copper, min_calcium, max_calcium, min_choline, max_choline, min_cholesterol, max_cholesterol, min_fluoride, max_fluoride, min_saturated_fat, max_saturated_fat, min_vitamin_a, max_vitamin_a, min_vitamin_c, max_vitamin_c, min_vitamin_d, max_vitamin_d, min_vitamin_e, max_vitamin_e, min_vitamin_k, max_vitamin_k, min_vitamin_b1, max_vitamin_b1, min_vitamin_b2, max_vitamin_b2, min_vitamin_b5, max_vitamin_b5, min_vitamin_b3, max_vitamin_b3, min_vitamin_b6, max_vitamin_b6, min_vitamin_b12, max_vitamin_b12, min_fiber, max_fiber, min_folate, max_folate, min_folic_acid, max_folic_acid, min_iodine, max_iodine, min_iron, max_iron, min_magnesium, max_magnesium, min_manganese, max_manganese, min_phosphorus, max_phosphorus, min_potassium, max_potassium, min_selenium, max_selenium, min_sodium, max_sodium, min_sugar, max_sugar, min_zinc, max_zinc, offset, Number_, limit_license)
-	local req = http_request.new_from_uri({
-		scheme = self.default_scheme;
-		host = self.host;
-		port = self.port;
-		path = string.format("%s/recipes/complexSearch?query=%s&cuisine=%s&excludeCuisine=%s&diet=%s&intolerances=%s&equipment=%s&includeIngredients=%s&excludeIngredients=%s&type=%s&instructionsRequired=%s&fillIngredients=%s&addRecipeInformation=%s&addRecipeNutrition=%s&author=%s&tags=%s&recipeBoxId=%s&titleMatch=%s&maxReadyTime=%s&ignorePantry=%s&sort=%s&sortDirection=%s&minCarbs=%s&maxCarbs=%s&minProtein=%s&maxProtein=%s&minCalories=%s&maxCalories=%s&minFat=%s&maxFat=%s&minAlcohol=%s&maxAlcohol=%s&minCaffeine=%s&maxCaffeine=%s&minCopper=%s&maxCopper=%s&minCalcium=%s&maxCalcium=%s&minCholine=%s&maxCholine=%s&minCholesterol=%s&maxCholesterol=%s&minFluoride=%s&maxFluoride=%s&minSaturatedFat=%s&maxSaturatedFat=%s&minVitaminA=%s&maxVitaminA=%s&minVitaminC=%s&maxVitaminC=%s&minVitaminD=%s&maxVitaminD=%s&minVitaminE=%s&maxVitaminE=%s&minVitaminK=%s&maxVitaminK=%s&minVitaminB1=%s&maxVitaminB1=%s&minVitaminB2=%s&maxVitaminB2=%s&minVitaminB5=%s&maxVitaminB5=%s&minVitaminB3=%s&maxVitaminB3=%s&minVitaminB6=%s&maxVitaminB6=%s&minVitaminB12=%s&maxVitaminB12=%s&minFiber=%s&maxFiber=%s&minFolate=%s&maxFolate=%s&minFolicAcid=%s&maxFolicAcid=%s&minIodine=%s&maxIodine=%s&minIron=%s&maxIron=%s&minMagnesium=%s&maxMagnesium=%s&minManganese=%s&maxManganese=%s&minPhosphorus=%s&maxPhosphorus=%s&minPotassium=%s&maxPotassium=%s&minSelenium=%s&maxSelenium=%s&minSodium=%s&maxSodium=%s&minSugar=%s&maxSugar=%s&minZinc=%s&maxZinc=%s&offset=%s&number=%s&limitLicense=%s",
-			self.basePath, http_util.encodeURIComponent(query), http_util.encodeURIComponent(cuisine), http_util.encodeURIComponent(exclude_cuisine), http_util.encodeURIComponent(diet), http_util.encodeURIComponent(intolerances), http_util.encodeURIComponent(equipment), http_util.encodeURIComponent(include_ingredients), http_util.encodeURIComponent(exclude_ingredients), http_util.encodeURIComponent(type), http_util.encodeURIComponent(instructions_required), http_util.encodeURIComponent(fill_ingredients), http_util.encodeURIComponent(add_recipe_information), http_util.encodeURIComponent(add_recipe_nutrition), http_util.encodeURIComponent(author), http_util.encodeURIComponent(tags), http_util.encodeURIComponent(recipe_box_id), http_util.encodeURIComponent(title_match), http_util.encodeURIComponent(max_ready_time), http_util.encodeURIComponent(ignore_pantry), http_util.encodeURIComponent(sort), http_util.encodeURIComponent(sort_direction), http_util.encodeURIComponent(min_carbs), http_util.encodeURIComponent(max_carbs), http_util.encodeURIComponent(min_protein), http_util.encodeURIComponent(max_protein), http_util.encodeURIComponent(min_calories), http_util.encodeURIComponent(max_calories), http_util.encodeURIComponent(min_fat), http_util.encodeURIComponent(max_fat), http_util.encodeURIComponent(min_alcohol), http_util.encodeURIComponent(max_alcohol), http_util.encodeURIComponent(min_caffeine), http_util.encodeURIComponent(max_caffeine), http_util.encodeURIComponent(min_copper), http_util.encodeURIComponent(max_copper), http_util.encodeURIComponent(min_calcium), http_util.encodeURIComponent(max_calcium), http_util.encodeURIComponent(min_choline), http_util.encodeURIComponent(max_choline), http_util.encodeURIComponent(min_cholesterol), http_util.encodeURIComponent(max_cholesterol), http_util.encodeURIComponent(min_fluoride), http_util.encodeURIComponent(max_fluoride), http_util.encodeURIComponent(min_saturated_fat), http_util.encodeURIComponent(max_saturated_fat), http_util.encodeURIComponent(min_vitamin_a), http_util.encodeURIComponent(max_vitamin_a), http_util.encodeURIComponent(min_vitamin_c), http_util.encodeURIComponent(max_vitamin_c), http_util.encodeURIComponent(min_vitamin_d), http_util.encodeURIComponent(max_vitamin_d), http_util.encodeURIComponent(min_vitamin_e), http_util.encodeURIComponent(max_vitamin_e), http_util.encodeURIComponent(min_vitamin_k), http_util.encodeURIComponent(max_vitamin_k), http_util.encodeURIComponent(min_vitamin_b1), http_util.encodeURIComponent(max_vitamin_b1), http_util.encodeURIComponent(min_vitamin_b2), http_util.encodeURIComponent(max_vitamin_b2), http_util.encodeURIComponent(min_vitamin_b5), http_util.encodeURIComponent(max_vitamin_b5), http_util.encodeURIComponent(min_vitamin_b3), http_util.encodeURIComponent(max_vitamin_b3), http_util.encodeURIComponent(min_vitamin_b6), http_util.encodeURIComponent(max_vitamin_b6), http_util.encodeURIComponent(min_vitamin_b12), http_util.encodeURIComponent(max_vitamin_b12), http_util.encodeURIComponent(min_fiber), http_util.encodeURIComponent(max_fiber), http_util.encodeURIComponent(min_folate), http_util.encodeURIComponent(max_folate), http_util.encodeURIComponent(min_folic_acid), http_util.encodeURIComponent(max_folic_acid), http_util.encodeURIComponent(min_iodine), http_util.encodeURIComponent(max_iodine), http_util.encodeURIComponent(min_iron), http_util.encodeURIComponent(max_iron), http_util.encodeURIComponent(min_magnesium), http_util.encodeURIComponent(max_magnesium), http_util.encodeURIComponent(min_manganese), http_util.encodeURIComponent(max_manganese), http_util.encodeURIComponent(min_phosphorus), http_util.encodeURIComponent(max_phosphorus), http_util.encodeURIComponent(min_potassium), http_util.encodeURIComponent(max_potassium), http_util.encodeURIComponent(min_selenium), http_util.encodeURIComponent(max_selenium), http_util.encodeURIComponent(min_sodium), http_util.encodeURIComponent(max_sodium), http_util.encodeURIComponent(min_sugar), http_util.encodeURIComponent(max_sugar), http_util.encodeURIComponent(min_zinc), http_util.encodeURIComponent(max_zinc), http_util.encodeURIComponent(offset), http_util.encodeURIComponent(Number_), http_util.encodeURIComponent(limit_license));
 	})
 
 	-- set HTTP verb
@@ -3045,7 +3294,7 @@ function default_api:talk_to_chatbot(text, context_id)
 	end
 end
 
-function default_api:visualize_equipment(ingredient_list, servings, view, default_css, show_backlink)
+function default_api:visualize_equipment(instructions, view, default_css, show_backlink)
 	local req = http_request.new_from_uri({
 		scheme = self.default_scheme;
 		host = self.host;
@@ -3065,8 +3314,7 @@ function default_api:visualize_equipment(ingredient_list, servings, view, defaul
 	req.headers:upsert("content-type", "text/html")
 
 	req:set_body(http_util.dict_to_query({
-		["ingredientList"] = ingredient_list;
-		["servings"] = servings;
+		["instructions"] = instructions;
 		["view"] = view;
 		["defaultCss"] = default_css;
 		["showBacklink"] = show_backlink;
@@ -3510,6 +3758,105 @@ function default_api:visualize_recipe_price_breakdown_by_id(id, default_css)
 		port = self.port;
 		path = string.format("%s/recipes/%s/priceBreakdownWidget?defaultCss=%s",
 			self.basePath, id, http_util.encodeURIComponent(default_css));
+	})
+
+	-- set HTTP verb
+	req.headers:upsert(":method", "GET")
+	-- TODO: create a function to select proper content-type
+	--local var_accept = { "text/html" }
+	req.headers:upsert("content-type", "text/html")
+
+
+	-- make the HTTP call
+	local headers, stream, errno = req:go()
+	if not headers then
+		return nil, stream, errno
+	end
+	local http_status = headers:get(":status")
+	if http_status:sub(1,1) == "2" then
+		local body, err, errno2 = stream:get_body_as_string()
+		-- exception when getting the HTTP body
+		if not body then
+			return nil, err, errno2
+		end
+		stream:shutdown()
+		local result, _, err3 = dkjson.decode(body)
+		-- exception when decoding the HTTP body
+		if result == nil then
+			return nil, err3
+		end
+		return result, headers
+	else
+		local body, err, errno2 = stream:get_body_as_string()
+		if not body then
+			return nil, err, errno2
+		end
+		stream:shutdown()
+		-- return the error message (http body)
+		return nil, http_status, body
+	end
+end
+
+function default_api:visualize_recipe_taste(ingredient_list)
+	local req = http_request.new_from_uri({
+		scheme = self.default_scheme;
+		host = self.host;
+		port = self.port;
+		path = string.format("%s/recipes/visualizeTaste",
+			self.basePath);
+	})
+
+	-- set HTTP verb
+	req.headers:upsert(":method", "POST")
+	-- TODO: create a function to select proper accept
+	--local var_content_type = { "application/x-www-form-urlencoded" }
+	req.headers:upsert("accept", "application/x-www-form-urlencoded")
+
+	-- TODO: create a function to select proper content-type
+	--local var_accept = { "text/html" }
+	req.headers:upsert("content-type", "text/html")
+
+	req:set_body(http_util.dict_to_query({
+		["ingredientList"] = ingredient_list;
+	}))
+
+	-- make the HTTP call
+	local headers, stream, errno = req:go()
+	if not headers then
+		return nil, stream, errno
+	end
+	local http_status = headers:get(":status")
+	if http_status:sub(1,1) == "2" then
+		local body, err, errno2 = stream:get_body_as_string()
+		-- exception when getting the HTTP body
+		if not body then
+			return nil, err, errno2
+		end
+		stream:shutdown()
+		local result, _, err3 = dkjson.decode(body)
+		-- exception when decoding the HTTP body
+		if result == nil then
+			return nil, err3
+		end
+		return result, headers
+	else
+		local body, err, errno2 = stream:get_body_as_string()
+		if not body then
+			return nil, err, errno2
+		end
+		stream:shutdown()
+		-- return the error message (http body)
+		return nil, http_status, body
+	end
+end
+
+function default_api:visualize_recipe_taste_by_id(id)
+	local req = http_request.new_from_uri({
+		scheme = self.default_scheme;
+		host = self.host;
+		port = self.port;
+		path = string.format("%s/recipes/%s/tasteWidget",
+			self.basePath, id);
 	})
 
 	-- set HTTP verb

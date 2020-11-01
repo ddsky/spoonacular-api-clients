@@ -21,7 +21,8 @@ require 'openapi_client/models/inline_object10'
 require 'openapi_client/models/inline_object11'
 require 'openapi_client/models/inline_object12'
 require 'openapi_client/models/inline_object13'
-require 'openapi_client/models/inline_object8'
+require 'openapi_client/models/inline_object14'
+require 'openapi_client/models/inline_object15'
 require 'openapi_client/models/inline_object9'
 
 # APIs

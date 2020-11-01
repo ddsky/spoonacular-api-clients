@@ -13,8 +13,6 @@ public class InlineObject1  {
   private String ingredientList = null;
   @SerializedName("servings")
   private BigDecimal servings = null;
-  @SerializedName("mode")
-  private BigDecimal mode = null;
   @SerializedName("defaultCss")
   private Boolean defaultCss = null;
   @SerializedName("showBacklink")
@@ -40,17 +38,6 @@ public class InlineObject1  {
   }
   public void setServings(BigDecimal servings) {
     this.servings = servings;
-  }
-
-  /**
-   * The mode in which the widget should be delivered. 1 = separate views (compact), 2 = all in one view (full).
-   **/
-  @ApiModelProperty(value = "The mode in which the widget should be delivered. 1 = separate views (compact), 2 = all in one view (full).")
-  public BigDecimal getMode() {
-    return mode;
-  }
-  public void setMode(BigDecimal mode) {
-    this.mode = mode;
   }
 
   /**
@@ -87,7 +74,6 @@ public class InlineObject1  {
     InlineObject1 inlineObject1 = (InlineObject1) o;
     return (this.ingredientList == null ? inlineObject1.ingredientList == null : this.ingredientList.equals(inlineObject1.ingredientList)) &&
         (this.servings == null ? inlineObject1.servings == null : this.servings.equals(inlineObject1.servings)) &&
-        (this.mode == null ? inlineObject1.mode == null : this.mode.equals(inlineObject1.mode)) &&
         (this.defaultCss == null ? inlineObject1.defaultCss == null : this.defaultCss.equals(inlineObject1.defaultCss)) &&
         (this.showBacklink == null ? inlineObject1.showBacklink == null : this.showBacklink.equals(inlineObject1.showBacklink));
   }
@@ -97,7 +83,6 @@ public class InlineObject1  {
     int result = 17;
     result = 31 * result + (this.ingredientList == null ? 0: this.ingredientList.hashCode());
     result = 31 * result + (this.servings == null ? 0: this.servings.hashCode());
-    result = 31 * result + (this.mode == null ? 0: this.mode.hashCode());
     result = 31 * result + (this.defaultCss == null ? 0: this.defaultCss.hashCode());
     result = 31 * result + (this.showBacklink == null ? 0: this.showBacklink.hashCode());
     return result;
@@ -110,7 +95,6 @@ public class InlineObject1  {
     
     sb.append("  ingredientList: ").append(ingredientList).append("\n");
     sb.append("  servings: ").append(servings).append("\n");
-    sb.append("  mode: ").append(mode).append("\n");
     sb.append("  defaultCss: ").append(defaultCss).append("\n");
     sb.append("  showBacklink: ").append(showBacklink).append("\n");
     sb.append("}\n");

@@ -5,7 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **username** | **String** | The username. | 
-**id** | **Float** | The shopping list item id. | 
+**start_date** | **String** | The start date in the format yyyy-mm-dd. | 
+**end_date** | **String** | The end date in the format yyyy-mm-dd. | 
 **hash** | **String** | The private hash for the username. | 
 
 ## Code Sample
@@ -14,7 +15,8 @@ Name | Type | Description | Notes
 require 'OpenapiClient'
 
 instance = OpenapiClient::InlineObject13.new(username: dsky,
-                                 id: 15678,
+                                 start_date: 2020-06-01,
+                                 end_date: 2020-06-07,
                                  hash: 4b5v4398573406)
 ```
 

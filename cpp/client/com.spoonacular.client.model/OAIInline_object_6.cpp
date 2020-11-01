@@ -38,14 +38,11 @@ OAIInline_object_6::~OAIInline_object_6() {
 void
 OAIInline_object_6::init() {
     
+    m_title_isSet = false;
+    m_title_isValid = false;
+    
     m_ingredient_list_isSet = false;
     m_ingredient_list_isValid = false;
-    
-    m_servings_isSet = false;
-    m_servings_isValid = false;
-    
-    m_include_nutrition_isSet = false;
-    m_include_nutrition_isValid = false;
     }
 
 void
@@ -59,13 +56,10 @@ OAIInline_object_6::fromJson(QString jsonString) {
 void
 OAIInline_object_6::fromJsonObject(QJsonObject json) {
     
+    m_title_isValid = ::OpenAPI::fromJsonValue(title, json[QString("title")]);
+    
+    
     m_ingredient_list_isValid = ::OpenAPI::fromJsonValue(ingredient_list, json[QString("ingredientList")]);
-    
-    
-    m_servings_isValid = ::OpenAPI::fromJsonValue(servings, json[QString("servings")]);
-    
-    
-    m_include_nutrition_isValid = ::OpenAPI::fromJsonValue(include_nutrition, json[QString("includeNutrition")]);
     
     
 }
@@ -81,16 +75,24 @@ OAIInline_object_6::asJson () const {
 QJsonObject
 OAIInline_object_6::asJsonObject() const {
     QJsonObject obj;
+	if(m_title_isSet){
+        obj.insert(QString("title"), ::OpenAPI::toJsonValue(title));
+    }
 	if(m_ingredient_list_isSet){
         obj.insert(QString("ingredientList"), ::OpenAPI::toJsonValue(ingredient_list));
     }
-	if(servings.isSet()){
-        obj.insert(QString("servings"), ::OpenAPI::toJsonValue(servings));
-    }
-	if(m_include_nutrition_isSet){
-        obj.insert(QString("includeNutrition"), ::OpenAPI::toJsonValue(include_nutrition));
-    }
     return obj;
+}
+
+
+QString
+OAIInline_object_6::getTitle() const {
+    return title;
+}
+void
+OAIInline_object_6::setTitle(const QString &title) {
+    this->title = title;
+    this->m_title_isSet = true;
 }
 
 
@@ -104,37 +106,13 @@ OAIInline_object_6::setIngredientList(const QString &ingredient_list) {
     this->m_ingredient_list_isSet = true;
 }
 
-
-OAINumber
-OAIInline_object_6::getServings() const {
-    return servings;
-}
-void
-OAIInline_object_6::setServings(const OAINumber &servings) {
-    this->servings = servings;
-    this->m_servings_isSet = true;
-}
-
-
-bool
-OAIInline_object_6::isIncludeNutrition() const {
-    return include_nutrition;
-}
-void
-OAIInline_object_6::setIncludeNutrition(const bool &include_nutrition) {
-    this->include_nutrition = include_nutrition;
-    this->m_include_nutrition_isSet = true;
-}
-
 bool
 OAIInline_object_6::isSet() const {
     bool isObjectUpdated = false;
     do{ 
+        if(m_title_isSet){ isObjectUpdated = true; break;}
+    
         if(m_ingredient_list_isSet){ isObjectUpdated = true; break;}
-    
-        if(servings.isSet()){ isObjectUpdated = true; break;}
-    
-        if(m_include_nutrition_isSet){ isObjectUpdated = true; break;}
     }while(false);
     return isObjectUpdated;
 }
@@ -142,7 +120,7 @@ OAIInline_object_6::isSet() const {
 bool
 OAIInline_object_6::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_ingredient_list_isValid && m_servings_isValid && true;
+    return m_title_isValid && m_ingredient_list_isValid && true;
 }
 
 }

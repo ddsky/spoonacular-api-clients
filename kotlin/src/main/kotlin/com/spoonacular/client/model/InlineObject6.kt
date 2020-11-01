@@ -15,20 +15,16 @@ package com.spoonacular.client.model
 import com.squareup.moshi.Json
 /**
  * 
- * @param ingredientList The ingredient list of the recipe, one ingredient per line.
- * @param servings The number of servings that you can make from the ingredients.
- * @param includeNutrition Whether nutrition data should be added to correctly parsed ingredients.
+ * @param title The title of the recipe.
+ * @param ingredientList The ingredient list of the recipe, one ingredient per line (separate lines with \\n).
  */
 data class InlineObject6 (
-    /* The ingredient list of the recipe, one ingredient per line. */
+    /* The title of the recipe. */
+    @Json(name = "title")
+    val title: kotlin.String,
+    /* The ingredient list of the recipe, one ingredient per line (separate lines with \\n). */
     @Json(name = "ingredientList")
-    val ingredientList: kotlin.String,
-    /* The number of servings that you can make from the ingredients. */
-    @Json(name = "servings")
-    val servings: java.math.BigDecimal,
-    /* Whether nutrition data should be added to correctly parsed ingredients. */
-    @Json(name = "includeNutrition")
-    val includeNutrition: kotlin.Boolean? = null
+    val ingredientList: kotlin.String
 ) {
 
 }

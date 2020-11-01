@@ -168,10 +168,10 @@ __PACKAGE__->method_documentation({
         format => '',
         read_only => '',
             },
-    'id' => {
-        datatype => 'double',
-        base_name => 'id',
-        description => 'The shopping list item id.',
+    'date' => {
+        datatype => 'string',
+        base_name => 'date',
+        description => 'The date in the format yyyy-mm-dd.',
         format => '',
         read_only => '',
             },
@@ -186,13 +186,13 @@ __PACKAGE__->method_documentation({
 
 __PACKAGE__->openapi_types( {
     'username' => 'string',
-    'id' => 'double',
+    'date' => 'string',
     'hash' => 'string'
 } );
 
 __PACKAGE__->attribute_map( {
     'username' => 'username',
-    'id' => 'id',
+    'date' => 'date',
     'hash' => 'hash'
 } );
 

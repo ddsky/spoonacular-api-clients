@@ -22,10 +22,12 @@ class InlineObject8 {
     /**
      * Constructs a new <code>InlineObject8</code>.
      * @alias module:com.spoonacular.client/com.spoonacular.client.model/InlineObject8
+     * @param ingredientList {String} The ingredient list of the recipe, one ingredient per line.
+     * @param servings {Number} The number of servings.
      */
-    constructor() { 
+    constructor(ingredientList, servings) { 
         
-        InlineObject8.initialize(this);
+        InlineObject8.initialize(this, ingredientList, servings);
     }
 
     /**
@@ -33,7 +35,9 @@ class InlineObject8 {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj, ingredientList, servings) { 
+        obj['ingredientList'] = ingredientList;
+        obj['servings'] = servings;
     }
 
     /**
@@ -47,8 +51,23 @@ class InlineObject8 {
         if (data) {
             obj = obj || new InlineObject8();
 
-            if (data.hasOwnProperty('locale')) {
-                obj['locale'] = ApiClient.convertToType(data['locale'], 'String');
+            if (data.hasOwnProperty('ingredientList')) {
+                obj['ingredientList'] = ApiClient.convertToType(data['ingredientList'], 'String');
+            }
+            if (data.hasOwnProperty('servings')) {
+                obj['servings'] = ApiClient.convertToType(data['servings'], 'Number');
+            }
+            if (data.hasOwnProperty('measure')) {
+                obj['measure'] = ApiClient.convertToType(data['measure'], 'String');
+            }
+            if (data.hasOwnProperty('view')) {
+                obj['view'] = ApiClient.convertToType(data['view'], 'String');
+            }
+            if (data.hasOwnProperty('defaultCss')) {
+                obj['defaultCss'] = ApiClient.convertToType(data['defaultCss'], 'Boolean');
+            }
+            if (data.hasOwnProperty('showBacklink')) {
+                obj['showBacklink'] = ApiClient.convertToType(data['showBacklink'], 'Boolean');
             }
         }
         return obj;
@@ -58,10 +77,40 @@ class InlineObject8 {
 }
 
 /**
- * The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).
- * @member {String} locale
+ * The ingredient list of the recipe, one ingredient per line.
+ * @member {String} ingredientList
  */
-InlineObject8.prototype['locale'] = undefined;
+InlineObject8.prototype['ingredientList'] = undefined;
+
+/**
+ * The number of servings.
+ * @member {Number} servings
+ */
+InlineObject8.prototype['servings'] = undefined;
+
+/**
+ * The original system of measurement, either \"metric\" or \"us\".
+ * @member {String} measure
+ */
+InlineObject8.prototype['measure'] = undefined;
+
+/**
+ * How to visualize the ingredients, either \"grid\" or \"list\".
+ * @member {String} view
+ */
+InlineObject8.prototype['view'] = undefined;
+
+/**
+ * Whether the default CSS should be added to the response.
+ * @member {Boolean} defaultCss
+ */
+InlineObject8.prototype['defaultCss'] = undefined;
+
+/**
+ * Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
+ * @member {Boolean} showBacklink
+ */
+InlineObject8.prototype['showBacklink'] = undefined;
 
 
 

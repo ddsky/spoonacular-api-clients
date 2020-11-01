@@ -44,9 +44,6 @@ OAIInline_object_1::init() {
     m_servings_isSet = false;
     m_servings_isValid = false;
     
-    m_mode_isSet = false;
-    m_mode_isValid = false;
-    
     m_default_css_isSet = false;
     m_default_css_isValid = false;
     
@@ -69,9 +66,6 @@ OAIInline_object_1::fromJsonObject(QJsonObject json) {
     
     
     m_servings_isValid = ::OpenAPI::fromJsonValue(servings, json[QString("servings")]);
-    
-    
-    m_mode_isValid = ::OpenAPI::fromJsonValue(mode, json[QString("mode")]);
     
     
     m_default_css_isValid = ::OpenAPI::fromJsonValue(default_css, json[QString("defaultCss")]);
@@ -98,9 +92,6 @@ OAIInline_object_1::asJsonObject() const {
     }
 	if(servings.isSet()){
         obj.insert(QString("servings"), ::OpenAPI::toJsonValue(servings));
-    }
-	if(mode.isSet()){
-        obj.insert(QString("mode"), ::OpenAPI::toJsonValue(mode));
     }
 	if(m_default_css_isSet){
         obj.insert(QString("defaultCss"), ::OpenAPI::toJsonValue(default_css));
@@ -134,17 +125,6 @@ OAIInline_object_1::setServings(const OAINumber &servings) {
 }
 
 
-OAINumber
-OAIInline_object_1::getMode() const {
-    return mode;
-}
-void
-OAIInline_object_1::setMode(const OAINumber &mode) {
-    this->mode = mode;
-    this->m_mode_isSet = true;
-}
-
-
 bool
 OAIInline_object_1::isDefaultCss() const {
     return default_css;
@@ -173,8 +153,6 @@ OAIInline_object_1::isSet() const {
         if(m_ingredient_list_isSet){ isObjectUpdated = true; break;}
     
         if(servings.isSet()){ isObjectUpdated = true; break;}
-    
-        if(mode.isSet()){ isObjectUpdated = true; break;}
     
         if(m_default_css_isSet){ isObjectUpdated = true; break;}
     

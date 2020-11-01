@@ -8,11 +8,9 @@ import spoonacular._
 
 /**
  * 
- * @param username The username.
- * @param hash The private hash for the username.
+ * @param locale The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).
  */
-case class InlineObject9(username: String,
-                hash: String
+case class InlineObject9(locale: Option[String]
                 )
 
 object InlineObject9 {

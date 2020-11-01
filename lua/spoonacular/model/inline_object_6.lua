@@ -19,11 +19,10 @@ local function cast_inline_object_6(t)
 	return setmetatable(t, inline_object_6_mt)
 end
 
-local function new_inline_object_6(ingredient_list, servings, include_nutrition)
+local function new_inline_object_6(title, ingredient_list)
 	return cast_inline_object_6({
+		["title"] = title;
 		["ingredientList"] = ingredient_list;
-		["servings"] = servings;
-		["includeNutrition"] = include_nutrition;
 	})
 end
 

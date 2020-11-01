@@ -8,9 +8,11 @@ import spoonacular._
 
 /**
  * 
- * @param text The text in which food items, such as dish names and ingredients, should be detected in.
+ * @param username The username.
+ * @param hash The private hash for the username.
  */
-case class InlineObject14(text: String
+case class InlineObject14(username: String,
+                hash: String
                 )
 
 object InlineObject14 {

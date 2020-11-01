@@ -41,12 +41,8 @@ public:
     void fromJson(QString jsonString) override;
 
     
-    QString getTitle() const;
-    void setTitle(const QString &title);
-
-    
-    QString getIngredientList() const;
-    void setIngredientList(const QString &ingredient_list);
+    QString getInstructions() const;
+    void setInstructions(const QString &instructions);
 
     
     
@@ -56,13 +52,9 @@ public:
 private:
     void init();
     
-    QString title;
-    bool m_title_isSet;
-    bool m_title_isValid;
-    
-    QString ingredient_list;
-    bool m_ingredient_list_isSet;
-    bool m_ingredient_list_isValid;
+    QString instructions;
+    bool m_instructions_isSet;
+    bool m_instructions_isValid;
     
     };
 

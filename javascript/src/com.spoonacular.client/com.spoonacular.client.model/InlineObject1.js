@@ -57,9 +57,6 @@ class InlineObject1 {
             if (data.hasOwnProperty('servings')) {
                 obj['servings'] = ApiClient.convertToType(data['servings'], 'Number');
             }
-            if (data.hasOwnProperty('mode')) {
-                obj['mode'] = ApiClient.convertToType(data['mode'], 'Number');
-            }
             if (data.hasOwnProperty('defaultCss')) {
                 obj['defaultCss'] = ApiClient.convertToType(data['defaultCss'], 'Boolean');
             }
@@ -84,12 +81,6 @@ InlineObject1.prototype['ingredientList'] = undefined;
  * @member {Number} servings
  */
 InlineObject1.prototype['servings'] = undefined;
-
-/**
- * The mode in which the widget should be delivered. 1 = separate views (compact), 2 = all in one view (full).
- * @member {Number} mode
- */
-InlineObject1.prototype['mode'] = undefined;
 
 /**
  * Whether the default CSS should be added to the response.

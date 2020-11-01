@@ -22,6 +22,7 @@
 #include <QJsonObject>
 
 
+#include "com.spoonacular.client.model\OAINumber.h"
 #include <QString>
 
 #include "OAIObject.h"
@@ -41,8 +42,28 @@ public:
     void fromJson(QString jsonString) override;
 
     
-    QString getLocale() const;
-    void setLocale(const QString &locale);
+    QString getIngredientList() const;
+    void setIngredientList(const QString &ingredient_list);
+
+    
+    OAINumber getServings() const;
+    void setServings(const OAINumber &servings);
+
+    
+    QString getMeasure() const;
+    void setMeasure(const QString &measure);
+
+    
+    QString getView() const;
+    void setView(const QString &view);
+
+    
+    bool isDefaultCss() const;
+    void setDefaultCss(const bool &default_css);
+
+    
+    bool isShowBacklink() const;
+    void setShowBacklink(const bool &show_backlink);
 
     
     
@@ -52,9 +73,29 @@ public:
 private:
     void init();
     
-    QString locale;
-    bool m_locale_isSet;
-    bool m_locale_isValid;
+    QString ingredient_list;
+    bool m_ingredient_list_isSet;
+    bool m_ingredient_list_isValid;
+    
+    OAINumber servings;
+    bool m_servings_isSet;
+    bool m_servings_isValid;
+    
+    QString measure;
+    bool m_measure_isSet;
+    bool m_measure_isValid;
+    
+    QString view;
+    bool m_view_isSet;
+    bool m_view_isValid;
+    
+    bool default_css;
+    bool m_default_css_isSet;
+    bool m_default_css_isValid;
+    
+    bool show_backlink;
+    bool m_show_backlink_isSet;
+    bool m_show_backlink_isValid;
     
     };
 

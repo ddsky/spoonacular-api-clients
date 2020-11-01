@@ -34,10 +34,10 @@ Add an item to the user&#39;s meal plan.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param username The username.
  * @param hash The private hash for the username.
- * @param inlineObject9
+ * @param inlineObject11
 @return map[string]interface{}
 */
-func (a *DefaultApiService) AddToMealPlan(ctx context.Context, username string, hash string, inlineObject9 InlineObject9) (map[string]interface{}, *http.Response, error) {
+func (a *DefaultApiService) AddToMealPlan(ctx context.Context, username string, hash string, inlineObject11 InlineObject11) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHttpMethod   = strings.ToUpper("Post")
 		localVarPostBody     interface{}
@@ -74,7 +74,7 @@ func (a *DefaultApiService) AddToMealPlan(ctx context.Context, username string, 
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
 	// body params
-	localVarPostBody = &inlineObject9
+	localVarPostBody = &inlineObject11
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -127,10 +127,10 @@ Add an item to the current shopping list of a user.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param username The username.
  * @param hash The private hash for the username.
- * @param inlineObject12
+ * @param inlineObject14
 @return map[string]interface{}
 */
-func (a *DefaultApiService) AddToShoppingList(ctx context.Context, username string, hash string, inlineObject12 InlineObject12) (map[string]interface{}, *http.Response, error) {
+func (a *DefaultApiService) AddToShoppingList(ctx context.Context, username string, hash string, inlineObject14 InlineObject14) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHttpMethod   = strings.ToUpper("Post")
 		localVarPostBody     interface{}
@@ -167,7 +167,7 @@ func (a *DefaultApiService) AddToShoppingList(ctx context.Context, username stri
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
 	// body params
-	localVarPostBody = &inlineObject12
+	localVarPostBody = &inlineObject14
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -304,7 +304,7 @@ func (a *DefaultApiService) AnalyzeARecipeSearchQuery(ctx context.Context, q str
 
 /*
 DefaultApiService Analyze Recipe Instructions
-Extract ingredients and equipment from the recipe&#39;s instructions.
+This endpoint allows you to break down instructions into atomic steps. Furthermore, each step will contain the ingredients and equipment required. Additionally, all ingredients and equipment from the recipe&#39;s instructions will be extracted independently of the step they&#39;re used in.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param instructions The instructions to be analyzed.
 @return map[string]interface{}
@@ -398,14 +398,14 @@ Autocomplete the entry of an ingredient.
  * @param optional nil or *AutocompleteIngredientSearchOpts - Optional Parameters:
  * @param "Number" (optional.Float32) -  The number of results to return (between 1 and 100).
  * @param "MetaInformation" (optional.Bool) -  Whether to return more meta information about the ingredients.
- * @param "Intolerances" (optional.Bool) -  A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
+ * @param "Intolerances" (optional.String) -  A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
 @return map[string]interface{}
 */
 
 type AutocompleteIngredientSearchOpts struct {
 	Number optional.Float32
 	MetaInformation optional.Bool
-	Intolerances optional.Bool
+	Intolerances optional.String
 }
 
 func (a *DefaultApiService) AutocompleteIngredientSearch(ctx context.Context, query string, localVarOptionals *AutocompleteIngredientSearchOpts) (map[string]interface{}, *http.Response, error) {
@@ -886,7 +886,7 @@ func (a *DefaultApiService) ClassifyCuisine(ctx context.Context, title string, i
 DefaultApiService Classify Grocery Product
 This endpoint allows you to match a packaged food to a basic category, e.g. a specific brand of milk to the category milk.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param inlineObject8
+ * @param inlineObject9
  * @param optional nil or *ClassifyGroceryProductOpts - Optional Parameters:
  * @param "Locale" (optional.String) -  The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).
 @return map[string]interface{}
@@ -896,7 +896,7 @@ type ClassifyGroceryProductOpts struct {
 	Locale optional.String
 }
 
-func (a *DefaultApiService) ClassifyGroceryProduct(ctx context.Context, inlineObject8 InlineObject8, localVarOptionals *ClassifyGroceryProductOpts) (map[string]interface{}, *http.Response, error) {
+func (a *DefaultApiService) ClassifyGroceryProduct(ctx context.Context, inlineObject9 InlineObject9, localVarOptionals *ClassifyGroceryProductOpts) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHttpMethod   = strings.ToUpper("Post")
 		localVarPostBody     interface{}
@@ -934,7 +934,7 @@ func (a *DefaultApiService) ClassifyGroceryProduct(ctx context.Context, inlineOb
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
 	// body params
-	localVarPostBody = &inlineObject8
+	localVarPostBody = &inlineObject9
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1017,6 +1017,279 @@ func (a *DefaultApiService) ClassifyGroceryProductBulk(ctx context.Context, body
 	}
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	// body params
+	localVarPostBody = &body
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHttpResponse, err := a.client.callAPI(r)
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
+	localVarHttpResponse.Body.Close()
+	if err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	if localVarHttpResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHttpResponse.Status,
+		}
+		if localVarHttpResponse.StatusCode == 200 {
+			var v map[string]interface{}
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHttpResponse, nil
+}
+
+/*
+DefaultApiService Clear Meal Plan Day
+Delete all planned items from the user&#39;s meal plan for a specific day.
+ * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param username The username.
+ * @param date The date in the format yyyy-mm-dd.
+ * @param hash The private hash for the username.
+ * @param inlineObject10
+@return map[string]interface{}
+*/
+func (a *DefaultApiService) ClearMealPlanDay(ctx context.Context, username string, date string, hash string, inlineObject10 InlineObject10) (map[string]interface{}, *http.Response, error) {
+	var (
+		localVarHttpMethod   = strings.ToUpper("Delete")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  map[string]interface{}
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BasePath + "/mealplanner/{username}/day/{date}"
+	localVarPath = strings.Replace(localVarPath, "{"+"username"+"}", fmt.Sprintf("%v", username), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"date"+"}", fmt.Sprintf("%v", date), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	localVarQueryParams.Add("hash", parameterToString(hash, ""))
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{""}
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	// body params
+	localVarPostBody = &inlineObject10
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHttpResponse, err := a.client.callAPI(r)
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
+	localVarHttpResponse.Body.Close()
+	if err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	if localVarHttpResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHttpResponse.Status,
+		}
+		if localVarHttpResponse.StatusCode == 200 {
+			var v map[string]interface{}
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHttpResponse, nil
+}
+
+/*
+DefaultApiService Compute Glycemic Load
+Retrieve the glycemic index for a list of ingredients and compute the individual and total glycemic load.
+ * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param body
+@return map[string]interface{}
+*/
+func (a *DefaultApiService) ComputeGlycemicLoad(ctx context.Context, body map[string]interface{}) (map[string]interface{}, *http.Response, error) {
+	var (
+		localVarHttpMethod   = strings.ToUpper("Post")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  map[string]interface{}
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BasePath + "/food/ingredients/glycemicLoad"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	// body params
+	localVarPostBody = &body
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHttpResponse, err := a.client.callAPI(r)
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
+	localVarHttpResponse.Body.Close()
+	if err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	if localVarHttpResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHttpResponse.Status,
+		}
+		if localVarHttpResponse.StatusCode == 200 {
+			var v map[string]interface{}
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHttpResponse, nil
+}
+
+/*
+DefaultApiService Connect User
+In order to call user-specific endpoints, you need to connect your app&#39;s users to spoonacular users.
+ * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param body
+@return map[string]interface{}
+*/
+func (a *DefaultApiService) ConnectUser(ctx context.Context, body map[string]interface{}) (map[string]interface{}, *http.Response, error) {
+	var (
+		localVarHttpMethod   = strings.ToUpper("Post")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  map[string]interface{}
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BasePath + "/users/connect"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{""}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1315,10 +1588,10 @@ Delete an item from the user&#39;s meal plan.
  * @param username The username.
  * @param id The shopping list item id.
  * @param hash The private hash for the username.
- * @param inlineObject10
+ * @param inlineObject12
 @return map[string]interface{}
 */
-func (a *DefaultApiService) DeleteFromMealPlan(ctx context.Context, username string, id float32, hash string, inlineObject10 InlineObject10) (map[string]interface{}, *http.Response, error) {
+func (a *DefaultApiService) DeleteFromMealPlan(ctx context.Context, username string, id float32, hash string, inlineObject12 InlineObject12) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHttpMethod   = strings.ToUpper("Delete")
 		localVarPostBody     interface{}
@@ -1356,7 +1629,7 @@ func (a *DefaultApiService) DeleteFromMealPlan(ctx context.Context, username str
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
 	// body params
-	localVarPostBody = &inlineObject10
+	localVarPostBody = &inlineObject12
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1410,10 +1683,10 @@ Delete an item from the current shopping list of the user.
  * @param username The username.
  * @param id The shopping list item id.
  * @param hash The private hash for the username.
- * @param inlineObject13
+ * @param inlineObject15
 @return map[string]interface{}
 */
-func (a *DefaultApiService) DeleteFromShoppingList(ctx context.Context, username string, id float32, hash string, inlineObject13 InlineObject13) (map[string]interface{}, *http.Response, error) {
+func (a *DefaultApiService) DeleteFromShoppingList(ctx context.Context, username string, id float32, hash string, inlineObject15 InlineObject15) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHttpMethod   = strings.ToUpper("Delete")
 		localVarPostBody     interface{}
@@ -1451,7 +1724,7 @@ func (a *DefaultApiService) DeleteFromShoppingList(ctx context.Context, username
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
 	// body params
-	localVarPostBody = &inlineObject13
+	localVarPostBody = &inlineObject15
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1808,10 +2081,10 @@ Generate the shopping list for a user from the meal planner in a given time fram
  * @param startDate The start date in the format yyyy-mm-dd.
  * @param endDate The end date in the format yyyy-mm-dd.
  * @param hash The private hash for the username.
- * @param inlineObject11
+ * @param inlineObject13
 @return map[string]interface{}
 */
-func (a *DefaultApiService) GenerateShoppingList(ctx context.Context, username string, startDate string, endDate string, hash string, inlineObject11 InlineObject11) (map[string]interface{}, *http.Response, error) {
+func (a *DefaultApiService) GenerateShoppingList(ctx context.Context, username string, startDate string, endDate string, hash string, inlineObject13 InlineObject13) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHttpMethod   = strings.ToUpper("Post")
 		localVarPostBody     interface{}
@@ -1850,7 +2123,7 @@ func (a *DefaultApiService) GenerateShoppingList(ctx context.Context, username s
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
 	// body params
-	localVarPostBody = &inlineObject11
+	localVarPostBody = &inlineObject13
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -3825,6 +4098,94 @@ func (a *DefaultApiService) GetRecipePriceBreakdownByID(ctx context.Context, id 
 }
 
 /*
+DefaultApiService Get Recipe Taste by ID
+Get a recipe&#39;s taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
+ * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param id The recipe id.
+@return map[string]interface{}
+*/
+func (a *DefaultApiService) GetRecipeTasteByID(ctx context.Context, id float32) (map[string]interface{}, *http.Response, error) {
+	var (
+		localVarHttpMethod   = strings.ToUpper("Get")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  map[string]interface{}
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BasePath + "/recipes/{id}/tasteWidget.json"
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", fmt.Sprintf("%v", id), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHttpResponse, err := a.client.callAPI(r)
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
+	localVarHttpResponse.Body.Close()
+	if err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	if localVarHttpResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHttpResponse.Status,
+		}
+		if localVarHttpResponse.StatusCode == 200 {
+			var v map[string]interface{}
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHttpResponse, nil
+}
+
+/*
 DefaultApiService Get Shopping List
 Get the current shopping list for the given user.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -4576,6 +4937,164 @@ func (a *DefaultApiService) ImageClassificationByURL(ctx context.Context, imageU
 }
 
 /*
+DefaultApiService Ingredient Search
+Search for simple whole foods (e.g. fruits, vegetables, nuts, grains, meat, fish, dairy etc.).
+ * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param query The partial or full ingredient name.
+ * @param optional nil or *IngredientSearchOpts - Optional Parameters:
+ * @param "AddChildren" (optional.Bool) -  Whether to add children of found foods.
+ * @param "MinProteinPercent" (optional.Float32) -  The minimum percentage of protein the food must have (between 0 and 100).
+ * @param "MaxProteinPercent" (optional.Float32) -  The maximum percentage of protein the food can have (between 0 and 100).
+ * @param "MinFatPercent" (optional.Float32) -  The minimum percentage of fat the food must have (between 0 and 100).
+ * @param "MaxFatPercent" (optional.Float32) -  The maximum percentage of fat the food can have (between 0 and 100).
+ * @param "MinCarbsPercent" (optional.Float32) -  The minimum percentage of carbs the food must have (between 0 and 100).
+ * @param "MaxCarbsPercent" (optional.Float32) -  The maximum percentage of carbs the food can have (between 0 and 100).
+ * @param "MetaInformation" (optional.Bool) -  Whether to return more meta information about the ingredients.
+ * @param "Intolerances" (optional.String) -  A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
+ * @param "Sort" (optional.String) -  The strategy to sort recipes by. See a full list of supported sorting options.
+ * @param "SortDirection" (optional.String) -  The direction in which to sort. Must be either 'asc' (ascending) or 'desc' (descending).
+ * @param "Offset" (optional.Float32) -  The number of results to skip (between 0 and 990).
+ * @param "Number" (optional.Float32) -  The number of expected results (between 1 and 100).
+@return map[string]interface{}
+*/
+
+type IngredientSearchOpts struct {
+	AddChildren optional.Bool
+	MinProteinPercent optional.Float32
+	MaxProteinPercent optional.Float32
+	MinFatPercent optional.Float32
+	MaxFatPercent optional.Float32
+	MinCarbsPercent optional.Float32
+	MaxCarbsPercent optional.Float32
+	MetaInformation optional.Bool
+	Intolerances optional.String
+	Sort optional.String
+	SortDirection optional.String
+	Offset optional.Float32
+	Number optional.Float32
+}
+
+func (a *DefaultApiService) IngredientSearch(ctx context.Context, query string, localVarOptionals *IngredientSearchOpts) (map[string]interface{}, *http.Response, error) {
+	var (
+		localVarHttpMethod   = strings.ToUpper("Get")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  map[string]interface{}
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BasePath + "/food/ingredients/search"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	localVarQueryParams.Add("query", parameterToString(query, ""))
+	if localVarOptionals != nil && localVarOptionals.AddChildren.IsSet() {
+		localVarQueryParams.Add("addChildren", parameterToString(localVarOptionals.AddChildren.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MinProteinPercent.IsSet() {
+		localVarQueryParams.Add("minProteinPercent", parameterToString(localVarOptionals.MinProteinPercent.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MaxProteinPercent.IsSet() {
+		localVarQueryParams.Add("maxProteinPercent", parameterToString(localVarOptionals.MaxProteinPercent.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MinFatPercent.IsSet() {
+		localVarQueryParams.Add("minFatPercent", parameterToString(localVarOptionals.MinFatPercent.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MaxFatPercent.IsSet() {
+		localVarQueryParams.Add("maxFatPercent", parameterToString(localVarOptionals.MaxFatPercent.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MinCarbsPercent.IsSet() {
+		localVarQueryParams.Add("minCarbsPercent", parameterToString(localVarOptionals.MinCarbsPercent.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MaxCarbsPercent.IsSet() {
+		localVarQueryParams.Add("maxCarbsPercent", parameterToString(localVarOptionals.MaxCarbsPercent.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MetaInformation.IsSet() {
+		localVarQueryParams.Add("metaInformation", parameterToString(localVarOptionals.MetaInformation.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Intolerances.IsSet() {
+		localVarQueryParams.Add("intolerances", parameterToString(localVarOptionals.Intolerances.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Sort.IsSet() {
+		localVarQueryParams.Add("sort", parameterToString(localVarOptionals.Sort.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.SortDirection.IsSet() {
+		localVarQueryParams.Add("sortDirection", parameterToString(localVarOptionals.SortDirection.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Offset.IsSet() {
+		localVarQueryParams.Add("offset", parameterToString(localVarOptionals.Offset.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Number.IsSet() {
+		localVarQueryParams.Add("number", parameterToString(localVarOptionals.Number.Value(), ""))
+	}
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHttpResponse, err := a.client.callAPI(r)
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
+	localVarHttpResponse.Body.Close()
+	if err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	if localVarHttpResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHttpResponse.Status,
+		}
+		if localVarHttpResponse.StatusCode == 200 {
+			var v map[string]interface{}
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHttpResponse, nil
+}
+
+/*
 DefaultApiService Map Ingredients to Grocery Products
 Map a set of ingredients to products you can buy in the grocery store.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -4789,6 +5308,109 @@ func (a *DefaultApiService) QuickAnswer(ctx context.Context, q string) (map[stri
 	localVarFormParams := url.Values{}
 
 	localVarQueryParams.Add("q", parameterToString(q, ""))
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHttpResponse, err := a.client.callAPI(r)
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
+	localVarHttpResponse.Body.Close()
+	if err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	if localVarHttpResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHttpResponse.Status,
+		}
+		if localVarHttpResponse.StatusCode == 200 {
+			var v map[string]interface{}
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHttpResponse, nil
+}
+
+/*
+DefaultApiService Search All Food
+Search all food content with one call. That includes recipes, grocery products, menu items, simple foods (ingredients), and food videos.
+ * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param query The search query.
+ * @param optional nil or *SearchAllFoodOpts - Optional Parameters:
+ * @param "Offset" (optional.Float32) -  The number of results to skip (between 0 and 990).
+ * @param "Number" (optional.Float32) -  The number of expected results (between 1 and 100).
+@return map[string]interface{}
+*/
+
+type SearchAllFoodOpts struct {
+	Offset optional.Float32
+	Number optional.Float32
+}
+
+func (a *DefaultApiService) SearchAllFood(ctx context.Context, query string, localVarOptionals *SearchAllFoodOpts) (map[string]interface{}, *http.Response, error) {
+	var (
+		localVarHttpMethod   = strings.ToUpper("Get")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  map[string]interface{}
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BasePath + "/food/search"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	localVarQueryParams.Add("query", parameterToString(query, ""))
+	if localVarOptionals != nil && localVarOptionals.Offset.IsSet() {
+		localVarQueryParams.Add("offset", parameterToString(localVarOptionals.Offset.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Number.IsSet() {
+		localVarQueryParams.Add("number", parameterToString(localVarOptionals.Number.Value(), ""))
+	}
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{}
 
@@ -5473,30 +6095,204 @@ func (a *DefaultApiService) SearchMenuItems(ctx context.Context, query string, l
 
 /*
 DefaultApiService Search Recipes
-Our recipe API includes over 360,000 recipes as well as an open source recipe database. Consider using the \&quot;Search Recipes Complex\&quot; endpoint for much more flexibility.
+Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param query The (natural language) recipe search query.
  * @param optional nil or *SearchRecipesOpts - Optional Parameters:
- * @param "Cuisine" (optional.String) -  The cuisine(s) of the recipes. One or more comma separated. See a full list of supported cuisines.
+ * @param "Cuisine" (optional.String) -  The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as 'OR'). See a full list of supported cuisines.
+ * @param "ExcludeCuisine" (optional.String) -  The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as 'AND'). See a full list of supported cuisines.
  * @param "Diet" (optional.String) -  The diet for which the recipes must be suitable. See a full list of supported diets.
+ * @param "Intolerances" (optional.String) -  A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
+ * @param "Equipment" (optional.String) -  The equipment required. Multiple values will be interpreted as 'or'. For example, value could be \"blender, frying pan, bowl\".
+ * @param "IncludeIngredients" (optional.String) -  A comma-separated list of ingredients that should/must be used in the recipes.
  * @param "ExcludeIngredients" (optional.String) -  A comma-separated list of ingredients or ingredient types that the recipes must not contain.
- * @param "Intolerances" (optional.String) -  A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. Please note: due to the automatic nature of the recipe analysis, the API cannot be 100% accurate in all cases. Please advise your users to seek professional help with medical issues.
- * @param "Offset" (optional.Float32) -  The number of results to skip (between 0 and 900).
- * @param "Number" (optional.Float32) -  The number of results to return (between 1 and 100).
- * @param "LimitLicense" (optional.Bool) -  Whether the recipes should have an open license that allows display with proper attribution.
+ * @param "Type_" (optional.String) -  The type of recipe. See a full list of supported meal types.
  * @param "InstructionsRequired" (optional.Bool) -  Whether the recipes must have instructions.
+ * @param "FillIngredients" (optional.Bool) -  Add information about the ingredients and whether they are used or missing in relation to the query.
+ * @param "AddRecipeInformation" (optional.Bool) -  If set to true, you get more information about the recipes returned.
+ * @param "AddRecipeNutrition" (optional.Bool) -  If set to true, you get nutritional information about each recipes returned.
+ * @param "Author" (optional.String) -  The username of the recipe author.
+ * @param "Tags" (optional.String) -  User defined tags that have to match. The author param has to be set.
+ * @param "RecipeBoxId" (optional.Float32) -  The id of the recipe box to which the search should be limited to.
+ * @param "TitleMatch" (optional.String) -  Enter text that must be found in the title of the recipes.
+ * @param "MaxReadyTime" (optional.Float32) -  The maximum time in minutes it should take to prepare and cook the recipe.
+ * @param "IgnorePantry" (optional.Bool) -  Whether to ignore typical pantry items, such as water, salt, flour, etc.
+ * @param "Sort" (optional.String) -  The strategy to sort recipes by. See a full list of supported sorting options.
+ * @param "SortDirection" (optional.String) -  The direction in which to sort. Must be either 'asc' (ascending) or 'desc' (descending).
+ * @param "MinCarbs" (optional.Float32) -  The minimum amount of carbohydrates in grams the recipe must have.
+ * @param "MaxCarbs" (optional.Float32) -  The maximum amount of carbohydrates in grams the recipe can have.
+ * @param "MinProtein" (optional.Float32) -  The minimum amount of protein in grams the recipe must have.
+ * @param "MaxProtein" (optional.Float32) -  The maximum amount of protein in grams the recipe can have.
+ * @param "MinCalories" (optional.Float32) -  The minimum amount of calories the recipe must have.
+ * @param "MaxCalories" (optional.Float32) -  The maximum amount of calories the recipe can have.
+ * @param "MinFat" (optional.Float32) -  The minimum amount of fat in grams the recipe must have.
+ * @param "MaxFat" (optional.Float32) -  The maximum amount of fat in grams the recipe can have.
+ * @param "MinAlcohol" (optional.Float32) -  The minimum amount of alcohol in grams the recipe must have.
+ * @param "MaxAlcohol" (optional.Float32) -  The maximum amount of alcohol in grams the recipe can have.
+ * @param "MinCaffeine" (optional.Float32) -  The minimum amount of caffeine in milligrams the recipe must have.
+ * @param "MaxCaffeine" (optional.Float32) -  The maximum amount of caffeine in milligrams the recipe can have.
+ * @param "MinCopper" (optional.Float32) -  The minimum amount of copper in milligrams the recipe must have.
+ * @param "MaxCopper" (optional.Float32) -  The maximum amount of copper in milligrams the recipe can have.
+ * @param "MinCalcium" (optional.Float32) -  The minimum amount of calcium in milligrams the recipe must have.
+ * @param "MaxCalcium" (optional.Float32) -  The maximum amount of calcium in milligrams the recipe can have.
+ * @param "MinCholine" (optional.Float32) -  The minimum amount of choline in milligrams the recipe must have.
+ * @param "MaxCholine" (optional.Float32) -  The maximum amount of choline in milligrams the recipe can have.
+ * @param "MinCholesterol" (optional.Float32) -  The minimum amount of cholesterol in milligrams the recipe must have.
+ * @param "MaxCholesterol" (optional.Float32) -  The maximum amount of cholesterol in milligrams the recipe can have.
+ * @param "MinFluoride" (optional.Float32) -  The minimum amount of fluoride in milligrams the recipe must have.
+ * @param "MaxFluoride" (optional.Float32) -  The maximum amount of fluoride in milligrams the recipe can have.
+ * @param "MinSaturatedFat" (optional.Float32) -  The minimum amount of saturated fat in grams the recipe must have.
+ * @param "MaxSaturatedFat" (optional.Float32) -  The maximum amount of saturated fat in grams the recipe can have.
+ * @param "MinVitaminA" (optional.Float32) -  The minimum amount of Vitamin A in IU the recipe must have.
+ * @param "MaxVitaminA" (optional.Float32) -  The maximum amount of Vitamin A in IU the recipe can have.
+ * @param "MinVitaminC" (optional.Float32) -  The minimum amount of Vitamin C milligrams the recipe must have.
+ * @param "MaxVitaminC" (optional.Float32) -  The maximum amount of Vitamin C in milligrams the recipe can have.
+ * @param "MinVitaminD" (optional.Float32) -  The minimum amount of Vitamin D in micrograms the recipe must have.
+ * @param "MaxVitaminD" (optional.Float32) -  The maximum amount of Vitamin D in micrograms the recipe can have.
+ * @param "MinVitaminE" (optional.Float32) -  The minimum amount of Vitamin E in milligrams the recipe must have.
+ * @param "MaxVitaminE" (optional.Float32) -  The maximum amount of Vitamin E in milligrams the recipe can have.
+ * @param "MinVitaminK" (optional.Float32) -  The minimum amount of Vitamin K in micrograms the recipe must have.
+ * @param "MaxVitaminK" (optional.Float32) -  The maximum amount of Vitamin K in micrograms the recipe can have.
+ * @param "MinVitaminB1" (optional.Float32) -  The minimum amount of Vitamin B1 in milligrams the recipe must have.
+ * @param "MaxVitaminB1" (optional.Float32) -  The maximum amount of Vitamin B1 in milligrams the recipe can have.
+ * @param "MinVitaminB2" (optional.Float32) -  The minimum amount of Vitamin B2 in milligrams the recipe must have.
+ * @param "MaxVitaminB2" (optional.Float32) -  The maximum amount of Vitamin B2 in milligrams the recipe can have.
+ * @param "MinVitaminB5" (optional.Float32) -  The minimum amount of Vitamin B5 in milligrams the recipe must have.
+ * @param "MaxVitaminB5" (optional.Float32) -  The maximum amount of Vitamin B5 in milligrams the recipe can have.
+ * @param "MinVitaminB3" (optional.Float32) -  The minimum amount of Vitamin B3 in milligrams the recipe must have.
+ * @param "MaxVitaminB3" (optional.Float32) -  The maximum amount of Vitamin B3 in milligrams the recipe can have.
+ * @param "MinVitaminB6" (optional.Float32) -  The minimum amount of Vitamin B6 in milligrams the recipe must have.
+ * @param "MaxVitaminB6" (optional.Float32) -  The maximum amount of Vitamin B6 in milligrams the recipe can have.
+ * @param "MinVitaminB12" (optional.Float32) -  The minimum amount of Vitamin B12 in micrograms the recipe must have.
+ * @param "MaxVitaminB12" (optional.Float32) -  The maximum amount of Vitamin B12 in micrograms the recipe can have.
+ * @param "MinFiber" (optional.Float32) -  The minimum amount of fiber in grams the recipe must have.
+ * @param "MaxFiber" (optional.Float32) -  The maximum amount of fiber in grams the recipe can have.
+ * @param "MinFolate" (optional.Float32) -  The minimum amount of folate in micrograms the recipe must have.
+ * @param "MaxFolate" (optional.Float32) -  The maximum amount of folate in micrograms the recipe can have.
+ * @param "MinFolicAcid" (optional.Float32) -  The minimum amount of folic acid in micrograms the recipe must have.
+ * @param "MaxFolicAcid" (optional.Float32) -  The maximum amount of folic acid in micrograms the recipe can have.
+ * @param "MinIodine" (optional.Float32) -  The minimum amount of iodine in micrograms the recipe must have.
+ * @param "MaxIodine" (optional.Float32) -  The maximum amount of iodine in micrograms the recipe can have.
+ * @param "MinIron" (optional.Float32) -  The minimum amount of iron in milligrams the recipe must have.
+ * @param "MaxIron" (optional.Float32) -  The maximum amount of iron in milligrams the recipe can have.
+ * @param "MinMagnesium" (optional.Float32) -  The minimum amount of magnesium in milligrams the recipe must have.
+ * @param "MaxMagnesium" (optional.Float32) -  The maximum amount of magnesium in milligrams the recipe can have.
+ * @param "MinManganese" (optional.Float32) -  The minimum amount of manganese in milligrams the recipe must have.
+ * @param "MaxManganese" (optional.Float32) -  The maximum amount of manganese in milligrams the recipe can have.
+ * @param "MinPhosphorus" (optional.Float32) -  The minimum amount of phosphorus in milligrams the recipe must have.
+ * @param "MaxPhosphorus" (optional.Float32) -  The maximum amount of phosphorus in milligrams the recipe can have.
+ * @param "MinPotassium" (optional.Float32) -  The minimum amount of potassium in milligrams the recipe must have.
+ * @param "MaxPotassium" (optional.Float32) -  The maximum amount of potassium in milligrams the recipe can have.
+ * @param "MinSelenium" (optional.Float32) -  The minimum amount of selenium in micrograms the recipe must have.
+ * @param "MaxSelenium" (optional.Float32) -  The maximum amount of selenium in micrograms the recipe can have.
+ * @param "MinSodium" (optional.Float32) -  The minimum amount of sodium in milligrams the recipe must have.
+ * @param "MaxSodium" (optional.Float32) -  The maximum amount of sodium in milligrams the recipe can have.
+ * @param "MinSugar" (optional.Float32) -  The minimum amount of sugar in grams the recipe must have.
+ * @param "MaxSugar" (optional.Float32) -  The maximum amount of sugar in grams the recipe can have.
+ * @param "MinZinc" (optional.Float32) -  The minimum amount of zinc in milligrams the recipe must have.
+ * @param "MaxZinc" (optional.Float32) -  The maximum amount of zinc in milligrams the recipe can have.
+ * @param "Offset" (optional.Float32) -  The number of results to skip (between 0 and 900).
+ * @param "Number" (optional.Float32) -  The number of expected results (between 1 and 100).
+ * @param "LimitLicense" (optional.Bool) -  Whether the recipes should have an open license that allows display with proper attribution.
 @return map[string]interface{}
 */
 
 type SearchRecipesOpts struct {
 	Cuisine optional.String
+	ExcludeCuisine optional.String
 	Diet optional.String
-	ExcludeIngredients optional.String
 	Intolerances optional.String
+	Equipment optional.String
+	IncludeIngredients optional.String
+	ExcludeIngredients optional.String
+	Type_ optional.String
+	InstructionsRequired optional.Bool
+	FillIngredients optional.Bool
+	AddRecipeInformation optional.Bool
+	AddRecipeNutrition optional.Bool
+	Author optional.String
+	Tags optional.String
+	RecipeBoxId optional.Float32
+	TitleMatch optional.String
+	MaxReadyTime optional.Float32
+	IgnorePantry optional.Bool
+	Sort optional.String
+	SortDirection optional.String
+	MinCarbs optional.Float32
+	MaxCarbs optional.Float32
+	MinProtein optional.Float32
+	MaxProtein optional.Float32
+	MinCalories optional.Float32
+	MaxCalories optional.Float32
+	MinFat optional.Float32
+	MaxFat optional.Float32
+	MinAlcohol optional.Float32
+	MaxAlcohol optional.Float32
+	MinCaffeine optional.Float32
+	MaxCaffeine optional.Float32
+	MinCopper optional.Float32
+	MaxCopper optional.Float32
+	MinCalcium optional.Float32
+	MaxCalcium optional.Float32
+	MinCholine optional.Float32
+	MaxCholine optional.Float32
+	MinCholesterol optional.Float32
+	MaxCholesterol optional.Float32
+	MinFluoride optional.Float32
+	MaxFluoride optional.Float32
+	MinSaturatedFat optional.Float32
+	MaxSaturatedFat optional.Float32
+	MinVitaminA optional.Float32
+	MaxVitaminA optional.Float32
+	MinVitaminC optional.Float32
+	MaxVitaminC optional.Float32
+	MinVitaminD optional.Float32
+	MaxVitaminD optional.Float32
+	MinVitaminE optional.Float32
+	MaxVitaminE optional.Float32
+	MinVitaminK optional.Float32
+	MaxVitaminK optional.Float32
+	MinVitaminB1 optional.Float32
+	MaxVitaminB1 optional.Float32
+	MinVitaminB2 optional.Float32
+	MaxVitaminB2 optional.Float32
+	MinVitaminB5 optional.Float32
+	MaxVitaminB5 optional.Float32
+	MinVitaminB3 optional.Float32
+	MaxVitaminB3 optional.Float32
+	MinVitaminB6 optional.Float32
+	MaxVitaminB6 optional.Float32
+	MinVitaminB12 optional.Float32
+	MaxVitaminB12 optional.Float32
+	MinFiber optional.Float32
+	MaxFiber optional.Float32
+	MinFolate optional.Float32
+	MaxFolate optional.Float32
+	MinFolicAcid optional.Float32
+	MaxFolicAcid optional.Float32
+	MinIodine optional.Float32
+	MaxIodine optional.Float32
+	MinIron optional.Float32
+	MaxIron optional.Float32
+	MinMagnesium optional.Float32
+	MaxMagnesium optional.Float32
+	MinManganese optional.Float32
+	MaxManganese optional.Float32
+	MinPhosphorus optional.Float32
+	MaxPhosphorus optional.Float32
+	MinPotassium optional.Float32
+	MaxPotassium optional.Float32
+	MinSelenium optional.Float32
+	MaxSelenium optional.Float32
+	MinSodium optional.Float32
+	MaxSodium optional.Float32
+	MinSugar optional.Float32
+	MaxSugar optional.Float32
+	MinZinc optional.Float32
+	MaxZinc optional.Float32
 	Offset optional.Float32
 	Number optional.Float32
 	LimitLicense optional.Bool
-	InstructionsRequired optional.Bool
 }
 
 func (a *DefaultApiService) SearchRecipes(ctx context.Context, query string, localVarOptionals *SearchRecipesOpts) (map[string]interface{}, *http.Response, error) {
@@ -5510,7 +6306,7 @@ func (a *DefaultApiService) SearchRecipes(ctx context.Context, query string, loc
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/recipes/search"
+	localVarPath := a.client.cfg.BasePath + "/recipes/complexSearch"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -5520,14 +6316,278 @@ func (a *DefaultApiService) SearchRecipes(ctx context.Context, query string, loc
 	if localVarOptionals != nil && localVarOptionals.Cuisine.IsSet() {
 		localVarQueryParams.Add("cuisine", parameterToString(localVarOptionals.Cuisine.Value(), ""))
 	}
+	if localVarOptionals != nil && localVarOptionals.ExcludeCuisine.IsSet() {
+		localVarQueryParams.Add("excludeCuisine", parameterToString(localVarOptionals.ExcludeCuisine.Value(), ""))
+	}
 	if localVarOptionals != nil && localVarOptionals.Diet.IsSet() {
 		localVarQueryParams.Add("diet", parameterToString(localVarOptionals.Diet.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Intolerances.IsSet() {
+		localVarQueryParams.Add("intolerances", parameterToString(localVarOptionals.Intolerances.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Equipment.IsSet() {
+		localVarQueryParams.Add("equipment", parameterToString(localVarOptionals.Equipment.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.IncludeIngredients.IsSet() {
+		localVarQueryParams.Add("includeIngredients", parameterToString(localVarOptionals.IncludeIngredients.Value(), ""))
 	}
 	if localVarOptionals != nil && localVarOptionals.ExcludeIngredients.IsSet() {
 		localVarQueryParams.Add("excludeIngredients", parameterToString(localVarOptionals.ExcludeIngredients.Value(), ""))
 	}
-	if localVarOptionals != nil && localVarOptionals.Intolerances.IsSet() {
-		localVarQueryParams.Add("intolerances", parameterToString(localVarOptionals.Intolerances.Value(), ""))
+	if localVarOptionals != nil && localVarOptionals.Type_.IsSet() {
+		localVarQueryParams.Add("type", parameterToString(localVarOptionals.Type_.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.InstructionsRequired.IsSet() {
+		localVarQueryParams.Add("instructionsRequired", parameterToString(localVarOptionals.InstructionsRequired.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.FillIngredients.IsSet() {
+		localVarQueryParams.Add("fillIngredients", parameterToString(localVarOptionals.FillIngredients.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.AddRecipeInformation.IsSet() {
+		localVarQueryParams.Add("addRecipeInformation", parameterToString(localVarOptionals.AddRecipeInformation.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.AddRecipeNutrition.IsSet() {
+		localVarQueryParams.Add("addRecipeNutrition", parameterToString(localVarOptionals.AddRecipeNutrition.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Author.IsSet() {
+		localVarQueryParams.Add("author", parameterToString(localVarOptionals.Author.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Tags.IsSet() {
+		localVarQueryParams.Add("tags", parameterToString(localVarOptionals.Tags.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.RecipeBoxId.IsSet() {
+		localVarQueryParams.Add("recipeBoxId", parameterToString(localVarOptionals.RecipeBoxId.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.TitleMatch.IsSet() {
+		localVarQueryParams.Add("titleMatch", parameterToString(localVarOptionals.TitleMatch.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MaxReadyTime.IsSet() {
+		localVarQueryParams.Add("maxReadyTime", parameterToString(localVarOptionals.MaxReadyTime.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.IgnorePantry.IsSet() {
+		localVarQueryParams.Add("ignorePantry", parameterToString(localVarOptionals.IgnorePantry.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Sort.IsSet() {
+		localVarQueryParams.Add("sort", parameterToString(localVarOptionals.Sort.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.SortDirection.IsSet() {
+		localVarQueryParams.Add("sortDirection", parameterToString(localVarOptionals.SortDirection.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MinCarbs.IsSet() {
+		localVarQueryParams.Add("minCarbs", parameterToString(localVarOptionals.MinCarbs.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MaxCarbs.IsSet() {
+		localVarQueryParams.Add("maxCarbs", parameterToString(localVarOptionals.MaxCarbs.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MinProtein.IsSet() {
+		localVarQueryParams.Add("minProtein", parameterToString(localVarOptionals.MinProtein.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MaxProtein.IsSet() {
+		localVarQueryParams.Add("maxProtein", parameterToString(localVarOptionals.MaxProtein.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MinCalories.IsSet() {
+		localVarQueryParams.Add("minCalories", parameterToString(localVarOptionals.MinCalories.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MaxCalories.IsSet() {
+		localVarQueryParams.Add("maxCalories", parameterToString(localVarOptionals.MaxCalories.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MinFat.IsSet() {
+		localVarQueryParams.Add("minFat", parameterToString(localVarOptionals.MinFat.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MaxFat.IsSet() {
+		localVarQueryParams.Add("maxFat", parameterToString(localVarOptionals.MaxFat.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MinAlcohol.IsSet() {
+		localVarQueryParams.Add("minAlcohol", parameterToString(localVarOptionals.MinAlcohol.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MaxAlcohol.IsSet() {
+		localVarQueryParams.Add("maxAlcohol", parameterToString(localVarOptionals.MaxAlcohol.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MinCaffeine.IsSet() {
+		localVarQueryParams.Add("minCaffeine", parameterToString(localVarOptionals.MinCaffeine.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MaxCaffeine.IsSet() {
+		localVarQueryParams.Add("maxCaffeine", parameterToString(localVarOptionals.MaxCaffeine.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MinCopper.IsSet() {
+		localVarQueryParams.Add("minCopper", parameterToString(localVarOptionals.MinCopper.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MaxCopper.IsSet() {
+		localVarQueryParams.Add("maxCopper", parameterToString(localVarOptionals.MaxCopper.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MinCalcium.IsSet() {
+		localVarQueryParams.Add("minCalcium", parameterToString(localVarOptionals.MinCalcium.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MaxCalcium.IsSet() {
+		localVarQueryParams.Add("maxCalcium", parameterToString(localVarOptionals.MaxCalcium.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MinCholine.IsSet() {
+		localVarQueryParams.Add("minCholine", parameterToString(localVarOptionals.MinCholine.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MaxCholine.IsSet() {
+		localVarQueryParams.Add("maxCholine", parameterToString(localVarOptionals.MaxCholine.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MinCholesterol.IsSet() {
+		localVarQueryParams.Add("minCholesterol", parameterToString(localVarOptionals.MinCholesterol.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MaxCholesterol.IsSet() {
+		localVarQueryParams.Add("maxCholesterol", parameterToString(localVarOptionals.MaxCholesterol.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MinFluoride.IsSet() {
+		localVarQueryParams.Add("minFluoride", parameterToString(localVarOptionals.MinFluoride.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MaxFluoride.IsSet() {
+		localVarQueryParams.Add("maxFluoride", parameterToString(localVarOptionals.MaxFluoride.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MinSaturatedFat.IsSet() {
+		localVarQueryParams.Add("minSaturatedFat", parameterToString(localVarOptionals.MinSaturatedFat.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MaxSaturatedFat.IsSet() {
+		localVarQueryParams.Add("maxSaturatedFat", parameterToString(localVarOptionals.MaxSaturatedFat.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MinVitaminA.IsSet() {
+		localVarQueryParams.Add("minVitaminA", parameterToString(localVarOptionals.MinVitaminA.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MaxVitaminA.IsSet() {
+		localVarQueryParams.Add("maxVitaminA", parameterToString(localVarOptionals.MaxVitaminA.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MinVitaminC.IsSet() {
+		localVarQueryParams.Add("minVitaminC", parameterToString(localVarOptionals.MinVitaminC.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MaxVitaminC.IsSet() {
+		localVarQueryParams.Add("maxVitaminC", parameterToString(localVarOptionals.MaxVitaminC.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MinVitaminD.IsSet() {
+		localVarQueryParams.Add("minVitaminD", parameterToString(localVarOptionals.MinVitaminD.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MaxVitaminD.IsSet() {
+		localVarQueryParams.Add("maxVitaminD", parameterToString(localVarOptionals.MaxVitaminD.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MinVitaminE.IsSet() {
+		localVarQueryParams.Add("minVitaminE", parameterToString(localVarOptionals.MinVitaminE.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MaxVitaminE.IsSet() {
+		localVarQueryParams.Add("maxVitaminE", parameterToString(localVarOptionals.MaxVitaminE.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MinVitaminK.IsSet() {
+		localVarQueryParams.Add("minVitaminK", parameterToString(localVarOptionals.MinVitaminK.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MaxVitaminK.IsSet() {
+		localVarQueryParams.Add("maxVitaminK", parameterToString(localVarOptionals.MaxVitaminK.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MinVitaminB1.IsSet() {
+		localVarQueryParams.Add("minVitaminB1", parameterToString(localVarOptionals.MinVitaminB1.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MaxVitaminB1.IsSet() {
+		localVarQueryParams.Add("maxVitaminB1", parameterToString(localVarOptionals.MaxVitaminB1.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MinVitaminB2.IsSet() {
+		localVarQueryParams.Add("minVitaminB2", parameterToString(localVarOptionals.MinVitaminB2.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MaxVitaminB2.IsSet() {
+		localVarQueryParams.Add("maxVitaminB2", parameterToString(localVarOptionals.MaxVitaminB2.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MinVitaminB5.IsSet() {
+		localVarQueryParams.Add("minVitaminB5", parameterToString(localVarOptionals.MinVitaminB5.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MaxVitaminB5.IsSet() {
+		localVarQueryParams.Add("maxVitaminB5", parameterToString(localVarOptionals.MaxVitaminB5.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MinVitaminB3.IsSet() {
+		localVarQueryParams.Add("minVitaminB3", parameterToString(localVarOptionals.MinVitaminB3.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MaxVitaminB3.IsSet() {
+		localVarQueryParams.Add("maxVitaminB3", parameterToString(localVarOptionals.MaxVitaminB3.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MinVitaminB6.IsSet() {
+		localVarQueryParams.Add("minVitaminB6", parameterToString(localVarOptionals.MinVitaminB6.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MaxVitaminB6.IsSet() {
+		localVarQueryParams.Add("maxVitaminB6", parameterToString(localVarOptionals.MaxVitaminB6.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MinVitaminB12.IsSet() {
+		localVarQueryParams.Add("minVitaminB12", parameterToString(localVarOptionals.MinVitaminB12.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MaxVitaminB12.IsSet() {
+		localVarQueryParams.Add("maxVitaminB12", parameterToString(localVarOptionals.MaxVitaminB12.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MinFiber.IsSet() {
+		localVarQueryParams.Add("minFiber", parameterToString(localVarOptionals.MinFiber.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MaxFiber.IsSet() {
+		localVarQueryParams.Add("maxFiber", parameterToString(localVarOptionals.MaxFiber.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MinFolate.IsSet() {
+		localVarQueryParams.Add("minFolate", parameterToString(localVarOptionals.MinFolate.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MaxFolate.IsSet() {
+		localVarQueryParams.Add("maxFolate", parameterToString(localVarOptionals.MaxFolate.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MinFolicAcid.IsSet() {
+		localVarQueryParams.Add("minFolicAcid", parameterToString(localVarOptionals.MinFolicAcid.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MaxFolicAcid.IsSet() {
+		localVarQueryParams.Add("maxFolicAcid", parameterToString(localVarOptionals.MaxFolicAcid.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MinIodine.IsSet() {
+		localVarQueryParams.Add("minIodine", parameterToString(localVarOptionals.MinIodine.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MaxIodine.IsSet() {
+		localVarQueryParams.Add("maxIodine", parameterToString(localVarOptionals.MaxIodine.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MinIron.IsSet() {
+		localVarQueryParams.Add("minIron", parameterToString(localVarOptionals.MinIron.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MaxIron.IsSet() {
+		localVarQueryParams.Add("maxIron", parameterToString(localVarOptionals.MaxIron.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MinMagnesium.IsSet() {
+		localVarQueryParams.Add("minMagnesium", parameterToString(localVarOptionals.MinMagnesium.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MaxMagnesium.IsSet() {
+		localVarQueryParams.Add("maxMagnesium", parameterToString(localVarOptionals.MaxMagnesium.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MinManganese.IsSet() {
+		localVarQueryParams.Add("minManganese", parameterToString(localVarOptionals.MinManganese.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MaxManganese.IsSet() {
+		localVarQueryParams.Add("maxManganese", parameterToString(localVarOptionals.MaxManganese.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MinPhosphorus.IsSet() {
+		localVarQueryParams.Add("minPhosphorus", parameterToString(localVarOptionals.MinPhosphorus.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MaxPhosphorus.IsSet() {
+		localVarQueryParams.Add("maxPhosphorus", parameterToString(localVarOptionals.MaxPhosphorus.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MinPotassium.IsSet() {
+		localVarQueryParams.Add("minPotassium", parameterToString(localVarOptionals.MinPotassium.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MaxPotassium.IsSet() {
+		localVarQueryParams.Add("maxPotassium", parameterToString(localVarOptionals.MaxPotassium.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MinSelenium.IsSet() {
+		localVarQueryParams.Add("minSelenium", parameterToString(localVarOptionals.MinSelenium.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MaxSelenium.IsSet() {
+		localVarQueryParams.Add("maxSelenium", parameterToString(localVarOptionals.MaxSelenium.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MinSodium.IsSet() {
+		localVarQueryParams.Add("minSodium", parameterToString(localVarOptionals.MinSodium.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MaxSodium.IsSet() {
+		localVarQueryParams.Add("maxSodium", parameterToString(localVarOptionals.MaxSodium.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MinSugar.IsSet() {
+		localVarQueryParams.Add("minSugar", parameterToString(localVarOptionals.MinSugar.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MaxSugar.IsSet() {
+		localVarQueryParams.Add("maxSugar", parameterToString(localVarOptionals.MaxSugar.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MinZinc.IsSet() {
+		localVarQueryParams.Add("minZinc", parameterToString(localVarOptionals.MinZinc.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.MaxZinc.IsSet() {
+		localVarQueryParams.Add("maxZinc", parameterToString(localVarOptionals.MaxZinc.Value(), ""))
 	}
 	if localVarOptionals != nil && localVarOptionals.Offset.IsSet() {
 		localVarQueryParams.Add("offset", parameterToString(localVarOptionals.Offset.Value(), ""))
@@ -5537,9 +6597,6 @@ func (a *DefaultApiService) SearchRecipes(ctx context.Context, query string, loc
 	}
 	if localVarOptionals != nil && localVarOptionals.LimitLicense.IsSet() {
 		localVarQueryParams.Add("limitLicense", parameterToString(localVarOptionals.LimitLicense.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.InstructionsRequired.IsSet() {
-		localVarQueryParams.Add("instructionsRequired", parameterToString(localVarOptionals.InstructionsRequired.Value(), ""))
 	}
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{}
@@ -5770,12 +6827,12 @@ Find a set of recipes that adhere to the given nutritional limits. You may set l
  * @param "MaxVitaminB12" (optional.Float32) -  The maximum amount of Vitamin B12 in micrograms the recipe can have.
  * @param "MinFiber" (optional.Float32) -  The minimum amount of fiber in grams the recipe must have.
  * @param "MaxFiber" (optional.Float32) -  The maximum amount of fiber in grams the recipe can have.
- * @param "MinFolate" (optional.Float32) -  The minimum amount of folate in grams the recipe must have.
- * @param "MaxFolate" (optional.Float32) -  The maximum amount of folate in grams the recipe can have.
- * @param "MinFolicAcid" (optional.Float32) -  The minimum amount of folic acid in grams the recipe must have.
- * @param "MaxFolicAcid" (optional.Float32) -  The maximum amount of folic acid in grams the recipe can have.
- * @param "MinIodine" (optional.Float32) -  The minimum amount of iodine in grams the recipe must have.
- * @param "MaxIodine" (optional.Float32) -  The maximum amount of iodine in grams the recipe can have.
+ * @param "MinFolate" (optional.Float32) -  The minimum amount of folate in micrograms the recipe must have.
+ * @param "MaxFolate" (optional.Float32) -  The maximum amount of folate in micrograms the recipe can have.
+ * @param "MinFolicAcid" (optional.Float32) -  The minimum amount of folic acid in micrograms the recipe must have.
+ * @param "MaxFolicAcid" (optional.Float32) -  The maximum amount of folic acid in micrograms the recipe can have.
+ * @param "MinIodine" (optional.Float32) -  The minimum amount of iodine in micrograms the recipe must have.
+ * @param "MaxIodine" (optional.Float32) -  The maximum amount of iodine in micrograms the recipe can have.
  * @param "MinIron" (optional.Float32) -  The minimum amount of iron in milligrams the recipe must have.
  * @param "MaxIron" (optional.Float32) -  The maximum amount of iron in milligrams the recipe can have.
  * @param "MinMagnesium" (optional.Float32) -  The minimum amount of magnesium in milligrams the recipe must have.
@@ -5786,8 +6843,8 @@ Find a set of recipes that adhere to the given nutritional limits. You may set l
  * @param "MaxPhosphorus" (optional.Float32) -  The maximum amount of phosphorus in milligrams the recipe can have.
  * @param "MinPotassium" (optional.Float32) -  The minimum amount of potassium in milligrams the recipe must have.
  * @param "MaxPotassium" (optional.Float32) -  The maximum amount of potassium in milligrams the recipe can have.
- * @param "MinSelenium" (optional.Float32) -  The minimum amount of selenium in grams the recipe must have.
- * @param "MaxSelenium" (optional.Float32) -  The maximum amount of selenium in grams the recipe can have.
+ * @param "MinSelenium" (optional.Float32) -  The minimum amount of selenium in micrograms the recipe must have.
+ * @param "MaxSelenium" (optional.Float32) -  The maximum amount of selenium in micrograms the recipe can have.
  * @param "MinSodium" (optional.Float32) -  The minimum amount of sodium in milligrams the recipe must have.
  * @param "MaxSodium" (optional.Float32) -  The maximum amount of sodium in milligrams the recipe can have.
  * @param "MinSugar" (optional.Float32) -  The minimum amount of sugar in grams the recipe must have.
@@ -6189,574 +7246,6 @@ func (a *DefaultApiService) SearchRecipesByNutrients(ctx context.Context, localV
 }
 
 /*
-DefaultApiService Search Recipes Complex
-Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint.
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param query The (natural language) recipe search query.
- * @param optional nil or *SearchRecipesComplexOpts - Optional Parameters:
- * @param "Cuisine" (optional.String) -  The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as 'OR'). See a full list of supported cuisines.
- * @param "ExcludeCuisine" (optional.String) -  The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as 'AND'). See a full list of supported cuisines.
- * @param "Diet" (optional.String) -  The diet for which the recipes must be suitable. See a full list of supported diets.
- * @param "Intolerances" (optional.String) -  A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
- * @param "Equipment" (optional.String) -  The equipment required. Multiple values will be interpreted as 'or'. For example, value could be \"blender, frying pan, bowl\".
- * @param "IncludeIngredients" (optional.String) -  A comma-separated list of ingredients that should/must be used in the recipes.
- * @param "ExcludeIngredients" (optional.String) -  A comma-separated list of ingredients or ingredient types that the recipes must not contain.
- * @param "Type_" (optional.String) -  The type of recipe. See a full list of supported meal types.
- * @param "InstructionsRequired" (optional.Bool) -  Whether the recipes must have instructions.
- * @param "FillIngredients" (optional.Bool) -  Add information about the ingredients and whether they are used or missing in relation to the query.
- * @param "AddRecipeInformation" (optional.Bool) -  If set to true, you get more information about the recipes returned.
- * @param "AddRecipeNutrition" (optional.Bool) -  If set to true, you get nutritional information about each recipes returned.
- * @param "Author" (optional.String) -  The username of the recipe author.
- * @param "Tags" (optional.String) -  User defined tags that have to match. The author param has to be set.
- * @param "RecipeBoxId" (optional.Float32) -  The id of the recipe box to which the search should be limited to.
- * @param "TitleMatch" (optional.String) -  Enter text that must be found in the title of the recipes.
- * @param "MaxReadyTime" (optional.Float32) -  The maximum time in minutes it should take to prepare and cook the recipe.
- * @param "IgnorePantry" (optional.Bool) -  Whether to ignore typical pantry items, such as water, salt, flour, etc.
- * @param "Sort" (optional.String) -  The strategy to sort recipes by. See a full list of supported sorting options.
- * @param "SortDirection" (optional.String) -  The direction in which to sort. Must be either 'asc' (ascending) or 'desc' (descending).
- * @param "MinCarbs" (optional.Float32) -  The minimum amount of carbohydrates in grams the recipe must have.
- * @param "MaxCarbs" (optional.Float32) -  The maximum amount of carbohydrates in grams the recipe can have.
- * @param "MinProtein" (optional.Float32) -  The minimum amount of protein in grams the recipe must have.
- * @param "MaxProtein" (optional.Float32) -  The maximum amount of protein in grams the recipe can have.
- * @param "MinCalories" (optional.Float32) -  The minimum amount of calories the recipe must have.
- * @param "MaxCalories" (optional.Float32) -  The maximum amount of calories the recipe can have.
- * @param "MinFat" (optional.Float32) -  The minimum amount of fat in grams the recipe must have.
- * @param "MaxFat" (optional.Float32) -  The maximum amount of fat in grams the recipe can have.
- * @param "MinAlcohol" (optional.Float32) -  The minimum amount of alcohol in grams the recipe must have.
- * @param "MaxAlcohol" (optional.Float32) -  The maximum amount of alcohol in grams the recipe can have.
- * @param "MinCaffeine" (optional.Float32) -  The minimum amount of caffeine in milligrams the recipe must have.
- * @param "MaxCaffeine" (optional.Float32) -  The maximum amount of caffeine in milligrams the recipe can have.
- * @param "MinCopper" (optional.Float32) -  The minimum amount of copper in milligrams the recipe must have.
- * @param "MaxCopper" (optional.Float32) -  The maximum amount of copper in milligrams the recipe can have.
- * @param "MinCalcium" (optional.Float32) -  The minimum amount of calcium in milligrams the recipe must have.
- * @param "MaxCalcium" (optional.Float32) -  The maximum amount of calcium in milligrams the recipe can have.
- * @param "MinCholine" (optional.Float32) -  The minimum amount of choline in milligrams the recipe must have.
- * @param "MaxCholine" (optional.Float32) -  The maximum amount of choline in milligrams the recipe can have.
- * @param "MinCholesterol" (optional.Float32) -  The minimum amount of cholesterol in milligrams the recipe must have.
- * @param "MaxCholesterol" (optional.Float32) -  The maximum amount of cholesterol in milligrams the recipe can have.
- * @param "MinFluoride" (optional.Float32) -  The minimum amount of fluoride in milligrams the recipe must have.
- * @param "MaxFluoride" (optional.Float32) -  The maximum amount of fluoride in milligrams the recipe can have.
- * @param "MinSaturatedFat" (optional.Float32) -  The minimum amount of saturated fat in grams the recipe must have.
- * @param "MaxSaturatedFat" (optional.Float32) -  The maximum amount of saturated fat in grams the recipe can have.
- * @param "MinVitaminA" (optional.Float32) -  The minimum amount of Vitamin A in IU the recipe must have.
- * @param "MaxVitaminA" (optional.Float32) -  The maximum amount of Vitamin A in IU the recipe can have.
- * @param "MinVitaminC" (optional.Float32) -  The minimum amount of Vitamin C milligrams the recipe must have.
- * @param "MaxVitaminC" (optional.Float32) -  The maximum amount of Vitamin C in milligrams the recipe can have.
- * @param "MinVitaminD" (optional.Float32) -  The minimum amount of Vitamin D in micrograms the recipe must have.
- * @param "MaxVitaminD" (optional.Float32) -  The maximum amount of Vitamin D in micrograms the recipe can have.
- * @param "MinVitaminE" (optional.Float32) -  The minimum amount of Vitamin E in milligrams the recipe must have.
- * @param "MaxVitaminE" (optional.Float32) -  The maximum amount of Vitamin E in milligrams the recipe can have.
- * @param "MinVitaminK" (optional.Float32) -  The minimum amount of Vitamin K in micrograms the recipe must have.
- * @param "MaxVitaminK" (optional.Float32) -  The maximum amount of Vitamin K in micrograms the recipe can have.
- * @param "MinVitaminB1" (optional.Float32) -  The minimum amount of Vitamin B1 in milligrams the recipe must have.
- * @param "MaxVitaminB1" (optional.Float32) -  The maximum amount of Vitamin B1 in milligrams the recipe can have.
- * @param "MinVitaminB2" (optional.Float32) -  The minimum amount of Vitamin B2 in milligrams the recipe must have.
- * @param "MaxVitaminB2" (optional.Float32) -  The maximum amount of Vitamin B2 in milligrams the recipe can have.
- * @param "MinVitaminB5" (optional.Float32) -  The minimum amount of Vitamin B5 in milligrams the recipe must have.
- * @param "MaxVitaminB5" (optional.Float32) -  The maximum amount of Vitamin B5 in milligrams the recipe can have.
- * @param "MinVitaminB3" (optional.Float32) -  The minimum amount of Vitamin B3 in milligrams the recipe must have.
- * @param "MaxVitaminB3" (optional.Float32) -  The maximum amount of Vitamin B3 in milligrams the recipe can have.
- * @param "MinVitaminB6" (optional.Float32) -  The minimum amount of Vitamin B6 in milligrams the recipe must have.
- * @param "MaxVitaminB6" (optional.Float32) -  The maximum amount of Vitamin B6 in milligrams the recipe can have.
- * @param "MinVitaminB12" (optional.Float32) -  The minimum amount of Vitamin B12 in micrograms the recipe must have.
- * @param "MaxVitaminB12" (optional.Float32) -  The maximum amount of Vitamin B12 in micrograms the recipe can have.
- * @param "MinFiber" (optional.Float32) -  The minimum amount of fiber in grams the recipe must have.
- * @param "MaxFiber" (optional.Float32) -  The maximum amount of fiber in grams the recipe can have.
- * @param "MinFolate" (optional.Float32) -  The minimum amount of folate in grams the recipe must have.
- * @param "MaxFolate" (optional.Float32) -  The maximum amount of folate in grams the recipe can have.
- * @param "MinFolicAcid" (optional.Float32) -  The minimum amount of folic acid in grams the recipe must have.
- * @param "MaxFolicAcid" (optional.Float32) -  The maximum amount of folic acid in grams the recipe can have.
- * @param "MinIodine" (optional.Float32) -  The minimum amount of iodine in grams the recipe must have.
- * @param "MaxIodine" (optional.Float32) -  The maximum amount of iodine in grams the recipe can have.
- * @param "MinIron" (optional.Float32) -  The minimum amount of iron in milligrams the recipe must have.
- * @param "MaxIron" (optional.Float32) -  The maximum amount of iron in milligrams the recipe can have.
- * @param "MinMagnesium" (optional.Float32) -  The minimum amount of magnesium in milligrams the recipe must have.
- * @param "MaxMagnesium" (optional.Float32) -  The maximum amount of magnesium in milligrams the recipe can have.
- * @param "MinManganese" (optional.Float32) -  The minimum amount of manganese in milligrams the recipe must have.
- * @param "MaxManganese" (optional.Float32) -  The maximum amount of manganese in milligrams the recipe can have.
- * @param "MinPhosphorus" (optional.Float32) -  The minimum amount of phosphorus in milligrams the recipe must have.
- * @param "MaxPhosphorus" (optional.Float32) -  The maximum amount of phosphorus in milligrams the recipe can have.
- * @param "MinPotassium" (optional.Float32) -  The minimum amount of potassium in milligrams the recipe must have.
- * @param "MaxPotassium" (optional.Float32) -  The maximum amount of potassium in milligrams the recipe can have.
- * @param "MinSelenium" (optional.Float32) -  The minimum amount of selenium in grams the recipe must have.
- * @param "MaxSelenium" (optional.Float32) -  The maximum amount of selenium in grams the recipe can have.
- * @param "MinSodium" (optional.Float32) -  The minimum amount of sodium in milligrams the recipe must have.
- * @param "MaxSodium" (optional.Float32) -  The maximum amount of sodium in milligrams the recipe can have.
- * @param "MinSugar" (optional.Float32) -  The minimum amount of sugar in grams the recipe must have.
- * @param "MaxSugar" (optional.Float32) -  The maximum amount of sugar in grams the recipe can have.
- * @param "MinZinc" (optional.Float32) -  The minimum amount of zinc in milligrams the recipe must have.
- * @param "MaxZinc" (optional.Float32) -  The maximum amount of zinc in milligrams the recipe can have.
- * @param "Offset" (optional.Float32) -  The number of results to skip (between 0 and 900).
- * @param "Number" (optional.Float32) -  The number of expected results (between 1 and 100).
- * @param "LimitLicense" (optional.Bool) -  Whether the recipes should have an open license that allows display with proper attribution.
-@return map[string]interface{}
-*/
-
-type SearchRecipesComplexOpts struct {
-	Cuisine optional.String
-	ExcludeCuisine optional.String
-	Diet optional.String
-	Intolerances optional.String
-	Equipment optional.String
-	IncludeIngredients optional.String
-	ExcludeIngredients optional.String
-	Type_ optional.String
-	InstructionsRequired optional.Bool
-	FillIngredients optional.Bool
-	AddRecipeInformation optional.Bool
-	AddRecipeNutrition optional.Bool
-	Author optional.String
-	Tags optional.String
-	RecipeBoxId optional.Float32
-	TitleMatch optional.String
-	MaxReadyTime optional.Float32
-	IgnorePantry optional.Bool
-	Sort optional.String
-	SortDirection optional.String
-	MinCarbs optional.Float32
-	MaxCarbs optional.Float32
-	MinProtein optional.Float32
-	MaxProtein optional.Float32
-	MinCalories optional.Float32
-	MaxCalories optional.Float32
-	MinFat optional.Float32
-	MaxFat optional.Float32
-	MinAlcohol optional.Float32
-	MaxAlcohol optional.Float32
-	MinCaffeine optional.Float32
-	MaxCaffeine optional.Float32
-	MinCopper optional.Float32
-	MaxCopper optional.Float32
-	MinCalcium optional.Float32
-	MaxCalcium optional.Float32
-	MinCholine optional.Float32
-	MaxCholine optional.Float32
-	MinCholesterol optional.Float32
-	MaxCholesterol optional.Float32
-	MinFluoride optional.Float32
-	MaxFluoride optional.Float32
-	MinSaturatedFat optional.Float32
-	MaxSaturatedFat optional.Float32
-	MinVitaminA optional.Float32
-	MaxVitaminA optional.Float32
-	MinVitaminC optional.Float32
-	MaxVitaminC optional.Float32
-	MinVitaminD optional.Float32
-	MaxVitaminD optional.Float32
-	MinVitaminE optional.Float32
-	MaxVitaminE optional.Float32
-	MinVitaminK optional.Float32
-	MaxVitaminK optional.Float32
-	MinVitaminB1 optional.Float32
-	MaxVitaminB1 optional.Float32
-	MinVitaminB2 optional.Float32
-	MaxVitaminB2 optional.Float32
-	MinVitaminB5 optional.Float32
-	MaxVitaminB5 optional.Float32
-	MinVitaminB3 optional.Float32
-	MaxVitaminB3 optional.Float32
-	MinVitaminB6 optional.Float32
-	MaxVitaminB6 optional.Float32
-	MinVitaminB12 optional.Float32
-	MaxVitaminB12 optional.Float32
-	MinFiber optional.Float32
-	MaxFiber optional.Float32
-	MinFolate optional.Float32
-	MaxFolate optional.Float32
-	MinFolicAcid optional.Float32
-	MaxFolicAcid optional.Float32
-	MinIodine optional.Float32
-	MaxIodine optional.Float32
-	MinIron optional.Float32
-	MaxIron optional.Float32
-	MinMagnesium optional.Float32
-	MaxMagnesium optional.Float32
-	MinManganese optional.Float32
-	MaxManganese optional.Float32
-	MinPhosphorus optional.Float32
-	MaxPhosphorus optional.Float32
-	MinPotassium optional.Float32
-	MaxPotassium optional.Float32
-	MinSelenium optional.Float32
-	MaxSelenium optional.Float32
-	MinSodium optional.Float32
-	MaxSodium optional.Float32
-	MinSugar optional.Float32
-	MaxSugar optional.Float32
-	MinZinc optional.Float32
-	MaxZinc optional.Float32
-	Offset optional.Float32
-	Number optional.Float32
-	LimitLicense optional.Bool
-}
-
-func (a *DefaultApiService) SearchRecipesComplex(ctx context.Context, query string, localVarOptionals *SearchRecipesComplexOpts) (map[string]interface{}, *http.Response, error) {
-	var (
-		localVarHttpMethod   = strings.ToUpper("Get")
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  map[string]interface{}
-	)
-
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/recipes/complexSearch"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	localVarQueryParams.Add("query", parameterToString(query, ""))
-	if localVarOptionals != nil && localVarOptionals.Cuisine.IsSet() {
-		localVarQueryParams.Add("cuisine", parameterToString(localVarOptionals.Cuisine.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.ExcludeCuisine.IsSet() {
-		localVarQueryParams.Add("excludeCuisine", parameterToString(localVarOptionals.ExcludeCuisine.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.Diet.IsSet() {
-		localVarQueryParams.Add("diet", parameterToString(localVarOptionals.Diet.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.Intolerances.IsSet() {
-		localVarQueryParams.Add("intolerances", parameterToString(localVarOptionals.Intolerances.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.Equipment.IsSet() {
-		localVarQueryParams.Add("equipment", parameterToString(localVarOptionals.Equipment.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.IncludeIngredients.IsSet() {
-		localVarQueryParams.Add("includeIngredients", parameterToString(localVarOptionals.IncludeIngredients.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.ExcludeIngredients.IsSet() {
-		localVarQueryParams.Add("excludeIngredients", parameterToString(localVarOptionals.ExcludeIngredients.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.Type_.IsSet() {
-		localVarQueryParams.Add("type", parameterToString(localVarOptionals.Type_.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.InstructionsRequired.IsSet() {
-		localVarQueryParams.Add("instructionsRequired", parameterToString(localVarOptionals.InstructionsRequired.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.FillIngredients.IsSet() {
-		localVarQueryParams.Add("fillIngredients", parameterToString(localVarOptionals.FillIngredients.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.AddRecipeInformation.IsSet() {
-		localVarQueryParams.Add("addRecipeInformation", parameterToString(localVarOptionals.AddRecipeInformation.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.AddRecipeNutrition.IsSet() {
-		localVarQueryParams.Add("addRecipeNutrition", parameterToString(localVarOptionals.AddRecipeNutrition.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.Author.IsSet() {
-		localVarQueryParams.Add("author", parameterToString(localVarOptionals.Author.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.Tags.IsSet() {
-		localVarQueryParams.Add("tags", parameterToString(localVarOptionals.Tags.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.RecipeBoxId.IsSet() {
-		localVarQueryParams.Add("recipeBoxId", parameterToString(localVarOptionals.RecipeBoxId.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.TitleMatch.IsSet() {
-		localVarQueryParams.Add("titleMatch", parameterToString(localVarOptionals.TitleMatch.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.MaxReadyTime.IsSet() {
-		localVarQueryParams.Add("maxReadyTime", parameterToString(localVarOptionals.MaxReadyTime.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.IgnorePantry.IsSet() {
-		localVarQueryParams.Add("ignorePantry", parameterToString(localVarOptionals.IgnorePantry.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.Sort.IsSet() {
-		localVarQueryParams.Add("sort", parameterToString(localVarOptionals.Sort.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.SortDirection.IsSet() {
-		localVarQueryParams.Add("sortDirection", parameterToString(localVarOptionals.SortDirection.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.MinCarbs.IsSet() {
-		localVarQueryParams.Add("minCarbs", parameterToString(localVarOptionals.MinCarbs.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.MaxCarbs.IsSet() {
-		localVarQueryParams.Add("maxCarbs", parameterToString(localVarOptionals.MaxCarbs.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.MinProtein.IsSet() {
-		localVarQueryParams.Add("minProtein", parameterToString(localVarOptionals.MinProtein.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.MaxProtein.IsSet() {
-		localVarQueryParams.Add("maxProtein", parameterToString(localVarOptionals.MaxProtein.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.MinCalories.IsSet() {
-		localVarQueryParams.Add("minCalories", parameterToString(localVarOptionals.MinCalories.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.MaxCalories.IsSet() {
-		localVarQueryParams.Add("maxCalories", parameterToString(localVarOptionals.MaxCalories.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.MinFat.IsSet() {
-		localVarQueryParams.Add("minFat", parameterToString(localVarOptionals.MinFat.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.MaxFat.IsSet() {
-		localVarQueryParams.Add("maxFat", parameterToString(localVarOptionals.MaxFat.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.MinAlcohol.IsSet() {
-		localVarQueryParams.Add("minAlcohol", parameterToString(localVarOptionals.MinAlcohol.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.MaxAlcohol.IsSet() {
-		localVarQueryParams.Add("maxAlcohol", parameterToString(localVarOptionals.MaxAlcohol.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.MinCaffeine.IsSet() {
-		localVarQueryParams.Add("minCaffeine", parameterToString(localVarOptionals.MinCaffeine.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.MaxCaffeine.IsSet() {
-		localVarQueryParams.Add("maxCaffeine", parameterToString(localVarOptionals.MaxCaffeine.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.MinCopper.IsSet() {
-		localVarQueryParams.Add("minCopper", parameterToString(localVarOptionals.MinCopper.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.MaxCopper.IsSet() {
-		localVarQueryParams.Add("maxCopper", parameterToString(localVarOptionals.MaxCopper.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.MinCalcium.IsSet() {
-		localVarQueryParams.Add("minCalcium", parameterToString(localVarOptionals.MinCalcium.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.MaxCalcium.IsSet() {
-		localVarQueryParams.Add("maxCalcium", parameterToString(localVarOptionals.MaxCalcium.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.MinCholine.IsSet() {
-		localVarQueryParams.Add("minCholine", parameterToString(localVarOptionals.MinCholine.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.MaxCholine.IsSet() {
-		localVarQueryParams.Add("maxCholine", parameterToString(localVarOptionals.MaxCholine.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.MinCholesterol.IsSet() {
-		localVarQueryParams.Add("minCholesterol", parameterToString(localVarOptionals.MinCholesterol.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.MaxCholesterol.IsSet() {
-		localVarQueryParams.Add("maxCholesterol", parameterToString(localVarOptionals.MaxCholesterol.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.MinFluoride.IsSet() {
-		localVarQueryParams.Add("minFluoride", parameterToString(localVarOptionals.MinFluoride.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.MaxFluoride.IsSet() {
-		localVarQueryParams.Add("maxFluoride", parameterToString(localVarOptionals.MaxFluoride.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.MinSaturatedFat.IsSet() {
-		localVarQueryParams.Add("minSaturatedFat", parameterToString(localVarOptionals.MinSaturatedFat.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.MaxSaturatedFat.IsSet() {
-		localVarQueryParams.Add("maxSaturatedFat", parameterToString(localVarOptionals.MaxSaturatedFat.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.MinVitaminA.IsSet() {
-		localVarQueryParams.Add("minVitaminA", parameterToString(localVarOptionals.MinVitaminA.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.MaxVitaminA.IsSet() {
-		localVarQueryParams.Add("maxVitaminA", parameterToString(localVarOptionals.MaxVitaminA.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.MinVitaminC.IsSet() {
-		localVarQueryParams.Add("minVitaminC", parameterToString(localVarOptionals.MinVitaminC.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.MaxVitaminC.IsSet() {
-		localVarQueryParams.Add("maxVitaminC", parameterToString(localVarOptionals.MaxVitaminC.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.MinVitaminD.IsSet() {
-		localVarQueryParams.Add("minVitaminD", parameterToString(localVarOptionals.MinVitaminD.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.MaxVitaminD.IsSet() {
-		localVarQueryParams.Add("maxVitaminD", parameterToString(localVarOptionals.MaxVitaminD.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.MinVitaminE.IsSet() {
-		localVarQueryParams.Add("minVitaminE", parameterToString(localVarOptionals.MinVitaminE.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.MaxVitaminE.IsSet() {
-		localVarQueryParams.Add("maxVitaminE", parameterToString(localVarOptionals.MaxVitaminE.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.MinVitaminK.IsSet() {
-		localVarQueryParams.Add("minVitaminK", parameterToString(localVarOptionals.MinVitaminK.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.MaxVitaminK.IsSet() {
-		localVarQueryParams.Add("maxVitaminK", parameterToString(localVarOptionals.MaxVitaminK.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.MinVitaminB1.IsSet() {
-		localVarQueryParams.Add("minVitaminB1", parameterToString(localVarOptionals.MinVitaminB1.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.MaxVitaminB1.IsSet() {
-		localVarQueryParams.Add("maxVitaminB1", parameterToString(localVarOptionals.MaxVitaminB1.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.MinVitaminB2.IsSet() {
-		localVarQueryParams.Add("minVitaminB2", parameterToString(localVarOptionals.MinVitaminB2.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.MaxVitaminB2.IsSet() {
-		localVarQueryParams.Add("maxVitaminB2", parameterToString(localVarOptionals.MaxVitaminB2.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.MinVitaminB5.IsSet() {
-		localVarQueryParams.Add("minVitaminB5", parameterToString(localVarOptionals.MinVitaminB5.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.MaxVitaminB5.IsSet() {
-		localVarQueryParams.Add("maxVitaminB5", parameterToString(localVarOptionals.MaxVitaminB5.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.MinVitaminB3.IsSet() {
-		localVarQueryParams.Add("minVitaminB3", parameterToString(localVarOptionals.MinVitaminB3.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.MaxVitaminB3.IsSet() {
-		localVarQueryParams.Add("maxVitaminB3", parameterToString(localVarOptionals.MaxVitaminB3.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.MinVitaminB6.IsSet() {
-		localVarQueryParams.Add("minVitaminB6", parameterToString(localVarOptionals.MinVitaminB6.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.MaxVitaminB6.IsSet() {
-		localVarQueryParams.Add("maxVitaminB6", parameterToString(localVarOptionals.MaxVitaminB6.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.MinVitaminB12.IsSet() {
-		localVarQueryParams.Add("minVitaminB12", parameterToString(localVarOptionals.MinVitaminB12.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.MaxVitaminB12.IsSet() {
-		localVarQueryParams.Add("maxVitaminB12", parameterToString(localVarOptionals.MaxVitaminB12.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.MinFiber.IsSet() {
-		localVarQueryParams.Add("minFiber", parameterToString(localVarOptionals.MinFiber.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.MaxFiber.IsSet() {
-		localVarQueryParams.Add("maxFiber", parameterToString(localVarOptionals.MaxFiber.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.MinFolate.IsSet() {
-		localVarQueryParams.Add("minFolate", parameterToString(localVarOptionals.MinFolate.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.MaxFolate.IsSet() {
-		localVarQueryParams.Add("maxFolate", parameterToString(localVarOptionals.MaxFolate.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.MinFolicAcid.IsSet() {
-		localVarQueryParams.Add("minFolicAcid", parameterToString(localVarOptionals.MinFolicAcid.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.MaxFolicAcid.IsSet() {
-		localVarQueryParams.Add("maxFolicAcid", parameterToString(localVarOptionals.MaxFolicAcid.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.MinIodine.IsSet() {
-		localVarQueryParams.Add("minIodine", parameterToString(localVarOptionals.MinIodine.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.MaxIodine.IsSet() {
-		localVarQueryParams.Add("maxIodine", parameterToString(localVarOptionals.MaxIodine.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.MinIron.IsSet() {
-		localVarQueryParams.Add("minIron", parameterToString(localVarOptionals.MinIron.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.MaxIron.IsSet() {
-		localVarQueryParams.Add("maxIron", parameterToString(localVarOptionals.MaxIron.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.MinMagnesium.IsSet() {
-		localVarQueryParams.Add("minMagnesium", parameterToString(localVarOptionals.MinMagnesium.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.MaxMagnesium.IsSet() {
-		localVarQueryParams.Add("maxMagnesium", parameterToString(localVarOptionals.MaxMagnesium.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.MinManganese.IsSet() {
-		localVarQueryParams.Add("minManganese", parameterToString(localVarOptionals.MinManganese.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.MaxManganese.IsSet() {
-		localVarQueryParams.Add("maxManganese", parameterToString(localVarOptionals.MaxManganese.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.MinPhosphorus.IsSet() {
-		localVarQueryParams.Add("minPhosphorus", parameterToString(localVarOptionals.MinPhosphorus.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.MaxPhosphorus.IsSet() {
-		localVarQueryParams.Add("maxPhosphorus", parameterToString(localVarOptionals.MaxPhosphorus.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.MinPotassium.IsSet() {
-		localVarQueryParams.Add("minPotassium", parameterToString(localVarOptionals.MinPotassium.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.MaxPotassium.IsSet() {
-		localVarQueryParams.Add("maxPotassium", parameterToString(localVarOptionals.MaxPotassium.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.MinSelenium.IsSet() {
-		localVarQueryParams.Add("minSelenium", parameterToString(localVarOptionals.MinSelenium.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.MaxSelenium.IsSet() {
-		localVarQueryParams.Add("maxSelenium", parameterToString(localVarOptionals.MaxSelenium.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.MinSodium.IsSet() {
-		localVarQueryParams.Add("minSodium", parameterToString(localVarOptionals.MinSodium.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.MaxSodium.IsSet() {
-		localVarQueryParams.Add("maxSodium", parameterToString(localVarOptionals.MaxSodium.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.MinSugar.IsSet() {
-		localVarQueryParams.Add("minSugar", parameterToString(localVarOptionals.MinSugar.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.MaxSugar.IsSet() {
-		localVarQueryParams.Add("maxSugar", parameterToString(localVarOptionals.MaxSugar.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.MinZinc.IsSet() {
-		localVarQueryParams.Add("minZinc", parameterToString(localVarOptionals.MinZinc.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.MaxZinc.IsSet() {
-		localVarQueryParams.Add("maxZinc", parameterToString(localVarOptionals.MaxZinc.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.Offset.IsSet() {
-		localVarQueryParams.Add("offset", parameterToString(localVarOptionals.Offset.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.Number.IsSet() {
-		localVarQueryParams.Add("number", parameterToString(localVarOptionals.Number.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.LimitLicense.IsSet() {
-		localVarQueryParams.Add("limitLicense", parameterToString(localVarOptionals.LimitLicense.Value(), ""))
-	}
-	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
-	if localVarHttpContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHttpContentType
-	}
-
-	// to determine the Accept header
-	localVarHttpHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
-	if localVarHttpHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
-	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return localVarReturnValue, localVarHttpResponse, err
-	}
-
-	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	localVarHttpResponse.Body.Close()
-	if err != nil {
-		return localVarReturnValue, localVarHttpResponse, err
-	}
-
-	if localVarHttpResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHttpResponse.Status,
-		}
-		if localVarHttpResponse.StatusCode == 200 {
-			var v map[string]interface{}
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHttpResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHttpResponse, newErr
-		}
-		return localVarReturnValue, localVarHttpResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHttpResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHttpResponse, nil
-}
-
-/*
 DefaultApiService Search Site Content
 Search spoonacular&#39;s site content. You&#39;ll be able to find everything that you could also find using the search suggestions on spoonacular.com. This is a suggest API so you can send partial strings as queries.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -7032,10 +7521,9 @@ func (a *DefaultApiService) TalkToChatbot(ctx context.Context, text string, loca
 
 /*
 DefaultApiService Visualize Equipment
-Visualize the equipment used to make a recipe.
+Visualize the equipment used to make a recipe. You can play around with that endpoint!
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param ingredientList The ingredient list of the recipe, one ingredient per line.
- * @param servings The number of servings.
+ * @param instructions The recipe's instructions.
  * @param optional nil or *VisualizeEquipmentOpts - Optional Parameters:
  * @param "View" (optional.String) -  How to visualize the equipment, either \\\"grid\\\" or \\\"list\\\".
  * @param "DefaultCss" (optional.Bool) -  Whether the default CSS should be added to the response.
@@ -7049,7 +7537,7 @@ type VisualizeEquipmentOpts struct {
 	ShowBacklink optional.Bool
 }
 
-func (a *DefaultApiService) VisualizeEquipment(ctx context.Context, ingredientList string, servings float32, localVarOptionals *VisualizeEquipmentOpts) (string, *http.Response, error) {
+func (a *DefaultApiService) VisualizeEquipment(ctx context.Context, instructions string, localVarOptionals *VisualizeEquipmentOpts) (string, *http.Response, error) {
 	var (
 		localVarHttpMethod   = strings.ToUpper("Post")
 		localVarPostBody     interface{}
@@ -7083,8 +7571,7 @@ func (a *DefaultApiService) VisualizeEquipment(ctx context.Context, ingredientLi
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	localVarFormParams.Add("ingredientList", parameterToString(ingredientList, ""))
-	localVarFormParams.Add("servings", parameterToString(servings, ""))
+	localVarFormParams.Add("instructions", parameterToString(instructions, ""))
 	if localVarOptionals != nil && localVarOptionals.View.IsSet() {
 		localVarFormParams.Add("view", parameterToString(localVarOptionals.View.Value(), ""))
 	}
@@ -7142,7 +7629,7 @@ func (a *DefaultApiService) VisualizeEquipment(ctx context.Context, ingredientLi
 
 /*
 DefaultApiService Visualize Ingredients
-Visualize ingredients of a recipe.
+Visualize ingredients of a recipe. You can play around with that endpoint!
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param ingredientList The ingredient list of the recipe, one ingredient per line.
  * @param servings The number of servings.
@@ -7355,7 +7842,7 @@ func (a *DefaultApiService) VisualizeMenuItemNutritionByID(ctx context.Context, 
 
 /*
 DefaultApiService Visualize Price Breakdown
-Visualize the price breakdown of a recipe.
+Visualize the price breakdown of a recipe. You can play around with that endpoint!
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param ingredientList The ingredient list of the recipe, one ingredient per line.
  * @param servings The number of servings.
@@ -7759,7 +8246,7 @@ func (a *DefaultApiService) VisualizeRecipeIngredientsByID(ctx context.Context, 
 
 /*
 DefaultApiService Visualize Recipe Nutrition
-Visualize a recipe&#39;s nutritional information as HTML including CSS
+Visualize a recipe&#39;s nutritional information as HTML including CSS. You can play around with that endpoint!
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param ingredientList The ingredient list of the recipe, one ingredient per line.
  * @param servings The number of servings.
@@ -7995,6 +8482,182 @@ func (a *DefaultApiService) VisualizeRecipePriceBreakdownByID(ctx context.Contex
 	if localVarOptionals != nil && localVarOptionals.DefaultCss.IsSet() {
 		localVarQueryParams.Add("defaultCss", parameterToString(localVarOptionals.DefaultCss.Value(), ""))
 	}
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{"text/html"}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHttpResponse, err := a.client.callAPI(r)
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
+	localVarHttpResponse.Body.Close()
+	if err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	if localVarHttpResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHttpResponse.Status,
+		}
+		if localVarHttpResponse.StatusCode == 200 {
+			var v string
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHttpResponse, nil
+}
+
+/*
+DefaultApiService Visualize Recipe Taste
+Visualize a recipe&#39;s taste information as HTML including CSS. You can play around with that endpoint!
+ * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param ingredientList The ingredient list of the recipe, one ingredient per line.
+@return string
+*/
+func (a *DefaultApiService) VisualizeRecipeTaste(ctx context.Context, ingredientList string) (string, *http.Response, error) {
+	var (
+		localVarHttpMethod   = strings.ToUpper("Post")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  string
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BasePath + "/recipes/visualizeTaste"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{"application/x-www-form-urlencoded"}
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{"text/html"}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	localVarFormParams.Add("ingredientList", parameterToString(ingredientList, ""))
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHttpResponse, err := a.client.callAPI(r)
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
+	localVarHttpResponse.Body.Close()
+	if err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	if localVarHttpResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHttpResponse.Status,
+		}
+		if localVarHttpResponse.StatusCode == 200 {
+			var v string
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHttpResponse, nil
+}
+
+/*
+DefaultApiService Visualize Recipe Taste by ID
+Get a recipe&#39;s taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
+ * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param id The recipe id.
+@return string
+*/
+func (a *DefaultApiService) VisualizeRecipeTasteByID(ctx context.Context, id float32) (string, *http.Response, error) {
+	var (
+		localVarHttpMethod   = strings.ToUpper("Get")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  string
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BasePath + "/recipes/{id}/tasteWidget"
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", fmt.Sprintf("%v", id), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{}
 

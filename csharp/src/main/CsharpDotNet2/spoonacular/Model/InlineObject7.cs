@@ -21,44 +21,20 @@ namespace spoonacular.Model {
     public string IngredientList { get; set; }
 
     /// <summary>
-    /// The number of servings.
+    /// The number of servings that you can make from the ingredients.
     /// </summary>
-    /// <value>The number of servings.</value>
+    /// <value>The number of servings that you can make from the ingredients.</value>
     [DataMember(Name="servings", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "servings")]
     public decimal? Servings { get; set; }
 
     /// <summary>
-    /// The original system of measurement, either \"metric\" or \"us\".
+    /// Whether nutrition data should be added to correctly parsed ingredients.
     /// </summary>
-    /// <value>The original system of measurement, either \"metric\" or \"us\".</value>
-    [DataMember(Name="measure", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "measure")]
-    public string Measure { get; set; }
-
-    /// <summary>
-    /// How to visualize the ingredients, either \"grid\" or \"list\".
-    /// </summary>
-    /// <value>How to visualize the ingredients, either \"grid\" or \"list\".</value>
-    [DataMember(Name="view", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "view")]
-    public string View { get; set; }
-
-    /// <summary>
-    /// Whether the default CSS should be added to the response.
-    /// </summary>
-    /// <value>Whether the default CSS should be added to the response.</value>
-    [DataMember(Name="defaultCss", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "defaultCss")]
-    public bool? DefaultCss { get; set; }
-
-    /// <summary>
-    /// Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
-    /// </summary>
-    /// <value>Whether to show a backlink to spoonacular. If set false, this call counts against your quota.</value>
-    [DataMember(Name="showBacklink", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "showBacklink")]
-    public bool? ShowBacklink { get; set; }
+    /// <value>Whether nutrition data should be added to correctly parsed ingredients.</value>
+    [DataMember(Name="includeNutrition", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "includeNutrition")]
+    public bool? IncludeNutrition { get; set; }
 
 
     /// <summary>
@@ -70,10 +46,7 @@ namespace spoonacular.Model {
       sb.Append("class InlineObject7 {\n");
       sb.Append("  IngredientList: ").Append(IngredientList).Append("\n");
       sb.Append("  Servings: ").Append(Servings).Append("\n");
-      sb.Append("  Measure: ").Append(Measure).Append("\n");
-      sb.Append("  View: ").Append(View).Append("\n");
-      sb.Append("  DefaultCss: ").Append(DefaultCss).Append("\n");
-      sb.Append("  ShowBacklink: ").Append(ShowBacklink).Append("\n");
+      sb.Append("  IncludeNutrition: ").Append(IncludeNutrition).Append("\n");
       sb.Append("}\n");
       return sb.ToString();
     }

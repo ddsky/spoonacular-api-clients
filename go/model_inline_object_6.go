@@ -11,10 +11,8 @@
 package spoonacular
 
 type InlineObject6 struct {
-	// The ingredient list of the recipe, one ingredient per line.
+	// The title of the recipe.
+	Title string `json:"title"`
+	// The ingredient list of the recipe, one ingredient per line (separate lines with \\n).
 	IngredientList string `json:"ingredientList"`
-	// The number of servings that you can make from the ingredients.
-	Servings float32 `json:"servings"`
-	// Whether nutrition data should be added to correctly parsed ingredients.
-	IncludeNutrition bool `json:"includeNutrition,omitempty"`
 }

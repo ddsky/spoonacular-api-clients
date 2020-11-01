@@ -175,13 +175,6 @@ __PACKAGE__->method_documentation({
         format => '',
         read_only => '',
             },
-    'mode' => {
-        datatype => 'double',
-        base_name => 'mode',
-        description => 'The mode in which the widget should be delivered. 1 &#x3D; separate views (compact), 2 &#x3D; all in one view (full).',
-        format => '',
-        read_only => '',
-            },
     'default_css' => {
         datatype => 'boolean',
         base_name => 'defaultCss',
@@ -201,7 +194,6 @@ __PACKAGE__->method_documentation({
 __PACKAGE__->openapi_types( {
     'ingredient_list' => 'string',
     'servings' => 'double',
-    'mode' => 'double',
     'default_css' => 'boolean',
     'show_backlink' => 'boolean'
 } );
@@ -209,7 +201,6 @@ __PACKAGE__->openapi_types( {
 __PACKAGE__->attribute_map( {
     'ingredient_list' => 'ingredientList',
     'servings' => 'servings',
-    'mode' => 'mode',
     'default_css' => 'defaultCss',
     'show_backlink' => 'showBacklink'
 } );

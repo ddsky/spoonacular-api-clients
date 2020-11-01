@@ -23,28 +23,15 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.math.BigDecimal;
 
 /**
  * InlineObject
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-06-13T12:59:56.631+02:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-11-01T21:23:09.595+01:00[Europe/Berlin]")
 public class InlineObject {
   public static final String SERIALIZED_NAME_INGREDIENT_LIST = "ingredientList";
   @SerializedName(SERIALIZED_NAME_INGREDIENT_LIST)
   private String ingredientList;
-
-  public static final String SERIALIZED_NAME_SERVINGS = "servings";
-  @SerializedName(SERIALIZED_NAME_SERVINGS)
-  private BigDecimal servings;
-
-  public static final String SERIALIZED_NAME_DEFAULT_CSS = "defaultCss";
-  @SerializedName(SERIALIZED_NAME_DEFAULT_CSS)
-  private Boolean defaultCss;
-
-  public static final String SERIALIZED_NAME_SHOW_BACKLINK = "showBacklink";
-  @SerializedName(SERIALIZED_NAME_SHOW_BACKLINK)
-  private Boolean showBacklink;
 
   public InlineObject ingredientList(String ingredientList) {
     this.ingredientList = ingredientList;
@@ -55,67 +42,13 @@ public class InlineObject {
    * The ingredient list of the recipe, one ingredient per line.
    * @return ingredientList
   **/
-  @ApiModelProperty(example = "3 oz flour", required = true, value = "The ingredient list of the recipe, one ingredient per line.")
+  @ApiModelProperty(example = "1 lemon", required = true, value = "The ingredient list of the recipe, one ingredient per line.")
   public String getIngredientList() {
     return ingredientList;
   }
 
   public void setIngredientList(String ingredientList) {
     this.ingredientList = ingredientList;
-  }
-
-  public InlineObject servings(BigDecimal servings) {
-    this.servings = servings;
-    return this;
-  }
-
-   /**
-   * The number of servings.
-   * @return servings
-  **/
-  @ApiModelProperty(example = "2", required = true, value = "The number of servings.")
-  public BigDecimal getServings() {
-    return servings;
-  }
-
-  public void setServings(BigDecimal servings) {
-    this.servings = servings;
-  }
-
-  public InlineObject defaultCss(Boolean defaultCss) {
-    this.defaultCss = defaultCss;
-    return this;
-  }
-
-   /**
-   * Whether the default CSS should be added to the response.
-   * @return defaultCss
-  **/
-  @ApiModelProperty(example = "true", value = "Whether the default CSS should be added to the response.")
-  public Boolean getDefaultCss() {
-    return defaultCss;
-  }
-
-  public void setDefaultCss(Boolean defaultCss) {
-    this.defaultCss = defaultCss;
-  }
-
-  public InlineObject showBacklink(Boolean showBacklink) {
-    this.showBacklink = showBacklink;
-    return this;
-  }
-
-   /**
-   * Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
-   * @return showBacklink
-  **/
-  @ApiModelProperty(example = "true", value = "Whether to show a backlink to spoonacular. If set false, this call counts against your quota.")
-  public Boolean getShowBacklink() {
-    return showBacklink;
-  }
-
-  public void setShowBacklink(Boolean showBacklink) {
-    this.showBacklink = showBacklink;
   }
 
 
@@ -128,15 +61,12 @@ public class InlineObject {
       return false;
     }
     InlineObject inlineObject = (InlineObject) o;
-    return Objects.equals(this.ingredientList, inlineObject.ingredientList) &&
-        Objects.equals(this.servings, inlineObject.servings) &&
-        Objects.equals(this.defaultCss, inlineObject.defaultCss) &&
-        Objects.equals(this.showBacklink, inlineObject.showBacklink);
+    return Objects.equals(this.ingredientList, inlineObject.ingredientList);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ingredientList, servings, defaultCss, showBacklink);
+    return Objects.hash(ingredientList);
   }
 
 
@@ -145,9 +75,6 @@ public class InlineObject {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineObject {\n");
     sb.append("    ingredientList: ").append(toIndentedString(ingredientList)).append("\n");
-    sb.append("    servings: ").append(toIndentedString(servings)).append("\n");
-    sb.append("    defaultCss: ").append(toIndentedString(defaultCss)).append("\n");
-    sb.append("    showBacklink: ").append(toIndentedString(showBacklink)).append("\n");
     sb.append("}");
     return sb.toString();
   }

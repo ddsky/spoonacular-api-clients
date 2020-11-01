@@ -17,12 +17,6 @@ module OpenapiClient
     # The username.
     attr_accessor :username
 
-    # The start date in the format yyyy-mm-dd.
-    attr_accessor :start_date
-
-    # The end date in the format yyyy-mm-dd.
-    attr_accessor :end_date
-
     # The private hash for the username.
     attr_accessor :hash
 
@@ -30,8 +24,6 @@ module OpenapiClient
     def self.attribute_map
       {
         :'username' => :'username',
-        :'start_date' => :'start-date',
-        :'end_date' => :'end-date',
         :'hash' => :'hash'
       }
     end
@@ -40,8 +32,6 @@ module OpenapiClient
     def self.openapi_types
       {
         :'username' => :'String',
-        :'start_date' => :'String',
-        :'end_date' => :'String',
         :'hash' => :'String'
       }
     end
@@ -65,14 +55,6 @@ module OpenapiClient
         self.username = attributes[:'username']
       end
 
-      if attributes.key?(:'start_date')
-        self.start_date = attributes[:'start_date']
-      end
-
-      if attributes.key?(:'end_date')
-        self.end_date = attributes[:'end_date']
-      end
-
       if attributes.key?(:'hash')
         self.hash = attributes[:'hash']
       end
@@ -86,14 +68,6 @@ module OpenapiClient
         invalid_properties.push('invalid value for "username", username cannot be nil.')
       end
 
-      if @start_date.nil?
-        invalid_properties.push('invalid value for "start_date", start_date cannot be nil.')
-      end
-
-      if @end_date.nil?
-        invalid_properties.push('invalid value for "end_date", end_date cannot be nil.')
-      end
-
       if @hash.nil?
         invalid_properties.push('invalid value for "hash", hash cannot be nil.')
       end
@@ -105,8 +79,6 @@ module OpenapiClient
     # @return true if the model is valid
     def valid?
       return false if @username.nil?
-      return false if @start_date.nil?
-      return false if @end_date.nil?
       return false if @hash.nil?
       true
     end
@@ -117,8 +89,6 @@ module OpenapiClient
       return true if self.equal?(o)
       self.class == o.class &&
           username == o.username &&
-          start_date == o.start_date &&
-          end_date == o.end_date &&
           hash == o.hash
     end
 
@@ -131,7 +101,7 @@ module OpenapiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [username, start_date, end_date, hash].hash
+      [username, hash].hash
     end
 
     # Builds the object from hash

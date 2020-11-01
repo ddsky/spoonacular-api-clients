@@ -28,9 +28,6 @@
 /* The number of servings. 
  */
 @property(nonatomic) NSNumber* servings;
-/* The mode in which the widget should be delivered. 1 = separate views (compact), 2 = all in one view (full). [optional]
- */
-@property(nonatomic) NSNumber* mode;
 /* Whether the default CSS should be added to the response. [optional]
  */
 @property(nonatomic) NSNumber* defaultCss;

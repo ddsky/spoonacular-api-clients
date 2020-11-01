@@ -11,19 +11,13 @@ defmodule com.spoonacular.client.Model.InlineObject7 do
   defstruct [
     :"ingredientList",
     :"servings",
-    :"measure",
-    :"view",
-    :"defaultCss",
-    :"showBacklink"
+    :"includeNutrition"
   ]
 
   @type t :: %__MODULE__{
     :"ingredientList" => String.t,
     :"servings" => float(),
-    :"measure" => String.t | nil,
-    :"view" => String.t | nil,
-    :"defaultCss" => boolean() | nil,
-    :"showBacklink" => boolean() | nil
+    :"includeNutrition" => boolean() | nil
   }
 end
 

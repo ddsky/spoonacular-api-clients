@@ -14,23 +14,19 @@ use serde_json::Value;
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct InlineObject6 {
-    /// The ingredient list of the recipe, one ingredient per line.
+    /// The title of the recipe.
+    #[serde(rename = "title")]
+    pub title: String,
+    /// The ingredient list of the recipe, one ingredient per line (separate lines with \\n).
     #[serde(rename = "ingredientList")]
     pub ingredient_list: String,
-    /// The number of servings that you can make from the ingredients.
-    #[serde(rename = "servings")]
-    pub servings: f32,
-    /// Whether nutrition data should be added to correctly parsed ingredients.
-    #[serde(rename = "includeNutrition")]
-    pub include_nutrition: Option<bool>,
 }
 
 impl InlineObject6 {
-    pub fn new(ingredient_list: String, servings: f32) -> InlineObject6 {
+    pub fn new(title: String, ingredient_list: String) -> InlineObject6 {
         InlineObject6 {
+            title: title,
             ingredient_list: ingredient_list,
-            servings: servings,
-            include_nutrition: None,
         }
     }
 }

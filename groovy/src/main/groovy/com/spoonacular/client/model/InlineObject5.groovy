@@ -6,8 +6,6 @@ import io.swagger.annotations.ApiModelProperty;
 
 @Canonical
 class InlineObject5 {
-    /* The title of the recipe. */
-    String title
-    /* The ingredient list of the recipe, one ingredient per line (separate lines with \\n). */
-    String ingredientList
+    /* The instructions to be analyzed. */
+    String instructions
 }

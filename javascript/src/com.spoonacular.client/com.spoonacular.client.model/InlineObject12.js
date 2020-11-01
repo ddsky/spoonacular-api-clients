@@ -23,11 +23,12 @@ class InlineObject12 {
      * Constructs a new <code>InlineObject12</code>.
      * @alias module:com.spoonacular.client/com.spoonacular.client.model/InlineObject12
      * @param username {String} The username.
+     * @param id {Number} The shopping list item id.
      * @param hash {String} The private hash for the username.
      */
-    constructor(username, hash) { 
+    constructor(username, id, hash) { 
         
-        InlineObject12.initialize(this, username, hash);
+        InlineObject12.initialize(this, username, id, hash);
     }
 
     /**
@@ -35,8 +36,9 @@ class InlineObject12 {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, username, hash) { 
+    static initialize(obj, username, id, hash) { 
         obj['username'] = username;
+        obj['id'] = id;
         obj['hash'] = hash;
     }
 
@@ -54,6 +56,9 @@ class InlineObject12 {
             if (data.hasOwnProperty('username')) {
                 obj['username'] = ApiClient.convertToType(data['username'], 'String');
             }
+            if (data.hasOwnProperty('id')) {
+                obj['id'] = ApiClient.convertToType(data['id'], 'Number');
+            }
             if (data.hasOwnProperty('hash')) {
                 obj['hash'] = ApiClient.convertToType(data['hash'], 'String');
             }
@@ -69,6 +74,12 @@ class InlineObject12 {
  * @member {String} username
  */
 InlineObject12.prototype['username'] = undefined;
+
+/**
+ * The shopping list item id.
+ * @member {Number} id
+ */
+InlineObject12.prototype['id'] = undefined;
 
 /**
  * The private hash for the username.

@@ -10,18 +10,12 @@ import java.math.BigDecimal
 /**
  * 
  * @param ingredientList The ingredient list of the recipe, one ingredient per line.
- * @param servings The number of servings.
- * @param measure The original system of measurement, either \"metric\" or \"us\".
- * @param view How to visualize the ingredients, either \"grid\" or \"list\".
- * @param defaultCss Whether the default CSS should be added to the response.
- * @param showBacklink Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
+ * @param servings The number of servings that you can make from the ingredients.
+ * @param includeNutrition Whether nutrition data should be added to correctly parsed ingredients.
  */
 case class InlineObject7(ingredientList: String,
                 servings: BigDecimal,
-                measure: Option[String],
-                view: Option[String],
-                defaultCss: Option[Boolean],
-                showBacklink: Option[Boolean]
+                includeNutrition: Option[Boolean]
                 )
 
 object InlineObject7 {

@@ -19,20 +19,12 @@ local function cast_inline_object_3(t)
 	return setmetatable(t, inline_object_3_mt)
 end
 
-local function new_inline_object_3(title, image, ingredients, instructions, ready_in_minutes, servings, mask, background_image, author, background_color, font_color, source)
+local function new_inline_object_3(instructions, view, default_css, show_backlink)
 	return cast_inline_object_3({
-		["title"] = title;
-		["image"] = image;
-		["ingredients"] = ingredients;
 		["instructions"] = instructions;
-		["readyInMinutes"] = ready_in_minutes;
-		["servings"] = servings;
-		["mask"] = mask;
-		["backgroundImage"] = background_image;
-		["author"] = author;
-		["backgroundColor"] = background_color;
-		["fontColor"] = font_color;
-		["source"] = source;
+		["view"] = view;
+		["defaultCss"] = default_css;
+		["showBacklink"] = show_backlink;
 	})
 end
 

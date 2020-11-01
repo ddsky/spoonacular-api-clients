@@ -17,7 +17,8 @@ import InlineObject10 from '../com.spoonacular.client.model/InlineObject10';
 import InlineObject11 from '../com.spoonacular.client.model/InlineObject11';
 import InlineObject12 from '../com.spoonacular.client.model/InlineObject12';
 import InlineObject13 from '../com.spoonacular.client.model/InlineObject13';
-import InlineObject8 from '../com.spoonacular.client.model/InlineObject8';
+import InlineObject14 from '../com.spoonacular.client.model/InlineObject14';
+import InlineObject15 from '../com.spoonacular.client.model/InlineObject15';
 import InlineObject9 from '../com.spoonacular.client.model/InlineObject9';
 
 /**
@@ -52,12 +53,12 @@ export default class DefaultApi {
      * Add an item to the user's meal plan.
      * @param {String} username The username.
      * @param {String} hash The private hash for the username.
-     * @param {module:com.spoonacular.client/com.spoonacular.client.model/InlineObject9} inlineObject9 
+     * @param {module:com.spoonacular.client/com.spoonacular.client.model/InlineObject11} inlineObject11 
      * @param {module:com.spoonacular.client/com.spoonacular/DefaultApi~addToMealPlanCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Object}
      */
-    addToMealPlan(username, hash, inlineObject9, callback) {
-      let postBody = inlineObject9;
+    addToMealPlan(username, hash, inlineObject11, callback) {
+      let postBody = inlineObject11;
       // verify the required parameter 'username' is set
       if (username === undefined || username === null) {
         throw new Error("Missing the required parameter 'username' when calling addToMealPlan");
@@ -66,9 +67,9 @@ export default class DefaultApi {
       if (hash === undefined || hash === null) {
         throw new Error("Missing the required parameter 'hash' when calling addToMealPlan");
       }
-      // verify the required parameter 'inlineObject9' is set
-      if (inlineObject9 === undefined || inlineObject9 === null) {
-        throw new Error("Missing the required parameter 'inlineObject9' when calling addToMealPlan");
+      // verify the required parameter 'inlineObject11' is set
+      if (inlineObject11 === undefined || inlineObject11 === null) {
+        throw new Error("Missing the required parameter 'inlineObject11' when calling addToMealPlan");
       }
 
       let pathParams = {
@@ -106,12 +107,12 @@ export default class DefaultApi {
      * Add an item to the current shopping list of a user.
      * @param {String} username The username.
      * @param {String} hash The private hash for the username.
-     * @param {module:com.spoonacular.client/com.spoonacular.client.model/InlineObject12} inlineObject12 
+     * @param {module:com.spoonacular.client/com.spoonacular.client.model/InlineObject14} inlineObject14 
      * @param {module:com.spoonacular.client/com.spoonacular/DefaultApi~addToShoppingListCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Object}
      */
-    addToShoppingList(username, hash, inlineObject12, callback) {
-      let postBody = inlineObject12;
+    addToShoppingList(username, hash, inlineObject14, callback) {
+      let postBody = inlineObject14;
       // verify the required parameter 'username' is set
       if (username === undefined || username === null) {
         throw new Error("Missing the required parameter 'username' when calling addToShoppingList");
@@ -120,9 +121,9 @@ export default class DefaultApi {
       if (hash === undefined || hash === null) {
         throw new Error("Missing the required parameter 'hash' when calling addToShoppingList");
       }
-      // verify the required parameter 'inlineObject12' is set
-      if (inlineObject12 === undefined || inlineObject12 === null) {
-        throw new Error("Missing the required parameter 'inlineObject12' when calling addToShoppingList");
+      // verify the required parameter 'inlineObject14' is set
+      if (inlineObject14 === undefined || inlineObject14 === null) {
+        throw new Error("Missing the required parameter 'inlineObject14' when calling addToShoppingList");
       }
 
       let pathParams = {
@@ -200,7 +201,7 @@ export default class DefaultApi {
 
     /**
      * Analyze Recipe Instructions
-     * Extract ingredients and equipment from the recipe's instructions.
+     * This endpoint allows you to break down instructions into atomic steps. Furthermore, each step will contain the ingredients and equipment required. Additionally, all ingredients and equipment from the recipe's instructions will be extracted independently of the step they're used in.
      * @param {String} instructions The instructions to be analyzed.
      * @param {module:com.spoonacular.client/com.spoonacular/DefaultApi~analyzeRecipeInstructionsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Object}
@@ -248,7 +249,7 @@ export default class DefaultApi {
      * @param {Object} opts Optional parameters
      * @param {Number} opts._number The number of results to return (between 1 and 100).
      * @param {Boolean} opts.metaInformation Whether to return more meta information about the ingredients.
-     * @param {Boolean} opts.intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
+     * @param {String} opts.intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
      * @param {module:com.spoonacular.client/com.spoonacular/DefaultApi~autocompleteIngredientSearchCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Object}
      */
@@ -485,18 +486,18 @@ export default class DefaultApi {
     /**
      * Classify Grocery Product
      * This endpoint allows you to match a packaged food to a basic category, e.g. a specific brand of milk to the category milk.
-     * @param {module:com.spoonacular.client/com.spoonacular.client.model/InlineObject8} inlineObject8 
+     * @param {module:com.spoonacular.client/com.spoonacular.client.model/InlineObject9} inlineObject9 
      * @param {Object} opts Optional parameters
      * @param {String} opts.locale The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).
      * @param {module:com.spoonacular.client/com.spoonacular/DefaultApi~classifyGroceryProductCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Object}
      */
-    classifyGroceryProduct(inlineObject8, opts, callback) {
+    classifyGroceryProduct(inlineObject9, opts, callback) {
       opts = opts || {};
-      let postBody = inlineObject8;
-      // verify the required parameter 'inlineObject8' is set
-      if (inlineObject8 === undefined || inlineObject8 === null) {
-        throw new Error("Missing the required parameter 'inlineObject8' when calling classifyGroceryProduct");
+      let postBody = inlineObject9;
+      // verify the required parameter 'inlineObject9' is set
+      if (inlineObject9 === undefined || inlineObject9 === null) {
+        throw new Error("Missing the required parameter 'inlineObject9' when calling classifyGroceryProduct");
       }
 
       let pathParams = {
@@ -561,6 +562,150 @@ export default class DefaultApi {
       let returnType = Object;
       return this.apiClient.callApi(
         '/food/products/classifyBatch', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the clearMealPlanDay operation.
+     * @callback module:com.spoonacular.client/com.spoonacular/DefaultApi~clearMealPlanDayCallback
+     * @param {String} error Error message, if any.
+     * @param {Object} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Clear Meal Plan Day
+     * Delete all planned items from the user's meal plan for a specific day.
+     * @param {String} username The username.
+     * @param {String} _date The date in the format yyyy-mm-dd.
+     * @param {String} hash The private hash for the username.
+     * @param {module:com.spoonacular.client/com.spoonacular.client.model/InlineObject10} inlineObject10 
+     * @param {module:com.spoonacular.client/com.spoonacular/DefaultApi~clearMealPlanDayCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Object}
+     */
+    clearMealPlanDay(username, _date, hash, inlineObject10, callback) {
+      let postBody = inlineObject10;
+      // verify the required parameter 'username' is set
+      if (username === undefined || username === null) {
+        throw new Error("Missing the required parameter 'username' when calling clearMealPlanDay");
+      }
+      // verify the required parameter '_date' is set
+      if (_date === undefined || _date === null) {
+        throw new Error("Missing the required parameter '_date' when calling clearMealPlanDay");
+      }
+      // verify the required parameter 'hash' is set
+      if (hash === undefined || hash === null) {
+        throw new Error("Missing the required parameter 'hash' when calling clearMealPlanDay");
+      }
+      // verify the required parameter 'inlineObject10' is set
+      if (inlineObject10 === undefined || inlineObject10 === null) {
+        throw new Error("Missing the required parameter 'inlineObject10' when calling clearMealPlanDay");
+      }
+
+      let pathParams = {
+        'username': username,
+        'date': _date
+      };
+      let queryParams = {
+        'hash': hash
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [''];
+      let accepts = ['application/json'];
+      let returnType = Object;
+      return this.apiClient.callApi(
+        '/mealplanner/{username}/day/{date}', 'DELETE',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the computeGlycemicLoad operation.
+     * @callback module:com.spoonacular.client/com.spoonacular/DefaultApi~computeGlycemicLoadCallback
+     * @param {String} error Error message, if any.
+     * @param {Object} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Compute Glycemic Load
+     * Retrieve the glycemic index for a list of ingredients and compute the individual and total glycemic load.
+     * @param {Object} body 
+     * @param {module:com.spoonacular.client/com.spoonacular/DefaultApi~computeGlycemicLoadCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Object}
+     */
+    computeGlycemicLoad(body, callback) {
+      let postBody = body;
+      // verify the required parameter 'body' is set
+      if (body === undefined || body === null) {
+        throw new Error("Missing the required parameter 'body' when calling computeGlycemicLoad");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = Object;
+      return this.apiClient.callApi(
+        '/food/ingredients/glycemicLoad', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the connectUser operation.
+     * @callback module:com.spoonacular.client/com.spoonacular/DefaultApi~connectUserCallback
+     * @param {String} error Error message, if any.
+     * @param {Object} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Connect User
+     * In order to call user-specific endpoints, you need to connect your app's users to spoonacular users.
+     * @param {Object} body 
+     * @param {module:com.spoonacular.client/com.spoonacular/DefaultApi~connectUserCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Object}
+     */
+    connectUser(body, callback) {
+      let postBody = body;
+      // verify the required parameter 'body' is set
+      if (body === undefined || body === null) {
+        throw new Error("Missing the required parameter 'body' when calling connectUser");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [''];
+      let accepts = ['application/json'];
+      let returnType = Object;
+      return this.apiClient.callApi(
+        '/users/connect', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -736,12 +881,12 @@ export default class DefaultApi {
      * @param {String} username The username.
      * @param {Number} id The shopping list item id.
      * @param {String} hash The private hash for the username.
-     * @param {module:com.spoonacular.client/com.spoonacular.client.model/InlineObject10} inlineObject10 
+     * @param {module:com.spoonacular.client/com.spoonacular.client.model/InlineObject12} inlineObject12 
      * @param {module:com.spoonacular.client/com.spoonacular/DefaultApi~deleteFromMealPlanCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Object}
      */
-    deleteFromMealPlan(username, id, hash, inlineObject10, callback) {
-      let postBody = inlineObject10;
+    deleteFromMealPlan(username, id, hash, inlineObject12, callback) {
+      let postBody = inlineObject12;
       // verify the required parameter 'username' is set
       if (username === undefined || username === null) {
         throw new Error("Missing the required parameter 'username' when calling deleteFromMealPlan");
@@ -754,9 +899,9 @@ export default class DefaultApi {
       if (hash === undefined || hash === null) {
         throw new Error("Missing the required parameter 'hash' when calling deleteFromMealPlan");
       }
-      // verify the required parameter 'inlineObject10' is set
-      if (inlineObject10 === undefined || inlineObject10 === null) {
-        throw new Error("Missing the required parameter 'inlineObject10' when calling deleteFromMealPlan");
+      // verify the required parameter 'inlineObject12' is set
+      if (inlineObject12 === undefined || inlineObject12 === null) {
+        throw new Error("Missing the required parameter 'inlineObject12' when calling deleteFromMealPlan");
       }
 
       let pathParams = {
@@ -796,12 +941,12 @@ export default class DefaultApi {
      * @param {String} username The username.
      * @param {Number} id The shopping list item id.
      * @param {String} hash The private hash for the username.
-     * @param {module:com.spoonacular.client/com.spoonacular.client.model/InlineObject13} inlineObject13 
+     * @param {module:com.spoonacular.client/com.spoonacular.client.model/InlineObject15} inlineObject15 
      * @param {module:com.spoonacular.client/com.spoonacular/DefaultApi~deleteFromShoppingListCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Object}
      */
-    deleteFromShoppingList(username, id, hash, inlineObject13, callback) {
-      let postBody = inlineObject13;
+    deleteFromShoppingList(username, id, hash, inlineObject15, callback) {
+      let postBody = inlineObject15;
       // verify the required parameter 'username' is set
       if (username === undefined || username === null) {
         throw new Error("Missing the required parameter 'username' when calling deleteFromShoppingList");
@@ -814,9 +959,9 @@ export default class DefaultApi {
       if (hash === undefined || hash === null) {
         throw new Error("Missing the required parameter 'hash' when calling deleteFromShoppingList");
       }
-      // verify the required parameter 'inlineObject13' is set
-      if (inlineObject13 === undefined || inlineObject13 === null) {
-        throw new Error("Missing the required parameter 'inlineObject13' when calling deleteFromShoppingList");
+      // verify the required parameter 'inlineObject15' is set
+      if (inlineObject15 === undefined || inlineObject15 === null) {
+        throw new Error("Missing the required parameter 'inlineObject15' when calling deleteFromShoppingList");
       }
 
       let pathParams = {
@@ -996,12 +1141,12 @@ export default class DefaultApi {
      * @param {String} startDate The start date in the format yyyy-mm-dd.
      * @param {String} endDate The end date in the format yyyy-mm-dd.
      * @param {String} hash The private hash for the username.
-     * @param {module:com.spoonacular.client/com.spoonacular.client.model/InlineObject11} inlineObject11 
+     * @param {module:com.spoonacular.client/com.spoonacular.client.model/InlineObject13} inlineObject13 
      * @param {module:com.spoonacular.client/com.spoonacular/DefaultApi~generateShoppingListCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Object}
      */
-    generateShoppingList(username, startDate, endDate, hash, inlineObject11, callback) {
-      let postBody = inlineObject11;
+    generateShoppingList(username, startDate, endDate, hash, inlineObject13, callback) {
+      let postBody = inlineObject13;
       // verify the required parameter 'username' is set
       if (username === undefined || username === null) {
         throw new Error("Missing the required parameter 'username' when calling generateShoppingList");
@@ -1018,9 +1163,9 @@ export default class DefaultApi {
       if (hash === undefined || hash === null) {
         throw new Error("Missing the required parameter 'hash' when calling generateShoppingList");
       }
-      // verify the required parameter 'inlineObject11' is set
-      if (inlineObject11 === undefined || inlineObject11 === null) {
-        throw new Error("Missing the required parameter 'inlineObject11' when calling generateShoppingList");
+      // verify the required parameter 'inlineObject13' is set
+      if (inlineObject13 === undefined || inlineObject13 === null) {
+        throw new Error("Missing the required parameter 'inlineObject13' when calling generateShoppingList");
       }
 
       let pathParams = {
@@ -1993,6 +2138,49 @@ export default class DefaultApi {
     }
 
     /**
+     * Callback function to receive the result of the getRecipeTasteByID operation.
+     * @callback module:com.spoonacular.client/com.spoonacular/DefaultApi~getRecipeTasteByIDCallback
+     * @param {String} error Error message, if any.
+     * @param {Object} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get Recipe Taste by ID
+     * Get a recipe's taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
+     * @param {Number} id The recipe id.
+     * @param {module:com.spoonacular.client/com.spoonacular/DefaultApi~getRecipeTasteByIDCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Object}
+     */
+    getRecipeTasteByID(id, callback) {
+      let postBody = null;
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling getRecipeTasteByID");
+      }
+
+      let pathParams = {
+        'id': id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = Object;
+      return this.apiClient.callApi(
+        '/recipes/{id}/tasteWidget.json', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the getShoppingList operation.
      * @callback module:com.spoonacular.client/com.spoonacular/DefaultApi~getShoppingListCallback
      * @param {String} error Error message, if any.
@@ -2361,6 +2549,77 @@ export default class DefaultApi {
     }
 
     /**
+     * Callback function to receive the result of the ingredientSearch operation.
+     * @callback module:com.spoonacular.client/com.spoonacular/DefaultApi~ingredientSearchCallback
+     * @param {String} error Error message, if any.
+     * @param {Object} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Ingredient Search
+     * Search for simple whole foods (e.g. fruits, vegetables, nuts, grains, meat, fish, dairy etc.).
+     * @param {String} query The partial or full ingredient name.
+     * @param {Object} opts Optional parameters
+     * @param {Boolean} opts.addChildren Whether to add children of found foods.
+     * @param {Number} opts.minProteinPercent The minimum percentage of protein the food must have (between 0 and 100).
+     * @param {Number} opts.maxProteinPercent The maximum percentage of protein the food can have (between 0 and 100).
+     * @param {Number} opts.minFatPercent The minimum percentage of fat the food must have (between 0 and 100).
+     * @param {Number} opts.maxFatPercent The maximum percentage of fat the food can have (between 0 and 100).
+     * @param {Number} opts.minCarbsPercent The minimum percentage of carbs the food must have (between 0 and 100).
+     * @param {Number} opts.maxCarbsPercent The maximum percentage of carbs the food can have (between 0 and 100).
+     * @param {Boolean} opts.metaInformation Whether to return more meta information about the ingredients.
+     * @param {String} opts.intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
+     * @param {String} opts.sort The strategy to sort recipes by. See a full list of supported sorting options.
+     * @param {String} opts.sortDirection The direction in which to sort. Must be either 'asc' (ascending) or 'desc' (descending).
+     * @param {Number} opts.offset The number of results to skip (between 0 and 990).
+     * @param {Number} opts._number The number of expected results (between 1 and 100).
+     * @param {module:com.spoonacular.client/com.spoonacular/DefaultApi~ingredientSearchCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Object}
+     */
+    ingredientSearch(query, opts, callback) {
+      opts = opts || {};
+      let postBody = null;
+      // verify the required parameter 'query' is set
+      if (query === undefined || query === null) {
+        throw new Error("Missing the required parameter 'query' when calling ingredientSearch");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'query': query,
+        'addChildren': opts['addChildren'],
+        'minProteinPercent': opts['minProteinPercent'],
+        'maxProteinPercent': opts['maxProteinPercent'],
+        'minFatPercent': opts['minFatPercent'],
+        'maxFatPercent': opts['maxFatPercent'],
+        'minCarbsPercent': opts['minCarbsPercent'],
+        'maxCarbsPercent': opts['maxCarbsPercent'],
+        'metaInformation': opts['metaInformation'],
+        'intolerances': opts['intolerances'],
+        'sort': opts['sort'],
+        'sortDirection': opts['sortDirection'],
+        'offset': opts['offset'],
+        'number': opts['_number']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = Object;
+      return this.apiClient.callApi(
+        '/food/ingredients/search', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the mapIngredientsToGroceryProducts operation.
      * @callback module:com.spoonacular.client/com.spoonacular/DefaultApi~mapIngredientsToGroceryProductsCallback
      * @param {String} error Error message, if any.
@@ -2493,6 +2752,55 @@ export default class DefaultApi {
       let returnType = Object;
       return this.apiClient.callApi(
         '/recipes/quickAnswer', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the searchAllFood operation.
+     * @callback module:com.spoonacular.client/com.spoonacular/DefaultApi~searchAllFoodCallback
+     * @param {String} error Error message, if any.
+     * @param {Object} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Search All Food
+     * Search all food content with one call. That includes recipes, grocery products, menu items, simple foods (ingredients), and food videos.
+     * @param {String} query The search query.
+     * @param {Object} opts Optional parameters
+     * @param {Number} opts.offset The number of results to skip (between 0 and 990).
+     * @param {Number} opts._number The number of expected results (between 1 and 100).
+     * @param {module:com.spoonacular.client/com.spoonacular/DefaultApi~searchAllFoodCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Object}
+     */
+    searchAllFood(query, opts, callback) {
+      opts = opts || {};
+      let postBody = null;
+      // verify the required parameter 'query' is set
+      if (query === undefined || query === null) {
+        throw new Error("Missing the required parameter 'query' when calling searchAllFood");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'query': query,
+        'offset': opts['offset'],
+        'number': opts['_number']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = Object;
+      return this.apiClient.callApi(
+        '/food/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -2805,17 +3113,104 @@ export default class DefaultApi {
 
     /**
      * Search Recipes
-     * Our recipe API includes over 360,000 recipes as well as an open source recipe database. Consider using the \"Search Recipes Complex\" endpoint for much more flexibility.
+     * Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint.
      * @param {String} query The (natural language) recipe search query.
      * @param {Object} opts Optional parameters
-     * @param {String} opts.cuisine The cuisine(s) of the recipes. One or more comma separated. See a full list of supported cuisines.
+     * @param {String} opts.cuisine The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as 'OR'). See a full list of supported cuisines.
+     * @param {String} opts.excludeCuisine The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as 'AND'). See a full list of supported cuisines.
      * @param {String} opts.diet The diet for which the recipes must be suitable. See a full list of supported diets.
+     * @param {String} opts.intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
+     * @param {String} opts.equipment The equipment required. Multiple values will be interpreted as 'or'. For example, value could be \"blender, frying pan, bowl\".
+     * @param {String} opts.includeIngredients A comma-separated list of ingredients that should/must be used in the recipes.
      * @param {String} opts.excludeIngredients A comma-separated list of ingredients or ingredient types that the recipes must not contain.
-     * @param {String} opts.intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. Please note: due to the automatic nature of the recipe analysis, the API cannot be 100% accurate in all cases. Please advise your users to seek professional help with medical issues.
-     * @param {Number} opts.offset The number of results to skip (between 0 and 900).
-     * @param {Number} opts._number The number of results to return (between 1 and 100).
-     * @param {Boolean} opts.limitLicense Whether the recipes should have an open license that allows display with proper attribution.
+     * @param {String} opts.type The type of recipe. See a full list of supported meal types.
      * @param {Boolean} opts.instructionsRequired Whether the recipes must have instructions.
+     * @param {Boolean} opts.fillIngredients Add information about the ingredients and whether they are used or missing in relation to the query.
+     * @param {Boolean} opts.addRecipeInformation If set to true, you get more information about the recipes returned.
+     * @param {Boolean} opts.addRecipeNutrition If set to true, you get nutritional information about each recipes returned.
+     * @param {String} opts.author The username of the recipe author.
+     * @param {String} opts.tags User defined tags that have to match. The author param has to be set.
+     * @param {Number} opts.recipeBoxId The id of the recipe box to which the search should be limited to.
+     * @param {String} opts.titleMatch Enter text that must be found in the title of the recipes.
+     * @param {Number} opts.maxReadyTime The maximum time in minutes it should take to prepare and cook the recipe.
+     * @param {Boolean} opts.ignorePantry Whether to ignore typical pantry items, such as water, salt, flour, etc.
+     * @param {String} opts.sort The strategy to sort recipes by. See a full list of supported sorting options.
+     * @param {String} opts.sortDirection The direction in which to sort. Must be either 'asc' (ascending) or 'desc' (descending).
+     * @param {Number} opts.minCarbs The minimum amount of carbohydrates in grams the recipe must have.
+     * @param {Number} opts.maxCarbs The maximum amount of carbohydrates in grams the recipe can have.
+     * @param {Number} opts.minProtein The minimum amount of protein in grams the recipe must have.
+     * @param {Number} opts.maxProtein The maximum amount of protein in grams the recipe can have.
+     * @param {Number} opts.minCalories The minimum amount of calories the recipe must have.
+     * @param {Number} opts.maxCalories The maximum amount of calories the recipe can have.
+     * @param {Number} opts.minFat The minimum amount of fat in grams the recipe must have.
+     * @param {Number} opts.maxFat The maximum amount of fat in grams the recipe can have.
+     * @param {Number} opts.minAlcohol The minimum amount of alcohol in grams the recipe must have.
+     * @param {Number} opts.maxAlcohol The maximum amount of alcohol in grams the recipe can have.
+     * @param {Number} opts.minCaffeine The minimum amount of caffeine in milligrams the recipe must have.
+     * @param {Number} opts.maxCaffeine The maximum amount of caffeine in milligrams the recipe can have.
+     * @param {Number} opts.minCopper The minimum amount of copper in milligrams the recipe must have.
+     * @param {Number} opts.maxCopper The maximum amount of copper in milligrams the recipe can have.
+     * @param {Number} opts.minCalcium The minimum amount of calcium in milligrams the recipe must have.
+     * @param {Number} opts.maxCalcium The maximum amount of calcium in milligrams the recipe can have.
+     * @param {Number} opts.minCholine The minimum amount of choline in milligrams the recipe must have.
+     * @param {Number} opts.maxCholine The maximum amount of choline in milligrams the recipe can have.
+     * @param {Number} opts.minCholesterol The minimum amount of cholesterol in milligrams the recipe must have.
+     * @param {Number} opts.maxCholesterol The maximum amount of cholesterol in milligrams the recipe can have.
+     * @param {Number} opts.minFluoride The minimum amount of fluoride in milligrams the recipe must have.
+     * @param {Number} opts.maxFluoride The maximum amount of fluoride in milligrams the recipe can have.
+     * @param {Number} opts.minSaturatedFat The minimum amount of saturated fat in grams the recipe must have.
+     * @param {Number} opts.maxSaturatedFat The maximum amount of saturated fat in grams the recipe can have.
+     * @param {Number} opts.minVitaminA The minimum amount of Vitamin A in IU the recipe must have.
+     * @param {Number} opts.maxVitaminA The maximum amount of Vitamin A in IU the recipe can have.
+     * @param {Number} opts.minVitaminC The minimum amount of Vitamin C milligrams the recipe must have.
+     * @param {Number} opts.maxVitaminC The maximum amount of Vitamin C in milligrams the recipe can have.
+     * @param {Number} opts.minVitaminD The minimum amount of Vitamin D in micrograms the recipe must have.
+     * @param {Number} opts.maxVitaminD The maximum amount of Vitamin D in micrograms the recipe can have.
+     * @param {Number} opts.minVitaminE The minimum amount of Vitamin E in milligrams the recipe must have.
+     * @param {Number} opts.maxVitaminE The maximum amount of Vitamin E in milligrams the recipe can have.
+     * @param {Number} opts.minVitaminK The minimum amount of Vitamin K in micrograms the recipe must have.
+     * @param {Number} opts.maxVitaminK The maximum amount of Vitamin K in micrograms the recipe can have.
+     * @param {Number} opts.minVitaminB1 The minimum amount of Vitamin B1 in milligrams the recipe must have.
+     * @param {Number} opts.maxVitaminB1 The maximum amount of Vitamin B1 in milligrams the recipe can have.
+     * @param {Number} opts.minVitaminB2 The minimum amount of Vitamin B2 in milligrams the recipe must have.
+     * @param {Number} opts.maxVitaminB2 The maximum amount of Vitamin B2 in milligrams the recipe can have.
+     * @param {Number} opts.minVitaminB5 The minimum amount of Vitamin B5 in milligrams the recipe must have.
+     * @param {Number} opts.maxVitaminB5 The maximum amount of Vitamin B5 in milligrams the recipe can have.
+     * @param {Number} opts.minVitaminB3 The minimum amount of Vitamin B3 in milligrams the recipe must have.
+     * @param {Number} opts.maxVitaminB3 The maximum amount of Vitamin B3 in milligrams the recipe can have.
+     * @param {Number} opts.minVitaminB6 The minimum amount of Vitamin B6 in milligrams the recipe must have.
+     * @param {Number} opts.maxVitaminB6 The maximum amount of Vitamin B6 in milligrams the recipe can have.
+     * @param {Number} opts.minVitaminB12 The minimum amount of Vitamin B12 in micrograms the recipe must have.
+     * @param {Number} opts.maxVitaminB12 The maximum amount of Vitamin B12 in micrograms the recipe can have.
+     * @param {Number} opts.minFiber The minimum amount of fiber in grams the recipe must have.
+     * @param {Number} opts.maxFiber The maximum amount of fiber in grams the recipe can have.
+     * @param {Number} opts.minFolate The minimum amount of folate in micrograms the recipe must have.
+     * @param {Number} opts.maxFolate The maximum amount of folate in micrograms the recipe can have.
+     * @param {Number} opts.minFolicAcid The minimum amount of folic acid in micrograms the recipe must have.
+     * @param {Number} opts.maxFolicAcid The maximum amount of folic acid in micrograms the recipe can have.
+     * @param {Number} opts.minIodine The minimum amount of iodine in micrograms the recipe must have.
+     * @param {Number} opts.maxIodine The maximum amount of iodine in micrograms the recipe can have.
+     * @param {Number} opts.minIron The minimum amount of iron in milligrams the recipe must have.
+     * @param {Number} opts.maxIron The maximum amount of iron in milligrams the recipe can have.
+     * @param {Number} opts.minMagnesium The minimum amount of magnesium in milligrams the recipe must have.
+     * @param {Number} opts.maxMagnesium The maximum amount of magnesium in milligrams the recipe can have.
+     * @param {Number} opts.minManganese The minimum amount of manganese in milligrams the recipe must have.
+     * @param {Number} opts.maxManganese The maximum amount of manganese in milligrams the recipe can have.
+     * @param {Number} opts.minPhosphorus The minimum amount of phosphorus in milligrams the recipe must have.
+     * @param {Number} opts.maxPhosphorus The maximum amount of phosphorus in milligrams the recipe can have.
+     * @param {Number} opts.minPotassium The minimum amount of potassium in milligrams the recipe must have.
+     * @param {Number} opts.maxPotassium The maximum amount of potassium in milligrams the recipe can have.
+     * @param {Number} opts.minSelenium The minimum amount of selenium in micrograms the recipe must have.
+     * @param {Number} opts.maxSelenium The maximum amount of selenium in micrograms the recipe can have.
+     * @param {Number} opts.minSodium The minimum amount of sodium in milligrams the recipe must have.
+     * @param {Number} opts.maxSodium The maximum amount of sodium in milligrams the recipe can have.
+     * @param {Number} opts.minSugar The minimum amount of sugar in grams the recipe must have.
+     * @param {Number} opts.maxSugar The maximum amount of sugar in grams the recipe can have.
+     * @param {Number} opts.minZinc The minimum amount of zinc in milligrams the recipe must have.
+     * @param {Number} opts.maxZinc The maximum amount of zinc in milligrams the recipe can have.
+     * @param {Number} opts.offset The number of results to skip (between 0 and 900).
+     * @param {Number} opts._number The number of expected results (between 1 and 100).
+     * @param {Boolean} opts.limitLicense Whether the recipes should have an open license that allows display with proper attribution.
      * @param {module:com.spoonacular.client/com.spoonacular/DefaultApi~searchRecipesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Object}
      */
@@ -2832,13 +3227,100 @@ export default class DefaultApi {
       let queryParams = {
         'query': query,
         'cuisine': opts['cuisine'],
+        'excludeCuisine': opts['excludeCuisine'],
         'diet': opts['diet'],
-        'excludeIngredients': opts['excludeIngredients'],
         'intolerances': opts['intolerances'],
+        'equipment': opts['equipment'],
+        'includeIngredients': opts['includeIngredients'],
+        'excludeIngredients': opts['excludeIngredients'],
+        'type': opts['type'],
+        'instructionsRequired': opts['instructionsRequired'],
+        'fillIngredients': opts['fillIngredients'],
+        'addRecipeInformation': opts['addRecipeInformation'],
+        'addRecipeNutrition': opts['addRecipeNutrition'],
+        'author': opts['author'],
+        'tags': opts['tags'],
+        'recipeBoxId': opts['recipeBoxId'],
+        'titleMatch': opts['titleMatch'],
+        'maxReadyTime': opts['maxReadyTime'],
+        'ignorePantry': opts['ignorePantry'],
+        'sort': opts['sort'],
+        'sortDirection': opts['sortDirection'],
+        'minCarbs': opts['minCarbs'],
+        'maxCarbs': opts['maxCarbs'],
+        'minProtein': opts['minProtein'],
+        'maxProtein': opts['maxProtein'],
+        'minCalories': opts['minCalories'],
+        'maxCalories': opts['maxCalories'],
+        'minFat': opts['minFat'],
+        'maxFat': opts['maxFat'],
+        'minAlcohol': opts['minAlcohol'],
+        'maxAlcohol': opts['maxAlcohol'],
+        'minCaffeine': opts['minCaffeine'],
+        'maxCaffeine': opts['maxCaffeine'],
+        'minCopper': opts['minCopper'],
+        'maxCopper': opts['maxCopper'],
+        'minCalcium': opts['minCalcium'],
+        'maxCalcium': opts['maxCalcium'],
+        'minCholine': opts['minCholine'],
+        'maxCholine': opts['maxCholine'],
+        'minCholesterol': opts['minCholesterol'],
+        'maxCholesterol': opts['maxCholesterol'],
+        'minFluoride': opts['minFluoride'],
+        'maxFluoride': opts['maxFluoride'],
+        'minSaturatedFat': opts['minSaturatedFat'],
+        'maxSaturatedFat': opts['maxSaturatedFat'],
+        'minVitaminA': opts['minVitaminA'],
+        'maxVitaminA': opts['maxVitaminA'],
+        'minVitaminC': opts['minVitaminC'],
+        'maxVitaminC': opts['maxVitaminC'],
+        'minVitaminD': opts['minVitaminD'],
+        'maxVitaminD': opts['maxVitaminD'],
+        'minVitaminE': opts['minVitaminE'],
+        'maxVitaminE': opts['maxVitaminE'],
+        'minVitaminK': opts['minVitaminK'],
+        'maxVitaminK': opts['maxVitaminK'],
+        'minVitaminB1': opts['minVitaminB1'],
+        'maxVitaminB1': opts['maxVitaminB1'],
+        'minVitaminB2': opts['minVitaminB2'],
+        'maxVitaminB2': opts['maxVitaminB2'],
+        'minVitaminB5': opts['minVitaminB5'],
+        'maxVitaminB5': opts['maxVitaminB5'],
+        'minVitaminB3': opts['minVitaminB3'],
+        'maxVitaminB3': opts['maxVitaminB3'],
+        'minVitaminB6': opts['minVitaminB6'],
+        'maxVitaminB6': opts['maxVitaminB6'],
+        'minVitaminB12': opts['minVitaminB12'],
+        'maxVitaminB12': opts['maxVitaminB12'],
+        'minFiber': opts['minFiber'],
+        'maxFiber': opts['maxFiber'],
+        'minFolate': opts['minFolate'],
+        'maxFolate': opts['maxFolate'],
+        'minFolicAcid': opts['minFolicAcid'],
+        'maxFolicAcid': opts['maxFolicAcid'],
+        'minIodine': opts['minIodine'],
+        'maxIodine': opts['maxIodine'],
+        'minIron': opts['minIron'],
+        'maxIron': opts['maxIron'],
+        'minMagnesium': opts['minMagnesium'],
+        'maxMagnesium': opts['maxMagnesium'],
+        'minManganese': opts['minManganese'],
+        'maxManganese': opts['maxManganese'],
+        'minPhosphorus': opts['minPhosphorus'],
+        'maxPhosphorus': opts['maxPhosphorus'],
+        'minPotassium': opts['minPotassium'],
+        'maxPotassium': opts['maxPotassium'],
+        'minSelenium': opts['minSelenium'],
+        'maxSelenium': opts['maxSelenium'],
+        'minSodium': opts['minSodium'],
+        'maxSodium': opts['maxSodium'],
+        'minSugar': opts['minSugar'],
+        'maxSugar': opts['maxSugar'],
+        'minZinc': opts['minZinc'],
+        'maxZinc': opts['maxZinc'],
         'offset': opts['offset'],
         'number': opts['_number'],
-        'limitLicense': opts['limitLicense'],
-        'instructionsRequired': opts['instructionsRequired']
+        'limitLicense': opts['limitLicense']
       };
       let headerParams = {
       };
@@ -2850,7 +3332,7 @@ export default class DefaultApi {
       let accepts = ['application/json'];
       let returnType = Object;
       return this.apiClient.callApi(
-        '/recipes/search', 'GET',
+        '/recipes/complexSearch', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -2969,12 +3451,12 @@ export default class DefaultApi {
      * @param {Number} opts.maxVitaminB12 The maximum amount of Vitamin B12 in micrograms the recipe can have.
      * @param {Number} opts.minFiber The minimum amount of fiber in grams the recipe must have.
      * @param {Number} opts.maxFiber The maximum amount of fiber in grams the recipe can have.
-     * @param {Number} opts.minFolate The minimum amount of folate in grams the recipe must have.
-     * @param {Number} opts.maxFolate The maximum amount of folate in grams the recipe can have.
-     * @param {Number} opts.minFolicAcid The minimum amount of folic acid in grams the recipe must have.
-     * @param {Number} opts.maxFolicAcid The maximum amount of folic acid in grams the recipe can have.
-     * @param {Number} opts.minIodine The minimum amount of iodine in grams the recipe must have.
-     * @param {Number} opts.maxIodine The maximum amount of iodine in grams the recipe can have.
+     * @param {Number} opts.minFolate The minimum amount of folate in micrograms the recipe must have.
+     * @param {Number} opts.maxFolate The maximum amount of folate in micrograms the recipe can have.
+     * @param {Number} opts.minFolicAcid The minimum amount of folic acid in micrograms the recipe must have.
+     * @param {Number} opts.maxFolicAcid The maximum amount of folic acid in micrograms the recipe can have.
+     * @param {Number} opts.minIodine The minimum amount of iodine in micrograms the recipe must have.
+     * @param {Number} opts.maxIodine The maximum amount of iodine in micrograms the recipe can have.
      * @param {Number} opts.minIron The minimum amount of iron in milligrams the recipe must have.
      * @param {Number} opts.maxIron The maximum amount of iron in milligrams the recipe can have.
      * @param {Number} opts.minMagnesium The minimum amount of magnesium in milligrams the recipe must have.
@@ -2985,8 +3467,8 @@ export default class DefaultApi {
      * @param {Number} opts.maxPhosphorus The maximum amount of phosphorus in milligrams the recipe can have.
      * @param {Number} opts.minPotassium The minimum amount of potassium in milligrams the recipe must have.
      * @param {Number} opts.maxPotassium The maximum amount of potassium in milligrams the recipe can have.
-     * @param {Number} opts.minSelenium The minimum amount of selenium in grams the recipe must have.
-     * @param {Number} opts.maxSelenium The maximum amount of selenium in grams the recipe can have.
+     * @param {Number} opts.minSelenium The minimum amount of selenium in micrograms the recipe must have.
+     * @param {Number} opts.maxSelenium The maximum amount of selenium in micrograms the recipe can have.
      * @param {Number} opts.minSodium The minimum amount of sodium in milligrams the recipe must have.
      * @param {Number} opts.maxSodium The maximum amount of sodium in milligrams the recipe can have.
      * @param {Number} opts.minSugar The minimum amount of sugar in grams the recipe must have.
@@ -3095,241 +3577,6 @@ export default class DefaultApi {
       let returnType = Object;
       return this.apiClient.callApi(
         '/recipes/findByNutrients', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the searchRecipesComplex operation.
-     * @callback module:com.spoonacular.client/com.spoonacular/DefaultApi~searchRecipesComplexCallback
-     * @param {String} error Error message, if any.
-     * @param {Object} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Search Recipes Complex
-     * Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint.
-     * @param {String} query The (natural language) recipe search query.
-     * @param {Object} opts Optional parameters
-     * @param {String} opts.cuisine The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as 'OR'). See a full list of supported cuisines.
-     * @param {String} opts.excludeCuisine The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as 'AND'). See a full list of supported cuisines.
-     * @param {String} opts.diet The diet for which the recipes must be suitable. See a full list of supported diets.
-     * @param {String} opts.intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
-     * @param {String} opts.equipment The equipment required. Multiple values will be interpreted as 'or'. For example, value could be \"blender, frying pan, bowl\".
-     * @param {String} opts.includeIngredients A comma-separated list of ingredients that should/must be used in the recipes.
-     * @param {String} opts.excludeIngredients A comma-separated list of ingredients or ingredient types that the recipes must not contain.
-     * @param {String} opts.type The type of recipe. See a full list of supported meal types.
-     * @param {Boolean} opts.instructionsRequired Whether the recipes must have instructions.
-     * @param {Boolean} opts.fillIngredients Add information about the ingredients and whether they are used or missing in relation to the query.
-     * @param {Boolean} opts.addRecipeInformation If set to true, you get more information about the recipes returned.
-     * @param {Boolean} opts.addRecipeNutrition If set to true, you get nutritional information about each recipes returned.
-     * @param {String} opts.author The username of the recipe author.
-     * @param {String} opts.tags User defined tags that have to match. The author param has to be set.
-     * @param {Number} opts.recipeBoxId The id of the recipe box to which the search should be limited to.
-     * @param {String} opts.titleMatch Enter text that must be found in the title of the recipes.
-     * @param {Number} opts.maxReadyTime The maximum time in minutes it should take to prepare and cook the recipe.
-     * @param {Boolean} opts.ignorePantry Whether to ignore typical pantry items, such as water, salt, flour, etc.
-     * @param {String} opts.sort The strategy to sort recipes by. See a full list of supported sorting options.
-     * @param {String} opts.sortDirection The direction in which to sort. Must be either 'asc' (ascending) or 'desc' (descending).
-     * @param {Number} opts.minCarbs The minimum amount of carbohydrates in grams the recipe must have.
-     * @param {Number} opts.maxCarbs The maximum amount of carbohydrates in grams the recipe can have.
-     * @param {Number} opts.minProtein The minimum amount of protein in grams the recipe must have.
-     * @param {Number} opts.maxProtein The maximum amount of protein in grams the recipe can have.
-     * @param {Number} opts.minCalories The minimum amount of calories the recipe must have.
-     * @param {Number} opts.maxCalories The maximum amount of calories the recipe can have.
-     * @param {Number} opts.minFat The minimum amount of fat in grams the recipe must have.
-     * @param {Number} opts.maxFat The maximum amount of fat in grams the recipe can have.
-     * @param {Number} opts.minAlcohol The minimum amount of alcohol in grams the recipe must have.
-     * @param {Number} opts.maxAlcohol The maximum amount of alcohol in grams the recipe can have.
-     * @param {Number} opts.minCaffeine The minimum amount of caffeine in milligrams the recipe must have.
-     * @param {Number} opts.maxCaffeine The maximum amount of caffeine in milligrams the recipe can have.
-     * @param {Number} opts.minCopper The minimum amount of copper in milligrams the recipe must have.
-     * @param {Number} opts.maxCopper The maximum amount of copper in milligrams the recipe can have.
-     * @param {Number} opts.minCalcium The minimum amount of calcium in milligrams the recipe must have.
-     * @param {Number} opts.maxCalcium The maximum amount of calcium in milligrams the recipe can have.
-     * @param {Number} opts.minCholine The minimum amount of choline in milligrams the recipe must have.
-     * @param {Number} opts.maxCholine The maximum amount of choline in milligrams the recipe can have.
-     * @param {Number} opts.minCholesterol The minimum amount of cholesterol in milligrams the recipe must have.
-     * @param {Number} opts.maxCholesterol The maximum amount of cholesterol in milligrams the recipe can have.
-     * @param {Number} opts.minFluoride The minimum amount of fluoride in milligrams the recipe must have.
-     * @param {Number} opts.maxFluoride The maximum amount of fluoride in milligrams the recipe can have.
-     * @param {Number} opts.minSaturatedFat The minimum amount of saturated fat in grams the recipe must have.
-     * @param {Number} opts.maxSaturatedFat The maximum amount of saturated fat in grams the recipe can have.
-     * @param {Number} opts.minVitaminA The minimum amount of Vitamin A in IU the recipe must have.
-     * @param {Number} opts.maxVitaminA The maximum amount of Vitamin A in IU the recipe can have.
-     * @param {Number} opts.minVitaminC The minimum amount of Vitamin C milligrams the recipe must have.
-     * @param {Number} opts.maxVitaminC The maximum amount of Vitamin C in milligrams the recipe can have.
-     * @param {Number} opts.minVitaminD The minimum amount of Vitamin D in micrograms the recipe must have.
-     * @param {Number} opts.maxVitaminD The maximum amount of Vitamin D in micrograms the recipe can have.
-     * @param {Number} opts.minVitaminE The minimum amount of Vitamin E in milligrams the recipe must have.
-     * @param {Number} opts.maxVitaminE The maximum amount of Vitamin E in milligrams the recipe can have.
-     * @param {Number} opts.minVitaminK The minimum amount of Vitamin K in micrograms the recipe must have.
-     * @param {Number} opts.maxVitaminK The maximum amount of Vitamin K in micrograms the recipe can have.
-     * @param {Number} opts.minVitaminB1 The minimum amount of Vitamin B1 in milligrams the recipe must have.
-     * @param {Number} opts.maxVitaminB1 The maximum amount of Vitamin B1 in milligrams the recipe can have.
-     * @param {Number} opts.minVitaminB2 The minimum amount of Vitamin B2 in milligrams the recipe must have.
-     * @param {Number} opts.maxVitaminB2 The maximum amount of Vitamin B2 in milligrams the recipe can have.
-     * @param {Number} opts.minVitaminB5 The minimum amount of Vitamin B5 in milligrams the recipe must have.
-     * @param {Number} opts.maxVitaminB5 The maximum amount of Vitamin B5 in milligrams the recipe can have.
-     * @param {Number} opts.minVitaminB3 The minimum amount of Vitamin B3 in milligrams the recipe must have.
-     * @param {Number} opts.maxVitaminB3 The maximum amount of Vitamin B3 in milligrams the recipe can have.
-     * @param {Number} opts.minVitaminB6 The minimum amount of Vitamin B6 in milligrams the recipe must have.
-     * @param {Number} opts.maxVitaminB6 The maximum amount of Vitamin B6 in milligrams the recipe can have.
-     * @param {Number} opts.minVitaminB12 The minimum amount of Vitamin B12 in micrograms the recipe must have.
-     * @param {Number} opts.maxVitaminB12 The maximum amount of Vitamin B12 in micrograms the recipe can have.
-     * @param {Number} opts.minFiber The minimum amount of fiber in grams the recipe must have.
-     * @param {Number} opts.maxFiber The maximum amount of fiber in grams the recipe can have.
-     * @param {Number} opts.minFolate The minimum amount of folate in grams the recipe must have.
-     * @param {Number} opts.maxFolate The maximum amount of folate in grams the recipe can have.
-     * @param {Number} opts.minFolicAcid The minimum amount of folic acid in grams the recipe must have.
-     * @param {Number} opts.maxFolicAcid The maximum amount of folic acid in grams the recipe can have.
-     * @param {Number} opts.minIodine The minimum amount of iodine in grams the recipe must have.
-     * @param {Number} opts.maxIodine The maximum amount of iodine in grams the recipe can have.
-     * @param {Number} opts.minIron The minimum amount of iron in milligrams the recipe must have.
-     * @param {Number} opts.maxIron The maximum amount of iron in milligrams the recipe can have.
-     * @param {Number} opts.minMagnesium The minimum amount of magnesium in milligrams the recipe must have.
-     * @param {Number} opts.maxMagnesium The maximum amount of magnesium in milligrams the recipe can have.
-     * @param {Number} opts.minManganese The minimum amount of manganese in milligrams the recipe must have.
-     * @param {Number} opts.maxManganese The maximum amount of manganese in milligrams the recipe can have.
-     * @param {Number} opts.minPhosphorus The minimum amount of phosphorus in milligrams the recipe must have.
-     * @param {Number} opts.maxPhosphorus The maximum amount of phosphorus in milligrams the recipe can have.
-     * @param {Number} opts.minPotassium The minimum amount of potassium in milligrams the recipe must have.
-     * @param {Number} opts.maxPotassium The maximum amount of potassium in milligrams the recipe can have.
-     * @param {Number} opts.minSelenium The minimum amount of selenium in grams the recipe must have.
-     * @param {Number} opts.maxSelenium The maximum amount of selenium in grams the recipe can have.
-     * @param {Number} opts.minSodium The minimum amount of sodium in milligrams the recipe must have.
-     * @param {Number} opts.maxSodium The maximum amount of sodium in milligrams the recipe can have.
-     * @param {Number} opts.minSugar The minimum amount of sugar in grams the recipe must have.
-     * @param {Number} opts.maxSugar The maximum amount of sugar in grams the recipe can have.
-     * @param {Number} opts.minZinc The minimum amount of zinc in milligrams the recipe must have.
-     * @param {Number} opts.maxZinc The maximum amount of zinc in milligrams the recipe can have.
-     * @param {Number} opts.offset The number of results to skip (between 0 and 900).
-     * @param {Number} opts._number The number of expected results (between 1 and 100).
-     * @param {Boolean} opts.limitLicense Whether the recipes should have an open license that allows display with proper attribution.
-     * @param {module:com.spoonacular.client/com.spoonacular/DefaultApi~searchRecipesComplexCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Object}
-     */
-    searchRecipesComplex(query, opts, callback) {
-      opts = opts || {};
-      let postBody = null;
-      // verify the required parameter 'query' is set
-      if (query === undefined || query === null) {
-        throw new Error("Missing the required parameter 'query' when calling searchRecipesComplex");
-      }
-
-      let pathParams = {
-      };
-      let queryParams = {
-        'query': query,
-        'cuisine': opts['cuisine'],
-        'excludeCuisine': opts['excludeCuisine'],
-        'diet': opts['diet'],
-        'intolerances': opts['intolerances'],
-        'equipment': opts['equipment'],
-        'includeIngredients': opts['includeIngredients'],
-        'excludeIngredients': opts['excludeIngredients'],
-        'type': opts['type'],
-        'instructionsRequired': opts['instructionsRequired'],
-        'fillIngredients': opts['fillIngredients'],
-        'addRecipeInformation': opts['addRecipeInformation'],
-        'addRecipeNutrition': opts['addRecipeNutrition'],
-        'author': opts['author'],
-        'tags': opts['tags'],
-        'recipeBoxId': opts['recipeBoxId'],
-        'titleMatch': opts['titleMatch'],
-        'maxReadyTime': opts['maxReadyTime'],
-        'ignorePantry': opts['ignorePantry'],
-        'sort': opts['sort'],
-        'sortDirection': opts['sortDirection'],
-        'minCarbs': opts['minCarbs'],
-        'maxCarbs': opts['maxCarbs'],
-        'minProtein': opts['minProtein'],
-        'maxProtein': opts['maxProtein'],
-        'minCalories': opts['minCalories'],
-        'maxCalories': opts['maxCalories'],
-        'minFat': opts['minFat'],
-        'maxFat': opts['maxFat'],
-        'minAlcohol': opts['minAlcohol'],
-        'maxAlcohol': opts['maxAlcohol'],
-        'minCaffeine': opts['minCaffeine'],
-        'maxCaffeine': opts['maxCaffeine'],
-        'minCopper': opts['minCopper'],
-        'maxCopper': opts['maxCopper'],
-        'minCalcium': opts['minCalcium'],
-        'maxCalcium': opts['maxCalcium'],
-        'minCholine': opts['minCholine'],
-        'maxCholine': opts['maxCholine'],
-        'minCholesterol': opts['minCholesterol'],
-        'maxCholesterol': opts['maxCholesterol'],
-        'minFluoride': opts['minFluoride'],
-        'maxFluoride': opts['maxFluoride'],
-        'minSaturatedFat': opts['minSaturatedFat'],
-        'maxSaturatedFat': opts['maxSaturatedFat'],
-        'minVitaminA': opts['minVitaminA'],
-        'maxVitaminA': opts['maxVitaminA'],
-        'minVitaminC': opts['minVitaminC'],
-        'maxVitaminC': opts['maxVitaminC'],
-        'minVitaminD': opts['minVitaminD'],
-        'maxVitaminD': opts['maxVitaminD'],
-        'minVitaminE': opts['minVitaminE'],
-        'maxVitaminE': opts['maxVitaminE'],
-        'minVitaminK': opts['minVitaminK'],
-        'maxVitaminK': opts['maxVitaminK'],
-        'minVitaminB1': opts['minVitaminB1'],
-        'maxVitaminB1': opts['maxVitaminB1'],
-        'minVitaminB2': opts['minVitaminB2'],
-        'maxVitaminB2': opts['maxVitaminB2'],
-        'minVitaminB5': opts['minVitaminB5'],
-        'maxVitaminB5': opts['maxVitaminB5'],
-        'minVitaminB3': opts['minVitaminB3'],
-        'maxVitaminB3': opts['maxVitaminB3'],
-        'minVitaminB6': opts['minVitaminB6'],
-        'maxVitaminB6': opts['maxVitaminB6'],
-        'minVitaminB12': opts['minVitaminB12'],
-        'maxVitaminB12': opts['maxVitaminB12'],
-        'minFiber': opts['minFiber'],
-        'maxFiber': opts['maxFiber'],
-        'minFolate': opts['minFolate'],
-        'maxFolate': opts['maxFolate'],
-        'minFolicAcid': opts['minFolicAcid'],
-        'maxFolicAcid': opts['maxFolicAcid'],
-        'minIodine': opts['minIodine'],
-        'maxIodine': opts['maxIodine'],
-        'minIron': opts['minIron'],
-        'maxIron': opts['maxIron'],
-        'minMagnesium': opts['minMagnesium'],
-        'maxMagnesium': opts['maxMagnesium'],
-        'minManganese': opts['minManganese'],
-        'maxManganese': opts['maxManganese'],
-        'minPhosphorus': opts['minPhosphorus'],
-        'maxPhosphorus': opts['maxPhosphorus'],
-        'minPotassium': opts['minPotassium'],
-        'maxPotassium': opts['maxPotassium'],
-        'minSelenium': opts['minSelenium'],
-        'maxSelenium': opts['maxSelenium'],
-        'minSodium': opts['minSodium'],
-        'maxSodium': opts['maxSodium'],
-        'minSugar': opts['minSugar'],
-        'maxSugar': opts['maxSugar'],
-        'minZinc': opts['minZinc'],
-        'maxZinc': opts['maxZinc'],
-        'offset': opts['offset'],
-        'number': opts['_number'],
-        'limitLicense': opts['limitLicense']
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = [];
-      let contentTypes = [];
-      let accepts = ['application/json'];
-      let returnType = Object;
-      return this.apiClient.callApi(
-        '/recipes/complexSearch', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -3478,9 +3725,8 @@ export default class DefaultApi {
 
     /**
      * Visualize Equipment
-     * Visualize the equipment used to make a recipe.
-     * @param {String} ingredientList The ingredient list of the recipe, one ingredient per line.
-     * @param {Number} servings The number of servings.
+     * Visualize the equipment used to make a recipe. You can play around with that endpoint!
+     * @param {String} instructions The recipe's instructions.
      * @param {Object} opts Optional parameters
      * @param {String} opts.view How to visualize the equipment, either \\\"grid\\\" or \\\"list\\\".
      * @param {Boolean} opts.defaultCss Whether the default CSS should be added to the response.
@@ -3488,16 +3734,12 @@ export default class DefaultApi {
      * @param {module:com.spoonacular.client/com.spoonacular/DefaultApi~visualizeEquipmentCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link String}
      */
-    visualizeEquipment(ingredientList, servings, opts, callback) {
+    visualizeEquipment(instructions, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'ingredientList' is set
-      if (ingredientList === undefined || ingredientList === null) {
-        throw new Error("Missing the required parameter 'ingredientList' when calling visualizeEquipment");
-      }
-      // verify the required parameter 'servings' is set
-      if (servings === undefined || servings === null) {
-        throw new Error("Missing the required parameter 'servings' when calling visualizeEquipment");
+      // verify the required parameter 'instructions' is set
+      if (instructions === undefined || instructions === null) {
+        throw new Error("Missing the required parameter 'instructions' when calling visualizeEquipment");
       }
 
       let pathParams = {
@@ -3507,8 +3749,7 @@ export default class DefaultApi {
       let headerParams = {
       };
       let formParams = {
-        'ingredientList': ingredientList,
-        'servings': servings,
+        'instructions': instructions,
         'view': opts['view'],
         'defaultCss': opts['defaultCss'],
         'showBacklink': opts['showBacklink']
@@ -3535,7 +3776,7 @@ export default class DefaultApi {
 
     /**
      * Visualize Ingredients
-     * Visualize ingredients of a recipe.
+     * Visualize ingredients of a recipe. You can play around with that endpoint!
      * @param {String} ingredientList The ingredient list of the recipe, one ingredient per line.
      * @param {Number} servings The number of servings.
      * @param {Object} opts Optional parameters
@@ -3641,7 +3882,7 @@ export default class DefaultApi {
 
     /**
      * Visualize Price Breakdown
-     * Visualize the price breakdown of a recipe.
+     * Visualize the price breakdown of a recipe. You can play around with that endpoint!
      * @param {String} ingredientList The ingredient list of the recipe, one ingredient per line.
      * @param {Number} servings The number of servings.
      * @param {Object} opts Optional parameters
@@ -3839,7 +4080,7 @@ export default class DefaultApi {
 
     /**
      * Visualize Recipe Nutrition
-     * Visualize a recipe's nutritional information as HTML including CSS
+     * Visualize a recipe's nutritional information as HTML including CSS. You can play around with that endpoint!
      * @param {String} ingredientList The ingredient list of the recipe, one ingredient per line.
      * @param {Number} servings The number of servings.
      * @param {Object} opts Optional parameters
@@ -3973,6 +4214,92 @@ export default class DefaultApi {
       let returnType = 'String';
       return this.apiClient.callApi(
         '/recipes/{id}/priceBreakdownWidget', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the visualizeRecipeTaste operation.
+     * @callback module:com.spoonacular.client/com.spoonacular/DefaultApi~visualizeRecipeTasteCallback
+     * @param {String} error Error message, if any.
+     * @param {String} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Visualize Recipe Taste
+     * Visualize a recipe's taste information as HTML including CSS. You can play around with that endpoint!
+     * @param {String} ingredientList The ingredient list of the recipe, one ingredient per line.
+     * @param {module:com.spoonacular.client/com.spoonacular/DefaultApi~visualizeRecipeTasteCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link String}
+     */
+    visualizeRecipeTaste(ingredientList, callback) {
+      let postBody = null;
+      // verify the required parameter 'ingredientList' is set
+      if (ingredientList === undefined || ingredientList === null) {
+        throw new Error("Missing the required parameter 'ingredientList' when calling visualizeRecipeTaste");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+        'ingredientList': ingredientList
+      };
+
+      let authNames = [];
+      let contentTypes = ['application/x-www-form-urlencoded'];
+      let accepts = ['text/html'];
+      let returnType = 'String';
+      return this.apiClient.callApi(
+        '/recipes/visualizeTaste', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the visualizeRecipeTasteByID operation.
+     * @callback module:com.spoonacular.client/com.spoonacular/DefaultApi~visualizeRecipeTasteByIDCallback
+     * @param {String} error Error message, if any.
+     * @param {String} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Visualize Recipe Taste by ID
+     * Get a recipe's taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
+     * @param {Number} id The recipe id.
+     * @param {module:com.spoonacular.client/com.spoonacular/DefaultApi~visualizeRecipeTasteByIDCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link String}
+     */
+    visualizeRecipeTasteByID(id, callback) {
+      let postBody = null;
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling visualizeRecipeTasteByID");
+      }
+
+      let pathParams = {
+        'id': id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['text/html'];
+      let returnType = 'String';
+      return this.apiClient.callApi(
+        '/recipes/{id}/tasteWidget', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

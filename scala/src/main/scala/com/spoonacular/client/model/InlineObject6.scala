@@ -5,17 +5,14 @@ import io.finch.circe._
 import io.circe.generic.semiauto._
 import io.circe.java8.time._
 import spoonacular._
-import java.math.BigDecimal
 
 /**
  * 
- * @param ingredientList The ingredient list of the recipe, one ingredient per line.
- * @param servings The number of servings that you can make from the ingredients.
- * @param includeNutrition Whether nutrition data should be added to correctly parsed ingredients.
+ * @param title The title of the recipe.
+ * @param ingredientList The ingredient list of the recipe, one ingredient per line (separate lines with \\n).
  */
-case class InlineObject6(ingredientList: String,
-                servings: BigDecimal,
-                includeNutrition: Option[Boolean]
+case class InlineObject6(title: String,
+                ingredientList: String
                 )
 
 object InlineObject6 {

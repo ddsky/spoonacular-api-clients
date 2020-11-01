@@ -10,8 +10,8 @@ class DefaultApi {
   /// Add to Meal Plan
   ///
   /// Add an item to the user&#39;s meal plan.
-  Future<Object> addToMealPlan(String username, String hash, InlineObject9 inlineObject9) async {
-    Object postBody = inlineObject9;
+  Future<Object> addToMealPlan(String username, String hash, InlineObject11 inlineObject11) async {
+    Object postBody = inlineObject11;
 
     // verify required params are set
     if(username == null) {
@@ -20,8 +20,8 @@ class DefaultApi {
     if(hash == null) {
      throw new ApiException(400, "Missing required param: hash");
     }
-    if(inlineObject9 == null) {
-     throw new ApiException(400, "Missing required param: inlineObject9");
+    if(inlineObject11 == null) {
+     throw new ApiException(400, "Missing required param: inlineObject11");
     }
 
     // create path and map variables
@@ -67,8 +67,8 @@ class DefaultApi {
   /// Add to Shopping List
   ///
   /// Add an item to the current shopping list of a user.
-  Future<Object> addToShoppingList(String username, String hash, InlineObject12 inlineObject12) async {
-    Object postBody = inlineObject12;
+  Future<Object> addToShoppingList(String username, String hash, InlineObject14 inlineObject14) async {
+    Object postBody = inlineObject14;
 
     // verify required params are set
     if(username == null) {
@@ -77,8 +77,8 @@ class DefaultApi {
     if(hash == null) {
      throw new ApiException(400, "Missing required param: hash");
     }
-    if(inlineObject12 == null) {
-     throw new ApiException(400, "Missing required param: inlineObject12");
+    if(inlineObject14 == null) {
+     throw new ApiException(400, "Missing required param: inlineObject14");
     }
 
     // create path and map variables
@@ -174,7 +174,7 @@ class DefaultApi {
   }
   /// Analyze Recipe Instructions
   ///
-  /// Extract ingredients and equipment from the recipe&#39;s instructions.
+  /// This endpoint allows you to break down instructions into atomic steps. Furthermore, each step will contain the ingredients and equipment required. Additionally, all ingredients and equipment from the recipe&#39;s instructions will be extracted independently of the step they&#39;re used in.
   Future<Object> analyzeRecipeInstructions(String instructions) async {
     Object postBody;
 
@@ -231,7 +231,7 @@ class DefaultApi {
   /// Autocomplete Ingredient Search
   ///
   /// Autocomplete the entry of an ingredient.
-  Future<Object> autocompleteIngredientSearch(String query, { num number, bool metaInformation, bool intolerances }) async {
+  Future<Object> autocompleteIngredientSearch(String query, { num number, bool metaInformation, String intolerances }) async {
     Object postBody;
 
     // verify required params are set
@@ -518,12 +518,12 @@ class DefaultApi {
   /// Classify Grocery Product
   ///
   /// This endpoint allows you to match a packaged food to a basic category, e.g. a specific brand of milk to the category milk.
-  Future<Object> classifyGroceryProduct(InlineObject8 inlineObject8, { String locale }) async {
-    Object postBody = inlineObject8;
+  Future<Object> classifyGroceryProduct(InlineObject9 inlineObject9, { String locale }) async {
+    Object postBody = inlineObject9;
 
     // verify required params are set
-    if(inlineObject8 == null) {
-     throw new ApiException(400, "Missing required param: inlineObject8");
+    if(inlineObject9 == null) {
+     throw new ApiException(400, "Missing required param: inlineObject9");
     }
 
     // create path and map variables
@@ -591,6 +591,166 @@ class DefaultApi {
     }
 
     List<String> contentTypes = ["application/json"];
+
+    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
+    List<String> authNames = [];
+
+    if(contentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = new MultipartRequest(null, null);
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
+    }
+
+    var response = await apiClient.invokeAPI(path,
+                                             'POST',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             contentType,
+                                             authNames);
+
+    if(response.statusCode >= 400) {
+      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
+    } else if(response.body != null) {
+      return apiClient.deserialize(_decodeBodyBytes(response), 'Object') as Object;
+    } else {
+      return null;
+    }
+  }
+  /// Clear Meal Plan Day
+  ///
+  /// Delete all planned items from the user&#39;s meal plan for a specific day.
+  Future<Object> clearMealPlanDay(String username, String date, String hash, InlineObject10 inlineObject10) async {
+    Object postBody = inlineObject10;
+
+    // verify required params are set
+    if(username == null) {
+     throw new ApiException(400, "Missing required param: username");
+    }
+    if(date == null) {
+     throw new ApiException(400, "Missing required param: date");
+    }
+    if(hash == null) {
+     throw new ApiException(400, "Missing required param: hash");
+    }
+    if(inlineObject10 == null) {
+     throw new ApiException(400, "Missing required param: inlineObject10");
+    }
+
+    // create path and map variables
+    String path = "/mealplanner/{username}/day/{date}".replaceAll("{format}","json").replaceAll("{" + "username" + "}", username.toString()).replaceAll("{" + "date" + "}", date.toString());
+
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+      queryParams.addAll(_convertParametersForCollectionFormat("", "hash", hash));
+
+    List<String> contentTypes = [""];
+
+    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
+    List<String> authNames = [];
+
+    if(contentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = new MultipartRequest(null, null);
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
+    }
+
+    var response = await apiClient.invokeAPI(path,
+                                             'DELETE',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             contentType,
+                                             authNames);
+
+    if(response.statusCode >= 400) {
+      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
+    } else if(response.body != null) {
+      return apiClient.deserialize(_decodeBodyBytes(response), 'Object') as Object;
+    } else {
+      return null;
+    }
+  }
+  /// Compute Glycemic Load
+  ///
+  /// Retrieve the glycemic index for a list of ingredients and compute the individual and total glycemic load.
+  Future<Object> computeGlycemicLoad(Object body) async {
+    Object postBody = body;
+
+    // verify required params are set
+    if(body == null) {
+     throw new ApiException(400, "Missing required param: body");
+    }
+
+    // create path and map variables
+    String path = "/food/ingredients/glycemicLoad".replaceAll("{format}","json");
+
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+
+    List<String> contentTypes = ["application/json"];
+
+    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
+    List<String> authNames = [];
+
+    if(contentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = new MultipartRequest(null, null);
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
+    }
+
+    var response = await apiClient.invokeAPI(path,
+                                             'POST',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             contentType,
+                                             authNames);
+
+    if(response.statusCode >= 400) {
+      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
+    } else if(response.body != null) {
+      return apiClient.deserialize(_decodeBodyBytes(response), 'Object') as Object;
+    } else {
+      return null;
+    }
+  }
+  /// Connect User
+  ///
+  /// In order to call user-specific endpoints, you need to connect your app&#39;s users to spoonacular users.
+  Future<Object> connectUser(Object body) async {
+    Object postBody = body;
+
+    // verify required params are set
+    if(body == null) {
+     throw new ApiException(400, "Missing required param: body");
+    }
+
+    // create path and map variables
+    String path = "/users/connect".replaceAll("{format}","json");
+
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+
+    List<String> contentTypes = [""];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
     List<String> authNames = [];
@@ -829,8 +989,8 @@ class DefaultApi {
   /// Delete from Meal Plan
   ///
   /// Delete an item from the user&#39;s meal plan.
-  Future<Object> deleteFromMealPlan(String username, num id, String hash, InlineObject10 inlineObject10) async {
-    Object postBody = inlineObject10;
+  Future<Object> deleteFromMealPlan(String username, num id, String hash, InlineObject12 inlineObject12) async {
+    Object postBody = inlineObject12;
 
     // verify required params are set
     if(username == null) {
@@ -842,8 +1002,8 @@ class DefaultApi {
     if(hash == null) {
      throw new ApiException(400, "Missing required param: hash");
     }
-    if(inlineObject10 == null) {
-     throw new ApiException(400, "Missing required param: inlineObject10");
+    if(inlineObject12 == null) {
+     throw new ApiException(400, "Missing required param: inlineObject12");
     }
 
     // create path and map variables
@@ -889,8 +1049,8 @@ class DefaultApi {
   /// Delete from Shopping List
   ///
   /// Delete an item from the current shopping list of the user.
-  Future<Object> deleteFromShoppingList(String username, num id, String hash, InlineObject13 inlineObject13) async {
-    Object postBody = inlineObject13;
+  Future<Object> deleteFromShoppingList(String username, num id, String hash, InlineObject15 inlineObject15) async {
+    Object postBody = inlineObject15;
 
     // verify required params are set
     if(username == null) {
@@ -902,8 +1062,8 @@ class DefaultApi {
     if(hash == null) {
      throw new ApiException(400, "Missing required param: hash");
     }
-    if(inlineObject13 == null) {
-     throw new ApiException(400, "Missing required param: inlineObject13");
+    if(inlineObject15 == null) {
+     throw new ApiException(400, "Missing required param: inlineObject15");
     }
 
     // create path and map variables
@@ -1121,8 +1281,8 @@ class DefaultApi {
   /// Generate Shopping List
   ///
   /// Generate the shopping list for a user from the meal planner in a given time frame.
-  Future<Object> generateShoppingList(String username, String startDate, String endDate, String hash, InlineObject11 inlineObject11) async {
-    Object postBody = inlineObject11;
+  Future<Object> generateShoppingList(String username, String startDate, String endDate, String hash, InlineObject13 inlineObject13) async {
+    Object postBody = inlineObject13;
 
     // verify required params are set
     if(username == null) {
@@ -1137,8 +1297,8 @@ class DefaultApi {
     if(hash == null) {
      throw new ApiException(400, "Missing required param: hash");
     }
-    if(inlineObject11 == null) {
-     throw new ApiException(400, "Missing required param: inlineObject11");
+    if(inlineObject13 == null) {
+     throw new ApiException(400, "Missing required param: inlineObject13");
     }
 
     // create path and map variables
@@ -2271,6 +2431,56 @@ class DefaultApi {
       return null;
     }
   }
+  /// Get Recipe Taste by ID
+  ///
+  /// Get a recipe&#39;s taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
+  Future<Object> getRecipeTasteByID(num id) async {
+    Object postBody;
+
+    // verify required params are set
+    if(id == null) {
+     throw new ApiException(400, "Missing required param: id");
+    }
+
+    // create path and map variables
+    String path = "/recipes/{id}/tasteWidget.json".replaceAll("{format}","json").replaceAll("{" + "id" + "}", id.toString());
+
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+
+    List<String> contentTypes = [];
+
+    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
+    List<String> authNames = [];
+
+    if(contentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = new MultipartRequest(null, null);
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
+    }
+
+    var response = await apiClient.invokeAPI(path,
+                                             'GET',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             contentType,
+                                             authNames);
+
+    if(response.statusCode >= 400) {
+      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
+    } else if(response.body != null) {
+      return apiClient.deserialize(_decodeBodyBytes(response), 'Object') as Object;
+    } else {
+      return null;
+    }
+  }
   /// Get Shopping List
   ///
   /// Get the current shopping list for the given user.
@@ -2699,6 +2909,96 @@ class DefaultApi {
       return null;
     }
   }
+  /// Ingredient Search
+  ///
+  /// Search for simple whole foods (e.g. fruits, vegetables, nuts, grains, meat, fish, dairy etc.).
+  Future<Object> ingredientSearch(String query, { bool addChildren, num minProteinPercent, num maxProteinPercent, num minFatPercent, num maxFatPercent, num minCarbsPercent, num maxCarbsPercent, bool metaInformation, String intolerances, String sort, String sortDirection, num offset, num number }) async {
+    Object postBody;
+
+    // verify required params are set
+    if(query == null) {
+     throw new ApiException(400, "Missing required param: query");
+    }
+
+    // create path and map variables
+    String path = "/food/ingredients/search".replaceAll("{format}","json");
+
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+      queryParams.addAll(_convertParametersForCollectionFormat("", "query", query));
+    if(addChildren != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "addChildren", addChildren));
+    }
+    if(minProteinPercent != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "minProteinPercent", minProteinPercent));
+    }
+    if(maxProteinPercent != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "maxProteinPercent", maxProteinPercent));
+    }
+    if(minFatPercent != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "minFatPercent", minFatPercent));
+    }
+    if(maxFatPercent != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "maxFatPercent", maxFatPercent));
+    }
+    if(minCarbsPercent != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "minCarbsPercent", minCarbsPercent));
+    }
+    if(maxCarbsPercent != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "maxCarbsPercent", maxCarbsPercent));
+    }
+    if(metaInformation != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "metaInformation", metaInformation));
+    }
+    if(intolerances != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "intolerances", intolerances));
+    }
+    if(sort != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "sort", sort));
+    }
+    if(sortDirection != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "sortDirection", sortDirection));
+    }
+    if(offset != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "offset", offset));
+    }
+    if(number != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "number", number));
+    }
+
+    List<String> contentTypes = [];
+
+    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
+    List<String> authNames = [];
+
+    if(contentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = new MultipartRequest(null, null);
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
+    }
+
+    var response = await apiClient.invokeAPI(path,
+                                             'GET',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             contentType,
+                                             authNames);
+
+    if(response.statusCode >= 400) {
+      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
+    } else if(response.body != null) {
+      return apiClient.deserialize(_decodeBodyBytes(response), 'Object') as Object;
+    } else {
+      return null;
+    }
+  }
   /// Map Ingredients to Grocery Products
   ///
   /// Map a set of ingredients to products you can buy in the grocery store.
@@ -2839,6 +3139,63 @@ class DefaultApi {
     Map<String, String> headerParams = {};
     Map<String, String> formParams = {};
       queryParams.addAll(_convertParametersForCollectionFormat("", "q", q));
+
+    List<String> contentTypes = [];
+
+    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
+    List<String> authNames = [];
+
+    if(contentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = new MultipartRequest(null, null);
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
+    }
+
+    var response = await apiClient.invokeAPI(path,
+                                             'GET',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             contentType,
+                                             authNames);
+
+    if(response.statusCode >= 400) {
+      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
+    } else if(response.body != null) {
+      return apiClient.deserialize(_decodeBodyBytes(response), 'Object') as Object;
+    } else {
+      return null;
+    }
+  }
+  /// Search All Food
+  ///
+  /// Search all food content with one call. That includes recipes, grocery products, menu items, simple foods (ingredients), and food videos.
+  Future<Object> searchAllFood(String query, { num offset, num number }) async {
+    Object postBody;
+
+    // verify required params are set
+    if(query == null) {
+     throw new ApiException(400, "Missing required param: query");
+    }
+
+    // create path and map variables
+    String path = "/food/search".replaceAll("{format}","json");
+
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+      queryParams.addAll(_convertParametersForCollectionFormat("", "query", query));
+    if(offset != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "offset", offset));
+    }
+    if(number != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "number", number));
+    }
 
     List<String> contentTypes = [];
 
@@ -3228,8 +3585,8 @@ class DefaultApi {
   }
   /// Search Recipes
   ///
-  /// Our recipe API includes over 360,000 recipes as well as an open source recipe database. Consider using the \&quot;Search Recipes Complex\&quot; endpoint for much more flexibility.
-  Future<Object> searchRecipes(String query, { String cuisine, String diet, String excludeIngredients, String intolerances, num offset, num number, bool limitLicense, bool instructionsRequired }) async {
+  /// Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint.
+  Future<Object> searchRecipes(String query, { String cuisine, String excludeCuisine, String diet, String intolerances, String equipment, String includeIngredients, String excludeIngredients, String type, bool instructionsRequired, bool fillIngredients, bool addRecipeInformation, bool addRecipeNutrition, String author, String tags, num recipeBoxId, String titleMatch, num maxReadyTime, bool ignorePantry, String sort, String sortDirection, num minCarbs, num maxCarbs, num minProtein, num maxProtein, num minCalories, num maxCalories, num minFat, num maxFat, num minAlcohol, num maxAlcohol, num minCaffeine, num maxCaffeine, num minCopper, num maxCopper, num minCalcium, num maxCalcium, num minCholine, num maxCholine, num minCholesterol, num maxCholesterol, num minFluoride, num maxFluoride, num minSaturatedFat, num maxSaturatedFat, num minVitaminA, num maxVitaminA, num minVitaminC, num maxVitaminC, num minVitaminD, num maxVitaminD, num minVitaminE, num maxVitaminE, num minVitaminK, num maxVitaminK, num minVitaminB1, num maxVitaminB1, num minVitaminB2, num maxVitaminB2, num minVitaminB5, num maxVitaminB5, num minVitaminB3, num maxVitaminB3, num minVitaminB6, num maxVitaminB6, num minVitaminB12, num maxVitaminB12, num minFiber, num maxFiber, num minFolate, num maxFolate, num minFolicAcid, num maxFolicAcid, num minIodine, num maxIodine, num minIron, num maxIron, num minMagnesium, num maxMagnesium, num minManganese, num maxManganese, num minPhosphorus, num maxPhosphorus, num minPotassium, num maxPotassium, num minSelenium, num maxSelenium, num minSodium, num maxSodium, num minSugar, num maxSugar, num minZinc, num maxZinc, num offset, num number, bool limitLicense }) async {
     Object postBody;
 
     // verify required params are set
@@ -3238,7 +3595,7 @@ class DefaultApi {
     }
 
     // create path and map variables
-    String path = "/recipes/search".replaceAll("{format}","json");
+    String path = "/recipes/complexSearch".replaceAll("{format}","json");
 
     // query params
     List<QueryParam> queryParams = [];
@@ -3248,14 +3605,278 @@ class DefaultApi {
     if(cuisine != null) {
       queryParams.addAll(_convertParametersForCollectionFormat("", "cuisine", cuisine));
     }
+    if(excludeCuisine != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "excludeCuisine", excludeCuisine));
+    }
     if(diet != null) {
       queryParams.addAll(_convertParametersForCollectionFormat("", "diet", diet));
+    }
+    if(intolerances != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "intolerances", intolerances));
+    }
+    if(equipment != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "equipment", equipment));
+    }
+    if(includeIngredients != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "includeIngredients", includeIngredients));
     }
     if(excludeIngredients != null) {
       queryParams.addAll(_convertParametersForCollectionFormat("", "excludeIngredients", excludeIngredients));
     }
-    if(intolerances != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "intolerances", intolerances));
+    if(type != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "type", type));
+    }
+    if(instructionsRequired != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "instructionsRequired", instructionsRequired));
+    }
+    if(fillIngredients != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "fillIngredients", fillIngredients));
+    }
+    if(addRecipeInformation != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "addRecipeInformation", addRecipeInformation));
+    }
+    if(addRecipeNutrition != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "addRecipeNutrition", addRecipeNutrition));
+    }
+    if(author != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "author", author));
+    }
+    if(tags != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "tags", tags));
+    }
+    if(recipeBoxId != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "recipeBoxId", recipeBoxId));
+    }
+    if(titleMatch != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "titleMatch", titleMatch));
+    }
+    if(maxReadyTime != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "maxReadyTime", maxReadyTime));
+    }
+    if(ignorePantry != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "ignorePantry", ignorePantry));
+    }
+    if(sort != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "sort", sort));
+    }
+    if(sortDirection != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "sortDirection", sortDirection));
+    }
+    if(minCarbs != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "minCarbs", minCarbs));
+    }
+    if(maxCarbs != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "maxCarbs", maxCarbs));
+    }
+    if(minProtein != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "minProtein", minProtein));
+    }
+    if(maxProtein != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "maxProtein", maxProtein));
+    }
+    if(minCalories != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "minCalories", minCalories));
+    }
+    if(maxCalories != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "maxCalories", maxCalories));
+    }
+    if(minFat != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "minFat", minFat));
+    }
+    if(maxFat != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "maxFat", maxFat));
+    }
+    if(minAlcohol != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "minAlcohol", minAlcohol));
+    }
+    if(maxAlcohol != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "maxAlcohol", maxAlcohol));
+    }
+    if(minCaffeine != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "minCaffeine", minCaffeine));
+    }
+    if(maxCaffeine != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "maxCaffeine", maxCaffeine));
+    }
+    if(minCopper != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "minCopper", minCopper));
+    }
+    if(maxCopper != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "maxCopper", maxCopper));
+    }
+    if(minCalcium != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "minCalcium", minCalcium));
+    }
+    if(maxCalcium != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "maxCalcium", maxCalcium));
+    }
+    if(minCholine != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "minCholine", minCholine));
+    }
+    if(maxCholine != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "maxCholine", maxCholine));
+    }
+    if(minCholesterol != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "minCholesterol", minCholesterol));
+    }
+    if(maxCholesterol != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "maxCholesterol", maxCholesterol));
+    }
+    if(minFluoride != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "minFluoride", minFluoride));
+    }
+    if(maxFluoride != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "maxFluoride", maxFluoride));
+    }
+    if(minSaturatedFat != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "minSaturatedFat", minSaturatedFat));
+    }
+    if(maxSaturatedFat != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "maxSaturatedFat", maxSaturatedFat));
+    }
+    if(minVitaminA != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "minVitaminA", minVitaminA));
+    }
+    if(maxVitaminA != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "maxVitaminA", maxVitaminA));
+    }
+    if(minVitaminC != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "minVitaminC", minVitaminC));
+    }
+    if(maxVitaminC != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "maxVitaminC", maxVitaminC));
+    }
+    if(minVitaminD != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "minVitaminD", minVitaminD));
+    }
+    if(maxVitaminD != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "maxVitaminD", maxVitaminD));
+    }
+    if(minVitaminE != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "minVitaminE", minVitaminE));
+    }
+    if(maxVitaminE != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "maxVitaminE", maxVitaminE));
+    }
+    if(minVitaminK != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "minVitaminK", minVitaminK));
+    }
+    if(maxVitaminK != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "maxVitaminK", maxVitaminK));
+    }
+    if(minVitaminB1 != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "minVitaminB1", minVitaminB1));
+    }
+    if(maxVitaminB1 != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "maxVitaminB1", maxVitaminB1));
+    }
+    if(minVitaminB2 != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "minVitaminB2", minVitaminB2));
+    }
+    if(maxVitaminB2 != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "maxVitaminB2", maxVitaminB2));
+    }
+    if(minVitaminB5 != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "minVitaminB5", minVitaminB5));
+    }
+    if(maxVitaminB5 != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "maxVitaminB5", maxVitaminB5));
+    }
+    if(minVitaminB3 != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "minVitaminB3", minVitaminB3));
+    }
+    if(maxVitaminB3 != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "maxVitaminB3", maxVitaminB3));
+    }
+    if(minVitaminB6 != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "minVitaminB6", minVitaminB6));
+    }
+    if(maxVitaminB6 != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "maxVitaminB6", maxVitaminB6));
+    }
+    if(minVitaminB12 != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "minVitaminB12", minVitaminB12));
+    }
+    if(maxVitaminB12 != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "maxVitaminB12", maxVitaminB12));
+    }
+    if(minFiber != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "minFiber", minFiber));
+    }
+    if(maxFiber != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "maxFiber", maxFiber));
+    }
+    if(minFolate != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "minFolate", minFolate));
+    }
+    if(maxFolate != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "maxFolate", maxFolate));
+    }
+    if(minFolicAcid != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "minFolicAcid", minFolicAcid));
+    }
+    if(maxFolicAcid != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "maxFolicAcid", maxFolicAcid));
+    }
+    if(minIodine != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "minIodine", minIodine));
+    }
+    if(maxIodine != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "maxIodine", maxIodine));
+    }
+    if(minIron != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "minIron", minIron));
+    }
+    if(maxIron != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "maxIron", maxIron));
+    }
+    if(minMagnesium != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "minMagnesium", minMagnesium));
+    }
+    if(maxMagnesium != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "maxMagnesium", maxMagnesium));
+    }
+    if(minManganese != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "minManganese", minManganese));
+    }
+    if(maxManganese != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "maxManganese", maxManganese));
+    }
+    if(minPhosphorus != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "minPhosphorus", minPhosphorus));
+    }
+    if(maxPhosphorus != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "maxPhosphorus", maxPhosphorus));
+    }
+    if(minPotassium != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "minPotassium", minPotassium));
+    }
+    if(maxPotassium != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "maxPotassium", maxPotassium));
+    }
+    if(minSelenium != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "minSelenium", minSelenium));
+    }
+    if(maxSelenium != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "maxSelenium", maxSelenium));
+    }
+    if(minSodium != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "minSodium", minSodium));
+    }
+    if(maxSodium != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "maxSodium", maxSodium));
+    }
+    if(minSugar != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "minSugar", minSugar));
+    }
+    if(maxSugar != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "maxSugar", maxSugar));
+    }
+    if(minZinc != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "minZinc", minZinc));
+    }
+    if(maxZinc != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "maxZinc", maxZinc));
     }
     if(offset != null) {
       queryParams.addAll(_convertParametersForCollectionFormat("", "offset", offset));
@@ -3265,9 +3886,6 @@ class DefaultApi {
     }
     if(limitLicense != null) {
       queryParams.addAll(_convertParametersForCollectionFormat("", "limitLicense", limitLicense));
-    }
-    if(instructionsRequired != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "instructionsRequired", instructionsRequired));
     }
 
     List<String> contentTypes = [];
@@ -3639,342 +4257,6 @@ class DefaultApi {
       return null;
     }
   }
-  /// Search Recipes Complex
-  ///
-  /// Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint.
-  Future<Object> searchRecipesComplex(String query, { String cuisine, String excludeCuisine, String diet, String intolerances, String equipment, String includeIngredients, String excludeIngredients, String type, bool instructionsRequired, bool fillIngredients, bool addRecipeInformation, bool addRecipeNutrition, String author, String tags, num recipeBoxId, String titleMatch, num maxReadyTime, bool ignorePantry, String sort, String sortDirection, num minCarbs, num maxCarbs, num minProtein, num maxProtein, num minCalories, num maxCalories, num minFat, num maxFat, num minAlcohol, num maxAlcohol, num minCaffeine, num maxCaffeine, num minCopper, num maxCopper, num minCalcium, num maxCalcium, num minCholine, num maxCholine, num minCholesterol, num maxCholesterol, num minFluoride, num maxFluoride, num minSaturatedFat, num maxSaturatedFat, num minVitaminA, num maxVitaminA, num minVitaminC, num maxVitaminC, num minVitaminD, num maxVitaminD, num minVitaminE, num maxVitaminE, num minVitaminK, num maxVitaminK, num minVitaminB1, num maxVitaminB1, num minVitaminB2, num maxVitaminB2, num minVitaminB5, num maxVitaminB5, num minVitaminB3, num maxVitaminB3, num minVitaminB6, num maxVitaminB6, num minVitaminB12, num maxVitaminB12, num minFiber, num maxFiber, num minFolate, num maxFolate, num minFolicAcid, num maxFolicAcid, num minIodine, num maxIodine, num minIron, num maxIron, num minMagnesium, num maxMagnesium, num minManganese, num maxManganese, num minPhosphorus, num maxPhosphorus, num minPotassium, num maxPotassium, num minSelenium, num maxSelenium, num minSodium, num maxSodium, num minSugar, num maxSugar, num minZinc, num maxZinc, num offset, num number, bool limitLicense }) async {
-    Object postBody;
-
-    // verify required params are set
-    if(query == null) {
-     throw new ApiException(400, "Missing required param: query");
-    }
-
-    // create path and map variables
-    String path = "/recipes/complexSearch".replaceAll("{format}","json");
-
-    // query params
-    List<QueryParam> queryParams = [];
-    Map<String, String> headerParams = {};
-    Map<String, String> formParams = {};
-      queryParams.addAll(_convertParametersForCollectionFormat("", "query", query));
-    if(cuisine != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "cuisine", cuisine));
-    }
-    if(excludeCuisine != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "excludeCuisine", excludeCuisine));
-    }
-    if(diet != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "diet", diet));
-    }
-    if(intolerances != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "intolerances", intolerances));
-    }
-    if(equipment != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "equipment", equipment));
-    }
-    if(includeIngredients != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "includeIngredients", includeIngredients));
-    }
-    if(excludeIngredients != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "excludeIngredients", excludeIngredients));
-    }
-    if(type != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "type", type));
-    }
-    if(instructionsRequired != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "instructionsRequired", instructionsRequired));
-    }
-    if(fillIngredients != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "fillIngredients", fillIngredients));
-    }
-    if(addRecipeInformation != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "addRecipeInformation", addRecipeInformation));
-    }
-    if(addRecipeNutrition != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "addRecipeNutrition", addRecipeNutrition));
-    }
-    if(author != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "author", author));
-    }
-    if(tags != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "tags", tags));
-    }
-    if(recipeBoxId != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "recipeBoxId", recipeBoxId));
-    }
-    if(titleMatch != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "titleMatch", titleMatch));
-    }
-    if(maxReadyTime != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "maxReadyTime", maxReadyTime));
-    }
-    if(ignorePantry != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "ignorePantry", ignorePantry));
-    }
-    if(sort != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "sort", sort));
-    }
-    if(sortDirection != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "sortDirection", sortDirection));
-    }
-    if(minCarbs != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "minCarbs", minCarbs));
-    }
-    if(maxCarbs != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "maxCarbs", maxCarbs));
-    }
-    if(minProtein != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "minProtein", minProtein));
-    }
-    if(maxProtein != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "maxProtein", maxProtein));
-    }
-    if(minCalories != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "minCalories", minCalories));
-    }
-    if(maxCalories != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "maxCalories", maxCalories));
-    }
-    if(minFat != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "minFat", minFat));
-    }
-    if(maxFat != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "maxFat", maxFat));
-    }
-    if(minAlcohol != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "minAlcohol", minAlcohol));
-    }
-    if(maxAlcohol != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "maxAlcohol", maxAlcohol));
-    }
-    if(minCaffeine != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "minCaffeine", minCaffeine));
-    }
-    if(maxCaffeine != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "maxCaffeine", maxCaffeine));
-    }
-    if(minCopper != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "minCopper", minCopper));
-    }
-    if(maxCopper != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "maxCopper", maxCopper));
-    }
-    if(minCalcium != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "minCalcium", minCalcium));
-    }
-    if(maxCalcium != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "maxCalcium", maxCalcium));
-    }
-    if(minCholine != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "minCholine", minCholine));
-    }
-    if(maxCholine != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "maxCholine", maxCholine));
-    }
-    if(minCholesterol != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "minCholesterol", minCholesterol));
-    }
-    if(maxCholesterol != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "maxCholesterol", maxCholesterol));
-    }
-    if(minFluoride != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "minFluoride", minFluoride));
-    }
-    if(maxFluoride != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "maxFluoride", maxFluoride));
-    }
-    if(minSaturatedFat != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "minSaturatedFat", minSaturatedFat));
-    }
-    if(maxSaturatedFat != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "maxSaturatedFat", maxSaturatedFat));
-    }
-    if(minVitaminA != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "minVitaminA", minVitaminA));
-    }
-    if(maxVitaminA != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "maxVitaminA", maxVitaminA));
-    }
-    if(minVitaminC != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "minVitaminC", minVitaminC));
-    }
-    if(maxVitaminC != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "maxVitaminC", maxVitaminC));
-    }
-    if(minVitaminD != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "minVitaminD", minVitaminD));
-    }
-    if(maxVitaminD != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "maxVitaminD", maxVitaminD));
-    }
-    if(minVitaminE != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "minVitaminE", minVitaminE));
-    }
-    if(maxVitaminE != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "maxVitaminE", maxVitaminE));
-    }
-    if(minVitaminK != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "minVitaminK", minVitaminK));
-    }
-    if(maxVitaminK != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "maxVitaminK", maxVitaminK));
-    }
-    if(minVitaminB1 != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "minVitaminB1", minVitaminB1));
-    }
-    if(maxVitaminB1 != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "maxVitaminB1", maxVitaminB1));
-    }
-    if(minVitaminB2 != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "minVitaminB2", minVitaminB2));
-    }
-    if(maxVitaminB2 != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "maxVitaminB2", maxVitaminB2));
-    }
-    if(minVitaminB5 != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "minVitaminB5", minVitaminB5));
-    }
-    if(maxVitaminB5 != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "maxVitaminB5", maxVitaminB5));
-    }
-    if(minVitaminB3 != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "minVitaminB3", minVitaminB3));
-    }
-    if(maxVitaminB3 != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "maxVitaminB3", maxVitaminB3));
-    }
-    if(minVitaminB6 != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "minVitaminB6", minVitaminB6));
-    }
-    if(maxVitaminB6 != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "maxVitaminB6", maxVitaminB6));
-    }
-    if(minVitaminB12 != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "minVitaminB12", minVitaminB12));
-    }
-    if(maxVitaminB12 != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "maxVitaminB12", maxVitaminB12));
-    }
-    if(minFiber != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "minFiber", minFiber));
-    }
-    if(maxFiber != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "maxFiber", maxFiber));
-    }
-    if(minFolate != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "minFolate", minFolate));
-    }
-    if(maxFolate != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "maxFolate", maxFolate));
-    }
-    if(minFolicAcid != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "minFolicAcid", minFolicAcid));
-    }
-    if(maxFolicAcid != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "maxFolicAcid", maxFolicAcid));
-    }
-    if(minIodine != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "minIodine", minIodine));
-    }
-    if(maxIodine != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "maxIodine", maxIodine));
-    }
-    if(minIron != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "minIron", minIron));
-    }
-    if(maxIron != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "maxIron", maxIron));
-    }
-    if(minMagnesium != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "minMagnesium", minMagnesium));
-    }
-    if(maxMagnesium != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "maxMagnesium", maxMagnesium));
-    }
-    if(minManganese != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "minManganese", minManganese));
-    }
-    if(maxManganese != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "maxManganese", maxManganese));
-    }
-    if(minPhosphorus != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "minPhosphorus", minPhosphorus));
-    }
-    if(maxPhosphorus != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "maxPhosphorus", maxPhosphorus));
-    }
-    if(minPotassium != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "minPotassium", minPotassium));
-    }
-    if(maxPotassium != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "maxPotassium", maxPotassium));
-    }
-    if(minSelenium != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "minSelenium", minSelenium));
-    }
-    if(maxSelenium != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "maxSelenium", maxSelenium));
-    }
-    if(minSodium != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "minSodium", minSodium));
-    }
-    if(maxSodium != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "maxSodium", maxSodium));
-    }
-    if(minSugar != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "minSugar", minSugar));
-    }
-    if(maxSugar != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "maxSugar", maxSugar));
-    }
-    if(minZinc != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "minZinc", minZinc));
-    }
-    if(maxZinc != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "maxZinc", maxZinc));
-    }
-    if(offset != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "offset", offset));
-    }
-    if(number != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "number", number));
-    }
-    if(limitLicense != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "limitLicense", limitLicense));
-    }
-
-    List<String> contentTypes = [];
-
-    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
-
-    if(contentType.startsWith("multipart/form-data")) {
-      bool hasFields = false;
-      MultipartRequest mp = new MultipartRequest(null, null);
-      if(hasFields)
-        postBody = mp;
-    }
-    else {
-    }
-
-    var response = await apiClient.invokeAPI(path,
-                                             'GET',
-                                             queryParams,
-                                             postBody,
-                                             headerParams,
-                                             formParams,
-                                             contentType,
-                                             authNames);
-
-    if(response.statusCode >= 400) {
-      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
-    } else if(response.body != null) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'Object') as Object;
-    } else {
-      return null;
-    }
-  }
   /// Search Site Content
   ///
   /// Search spoonacular&#39;s site content. You&#39;ll be able to find everything that you could also find using the search suggestions on spoonacular.com. This is a suggest API so you can send partial strings as queries.
@@ -4132,16 +4414,13 @@ class DefaultApi {
   }
   /// Visualize Equipment
   ///
-  /// Visualize the equipment used to make a recipe.
-  Future<String> visualizeEquipment(String ingredientList, num servings, { String view, bool defaultCss, bool showBacklink }) async {
+  /// Visualize the equipment used to make a recipe. You can play around with that endpoint!
+  Future<String> visualizeEquipment(String instructions, { String view, bool defaultCss, bool showBacklink }) async {
     Object postBody;
 
     // verify required params are set
-    if(ingredientList == null) {
-     throw new ApiException(400, "Missing required param: ingredientList");
-    }
-    if(servings == null) {
-     throw new ApiException(400, "Missing required param: servings");
+    if(instructions == null) {
+     throw new ApiException(400, "Missing required param: instructions");
     }
 
     // create path and map variables
@@ -4160,13 +4439,9 @@ class DefaultApi {
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
       MultipartRequest mp = new MultipartRequest(null, null);
-      if (ingredientList != null) {
+      if (instructions != null) {
         hasFields = true;
-        mp.fields['ingredientList'] = parameterToString(ingredientList);
-      }
-      if (servings != null) {
-        hasFields = true;
-        mp.fields['servings'] = parameterToString(servings);
+        mp.fields['instructions'] = parameterToString(instructions);
       }
       if (view != null) {
         hasFields = true;
@@ -4184,10 +4459,8 @@ class DefaultApi {
         postBody = mp;
     }
     else {
-      if (ingredientList != null)
-        formParams['ingredientList'] = parameterToString(ingredientList);
-      if (servings != null)
-        formParams['servings'] = parameterToString(servings);
+      if (instructions != null)
+        formParams['instructions'] = parameterToString(instructions);
       if (view != null)
         formParams['view'] = parameterToString(view);
       if (defaultCss != null)
@@ -4215,7 +4488,7 @@ class DefaultApi {
   }
   /// Visualize Ingredients
   ///
-  /// Visualize ingredients of a recipe.
+  /// Visualize ingredients of a recipe. You can play around with that endpoint!
   Future<String> visualizeIngredients(String ingredientList, num servings, { String measure, String view, bool defaultCss, bool showBacklink }) async {
     Object postBody;
 
@@ -4357,7 +4630,7 @@ class DefaultApi {
   }
   /// Visualize Price Breakdown
   ///
-  /// Visualize the price breakdown of a recipe.
+  /// Visualize the price breakdown of a recipe. You can play around with that endpoint!
   Future<String> visualizePriceBreakdown(String ingredientList, num servings, { num mode, bool defaultCss, bool showBacklink }) async {
     Object postBody;
 
@@ -4599,7 +4872,7 @@ class DefaultApi {
   }
   /// Visualize Recipe Nutrition
   ///
-  /// Visualize a recipe&#39;s nutritional information as HTML including CSS
+  /// Visualize a recipe&#39;s nutritional information as HTML including CSS. You can play around with that endpoint!
   Future<String> visualizeRecipeNutrition(String ingredientList, num servings, { bool defaultCss, bool showBacklink }) async {
     Object postBody;
 
@@ -4748,6 +5021,112 @@ class DefaultApi {
     if(defaultCss != null) {
       queryParams.addAll(_convertParametersForCollectionFormat("", "defaultCss", defaultCss));
     }
+
+    List<String> contentTypes = [];
+
+    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
+    List<String> authNames = [];
+
+    if(contentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = new MultipartRequest(null, null);
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
+    }
+
+    var response = await apiClient.invokeAPI(path,
+                                             'GET',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             contentType,
+                                             authNames);
+
+    if(response.statusCode >= 400) {
+      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
+    } else if(response.body != null) {
+      return apiClient.deserialize(_decodeBodyBytes(response), 'String') as String;
+    } else {
+      return null;
+    }
+  }
+  /// Visualize Recipe Taste
+  ///
+  /// Visualize a recipe&#39;s taste information as HTML including CSS. You can play around with that endpoint!
+  Future<String> visualizeRecipeTaste(String ingredientList) async {
+    Object postBody;
+
+    // verify required params are set
+    if(ingredientList == null) {
+     throw new ApiException(400, "Missing required param: ingredientList");
+    }
+
+    // create path and map variables
+    String path = "/recipes/visualizeTaste".replaceAll("{format}","json");
+
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+
+    List<String> contentTypes = ["application/x-www-form-urlencoded"];
+
+    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
+    List<String> authNames = [];
+
+    if(contentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = new MultipartRequest(null, null);
+      if (ingredientList != null) {
+        hasFields = true;
+        mp.fields['ingredientList'] = parameterToString(ingredientList);
+      }
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
+      if (ingredientList != null)
+        formParams['ingredientList'] = parameterToString(ingredientList);
+    }
+
+    var response = await apiClient.invokeAPI(path,
+                                             'POST',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             contentType,
+                                             authNames);
+
+    if(response.statusCode >= 400) {
+      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
+    } else if(response.body != null) {
+      return apiClient.deserialize(_decodeBodyBytes(response), 'String') as String;
+    } else {
+      return null;
+    }
+  }
+  /// Visualize Recipe Taste by ID
+  ///
+  /// Get a recipe&#39;s taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
+  Future<String> visualizeRecipeTasteByID(num id) async {
+    Object postBody;
+
+    // verify required params are set
+    if(id == null) {
+     throw new ApiException(400, "Missing required param: id");
+    }
+
+    // create path and map variables
+    String path = "/recipes/{id}/tasteWidget".replaceAll("{format}","json").replaceAll("{" + "id" + "}", id.toString());
+
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
 
     List<String> contentTypes = [];
 

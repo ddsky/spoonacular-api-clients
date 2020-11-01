@@ -19,10 +19,9 @@ local function cast_inline_object_5(t)
 	return setmetatable(t, inline_object_5_mt)
 end
 
-local function new_inline_object_5(title, ingredient_list)
+local function new_inline_object_5(instructions)
 	return cast_inline_object_5({
-		["title"] = title;
-		["ingredientList"] = ingredient_list;
+		["instructions"] = instructions;
 	})
 end
 

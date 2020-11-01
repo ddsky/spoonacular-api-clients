@@ -28,7 +28,7 @@ import java.math.BigDecimal;
 /**
  * InlineObject7
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-06-13T12:59:56.631+02:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-11-01T21:23:09.595+01:00[Europe/Berlin]")
 public class InlineObject7 {
   public static final String SERIALIZED_NAME_INGREDIENT_LIST = "ingredientList";
   @SerializedName(SERIALIZED_NAME_INGREDIENT_LIST)
@@ -38,21 +38,9 @@ public class InlineObject7 {
   @SerializedName(SERIALIZED_NAME_SERVINGS)
   private BigDecimal servings;
 
-  public static final String SERIALIZED_NAME_MEASURE = "measure";
-  @SerializedName(SERIALIZED_NAME_MEASURE)
-  private String measure;
-
-  public static final String SERIALIZED_NAME_VIEW = "view";
-  @SerializedName(SERIALIZED_NAME_VIEW)
-  private String view;
-
-  public static final String SERIALIZED_NAME_DEFAULT_CSS = "defaultCss";
-  @SerializedName(SERIALIZED_NAME_DEFAULT_CSS)
-  private Boolean defaultCss;
-
-  public static final String SERIALIZED_NAME_SHOW_BACKLINK = "showBacklink";
-  @SerializedName(SERIALIZED_NAME_SHOW_BACKLINK)
-  private Boolean showBacklink;
+  public static final String SERIALIZED_NAME_INCLUDE_NUTRITION = "includeNutrition";
+  @SerializedName(SERIALIZED_NAME_INCLUDE_NUTRITION)
+  private Boolean includeNutrition;
 
   public InlineObject7 ingredientList(String ingredientList) {
     this.ingredientList = ingredientList;
@@ -63,7 +51,7 @@ public class InlineObject7 {
    * The ingredient list of the recipe, one ingredient per line.
    * @return ingredientList
   **/
-  @ApiModelProperty(example = "3 oz flour", required = true, value = "The ingredient list of the recipe, one ingredient per line.")
+  @ApiModelProperty(example = "1 cup green tea", required = true, value = "The ingredient list of the recipe, one ingredient per line.")
   public String getIngredientList() {
     return ingredientList;
   }
@@ -78,10 +66,10 @@ public class InlineObject7 {
   }
 
    /**
-   * The number of servings.
+   * The number of servings that you can make from the ingredients.
    * @return servings
   **/
-  @ApiModelProperty(example = "2", required = true, value = "The number of servings.")
+  @ApiModelProperty(example = "1", required = true, value = "The number of servings that you can make from the ingredients.")
   public BigDecimal getServings() {
     return servings;
   }
@@ -90,76 +78,22 @@ public class InlineObject7 {
     this.servings = servings;
   }
 
-  public InlineObject7 measure(String measure) {
-    this.measure = measure;
+  public InlineObject7 includeNutrition(Boolean includeNutrition) {
+    this.includeNutrition = includeNutrition;
     return this;
   }
 
    /**
-   * The original system of measurement, either \&quot;metric\&quot; or \&quot;us\&quot;.
-   * @return measure
+   * Whether nutrition data should be added to correctly parsed ingredients.
+   * @return includeNutrition
   **/
-  @ApiModelProperty(example = "metric", value = "The original system of measurement, either \"metric\" or \"us\".")
-  public String getMeasure() {
-    return measure;
+  @ApiModelProperty(example = "true", value = "Whether nutrition data should be added to correctly parsed ingredients.")
+  public Boolean getIncludeNutrition() {
+    return includeNutrition;
   }
 
-  public void setMeasure(String measure) {
-    this.measure = measure;
-  }
-
-  public InlineObject7 view(String view) {
-    this.view = view;
-    return this;
-  }
-
-   /**
-   * How to visualize the ingredients, either \&quot;grid\&quot; or \&quot;list\&quot;.
-   * @return view
-  **/
-  @ApiModelProperty(example = "grid", value = "How to visualize the ingredients, either \"grid\" or \"list\".")
-  public String getView() {
-    return view;
-  }
-
-  public void setView(String view) {
-    this.view = view;
-  }
-
-  public InlineObject7 defaultCss(Boolean defaultCss) {
-    this.defaultCss = defaultCss;
-    return this;
-  }
-
-   /**
-   * Whether the default CSS should be added to the response.
-   * @return defaultCss
-  **/
-  @ApiModelProperty(example = "true", value = "Whether the default CSS should be added to the response.")
-  public Boolean getDefaultCss() {
-    return defaultCss;
-  }
-
-  public void setDefaultCss(Boolean defaultCss) {
-    this.defaultCss = defaultCss;
-  }
-
-  public InlineObject7 showBacklink(Boolean showBacklink) {
-    this.showBacklink = showBacklink;
-    return this;
-  }
-
-   /**
-   * Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
-   * @return showBacklink
-  **/
-  @ApiModelProperty(example = "true", value = "Whether to show a backlink to spoonacular. If set false, this call counts against your quota.")
-  public Boolean getShowBacklink() {
-    return showBacklink;
-  }
-
-  public void setShowBacklink(Boolean showBacklink) {
-    this.showBacklink = showBacklink;
+  public void setIncludeNutrition(Boolean includeNutrition) {
+    this.includeNutrition = includeNutrition;
   }
 
 
@@ -174,15 +108,12 @@ public class InlineObject7 {
     InlineObject7 inlineObject7 = (InlineObject7) o;
     return Objects.equals(this.ingredientList, inlineObject7.ingredientList) &&
         Objects.equals(this.servings, inlineObject7.servings) &&
-        Objects.equals(this.measure, inlineObject7.measure) &&
-        Objects.equals(this.view, inlineObject7.view) &&
-        Objects.equals(this.defaultCss, inlineObject7.defaultCss) &&
-        Objects.equals(this.showBacklink, inlineObject7.showBacklink);
+        Objects.equals(this.includeNutrition, inlineObject7.includeNutrition);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ingredientList, servings, measure, view, defaultCss, showBacklink);
+    return Objects.hash(ingredientList, servings, includeNutrition);
   }
 
 
@@ -192,10 +123,7 @@ public class InlineObject7 {
     sb.append("class InlineObject7 {\n");
     sb.append("    ingredientList: ").append(toIndentedString(ingredientList)).append("\n");
     sb.append("    servings: ").append(toIndentedString(servings)).append("\n");
-    sb.append("    measure: ").append(toIndentedString(measure)).append("\n");
-    sb.append("    view: ").append(toIndentedString(view)).append("\n");
-    sb.append("    defaultCss: ").append(toIndentedString(defaultCss)).append("\n");
-    sb.append("    showBacklink: ").append(toIndentedString(showBacklink)).append("\n");
+    sb.append("    includeNutrition: ").append(toIndentedString(includeNutrition)).append("\n");
     sb.append("}");
     return sb.toString();
   }

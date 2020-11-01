@@ -21,6 +21,8 @@ part 'model/inline_object11.dart';
 part 'model/inline_object12.dart';
 part 'model/inline_object13.dart';
 part 'model/inline_object14.dart';
+part 'model/inline_object15.dart';
+part 'model/inline_object16.dart';
 part 'model/inline_object2.dart';
 part 'model/inline_object3.dart';
 part 'model/inline_object4.dart';

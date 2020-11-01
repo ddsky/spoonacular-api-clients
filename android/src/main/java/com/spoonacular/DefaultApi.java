@@ -26,7 +26,8 @@ import com.spoonacular.client.model.InlineObject10;
 import com.spoonacular.client.model.InlineObject11;
 import com.spoonacular.client.model.InlineObject12;
 import com.spoonacular.client.model.InlineObject13;
-import com.spoonacular.client.model.InlineObject8;
+import com.spoonacular.client.model.InlineObject14;
+import com.spoonacular.client.model.InlineObject15;
 import com.spoonacular.client.model.InlineObject9;
 
 import org.apache.http.entity.mime.MultipartEntityBuilder;
@@ -60,11 +61,11 @@ public class DefaultApi {
    * Add an item to the user&#39;s meal plan.
    * @param username The username.
    * @param hash The private hash for the username.
-   * @param inlineObject9 
+   * @param inlineObject11 
    * @return Object
    */
-  public Object  addToMealPlan (String username, String hash, InlineObject9 inlineObject9) throws ApiException {
-    Object localVarPostBody = inlineObject9;
+  public Object  addToMealPlan (String username, String hash, InlineObject11 inlineObject11) throws ApiException {
+    Object localVarPostBody = inlineObject11;
     // verify the required parameter 'username' is set
     if (username == null) {
        throw new ApiException(400, "Missing the required parameter 'username' when calling addToMealPlan");
@@ -73,9 +74,9 @@ public class DefaultApi {
     if (hash == null) {
        throw new ApiException(400, "Missing the required parameter 'hash' when calling addToMealPlan");
     }
-    // verify the required parameter 'inlineObject9' is set
-    if (inlineObject9 == null) {
-       throw new ApiException(400, "Missing the required parameter 'inlineObject9' when calling addToMealPlan");
+    // verify the required parameter 'inlineObject11' is set
+    if (inlineObject11 == null) {
+       throw new ApiException(400, "Missing the required parameter 'inlineObject11' when calling addToMealPlan");
     }
 
     // create path and map variables
@@ -123,11 +124,11 @@ public class DefaultApi {
    * Add an item to the current shopping list of a user.
    * @param username The username.
    * @param hash The private hash for the username.
-   * @param inlineObject12 
+   * @param inlineObject14 
    * @return Object
    */
-  public Object  addToShoppingList (String username, String hash, InlineObject12 inlineObject12) throws ApiException {
-    Object localVarPostBody = inlineObject12;
+  public Object  addToShoppingList (String username, String hash, InlineObject14 inlineObject14) throws ApiException {
+    Object localVarPostBody = inlineObject14;
     // verify the required parameter 'username' is set
     if (username == null) {
        throw new ApiException(400, "Missing the required parameter 'username' when calling addToShoppingList");
@@ -136,9 +137,9 @@ public class DefaultApi {
     if (hash == null) {
        throw new ApiException(400, "Missing the required parameter 'hash' when calling addToShoppingList");
     }
-    // verify the required parameter 'inlineObject12' is set
-    if (inlineObject12 == null) {
-       throw new ApiException(400, "Missing the required parameter 'inlineObject12' when calling addToShoppingList");
+    // verify the required parameter 'inlineObject14' is set
+    if (inlineObject14 == null) {
+       throw new ApiException(400, "Missing the required parameter 'inlineObject14' when calling addToShoppingList");
     }
 
     // create path and map variables
@@ -236,7 +237,7 @@ public class DefaultApi {
   }
   /**
    * Analyze Recipe Instructions
-   * Extract ingredients and equipment from the recipe&#39;s instructions.
+   * This endpoint allows you to break down instructions into atomic steps. Furthermore, each step will contain the ingredients and equipment required. Additionally, all ingredients and equipment from the recipe&#39;s instructions will be extracted independently of the step they&#39;re used in.
    * @param instructions The instructions to be analyzed.
    * @return Object
    */
@@ -300,7 +301,7 @@ public class DefaultApi {
    * @param intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
    * @return Object
    */
-  public Object  autocompleteIngredientSearch (String query, BigDecimal number, Boolean metaInformation, Boolean intolerances) throws ApiException {
+  public Object  autocompleteIngredientSearch (String query, BigDecimal number, Boolean metaInformation, String intolerances) throws ApiException {
     Object localVarPostBody = null;
     // verify the required parameter 'query' is set
     if (query == null) {
@@ -585,15 +586,15 @@ localVarFormParams.put("ingredientList", ApiInvoker.parameterToString(ingredient
   /**
    * Classify Grocery Product
    * This endpoint allows you to match a packaged food to a basic category, e.g. a specific brand of milk to the category milk.
-   * @param inlineObject8 
+   * @param inlineObject9 
    * @param locale The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).
    * @return Object
    */
-  public Object  classifyGroceryProduct (InlineObject8 inlineObject8, String locale) throws ApiException {
-    Object localVarPostBody = inlineObject8;
-    // verify the required parameter 'inlineObject8' is set
-    if (inlineObject8 == null) {
-       throw new ApiException(400, "Missing the required parameter 'inlineObject8' when calling classifyGroceryProduct");
+  public Object  classifyGroceryProduct (InlineObject9 inlineObject9, String locale) throws ApiException {
+    Object localVarPostBody = inlineObject9;
+    // verify the required parameter 'inlineObject9' is set
+    if (inlineObject9 == null) {
+       throw new ApiException(400, "Missing the required parameter 'inlineObject9' when calling classifyGroceryProduct");
     }
 
     // create path and map variables
@@ -665,6 +666,178 @@ localVarFormParams.put("ingredientList", ApiInvoker.parameterToString(ingredient
 
     String[] localVarContentTypes = {
       "application/json"
+    };
+    String localVarContentType = localVarContentTypes.length > 0 ? localVarContentTypes[0] : "application/json";
+
+    if (localVarContentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      
+
+      localVarPostBody = localVarBuilder.build();
+    } else {
+      // normal form params
+          }
+
+    try {
+      String localVarResponse = apiInvoker.invokeAPI(basePath, localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarContentType);
+      if(localVarResponse != null){
+        return (Object) ApiInvoker.deserialize(localVarResponse, "", Object.class);
+      }
+      else {
+        return null;
+      }
+    } catch (ApiException ex) {
+      throw ex;
+    }
+  }
+  /**
+   * Clear Meal Plan Day
+   * Delete all planned items from the user&#39;s meal plan for a specific day.
+   * @param username The username.
+   * @param date The date in the format yyyy-mm-dd.
+   * @param hash The private hash for the username.
+   * @param inlineObject10 
+   * @return Object
+   */
+  public Object  clearMealPlanDay (String username, String date, String hash, InlineObject10 inlineObject10) throws ApiException {
+    Object localVarPostBody = inlineObject10;
+    // verify the required parameter 'username' is set
+    if (username == null) {
+       throw new ApiException(400, "Missing the required parameter 'username' when calling clearMealPlanDay");
+    }
+    // verify the required parameter 'date' is set
+    if (date == null) {
+       throw new ApiException(400, "Missing the required parameter 'date' when calling clearMealPlanDay");
+    }
+    // verify the required parameter 'hash' is set
+    if (hash == null) {
+       throw new ApiException(400, "Missing the required parameter 'hash' when calling clearMealPlanDay");
+    }
+    // verify the required parameter 'inlineObject10' is set
+    if (inlineObject10 == null) {
+       throw new ApiException(400, "Missing the required parameter 'inlineObject10' when calling clearMealPlanDay");
+    }
+
+    // create path and map variables
+    String localVarPath = "/mealplanner/{username}/day/{date}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "username" + "\\}", apiInvoker.escapeString(username.toString())).replaceAll("\\{" + "date" + "\\}", apiInvoker.escapeString(date.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> localVarFormParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "hash", hash));
+
+
+    String[] localVarContentTypes = {
+      ""
+    };
+    String localVarContentType = localVarContentTypes.length > 0 ? localVarContentTypes[0] : "application/json";
+
+    if (localVarContentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      
+
+      localVarPostBody = localVarBuilder.build();
+    } else {
+      // normal form params
+          }
+
+    try {
+      String localVarResponse = apiInvoker.invokeAPI(basePath, localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarContentType);
+      if(localVarResponse != null){
+        return (Object) ApiInvoker.deserialize(localVarResponse, "", Object.class);
+      }
+      else {
+        return null;
+      }
+    } catch (ApiException ex) {
+      throw ex;
+    }
+  }
+  /**
+   * Compute Glycemic Load
+   * Retrieve the glycemic index for a list of ingredients and compute the individual and total glycemic load.
+   * @param body 
+   * @return Object
+   */
+  public Object  computeGlycemicLoad (Object body) throws ApiException {
+    Object localVarPostBody = body;
+    // verify the required parameter 'body' is set
+    if (body == null) {
+       throw new ApiException(400, "Missing the required parameter 'body' when calling computeGlycemicLoad");
+    }
+
+    // create path and map variables
+    String localVarPath = "/food/ingredients/glycemicLoad".replaceAll("\\{format\\}","json");
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> localVarFormParams = new HashMap<String, String>();
+
+
+
+    String[] localVarContentTypes = {
+      "application/json"
+    };
+    String localVarContentType = localVarContentTypes.length > 0 ? localVarContentTypes[0] : "application/json";
+
+    if (localVarContentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      
+
+      localVarPostBody = localVarBuilder.build();
+    } else {
+      // normal form params
+          }
+
+    try {
+      String localVarResponse = apiInvoker.invokeAPI(basePath, localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarContentType);
+      if(localVarResponse != null){
+        return (Object) ApiInvoker.deserialize(localVarResponse, "", Object.class);
+      }
+      else {
+        return null;
+      }
+    } catch (ApiException ex) {
+      throw ex;
+    }
+  }
+  /**
+   * Connect User
+   * In order to call user-specific endpoints, you need to connect your app&#39;s users to spoonacular users.
+   * @param body 
+   * @return Object
+   */
+  public Object  connectUser (Object body) throws ApiException {
+    Object localVarPostBody = body;
+    // verify the required parameter 'body' is set
+    if (body == null) {
+       throw new ApiException(400, "Missing the required parameter 'body' when calling connectUser");
+    }
+
+    // create path and map variables
+    String localVarPath = "/users/connect".replaceAll("\\{format\\}","json");
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> localVarFormParams = new HashMap<String, String>();
+
+
+
+    String[] localVarContentTypes = {
+      ""
     };
     String localVarContentType = localVarContentTypes.length > 0 ? localVarContentTypes[0] : "application/json";
 
@@ -918,11 +1091,11 @@ localVarFormParams.put("source", ApiInvoker.parameterToString(source));
    * @param username The username.
    * @param id The shopping list item id.
    * @param hash The private hash for the username.
-   * @param inlineObject10 
+   * @param inlineObject12 
    * @return Object
    */
-  public Object  deleteFromMealPlan (String username, BigDecimal id, String hash, InlineObject10 inlineObject10) throws ApiException {
-    Object localVarPostBody = inlineObject10;
+  public Object  deleteFromMealPlan (String username, BigDecimal id, String hash, InlineObject12 inlineObject12) throws ApiException {
+    Object localVarPostBody = inlineObject12;
     // verify the required parameter 'username' is set
     if (username == null) {
        throw new ApiException(400, "Missing the required parameter 'username' when calling deleteFromMealPlan");
@@ -935,9 +1108,9 @@ localVarFormParams.put("source", ApiInvoker.parameterToString(source));
     if (hash == null) {
        throw new ApiException(400, "Missing the required parameter 'hash' when calling deleteFromMealPlan");
     }
-    // verify the required parameter 'inlineObject10' is set
-    if (inlineObject10 == null) {
-       throw new ApiException(400, "Missing the required parameter 'inlineObject10' when calling deleteFromMealPlan");
+    // verify the required parameter 'inlineObject12' is set
+    if (inlineObject12 == null) {
+       throw new ApiException(400, "Missing the required parameter 'inlineObject12' when calling deleteFromMealPlan");
     }
 
     // create path and map variables
@@ -986,11 +1159,11 @@ localVarFormParams.put("source", ApiInvoker.parameterToString(source));
    * @param username The username.
    * @param id The shopping list item id.
    * @param hash The private hash for the username.
-   * @param inlineObject13 
+   * @param inlineObject15 
    * @return Object
    */
-  public Object  deleteFromShoppingList (String username, BigDecimal id, String hash, InlineObject13 inlineObject13) throws ApiException {
-    Object localVarPostBody = inlineObject13;
+  public Object  deleteFromShoppingList (String username, BigDecimal id, String hash, InlineObject15 inlineObject15) throws ApiException {
+    Object localVarPostBody = inlineObject15;
     // verify the required parameter 'username' is set
     if (username == null) {
        throw new ApiException(400, "Missing the required parameter 'username' when calling deleteFromShoppingList");
@@ -1003,9 +1176,9 @@ localVarFormParams.put("source", ApiInvoker.parameterToString(source));
     if (hash == null) {
        throw new ApiException(400, "Missing the required parameter 'hash' when calling deleteFromShoppingList");
     }
-    // verify the required parameter 'inlineObject13' is set
-    if (inlineObject13 == null) {
-       throw new ApiException(400, "Missing the required parameter 'inlineObject13' when calling deleteFromShoppingList");
+    // verify the required parameter 'inlineObject15' is set
+    if (inlineObject15 == null) {
+       throw new ApiException(400, "Missing the required parameter 'inlineObject15' when calling deleteFromShoppingList");
     }
 
     // create path and map variables
@@ -1224,11 +1397,11 @@ localVarFormParams.put("source", ApiInvoker.parameterToString(source));
    * @param startDate The start date in the format yyyy-mm-dd.
    * @param endDate The end date in the format yyyy-mm-dd.
    * @param hash The private hash for the username.
-   * @param inlineObject11 
+   * @param inlineObject13 
    * @return Object
    */
-  public Object  generateShoppingList (String username, String startDate, String endDate, String hash, InlineObject11 inlineObject11) throws ApiException {
-    Object localVarPostBody = inlineObject11;
+  public Object  generateShoppingList (String username, String startDate, String endDate, String hash, InlineObject13 inlineObject13) throws ApiException {
+    Object localVarPostBody = inlineObject13;
     // verify the required parameter 'username' is set
     if (username == null) {
        throw new ApiException(400, "Missing the required parameter 'username' when calling generateShoppingList");
@@ -1245,9 +1418,9 @@ localVarFormParams.put("source", ApiInvoker.parameterToString(source));
     if (hash == null) {
        throw new ApiException(400, "Missing the required parameter 'hash' when calling generateShoppingList");
     }
-    // verify the required parameter 'inlineObject11' is set
-    if (inlineObject11 == null) {
-       throw new ApiException(400, "Missing the required parameter 'inlineObject11' when calling generateShoppingList");
+    // verify the required parameter 'inlineObject13' is set
+    if (inlineObject13 == null) {
+       throw new ApiException(400, "Missing the required parameter 'inlineObject13' when calling generateShoppingList");
     }
 
     // create path and map variables
@@ -2418,6 +2591,58 @@ localVarFormParams.put("source", ApiInvoker.parameterToString(source));
     }
   }
   /**
+   * Get Recipe Taste by ID
+   * Get a recipe&#39;s taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
+   * @param id The recipe id.
+   * @return Object
+   */
+  public Object  getRecipeTasteByID (BigDecimal id) throws ApiException {
+    Object localVarPostBody = null;
+    // verify the required parameter 'id' is set
+    if (id == null) {
+       throw new ApiException(400, "Missing the required parameter 'id' when calling getRecipeTasteByID");
+    }
+
+    // create path and map variables
+    String localVarPath = "/recipes/{id}/tasteWidget.json".replaceAll("\\{format\\}","json").replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> localVarFormParams = new HashMap<String, String>();
+
+
+
+    String[] localVarContentTypes = {
+      
+    };
+    String localVarContentType = localVarContentTypes.length > 0 ? localVarContentTypes[0] : "application/json";
+
+    if (localVarContentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      
+
+      localVarPostBody = localVarBuilder.build();
+    } else {
+      // normal form params
+          }
+
+    try {
+      String localVarResponse = apiInvoker.invokeAPI(basePath, localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarContentType);
+      if(localVarResponse != null){
+        return (Object) ApiInvoker.deserialize(localVarResponse, "", Object.class);
+      }
+      else {
+        return null;
+      }
+    } catch (ApiException ex) {
+      throw ex;
+    }
+  }
+  /**
    * Get Shopping List
    * Get the current shopping list for the given user.
    * @param username The username.
@@ -2858,6 +3083,85 @@ localVarFormParams.put("source", ApiInvoker.parameterToString(source));
     }
   }
   /**
+   * Ingredient Search
+   * Search for simple whole foods (e.g. fruits, vegetables, nuts, grains, meat, fish, dairy etc.).
+   * @param query The partial or full ingredient name.
+   * @param addChildren Whether to add children of found foods.
+   * @param minProteinPercent The minimum percentage of protein the food must have (between 0 and 100).
+   * @param maxProteinPercent The maximum percentage of protein the food can have (between 0 and 100).
+   * @param minFatPercent The minimum percentage of fat the food must have (between 0 and 100).
+   * @param maxFatPercent The maximum percentage of fat the food can have (between 0 and 100).
+   * @param minCarbsPercent The minimum percentage of carbs the food must have (between 0 and 100).
+   * @param maxCarbsPercent The maximum percentage of carbs the food can have (between 0 and 100).
+   * @param metaInformation Whether to return more meta information about the ingredients.
+   * @param intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
+   * @param sort The strategy to sort recipes by. See a full list of supported sorting options.
+   * @param sortDirection The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending).
+   * @param offset The number of results to skip (between 0 and 990).
+   * @param number The number of expected results (between 1 and 100).
+   * @return Object
+   */
+  public Object  ingredientSearch (String query, Boolean addChildren, BigDecimal minProteinPercent, BigDecimal maxProteinPercent, BigDecimal minFatPercent, BigDecimal maxFatPercent, BigDecimal minCarbsPercent, BigDecimal maxCarbsPercent, Boolean metaInformation, String intolerances, String sort, String sortDirection, BigDecimal offset, BigDecimal number) throws ApiException {
+    Object localVarPostBody = null;
+    // verify the required parameter 'query' is set
+    if (query == null) {
+       throw new ApiException(400, "Missing the required parameter 'query' when calling ingredientSearch");
+    }
+
+    // create path and map variables
+    String localVarPath = "/food/ingredients/search".replaceAll("\\{format\\}","json");
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> localVarFormParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "query", query));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "addChildren", addChildren));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "minProteinPercent", minProteinPercent));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "maxProteinPercent", maxProteinPercent));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "minFatPercent", minFatPercent));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "maxFatPercent", maxFatPercent));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "minCarbsPercent", minCarbsPercent));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "maxCarbsPercent", maxCarbsPercent));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "metaInformation", metaInformation));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "intolerances", intolerances));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "sort", sort));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "sortDirection", sortDirection));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "offset", offset));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "number", number));
+
+
+    String[] localVarContentTypes = {
+      
+    };
+    String localVarContentType = localVarContentTypes.length > 0 ? localVarContentTypes[0] : "application/json";
+
+    if (localVarContentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      
+
+      localVarPostBody = localVarBuilder.build();
+    } else {
+      // normal form params
+          }
+
+    try {
+      String localVarResponse = apiInvoker.invokeAPI(basePath, localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarContentType);
+      if(localVarResponse != null){
+        return (Object) ApiInvoker.deserialize(localVarResponse, "", Object.class);
+      }
+      else {
+        return null;
+      }
+    } catch (ApiException ex) {
+      throw ex;
+    }
+  }
+  /**
    * Map Ingredients to Grocery Products
    * Map a set of ingredients to products you can buy in the grocery store.
    * @param body 
@@ -3006,6 +3310,63 @@ localVarFormParams.put("includeNutrition", ApiInvoker.parameterToString(includeN
     Map<String, String> localVarFormParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "q", q));
+
+
+    String[] localVarContentTypes = {
+      
+    };
+    String localVarContentType = localVarContentTypes.length > 0 ? localVarContentTypes[0] : "application/json";
+
+    if (localVarContentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      
+
+      localVarPostBody = localVarBuilder.build();
+    } else {
+      // normal form params
+          }
+
+    try {
+      String localVarResponse = apiInvoker.invokeAPI(basePath, localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarContentType);
+      if(localVarResponse != null){
+        return (Object) ApiInvoker.deserialize(localVarResponse, "", Object.class);
+      }
+      else {
+        return null;
+      }
+    } catch (ApiException ex) {
+      throw ex;
+    }
+  }
+  /**
+   * Search All Food
+   * Search all food content with one call. That includes recipes, grocery products, menu items, simple foods (ingredients), and food videos.
+   * @param query The search query.
+   * @param offset The number of results to skip (between 0 and 990).
+   * @param number The number of expected results (between 1 and 100).
+   * @return Object
+   */
+  public Object  searchAllFood (String query, BigDecimal offset, BigDecimal number) throws ApiException {
+    Object localVarPostBody = null;
+    // verify the required parameter 'query' is set
+    if (query == null) {
+       throw new ApiException(400, "Missing the required parameter 'query' when calling searchAllFood");
+    }
+
+    // create path and map variables
+    String localVarPath = "/food/search".replaceAll("\\{format\\}","json");
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> localVarFormParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "query", query));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "offset", offset));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "number", number));
 
 
     String[] localVarContentTypes = {
@@ -3375,19 +3736,106 @@ localVarFormParams.put("includeNutrition", ApiInvoker.parameterToString(includeN
   }
   /**
    * Search Recipes
-   * Our recipe API includes over 360,000 recipes as well as an open source recipe database. Consider using the \&quot;Search Recipes Complex\&quot; endpoint for much more flexibility.
+   * Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint.
    * @param query The (natural language) recipe search query.
-   * @param cuisine The cuisine(s) of the recipes. One or more comma separated. See a full list of supported cuisines.
+   * @param cuisine The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as &#39;OR&#39;). See a full list of supported cuisines.
+   * @param excludeCuisine The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as &#39;AND&#39;). See a full list of supported cuisines.
    * @param diet The diet for which the recipes must be suitable. See a full list of supported diets.
+   * @param intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
+   * @param equipment The equipment required. Multiple values will be interpreted as &#39;or&#39;. For example, value could be \&quot;blender, frying pan, bowl\&quot;.
+   * @param includeIngredients A comma-separated list of ingredients that should/must be used in the recipes.
    * @param excludeIngredients A comma-separated list of ingredients or ingredient types that the recipes must not contain.
-   * @param intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. Please note: due to the automatic nature of the recipe analysis, the API cannot be 100% accurate in all cases. Please advise your users to seek professional help with medical issues.
-   * @param offset The number of results to skip (between 0 and 900).
-   * @param number The number of results to return (between 1 and 100).
-   * @param limitLicense Whether the recipes should have an open license that allows display with proper attribution.
+   * @param type The type of recipe. See a full list of supported meal types.
    * @param instructionsRequired Whether the recipes must have instructions.
+   * @param fillIngredients Add information about the ingredients and whether they are used or missing in relation to the query.
+   * @param addRecipeInformation If set to true, you get more information about the recipes returned.
+   * @param addRecipeNutrition If set to true, you get nutritional information about each recipes returned.
+   * @param author The username of the recipe author.
+   * @param tags User defined tags that have to match. The author param has to be set.
+   * @param recipeBoxId The id of the recipe box to which the search should be limited to.
+   * @param titleMatch Enter text that must be found in the title of the recipes.
+   * @param maxReadyTime The maximum time in minutes it should take to prepare and cook the recipe.
+   * @param ignorePantry Whether to ignore typical pantry items, such as water, salt, flour, etc.
+   * @param sort The strategy to sort recipes by. See a full list of supported sorting options.
+   * @param sortDirection The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending).
+   * @param minCarbs The minimum amount of carbohydrates in grams the recipe must have.
+   * @param maxCarbs The maximum amount of carbohydrates in grams the recipe can have.
+   * @param minProtein The minimum amount of protein in grams the recipe must have.
+   * @param maxProtein The maximum amount of protein in grams the recipe can have.
+   * @param minCalories The minimum amount of calories the recipe must have.
+   * @param maxCalories The maximum amount of calories the recipe can have.
+   * @param minFat The minimum amount of fat in grams the recipe must have.
+   * @param maxFat The maximum amount of fat in grams the recipe can have.
+   * @param minAlcohol The minimum amount of alcohol in grams the recipe must have.
+   * @param maxAlcohol The maximum amount of alcohol in grams the recipe can have.
+   * @param minCaffeine The minimum amount of caffeine in milligrams the recipe must have.
+   * @param maxCaffeine The maximum amount of caffeine in milligrams the recipe can have.
+   * @param minCopper The minimum amount of copper in milligrams the recipe must have.
+   * @param maxCopper The maximum amount of copper in milligrams the recipe can have.
+   * @param minCalcium The minimum amount of calcium in milligrams the recipe must have.
+   * @param maxCalcium The maximum amount of calcium in milligrams the recipe can have.
+   * @param minCholine The minimum amount of choline in milligrams the recipe must have.
+   * @param maxCholine The maximum amount of choline in milligrams the recipe can have.
+   * @param minCholesterol The minimum amount of cholesterol in milligrams the recipe must have.
+   * @param maxCholesterol The maximum amount of cholesterol in milligrams the recipe can have.
+   * @param minFluoride The minimum amount of fluoride in milligrams the recipe must have.
+   * @param maxFluoride The maximum amount of fluoride in milligrams the recipe can have.
+   * @param minSaturatedFat The minimum amount of saturated fat in grams the recipe must have.
+   * @param maxSaturatedFat The maximum amount of saturated fat in grams the recipe can have.
+   * @param minVitaminA The minimum amount of Vitamin A in IU the recipe must have.
+   * @param maxVitaminA The maximum amount of Vitamin A in IU the recipe can have.
+   * @param minVitaminC The minimum amount of Vitamin C milligrams the recipe must have.
+   * @param maxVitaminC The maximum amount of Vitamin C in milligrams the recipe can have.
+   * @param minVitaminD The minimum amount of Vitamin D in micrograms the recipe must have.
+   * @param maxVitaminD The maximum amount of Vitamin D in micrograms the recipe can have.
+   * @param minVitaminE The minimum amount of Vitamin E in milligrams the recipe must have.
+   * @param maxVitaminE The maximum amount of Vitamin E in milligrams the recipe can have.
+   * @param minVitaminK The minimum amount of Vitamin K in micrograms the recipe must have.
+   * @param maxVitaminK The maximum amount of Vitamin K in micrograms the recipe can have.
+   * @param minVitaminB1 The minimum amount of Vitamin B1 in milligrams the recipe must have.
+   * @param maxVitaminB1 The maximum amount of Vitamin B1 in milligrams the recipe can have.
+   * @param minVitaminB2 The minimum amount of Vitamin B2 in milligrams the recipe must have.
+   * @param maxVitaminB2 The maximum amount of Vitamin B2 in milligrams the recipe can have.
+   * @param minVitaminB5 The minimum amount of Vitamin B5 in milligrams the recipe must have.
+   * @param maxVitaminB5 The maximum amount of Vitamin B5 in milligrams the recipe can have.
+   * @param minVitaminB3 The minimum amount of Vitamin B3 in milligrams the recipe must have.
+   * @param maxVitaminB3 The maximum amount of Vitamin B3 in milligrams the recipe can have.
+   * @param minVitaminB6 The minimum amount of Vitamin B6 in milligrams the recipe must have.
+   * @param maxVitaminB6 The maximum amount of Vitamin B6 in milligrams the recipe can have.
+   * @param minVitaminB12 The minimum amount of Vitamin B12 in micrograms the recipe must have.
+   * @param maxVitaminB12 The maximum amount of Vitamin B12 in micrograms the recipe can have.
+   * @param minFiber The minimum amount of fiber in grams the recipe must have.
+   * @param maxFiber The maximum amount of fiber in grams the recipe can have.
+   * @param minFolate The minimum amount of folate in micrograms the recipe must have.
+   * @param maxFolate The maximum amount of folate in micrograms the recipe can have.
+   * @param minFolicAcid The minimum amount of folic acid in micrograms the recipe must have.
+   * @param maxFolicAcid The maximum amount of folic acid in micrograms the recipe can have.
+   * @param minIodine The minimum amount of iodine in micrograms the recipe must have.
+   * @param maxIodine The maximum amount of iodine in micrograms the recipe can have.
+   * @param minIron The minimum amount of iron in milligrams the recipe must have.
+   * @param maxIron The maximum amount of iron in milligrams the recipe can have.
+   * @param minMagnesium The minimum amount of magnesium in milligrams the recipe must have.
+   * @param maxMagnesium The maximum amount of magnesium in milligrams the recipe can have.
+   * @param minManganese The minimum amount of manganese in milligrams the recipe must have.
+   * @param maxManganese The maximum amount of manganese in milligrams the recipe can have.
+   * @param minPhosphorus The minimum amount of phosphorus in milligrams the recipe must have.
+   * @param maxPhosphorus The maximum amount of phosphorus in milligrams the recipe can have.
+   * @param minPotassium The minimum amount of potassium in milligrams the recipe must have.
+   * @param maxPotassium The maximum amount of potassium in milligrams the recipe can have.
+   * @param minSelenium The minimum amount of selenium in micrograms the recipe must have.
+   * @param maxSelenium The maximum amount of selenium in micrograms the recipe can have.
+   * @param minSodium The minimum amount of sodium in milligrams the recipe must have.
+   * @param maxSodium The maximum amount of sodium in milligrams the recipe can have.
+   * @param minSugar The minimum amount of sugar in grams the recipe must have.
+   * @param maxSugar The maximum amount of sugar in grams the recipe can have.
+   * @param minZinc The minimum amount of zinc in milligrams the recipe must have.
+   * @param maxZinc The maximum amount of zinc in milligrams the recipe can have.
+   * @param offset The number of results to skip (between 0 and 900).
+   * @param number The number of expected results (between 1 and 100).
+   * @param limitLicense Whether the recipes should have an open license that allows display with proper attribution.
    * @return Object
    */
-  public Object  searchRecipes (String query, String cuisine, String diet, String excludeIngredients, String intolerances, BigDecimal offset, BigDecimal number, Boolean limitLicense, Boolean instructionsRequired) throws ApiException {
+  public Object  searchRecipes (String query, String cuisine, String excludeCuisine, String diet, String intolerances, String equipment, String includeIngredients, String excludeIngredients, String type, Boolean instructionsRequired, Boolean fillIngredients, Boolean addRecipeInformation, Boolean addRecipeNutrition, String author, String tags, BigDecimal recipeBoxId, String titleMatch, BigDecimal maxReadyTime, Boolean ignorePantry, String sort, String sortDirection, BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minFat, BigDecimal maxFat, BigDecimal minAlcohol, BigDecimal maxAlcohol, BigDecimal minCaffeine, BigDecimal maxCaffeine, BigDecimal minCopper, BigDecimal maxCopper, BigDecimal minCalcium, BigDecimal maxCalcium, BigDecimal minCholine, BigDecimal maxCholine, BigDecimal minCholesterol, BigDecimal maxCholesterol, BigDecimal minFluoride, BigDecimal maxFluoride, BigDecimal minSaturatedFat, BigDecimal maxSaturatedFat, BigDecimal minVitaminA, BigDecimal maxVitaminA, BigDecimal minVitaminC, BigDecimal maxVitaminC, BigDecimal minVitaminD, BigDecimal maxVitaminD, BigDecimal minVitaminE, BigDecimal maxVitaminE, BigDecimal minVitaminK, BigDecimal maxVitaminK, BigDecimal minVitaminB1, BigDecimal maxVitaminB1, BigDecimal minVitaminB2, BigDecimal maxVitaminB2, BigDecimal minVitaminB5, BigDecimal maxVitaminB5, BigDecimal minVitaminB3, BigDecimal maxVitaminB3, BigDecimal minVitaminB6, BigDecimal maxVitaminB6, BigDecimal minVitaminB12, BigDecimal maxVitaminB12, BigDecimal minFiber, BigDecimal maxFiber, BigDecimal minFolate, BigDecimal maxFolate, BigDecimal minFolicAcid, BigDecimal maxFolicAcid, BigDecimal minIodine, BigDecimal maxIodine, BigDecimal minIron, BigDecimal maxIron, BigDecimal minMagnesium, BigDecimal maxMagnesium, BigDecimal minManganese, BigDecimal maxManganese, BigDecimal minPhosphorus, BigDecimal maxPhosphorus, BigDecimal minPotassium, BigDecimal maxPotassium, BigDecimal minSelenium, BigDecimal maxSelenium, BigDecimal minSodium, BigDecimal maxSodium, BigDecimal minSugar, BigDecimal maxSugar, BigDecimal minZinc, BigDecimal maxZinc, BigDecimal offset, BigDecimal number, Boolean limitLicense) throws ApiException {
     Object localVarPostBody = null;
     // verify the required parameter 'query' is set
     if (query == null) {
@@ -3395,7 +3843,7 @@ localVarFormParams.put("includeNutrition", ApiInvoker.parameterToString(includeN
     }
 
     // create path and map variables
-    String localVarPath = "/recipes/search".replaceAll("\\{format\\}","json");
+    String localVarPath = "/recipes/complexSearch".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -3406,13 +3854,100 @@ localVarFormParams.put("includeNutrition", ApiInvoker.parameterToString(includeN
 
     localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "query", query));
     localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "cuisine", cuisine));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "excludeCuisine", excludeCuisine));
     localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "diet", diet));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "excludeIngredients", excludeIngredients));
     localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "intolerances", intolerances));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "equipment", equipment));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "includeIngredients", includeIngredients));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "excludeIngredients", excludeIngredients));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "type", type));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "instructionsRequired", instructionsRequired));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "fillIngredients", fillIngredients));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "addRecipeInformation", addRecipeInformation));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "addRecipeNutrition", addRecipeNutrition));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "author", author));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "tags", tags));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "recipeBoxId", recipeBoxId));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "titleMatch", titleMatch));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "maxReadyTime", maxReadyTime));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "ignorePantry", ignorePantry));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "sort", sort));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "sortDirection", sortDirection));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "minCarbs", minCarbs));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "maxCarbs", maxCarbs));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "minProtein", minProtein));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "maxProtein", maxProtein));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "minCalories", minCalories));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "maxCalories", maxCalories));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "minFat", minFat));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "maxFat", maxFat));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "minAlcohol", minAlcohol));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "maxAlcohol", maxAlcohol));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "minCaffeine", minCaffeine));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "maxCaffeine", maxCaffeine));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "minCopper", minCopper));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "maxCopper", maxCopper));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "minCalcium", minCalcium));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "maxCalcium", maxCalcium));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "minCholine", minCholine));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "maxCholine", maxCholine));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "minCholesterol", minCholesterol));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "maxCholesterol", maxCholesterol));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "minFluoride", minFluoride));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "maxFluoride", maxFluoride));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "minSaturatedFat", minSaturatedFat));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "maxSaturatedFat", maxSaturatedFat));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "minVitaminA", minVitaminA));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "maxVitaminA", maxVitaminA));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "minVitaminC", minVitaminC));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "maxVitaminC", maxVitaminC));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "minVitaminD", minVitaminD));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "maxVitaminD", maxVitaminD));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "minVitaminE", minVitaminE));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "maxVitaminE", maxVitaminE));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "minVitaminK", minVitaminK));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "maxVitaminK", maxVitaminK));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "minVitaminB1", minVitaminB1));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "maxVitaminB1", maxVitaminB1));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "minVitaminB2", minVitaminB2));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "maxVitaminB2", maxVitaminB2));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "minVitaminB5", minVitaminB5));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "maxVitaminB5", maxVitaminB5));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "minVitaminB3", minVitaminB3));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "maxVitaminB3", maxVitaminB3));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "minVitaminB6", minVitaminB6));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "maxVitaminB6", maxVitaminB6));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "minVitaminB12", minVitaminB12));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "maxVitaminB12", maxVitaminB12));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "minFiber", minFiber));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "maxFiber", maxFiber));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "minFolate", minFolate));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "maxFolate", maxFolate));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "minFolicAcid", minFolicAcid));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "maxFolicAcid", maxFolicAcid));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "minIodine", minIodine));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "maxIodine", maxIodine));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "minIron", minIron));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "maxIron", maxIron));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "minMagnesium", minMagnesium));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "maxMagnesium", maxMagnesium));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "minManganese", minManganese));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "maxManganese", maxManganese));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "minPhosphorus", minPhosphorus));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "maxPhosphorus", maxPhosphorus));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "minPotassium", minPotassium));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "maxPotassium", maxPotassium));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "minSelenium", minSelenium));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "maxSelenium", maxSelenium));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "minSodium", minSodium));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "maxSodium", maxSodium));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "minSugar", minSugar));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "maxSugar", maxSugar));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "minZinc", minZinc));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "maxZinc", maxZinc));
     localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "offset", offset));
     localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "number", number));
     localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "limitLicense", limitLicense));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "instructionsRequired", instructionsRequired));
 
 
     String[] localVarContentTypes = {
@@ -3554,12 +4089,12 @@ localVarFormParams.put("includeNutrition", ApiInvoker.parameterToString(includeN
    * @param maxVitaminB12 The maximum amount of Vitamin B12 in micrograms the recipe can have.
    * @param minFiber The minimum amount of fiber in grams the recipe must have.
    * @param maxFiber The maximum amount of fiber in grams the recipe can have.
-   * @param minFolate The minimum amount of folate in grams the recipe must have.
-   * @param maxFolate The maximum amount of folate in grams the recipe can have.
-   * @param minFolicAcid The minimum amount of folic acid in grams the recipe must have.
-   * @param maxFolicAcid The maximum amount of folic acid in grams the recipe can have.
-   * @param minIodine The minimum amount of iodine in grams the recipe must have.
-   * @param maxIodine The maximum amount of iodine in grams the recipe can have.
+   * @param minFolate The minimum amount of folate in micrograms the recipe must have.
+   * @param maxFolate The maximum amount of folate in micrograms the recipe can have.
+   * @param minFolicAcid The minimum amount of folic acid in micrograms the recipe must have.
+   * @param maxFolicAcid The maximum amount of folic acid in micrograms the recipe can have.
+   * @param minIodine The minimum amount of iodine in micrograms the recipe must have.
+   * @param maxIodine The maximum amount of iodine in micrograms the recipe can have.
    * @param minIron The minimum amount of iron in milligrams the recipe must have.
    * @param maxIron The maximum amount of iron in milligrams the recipe can have.
    * @param minMagnesium The minimum amount of magnesium in milligrams the recipe must have.
@@ -3570,8 +4105,8 @@ localVarFormParams.put("includeNutrition", ApiInvoker.parameterToString(includeN
    * @param maxPhosphorus The maximum amount of phosphorus in milligrams the recipe can have.
    * @param minPotassium The minimum amount of potassium in milligrams the recipe must have.
    * @param maxPotassium The maximum amount of potassium in milligrams the recipe can have.
-   * @param minSelenium The minimum amount of selenium in grams the recipe must have.
-   * @param maxSelenium The maximum amount of selenium in grams the recipe can have.
+   * @param minSelenium The minimum amount of selenium in micrograms the recipe must have.
+   * @param maxSelenium The maximum amount of selenium in micrograms the recipe can have.
    * @param minSodium The minimum amount of sodium in milligrams the recipe must have.
    * @param maxSodium The maximum amount of sodium in milligrams the recipe can have.
    * @param minSugar The minimum amount of sugar in grams the recipe must have.
@@ -3672,249 +4207,6 @@ localVarFormParams.put("includeNutrition", ApiInvoker.parameterToString(includeN
     localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "offset", offset));
     localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "number", number));
     localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "random", random));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "limitLicense", limitLicense));
-
-
-    String[] localVarContentTypes = {
-      
-    };
-    String localVarContentType = localVarContentTypes.length > 0 ? localVarContentTypes[0] : "application/json";
-
-    if (localVarContentType.startsWith("multipart/form-data")) {
-      // file uploading
-      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
-      
-
-      localVarPostBody = localVarBuilder.build();
-    } else {
-      // normal form params
-          }
-
-    try {
-      String localVarResponse = apiInvoker.invokeAPI(basePath, localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarContentType);
-      if(localVarResponse != null){
-        return (Object) ApiInvoker.deserialize(localVarResponse, "", Object.class);
-      }
-      else {
-        return null;
-      }
-    } catch (ApiException ex) {
-      throw ex;
-    }
-  }
-  /**
-   * Search Recipes Complex
-   * Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint.
-   * @param query The (natural language) recipe search query.
-   * @param cuisine The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as &#39;OR&#39;). See a full list of supported cuisines.
-   * @param excludeCuisine The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as &#39;AND&#39;). See a full list of supported cuisines.
-   * @param diet The diet for which the recipes must be suitable. See a full list of supported diets.
-   * @param intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
-   * @param equipment The equipment required. Multiple values will be interpreted as &#39;or&#39;. For example, value could be \&quot;blender, frying pan, bowl\&quot;.
-   * @param includeIngredients A comma-separated list of ingredients that should/must be used in the recipes.
-   * @param excludeIngredients A comma-separated list of ingredients or ingredient types that the recipes must not contain.
-   * @param type The type of recipe. See a full list of supported meal types.
-   * @param instructionsRequired Whether the recipes must have instructions.
-   * @param fillIngredients Add information about the ingredients and whether they are used or missing in relation to the query.
-   * @param addRecipeInformation If set to true, you get more information about the recipes returned.
-   * @param addRecipeNutrition If set to true, you get nutritional information about each recipes returned.
-   * @param author The username of the recipe author.
-   * @param tags User defined tags that have to match. The author param has to be set.
-   * @param recipeBoxId The id of the recipe box to which the search should be limited to.
-   * @param titleMatch Enter text that must be found in the title of the recipes.
-   * @param maxReadyTime The maximum time in minutes it should take to prepare and cook the recipe.
-   * @param ignorePantry Whether to ignore typical pantry items, such as water, salt, flour, etc.
-   * @param sort The strategy to sort recipes by. See a full list of supported sorting options.
-   * @param sortDirection The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending).
-   * @param minCarbs The minimum amount of carbohydrates in grams the recipe must have.
-   * @param maxCarbs The maximum amount of carbohydrates in grams the recipe can have.
-   * @param minProtein The minimum amount of protein in grams the recipe must have.
-   * @param maxProtein The maximum amount of protein in grams the recipe can have.
-   * @param minCalories The minimum amount of calories the recipe must have.
-   * @param maxCalories The maximum amount of calories the recipe can have.
-   * @param minFat The minimum amount of fat in grams the recipe must have.
-   * @param maxFat The maximum amount of fat in grams the recipe can have.
-   * @param minAlcohol The minimum amount of alcohol in grams the recipe must have.
-   * @param maxAlcohol The maximum amount of alcohol in grams the recipe can have.
-   * @param minCaffeine The minimum amount of caffeine in milligrams the recipe must have.
-   * @param maxCaffeine The maximum amount of caffeine in milligrams the recipe can have.
-   * @param minCopper The minimum amount of copper in milligrams the recipe must have.
-   * @param maxCopper The maximum amount of copper in milligrams the recipe can have.
-   * @param minCalcium The minimum amount of calcium in milligrams the recipe must have.
-   * @param maxCalcium The maximum amount of calcium in milligrams the recipe can have.
-   * @param minCholine The minimum amount of choline in milligrams the recipe must have.
-   * @param maxCholine The maximum amount of choline in milligrams the recipe can have.
-   * @param minCholesterol The minimum amount of cholesterol in milligrams the recipe must have.
-   * @param maxCholesterol The maximum amount of cholesterol in milligrams the recipe can have.
-   * @param minFluoride The minimum amount of fluoride in milligrams the recipe must have.
-   * @param maxFluoride The maximum amount of fluoride in milligrams the recipe can have.
-   * @param minSaturatedFat The minimum amount of saturated fat in grams the recipe must have.
-   * @param maxSaturatedFat The maximum amount of saturated fat in grams the recipe can have.
-   * @param minVitaminA The minimum amount of Vitamin A in IU the recipe must have.
-   * @param maxVitaminA The maximum amount of Vitamin A in IU the recipe can have.
-   * @param minVitaminC The minimum amount of Vitamin C milligrams the recipe must have.
-   * @param maxVitaminC The maximum amount of Vitamin C in milligrams the recipe can have.
-   * @param minVitaminD The minimum amount of Vitamin D in micrograms the recipe must have.
-   * @param maxVitaminD The maximum amount of Vitamin D in micrograms the recipe can have.
-   * @param minVitaminE The minimum amount of Vitamin E in milligrams the recipe must have.
-   * @param maxVitaminE The maximum amount of Vitamin E in milligrams the recipe can have.
-   * @param minVitaminK The minimum amount of Vitamin K in micrograms the recipe must have.
-   * @param maxVitaminK The maximum amount of Vitamin K in micrograms the recipe can have.
-   * @param minVitaminB1 The minimum amount of Vitamin B1 in milligrams the recipe must have.
-   * @param maxVitaminB1 The maximum amount of Vitamin B1 in milligrams the recipe can have.
-   * @param minVitaminB2 The minimum amount of Vitamin B2 in milligrams the recipe must have.
-   * @param maxVitaminB2 The maximum amount of Vitamin B2 in milligrams the recipe can have.
-   * @param minVitaminB5 The minimum amount of Vitamin B5 in milligrams the recipe must have.
-   * @param maxVitaminB5 The maximum amount of Vitamin B5 in milligrams the recipe can have.
-   * @param minVitaminB3 The minimum amount of Vitamin B3 in milligrams the recipe must have.
-   * @param maxVitaminB3 The maximum amount of Vitamin B3 in milligrams the recipe can have.
-   * @param minVitaminB6 The minimum amount of Vitamin B6 in milligrams the recipe must have.
-   * @param maxVitaminB6 The maximum amount of Vitamin B6 in milligrams the recipe can have.
-   * @param minVitaminB12 The minimum amount of Vitamin B12 in micrograms the recipe must have.
-   * @param maxVitaminB12 The maximum amount of Vitamin B12 in micrograms the recipe can have.
-   * @param minFiber The minimum amount of fiber in grams the recipe must have.
-   * @param maxFiber The maximum amount of fiber in grams the recipe can have.
-   * @param minFolate The minimum amount of folate in grams the recipe must have.
-   * @param maxFolate The maximum amount of folate in grams the recipe can have.
-   * @param minFolicAcid The minimum amount of folic acid in grams the recipe must have.
-   * @param maxFolicAcid The maximum amount of folic acid in grams the recipe can have.
-   * @param minIodine The minimum amount of iodine in grams the recipe must have.
-   * @param maxIodine The maximum amount of iodine in grams the recipe can have.
-   * @param minIron The minimum amount of iron in milligrams the recipe must have.
-   * @param maxIron The maximum amount of iron in milligrams the recipe can have.
-   * @param minMagnesium The minimum amount of magnesium in milligrams the recipe must have.
-   * @param maxMagnesium The maximum amount of magnesium in milligrams the recipe can have.
-   * @param minManganese The minimum amount of manganese in milligrams the recipe must have.
-   * @param maxManganese The maximum amount of manganese in milligrams the recipe can have.
-   * @param minPhosphorus The minimum amount of phosphorus in milligrams the recipe must have.
-   * @param maxPhosphorus The maximum amount of phosphorus in milligrams the recipe can have.
-   * @param minPotassium The minimum amount of potassium in milligrams the recipe must have.
-   * @param maxPotassium The maximum amount of potassium in milligrams the recipe can have.
-   * @param minSelenium The minimum amount of selenium in grams the recipe must have.
-   * @param maxSelenium The maximum amount of selenium in grams the recipe can have.
-   * @param minSodium The minimum amount of sodium in milligrams the recipe must have.
-   * @param maxSodium The maximum amount of sodium in milligrams the recipe can have.
-   * @param minSugar The minimum amount of sugar in grams the recipe must have.
-   * @param maxSugar The maximum amount of sugar in grams the recipe can have.
-   * @param minZinc The minimum amount of zinc in milligrams the recipe must have.
-   * @param maxZinc The maximum amount of zinc in milligrams the recipe can have.
-   * @param offset The number of results to skip (between 0 and 900).
-   * @param number The number of expected results (between 1 and 100).
-   * @param limitLicense Whether the recipes should have an open license that allows display with proper attribution.
-   * @return Object
-   */
-  public Object  searchRecipesComplex (String query, String cuisine, String excludeCuisine, String diet, String intolerances, String equipment, String includeIngredients, String excludeIngredients, String type, Boolean instructionsRequired, Boolean fillIngredients, Boolean addRecipeInformation, Boolean addRecipeNutrition, String author, String tags, BigDecimal recipeBoxId, String titleMatch, BigDecimal maxReadyTime, Boolean ignorePantry, String sort, String sortDirection, BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minFat, BigDecimal maxFat, BigDecimal minAlcohol, BigDecimal maxAlcohol, BigDecimal minCaffeine, BigDecimal maxCaffeine, BigDecimal minCopper, BigDecimal maxCopper, BigDecimal minCalcium, BigDecimal maxCalcium, BigDecimal minCholine, BigDecimal maxCholine, BigDecimal minCholesterol, BigDecimal maxCholesterol, BigDecimal minFluoride, BigDecimal maxFluoride, BigDecimal minSaturatedFat, BigDecimal maxSaturatedFat, BigDecimal minVitaminA, BigDecimal maxVitaminA, BigDecimal minVitaminC, BigDecimal maxVitaminC, BigDecimal minVitaminD, BigDecimal maxVitaminD, BigDecimal minVitaminE, BigDecimal maxVitaminE, BigDecimal minVitaminK, BigDecimal maxVitaminK, BigDecimal minVitaminB1, BigDecimal maxVitaminB1, BigDecimal minVitaminB2, BigDecimal maxVitaminB2, BigDecimal minVitaminB5, BigDecimal maxVitaminB5, BigDecimal minVitaminB3, BigDecimal maxVitaminB3, BigDecimal minVitaminB6, BigDecimal maxVitaminB6, BigDecimal minVitaminB12, BigDecimal maxVitaminB12, BigDecimal minFiber, BigDecimal maxFiber, BigDecimal minFolate, BigDecimal maxFolate, BigDecimal minFolicAcid, BigDecimal maxFolicAcid, BigDecimal minIodine, BigDecimal maxIodine, BigDecimal minIron, BigDecimal maxIron, BigDecimal minMagnesium, BigDecimal maxMagnesium, BigDecimal minManganese, BigDecimal maxManganese, BigDecimal minPhosphorus, BigDecimal maxPhosphorus, BigDecimal minPotassium, BigDecimal maxPotassium, BigDecimal minSelenium, BigDecimal maxSelenium, BigDecimal minSodium, BigDecimal maxSodium, BigDecimal minSugar, BigDecimal maxSugar, BigDecimal minZinc, BigDecimal maxZinc, BigDecimal offset, BigDecimal number, Boolean limitLicense) throws ApiException {
-    Object localVarPostBody = null;
-    // verify the required parameter 'query' is set
-    if (query == null) {
-       throw new ApiException(400, "Missing the required parameter 'query' when calling searchRecipesComplex");
-    }
-
-    // create path and map variables
-    String localVarPath = "/recipes/complexSearch".replaceAll("\\{format\\}","json");
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    // header params
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    // form params
-    Map<String, String> localVarFormParams = new HashMap<String, String>();
-
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "query", query));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "cuisine", cuisine));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "excludeCuisine", excludeCuisine));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "diet", diet));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "intolerances", intolerances));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "equipment", equipment));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "includeIngredients", includeIngredients));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "excludeIngredients", excludeIngredients));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "type", type));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "instructionsRequired", instructionsRequired));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "fillIngredients", fillIngredients));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "addRecipeInformation", addRecipeInformation));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "addRecipeNutrition", addRecipeNutrition));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "author", author));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "tags", tags));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "recipeBoxId", recipeBoxId));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "titleMatch", titleMatch));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "maxReadyTime", maxReadyTime));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "ignorePantry", ignorePantry));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "sort", sort));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "sortDirection", sortDirection));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "minCarbs", minCarbs));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "maxCarbs", maxCarbs));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "minProtein", minProtein));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "maxProtein", maxProtein));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "minCalories", minCalories));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "maxCalories", maxCalories));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "minFat", minFat));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "maxFat", maxFat));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "minAlcohol", minAlcohol));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "maxAlcohol", maxAlcohol));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "minCaffeine", minCaffeine));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "maxCaffeine", maxCaffeine));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "minCopper", minCopper));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "maxCopper", maxCopper));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "minCalcium", minCalcium));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "maxCalcium", maxCalcium));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "minCholine", minCholine));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "maxCholine", maxCholine));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "minCholesterol", minCholesterol));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "maxCholesterol", maxCholesterol));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "minFluoride", minFluoride));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "maxFluoride", maxFluoride));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "minSaturatedFat", minSaturatedFat));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "maxSaturatedFat", maxSaturatedFat));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "minVitaminA", minVitaminA));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "maxVitaminA", maxVitaminA));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "minVitaminC", minVitaminC));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "maxVitaminC", maxVitaminC));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "minVitaminD", minVitaminD));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "maxVitaminD", maxVitaminD));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "minVitaminE", minVitaminE));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "maxVitaminE", maxVitaminE));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "minVitaminK", minVitaminK));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "maxVitaminK", maxVitaminK));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "minVitaminB1", minVitaminB1));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "maxVitaminB1", maxVitaminB1));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "minVitaminB2", minVitaminB2));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "maxVitaminB2", maxVitaminB2));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "minVitaminB5", minVitaminB5));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "maxVitaminB5", maxVitaminB5));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "minVitaminB3", minVitaminB3));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "maxVitaminB3", maxVitaminB3));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "minVitaminB6", minVitaminB6));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "maxVitaminB6", maxVitaminB6));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "minVitaminB12", minVitaminB12));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "maxVitaminB12", maxVitaminB12));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "minFiber", minFiber));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "maxFiber", maxFiber));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "minFolate", minFolate));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "maxFolate", maxFolate));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "minFolicAcid", minFolicAcid));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "maxFolicAcid", maxFolicAcid));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "minIodine", minIodine));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "maxIodine", maxIodine));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "minIron", minIron));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "maxIron", maxIron));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "minMagnesium", minMagnesium));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "maxMagnesium", maxMagnesium));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "minManganese", minManganese));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "maxManganese", maxManganese));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "minPhosphorus", minPhosphorus));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "maxPhosphorus", maxPhosphorus));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "minPotassium", minPotassium));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "maxPotassium", maxPotassium));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "minSelenium", minSelenium));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "maxSelenium", maxSelenium));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "minSodium", minSodium));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "maxSodium", maxSodium));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "minSugar", minSugar));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "maxSugar", maxSugar));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "minZinc", minZinc));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "maxZinc", maxZinc));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "offset", offset));
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "number", number));
     localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "limitLicense", limitLicense));
 
 
@@ -4107,23 +4399,18 @@ localVarFormParams.put("includeNutrition", ApiInvoker.parameterToString(includeN
   }
   /**
    * Visualize Equipment
-   * Visualize the equipment used to make a recipe.
-   * @param ingredientList The ingredient list of the recipe, one ingredient per line.
-   * @param servings The number of servings.
+   * Visualize the equipment used to make a recipe. You can play around with that endpoint!
+   * @param instructions The recipe&#39;s instructions.
    * @param view How to visualize the equipment, either \\\&quot;grid\\\&quot; or \\\&quot;list\\\&quot;.
    * @param defaultCss Whether the default CSS should be added to the response.
    * @param showBacklink Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
    * @return String
    */
-  public String  visualizeEquipment (String ingredientList, BigDecimal servings, String view, Boolean defaultCss, Boolean showBacklink) throws ApiException {
+  public String  visualizeEquipment (String instructions, String view, Boolean defaultCss, Boolean showBacklink) throws ApiException {
     Object localVarPostBody = null;
-    // verify the required parameter 'ingredientList' is set
-    if (ingredientList == null) {
-       throw new ApiException(400, "Missing the required parameter 'ingredientList' when calling visualizeEquipment");
-    }
-    // verify the required parameter 'servings' is set
-    if (servings == null) {
-       throw new ApiException(400, "Missing the required parameter 'servings' when calling visualizeEquipment");
+    // verify the required parameter 'instructions' is set
+    if (instructions == null) {
+       throw new ApiException(400, "Missing the required parameter 'instructions' when calling visualizeEquipment");
     }
 
     // create path and map variables
@@ -4147,12 +4434,8 @@ localVarFormParams.put("includeNutrition", ApiInvoker.parameterToString(includeN
       // file uploading
       MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
       
-      if (ingredientList != null) {
-        localVarBuilder.addTextBody("ingredientList", ApiInvoker.parameterToString(ingredientList), ApiInvoker.TEXT_PLAIN_UTF8);
-      }
-      
-      if (servings != null) {
-        localVarBuilder.addTextBody("servings", ApiInvoker.parameterToString(servings), ApiInvoker.TEXT_PLAIN_UTF8);
+      if (instructions != null) {
+        localVarBuilder.addTextBody("instructions", ApiInvoker.parameterToString(instructions), ApiInvoker.TEXT_PLAIN_UTF8);
       }
       
       if (view != null) {
@@ -4171,8 +4454,7 @@ localVarFormParams.put("includeNutrition", ApiInvoker.parameterToString(includeN
       localVarPostBody = localVarBuilder.build();
     } else {
       // normal form params
-      localVarFormParams.put("ingredientList", ApiInvoker.parameterToString(ingredientList));
-localVarFormParams.put("servings", ApiInvoker.parameterToString(servings));
+      localVarFormParams.put("instructions", ApiInvoker.parameterToString(instructions));
 localVarFormParams.put("view", ApiInvoker.parameterToString(view));
 localVarFormParams.put("defaultCss", ApiInvoker.parameterToString(defaultCss));
 localVarFormParams.put("showBacklink", ApiInvoker.parameterToString(showBacklink));
@@ -4192,7 +4474,7 @@ localVarFormParams.put("showBacklink", ApiInvoker.parameterToString(showBacklink
   }
   /**
    * Visualize Ingredients
-   * Visualize ingredients of a recipe.
+   * Visualize ingredients of a recipe. You can play around with that endpoint!
    * @param ingredientList The ingredient list of the recipe, one ingredient per line.
    * @param servings The number of servings.
    * @param measure The original system of measurement, either \\\&quot;metric\\\&quot; or \\\&quot;us\\\&quot;.
@@ -4337,7 +4619,7 @@ localVarFormParams.put("showBacklink", ApiInvoker.parameterToString(showBacklink
   }
   /**
    * Visualize Price Breakdown
-   * Visualize the price breakdown of a recipe.
+   * Visualize the price breakdown of a recipe. You can play around with that endpoint!
    * @param ingredientList The ingredient list of the recipe, one ingredient per line.
    * @param servings The number of servings.
    * @param mode The mode in which the widget should be delivered. 1 &#x3D; separate views (compact), 2 &#x3D; all in one view (full).
@@ -4584,7 +4866,7 @@ localVarFormParams.put("showBacklink", ApiInvoker.parameterToString(showBacklink
   }
   /**
    * Visualize Recipe Nutrition
-   * Visualize a recipe&#39;s nutritional information as HTML including CSS
+   * Visualize a recipe&#39;s nutritional information as HTML including CSS. You can play around with that endpoint!
    * @param ingredientList The ingredient list of the recipe, one ingredient per line.
    * @param servings The number of servings.
    * @param defaultCss Whether the default CSS should be added to the response.
@@ -4740,6 +5022,115 @@ localVarFormParams.put("showBacklink", ApiInvoker.parameterToString(showBacklink
     Map<String, String> localVarFormParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "defaultCss", defaultCss));
+
+
+    String[] localVarContentTypes = {
+      
+    };
+    String localVarContentType = localVarContentTypes.length > 0 ? localVarContentTypes[0] : "application/json";
+
+    if (localVarContentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      
+
+      localVarPostBody = localVarBuilder.build();
+    } else {
+      // normal form params
+          }
+
+    try {
+      String localVarResponse = apiInvoker.invokeAPI(basePath, localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarContentType);
+      if(localVarResponse != null){
+        return (String) ApiInvoker.deserialize(localVarResponse, "", String.class);
+      }
+      else {
+        return null;
+      }
+    } catch (ApiException ex) {
+      throw ex;
+    }
+  }
+  /**
+   * Visualize Recipe Taste
+   * Visualize a recipe&#39;s taste information as HTML including CSS. You can play around with that endpoint!
+   * @param ingredientList The ingredient list of the recipe, one ingredient per line.
+   * @return String
+   */
+  public String  visualizeRecipeTaste (String ingredientList) throws ApiException {
+    Object localVarPostBody = null;
+    // verify the required parameter 'ingredientList' is set
+    if (ingredientList == null) {
+       throw new ApiException(400, "Missing the required parameter 'ingredientList' when calling visualizeRecipeTaste");
+    }
+
+    // create path and map variables
+    String localVarPath = "/recipes/visualizeTaste".replaceAll("\\{format\\}","json");
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> localVarFormParams = new HashMap<String, String>();
+
+
+
+    String[] localVarContentTypes = {
+      "application/x-www-form-urlencoded"
+    };
+    String localVarContentType = localVarContentTypes.length > 0 ? localVarContentTypes[0] : "application/json";
+
+    if (localVarContentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      
+      if (ingredientList != null) {
+        localVarBuilder.addTextBody("ingredientList", ApiInvoker.parameterToString(ingredientList), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      
+
+      localVarPostBody = localVarBuilder.build();
+    } else {
+      // normal form params
+      localVarFormParams.put("ingredientList", ApiInvoker.parameterToString(ingredientList));
+    }
+
+    try {
+      String localVarResponse = apiInvoker.invokeAPI(basePath, localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarContentType);
+      if(localVarResponse != null){
+        return (String) ApiInvoker.deserialize(localVarResponse, "", String.class);
+      }
+      else {
+        return null;
+      }
+    } catch (ApiException ex) {
+      throw ex;
+    }
+  }
+  /**
+   * Visualize Recipe Taste by ID
+   * Get a recipe&#39;s taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
+   * @param id The recipe id.
+   * @return String
+   */
+  public String  visualizeRecipeTasteByID (BigDecimal id) throws ApiException {
+    Object localVarPostBody = null;
+    // verify the required parameter 'id' is set
+    if (id == null) {
+       throw new ApiException(400, "Missing the required parameter 'id' when calling visualizeRecipeTasteByID");
+    }
+
+    // create path and map variables
+    String localVarPath = "/recipes/{id}/tasteWidget".replaceAll("\\{format\\}","json").replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> localVarFormParams = new HashMap<String, String>();
+
 
 
     String[] localVarContentTypes = {

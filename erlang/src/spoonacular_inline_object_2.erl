@@ -7,20 +7,20 @@
 -type spoonacular_inline_object_2() ::
     #{ 'ingredientList' := binary(),
        'servings' := integer(),
-       'view' => binary(),
+       'mode' => integer(),
        'defaultCss' => boolean(),
        'showBacklink' => boolean()
      }.
 
 encode(#{ 'ingredientList' := IngredientList,
           'servings' := Servings,
-          'view' := View,
+          'mode' := Mode,
           'defaultCss' := DefaultCss,
           'showBacklink' := ShowBacklink
         }) ->
     #{ 'ingredientList' => IngredientList,
        'servings' => Servings,
-       'view' => View,
+       'mode' => Mode,
        'defaultCss' => DefaultCss,
        'showBacklink' => ShowBacklink
      }.

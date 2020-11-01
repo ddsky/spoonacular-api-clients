@@ -23,11 +23,10 @@ class InlineObject {
      * Constructs a new <code>InlineObject</code>.
      * @alias module:com.spoonacular.client/com.spoonacular.client.model/InlineObject
      * @param ingredientList {String} The ingredient list of the recipe, one ingredient per line.
-     * @param servings {Number} The number of servings.
      */
-    constructor(ingredientList, servings) { 
+    constructor(ingredientList) { 
         
-        InlineObject.initialize(this, ingredientList, servings);
+        InlineObject.initialize(this, ingredientList);
     }
 
     /**
@@ -35,9 +34,8 @@ class InlineObject {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, ingredientList, servings) { 
+    static initialize(obj, ingredientList) { 
         obj['ingredientList'] = ingredientList;
-        obj['servings'] = servings;
     }
 
     /**
@@ -54,15 +52,6 @@ class InlineObject {
             if (data.hasOwnProperty('ingredientList')) {
                 obj['ingredientList'] = ApiClient.convertToType(data['ingredientList'], 'String');
             }
-            if (data.hasOwnProperty('servings')) {
-                obj['servings'] = ApiClient.convertToType(data['servings'], 'Number');
-            }
-            if (data.hasOwnProperty('defaultCss')) {
-                obj['defaultCss'] = ApiClient.convertToType(data['defaultCss'], 'Boolean');
-            }
-            if (data.hasOwnProperty('showBacklink')) {
-                obj['showBacklink'] = ApiClient.convertToType(data['showBacklink'], 'Boolean');
-            }
         }
         return obj;
     }
@@ -75,24 +64,6 @@ class InlineObject {
  * @member {String} ingredientList
  */
 InlineObject.prototype['ingredientList'] = undefined;
-
-/**
- * The number of servings.
- * @member {Number} servings
- */
-InlineObject.prototype['servings'] = undefined;
-
-/**
- * Whether the default CSS should be added to the response.
- * @member {Boolean} defaultCss
- */
-InlineObject.prototype['defaultCss'] = undefined;
-
-/**
- * Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
- * @member {Boolean} showBacklink
- */
-InlineObject.prototype['showBacklink'] = undefined;
 
 
 

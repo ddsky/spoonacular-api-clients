@@ -8,31 +8,18 @@ import com.google.gson.annotations.SerializedName;
 @ApiModel(description = "")
 public class InlineObject9  {
   
-  @SerializedName("username")
-  private String username = null;
-  @SerializedName("hash")
-  private String hash = null;
+  @SerializedName("locale")
+  private String locale = null;
 
   /**
-   * The username.
+   * The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).
    **/
-  @ApiModelProperty(required = true, value = "The username.")
-  public String getUsername() {
-    return username;
+  @ApiModelProperty(value = "The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).")
+  public String getLocale() {
+    return locale;
   }
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-  /**
-   * The private hash for the username.
-   **/
-  @ApiModelProperty(required = true, value = "The private hash for the username.")
-  public String getHash() {
-    return hash;
-  }
-  public void setHash(String hash) {
-    this.hash = hash;
+  public void setLocale(String locale) {
+    this.locale = locale;
   }
 
 
@@ -45,15 +32,13 @@ public class InlineObject9  {
       return false;
     }
     InlineObject9 inlineObject9 = (InlineObject9) o;
-    return (this.username == null ? inlineObject9.username == null : this.username.equals(inlineObject9.username)) &&
-        (this.hash == null ? inlineObject9.hash == null : this.hash.equals(inlineObject9.hash));
+    return (this.locale == null ? inlineObject9.locale == null : this.locale.equals(inlineObject9.locale));
   }
 
   @Override
   public int hashCode() {
     int result = 17;
-    result = 31 * result + (this.username == null ? 0: this.username.hashCode());
-    result = 31 * result + (this.hash == null ? 0: this.hash.hashCode());
+    result = 31 * result + (this.locale == null ? 0: this.locale.hashCode());
     return result;
   }
 
@@ -62,8 +47,7 @@ public class InlineObject9  {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineObject9 {\n");
     
-    sb.append("  username: ").append(username).append("\n");
-    sb.append("  hash: ").append(hash).append("\n");
+    sb.append("  locale: ").append(locale).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

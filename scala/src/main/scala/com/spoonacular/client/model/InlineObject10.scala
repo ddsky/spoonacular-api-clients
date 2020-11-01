@@ -5,16 +5,15 @@ import io.finch.circe._
 import io.circe.generic.semiauto._
 import io.circe.java8.time._
 import spoonacular._
-import java.math.BigDecimal
 
 /**
  * 
  * @param username The username.
- * @param id The shopping list item id.
+ * @param date The date in the format yyyy-mm-dd.
  * @param hash The private hash for the username.
  */
 case class InlineObject10(username: String,
-                id: BigDecimal,
+                date: String,
                 hash: String
                 )
 

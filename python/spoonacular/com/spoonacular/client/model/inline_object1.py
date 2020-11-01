@@ -34,7 +34,6 @@ class InlineObject1(object):
     openapi_types = {
         'ingredient_list': 'str',
         'servings': 'float',
-        'mode': 'float',
         'default_css': 'bool',
         'show_backlink': 'bool'
     }
@@ -42,25 +41,21 @@ class InlineObject1(object):
     attribute_map = {
         'ingredient_list': 'ingredientList',
         'servings': 'servings',
-        'mode': 'mode',
         'default_css': 'defaultCss',
         'show_backlink': 'showBacklink'
     }
 
-    def __init__(self, ingredient_list=None, servings=None, mode=None, default_css=None, show_backlink=None):  # noqa: E501
+    def __init__(self, ingredient_list=None, servings=None, default_css=None, show_backlink=None):  # noqa: E501
         """InlineObject1 - a model defined in OpenAPI"""  # noqa: E501
 
         self._ingredient_list = None
         self._servings = None
-        self._mode = None
         self._default_css = None
         self._show_backlink = None
         self.discriminator = None
 
         self.ingredient_list = ingredient_list
         self.servings = servings
-        if mode is not None:
-            self.mode = mode
         if default_css is not None:
             self.default_css = default_css
         if show_backlink is not None:
@@ -115,29 +110,6 @@ class InlineObject1(object):
             raise ValueError("Invalid value for `servings`, must not be `None`")  # noqa: E501
 
         self._servings = servings
-
-    @property
-    def mode(self):
-        """Gets the mode of this InlineObject1.  # noqa: E501
-
-        The mode in which the widget should be delivered. 1 = separate views (compact), 2 = all in one view (full).  # noqa: E501
-
-        :return: The mode of this InlineObject1.  # noqa: E501
-        :rtype: float
-        """
-        return self._mode
-
-    @mode.setter
-    def mode(self, mode):
-        """Sets the mode of this InlineObject1.
-
-        The mode in which the widget should be delivered. 1 = separate views (compact), 2 = all in one view (full).  # noqa: E501
-
-        :param mode: The mode of this InlineObject1.  # noqa: E501
-        :type: float
-        """
-
-        self._mode = mode
 
     @property
     def default_css(self):

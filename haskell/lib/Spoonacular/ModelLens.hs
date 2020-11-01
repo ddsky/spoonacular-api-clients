@@ -44,21 +44,6 @@ inlineObjectIngredientListL :: Lens_' InlineObject (Text)
 inlineObjectIngredientListL f InlineObject{..} = (\inlineObjectIngredientList -> InlineObject { inlineObjectIngredientList, ..} ) <$> f inlineObjectIngredientList
 {-# INLINE inlineObjectIngredientListL #-}
 
--- | 'inlineObjectServings' Lens
-inlineObjectServingsL :: Lens_' InlineObject (Double)
-inlineObjectServingsL f InlineObject{..} = (\inlineObjectServings -> InlineObject { inlineObjectServings, ..} ) <$> f inlineObjectServings
-{-# INLINE inlineObjectServingsL #-}
-
--- | 'inlineObjectDefaultCss' Lens
-inlineObjectDefaultCssL :: Lens_' InlineObject (Maybe Bool)
-inlineObjectDefaultCssL f InlineObject{..} = (\inlineObjectDefaultCss -> InlineObject { inlineObjectDefaultCss, ..} ) <$> f inlineObjectDefaultCss
-{-# INLINE inlineObjectDefaultCssL #-}
-
--- | 'inlineObjectShowBacklink' Lens
-inlineObjectShowBacklinkL :: Lens_' InlineObject (Maybe Bool)
-inlineObjectShowBacklinkL f InlineObject{..} = (\inlineObjectShowBacklink -> InlineObject { inlineObjectShowBacklink, ..} ) <$> f inlineObjectShowBacklink
-{-# INLINE inlineObjectShowBacklinkL #-}
-
 
 
 -- * InlineObject1
@@ -72,11 +57,6 @@ inlineObject1IngredientListL f InlineObject1{..} = (\inlineObject1IngredientList
 inlineObject1ServingsL :: Lens_' InlineObject1 (Double)
 inlineObject1ServingsL f InlineObject1{..} = (\inlineObject1Servings -> InlineObject1 { inlineObject1Servings, ..} ) <$> f inlineObject1Servings
 {-# INLINE inlineObject1ServingsL #-}
-
--- | 'inlineObject1Mode' Lens
-inlineObject1ModeL :: Lens_' InlineObject1 (Maybe Double)
-inlineObject1ModeL f InlineObject1{..} = (\inlineObject1Mode -> InlineObject1 { inlineObject1Mode, ..} ) <$> f inlineObject1Mode
-{-# INLINE inlineObject1ModeL #-}
 
 -- | 'inlineObject1DefaultCss' Lens
 inlineObject1DefaultCssL :: Lens_' InlineObject1 (Maybe Bool)
@@ -97,10 +77,10 @@ inlineObject10UsernameL :: Lens_' InlineObject10 (Text)
 inlineObject10UsernameL f InlineObject10{..} = (\inlineObject10Username -> InlineObject10 { inlineObject10Username, ..} ) <$> f inlineObject10Username
 {-# INLINE inlineObject10UsernameL #-}
 
--- | 'inlineObject10Id' Lens
-inlineObject10IdL :: Lens_' InlineObject10 (Double)
-inlineObject10IdL f InlineObject10{..} = (\inlineObject10Id -> InlineObject10 { inlineObject10Id, ..} ) <$> f inlineObject10Id
-{-# INLINE inlineObject10IdL #-}
+-- | 'inlineObject10Date' Lens
+inlineObject10DateL :: Lens_' InlineObject10 (Text)
+inlineObject10DateL f InlineObject10{..} = (\inlineObject10Date -> InlineObject10 { inlineObject10Date, ..} ) <$> f inlineObject10Date
+{-# INLINE inlineObject10DateL #-}
 
 -- | 'inlineObject10Hash' Lens
 inlineObject10HashL :: Lens_' InlineObject10 (Text)
@@ -116,16 +96,6 @@ inlineObject11UsernameL :: Lens_' InlineObject11 (Text)
 inlineObject11UsernameL f InlineObject11{..} = (\inlineObject11Username -> InlineObject11 { inlineObject11Username, ..} ) <$> f inlineObject11Username
 {-# INLINE inlineObject11UsernameL #-}
 
--- | 'inlineObject11StartDate' Lens
-inlineObject11StartDateL :: Lens_' InlineObject11 (Text)
-inlineObject11StartDateL f InlineObject11{..} = (\inlineObject11StartDate -> InlineObject11 { inlineObject11StartDate, ..} ) <$> f inlineObject11StartDate
-{-# INLINE inlineObject11StartDateL #-}
-
--- | 'inlineObject11EndDate' Lens
-inlineObject11EndDateL :: Lens_' InlineObject11 (Text)
-inlineObject11EndDateL f InlineObject11{..} = (\inlineObject11EndDate -> InlineObject11 { inlineObject11EndDate, ..} ) <$> f inlineObject11EndDate
-{-# INLINE inlineObject11EndDateL #-}
-
 -- | 'inlineObject11Hash' Lens
 inlineObject11HashL :: Lens_' InlineObject11 (Text)
 inlineObject11HashL f InlineObject11{..} = (\inlineObject11Hash -> InlineObject11 { inlineObject11Hash, ..} ) <$> f inlineObject11Hash
@@ -139,6 +109,11 @@ inlineObject11HashL f InlineObject11{..} = (\inlineObject11Hash -> InlineObject1
 inlineObject12UsernameL :: Lens_' InlineObject12 (Text)
 inlineObject12UsernameL f InlineObject12{..} = (\inlineObject12Username -> InlineObject12 { inlineObject12Username, ..} ) <$> f inlineObject12Username
 {-# INLINE inlineObject12UsernameL #-}
+
+-- | 'inlineObject12Id' Lens
+inlineObject12IdL :: Lens_' InlineObject12 (Double)
+inlineObject12IdL f InlineObject12{..} = (\inlineObject12Id -> InlineObject12 { inlineObject12Id, ..} ) <$> f inlineObject12Id
+{-# INLINE inlineObject12IdL #-}
 
 -- | 'inlineObject12Hash' Lens
 inlineObject12HashL :: Lens_' InlineObject12 (Text)
@@ -154,10 +129,15 @@ inlineObject13UsernameL :: Lens_' InlineObject13 (Text)
 inlineObject13UsernameL f InlineObject13{..} = (\inlineObject13Username -> InlineObject13 { inlineObject13Username, ..} ) <$> f inlineObject13Username
 {-# INLINE inlineObject13UsernameL #-}
 
--- | 'inlineObject13Id' Lens
-inlineObject13IdL :: Lens_' InlineObject13 (Double)
-inlineObject13IdL f InlineObject13{..} = (\inlineObject13Id -> InlineObject13 { inlineObject13Id, ..} ) <$> f inlineObject13Id
-{-# INLINE inlineObject13IdL #-}
+-- | 'inlineObject13StartDate' Lens
+inlineObject13StartDateL :: Lens_' InlineObject13 (Text)
+inlineObject13StartDateL f InlineObject13{..} = (\inlineObject13StartDate -> InlineObject13 { inlineObject13StartDate, ..} ) <$> f inlineObject13StartDate
+{-# INLINE inlineObject13StartDateL #-}
+
+-- | 'inlineObject13EndDate' Lens
+inlineObject13EndDateL :: Lens_' InlineObject13 (Text)
+inlineObject13EndDateL f InlineObject13{..} = (\inlineObject13EndDate -> InlineObject13 { inlineObject13EndDate, ..} ) <$> f inlineObject13EndDate
+{-# INLINE inlineObject13EndDateL #-}
 
 -- | 'inlineObject13Hash' Lens
 inlineObject13HashL :: Lens_' InlineObject13 (Text)
@@ -168,10 +148,43 @@ inlineObject13HashL f InlineObject13{..} = (\inlineObject13Hash -> InlineObject1
 
 -- * InlineObject14
 
--- | 'inlineObject14Text' Lens
-inlineObject14TextL :: Lens_' InlineObject14 (Text)
-inlineObject14TextL f InlineObject14{..} = (\inlineObject14Text -> InlineObject14 { inlineObject14Text, ..} ) <$> f inlineObject14Text
-{-# INLINE inlineObject14TextL #-}
+-- | 'inlineObject14Username' Lens
+inlineObject14UsernameL :: Lens_' InlineObject14 (Text)
+inlineObject14UsernameL f InlineObject14{..} = (\inlineObject14Username -> InlineObject14 { inlineObject14Username, ..} ) <$> f inlineObject14Username
+{-# INLINE inlineObject14UsernameL #-}
+
+-- | 'inlineObject14Hash' Lens
+inlineObject14HashL :: Lens_' InlineObject14 (Text)
+inlineObject14HashL f InlineObject14{..} = (\inlineObject14Hash -> InlineObject14 { inlineObject14Hash, ..} ) <$> f inlineObject14Hash
+{-# INLINE inlineObject14HashL #-}
+
+
+
+-- * InlineObject15
+
+-- | 'inlineObject15Username' Lens
+inlineObject15UsernameL :: Lens_' InlineObject15 (Text)
+inlineObject15UsernameL f InlineObject15{..} = (\inlineObject15Username -> InlineObject15 { inlineObject15Username, ..} ) <$> f inlineObject15Username
+{-# INLINE inlineObject15UsernameL #-}
+
+-- | 'inlineObject15Id' Lens
+inlineObject15IdL :: Lens_' InlineObject15 (Double)
+inlineObject15IdL f InlineObject15{..} = (\inlineObject15Id -> InlineObject15 { inlineObject15Id, ..} ) <$> f inlineObject15Id
+{-# INLINE inlineObject15IdL #-}
+
+-- | 'inlineObject15Hash' Lens
+inlineObject15HashL :: Lens_' InlineObject15 (Text)
+inlineObject15HashL f InlineObject15{..} = (\inlineObject15Hash -> InlineObject15 { inlineObject15Hash, ..} ) <$> f inlineObject15Hash
+{-# INLINE inlineObject15HashL #-}
+
+
+
+-- * InlineObject16
+
+-- | 'inlineObject16Text' Lens
+inlineObject16TextL :: Lens_' InlineObject16 (Text)
+inlineObject16TextL f InlineObject16{..} = (\inlineObject16Text -> InlineObject16 { inlineObject16Text, ..} ) <$> f inlineObject16Text
+{-# INLINE inlineObject16TextL #-}
 
 
 
@@ -187,10 +200,10 @@ inlineObject2ServingsL :: Lens_' InlineObject2 (Double)
 inlineObject2ServingsL f InlineObject2{..} = (\inlineObject2Servings -> InlineObject2 { inlineObject2Servings, ..} ) <$> f inlineObject2Servings
 {-# INLINE inlineObject2ServingsL #-}
 
--- | 'inlineObject2View' Lens
-inlineObject2ViewL :: Lens_' InlineObject2 (Maybe Text)
-inlineObject2ViewL f InlineObject2{..} = (\inlineObject2View -> InlineObject2 { inlineObject2View, ..} ) <$> f inlineObject2View
-{-# INLINE inlineObject2ViewL #-}
+-- | 'inlineObject2Mode' Lens
+inlineObject2ModeL :: Lens_' InlineObject2 (Maybe Double)
+inlineObject2ModeL f InlineObject2{..} = (\inlineObject2Mode -> InlineObject2 { inlineObject2Mode, ..} ) <$> f inlineObject2Mode
+{-# INLINE inlineObject2ModeL #-}
 
 -- | 'inlineObject2DefaultCss' Lens
 inlineObject2DefaultCssL :: Lens_' InlineObject2 (Maybe Bool)
@@ -206,107 +219,112 @@ inlineObject2ShowBacklinkL f InlineObject2{..} = (\inlineObject2ShowBacklink -> 
 
 -- * InlineObject3
 
--- | 'inlineObject3Title' Lens
-inlineObject3TitleL :: Lens_' InlineObject3 (Text)
-inlineObject3TitleL f InlineObject3{..} = (\inlineObject3Title -> InlineObject3 { inlineObject3Title, ..} ) <$> f inlineObject3Title
-{-# INLINE inlineObject3TitleL #-}
-
--- | 'inlineObject3Image' Lens
-inlineObject3ImageL :: Lens_' InlineObject3 (FilePath)
-inlineObject3ImageL f InlineObject3{..} = (\inlineObject3Image -> InlineObject3 { inlineObject3Image, ..} ) <$> f inlineObject3Image
-{-# INLINE inlineObject3ImageL #-}
-
--- | 'inlineObject3Ingredients' Lens
-inlineObject3IngredientsL :: Lens_' InlineObject3 (Text)
-inlineObject3IngredientsL f InlineObject3{..} = (\inlineObject3Ingredients -> InlineObject3 { inlineObject3Ingredients, ..} ) <$> f inlineObject3Ingredients
-{-# INLINE inlineObject3IngredientsL #-}
-
 -- | 'inlineObject3Instructions' Lens
 inlineObject3InstructionsL :: Lens_' InlineObject3 (Text)
 inlineObject3InstructionsL f InlineObject3{..} = (\inlineObject3Instructions -> InlineObject3 { inlineObject3Instructions, ..} ) <$> f inlineObject3Instructions
 {-# INLINE inlineObject3InstructionsL #-}
 
--- | 'inlineObject3ReadyInMinutes' Lens
-inlineObject3ReadyInMinutesL :: Lens_' InlineObject3 (Double)
-inlineObject3ReadyInMinutesL f InlineObject3{..} = (\inlineObject3ReadyInMinutes -> InlineObject3 { inlineObject3ReadyInMinutes, ..} ) <$> f inlineObject3ReadyInMinutes
-{-# INLINE inlineObject3ReadyInMinutesL #-}
+-- | 'inlineObject3View' Lens
+inlineObject3ViewL :: Lens_' InlineObject3 (Maybe Text)
+inlineObject3ViewL f InlineObject3{..} = (\inlineObject3View -> InlineObject3 { inlineObject3View, ..} ) <$> f inlineObject3View
+{-# INLINE inlineObject3ViewL #-}
 
--- | 'inlineObject3Servings' Lens
-inlineObject3ServingsL :: Lens_' InlineObject3 (Double)
-inlineObject3ServingsL f InlineObject3{..} = (\inlineObject3Servings -> InlineObject3 { inlineObject3Servings, ..} ) <$> f inlineObject3Servings
-{-# INLINE inlineObject3ServingsL #-}
+-- | 'inlineObject3DefaultCss' Lens
+inlineObject3DefaultCssL :: Lens_' InlineObject3 (Maybe Bool)
+inlineObject3DefaultCssL f InlineObject3{..} = (\inlineObject3DefaultCss -> InlineObject3 { inlineObject3DefaultCss, ..} ) <$> f inlineObject3DefaultCss
+{-# INLINE inlineObject3DefaultCssL #-}
 
--- | 'inlineObject3Mask' Lens
-inlineObject3MaskL :: Lens_' InlineObject3 (Text)
-inlineObject3MaskL f InlineObject3{..} = (\inlineObject3Mask -> InlineObject3 { inlineObject3Mask, ..} ) <$> f inlineObject3Mask
-{-# INLINE inlineObject3MaskL #-}
-
--- | 'inlineObject3BackgroundImage' Lens
-inlineObject3BackgroundImageL :: Lens_' InlineObject3 (Text)
-inlineObject3BackgroundImageL f InlineObject3{..} = (\inlineObject3BackgroundImage -> InlineObject3 { inlineObject3BackgroundImage, ..} ) <$> f inlineObject3BackgroundImage
-{-# INLINE inlineObject3BackgroundImageL #-}
-
--- | 'inlineObject3Author' Lens
-inlineObject3AuthorL :: Lens_' InlineObject3 (Maybe Text)
-inlineObject3AuthorL f InlineObject3{..} = (\inlineObject3Author -> InlineObject3 { inlineObject3Author, ..} ) <$> f inlineObject3Author
-{-# INLINE inlineObject3AuthorL #-}
-
--- | 'inlineObject3BackgroundColor' Lens
-inlineObject3BackgroundColorL :: Lens_' InlineObject3 (Maybe Text)
-inlineObject3BackgroundColorL f InlineObject3{..} = (\inlineObject3BackgroundColor -> InlineObject3 { inlineObject3BackgroundColor, ..} ) <$> f inlineObject3BackgroundColor
-{-# INLINE inlineObject3BackgroundColorL #-}
-
--- | 'inlineObject3FontColor' Lens
-inlineObject3FontColorL :: Lens_' InlineObject3 (Maybe Text)
-inlineObject3FontColorL f InlineObject3{..} = (\inlineObject3FontColor -> InlineObject3 { inlineObject3FontColor, ..} ) <$> f inlineObject3FontColor
-{-# INLINE inlineObject3FontColorL #-}
-
--- | 'inlineObject3Source' Lens
-inlineObject3SourceL :: Lens_' InlineObject3 (Maybe Text)
-inlineObject3SourceL f InlineObject3{..} = (\inlineObject3Source -> InlineObject3 { inlineObject3Source, ..} ) <$> f inlineObject3Source
-{-# INLINE inlineObject3SourceL #-}
+-- | 'inlineObject3ShowBacklink' Lens
+inlineObject3ShowBacklinkL :: Lens_' InlineObject3 (Maybe Bool)
+inlineObject3ShowBacklinkL f InlineObject3{..} = (\inlineObject3ShowBacklink -> InlineObject3 { inlineObject3ShowBacklink, ..} ) <$> f inlineObject3ShowBacklink
+{-# INLINE inlineObject3ShowBacklinkL #-}
 
 
 
 -- * InlineObject4
+
+-- | 'inlineObject4Title' Lens
+inlineObject4TitleL :: Lens_' InlineObject4 (Text)
+inlineObject4TitleL f InlineObject4{..} = (\inlineObject4Title -> InlineObject4 { inlineObject4Title, ..} ) <$> f inlineObject4Title
+{-# INLINE inlineObject4TitleL #-}
+
+-- | 'inlineObject4Image' Lens
+inlineObject4ImageL :: Lens_' InlineObject4 (FilePath)
+inlineObject4ImageL f InlineObject4{..} = (\inlineObject4Image -> InlineObject4 { inlineObject4Image, ..} ) <$> f inlineObject4Image
+{-# INLINE inlineObject4ImageL #-}
+
+-- | 'inlineObject4Ingredients' Lens
+inlineObject4IngredientsL :: Lens_' InlineObject4 (Text)
+inlineObject4IngredientsL f InlineObject4{..} = (\inlineObject4Ingredients -> InlineObject4 { inlineObject4Ingredients, ..} ) <$> f inlineObject4Ingredients
+{-# INLINE inlineObject4IngredientsL #-}
 
 -- | 'inlineObject4Instructions' Lens
 inlineObject4InstructionsL :: Lens_' InlineObject4 (Text)
 inlineObject4InstructionsL f InlineObject4{..} = (\inlineObject4Instructions -> InlineObject4 { inlineObject4Instructions, ..} ) <$> f inlineObject4Instructions
 {-# INLINE inlineObject4InstructionsL #-}
 
+-- | 'inlineObject4ReadyInMinutes' Lens
+inlineObject4ReadyInMinutesL :: Lens_' InlineObject4 (Double)
+inlineObject4ReadyInMinutesL f InlineObject4{..} = (\inlineObject4ReadyInMinutes -> InlineObject4 { inlineObject4ReadyInMinutes, ..} ) <$> f inlineObject4ReadyInMinutes
+{-# INLINE inlineObject4ReadyInMinutesL #-}
+
+-- | 'inlineObject4Servings' Lens
+inlineObject4ServingsL :: Lens_' InlineObject4 (Double)
+inlineObject4ServingsL f InlineObject4{..} = (\inlineObject4Servings -> InlineObject4 { inlineObject4Servings, ..} ) <$> f inlineObject4Servings
+{-# INLINE inlineObject4ServingsL #-}
+
+-- | 'inlineObject4Mask' Lens
+inlineObject4MaskL :: Lens_' InlineObject4 (Text)
+inlineObject4MaskL f InlineObject4{..} = (\inlineObject4Mask -> InlineObject4 { inlineObject4Mask, ..} ) <$> f inlineObject4Mask
+{-# INLINE inlineObject4MaskL #-}
+
+-- | 'inlineObject4BackgroundImage' Lens
+inlineObject4BackgroundImageL :: Lens_' InlineObject4 (Text)
+inlineObject4BackgroundImageL f InlineObject4{..} = (\inlineObject4BackgroundImage -> InlineObject4 { inlineObject4BackgroundImage, ..} ) <$> f inlineObject4BackgroundImage
+{-# INLINE inlineObject4BackgroundImageL #-}
+
+-- | 'inlineObject4Author' Lens
+inlineObject4AuthorL :: Lens_' InlineObject4 (Maybe Text)
+inlineObject4AuthorL f InlineObject4{..} = (\inlineObject4Author -> InlineObject4 { inlineObject4Author, ..} ) <$> f inlineObject4Author
+{-# INLINE inlineObject4AuthorL #-}
+
+-- | 'inlineObject4BackgroundColor' Lens
+inlineObject4BackgroundColorL :: Lens_' InlineObject4 (Maybe Text)
+inlineObject4BackgroundColorL f InlineObject4{..} = (\inlineObject4BackgroundColor -> InlineObject4 { inlineObject4BackgroundColor, ..} ) <$> f inlineObject4BackgroundColor
+{-# INLINE inlineObject4BackgroundColorL #-}
+
+-- | 'inlineObject4FontColor' Lens
+inlineObject4FontColorL :: Lens_' InlineObject4 (Maybe Text)
+inlineObject4FontColorL f InlineObject4{..} = (\inlineObject4FontColor -> InlineObject4 { inlineObject4FontColor, ..} ) <$> f inlineObject4FontColor
+{-# INLINE inlineObject4FontColorL #-}
+
+-- | 'inlineObject4Source' Lens
+inlineObject4SourceL :: Lens_' InlineObject4 (Maybe Text)
+inlineObject4SourceL f InlineObject4{..} = (\inlineObject4Source -> InlineObject4 { inlineObject4Source, ..} ) <$> f inlineObject4Source
+{-# INLINE inlineObject4SourceL #-}
+
 
 
 -- * InlineObject5
 
--- | 'inlineObject5Title' Lens
-inlineObject5TitleL :: Lens_' InlineObject5 (Text)
-inlineObject5TitleL f InlineObject5{..} = (\inlineObject5Title -> InlineObject5 { inlineObject5Title, ..} ) <$> f inlineObject5Title
-{-# INLINE inlineObject5TitleL #-}
-
--- | 'inlineObject5IngredientList' Lens
-inlineObject5IngredientListL :: Lens_' InlineObject5 (Text)
-inlineObject5IngredientListL f InlineObject5{..} = (\inlineObject5IngredientList -> InlineObject5 { inlineObject5IngredientList, ..} ) <$> f inlineObject5IngredientList
-{-# INLINE inlineObject5IngredientListL #-}
+-- | 'inlineObject5Instructions' Lens
+inlineObject5InstructionsL :: Lens_' InlineObject5 (Text)
+inlineObject5InstructionsL f InlineObject5{..} = (\inlineObject5Instructions -> InlineObject5 { inlineObject5Instructions, ..} ) <$> f inlineObject5Instructions
+{-# INLINE inlineObject5InstructionsL #-}
 
 
 
 -- * InlineObject6
 
+-- | 'inlineObject6Title' Lens
+inlineObject6TitleL :: Lens_' InlineObject6 (Text)
+inlineObject6TitleL f InlineObject6{..} = (\inlineObject6Title -> InlineObject6 { inlineObject6Title, ..} ) <$> f inlineObject6Title
+{-# INLINE inlineObject6TitleL #-}
+
 -- | 'inlineObject6IngredientList' Lens
 inlineObject6IngredientListL :: Lens_' InlineObject6 (Text)
 inlineObject6IngredientListL f InlineObject6{..} = (\inlineObject6IngredientList -> InlineObject6 { inlineObject6IngredientList, ..} ) <$> f inlineObject6IngredientList
 {-# INLINE inlineObject6IngredientListL #-}
-
--- | 'inlineObject6Servings' Lens
-inlineObject6ServingsL :: Lens_' InlineObject6 (Double)
-inlineObject6ServingsL f InlineObject6{..} = (\inlineObject6Servings -> InlineObject6 { inlineObject6Servings, ..} ) <$> f inlineObject6Servings
-{-# INLINE inlineObject6ServingsL #-}
-
--- | 'inlineObject6IncludeNutrition' Lens
-inlineObject6IncludeNutritionL :: Lens_' InlineObject6 (Maybe Bool)
-inlineObject6IncludeNutritionL f InlineObject6{..} = (\inlineObject6IncludeNutrition -> InlineObject6 { inlineObject6IncludeNutrition, ..} ) <$> f inlineObject6IncludeNutrition
-{-# INLINE inlineObject6IncludeNutritionL #-}
 
 
 
@@ -322,47 +340,52 @@ inlineObject7ServingsL :: Lens_' InlineObject7 (Double)
 inlineObject7ServingsL f InlineObject7{..} = (\inlineObject7Servings -> InlineObject7 { inlineObject7Servings, ..} ) <$> f inlineObject7Servings
 {-# INLINE inlineObject7ServingsL #-}
 
--- | 'inlineObject7Measure' Lens
-inlineObject7MeasureL :: Lens_' InlineObject7 (Maybe Text)
-inlineObject7MeasureL f InlineObject7{..} = (\inlineObject7Measure -> InlineObject7 { inlineObject7Measure, ..} ) <$> f inlineObject7Measure
-{-# INLINE inlineObject7MeasureL #-}
-
--- | 'inlineObject7View' Lens
-inlineObject7ViewL :: Lens_' InlineObject7 (Maybe Text)
-inlineObject7ViewL f InlineObject7{..} = (\inlineObject7View -> InlineObject7 { inlineObject7View, ..} ) <$> f inlineObject7View
-{-# INLINE inlineObject7ViewL #-}
-
--- | 'inlineObject7DefaultCss' Lens
-inlineObject7DefaultCssL :: Lens_' InlineObject7 (Maybe Bool)
-inlineObject7DefaultCssL f InlineObject7{..} = (\inlineObject7DefaultCss -> InlineObject7 { inlineObject7DefaultCss, ..} ) <$> f inlineObject7DefaultCss
-{-# INLINE inlineObject7DefaultCssL #-}
-
--- | 'inlineObject7ShowBacklink' Lens
-inlineObject7ShowBacklinkL :: Lens_' InlineObject7 (Maybe Bool)
-inlineObject7ShowBacklinkL f InlineObject7{..} = (\inlineObject7ShowBacklink -> InlineObject7 { inlineObject7ShowBacklink, ..} ) <$> f inlineObject7ShowBacklink
-{-# INLINE inlineObject7ShowBacklinkL #-}
+-- | 'inlineObject7IncludeNutrition' Lens
+inlineObject7IncludeNutritionL :: Lens_' InlineObject7 (Maybe Bool)
+inlineObject7IncludeNutritionL f InlineObject7{..} = (\inlineObject7IncludeNutrition -> InlineObject7 { inlineObject7IncludeNutrition, ..} ) <$> f inlineObject7IncludeNutrition
+{-# INLINE inlineObject7IncludeNutritionL #-}
 
 
 
 -- * InlineObject8
 
--- | 'inlineObject8Locale' Lens
-inlineObject8LocaleL :: Lens_' InlineObject8 (Maybe Text)
-inlineObject8LocaleL f InlineObject8{..} = (\inlineObject8Locale -> InlineObject8 { inlineObject8Locale, ..} ) <$> f inlineObject8Locale
-{-# INLINE inlineObject8LocaleL #-}
+-- | 'inlineObject8IngredientList' Lens
+inlineObject8IngredientListL :: Lens_' InlineObject8 (Text)
+inlineObject8IngredientListL f InlineObject8{..} = (\inlineObject8IngredientList -> InlineObject8 { inlineObject8IngredientList, ..} ) <$> f inlineObject8IngredientList
+{-# INLINE inlineObject8IngredientListL #-}
+
+-- | 'inlineObject8Servings' Lens
+inlineObject8ServingsL :: Lens_' InlineObject8 (Double)
+inlineObject8ServingsL f InlineObject8{..} = (\inlineObject8Servings -> InlineObject8 { inlineObject8Servings, ..} ) <$> f inlineObject8Servings
+{-# INLINE inlineObject8ServingsL #-}
+
+-- | 'inlineObject8Measure' Lens
+inlineObject8MeasureL :: Lens_' InlineObject8 (Maybe Text)
+inlineObject8MeasureL f InlineObject8{..} = (\inlineObject8Measure -> InlineObject8 { inlineObject8Measure, ..} ) <$> f inlineObject8Measure
+{-# INLINE inlineObject8MeasureL #-}
+
+-- | 'inlineObject8View' Lens
+inlineObject8ViewL :: Lens_' InlineObject8 (Maybe Text)
+inlineObject8ViewL f InlineObject8{..} = (\inlineObject8View -> InlineObject8 { inlineObject8View, ..} ) <$> f inlineObject8View
+{-# INLINE inlineObject8ViewL #-}
+
+-- | 'inlineObject8DefaultCss' Lens
+inlineObject8DefaultCssL :: Lens_' InlineObject8 (Maybe Bool)
+inlineObject8DefaultCssL f InlineObject8{..} = (\inlineObject8DefaultCss -> InlineObject8 { inlineObject8DefaultCss, ..} ) <$> f inlineObject8DefaultCss
+{-# INLINE inlineObject8DefaultCssL #-}
+
+-- | 'inlineObject8ShowBacklink' Lens
+inlineObject8ShowBacklinkL :: Lens_' InlineObject8 (Maybe Bool)
+inlineObject8ShowBacklinkL f InlineObject8{..} = (\inlineObject8ShowBacklink -> InlineObject8 { inlineObject8ShowBacklink, ..} ) <$> f inlineObject8ShowBacklink
+{-# INLINE inlineObject8ShowBacklinkL #-}
 
 
 
 -- * InlineObject9
 
--- | 'inlineObject9Username' Lens
-inlineObject9UsernameL :: Lens_' InlineObject9 (Text)
-inlineObject9UsernameL f InlineObject9{..} = (\inlineObject9Username -> InlineObject9 { inlineObject9Username, ..} ) <$> f inlineObject9Username
-{-# INLINE inlineObject9UsernameL #-}
-
--- | 'inlineObject9Hash' Lens
-inlineObject9HashL :: Lens_' InlineObject9 (Text)
-inlineObject9HashL f InlineObject9{..} = (\inlineObject9Hash -> InlineObject9 { inlineObject9Hash, ..} ) <$> f inlineObject9Hash
-{-# INLINE inlineObject9HashL #-}
+-- | 'inlineObject9Locale' Lens
+inlineObject9LocaleL :: Lens_' InlineObject9 (Maybe Text)
+inlineObject9LocaleL f InlineObject9{..} = (\inlineObject9Locale -> InlineObject9 { inlineObject9Locale, ..} ) <$> f inlineObject9Locale
+{-# INLINE inlineObject9LocaleL #-}
 
 

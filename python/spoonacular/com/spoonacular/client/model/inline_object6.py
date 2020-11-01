@@ -32,35 +32,55 @@ class InlineObject6(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'ingredient_list': 'str',
-        'servings': 'float',
-        'include_nutrition': 'bool'
+        'title': 'str',
+        'ingredient_list': 'str'
     }
 
     attribute_map = {
-        'ingredient_list': 'ingredientList',
-        'servings': 'servings',
-        'include_nutrition': 'includeNutrition'
+        'title': 'title',
+        'ingredient_list': 'ingredientList'
     }
 
-    def __init__(self, ingredient_list=None, servings=None, include_nutrition=None):  # noqa: E501
+    def __init__(self, title=None, ingredient_list=None):  # noqa: E501
         """InlineObject6 - a model defined in OpenAPI"""  # noqa: E501
 
+        self._title = None
         self._ingredient_list = None
-        self._servings = None
-        self._include_nutrition = None
         self.discriminator = None
 
+        self.title = title
         self.ingredient_list = ingredient_list
-        self.servings = servings
-        if include_nutrition is not None:
-            self.include_nutrition = include_nutrition
+
+    @property
+    def title(self):
+        """Gets the title of this InlineObject6.  # noqa: E501
+
+        The title of the recipe.  # noqa: E501
+
+        :return: The title of this InlineObject6.  # noqa: E501
+        :rtype: str
+        """
+        return self._title
+
+    @title.setter
+    def title(self, title):
+        """Sets the title of this InlineObject6.
+
+        The title of the recipe.  # noqa: E501
+
+        :param title: The title of this InlineObject6.  # noqa: E501
+        :type: str
+        """
+        if title is None:
+            raise ValueError("Invalid value for `title`, must not be `None`")  # noqa: E501
+
+        self._title = title
 
     @property
     def ingredient_list(self):
         """Gets the ingredient_list of this InlineObject6.  # noqa: E501
 
-        The ingredient list of the recipe, one ingredient per line.  # noqa: E501
+        The ingredient list of the recipe, one ingredient per line (separate lines with \\n).  # noqa: E501
 
         :return: The ingredient_list of this InlineObject6.  # noqa: E501
         :rtype: str
@@ -71,7 +91,7 @@ class InlineObject6(object):
     def ingredient_list(self, ingredient_list):
         """Sets the ingredient_list of this InlineObject6.
 
-        The ingredient list of the recipe, one ingredient per line.  # noqa: E501
+        The ingredient list of the recipe, one ingredient per line (separate lines with \\n).  # noqa: E501
 
         :param ingredient_list: The ingredient_list of this InlineObject6.  # noqa: E501
         :type: str
@@ -80,54 +100,6 @@ class InlineObject6(object):
             raise ValueError("Invalid value for `ingredient_list`, must not be `None`")  # noqa: E501
 
         self._ingredient_list = ingredient_list
-
-    @property
-    def servings(self):
-        """Gets the servings of this InlineObject6.  # noqa: E501
-
-        The number of servings that you can make from the ingredients.  # noqa: E501
-
-        :return: The servings of this InlineObject6.  # noqa: E501
-        :rtype: float
-        """
-        return self._servings
-
-    @servings.setter
-    def servings(self, servings):
-        """Sets the servings of this InlineObject6.
-
-        The number of servings that you can make from the ingredients.  # noqa: E501
-
-        :param servings: The servings of this InlineObject6.  # noqa: E501
-        :type: float
-        """
-        if servings is None:
-            raise ValueError("Invalid value for `servings`, must not be `None`")  # noqa: E501
-
-        self._servings = servings
-
-    @property
-    def include_nutrition(self):
-        """Gets the include_nutrition of this InlineObject6.  # noqa: E501
-
-        Whether nutrition data should be added to correctly parsed ingredients.  # noqa: E501
-
-        :return: The include_nutrition of this InlineObject6.  # noqa: E501
-        :rtype: bool
-        """
-        return self._include_nutrition
-
-    @include_nutrition.setter
-    def include_nutrition(self, include_nutrition):
-        """Sets the include_nutrition of this InlineObject6.
-
-        Whether nutrition data should be added to correctly parsed ingredients.  # noqa: E501
-
-        :param include_nutrition: The include_nutrition of this InlineObject6.  # noqa: E501
-        :type: bool
-        """
-
-        self._include_nutrition = include_nutrition
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -50,10 +50,6 @@ public:
     void setServings(const OAINumber &servings);
 
     
-    OAINumber getMode() const;
-    void setMode(const OAINumber &mode);
-
-    
     bool isDefaultCss() const;
     void setDefaultCss(const bool &default_css);
 
@@ -76,10 +72,6 @@ private:
     OAINumber servings;
     bool m_servings_isSet;
     bool m_servings_isValid;
-    
-    OAINumber mode;
-    bool m_mode_isSet;
-    bool m_mode_isValid;
     
     bool default_css;
     bool m_default_css_isSet;

@@ -17,23 +17,15 @@ pub struct InlineObject11 {
     /// The username.
     #[serde(rename = "username")]
     pub username: String,
-    /// The start date in the format yyyy-mm-dd.
-    #[serde(rename = "start-date")]
-    pub start_date: String,
-    /// The end date in the format yyyy-mm-dd.
-    #[serde(rename = "end-date")]
-    pub end_date: String,
     /// The private hash for the username.
     #[serde(rename = "hash")]
     pub hash: String,
 }
 
 impl InlineObject11 {
-    pub fn new(username: String, start_date: String, end_date: String, hash: String) -> InlineObject11 {
+    pub fn new(username: String, hash: String) -> InlineObject11 {
         InlineObject11 {
             username: username,
-            start_date: start_date,
-            end_date: end_date,
             hash: hash,
         }
     }

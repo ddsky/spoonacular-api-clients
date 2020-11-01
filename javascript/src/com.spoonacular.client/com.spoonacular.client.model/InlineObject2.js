@@ -57,8 +57,8 @@ class InlineObject2 {
             if (data.hasOwnProperty('servings')) {
                 obj['servings'] = ApiClient.convertToType(data['servings'], 'Number');
             }
-            if (data.hasOwnProperty('view')) {
-                obj['view'] = ApiClient.convertToType(data['view'], 'String');
+            if (data.hasOwnProperty('mode')) {
+                obj['mode'] = ApiClient.convertToType(data['mode'], 'Number');
             }
             if (data.hasOwnProperty('defaultCss')) {
                 obj['defaultCss'] = ApiClient.convertToType(data['defaultCss'], 'Boolean');
@@ -86,10 +86,10 @@ InlineObject2.prototype['ingredientList'] = undefined;
 InlineObject2.prototype['servings'] = undefined;
 
 /**
- * How to visualize the equipment, either \"grid\" or \"list\".
- * @member {String} view
+ * The mode in which the widget should be delivered. 1 = separate views (compact), 2 = all in one view (full).
+ * @member {Number} mode
  */
-InlineObject2.prototype['view'] = undefined;
+InlineObject2.prototype['mode'] = undefined;
 
 /**
  * Whether the default CSS should be added to the response.

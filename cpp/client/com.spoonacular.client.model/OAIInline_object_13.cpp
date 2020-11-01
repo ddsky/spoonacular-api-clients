@@ -41,8 +41,11 @@ OAIInline_object_13::init() {
     m_username_isSet = false;
     m_username_isValid = false;
     
-    m_id_isSet = false;
-    m_id_isValid = false;
+    m_start_date_isSet = false;
+    m_start_date_isValid = false;
+    
+    m_end_date_isSet = false;
+    m_end_date_isValid = false;
     
     m_hash_isSet = false;
     m_hash_isValid = false;
@@ -62,7 +65,10 @@ OAIInline_object_13::fromJsonObject(QJsonObject json) {
     m_username_isValid = ::OpenAPI::fromJsonValue(username, json[QString("username")]);
     
     
-    m_id_isValid = ::OpenAPI::fromJsonValue(id, json[QString("id")]);
+    m_start_date_isValid = ::OpenAPI::fromJsonValue(start_date, json[QString("start-date")]);
+    
+    
+    m_end_date_isValid = ::OpenAPI::fromJsonValue(end_date, json[QString("end-date")]);
     
     
     m_hash_isValid = ::OpenAPI::fromJsonValue(hash, json[QString("hash")]);
@@ -84,8 +90,11 @@ OAIInline_object_13::asJsonObject() const {
 	if(m_username_isSet){
         obj.insert(QString("username"), ::OpenAPI::toJsonValue(username));
     }
-	if(id.isSet()){
-        obj.insert(QString("id"), ::OpenAPI::toJsonValue(id));
+	if(m_start_date_isSet){
+        obj.insert(QString("start-date"), ::OpenAPI::toJsonValue(start_date));
+    }
+	if(m_end_date_isSet){
+        obj.insert(QString("end-date"), ::OpenAPI::toJsonValue(end_date));
     }
 	if(m_hash_isSet){
         obj.insert(QString("hash"), ::OpenAPI::toJsonValue(hash));
@@ -105,14 +114,25 @@ OAIInline_object_13::setUsername(const QString &username) {
 }
 
 
-OAINumber
-OAIInline_object_13::getId() const {
-    return id;
+QString
+OAIInline_object_13::getStartDate() const {
+    return start_date;
 }
 void
-OAIInline_object_13::setId(const OAINumber &id) {
-    this->id = id;
-    this->m_id_isSet = true;
+OAIInline_object_13::setStartDate(const QString &start_date) {
+    this->start_date = start_date;
+    this->m_start_date_isSet = true;
+}
+
+
+QString
+OAIInline_object_13::getEndDate() const {
+    return end_date;
+}
+void
+OAIInline_object_13::setEndDate(const QString &end_date) {
+    this->end_date = end_date;
+    this->m_end_date_isSet = true;
 }
 
 
@@ -132,7 +152,9 @@ OAIInline_object_13::isSet() const {
     do{ 
         if(m_username_isSet){ isObjectUpdated = true; break;}
     
-        if(id.isSet()){ isObjectUpdated = true; break;}
+        if(m_start_date_isSet){ isObjectUpdated = true; break;}
+    
+        if(m_end_date_isSet){ isObjectUpdated = true; break;}
     
         if(m_hash_isSet){ isObjectUpdated = true; break;}
     }while(false);
@@ -142,7 +164,7 @@ OAIInline_object_13::isSet() const {
 bool
 OAIInline_object_13::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_username_isValid && m_id_isValid && m_hash_isValid && true;
+    return m_username_isValid && m_start_date_isValid && m_end_date_isValid && m_hash_isValid && true;
 }
 
 }

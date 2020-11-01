@@ -13,12 +13,20 @@ namespace spoonacular.Model {
   [DataContract]
   public class InlineObject14 {
     /// <summary>
-    /// The text in which food items, such as dish names and ingredients, should be detected in.
+    /// The username.
     /// </summary>
-    /// <value>The text in which food items, such as dish names and ingredients, should be detected in.</value>
-    [DataMember(Name="text", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "text")]
-    public string Text { get; set; }
+    /// <value>The username.</value>
+    [DataMember(Name="username", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "username")]
+    public string Username { get; set; }
+
+    /// <summary>
+    /// The private hash for the username.
+    /// </summary>
+    /// <value>The private hash for the username.</value>
+    [DataMember(Name="hash", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "hash")]
+    public string Hash { get; set; }
 
 
     /// <summary>
@@ -28,7 +36,8 @@ namespace spoonacular.Model {
     public override string ToString()  {
       var sb = new StringBuilder();
       sb.Append("class InlineObject14 {\n");
-      sb.Append("  Text: ").Append(Text).Append("\n");
+      sb.Append("  Username: ").Append(Username).Append("\n");
+      sb.Append("  Hash: ").Append(Hash).Append("\n");
       sb.Append("}\n");
       return sb.ToString();
     }
