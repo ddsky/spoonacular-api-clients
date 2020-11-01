@@ -11,6 +11,9 @@
          classify_cuisine/3, classify_cuisine/4,
          classify_grocery_product/2, classify_grocery_product/3,
          classify_grocery_product_bulk/2, classify_grocery_product_bulk/3,
+         clear_meal_plan_day/5, clear_meal_plan_day/6,
+         compute_glycemic_load/2, compute_glycemic_load/3,
+         connect_user/2, connect_user/3,
          convert_amounts/5, convert_amounts/6,
          create_recipe_card/9, create_recipe_card/10,
          delete_from_meal_plan/5, delete_from_meal_plan/6,
@@ -40,6 +43,7 @@
          get_recipe_ingredients_by_id/2, get_recipe_ingredients_by_id/3,
          get_recipe_nutrition_widget_by_id/2, get_recipe_nutrition_widget_by_id/3,
          get_recipe_price_breakdown_by_id/2, get_recipe_price_breakdown_by_id/3,
+         get_recipe_taste_by_id/2, get_recipe_taste_by_id/3,
          get_shopping_list/3, get_shopping_list/4,
          get_similar_recipes/2, get_similar_recipes/3,
          get_wine_description/2, get_wine_description/3,
@@ -48,9 +52,11 @@
          guess_nutrition_by_dish_name/2, guess_nutrition_by_dish_name/3,
          image_analysis_by_url/2, image_analysis_by_url/3,
          image_classification_by_url/2, image_classification_by_url/3,
+         ingredient_search/2, ingredient_search/3,
          map_ingredients_to_grocery_products/2, map_ingredients_to_grocery_products/3,
          parse_ingredients/3, parse_ingredients/4,
          quick_answer/2, quick_answer/3,
+         search_all_food/2, search_all_food/3,
          search_custom_foods/4, search_custom_foods/5,
          search_food_videos/2, search_food_videos/3,
          search_grocery_products/2, search_grocery_products/3,
@@ -59,11 +65,10 @@
          search_recipes/2, search_recipes/3,
          search_recipes_by_ingredients/2, search_recipes_by_ingredients/3,
          search_recipes_by_nutrients/1, search_recipes_by_nutrients/2,
-         search_recipes_complex/2, search_recipes_complex/3,
          search_site_content/2, search_site_content/3,
          summarize_recipe/2, summarize_recipe/3,
          talk_to_chatbot/2, talk_to_chatbot/3,
-         visualize_equipment/3, visualize_equipment/4,
+         visualize_equipment/2, visualize_equipment/3,
          visualize_ingredients/3, visualize_ingredients/4,
          visualize_menu_item_nutrition_by_id/2, visualize_menu_item_nutrition_by_id/3,
          visualize_price_breakdown/3, visualize_price_breakdown/4,
@@ -72,18 +77,20 @@
          visualize_recipe_ingredients_by_id/2, visualize_recipe_ingredients_by_id/3,
          visualize_recipe_nutrition/3, visualize_recipe_nutrition/4,
          visualize_recipe_nutrition_by_id/2, visualize_recipe_nutrition_by_id/3,
-         visualize_recipe_price_breakdown_by_id/2, visualize_recipe_price_breakdown_by_id/3]).
+         visualize_recipe_price_breakdown_by_id/2, visualize_recipe_price_breakdown_by_id/3,
+         visualize_recipe_taste/2, visualize_recipe_taste/3,
+         visualize_recipe_taste_by_id/2, visualize_recipe_taste_by_id/3]).
 
 -define(BASE_URL, "").
 
 %% @doc Add to Meal Plan
 %% Add an item to the user's meal plan.
--spec add_to_meal_plan(ctx:ctx(), binary(), binary(), spoonacular_inline_object_9:spoonacular_inline_object_9()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
-add_to_meal_plan(Ctx, Username, Hash, SpoonacularInlineObject9) ->
-    add_to_meal_plan(Ctx, Username, Hash, SpoonacularInlineObject9, #{}).
+-spec add_to_meal_plan(ctx:ctx(), binary(), binary(), spoonacular_inline_object_11:spoonacular_inline_object_11()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+add_to_meal_plan(Ctx, Username, Hash, SpoonacularInlineObject11) ->
+    add_to_meal_plan(Ctx, Username, Hash, SpoonacularInlineObject11, #{}).
 
--spec add_to_meal_plan(ctx:ctx(), binary(), binary(), spoonacular_inline_object_9:spoonacular_inline_object_9(), maps:map()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
-add_to_meal_plan(Ctx, Username, Hash, SpoonacularInlineObject9, Optional) ->
+-spec add_to_meal_plan(ctx:ctx(), binary(), binary(), spoonacular_inline_object_11:spoonacular_inline_object_11(), maps:map()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+add_to_meal_plan(Ctx, Username, Hash, SpoonacularInlineObject11, Optional) ->
     _OptionalParams = maps:get(params, Optional, #{}),
     Cfg = maps:get(cfg, Optional, application:get_env(kuberl, config, #{})),
 
@@ -91,7 +98,7 @@ add_to_meal_plan(Ctx, Username, Hash, SpoonacularInlineObject9, Optional) ->
     Path = ["/mealplanner/", Username, "/items"],
     QS = lists:flatten([{<<"hash">>, Hash}])++spoonacular_utils:optional_params([], _OptionalParams),
     Headers = [],
-    Body1 = SpoonacularInlineObject9,
+    Body1 = SpoonacularInlineObject11,
     ContentTypeHeader = spoonacular_utils:select_header_content_type([<<"">>]),
     Opts = maps:get(hackney_opts, Optional, []),
 
@@ -99,12 +106,12 @@ add_to_meal_plan(Ctx, Username, Hash, SpoonacularInlineObject9, Optional) ->
 
 %% @doc Add to Shopping List
 %% Add an item to the current shopping list of a user.
--spec add_to_shopping_list(ctx:ctx(), binary(), binary(), spoonacular_inline_object_12:spoonacular_inline_object_12()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
-add_to_shopping_list(Ctx, Username, Hash, SpoonacularInlineObject12) ->
-    add_to_shopping_list(Ctx, Username, Hash, SpoonacularInlineObject12, #{}).
+-spec add_to_shopping_list(ctx:ctx(), binary(), binary(), spoonacular_inline_object_14:spoonacular_inline_object_14()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+add_to_shopping_list(Ctx, Username, Hash, SpoonacularInlineObject14) ->
+    add_to_shopping_list(Ctx, Username, Hash, SpoonacularInlineObject14, #{}).
 
--spec add_to_shopping_list(ctx:ctx(), binary(), binary(), spoonacular_inline_object_12:spoonacular_inline_object_12(), maps:map()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
-add_to_shopping_list(Ctx, Username, Hash, SpoonacularInlineObject12, Optional) ->
+-spec add_to_shopping_list(ctx:ctx(), binary(), binary(), spoonacular_inline_object_14:spoonacular_inline_object_14(), maps:map()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+add_to_shopping_list(Ctx, Username, Hash, SpoonacularInlineObject14, Optional) ->
     _OptionalParams = maps:get(params, Optional, #{}),
     Cfg = maps:get(cfg, Optional, application:get_env(kuberl, config, #{})),
 
@@ -112,7 +119,7 @@ add_to_shopping_list(Ctx, Username, Hash, SpoonacularInlineObject12, Optional) -
     Path = ["/mealplanner/", Username, "/shopping-list/items"],
     QS = lists:flatten([{<<"hash">>, Hash}])++spoonacular_utils:optional_params([], _OptionalParams),
     Headers = [],
-    Body1 = SpoonacularInlineObject12,
+    Body1 = SpoonacularInlineObject14,
     ContentTypeHeader = spoonacular_utils:select_header_content_type([<<"">>]),
     Opts = maps:get(hackney_opts, Optional, []),
 
@@ -140,7 +147,7 @@ analyze_a_recipe_search_query(Ctx, Q, Optional) ->
     spoonacular_utils:request(Ctx, Method, [?BASE_URL, Path], QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
 
 %% @doc Analyze Recipe Instructions
-%% Extract ingredients and equipment from the recipe's instructions.
+%% This endpoint allows you to break down instructions into atomic steps. Furthermore, each step will contain the ingredients and equipment required. Additionally, all ingredients and equipment from the recipe's instructions will be extracted independently of the step they're used in.
 -spec analyze_recipe_instructions(ctx:ctx(), binary()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 analyze_recipe_instructions(Ctx, Instructions) ->
     analyze_recipe_instructions(Ctx, Instructions, #{}).
@@ -267,12 +274,12 @@ classify_cuisine(Ctx, Title, IngredientList, Optional) ->
 
 %% @doc Classify Grocery Product
 %% This endpoint allows you to match a packaged food to a basic category, e.g. a specific brand of milk to the category milk.
--spec classify_grocery_product(ctx:ctx(), spoonacular_inline_object_8:spoonacular_inline_object_8()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
-classify_grocery_product(Ctx, SpoonacularInlineObject8) ->
-    classify_grocery_product(Ctx, SpoonacularInlineObject8, #{}).
+-spec classify_grocery_product(ctx:ctx(), spoonacular_inline_object_9:spoonacular_inline_object_9()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+classify_grocery_product(Ctx, SpoonacularInlineObject9) ->
+    classify_grocery_product(Ctx, SpoonacularInlineObject9, #{}).
 
--spec classify_grocery_product(ctx:ctx(), spoonacular_inline_object_8:spoonacular_inline_object_8(), maps:map()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
-classify_grocery_product(Ctx, SpoonacularInlineObject8, Optional) ->
+-spec classify_grocery_product(ctx:ctx(), spoonacular_inline_object_9:spoonacular_inline_object_9(), maps:map()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+classify_grocery_product(Ctx, SpoonacularInlineObject9, Optional) ->
     _OptionalParams = maps:get(params, Optional, #{}),
     Cfg = maps:get(cfg, Optional, application:get_env(kuberl, config, #{})),
 
@@ -280,7 +287,7 @@ classify_grocery_product(Ctx, SpoonacularInlineObject8, Optional) ->
     Path = ["/food/products/classify"],
     QS = lists:flatten([])++spoonacular_utils:optional_params(['locale'], _OptionalParams),
     Headers = [],
-    Body1 = SpoonacularInlineObject8,
+    Body1 = SpoonacularInlineObject9,
     ContentTypeHeader = spoonacular_utils:select_header_content_type([<<"application/json">>]),
     Opts = maps:get(hackney_opts, Optional, []),
 
@@ -303,6 +310,69 @@ classify_grocery_product_bulk(Ctx, Body, Optional) ->
     Headers = [],
     Body1 = Body,
     ContentTypeHeader = spoonacular_utils:select_header_content_type([<<"application/json">>]),
+    Opts = maps:get(hackney_opts, Optional, []),
+
+    spoonacular_utils:request(Ctx, Method, [?BASE_URL, Path], QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
+
+%% @doc Clear Meal Plan Day
+%% Delete all planned items from the user's meal plan for a specific day.
+-spec clear_meal_plan_day(ctx:ctx(), binary(), binary(), binary(), spoonacular_inline_object_10:spoonacular_inline_object_10()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+clear_meal_plan_day(Ctx, Username, Date, Hash, SpoonacularInlineObject10) ->
+    clear_meal_plan_day(Ctx, Username, Date, Hash, SpoonacularInlineObject10, #{}).
+
+-spec clear_meal_plan_day(ctx:ctx(), binary(), binary(), binary(), spoonacular_inline_object_10:spoonacular_inline_object_10(), maps:map()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+clear_meal_plan_day(Ctx, Username, Date, Hash, SpoonacularInlineObject10, Optional) ->
+    _OptionalParams = maps:get(params, Optional, #{}),
+    Cfg = maps:get(cfg, Optional, application:get_env(kuberl, config, #{})),
+
+    Method = delete,
+    Path = ["/mealplanner/", Username, "/day/", Date, ""],
+    QS = lists:flatten([{<<"hash">>, Hash}])++spoonacular_utils:optional_params([], _OptionalParams),
+    Headers = [],
+    Body1 = SpoonacularInlineObject10,
+    ContentTypeHeader = spoonacular_utils:select_header_content_type([<<"">>]),
+    Opts = maps:get(hackney_opts, Optional, []),
+
+    spoonacular_utils:request(Ctx, Method, [?BASE_URL, Path], QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
+
+%% @doc Compute Glycemic Load
+%% Retrieve the glycemic index for a list of ingredients and compute the individual and total glycemic load.
+-spec compute_glycemic_load(ctx:ctx(), maps:map()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+compute_glycemic_load(Ctx, Body) ->
+    compute_glycemic_load(Ctx, Body, #{}).
+
+-spec compute_glycemic_load(ctx:ctx(), maps:map(), maps:map()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+compute_glycemic_load(Ctx, Body, Optional) ->
+    _OptionalParams = maps:get(params, Optional, #{}),
+    Cfg = maps:get(cfg, Optional, application:get_env(kuberl, config, #{})),
+
+    Method = post,
+    Path = ["/food/ingredients/glycemicLoad"],
+    QS = [],
+    Headers = [],
+    Body1 = Body,
+    ContentTypeHeader = spoonacular_utils:select_header_content_type([<<"application/json">>]),
+    Opts = maps:get(hackney_opts, Optional, []),
+
+    spoonacular_utils:request(Ctx, Method, [?BASE_URL, Path], QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
+
+%% @doc Connect User
+%% In order to call user-specific endpoints, you need to connect your app's users to spoonacular users.
+-spec connect_user(ctx:ctx(), maps:map()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+connect_user(Ctx, Body) ->
+    connect_user(Ctx, Body, #{}).
+
+-spec connect_user(ctx:ctx(), maps:map(), maps:map()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+connect_user(Ctx, Body, Optional) ->
+    _OptionalParams = maps:get(params, Optional, #{}),
+    Cfg = maps:get(cfg, Optional, application:get_env(kuberl, config, #{})),
+
+    Method = post,
+    Path = ["/users/connect"],
+    QS = [],
+    Headers = [],
+    Body1 = Body,
+    ContentTypeHeader = spoonacular_utils:select_header_content_type([<<"">>]),
     Opts = maps:get(hackney_opts, Optional, []),
 
     spoonacular_utils:request(Ctx, Method, [?BASE_URL, Path], QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
@@ -351,12 +421,12 @@ create_recipe_card(Ctx, Title, Image, Ingredients, Instructions, ReadyInMinutes,
 
 %% @doc Delete from Meal Plan
 %% Delete an item from the user's meal plan.
--spec delete_from_meal_plan(ctx:ctx(), binary(), integer(), binary(), spoonacular_inline_object_10:spoonacular_inline_object_10()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
-delete_from_meal_plan(Ctx, Username, Id, Hash, SpoonacularInlineObject10) ->
-    delete_from_meal_plan(Ctx, Username, Id, Hash, SpoonacularInlineObject10, #{}).
+-spec delete_from_meal_plan(ctx:ctx(), binary(), integer(), binary(), spoonacular_inline_object_12:spoonacular_inline_object_12()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+delete_from_meal_plan(Ctx, Username, Id, Hash, SpoonacularInlineObject12) ->
+    delete_from_meal_plan(Ctx, Username, Id, Hash, SpoonacularInlineObject12, #{}).
 
--spec delete_from_meal_plan(ctx:ctx(), binary(), integer(), binary(), spoonacular_inline_object_10:spoonacular_inline_object_10(), maps:map()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
-delete_from_meal_plan(Ctx, Username, Id, Hash, SpoonacularInlineObject10, Optional) ->
+-spec delete_from_meal_plan(ctx:ctx(), binary(), integer(), binary(), spoonacular_inline_object_12:spoonacular_inline_object_12(), maps:map()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+delete_from_meal_plan(Ctx, Username, Id, Hash, SpoonacularInlineObject12, Optional) ->
     _OptionalParams = maps:get(params, Optional, #{}),
     Cfg = maps:get(cfg, Optional, application:get_env(kuberl, config, #{})),
 
@@ -364,7 +434,7 @@ delete_from_meal_plan(Ctx, Username, Id, Hash, SpoonacularInlineObject10, Option
     Path = ["/mealplanner/", Username, "/items/", Id, ""],
     QS = lists:flatten([{<<"hash">>, Hash}])++spoonacular_utils:optional_params([], _OptionalParams),
     Headers = [],
-    Body1 = SpoonacularInlineObject10,
+    Body1 = SpoonacularInlineObject12,
     ContentTypeHeader = spoonacular_utils:select_header_content_type([<<"">>]),
     Opts = maps:get(hackney_opts, Optional, []),
 
@@ -372,12 +442,12 @@ delete_from_meal_plan(Ctx, Username, Id, Hash, SpoonacularInlineObject10, Option
 
 %% @doc Delete from Shopping List
 %% Delete an item from the current shopping list of the user.
--spec delete_from_shopping_list(ctx:ctx(), binary(), integer(), binary(), spoonacular_inline_object_13:spoonacular_inline_object_13()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
-delete_from_shopping_list(Ctx, Username, Id, Hash, SpoonacularInlineObject13) ->
-    delete_from_shopping_list(Ctx, Username, Id, Hash, SpoonacularInlineObject13, #{}).
+-spec delete_from_shopping_list(ctx:ctx(), binary(), integer(), binary(), spoonacular_inline_object_15:spoonacular_inline_object_15()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+delete_from_shopping_list(Ctx, Username, Id, Hash, SpoonacularInlineObject15) ->
+    delete_from_shopping_list(Ctx, Username, Id, Hash, SpoonacularInlineObject15, #{}).
 
--spec delete_from_shopping_list(ctx:ctx(), binary(), integer(), binary(), spoonacular_inline_object_13:spoonacular_inline_object_13(), maps:map()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
-delete_from_shopping_list(Ctx, Username, Id, Hash, SpoonacularInlineObject13, Optional) ->
+-spec delete_from_shopping_list(ctx:ctx(), binary(), integer(), binary(), spoonacular_inline_object_15:spoonacular_inline_object_15(), maps:map()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+delete_from_shopping_list(Ctx, Username, Id, Hash, SpoonacularInlineObject15, Optional) ->
     _OptionalParams = maps:get(params, Optional, #{}),
     Cfg = maps:get(cfg, Optional, application:get_env(kuberl, config, #{})),
 
@@ -385,7 +455,7 @@ delete_from_shopping_list(Ctx, Username, Id, Hash, SpoonacularInlineObject13, Op
     Path = ["/mealplanner/", Username, "/shopping-list/items/", Id, ""],
     QS = lists:flatten([{<<"hash">>, Hash}])++spoonacular_utils:optional_params([], _OptionalParams),
     Headers = [],
-    Body1 = SpoonacularInlineObject13,
+    Body1 = SpoonacularInlineObject15,
     ContentTypeHeader = spoonacular_utils:select_header_content_type([<<"">>]),
     Opts = maps:get(hackney_opts, Optional, []),
 
@@ -456,12 +526,12 @@ generate_meal_plan(Ctx, Optional) ->
 
 %% @doc Generate Shopping List
 %% Generate the shopping list for a user from the meal planner in a given time frame.
--spec generate_shopping_list(ctx:ctx(), binary(), binary(), binary(), binary(), spoonacular_inline_object_11:spoonacular_inline_object_11()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
-generate_shopping_list(Ctx, Username, StartDate, EndDate, Hash, SpoonacularInlineObject11) ->
-    generate_shopping_list(Ctx, Username, StartDate, EndDate, Hash, SpoonacularInlineObject11, #{}).
+-spec generate_shopping_list(ctx:ctx(), binary(), binary(), binary(), binary(), spoonacular_inline_object_13:spoonacular_inline_object_13()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+generate_shopping_list(Ctx, Username, StartDate, EndDate, Hash, SpoonacularInlineObject13) ->
+    generate_shopping_list(Ctx, Username, StartDate, EndDate, Hash, SpoonacularInlineObject13, #{}).
 
--spec generate_shopping_list(ctx:ctx(), binary(), binary(), binary(), binary(), spoonacular_inline_object_11:spoonacular_inline_object_11(), maps:map()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
-generate_shopping_list(Ctx, Username, StartDate, EndDate, Hash, SpoonacularInlineObject11, Optional) ->
+-spec generate_shopping_list(ctx:ctx(), binary(), binary(), binary(), binary(), spoonacular_inline_object_13:spoonacular_inline_object_13(), maps:map()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+generate_shopping_list(Ctx, Username, StartDate, EndDate, Hash, SpoonacularInlineObject13, Optional) ->
     _OptionalParams = maps:get(params, Optional, #{}),
     Cfg = maps:get(cfg, Optional, application:get_env(kuberl, config, #{})),
 
@@ -469,7 +539,7 @@ generate_shopping_list(Ctx, Username, StartDate, EndDate, Hash, SpoonacularInlin
     Path = ["/mealplanner/", Username, "/shopping-list/", StartDate, "/", EndDate, ""],
     QS = lists:flatten([{<<"hash">>, Hash}])++spoonacular_utils:optional_params([], _OptionalParams),
     Headers = [],
-    Body1 = SpoonacularInlineObject11,
+    Body1 = SpoonacularInlineObject13,
     ContentTypeHeader = spoonacular_utils:select_header_content_type([<<"">>]),
     Opts = maps:get(hackney_opts, Optional, []),
 
@@ -916,6 +986,27 @@ get_recipe_price_breakdown_by_id(Ctx, Id, Optional) ->
 
     spoonacular_utils:request(Ctx, Method, [?BASE_URL, Path], QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
 
+%% @doc Get Recipe Taste by ID
+%% Get a recipe's taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
+-spec get_recipe_taste_by_id(ctx:ctx(), integer()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+get_recipe_taste_by_id(Ctx, Id) ->
+    get_recipe_taste_by_id(Ctx, Id, #{}).
+
+-spec get_recipe_taste_by_id(ctx:ctx(), integer(), maps:map()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+get_recipe_taste_by_id(Ctx, Id, Optional) ->
+    _OptionalParams = maps:get(params, Optional, #{}),
+    Cfg = maps:get(cfg, Optional, application:get_env(kuberl, config, #{})),
+
+    Method = get,
+    Path = ["/recipes/", Id, "/tasteWidget.json"],
+    QS = [],
+    Headers = [],
+    Body1 = [],
+    ContentTypeHeader = spoonacular_utils:select_header_content_type([]),
+    Opts = maps:get(hackney_opts, Optional, []),
+
+    spoonacular_utils:request(Ctx, Method, [?BASE_URL, Path], QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
+
 %% @doc Get Shopping List
 %% Get the current shopping list for the given user.
 -spec get_shopping_list(ctx:ctx(), binary(), binary()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
@@ -1084,6 +1175,27 @@ image_classification_by_url(Ctx, ImageUrl, Optional) ->
 
     spoonacular_utils:request(Ctx, Method, [?BASE_URL, Path], QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
 
+%% @doc Ingredient Search
+%% Search for simple whole foods (e.g. fruits, vegetables, nuts, grains, meat, fish, dairy etc.).
+-spec ingredient_search(ctx:ctx(), binary()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+ingredient_search(Ctx, Query) ->
+    ingredient_search(Ctx, Query, #{}).
+
+-spec ingredient_search(ctx:ctx(), binary(), maps:map()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+ingredient_search(Ctx, Query, Optional) ->
+    _OptionalParams = maps:get(params, Optional, #{}),
+    Cfg = maps:get(cfg, Optional, application:get_env(kuberl, config, #{})),
+
+    Method = get,
+    Path = ["/food/ingredients/search"],
+    QS = lists:flatten([{<<"query">>, Query}])++spoonacular_utils:optional_params(['addChildren', 'minProteinPercent', 'maxProteinPercent', 'minFatPercent', 'maxFatPercent', 'minCarbsPercent', 'maxCarbsPercent', 'metaInformation', 'intolerances', 'sort', 'sortDirection', 'offset', 'number'], _OptionalParams),
+    Headers = [],
+    Body1 = [],
+    ContentTypeHeader = spoonacular_utils:select_header_content_type([]),
+    Opts = maps:get(hackney_opts, Optional, []),
+
+    spoonacular_utils:request(Ctx, Method, [?BASE_URL, Path], QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
+
 %% @doc Map Ingredients to Grocery Products
 %% Map a set of ingredients to products you can buy in the grocery store.
 -spec map_ingredients_to_grocery_products(ctx:ctx(), maps:map()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
@@ -1140,6 +1252,27 @@ quick_answer(Ctx, Q, Optional) ->
     Method = get,
     Path = ["/recipes/quickAnswer"],
     QS = lists:flatten([{<<"q">>, Q}])++spoonacular_utils:optional_params([], _OptionalParams),
+    Headers = [],
+    Body1 = [],
+    ContentTypeHeader = spoonacular_utils:select_header_content_type([]),
+    Opts = maps:get(hackney_opts, Optional, []),
+
+    spoonacular_utils:request(Ctx, Method, [?BASE_URL, Path], QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
+
+%% @doc Search All Food
+%% Search all food content with one call. That includes recipes, grocery products, menu items, simple foods (ingredients), and food videos.
+-spec search_all_food(ctx:ctx(), binary()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+search_all_food(Ctx, Query) ->
+    search_all_food(Ctx, Query, #{}).
+
+-spec search_all_food(ctx:ctx(), binary(), maps:map()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+search_all_food(Ctx, Query, Optional) ->
+    _OptionalParams = maps:get(params, Optional, #{}),
+    Cfg = maps:get(cfg, Optional, application:get_env(kuberl, config, #{})),
+
+    Method = get,
+    Path = ["/food/search"],
+    QS = lists:flatten([{<<"query">>, Query}])++spoonacular_utils:optional_params(['offset', 'number'], _OptionalParams),
     Headers = [],
     Body1 = [],
     ContentTypeHeader = spoonacular_utils:select_header_content_type([]),
@@ -1253,7 +1386,7 @@ search_menu_items(Ctx, Query, Optional) ->
     spoonacular_utils:request(Ctx, Method, [?BASE_URL, Path], QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
 
 %% @doc Search Recipes
-%% Our recipe API includes over 360,000 recipes as well as an open source recipe database. Consider using the \"Search Recipes Complex\" endpoint for much more flexibility.
+%% Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint.
 -spec search_recipes(ctx:ctx(), binary()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 search_recipes(Ctx, Query) ->
     search_recipes(Ctx, Query, #{}).
@@ -1264,8 +1397,8 @@ search_recipes(Ctx, Query, Optional) ->
     Cfg = maps:get(cfg, Optional, application:get_env(kuberl, config, #{})),
 
     Method = get,
-    Path = ["/recipes/search"],
-    QS = lists:flatten([{<<"query">>, Query}])++spoonacular_utils:optional_params(['cuisine', 'diet', 'excludeIngredients', 'intolerances', 'offset', 'number', 'limitLicense', 'instructionsRequired'], _OptionalParams),
+    Path = ["/recipes/complexSearch"],
+    QS = lists:flatten([{<<"query">>, Query}])++spoonacular_utils:optional_params(['cuisine', 'excludeCuisine', 'diet', 'intolerances', 'equipment', 'includeIngredients', 'excludeIngredients', 'type', 'instructionsRequired', 'fillIngredients', 'addRecipeInformation', 'addRecipeNutrition', 'author', 'tags', 'recipeBoxId', 'titleMatch', 'maxReadyTime', 'ignorePantry', 'sort', 'sortDirection', 'minCarbs', 'maxCarbs', 'minProtein', 'maxProtein', 'minCalories', 'maxCalories', 'minFat', 'maxFat', 'minAlcohol', 'maxAlcohol', 'minCaffeine', 'maxCaffeine', 'minCopper', 'maxCopper', 'minCalcium', 'maxCalcium', 'minCholine', 'maxCholine', 'minCholesterol', 'maxCholesterol', 'minFluoride', 'maxFluoride', 'minSaturatedFat', 'maxSaturatedFat', 'minVitaminA', 'maxVitaminA', 'minVitaminC', 'maxVitaminC', 'minVitaminD', 'maxVitaminD', 'minVitaminE', 'maxVitaminE', 'minVitaminK', 'maxVitaminK', 'minVitaminB1', 'maxVitaminB1', 'minVitaminB2', 'maxVitaminB2', 'minVitaminB5', 'maxVitaminB5', 'minVitaminB3', 'maxVitaminB3', 'minVitaminB6', 'maxVitaminB6', 'minVitaminB12', 'maxVitaminB12', 'minFiber', 'maxFiber', 'minFolate', 'maxFolate', 'minFolicAcid', 'maxFolicAcid', 'minIodine', 'maxIodine', 'minIron', 'maxIron', 'minMagnesium', 'maxMagnesium', 'minManganese', 'maxManganese', 'minPhosphorus', 'maxPhosphorus', 'minPotassium', 'maxPotassium', 'minSelenium', 'maxSelenium', 'minSodium', 'maxSodium', 'minSugar', 'maxSugar', 'minZinc', 'maxZinc', 'offset', 'number', 'limitLicense'], _OptionalParams),
     Headers = [],
     Body1 = [],
     ContentTypeHeader = spoonacular_utils:select_header_content_type([]),
@@ -1308,27 +1441,6 @@ search_recipes_by_nutrients(Ctx, Optional) ->
     Method = get,
     Path = ["/recipes/findByNutrients"],
     QS = lists:flatten([])++spoonacular_utils:optional_params(['minCarbs', 'maxCarbs', 'minProtein', 'maxProtein', 'minCalories', 'maxCalories', 'minFat', 'maxFat', 'minAlcohol', 'maxAlcohol', 'minCaffeine', 'maxCaffeine', 'minCopper', 'maxCopper', 'minCalcium', 'maxCalcium', 'minCholine', 'maxCholine', 'minCholesterol', 'maxCholesterol', 'minFluoride', 'maxFluoride', 'minSaturatedFat', 'maxSaturatedFat', 'minVitaminA', 'maxVitaminA', 'minVitaminC', 'maxVitaminC', 'minVitaminD', 'maxVitaminD', 'minVitaminE', 'maxVitaminE', 'minVitaminK', 'maxVitaminK', 'minVitaminB1', 'maxVitaminB1', 'minVitaminB2', 'maxVitaminB2', 'minVitaminB5', 'maxVitaminB5', 'minVitaminB3', 'maxVitaminB3', 'minVitaminB6', 'maxVitaminB6', 'minVitaminB12', 'maxVitaminB12', 'minFiber', 'maxFiber', 'minFolate', 'maxFolate', 'minFolicAcid', 'maxFolicAcid', 'minIodine', 'maxIodine', 'minIron', 'maxIron', 'minMagnesium', 'maxMagnesium', 'minManganese', 'maxManganese', 'minPhosphorus', 'maxPhosphorus', 'minPotassium', 'maxPotassium', 'minSelenium', 'maxSelenium', 'minSodium', 'maxSodium', 'minSugar', 'maxSugar', 'minZinc', 'maxZinc', 'offset', 'number', 'random', 'limitLicense'], _OptionalParams),
-    Headers = [],
-    Body1 = [],
-    ContentTypeHeader = spoonacular_utils:select_header_content_type([]),
-    Opts = maps:get(hackney_opts, Optional, []),
-
-    spoonacular_utils:request(Ctx, Method, [?BASE_URL, Path], QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
-
-%% @doc Search Recipes Complex
-%% Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint.
--spec search_recipes_complex(ctx:ctx(), binary()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
-search_recipes_complex(Ctx, Query) ->
-    search_recipes_complex(Ctx, Query, #{}).
-
--spec search_recipes_complex(ctx:ctx(), binary(), maps:map()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
-search_recipes_complex(Ctx, Query, Optional) ->
-    _OptionalParams = maps:get(params, Optional, #{}),
-    Cfg = maps:get(cfg, Optional, application:get_env(kuberl, config, #{})),
-
-    Method = get,
-    Path = ["/recipes/complexSearch"],
-    QS = lists:flatten([{<<"query">>, Query}])++spoonacular_utils:optional_params(['cuisine', 'excludeCuisine', 'diet', 'intolerances', 'equipment', 'includeIngredients', 'excludeIngredients', 'type', 'instructionsRequired', 'fillIngredients', 'addRecipeInformation', 'addRecipeNutrition', 'author', 'tags', 'recipeBoxId', 'titleMatch', 'maxReadyTime', 'ignorePantry', 'sort', 'sortDirection', 'minCarbs', 'maxCarbs', 'minProtein', 'maxProtein', 'minCalories', 'maxCalories', 'minFat', 'maxFat', 'minAlcohol', 'maxAlcohol', 'minCaffeine', 'maxCaffeine', 'minCopper', 'maxCopper', 'minCalcium', 'maxCalcium', 'minCholine', 'maxCholine', 'minCholesterol', 'maxCholesterol', 'minFluoride', 'maxFluoride', 'minSaturatedFat', 'maxSaturatedFat', 'minVitaminA', 'maxVitaminA', 'minVitaminC', 'maxVitaminC', 'minVitaminD', 'maxVitaminD', 'minVitaminE', 'maxVitaminE', 'minVitaminK', 'maxVitaminK', 'minVitaminB1', 'maxVitaminB1', 'minVitaminB2', 'maxVitaminB2', 'minVitaminB5', 'maxVitaminB5', 'minVitaminB3', 'maxVitaminB3', 'minVitaminB6', 'maxVitaminB6', 'minVitaminB12', 'maxVitaminB12', 'minFiber', 'maxFiber', 'minFolate', 'maxFolate', 'minFolicAcid', 'maxFolicAcid', 'minIodine', 'maxIodine', 'minIron', 'maxIron', 'minMagnesium', 'maxMagnesium', 'minManganese', 'maxManganese', 'minPhosphorus', 'maxPhosphorus', 'minPotassium', 'maxPotassium', 'minSelenium', 'maxSelenium', 'minSodium', 'maxSodium', 'minSugar', 'maxSugar', 'minZinc', 'maxZinc', 'offset', 'number', 'limitLicense'], _OptionalParams),
     Headers = [],
     Body1 = [],
     ContentTypeHeader = spoonacular_utils:select_header_content_type([]),
@@ -1400,13 +1512,13 @@ talk_to_chatbot(Ctx, Text, Optional) ->
     spoonacular_utils:request(Ctx, Method, [?BASE_URL, Path], QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
 
 %% @doc Visualize Equipment
-%% Visualize the equipment used to make a recipe.
--spec visualize_equipment(ctx:ctx(), binary(), integer()) -> {ok, binary(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
-visualize_equipment(Ctx, IngredientList, Servings) ->
-    visualize_equipment(Ctx, IngredientList, Servings, #{}).
+%% Visualize the equipment used to make a recipe. You can play around with that endpoint!
+-spec visualize_equipment(ctx:ctx(), binary()) -> {ok, binary(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+visualize_equipment(Ctx, Instructions) ->
+    visualize_equipment(Ctx, Instructions, #{}).
 
--spec visualize_equipment(ctx:ctx(), binary(), integer(), maps:map()) -> {ok, binary(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
-visualize_equipment(Ctx, IngredientList, Servings, Optional) ->
+-spec visualize_equipment(ctx:ctx(), binary(), maps:map()) -> {ok, binary(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+visualize_equipment(Ctx, Instructions, Optional) ->
     _OptionalParams = maps:get(params, Optional, #{}),
     Cfg = maps:get(cfg, Optional, application:get_env(kuberl, config, #{})),
 
@@ -1414,14 +1526,14 @@ visualize_equipment(Ctx, IngredientList, Servings, Optional) ->
     Path = ["/recipes/visualizeEquipment"],
     QS = [],
     Headers = [],
-    Body1 = {form, [{<<"ingredientList">>, IngredientList}, {<<"servings">>, Servings}]++spoonacular_utils:optional_params(['view', 'defaultCss', 'showBacklink'], _OptionalParams)},
+    Body1 = {form, [{<<"instructions">>, Instructions}]++spoonacular_utils:optional_params(['view', 'defaultCss', 'showBacklink'], _OptionalParams)},
     ContentTypeHeader = spoonacular_utils:select_header_content_type([<<"application/x-www-form-urlencoded">>]),
     Opts = maps:get(hackney_opts, Optional, []),
 
     spoonacular_utils:request(Ctx, Method, [?BASE_URL, Path], QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
 
 %% @doc Visualize Ingredients
-%% Visualize ingredients of a recipe.
+%% Visualize ingredients of a recipe. You can play around with that endpoint!
 -spec visualize_ingredients(ctx:ctx(), binary(), integer()) -> {ok, binary(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 visualize_ingredients(Ctx, IngredientList, Servings) ->
     visualize_ingredients(Ctx, IngredientList, Servings, #{}).
@@ -1463,7 +1575,7 @@ visualize_menu_item_nutrition_by_id(Ctx, Id, Optional) ->
     spoonacular_utils:request(Ctx, Method, [?BASE_URL, Path], QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
 
 %% @doc Visualize Price Breakdown
-%% Visualize the price breakdown of a recipe.
+%% Visualize the price breakdown of a recipe. You can play around with that endpoint!
 -spec visualize_price_breakdown(ctx:ctx(), binary(), integer()) -> {ok, binary(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 visualize_price_breakdown(Ctx, IngredientList, Servings) ->
     visualize_price_breakdown(Ctx, IngredientList, Servings, #{}).
@@ -1547,7 +1659,7 @@ visualize_recipe_ingredients_by_id(Ctx, Id, Optional) ->
     spoonacular_utils:request(Ctx, Method, [?BASE_URL, Path], QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
 
 %% @doc Visualize Recipe Nutrition
-%% Visualize a recipe's nutritional information as HTML including CSS
+%% Visualize a recipe's nutritional information as HTML including CSS. You can play around with that endpoint!
 -spec visualize_recipe_nutrition(ctx:ctx(), binary(), integer()) -> {ok, binary(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 visualize_recipe_nutrition(Ctx, IngredientList, Servings) ->
     visualize_recipe_nutrition(Ctx, IngredientList, Servings, #{}).
@@ -1602,6 +1714,48 @@ visualize_recipe_price_breakdown_by_id(Ctx, Id, Optional) ->
     Method = get,
     Path = ["/recipes/", Id, "/priceBreakdownWidget"],
     QS = lists:flatten([])++spoonacular_utils:optional_params(['defaultCss'], _OptionalParams),
+    Headers = [],
+    Body1 = [],
+    ContentTypeHeader = spoonacular_utils:select_header_content_type([]),
+    Opts = maps:get(hackney_opts, Optional, []),
+
+    spoonacular_utils:request(Ctx, Method, [?BASE_URL, Path], QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
+
+%% @doc Visualize Recipe Taste
+%% Visualize a recipe's taste information as HTML including CSS. You can play around with that endpoint!
+-spec visualize_recipe_taste(ctx:ctx(), binary()) -> {ok, binary(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+visualize_recipe_taste(Ctx, IngredientList) ->
+    visualize_recipe_taste(Ctx, IngredientList, #{}).
+
+-spec visualize_recipe_taste(ctx:ctx(), binary(), maps:map()) -> {ok, binary(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+visualize_recipe_taste(Ctx, IngredientList, Optional) ->
+    _OptionalParams = maps:get(params, Optional, #{}),
+    Cfg = maps:get(cfg, Optional, application:get_env(kuberl, config, #{})),
+
+    Method = post,
+    Path = ["/recipes/visualizeTaste"],
+    QS = [],
+    Headers = [],
+    Body1 = {form, [{<<"ingredientList">>, IngredientList}]++spoonacular_utils:optional_params([], _OptionalParams)},
+    ContentTypeHeader = spoonacular_utils:select_header_content_type([<<"application/x-www-form-urlencoded">>]),
+    Opts = maps:get(hackney_opts, Optional, []),
+
+    spoonacular_utils:request(Ctx, Method, [?BASE_URL, Path], QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
+
+%% @doc Visualize Recipe Taste by ID
+%% Get a recipe's taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
+-spec visualize_recipe_taste_by_id(ctx:ctx(), integer()) -> {ok, binary(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+visualize_recipe_taste_by_id(Ctx, Id) ->
+    visualize_recipe_taste_by_id(Ctx, Id, #{}).
+
+-spec visualize_recipe_taste_by_id(ctx:ctx(), integer(), maps:map()) -> {ok, binary(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+visualize_recipe_taste_by_id(Ctx, Id, Optional) ->
+    _OptionalParams = maps:get(params, Optional, #{}),
+    Cfg = maps:get(cfg, Optional, application:get_env(kuberl, config, #{})),
+
+    Method = get,
+    Path = ["/recipes/", Id, "/tasteWidget"],
+    QS = [],
     Headers = [],
     Body1 = [],
     ContentTypeHeader = spoonacular_utils:select_header_content_type([]),

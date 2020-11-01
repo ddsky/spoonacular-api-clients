@@ -9,7 +9,7 @@
   {
    (ds/req :ingredientList) string?
    (ds/req :servings) float?
-   (ds/opt :view) string?
+   (ds/opt :mode) float?
    (ds/opt :defaultCss) boolean?
    (ds/opt :showBacklink) boolean?
    })

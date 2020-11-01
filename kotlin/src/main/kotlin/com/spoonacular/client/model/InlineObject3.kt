@@ -15,56 +15,24 @@ package com.spoonacular.client.model
 import com.squareup.moshi.Json
 /**
  * 
- * @param title The title of the recipe.
- * @param image The binary image of the recipe as jpg.
- * @param ingredients The ingredient list of the recipe, one ingredient per line (separate lines with \\n).
- * @param instructions The instructions to make the recipe. One step per line (separate lines with \\n).
- * @param readyInMinutes The number of minutes it takes to get the recipe on the table.
- * @param servings The number of servings the recipe makes.
- * @param mask The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\").
- * @param backgroundImage The background image (\"none\",\"background1\", or \"background2\").
- * @param author The author of the recipe.
- * @param backgroundColor The background color for the recipe card as a hex-string.
- * @param fontColor The font color for the recipe card as a hex-string.
- * @param source The source of the recipe.
+ * @param instructions The recipe's instructions.
+ * @param view How to visualize the equipment, either \"grid\" or \"list\".
+ * @param defaultCss Whether the default CSS should be added to the response.
+ * @param showBacklink Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
  */
 data class InlineObject3 (
-    /* The title of the recipe. */
-    @Json(name = "title")
-    val title: kotlin.String,
-    /* The binary image of the recipe as jpg. */
-    @Json(name = "image")
-    val image: java.io.File,
-    /* The ingredient list of the recipe, one ingredient per line (separate lines with \\n). */
-    @Json(name = "ingredients")
-    val ingredients: kotlin.String,
-    /* The instructions to make the recipe. One step per line (separate lines with \\n). */
+    /* The recipe's instructions. */
     @Json(name = "instructions")
     val instructions: kotlin.String,
-    /* The number of minutes it takes to get the recipe on the table. */
-    @Json(name = "readyInMinutes")
-    val readyInMinutes: java.math.BigDecimal,
-    /* The number of servings the recipe makes. */
-    @Json(name = "servings")
-    val servings: java.math.BigDecimal,
-    /* The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\"). */
-    @Json(name = "mask")
-    val mask: kotlin.String,
-    /* The background image (\"none\",\"background1\", or \"background2\"). */
-    @Json(name = "backgroundImage")
-    val backgroundImage: kotlin.String,
-    /* The author of the recipe. */
-    @Json(name = "author")
-    val author: kotlin.String? = null,
-    /* The background color for the recipe card as a hex-string. */
-    @Json(name = "backgroundColor")
-    val backgroundColor: kotlin.String? = null,
-    /* The font color for the recipe card as a hex-string. */
-    @Json(name = "fontColor")
-    val fontColor: kotlin.String? = null,
-    /* The source of the recipe. */
-    @Json(name = "source")
-    val source: kotlin.String? = null
+    /* How to visualize the equipment, either \"grid\" or \"list\". */
+    @Json(name = "view")
+    val view: kotlin.String? = null,
+    /* Whether the default CSS should be added to the response. */
+    @Json(name = "defaultCss")
+    val defaultCss: kotlin.Boolean? = null,
+    /* Whether to show a backlink to spoonacular. If set false, this call counts against your quota. */
+    @Json(name = "showBacklink")
+    val showBacklink: kotlin.Boolean? = null
 ) {
 
 }

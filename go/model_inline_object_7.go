@@ -13,14 +13,8 @@ package spoonacular
 type InlineObject7 struct {
 	// The ingredient list of the recipe, one ingredient per line.
 	IngredientList string `json:"ingredientList"`
-	// The number of servings.
+	// The number of servings that you can make from the ingredients.
 	Servings float32 `json:"servings"`
-	// The original system of measurement, either \"metric\" or \"us\".
-	Measure string `json:"measure,omitempty"`
-	// How to visualize the ingredients, either \"grid\" or \"list\".
-	View string `json:"view,omitempty"`
-	// Whether the default CSS should be added to the response.
-	DefaultCss bool `json:"defaultCss,omitempty"`
-	// Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
-	ShowBacklink bool `json:"showBacklink,omitempty"`
+	// Whether nutrition data should be added to correctly parsed ingredients.
+	IncludeNutrition bool `json:"includeNutrition,omitempty"`
 }

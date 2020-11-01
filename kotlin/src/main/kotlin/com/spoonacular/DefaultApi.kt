@@ -15,7 +15,8 @@ import com.spoonacular.client.model.InlineObject10
 import com.spoonacular.client.model.InlineObject11
 import com.spoonacular.client.model.InlineObject12
 import com.spoonacular.client.model.InlineObject13
-import com.spoonacular.client.model.InlineObject8
+import com.spoonacular.client.model.InlineObject14
+import com.spoonacular.client.model.InlineObject15
 import com.spoonacular.client.model.InlineObject9
 
 import spoonacular.infrastructure.ApiClient
@@ -37,12 +38,12 @@ class DefaultApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiC
     * Add an item to the user&#39;s meal plan.
     * @param username The username. 
     * @param hash The private hash for the username. 
-    * @param inlineObject9  
+    * @param inlineObject11  
     * @return kotlin.Any
     */
     @Suppress("UNCHECKED_CAST")
-    fun addToMealPlan(username: kotlin.String, hash: kotlin.String, inlineObject9: InlineObject9) : kotlin.Any {
-        val localVariableBody: kotlin.Any? = inlineObject9
+    fun addToMealPlan(username: kotlin.String, hash: kotlin.String, inlineObject11: InlineObject11) : kotlin.Any {
+        val localVariableBody: kotlin.Any? = inlineObject11
         val localVariableQuery: MultiValueMap = mapOf("hash" to listOf("$hash"))
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         val localVariableConfig = RequestConfig(
@@ -70,12 +71,12 @@ class DefaultApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiC
     * Add an item to the current shopping list of a user.
     * @param username The username. 
     * @param hash The private hash for the username. 
-    * @param inlineObject12  
+    * @param inlineObject14  
     * @return kotlin.Any
     */
     @Suppress("UNCHECKED_CAST")
-    fun addToShoppingList(username: kotlin.String, hash: kotlin.String, inlineObject12: InlineObject12) : kotlin.Any {
-        val localVariableBody: kotlin.Any? = inlineObject12
+    fun addToShoppingList(username: kotlin.String, hash: kotlin.String, inlineObject14: InlineObject14) : kotlin.Any {
+        val localVariableBody: kotlin.Any? = inlineObject14
         val localVariableQuery: MultiValueMap = mapOf("hash" to listOf("$hash"))
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         val localVariableConfig = RequestConfig(
@@ -131,7 +132,7 @@ class DefaultApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiC
 
     /**
     * Analyze Recipe Instructions
-    * Extract ingredients and equipment from the recipe&#39;s instructions.
+    * This endpoint allows you to break down instructions into atomic steps. Furthermore, each step will contain the ingredients and equipment required. Additionally, all ingredients and equipment from the recipe&#39;s instructions will be extracted independently of the step they&#39;re used in.
     * @param instructions The instructions to be analyzed. 
     * @return kotlin.Any
     */
@@ -170,7 +171,7 @@ class DefaultApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiC
     * @return kotlin.Any
     */
     @Suppress("UNCHECKED_CAST")
-    fun autocompleteIngredientSearch(query: kotlin.String, number: java.math.BigDecimal?, metaInformation: kotlin.Boolean?, intolerances: kotlin.Boolean?) : kotlin.Any {
+    fun autocompleteIngredientSearch(query: kotlin.String, number: java.math.BigDecimal?, metaInformation: kotlin.Boolean?, intolerances: kotlin.String?) : kotlin.Any {
         val localVariableBody: kotlin.Any? = null
         val localVariableQuery: MultiValueMap = mapOf("query" to listOf("$query"), "number" to listOf("$number"), "metaInformation" to listOf("$metaInformation"), "intolerances" to listOf("$intolerances"))
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
@@ -325,13 +326,13 @@ class DefaultApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiC
     /**
     * Classify Grocery Product
     * This endpoint allows you to match a packaged food to a basic category, e.g. a specific brand of milk to the category milk.
-    * @param inlineObject8  
+    * @param inlineObject9  
     * @param locale The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). (optional)
     * @return kotlin.Any
     */
     @Suppress("UNCHECKED_CAST")
-    fun classifyGroceryProduct(inlineObject8: InlineObject8, locale: kotlin.String?) : kotlin.Any {
-        val localVariableBody: kotlin.Any? = inlineObject8
+    fun classifyGroceryProduct(inlineObject9: InlineObject9, locale: kotlin.String?) : kotlin.Any {
+        val localVariableBody: kotlin.Any? = inlineObject9
         val localVariableQuery: MultiValueMap = mapOf("locale" to listOf("$locale"))
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         val localVariableConfig = RequestConfig(
@@ -369,6 +370,102 @@ class DefaultApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiC
         val localVariableConfig = RequestConfig(
             RequestMethod.POST,
             "/food/products/classifyBatch",
+            query = localVariableQuery,
+            headers = localVariableHeaders
+        )
+        val response = request<kotlin.Any>(
+            localVariableConfig,
+            localVariableBody
+        )
+
+        return when (response.responseType) {
+            ResponseType.Success -> (response as Success<*>).data as kotlin.Any
+            ResponseType.Informational -> TODO()
+            ResponseType.Redirection -> TODO()
+            ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
+            ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
+        }
+    }
+
+    /**
+    * Clear Meal Plan Day
+    * Delete all planned items from the user&#39;s meal plan for a specific day.
+    * @param username The username. 
+    * @param date The date in the format yyyy-mm-dd. 
+    * @param hash The private hash for the username. 
+    * @param inlineObject10  
+    * @return kotlin.Any
+    */
+    @Suppress("UNCHECKED_CAST")
+    fun clearMealPlanDay(username: kotlin.String, date: kotlin.String, hash: kotlin.String, inlineObject10: InlineObject10) : kotlin.Any {
+        val localVariableBody: kotlin.Any? = inlineObject10
+        val localVariableQuery: MultiValueMap = mapOf("hash" to listOf("$hash"))
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        val localVariableConfig = RequestConfig(
+            RequestMethod.DELETE,
+            "/mealplanner/{username}/day/{date}".replace("{"+"username"+"}", "$username").replace("{"+"date"+"}", "$date"),
+            query = localVariableQuery,
+            headers = localVariableHeaders
+        )
+        val response = request<kotlin.Any>(
+            localVariableConfig,
+            localVariableBody
+        )
+
+        return when (response.responseType) {
+            ResponseType.Success -> (response as Success<*>).data as kotlin.Any
+            ResponseType.Informational -> TODO()
+            ResponseType.Redirection -> TODO()
+            ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
+            ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
+        }
+    }
+
+    /**
+    * Compute Glycemic Load
+    * Retrieve the glycemic index for a list of ingredients and compute the individual and total glycemic load.
+    * @param body  
+    * @return kotlin.Any
+    */
+    @Suppress("UNCHECKED_CAST")
+    fun computeGlycemicLoad(body: kotlin.Any) : kotlin.Any {
+        val localVariableBody: kotlin.Any? = body
+        val localVariableQuery: MultiValueMap = mapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        val localVariableConfig = RequestConfig(
+            RequestMethod.POST,
+            "/food/ingredients/glycemicLoad",
+            query = localVariableQuery,
+            headers = localVariableHeaders
+        )
+        val response = request<kotlin.Any>(
+            localVariableConfig,
+            localVariableBody
+        )
+
+        return when (response.responseType) {
+            ResponseType.Success -> (response as Success<*>).data as kotlin.Any
+            ResponseType.Informational -> TODO()
+            ResponseType.Redirection -> TODO()
+            ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
+            ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
+        }
+    }
+
+    /**
+    * Connect User
+    * In order to call user-specific endpoints, you need to connect your app&#39;s users to spoonacular users.
+    * @param body  
+    * @return kotlin.Any
+    */
+    @Suppress("UNCHECKED_CAST")
+    fun connectUser(body: kotlin.Any) : kotlin.Any {
+        val localVariableBody: kotlin.Any? = body
+        val localVariableQuery: MultiValueMap = mapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        val localVariableConfig = RequestConfig(
+            RequestMethod.POST,
+            "/users/connect",
             query = localVariableQuery,
             headers = localVariableHeaders
         )
@@ -468,12 +565,12 @@ class DefaultApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiC
     * @param username The username. 
     * @param id The shopping list item id. 
     * @param hash The private hash for the username. 
-    * @param inlineObject10  
+    * @param inlineObject12  
     * @return kotlin.Any
     */
     @Suppress("UNCHECKED_CAST")
-    fun deleteFromMealPlan(username: kotlin.String, id: java.math.BigDecimal, hash: kotlin.String, inlineObject10: InlineObject10) : kotlin.Any {
-        val localVariableBody: kotlin.Any? = inlineObject10
+    fun deleteFromMealPlan(username: kotlin.String, id: java.math.BigDecimal, hash: kotlin.String, inlineObject12: InlineObject12) : kotlin.Any {
+        val localVariableBody: kotlin.Any? = inlineObject12
         val localVariableQuery: MultiValueMap = mapOf("hash" to listOf("$hash"))
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         val localVariableConfig = RequestConfig(
@@ -502,12 +599,12 @@ class DefaultApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiC
     * @param username The username. 
     * @param id The shopping list item id. 
     * @param hash The private hash for the username. 
-    * @param inlineObject13  
+    * @param inlineObject15  
     * @return kotlin.Any
     */
     @Suppress("UNCHECKED_CAST")
-    fun deleteFromShoppingList(username: kotlin.String, id: java.math.BigDecimal, hash: kotlin.String, inlineObject13: InlineObject13) : kotlin.Any {
-        val localVariableBody: kotlin.Any? = inlineObject13
+    fun deleteFromShoppingList(username: kotlin.String, id: java.math.BigDecimal, hash: kotlin.String, inlineObject15: InlineObject15) : kotlin.Any {
+        val localVariableBody: kotlin.Any? = inlineObject15
         val localVariableQuery: MultiValueMap = mapOf("hash" to listOf("$hash"))
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         val localVariableConfig = RequestConfig(
@@ -635,12 +732,12 @@ class DefaultApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiC
     * @param startMinusDate The start date in the format yyyy-mm-dd. 
     * @param endMinusDate The end date in the format yyyy-mm-dd. 
     * @param hash The private hash for the username. 
-    * @param inlineObject11  
+    * @param inlineObject13  
     * @return kotlin.Any
     */
     @Suppress("UNCHECKED_CAST")
-    fun generateShoppingList(username: kotlin.String, startMinusDate: kotlin.String, endMinusDate: kotlin.String, hash: kotlin.String, inlineObject11: InlineObject11) : kotlin.Any {
-        val localVariableBody: kotlin.Any? = inlineObject11
+    fun generateShoppingList(username: kotlin.String, startMinusDate: kotlin.String, endMinusDate: kotlin.String, hash: kotlin.String, inlineObject13: InlineObject13) : kotlin.Any {
+        val localVariableBody: kotlin.Any? = inlineObject13
         val localVariableQuery: MultiValueMap = mapOf("hash" to listOf("$hash"))
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         val localVariableConfig = RequestConfig(
@@ -1326,6 +1423,37 @@ class DefaultApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiC
     }
 
     /**
+    * Get Recipe Taste by ID
+    * Get a recipe&#39;s taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
+    * @param id The recipe id. 
+    * @return kotlin.Any
+    */
+    @Suppress("UNCHECKED_CAST")
+    fun getRecipeTasteByID(id: java.math.BigDecimal) : kotlin.Any {
+        val localVariableBody: kotlin.Any? = null
+        val localVariableQuery: MultiValueMap = mapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        val localVariableConfig = RequestConfig(
+            RequestMethod.GET,
+            "/recipes/{id}/tasteWidget.json".replace("{"+"id"+"}", "$id"),
+            query = localVariableQuery,
+            headers = localVariableHeaders
+        )
+        val response = request<kotlin.Any>(
+            localVariableConfig,
+            localVariableBody
+        )
+
+        return when (response.responseType) {
+            ResponseType.Success -> (response as Success<*>).data as kotlin.Any
+            ResponseType.Informational -> TODO()
+            ResponseType.Redirection -> TODO()
+            ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
+            ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
+        }
+    }
+
+    /**
     * Get Shopping List
     * Get the current shopping list for the given user.
     * @param username The username. 
@@ -1581,6 +1709,50 @@ class DefaultApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiC
     }
 
     /**
+    * Ingredient Search
+    * Search for simple whole foods (e.g. fruits, vegetables, nuts, grains, meat, fish, dairy etc.).
+    * @param query The partial or full ingredient name. 
+    * @param addChildren Whether to add children of found foods. (optional)
+    * @param minProteinPercent The minimum percentage of protein the food must have (between 0 and 100). (optional)
+    * @param maxProteinPercent The maximum percentage of protein the food can have (between 0 and 100). (optional)
+    * @param minFatPercent The minimum percentage of fat the food must have (between 0 and 100). (optional)
+    * @param maxFatPercent The maximum percentage of fat the food can have (between 0 and 100). (optional)
+    * @param minCarbsPercent The minimum percentage of carbs the food must have (between 0 and 100). (optional)
+    * @param maxCarbsPercent The maximum percentage of carbs the food can have (between 0 and 100). (optional)
+    * @param metaInformation Whether to return more meta information about the ingredients. (optional)
+    * @param intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
+    * @param sort The strategy to sort recipes by. See a full list of supported sorting options. (optional)
+    * @param sortDirection The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending). (optional)
+    * @param offset The number of results to skip (between 0 and 990). (optional)
+    * @param number The number of expected results (between 1 and 100). (optional)
+    * @return kotlin.Any
+    */
+    @Suppress("UNCHECKED_CAST")
+    fun ingredientSearch(query: kotlin.String, addChildren: kotlin.Boolean?, minProteinPercent: java.math.BigDecimal?, maxProteinPercent: java.math.BigDecimal?, minFatPercent: java.math.BigDecimal?, maxFatPercent: java.math.BigDecimal?, minCarbsPercent: java.math.BigDecimal?, maxCarbsPercent: java.math.BigDecimal?, metaInformation: kotlin.Boolean?, intolerances: kotlin.String?, sort: kotlin.String?, sortDirection: kotlin.String?, offset: java.math.BigDecimal?, number: java.math.BigDecimal?) : kotlin.Any {
+        val localVariableBody: kotlin.Any? = null
+        val localVariableQuery: MultiValueMap = mapOf("query" to listOf("$query"), "addChildren" to listOf("$addChildren"), "minProteinPercent" to listOf("$minProteinPercent"), "maxProteinPercent" to listOf("$maxProteinPercent"), "minFatPercent" to listOf("$minFatPercent"), "maxFatPercent" to listOf("$maxFatPercent"), "minCarbsPercent" to listOf("$minCarbsPercent"), "maxCarbsPercent" to listOf("$maxCarbsPercent"), "metaInformation" to listOf("$metaInformation"), "intolerances" to listOf("$intolerances"), "sort" to listOf("$sort"), "sortDirection" to listOf("$sortDirection"), "offset" to listOf("$offset"), "number" to listOf("$number"))
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        val localVariableConfig = RequestConfig(
+            RequestMethod.GET,
+            "/food/ingredients/search",
+            query = localVariableQuery,
+            headers = localVariableHeaders
+        )
+        val response = request<kotlin.Any>(
+            localVariableConfig,
+            localVariableBody
+        )
+
+        return when (response.responseType) {
+            ResponseType.Success -> (response as Success<*>).data as kotlin.Any
+            ResponseType.Informational -> TODO()
+            ResponseType.Redirection -> TODO()
+            ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
+            ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
+        }
+    }
+
+    /**
     * Map Ingredients to Grocery Products
     * Map a set of ingredients to products you can buy in the grocery store.
     * @param body  
@@ -1658,6 +1830,39 @@ class DefaultApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiC
         val localVariableConfig = RequestConfig(
             RequestMethod.GET,
             "/recipes/quickAnswer",
+            query = localVariableQuery,
+            headers = localVariableHeaders
+        )
+        val response = request<kotlin.Any>(
+            localVariableConfig,
+            localVariableBody
+        )
+
+        return when (response.responseType) {
+            ResponseType.Success -> (response as Success<*>).data as kotlin.Any
+            ResponseType.Informational -> TODO()
+            ResponseType.Redirection -> TODO()
+            ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
+            ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
+        }
+    }
+
+    /**
+    * Search All Food
+    * Search all food content with one call. That includes recipes, grocery products, menu items, simple foods (ingredients), and food videos.
+    * @param query The search query. 
+    * @param offset The number of results to skip (between 0 and 990). (optional)
+    * @param number The number of expected results (between 1 and 100). (optional)
+    * @return kotlin.Any
+    */
+    @Suppress("UNCHECKED_CAST")
+    fun searchAllFood(query: kotlin.String, offset: java.math.BigDecimal?, number: java.math.BigDecimal?) : kotlin.Any {
+        val localVariableBody: kotlin.Any? = null
+        val localVariableQuery: MultiValueMap = mapOf("query" to listOf("$query"), "offset" to listOf("$offset"), "number" to listOf("$number"))
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        val localVariableConfig = RequestConfig(
+            RequestMethod.GET,
+            "/food/search",
             query = localVariableQuery,
             headers = localVariableHeaders
         )
@@ -1865,26 +2070,113 @@ class DefaultApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiC
 
     /**
     * Search Recipes
-    * Our recipe API includes over 360,000 recipes as well as an open source recipe database. Consider using the \&quot;Search Recipes Complex\&quot; endpoint for much more flexibility.
+    * Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint.
     * @param query The (natural language) recipe search query. 
-    * @param cuisine The cuisine(s) of the recipes. One or more comma separated. See a full list of supported cuisines. (optional)
+    * @param cuisine The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as &#39;OR&#39;). See a full list of supported cuisines. (optional)
+    * @param excludeCuisine The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as &#39;AND&#39;). See a full list of supported cuisines. (optional)
     * @param diet The diet for which the recipes must be suitable. See a full list of supported diets. (optional)
+    * @param intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
+    * @param equipment The equipment required. Multiple values will be interpreted as &#39;or&#39;. For example, value could be \&quot;blender, frying pan, bowl\&quot;. (optional)
+    * @param includeIngredients A comma-separated list of ingredients that should/must be used in the recipes. (optional)
     * @param excludeIngredients A comma-separated list of ingredients or ingredient types that the recipes must not contain. (optional)
-    * @param intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. Please note: due to the automatic nature of the recipe analysis, the API cannot be 100% accurate in all cases. Please advise your users to seek professional help with medical issues. (optional)
-    * @param offset The number of results to skip (between 0 and 900). (optional)
-    * @param number The number of results to return (between 1 and 100). (optional)
-    * @param limitLicense Whether the recipes should have an open license that allows display with proper attribution. (optional)
+    * @param type The type of recipe. See a full list of supported meal types. (optional)
     * @param instructionsRequired Whether the recipes must have instructions. (optional)
+    * @param fillIngredients Add information about the ingredients and whether they are used or missing in relation to the query. (optional)
+    * @param addRecipeInformation If set to true, you get more information about the recipes returned. (optional)
+    * @param addRecipeNutrition If set to true, you get nutritional information about each recipes returned. (optional)
+    * @param author The username of the recipe author. (optional)
+    * @param tags User defined tags that have to match. The author param has to be set. (optional)
+    * @param recipeBoxId The id of the recipe box to which the search should be limited to. (optional)
+    * @param titleMatch Enter text that must be found in the title of the recipes. (optional)
+    * @param maxReadyTime The maximum time in minutes it should take to prepare and cook the recipe. (optional)
+    * @param ignorePantry Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional)
+    * @param sort The strategy to sort recipes by. See a full list of supported sorting options. (optional)
+    * @param sortDirection The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending). (optional)
+    * @param minCarbs The minimum amount of carbohydrates in grams the recipe must have. (optional)
+    * @param maxCarbs The maximum amount of carbohydrates in grams the recipe can have. (optional)
+    * @param minProtein The minimum amount of protein in grams the recipe must have. (optional)
+    * @param maxProtein The maximum amount of protein in grams the recipe can have. (optional)
+    * @param minCalories The minimum amount of calories the recipe must have. (optional)
+    * @param maxCalories The maximum amount of calories the recipe can have. (optional)
+    * @param minFat The minimum amount of fat in grams the recipe must have. (optional)
+    * @param maxFat The maximum amount of fat in grams the recipe can have. (optional)
+    * @param minAlcohol The minimum amount of alcohol in grams the recipe must have. (optional)
+    * @param maxAlcohol The maximum amount of alcohol in grams the recipe can have. (optional)
+    * @param minCaffeine The minimum amount of caffeine in milligrams the recipe must have. (optional)
+    * @param maxCaffeine The maximum amount of caffeine in milligrams the recipe can have. (optional)
+    * @param minCopper The minimum amount of copper in milligrams the recipe must have. (optional)
+    * @param maxCopper The maximum amount of copper in milligrams the recipe can have. (optional)
+    * @param minCalcium The minimum amount of calcium in milligrams the recipe must have. (optional)
+    * @param maxCalcium The maximum amount of calcium in milligrams the recipe can have. (optional)
+    * @param minCholine The minimum amount of choline in milligrams the recipe must have. (optional)
+    * @param maxCholine The maximum amount of choline in milligrams the recipe can have. (optional)
+    * @param minCholesterol The minimum amount of cholesterol in milligrams the recipe must have. (optional)
+    * @param maxCholesterol The maximum amount of cholesterol in milligrams the recipe can have. (optional)
+    * @param minFluoride The minimum amount of fluoride in milligrams the recipe must have. (optional)
+    * @param maxFluoride The maximum amount of fluoride in milligrams the recipe can have. (optional)
+    * @param minSaturatedFat The minimum amount of saturated fat in grams the recipe must have. (optional)
+    * @param maxSaturatedFat The maximum amount of saturated fat in grams the recipe can have. (optional)
+    * @param minVitaminA The minimum amount of Vitamin A in IU the recipe must have. (optional)
+    * @param maxVitaminA The maximum amount of Vitamin A in IU the recipe can have. (optional)
+    * @param minVitaminC The minimum amount of Vitamin C milligrams the recipe must have. (optional)
+    * @param maxVitaminC The maximum amount of Vitamin C in milligrams the recipe can have. (optional)
+    * @param minVitaminD The minimum amount of Vitamin D in micrograms the recipe must have. (optional)
+    * @param maxVitaminD The maximum amount of Vitamin D in micrograms the recipe can have. (optional)
+    * @param minVitaminE The minimum amount of Vitamin E in milligrams the recipe must have. (optional)
+    * @param maxVitaminE The maximum amount of Vitamin E in milligrams the recipe can have. (optional)
+    * @param minVitaminK The minimum amount of Vitamin K in micrograms the recipe must have. (optional)
+    * @param maxVitaminK The maximum amount of Vitamin K in micrograms the recipe can have. (optional)
+    * @param minVitaminB1 The minimum amount of Vitamin B1 in milligrams the recipe must have. (optional)
+    * @param maxVitaminB1 The maximum amount of Vitamin B1 in milligrams the recipe can have. (optional)
+    * @param minVitaminB2 The minimum amount of Vitamin B2 in milligrams the recipe must have. (optional)
+    * @param maxVitaminB2 The maximum amount of Vitamin B2 in milligrams the recipe can have. (optional)
+    * @param minVitaminB5 The minimum amount of Vitamin B5 in milligrams the recipe must have. (optional)
+    * @param maxVitaminB5 The maximum amount of Vitamin B5 in milligrams the recipe can have. (optional)
+    * @param minVitaminB3 The minimum amount of Vitamin B3 in milligrams the recipe must have. (optional)
+    * @param maxVitaminB3 The maximum amount of Vitamin B3 in milligrams the recipe can have. (optional)
+    * @param minVitaminB6 The minimum amount of Vitamin B6 in milligrams the recipe must have. (optional)
+    * @param maxVitaminB6 The maximum amount of Vitamin B6 in milligrams the recipe can have. (optional)
+    * @param minVitaminB12 The minimum amount of Vitamin B12 in micrograms the recipe must have. (optional)
+    * @param maxVitaminB12 The maximum amount of Vitamin B12 in micrograms the recipe can have. (optional)
+    * @param minFiber The minimum amount of fiber in grams the recipe must have. (optional)
+    * @param maxFiber The maximum amount of fiber in grams the recipe can have. (optional)
+    * @param minFolate The minimum amount of folate in micrograms the recipe must have. (optional)
+    * @param maxFolate The maximum amount of folate in micrograms the recipe can have. (optional)
+    * @param minFolicAcid The minimum amount of folic acid in micrograms the recipe must have. (optional)
+    * @param maxFolicAcid The maximum amount of folic acid in micrograms the recipe can have. (optional)
+    * @param minIodine The minimum amount of iodine in micrograms the recipe must have. (optional)
+    * @param maxIodine The maximum amount of iodine in micrograms the recipe can have. (optional)
+    * @param minIron The minimum amount of iron in milligrams the recipe must have. (optional)
+    * @param maxIron The maximum amount of iron in milligrams the recipe can have. (optional)
+    * @param minMagnesium The minimum amount of magnesium in milligrams the recipe must have. (optional)
+    * @param maxMagnesium The maximum amount of magnesium in milligrams the recipe can have. (optional)
+    * @param minManganese The minimum amount of manganese in milligrams the recipe must have. (optional)
+    * @param maxManganese The maximum amount of manganese in milligrams the recipe can have. (optional)
+    * @param minPhosphorus The minimum amount of phosphorus in milligrams the recipe must have. (optional)
+    * @param maxPhosphorus The maximum amount of phosphorus in milligrams the recipe can have. (optional)
+    * @param minPotassium The minimum amount of potassium in milligrams the recipe must have. (optional)
+    * @param maxPotassium The maximum amount of potassium in milligrams the recipe can have. (optional)
+    * @param minSelenium The minimum amount of selenium in micrograms the recipe must have. (optional)
+    * @param maxSelenium The maximum amount of selenium in micrograms the recipe can have. (optional)
+    * @param minSodium The minimum amount of sodium in milligrams the recipe must have. (optional)
+    * @param maxSodium The maximum amount of sodium in milligrams the recipe can have. (optional)
+    * @param minSugar The minimum amount of sugar in grams the recipe must have. (optional)
+    * @param maxSugar The maximum amount of sugar in grams the recipe can have. (optional)
+    * @param minZinc The minimum amount of zinc in milligrams the recipe must have. (optional)
+    * @param maxZinc The maximum amount of zinc in milligrams the recipe can have. (optional)
+    * @param offset The number of results to skip (between 0 and 900). (optional)
+    * @param number The number of expected results (between 1 and 100). (optional)
+    * @param limitLicense Whether the recipes should have an open license that allows display with proper attribution. (optional)
     * @return kotlin.Any
     */
     @Suppress("UNCHECKED_CAST")
-    fun searchRecipes(query: kotlin.String, cuisine: kotlin.String?, diet: kotlin.String?, excludeIngredients: kotlin.String?, intolerances: kotlin.String?, offset: java.math.BigDecimal?, number: java.math.BigDecimal?, limitLicense: kotlin.Boolean?, instructionsRequired: kotlin.Boolean?) : kotlin.Any {
+    fun searchRecipes(query: kotlin.String, cuisine: kotlin.String?, excludeCuisine: kotlin.String?, diet: kotlin.String?, intolerances: kotlin.String?, equipment: kotlin.String?, includeIngredients: kotlin.String?, excludeIngredients: kotlin.String?, type: kotlin.String?, instructionsRequired: kotlin.Boolean?, fillIngredients: kotlin.Boolean?, addRecipeInformation: kotlin.Boolean?, addRecipeNutrition: kotlin.Boolean?, author: kotlin.String?, tags: kotlin.String?, recipeBoxId: java.math.BigDecimal?, titleMatch: kotlin.String?, maxReadyTime: java.math.BigDecimal?, ignorePantry: kotlin.Boolean?, sort: kotlin.String?, sortDirection: kotlin.String?, minCarbs: java.math.BigDecimal?, maxCarbs: java.math.BigDecimal?, minProtein: java.math.BigDecimal?, maxProtein: java.math.BigDecimal?, minCalories: java.math.BigDecimal?, maxCalories: java.math.BigDecimal?, minFat: java.math.BigDecimal?, maxFat: java.math.BigDecimal?, minAlcohol: java.math.BigDecimal?, maxAlcohol: java.math.BigDecimal?, minCaffeine: java.math.BigDecimal?, maxCaffeine: java.math.BigDecimal?, minCopper: java.math.BigDecimal?, maxCopper: java.math.BigDecimal?, minCalcium: java.math.BigDecimal?, maxCalcium: java.math.BigDecimal?, minCholine: java.math.BigDecimal?, maxCholine: java.math.BigDecimal?, minCholesterol: java.math.BigDecimal?, maxCholesterol: java.math.BigDecimal?, minFluoride: java.math.BigDecimal?, maxFluoride: java.math.BigDecimal?, minSaturatedFat: java.math.BigDecimal?, maxSaturatedFat: java.math.BigDecimal?, minVitaminA: java.math.BigDecimal?, maxVitaminA: java.math.BigDecimal?, minVitaminC: java.math.BigDecimal?, maxVitaminC: java.math.BigDecimal?, minVitaminD: java.math.BigDecimal?, maxVitaminD: java.math.BigDecimal?, minVitaminE: java.math.BigDecimal?, maxVitaminE: java.math.BigDecimal?, minVitaminK: java.math.BigDecimal?, maxVitaminK: java.math.BigDecimal?, minVitaminB1: java.math.BigDecimal?, maxVitaminB1: java.math.BigDecimal?, minVitaminB2: java.math.BigDecimal?, maxVitaminB2: java.math.BigDecimal?, minVitaminB5: java.math.BigDecimal?, maxVitaminB5: java.math.BigDecimal?, minVitaminB3: java.math.BigDecimal?, maxVitaminB3: java.math.BigDecimal?, minVitaminB6: java.math.BigDecimal?, maxVitaminB6: java.math.BigDecimal?, minVitaminB12: java.math.BigDecimal?, maxVitaminB12: java.math.BigDecimal?, minFiber: java.math.BigDecimal?, maxFiber: java.math.BigDecimal?, minFolate: java.math.BigDecimal?, maxFolate: java.math.BigDecimal?, minFolicAcid: java.math.BigDecimal?, maxFolicAcid: java.math.BigDecimal?, minIodine: java.math.BigDecimal?, maxIodine: java.math.BigDecimal?, minIron: java.math.BigDecimal?, maxIron: java.math.BigDecimal?, minMagnesium: java.math.BigDecimal?, maxMagnesium: java.math.BigDecimal?, minManganese: java.math.BigDecimal?, maxManganese: java.math.BigDecimal?, minPhosphorus: java.math.BigDecimal?, maxPhosphorus: java.math.BigDecimal?, minPotassium: java.math.BigDecimal?, maxPotassium: java.math.BigDecimal?, minSelenium: java.math.BigDecimal?, maxSelenium: java.math.BigDecimal?, minSodium: java.math.BigDecimal?, maxSodium: java.math.BigDecimal?, minSugar: java.math.BigDecimal?, maxSugar: java.math.BigDecimal?, minZinc: java.math.BigDecimal?, maxZinc: java.math.BigDecimal?, offset: java.math.BigDecimal?, number: java.math.BigDecimal?, limitLicense: kotlin.Boolean?) : kotlin.Any {
         val localVariableBody: kotlin.Any? = null
-        val localVariableQuery: MultiValueMap = mapOf("query" to listOf("$query"), "cuisine" to listOf("$cuisine"), "diet" to listOf("$diet"), "excludeIngredients" to listOf("$excludeIngredients"), "intolerances" to listOf("$intolerances"), "offset" to listOf("$offset"), "number" to listOf("$number"), "limitLicense" to listOf("$limitLicense"), "instructionsRequired" to listOf("$instructionsRequired"))
+        val localVariableQuery: MultiValueMap = mapOf("query" to listOf("$query"), "cuisine" to listOf("$cuisine"), "excludeCuisine" to listOf("$excludeCuisine"), "diet" to listOf("$diet"), "intolerances" to listOf("$intolerances"), "equipment" to listOf("$equipment"), "includeIngredients" to listOf("$includeIngredients"), "excludeIngredients" to listOf("$excludeIngredients"), "type" to listOf("$type"), "instructionsRequired" to listOf("$instructionsRequired"), "fillIngredients" to listOf("$fillIngredients"), "addRecipeInformation" to listOf("$addRecipeInformation"), "addRecipeNutrition" to listOf("$addRecipeNutrition"), "author" to listOf("$author"), "tags" to listOf("$tags"), "recipeBoxId" to listOf("$recipeBoxId"), "titleMatch" to listOf("$titleMatch"), "maxReadyTime" to listOf("$maxReadyTime"), "ignorePantry" to listOf("$ignorePantry"), "sort" to listOf("$sort"), "sortDirection" to listOf("$sortDirection"), "minCarbs" to listOf("$minCarbs"), "maxCarbs" to listOf("$maxCarbs"), "minProtein" to listOf("$minProtein"), "maxProtein" to listOf("$maxProtein"), "minCalories" to listOf("$minCalories"), "maxCalories" to listOf("$maxCalories"), "minFat" to listOf("$minFat"), "maxFat" to listOf("$maxFat"), "minAlcohol" to listOf("$minAlcohol"), "maxAlcohol" to listOf("$maxAlcohol"), "minCaffeine" to listOf("$minCaffeine"), "maxCaffeine" to listOf("$maxCaffeine"), "minCopper" to listOf("$minCopper"), "maxCopper" to listOf("$maxCopper"), "minCalcium" to listOf("$minCalcium"), "maxCalcium" to listOf("$maxCalcium"), "minCholine" to listOf("$minCholine"), "maxCholine" to listOf("$maxCholine"), "minCholesterol" to listOf("$minCholesterol"), "maxCholesterol" to listOf("$maxCholesterol"), "minFluoride" to listOf("$minFluoride"), "maxFluoride" to listOf("$maxFluoride"), "minSaturatedFat" to listOf("$minSaturatedFat"), "maxSaturatedFat" to listOf("$maxSaturatedFat"), "minVitaminA" to listOf("$minVitaminA"), "maxVitaminA" to listOf("$maxVitaminA"), "minVitaminC" to listOf("$minVitaminC"), "maxVitaminC" to listOf("$maxVitaminC"), "minVitaminD" to listOf("$minVitaminD"), "maxVitaminD" to listOf("$maxVitaminD"), "minVitaminE" to listOf("$minVitaminE"), "maxVitaminE" to listOf("$maxVitaminE"), "minVitaminK" to listOf("$minVitaminK"), "maxVitaminK" to listOf("$maxVitaminK"), "minVitaminB1" to listOf("$minVitaminB1"), "maxVitaminB1" to listOf("$maxVitaminB1"), "minVitaminB2" to listOf("$minVitaminB2"), "maxVitaminB2" to listOf("$maxVitaminB2"), "minVitaminB5" to listOf("$minVitaminB5"), "maxVitaminB5" to listOf("$maxVitaminB5"), "minVitaminB3" to listOf("$minVitaminB3"), "maxVitaminB3" to listOf("$maxVitaminB3"), "minVitaminB6" to listOf("$minVitaminB6"), "maxVitaminB6" to listOf("$maxVitaminB6"), "minVitaminB12" to listOf("$minVitaminB12"), "maxVitaminB12" to listOf("$maxVitaminB12"), "minFiber" to listOf("$minFiber"), "maxFiber" to listOf("$maxFiber"), "minFolate" to listOf("$minFolate"), "maxFolate" to listOf("$maxFolate"), "minFolicAcid" to listOf("$minFolicAcid"), "maxFolicAcid" to listOf("$maxFolicAcid"), "minIodine" to listOf("$minIodine"), "maxIodine" to listOf("$maxIodine"), "minIron" to listOf("$minIron"), "maxIron" to listOf("$maxIron"), "minMagnesium" to listOf("$minMagnesium"), "maxMagnesium" to listOf("$maxMagnesium"), "minManganese" to listOf("$minManganese"), "maxManganese" to listOf("$maxManganese"), "minPhosphorus" to listOf("$minPhosphorus"), "maxPhosphorus" to listOf("$maxPhosphorus"), "minPotassium" to listOf("$minPotassium"), "maxPotassium" to listOf("$maxPotassium"), "minSelenium" to listOf("$minSelenium"), "maxSelenium" to listOf("$maxSelenium"), "minSodium" to listOf("$minSodium"), "maxSodium" to listOf("$maxSodium"), "minSugar" to listOf("$minSugar"), "maxSugar" to listOf("$maxSugar"), "minZinc" to listOf("$minZinc"), "maxZinc" to listOf("$maxZinc"), "offset" to listOf("$offset"), "number" to listOf("$number"), "limitLicense" to listOf("$limitLicense"))
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         val localVariableConfig = RequestConfig(
             RequestMethod.GET,
-            "/recipes/search",
+            "/recipes/complexSearch",
             query = localVariableQuery,
             headers = localVariableHeaders
         )
@@ -1988,12 +2280,12 @@ class DefaultApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiC
     * @param maxVitaminB12 The maximum amount of Vitamin B12 in micrograms the recipe can have. (optional)
     * @param minFiber The minimum amount of fiber in grams the recipe must have. (optional)
     * @param maxFiber The maximum amount of fiber in grams the recipe can have. (optional)
-    * @param minFolate The minimum amount of folate in grams the recipe must have. (optional)
-    * @param maxFolate The maximum amount of folate in grams the recipe can have. (optional)
-    * @param minFolicAcid The minimum amount of folic acid in grams the recipe must have. (optional)
-    * @param maxFolicAcid The maximum amount of folic acid in grams the recipe can have. (optional)
-    * @param minIodine The minimum amount of iodine in grams the recipe must have. (optional)
-    * @param maxIodine The maximum amount of iodine in grams the recipe can have. (optional)
+    * @param minFolate The minimum amount of folate in micrograms the recipe must have. (optional)
+    * @param maxFolate The maximum amount of folate in micrograms the recipe can have. (optional)
+    * @param minFolicAcid The minimum amount of folic acid in micrograms the recipe must have. (optional)
+    * @param maxFolicAcid The maximum amount of folic acid in micrograms the recipe can have. (optional)
+    * @param minIodine The minimum amount of iodine in micrograms the recipe must have. (optional)
+    * @param maxIodine The maximum amount of iodine in micrograms the recipe can have. (optional)
     * @param minIron The minimum amount of iron in milligrams the recipe must have. (optional)
     * @param maxIron The maximum amount of iron in milligrams the recipe can have. (optional)
     * @param minMagnesium The minimum amount of magnesium in milligrams the recipe must have. (optional)
@@ -2004,8 +2296,8 @@ class DefaultApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiC
     * @param maxPhosphorus The maximum amount of phosphorus in milligrams the recipe can have. (optional)
     * @param minPotassium The minimum amount of potassium in milligrams the recipe must have. (optional)
     * @param maxPotassium The maximum amount of potassium in milligrams the recipe can have. (optional)
-    * @param minSelenium The minimum amount of selenium in grams the recipe must have. (optional)
-    * @param maxSelenium The maximum amount of selenium in grams the recipe can have. (optional)
+    * @param minSelenium The minimum amount of selenium in micrograms the recipe must have. (optional)
+    * @param maxSelenium The maximum amount of selenium in micrograms the recipe can have. (optional)
     * @param minSodium The minimum amount of sodium in milligrams the recipe must have. (optional)
     * @param maxSodium The maximum amount of sodium in milligrams the recipe can have. (optional)
     * @param minSugar The minimum amount of sugar in grams the recipe must have. (optional)
@@ -2026,132 +2318,6 @@ class DefaultApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiC
         val localVariableConfig = RequestConfig(
             RequestMethod.GET,
             "/recipes/findByNutrients",
-            query = localVariableQuery,
-            headers = localVariableHeaders
-        )
-        val response = request<kotlin.Any>(
-            localVariableConfig,
-            localVariableBody
-        )
-
-        return when (response.responseType) {
-            ResponseType.Success -> (response as Success<*>).data as kotlin.Any
-            ResponseType.Informational -> TODO()
-            ResponseType.Redirection -> TODO()
-            ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
-            ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
-        }
-    }
-
-    /**
-    * Search Recipes Complex
-    * Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint.
-    * @param query The (natural language) recipe search query. 
-    * @param cuisine The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as &#39;OR&#39;). See a full list of supported cuisines. (optional)
-    * @param excludeCuisine The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as &#39;AND&#39;). See a full list of supported cuisines. (optional)
-    * @param diet The diet for which the recipes must be suitable. See a full list of supported diets. (optional)
-    * @param intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
-    * @param equipment The equipment required. Multiple values will be interpreted as &#39;or&#39;. For example, value could be \&quot;blender, frying pan, bowl\&quot;. (optional)
-    * @param includeIngredients A comma-separated list of ingredients that should/must be used in the recipes. (optional)
-    * @param excludeIngredients A comma-separated list of ingredients or ingredient types that the recipes must not contain. (optional)
-    * @param type The type of recipe. See a full list of supported meal types. (optional)
-    * @param instructionsRequired Whether the recipes must have instructions. (optional)
-    * @param fillIngredients Add information about the ingredients and whether they are used or missing in relation to the query. (optional)
-    * @param addRecipeInformation If set to true, you get more information about the recipes returned. (optional)
-    * @param addRecipeNutrition If set to true, you get nutritional information about each recipes returned. (optional)
-    * @param author The username of the recipe author. (optional)
-    * @param tags User defined tags that have to match. The author param has to be set. (optional)
-    * @param recipeBoxId The id of the recipe box to which the search should be limited to. (optional)
-    * @param titleMatch Enter text that must be found in the title of the recipes. (optional)
-    * @param maxReadyTime The maximum time in minutes it should take to prepare and cook the recipe. (optional)
-    * @param ignorePantry Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional)
-    * @param sort The strategy to sort recipes by. See a full list of supported sorting options. (optional)
-    * @param sortDirection The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending). (optional)
-    * @param minCarbs The minimum amount of carbohydrates in grams the recipe must have. (optional)
-    * @param maxCarbs The maximum amount of carbohydrates in grams the recipe can have. (optional)
-    * @param minProtein The minimum amount of protein in grams the recipe must have. (optional)
-    * @param maxProtein The maximum amount of protein in grams the recipe can have. (optional)
-    * @param minCalories The minimum amount of calories the recipe must have. (optional)
-    * @param maxCalories The maximum amount of calories the recipe can have. (optional)
-    * @param minFat The minimum amount of fat in grams the recipe must have. (optional)
-    * @param maxFat The maximum amount of fat in grams the recipe can have. (optional)
-    * @param minAlcohol The minimum amount of alcohol in grams the recipe must have. (optional)
-    * @param maxAlcohol The maximum amount of alcohol in grams the recipe can have. (optional)
-    * @param minCaffeine The minimum amount of caffeine in milligrams the recipe must have. (optional)
-    * @param maxCaffeine The maximum amount of caffeine in milligrams the recipe can have. (optional)
-    * @param minCopper The minimum amount of copper in milligrams the recipe must have. (optional)
-    * @param maxCopper The maximum amount of copper in milligrams the recipe can have. (optional)
-    * @param minCalcium The minimum amount of calcium in milligrams the recipe must have. (optional)
-    * @param maxCalcium The maximum amount of calcium in milligrams the recipe can have. (optional)
-    * @param minCholine The minimum amount of choline in milligrams the recipe must have. (optional)
-    * @param maxCholine The maximum amount of choline in milligrams the recipe can have. (optional)
-    * @param minCholesterol The minimum amount of cholesterol in milligrams the recipe must have. (optional)
-    * @param maxCholesterol The maximum amount of cholesterol in milligrams the recipe can have. (optional)
-    * @param minFluoride The minimum amount of fluoride in milligrams the recipe must have. (optional)
-    * @param maxFluoride The maximum amount of fluoride in milligrams the recipe can have. (optional)
-    * @param minSaturatedFat The minimum amount of saturated fat in grams the recipe must have. (optional)
-    * @param maxSaturatedFat The maximum amount of saturated fat in grams the recipe can have. (optional)
-    * @param minVitaminA The minimum amount of Vitamin A in IU the recipe must have. (optional)
-    * @param maxVitaminA The maximum amount of Vitamin A in IU the recipe can have. (optional)
-    * @param minVitaminC The minimum amount of Vitamin C milligrams the recipe must have. (optional)
-    * @param maxVitaminC The maximum amount of Vitamin C in milligrams the recipe can have. (optional)
-    * @param minVitaminD The minimum amount of Vitamin D in micrograms the recipe must have. (optional)
-    * @param maxVitaminD The maximum amount of Vitamin D in micrograms the recipe can have. (optional)
-    * @param minVitaminE The minimum amount of Vitamin E in milligrams the recipe must have. (optional)
-    * @param maxVitaminE The maximum amount of Vitamin E in milligrams the recipe can have. (optional)
-    * @param minVitaminK The minimum amount of Vitamin K in micrograms the recipe must have. (optional)
-    * @param maxVitaminK The maximum amount of Vitamin K in micrograms the recipe can have. (optional)
-    * @param minVitaminB1 The minimum amount of Vitamin B1 in milligrams the recipe must have. (optional)
-    * @param maxVitaminB1 The maximum amount of Vitamin B1 in milligrams the recipe can have. (optional)
-    * @param minVitaminB2 The minimum amount of Vitamin B2 in milligrams the recipe must have. (optional)
-    * @param maxVitaminB2 The maximum amount of Vitamin B2 in milligrams the recipe can have. (optional)
-    * @param minVitaminB5 The minimum amount of Vitamin B5 in milligrams the recipe must have. (optional)
-    * @param maxVitaminB5 The maximum amount of Vitamin B5 in milligrams the recipe can have. (optional)
-    * @param minVitaminB3 The minimum amount of Vitamin B3 in milligrams the recipe must have. (optional)
-    * @param maxVitaminB3 The maximum amount of Vitamin B3 in milligrams the recipe can have. (optional)
-    * @param minVitaminB6 The minimum amount of Vitamin B6 in milligrams the recipe must have. (optional)
-    * @param maxVitaminB6 The maximum amount of Vitamin B6 in milligrams the recipe can have. (optional)
-    * @param minVitaminB12 The minimum amount of Vitamin B12 in micrograms the recipe must have. (optional)
-    * @param maxVitaminB12 The maximum amount of Vitamin B12 in micrograms the recipe can have. (optional)
-    * @param minFiber The minimum amount of fiber in grams the recipe must have. (optional)
-    * @param maxFiber The maximum amount of fiber in grams the recipe can have. (optional)
-    * @param minFolate The minimum amount of folate in grams the recipe must have. (optional)
-    * @param maxFolate The maximum amount of folate in grams the recipe can have. (optional)
-    * @param minFolicAcid The minimum amount of folic acid in grams the recipe must have. (optional)
-    * @param maxFolicAcid The maximum amount of folic acid in grams the recipe can have. (optional)
-    * @param minIodine The minimum amount of iodine in grams the recipe must have. (optional)
-    * @param maxIodine The maximum amount of iodine in grams the recipe can have. (optional)
-    * @param minIron The minimum amount of iron in milligrams the recipe must have. (optional)
-    * @param maxIron The maximum amount of iron in milligrams the recipe can have. (optional)
-    * @param minMagnesium The minimum amount of magnesium in milligrams the recipe must have. (optional)
-    * @param maxMagnesium The maximum amount of magnesium in milligrams the recipe can have. (optional)
-    * @param minManganese The minimum amount of manganese in milligrams the recipe must have. (optional)
-    * @param maxManganese The maximum amount of manganese in milligrams the recipe can have. (optional)
-    * @param minPhosphorus The minimum amount of phosphorus in milligrams the recipe must have. (optional)
-    * @param maxPhosphorus The maximum amount of phosphorus in milligrams the recipe can have. (optional)
-    * @param minPotassium The minimum amount of potassium in milligrams the recipe must have. (optional)
-    * @param maxPotassium The maximum amount of potassium in milligrams the recipe can have. (optional)
-    * @param minSelenium The minimum amount of selenium in grams the recipe must have. (optional)
-    * @param maxSelenium The maximum amount of selenium in grams the recipe can have. (optional)
-    * @param minSodium The minimum amount of sodium in milligrams the recipe must have. (optional)
-    * @param maxSodium The maximum amount of sodium in milligrams the recipe can have. (optional)
-    * @param minSugar The minimum amount of sugar in grams the recipe must have. (optional)
-    * @param maxSugar The maximum amount of sugar in grams the recipe can have. (optional)
-    * @param minZinc The minimum amount of zinc in milligrams the recipe must have. (optional)
-    * @param maxZinc The maximum amount of zinc in milligrams the recipe can have. (optional)
-    * @param offset The number of results to skip (between 0 and 900). (optional)
-    * @param number The number of expected results (between 1 and 100). (optional)
-    * @param limitLicense Whether the recipes should have an open license that allows display with proper attribution. (optional)
-    * @return kotlin.Any
-    */
-    @Suppress("UNCHECKED_CAST")
-    fun searchRecipesComplex(query: kotlin.String, cuisine: kotlin.String?, excludeCuisine: kotlin.String?, diet: kotlin.String?, intolerances: kotlin.String?, equipment: kotlin.String?, includeIngredients: kotlin.String?, excludeIngredients: kotlin.String?, type: kotlin.String?, instructionsRequired: kotlin.Boolean?, fillIngredients: kotlin.Boolean?, addRecipeInformation: kotlin.Boolean?, addRecipeNutrition: kotlin.Boolean?, author: kotlin.String?, tags: kotlin.String?, recipeBoxId: java.math.BigDecimal?, titleMatch: kotlin.String?, maxReadyTime: java.math.BigDecimal?, ignorePantry: kotlin.Boolean?, sort: kotlin.String?, sortDirection: kotlin.String?, minCarbs: java.math.BigDecimal?, maxCarbs: java.math.BigDecimal?, minProtein: java.math.BigDecimal?, maxProtein: java.math.BigDecimal?, minCalories: java.math.BigDecimal?, maxCalories: java.math.BigDecimal?, minFat: java.math.BigDecimal?, maxFat: java.math.BigDecimal?, minAlcohol: java.math.BigDecimal?, maxAlcohol: java.math.BigDecimal?, minCaffeine: java.math.BigDecimal?, maxCaffeine: java.math.BigDecimal?, minCopper: java.math.BigDecimal?, maxCopper: java.math.BigDecimal?, minCalcium: java.math.BigDecimal?, maxCalcium: java.math.BigDecimal?, minCholine: java.math.BigDecimal?, maxCholine: java.math.BigDecimal?, minCholesterol: java.math.BigDecimal?, maxCholesterol: java.math.BigDecimal?, minFluoride: java.math.BigDecimal?, maxFluoride: java.math.BigDecimal?, minSaturatedFat: java.math.BigDecimal?, maxSaturatedFat: java.math.BigDecimal?, minVitaminA: java.math.BigDecimal?, maxVitaminA: java.math.BigDecimal?, minVitaminC: java.math.BigDecimal?, maxVitaminC: java.math.BigDecimal?, minVitaminD: java.math.BigDecimal?, maxVitaminD: java.math.BigDecimal?, minVitaminE: java.math.BigDecimal?, maxVitaminE: java.math.BigDecimal?, minVitaminK: java.math.BigDecimal?, maxVitaminK: java.math.BigDecimal?, minVitaminB1: java.math.BigDecimal?, maxVitaminB1: java.math.BigDecimal?, minVitaminB2: java.math.BigDecimal?, maxVitaminB2: java.math.BigDecimal?, minVitaminB5: java.math.BigDecimal?, maxVitaminB5: java.math.BigDecimal?, minVitaminB3: java.math.BigDecimal?, maxVitaminB3: java.math.BigDecimal?, minVitaminB6: java.math.BigDecimal?, maxVitaminB6: java.math.BigDecimal?, minVitaminB12: java.math.BigDecimal?, maxVitaminB12: java.math.BigDecimal?, minFiber: java.math.BigDecimal?, maxFiber: java.math.BigDecimal?, minFolate: java.math.BigDecimal?, maxFolate: java.math.BigDecimal?, minFolicAcid: java.math.BigDecimal?, maxFolicAcid: java.math.BigDecimal?, minIodine: java.math.BigDecimal?, maxIodine: java.math.BigDecimal?, minIron: java.math.BigDecimal?, maxIron: java.math.BigDecimal?, minMagnesium: java.math.BigDecimal?, maxMagnesium: java.math.BigDecimal?, minManganese: java.math.BigDecimal?, maxManganese: java.math.BigDecimal?, minPhosphorus: java.math.BigDecimal?, maxPhosphorus: java.math.BigDecimal?, minPotassium: java.math.BigDecimal?, maxPotassium: java.math.BigDecimal?, minSelenium: java.math.BigDecimal?, maxSelenium: java.math.BigDecimal?, minSodium: java.math.BigDecimal?, maxSodium: java.math.BigDecimal?, minSugar: java.math.BigDecimal?, maxSugar: java.math.BigDecimal?, minZinc: java.math.BigDecimal?, maxZinc: java.math.BigDecimal?, offset: java.math.BigDecimal?, number: java.math.BigDecimal?, limitLicense: kotlin.Boolean?) : kotlin.Any {
-        val localVariableBody: kotlin.Any? = null
-        val localVariableQuery: MultiValueMap = mapOf("query" to listOf("$query"), "cuisine" to listOf("$cuisine"), "excludeCuisine" to listOf("$excludeCuisine"), "diet" to listOf("$diet"), "intolerances" to listOf("$intolerances"), "equipment" to listOf("$equipment"), "includeIngredients" to listOf("$includeIngredients"), "excludeIngredients" to listOf("$excludeIngredients"), "type" to listOf("$type"), "instructionsRequired" to listOf("$instructionsRequired"), "fillIngredients" to listOf("$fillIngredients"), "addRecipeInformation" to listOf("$addRecipeInformation"), "addRecipeNutrition" to listOf("$addRecipeNutrition"), "author" to listOf("$author"), "tags" to listOf("$tags"), "recipeBoxId" to listOf("$recipeBoxId"), "titleMatch" to listOf("$titleMatch"), "maxReadyTime" to listOf("$maxReadyTime"), "ignorePantry" to listOf("$ignorePantry"), "sort" to listOf("$sort"), "sortDirection" to listOf("$sortDirection"), "minCarbs" to listOf("$minCarbs"), "maxCarbs" to listOf("$maxCarbs"), "minProtein" to listOf("$minProtein"), "maxProtein" to listOf("$maxProtein"), "minCalories" to listOf("$minCalories"), "maxCalories" to listOf("$maxCalories"), "minFat" to listOf("$minFat"), "maxFat" to listOf("$maxFat"), "minAlcohol" to listOf("$minAlcohol"), "maxAlcohol" to listOf("$maxAlcohol"), "minCaffeine" to listOf("$minCaffeine"), "maxCaffeine" to listOf("$maxCaffeine"), "minCopper" to listOf("$minCopper"), "maxCopper" to listOf("$maxCopper"), "minCalcium" to listOf("$minCalcium"), "maxCalcium" to listOf("$maxCalcium"), "minCholine" to listOf("$minCholine"), "maxCholine" to listOf("$maxCholine"), "minCholesterol" to listOf("$minCholesterol"), "maxCholesterol" to listOf("$maxCholesterol"), "minFluoride" to listOf("$minFluoride"), "maxFluoride" to listOf("$maxFluoride"), "minSaturatedFat" to listOf("$minSaturatedFat"), "maxSaturatedFat" to listOf("$maxSaturatedFat"), "minVitaminA" to listOf("$minVitaminA"), "maxVitaminA" to listOf("$maxVitaminA"), "minVitaminC" to listOf("$minVitaminC"), "maxVitaminC" to listOf("$maxVitaminC"), "minVitaminD" to listOf("$minVitaminD"), "maxVitaminD" to listOf("$maxVitaminD"), "minVitaminE" to listOf("$minVitaminE"), "maxVitaminE" to listOf("$maxVitaminE"), "minVitaminK" to listOf("$minVitaminK"), "maxVitaminK" to listOf("$maxVitaminK"), "minVitaminB1" to listOf("$minVitaminB1"), "maxVitaminB1" to listOf("$maxVitaminB1"), "minVitaminB2" to listOf("$minVitaminB2"), "maxVitaminB2" to listOf("$maxVitaminB2"), "minVitaminB5" to listOf("$minVitaminB5"), "maxVitaminB5" to listOf("$maxVitaminB5"), "minVitaminB3" to listOf("$minVitaminB3"), "maxVitaminB3" to listOf("$maxVitaminB3"), "minVitaminB6" to listOf("$minVitaminB6"), "maxVitaminB6" to listOf("$maxVitaminB6"), "minVitaminB12" to listOf("$minVitaminB12"), "maxVitaminB12" to listOf("$maxVitaminB12"), "minFiber" to listOf("$minFiber"), "maxFiber" to listOf("$maxFiber"), "minFolate" to listOf("$minFolate"), "maxFolate" to listOf("$maxFolate"), "minFolicAcid" to listOf("$minFolicAcid"), "maxFolicAcid" to listOf("$maxFolicAcid"), "minIodine" to listOf("$minIodine"), "maxIodine" to listOf("$maxIodine"), "minIron" to listOf("$minIron"), "maxIron" to listOf("$maxIron"), "minMagnesium" to listOf("$minMagnesium"), "maxMagnesium" to listOf("$maxMagnesium"), "minManganese" to listOf("$minManganese"), "maxManganese" to listOf("$maxManganese"), "minPhosphorus" to listOf("$minPhosphorus"), "maxPhosphorus" to listOf("$maxPhosphorus"), "minPotassium" to listOf("$minPotassium"), "maxPotassium" to listOf("$maxPotassium"), "minSelenium" to listOf("$minSelenium"), "maxSelenium" to listOf("$maxSelenium"), "minSodium" to listOf("$minSodium"), "maxSodium" to listOf("$maxSodium"), "minSugar" to listOf("$minSugar"), "maxSugar" to listOf("$maxSugar"), "minZinc" to listOf("$minZinc"), "maxZinc" to listOf("$maxZinc"), "offset" to listOf("$offset"), "number" to listOf("$number"), "limitLicense" to listOf("$limitLicense"))
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        val localVariableConfig = RequestConfig(
-            RequestMethod.GET,
-            "/recipes/complexSearch",
             query = localVariableQuery,
             headers = localVariableHeaders
         )
@@ -2265,17 +2431,16 @@ class DefaultApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiC
 
     /**
     * Visualize Equipment
-    * Visualize the equipment used to make a recipe.
-    * @param ingredientList The ingredient list of the recipe, one ingredient per line. 
-    * @param servings The number of servings. 
+    * Visualize the equipment used to make a recipe. You can play around with that endpoint!
+    * @param instructions The recipe&#39;s instructions. 
     * @param view How to visualize the equipment, either \\\&quot;grid\\\&quot; or \\\&quot;list\\\&quot;. (optional)
     * @param defaultCss Whether the default CSS should be added to the response. (optional)
     * @param showBacklink Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)
     * @return kotlin.String
     */
     @Suppress("UNCHECKED_CAST")
-    fun visualizeEquipment(ingredientList: kotlin.String, servings: java.math.BigDecimal, view: kotlin.String?, defaultCss: kotlin.Boolean?, showBacklink: kotlin.Boolean?) : kotlin.String {
-        val localVariableBody: kotlin.Any? = mapOf("ingredientList" to "$ingredientList", "servings" to "$servings", "view" to "$view", "defaultCss" to "$defaultCss", "showBacklink" to "$showBacklink")
+    fun visualizeEquipment(instructions: kotlin.String, view: kotlin.String?, defaultCss: kotlin.Boolean?, showBacklink: kotlin.Boolean?) : kotlin.String {
+        val localVariableBody: kotlin.Any? = mapOf("instructions" to "$instructions", "view" to "$view", "defaultCss" to "$defaultCss", "showBacklink" to "$showBacklink")
         val localVariableQuery: MultiValueMap = mapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf("Content-Type" to "")
         val localVariableConfig = RequestConfig(
@@ -2300,7 +2465,7 @@ class DefaultApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiC
 
     /**
     * Visualize Ingredients
-    * Visualize ingredients of a recipe.
+    * Visualize ingredients of a recipe. You can play around with that endpoint!
     * @param ingredientList The ingredient list of the recipe, one ingredient per line. 
     * @param servings The number of servings. 
     * @param measure The original system of measurement, either \\\&quot;metric\\\&quot; or \\\&quot;us\\\&quot;. (optional)
@@ -2368,7 +2533,7 @@ class DefaultApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiC
 
     /**
     * Visualize Price Breakdown
-    * Visualize the price breakdown of a recipe.
+    * Visualize the price breakdown of a recipe. You can play around with that endpoint!
     * @param ingredientList The ingredient list of the recipe, one ingredient per line. 
     * @param servings The number of servings. 
     * @param mode The mode in which the widget should be delivered. 1 &#x3D; separate views (compact), 2 &#x3D; all in one view (full). (optional)
@@ -2499,7 +2664,7 @@ class DefaultApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiC
 
     /**
     * Visualize Recipe Nutrition
-    * Visualize a recipe&#39;s nutritional information as HTML including CSS
+    * Visualize a recipe&#39;s nutritional information as HTML including CSS. You can play around with that endpoint!
     * @param ingredientList The ingredient list of the recipe, one ingredient per line. 
     * @param servings The number of servings. 
     * @param defaultCss Whether the default CSS should be added to the response. (optional)
@@ -2578,6 +2743,68 @@ class DefaultApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiC
         val localVariableConfig = RequestConfig(
             RequestMethod.GET,
             "/recipes/{id}/priceBreakdownWidget".replace("{"+"id"+"}", "$id"),
+            query = localVariableQuery,
+            headers = localVariableHeaders
+        )
+        val response = request<kotlin.String>(
+            localVariableConfig,
+            localVariableBody
+        )
+
+        return when (response.responseType) {
+            ResponseType.Success -> (response as Success<*>).data as kotlin.String
+            ResponseType.Informational -> TODO()
+            ResponseType.Redirection -> TODO()
+            ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
+            ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
+        }
+    }
+
+    /**
+    * Visualize Recipe Taste
+    * Visualize a recipe&#39;s taste information as HTML including CSS. You can play around with that endpoint!
+    * @param ingredientList The ingredient list of the recipe, one ingredient per line. 
+    * @return kotlin.String
+    */
+    @Suppress("UNCHECKED_CAST")
+    fun visualizeRecipeTaste(ingredientList: kotlin.String) : kotlin.String {
+        val localVariableBody: kotlin.Any? = mapOf("ingredientList" to "$ingredientList")
+        val localVariableQuery: MultiValueMap = mapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf("Content-Type" to "")
+        val localVariableConfig = RequestConfig(
+            RequestMethod.POST,
+            "/recipes/visualizeTaste",
+            query = localVariableQuery,
+            headers = localVariableHeaders
+        )
+        val response = request<kotlin.String>(
+            localVariableConfig,
+            localVariableBody
+        )
+
+        return when (response.responseType) {
+            ResponseType.Success -> (response as Success<*>).data as kotlin.String
+            ResponseType.Informational -> TODO()
+            ResponseType.Redirection -> TODO()
+            ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
+            ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
+        }
+    }
+
+    /**
+    * Visualize Recipe Taste by ID
+    * Get a recipe&#39;s taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
+    * @param id The recipe id. 
+    * @return kotlin.String
+    */
+    @Suppress("UNCHECKED_CAST")
+    fun visualizeRecipeTasteByID(id: java.math.BigDecimal) : kotlin.String {
+        val localVariableBody: kotlin.Any? = null
+        val localVariableQuery: MultiValueMap = mapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        val localVariableConfig = RequestConfig(
+            RequestMethod.GET,
+            "/recipes/{id}/tasteWidget".replace("{"+"id"+"}", "$id"),
             query = localVariableQuery,
             headers = localVariableHeaders
         )

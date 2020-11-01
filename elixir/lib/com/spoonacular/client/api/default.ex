@@ -20,20 +20,20 @@ defmodule com.spoonacular.client.Api.Default do
   - connection (com.spoonacular.client.Connection): Connection to server
   - username (String.t): The username.
   - hash (String.t): The private hash for the username.
-  - inline_object9 (InlineObject9): 
+  - inline_object11 (InlineObject11): 
   - opts (KeywordList): [optional] Optional parameters
   ## Returns
 
   {:ok, %com.spoonacular.client.Model.Map{}} on success
   {:error, info} on failure
   """
-  @spec add_to_meal_plan(Tesla.Env.client, String.t, String.t, com.spoonacular.client.Model.InlineObject9.t, keyword()) :: {:ok, Map.t} | {:error, Tesla.Env.t}
-  def add_to_meal_plan(connection, username, hash, inline_object9, _opts \\ []) do
+  @spec add_to_meal_plan(Tesla.Env.client, String.t, String.t, com.spoonacular.client.Model.InlineObject11.t, keyword()) :: {:ok, Map.t} | {:error, Tesla.Env.t}
+  def add_to_meal_plan(connection, username, hash, inline_object11, _opts \\ []) do
     %{}
     |> method(:post)
     |> url("/mealplanner/#{username}/items")
     |> add_param(:query, :"hash", hash)
-    |> add_param(:body, :body, inline_object9)
+    |> add_param(:body, :body, inline_object11)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
@@ -53,20 +53,20 @@ defmodule com.spoonacular.client.Api.Default do
   - connection (com.spoonacular.client.Connection): Connection to server
   - username (String.t): The username.
   - hash (String.t): The private hash for the username.
-  - inline_object12 (InlineObject12): 
+  - inline_object14 (InlineObject14): 
   - opts (KeywordList): [optional] Optional parameters
   ## Returns
 
   {:ok, %com.spoonacular.client.Model.Map{}} on success
   {:error, info} on failure
   """
-  @spec add_to_shopping_list(Tesla.Env.client, String.t, String.t, com.spoonacular.client.Model.InlineObject12.t, keyword()) :: {:ok, Map.t} | {:error, Tesla.Env.t}
-  def add_to_shopping_list(connection, username, hash, inline_object12, _opts \\ []) do
+  @spec add_to_shopping_list(Tesla.Env.client, String.t, String.t, com.spoonacular.client.Model.InlineObject14.t, keyword()) :: {:ok, Map.t} | {:error, Tesla.Env.t}
+  def add_to_shopping_list(connection, username, hash, inline_object14, _opts \\ []) do
     %{}
     |> method(:post)
     |> url("/mealplanner/#{username}/shopping-list/items")
     |> add_param(:query, :"hash", hash)
-    |> add_param(:body, :body, inline_object12)
+    |> add_param(:body, :body, inline_object14)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
@@ -109,7 +109,7 @@ defmodule com.spoonacular.client.Api.Default do
 
   @doc """
   Analyze Recipe Instructions
-  Extract ingredients and equipment from the recipe's instructions.
+  This endpoint allows you to break down instructions into atomic steps. Furthermore, each step will contain the ingredients and equipment required. Additionally, all ingredients and equipment from the recipe's instructions will be extracted independently of the step they're used in.
 
   ## Parameters
 
@@ -148,7 +148,7 @@ defmodule com.spoonacular.client.Api.Default do
   - opts (KeywordList): [optional] Optional parameters
     - :number (float()): The number of results to return (between 1 and 100).
     - :meta_information (boolean()): Whether to return more meta information about the ingredients.
-    - :intolerances (boolean()): A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
+    - :intolerances (String.t): A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
   ## Returns
 
   {:ok, %com.spoonacular.client.Model.Map{}} on success
@@ -320,7 +320,7 @@ defmodule com.spoonacular.client.Api.Default do
   ## Parameters
 
   - connection (com.spoonacular.client.Connection): Connection to server
-  - inline_object8 (InlineObject8): 
+  - inline_object9 (InlineObject9): 
   - opts (KeywordList): [optional] Optional parameters
     - :locale (String.t): The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).
   ## Returns
@@ -328,15 +328,15 @@ defmodule com.spoonacular.client.Api.Default do
   {:ok, %com.spoonacular.client.Model.Map{}} on success
   {:error, info} on failure
   """
-  @spec classify_grocery_product(Tesla.Env.client, com.spoonacular.client.Model.InlineObject8.t, keyword()) :: {:ok, Map.t} | {:error, Tesla.Env.t}
-  def classify_grocery_product(connection, inline_object8, opts \\ []) do
+  @spec classify_grocery_product(Tesla.Env.client, com.spoonacular.client.Model.InlineObject9.t, keyword()) :: {:ok, Map.t} | {:error, Tesla.Env.t}
+  def classify_grocery_product(connection, inline_object9, opts \\ []) do
     optional_params = %{
       :"locale" => :query
     }
     %{}
     |> method(:post)
     |> url("/food/products/classify")
-    |> add_param(:body, :body, inline_object8)
+    |> add_param(:body, :body, inline_object9)
     |> add_optional_params(optional_params, opts)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
@@ -373,6 +373,100 @@ defmodule com.spoonacular.client.Api.Default do
     |> url("/food/products/classifyBatch")
     |> add_param(:body, :body, body)
     |> add_optional_params(optional_params, opts)
+    |> Enum.into([])
+    |> (&Connection.request(connection, &1)).()
+    |> evaluate_response([
+      { 200, false},
+      { 401, false},
+      { 403, false},
+      { 404, false}
+    ])
+  end
+
+  @doc """
+  Clear Meal Plan Day
+  Delete all planned items from the user's meal plan for a specific day.
+
+  ## Parameters
+
+  - connection (com.spoonacular.client.Connection): Connection to server
+  - username (String.t): The username.
+  - date (String.t): The date in the format yyyy-mm-dd.
+  - hash (String.t): The private hash for the username.
+  - inline_object10 (InlineObject10): 
+  - opts (KeywordList): [optional] Optional parameters
+  ## Returns
+
+  {:ok, %com.spoonacular.client.Model.Map{}} on success
+  {:error, info} on failure
+  """
+  @spec clear_meal_plan_day(Tesla.Env.client, String.t, String.t, String.t, com.spoonacular.client.Model.InlineObject10.t, keyword()) :: {:ok, Map.t} | {:error, Tesla.Env.t}
+  def clear_meal_plan_day(connection, username, date, hash, inline_object10, _opts \\ []) do
+    %{}
+    |> method(:delete)
+    |> url("/mealplanner/#{username}/day/#{date}")
+    |> add_param(:query, :"hash", hash)
+    |> add_param(:body, :body, inline_object10)
+    |> Enum.into([])
+    |> (&Connection.request(connection, &1)).()
+    |> evaluate_response([
+      { 200, false},
+      { 401, false},
+      { 403, false},
+      { 404, false}
+    ])
+  end
+
+  @doc """
+  Compute Glycemic Load
+  Retrieve the glycemic index for a list of ingredients and compute the individual and total glycemic load.
+
+  ## Parameters
+
+  - connection (com.spoonacular.client.Connection): Connection to server
+  - body (Map): 
+  - opts (KeywordList): [optional] Optional parameters
+  ## Returns
+
+  {:ok, %com.spoonacular.client.Model.Map{}} on success
+  {:error, info} on failure
+  """
+  @spec compute_glycemic_load(Tesla.Env.client, Map, keyword()) :: {:ok, Map.t} | {:error, Tesla.Env.t}
+  def compute_glycemic_load(connection, body, _opts \\ []) do
+    %{}
+    |> method(:post)
+    |> url("/food/ingredients/glycemicLoad")
+    |> add_param(:body, :body, body)
+    |> Enum.into([])
+    |> (&Connection.request(connection, &1)).()
+    |> evaluate_response([
+      { 200, false},
+      { 401, false},
+      { 403, false},
+      { 404, false}
+    ])
+  end
+
+  @doc """
+  Connect User
+  In order to call user-specific endpoints, you need to connect your app's users to spoonacular users.
+
+  ## Parameters
+
+  - connection (com.spoonacular.client.Connection): Connection to server
+  - body (Map): 
+  - opts (KeywordList): [optional] Optional parameters
+  ## Returns
+
+  {:ok, %com.spoonacular.client.Model.Map{}} on success
+  {:error, info} on failure
+  """
+  @spec connect_user(Tesla.Env.client, Map, keyword()) :: {:ok, Map.t} | {:error, Tesla.Env.t}
+  def connect_user(connection, body, _opts \\ []) do
+    %{}
+    |> method(:post)
+    |> url("/users/connect")
+    |> add_param(:body, :body, body)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
@@ -484,20 +578,20 @@ defmodule com.spoonacular.client.Api.Default do
   - username (String.t): The username.
   - id (float()): The shopping list item id.
   - hash (String.t): The private hash for the username.
-  - inline_object10 (InlineObject10): 
+  - inline_object12 (InlineObject12): 
   - opts (KeywordList): [optional] Optional parameters
   ## Returns
 
   {:ok, %com.spoonacular.client.Model.Map{}} on success
   {:error, info} on failure
   """
-  @spec delete_from_meal_plan(Tesla.Env.client, String.t, float(), String.t, com.spoonacular.client.Model.InlineObject10.t, keyword()) :: {:ok, Map.t} | {:error, Tesla.Env.t}
-  def delete_from_meal_plan(connection, username, id, hash, inline_object10, _opts \\ []) do
+  @spec delete_from_meal_plan(Tesla.Env.client, String.t, float(), String.t, com.spoonacular.client.Model.InlineObject12.t, keyword()) :: {:ok, Map.t} | {:error, Tesla.Env.t}
+  def delete_from_meal_plan(connection, username, id, hash, inline_object12, _opts \\ []) do
     %{}
     |> method(:delete)
     |> url("/mealplanner/#{username}/items/#{id}")
     |> add_param(:query, :"hash", hash)
-    |> add_param(:body, :body, inline_object10)
+    |> add_param(:body, :body, inline_object12)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
@@ -518,20 +612,20 @@ defmodule com.spoonacular.client.Api.Default do
   - username (String.t): The username.
   - id (float()): The shopping list item id.
   - hash (String.t): The private hash for the username.
-  - inline_object13 (InlineObject13): 
+  - inline_object15 (InlineObject15): 
   - opts (KeywordList): [optional] Optional parameters
   ## Returns
 
   {:ok, %com.spoonacular.client.Model.Map{}} on success
   {:error, info} on failure
   """
-  @spec delete_from_shopping_list(Tesla.Env.client, String.t, float(), String.t, com.spoonacular.client.Model.InlineObject13.t, keyword()) :: {:ok, Map.t} | {:error, Tesla.Env.t}
-  def delete_from_shopping_list(connection, username, id, hash, inline_object13, _opts \\ []) do
+  @spec delete_from_shopping_list(Tesla.Env.client, String.t, float(), String.t, com.spoonacular.client.Model.InlineObject15.t, keyword()) :: {:ok, Map.t} | {:error, Tesla.Env.t}
+  def delete_from_shopping_list(connection, username, id, hash, inline_object15, _opts \\ []) do
     %{}
     |> method(:delete)
     |> url("/mealplanner/#{username}/shopping-list/items/#{id}")
     |> add_param(:query, :"hash", hash)
-    |> add_param(:body, :body, inline_object13)
+    |> add_param(:body, :body, inline_object15)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
@@ -659,20 +753,20 @@ defmodule com.spoonacular.client.Api.Default do
   - start_date (String.t): The start date in the format yyyy-mm-dd.
   - end_date (String.t): The end date in the format yyyy-mm-dd.
   - hash (String.t): The private hash for the username.
-  - inline_object11 (InlineObject11): 
+  - inline_object13 (InlineObject13): 
   - opts (KeywordList): [optional] Optional parameters
   ## Returns
 
   {:ok, %com.spoonacular.client.Model.Map{}} on success
   {:error, info} on failure
   """
-  @spec generate_shopping_list(Tesla.Env.client, String.t, String.t, String.t, String.t, com.spoonacular.client.Model.InlineObject11.t, keyword()) :: {:ok, Map.t} | {:error, Tesla.Env.t}
-  def generate_shopping_list(connection, username, start_date, end_date, hash, inline_object11, _opts \\ []) do
+  @spec generate_shopping_list(Tesla.Env.client, String.t, String.t, String.t, String.t, com.spoonacular.client.Model.InlineObject13.t, keyword()) :: {:ok, Map.t} | {:error, Tesla.Env.t}
+  def generate_shopping_list(connection, username, start_date, end_date, hash, inline_object13, _opts \\ []) do
     %{}
     |> method(:post)
     |> url("/mealplanner/#{username}/shopping-list/#{start_date}/#{end_date}")
     |> add_param(:query, :"hash", hash)
-    |> add_param(:body, :body, inline_object11)
+    |> add_param(:body, :body, inline_object13)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
@@ -1338,6 +1432,35 @@ defmodule com.spoonacular.client.Api.Default do
   end
 
   @doc """
+  Get Recipe Taste by ID
+  Get a recipe's taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
+
+  ## Parameters
+
+  - connection (com.spoonacular.client.Connection): Connection to server
+  - id (float()): The recipe id.
+  - opts (KeywordList): [optional] Optional parameters
+  ## Returns
+
+  {:ok, %com.spoonacular.client.Model.Map{}} on success
+  {:error, info} on failure
+  """
+  @spec get_recipe_taste_by_id(Tesla.Env.client, float(), keyword()) :: {:ok, Map.t} | {:error, Tesla.Env.t}
+  def get_recipe_taste_by_id(connection, id, _opts \\ []) do
+    %{}
+    |> method(:get)
+    |> url("/recipes/#{id}/tasteWidget.json")
+    |> Enum.into([])
+    |> (&Connection.request(connection, &1)).()
+    |> evaluate_response([
+      { 200, false},
+      { 401, false},
+      { 403, false},
+      { 404, false}
+    ])
+  end
+
+  @doc """
   Get Shopping List
   Get the current shopping list for the given user.
 
@@ -1599,6 +1722,65 @@ defmodule com.spoonacular.client.Api.Default do
   end
 
   @doc """
+  Ingredient Search
+  Search for simple whole foods (e.g. fruits, vegetables, nuts, grains, meat, fish, dairy etc.).
+
+  ## Parameters
+
+  - connection (com.spoonacular.client.Connection): Connection to server
+  - query (String.t): The partial or full ingredient name.
+  - opts (KeywordList): [optional] Optional parameters
+    - :add_children (boolean()): Whether to add children of found foods.
+    - :min_protein_percent (float()): The minimum percentage of protein the food must have (between 0 and 100).
+    - :max_protein_percent (float()): The maximum percentage of protein the food can have (between 0 and 100).
+    - :min_fat_percent (float()): The minimum percentage of fat the food must have (between 0 and 100).
+    - :max_fat_percent (float()): The maximum percentage of fat the food can have (between 0 and 100).
+    - :min_carbs_percent (float()): The minimum percentage of carbs the food must have (between 0 and 100).
+    - :max_carbs_percent (float()): The maximum percentage of carbs the food can have (between 0 and 100).
+    - :meta_information (boolean()): Whether to return more meta information about the ingredients.
+    - :intolerances (String.t): A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
+    - :sort (String.t): The strategy to sort recipes by. See a full list of supported sorting options.
+    - :sort_direction (String.t): The direction in which to sort. Must be either 'asc' (ascending) or 'desc' (descending).
+    - :offset (float()): The number of results to skip (between 0 and 990).
+    - :number (float()): The number of expected results (between 1 and 100).
+  ## Returns
+
+  {:ok, %com.spoonacular.client.Model.Map{}} on success
+  {:error, info} on failure
+  """
+  @spec ingredient_search(Tesla.Env.client, String.t, keyword()) :: {:ok, Map.t} | {:error, Tesla.Env.t}
+  def ingredient_search(connection, query, opts \\ []) do
+    optional_params = %{
+      :"addChildren" => :query,
+      :"minProteinPercent" => :query,
+      :"maxProteinPercent" => :query,
+      :"minFatPercent" => :query,
+      :"maxFatPercent" => :query,
+      :"minCarbsPercent" => :query,
+      :"maxCarbsPercent" => :query,
+      :"metaInformation" => :query,
+      :"intolerances" => :query,
+      :"sort" => :query,
+      :"sortDirection" => :query,
+      :"offset" => :query,
+      :"number" => :query
+    }
+    %{}
+    |> method(:get)
+    |> url("/food/ingredients/search")
+    |> add_param(:query, :"query", query)
+    |> add_optional_params(optional_params, opts)
+    |> Enum.into([])
+    |> (&Connection.request(connection, &1)).()
+    |> evaluate_response([
+      { 200, false},
+      { 401, false},
+      { 403, false},
+      { 404, false}
+    ])
+  end
+
+  @doc """
   Map Ingredients to Grocery Products
   Map a set of ingredients to products you can buy in the grocery store.
 
@@ -1685,6 +1867,43 @@ defmodule com.spoonacular.client.Api.Default do
     |> method(:get)
     |> url("/recipes/quickAnswer")
     |> add_param(:query, :"q", q)
+    |> Enum.into([])
+    |> (&Connection.request(connection, &1)).()
+    |> evaluate_response([
+      { 200, false},
+      { 401, false},
+      { 403, false},
+      { 404, false}
+    ])
+  end
+
+  @doc """
+  Search All Food
+  Search all food content with one call. That includes recipes, grocery products, menu items, simple foods (ingredients), and food videos.
+
+  ## Parameters
+
+  - connection (com.spoonacular.client.Connection): Connection to server
+  - query (String.t): The search query.
+  - opts (KeywordList): [optional] Optional parameters
+    - :offset (float()): The number of results to skip (between 0 and 990).
+    - :number (float()): The number of expected results (between 1 and 100).
+  ## Returns
+
+  {:ok, %com.spoonacular.client.Model.Map{}} on success
+  {:error, info} on failure
+  """
+  @spec search_all_food(Tesla.Env.client, String.t, keyword()) :: {:ok, Map.t} | {:error, Tesla.Env.t}
+  def search_all_food(connection, query, opts \\ []) do
+    optional_params = %{
+      :"offset" => :query,
+      :"number" => :query
+    }
+    %{}
+    |> method(:get)
+    |> url("/food/search")
+    |> add_param(:query, :"query", query)
+    |> add_optional_params(optional_params, opts)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
@@ -1924,279 +2143,6 @@ defmodule com.spoonacular.client.Api.Default do
 
   @doc """
   Search Recipes
-  Our recipe API includes over 360,000 recipes as well as an open source recipe database. Consider using the \"Search Recipes Complex\" endpoint for much more flexibility.
-
-  ## Parameters
-
-  - connection (com.spoonacular.client.Connection): Connection to server
-  - query (String.t): The (natural language) recipe search query.
-  - opts (KeywordList): [optional] Optional parameters
-    - :cuisine (String.t): The cuisine(s) of the recipes. One or more comma separated. See a full list of supported cuisines.
-    - :diet (String.t): The diet for which the recipes must be suitable. See a full list of supported diets.
-    - :exclude_ingredients (String.t): A comma-separated list of ingredients or ingredient types that the recipes must not contain.
-    - :intolerances (String.t): A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. Please note: due to the automatic nature of the recipe analysis, the API cannot be 100% accurate in all cases. Please advise your users to seek professional help with medical issues.
-    - :offset (float()): The number of results to skip (between 0 and 900).
-    - :number (float()): The number of results to return (between 1 and 100).
-    - :limit_license (boolean()): Whether the recipes should have an open license that allows display with proper attribution.
-    - :instructions_required (boolean()): Whether the recipes must have instructions.
-  ## Returns
-
-  {:ok, %com.spoonacular.client.Model.Map{}} on success
-  {:error, info} on failure
-  """
-  @spec search_recipes(Tesla.Env.client, String.t, keyword()) :: {:ok, Map.t} | {:error, Tesla.Env.t}
-  def search_recipes(connection, query, opts \\ []) do
-    optional_params = %{
-      :"cuisine" => :query,
-      :"diet" => :query,
-      :"excludeIngredients" => :query,
-      :"intolerances" => :query,
-      :"offset" => :query,
-      :"number" => :query,
-      :"limitLicense" => :query,
-      :"instructionsRequired" => :query
-    }
-    %{}
-    |> method(:get)
-    |> url("/recipes/search")
-    |> add_param(:query, :"query", query)
-    |> add_optional_params(optional_params, opts)
-    |> Enum.into([])
-    |> (&Connection.request(connection, &1)).()
-    |> evaluate_response([
-      { 200, false},
-      { 401, false},
-      { 403, false},
-      { 404, false}
-    ])
-  end
-
-  @doc """
-  Search Recipes by Ingredients
-               Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don't currently have (post shopping).         
-
-  ## Parameters
-
-  - connection (com.spoonacular.client.Connection): Connection to server
-  - ingredients (String.t): A comma-separated list of ingredients that the recipes should contain.
-  - opts (KeywordList): [optional] Optional parameters
-    - :number (float()): The maximum number of recipes to return (between 1 and 100). Defaults to 10.
-    - :limit_license (boolean()): Whether the recipes should have an open license that allows display with proper attribution.
-    - :ranking (float()): Whether to maximize used ingredients (1) or minimize missing ingredients (2) first.
-    - :ignore_pantry (boolean()): Whether to ignore typical pantry items, such as water, salt, flour, etc.
-  ## Returns
-
-  {:ok, %com.spoonacular.client.Model.Map{}} on success
-  {:error, info} on failure
-  """
-  @spec search_recipes_by_ingredients(Tesla.Env.client, String.t, keyword()) :: {:ok, Map.t} | {:error, Tesla.Env.t}
-  def search_recipes_by_ingredients(connection, ingredients, opts \\ []) do
-    optional_params = %{
-      :"number" => :query,
-      :"limitLicense" => :query,
-      :"ranking" => :query,
-      :"ignorePantry" => :query
-    }
-    %{}
-    |> method(:get)
-    |> url("/recipes/findByIngredients")
-    |> add_param(:query, :"ingredients", ingredients)
-    |> add_optional_params(optional_params, opts)
-    |> Enum.into([])
-    |> (&Connection.request(connection, &1)).()
-    |> evaluate_response([
-      { 200, false},
-      { 401, false},
-      { 403, false},
-      { 404, false}
-    ])
-  end
-
-  @doc """
-  Search Recipes by Nutrients
-  Find a set of recipes that adhere to the given nutritional limits. You may set limits for macronutrients (calories, protein, fat, and carbohydrate) and/or many micronutrients.
-
-  ## Parameters
-
-  - connection (com.spoonacular.client.Connection): Connection to server
-  - opts (KeywordList): [optional] Optional parameters
-    - :min_carbs (float()): The minimum amount of carbohydrates in grams the recipe must have.
-    - :max_carbs (float()): The maximum amount of carbohydrates in grams the recipe can have.
-    - :min_protein (float()): The minimum amount of protein in grams the recipe must have.
-    - :max_protein (float()): The maximum amount of protein in grams the recipe can have.
-    - :min_calories (float()): The minimum amount of calories the recipe must have.
-    - :max_calories (float()): The maximum amount of calories the recipe can have.
-    - :min_fat (float()): The minimum amount of fat in grams the recipe must have.
-    - :max_fat (float()): The maximum amount of fat in grams the recipe can have.
-    - :min_alcohol (float()): The minimum amount of alcohol in grams the recipe must have.
-    - :max_alcohol (float()): The maximum amount of alcohol in grams the recipe can have.
-    - :min_caffeine (float()): The minimum amount of caffeine in milligrams the recipe must have.
-    - :max_caffeine (float()): The maximum amount of caffeine in milligrams the recipe can have.
-    - :min_copper (float()): The minimum amount of copper in milligrams the recipe must have.
-    - :max_copper (float()): The maximum amount of copper in milligrams the recipe can have.
-    - :min_calcium (float()): The minimum amount of calcium in milligrams the recipe must have.
-    - :max_calcium (float()): The maximum amount of calcium in milligrams the recipe can have.
-    - :min_choline (float()): The minimum amount of choline in milligrams the recipe must have.
-    - :max_choline (float()): The maximum amount of choline in milligrams the recipe can have.
-    - :min_cholesterol (float()): The minimum amount of cholesterol in milligrams the recipe must have.
-    - :max_cholesterol (float()): The maximum amount of cholesterol in milligrams the recipe can have.
-    - :min_fluoride (float()): The minimum amount of fluoride in milligrams the recipe must have.
-    - :max_fluoride (float()): The maximum amount of fluoride in milligrams the recipe can have.
-    - :min_saturated_fat (float()): The minimum amount of saturated fat in grams the recipe must have.
-    - :max_saturated_fat (float()): The maximum amount of saturated fat in grams the recipe can have.
-    - :min_vitamin_a (float()): The minimum amount of Vitamin A in IU the recipe must have.
-    - :max_vitamin_a (float()): The maximum amount of Vitamin A in IU the recipe can have.
-    - :min_vitamin_c (float()): The minimum amount of Vitamin C in milligrams the recipe must have.
-    - :max_vitamin_c (float()): The maximum amount of Vitamin C in milligrams the recipe can have.
-    - :min_vitamin_d (float()): The minimum amount of Vitamin D in micrograms the recipe must have.
-    - :max_vitamin_d (float()): The maximum amount of Vitamin D in micrograms the recipe can have.
-    - :min_vitamin_e (float()): The minimum amount of Vitamin E in milligrams the recipe must have.
-    - :max_vitamin_e (float()): The maximum amount of Vitamin E in milligrams the recipe can have.
-    - :min_vitamin_k (float()): The minimum amount of Vitamin K in micrograms the recipe must have.
-    - :max_vitamin_k (float()): The maximum amount of Vitamin K in micrograms the recipe can have.
-    - :min_vitamin_b1 (float()): The minimum amount of Vitamin B1 in milligrams the recipe must have.
-    - :max_vitamin_b1 (float()): The maximum amount of Vitamin B1 in milligrams the recipe can have.
-    - :min_vitamin_b2 (float()): The minimum amount of Vitamin B2 in milligrams the recipe must have.
-    - :max_vitamin_b2 (float()): The maximum amount of Vitamin B2 in milligrams the recipe can have.
-    - :min_vitamin_b5 (float()): The minimum amount of Vitamin B5 in milligrams the recipe must have.
-    - :max_vitamin_b5 (float()): The maximum amount of Vitamin B5 in milligrams the recipe can have.
-    - :min_vitamin_b3 (float()): The minimum amount of Vitamin B3 in milligrams the recipe must have.
-    - :max_vitamin_b3 (float()): The maximum amount of Vitamin B3 in milligrams the recipe can have.
-    - :min_vitamin_b6 (float()): The minimum amount of Vitamin B6 in milligrams the recipe must have.
-    - :max_vitamin_b6 (float()): The maximum amount of Vitamin B6 in milligrams the recipe can have.
-    - :min_vitamin_b12 (float()): The minimum amount of Vitamin B12 in micrograms the recipe must have.
-    - :max_vitamin_b12 (float()): The maximum amount of Vitamin B12 in micrograms the recipe can have.
-    - :min_fiber (float()): The minimum amount of fiber in grams the recipe must have.
-    - :max_fiber (float()): The maximum amount of fiber in grams the recipe can have.
-    - :min_folate (float()): The minimum amount of folate in grams the recipe must have.
-    - :max_folate (float()): The maximum amount of folate in grams the recipe can have.
-    - :min_folic_acid (float()): The minimum amount of folic acid in grams the recipe must have.
-    - :max_folic_acid (float()): The maximum amount of folic acid in grams the recipe can have.
-    - :min_iodine (float()): The minimum amount of iodine in grams the recipe must have.
-    - :max_iodine (float()): The maximum amount of iodine in grams the recipe can have.
-    - :min_iron (float()): The minimum amount of iron in milligrams the recipe must have.
-    - :max_iron (float()): The maximum amount of iron in milligrams the recipe can have.
-    - :min_magnesium (float()): The minimum amount of magnesium in milligrams the recipe must have.
-    - :max_magnesium (float()): The maximum amount of magnesium in milligrams the recipe can have.
-    - :min_manganese (float()): The minimum amount of manganese in milligrams the recipe must have.
-    - :max_manganese (float()): The maximum amount of manganese in milligrams the recipe can have.
-    - :min_phosphorus (float()): The minimum amount of phosphorus in milligrams the recipe must have.
-    - :max_phosphorus (float()): The maximum amount of phosphorus in milligrams the recipe can have.
-    - :min_potassium (float()): The minimum amount of potassium in milligrams the recipe must have.
-    - :max_potassium (float()): The maximum amount of potassium in milligrams the recipe can have.
-    - :min_selenium (float()): The minimum amount of selenium in grams the recipe must have.
-    - :max_selenium (float()): The maximum amount of selenium in grams the recipe can have.
-    - :min_sodium (float()): The minimum amount of sodium in milligrams the recipe must have.
-    - :max_sodium (float()): The maximum amount of sodium in milligrams the recipe can have.
-    - :min_sugar (float()): The minimum amount of sugar in grams the recipe must have.
-    - :max_sugar (float()): The maximum amount of sugar in grams the recipe can have.
-    - :min_zinc (float()): The minimum amount of zinc in milligrams the recipe must have.
-    - :max_zinc (float()): The maximum amount of zinc in milligrams the recipe can have.
-    - :offset (float()): The number of results to skip (between 0 and 900).
-    - :number (float()): The number of expected results (between 1 and 100).
-    - :random (boolean()): If true, every request will give you a random set of recipes within the requested limits.
-    - :limit_license (boolean()): Whether the recipes should have an open license that allows display with proper attribution.
-  ## Returns
-
-  {:ok, %com.spoonacular.client.Model.Map{}} on success
-  {:error, info} on failure
-  """
-  @spec search_recipes_by_nutrients(Tesla.Env.client, keyword()) :: {:ok, Map.t} | {:error, Tesla.Env.t}
-  def search_recipes_by_nutrients(connection, opts \\ []) do
-    optional_params = %{
-      :"minCarbs" => :query,
-      :"maxCarbs" => :query,
-      :"minProtein" => :query,
-      :"maxProtein" => :query,
-      :"minCalories" => :query,
-      :"maxCalories" => :query,
-      :"minFat" => :query,
-      :"maxFat" => :query,
-      :"minAlcohol" => :query,
-      :"maxAlcohol" => :query,
-      :"minCaffeine" => :query,
-      :"maxCaffeine" => :query,
-      :"minCopper" => :query,
-      :"maxCopper" => :query,
-      :"minCalcium" => :query,
-      :"maxCalcium" => :query,
-      :"minCholine" => :query,
-      :"maxCholine" => :query,
-      :"minCholesterol" => :query,
-      :"maxCholesterol" => :query,
-      :"minFluoride" => :query,
-      :"maxFluoride" => :query,
-      :"minSaturatedFat" => :query,
-      :"maxSaturatedFat" => :query,
-      :"minVitaminA" => :query,
-      :"maxVitaminA" => :query,
-      :"minVitaminC" => :query,
-      :"maxVitaminC" => :query,
-      :"minVitaminD" => :query,
-      :"maxVitaminD" => :query,
-      :"minVitaminE" => :query,
-      :"maxVitaminE" => :query,
-      :"minVitaminK" => :query,
-      :"maxVitaminK" => :query,
-      :"minVitaminB1" => :query,
-      :"maxVitaminB1" => :query,
-      :"minVitaminB2" => :query,
-      :"maxVitaminB2" => :query,
-      :"minVitaminB5" => :query,
-      :"maxVitaminB5" => :query,
-      :"minVitaminB3" => :query,
-      :"maxVitaminB3" => :query,
-      :"minVitaminB6" => :query,
-      :"maxVitaminB6" => :query,
-      :"minVitaminB12" => :query,
-      :"maxVitaminB12" => :query,
-      :"minFiber" => :query,
-      :"maxFiber" => :query,
-      :"minFolate" => :query,
-      :"maxFolate" => :query,
-      :"minFolicAcid" => :query,
-      :"maxFolicAcid" => :query,
-      :"minIodine" => :query,
-      :"maxIodine" => :query,
-      :"minIron" => :query,
-      :"maxIron" => :query,
-      :"minMagnesium" => :query,
-      :"maxMagnesium" => :query,
-      :"minManganese" => :query,
-      :"maxManganese" => :query,
-      :"minPhosphorus" => :query,
-      :"maxPhosphorus" => :query,
-      :"minPotassium" => :query,
-      :"maxPotassium" => :query,
-      :"minSelenium" => :query,
-      :"maxSelenium" => :query,
-      :"minSodium" => :query,
-      :"maxSodium" => :query,
-      :"minSugar" => :query,
-      :"maxSugar" => :query,
-      :"minZinc" => :query,
-      :"maxZinc" => :query,
-      :"offset" => :query,
-      :"number" => :query,
-      :"random" => :query,
-      :"limitLicense" => :query
-    }
-    %{}
-    |> method(:get)
-    |> url("/recipes/findByNutrients")
-    |> add_optional_params(optional_params, opts)
-    |> Enum.into([])
-    |> (&Connection.request(connection, &1)).()
-    |> evaluate_response([
-      { 200, false},
-      { 401, false},
-      { 403, false},
-      { 404, false}
-    ])
-  end
-
-  @doc """
-  Search Recipes Complex
   Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint.
 
   ## Parameters
@@ -2272,12 +2218,12 @@ defmodule com.spoonacular.client.Api.Default do
     - :max_vitamin_b12 (float()): The maximum amount of Vitamin B12 in micrograms the recipe can have.
     - :min_fiber (float()): The minimum amount of fiber in grams the recipe must have.
     - :max_fiber (float()): The maximum amount of fiber in grams the recipe can have.
-    - :min_folate (float()): The minimum amount of folate in grams the recipe must have.
-    - :max_folate (float()): The maximum amount of folate in grams the recipe can have.
-    - :min_folic_acid (float()): The minimum amount of folic acid in grams the recipe must have.
-    - :max_folic_acid (float()): The maximum amount of folic acid in grams the recipe can have.
-    - :min_iodine (float()): The minimum amount of iodine in grams the recipe must have.
-    - :max_iodine (float()): The maximum amount of iodine in grams the recipe can have.
+    - :min_folate (float()): The minimum amount of folate in micrograms the recipe must have.
+    - :max_folate (float()): The maximum amount of folate in micrograms the recipe can have.
+    - :min_folic_acid (float()): The minimum amount of folic acid in micrograms the recipe must have.
+    - :max_folic_acid (float()): The maximum amount of folic acid in micrograms the recipe can have.
+    - :min_iodine (float()): The minimum amount of iodine in micrograms the recipe must have.
+    - :max_iodine (float()): The maximum amount of iodine in micrograms the recipe can have.
     - :min_iron (float()): The minimum amount of iron in milligrams the recipe must have.
     - :max_iron (float()): The maximum amount of iron in milligrams the recipe can have.
     - :min_magnesium (float()): The minimum amount of magnesium in milligrams the recipe must have.
@@ -2288,8 +2234,8 @@ defmodule com.spoonacular.client.Api.Default do
     - :max_phosphorus (float()): The maximum amount of phosphorus in milligrams the recipe can have.
     - :min_potassium (float()): The minimum amount of potassium in milligrams the recipe must have.
     - :max_potassium (float()): The maximum amount of potassium in milligrams the recipe can have.
-    - :min_selenium (float()): The minimum amount of selenium in grams the recipe must have.
-    - :max_selenium (float()): The maximum amount of selenium in grams the recipe can have.
+    - :min_selenium (float()): The minimum amount of selenium in micrograms the recipe must have.
+    - :max_selenium (float()): The maximum amount of selenium in micrograms the recipe can have.
     - :min_sodium (float()): The minimum amount of sodium in milligrams the recipe must have.
     - :max_sodium (float()): The maximum amount of sodium in milligrams the recipe can have.
     - :min_sugar (float()): The minimum amount of sugar in grams the recipe must have.
@@ -2304,8 +2250,8 @@ defmodule com.spoonacular.client.Api.Default do
   {:ok, %com.spoonacular.client.Model.Map{}} on success
   {:error, info} on failure
   """
-  @spec search_recipes_complex(Tesla.Env.client, String.t, keyword()) :: {:ok, Map.t} | {:error, Tesla.Env.t}
-  def search_recipes_complex(connection, query, opts \\ []) do
+  @spec search_recipes(Tesla.Env.client, String.t, keyword()) :: {:ok, Map.t} | {:error, Tesla.Env.t}
+  def search_recipes(connection, query, opts \\ []) do
     optional_params = %{
       :"cuisine" => :query,
       :"excludeCuisine" => :query,
@@ -2419,6 +2365,230 @@ defmodule com.spoonacular.client.Api.Default do
   end
 
   @doc """
+  Search Recipes by Ingredients
+               Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don't currently have (post shopping).         
+
+  ## Parameters
+
+  - connection (com.spoonacular.client.Connection): Connection to server
+  - ingredients (String.t): A comma-separated list of ingredients that the recipes should contain.
+  - opts (KeywordList): [optional] Optional parameters
+    - :number (float()): The maximum number of recipes to return (between 1 and 100). Defaults to 10.
+    - :limit_license (boolean()): Whether the recipes should have an open license that allows display with proper attribution.
+    - :ranking (float()): Whether to maximize used ingredients (1) or minimize missing ingredients (2) first.
+    - :ignore_pantry (boolean()): Whether to ignore typical pantry items, such as water, salt, flour, etc.
+  ## Returns
+
+  {:ok, %com.spoonacular.client.Model.Map{}} on success
+  {:error, info} on failure
+  """
+  @spec search_recipes_by_ingredients(Tesla.Env.client, String.t, keyword()) :: {:ok, Map.t} | {:error, Tesla.Env.t}
+  def search_recipes_by_ingredients(connection, ingredients, opts \\ []) do
+    optional_params = %{
+      :"number" => :query,
+      :"limitLicense" => :query,
+      :"ranking" => :query,
+      :"ignorePantry" => :query
+    }
+    %{}
+    |> method(:get)
+    |> url("/recipes/findByIngredients")
+    |> add_param(:query, :"ingredients", ingredients)
+    |> add_optional_params(optional_params, opts)
+    |> Enum.into([])
+    |> (&Connection.request(connection, &1)).()
+    |> evaluate_response([
+      { 200, false},
+      { 401, false},
+      { 403, false},
+      { 404, false}
+    ])
+  end
+
+  @doc """
+  Search Recipes by Nutrients
+  Find a set of recipes that adhere to the given nutritional limits. You may set limits for macronutrients (calories, protein, fat, and carbohydrate) and/or many micronutrients.
+
+  ## Parameters
+
+  - connection (com.spoonacular.client.Connection): Connection to server
+  - opts (KeywordList): [optional] Optional parameters
+    - :min_carbs (float()): The minimum amount of carbohydrates in grams the recipe must have.
+    - :max_carbs (float()): The maximum amount of carbohydrates in grams the recipe can have.
+    - :min_protein (float()): The minimum amount of protein in grams the recipe must have.
+    - :max_protein (float()): The maximum amount of protein in grams the recipe can have.
+    - :min_calories (float()): The minimum amount of calories the recipe must have.
+    - :max_calories (float()): The maximum amount of calories the recipe can have.
+    - :min_fat (float()): The minimum amount of fat in grams the recipe must have.
+    - :max_fat (float()): The maximum amount of fat in grams the recipe can have.
+    - :min_alcohol (float()): The minimum amount of alcohol in grams the recipe must have.
+    - :max_alcohol (float()): The maximum amount of alcohol in grams the recipe can have.
+    - :min_caffeine (float()): The minimum amount of caffeine in milligrams the recipe must have.
+    - :max_caffeine (float()): The maximum amount of caffeine in milligrams the recipe can have.
+    - :min_copper (float()): The minimum amount of copper in milligrams the recipe must have.
+    - :max_copper (float()): The maximum amount of copper in milligrams the recipe can have.
+    - :min_calcium (float()): The minimum amount of calcium in milligrams the recipe must have.
+    - :max_calcium (float()): The maximum amount of calcium in milligrams the recipe can have.
+    - :min_choline (float()): The minimum amount of choline in milligrams the recipe must have.
+    - :max_choline (float()): The maximum amount of choline in milligrams the recipe can have.
+    - :min_cholesterol (float()): The minimum amount of cholesterol in milligrams the recipe must have.
+    - :max_cholesterol (float()): The maximum amount of cholesterol in milligrams the recipe can have.
+    - :min_fluoride (float()): The minimum amount of fluoride in milligrams the recipe must have.
+    - :max_fluoride (float()): The maximum amount of fluoride in milligrams the recipe can have.
+    - :min_saturated_fat (float()): The minimum amount of saturated fat in grams the recipe must have.
+    - :max_saturated_fat (float()): The maximum amount of saturated fat in grams the recipe can have.
+    - :min_vitamin_a (float()): The minimum amount of Vitamin A in IU the recipe must have.
+    - :max_vitamin_a (float()): The maximum amount of Vitamin A in IU the recipe can have.
+    - :min_vitamin_c (float()): The minimum amount of Vitamin C in milligrams the recipe must have.
+    - :max_vitamin_c (float()): The maximum amount of Vitamin C in milligrams the recipe can have.
+    - :min_vitamin_d (float()): The minimum amount of Vitamin D in micrograms the recipe must have.
+    - :max_vitamin_d (float()): The maximum amount of Vitamin D in micrograms the recipe can have.
+    - :min_vitamin_e (float()): The minimum amount of Vitamin E in milligrams the recipe must have.
+    - :max_vitamin_e (float()): The maximum amount of Vitamin E in milligrams the recipe can have.
+    - :min_vitamin_k (float()): The minimum amount of Vitamin K in micrograms the recipe must have.
+    - :max_vitamin_k (float()): The maximum amount of Vitamin K in micrograms the recipe can have.
+    - :min_vitamin_b1 (float()): The minimum amount of Vitamin B1 in milligrams the recipe must have.
+    - :max_vitamin_b1 (float()): The maximum amount of Vitamin B1 in milligrams the recipe can have.
+    - :min_vitamin_b2 (float()): The minimum amount of Vitamin B2 in milligrams the recipe must have.
+    - :max_vitamin_b2 (float()): The maximum amount of Vitamin B2 in milligrams the recipe can have.
+    - :min_vitamin_b5 (float()): The minimum amount of Vitamin B5 in milligrams the recipe must have.
+    - :max_vitamin_b5 (float()): The maximum amount of Vitamin B5 in milligrams the recipe can have.
+    - :min_vitamin_b3 (float()): The minimum amount of Vitamin B3 in milligrams the recipe must have.
+    - :max_vitamin_b3 (float()): The maximum amount of Vitamin B3 in milligrams the recipe can have.
+    - :min_vitamin_b6 (float()): The minimum amount of Vitamin B6 in milligrams the recipe must have.
+    - :max_vitamin_b6 (float()): The maximum amount of Vitamin B6 in milligrams the recipe can have.
+    - :min_vitamin_b12 (float()): The minimum amount of Vitamin B12 in micrograms the recipe must have.
+    - :max_vitamin_b12 (float()): The maximum amount of Vitamin B12 in micrograms the recipe can have.
+    - :min_fiber (float()): The minimum amount of fiber in grams the recipe must have.
+    - :max_fiber (float()): The maximum amount of fiber in grams the recipe can have.
+    - :min_folate (float()): The minimum amount of folate in micrograms the recipe must have.
+    - :max_folate (float()): The maximum amount of folate in micrograms the recipe can have.
+    - :min_folic_acid (float()): The minimum amount of folic acid in micrograms the recipe must have.
+    - :max_folic_acid (float()): The maximum amount of folic acid in micrograms the recipe can have.
+    - :min_iodine (float()): The minimum amount of iodine in micrograms the recipe must have.
+    - :max_iodine (float()): The maximum amount of iodine in micrograms the recipe can have.
+    - :min_iron (float()): The minimum amount of iron in milligrams the recipe must have.
+    - :max_iron (float()): The maximum amount of iron in milligrams the recipe can have.
+    - :min_magnesium (float()): The minimum amount of magnesium in milligrams the recipe must have.
+    - :max_magnesium (float()): The maximum amount of magnesium in milligrams the recipe can have.
+    - :min_manganese (float()): The minimum amount of manganese in milligrams the recipe must have.
+    - :max_manganese (float()): The maximum amount of manganese in milligrams the recipe can have.
+    - :min_phosphorus (float()): The minimum amount of phosphorus in milligrams the recipe must have.
+    - :max_phosphorus (float()): The maximum amount of phosphorus in milligrams the recipe can have.
+    - :min_potassium (float()): The minimum amount of potassium in milligrams the recipe must have.
+    - :max_potassium (float()): The maximum amount of potassium in milligrams the recipe can have.
+    - :min_selenium (float()): The minimum amount of selenium in micrograms the recipe must have.
+    - :max_selenium (float()): The maximum amount of selenium in micrograms the recipe can have.
+    - :min_sodium (float()): The minimum amount of sodium in milligrams the recipe must have.
+    - :max_sodium (float()): The maximum amount of sodium in milligrams the recipe can have.
+    - :min_sugar (float()): The minimum amount of sugar in grams the recipe must have.
+    - :max_sugar (float()): The maximum amount of sugar in grams the recipe can have.
+    - :min_zinc (float()): The minimum amount of zinc in milligrams the recipe must have.
+    - :max_zinc (float()): The maximum amount of zinc in milligrams the recipe can have.
+    - :offset (float()): The number of results to skip (between 0 and 900).
+    - :number (float()): The number of expected results (between 1 and 100).
+    - :random (boolean()): If true, every request will give you a random set of recipes within the requested limits.
+    - :limit_license (boolean()): Whether the recipes should have an open license that allows display with proper attribution.
+  ## Returns
+
+  {:ok, %com.spoonacular.client.Model.Map{}} on success
+  {:error, info} on failure
+  """
+  @spec search_recipes_by_nutrients(Tesla.Env.client, keyword()) :: {:ok, Map.t} | {:error, Tesla.Env.t}
+  def search_recipes_by_nutrients(connection, opts \\ []) do
+    optional_params = %{
+      :"minCarbs" => :query,
+      :"maxCarbs" => :query,
+      :"minProtein" => :query,
+      :"maxProtein" => :query,
+      :"minCalories" => :query,
+      :"maxCalories" => :query,
+      :"minFat" => :query,
+      :"maxFat" => :query,
+      :"minAlcohol" => :query,
+      :"maxAlcohol" => :query,
+      :"minCaffeine" => :query,
+      :"maxCaffeine" => :query,
+      :"minCopper" => :query,
+      :"maxCopper" => :query,
+      :"minCalcium" => :query,
+      :"maxCalcium" => :query,
+      :"minCholine" => :query,
+      :"maxCholine" => :query,
+      :"minCholesterol" => :query,
+      :"maxCholesterol" => :query,
+      :"minFluoride" => :query,
+      :"maxFluoride" => :query,
+      :"minSaturatedFat" => :query,
+      :"maxSaturatedFat" => :query,
+      :"minVitaminA" => :query,
+      :"maxVitaminA" => :query,
+      :"minVitaminC" => :query,
+      :"maxVitaminC" => :query,
+      :"minVitaminD" => :query,
+      :"maxVitaminD" => :query,
+      :"minVitaminE" => :query,
+      :"maxVitaminE" => :query,
+      :"minVitaminK" => :query,
+      :"maxVitaminK" => :query,
+      :"minVitaminB1" => :query,
+      :"maxVitaminB1" => :query,
+      :"minVitaminB2" => :query,
+      :"maxVitaminB2" => :query,
+      :"minVitaminB5" => :query,
+      :"maxVitaminB5" => :query,
+      :"minVitaminB3" => :query,
+      :"maxVitaminB3" => :query,
+      :"minVitaminB6" => :query,
+      :"maxVitaminB6" => :query,
+      :"minVitaminB12" => :query,
+      :"maxVitaminB12" => :query,
+      :"minFiber" => :query,
+      :"maxFiber" => :query,
+      :"minFolate" => :query,
+      :"maxFolate" => :query,
+      :"minFolicAcid" => :query,
+      :"maxFolicAcid" => :query,
+      :"minIodine" => :query,
+      :"maxIodine" => :query,
+      :"minIron" => :query,
+      :"maxIron" => :query,
+      :"minMagnesium" => :query,
+      :"maxMagnesium" => :query,
+      :"minManganese" => :query,
+      :"maxManganese" => :query,
+      :"minPhosphorus" => :query,
+      :"maxPhosphorus" => :query,
+      :"minPotassium" => :query,
+      :"maxPotassium" => :query,
+      :"minSelenium" => :query,
+      :"maxSelenium" => :query,
+      :"minSodium" => :query,
+      :"maxSodium" => :query,
+      :"minSugar" => :query,
+      :"maxSugar" => :query,
+      :"minZinc" => :query,
+      :"maxZinc" => :query,
+      :"offset" => :query,
+      :"number" => :query,
+      :"random" => :query,
+      :"limitLicense" => :query
+    }
+    %{}
+    |> method(:get)
+    |> url("/recipes/findByNutrients")
+    |> add_optional_params(optional_params, opts)
+    |> Enum.into([])
+    |> (&Connection.request(connection, &1)).()
+    |> evaluate_response([
+      { 200, false},
+      { 401, false},
+      { 403, false},
+      { 404, false}
+    ])
+  end
+
+  @doc """
   Search Site Content
   Search spoonacular's site content. You'll be able to find everything that you could also find using the search suggestions on spoonacular.com. This is a suggest API so you can send partial strings as queries.
 
@@ -2514,13 +2684,12 @@ defmodule com.spoonacular.client.Api.Default do
 
   @doc """
   Visualize Equipment
-  Visualize the equipment used to make a recipe.
+  Visualize the equipment used to make a recipe. You can play around with that endpoint!
 
   ## Parameters
 
   - connection (com.spoonacular.client.Connection): Connection to server
-  - ingredient_list (String.t): The ingredient list of the recipe, one ingredient per line.
-  - servings (float()): The number of servings.
+  - instructions (String.t): The recipe's instructions.
   - opts (KeywordList): [optional] Optional parameters
     - :view (String.t): How to visualize the equipment, either \\\"grid\\\" or \\\"list\\\".
     - :default_css (boolean()): Whether the default CSS should be added to the response.
@@ -2530,8 +2699,8 @@ defmodule com.spoonacular.client.Api.Default do
   {:ok, %com.spoonacular.client.Model.String.t{}} on success
   {:error, info} on failure
   """
-  @spec visualize_equipment(Tesla.Env.client, String.t, float(), keyword()) :: {:ok, String.t} | {:error, Tesla.Env.t}
-  def visualize_equipment(connection, ingredient_list, servings, opts \\ []) do
+  @spec visualize_equipment(Tesla.Env.client, String.t, keyword()) :: {:ok, String.t} | {:error, Tesla.Env.t}
+  def visualize_equipment(connection, instructions, opts \\ []) do
     optional_params = %{
       :"view" => :form,
       :"defaultCss" => :form,
@@ -2540,8 +2709,7 @@ defmodule com.spoonacular.client.Api.Default do
     %{}
     |> method(:post)
     |> url("/recipes/visualizeEquipment")
-    |> add_param(:form, :"ingredientList", ingredient_list)
-    |> add_param(:form, :"servings", servings)
+    |> add_param(:form, :"instructions", instructions)
     |> add_optional_params(optional_params, opts)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
@@ -2555,7 +2723,7 @@ defmodule com.spoonacular.client.Api.Default do
 
   @doc """
   Visualize Ingredients
-  Visualize ingredients of a recipe.
+  Visualize ingredients of a recipe. You can play around with that endpoint!
 
   ## Parameters
 
@@ -2632,7 +2800,7 @@ defmodule com.spoonacular.client.Api.Default do
 
   @doc """
   Visualize Price Breakdown
-  Visualize the price breakdown of a recipe.
+  Visualize the price breakdown of a recipe. You can play around with that endpoint!
 
   ## Parameters
 
@@ -2775,7 +2943,7 @@ defmodule com.spoonacular.client.Api.Default do
 
   @doc """
   Visualize Recipe Nutrition
-  Visualize a recipe's nutritional information as HTML including CSS
+  Visualize a recipe's nutritional information as HTML including CSS. You can play around with that endpoint!
 
   ## Parameters
 
@@ -2870,6 +3038,65 @@ defmodule com.spoonacular.client.Api.Default do
     |> method(:get)
     |> url("/recipes/#{id}/priceBreakdownWidget")
     |> add_optional_params(optional_params, opts)
+    |> Enum.into([])
+    |> (&Connection.request(connection, &1)).()
+    |> evaluate_response([
+      { 200, false},
+      { 401, false},
+      { 403, false},
+      { 404, false}
+    ])
+  end
+
+  @doc """
+  Visualize Recipe Taste
+  Visualize a recipe's taste information as HTML including CSS. You can play around with that endpoint!
+
+  ## Parameters
+
+  - connection (com.spoonacular.client.Connection): Connection to server
+  - ingredient_list (String.t): The ingredient list of the recipe, one ingredient per line.
+  - opts (KeywordList): [optional] Optional parameters
+  ## Returns
+
+  {:ok, %com.spoonacular.client.Model.String.t{}} on success
+  {:error, info} on failure
+  """
+  @spec visualize_recipe_taste(Tesla.Env.client, String.t, keyword()) :: {:ok, String.t} | {:error, Tesla.Env.t}
+  def visualize_recipe_taste(connection, ingredient_list, _opts \\ []) do
+    %{}
+    |> method(:post)
+    |> url("/recipes/visualizeTaste")
+    |> add_param(:form, :"ingredientList", ingredient_list)
+    |> Enum.into([])
+    |> (&Connection.request(connection, &1)).()
+    |> evaluate_response([
+      { 200, false},
+      { 401, false},
+      { 403, false},
+      { 404, false}
+    ])
+  end
+
+  @doc """
+  Visualize Recipe Taste by ID
+  Get a recipe's taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
+
+  ## Parameters
+
+  - connection (com.spoonacular.client.Connection): Connection to server
+  - id (float()): The recipe id.
+  - opts (KeywordList): [optional] Optional parameters
+  ## Returns
+
+  {:ok, %com.spoonacular.client.Model.String.t{}} on success
+  {:error, info} on failure
+  """
+  @spec visualize_recipe_taste_by_id(Tesla.Env.client, float(), keyword()) :: {:ok, String.t} | {:error, Tesla.Env.t}
+  def visualize_recipe_taste_by_id(connection, id, _opts \\ []) do
+    %{}
+    |> method(:get)
+    |> url("/recipes/#{id}/tasteWidget")
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([

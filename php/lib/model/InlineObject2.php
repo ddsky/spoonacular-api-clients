@@ -59,7 +59,7 @@ class InlineObject2 implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'ingredient_list' => 'string',
         'servings' => 'float',
-        'view' => 'string',
+        'mode' => 'float',
         'default_css' => 'bool',
         'show_backlink' => 'bool'
     ];
@@ -72,7 +72,7 @@ class InlineObject2 implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'ingredient_list' => null,
         'servings' => null,
-        'view' => null,
+        'mode' => null,
         'default_css' => null,
         'show_backlink' => null
     ];
@@ -106,7 +106,7 @@ class InlineObject2 implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'ingredient_list' => 'ingredientList',
         'servings' => 'servings',
-        'view' => 'view',
+        'mode' => 'mode',
         'default_css' => 'defaultCss',
         'show_backlink' => 'showBacklink'
     ];
@@ -119,7 +119,7 @@ class InlineObject2 implements ModelInterface, ArrayAccess
     protected static $setters = [
         'ingredient_list' => 'setIngredientList',
         'servings' => 'setServings',
-        'view' => 'setView',
+        'mode' => 'setMode',
         'default_css' => 'setDefaultCss',
         'show_backlink' => 'setShowBacklink'
     ];
@@ -132,7 +132,7 @@ class InlineObject2 implements ModelInterface, ArrayAccess
     protected static $getters = [
         'ingredient_list' => 'getIngredientList',
         'servings' => 'getServings',
-        'view' => 'getView',
+        'mode' => 'getMode',
         'default_css' => 'getDefaultCss',
         'show_backlink' => 'getShowBacklink'
     ];
@@ -199,7 +199,7 @@ class InlineObject2 implements ModelInterface, ArrayAccess
     {
         $this->container['ingredient_list'] = isset($data['ingredient_list']) ? $data['ingredient_list'] : null;
         $this->container['servings'] = isset($data['servings']) ? $data['servings'] : null;
-        $this->container['view'] = isset($data['view']) ? $data['view'] : null;
+        $this->container['mode'] = isset($data['mode']) ? $data['mode'] : null;
         $this->container['default_css'] = isset($data['default_css']) ? $data['default_css'] : null;
         $this->container['show_backlink'] = isset($data['show_backlink']) ? $data['show_backlink'] : null;
     }
@@ -283,25 +283,25 @@ class InlineObject2 implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets view
+     * Gets mode
      *
-     * @return string|null
+     * @return float|null
      */
-    public function getView()
+    public function getMode()
     {
-        return $this->container['view'];
+        return $this->container['mode'];
     }
 
     /**
-     * Sets view
+     * Sets mode
      *
-     * @param string|null $view How to visualize the equipment, either \"grid\" or \"list\".
+     * @param float|null $mode The mode in which the widget should be delivered. 1 = separate views (compact), 2 = all in one view (full).
      *
      * @return $this
      */
-    public function setView($view)
+    public function setMode($mode)
     {
-        $this->container['view'] = $view;
+        $this->container['mode'] = $mode;
 
         return $this;
     }

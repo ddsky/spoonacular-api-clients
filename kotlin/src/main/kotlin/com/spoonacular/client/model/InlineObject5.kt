@@ -15,16 +15,12 @@ package com.spoonacular.client.model
 import com.squareup.moshi.Json
 /**
  * 
- * @param title The title of the recipe.
- * @param ingredientList The ingredient list of the recipe, one ingredient per line (separate lines with \\n).
+ * @param instructions The instructions to be analyzed.
  */
 data class InlineObject5 (
-    /* The title of the recipe. */
-    @Json(name = "title")
-    val title: kotlin.String,
-    /* The ingredient list of the recipe, one ingredient per line (separate lines with \\n). */
-    @Json(name = "ingredientList")
-    val ingredientList: kotlin.String
+    /* The instructions to be analyzed. */
+    @Json(name = "instructions")
+    val instructions: kotlin.String
 ) {
 
 }

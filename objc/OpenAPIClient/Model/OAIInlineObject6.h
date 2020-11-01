@@ -22,14 +22,11 @@
 
 @interface OAIInlineObject6 : OAIObject
 
-/* The ingredient list of the recipe, one ingredient per line. 
+/* The title of the recipe. 
+ */
+@property(nonatomic) NSString* title;
+/* The ingredient list of the recipe, one ingredient per line (separate lines with \\n). 
  */
 @property(nonatomic) NSString* ingredientList;
-/* The number of servings that you can make from the ingredients. 
- */
-@property(nonatomic) NSNumber* servings;
-/* Whether nutrition data should be added to correctly parsed ingredients. [optional]
- */
-@property(nonatomic) NSNumber* includeNutrition;
 
 @end

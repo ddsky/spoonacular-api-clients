@@ -23,11 +23,11 @@ module OpenapiClient
     # Add an item to the user's meal plan.
     # @param username [String] The username.
     # @param hash [String] The private hash for the username.
-    # @param inline_object9 [InlineObject9] 
+    # @param inline_object11 [InlineObject11] 
     # @param [Hash] opts the optional parameters
     # @return [Object]
-    def add_to_meal_plan(username, hash, inline_object9, opts = {})
-      data, _status_code, _headers = add_to_meal_plan_with_http_info(username, hash, inline_object9, opts)
+    def add_to_meal_plan(username, hash, inline_object11, opts = {})
+      data, _status_code, _headers = add_to_meal_plan_with_http_info(username, hash, inline_object11, opts)
       data
     end
 
@@ -35,10 +35,10 @@ module OpenapiClient
     # Add an item to the user&#39;s meal plan.
     # @param username [String] The username.
     # @param hash [String] The private hash for the username.
-    # @param inline_object9 [InlineObject9] 
+    # @param inline_object11 [InlineObject11] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
-    def add_to_meal_plan_with_http_info(username, hash, inline_object9, opts = {})
+    def add_to_meal_plan_with_http_info(username, hash, inline_object11, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DefaultApi.add_to_meal_plan ...'
       end
@@ -50,9 +50,9 @@ module OpenapiClient
       if @api_client.config.client_side_validation && hash.nil?
         fail ArgumentError, "Missing the required parameter 'hash' when calling DefaultApi.add_to_meal_plan"
       end
-      # verify the required parameter 'inline_object9' is set
-      if @api_client.config.client_side_validation && inline_object9.nil?
-        fail ArgumentError, "Missing the required parameter 'inline_object9' when calling DefaultApi.add_to_meal_plan"
+      # verify the required parameter 'inline_object11' is set
+      if @api_client.config.client_side_validation && inline_object11.nil?
+        fail ArgumentError, "Missing the required parameter 'inline_object11' when calling DefaultApi.add_to_meal_plan"
       end
       # resource path
       local_var_path = '/mealplanner/{username}/items'.sub('{' + 'username' + '}', username.to_s)
@@ -72,7 +72,7 @@ module OpenapiClient
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:body] || @api_client.object_to_http_body(inline_object9) 
+      post_body = opts[:body] || @api_client.object_to_http_body(inline_object11) 
 
       # return_type
       return_type = opts[:return_type] || 'Object' 
@@ -100,11 +100,11 @@ module OpenapiClient
     # Add an item to the current shopping list of a user.
     # @param username [String] The username.
     # @param hash [String] The private hash for the username.
-    # @param inline_object12 [InlineObject12] 
+    # @param inline_object14 [InlineObject14] 
     # @param [Hash] opts the optional parameters
     # @return [Object]
-    def add_to_shopping_list(username, hash, inline_object12, opts = {})
-      data, _status_code, _headers = add_to_shopping_list_with_http_info(username, hash, inline_object12, opts)
+    def add_to_shopping_list(username, hash, inline_object14, opts = {})
+      data, _status_code, _headers = add_to_shopping_list_with_http_info(username, hash, inline_object14, opts)
       data
     end
 
@@ -112,10 +112,10 @@ module OpenapiClient
     # Add an item to the current shopping list of a user.
     # @param username [String] The username.
     # @param hash [String] The private hash for the username.
-    # @param inline_object12 [InlineObject12] 
+    # @param inline_object14 [InlineObject14] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
-    def add_to_shopping_list_with_http_info(username, hash, inline_object12, opts = {})
+    def add_to_shopping_list_with_http_info(username, hash, inline_object14, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DefaultApi.add_to_shopping_list ...'
       end
@@ -127,9 +127,9 @@ module OpenapiClient
       if @api_client.config.client_side_validation && hash.nil?
         fail ArgumentError, "Missing the required parameter 'hash' when calling DefaultApi.add_to_shopping_list"
       end
-      # verify the required parameter 'inline_object12' is set
-      if @api_client.config.client_side_validation && inline_object12.nil?
-        fail ArgumentError, "Missing the required parameter 'inline_object12' when calling DefaultApi.add_to_shopping_list"
+      # verify the required parameter 'inline_object14' is set
+      if @api_client.config.client_side_validation && inline_object14.nil?
+        fail ArgumentError, "Missing the required parameter 'inline_object14' when calling DefaultApi.add_to_shopping_list"
       end
       # resource path
       local_var_path = '/mealplanner/{username}/shopping-list/items'.sub('{' + 'username' + '}', username.to_s)
@@ -149,7 +149,7 @@ module OpenapiClient
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:body] || @api_client.object_to_http_body(inline_object12) 
+      post_body = opts[:body] || @api_client.object_to_http_body(inline_object14) 
 
       # return_type
       return_type = opts[:return_type] || 'Object' 
@@ -237,7 +237,7 @@ module OpenapiClient
     end
 
     # Analyze Recipe Instructions
-    # Extract ingredients and equipment from the recipe's instructions.
+    # This endpoint allows you to break down instructions into atomic steps. Furthermore, each step will contain the ingredients and equipment required. Additionally, all ingredients and equipment from the recipe's instructions will be extracted independently of the step they're used in.
     # @param instructions [String] The instructions to be analyzed.
     # @param [Hash] opts the optional parameters
     # @return [Object]
@@ -247,7 +247,7 @@ module OpenapiClient
     end
 
     # Analyze Recipe Instructions
-    # Extract ingredients and equipment from the recipe&#39;s instructions.
+    # This endpoint allows you to break down instructions into atomic steps. Furthermore, each step will contain the ingredients and equipment required. Additionally, all ingredients and equipment from the recipe&#39;s instructions will be extracted independently of the step they&#39;re used in.
     # @param instructions [String] The instructions to be analyzed.
     # @param [Hash] opts the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
@@ -307,7 +307,7 @@ module OpenapiClient
     # @param [Hash] opts the optional parameters
     # @option opts [Float] :number The number of results to return (between 1 and 100).
     # @option opts [Boolean] :meta_information Whether to return more meta information about the ingredients.
-    # @option opts [Boolean] :intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
+    # @option opts [String] :intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
     # @return [Object]
     def autocomplete_ingredient_search(query, opts = {})
       data, _status_code, _headers = autocomplete_ingredient_search_with_http_info(query, opts)
@@ -320,7 +320,7 @@ module OpenapiClient
     # @param [Hash] opts the optional parameters
     # @option opts [Float] :number The number of results to return (between 1 and 100).
     # @option opts [Boolean] :meta_information Whether to return more meta information about the ingredients.
-    # @option opts [Boolean] :intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
+    # @option opts [String] :intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def autocomplete_ingredient_search_with_http_info(query, opts = {})
       if @api_client.config.debugging
@@ -645,28 +645,28 @@ module OpenapiClient
 
     # Classify Grocery Product
     # This endpoint allows you to match a packaged food to a basic category, e.g. a specific brand of milk to the category milk.
-    # @param inline_object8 [InlineObject8] 
+    # @param inline_object9 [InlineObject9] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :locale The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).
     # @return [Object]
-    def classify_grocery_product(inline_object8, opts = {})
-      data, _status_code, _headers = classify_grocery_product_with_http_info(inline_object8, opts)
+    def classify_grocery_product(inline_object9, opts = {})
+      data, _status_code, _headers = classify_grocery_product_with_http_info(inline_object9, opts)
       data
     end
 
     # Classify Grocery Product
     # This endpoint allows you to match a packaged food to a basic category, e.g. a specific brand of milk to the category milk.
-    # @param inline_object8 [InlineObject8] 
+    # @param inline_object9 [InlineObject9] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :locale The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
-    def classify_grocery_product_with_http_info(inline_object8, opts = {})
+    def classify_grocery_product_with_http_info(inline_object9, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DefaultApi.classify_grocery_product ...'
       end
-      # verify the required parameter 'inline_object8' is set
-      if @api_client.config.client_side_validation && inline_object8.nil?
-        fail ArgumentError, "Missing the required parameter 'inline_object8' when calling DefaultApi.classify_grocery_product"
+      # verify the required parameter 'inline_object9' is set
+      if @api_client.config.client_side_validation && inline_object9.nil?
+        fail ArgumentError, "Missing the required parameter 'inline_object9' when calling DefaultApi.classify_grocery_product"
       end
       # resource path
       local_var_path = '/food/products/classify'
@@ -686,7 +686,7 @@ module OpenapiClient
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:body] || @api_client.object_to_http_body(inline_object8) 
+      post_body = opts[:body] || @api_client.object_to_http_body(inline_object9) 
 
       # return_type
       return_type = opts[:return_type] || 'Object' 
@@ -773,6 +773,217 @@ module OpenapiClient
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: DefaultApi#classify_grocery_product_bulk\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Clear Meal Plan Day
+    # Delete all planned items from the user's meal plan for a specific day.
+    # @param username [String] The username.
+    # @param date [String] The date in the format yyyy-mm-dd.
+    # @param hash [String] The private hash for the username.
+    # @param inline_object10 [InlineObject10] 
+    # @param [Hash] opts the optional parameters
+    # @return [Object]
+    def clear_meal_plan_day(username, date, hash, inline_object10, opts = {})
+      data, _status_code, _headers = clear_meal_plan_day_with_http_info(username, date, hash, inline_object10, opts)
+      data
+    end
+
+    # Clear Meal Plan Day
+    # Delete all planned items from the user&#39;s meal plan for a specific day.
+    # @param username [String] The username.
+    # @param date [String] The date in the format yyyy-mm-dd.
+    # @param hash [String] The private hash for the username.
+    # @param inline_object10 [InlineObject10] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
+    def clear_meal_plan_day_with_http_info(username, date, hash, inline_object10, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DefaultApi.clear_meal_plan_day ...'
+      end
+      # verify the required parameter 'username' is set
+      if @api_client.config.client_side_validation && username.nil?
+        fail ArgumentError, "Missing the required parameter 'username' when calling DefaultApi.clear_meal_plan_day"
+      end
+      # verify the required parameter 'date' is set
+      if @api_client.config.client_side_validation && date.nil?
+        fail ArgumentError, "Missing the required parameter 'date' when calling DefaultApi.clear_meal_plan_day"
+      end
+      # verify the required parameter 'hash' is set
+      if @api_client.config.client_side_validation && hash.nil?
+        fail ArgumentError, "Missing the required parameter 'hash' when calling DefaultApi.clear_meal_plan_day"
+      end
+      # verify the required parameter 'inline_object10' is set
+      if @api_client.config.client_side_validation && inline_object10.nil?
+        fail ArgumentError, "Missing the required parameter 'inline_object10' when calling DefaultApi.clear_meal_plan_day"
+      end
+      # resource path
+      local_var_path = '/mealplanner/{username}/day/{date}'.sub('{' + 'username' + '}', username.to_s).sub('{' + 'date' + '}', date.to_s)
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'hash'] = hash
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type([''])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] || @api_client.object_to_http_body(inline_object10) 
+
+      # return_type
+      return_type = opts[:return_type] || 'Object' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || []
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DefaultApi#clear_meal_plan_day\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Compute Glycemic Load
+    # Retrieve the glycemic index for a list of ingredients and compute the individual and total glycemic load.
+    # @param body [Object] 
+    # @param [Hash] opts the optional parameters
+    # @return [Object]
+    def compute_glycemic_load(body, opts = {})
+      data, _status_code, _headers = compute_glycemic_load_with_http_info(body, opts)
+      data
+    end
+
+    # Compute Glycemic Load
+    # Retrieve the glycemic index for a list of ingredients and compute the individual and total glycemic load.
+    # @param body [Object] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
+    def compute_glycemic_load_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DefaultApi.compute_glycemic_load ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling DefaultApi.compute_glycemic_load"
+      end
+      # resource path
+      local_var_path = '/food/ingredients/glycemicLoad'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] || @api_client.object_to_http_body(body) 
+
+      # return_type
+      return_type = opts[:return_type] || 'Object' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || []
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DefaultApi#compute_glycemic_load\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Connect User
+    # In order to call user-specific endpoints, you need to connect your app's users to spoonacular users.
+    # @param body [Object] 
+    # @param [Hash] opts the optional parameters
+    # @return [Object]
+    def connect_user(body, opts = {})
+      data, _status_code, _headers = connect_user_with_http_info(body, opts)
+      data
+    end
+
+    # Connect User
+    # In order to call user-specific endpoints, you need to connect your app&#39;s users to spoonacular users.
+    # @param body [Object] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
+    def connect_user_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DefaultApi.connect_user ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling DefaultApi.connect_user"
+      end
+      # resource path
+      local_var_path = '/users/connect'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type([''])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] || @api_client.object_to_http_body(body) 
+
+      # return_type
+      return_type = opts[:return_type] || 'Object' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || []
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DefaultApi#connect_user\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -992,11 +1203,11 @@ module OpenapiClient
     # @param username [String] The username.
     # @param id [Float] The shopping list item id.
     # @param hash [String] The private hash for the username.
-    # @param inline_object10 [InlineObject10] 
+    # @param inline_object12 [InlineObject12] 
     # @param [Hash] opts the optional parameters
     # @return [Object]
-    def delete_from_meal_plan(username, id, hash, inline_object10, opts = {})
-      data, _status_code, _headers = delete_from_meal_plan_with_http_info(username, id, hash, inline_object10, opts)
+    def delete_from_meal_plan(username, id, hash, inline_object12, opts = {})
+      data, _status_code, _headers = delete_from_meal_plan_with_http_info(username, id, hash, inline_object12, opts)
       data
     end
 
@@ -1005,10 +1216,10 @@ module OpenapiClient
     # @param username [String] The username.
     # @param id [Float] The shopping list item id.
     # @param hash [String] The private hash for the username.
-    # @param inline_object10 [InlineObject10] 
+    # @param inline_object12 [InlineObject12] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
-    def delete_from_meal_plan_with_http_info(username, id, hash, inline_object10, opts = {})
+    def delete_from_meal_plan_with_http_info(username, id, hash, inline_object12, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DefaultApi.delete_from_meal_plan ...'
       end
@@ -1024,9 +1235,9 @@ module OpenapiClient
       if @api_client.config.client_side_validation && hash.nil?
         fail ArgumentError, "Missing the required parameter 'hash' when calling DefaultApi.delete_from_meal_plan"
       end
-      # verify the required parameter 'inline_object10' is set
-      if @api_client.config.client_side_validation && inline_object10.nil?
-        fail ArgumentError, "Missing the required parameter 'inline_object10' when calling DefaultApi.delete_from_meal_plan"
+      # verify the required parameter 'inline_object12' is set
+      if @api_client.config.client_side_validation && inline_object12.nil?
+        fail ArgumentError, "Missing the required parameter 'inline_object12' when calling DefaultApi.delete_from_meal_plan"
       end
       # resource path
       local_var_path = '/mealplanner/{username}/items/{id}'.sub('{' + 'username' + '}', username.to_s).sub('{' + 'id' + '}', id.to_s)
@@ -1046,7 +1257,7 @@ module OpenapiClient
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:body] || @api_client.object_to_http_body(inline_object10) 
+      post_body = opts[:body] || @api_client.object_to_http_body(inline_object12) 
 
       # return_type
       return_type = opts[:return_type] || 'Object' 
@@ -1075,11 +1286,11 @@ module OpenapiClient
     # @param username [String] The username.
     # @param id [Float] The shopping list item id.
     # @param hash [String] The private hash for the username.
-    # @param inline_object13 [InlineObject13] 
+    # @param inline_object15 [InlineObject15] 
     # @param [Hash] opts the optional parameters
     # @return [Object]
-    def delete_from_shopping_list(username, id, hash, inline_object13, opts = {})
-      data, _status_code, _headers = delete_from_shopping_list_with_http_info(username, id, hash, inline_object13, opts)
+    def delete_from_shopping_list(username, id, hash, inline_object15, opts = {})
+      data, _status_code, _headers = delete_from_shopping_list_with_http_info(username, id, hash, inline_object15, opts)
       data
     end
 
@@ -1088,10 +1299,10 @@ module OpenapiClient
     # @param username [String] The username.
     # @param id [Float] The shopping list item id.
     # @param hash [String] The private hash for the username.
-    # @param inline_object13 [InlineObject13] 
+    # @param inline_object15 [InlineObject15] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
-    def delete_from_shopping_list_with_http_info(username, id, hash, inline_object13, opts = {})
+    def delete_from_shopping_list_with_http_info(username, id, hash, inline_object15, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DefaultApi.delete_from_shopping_list ...'
       end
@@ -1107,9 +1318,9 @@ module OpenapiClient
       if @api_client.config.client_side_validation && hash.nil?
         fail ArgumentError, "Missing the required parameter 'hash' when calling DefaultApi.delete_from_shopping_list"
       end
-      # verify the required parameter 'inline_object13' is set
-      if @api_client.config.client_side_validation && inline_object13.nil?
-        fail ArgumentError, "Missing the required parameter 'inline_object13' when calling DefaultApi.delete_from_shopping_list"
+      # verify the required parameter 'inline_object15' is set
+      if @api_client.config.client_side_validation && inline_object15.nil?
+        fail ArgumentError, "Missing the required parameter 'inline_object15' when calling DefaultApi.delete_from_shopping_list"
       end
       # resource path
       local_var_path = '/mealplanner/{username}/shopping-list/items/{id}'.sub('{' + 'username' + '}', username.to_s).sub('{' + 'id' + '}', id.to_s)
@@ -1129,7 +1340,7 @@ module OpenapiClient
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:body] || @api_client.object_to_http_body(inline_object13) 
+      post_body = opts[:body] || @api_client.object_to_http_body(inline_object15) 
 
       # return_type
       return_type = opts[:return_type] || 'Object' 
@@ -1361,11 +1572,11 @@ module OpenapiClient
     # @param start_date [String] The start date in the format yyyy-mm-dd.
     # @param end_date [String] The end date in the format yyyy-mm-dd.
     # @param hash [String] The private hash for the username.
-    # @param inline_object11 [InlineObject11] 
+    # @param inline_object13 [InlineObject13] 
     # @param [Hash] opts the optional parameters
     # @return [Object]
-    def generate_shopping_list(username, start_date, end_date, hash, inline_object11, opts = {})
-      data, _status_code, _headers = generate_shopping_list_with_http_info(username, start_date, end_date, hash, inline_object11, opts)
+    def generate_shopping_list(username, start_date, end_date, hash, inline_object13, opts = {})
+      data, _status_code, _headers = generate_shopping_list_with_http_info(username, start_date, end_date, hash, inline_object13, opts)
       data
     end
 
@@ -1375,10 +1586,10 @@ module OpenapiClient
     # @param start_date [String] The start date in the format yyyy-mm-dd.
     # @param end_date [String] The end date in the format yyyy-mm-dd.
     # @param hash [String] The private hash for the username.
-    # @param inline_object11 [InlineObject11] 
+    # @param inline_object13 [InlineObject13] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
-    def generate_shopping_list_with_http_info(username, start_date, end_date, hash, inline_object11, opts = {})
+    def generate_shopping_list_with_http_info(username, start_date, end_date, hash, inline_object13, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DefaultApi.generate_shopping_list ...'
       end
@@ -1398,9 +1609,9 @@ module OpenapiClient
       if @api_client.config.client_side_validation && hash.nil?
         fail ArgumentError, "Missing the required parameter 'hash' when calling DefaultApi.generate_shopping_list"
       end
-      # verify the required parameter 'inline_object11' is set
-      if @api_client.config.client_side_validation && inline_object11.nil?
-        fail ArgumentError, "Missing the required parameter 'inline_object11' when calling DefaultApi.generate_shopping_list"
+      # verify the required parameter 'inline_object13' is set
+      if @api_client.config.client_side_validation && inline_object13.nil?
+        fail ArgumentError, "Missing the required parameter 'inline_object13' when calling DefaultApi.generate_shopping_list"
       end
       # resource path
       local_var_path = '/mealplanner/{username}/shopping-list/{start-date}/{end-date}'.sub('{' + 'username' + '}', username.to_s).sub('{' + 'start-date' + '}', start_date.to_s).sub('{' + 'end-date' + '}', end_date.to_s)
@@ -1420,7 +1631,7 @@ module OpenapiClient
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:body] || @api_client.object_to_http_body(inline_object11) 
+      post_body = opts[:body] || @api_client.object_to_http_body(inline_object13) 
 
       # return_type
       return_type = opts[:return_type] || 'Object' 
@@ -2792,6 +3003,68 @@ module OpenapiClient
       return data, status_code, headers
     end
 
+    # Get Recipe Taste by ID
+    # Get a recipe's taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
+    # @param id [Float] The recipe id.
+    # @param [Hash] opts the optional parameters
+    # @return [Object]
+    def get_recipe_taste_by_id(id, opts = {})
+      data, _status_code, _headers = get_recipe_taste_by_id_with_http_info(id, opts)
+      data
+    end
+
+    # Get Recipe Taste by ID
+    # Get a recipe&#39;s taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
+    # @param id [Float] The recipe id.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
+    def get_recipe_taste_by_id_with_http_info(id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DefaultApi.get_recipe_taste_by_id ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling DefaultApi.get_recipe_taste_by_id"
+      end
+      # resource path
+      local_var_path = '/recipes/{id}/tasteWidget.json'.sub('{' + 'id' + '}', id.to_s)
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] 
+
+      # return_type
+      return_type = opts[:return_type] || 'Object' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || []
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DefaultApi#get_recipe_taste_by_id\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get Shopping List
     # Get the current shopping list for the given user.
     # @param username [String] The username.
@@ -3319,6 +3592,108 @@ module OpenapiClient
       return data, status_code, headers
     end
 
+    # Ingredient Search
+    # Search for simple whole foods (e.g. fruits, vegetables, nuts, grains, meat, fish, dairy etc.).
+    # @param query [String] The partial or full ingredient name.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :add_children Whether to add children of found foods.
+    # @option opts [Float] :min_protein_percent The minimum percentage of protein the food must have (between 0 and 100).
+    # @option opts [Float] :max_protein_percent The maximum percentage of protein the food can have (between 0 and 100).
+    # @option opts [Float] :min_fat_percent The minimum percentage of fat the food must have (between 0 and 100).
+    # @option opts [Float] :max_fat_percent The maximum percentage of fat the food can have (between 0 and 100).
+    # @option opts [Float] :min_carbs_percent The minimum percentage of carbs the food must have (between 0 and 100).
+    # @option opts [Float] :max_carbs_percent The maximum percentage of carbs the food can have (between 0 and 100).
+    # @option opts [Boolean] :meta_information Whether to return more meta information about the ingredients.
+    # @option opts [String] :intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
+    # @option opts [String] :sort The strategy to sort recipes by. See a full list of supported sorting options.
+    # @option opts [String] :sort_direction The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending).
+    # @option opts [Float] :offset The number of results to skip (between 0 and 990).
+    # @option opts [Float] :number The number of expected results (between 1 and 100).
+    # @return [Object]
+    def ingredient_search(query, opts = {})
+      data, _status_code, _headers = ingredient_search_with_http_info(query, opts)
+      data
+    end
+
+    # Ingredient Search
+    # Search for simple whole foods (e.g. fruits, vegetables, nuts, grains, meat, fish, dairy etc.).
+    # @param query [String] The partial or full ingredient name.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :add_children Whether to add children of found foods.
+    # @option opts [Float] :min_protein_percent The minimum percentage of protein the food must have (between 0 and 100).
+    # @option opts [Float] :max_protein_percent The maximum percentage of protein the food can have (between 0 and 100).
+    # @option opts [Float] :min_fat_percent The minimum percentage of fat the food must have (between 0 and 100).
+    # @option opts [Float] :max_fat_percent The maximum percentage of fat the food can have (between 0 and 100).
+    # @option opts [Float] :min_carbs_percent The minimum percentage of carbs the food must have (between 0 and 100).
+    # @option opts [Float] :max_carbs_percent The maximum percentage of carbs the food can have (between 0 and 100).
+    # @option opts [Boolean] :meta_information Whether to return more meta information about the ingredients.
+    # @option opts [String] :intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
+    # @option opts [String] :sort The strategy to sort recipes by. See a full list of supported sorting options.
+    # @option opts [String] :sort_direction The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending).
+    # @option opts [Float] :offset The number of results to skip (between 0 and 990).
+    # @option opts [Float] :number The number of expected results (between 1 and 100).
+    # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
+    def ingredient_search_with_http_info(query, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DefaultApi.ingredient_search ...'
+      end
+      # verify the required parameter 'query' is set
+      if @api_client.config.client_side_validation && query.nil?
+        fail ArgumentError, "Missing the required parameter 'query' when calling DefaultApi.ingredient_search"
+      end
+      # resource path
+      local_var_path = '/food/ingredients/search'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'query'] = query
+      query_params[:'addChildren'] = opts[:'add_children'] if !opts[:'add_children'].nil?
+      query_params[:'minProteinPercent'] = opts[:'min_protein_percent'] if !opts[:'min_protein_percent'].nil?
+      query_params[:'maxProteinPercent'] = opts[:'max_protein_percent'] if !opts[:'max_protein_percent'].nil?
+      query_params[:'minFatPercent'] = opts[:'min_fat_percent'] if !opts[:'min_fat_percent'].nil?
+      query_params[:'maxFatPercent'] = opts[:'max_fat_percent'] if !opts[:'max_fat_percent'].nil?
+      query_params[:'minCarbsPercent'] = opts[:'min_carbs_percent'] if !opts[:'min_carbs_percent'].nil?
+      query_params[:'maxCarbsPercent'] = opts[:'max_carbs_percent'] if !opts[:'max_carbs_percent'].nil?
+      query_params[:'metaInformation'] = opts[:'meta_information'] if !opts[:'meta_information'].nil?
+      query_params[:'intolerances'] = opts[:'intolerances'] if !opts[:'intolerances'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+      query_params[:'sortDirection'] = opts[:'sort_direction'] if !opts[:'sort_direction'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'number'] = opts[:'number'] if !opts[:'number'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] 
+
+      # return_type
+      return_type = opts[:return_type] || 'Object' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || []
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DefaultApi#ingredient_search\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Map Ingredients to Grocery Products
     # Map a set of ingredients to products you can buy in the grocery store.
     # @param body [Object] 
@@ -3517,6 +3892,75 @@ module OpenapiClient
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: DefaultApi#quick_answer\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Search All Food
+    # Search all food content with one call. That includes recipes, grocery products, menu items, simple foods (ingredients), and food videos.
+    # @param query [String] The search query.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Float] :offset The number of results to skip (between 0 and 990).
+    # @option opts [Float] :number The number of expected results (between 1 and 100).
+    # @return [Object]
+    def search_all_food(query, opts = {})
+      data, _status_code, _headers = search_all_food_with_http_info(query, opts)
+      data
+    end
+
+    # Search All Food
+    # Search all food content with one call. That includes recipes, grocery products, menu items, simple foods (ingredients), and food videos.
+    # @param query [String] The search query.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Float] :offset The number of results to skip (between 0 and 990).
+    # @option opts [Float] :number The number of expected results (between 1 and 100).
+    # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
+    def search_all_food_with_http_info(query, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DefaultApi.search_all_food ...'
+      end
+      # verify the required parameter 'query' is set
+      if @api_client.config.client_side_validation && query.nil?
+        fail ArgumentError, "Missing the required parameter 'query' when calling DefaultApi.search_all_food"
+      end
+      # resource path
+      local_var_path = '/food/search'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'query'] = query
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'number'] = opts[:'number'] if !opts[:'number'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] 
+
+      # return_type
+      return_type = opts[:return_type] || 'Object' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || []
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DefaultApi#search_all_food\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -3943,17 +4387,104 @@ module OpenapiClient
     end
 
     # Search Recipes
-    # Our recipe API includes over 360,000 recipes as well as an open source recipe database. Consider using the \"Search Recipes Complex\" endpoint for much more flexibility.
+    # Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint.
     # @param query [String] The (natural language) recipe search query.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :cuisine The cuisine(s) of the recipes. One or more comma separated. See a full list of supported cuisines.
+    # @option opts [String] :cuisine The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as &#39;OR&#39;). See a full list of supported cuisines.
+    # @option opts [String] :exclude_cuisine The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as &#39;AND&#39;). See a full list of supported cuisines.
     # @option opts [String] :diet The diet for which the recipes must be suitable. See a full list of supported diets.
+    # @option opts [String] :intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
+    # @option opts [String] :equipment The equipment required. Multiple values will be interpreted as &#39;or&#39;. For example, value could be \&quot;blender, frying pan, bowl\&quot;.
+    # @option opts [String] :include_ingredients A comma-separated list of ingredients that should/must be used in the recipes.
     # @option opts [String] :exclude_ingredients A comma-separated list of ingredients or ingredient types that the recipes must not contain.
-    # @option opts [String] :intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. Please note: due to the automatic nature of the recipe analysis, the API cannot be 100% accurate in all cases. Please advise your users to seek professional help with medical issues.
-    # @option opts [Float] :offset The number of results to skip (between 0 and 900).
-    # @option opts [Float] :number The number of results to return (between 1 and 100).
-    # @option opts [Boolean] :limit_license Whether the recipes should have an open license that allows display with proper attribution.
+    # @option opts [String] :type The type of recipe. See a full list of supported meal types.
     # @option opts [Boolean] :instructions_required Whether the recipes must have instructions.
+    # @option opts [Boolean] :fill_ingredients Add information about the ingredients and whether they are used or missing in relation to the query.
+    # @option opts [Boolean] :add_recipe_information If set to true, you get more information about the recipes returned.
+    # @option opts [Boolean] :add_recipe_nutrition If set to true, you get nutritional information about each recipes returned.
+    # @option opts [String] :author The username of the recipe author.
+    # @option opts [String] :tags User defined tags that have to match. The author param has to be set.
+    # @option opts [Float] :recipe_box_id The id of the recipe box to which the search should be limited to.
+    # @option opts [String] :title_match Enter text that must be found in the title of the recipes.
+    # @option opts [Float] :max_ready_time The maximum time in minutes it should take to prepare and cook the recipe.
+    # @option opts [Boolean] :ignore_pantry Whether to ignore typical pantry items, such as water, salt, flour, etc.
+    # @option opts [String] :sort The strategy to sort recipes by. See a full list of supported sorting options.
+    # @option opts [String] :sort_direction The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending).
+    # @option opts [Float] :min_carbs The minimum amount of carbohydrates in grams the recipe must have.
+    # @option opts [Float] :max_carbs The maximum amount of carbohydrates in grams the recipe can have.
+    # @option opts [Float] :min_protein The minimum amount of protein in grams the recipe must have.
+    # @option opts [Float] :max_protein The maximum amount of protein in grams the recipe can have.
+    # @option opts [Float] :min_calories The minimum amount of calories the recipe must have.
+    # @option opts [Float] :max_calories The maximum amount of calories the recipe can have.
+    # @option opts [Float] :min_fat The minimum amount of fat in grams the recipe must have.
+    # @option opts [Float] :max_fat The maximum amount of fat in grams the recipe can have.
+    # @option opts [Float] :min_alcohol The minimum amount of alcohol in grams the recipe must have.
+    # @option opts [Float] :max_alcohol The maximum amount of alcohol in grams the recipe can have.
+    # @option opts [Float] :min_caffeine The minimum amount of caffeine in milligrams the recipe must have.
+    # @option opts [Float] :max_caffeine The maximum amount of caffeine in milligrams the recipe can have.
+    # @option opts [Float] :min_copper The minimum amount of copper in milligrams the recipe must have.
+    # @option opts [Float] :max_copper The maximum amount of copper in milligrams the recipe can have.
+    # @option opts [Float] :min_calcium The minimum amount of calcium in milligrams the recipe must have.
+    # @option opts [Float] :max_calcium The maximum amount of calcium in milligrams the recipe can have.
+    # @option opts [Float] :min_choline The minimum amount of choline in milligrams the recipe must have.
+    # @option opts [Float] :max_choline The maximum amount of choline in milligrams the recipe can have.
+    # @option opts [Float] :min_cholesterol The minimum amount of cholesterol in milligrams the recipe must have.
+    # @option opts [Float] :max_cholesterol The maximum amount of cholesterol in milligrams the recipe can have.
+    # @option opts [Float] :min_fluoride The minimum amount of fluoride in milligrams the recipe must have.
+    # @option opts [Float] :max_fluoride The maximum amount of fluoride in milligrams the recipe can have.
+    # @option opts [Float] :min_saturated_fat The minimum amount of saturated fat in grams the recipe must have.
+    # @option opts [Float] :max_saturated_fat The maximum amount of saturated fat in grams the recipe can have.
+    # @option opts [Float] :min_vitamin_a The minimum amount of Vitamin A in IU the recipe must have.
+    # @option opts [Float] :max_vitamin_a The maximum amount of Vitamin A in IU the recipe can have.
+    # @option opts [Float] :min_vitamin_c The minimum amount of Vitamin C milligrams the recipe must have.
+    # @option opts [Float] :max_vitamin_c The maximum amount of Vitamin C in milligrams the recipe can have.
+    # @option opts [Float] :min_vitamin_d The minimum amount of Vitamin D in micrograms the recipe must have.
+    # @option opts [Float] :max_vitamin_d The maximum amount of Vitamin D in micrograms the recipe can have.
+    # @option opts [Float] :min_vitamin_e The minimum amount of Vitamin E in milligrams the recipe must have.
+    # @option opts [Float] :max_vitamin_e The maximum amount of Vitamin E in milligrams the recipe can have.
+    # @option opts [Float] :min_vitamin_k The minimum amount of Vitamin K in micrograms the recipe must have.
+    # @option opts [Float] :max_vitamin_k The maximum amount of Vitamin K in micrograms the recipe can have.
+    # @option opts [Float] :min_vitamin_b1 The minimum amount of Vitamin B1 in milligrams the recipe must have.
+    # @option opts [Float] :max_vitamin_b1 The maximum amount of Vitamin B1 in milligrams the recipe can have.
+    # @option opts [Float] :min_vitamin_b2 The minimum amount of Vitamin B2 in milligrams the recipe must have.
+    # @option opts [Float] :max_vitamin_b2 The maximum amount of Vitamin B2 in milligrams the recipe can have.
+    # @option opts [Float] :min_vitamin_b5 The minimum amount of Vitamin B5 in milligrams the recipe must have.
+    # @option opts [Float] :max_vitamin_b5 The maximum amount of Vitamin B5 in milligrams the recipe can have.
+    # @option opts [Float] :min_vitamin_b3 The minimum amount of Vitamin B3 in milligrams the recipe must have.
+    # @option opts [Float] :max_vitamin_b3 The maximum amount of Vitamin B3 in milligrams the recipe can have.
+    # @option opts [Float] :min_vitamin_b6 The minimum amount of Vitamin B6 in milligrams the recipe must have.
+    # @option opts [Float] :max_vitamin_b6 The maximum amount of Vitamin B6 in milligrams the recipe can have.
+    # @option opts [Float] :min_vitamin_b12 The minimum amount of Vitamin B12 in micrograms the recipe must have.
+    # @option opts [Float] :max_vitamin_b12 The maximum amount of Vitamin B12 in micrograms the recipe can have.
+    # @option opts [Float] :min_fiber The minimum amount of fiber in grams the recipe must have.
+    # @option opts [Float] :max_fiber The maximum amount of fiber in grams the recipe can have.
+    # @option opts [Float] :min_folate The minimum amount of folate in micrograms the recipe must have.
+    # @option opts [Float] :max_folate The maximum amount of folate in micrograms the recipe can have.
+    # @option opts [Float] :min_folic_acid The minimum amount of folic acid in micrograms the recipe must have.
+    # @option opts [Float] :max_folic_acid The maximum amount of folic acid in micrograms the recipe can have.
+    # @option opts [Float] :min_iodine The minimum amount of iodine in micrograms the recipe must have.
+    # @option opts [Float] :max_iodine The maximum amount of iodine in micrograms the recipe can have.
+    # @option opts [Float] :min_iron The minimum amount of iron in milligrams the recipe must have.
+    # @option opts [Float] :max_iron The maximum amount of iron in milligrams the recipe can have.
+    # @option opts [Float] :min_magnesium The minimum amount of magnesium in milligrams the recipe must have.
+    # @option opts [Float] :max_magnesium The maximum amount of magnesium in milligrams the recipe can have.
+    # @option opts [Float] :min_manganese The minimum amount of manganese in milligrams the recipe must have.
+    # @option opts [Float] :max_manganese The maximum amount of manganese in milligrams the recipe can have.
+    # @option opts [Float] :min_phosphorus The minimum amount of phosphorus in milligrams the recipe must have.
+    # @option opts [Float] :max_phosphorus The maximum amount of phosphorus in milligrams the recipe can have.
+    # @option opts [Float] :min_potassium The minimum amount of potassium in milligrams the recipe must have.
+    # @option opts [Float] :max_potassium The maximum amount of potassium in milligrams the recipe can have.
+    # @option opts [Float] :min_selenium The minimum amount of selenium in micrograms the recipe must have.
+    # @option opts [Float] :max_selenium The maximum amount of selenium in micrograms the recipe can have.
+    # @option opts [Float] :min_sodium The minimum amount of sodium in milligrams the recipe must have.
+    # @option opts [Float] :max_sodium The maximum amount of sodium in milligrams the recipe can have.
+    # @option opts [Float] :min_sugar The minimum amount of sugar in grams the recipe must have.
+    # @option opts [Float] :max_sugar The maximum amount of sugar in grams the recipe can have.
+    # @option opts [Float] :min_zinc The minimum amount of zinc in milligrams the recipe must have.
+    # @option opts [Float] :max_zinc The maximum amount of zinc in milligrams the recipe can have.
+    # @option opts [Float] :offset The number of results to skip (between 0 and 900).
+    # @option opts [Float] :number The number of expected results (between 1 and 100).
+    # @option opts [Boolean] :limit_license Whether the recipes should have an open license that allows display with proper attribution.
     # @return [Object]
     def search_recipes(query, opts = {})
       data, _status_code, _headers = search_recipes_with_http_info(query, opts)
@@ -3961,17 +4492,104 @@ module OpenapiClient
     end
 
     # Search Recipes
-    # Our recipe API includes over 360,000 recipes as well as an open source recipe database. Consider using the \&quot;Search Recipes Complex\&quot; endpoint for much more flexibility.
+    # Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint.
     # @param query [String] The (natural language) recipe search query.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :cuisine The cuisine(s) of the recipes. One or more comma separated. See a full list of supported cuisines.
+    # @option opts [String] :cuisine The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as &#39;OR&#39;). See a full list of supported cuisines.
+    # @option opts [String] :exclude_cuisine The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as &#39;AND&#39;). See a full list of supported cuisines.
     # @option opts [String] :diet The diet for which the recipes must be suitable. See a full list of supported diets.
+    # @option opts [String] :intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
+    # @option opts [String] :equipment The equipment required. Multiple values will be interpreted as &#39;or&#39;. For example, value could be \&quot;blender, frying pan, bowl\&quot;.
+    # @option opts [String] :include_ingredients A comma-separated list of ingredients that should/must be used in the recipes.
     # @option opts [String] :exclude_ingredients A comma-separated list of ingredients or ingredient types that the recipes must not contain.
-    # @option opts [String] :intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. Please note: due to the automatic nature of the recipe analysis, the API cannot be 100% accurate in all cases. Please advise your users to seek professional help with medical issues.
-    # @option opts [Float] :offset The number of results to skip (between 0 and 900).
-    # @option opts [Float] :number The number of results to return (between 1 and 100).
-    # @option opts [Boolean] :limit_license Whether the recipes should have an open license that allows display with proper attribution.
+    # @option opts [String] :type The type of recipe. See a full list of supported meal types.
     # @option opts [Boolean] :instructions_required Whether the recipes must have instructions.
+    # @option opts [Boolean] :fill_ingredients Add information about the ingredients and whether they are used or missing in relation to the query.
+    # @option opts [Boolean] :add_recipe_information If set to true, you get more information about the recipes returned.
+    # @option opts [Boolean] :add_recipe_nutrition If set to true, you get nutritional information about each recipes returned.
+    # @option opts [String] :author The username of the recipe author.
+    # @option opts [String] :tags User defined tags that have to match. The author param has to be set.
+    # @option opts [Float] :recipe_box_id The id of the recipe box to which the search should be limited to.
+    # @option opts [String] :title_match Enter text that must be found in the title of the recipes.
+    # @option opts [Float] :max_ready_time The maximum time in minutes it should take to prepare and cook the recipe.
+    # @option opts [Boolean] :ignore_pantry Whether to ignore typical pantry items, such as water, salt, flour, etc.
+    # @option opts [String] :sort The strategy to sort recipes by. See a full list of supported sorting options.
+    # @option opts [String] :sort_direction The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending).
+    # @option opts [Float] :min_carbs The minimum amount of carbohydrates in grams the recipe must have.
+    # @option opts [Float] :max_carbs The maximum amount of carbohydrates in grams the recipe can have.
+    # @option opts [Float] :min_protein The minimum amount of protein in grams the recipe must have.
+    # @option opts [Float] :max_protein The maximum amount of protein in grams the recipe can have.
+    # @option opts [Float] :min_calories The minimum amount of calories the recipe must have.
+    # @option opts [Float] :max_calories The maximum amount of calories the recipe can have.
+    # @option opts [Float] :min_fat The minimum amount of fat in grams the recipe must have.
+    # @option opts [Float] :max_fat The maximum amount of fat in grams the recipe can have.
+    # @option opts [Float] :min_alcohol The minimum amount of alcohol in grams the recipe must have.
+    # @option opts [Float] :max_alcohol The maximum amount of alcohol in grams the recipe can have.
+    # @option opts [Float] :min_caffeine The minimum amount of caffeine in milligrams the recipe must have.
+    # @option opts [Float] :max_caffeine The maximum amount of caffeine in milligrams the recipe can have.
+    # @option opts [Float] :min_copper The minimum amount of copper in milligrams the recipe must have.
+    # @option opts [Float] :max_copper The maximum amount of copper in milligrams the recipe can have.
+    # @option opts [Float] :min_calcium The minimum amount of calcium in milligrams the recipe must have.
+    # @option opts [Float] :max_calcium The maximum amount of calcium in milligrams the recipe can have.
+    # @option opts [Float] :min_choline The minimum amount of choline in milligrams the recipe must have.
+    # @option opts [Float] :max_choline The maximum amount of choline in milligrams the recipe can have.
+    # @option opts [Float] :min_cholesterol The minimum amount of cholesterol in milligrams the recipe must have.
+    # @option opts [Float] :max_cholesterol The maximum amount of cholesterol in milligrams the recipe can have.
+    # @option opts [Float] :min_fluoride The minimum amount of fluoride in milligrams the recipe must have.
+    # @option opts [Float] :max_fluoride The maximum amount of fluoride in milligrams the recipe can have.
+    # @option opts [Float] :min_saturated_fat The minimum amount of saturated fat in grams the recipe must have.
+    # @option opts [Float] :max_saturated_fat The maximum amount of saturated fat in grams the recipe can have.
+    # @option opts [Float] :min_vitamin_a The minimum amount of Vitamin A in IU the recipe must have.
+    # @option opts [Float] :max_vitamin_a The maximum amount of Vitamin A in IU the recipe can have.
+    # @option opts [Float] :min_vitamin_c The minimum amount of Vitamin C milligrams the recipe must have.
+    # @option opts [Float] :max_vitamin_c The maximum amount of Vitamin C in milligrams the recipe can have.
+    # @option opts [Float] :min_vitamin_d The minimum amount of Vitamin D in micrograms the recipe must have.
+    # @option opts [Float] :max_vitamin_d The maximum amount of Vitamin D in micrograms the recipe can have.
+    # @option opts [Float] :min_vitamin_e The minimum amount of Vitamin E in milligrams the recipe must have.
+    # @option opts [Float] :max_vitamin_e The maximum amount of Vitamin E in milligrams the recipe can have.
+    # @option opts [Float] :min_vitamin_k The minimum amount of Vitamin K in micrograms the recipe must have.
+    # @option opts [Float] :max_vitamin_k The maximum amount of Vitamin K in micrograms the recipe can have.
+    # @option opts [Float] :min_vitamin_b1 The minimum amount of Vitamin B1 in milligrams the recipe must have.
+    # @option opts [Float] :max_vitamin_b1 The maximum amount of Vitamin B1 in milligrams the recipe can have.
+    # @option opts [Float] :min_vitamin_b2 The minimum amount of Vitamin B2 in milligrams the recipe must have.
+    # @option opts [Float] :max_vitamin_b2 The maximum amount of Vitamin B2 in milligrams the recipe can have.
+    # @option opts [Float] :min_vitamin_b5 The minimum amount of Vitamin B5 in milligrams the recipe must have.
+    # @option opts [Float] :max_vitamin_b5 The maximum amount of Vitamin B5 in milligrams the recipe can have.
+    # @option opts [Float] :min_vitamin_b3 The minimum amount of Vitamin B3 in milligrams the recipe must have.
+    # @option opts [Float] :max_vitamin_b3 The maximum amount of Vitamin B3 in milligrams the recipe can have.
+    # @option opts [Float] :min_vitamin_b6 The minimum amount of Vitamin B6 in milligrams the recipe must have.
+    # @option opts [Float] :max_vitamin_b6 The maximum amount of Vitamin B6 in milligrams the recipe can have.
+    # @option opts [Float] :min_vitamin_b12 The minimum amount of Vitamin B12 in micrograms the recipe must have.
+    # @option opts [Float] :max_vitamin_b12 The maximum amount of Vitamin B12 in micrograms the recipe can have.
+    # @option opts [Float] :min_fiber The minimum amount of fiber in grams the recipe must have.
+    # @option opts [Float] :max_fiber The maximum amount of fiber in grams the recipe can have.
+    # @option opts [Float] :min_folate The minimum amount of folate in micrograms the recipe must have.
+    # @option opts [Float] :max_folate The maximum amount of folate in micrograms the recipe can have.
+    # @option opts [Float] :min_folic_acid The minimum amount of folic acid in micrograms the recipe must have.
+    # @option opts [Float] :max_folic_acid The maximum amount of folic acid in micrograms the recipe can have.
+    # @option opts [Float] :min_iodine The minimum amount of iodine in micrograms the recipe must have.
+    # @option opts [Float] :max_iodine The maximum amount of iodine in micrograms the recipe can have.
+    # @option opts [Float] :min_iron The minimum amount of iron in milligrams the recipe must have.
+    # @option opts [Float] :max_iron The maximum amount of iron in milligrams the recipe can have.
+    # @option opts [Float] :min_magnesium The minimum amount of magnesium in milligrams the recipe must have.
+    # @option opts [Float] :max_magnesium The maximum amount of magnesium in milligrams the recipe can have.
+    # @option opts [Float] :min_manganese The minimum amount of manganese in milligrams the recipe must have.
+    # @option opts [Float] :max_manganese The maximum amount of manganese in milligrams the recipe can have.
+    # @option opts [Float] :min_phosphorus The minimum amount of phosphorus in milligrams the recipe must have.
+    # @option opts [Float] :max_phosphorus The maximum amount of phosphorus in milligrams the recipe can have.
+    # @option opts [Float] :min_potassium The minimum amount of potassium in milligrams the recipe must have.
+    # @option opts [Float] :max_potassium The maximum amount of potassium in milligrams the recipe can have.
+    # @option opts [Float] :min_selenium The minimum amount of selenium in micrograms the recipe must have.
+    # @option opts [Float] :max_selenium The maximum amount of selenium in micrograms the recipe can have.
+    # @option opts [Float] :min_sodium The minimum amount of sodium in milligrams the recipe must have.
+    # @option opts [Float] :max_sodium The maximum amount of sodium in milligrams the recipe can have.
+    # @option opts [Float] :min_sugar The minimum amount of sugar in grams the recipe must have.
+    # @option opts [Float] :max_sugar The maximum amount of sugar in grams the recipe can have.
+    # @option opts [Float] :min_zinc The minimum amount of zinc in milligrams the recipe must have.
+    # @option opts [Float] :max_zinc The maximum amount of zinc in milligrams the recipe can have.
+    # @option opts [Float] :offset The number of results to skip (between 0 and 900).
+    # @option opts [Float] :number The number of expected results (between 1 and 100).
+    # @option opts [Boolean] :limit_license Whether the recipes should have an open license that allows display with proper attribution.
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def search_recipes_with_http_info(query, opts = {})
       if @api_client.config.debugging
@@ -3982,19 +4600,106 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'query' when calling DefaultApi.search_recipes"
       end
       # resource path
-      local_var_path = '/recipes/search'
+      local_var_path = '/recipes/complexSearch'
 
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'query'] = query
       query_params[:'cuisine'] = opts[:'cuisine'] if !opts[:'cuisine'].nil?
+      query_params[:'excludeCuisine'] = opts[:'exclude_cuisine'] if !opts[:'exclude_cuisine'].nil?
       query_params[:'diet'] = opts[:'diet'] if !opts[:'diet'].nil?
-      query_params[:'excludeIngredients'] = opts[:'exclude_ingredients'] if !opts[:'exclude_ingredients'].nil?
       query_params[:'intolerances'] = opts[:'intolerances'] if !opts[:'intolerances'].nil?
+      query_params[:'equipment'] = opts[:'equipment'] if !opts[:'equipment'].nil?
+      query_params[:'includeIngredients'] = opts[:'include_ingredients'] if !opts[:'include_ingredients'].nil?
+      query_params[:'excludeIngredients'] = opts[:'exclude_ingredients'] if !opts[:'exclude_ingredients'].nil?
+      query_params[:'type'] = opts[:'type'] if !opts[:'type'].nil?
+      query_params[:'instructionsRequired'] = opts[:'instructions_required'] if !opts[:'instructions_required'].nil?
+      query_params[:'fillIngredients'] = opts[:'fill_ingredients'] if !opts[:'fill_ingredients'].nil?
+      query_params[:'addRecipeInformation'] = opts[:'add_recipe_information'] if !opts[:'add_recipe_information'].nil?
+      query_params[:'addRecipeNutrition'] = opts[:'add_recipe_nutrition'] if !opts[:'add_recipe_nutrition'].nil?
+      query_params[:'author'] = opts[:'author'] if !opts[:'author'].nil?
+      query_params[:'tags'] = opts[:'tags'] if !opts[:'tags'].nil?
+      query_params[:'recipeBoxId'] = opts[:'recipe_box_id'] if !opts[:'recipe_box_id'].nil?
+      query_params[:'titleMatch'] = opts[:'title_match'] if !opts[:'title_match'].nil?
+      query_params[:'maxReadyTime'] = opts[:'max_ready_time'] if !opts[:'max_ready_time'].nil?
+      query_params[:'ignorePantry'] = opts[:'ignore_pantry'] if !opts[:'ignore_pantry'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+      query_params[:'sortDirection'] = opts[:'sort_direction'] if !opts[:'sort_direction'].nil?
+      query_params[:'minCarbs'] = opts[:'min_carbs'] if !opts[:'min_carbs'].nil?
+      query_params[:'maxCarbs'] = opts[:'max_carbs'] if !opts[:'max_carbs'].nil?
+      query_params[:'minProtein'] = opts[:'min_protein'] if !opts[:'min_protein'].nil?
+      query_params[:'maxProtein'] = opts[:'max_protein'] if !opts[:'max_protein'].nil?
+      query_params[:'minCalories'] = opts[:'min_calories'] if !opts[:'min_calories'].nil?
+      query_params[:'maxCalories'] = opts[:'max_calories'] if !opts[:'max_calories'].nil?
+      query_params[:'minFat'] = opts[:'min_fat'] if !opts[:'min_fat'].nil?
+      query_params[:'maxFat'] = opts[:'max_fat'] if !opts[:'max_fat'].nil?
+      query_params[:'minAlcohol'] = opts[:'min_alcohol'] if !opts[:'min_alcohol'].nil?
+      query_params[:'maxAlcohol'] = opts[:'max_alcohol'] if !opts[:'max_alcohol'].nil?
+      query_params[:'minCaffeine'] = opts[:'min_caffeine'] if !opts[:'min_caffeine'].nil?
+      query_params[:'maxCaffeine'] = opts[:'max_caffeine'] if !opts[:'max_caffeine'].nil?
+      query_params[:'minCopper'] = opts[:'min_copper'] if !opts[:'min_copper'].nil?
+      query_params[:'maxCopper'] = opts[:'max_copper'] if !opts[:'max_copper'].nil?
+      query_params[:'minCalcium'] = opts[:'min_calcium'] if !opts[:'min_calcium'].nil?
+      query_params[:'maxCalcium'] = opts[:'max_calcium'] if !opts[:'max_calcium'].nil?
+      query_params[:'minCholine'] = opts[:'min_choline'] if !opts[:'min_choline'].nil?
+      query_params[:'maxCholine'] = opts[:'max_choline'] if !opts[:'max_choline'].nil?
+      query_params[:'minCholesterol'] = opts[:'min_cholesterol'] if !opts[:'min_cholesterol'].nil?
+      query_params[:'maxCholesterol'] = opts[:'max_cholesterol'] if !opts[:'max_cholesterol'].nil?
+      query_params[:'minFluoride'] = opts[:'min_fluoride'] if !opts[:'min_fluoride'].nil?
+      query_params[:'maxFluoride'] = opts[:'max_fluoride'] if !opts[:'max_fluoride'].nil?
+      query_params[:'minSaturatedFat'] = opts[:'min_saturated_fat'] if !opts[:'min_saturated_fat'].nil?
+      query_params[:'maxSaturatedFat'] = opts[:'max_saturated_fat'] if !opts[:'max_saturated_fat'].nil?
+      query_params[:'minVitaminA'] = opts[:'min_vitamin_a'] if !opts[:'min_vitamin_a'].nil?
+      query_params[:'maxVitaminA'] = opts[:'max_vitamin_a'] if !opts[:'max_vitamin_a'].nil?
+      query_params[:'minVitaminC'] = opts[:'min_vitamin_c'] if !opts[:'min_vitamin_c'].nil?
+      query_params[:'maxVitaminC'] = opts[:'max_vitamin_c'] if !opts[:'max_vitamin_c'].nil?
+      query_params[:'minVitaminD'] = opts[:'min_vitamin_d'] if !opts[:'min_vitamin_d'].nil?
+      query_params[:'maxVitaminD'] = opts[:'max_vitamin_d'] if !opts[:'max_vitamin_d'].nil?
+      query_params[:'minVitaminE'] = opts[:'min_vitamin_e'] if !opts[:'min_vitamin_e'].nil?
+      query_params[:'maxVitaminE'] = opts[:'max_vitamin_e'] if !opts[:'max_vitamin_e'].nil?
+      query_params[:'minVitaminK'] = opts[:'min_vitamin_k'] if !opts[:'min_vitamin_k'].nil?
+      query_params[:'maxVitaminK'] = opts[:'max_vitamin_k'] if !opts[:'max_vitamin_k'].nil?
+      query_params[:'minVitaminB1'] = opts[:'min_vitamin_b1'] if !opts[:'min_vitamin_b1'].nil?
+      query_params[:'maxVitaminB1'] = opts[:'max_vitamin_b1'] if !opts[:'max_vitamin_b1'].nil?
+      query_params[:'minVitaminB2'] = opts[:'min_vitamin_b2'] if !opts[:'min_vitamin_b2'].nil?
+      query_params[:'maxVitaminB2'] = opts[:'max_vitamin_b2'] if !opts[:'max_vitamin_b2'].nil?
+      query_params[:'minVitaminB5'] = opts[:'min_vitamin_b5'] if !opts[:'min_vitamin_b5'].nil?
+      query_params[:'maxVitaminB5'] = opts[:'max_vitamin_b5'] if !opts[:'max_vitamin_b5'].nil?
+      query_params[:'minVitaminB3'] = opts[:'min_vitamin_b3'] if !opts[:'min_vitamin_b3'].nil?
+      query_params[:'maxVitaminB3'] = opts[:'max_vitamin_b3'] if !opts[:'max_vitamin_b3'].nil?
+      query_params[:'minVitaminB6'] = opts[:'min_vitamin_b6'] if !opts[:'min_vitamin_b6'].nil?
+      query_params[:'maxVitaminB6'] = opts[:'max_vitamin_b6'] if !opts[:'max_vitamin_b6'].nil?
+      query_params[:'minVitaminB12'] = opts[:'min_vitamin_b12'] if !opts[:'min_vitamin_b12'].nil?
+      query_params[:'maxVitaminB12'] = opts[:'max_vitamin_b12'] if !opts[:'max_vitamin_b12'].nil?
+      query_params[:'minFiber'] = opts[:'min_fiber'] if !opts[:'min_fiber'].nil?
+      query_params[:'maxFiber'] = opts[:'max_fiber'] if !opts[:'max_fiber'].nil?
+      query_params[:'minFolate'] = opts[:'min_folate'] if !opts[:'min_folate'].nil?
+      query_params[:'maxFolate'] = opts[:'max_folate'] if !opts[:'max_folate'].nil?
+      query_params[:'minFolicAcid'] = opts[:'min_folic_acid'] if !opts[:'min_folic_acid'].nil?
+      query_params[:'maxFolicAcid'] = opts[:'max_folic_acid'] if !opts[:'max_folic_acid'].nil?
+      query_params[:'minIodine'] = opts[:'min_iodine'] if !opts[:'min_iodine'].nil?
+      query_params[:'maxIodine'] = opts[:'max_iodine'] if !opts[:'max_iodine'].nil?
+      query_params[:'minIron'] = opts[:'min_iron'] if !opts[:'min_iron'].nil?
+      query_params[:'maxIron'] = opts[:'max_iron'] if !opts[:'max_iron'].nil?
+      query_params[:'minMagnesium'] = opts[:'min_magnesium'] if !opts[:'min_magnesium'].nil?
+      query_params[:'maxMagnesium'] = opts[:'max_magnesium'] if !opts[:'max_magnesium'].nil?
+      query_params[:'minManganese'] = opts[:'min_manganese'] if !opts[:'min_manganese'].nil?
+      query_params[:'maxManganese'] = opts[:'max_manganese'] if !opts[:'max_manganese'].nil?
+      query_params[:'minPhosphorus'] = opts[:'min_phosphorus'] if !opts[:'min_phosphorus'].nil?
+      query_params[:'maxPhosphorus'] = opts[:'max_phosphorus'] if !opts[:'max_phosphorus'].nil?
+      query_params[:'minPotassium'] = opts[:'min_potassium'] if !opts[:'min_potassium'].nil?
+      query_params[:'maxPotassium'] = opts[:'max_potassium'] if !opts[:'max_potassium'].nil?
+      query_params[:'minSelenium'] = opts[:'min_selenium'] if !opts[:'min_selenium'].nil?
+      query_params[:'maxSelenium'] = opts[:'max_selenium'] if !opts[:'max_selenium'].nil?
+      query_params[:'minSodium'] = opts[:'min_sodium'] if !opts[:'min_sodium'].nil?
+      query_params[:'maxSodium'] = opts[:'max_sodium'] if !opts[:'max_sodium'].nil?
+      query_params[:'minSugar'] = opts[:'min_sugar'] if !opts[:'min_sugar'].nil?
+      query_params[:'maxSugar'] = opts[:'max_sugar'] if !opts[:'max_sugar'].nil?
+      query_params[:'minZinc'] = opts[:'min_zinc'] if !opts[:'min_zinc'].nil?
+      query_params[:'maxZinc'] = opts[:'max_zinc'] if !opts[:'max_zinc'].nil?
       query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
       query_params[:'number'] = opts[:'number'] if !opts[:'number'].nil?
       query_params[:'limitLicense'] = opts[:'limit_license'] if !opts[:'limit_license'].nil?
-      query_params[:'instructionsRequired'] = opts[:'instructions_required'] if !opts[:'instructions_required'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -4155,12 +4860,12 @@ module OpenapiClient
     # @option opts [Float] :max_vitamin_b12 The maximum amount of Vitamin B12 in micrograms the recipe can have.
     # @option opts [Float] :min_fiber The minimum amount of fiber in grams the recipe must have.
     # @option opts [Float] :max_fiber The maximum amount of fiber in grams the recipe can have.
-    # @option opts [Float] :min_folate The minimum amount of folate in grams the recipe must have.
-    # @option opts [Float] :max_folate The maximum amount of folate in grams the recipe can have.
-    # @option opts [Float] :min_folic_acid The minimum amount of folic acid in grams the recipe must have.
-    # @option opts [Float] :max_folic_acid The maximum amount of folic acid in grams the recipe can have.
-    # @option opts [Float] :min_iodine The minimum amount of iodine in grams the recipe must have.
-    # @option opts [Float] :max_iodine The maximum amount of iodine in grams the recipe can have.
+    # @option opts [Float] :min_folate The minimum amount of folate in micrograms the recipe must have.
+    # @option opts [Float] :max_folate The maximum amount of folate in micrograms the recipe can have.
+    # @option opts [Float] :min_folic_acid The minimum amount of folic acid in micrograms the recipe must have.
+    # @option opts [Float] :max_folic_acid The maximum amount of folic acid in micrograms the recipe can have.
+    # @option opts [Float] :min_iodine The minimum amount of iodine in micrograms the recipe must have.
+    # @option opts [Float] :max_iodine The maximum amount of iodine in micrograms the recipe can have.
     # @option opts [Float] :min_iron The minimum amount of iron in milligrams the recipe must have.
     # @option opts [Float] :max_iron The maximum amount of iron in milligrams the recipe can have.
     # @option opts [Float] :min_magnesium The minimum amount of magnesium in milligrams the recipe must have.
@@ -4171,8 +4876,8 @@ module OpenapiClient
     # @option opts [Float] :max_phosphorus The maximum amount of phosphorus in milligrams the recipe can have.
     # @option opts [Float] :min_potassium The minimum amount of potassium in milligrams the recipe must have.
     # @option opts [Float] :max_potassium The maximum amount of potassium in milligrams the recipe can have.
-    # @option opts [Float] :min_selenium The minimum amount of selenium in grams the recipe must have.
-    # @option opts [Float] :max_selenium The maximum amount of selenium in grams the recipe can have.
+    # @option opts [Float] :min_selenium The minimum amount of selenium in micrograms the recipe must have.
+    # @option opts [Float] :max_selenium The maximum amount of selenium in micrograms the recipe can have.
     # @option opts [Float] :min_sodium The minimum amount of sodium in milligrams the recipe must have.
     # @option opts [Float] :max_sodium The maximum amount of sodium in milligrams the recipe can have.
     # @option opts [Float] :min_sugar The minimum amount of sugar in grams the recipe must have.
@@ -4240,12 +4945,12 @@ module OpenapiClient
     # @option opts [Float] :max_vitamin_b12 The maximum amount of Vitamin B12 in micrograms the recipe can have.
     # @option opts [Float] :min_fiber The minimum amount of fiber in grams the recipe must have.
     # @option opts [Float] :max_fiber The maximum amount of fiber in grams the recipe can have.
-    # @option opts [Float] :min_folate The minimum amount of folate in grams the recipe must have.
-    # @option opts [Float] :max_folate The maximum amount of folate in grams the recipe can have.
-    # @option opts [Float] :min_folic_acid The minimum amount of folic acid in grams the recipe must have.
-    # @option opts [Float] :max_folic_acid The maximum amount of folic acid in grams the recipe can have.
-    # @option opts [Float] :min_iodine The minimum amount of iodine in grams the recipe must have.
-    # @option opts [Float] :max_iodine The maximum amount of iodine in grams the recipe can have.
+    # @option opts [Float] :min_folate The minimum amount of folate in micrograms the recipe must have.
+    # @option opts [Float] :max_folate The maximum amount of folate in micrograms the recipe can have.
+    # @option opts [Float] :min_folic_acid The minimum amount of folic acid in micrograms the recipe must have.
+    # @option opts [Float] :max_folic_acid The maximum amount of folic acid in micrograms the recipe can have.
+    # @option opts [Float] :min_iodine The minimum amount of iodine in micrograms the recipe must have.
+    # @option opts [Float] :max_iodine The maximum amount of iodine in micrograms the recipe can have.
     # @option opts [Float] :min_iron The minimum amount of iron in milligrams the recipe must have.
     # @option opts [Float] :max_iron The maximum amount of iron in milligrams the recipe can have.
     # @option opts [Float] :min_magnesium The minimum amount of magnesium in milligrams the recipe must have.
@@ -4256,8 +4961,8 @@ module OpenapiClient
     # @option opts [Float] :max_phosphorus The maximum amount of phosphorus in milligrams the recipe can have.
     # @option opts [Float] :min_potassium The minimum amount of potassium in milligrams the recipe must have.
     # @option opts [Float] :max_potassium The maximum amount of potassium in milligrams the recipe can have.
-    # @option opts [Float] :min_selenium The minimum amount of selenium in grams the recipe must have.
-    # @option opts [Float] :max_selenium The maximum amount of selenium in grams the recipe can have.
+    # @option opts [Float] :min_selenium The minimum amount of selenium in micrograms the recipe must have.
+    # @option opts [Float] :max_selenium The maximum amount of selenium in micrograms the recipe can have.
     # @option opts [Float] :min_sodium The minimum amount of sodium in milligrams the recipe must have.
     # @option opts [Float] :max_sodium The maximum amount of sodium in milligrams the recipe can have.
     # @option opts [Float] :min_sugar The minimum amount of sugar in grams the recipe must have.
@@ -4384,354 +5089,6 @@ module OpenapiClient
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: DefaultApi#search_recipes_by_nutrients\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # Search Recipes Complex
-    # Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint.
-    # @param query [String] The (natural language) recipe search query.
-    # @param [Hash] opts the optional parameters
-    # @option opts [String] :cuisine The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as &#39;OR&#39;). See a full list of supported cuisines.
-    # @option opts [String] :exclude_cuisine The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as &#39;AND&#39;). See a full list of supported cuisines.
-    # @option opts [String] :diet The diet for which the recipes must be suitable. See a full list of supported diets.
-    # @option opts [String] :intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
-    # @option opts [String] :equipment The equipment required. Multiple values will be interpreted as &#39;or&#39;. For example, value could be \&quot;blender, frying pan, bowl\&quot;.
-    # @option opts [String] :include_ingredients A comma-separated list of ingredients that should/must be used in the recipes.
-    # @option opts [String] :exclude_ingredients A comma-separated list of ingredients or ingredient types that the recipes must not contain.
-    # @option opts [String] :type The type of recipe. See a full list of supported meal types.
-    # @option opts [Boolean] :instructions_required Whether the recipes must have instructions.
-    # @option opts [Boolean] :fill_ingredients Add information about the ingredients and whether they are used or missing in relation to the query.
-    # @option opts [Boolean] :add_recipe_information If set to true, you get more information about the recipes returned.
-    # @option opts [Boolean] :add_recipe_nutrition If set to true, you get nutritional information about each recipes returned.
-    # @option opts [String] :author The username of the recipe author.
-    # @option opts [String] :tags User defined tags that have to match. The author param has to be set.
-    # @option opts [Float] :recipe_box_id The id of the recipe box to which the search should be limited to.
-    # @option opts [String] :title_match Enter text that must be found in the title of the recipes.
-    # @option opts [Float] :max_ready_time The maximum time in minutes it should take to prepare and cook the recipe.
-    # @option opts [Boolean] :ignore_pantry Whether to ignore typical pantry items, such as water, salt, flour, etc.
-    # @option opts [String] :sort The strategy to sort recipes by. See a full list of supported sorting options.
-    # @option opts [String] :sort_direction The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending).
-    # @option opts [Float] :min_carbs The minimum amount of carbohydrates in grams the recipe must have.
-    # @option opts [Float] :max_carbs The maximum amount of carbohydrates in grams the recipe can have.
-    # @option opts [Float] :min_protein The minimum amount of protein in grams the recipe must have.
-    # @option opts [Float] :max_protein The maximum amount of protein in grams the recipe can have.
-    # @option opts [Float] :min_calories The minimum amount of calories the recipe must have.
-    # @option opts [Float] :max_calories The maximum amount of calories the recipe can have.
-    # @option opts [Float] :min_fat The minimum amount of fat in grams the recipe must have.
-    # @option opts [Float] :max_fat The maximum amount of fat in grams the recipe can have.
-    # @option opts [Float] :min_alcohol The minimum amount of alcohol in grams the recipe must have.
-    # @option opts [Float] :max_alcohol The maximum amount of alcohol in grams the recipe can have.
-    # @option opts [Float] :min_caffeine The minimum amount of caffeine in milligrams the recipe must have.
-    # @option opts [Float] :max_caffeine The maximum amount of caffeine in milligrams the recipe can have.
-    # @option opts [Float] :min_copper The minimum amount of copper in milligrams the recipe must have.
-    # @option opts [Float] :max_copper The maximum amount of copper in milligrams the recipe can have.
-    # @option opts [Float] :min_calcium The minimum amount of calcium in milligrams the recipe must have.
-    # @option opts [Float] :max_calcium The maximum amount of calcium in milligrams the recipe can have.
-    # @option opts [Float] :min_choline The minimum amount of choline in milligrams the recipe must have.
-    # @option opts [Float] :max_choline The maximum amount of choline in milligrams the recipe can have.
-    # @option opts [Float] :min_cholesterol The minimum amount of cholesterol in milligrams the recipe must have.
-    # @option opts [Float] :max_cholesterol The maximum amount of cholesterol in milligrams the recipe can have.
-    # @option opts [Float] :min_fluoride The minimum amount of fluoride in milligrams the recipe must have.
-    # @option opts [Float] :max_fluoride The maximum amount of fluoride in milligrams the recipe can have.
-    # @option opts [Float] :min_saturated_fat The minimum amount of saturated fat in grams the recipe must have.
-    # @option opts [Float] :max_saturated_fat The maximum amount of saturated fat in grams the recipe can have.
-    # @option opts [Float] :min_vitamin_a The minimum amount of Vitamin A in IU the recipe must have.
-    # @option opts [Float] :max_vitamin_a The maximum amount of Vitamin A in IU the recipe can have.
-    # @option opts [Float] :min_vitamin_c The minimum amount of Vitamin C milligrams the recipe must have.
-    # @option opts [Float] :max_vitamin_c The maximum amount of Vitamin C in milligrams the recipe can have.
-    # @option opts [Float] :min_vitamin_d The minimum amount of Vitamin D in micrograms the recipe must have.
-    # @option opts [Float] :max_vitamin_d The maximum amount of Vitamin D in micrograms the recipe can have.
-    # @option opts [Float] :min_vitamin_e The minimum amount of Vitamin E in milligrams the recipe must have.
-    # @option opts [Float] :max_vitamin_e The maximum amount of Vitamin E in milligrams the recipe can have.
-    # @option opts [Float] :min_vitamin_k The minimum amount of Vitamin K in micrograms the recipe must have.
-    # @option opts [Float] :max_vitamin_k The maximum amount of Vitamin K in micrograms the recipe can have.
-    # @option opts [Float] :min_vitamin_b1 The minimum amount of Vitamin B1 in milligrams the recipe must have.
-    # @option opts [Float] :max_vitamin_b1 The maximum amount of Vitamin B1 in milligrams the recipe can have.
-    # @option opts [Float] :min_vitamin_b2 The minimum amount of Vitamin B2 in milligrams the recipe must have.
-    # @option opts [Float] :max_vitamin_b2 The maximum amount of Vitamin B2 in milligrams the recipe can have.
-    # @option opts [Float] :min_vitamin_b5 The minimum amount of Vitamin B5 in milligrams the recipe must have.
-    # @option opts [Float] :max_vitamin_b5 The maximum amount of Vitamin B5 in milligrams the recipe can have.
-    # @option opts [Float] :min_vitamin_b3 The minimum amount of Vitamin B3 in milligrams the recipe must have.
-    # @option opts [Float] :max_vitamin_b3 The maximum amount of Vitamin B3 in milligrams the recipe can have.
-    # @option opts [Float] :min_vitamin_b6 The minimum amount of Vitamin B6 in milligrams the recipe must have.
-    # @option opts [Float] :max_vitamin_b6 The maximum amount of Vitamin B6 in milligrams the recipe can have.
-    # @option opts [Float] :min_vitamin_b12 The minimum amount of Vitamin B12 in micrograms the recipe must have.
-    # @option opts [Float] :max_vitamin_b12 The maximum amount of Vitamin B12 in micrograms the recipe can have.
-    # @option opts [Float] :min_fiber The minimum amount of fiber in grams the recipe must have.
-    # @option opts [Float] :max_fiber The maximum amount of fiber in grams the recipe can have.
-    # @option opts [Float] :min_folate The minimum amount of folate in grams the recipe must have.
-    # @option opts [Float] :max_folate The maximum amount of folate in grams the recipe can have.
-    # @option opts [Float] :min_folic_acid The minimum amount of folic acid in grams the recipe must have.
-    # @option opts [Float] :max_folic_acid The maximum amount of folic acid in grams the recipe can have.
-    # @option opts [Float] :min_iodine The minimum amount of iodine in grams the recipe must have.
-    # @option opts [Float] :max_iodine The maximum amount of iodine in grams the recipe can have.
-    # @option opts [Float] :min_iron The minimum amount of iron in milligrams the recipe must have.
-    # @option opts [Float] :max_iron The maximum amount of iron in milligrams the recipe can have.
-    # @option opts [Float] :min_magnesium The minimum amount of magnesium in milligrams the recipe must have.
-    # @option opts [Float] :max_magnesium The maximum amount of magnesium in milligrams the recipe can have.
-    # @option opts [Float] :min_manganese The minimum amount of manganese in milligrams the recipe must have.
-    # @option opts [Float] :max_manganese The maximum amount of manganese in milligrams the recipe can have.
-    # @option opts [Float] :min_phosphorus The minimum amount of phosphorus in milligrams the recipe must have.
-    # @option opts [Float] :max_phosphorus The maximum amount of phosphorus in milligrams the recipe can have.
-    # @option opts [Float] :min_potassium The minimum amount of potassium in milligrams the recipe must have.
-    # @option opts [Float] :max_potassium The maximum amount of potassium in milligrams the recipe can have.
-    # @option opts [Float] :min_selenium The minimum amount of selenium in grams the recipe must have.
-    # @option opts [Float] :max_selenium The maximum amount of selenium in grams the recipe can have.
-    # @option opts [Float] :min_sodium The minimum amount of sodium in milligrams the recipe must have.
-    # @option opts [Float] :max_sodium The maximum amount of sodium in milligrams the recipe can have.
-    # @option opts [Float] :min_sugar The minimum amount of sugar in grams the recipe must have.
-    # @option opts [Float] :max_sugar The maximum amount of sugar in grams the recipe can have.
-    # @option opts [Float] :min_zinc The minimum amount of zinc in milligrams the recipe must have.
-    # @option opts [Float] :max_zinc The maximum amount of zinc in milligrams the recipe can have.
-    # @option opts [Float] :offset The number of results to skip (between 0 and 900).
-    # @option opts [Float] :number The number of expected results (between 1 and 100).
-    # @option opts [Boolean] :limit_license Whether the recipes should have an open license that allows display with proper attribution.
-    # @return [Object]
-    def search_recipes_complex(query, opts = {})
-      data, _status_code, _headers = search_recipes_complex_with_http_info(query, opts)
-      data
-    end
-
-    # Search Recipes Complex
-    # Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint.
-    # @param query [String] The (natural language) recipe search query.
-    # @param [Hash] opts the optional parameters
-    # @option opts [String] :cuisine The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as &#39;OR&#39;). See a full list of supported cuisines.
-    # @option opts [String] :exclude_cuisine The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as &#39;AND&#39;). See a full list of supported cuisines.
-    # @option opts [String] :diet The diet for which the recipes must be suitable. See a full list of supported diets.
-    # @option opts [String] :intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
-    # @option opts [String] :equipment The equipment required. Multiple values will be interpreted as &#39;or&#39;. For example, value could be \&quot;blender, frying pan, bowl\&quot;.
-    # @option opts [String] :include_ingredients A comma-separated list of ingredients that should/must be used in the recipes.
-    # @option opts [String] :exclude_ingredients A comma-separated list of ingredients or ingredient types that the recipes must not contain.
-    # @option opts [String] :type The type of recipe. See a full list of supported meal types.
-    # @option opts [Boolean] :instructions_required Whether the recipes must have instructions.
-    # @option opts [Boolean] :fill_ingredients Add information about the ingredients and whether they are used or missing in relation to the query.
-    # @option opts [Boolean] :add_recipe_information If set to true, you get more information about the recipes returned.
-    # @option opts [Boolean] :add_recipe_nutrition If set to true, you get nutritional information about each recipes returned.
-    # @option opts [String] :author The username of the recipe author.
-    # @option opts [String] :tags User defined tags that have to match. The author param has to be set.
-    # @option opts [Float] :recipe_box_id The id of the recipe box to which the search should be limited to.
-    # @option opts [String] :title_match Enter text that must be found in the title of the recipes.
-    # @option opts [Float] :max_ready_time The maximum time in minutes it should take to prepare and cook the recipe.
-    # @option opts [Boolean] :ignore_pantry Whether to ignore typical pantry items, such as water, salt, flour, etc.
-    # @option opts [String] :sort The strategy to sort recipes by. See a full list of supported sorting options.
-    # @option opts [String] :sort_direction The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending).
-    # @option opts [Float] :min_carbs The minimum amount of carbohydrates in grams the recipe must have.
-    # @option opts [Float] :max_carbs The maximum amount of carbohydrates in grams the recipe can have.
-    # @option opts [Float] :min_protein The minimum amount of protein in grams the recipe must have.
-    # @option opts [Float] :max_protein The maximum amount of protein in grams the recipe can have.
-    # @option opts [Float] :min_calories The minimum amount of calories the recipe must have.
-    # @option opts [Float] :max_calories The maximum amount of calories the recipe can have.
-    # @option opts [Float] :min_fat The minimum amount of fat in grams the recipe must have.
-    # @option opts [Float] :max_fat The maximum amount of fat in grams the recipe can have.
-    # @option opts [Float] :min_alcohol The minimum amount of alcohol in grams the recipe must have.
-    # @option opts [Float] :max_alcohol The maximum amount of alcohol in grams the recipe can have.
-    # @option opts [Float] :min_caffeine The minimum amount of caffeine in milligrams the recipe must have.
-    # @option opts [Float] :max_caffeine The maximum amount of caffeine in milligrams the recipe can have.
-    # @option opts [Float] :min_copper The minimum amount of copper in milligrams the recipe must have.
-    # @option opts [Float] :max_copper The maximum amount of copper in milligrams the recipe can have.
-    # @option opts [Float] :min_calcium The minimum amount of calcium in milligrams the recipe must have.
-    # @option opts [Float] :max_calcium The maximum amount of calcium in milligrams the recipe can have.
-    # @option opts [Float] :min_choline The minimum amount of choline in milligrams the recipe must have.
-    # @option opts [Float] :max_choline The maximum amount of choline in milligrams the recipe can have.
-    # @option opts [Float] :min_cholesterol The minimum amount of cholesterol in milligrams the recipe must have.
-    # @option opts [Float] :max_cholesterol The maximum amount of cholesterol in milligrams the recipe can have.
-    # @option opts [Float] :min_fluoride The minimum amount of fluoride in milligrams the recipe must have.
-    # @option opts [Float] :max_fluoride The maximum amount of fluoride in milligrams the recipe can have.
-    # @option opts [Float] :min_saturated_fat The minimum amount of saturated fat in grams the recipe must have.
-    # @option opts [Float] :max_saturated_fat The maximum amount of saturated fat in grams the recipe can have.
-    # @option opts [Float] :min_vitamin_a The minimum amount of Vitamin A in IU the recipe must have.
-    # @option opts [Float] :max_vitamin_a The maximum amount of Vitamin A in IU the recipe can have.
-    # @option opts [Float] :min_vitamin_c The minimum amount of Vitamin C milligrams the recipe must have.
-    # @option opts [Float] :max_vitamin_c The maximum amount of Vitamin C in milligrams the recipe can have.
-    # @option opts [Float] :min_vitamin_d The minimum amount of Vitamin D in micrograms the recipe must have.
-    # @option opts [Float] :max_vitamin_d The maximum amount of Vitamin D in micrograms the recipe can have.
-    # @option opts [Float] :min_vitamin_e The minimum amount of Vitamin E in milligrams the recipe must have.
-    # @option opts [Float] :max_vitamin_e The maximum amount of Vitamin E in milligrams the recipe can have.
-    # @option opts [Float] :min_vitamin_k The minimum amount of Vitamin K in micrograms the recipe must have.
-    # @option opts [Float] :max_vitamin_k The maximum amount of Vitamin K in micrograms the recipe can have.
-    # @option opts [Float] :min_vitamin_b1 The minimum amount of Vitamin B1 in milligrams the recipe must have.
-    # @option opts [Float] :max_vitamin_b1 The maximum amount of Vitamin B1 in milligrams the recipe can have.
-    # @option opts [Float] :min_vitamin_b2 The minimum amount of Vitamin B2 in milligrams the recipe must have.
-    # @option opts [Float] :max_vitamin_b2 The maximum amount of Vitamin B2 in milligrams the recipe can have.
-    # @option opts [Float] :min_vitamin_b5 The minimum amount of Vitamin B5 in milligrams the recipe must have.
-    # @option opts [Float] :max_vitamin_b5 The maximum amount of Vitamin B5 in milligrams the recipe can have.
-    # @option opts [Float] :min_vitamin_b3 The minimum amount of Vitamin B3 in milligrams the recipe must have.
-    # @option opts [Float] :max_vitamin_b3 The maximum amount of Vitamin B3 in milligrams the recipe can have.
-    # @option opts [Float] :min_vitamin_b6 The minimum amount of Vitamin B6 in milligrams the recipe must have.
-    # @option opts [Float] :max_vitamin_b6 The maximum amount of Vitamin B6 in milligrams the recipe can have.
-    # @option opts [Float] :min_vitamin_b12 The minimum amount of Vitamin B12 in micrograms the recipe must have.
-    # @option opts [Float] :max_vitamin_b12 The maximum amount of Vitamin B12 in micrograms the recipe can have.
-    # @option opts [Float] :min_fiber The minimum amount of fiber in grams the recipe must have.
-    # @option opts [Float] :max_fiber The maximum amount of fiber in grams the recipe can have.
-    # @option opts [Float] :min_folate The minimum amount of folate in grams the recipe must have.
-    # @option opts [Float] :max_folate The maximum amount of folate in grams the recipe can have.
-    # @option opts [Float] :min_folic_acid The minimum amount of folic acid in grams the recipe must have.
-    # @option opts [Float] :max_folic_acid The maximum amount of folic acid in grams the recipe can have.
-    # @option opts [Float] :min_iodine The minimum amount of iodine in grams the recipe must have.
-    # @option opts [Float] :max_iodine The maximum amount of iodine in grams the recipe can have.
-    # @option opts [Float] :min_iron The minimum amount of iron in milligrams the recipe must have.
-    # @option opts [Float] :max_iron The maximum amount of iron in milligrams the recipe can have.
-    # @option opts [Float] :min_magnesium The minimum amount of magnesium in milligrams the recipe must have.
-    # @option opts [Float] :max_magnesium The maximum amount of magnesium in milligrams the recipe can have.
-    # @option opts [Float] :min_manganese The minimum amount of manganese in milligrams the recipe must have.
-    # @option opts [Float] :max_manganese The maximum amount of manganese in milligrams the recipe can have.
-    # @option opts [Float] :min_phosphorus The minimum amount of phosphorus in milligrams the recipe must have.
-    # @option opts [Float] :max_phosphorus The maximum amount of phosphorus in milligrams the recipe can have.
-    # @option opts [Float] :min_potassium The minimum amount of potassium in milligrams the recipe must have.
-    # @option opts [Float] :max_potassium The maximum amount of potassium in milligrams the recipe can have.
-    # @option opts [Float] :min_selenium The minimum amount of selenium in grams the recipe must have.
-    # @option opts [Float] :max_selenium The maximum amount of selenium in grams the recipe can have.
-    # @option opts [Float] :min_sodium The minimum amount of sodium in milligrams the recipe must have.
-    # @option opts [Float] :max_sodium The maximum amount of sodium in milligrams the recipe can have.
-    # @option opts [Float] :min_sugar The minimum amount of sugar in grams the recipe must have.
-    # @option opts [Float] :max_sugar The maximum amount of sugar in grams the recipe can have.
-    # @option opts [Float] :min_zinc The minimum amount of zinc in milligrams the recipe must have.
-    # @option opts [Float] :max_zinc The maximum amount of zinc in milligrams the recipe can have.
-    # @option opts [Float] :offset The number of results to skip (between 0 and 900).
-    # @option opts [Float] :number The number of expected results (between 1 and 100).
-    # @option opts [Boolean] :limit_license Whether the recipes should have an open license that allows display with proper attribution.
-    # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
-    def search_recipes_complex_with_http_info(query, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DefaultApi.search_recipes_complex ...'
-      end
-      # verify the required parameter 'query' is set
-      if @api_client.config.client_side_validation && query.nil?
-        fail ArgumentError, "Missing the required parameter 'query' when calling DefaultApi.search_recipes_complex"
-      end
-      # resource path
-      local_var_path = '/recipes/complexSearch'
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-      query_params[:'query'] = query
-      query_params[:'cuisine'] = opts[:'cuisine'] if !opts[:'cuisine'].nil?
-      query_params[:'excludeCuisine'] = opts[:'exclude_cuisine'] if !opts[:'exclude_cuisine'].nil?
-      query_params[:'diet'] = opts[:'diet'] if !opts[:'diet'].nil?
-      query_params[:'intolerances'] = opts[:'intolerances'] if !opts[:'intolerances'].nil?
-      query_params[:'equipment'] = opts[:'equipment'] if !opts[:'equipment'].nil?
-      query_params[:'includeIngredients'] = opts[:'include_ingredients'] if !opts[:'include_ingredients'].nil?
-      query_params[:'excludeIngredients'] = opts[:'exclude_ingredients'] if !opts[:'exclude_ingredients'].nil?
-      query_params[:'type'] = opts[:'type'] if !opts[:'type'].nil?
-      query_params[:'instructionsRequired'] = opts[:'instructions_required'] if !opts[:'instructions_required'].nil?
-      query_params[:'fillIngredients'] = opts[:'fill_ingredients'] if !opts[:'fill_ingredients'].nil?
-      query_params[:'addRecipeInformation'] = opts[:'add_recipe_information'] if !opts[:'add_recipe_information'].nil?
-      query_params[:'addRecipeNutrition'] = opts[:'add_recipe_nutrition'] if !opts[:'add_recipe_nutrition'].nil?
-      query_params[:'author'] = opts[:'author'] if !opts[:'author'].nil?
-      query_params[:'tags'] = opts[:'tags'] if !opts[:'tags'].nil?
-      query_params[:'recipeBoxId'] = opts[:'recipe_box_id'] if !opts[:'recipe_box_id'].nil?
-      query_params[:'titleMatch'] = opts[:'title_match'] if !opts[:'title_match'].nil?
-      query_params[:'maxReadyTime'] = opts[:'max_ready_time'] if !opts[:'max_ready_time'].nil?
-      query_params[:'ignorePantry'] = opts[:'ignore_pantry'] if !opts[:'ignore_pantry'].nil?
-      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
-      query_params[:'sortDirection'] = opts[:'sort_direction'] if !opts[:'sort_direction'].nil?
-      query_params[:'minCarbs'] = opts[:'min_carbs'] if !opts[:'min_carbs'].nil?
-      query_params[:'maxCarbs'] = opts[:'max_carbs'] if !opts[:'max_carbs'].nil?
-      query_params[:'minProtein'] = opts[:'min_protein'] if !opts[:'min_protein'].nil?
-      query_params[:'maxProtein'] = opts[:'max_protein'] if !opts[:'max_protein'].nil?
-      query_params[:'minCalories'] = opts[:'min_calories'] if !opts[:'min_calories'].nil?
-      query_params[:'maxCalories'] = opts[:'max_calories'] if !opts[:'max_calories'].nil?
-      query_params[:'minFat'] = opts[:'min_fat'] if !opts[:'min_fat'].nil?
-      query_params[:'maxFat'] = opts[:'max_fat'] if !opts[:'max_fat'].nil?
-      query_params[:'minAlcohol'] = opts[:'min_alcohol'] if !opts[:'min_alcohol'].nil?
-      query_params[:'maxAlcohol'] = opts[:'max_alcohol'] if !opts[:'max_alcohol'].nil?
-      query_params[:'minCaffeine'] = opts[:'min_caffeine'] if !opts[:'min_caffeine'].nil?
-      query_params[:'maxCaffeine'] = opts[:'max_caffeine'] if !opts[:'max_caffeine'].nil?
-      query_params[:'minCopper'] = opts[:'min_copper'] if !opts[:'min_copper'].nil?
-      query_params[:'maxCopper'] = opts[:'max_copper'] if !opts[:'max_copper'].nil?
-      query_params[:'minCalcium'] = opts[:'min_calcium'] if !opts[:'min_calcium'].nil?
-      query_params[:'maxCalcium'] = opts[:'max_calcium'] if !opts[:'max_calcium'].nil?
-      query_params[:'minCholine'] = opts[:'min_choline'] if !opts[:'min_choline'].nil?
-      query_params[:'maxCholine'] = opts[:'max_choline'] if !opts[:'max_choline'].nil?
-      query_params[:'minCholesterol'] = opts[:'min_cholesterol'] if !opts[:'min_cholesterol'].nil?
-      query_params[:'maxCholesterol'] = opts[:'max_cholesterol'] if !opts[:'max_cholesterol'].nil?
-      query_params[:'minFluoride'] = opts[:'min_fluoride'] if !opts[:'min_fluoride'].nil?
-      query_params[:'maxFluoride'] = opts[:'max_fluoride'] if !opts[:'max_fluoride'].nil?
-      query_params[:'minSaturatedFat'] = opts[:'min_saturated_fat'] if !opts[:'min_saturated_fat'].nil?
-      query_params[:'maxSaturatedFat'] = opts[:'max_saturated_fat'] if !opts[:'max_saturated_fat'].nil?
-      query_params[:'minVitaminA'] = opts[:'min_vitamin_a'] if !opts[:'min_vitamin_a'].nil?
-      query_params[:'maxVitaminA'] = opts[:'max_vitamin_a'] if !opts[:'max_vitamin_a'].nil?
-      query_params[:'minVitaminC'] = opts[:'min_vitamin_c'] if !opts[:'min_vitamin_c'].nil?
-      query_params[:'maxVitaminC'] = opts[:'max_vitamin_c'] if !opts[:'max_vitamin_c'].nil?
-      query_params[:'minVitaminD'] = opts[:'min_vitamin_d'] if !opts[:'min_vitamin_d'].nil?
-      query_params[:'maxVitaminD'] = opts[:'max_vitamin_d'] if !opts[:'max_vitamin_d'].nil?
-      query_params[:'minVitaminE'] = opts[:'min_vitamin_e'] if !opts[:'min_vitamin_e'].nil?
-      query_params[:'maxVitaminE'] = opts[:'max_vitamin_e'] if !opts[:'max_vitamin_e'].nil?
-      query_params[:'minVitaminK'] = opts[:'min_vitamin_k'] if !opts[:'min_vitamin_k'].nil?
-      query_params[:'maxVitaminK'] = opts[:'max_vitamin_k'] if !opts[:'max_vitamin_k'].nil?
-      query_params[:'minVitaminB1'] = opts[:'min_vitamin_b1'] if !opts[:'min_vitamin_b1'].nil?
-      query_params[:'maxVitaminB1'] = opts[:'max_vitamin_b1'] if !opts[:'max_vitamin_b1'].nil?
-      query_params[:'minVitaminB2'] = opts[:'min_vitamin_b2'] if !opts[:'min_vitamin_b2'].nil?
-      query_params[:'maxVitaminB2'] = opts[:'max_vitamin_b2'] if !opts[:'max_vitamin_b2'].nil?
-      query_params[:'minVitaminB5'] = opts[:'min_vitamin_b5'] if !opts[:'min_vitamin_b5'].nil?
-      query_params[:'maxVitaminB5'] = opts[:'max_vitamin_b5'] if !opts[:'max_vitamin_b5'].nil?
-      query_params[:'minVitaminB3'] = opts[:'min_vitamin_b3'] if !opts[:'min_vitamin_b3'].nil?
-      query_params[:'maxVitaminB3'] = opts[:'max_vitamin_b3'] if !opts[:'max_vitamin_b3'].nil?
-      query_params[:'minVitaminB6'] = opts[:'min_vitamin_b6'] if !opts[:'min_vitamin_b6'].nil?
-      query_params[:'maxVitaminB6'] = opts[:'max_vitamin_b6'] if !opts[:'max_vitamin_b6'].nil?
-      query_params[:'minVitaminB12'] = opts[:'min_vitamin_b12'] if !opts[:'min_vitamin_b12'].nil?
-      query_params[:'maxVitaminB12'] = opts[:'max_vitamin_b12'] if !opts[:'max_vitamin_b12'].nil?
-      query_params[:'minFiber'] = opts[:'min_fiber'] if !opts[:'min_fiber'].nil?
-      query_params[:'maxFiber'] = opts[:'max_fiber'] if !opts[:'max_fiber'].nil?
-      query_params[:'minFolate'] = opts[:'min_folate'] if !opts[:'min_folate'].nil?
-      query_params[:'maxFolate'] = opts[:'max_folate'] if !opts[:'max_folate'].nil?
-      query_params[:'minFolicAcid'] = opts[:'min_folic_acid'] if !opts[:'min_folic_acid'].nil?
-      query_params[:'maxFolicAcid'] = opts[:'max_folic_acid'] if !opts[:'max_folic_acid'].nil?
-      query_params[:'minIodine'] = opts[:'min_iodine'] if !opts[:'min_iodine'].nil?
-      query_params[:'maxIodine'] = opts[:'max_iodine'] if !opts[:'max_iodine'].nil?
-      query_params[:'minIron'] = opts[:'min_iron'] if !opts[:'min_iron'].nil?
-      query_params[:'maxIron'] = opts[:'max_iron'] if !opts[:'max_iron'].nil?
-      query_params[:'minMagnesium'] = opts[:'min_magnesium'] if !opts[:'min_magnesium'].nil?
-      query_params[:'maxMagnesium'] = opts[:'max_magnesium'] if !opts[:'max_magnesium'].nil?
-      query_params[:'minManganese'] = opts[:'min_manganese'] if !opts[:'min_manganese'].nil?
-      query_params[:'maxManganese'] = opts[:'max_manganese'] if !opts[:'max_manganese'].nil?
-      query_params[:'minPhosphorus'] = opts[:'min_phosphorus'] if !opts[:'min_phosphorus'].nil?
-      query_params[:'maxPhosphorus'] = opts[:'max_phosphorus'] if !opts[:'max_phosphorus'].nil?
-      query_params[:'minPotassium'] = opts[:'min_potassium'] if !opts[:'min_potassium'].nil?
-      query_params[:'maxPotassium'] = opts[:'max_potassium'] if !opts[:'max_potassium'].nil?
-      query_params[:'minSelenium'] = opts[:'min_selenium'] if !opts[:'min_selenium'].nil?
-      query_params[:'maxSelenium'] = opts[:'max_selenium'] if !opts[:'max_selenium'].nil?
-      query_params[:'minSodium'] = opts[:'min_sodium'] if !opts[:'min_sodium'].nil?
-      query_params[:'maxSodium'] = opts[:'max_sodium'] if !opts[:'max_sodium'].nil?
-      query_params[:'minSugar'] = opts[:'min_sugar'] if !opts[:'min_sugar'].nil?
-      query_params[:'maxSugar'] = opts[:'max_sugar'] if !opts[:'max_sugar'].nil?
-      query_params[:'minZinc'] = opts[:'min_zinc'] if !opts[:'min_zinc'].nil?
-      query_params[:'maxZinc'] = opts[:'max_zinc'] if !opts[:'max_zinc'].nil?
-      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
-      query_params[:'number'] = opts[:'number'] if !opts[:'number'].nil?
-      query_params[:'limitLicense'] = opts[:'limit_license'] if !opts[:'limit_license'].nil?
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:body] 
-
-      # return_type
-      return_type = opts[:return_type] || 'Object' 
-
-      # auth_names
-      auth_names = opts[:auth_names] || []
-
-      new_options = opts.merge(
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DefaultApi#search_recipes_complex\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -4928,39 +5285,33 @@ module OpenapiClient
     end
 
     # Visualize Equipment
-    # Visualize the equipment used to make a recipe.
-    # @param ingredient_list [String] The ingredient list of the recipe, one ingredient per line.
-    # @param servings [Float] The number of servings.
+    # Visualize the equipment used to make a recipe. You can play around with that endpoint!
+    # @param instructions [String] The recipe&#39;s instructions.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :view How to visualize the equipment, either \\\&quot;grid\\\&quot; or \\\&quot;list\\\&quot;.
     # @option opts [Boolean] :default_css Whether the default CSS should be added to the response.
     # @option opts [Boolean] :show_backlink Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
     # @return [String]
-    def visualize_equipment(ingredient_list, servings, opts = {})
-      data, _status_code, _headers = visualize_equipment_with_http_info(ingredient_list, servings, opts)
+    def visualize_equipment(instructions, opts = {})
+      data, _status_code, _headers = visualize_equipment_with_http_info(instructions, opts)
       data
     end
 
     # Visualize Equipment
-    # Visualize the equipment used to make a recipe.
-    # @param ingredient_list [String] The ingredient list of the recipe, one ingredient per line.
-    # @param servings [Float] The number of servings.
+    # Visualize the equipment used to make a recipe. You can play around with that endpoint!
+    # @param instructions [String] The recipe&#39;s instructions.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :view How to visualize the equipment, either \\\&quot;grid\\\&quot; or \\\&quot;list\\\&quot;.
     # @option opts [Boolean] :default_css Whether the default CSS should be added to the response.
     # @option opts [Boolean] :show_backlink Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
     # @return [Array<(String, Integer, Hash)>] String data, response status code and response headers
-    def visualize_equipment_with_http_info(ingredient_list, servings, opts = {})
+    def visualize_equipment_with_http_info(instructions, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DefaultApi.visualize_equipment ...'
       end
-      # verify the required parameter 'ingredient_list' is set
-      if @api_client.config.client_side_validation && ingredient_list.nil?
-        fail ArgumentError, "Missing the required parameter 'ingredient_list' when calling DefaultApi.visualize_equipment"
-      end
-      # verify the required parameter 'servings' is set
-      if @api_client.config.client_side_validation && servings.nil?
-        fail ArgumentError, "Missing the required parameter 'servings' when calling DefaultApi.visualize_equipment"
+      # verify the required parameter 'instructions' is set
+      if @api_client.config.client_side_validation && instructions.nil?
+        fail ArgumentError, "Missing the required parameter 'instructions' when calling DefaultApi.visualize_equipment"
       end
       # resource path
       local_var_path = '/recipes/visualizeEquipment'
@@ -4977,8 +5328,7 @@ module OpenapiClient
 
       # form parameters
       form_params = opts[:form_params] || {}
-      form_params['ingredientList'] = ingredient_list
-      form_params['servings'] = servings
+      form_params['instructions'] = instructions
       form_params['view'] = opts[:'view'] if !opts[:'view'].nil?
       form_params['defaultCss'] = opts[:'default_css'] if !opts[:'default_css'].nil?
       form_params['showBacklink'] = opts[:'show_backlink'] if !opts[:'show_backlink'].nil?
@@ -5009,7 +5359,7 @@ module OpenapiClient
     end
 
     # Visualize Ingredients
-    # Visualize ingredients of a recipe.
+    # Visualize ingredients of a recipe. You can play around with that endpoint!
     # @param ingredient_list [String] The ingredient list of the recipe, one ingredient per line.
     # @param servings [Float] The number of servings.
     # @param [Hash] opts the optional parameters
@@ -5024,7 +5374,7 @@ module OpenapiClient
     end
 
     # Visualize Ingredients
-    # Visualize ingredients of a recipe.
+    # Visualize ingredients of a recipe. You can play around with that endpoint!
     # @param ingredient_list [String] The ingredient list of the recipe, one ingredient per line.
     # @param servings [Float] The number of servings.
     # @param [Hash] opts the optional parameters
@@ -5158,7 +5508,7 @@ module OpenapiClient
     end
 
     # Visualize Price Breakdown
-    # Visualize the price breakdown of a recipe.
+    # Visualize the price breakdown of a recipe. You can play around with that endpoint!
     # @param ingredient_list [String] The ingredient list of the recipe, one ingredient per line.
     # @param servings [Float] The number of servings.
     # @param [Hash] opts the optional parameters
@@ -5172,7 +5522,7 @@ module OpenapiClient
     end
 
     # Visualize Price Breakdown
-    # Visualize the price breakdown of a recipe.
+    # Visualize the price breakdown of a recipe. You can play around with that endpoint!
     # @param ingredient_list [String] The ingredient list of the recipe, one ingredient per line.
     # @param servings [Float] The number of servings.
     # @param [Hash] opts the optional parameters
@@ -5434,7 +5784,7 @@ module OpenapiClient
     end
 
     # Visualize Recipe Nutrition
-    # Visualize a recipe's nutritional information as HTML including CSS
+    # Visualize a recipe's nutritional information as HTML including CSS. You can play around with that endpoint!
     # @param ingredient_list [String] The ingredient list of the recipe, one ingredient per line.
     # @param servings [Float] The number of servings.
     # @param [Hash] opts the optional parameters
@@ -5447,7 +5797,7 @@ module OpenapiClient
     end
 
     # Visualize Recipe Nutrition
-    # Visualize a recipe&#39;s nutritional information as HTML including CSS
+    # Visualize a recipe&#39;s nutritional information as HTML including CSS. You can play around with that endpoint!
     # @param ingredient_list [String] The ingredient list of the recipe, one ingredient per line.
     # @param servings [Float] The number of servings.
     # @param [Hash] opts the optional parameters
@@ -5637,6 +5987,133 @@ module OpenapiClient
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: DefaultApi#visualize_recipe_price_breakdown_by_id\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Visualize Recipe Taste
+    # Visualize a recipe's taste information as HTML including CSS. You can play around with that endpoint!
+    # @param ingredient_list [String] The ingredient list of the recipe, one ingredient per line.
+    # @param [Hash] opts the optional parameters
+    # @return [String]
+    def visualize_recipe_taste(ingredient_list, opts = {})
+      data, _status_code, _headers = visualize_recipe_taste_with_http_info(ingredient_list, opts)
+      data
+    end
+
+    # Visualize Recipe Taste
+    # Visualize a recipe&#39;s taste information as HTML including CSS. You can play around with that endpoint!
+    # @param ingredient_list [String] The ingredient list of the recipe, one ingredient per line.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(String, Integer, Hash)>] String data, response status code and response headers
+    def visualize_recipe_taste_with_http_info(ingredient_list, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DefaultApi.visualize_recipe_taste ...'
+      end
+      # verify the required parameter 'ingredient_list' is set
+      if @api_client.config.client_side_validation && ingredient_list.nil?
+        fail ArgumentError, "Missing the required parameter 'ingredient_list' when calling DefaultApi.visualize_recipe_taste"
+      end
+      # resource path
+      local_var_path = '/recipes/visualizeTaste'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['text/html'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+      form_params['ingredientList'] = ingredient_list
+
+      # http body (model)
+      post_body = opts[:body] 
+
+      # return_type
+      return_type = opts[:return_type] || 'String' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || []
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DefaultApi#visualize_recipe_taste\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Visualize Recipe Taste by ID
+    # Get a recipe's taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
+    # @param id [Float] The recipe id.
+    # @param [Hash] opts the optional parameters
+    # @return [String]
+    def visualize_recipe_taste_by_id(id, opts = {})
+      data, _status_code, _headers = visualize_recipe_taste_by_id_with_http_info(id, opts)
+      data
+    end
+
+    # Visualize Recipe Taste by ID
+    # Get a recipe&#39;s taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
+    # @param id [Float] The recipe id.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(String, Integer, Hash)>] String data, response status code and response headers
+    def visualize_recipe_taste_by_id_with_http_info(id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DefaultApi.visualize_recipe_taste_by_id ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling DefaultApi.visualize_recipe_taste_by_id"
+      end
+      # resource path
+      local_var_path = '/recipes/{id}/tasteWidget'.sub('{' + 'id' + '}', id.to_s)
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['text/html'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] 
+
+      # return_type
+      return_type = opts[:return_type] || 'String' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || []
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DefaultApi#visualize_recipe_taste_by_id\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

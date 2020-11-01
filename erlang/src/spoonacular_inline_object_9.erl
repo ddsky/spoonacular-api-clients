@@ -5,13 +5,10 @@
 -export_type([spoonacular_inline_object_9/0]).
 
 -type spoonacular_inline_object_9() ::
-    #{ 'username' := binary(),
-       'hash' := binary()
+    #{ 'locale' => binary()
      }.
 
-encode(#{ 'username' := Username,
-          'hash' := Hash
+encode(#{ 'locale' := Locale
         }) ->
-    #{ 'username' => Username,
-       'hash' => Hash
+    #{ 'locale' => Locale
      }.

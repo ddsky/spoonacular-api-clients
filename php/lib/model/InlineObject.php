@@ -57,10 +57,7 @@ class InlineObject implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'ingredient_list' => 'string',
-        'servings' => 'float',
-        'default_css' => 'bool',
-        'show_backlink' => 'bool'
+        'ingredient_list' => 'string'
     ];
 
     /**
@@ -69,10 +66,7 @@ class InlineObject implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'ingredient_list' => null,
-        'servings' => null,
-        'default_css' => null,
-        'show_backlink' => null
+        'ingredient_list' => null
     ];
 
     /**
@@ -102,10 +96,7 @@ class InlineObject implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'ingredient_list' => 'ingredientList',
-        'servings' => 'servings',
-        'default_css' => 'defaultCss',
-        'show_backlink' => 'showBacklink'
+        'ingredient_list' => 'ingredientList'
     ];
 
     /**
@@ -114,10 +105,7 @@ class InlineObject implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'ingredient_list' => 'setIngredientList',
-        'servings' => 'setServings',
-        'default_css' => 'setDefaultCss',
-        'show_backlink' => 'setShowBacklink'
+        'ingredient_list' => 'setIngredientList'
     ];
 
     /**
@@ -126,10 +114,7 @@ class InlineObject implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'ingredient_list' => 'getIngredientList',
-        'servings' => 'getServings',
-        'default_css' => 'getDefaultCss',
-        'show_backlink' => 'getShowBacklink'
+        'ingredient_list' => 'getIngredientList'
     ];
 
     /**
@@ -193,9 +178,6 @@ class InlineObject implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['ingredient_list'] = isset($data['ingredient_list']) ? $data['ingredient_list'] : null;
-        $this->container['servings'] = isset($data['servings']) ? $data['servings'] : null;
-        $this->container['default_css'] = isset($data['default_css']) ? $data['default_css'] : null;
-        $this->container['show_backlink'] = isset($data['show_backlink']) ? $data['show_backlink'] : null;
     }
 
     /**
@@ -209,9 +191,6 @@ class InlineObject implements ModelInterface, ArrayAccess
 
         if ($this->container['ingredient_list'] === null) {
             $invalidProperties[] = "'ingredient_list' can't be null";
-        }
-        if ($this->container['servings'] === null) {
-            $invalidProperties[] = "'servings' can't be null";
         }
         return $invalidProperties;
     }
@@ -248,78 +227,6 @@ class InlineObject implements ModelInterface, ArrayAccess
     public function setIngredientList($ingredient_list)
     {
         $this->container['ingredient_list'] = $ingredient_list;
-
-        return $this;
-    }
-
-    /**
-     * Gets servings
-     *
-     * @return float
-     */
-    public function getServings()
-    {
-        return $this->container['servings'];
-    }
-
-    /**
-     * Sets servings
-     *
-     * @param float $servings The number of servings.
-     *
-     * @return $this
-     */
-    public function setServings($servings)
-    {
-        $this->container['servings'] = $servings;
-
-        return $this;
-    }
-
-    /**
-     * Gets default_css
-     *
-     * @return bool|null
-     */
-    public function getDefaultCss()
-    {
-        return $this->container['default_css'];
-    }
-
-    /**
-     * Sets default_css
-     *
-     * @param bool|null $default_css Whether the default CSS should be added to the response.
-     *
-     * @return $this
-     */
-    public function setDefaultCss($default_css)
-    {
-        $this->container['default_css'] = $default_css;
-
-        return $this;
-    }
-
-    /**
-     * Gets show_backlink
-     *
-     * @return bool|null
-     */
-    public function getShowBacklink()
-    {
-        return $this->container['show_backlink'];
-    }
-
-    /**
-     * Sets show_backlink
-     *
-     * @param bool|null $show_backlink Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
-     *
-     * @return $this
-     */
-    public function setShowBacklink($show_backlink)
-    {
-        $this->container['show_backlink'] = $show_backlink;
 
         return $this;
     }

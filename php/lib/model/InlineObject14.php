@@ -57,7 +57,8 @@ class InlineObject14 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'text' => 'string'
+        'username' => 'string',
+        'hash' => 'string'
     ];
 
     /**
@@ -66,7 +67,8 @@ class InlineObject14 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'text' => null
+        'username' => null,
+        'hash' => null
     ];
 
     /**
@@ -96,7 +98,8 @@ class InlineObject14 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'text' => 'text'
+        'username' => 'username',
+        'hash' => 'hash'
     ];
 
     /**
@@ -105,7 +108,8 @@ class InlineObject14 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'text' => 'setText'
+        'username' => 'setUsername',
+        'hash' => 'setHash'
     ];
 
     /**
@@ -114,7 +118,8 @@ class InlineObject14 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'text' => 'getText'
+        'username' => 'getUsername',
+        'hash' => 'getHash'
     ];
 
     /**
@@ -177,7 +182,8 @@ class InlineObject14 implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['text'] = isset($data['text']) ? $data['text'] : null;
+        $this->container['username'] = isset($data['username']) ? $data['username'] : null;
+        $this->container['hash'] = isset($data['hash']) ? $data['hash'] : null;
     }
 
     /**
@@ -189,8 +195,11 @@ class InlineObject14 implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['text'] === null) {
-            $invalidProperties[] = "'text' can't be null";
+        if ($this->container['username'] === null) {
+            $invalidProperties[] = "'username' can't be null";
+        }
+        if ($this->container['hash'] === null) {
+            $invalidProperties[] = "'hash' can't be null";
         }
         return $invalidProperties;
     }
@@ -208,25 +217,49 @@ class InlineObject14 implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets text
+     * Gets username
      *
      * @return string
      */
-    public function getText()
+    public function getUsername()
     {
-        return $this->container['text'];
+        return $this->container['username'];
     }
 
     /**
-     * Sets text
+     * Sets username
      *
-     * @param string $text The text in which food items, such as dish names and ingredients, should be detected in.
+     * @param string $username The username.
      *
      * @return $this
      */
-    public function setText($text)
+    public function setUsername($username)
     {
-        $this->container['text'] = $text;
+        $this->container['username'] = $username;
+
+        return $this;
+    }
+
+    /**
+     * Gets hash
+     *
+     * @return string
+     */
+    public function getHash()
+    {
+        return $this->container['hash'];
+    }
+
+    /**
+     * Sets hash
+     *
+     * @param string $hash The private hash for the username.
+     *
+     * @return $this
+     */
+    public function setHash($hash)
+    {
+        $this->container['hash'] = $hash;
 
         return $this;
     }

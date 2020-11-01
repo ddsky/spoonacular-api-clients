@@ -17,21 +17,12 @@ pub struct InlineObject7 {
     /// The ingredient list of the recipe, one ingredient per line.
     #[serde(rename = "ingredientList")]
     pub ingredient_list: String,
-    /// The number of servings.
+    /// The number of servings that you can make from the ingredients.
     #[serde(rename = "servings")]
     pub servings: f32,
-    /// The original system of measurement, either \"metric\" or \"us\".
-    #[serde(rename = "measure")]
-    pub measure: Option<String>,
-    /// How to visualize the ingredients, either \"grid\" or \"list\".
-    #[serde(rename = "view")]
-    pub view: Option<String>,
-    /// Whether the default CSS should be added to the response.
-    #[serde(rename = "defaultCss")]
-    pub default_css: Option<bool>,
-    /// Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
-    #[serde(rename = "showBacklink")]
-    pub show_backlink: Option<bool>,
+    /// Whether nutrition data should be added to correctly parsed ingredients.
+    #[serde(rename = "includeNutrition")]
+    pub include_nutrition: Option<bool>,
 }
 
 impl InlineObject7 {
@@ -39,10 +30,7 @@ impl InlineObject7 {
         InlineObject7 {
             ingredient_list: ingredient_list,
             servings: servings,
-            measure: None,
-            view: None,
-            default_css: None,
-            show_backlink: None,
+            include_nutrition: None,
         }
     }
 }

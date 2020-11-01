@@ -44,17 +44,8 @@ OAIInline_object_7::init() {
     m_servings_isSet = false;
     m_servings_isValid = false;
     
-    m_measure_isSet = false;
-    m_measure_isValid = false;
-    
-    m_view_isSet = false;
-    m_view_isValid = false;
-    
-    m_default_css_isSet = false;
-    m_default_css_isValid = false;
-    
-    m_show_backlink_isSet = false;
-    m_show_backlink_isValid = false;
+    m_include_nutrition_isSet = false;
+    m_include_nutrition_isValid = false;
     }
 
 void
@@ -74,16 +65,7 @@ OAIInline_object_7::fromJsonObject(QJsonObject json) {
     m_servings_isValid = ::OpenAPI::fromJsonValue(servings, json[QString("servings")]);
     
     
-    m_measure_isValid = ::OpenAPI::fromJsonValue(measure, json[QString("measure")]);
-    
-    
-    m_view_isValid = ::OpenAPI::fromJsonValue(view, json[QString("view")]);
-    
-    
-    m_default_css_isValid = ::OpenAPI::fromJsonValue(default_css, json[QString("defaultCss")]);
-    
-    
-    m_show_backlink_isValid = ::OpenAPI::fromJsonValue(show_backlink, json[QString("showBacklink")]);
+    m_include_nutrition_isValid = ::OpenAPI::fromJsonValue(include_nutrition, json[QString("includeNutrition")]);
     
     
 }
@@ -105,17 +87,8 @@ OAIInline_object_7::asJsonObject() const {
 	if(servings.isSet()){
         obj.insert(QString("servings"), ::OpenAPI::toJsonValue(servings));
     }
-	if(m_measure_isSet){
-        obj.insert(QString("measure"), ::OpenAPI::toJsonValue(measure));
-    }
-	if(m_view_isSet){
-        obj.insert(QString("view"), ::OpenAPI::toJsonValue(view));
-    }
-	if(m_default_css_isSet){
-        obj.insert(QString("defaultCss"), ::OpenAPI::toJsonValue(default_css));
-    }
-	if(m_show_backlink_isSet){
-        obj.insert(QString("showBacklink"), ::OpenAPI::toJsonValue(show_backlink));
+	if(m_include_nutrition_isSet){
+        obj.insert(QString("includeNutrition"), ::OpenAPI::toJsonValue(include_nutrition));
     }
     return obj;
 }
@@ -143,47 +116,14 @@ OAIInline_object_7::setServings(const OAINumber &servings) {
 }
 
 
-QString
-OAIInline_object_7::getMeasure() const {
-    return measure;
-}
-void
-OAIInline_object_7::setMeasure(const QString &measure) {
-    this->measure = measure;
-    this->m_measure_isSet = true;
-}
-
-
-QString
-OAIInline_object_7::getView() const {
-    return view;
-}
-void
-OAIInline_object_7::setView(const QString &view) {
-    this->view = view;
-    this->m_view_isSet = true;
-}
-
-
 bool
-OAIInline_object_7::isDefaultCss() const {
-    return default_css;
+OAIInline_object_7::isIncludeNutrition() const {
+    return include_nutrition;
 }
 void
-OAIInline_object_7::setDefaultCss(const bool &default_css) {
-    this->default_css = default_css;
-    this->m_default_css_isSet = true;
-}
-
-
-bool
-OAIInline_object_7::isShowBacklink() const {
-    return show_backlink;
-}
-void
-OAIInline_object_7::setShowBacklink(const bool &show_backlink) {
-    this->show_backlink = show_backlink;
-    this->m_show_backlink_isSet = true;
+OAIInline_object_7::setIncludeNutrition(const bool &include_nutrition) {
+    this->include_nutrition = include_nutrition;
+    this->m_include_nutrition_isSet = true;
 }
 
 bool
@@ -194,13 +134,7 @@ OAIInline_object_7::isSet() const {
     
         if(servings.isSet()){ isObjectUpdated = true; break;}
     
-        if(m_measure_isSet){ isObjectUpdated = true; break;}
-    
-        if(m_view_isSet){ isObjectUpdated = true; break;}
-    
-        if(m_default_css_isSet){ isObjectUpdated = true; break;}
-    
-        if(m_show_backlink_isSet){ isObjectUpdated = true; break;}
+        if(m_include_nutrition_isSet){ isObjectUpdated = true; break;}
     }while(false);
     return isObjectUpdated;
 }

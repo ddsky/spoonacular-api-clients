@@ -11,13 +11,13 @@ import java.math.BigDecimal
  * 
  * @param ingredientList The ingredient list of the recipe, one ingredient per line.
  * @param servings The number of servings.
- * @param view How to visualize the equipment, either \"grid\" or \"list\".
+ * @param mode The mode in which the widget should be delivered. 1 = separate views (compact), 2 = all in one view (full).
  * @param defaultCss Whether the default CSS should be added to the response.
  * @param showBacklink Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
  */
 case class InlineObject2(ingredientList: String,
                 servings: BigDecimal,
-                view: Option[String],
+                mode: Option[BigDecimal],
                 defaultCss: Option[Boolean],
                 showBacklink: Option[Boolean]
                 )

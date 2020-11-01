@@ -7,8 +7,7 @@
 
 (def inline-object-9-data
   {
-   (ds/req :username) string?
-   (ds/req :hash) string?
+   (ds/opt :locale) string?
    })
 
 (def inline-object-9-spec

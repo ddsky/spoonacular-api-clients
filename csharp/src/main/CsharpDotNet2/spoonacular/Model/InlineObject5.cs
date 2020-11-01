@@ -13,20 +13,12 @@ namespace spoonacular.Model {
   [DataContract]
   public class InlineObject5 {
     /// <summary>
-    /// The title of the recipe.
+    /// The instructions to be analyzed.
     /// </summary>
-    /// <value>The title of the recipe.</value>
-    [DataMember(Name="title", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "title")]
-    public string Title { get; set; }
-
-    /// <summary>
-    /// The ingredient list of the recipe, one ingredient per line (separate lines with \\n).
-    /// </summary>
-    /// <value>The ingredient list of the recipe, one ingredient per line (separate lines with \\n).</value>
-    [DataMember(Name="ingredientList", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "ingredientList")]
-    public string IngredientList { get; set; }
+    /// <value>The instructions to be analyzed.</value>
+    [DataMember(Name="instructions", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "instructions")]
+    public string Instructions { get; set; }
 
 
     /// <summary>
@@ -36,8 +28,7 @@ namespace spoonacular.Model {
     public override string ToString()  {
       var sb = new StringBuilder();
       sb.Append("class InlineObject5 {\n");
-      sb.Append("  Title: ").Append(Title).Append("\n");
-      sb.Append("  IngredientList: ").Append(IngredientList).Append("\n");
+      sb.Append("  Instructions: ").Append(Instructions).Append("\n");
       sb.Append("}\n");
       return sb.ToString();
     }

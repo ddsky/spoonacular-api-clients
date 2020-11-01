@@ -19,14 +19,11 @@ local function cast_inline_object_7(t)
 	return setmetatable(t, inline_object_7_mt)
 end
 
-local function new_inline_object_7(ingredient_list, servings, measure, view, default_css, show_backlink)
+local function new_inline_object_7(ingredient_list, servings, include_nutrition)
 	return cast_inline_object_7({
 		["ingredientList"] = ingredient_list;
 		["servings"] = servings;
-		["measure"] = measure;
-		["view"] = view;
-		["defaultCss"] = default_css;
-		["showBacklink"] = show_backlink;
+		["includeNutrition"] = include_nutrition;
 	})
 end
 

@@ -17,8 +17,8 @@ module OpenapiClient
     # The username.
     attr_accessor :username
 
-    # The shopping list item id.
-    attr_accessor :id
+    # The date in the format yyyy-mm-dd.
+    attr_accessor :date
 
     # The private hash for the username.
     attr_accessor :hash
@@ -27,7 +27,7 @@ module OpenapiClient
     def self.attribute_map
       {
         :'username' => :'username',
-        :'id' => :'id',
+        :'date' => :'date',
         :'hash' => :'hash'
       }
     end
@@ -36,7 +36,7 @@ module OpenapiClient
     def self.openapi_types
       {
         :'username' => :'String',
-        :'id' => :'Float',
+        :'date' => :'String',
         :'hash' => :'String'
       }
     end
@@ -60,8 +60,8 @@ module OpenapiClient
         self.username = attributes[:'username']
       end
 
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
+      if attributes.key?(:'date')
+        self.date = attributes[:'date']
       end
 
       if attributes.key?(:'hash')
@@ -77,8 +77,8 @@ module OpenapiClient
         invalid_properties.push('invalid value for "username", username cannot be nil.')
       end
 
-      if @id.nil?
-        invalid_properties.push('invalid value for "id", id cannot be nil.')
+      if @date.nil?
+        invalid_properties.push('invalid value for "date", date cannot be nil.')
       end
 
       if @hash.nil?
@@ -92,7 +92,7 @@ module OpenapiClient
     # @return true if the model is valid
     def valid?
       return false if @username.nil?
-      return false if @id.nil?
+      return false if @date.nil?
       return false if @hash.nil?
       true
     end
@@ -103,7 +103,7 @@ module OpenapiClient
       return true if self.equal?(o)
       self.class == o.class &&
           username == o.username &&
-          id == o.id &&
+          date == o.date &&
           hash == o.hash
     end
 
@@ -116,7 +116,7 @@ module OpenapiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [username, id, hash].hash
+      [username, date, hash].hash
     end
 
     # Builds the object from hash

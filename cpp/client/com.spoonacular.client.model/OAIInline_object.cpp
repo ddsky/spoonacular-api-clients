@@ -40,15 +40,6 @@ OAIInline_object::init() {
     
     m_ingredient_list_isSet = false;
     m_ingredient_list_isValid = false;
-    
-    m_servings_isSet = false;
-    m_servings_isValid = false;
-    
-    m_default_css_isSet = false;
-    m_default_css_isValid = false;
-    
-    m_show_backlink_isSet = false;
-    m_show_backlink_isValid = false;
     }
 
 void
@@ -63,15 +54,6 @@ void
 OAIInline_object::fromJsonObject(QJsonObject json) {
     
     m_ingredient_list_isValid = ::OpenAPI::fromJsonValue(ingredient_list, json[QString("ingredientList")]);
-    
-    
-    m_servings_isValid = ::OpenAPI::fromJsonValue(servings, json[QString("servings")]);
-    
-    
-    m_default_css_isValid = ::OpenAPI::fromJsonValue(default_css, json[QString("defaultCss")]);
-    
-    
-    m_show_backlink_isValid = ::OpenAPI::fromJsonValue(show_backlink, json[QString("showBacklink")]);
     
     
 }
@@ -90,15 +72,6 @@ OAIInline_object::asJsonObject() const {
 	if(m_ingredient_list_isSet){
         obj.insert(QString("ingredientList"), ::OpenAPI::toJsonValue(ingredient_list));
     }
-	if(servings.isSet()){
-        obj.insert(QString("servings"), ::OpenAPI::toJsonValue(servings));
-    }
-	if(m_default_css_isSet){
-        obj.insert(QString("defaultCss"), ::OpenAPI::toJsonValue(default_css));
-    }
-	if(m_show_backlink_isSet){
-        obj.insert(QString("showBacklink"), ::OpenAPI::toJsonValue(show_backlink));
-    }
     return obj;
 }
 
@@ -113,50 +86,11 @@ OAIInline_object::setIngredientList(const QString &ingredient_list) {
     this->m_ingredient_list_isSet = true;
 }
 
-
-OAINumber
-OAIInline_object::getServings() const {
-    return servings;
-}
-void
-OAIInline_object::setServings(const OAINumber &servings) {
-    this->servings = servings;
-    this->m_servings_isSet = true;
-}
-
-
-bool
-OAIInline_object::isDefaultCss() const {
-    return default_css;
-}
-void
-OAIInline_object::setDefaultCss(const bool &default_css) {
-    this->default_css = default_css;
-    this->m_default_css_isSet = true;
-}
-
-
-bool
-OAIInline_object::isShowBacklink() const {
-    return show_backlink;
-}
-void
-OAIInline_object::setShowBacklink(const bool &show_backlink) {
-    this->show_backlink = show_backlink;
-    this->m_show_backlink_isSet = true;
-}
-
 bool
 OAIInline_object::isSet() const {
     bool isObjectUpdated = false;
     do{ 
         if(m_ingredient_list_isSet){ isObjectUpdated = true; break;}
-    
-        if(servings.isSet()){ isObjectUpdated = true; break;}
-    
-        if(m_default_css_isSet){ isObjectUpdated = true; break;}
-    
-        if(m_show_backlink_isSet){ isObjectUpdated = true; break;}
     }while(false);
     return isObjectUpdated;
 }
@@ -164,7 +98,7 @@ OAIInline_object::isSet() const {
 bool
 OAIInline_object::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_ingredient_list_isValid && m_servings_isValid && true;
+    return m_ingredient_list_isValid && true;
 }
 
 }

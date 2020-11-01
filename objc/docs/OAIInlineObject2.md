@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ingredientList** | **NSString*** | The ingredient list of the recipe, one ingredient per line. | 
 **servings** | **NSNumber*** | The number of servings. | 
-**view** | **NSString*** | How to visualize the equipment, either \&quot;grid\&quot; or \&quot;list\&quot;. | [optional] 
+**mode** | **NSNumber*** | The mode in which the widget should be delivered. 1 &#x3D; separate views (compact), 2 &#x3D; all in one view (full). | [optional] 
 **defaultCss** | **NSNumber*** | Whether the default CSS should be added to the response. | [optional] 
 **showBacklink** | **NSNumber*** | Whether to show a backlink to spoonacular. If set false, this call counts against your quota. | [optional] 
 

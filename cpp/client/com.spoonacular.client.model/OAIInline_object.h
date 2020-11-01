@@ -22,7 +22,6 @@
 #include <QJsonObject>
 
 
-#include "com.spoonacular.client.model\OAINumber.h"
 #include <QString>
 
 #include "OAIObject.h"
@@ -46,18 +45,6 @@ public:
     void setIngredientList(const QString &ingredient_list);
 
     
-    OAINumber getServings() const;
-    void setServings(const OAINumber &servings);
-
-    
-    bool isDefaultCss() const;
-    void setDefaultCss(const bool &default_css);
-
-    
-    bool isShowBacklink() const;
-    void setShowBacklink(const bool &show_backlink);
-
-    
     
     virtual bool isSet() const override;
     virtual bool isValid() const override;
@@ -68,18 +55,6 @@ private:
     QString ingredient_list;
     bool m_ingredient_list_isSet;
     bool m_ingredient_list_isValid;
-    
-    OAINumber servings;
-    bool m_servings_isSet;
-    bool m_servings_isValid;
-    
-    bool default_css;
-    bool m_default_css_isSet;
-    bool m_default_css_isValid;
-    
-    bool show_backlink;
-    bool m_show_backlink_isSet;
-    bool m_show_backlink_isValid;
     
     };
 

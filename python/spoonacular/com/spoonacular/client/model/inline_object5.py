@@ -32,74 +32,45 @@ class InlineObject5(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'title': 'str',
-        'ingredient_list': 'str'
+        'instructions': 'str'
     }
 
     attribute_map = {
-        'title': 'title',
-        'ingredient_list': 'ingredientList'
+        'instructions': 'instructions'
     }
 
-    def __init__(self, title=None, ingredient_list=None):  # noqa: E501
+    def __init__(self, instructions=None):  # noqa: E501
         """InlineObject5 - a model defined in OpenAPI"""  # noqa: E501
 
-        self._title = None
-        self._ingredient_list = None
+        self._instructions = None
         self.discriminator = None
 
-        self.title = title
-        self.ingredient_list = ingredient_list
+        self.instructions = instructions
 
     @property
-    def title(self):
-        """Gets the title of this InlineObject5.  # noqa: E501
+    def instructions(self):
+        """Gets the instructions of this InlineObject5.  # noqa: E501
 
-        The title of the recipe.  # noqa: E501
+        The instructions to be analyzed.  # noqa: E501
 
-        :return: The title of this InlineObject5.  # noqa: E501
+        :return: The instructions of this InlineObject5.  # noqa: E501
         :rtype: str
         """
-        return self._title
+        return self._instructions
 
-    @title.setter
-    def title(self, title):
-        """Sets the title of this InlineObject5.
+    @instructions.setter
+    def instructions(self, instructions):
+        """Sets the instructions of this InlineObject5.
 
-        The title of the recipe.  # noqa: E501
+        The instructions to be analyzed.  # noqa: E501
 
-        :param title: The title of this InlineObject5.  # noqa: E501
+        :param instructions: The instructions of this InlineObject5.  # noqa: E501
         :type: str
         """
-        if title is None:
-            raise ValueError("Invalid value for `title`, must not be `None`")  # noqa: E501
+        if instructions is None:
+            raise ValueError("Invalid value for `instructions`, must not be `None`")  # noqa: E501
 
-        self._title = title
-
-    @property
-    def ingredient_list(self):
-        """Gets the ingredient_list of this InlineObject5.  # noqa: E501
-
-        The ingredient list of the recipe, one ingredient per line (separate lines with \\n).  # noqa: E501
-
-        :return: The ingredient_list of this InlineObject5.  # noqa: E501
-        :rtype: str
-        """
-        return self._ingredient_list
-
-    @ingredient_list.setter
-    def ingredient_list(self, ingredient_list):
-        """Sets the ingredient_list of this InlineObject5.
-
-        The ingredient list of the recipe, one ingredient per line (separate lines with \\n).  # noqa: E501
-
-        :param ingredient_list: The ingredient_list of this InlineObject5.  # noqa: E501
-        :type: str
-        """
-        if ingredient_list is None:
-            raise ValueError("Invalid value for `ingredient_list`, must not be `None`")  # noqa: E501
-
-        self._ingredient_list = ingredient_list
+        self._instructions = instructions
 
     def to_dict(self):
         """Returns the model properties as a dict"""

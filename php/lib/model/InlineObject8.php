@@ -57,7 +57,12 @@ class InlineObject8 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'locale' => 'string'
+        'ingredient_list' => 'string',
+        'servings' => 'float',
+        'measure' => 'string',
+        'view' => 'string',
+        'default_css' => 'bool',
+        'show_backlink' => 'bool'
     ];
 
     /**
@@ -66,7 +71,12 @@ class InlineObject8 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'locale' => null
+        'ingredient_list' => null,
+        'servings' => null,
+        'measure' => null,
+        'view' => null,
+        'default_css' => null,
+        'show_backlink' => null
     ];
 
     /**
@@ -96,7 +106,12 @@ class InlineObject8 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'locale' => 'locale'
+        'ingredient_list' => 'ingredientList',
+        'servings' => 'servings',
+        'measure' => 'measure',
+        'view' => 'view',
+        'default_css' => 'defaultCss',
+        'show_backlink' => 'showBacklink'
     ];
 
     /**
@@ -105,7 +120,12 @@ class InlineObject8 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'locale' => 'setLocale'
+        'ingredient_list' => 'setIngredientList',
+        'servings' => 'setServings',
+        'measure' => 'setMeasure',
+        'view' => 'setView',
+        'default_css' => 'setDefaultCss',
+        'show_backlink' => 'setShowBacklink'
     ];
 
     /**
@@ -114,7 +134,12 @@ class InlineObject8 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'locale' => 'getLocale'
+        'ingredient_list' => 'getIngredientList',
+        'servings' => 'getServings',
+        'measure' => 'getMeasure',
+        'view' => 'getView',
+        'default_css' => 'getDefaultCss',
+        'show_backlink' => 'getShowBacklink'
     ];
 
     /**
@@ -177,7 +202,12 @@ class InlineObject8 implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['locale'] = isset($data['locale']) ? $data['locale'] : null;
+        $this->container['ingredient_list'] = isset($data['ingredient_list']) ? $data['ingredient_list'] : null;
+        $this->container['servings'] = isset($data['servings']) ? $data['servings'] : null;
+        $this->container['measure'] = isset($data['measure']) ? $data['measure'] : null;
+        $this->container['view'] = isset($data['view']) ? $data['view'] : null;
+        $this->container['default_css'] = isset($data['default_css']) ? $data['default_css'] : null;
+        $this->container['show_backlink'] = isset($data['show_backlink']) ? $data['show_backlink'] : null;
     }
 
     /**
@@ -189,6 +219,12 @@ class InlineObject8 implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['ingredient_list'] === null) {
+            $invalidProperties[] = "'ingredient_list' can't be null";
+        }
+        if ($this->container['servings'] === null) {
+            $invalidProperties[] = "'servings' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -205,25 +241,145 @@ class InlineObject8 implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets locale
+     * Gets ingredient_list
      *
-     * @return string|null
+     * @return string
      */
-    public function getLocale()
+    public function getIngredientList()
     {
-        return $this->container['locale'];
+        return $this->container['ingredient_list'];
     }
 
     /**
-     * Sets locale
+     * Sets ingredient_list
      *
-     * @param string|null $locale The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).
+     * @param string $ingredient_list The ingredient list of the recipe, one ingredient per line.
      *
      * @return $this
      */
-    public function setLocale($locale)
+    public function setIngredientList($ingredient_list)
     {
-        $this->container['locale'] = $locale;
+        $this->container['ingredient_list'] = $ingredient_list;
+
+        return $this;
+    }
+
+    /**
+     * Gets servings
+     *
+     * @return float
+     */
+    public function getServings()
+    {
+        return $this->container['servings'];
+    }
+
+    /**
+     * Sets servings
+     *
+     * @param float $servings The number of servings.
+     *
+     * @return $this
+     */
+    public function setServings($servings)
+    {
+        $this->container['servings'] = $servings;
+
+        return $this;
+    }
+
+    /**
+     * Gets measure
+     *
+     * @return string|null
+     */
+    public function getMeasure()
+    {
+        return $this->container['measure'];
+    }
+
+    /**
+     * Sets measure
+     *
+     * @param string|null $measure The original system of measurement, either \"metric\" or \"us\".
+     *
+     * @return $this
+     */
+    public function setMeasure($measure)
+    {
+        $this->container['measure'] = $measure;
+
+        return $this;
+    }
+
+    /**
+     * Gets view
+     *
+     * @return string|null
+     */
+    public function getView()
+    {
+        return $this->container['view'];
+    }
+
+    /**
+     * Sets view
+     *
+     * @param string|null $view How to visualize the ingredients, either \"grid\" or \"list\".
+     *
+     * @return $this
+     */
+    public function setView($view)
+    {
+        $this->container['view'] = $view;
+
+        return $this;
+    }
+
+    /**
+     * Gets default_css
+     *
+     * @return bool|null
+     */
+    public function getDefaultCss()
+    {
+        return $this->container['default_css'];
+    }
+
+    /**
+     * Sets default_css
+     *
+     * @param bool|null $default_css Whether the default CSS should be added to the response.
+     *
+     * @return $this
+     */
+    public function setDefaultCss($default_css)
+    {
+        $this->container['default_css'] = $default_css;
+
+        return $this;
+    }
+
+    /**
+     * Gets show_backlink
+     *
+     * @return bool|null
+     */
+    public function getShowBacklink()
+    {
+        return $this->container['show_backlink'];
+    }
+
+    /**
+     * Sets show_backlink
+     *
+     * @param bool|null $show_backlink Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
+     *
+     * @return $this
+     */
+    public function setShowBacklink($show_backlink)
+    {
+        $this->container['show_backlink'] = $show_backlink;
 
         return $this;
     }

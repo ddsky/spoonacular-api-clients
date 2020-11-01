@@ -20,9 +20,9 @@ pub struct InlineObject2 {
     /// The number of servings.
     #[serde(rename = "servings")]
     pub servings: f32,
-    /// How to visualize the equipment, either \"grid\" or \"list\".
-    #[serde(rename = "view")]
-    pub view: Option<String>,
+    /// The mode in which the widget should be delivered. 1 = separate views (compact), 2 = all in one view (full).
+    #[serde(rename = "mode")]
+    pub mode: Option<f32>,
     /// Whether the default CSS should be added to the response.
     #[serde(rename = "defaultCss")]
     pub default_css: Option<bool>,
@@ -36,7 +36,7 @@ impl InlineObject2 {
         InlineObject2 {
             ingredient_list: ingredient_list,
             servings: servings,
-            view: None,
+            mode: None,
             default_css: None,
             show_backlink: None,
         }

@@ -5,10 +5,43 @@
 -export_type([spoonacular_inline_object_4/0]).
 
 -type spoonacular_inline_object_4() ::
-    #{ 'instructions' := binary()
+    #{ 'title' := binary(),
+       'image' := binary(),
+       'ingredients' := binary(),
+       'instructions' := binary(),
+       'readyInMinutes' := integer(),
+       'servings' := integer(),
+       'mask' := binary(),
+       'backgroundImage' := binary(),
+       'author' => binary(),
+       'backgroundColor' => binary(),
+       'fontColor' => binary(),
+       'source' => binary()
      }.
 
-encode(#{ 'instructions' := Instructions
+encode(#{ 'title' := Title,
+          'image' := Image,
+          'ingredients' := Ingredients,
+          'instructions' := Instructions,
+          'readyInMinutes' := ReadyInMinutes,
+          'servings' := Servings,
+          'mask' := Mask,
+          'backgroundImage' := BackgroundImage,
+          'author' := Author,
+          'backgroundColor' := BackgroundColor,
+          'fontColor' := FontColor,
+          'source' := Source
         }) ->
-    #{ 'instructions' => Instructions
+    #{ 'title' => Title,
+       'image' => Image,
+       'ingredients' => Ingredients,
+       'instructions' => Instructions,
+       'readyInMinutes' => ReadyInMinutes,
+       'servings' => Servings,
+       'mask' => Mask,
+       'backgroundImage' => BackgroundImage,
+       'author' => Author,
+       'backgroundColor' => BackgroundColor,
+       'fontColor' => FontColor,
+       'source' => Source
      }.

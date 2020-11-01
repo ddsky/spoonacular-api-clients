@@ -44,8 +44,8 @@ OAIInline_object_2::init() {
     m_servings_isSet = false;
     m_servings_isValid = false;
     
-    m_view_isSet = false;
-    m_view_isValid = false;
+    m_mode_isSet = false;
+    m_mode_isValid = false;
     
     m_default_css_isSet = false;
     m_default_css_isValid = false;
@@ -71,7 +71,7 @@ OAIInline_object_2::fromJsonObject(QJsonObject json) {
     m_servings_isValid = ::OpenAPI::fromJsonValue(servings, json[QString("servings")]);
     
     
-    m_view_isValid = ::OpenAPI::fromJsonValue(view, json[QString("view")]);
+    m_mode_isValid = ::OpenAPI::fromJsonValue(mode, json[QString("mode")]);
     
     
     m_default_css_isValid = ::OpenAPI::fromJsonValue(default_css, json[QString("defaultCss")]);
@@ -99,8 +99,8 @@ OAIInline_object_2::asJsonObject() const {
 	if(servings.isSet()){
         obj.insert(QString("servings"), ::OpenAPI::toJsonValue(servings));
     }
-	if(m_view_isSet){
-        obj.insert(QString("view"), ::OpenAPI::toJsonValue(view));
+	if(mode.isSet()){
+        obj.insert(QString("mode"), ::OpenAPI::toJsonValue(mode));
     }
 	if(m_default_css_isSet){
         obj.insert(QString("defaultCss"), ::OpenAPI::toJsonValue(default_css));
@@ -134,14 +134,14 @@ OAIInline_object_2::setServings(const OAINumber &servings) {
 }
 
 
-QString
-OAIInline_object_2::getView() const {
-    return view;
+OAINumber
+OAIInline_object_2::getMode() const {
+    return mode;
 }
 void
-OAIInline_object_2::setView(const QString &view) {
-    this->view = view;
-    this->m_view_isSet = true;
+OAIInline_object_2::setMode(const OAINumber &mode) {
+    this->mode = mode;
+    this->m_mode_isSet = true;
 }
 
 
@@ -174,7 +174,7 @@ OAIInline_object_2::isSet() const {
     
         if(servings.isSet()){ isObjectUpdated = true; break;}
     
-        if(m_view_isSet){ isObjectUpdated = true; break;}
+        if(mode.isSet()){ isObjectUpdated = true; break;}
     
         if(m_default_css_isSet){ isObjectUpdated = true; break;}
     

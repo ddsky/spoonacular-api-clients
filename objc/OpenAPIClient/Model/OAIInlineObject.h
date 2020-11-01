@@ -25,14 +25,5 @@
 /* The ingredient list of the recipe, one ingredient per line. 
  */
 @property(nonatomic) NSString* ingredientList;
-/* The number of servings. 
- */
-@property(nonatomic) NSNumber* servings;
-/* Whether the default CSS should be added to the response. [optional]
- */
-@property(nonatomic) NSNumber* defaultCss;
-/* Whether to show a backlink to spoonacular. If set false, this call counts against your quota. [optional]
- */
-@property(nonatomic) NSNumber* showBacklink;
 
 @end

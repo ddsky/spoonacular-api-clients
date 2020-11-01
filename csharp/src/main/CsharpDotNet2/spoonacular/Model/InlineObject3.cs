@@ -13,100 +13,36 @@ namespace spoonacular.Model {
   [DataContract]
   public class InlineObject3 {
     /// <summary>
-    /// The title of the recipe.
+    /// The recipe's instructions.
     /// </summary>
-    /// <value>The title of the recipe.</value>
-    [DataMember(Name="title", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "title")]
-    public string Title { get; set; }
-
-    /// <summary>
-    /// The binary image of the recipe as jpg.
-    /// </summary>
-    /// <value>The binary image of the recipe as jpg.</value>
-    [DataMember(Name="image", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "image")]
-    public System.IO.Stream Image { get; set; }
-
-    /// <summary>
-    /// The ingredient list of the recipe, one ingredient per line (separate lines with \\n).
-    /// </summary>
-    /// <value>The ingredient list of the recipe, one ingredient per line (separate lines with \\n).</value>
-    [DataMember(Name="ingredients", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "ingredients")]
-    public string Ingredients { get; set; }
-
-    /// <summary>
-    /// The instructions to make the recipe. One step per line (separate lines with \\n).
-    /// </summary>
-    /// <value>The instructions to make the recipe. One step per line (separate lines with \\n).</value>
+    /// <value>The recipe's instructions.</value>
     [DataMember(Name="instructions", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "instructions")]
     public string Instructions { get; set; }
 
     /// <summary>
-    /// The number of minutes it takes to get the recipe on the table.
+    /// How to visualize the equipment, either \"grid\" or \"list\".
     /// </summary>
-    /// <value>The number of minutes it takes to get the recipe on the table.</value>
-    [DataMember(Name="readyInMinutes", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "readyInMinutes")]
-    public decimal? ReadyInMinutes { get; set; }
+    /// <value>How to visualize the equipment, either \"grid\" or \"list\".</value>
+    [DataMember(Name="view", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "view")]
+    public string View { get; set; }
 
     /// <summary>
-    /// The number of servings the recipe makes.
+    /// Whether the default CSS should be added to the response.
     /// </summary>
-    /// <value>The number of servings the recipe makes.</value>
-    [DataMember(Name="servings", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "servings")]
-    public decimal? Servings { get; set; }
+    /// <value>Whether the default CSS should be added to the response.</value>
+    [DataMember(Name="defaultCss", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "defaultCss")]
+    public bool? DefaultCss { get; set; }
 
     /// <summary>
-    /// The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\").
+    /// Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
     /// </summary>
-    /// <value>The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\").</value>
-    [DataMember(Name="mask", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "mask")]
-    public string Mask { get; set; }
-
-    /// <summary>
-    /// The background image (\"none\",\"background1\", or \"background2\").
-    /// </summary>
-    /// <value>The background image (\"none\",\"background1\", or \"background2\").</value>
-    [DataMember(Name="backgroundImage", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "backgroundImage")]
-    public string BackgroundImage { get; set; }
-
-    /// <summary>
-    /// The author of the recipe.
-    /// </summary>
-    /// <value>The author of the recipe.</value>
-    [DataMember(Name="author", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "author")]
-    public string Author { get; set; }
-
-    /// <summary>
-    /// The background color for the recipe card as a hex-string.
-    /// </summary>
-    /// <value>The background color for the recipe card as a hex-string.</value>
-    [DataMember(Name="backgroundColor", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "backgroundColor")]
-    public string BackgroundColor { get; set; }
-
-    /// <summary>
-    /// The font color for the recipe card as a hex-string.
-    /// </summary>
-    /// <value>The font color for the recipe card as a hex-string.</value>
-    [DataMember(Name="fontColor", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "fontColor")]
-    public string FontColor { get; set; }
-
-    /// <summary>
-    /// The source of the recipe.
-    /// </summary>
-    /// <value>The source of the recipe.</value>
-    [DataMember(Name="source", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "source")]
-    public string Source { get; set; }
+    /// <value>Whether to show a backlink to spoonacular. If set false, this call counts against your quota.</value>
+    [DataMember(Name="showBacklink", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "showBacklink")]
+    public bool? ShowBacklink { get; set; }
 
 
     /// <summary>
@@ -116,18 +52,10 @@ namespace spoonacular.Model {
     public override string ToString()  {
       var sb = new StringBuilder();
       sb.Append("class InlineObject3 {\n");
-      sb.Append("  Title: ").Append(Title).Append("\n");
-      sb.Append("  Image: ").Append(Image).Append("\n");
-      sb.Append("  Ingredients: ").Append(Ingredients).Append("\n");
       sb.Append("  Instructions: ").Append(Instructions).Append("\n");
-      sb.Append("  ReadyInMinutes: ").Append(ReadyInMinutes).Append("\n");
-      sb.Append("  Servings: ").Append(Servings).Append("\n");
-      sb.Append("  Mask: ").Append(Mask).Append("\n");
-      sb.Append("  BackgroundImage: ").Append(BackgroundImage).Append("\n");
-      sb.Append("  Author: ").Append(Author).Append("\n");
-      sb.Append("  BackgroundColor: ").Append(BackgroundColor).Append("\n");
-      sb.Append("  FontColor: ").Append(FontColor).Append("\n");
-      sb.Append("  Source: ").Append(Source).Append("\n");
+      sb.Append("  View: ").Append(View).Append("\n");
+      sb.Append("  DefaultCss: ").Append(DefaultCss).Append("\n");
+      sb.Append("  ShowBacklink: ").Append(ShowBacklink).Append("\n");
       sb.Append("}\n");
       return sb.ToString();
     }

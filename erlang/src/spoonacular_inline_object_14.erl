@@ -5,10 +5,13 @@
 -export_type([spoonacular_inline_object_14/0]).
 
 -type spoonacular_inline_object_14() ::
-    #{ 'text' := binary()
+    #{ 'username' := binary(),
+       'hash' := binary()
      }.
 
-encode(#{ 'text' := Text
+encode(#{ 'username' := Username,
+          'hash' := Hash
         }) ->
-    #{ 'text' => Text
+    #{ 'username' => Username,
+       'hash' => Hash
      }.

@@ -6,15 +6,15 @@
 
 -type spoonacular_inline_object_10() ::
     #{ 'username' := binary(),
-       'id' := integer(),
+       'date' := binary(),
        'hash' := binary()
      }.
 
 encode(#{ 'username' := Username,
-          'id' := Id,
+          'date' := Date,
           'hash' := Hash
         }) ->
     #{ 'username' => Username,
-       'id' => Id,
+       'date' => Date,
        'hash' => Hash
      }.

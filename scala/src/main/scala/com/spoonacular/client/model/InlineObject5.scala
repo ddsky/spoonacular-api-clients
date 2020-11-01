@@ -8,11 +8,9 @@ import spoonacular._
 
 /**
  * 
- * @param title The title of the recipe.
- * @param ingredientList The ingredient list of the recipe, one ingredient per line (separate lines with \\n).
+ * @param instructions The instructions to be analyzed.
  */
-case class InlineObject5(title: String,
-                ingredientList: String
+case class InlineObject5(instructions: String
                 )
 
 object InlineObject5 {

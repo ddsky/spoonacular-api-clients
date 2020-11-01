@@ -22,12 +22,10 @@ class InlineObject9 {
     /**
      * Constructs a new <code>InlineObject9</code>.
      * @alias module:com.spoonacular.client/com.spoonacular.client.model/InlineObject9
-     * @param username {String} The username.
-     * @param hash {String} The private hash for the username.
      */
-    constructor(username, hash) { 
+    constructor() { 
         
-        InlineObject9.initialize(this, username, hash);
+        InlineObject9.initialize(this);
     }
 
     /**
@@ -35,9 +33,7 @@ class InlineObject9 {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, username, hash) { 
-        obj['username'] = username;
-        obj['hash'] = hash;
+    static initialize(obj) { 
     }
 
     /**
@@ -51,11 +47,8 @@ class InlineObject9 {
         if (data) {
             obj = obj || new InlineObject9();
 
-            if (data.hasOwnProperty('username')) {
-                obj['username'] = ApiClient.convertToType(data['username'], 'String');
-            }
-            if (data.hasOwnProperty('hash')) {
-                obj['hash'] = ApiClient.convertToType(data['hash'], 'String');
+            if (data.hasOwnProperty('locale')) {
+                obj['locale'] = ApiClient.convertToType(data['locale'], 'String');
             }
         }
         return obj;
@@ -65,16 +58,10 @@ class InlineObject9 {
 }
 
 /**
- * The username.
- * @member {String} username
+ * The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).
+ * @member {String} locale
  */
-InlineObject9.prototype['username'] = undefined;
-
-/**
- * The private hash for the username.
- * @member {String} hash
- */
-InlineObject9.prototype['hash'] = undefined;
+InlineObject9.prototype['locale'] = undefined;
 
 
 

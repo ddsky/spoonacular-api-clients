@@ -57,8 +57,7 @@ class InlineObject5 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'title' => 'string',
-        'ingredient_list' => 'string'
+        'instructions' => 'string'
     ];
 
     /**
@@ -67,8 +66,7 @@ class InlineObject5 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'title' => null,
-        'ingredient_list' => null
+        'instructions' => null
     ];
 
     /**
@@ -98,8 +96,7 @@ class InlineObject5 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'title' => 'title',
-        'ingredient_list' => 'ingredientList'
+        'instructions' => 'instructions'
     ];
 
     /**
@@ -108,8 +105,7 @@ class InlineObject5 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'title' => 'setTitle',
-        'ingredient_list' => 'setIngredientList'
+        'instructions' => 'setInstructions'
     ];
 
     /**
@@ -118,8 +114,7 @@ class InlineObject5 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'title' => 'getTitle',
-        'ingredient_list' => 'getIngredientList'
+        'instructions' => 'getInstructions'
     ];
 
     /**
@@ -182,8 +177,7 @@ class InlineObject5 implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['title'] = isset($data['title']) ? $data['title'] : null;
-        $this->container['ingredient_list'] = isset($data['ingredient_list']) ? $data['ingredient_list'] : null;
+        $this->container['instructions'] = isset($data['instructions']) ? $data['instructions'] : null;
     }
 
     /**
@@ -195,11 +189,8 @@ class InlineObject5 implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['title'] === null) {
-            $invalidProperties[] = "'title' can't be null";
-        }
-        if ($this->container['ingredient_list'] === null) {
-            $invalidProperties[] = "'ingredient_list' can't be null";
+        if ($this->container['instructions'] === null) {
+            $invalidProperties[] = "'instructions' can't be null";
         }
         return $invalidProperties;
     }
@@ -217,49 +208,25 @@ class InlineObject5 implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets title
+     * Gets instructions
      *
      * @return string
      */
-    public function getTitle()
+    public function getInstructions()
     {
-        return $this->container['title'];
+        return $this->container['instructions'];
     }
 
     /**
-     * Sets title
+     * Sets instructions
      *
-     * @param string $title The title of the recipe.
+     * @param string $instructions The instructions to be analyzed.
      *
      * @return $this
      */
-    public function setTitle($title)
+    public function setInstructions($instructions)
     {
-        $this->container['title'] = $title;
-
-        return $this;
-    }
-
-    /**
-     * Gets ingredient_list
-     *
-     * @return string
-     */
-    public function getIngredientList()
-    {
-        return $this->container['ingredient_list'];
-    }
-
-    /**
-     * Sets ingredient_list
-     *
-     * @param string $ingredient_list The ingredient list of the recipe, one ingredient per line (separate lines with \\n).
-     *
-     * @return $this
-     */
-    public function setIngredientList($ingredient_list)
-    {
-        $this->container['ingredient_list'] = $ingredient_list;
+        $this->container['instructions'] = $instructions;
 
         return $this;
     }

@@ -161,39 +161,30 @@ __PACKAGE__->class_documentation({description => '',
 }                                 );
 
 __PACKAGE__->method_documentation({
+    'title' => {
+        datatype => 'string',
+        base_name => 'title',
+        description => 'The title of the recipe.',
+        format => '',
+        read_only => '',
+            },
     'ingredient_list' => {
         datatype => 'string',
         base_name => 'ingredientList',
-        description => 'The ingredient list of the recipe, one ingredient per line.',
-        format => '',
-        read_only => '',
-            },
-    'servings' => {
-        datatype => 'double',
-        base_name => 'servings',
-        description => 'The number of servings that you can make from the ingredients.',
-        format => '',
-        read_only => '',
-            },
-    'include_nutrition' => {
-        datatype => 'boolean',
-        base_name => 'includeNutrition',
-        description => 'Whether nutrition data should be added to correctly parsed ingredients.',
+        description => 'The ingredient list of the recipe, one ingredient per line (separate lines with \\n).',
         format => '',
         read_only => '',
             },
 });
 
 __PACKAGE__->openapi_types( {
-    'ingredient_list' => 'string',
-    'servings' => 'double',
-    'include_nutrition' => 'boolean'
+    'title' => 'string',
+    'ingredient_list' => 'string'
 } );
 
 __PACKAGE__->attribute_map( {
-    'ingredient_list' => 'ingredientList',
-    'servings' => 'servings',
-    'include_nutrition' => 'includeNutrition'
+    'title' => 'title',
+    'ingredient_list' => 'ingredientList'
 } );
 
 __PACKAGE__->mk_accessors(keys %{__PACKAGE__->attribute_map});

@@ -6,8 +6,6 @@ import io.swagger.annotations.ApiModelProperty;
 
 @Canonical
 class InlineObject9 {
-    /* The username. */
-    String username
-    /* The private hash for the username. */
-    String hash
+    /* The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). */
+    String locale
 }

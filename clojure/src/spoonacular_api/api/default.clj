@@ -15,7 +15,9 @@
             [spoonacular-api.specs.inline-object-6 :refer :all]
             [spoonacular-api.specs.inline-object-14 :refer :all]
             [spoonacular-api.specs.inline-object-9 :refer :all]
+            [spoonacular-api.specs.inline-object-15 :refer :all]
             [spoonacular-api.specs.inline-object-8 :refer :all]
+            [spoonacular-api.specs.inline-object-16 :refer :all]
             [spoonacular-api.specs.inline-object-1 :refer :all]
             [spoonacular-api.specs.inline-object :refer :all]
             )
@@ -25,14 +27,14 @@
 (defn-spec add-to-meal-plan-with-http-info any?
   "Add to Meal Plan
   Add an item to the user's meal plan."
-  [username string?, hash string?, inline-object-9 inline-object-9]
-  (check-required-params username hash inline-object-9)
+  [username string?, hash string?, inline-object-11 inline-object-11]
+  (check-required-params username hash inline-object-11)
   (call-api "/mealplanner/{username}/items" :post
             {:path-params   {"username" username }
              :header-params {}
              :query-params  {"hash" hash }
              :form-params   {}
-             :body-param    inline-object-9
+             :body-param    inline-object-11
              :content-types [""]
              :accepts       ["application/json"]
              :auth-names    []}))
@@ -40,8 +42,8 @@
 (defn-spec add-to-meal-plan any?
   "Add to Meal Plan
   Add an item to the user's meal plan."
-  [username string?, hash string?, inline-object-9 inline-object-9]
-  (let [res (:data (add-to-meal-plan-with-http-info username hash inline-object-9))]
+  [username string?, hash string?, inline-object-11 inline-object-11]
+  (let [res (:data (add-to-meal-plan-with-http-info username hash inline-object-11))]
     (if (:decode-models *api-context*)
        (st/decode any? res st/string-transformer)
        res)))
@@ -50,14 +52,14 @@
 (defn-spec add-to-shopping-list-with-http-info any?
   "Add to Shopping List
   Add an item to the current shopping list of a user."
-  [username string?, hash string?, inline-object-12 inline-object-12]
-  (check-required-params username hash inline-object-12)
+  [username string?, hash string?, inline-object-14 inline-object-14]
+  (check-required-params username hash inline-object-14)
   (call-api "/mealplanner/{username}/shopping-list/items" :post
             {:path-params   {"username" username }
              :header-params {}
              :query-params  {"hash" hash }
              :form-params   {}
-             :body-param    inline-object-12
+             :body-param    inline-object-14
              :content-types [""]
              :accepts       ["application/json"]
              :auth-names    []}))
@@ -65,8 +67,8 @@
 (defn-spec add-to-shopping-list any?
   "Add to Shopping List
   Add an item to the current shopping list of a user."
-  [username string?, hash string?, inline-object-12 inline-object-12]
-  (let [res (:data (add-to-shopping-list-with-http-info username hash inline-object-12))]
+  [username string?, hash string?, inline-object-14 inline-object-14]
+  (let [res (:data (add-to-shopping-list-with-http-info username hash inline-object-14))]
     (if (:decode-models *api-context*)
        (st/decode any? res st/string-transformer)
        res)))
@@ -98,7 +100,7 @@
 
 (defn-spec analyze-recipe-instructions-with-http-info any?
   "Analyze Recipe Instructions
-  Extract ingredients and equipment from the recipe's instructions."
+  This endpoint allows you to break down instructions into atomic steps. Furthermore, each step will contain the ingredients and equipment required. Additionally, all ingredients and equipment from the recipe's instructions will be extracted independently of the step they're used in."
   [instructions string?]
   (check-required-params instructions)
   (call-api "/recipes/analyzeInstructions" :post
@@ -112,7 +114,7 @@
 
 (defn-spec analyze-recipe-instructions any?
   "Analyze Recipe Instructions
-  Extract ingredients and equipment from the recipe's instructions."
+  This endpoint allows you to break down instructions into atomic steps. Furthermore, each step will contain the ingredients and equipment required. Additionally, all ingredients and equipment from the recipe's instructions will be extracted independently of the step they're used in."
   [instructions string?]
   (let [res (:data (analyze-recipe-instructions-with-http-info instructions))]
     (if (:decode-models *api-context*)
@@ -251,15 +253,15 @@
 (defn-spec classify-grocery-product-with-http-info any?
   "Classify Grocery Product
   This endpoint allows you to match a packaged food to a basic category, e.g. a specific brand of milk to the category milk."
-  ([inline-object-8 inline-object-8, ] (classify-grocery-product-with-http-info inline-object-8 nil))
-  ([inline-object-8 inline-object-8, {:keys [locale]} (s/map-of keyword? any?)]
-   (check-required-params inline-object-8)
+  ([inline-object-9 inline-object-9, ] (classify-grocery-product-with-http-info inline-object-9 nil))
+  ([inline-object-9 inline-object-9, {:keys [locale]} (s/map-of keyword? any?)]
+   (check-required-params inline-object-9)
    (call-api "/food/products/classify" :post
              {:path-params   {}
               :header-params {}
               :query-params  {"locale" locale }
               :form-params   {}
-              :body-param    inline-object-8
+              :body-param    inline-object-9
               :content-types ["application/json"]
               :accepts       ["application/json"]
               :auth-names    []})))
@@ -267,9 +269,9 @@
 (defn-spec classify-grocery-product any?
   "Classify Grocery Product
   This endpoint allows you to match a packaged food to a basic category, e.g. a specific brand of milk to the category milk."
-  ([inline-object-8 inline-object-8, ] (classify-grocery-product inline-object-8 nil))
-  ([inline-object-8 inline-object-8, optional-params any?]
-   (let [res (:data (classify-grocery-product-with-http-info inline-object-8 optional-params))]
+  ([inline-object-9 inline-object-9, ] (classify-grocery-product inline-object-9 nil))
+  ([inline-object-9 inline-object-9, optional-params any?]
+   (let [res (:data (classify-grocery-product-with-http-info inline-object-9 optional-params))]
      (if (:decode-models *api-context*)
         (st/decode any? res st/string-transformer)
         res))))
@@ -300,6 +302,81 @@
      (if (:decode-models *api-context*)
         (st/decode any? res st/string-transformer)
         res))))
+
+
+(defn-spec clear-meal-plan-day-with-http-info any?
+  "Clear Meal Plan Day
+  Delete all planned items from the user's meal plan for a specific day."
+  [username string?, date string?, hash string?, inline-object-10 inline-object-10]
+  (check-required-params username date hash inline-object-10)
+  (call-api "/mealplanner/{username}/day/{date}" :delete
+            {:path-params   {"username" username "date" date }
+             :header-params {}
+             :query-params  {"hash" hash }
+             :form-params   {}
+             :body-param    inline-object-10
+             :content-types [""]
+             :accepts       ["application/json"]
+             :auth-names    []}))
+
+(defn-spec clear-meal-plan-day any?
+  "Clear Meal Plan Day
+  Delete all planned items from the user's meal plan for a specific day."
+  [username string?, date string?, hash string?, inline-object-10 inline-object-10]
+  (let [res (:data (clear-meal-plan-day-with-http-info username date hash inline-object-10))]
+    (if (:decode-models *api-context*)
+       (st/decode any? res st/string-transformer)
+       res)))
+
+
+(defn-spec compute-glycemic-load-with-http-info any?
+  "Compute Glycemic Load
+  Retrieve the glycemic index for a list of ingredients and compute the individual and total glycemic load."
+  [body any?]
+  (check-required-params body)
+  (call-api "/food/ingredients/glycemicLoad" :post
+            {:path-params   {}
+             :header-params {}
+             :query-params  {}
+             :form-params   {}
+             :body-param    body
+             :content-types ["application/json"]
+             :accepts       ["application/json"]
+             :auth-names    []}))
+
+(defn-spec compute-glycemic-load any?
+  "Compute Glycemic Load
+  Retrieve the glycemic index for a list of ingredients and compute the individual and total glycemic load."
+  [body any?]
+  (let [res (:data (compute-glycemic-load-with-http-info body))]
+    (if (:decode-models *api-context*)
+       (st/decode any? res st/string-transformer)
+       res)))
+
+
+(defn-spec connect-user-with-http-info any?
+  "Connect User
+  In order to call user-specific endpoints, you need to connect your app's users to spoonacular users."
+  [body any?]
+  (check-required-params body)
+  (call-api "/users/connect" :post
+            {:path-params   {}
+             :header-params {}
+             :query-params  {}
+             :form-params   {}
+             :body-param    body
+             :content-types [""]
+             :accepts       ["application/json"]
+             :auth-names    []}))
+
+(defn-spec connect-user any?
+  "Connect User
+  In order to call user-specific endpoints, you need to connect your app's users to spoonacular users."
+  [body any?]
+  (let [res (:data (connect-user-with-http-info body))]
+    (if (:decode-models *api-context*)
+       (st/decode any? res st/string-transformer)
+       res)))
 
 
 (defn-spec convert-amounts-with-http-info any?
@@ -355,14 +432,14 @@
 (defn-spec delete-from-meal-plan-with-http-info any?
   "Delete from Meal Plan
   Delete an item from the user's meal plan."
-  [username string?, id float?, hash string?, inline-object-10 inline-object-10]
-  (check-required-params username id hash inline-object-10)
+  [username string?, id float?, hash string?, inline-object-12 inline-object-12]
+  (check-required-params username id hash inline-object-12)
   (call-api "/mealplanner/{username}/items/{id}" :delete
             {:path-params   {"username" username "id" id }
              :header-params {}
              :query-params  {"hash" hash }
              :form-params   {}
-             :body-param    inline-object-10
+             :body-param    inline-object-12
              :content-types [""]
              :accepts       ["application/json"]
              :auth-names    []}))
@@ -370,8 +447,8 @@
 (defn-spec delete-from-meal-plan any?
   "Delete from Meal Plan
   Delete an item from the user's meal plan."
-  [username string?, id float?, hash string?, inline-object-10 inline-object-10]
-  (let [res (:data (delete-from-meal-plan-with-http-info username id hash inline-object-10))]
+  [username string?, id float?, hash string?, inline-object-12 inline-object-12]
+  (let [res (:data (delete-from-meal-plan-with-http-info username id hash inline-object-12))]
     (if (:decode-models *api-context*)
        (st/decode any? res st/string-transformer)
        res)))
@@ -380,14 +457,14 @@
 (defn-spec delete-from-shopping-list-with-http-info any?
   "Delete from Shopping List
   Delete an item from the current shopping list of the user."
-  [username string?, id float?, hash string?, inline-object-13 inline-object-13]
-  (check-required-params username id hash inline-object-13)
+  [username string?, id float?, hash string?, inline-object-15 inline-object-15]
+  (check-required-params username id hash inline-object-15)
   (call-api "/mealplanner/{username}/shopping-list/items/{id}" :delete
             {:path-params   {"username" username "id" id }
              :header-params {}
              :query-params  {"hash" hash }
              :form-params   {}
-             :body-param    inline-object-13
+             :body-param    inline-object-15
              :content-types [""]
              :accepts       ["application/json"]
              :auth-names    []}))
@@ -395,8 +472,8 @@
 (defn-spec delete-from-shopping-list any?
   "Delete from Shopping List
   Delete an item from the current shopping list of the user."
-  [username string?, id float?, hash string?, inline-object-13 inline-object-13]
-  (let [res (:data (delete-from-shopping-list-with-http-info username id hash inline-object-13))]
+  [username string?, id float?, hash string?, inline-object-15 inline-object-15]
+  (let [res (:data (delete-from-shopping-list-with-http-info username id hash inline-object-15))]
     (if (:decode-models *api-context*)
        (st/decode any? res st/string-transformer)
        res)))
@@ -480,14 +557,14 @@
 (defn-spec generate-shopping-list-with-http-info any?
   "Generate Shopping List
   Generate the shopping list for a user from the meal planner in a given time frame."
-  [username string?, start-date string?, end-date string?, hash string?, inline-object-11 inline-object-11]
-  (check-required-params username start-date end-date hash inline-object-11)
+  [username string?, start-date string?, end-date string?, hash string?, inline-object-13 inline-object-13]
+  (check-required-params username start-date end-date hash inline-object-13)
   (call-api "/mealplanner/{username}/shopping-list/{start-date}/{end-date}" :post
             {:path-params   {"username" username "start-date" start-date "end-date" end-date }
              :header-params {}
              :query-params  {"hash" hash }
              :form-params   {}
-             :body-param    inline-object-11
+             :body-param    inline-object-13
              :content-types [""]
              :accepts       ["application/json"]
              :auth-names    []}))
@@ -495,8 +572,8 @@
 (defn-spec generate-shopping-list any?
   "Generate Shopping List
   Generate the shopping list for a user from the meal planner in a given time frame."
-  [username string?, start-date string?, end-date string?, hash string?, inline-object-11 inline-object-11]
-  (let [res (:data (generate-shopping-list-with-http-info username start-date end-date hash inline-object-11))]
+  [username string?, start-date string?, end-date string?, hash string?, inline-object-13 inline-object-13]
+  (let [res (:data (generate-shopping-list-with-http-info username start-date end-date hash inline-object-13))]
     (if (:decode-models *api-context*)
        (st/decode any? res st/string-transformer)
        res)))
@@ -1015,6 +1092,30 @@
        res)))
 
 
+(defn-spec get-recipe-taste-by-id-with-http-info any?
+  "Get Recipe Taste by ID
+  Get a recipe's taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty."
+  [id float?]
+  (check-required-params id)
+  (call-api "/recipes/{id}/tasteWidget.json" :get
+            {:path-params   {"id" id }
+             :header-params {}
+             :query-params  {}
+             :form-params   {}
+             :content-types []
+             :accepts       ["application/json"]
+             :auth-names    []}))
+
+(defn-spec get-recipe-taste-by-id any?
+  "Get Recipe Taste by ID
+  Get a recipe's taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty."
+  [id float?]
+  (let [res (:data (get-recipe-taste-by-id-with-http-info id))]
+    (if (:decode-models *api-context*)
+       (st/decode any? res st/string-transformer)
+       res)))
+
+
 (defn-spec get-shopping-list-with-http-info any?
   "Get Shopping List
   Get the current shopping list for the given user."
@@ -1213,6 +1314,32 @@
        res)))
 
 
+(defn-spec ingredient-search-with-http-info any?
+  "Ingredient Search
+  Search for simple whole foods (e.g. fruits, vegetables, nuts, grains, meat, fish, dairy etc.)."
+  ([query string?, ] (ingredient-search-with-http-info query nil))
+  ([query string?, {:keys [addChildren minProteinPercent maxProteinPercent minFatPercent maxFatPercent minCarbsPercent maxCarbsPercent metaInformation intolerances sort sortDirection offset number]} (s/map-of keyword? any?)]
+   (check-required-params query)
+   (call-api "/food/ingredients/search" :get
+             {:path-params   {}
+              :header-params {}
+              :query-params  {"query" query "addChildren" addChildren "minProteinPercent" minProteinPercent "maxProteinPercent" maxProteinPercent "minFatPercent" minFatPercent "maxFatPercent" maxFatPercent "minCarbsPercent" minCarbsPercent "maxCarbsPercent" maxCarbsPercent "metaInformation" metaInformation "intolerances" intolerances "sort" sort "sortDirection" sortDirection "offset" offset "number" number }
+              :form-params   {}
+              :content-types []
+              :accepts       ["application/json"]
+              :auth-names    []})))
+
+(defn-spec ingredient-search any?
+  "Ingredient Search
+  Search for simple whole foods (e.g. fruits, vegetables, nuts, grains, meat, fish, dairy etc.)."
+  ([query string?, ] (ingredient-search query nil))
+  ([query string?, optional-params any?]
+   (let [res (:data (ingredient-search-with-http-info query optional-params))]
+     (if (:decode-models *api-context*)
+        (st/decode any? res st/string-transformer)
+        res))))
+
+
 (defn-spec map-ingredients-to-grocery-products-with-http-info any?
   "Map Ingredients to Grocery Products
   Map a set of ingredients to products you can buy in the grocery store."
@@ -1286,6 +1413,32 @@
     (if (:decode-models *api-context*)
        (st/decode any? res st/string-transformer)
        res)))
+
+
+(defn-spec search-all-food-with-http-info any?
+  "Search All Food
+  Search all food content with one call. That includes recipes, grocery products, menu items, simple foods (ingredients), and food videos."
+  ([query string?, ] (search-all-food-with-http-info query nil))
+  ([query string?, {:keys [offset number]} (s/map-of keyword? any?)]
+   (check-required-params query)
+   (call-api "/food/search" :get
+             {:path-params   {}
+              :header-params {}
+              :query-params  {"query" query "offset" offset "number" number }
+              :form-params   {}
+              :content-types []
+              :accepts       ["application/json"]
+              :auth-names    []})))
+
+(defn-spec search-all-food any?
+  "Search All Food
+  Search all food content with one call. That includes recipes, grocery products, menu items, simple foods (ingredients), and food videos."
+  ([query string?, ] (search-all-food query nil))
+  ([query string?, optional-params any?]
+   (let [res (:data (search-all-food-with-http-info query optional-params))]
+     (if (:decode-models *api-context*)
+        (st/decode any? res st/string-transformer)
+        res))))
 
 
 (defn-spec search-custom-foods-with-http-info any?
@@ -1418,14 +1571,14 @@
 
 (defn-spec search-recipes-with-http-info any?
   "Search Recipes
-  Our recipe API includes over 360,000 recipes as well as an open source recipe database. Consider using the \"Search Recipes Complex\" endpoint for much more flexibility."
+  Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint."
   ([query string?, ] (search-recipes-with-http-info query nil))
-  ([query string?, {:keys [cuisine diet excludeIngredients intolerances offset number limitLicense instructionsRequired]} (s/map-of keyword? any?)]
+  ([query string?, {:keys [cuisine excludeCuisine diet intolerances equipment includeIngredients excludeIngredients type instructionsRequired fillIngredients addRecipeInformation addRecipeNutrition author tags recipeBoxId titleMatch maxReadyTime ignorePantry sort sortDirection minCarbs maxCarbs minProtein maxProtein minCalories maxCalories minFat maxFat minAlcohol maxAlcohol minCaffeine maxCaffeine minCopper maxCopper minCalcium maxCalcium minCholine maxCholine minCholesterol maxCholesterol minFluoride maxFluoride minSaturatedFat maxSaturatedFat minVitaminA maxVitaminA minVitaminC maxVitaminC minVitaminD maxVitaminD minVitaminE maxVitaminE minVitaminK maxVitaminK minVitaminB1 maxVitaminB1 minVitaminB2 maxVitaminB2 minVitaminB5 maxVitaminB5 minVitaminB3 maxVitaminB3 minVitaminB6 maxVitaminB6 minVitaminB12 maxVitaminB12 minFiber maxFiber minFolate maxFolate minFolicAcid maxFolicAcid minIodine maxIodine minIron maxIron minMagnesium maxMagnesium minManganese maxManganese minPhosphorus maxPhosphorus minPotassium maxPotassium minSelenium maxSelenium minSodium maxSodium minSugar maxSugar minZinc maxZinc offset number limitLicense]} (s/map-of keyword? any?)]
    (check-required-params query)
-   (call-api "/recipes/search" :get
+   (call-api "/recipes/complexSearch" :get
              {:path-params   {}
               :header-params {}
-              :query-params  {"query" query "cuisine" cuisine "diet" diet "excludeIngredients" excludeIngredients "intolerances" intolerances "offset" offset "number" number "limitLicense" limitLicense "instructionsRequired" instructionsRequired }
+              :query-params  {"query" query "cuisine" cuisine "excludeCuisine" excludeCuisine "diet" diet "intolerances" intolerances "equipment" equipment "includeIngredients" includeIngredients "excludeIngredients" excludeIngredients "type" type "instructionsRequired" instructionsRequired "fillIngredients" fillIngredients "addRecipeInformation" addRecipeInformation "addRecipeNutrition" addRecipeNutrition "author" author "tags" tags "recipeBoxId" recipeBoxId "titleMatch" titleMatch "maxReadyTime" maxReadyTime "ignorePantry" ignorePantry "sort" sort "sortDirection" sortDirection "minCarbs" minCarbs "maxCarbs" maxCarbs "minProtein" minProtein "maxProtein" maxProtein "minCalories" minCalories "maxCalories" maxCalories "minFat" minFat "maxFat" maxFat "minAlcohol" minAlcohol "maxAlcohol" maxAlcohol "minCaffeine" minCaffeine "maxCaffeine" maxCaffeine "minCopper" minCopper "maxCopper" maxCopper "minCalcium" minCalcium "maxCalcium" maxCalcium "minCholine" minCholine "maxCholine" maxCholine "minCholesterol" minCholesterol "maxCholesterol" maxCholesterol "minFluoride" minFluoride "maxFluoride" maxFluoride "minSaturatedFat" minSaturatedFat "maxSaturatedFat" maxSaturatedFat "minVitaminA" minVitaminA "maxVitaminA" maxVitaminA "minVitaminC" minVitaminC "maxVitaminC" maxVitaminC "minVitaminD" minVitaminD "maxVitaminD" maxVitaminD "minVitaminE" minVitaminE "maxVitaminE" maxVitaminE "minVitaminK" minVitaminK "maxVitaminK" maxVitaminK "minVitaminB1" minVitaminB1 "maxVitaminB1" maxVitaminB1 "minVitaminB2" minVitaminB2 "maxVitaminB2" maxVitaminB2 "minVitaminB5" minVitaminB5 "maxVitaminB5" maxVitaminB5 "minVitaminB3" minVitaminB3 "maxVitaminB3" maxVitaminB3 "minVitaminB6" minVitaminB6 "maxVitaminB6" maxVitaminB6 "minVitaminB12" minVitaminB12 "maxVitaminB12" maxVitaminB12 "minFiber" minFiber "maxFiber" maxFiber "minFolate" minFolate "maxFolate" maxFolate "minFolicAcid" minFolicAcid "maxFolicAcid" maxFolicAcid "minIodine" minIodine "maxIodine" maxIodine "minIron" minIron "maxIron" maxIron "minMagnesium" minMagnesium "maxMagnesium" maxMagnesium "minManganese" minManganese "maxManganese" maxManganese "minPhosphorus" minPhosphorus "maxPhosphorus" maxPhosphorus "minPotassium" minPotassium "maxPotassium" maxPotassium "minSelenium" minSelenium "maxSelenium" maxSelenium "minSodium" minSodium "maxSodium" maxSodium "minSugar" minSugar "maxSugar" maxSugar "minZinc" minZinc "maxZinc" maxZinc "offset" offset "number" number "limitLicense" limitLicense }
               :form-params   {}
               :content-types []
               :accepts       ["application/json"]
@@ -1433,7 +1586,7 @@
 
 (defn-spec search-recipes any?
   "Search Recipes
-  Our recipe API includes over 360,000 recipes as well as an open source recipe database. Consider using the \"Search Recipes Complex\" endpoint for much more flexibility."
+  Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint."
   ([query string?, ] (search-recipes query nil))
   ([query string?, optional-params any?]
    (let [res (:data (search-recipes-with-http-info query optional-params))]
@@ -1488,32 +1641,6 @@
   ([] (search-recipes-by-nutrients nil))
   ([optional-params any?]
    (let [res (:data (search-recipes-by-nutrients-with-http-info optional-params))]
-     (if (:decode-models *api-context*)
-        (st/decode any? res st/string-transformer)
-        res))))
-
-
-(defn-spec search-recipes-complex-with-http-info any?
-  "Search Recipes Complex
-  Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint."
-  ([query string?, ] (search-recipes-complex-with-http-info query nil))
-  ([query string?, {:keys [cuisine excludeCuisine diet intolerances equipment includeIngredients excludeIngredients type instructionsRequired fillIngredients addRecipeInformation addRecipeNutrition author tags recipeBoxId titleMatch maxReadyTime ignorePantry sort sortDirection minCarbs maxCarbs minProtein maxProtein minCalories maxCalories minFat maxFat minAlcohol maxAlcohol minCaffeine maxCaffeine minCopper maxCopper minCalcium maxCalcium minCholine maxCholine minCholesterol maxCholesterol minFluoride maxFluoride minSaturatedFat maxSaturatedFat minVitaminA maxVitaminA minVitaminC maxVitaminC minVitaminD maxVitaminD minVitaminE maxVitaminE minVitaminK maxVitaminK minVitaminB1 maxVitaminB1 minVitaminB2 maxVitaminB2 minVitaminB5 maxVitaminB5 minVitaminB3 maxVitaminB3 minVitaminB6 maxVitaminB6 minVitaminB12 maxVitaminB12 minFiber maxFiber minFolate maxFolate minFolicAcid maxFolicAcid minIodine maxIodine minIron maxIron minMagnesium maxMagnesium minManganese maxManganese minPhosphorus maxPhosphorus minPotassium maxPotassium minSelenium maxSelenium minSodium maxSodium minSugar maxSugar minZinc maxZinc offset number limitLicense]} (s/map-of keyword? any?)]
-   (check-required-params query)
-   (call-api "/recipes/complexSearch" :get
-             {:path-params   {}
-              :header-params {}
-              :query-params  {"query" query "cuisine" cuisine "excludeCuisine" excludeCuisine "diet" diet "intolerances" intolerances "equipment" equipment "includeIngredients" includeIngredients "excludeIngredients" excludeIngredients "type" type "instructionsRequired" instructionsRequired "fillIngredients" fillIngredients "addRecipeInformation" addRecipeInformation "addRecipeNutrition" addRecipeNutrition "author" author "tags" tags "recipeBoxId" recipeBoxId "titleMatch" titleMatch "maxReadyTime" maxReadyTime "ignorePantry" ignorePantry "sort" sort "sortDirection" sortDirection "minCarbs" minCarbs "maxCarbs" maxCarbs "minProtein" minProtein "maxProtein" maxProtein "minCalories" minCalories "maxCalories" maxCalories "minFat" minFat "maxFat" maxFat "minAlcohol" minAlcohol "maxAlcohol" maxAlcohol "minCaffeine" minCaffeine "maxCaffeine" maxCaffeine "minCopper" minCopper "maxCopper" maxCopper "minCalcium" minCalcium "maxCalcium" maxCalcium "minCholine" minCholine "maxCholine" maxCholine "minCholesterol" minCholesterol "maxCholesterol" maxCholesterol "minFluoride" minFluoride "maxFluoride" maxFluoride "minSaturatedFat" minSaturatedFat "maxSaturatedFat" maxSaturatedFat "minVitaminA" minVitaminA "maxVitaminA" maxVitaminA "minVitaminC" minVitaminC "maxVitaminC" maxVitaminC "minVitaminD" minVitaminD "maxVitaminD" maxVitaminD "minVitaminE" minVitaminE "maxVitaminE" maxVitaminE "minVitaminK" minVitaminK "maxVitaminK" maxVitaminK "minVitaminB1" minVitaminB1 "maxVitaminB1" maxVitaminB1 "minVitaminB2" minVitaminB2 "maxVitaminB2" maxVitaminB2 "minVitaminB5" minVitaminB5 "maxVitaminB5" maxVitaminB5 "minVitaminB3" minVitaminB3 "maxVitaminB3" maxVitaminB3 "minVitaminB6" minVitaminB6 "maxVitaminB6" maxVitaminB6 "minVitaminB12" minVitaminB12 "maxVitaminB12" maxVitaminB12 "minFiber" minFiber "maxFiber" maxFiber "minFolate" minFolate "maxFolate" maxFolate "minFolicAcid" minFolicAcid "maxFolicAcid" maxFolicAcid "minIodine" minIodine "maxIodine" maxIodine "minIron" minIron "maxIron" maxIron "minMagnesium" minMagnesium "maxMagnesium" maxMagnesium "minManganese" minManganese "maxManganese" maxManganese "minPhosphorus" minPhosphorus "maxPhosphorus" maxPhosphorus "minPotassium" minPotassium "maxPotassium" maxPotassium "minSelenium" minSelenium "maxSelenium" maxSelenium "minSodium" minSodium "maxSodium" maxSodium "minSugar" minSugar "maxSugar" maxSugar "minZinc" minZinc "maxZinc" maxZinc "offset" offset "number" number "limitLicense" limitLicense }
-              :form-params   {}
-              :content-types []
-              :accepts       ["application/json"]
-              :auth-names    []})))
-
-(defn-spec search-recipes-complex any?
-  "Search Recipes Complex
-  Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint."
-  ([query string?, ] (search-recipes-complex query nil))
-  ([query string?, optional-params any?]
-   (let [res (:data (search-recipes-complex-with-http-info query optional-params))]
      (if (:decode-models *api-context*)
         (st/decode any? res st/string-transformer)
         res))))
@@ -1595,25 +1722,25 @@
 
 (defn-spec visualize-equipment-with-http-info any?
   "Visualize Equipment
-  Visualize the equipment used to make a recipe."
-  ([ingredientList string?, servings float?, ] (visualize-equipment-with-http-info ingredientList servings nil))
-  ([ingredientList string?, servings float?, {:keys [view defaultCss showBacklink]} (s/map-of keyword? any?)]
-   (check-required-params ingredientList servings)
+  Visualize the equipment used to make a recipe. You can play around with that endpoint!"
+  ([instructions string?, ] (visualize-equipment-with-http-info instructions nil))
+  ([instructions string?, {:keys [view defaultCss showBacklink]} (s/map-of keyword? any?)]
+   (check-required-params instructions)
    (call-api "/recipes/visualizeEquipment" :post
              {:path-params   {}
               :header-params {}
               :query-params  {}
-              :form-params   {"ingredientList" ingredientList "servings" servings "view" view "defaultCss" defaultCss "showBacklink" showBacklink }
+              :form-params   {"instructions" instructions "view" view "defaultCss" defaultCss "showBacklink" showBacklink }
               :content-types ["application/x-www-form-urlencoded"]
               :accepts       ["text/html"]
               :auth-names    []})))
 
 (defn-spec visualize-equipment string?
   "Visualize Equipment
-  Visualize the equipment used to make a recipe."
-  ([ingredientList string?, servings float?, ] (visualize-equipment ingredientList servings nil))
-  ([ingredientList string?, servings float?, optional-params any?]
-   (let [res (:data (visualize-equipment-with-http-info ingredientList servings optional-params))]
+  Visualize the equipment used to make a recipe. You can play around with that endpoint!"
+  ([instructions string?, ] (visualize-equipment instructions nil))
+  ([instructions string?, optional-params any?]
+   (let [res (:data (visualize-equipment-with-http-info instructions optional-params))]
      (if (:decode-models *api-context*)
         (st/decode string? res st/string-transformer)
         res))))
@@ -1621,7 +1748,7 @@
 
 (defn-spec visualize-ingredients-with-http-info any?
   "Visualize Ingredients
-  Visualize ingredients of a recipe."
+  Visualize ingredients of a recipe. You can play around with that endpoint!"
   ([ingredientList string?, servings float?, ] (visualize-ingredients-with-http-info ingredientList servings nil))
   ([ingredientList string?, servings float?, {:keys [measure view defaultCss showBacklink]} (s/map-of keyword? any?)]
    (check-required-params ingredientList servings)
@@ -1636,7 +1763,7 @@
 
 (defn-spec visualize-ingredients string?
   "Visualize Ingredients
-  Visualize ingredients of a recipe."
+  Visualize ingredients of a recipe. You can play around with that endpoint!"
   ([ingredientList string?, servings float?, ] (visualize-ingredients ingredientList servings nil))
   ([ingredientList string?, servings float?, optional-params any?]
    (let [res (:data (visualize-ingredients-with-http-info ingredientList servings optional-params))]
@@ -1673,7 +1800,7 @@
 
 (defn-spec visualize-price-breakdown-with-http-info any?
   "Visualize Price Breakdown
-  Visualize the price breakdown of a recipe."
+  Visualize the price breakdown of a recipe. You can play around with that endpoint!"
   ([ingredientList string?, servings float?, ] (visualize-price-breakdown-with-http-info ingredientList servings nil))
   ([ingredientList string?, servings float?, {:keys [mode defaultCss showBacklink]} (s/map-of keyword? any?)]
    (check-required-params ingredientList servings)
@@ -1688,7 +1815,7 @@
 
 (defn-spec visualize-price-breakdown string?
   "Visualize Price Breakdown
-  Visualize the price breakdown of a recipe."
+  Visualize the price breakdown of a recipe. You can play around with that endpoint!"
   ([ingredientList string?, servings float?, ] (visualize-price-breakdown ingredientList servings nil))
   ([ingredientList string?, servings float?, optional-params any?]
    (let [res (:data (visualize-price-breakdown-with-http-info ingredientList servings optional-params))]
@@ -1777,7 +1904,7 @@
 
 (defn-spec visualize-recipe-nutrition-with-http-info any?
   "Visualize Recipe Nutrition
-  Visualize a recipe's nutritional information as HTML including CSS"
+  Visualize a recipe's nutritional information as HTML including CSS. You can play around with that endpoint!"
   ([ingredientList string?, servings float?, ] (visualize-recipe-nutrition-with-http-info ingredientList servings nil))
   ([ingredientList string?, servings float?, {:keys [defaultCss showBacklink]} (s/map-of keyword? any?)]
    (check-required-params ingredientList servings)
@@ -1792,7 +1919,7 @@
 
 (defn-spec visualize-recipe-nutrition string?
   "Visualize Recipe Nutrition
-  Visualize a recipe's nutritional information as HTML including CSS"
+  Visualize a recipe's nutritional information as HTML including CSS. You can play around with that endpoint!"
   ([ingredientList string?, servings float?, ] (visualize-recipe-nutrition ingredientList servings nil))
   ([ingredientList string?, servings float?, optional-params any?]
    (let [res (:data (visualize-recipe-nutrition-with-http-info ingredientList servings optional-params))]
@@ -1851,5 +1978,53 @@
      (if (:decode-models *api-context*)
         (st/decode string? res st/string-transformer)
         res))))
+
+
+(defn-spec visualize-recipe-taste-with-http-info any?
+  "Visualize Recipe Taste
+  Visualize a recipe's taste information as HTML including CSS. You can play around with that endpoint!"
+  [ingredientList string?]
+  (check-required-params ingredientList)
+  (call-api "/recipes/visualizeTaste" :post
+            {:path-params   {}
+             :header-params {}
+             :query-params  {}
+             :form-params   {"ingredientList" ingredientList }
+             :content-types ["application/x-www-form-urlencoded"]
+             :accepts       ["text/html"]
+             :auth-names    []}))
+
+(defn-spec visualize-recipe-taste string?
+  "Visualize Recipe Taste
+  Visualize a recipe's taste information as HTML including CSS. You can play around with that endpoint!"
+  [ingredientList string?]
+  (let [res (:data (visualize-recipe-taste-with-http-info ingredientList))]
+    (if (:decode-models *api-context*)
+       (st/decode string? res st/string-transformer)
+       res)))
+
+
+(defn-spec visualize-recipe-taste-by-id-with-http-info any?
+  "Visualize Recipe Taste by ID
+  Get a recipe's taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty."
+  [id float?]
+  (check-required-params id)
+  (call-api "/recipes/{id}/tasteWidget" :get
+            {:path-params   {"id" id }
+             :header-params {}
+             :query-params  {}
+             :form-params   {}
+             :content-types []
+             :accepts       ["text/html"]
+             :auth-names    []}))
+
+(defn-spec visualize-recipe-taste-by-id string?
+  "Visualize Recipe Taste by ID
+  Get a recipe's taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty."
+  [id float?]
+  (let [res (:data (visualize-recipe-taste-by-id-with-http-info id))]
+    (if (:decode-models *api-context*)
+       (st/decode string? res st/string-transformer)
+       res)))
 
 

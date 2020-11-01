@@ -22,18 +22,11 @@ class InlineObject3 {
     /**
      * Constructs a new <code>InlineObject3</code>.
      * @alias module:com.spoonacular.client/com.spoonacular.client.model/InlineObject3
-     * @param title {String} The title of the recipe.
-     * @param image {File} The binary image of the recipe as jpg.
-     * @param ingredients {String} The ingredient list of the recipe, one ingredient per line (separate lines with \\n).
-     * @param instructions {String} The instructions to make the recipe. One step per line (separate lines with \\n).
-     * @param readyInMinutes {Number} The number of minutes it takes to get the recipe on the table.
-     * @param servings {Number} The number of servings the recipe makes.
-     * @param mask {String} The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\").
-     * @param backgroundImage {String} The background image (\"none\",\"background1\", or \"background2\").
+     * @param instructions {String} The recipe's instructions.
      */
-    constructor(title, image, ingredients, instructions, readyInMinutes, servings, mask, backgroundImage) { 
+    constructor(instructions) { 
         
-        InlineObject3.initialize(this, title, image, ingredients, instructions, readyInMinutes, servings, mask, backgroundImage);
+        InlineObject3.initialize(this, instructions);
     }
 
     /**
@@ -41,15 +34,8 @@ class InlineObject3 {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, title, image, ingredients, instructions, readyInMinutes, servings, mask, backgroundImage) { 
-        obj['title'] = title;
-        obj['image'] = image;
-        obj['ingredients'] = ingredients;
+    static initialize(obj, instructions) { 
         obj['instructions'] = instructions;
-        obj['readyInMinutes'] = readyInMinutes;
-        obj['servings'] = servings;
-        obj['mask'] = mask;
-        obj['backgroundImage'] = backgroundImage;
     }
 
     /**
@@ -63,41 +49,17 @@ class InlineObject3 {
         if (data) {
             obj = obj || new InlineObject3();
 
-            if (data.hasOwnProperty('title')) {
-                obj['title'] = ApiClient.convertToType(data['title'], 'String');
-            }
-            if (data.hasOwnProperty('image')) {
-                obj['image'] = ApiClient.convertToType(data['image'], File);
-            }
-            if (data.hasOwnProperty('ingredients')) {
-                obj['ingredients'] = ApiClient.convertToType(data['ingredients'], 'String');
-            }
             if (data.hasOwnProperty('instructions')) {
                 obj['instructions'] = ApiClient.convertToType(data['instructions'], 'String');
             }
-            if (data.hasOwnProperty('readyInMinutes')) {
-                obj['readyInMinutes'] = ApiClient.convertToType(data['readyInMinutes'], 'Number');
+            if (data.hasOwnProperty('view')) {
+                obj['view'] = ApiClient.convertToType(data['view'], 'String');
             }
-            if (data.hasOwnProperty('servings')) {
-                obj['servings'] = ApiClient.convertToType(data['servings'], 'Number');
+            if (data.hasOwnProperty('defaultCss')) {
+                obj['defaultCss'] = ApiClient.convertToType(data['defaultCss'], 'Boolean');
             }
-            if (data.hasOwnProperty('mask')) {
-                obj['mask'] = ApiClient.convertToType(data['mask'], 'String');
-            }
-            if (data.hasOwnProperty('backgroundImage')) {
-                obj['backgroundImage'] = ApiClient.convertToType(data['backgroundImage'], 'String');
-            }
-            if (data.hasOwnProperty('author')) {
-                obj['author'] = ApiClient.convertToType(data['author'], 'String');
-            }
-            if (data.hasOwnProperty('backgroundColor')) {
-                obj['backgroundColor'] = ApiClient.convertToType(data['backgroundColor'], 'String');
-            }
-            if (data.hasOwnProperty('fontColor')) {
-                obj['fontColor'] = ApiClient.convertToType(data['fontColor'], 'String');
-            }
-            if (data.hasOwnProperty('source')) {
-                obj['source'] = ApiClient.convertToType(data['source'], 'String');
+            if (data.hasOwnProperty('showBacklink')) {
+                obj['showBacklink'] = ApiClient.convertToType(data['showBacklink'], 'Boolean');
             }
         }
         return obj;
@@ -107,76 +69,28 @@ class InlineObject3 {
 }
 
 /**
- * The title of the recipe.
- * @member {String} title
- */
-InlineObject3.prototype['title'] = undefined;
-
-/**
- * The binary image of the recipe as jpg.
- * @member {File} image
- */
-InlineObject3.prototype['image'] = undefined;
-
-/**
- * The ingredient list of the recipe, one ingredient per line (separate lines with \\n).
- * @member {String} ingredients
- */
-InlineObject3.prototype['ingredients'] = undefined;
-
-/**
- * The instructions to make the recipe. One step per line (separate lines with \\n).
+ * The recipe's instructions.
  * @member {String} instructions
  */
 InlineObject3.prototype['instructions'] = undefined;
 
 /**
- * The number of minutes it takes to get the recipe on the table.
- * @member {Number} readyInMinutes
+ * How to visualize the equipment, either \"grid\" or \"list\".
+ * @member {String} view
  */
-InlineObject3.prototype['readyInMinutes'] = undefined;
+InlineObject3.prototype['view'] = undefined;
 
 /**
- * The number of servings the recipe makes.
- * @member {Number} servings
+ * Whether the default CSS should be added to the response.
+ * @member {Boolean} defaultCss
  */
-InlineObject3.prototype['servings'] = undefined;
+InlineObject3.prototype['defaultCss'] = undefined;
 
 /**
- * The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\").
- * @member {String} mask
+ * Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
+ * @member {Boolean} showBacklink
  */
-InlineObject3.prototype['mask'] = undefined;
-
-/**
- * The background image (\"none\",\"background1\", or \"background2\").
- * @member {String} backgroundImage
- */
-InlineObject3.prototype['backgroundImage'] = undefined;
-
-/**
- * The author of the recipe.
- * @member {String} author
- */
-InlineObject3.prototype['author'] = undefined;
-
-/**
- * The background color for the recipe card as a hex-string.
- * @member {String} backgroundColor
- */
-InlineObject3.prototype['backgroundColor'] = undefined;
-
-/**
- * The font color for the recipe card as a hex-string.
- * @member {String} fontColor
- */
-InlineObject3.prototype['fontColor'] = undefined;
-
-/**
- * The source of the recipe.
- * @member {String} source
- */
-InlineObject3.prototype['source'] = undefined;
+InlineObject3.prototype['showBacklink'] = undefined;
 
 
 

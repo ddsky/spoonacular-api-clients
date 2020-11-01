@@ -32,34 +32,20 @@ class InlineObject(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'ingredient_list': 'str',
-        'servings': 'float',
-        'default_css': 'bool',
-        'show_backlink': 'bool'
+        'ingredient_list': 'str'
     }
 
     attribute_map = {
-        'ingredient_list': 'ingredientList',
-        'servings': 'servings',
-        'default_css': 'defaultCss',
-        'show_backlink': 'showBacklink'
+        'ingredient_list': 'ingredientList'
     }
 
-    def __init__(self, ingredient_list=None, servings=None, default_css=None, show_backlink=None):  # noqa: E501
+    def __init__(self, ingredient_list=None):  # noqa: E501
         """InlineObject - a model defined in OpenAPI"""  # noqa: E501
 
         self._ingredient_list = None
-        self._servings = None
-        self._default_css = None
-        self._show_backlink = None
         self.discriminator = None
 
         self.ingredient_list = ingredient_list
-        self.servings = servings
-        if default_css is not None:
-            self.default_css = default_css
-        if show_backlink is not None:
-            self.show_backlink = show_backlink
 
     @property
     def ingredient_list(self):
@@ -85,77 +71,6 @@ class InlineObject(object):
             raise ValueError("Invalid value for `ingredient_list`, must not be `None`")  # noqa: E501
 
         self._ingredient_list = ingredient_list
-
-    @property
-    def servings(self):
-        """Gets the servings of this InlineObject.  # noqa: E501
-
-        The number of servings.  # noqa: E501
-
-        :return: The servings of this InlineObject.  # noqa: E501
-        :rtype: float
-        """
-        return self._servings
-
-    @servings.setter
-    def servings(self, servings):
-        """Sets the servings of this InlineObject.
-
-        The number of servings.  # noqa: E501
-
-        :param servings: The servings of this InlineObject.  # noqa: E501
-        :type: float
-        """
-        if servings is None:
-            raise ValueError("Invalid value for `servings`, must not be `None`")  # noqa: E501
-
-        self._servings = servings
-
-    @property
-    def default_css(self):
-        """Gets the default_css of this InlineObject.  # noqa: E501
-
-        Whether the default CSS should be added to the response.  # noqa: E501
-
-        :return: The default_css of this InlineObject.  # noqa: E501
-        :rtype: bool
-        """
-        return self._default_css
-
-    @default_css.setter
-    def default_css(self, default_css):
-        """Sets the default_css of this InlineObject.
-
-        Whether the default CSS should be added to the response.  # noqa: E501
-
-        :param default_css: The default_css of this InlineObject.  # noqa: E501
-        :type: bool
-        """
-
-        self._default_css = default_css
-
-    @property
-    def show_backlink(self):
-        """Gets the show_backlink of this InlineObject.  # noqa: E501
-
-        Whether to show a backlink to spoonacular. If set false, this call counts against your quota.  # noqa: E501
-
-        :return: The show_backlink of this InlineObject.  # noqa: E501
-        :rtype: bool
-        """
-        return self._show_backlink
-
-    @show_backlink.setter
-    def show_backlink(self, show_backlink):
-        """Sets the show_backlink of this InlineObject.
-
-        Whether to show a backlink to spoonacular. If set false, this call counts against your quota.  # noqa: E501
-
-        :param show_backlink: The show_backlink of this InlineObject.  # noqa: E501
-        :type: bool
-        """
-
-        self._show_backlink = show_backlink
 
     def to_dict(self):
         """Returns the model properties as a dict"""

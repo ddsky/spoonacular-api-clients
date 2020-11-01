@@ -16,23 +16,11 @@ import com.squareup.moshi.Json
 /**
  * 
  * @param ingredientList The ingredient list of the recipe, one ingredient per line.
- * @param servings The number of servings.
- * @param defaultCss Whether the default CSS should be added to the response.
- * @param showBacklink Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
  */
 data class InlineObject (
     /* The ingredient list of the recipe, one ingredient per line. */
     @Json(name = "ingredientList")
-    val ingredientList: kotlin.String,
-    /* The number of servings. */
-    @Json(name = "servings")
-    val servings: java.math.BigDecimal,
-    /* Whether the default CSS should be added to the response. */
-    @Json(name = "defaultCss")
-    val defaultCss: kotlin.Boolean? = null,
-    /* Whether to show a backlink to spoonacular. If set false, this call counts against your quota. */
-    @Json(name = "showBacklink")
-    val showBacklink: kotlin.Boolean? = null
+    val ingredientList: kotlin.String
 ) {
 
 }

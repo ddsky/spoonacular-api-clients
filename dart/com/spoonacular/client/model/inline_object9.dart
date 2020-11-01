@@ -1,37 +1,28 @@
 part of openapi.api;
 
 class InlineObject9 {
-  /* The username. */
-  String username = null;
-  /* The private hash for the username. */
-  String hash = null;
+  /* The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). */
+  String locale = null;
   InlineObject9();
 
   @override
   String toString() {
-    return 'InlineObject9[username=$username, hash=$hash, ]';
+    return 'InlineObject9[locale=$locale, ]';
   }
 
   InlineObject9.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    if (json['username'] == null) {
-      username = null;
+    if (json['locale'] == null) {
+      locale = null;
     } else {
-          username = json['username'];
-    }
-    if (json['hash'] == null) {
-      hash = null;
-    } else {
-          hash = json['hash'];
+          locale = json['locale'];
     }
   }
 
   Map<String, dynamic> toJson() {
     Map <String, dynamic> json = {};
-    if (username != null)
-      json['username'] = username;
-    if (hash != null)
-      json['hash'] = hash;
+    if (locale != null)
+      json['locale'] = locale;
     return json;
   }
 

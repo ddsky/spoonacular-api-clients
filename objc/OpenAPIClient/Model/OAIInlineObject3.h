@@ -22,41 +22,17 @@
 
 @interface OAIInlineObject3 : OAIObject
 
-/* The title of the recipe. 
- */
-@property(nonatomic) NSString* title;
-/* The binary image of the recipe as jpg. 
- */
-@property(nonatomic) NSURL* image;
-/* The ingredient list of the recipe, one ingredient per line (separate lines with \\n). 
- */
-@property(nonatomic) NSString* ingredients;
-/* The instructions to make the recipe. One step per line (separate lines with \\n). 
+/* The recipe's instructions. 
  */
 @property(nonatomic) NSString* instructions;
-/* The number of minutes it takes to get the recipe on the table. 
+/* How to visualize the equipment, either \"grid\" or \"list\". [optional]
  */
-@property(nonatomic) NSNumber* readyInMinutes;
-/* The number of servings the recipe makes. 
+@property(nonatomic) NSString* view;
+/* Whether the default CSS should be added to the response. [optional]
  */
-@property(nonatomic) NSNumber* servings;
-/* The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\"). 
+@property(nonatomic) NSNumber* defaultCss;
+/* Whether to show a backlink to spoonacular. If set false, this call counts against your quota. [optional]
  */
-@property(nonatomic) NSString* mask;
-/* The background image (\"none\",\"background1\", or \"background2\"). 
- */
-@property(nonatomic) NSString* backgroundImage;
-/* The author of the recipe. [optional]
- */
-@property(nonatomic) NSString* author;
-/* The background color for the recipe card as a hex-string. [optional]
- */
-@property(nonatomic) NSString* backgroundColor;
-/* The font color for the recipe card as a hex-string. [optional]
- */
-@property(nonatomic) NSString* fontColor;
-/* The source of the recipe. [optional]
- */
-@property(nonatomic) NSString* source;
+@property(nonatomic) NSNumber* showBacklink;
 
 @end

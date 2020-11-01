@@ -16,16 +16,16 @@ import com.squareup.moshi.Json
 /**
  * 
  * @param username The username.
- * @param id The shopping list item id.
+ * @param date The date in the format yyyy-mm-dd.
  * @param hash The private hash for the username.
  */
 data class InlineObject10 (
     /* The username. */
     @Json(name = "username")
     val username: kotlin.String,
-    /* The shopping list item id. */
-    @Json(name = "id")
-    val id: java.math.BigDecimal,
+    /* The date in the format yyyy-mm-dd. */
+    @Json(name = "date")
+    val date: kotlin.String,
     /* The private hash for the username. */
     @Json(name = "hash")
     val hash: kotlin.String

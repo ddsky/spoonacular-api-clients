@@ -29,14 +29,6 @@ namespace spoonacular.Model {
     public decimal? Servings { get; set; }
 
     /// <summary>
-    /// The mode in which the widget should be delivered. 1 = separate views (compact), 2 = all in one view (full).
-    /// </summary>
-    /// <value>The mode in which the widget should be delivered. 1 = separate views (compact), 2 = all in one view (full).</value>
-    [DataMember(Name="mode", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "mode")]
-    public decimal? Mode { get; set; }
-
-    /// <summary>
     /// Whether the default CSS should be added to the response.
     /// </summary>
     /// <value>Whether the default CSS should be added to the response.</value>
@@ -62,7 +54,6 @@ namespace spoonacular.Model {
       sb.Append("class InlineObject1 {\n");
       sb.Append("  IngredientList: ").Append(IngredientList).Append("\n");
       sb.Append("  Servings: ").Append(Servings).Append("\n");
-      sb.Append("  Mode: ").Append(Mode).Append("\n");
       sb.Append("  DefaultCss: ").Append(DefaultCss).Append("\n");
       sb.Append("  ShowBacklink: ").Append(ShowBacklink).Append("\n");
       sb.Append("}\n");

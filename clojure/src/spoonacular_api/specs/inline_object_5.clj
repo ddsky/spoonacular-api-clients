@@ -7,8 +7,7 @@
 
 (def inline-object-5-data
   {
-   (ds/req :title) string?
-   (ds/req :ingredientList) string?
+   (ds/req :instructions) string?
    })
 
 (def inline-object-5-spec

@@ -57,8 +57,7 @@ class InlineObject9 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'username' => 'string',
-        'hash' => 'string'
+        'locale' => 'string'
     ];
 
     /**
@@ -67,8 +66,7 @@ class InlineObject9 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'username' => null,
-        'hash' => null
+        'locale' => null
     ];
 
     /**
@@ -98,8 +96,7 @@ class InlineObject9 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'username' => 'username',
-        'hash' => 'hash'
+        'locale' => 'locale'
     ];
 
     /**
@@ -108,8 +105,7 @@ class InlineObject9 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'username' => 'setUsername',
-        'hash' => 'setHash'
+        'locale' => 'setLocale'
     ];
 
     /**
@@ -118,8 +114,7 @@ class InlineObject9 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'username' => 'getUsername',
-        'hash' => 'getHash'
+        'locale' => 'getLocale'
     ];
 
     /**
@@ -182,8 +177,7 @@ class InlineObject9 implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['username'] = isset($data['username']) ? $data['username'] : null;
-        $this->container['hash'] = isset($data['hash']) ? $data['hash'] : null;
+        $this->container['locale'] = isset($data['locale']) ? $data['locale'] : null;
     }
 
     /**
@@ -195,12 +189,6 @@ class InlineObject9 implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['username'] === null) {
-            $invalidProperties[] = "'username' can't be null";
-        }
-        if ($this->container['hash'] === null) {
-            $invalidProperties[] = "'hash' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -217,49 +205,25 @@ class InlineObject9 implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets username
+     * Gets locale
      *
-     * @return string
+     * @return string|null
      */
-    public function getUsername()
+    public function getLocale()
     {
-        return $this->container['username'];
+        return $this->container['locale'];
     }
 
     /**
-     * Sets username
+     * Sets locale
      *
-     * @param string $username The username.
+     * @param string|null $locale The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).
      *
      * @return $this
      */
-    public function setUsername($username)
+    public function setLocale($locale)
     {
-        $this->container['username'] = $username;
-
-        return $this;
-    }
-
-    /**
-     * Gets hash
-     *
-     * @return string
-     */
-    public function getHash()
-    {
-        return $this->container['hash'];
-    }
-
-    /**
-     * Sets hash
-     *
-     * @param string $hash The private hash for the username.
-     *
-     * @return $this
-     */
-    public function setHash($hash)
-    {
-        $this->container['hash'] = $hash;
+        $this->container['locale'] = $locale;
 
         return $this;
     }

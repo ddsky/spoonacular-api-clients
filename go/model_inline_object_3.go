@@ -9,33 +9,14 @@
  */
 
 package spoonacular
-import (
-	"os"
-)
 
 type InlineObject3 struct {
-	// The title of the recipe.
-	Title string `json:"title"`
-	// The binary image of the recipe as jpg.
-	Image *os.File `json:"image"`
-	// The ingredient list of the recipe, one ingredient per line (separate lines with \\n).
-	Ingredients string `json:"ingredients"`
-	// The instructions to make the recipe. One step per line (separate lines with \\n).
+	// The recipe's instructions.
 	Instructions string `json:"instructions"`
-	// The number of minutes it takes to get the recipe on the table.
-	ReadyInMinutes float32 `json:"readyInMinutes"`
-	// The number of servings the recipe makes.
-	Servings float32 `json:"servings"`
-	// The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\").
-	Mask string `json:"mask"`
-	// The background image (\"none\",\"background1\", or \"background2\").
-	BackgroundImage string `json:"backgroundImage"`
-	// The author of the recipe.
-	Author string `json:"author,omitempty"`
-	// The background color for the recipe card as a hex-string.
-	BackgroundColor string `json:"backgroundColor,omitempty"`
-	// The font color for the recipe card as a hex-string.
-	FontColor string `json:"fontColor,omitempty"`
-	// The source of the recipe.
-	Source string `json:"source,omitempty"`
+	// How to visualize the equipment, either \"grid\" or \"list\".
+	View string `json:"view,omitempty"`
+	// Whether the default CSS should be added to the response.
+	DefaultCss bool `json:"defaultCss,omitempty"`
+	// Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
+	ShowBacklink bool `json:"showBacklink,omitempty"`
 }

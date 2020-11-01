@@ -41,8 +41,12 @@ public:
     void fromJson(QString jsonString) override;
 
     
-    QString getText() const;
-    void setText(const QString &text);
+    QString getUsername() const;
+    void setUsername(const QString &username);
+
+    
+    QString getHash() const;
+    void setHash(const QString &hash);
 
     
     
@@ -52,9 +56,13 @@ public:
 private:
     void init();
     
-    QString text;
-    bool m_text_isSet;
-    bool m_text_isValid;
+    QString username;
+    bool m_username_isSet;
+    bool m_username_isValid;
+    
+    QString hash;
+    bool m_hash_isSet;
+    bool m_hash_isValid;
     
     };
 

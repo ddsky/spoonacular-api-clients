@@ -23,24 +23,37 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.math.BigDecimal;
 
 /**
  * InlineObject6
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-06-13T12:59:56.631+02:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-11-01T21:23:09.595+01:00[Europe/Berlin]")
 public class InlineObject6 {
+  public static final String SERIALIZED_NAME_TITLE = "title";
+  @SerializedName(SERIALIZED_NAME_TITLE)
+  private String title;
+
   public static final String SERIALIZED_NAME_INGREDIENT_LIST = "ingredientList";
   @SerializedName(SERIALIZED_NAME_INGREDIENT_LIST)
   private String ingredientList;
 
-  public static final String SERIALIZED_NAME_SERVINGS = "servings";
-  @SerializedName(SERIALIZED_NAME_SERVINGS)
-  private BigDecimal servings;
+  public InlineObject6 title(String title) {
+    this.title = title;
+    return this;
+  }
 
-  public static final String SERIALIZED_NAME_INCLUDE_NUTRITION = "includeNutrition";
-  @SerializedName(SERIALIZED_NAME_INCLUDE_NUTRITION)
-  private Boolean includeNutrition;
+   /**
+   * The title of the recipe.
+   * @return title
+  **/
+  @ApiModelProperty(example = "Pork roast with green beans", required = true, value = "The title of the recipe.")
+  public String getTitle() {
+    return title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
 
   public InlineObject6 ingredientList(String ingredientList) {
     this.ingredientList = ingredientList;
@@ -48,52 +61,16 @@ public class InlineObject6 {
   }
 
    /**
-   * The ingredient list of the recipe, one ingredient per line.
+   * The ingredient list of the recipe, one ingredient per line (separate lines with \\n).
    * @return ingredientList
   **/
-  @ApiModelProperty(example = "3 oz pork shoulder", required = true, value = "The ingredient list of the recipe, one ingredient per line.")
+  @ApiModelProperty(example = "3 oz pork shoulder", required = true, value = "The ingredient list of the recipe, one ingredient per line (separate lines with \\n).")
   public String getIngredientList() {
     return ingredientList;
   }
 
   public void setIngredientList(String ingredientList) {
     this.ingredientList = ingredientList;
-  }
-
-  public InlineObject6 servings(BigDecimal servings) {
-    this.servings = servings;
-    return this;
-  }
-
-   /**
-   * The number of servings that you can make from the ingredients.
-   * @return servings
-  **/
-  @ApiModelProperty(example = "2", required = true, value = "The number of servings that you can make from the ingredients.")
-  public BigDecimal getServings() {
-    return servings;
-  }
-
-  public void setServings(BigDecimal servings) {
-    this.servings = servings;
-  }
-
-  public InlineObject6 includeNutrition(Boolean includeNutrition) {
-    this.includeNutrition = includeNutrition;
-    return this;
-  }
-
-   /**
-   * Whether nutrition data should be added to correctly parsed ingredients.
-   * @return includeNutrition
-  **/
-  @ApiModelProperty(example = "false", value = "Whether nutrition data should be added to correctly parsed ingredients.")
-  public Boolean getIncludeNutrition() {
-    return includeNutrition;
-  }
-
-  public void setIncludeNutrition(Boolean includeNutrition) {
-    this.includeNutrition = includeNutrition;
   }
 
 
@@ -106,14 +83,13 @@ public class InlineObject6 {
       return false;
     }
     InlineObject6 inlineObject6 = (InlineObject6) o;
-    return Objects.equals(this.ingredientList, inlineObject6.ingredientList) &&
-        Objects.equals(this.servings, inlineObject6.servings) &&
-        Objects.equals(this.includeNutrition, inlineObject6.includeNutrition);
+    return Objects.equals(this.title, inlineObject6.title) &&
+        Objects.equals(this.ingredientList, inlineObject6.ingredientList);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ingredientList, servings, includeNutrition);
+    return Objects.hash(title, ingredientList);
   }
 
 
@@ -121,9 +97,8 @@ public class InlineObject6 {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineObject6 {\n");
+    sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    ingredientList: ").append(toIndentedString(ingredientList)).append("\n");
-    sb.append("    servings: ").append(toIndentedString(servings)).append("\n");
-    sb.append("    includeNutrition: ").append(toIndentedString(includeNutrition)).append("\n");
     sb.append("}");
     return sb.toString();
   }

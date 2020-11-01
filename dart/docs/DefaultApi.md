@@ -20,6 +20,9 @@ Method | HTTP request | Description
 [**classifyCuisine**](DefaultApi.md#classifyCuisine) | **POST** /recipes/cuisine | Classify Cuisine
 [**classifyGroceryProduct**](DefaultApi.md#classifyGroceryProduct) | **POST** /food/products/classify | Classify Grocery Product
 [**classifyGroceryProductBulk**](DefaultApi.md#classifyGroceryProductBulk) | **POST** /food/products/classifyBatch | Classify Grocery Product Bulk
+[**clearMealPlanDay**](DefaultApi.md#clearMealPlanDay) | **DELETE** /mealplanner/{username}/day/{date} | Clear Meal Plan Day
+[**computeGlycemicLoad**](DefaultApi.md#computeGlycemicLoad) | **POST** /food/ingredients/glycemicLoad | Compute Glycemic Load
+[**connectUser**](DefaultApi.md#connectUser) | **POST** /users/connect | Connect User
 [**convertAmounts**](DefaultApi.md#convertAmounts) | **GET** /recipes/convert | Convert Amounts
 [**createRecipeCard**](DefaultApi.md#createRecipeCard) | **POST** /recipes/visualizeRecipe | Create Recipe Card
 [**deleteFromMealPlan**](DefaultApi.md#deleteFromMealPlan) | **DELETE** /mealplanner/{username}/items/{id} | Delete from Meal Plan
@@ -49,6 +52,7 @@ Method | HTTP request | Description
 [**getRecipeIngredientsByID**](DefaultApi.md#getRecipeIngredientsByID) | **GET** /recipes/{id}/ingredientWidget.json | Get Recipe Ingredients by ID
 [**getRecipeNutritionWidgetByID**](DefaultApi.md#getRecipeNutritionWidgetByID) | **GET** /recipes/{id}/nutritionWidget.json | Get Recipe Nutrition Widget by ID
 [**getRecipePriceBreakdownByID**](DefaultApi.md#getRecipePriceBreakdownByID) | **GET** /recipes/{id}/priceBreakdownWidget.json | Get Recipe Price Breakdown by ID
+[**getRecipeTasteByID**](DefaultApi.md#getRecipeTasteByID) | **GET** /recipes/{id}/tasteWidget.json | Get Recipe Taste by ID
 [**getShoppingList**](DefaultApi.md#getShoppingList) | **GET** /mealplanner/{username}/shopping-list | Get Shopping List
 [**getSimilarRecipes**](DefaultApi.md#getSimilarRecipes) | **GET** /recipes/{id}/similar | Get Similar Recipes
 [**getWineDescription**](DefaultApi.md#getWineDescription) | **GET** /food/wine/description | Get Wine Description
@@ -57,18 +61,19 @@ Method | HTTP request | Description
 [**guessNutritionByDishName**](DefaultApi.md#guessNutritionByDishName) | **GET** /recipes/guessNutrition | Guess Nutrition by Dish Name
 [**imageAnalysisByURL**](DefaultApi.md#imageAnalysisByURL) | **GET** /food/images/analyze | Image Analysis by URL
 [**imageClassificationByURL**](DefaultApi.md#imageClassificationByURL) | **GET** /food/images/classify | Image Classification by URL
+[**ingredientSearch**](DefaultApi.md#ingredientSearch) | **GET** /food/ingredients/search | Ingredient Search
 [**mapIngredientsToGroceryProducts**](DefaultApi.md#mapIngredientsToGroceryProducts) | **POST** /food/ingredients/map | Map Ingredients to Grocery Products
 [**parseIngredients**](DefaultApi.md#parseIngredients) | **POST** /recipes/parseIngredients | Parse Ingredients
 [**quickAnswer**](DefaultApi.md#quickAnswer) | **GET** /recipes/quickAnswer | Quick Answer
+[**searchAllFood**](DefaultApi.md#searchAllFood) | **GET** /food/search | Search All Food
 [**searchCustomFoods**](DefaultApi.md#searchCustomFoods) | **GET** /food/customFoods/search | Search Custom Foods
 [**searchFoodVideos**](DefaultApi.md#searchFoodVideos) | **GET** /food/videos/search | Search Food Videos
 [**searchGroceryProducts**](DefaultApi.md#searchGroceryProducts) | **GET** /food/products/search | Search Grocery Products
 [**searchGroceryProductsByUPC**](DefaultApi.md#searchGroceryProductsByUPC) | **GET** /food/products/upc/{upc} | Search Grocery Products by UPC
 [**searchMenuItems**](DefaultApi.md#searchMenuItems) | **GET** /food/menuItems/search | Search Menu Items
-[**searchRecipes**](DefaultApi.md#searchRecipes) | **GET** /recipes/search | Search Recipes
+[**searchRecipes**](DefaultApi.md#searchRecipes) | **GET** /recipes/complexSearch | Search Recipes
 [**searchRecipesByIngredients**](DefaultApi.md#searchRecipesByIngredients) | **GET** /recipes/findByIngredients | Search Recipes by Ingredients
 [**searchRecipesByNutrients**](DefaultApi.md#searchRecipesByNutrients) | **GET** /recipes/findByNutrients | Search Recipes by Nutrients
-[**searchRecipesComplex**](DefaultApi.md#searchRecipesComplex) | **GET** /recipes/complexSearch | Search Recipes Complex
 [**searchSiteContent**](DefaultApi.md#searchSiteContent) | **GET** /food/site/search | Search Site Content
 [**summarizeRecipe**](DefaultApi.md#summarizeRecipe) | **GET** /recipes/{id}/summary | Summarize Recipe
 [**talkToChatbot**](DefaultApi.md#talkToChatbot) | **GET** /food/converse | Talk to Chatbot
@@ -82,10 +87,12 @@ Method | HTTP request | Description
 [**visualizeRecipeNutrition**](DefaultApi.md#visualizeRecipeNutrition) | **POST** /recipes/visualizeNutrition | Visualize Recipe Nutrition
 [**visualizeRecipeNutritionByID**](DefaultApi.md#visualizeRecipeNutritionByID) | **GET** /recipes/{id}/nutritionWidget | Visualize Recipe Nutrition by ID
 [**visualizeRecipePriceBreakdownByID**](DefaultApi.md#visualizeRecipePriceBreakdownByID) | **GET** /recipes/{id}/priceBreakdownWidget | Visualize Recipe Price Breakdown by ID
+[**visualizeRecipeTaste**](DefaultApi.md#visualizeRecipeTaste) | **POST** /recipes/visualizeTaste | Visualize Recipe Taste
+[**visualizeRecipeTasteByID**](DefaultApi.md#visualizeRecipeTasteByID) | **GET** /recipes/{id}/tasteWidget | Visualize Recipe Taste by ID
 
 
 # **addToMealPlan**
-> Object addToMealPlan(username, hash, inlineObject9)
+> Object addToMealPlan(username, hash, inlineObject11)
 
 Add to Meal Plan
 
@@ -98,10 +105,10 @@ import 'package:openapi/api.dart';
 var api_instance = new DefaultApi();
 var username = dsky; // String | The username.
 var hash = 4b5v4398573406; // String | The private hash for the username.
-var inlineObject9 = new InlineObject9(); // InlineObject9 | 
+var inlineObject11 = new InlineObject11(); // InlineObject11 | 
 
 try { 
-    var result = api_instance.addToMealPlan(username, hash, inlineObject9);
+    var result = api_instance.addToMealPlan(username, hash, inlineObject11);
     print(result);
 } catch (e) {
     print("Exception when calling DefaultApi->addToMealPlan: $e\n");
@@ -114,7 +121,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **username** | **String**| The username. | [default to null]
  **hash** | **String**| The private hash for the username. | [default to null]
- **inlineObject9** | [**InlineObject9**](InlineObject9.md)|  | 
+ **inlineObject11** | [**InlineObject11**](InlineObject11.md)|  | 
 
 ### Return type
 
@@ -132,7 +139,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **addToShoppingList**
-> Object addToShoppingList(username, hash, inlineObject12)
+> Object addToShoppingList(username, hash, inlineObject14)
 
 Add to Shopping List
 
@@ -145,10 +152,10 @@ import 'package:openapi/api.dart';
 var api_instance = new DefaultApi();
 var username = dsky; // String | The username.
 var hash = 4b5v4398573406; // String | The private hash for the username.
-var inlineObject12 = new InlineObject12(); // InlineObject12 | 
+var inlineObject14 = new InlineObject14(); // InlineObject14 | 
 
 try { 
-    var result = api_instance.addToShoppingList(username, hash, inlineObject12);
+    var result = api_instance.addToShoppingList(username, hash, inlineObject14);
     print(result);
 } catch (e) {
     print("Exception when calling DefaultApi->addToShoppingList: $e\n");
@@ -161,7 +168,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **username** | **String**| The username. | [default to null]
  **hash** | **String**| The private hash for the username. | [default to null]
- **inlineObject12** | [**InlineObject12**](InlineObject12.md)|  | 
+ **inlineObject14** | [**InlineObject14**](InlineObject14.md)|  | 
 
 ### Return type
 
@@ -226,7 +233,7 @@ No authorization required
 
 Analyze Recipe Instructions
 
-Extract ingredients and equipment from the recipe's instructions.
+This endpoint allows you to break down instructions into atomic steps. Furthermore, each step will contain the ingredients and equipment required. Additionally, all ingredients and equipment from the recipe's instructions will be extracted independently of the step they're used in.
 
 ### Example 
 ```dart
@@ -279,7 +286,7 @@ var api_instance = new DefaultApi();
 var query = appl; // String | The partial or full ingredient name.
 var number = 10; // num | The number of results to return (between 1 and 100).
 var metaInformation = false; // bool | Whether to return more meta information about the ingredients.
-var intolerances = false; // bool | A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
+var intolerances = egg; // String | A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
 
 try { 
     var result = api_instance.autocompleteIngredientSearch(query, number, metaInformation, intolerances);
@@ -296,7 +303,7 @@ Name | Type | Description  | Notes
  **query** | **String**| The partial or full ingredient name. | [default to null]
  **number** | **num**| The number of results to return (between 1 and 100). | [optional] [default to null]
  **metaInformation** | **bool**| Whether to return more meta information about the ingredients. | [optional] [default to null]
- **intolerances** | **bool**| A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. | [optional] [default to null]
+ **intolerances** | **String**| A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. | [optional] [default to null]
 
 ### Return type
 
@@ -494,7 +501,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **classifyGroceryProduct**
-> Object classifyGroceryProduct(inlineObject8, locale)
+> Object classifyGroceryProduct(inlineObject9, locale)
 
 Classify Grocery Product
 
@@ -505,11 +512,11 @@ This endpoint allows you to match a packaged food to a basic category, e.g. a sp
 import 'package:openapi/api.dart';
 
 var api_instance = new DefaultApi();
-var inlineObject8 = new InlineObject8(); // InlineObject8 | 
+var inlineObject9 = new InlineObject9(); // InlineObject9 | 
 var locale = en_US; // String | The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).
 
 try { 
-    var result = api_instance.classifyGroceryProduct(inlineObject8, locale);
+    var result = api_instance.classifyGroceryProduct(inlineObject9, locale);
     print(result);
 } catch (e) {
     print("Exception when calling DefaultApi->classifyGroceryProduct: $e\n");
@@ -520,7 +527,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject8** | [**InlineObject8**](InlineObject8.md)|  | 
+ **inlineObject9** | [**InlineObject9**](InlineObject9.md)|  | 
  **locale** | **String**| The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). | [optional] [default to null]
 
 ### Return type
@@ -579,6 +586,141 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **clearMealPlanDay**
+> Object clearMealPlanDay(username, date, hash, inlineObject10)
+
+Clear Meal Plan Day
+
+Delete all planned items from the user's meal plan for a specific day.
+
+### Example 
+```dart
+import 'package:openapi/api.dart';
+
+var api_instance = new DefaultApi();
+var username = dsky; // String | The username.
+var date = 2020-06-01; // String | The date in the format yyyy-mm-dd.
+var hash = 4b5v4398573406; // String | The private hash for the username.
+var inlineObject10 = new InlineObject10(); // InlineObject10 | 
+
+try { 
+    var result = api_instance.clearMealPlanDay(username, date, hash, inlineObject10);
+    print(result);
+} catch (e) {
+    print("Exception when calling DefaultApi->clearMealPlanDay: $e\n");
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **String**| The username. | [default to null]
+ **date** | **String**| The date in the format yyyy-mm-dd. | [default to null]
+ **hash** | **String**| The private hash for the username. | [default to null]
+ **inlineObject10** | [**InlineObject10**](InlineObject10.md)|  | 
+
+### Return type
+
+[**Object**](Object.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: 
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **computeGlycemicLoad**
+> Object computeGlycemicLoad(body)
+
+Compute Glycemic Load
+
+Retrieve the glycemic index for a list of ingredients and compute the individual and total glycemic load.
+
+### Example 
+```dart
+import 'package:openapi/api.dart';
+
+var api_instance = new DefaultApi();
+var body = new Object(); // Object | 
+
+try { 
+    var result = api_instance.computeGlycemicLoad(body);
+    print(result);
+} catch (e) {
+    print("Exception when calling DefaultApi->computeGlycemicLoad: $e\n");
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | **Object**|  | 
+
+### Return type
+
+[**Object**](Object.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **connectUser**
+> Object connectUser(body)
+
+Connect User
+
+In order to call user-specific endpoints, you need to connect your app's users to spoonacular users.
+
+### Example 
+```dart
+import 'package:openapi/api.dart';
+
+var api_instance = new DefaultApi();
+var body = new Object(); // Object | 
+
+try { 
+    var result = api_instance.connectUser(body);
+    print(result);
+} catch (e) {
+    print("Exception when calling DefaultApi->connectUser: $e\n");
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | **Object**|  | 
+
+### Return type
+
+[**Object**](Object.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: 
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -698,7 +840,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **deleteFromMealPlan**
-> Object deleteFromMealPlan(username, id, hash, inlineObject10)
+> Object deleteFromMealPlan(username, id, hash, inlineObject12)
 
 Delete from Meal Plan
 
@@ -712,10 +854,10 @@ var api_instance = new DefaultApi();
 var username = dsky; // String | The username.
 var id = 15678; // num | The shopping list item id.
 var hash = 4b5v4398573406; // String | The private hash for the username.
-var inlineObject10 = new InlineObject10(); // InlineObject10 | 
+var inlineObject12 = new InlineObject12(); // InlineObject12 | 
 
 try { 
-    var result = api_instance.deleteFromMealPlan(username, id, hash, inlineObject10);
+    var result = api_instance.deleteFromMealPlan(username, id, hash, inlineObject12);
     print(result);
 } catch (e) {
     print("Exception when calling DefaultApi->deleteFromMealPlan: $e\n");
@@ -729,7 +871,7 @@ Name | Type | Description  | Notes
  **username** | **String**| The username. | [default to null]
  **id** | **num**| The shopping list item id. | [default to null]
  **hash** | **String**| The private hash for the username. | [default to null]
- **inlineObject10** | [**InlineObject10**](InlineObject10.md)|  | 
+ **inlineObject12** | [**InlineObject12**](InlineObject12.md)|  | 
 
 ### Return type
 
@@ -747,7 +889,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **deleteFromShoppingList**
-> Object deleteFromShoppingList(username, id, hash, inlineObject13)
+> Object deleteFromShoppingList(username, id, hash, inlineObject15)
 
 Delete from Shopping List
 
@@ -761,10 +903,10 @@ var api_instance = new DefaultApi();
 var username = dsky; // String | The username.
 var id = 15678; // num | The shopping list item id.
 var hash = 4b5v4398573406; // String | The private hash for the username.
-var inlineObject13 = new InlineObject13(); // InlineObject13 | 
+var inlineObject15 = new InlineObject15(); // InlineObject15 | 
 
 try { 
-    var result = api_instance.deleteFromShoppingList(username, id, hash, inlineObject13);
+    var result = api_instance.deleteFromShoppingList(username, id, hash, inlineObject15);
     print(result);
 } catch (e) {
     print("Exception when calling DefaultApi->deleteFromShoppingList: $e\n");
@@ -778,7 +920,7 @@ Name | Type | Description  | Notes
  **username** | **String**| The username. | [default to null]
  **id** | **num**| The shopping list item id. | [default to null]
  **hash** | **String**| The private hash for the username. | [default to null]
- **inlineObject13** | [**InlineObject13**](InlineObject13.md)|  | 
+ **inlineObject15** | [**InlineObject15**](InlineObject15.md)|  | 
 
 ### Return type
 
@@ -935,7 +1077,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **generateShoppingList**
-> Object generateShoppingList(username, startDate, endDate, hash, inlineObject11)
+> Object generateShoppingList(username, startDate, endDate, hash, inlineObject13)
 
 Generate Shopping List
 
@@ -950,10 +1092,10 @@ var username = dsky; // String | The username.
 var startDate = 2020-06-01; // String | The start date in the format yyyy-mm-dd.
 var endDate = 2020-06-07; // String | The end date in the format yyyy-mm-dd.
 var hash = 4b5v4398573406; // String | The private hash for the username.
-var inlineObject11 = new InlineObject11(); // InlineObject11 | 
+var inlineObject13 = new InlineObject13(); // InlineObject13 | 
 
 try { 
-    var result = api_instance.generateShoppingList(username, startDate, endDate, hash, inlineObject11);
+    var result = api_instance.generateShoppingList(username, startDate, endDate, hash, inlineObject13);
     print(result);
 } catch (e) {
     print("Exception when calling DefaultApi->generateShoppingList: $e\n");
@@ -968,7 +1110,7 @@ Name | Type | Description  | Notes
  **startDate** | **String**| The start date in the format yyyy-mm-dd. | [default to null]
  **endDate** | **String**| The end date in the format yyyy-mm-dd. | [default to null]
  **hash** | **String**| The private hash for the username. | [default to null]
- **inlineObject11** | [**InlineObject11**](InlineObject11.md)|  | 
+ **inlineObject13** | [**InlineObject13**](InlineObject13.md)|  | 
 
 ### Return type
 
@@ -1906,6 +2048,49 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **getRecipeTasteByID**
+> Object getRecipeTasteByID(id)
+
+Get Recipe Taste by ID
+
+Get a recipe's taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
+
+### Example 
+```dart
+import 'package:openapi/api.dart';
+
+var api_instance = new DefaultApi();
+var id = 69095; // num | The recipe id.
+
+try { 
+    var result = api_instance.getRecipeTasteByID(id);
+    print(result);
+} catch (e) {
+    print("Exception when calling DefaultApi->getRecipeTasteByID: $e\n");
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **num**| The recipe id. | [default to null]
+
+### Return type
+
+[**Object**](Object.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **getShoppingList**
 > Object getShoppingList(username, hash)
 
@@ -2264,6 +2449,75 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **ingredientSearch**
+> Object ingredientSearch(query, addChildren, minProteinPercent, maxProteinPercent, minFatPercent, maxFatPercent, minCarbsPercent, maxCarbsPercent, metaInformation, intolerances, sort, sortDirection, offset, number)
+
+Ingredient Search
+
+Search for simple whole foods (e.g. fruits, vegetables, nuts, grains, meat, fish, dairy etc.).
+
+### Example 
+```dart
+import 'package:openapi/api.dart';
+
+var api_instance = new DefaultApi();
+var query = apple; // String | The partial or full ingredient name.
+var addChildren = true; // bool | Whether to add children of found foods.
+var minProteinPercent = 10; // num | The minimum percentage of protein the food must have (between 0 and 100).
+var maxProteinPercent = 90; // num | The maximum percentage of protein the food can have (between 0 and 100).
+var minFatPercent = 10; // num | The minimum percentage of fat the food must have (between 0 and 100).
+var maxFatPercent = 90; // num | The maximum percentage of fat the food can have (between 0 and 100).
+var minCarbsPercent = 10; // num | The minimum percentage of carbs the food must have (between 0 and 100).
+var maxCarbsPercent = 90; // num | The maximum percentage of carbs the food can have (between 0 and 100).
+var metaInformation = false; // bool | Whether to return more meta information about the ingredients.
+var intolerances = egg; // String | A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
+var sort = calories; // String | The strategy to sort recipes by. See a full list of supported sorting options.
+var sortDirection = asc; // String | The direction in which to sort. Must be either 'asc' (ascending) or 'desc' (descending).
+var offset = 0; // num | The number of results to skip (between 0 and 990).
+var number = 10; // num | The number of expected results (between 1 and 100).
+
+try { 
+    var result = api_instance.ingredientSearch(query, addChildren, minProteinPercent, maxProteinPercent, minFatPercent, maxFatPercent, minCarbsPercent, maxCarbsPercent, metaInformation, intolerances, sort, sortDirection, offset, number);
+    print(result);
+} catch (e) {
+    print("Exception when calling DefaultApi->ingredientSearch: $e\n");
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **query** | **String**| The partial or full ingredient name. | [default to null]
+ **addChildren** | **bool**| Whether to add children of found foods. | [optional] [default to null]
+ **minProteinPercent** | **num**| The minimum percentage of protein the food must have (between 0 and 100). | [optional] [default to null]
+ **maxProteinPercent** | **num**| The maximum percentage of protein the food can have (between 0 and 100). | [optional] [default to null]
+ **minFatPercent** | **num**| The minimum percentage of fat the food must have (between 0 and 100). | [optional] [default to null]
+ **maxFatPercent** | **num**| The maximum percentage of fat the food can have (between 0 and 100). | [optional] [default to null]
+ **minCarbsPercent** | **num**| The minimum percentage of carbs the food must have (between 0 and 100). | [optional] [default to null]
+ **maxCarbsPercent** | **num**| The maximum percentage of carbs the food can have (between 0 and 100). | [optional] [default to null]
+ **metaInformation** | **bool**| Whether to return more meta information about the ingredients. | [optional] [default to null]
+ **intolerances** | **String**| A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. | [optional] [default to null]
+ **sort** | **String**| The strategy to sort recipes by. See a full list of supported sorting options. | [optional] [default to null]
+ **sortDirection** | **String**| The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending). | [optional] [default to null]
+ **offset** | **num**| The number of results to skip (between 0 and 990). | [optional] [default to null]
+ **number** | **num**| The number of expected results (between 1 and 100). | [optional] [default to null]
+
+### Return type
+
+[**Object**](Object.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **mapIngredientsToGroceryProducts**
 > Object mapIngredientsToGroceryProducts(body)
 
@@ -2381,6 +2635,53 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **q** | **String**| The nutrition related question. | [default to null]
+
+### Return type
+
+[**Object**](Object.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **searchAllFood**
+> Object searchAllFood(query, offset, number)
+
+Search All Food
+
+Search all food content with one call. That includes recipes, grocery products, menu items, simple foods (ingredients), and food videos.
+
+### Example 
+```dart
+import 'package:openapi/api.dart';
+
+var api_instance = new DefaultApi();
+var query = apple; // String | The search query.
+var offset = 0; // num | The number of results to skip (between 0 and 990).
+var number = 10; // num | The number of expected results (between 1 and 100).
+
+try { 
+    var result = api_instance.searchAllFood(query, offset, number);
+    print(result);
+} catch (e) {
+    print("Exception when calling DefaultApi->searchAllFood: $e\n");
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **query** | **String**| The search query. | [default to null]
+ **offset** | **num**| The number of results to skip (between 0 and 990). | [optional] [default to null]
+ **number** | **num**| The number of expected results (between 1 and 100). | [optional] [default to null]
 
 ### Return type
 
@@ -2679,29 +2980,116 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **searchRecipes**
-> Object searchRecipes(query, cuisine, diet, excludeIngredients, intolerances, offset, number, limitLicense, instructionsRequired)
+> Object searchRecipes(query, cuisine, excludeCuisine, diet, intolerances, equipment, includeIngredients, excludeIngredients, type, instructionsRequired, fillIngredients, addRecipeInformation, addRecipeNutrition, author, tags, recipeBoxId, titleMatch, maxReadyTime, ignorePantry, sort, sortDirection, minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, limitLicense)
 
 Search Recipes
 
-Our recipe API includes over 360,000 recipes as well as an open source recipe database. Consider using the \"Search Recipes Complex\" endpoint for much more flexibility.
+Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint.
 
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
 
 var api_instance = new DefaultApi();
-var query = burger; // String | The (natural language) recipe search query.
-var cuisine = italian; // String | The cuisine(s) of the recipes. One or more comma separated. See a full list of supported cuisines.
+var query = pasta; // String | The (natural language) recipe search query.
+var cuisine = italian; // String | The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as 'OR'). See a full list of supported cuisines.
+var excludeCuisine = greek; // String | The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as 'AND'). See a full list of supported cuisines.
 var diet = vegetarian; // String | The diet for which the recipes must be suitable. See a full list of supported diets.
+var intolerances = gluten; // String | A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
+var equipment = pan; // String | The equipment required. Multiple values will be interpreted as 'or'. For example, value could be \"blender, frying pan, bowl\".
+var includeIngredients = tomato,cheese; // String | A comma-separated list of ingredients that should/must be used in the recipes.
 var excludeIngredients = eggs; // String | A comma-separated list of ingredients or ingredient types that the recipes must not contain.
-var intolerances = gluten; // String | A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. Please note: due to the automatic nature of the recipe analysis, the API cannot be 100% accurate in all cases. Please advise your users to seek professional help with medical issues.
-var offset = 0; // num | The number of results to skip (between 0 and 900).
-var number = 10; // num | The number of results to return (between 1 and 100).
-var limitLicense = true; // bool | Whether the recipes should have an open license that allows display with proper attribution.
+var type = main course; // String | The type of recipe. See a full list of supported meal types.
 var instructionsRequired = true; // bool | Whether the recipes must have instructions.
+var fillIngredients = false; // bool | Add information about the ingredients and whether they are used or missing in relation to the query.
+var addRecipeInformation = false; // bool | If set to true, you get more information about the recipes returned.
+var addRecipeNutrition = false; // bool | If set to true, you get nutritional information about each recipes returned.
+var author = coffeebean; // String | The username of the recipe author.
+var tags = myCustomTag; // String | User defined tags that have to match. The author param has to be set.
+var recipeBoxId = 2468; // num | The id of the recipe box to which the search should be limited to.
+var titleMatch = Crock Pot; // String | Enter text that must be found in the title of the recipes.
+var maxReadyTime = 20; // num | The maximum time in minutes it should take to prepare and cook the recipe.
+var ignorePantry = true; // bool | Whether to ignore typical pantry items, such as water, salt, flour, etc.
+var sort = calories; // String | The strategy to sort recipes by. See a full list of supported sorting options.
+var sortDirection = asc; // String | The direction in which to sort. Must be either 'asc' (ascending) or 'desc' (descending).
+var minCarbs = 10; // num | The minimum amount of carbohydrates in grams the recipe must have.
+var maxCarbs = 100; // num | The maximum amount of carbohydrates in grams the recipe can have.
+var minProtein = 10; // num | The minimum amount of protein in grams the recipe must have.
+var maxProtein = 100; // num | The maximum amount of protein in grams the recipe can have.
+var minCalories = 50; // num | The minimum amount of calories the recipe must have.
+var maxCalories = 800; // num | The maximum amount of calories the recipe can have.
+var minFat = 1; // num | The minimum amount of fat in grams the recipe must have.
+var maxFat = 100; // num | The maximum amount of fat in grams the recipe can have.
+var minAlcohol = 0; // num | The minimum amount of alcohol in grams the recipe must have.
+var maxAlcohol = 100; // num | The maximum amount of alcohol in grams the recipe can have.
+var minCaffeine = 0; // num | The minimum amount of caffeine in milligrams the recipe must have.
+var maxCaffeine = 100; // num | The maximum amount of caffeine in milligrams the recipe can have.
+var minCopper = 0; // num | The minimum amount of copper in milligrams the recipe must have.
+var maxCopper = 100; // num | The maximum amount of copper in milligrams the recipe can have.
+var minCalcium = 0; // num | The minimum amount of calcium in milligrams the recipe must have.
+var maxCalcium = 100; // num | The maximum amount of calcium in milligrams the recipe can have.
+var minCholine = 0; // num | The minimum amount of choline in milligrams the recipe must have.
+var maxCholine = 100; // num | The maximum amount of choline in milligrams the recipe can have.
+var minCholesterol = 0; // num | The minimum amount of cholesterol in milligrams the recipe must have.
+var maxCholesterol = 100; // num | The maximum amount of cholesterol in milligrams the recipe can have.
+var minFluoride = 0; // num | The minimum amount of fluoride in milligrams the recipe must have.
+var maxFluoride = 100; // num | The maximum amount of fluoride in milligrams the recipe can have.
+var minSaturatedFat = 0; // num | The minimum amount of saturated fat in grams the recipe must have.
+var maxSaturatedFat = 100; // num | The maximum amount of saturated fat in grams the recipe can have.
+var minVitaminA = 0; // num | The minimum amount of Vitamin A in IU the recipe must have.
+var maxVitaminA = 100; // num | The maximum amount of Vitamin A in IU the recipe can have.
+var minVitaminC = 0; // num | The minimum amount of Vitamin C milligrams the recipe must have.
+var maxVitaminC = 100; // num | The maximum amount of Vitamin C in milligrams the recipe can have.
+var minVitaminD = 0; // num | The minimum amount of Vitamin D in micrograms the recipe must have.
+var maxVitaminD = 100; // num | The maximum amount of Vitamin D in micrograms the recipe can have.
+var minVitaminE = 0; // num | The minimum amount of Vitamin E in milligrams the recipe must have.
+var maxVitaminE = 100; // num | The maximum amount of Vitamin E in milligrams the recipe can have.
+var minVitaminK = 0; // num | The minimum amount of Vitamin K in micrograms the recipe must have.
+var maxVitaminK = 100; // num | The maximum amount of Vitamin K in micrograms the recipe can have.
+var minVitaminB1 = 0; // num | The minimum amount of Vitamin B1 in milligrams the recipe must have.
+var maxVitaminB1 = 100; // num | The maximum amount of Vitamin B1 in milligrams the recipe can have.
+var minVitaminB2 = 0; // num | The minimum amount of Vitamin B2 in milligrams the recipe must have.
+var maxVitaminB2 = 100; // num | The maximum amount of Vitamin B2 in milligrams the recipe can have.
+var minVitaminB5 = 0; // num | The minimum amount of Vitamin B5 in milligrams the recipe must have.
+var maxVitaminB5 = 100; // num | The maximum amount of Vitamin B5 in milligrams the recipe can have.
+var minVitaminB3 = 0; // num | The minimum amount of Vitamin B3 in milligrams the recipe must have.
+var maxVitaminB3 = 100; // num | The maximum amount of Vitamin B3 in milligrams the recipe can have.
+var minVitaminB6 = 0; // num | The minimum amount of Vitamin B6 in milligrams the recipe must have.
+var maxVitaminB6 = 100; // num | The maximum amount of Vitamin B6 in milligrams the recipe can have.
+var minVitaminB12 = 0; // num | The minimum amount of Vitamin B12 in micrograms the recipe must have.
+var maxVitaminB12 = 100; // num | The maximum amount of Vitamin B12 in micrograms the recipe can have.
+var minFiber = 0; // num | The minimum amount of fiber in grams the recipe must have.
+var maxFiber = 100; // num | The maximum amount of fiber in grams the recipe can have.
+var minFolate = 0; // num | The minimum amount of folate in micrograms the recipe must have.
+var maxFolate = 100; // num | The maximum amount of folate in micrograms the recipe can have.
+var minFolicAcid = 0; // num | The minimum amount of folic acid in micrograms the recipe must have.
+var maxFolicAcid = 100; // num | The maximum amount of folic acid in micrograms the recipe can have.
+var minIodine = 0; // num | The minimum amount of iodine in micrograms the recipe must have.
+var maxIodine = 100; // num | The maximum amount of iodine in micrograms the recipe can have.
+var minIron = 0; // num | The minimum amount of iron in milligrams the recipe must have.
+var maxIron = 100; // num | The maximum amount of iron in milligrams the recipe can have.
+var minMagnesium = 0; // num | The minimum amount of magnesium in milligrams the recipe must have.
+var maxMagnesium = 100; // num | The maximum amount of magnesium in milligrams the recipe can have.
+var minManganese = 0; // num | The minimum amount of manganese in milligrams the recipe must have.
+var maxManganese = 100; // num | The maximum amount of manganese in milligrams the recipe can have.
+var minPhosphorus = 0; // num | The minimum amount of phosphorus in milligrams the recipe must have.
+var maxPhosphorus = 100; // num | The maximum amount of phosphorus in milligrams the recipe can have.
+var minPotassium = 0; // num | The minimum amount of potassium in milligrams the recipe must have.
+var maxPotassium = 100; // num | The maximum amount of potassium in milligrams the recipe can have.
+var minSelenium = 0; // num | The minimum amount of selenium in micrograms the recipe must have.
+var maxSelenium = 100; // num | The maximum amount of selenium in micrograms the recipe can have.
+var minSodium = 0; // num | The minimum amount of sodium in milligrams the recipe must have.
+var maxSodium = 100; // num | The maximum amount of sodium in milligrams the recipe can have.
+var minSugar = 0; // num | The minimum amount of sugar in grams the recipe must have.
+var maxSugar = 100; // num | The maximum amount of sugar in grams the recipe can have.
+var minZinc = 0; // num | The minimum amount of zinc in milligrams the recipe must have.
+var maxZinc = 100; // num | The maximum amount of zinc in milligrams the recipe can have.
+var offset = 0; // num | The number of results to skip (between 0 and 900).
+var number = 10; // num | The number of expected results (between 1 and 100).
+var limitLicense = true; // bool | Whether the recipes should have an open license that allows display with proper attribution.
 
 try { 
-    var result = api_instance.searchRecipes(query, cuisine, diet, excludeIngredients, intolerances, offset, number, limitLicense, instructionsRequired);
+    var result = api_instance.searchRecipes(query, cuisine, excludeCuisine, diet, intolerances, equipment, includeIngredients, excludeIngredients, type, instructionsRequired, fillIngredients, addRecipeInformation, addRecipeNutrition, author, tags, recipeBoxId, titleMatch, maxReadyTime, ignorePantry, sort, sortDirection, minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, limitLicense);
     print(result);
 } catch (e) {
     print("Exception when calling DefaultApi->searchRecipes: $e\n");
@@ -2713,14 +3101,101 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **query** | **String**| The (natural language) recipe search query. | [default to null]
- **cuisine** | **String**| The cuisine(s) of the recipes. One or more comma separated. See a full list of supported cuisines. | [optional] [default to null]
+ **cuisine** | **String**| The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as &#39;OR&#39;). See a full list of supported cuisines. | [optional] [default to null]
+ **excludeCuisine** | **String**| The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as &#39;AND&#39;). See a full list of supported cuisines. | [optional] [default to null]
  **diet** | **String**| The diet for which the recipes must be suitable. See a full list of supported diets. | [optional] [default to null]
+ **intolerances** | **String**| A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. | [optional] [default to null]
+ **equipment** | **String**| The equipment required. Multiple values will be interpreted as &#39;or&#39;. For example, value could be \&quot;blender, frying pan, bowl\&quot;. | [optional] [default to null]
+ **includeIngredients** | **String**| A comma-separated list of ingredients that should/must be used in the recipes. | [optional] [default to null]
  **excludeIngredients** | **String**| A comma-separated list of ingredients or ingredient types that the recipes must not contain. | [optional] [default to null]
- **intolerances** | **String**| A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. Please note: due to the automatic nature of the recipe analysis, the API cannot be 100% accurate in all cases. Please advise your users to seek professional help with medical issues. | [optional] [default to null]
- **offset** | **num**| The number of results to skip (between 0 and 900). | [optional] [default to null]
- **number** | **num**| The number of results to return (between 1 and 100). | [optional] [default to null]
- **limitLicense** | **bool**| Whether the recipes should have an open license that allows display with proper attribution. | [optional] [default to null]
+ **type** | **String**| The type of recipe. See a full list of supported meal types. | [optional] [default to null]
  **instructionsRequired** | **bool**| Whether the recipes must have instructions. | [optional] [default to null]
+ **fillIngredients** | **bool**| Add information about the ingredients and whether they are used or missing in relation to the query. | [optional] [default to null]
+ **addRecipeInformation** | **bool**| If set to true, you get more information about the recipes returned. | [optional] [default to null]
+ **addRecipeNutrition** | **bool**| If set to true, you get nutritional information about each recipes returned. | [optional] [default to null]
+ **author** | **String**| The username of the recipe author. | [optional] [default to null]
+ **tags** | **String**| User defined tags that have to match. The author param has to be set. | [optional] [default to null]
+ **recipeBoxId** | **num**| The id of the recipe box to which the search should be limited to. | [optional] [default to null]
+ **titleMatch** | **String**| Enter text that must be found in the title of the recipes. | [optional] [default to null]
+ **maxReadyTime** | **num**| The maximum time in minutes it should take to prepare and cook the recipe. | [optional] [default to null]
+ **ignorePantry** | **bool**| Whether to ignore typical pantry items, such as water, salt, flour, etc. | [optional] [default to null]
+ **sort** | **String**| The strategy to sort recipes by. See a full list of supported sorting options. | [optional] [default to null]
+ **sortDirection** | **String**| The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending). | [optional] [default to null]
+ **minCarbs** | **num**| The minimum amount of carbohydrates in grams the recipe must have. | [optional] [default to null]
+ **maxCarbs** | **num**| The maximum amount of carbohydrates in grams the recipe can have. | [optional] [default to null]
+ **minProtein** | **num**| The minimum amount of protein in grams the recipe must have. | [optional] [default to null]
+ **maxProtein** | **num**| The maximum amount of protein in grams the recipe can have. | [optional] [default to null]
+ **minCalories** | **num**| The minimum amount of calories the recipe must have. | [optional] [default to null]
+ **maxCalories** | **num**| The maximum amount of calories the recipe can have. | [optional] [default to null]
+ **minFat** | **num**| The minimum amount of fat in grams the recipe must have. | [optional] [default to null]
+ **maxFat** | **num**| The maximum amount of fat in grams the recipe can have. | [optional] [default to null]
+ **minAlcohol** | **num**| The minimum amount of alcohol in grams the recipe must have. | [optional] [default to null]
+ **maxAlcohol** | **num**| The maximum amount of alcohol in grams the recipe can have. | [optional] [default to null]
+ **minCaffeine** | **num**| The minimum amount of caffeine in milligrams the recipe must have. | [optional] [default to null]
+ **maxCaffeine** | **num**| The maximum amount of caffeine in milligrams the recipe can have. | [optional] [default to null]
+ **minCopper** | **num**| The minimum amount of copper in milligrams the recipe must have. | [optional] [default to null]
+ **maxCopper** | **num**| The maximum amount of copper in milligrams the recipe can have. | [optional] [default to null]
+ **minCalcium** | **num**| The minimum amount of calcium in milligrams the recipe must have. | [optional] [default to null]
+ **maxCalcium** | **num**| The maximum amount of calcium in milligrams the recipe can have. | [optional] [default to null]
+ **minCholine** | **num**| The minimum amount of choline in milligrams the recipe must have. | [optional] [default to null]
+ **maxCholine** | **num**| The maximum amount of choline in milligrams the recipe can have. | [optional] [default to null]
+ **minCholesterol** | **num**| The minimum amount of cholesterol in milligrams the recipe must have. | [optional] [default to null]
+ **maxCholesterol** | **num**| The maximum amount of cholesterol in milligrams the recipe can have. | [optional] [default to null]
+ **minFluoride** | **num**| The minimum amount of fluoride in milligrams the recipe must have. | [optional] [default to null]
+ **maxFluoride** | **num**| The maximum amount of fluoride in milligrams the recipe can have. | [optional] [default to null]
+ **minSaturatedFat** | **num**| The minimum amount of saturated fat in grams the recipe must have. | [optional] [default to null]
+ **maxSaturatedFat** | **num**| The maximum amount of saturated fat in grams the recipe can have. | [optional] [default to null]
+ **minVitaminA** | **num**| The minimum amount of Vitamin A in IU the recipe must have. | [optional] [default to null]
+ **maxVitaminA** | **num**| The maximum amount of Vitamin A in IU the recipe can have. | [optional] [default to null]
+ **minVitaminC** | **num**| The minimum amount of Vitamin C milligrams the recipe must have. | [optional] [default to null]
+ **maxVitaminC** | **num**| The maximum amount of Vitamin C in milligrams the recipe can have. | [optional] [default to null]
+ **minVitaminD** | **num**| The minimum amount of Vitamin D in micrograms the recipe must have. | [optional] [default to null]
+ **maxVitaminD** | **num**| The maximum amount of Vitamin D in micrograms the recipe can have. | [optional] [default to null]
+ **minVitaminE** | **num**| The minimum amount of Vitamin E in milligrams the recipe must have. | [optional] [default to null]
+ **maxVitaminE** | **num**| The maximum amount of Vitamin E in milligrams the recipe can have. | [optional] [default to null]
+ **minVitaminK** | **num**| The minimum amount of Vitamin K in micrograms the recipe must have. | [optional] [default to null]
+ **maxVitaminK** | **num**| The maximum amount of Vitamin K in micrograms the recipe can have. | [optional] [default to null]
+ **minVitaminB1** | **num**| The minimum amount of Vitamin B1 in milligrams the recipe must have. | [optional] [default to null]
+ **maxVitaminB1** | **num**| The maximum amount of Vitamin B1 in milligrams the recipe can have. | [optional] [default to null]
+ **minVitaminB2** | **num**| The minimum amount of Vitamin B2 in milligrams the recipe must have. | [optional] [default to null]
+ **maxVitaminB2** | **num**| The maximum amount of Vitamin B2 in milligrams the recipe can have. | [optional] [default to null]
+ **minVitaminB5** | **num**| The minimum amount of Vitamin B5 in milligrams the recipe must have. | [optional] [default to null]
+ **maxVitaminB5** | **num**| The maximum amount of Vitamin B5 in milligrams the recipe can have. | [optional] [default to null]
+ **minVitaminB3** | **num**| The minimum amount of Vitamin B3 in milligrams the recipe must have. | [optional] [default to null]
+ **maxVitaminB3** | **num**| The maximum amount of Vitamin B3 in milligrams the recipe can have. | [optional] [default to null]
+ **minVitaminB6** | **num**| The minimum amount of Vitamin B6 in milligrams the recipe must have. | [optional] [default to null]
+ **maxVitaminB6** | **num**| The maximum amount of Vitamin B6 in milligrams the recipe can have. | [optional] [default to null]
+ **minVitaminB12** | **num**| The minimum amount of Vitamin B12 in micrograms the recipe must have. | [optional] [default to null]
+ **maxVitaminB12** | **num**| The maximum amount of Vitamin B12 in micrograms the recipe can have. | [optional] [default to null]
+ **minFiber** | **num**| The minimum amount of fiber in grams the recipe must have. | [optional] [default to null]
+ **maxFiber** | **num**| The maximum amount of fiber in grams the recipe can have. | [optional] [default to null]
+ **minFolate** | **num**| The minimum amount of folate in micrograms the recipe must have. | [optional] [default to null]
+ **maxFolate** | **num**| The maximum amount of folate in micrograms the recipe can have. | [optional] [default to null]
+ **minFolicAcid** | **num**| The minimum amount of folic acid in micrograms the recipe must have. | [optional] [default to null]
+ **maxFolicAcid** | **num**| The maximum amount of folic acid in micrograms the recipe can have. | [optional] [default to null]
+ **minIodine** | **num**| The minimum amount of iodine in micrograms the recipe must have. | [optional] [default to null]
+ **maxIodine** | **num**| The maximum amount of iodine in micrograms the recipe can have. | [optional] [default to null]
+ **minIron** | **num**| The minimum amount of iron in milligrams the recipe must have. | [optional] [default to null]
+ **maxIron** | **num**| The maximum amount of iron in milligrams the recipe can have. | [optional] [default to null]
+ **minMagnesium** | **num**| The minimum amount of magnesium in milligrams the recipe must have. | [optional] [default to null]
+ **maxMagnesium** | **num**| The maximum amount of magnesium in milligrams the recipe can have. | [optional] [default to null]
+ **minManganese** | **num**| The minimum amount of manganese in milligrams the recipe must have. | [optional] [default to null]
+ **maxManganese** | **num**| The maximum amount of manganese in milligrams the recipe can have. | [optional] [default to null]
+ **minPhosphorus** | **num**| The minimum amount of phosphorus in milligrams the recipe must have. | [optional] [default to null]
+ **maxPhosphorus** | **num**| The maximum amount of phosphorus in milligrams the recipe can have. | [optional] [default to null]
+ **minPotassium** | **num**| The minimum amount of potassium in milligrams the recipe must have. | [optional] [default to null]
+ **maxPotassium** | **num**| The maximum amount of potassium in milligrams the recipe can have. | [optional] [default to null]
+ **minSelenium** | **num**| The minimum amount of selenium in micrograms the recipe must have. | [optional] [default to null]
+ **maxSelenium** | **num**| The maximum amount of selenium in micrograms the recipe can have. | [optional] [default to null]
+ **minSodium** | **num**| The minimum amount of sodium in milligrams the recipe must have. | [optional] [default to null]
+ **maxSodium** | **num**| The maximum amount of sodium in milligrams the recipe can have. | [optional] [default to null]
+ **minSugar** | **num**| The minimum amount of sugar in grams the recipe must have. | [optional] [default to null]
+ **maxSugar** | **num**| The maximum amount of sugar in grams the recipe can have. | [optional] [default to null]
+ **minZinc** | **num**| The minimum amount of zinc in milligrams the recipe must have. | [optional] [default to null]
+ **maxZinc** | **num**| The maximum amount of zinc in milligrams the recipe can have. | [optional] [default to null]
+ **offset** | **num**| The number of results to skip (between 0 and 900). | [optional] [default to null]
+ **number** | **num**| The number of expected results (between 1 and 100). | [optional] [default to null]
+ **limitLicense** | **bool**| Whether the recipes should have an open license that allows display with proper attribution. | [optional] [default to null]
 
 ### Return type
 
@@ -2848,12 +3323,12 @@ var minVitaminB12 = 0; // num | The minimum amount of Vitamin B12 in micrograms 
 var maxVitaminB12 = 100; // num | The maximum amount of Vitamin B12 in micrograms the recipe can have.
 var minFiber = 0; // num | The minimum amount of fiber in grams the recipe must have.
 var maxFiber = 100; // num | The maximum amount of fiber in grams the recipe can have.
-var minFolate = 0; // num | The minimum amount of folate in grams the recipe must have.
-var maxFolate = 100; // num | The maximum amount of folate in grams the recipe can have.
-var minFolicAcid = 0; // num | The minimum amount of folic acid in grams the recipe must have.
-var maxFolicAcid = 100; // num | The maximum amount of folic acid in grams the recipe can have.
-var minIodine = 0; // num | The minimum amount of iodine in grams the recipe must have.
-var maxIodine = 100; // num | The maximum amount of iodine in grams the recipe can have.
+var minFolate = 0; // num | The minimum amount of folate in micrograms the recipe must have.
+var maxFolate = 100; // num | The maximum amount of folate in micrograms the recipe can have.
+var minFolicAcid = 0; // num | The minimum amount of folic acid in micrograms the recipe must have.
+var maxFolicAcid = 100; // num | The maximum amount of folic acid in micrograms the recipe can have.
+var minIodine = 0; // num | The minimum amount of iodine in micrograms the recipe must have.
+var maxIodine = 100; // num | The maximum amount of iodine in micrograms the recipe can have.
 var minIron = 0; // num | The minimum amount of iron in milligrams the recipe must have.
 var maxIron = 100; // num | The maximum amount of iron in milligrams the recipe can have.
 var minMagnesium = 0; // num | The minimum amount of magnesium in milligrams the recipe must have.
@@ -2864,8 +3339,8 @@ var minPhosphorus = 0; // num | The minimum amount of phosphorus in milligrams t
 var maxPhosphorus = 100; // num | The maximum amount of phosphorus in milligrams the recipe can have.
 var minPotassium = 0; // num | The minimum amount of potassium in milligrams the recipe must have.
 var maxPotassium = 100; // num | The maximum amount of potassium in milligrams the recipe can have.
-var minSelenium = 0; // num | The minimum amount of selenium in grams the recipe must have.
-var maxSelenium = 100; // num | The maximum amount of selenium in grams the recipe can have.
+var minSelenium = 0; // num | The minimum amount of selenium in micrograms the recipe must have.
+var maxSelenium = 100; // num | The maximum amount of selenium in micrograms the recipe can have.
 var minSodium = 0; // num | The minimum amount of sodium in milligrams the recipe must have.
 var maxSodium = 100; // num | The maximum amount of sodium in milligrams the recipe can have.
 var minSugar = 0; // num | The minimum amount of sugar in grams the recipe must have.
@@ -2937,12 +3412,12 @@ Name | Type | Description  | Notes
  **maxVitaminB12** | **num**| The maximum amount of Vitamin B12 in micrograms the recipe can have. | [optional] [default to null]
  **minFiber** | **num**| The minimum amount of fiber in grams the recipe must have. | [optional] [default to null]
  **maxFiber** | **num**| The maximum amount of fiber in grams the recipe can have. | [optional] [default to null]
- **minFolate** | **num**| The minimum amount of folate in grams the recipe must have. | [optional] [default to null]
- **maxFolate** | **num**| The maximum amount of folate in grams the recipe can have. | [optional] [default to null]
- **minFolicAcid** | **num**| The minimum amount of folic acid in grams the recipe must have. | [optional] [default to null]
- **maxFolicAcid** | **num**| The maximum amount of folic acid in grams the recipe can have. | [optional] [default to null]
- **minIodine** | **num**| The minimum amount of iodine in grams the recipe must have. | [optional] [default to null]
- **maxIodine** | **num**| The maximum amount of iodine in grams the recipe can have. | [optional] [default to null]
+ **minFolate** | **num**| The minimum amount of folate in micrograms the recipe must have. | [optional] [default to null]
+ **maxFolate** | **num**| The maximum amount of folate in micrograms the recipe can have. | [optional] [default to null]
+ **minFolicAcid** | **num**| The minimum amount of folic acid in micrograms the recipe must have. | [optional] [default to null]
+ **maxFolicAcid** | **num**| The maximum amount of folic acid in micrograms the recipe can have. | [optional] [default to null]
+ **minIodine** | **num**| The minimum amount of iodine in micrograms the recipe must have. | [optional] [default to null]
+ **maxIodine** | **num**| The maximum amount of iodine in micrograms the recipe can have. | [optional] [default to null]
  **minIron** | **num**| The minimum amount of iron in milligrams the recipe must have. | [optional] [default to null]
  **maxIron** | **num**| The maximum amount of iron in milligrams the recipe can have. | [optional] [default to null]
  **minMagnesium** | **num**| The minimum amount of magnesium in milligrams the recipe must have. | [optional] [default to null]
@@ -2953,8 +3428,8 @@ Name | Type | Description  | Notes
  **maxPhosphorus** | **num**| The maximum amount of phosphorus in milligrams the recipe can have. | [optional] [default to null]
  **minPotassium** | **num**| The minimum amount of potassium in milligrams the recipe must have. | [optional] [default to null]
  **maxPotassium** | **num**| The maximum amount of potassium in milligrams the recipe can have. | [optional] [default to null]
- **minSelenium** | **num**| The minimum amount of selenium in grams the recipe must have. | [optional] [default to null]
- **maxSelenium** | **num**| The maximum amount of selenium in grams the recipe can have. | [optional] [default to null]
+ **minSelenium** | **num**| The minimum amount of selenium in micrograms the recipe must have. | [optional] [default to null]
+ **maxSelenium** | **num**| The maximum amount of selenium in micrograms the recipe can have. | [optional] [default to null]
  **minSodium** | **num**| The minimum amount of sodium in milligrams the recipe must have. | [optional] [default to null]
  **maxSodium** | **num**| The maximum amount of sodium in milligrams the recipe can have. | [optional] [default to null]
  **minSugar** | **num**| The minimum amount of sugar in grams the recipe must have. | [optional] [default to null]
@@ -2964,239 +3439,6 @@ Name | Type | Description  | Notes
  **offset** | **num**| The number of results to skip (between 0 and 900). | [optional] [default to null]
  **number** | **num**| The number of expected results (between 1 and 100). | [optional] [default to null]
  **random** | **bool**| If true, every request will give you a random set of recipes within the requested limits. | [optional] [default to null]
- **limitLicense** | **bool**| Whether the recipes should have an open license that allows display with proper attribution. | [optional] [default to null]
-
-### Return type
-
-[**Object**](Object.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **searchRecipesComplex**
-> Object searchRecipesComplex(query, cuisine, excludeCuisine, diet, intolerances, equipment, includeIngredients, excludeIngredients, type, instructionsRequired, fillIngredients, addRecipeInformation, addRecipeNutrition, author, tags, recipeBoxId, titleMatch, maxReadyTime, ignorePantry, sort, sortDirection, minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, limitLicense)
-
-Search Recipes Complex
-
-Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint.
-
-### Example 
-```dart
-import 'package:openapi/api.dart';
-
-var api_instance = new DefaultApi();
-var query = pasta; // String | The (natural language) recipe search query.
-var cuisine = italian; // String | The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as 'OR'). See a full list of supported cuisines.
-var excludeCuisine = greek; // String | The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as 'AND'). See a full list of supported cuisines.
-var diet = vegetarian; // String | The diet for which the recipes must be suitable. See a full list of supported diets.
-var intolerances = gluten; // String | A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
-var equipment = pan; // String | The equipment required. Multiple values will be interpreted as 'or'. For example, value could be \"blender, frying pan, bowl\".
-var includeIngredients = tomato,cheese; // String | A comma-separated list of ingredients that should/must be used in the recipes.
-var excludeIngredients = eggs; // String | A comma-separated list of ingredients or ingredient types that the recipes must not contain.
-var type = main course; // String | The type of recipe. See a full list of supported meal types.
-var instructionsRequired = true; // bool | Whether the recipes must have instructions.
-var fillIngredients = false; // bool | Add information about the ingredients and whether they are used or missing in relation to the query.
-var addRecipeInformation = false; // bool | If set to true, you get more information about the recipes returned.
-var addRecipeNutrition = false; // bool | If set to true, you get nutritional information about each recipes returned.
-var author = coffeebean; // String | The username of the recipe author.
-var tags = myCustomTag; // String | User defined tags that have to match. The author param has to be set.
-var recipeBoxId = 2468; // num | The id of the recipe box to which the search should be limited to.
-var titleMatch = Crock Pot; // String | Enter text that must be found in the title of the recipes.
-var maxReadyTime = 20; // num | The maximum time in minutes it should take to prepare and cook the recipe.
-var ignorePantry = true; // bool | Whether to ignore typical pantry items, such as water, salt, flour, etc.
-var sort = calories; // String | The strategy to sort recipes by. See a full list of supported sorting options.
-var sortDirection = asc; // String | The direction in which to sort. Must be either 'asc' (ascending) or 'desc' (descending).
-var minCarbs = 10; // num | The minimum amount of carbohydrates in grams the recipe must have.
-var maxCarbs = 100; // num | The maximum amount of carbohydrates in grams the recipe can have.
-var minProtein = 10; // num | The minimum amount of protein in grams the recipe must have.
-var maxProtein = 100; // num | The maximum amount of protein in grams the recipe can have.
-var minCalories = 50; // num | The minimum amount of calories the recipe must have.
-var maxCalories = 800; // num | The maximum amount of calories the recipe can have.
-var minFat = 1; // num | The minimum amount of fat in grams the recipe must have.
-var maxFat = 100; // num | The maximum amount of fat in grams the recipe can have.
-var minAlcohol = 0; // num | The minimum amount of alcohol in grams the recipe must have.
-var maxAlcohol = 100; // num | The maximum amount of alcohol in grams the recipe can have.
-var minCaffeine = 0; // num | The minimum amount of caffeine in milligrams the recipe must have.
-var maxCaffeine = 100; // num | The maximum amount of caffeine in milligrams the recipe can have.
-var minCopper = 0; // num | The minimum amount of copper in milligrams the recipe must have.
-var maxCopper = 100; // num | The maximum amount of copper in milligrams the recipe can have.
-var minCalcium = 0; // num | The minimum amount of calcium in milligrams the recipe must have.
-var maxCalcium = 100; // num | The maximum amount of calcium in milligrams the recipe can have.
-var minCholine = 0; // num | The minimum amount of choline in milligrams the recipe must have.
-var maxCholine = 100; // num | The maximum amount of choline in milligrams the recipe can have.
-var minCholesterol = 0; // num | The minimum amount of cholesterol in milligrams the recipe must have.
-var maxCholesterol = 100; // num | The maximum amount of cholesterol in milligrams the recipe can have.
-var minFluoride = 0; // num | The minimum amount of fluoride in milligrams the recipe must have.
-var maxFluoride = 100; // num | The maximum amount of fluoride in milligrams the recipe can have.
-var minSaturatedFat = 0; // num | The minimum amount of saturated fat in grams the recipe must have.
-var maxSaturatedFat = 100; // num | The maximum amount of saturated fat in grams the recipe can have.
-var minVitaminA = 0; // num | The minimum amount of Vitamin A in IU the recipe must have.
-var maxVitaminA = 100; // num | The maximum amount of Vitamin A in IU the recipe can have.
-var minVitaminC = 0; // num | The minimum amount of Vitamin C milligrams the recipe must have.
-var maxVitaminC = 100; // num | The maximum amount of Vitamin C in milligrams the recipe can have.
-var minVitaminD = 0; // num | The minimum amount of Vitamin D in micrograms the recipe must have.
-var maxVitaminD = 100; // num | The maximum amount of Vitamin D in micrograms the recipe can have.
-var minVitaminE = 0; // num | The minimum amount of Vitamin E in milligrams the recipe must have.
-var maxVitaminE = 100; // num | The maximum amount of Vitamin E in milligrams the recipe can have.
-var minVitaminK = 0; // num | The minimum amount of Vitamin K in micrograms the recipe must have.
-var maxVitaminK = 100; // num | The maximum amount of Vitamin K in micrograms the recipe can have.
-var minVitaminB1 = 0; // num | The minimum amount of Vitamin B1 in milligrams the recipe must have.
-var maxVitaminB1 = 100; // num | The maximum amount of Vitamin B1 in milligrams the recipe can have.
-var minVitaminB2 = 0; // num | The minimum amount of Vitamin B2 in milligrams the recipe must have.
-var maxVitaminB2 = 100; // num | The maximum amount of Vitamin B2 in milligrams the recipe can have.
-var minVitaminB5 = 0; // num | The minimum amount of Vitamin B5 in milligrams the recipe must have.
-var maxVitaminB5 = 100; // num | The maximum amount of Vitamin B5 in milligrams the recipe can have.
-var minVitaminB3 = 0; // num | The minimum amount of Vitamin B3 in milligrams the recipe must have.
-var maxVitaminB3 = 100; // num | The maximum amount of Vitamin B3 in milligrams the recipe can have.
-var minVitaminB6 = 0; // num | The minimum amount of Vitamin B6 in milligrams the recipe must have.
-var maxVitaminB6 = 100; // num | The maximum amount of Vitamin B6 in milligrams the recipe can have.
-var minVitaminB12 = 0; // num | The minimum amount of Vitamin B12 in micrograms the recipe must have.
-var maxVitaminB12 = 100; // num | The maximum amount of Vitamin B12 in micrograms the recipe can have.
-var minFiber = 0; // num | The minimum amount of fiber in grams the recipe must have.
-var maxFiber = 100; // num | The maximum amount of fiber in grams the recipe can have.
-var minFolate = 0; // num | The minimum amount of folate in grams the recipe must have.
-var maxFolate = 100; // num | The maximum amount of folate in grams the recipe can have.
-var minFolicAcid = 0; // num | The minimum amount of folic acid in grams the recipe must have.
-var maxFolicAcid = 100; // num | The maximum amount of folic acid in grams the recipe can have.
-var minIodine = 0; // num | The minimum amount of iodine in grams the recipe must have.
-var maxIodine = 100; // num | The maximum amount of iodine in grams the recipe can have.
-var minIron = 0; // num | The minimum amount of iron in milligrams the recipe must have.
-var maxIron = 100; // num | The maximum amount of iron in milligrams the recipe can have.
-var minMagnesium = 0; // num | The minimum amount of magnesium in milligrams the recipe must have.
-var maxMagnesium = 100; // num | The maximum amount of magnesium in milligrams the recipe can have.
-var minManganese = 0; // num | The minimum amount of manganese in milligrams the recipe must have.
-var maxManganese = 100; // num | The maximum amount of manganese in milligrams the recipe can have.
-var minPhosphorus = 0; // num | The minimum amount of phosphorus in milligrams the recipe must have.
-var maxPhosphorus = 100; // num | The maximum amount of phosphorus in milligrams the recipe can have.
-var minPotassium = 0; // num | The minimum amount of potassium in milligrams the recipe must have.
-var maxPotassium = 100; // num | The maximum amount of potassium in milligrams the recipe can have.
-var minSelenium = 0; // num | The minimum amount of selenium in grams the recipe must have.
-var maxSelenium = 100; // num | The maximum amount of selenium in grams the recipe can have.
-var minSodium = 0; // num | The minimum amount of sodium in milligrams the recipe must have.
-var maxSodium = 100; // num | The maximum amount of sodium in milligrams the recipe can have.
-var minSugar = 0; // num | The minimum amount of sugar in grams the recipe must have.
-var maxSugar = 100; // num | The maximum amount of sugar in grams the recipe can have.
-var minZinc = 0; // num | The minimum amount of zinc in milligrams the recipe must have.
-var maxZinc = 100; // num | The maximum amount of zinc in milligrams the recipe can have.
-var offset = 0; // num | The number of results to skip (between 0 and 900).
-var number = 10; // num | The number of expected results (between 1 and 100).
-var limitLicense = true; // bool | Whether the recipes should have an open license that allows display with proper attribution.
-
-try { 
-    var result = api_instance.searchRecipesComplex(query, cuisine, excludeCuisine, diet, intolerances, equipment, includeIngredients, excludeIngredients, type, instructionsRequired, fillIngredients, addRecipeInformation, addRecipeNutrition, author, tags, recipeBoxId, titleMatch, maxReadyTime, ignorePantry, sort, sortDirection, minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, limitLicense);
-    print(result);
-} catch (e) {
-    print("Exception when calling DefaultApi->searchRecipesComplex: $e\n");
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **query** | **String**| The (natural language) recipe search query. | [default to null]
- **cuisine** | **String**| The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as &#39;OR&#39;). See a full list of supported cuisines. | [optional] [default to null]
- **excludeCuisine** | **String**| The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as &#39;AND&#39;). See a full list of supported cuisines. | [optional] [default to null]
- **diet** | **String**| The diet for which the recipes must be suitable. See a full list of supported diets. | [optional] [default to null]
- **intolerances** | **String**| A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. | [optional] [default to null]
- **equipment** | **String**| The equipment required. Multiple values will be interpreted as &#39;or&#39;. For example, value could be \&quot;blender, frying pan, bowl\&quot;. | [optional] [default to null]
- **includeIngredients** | **String**| A comma-separated list of ingredients that should/must be used in the recipes. | [optional] [default to null]
- **excludeIngredients** | **String**| A comma-separated list of ingredients or ingredient types that the recipes must not contain. | [optional] [default to null]
- **type** | **String**| The type of recipe. See a full list of supported meal types. | [optional] [default to null]
- **instructionsRequired** | **bool**| Whether the recipes must have instructions. | [optional] [default to null]
- **fillIngredients** | **bool**| Add information about the ingredients and whether they are used or missing in relation to the query. | [optional] [default to null]
- **addRecipeInformation** | **bool**| If set to true, you get more information about the recipes returned. | [optional] [default to null]
- **addRecipeNutrition** | **bool**| If set to true, you get nutritional information about each recipes returned. | [optional] [default to null]
- **author** | **String**| The username of the recipe author. | [optional] [default to null]
- **tags** | **String**| User defined tags that have to match. The author param has to be set. | [optional] [default to null]
- **recipeBoxId** | **num**| The id of the recipe box to which the search should be limited to. | [optional] [default to null]
- **titleMatch** | **String**| Enter text that must be found in the title of the recipes. | [optional] [default to null]
- **maxReadyTime** | **num**| The maximum time in minutes it should take to prepare and cook the recipe. | [optional] [default to null]
- **ignorePantry** | **bool**| Whether to ignore typical pantry items, such as water, salt, flour, etc. | [optional] [default to null]
- **sort** | **String**| The strategy to sort recipes by. See a full list of supported sorting options. | [optional] [default to null]
- **sortDirection** | **String**| The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending). | [optional] [default to null]
- **minCarbs** | **num**| The minimum amount of carbohydrates in grams the recipe must have. | [optional] [default to null]
- **maxCarbs** | **num**| The maximum amount of carbohydrates in grams the recipe can have. | [optional] [default to null]
- **minProtein** | **num**| The minimum amount of protein in grams the recipe must have. | [optional] [default to null]
- **maxProtein** | **num**| The maximum amount of protein in grams the recipe can have. | [optional] [default to null]
- **minCalories** | **num**| The minimum amount of calories the recipe must have. | [optional] [default to null]
- **maxCalories** | **num**| The maximum amount of calories the recipe can have. | [optional] [default to null]
- **minFat** | **num**| The minimum amount of fat in grams the recipe must have. | [optional] [default to null]
- **maxFat** | **num**| The maximum amount of fat in grams the recipe can have. | [optional] [default to null]
- **minAlcohol** | **num**| The minimum amount of alcohol in grams the recipe must have. | [optional] [default to null]
- **maxAlcohol** | **num**| The maximum amount of alcohol in grams the recipe can have. | [optional] [default to null]
- **minCaffeine** | **num**| The minimum amount of caffeine in milligrams the recipe must have. | [optional] [default to null]
- **maxCaffeine** | **num**| The maximum amount of caffeine in milligrams the recipe can have. | [optional] [default to null]
- **minCopper** | **num**| The minimum amount of copper in milligrams the recipe must have. | [optional] [default to null]
- **maxCopper** | **num**| The maximum amount of copper in milligrams the recipe can have. | [optional] [default to null]
- **minCalcium** | **num**| The minimum amount of calcium in milligrams the recipe must have. | [optional] [default to null]
- **maxCalcium** | **num**| The maximum amount of calcium in milligrams the recipe can have. | [optional] [default to null]
- **minCholine** | **num**| The minimum amount of choline in milligrams the recipe must have. | [optional] [default to null]
- **maxCholine** | **num**| The maximum amount of choline in milligrams the recipe can have. | [optional] [default to null]
- **minCholesterol** | **num**| The minimum amount of cholesterol in milligrams the recipe must have. | [optional] [default to null]
- **maxCholesterol** | **num**| The maximum amount of cholesterol in milligrams the recipe can have. | [optional] [default to null]
- **minFluoride** | **num**| The minimum amount of fluoride in milligrams the recipe must have. | [optional] [default to null]
- **maxFluoride** | **num**| The maximum amount of fluoride in milligrams the recipe can have. | [optional] [default to null]
- **minSaturatedFat** | **num**| The minimum amount of saturated fat in grams the recipe must have. | [optional] [default to null]
- **maxSaturatedFat** | **num**| The maximum amount of saturated fat in grams the recipe can have. | [optional] [default to null]
- **minVitaminA** | **num**| The minimum amount of Vitamin A in IU the recipe must have. | [optional] [default to null]
- **maxVitaminA** | **num**| The maximum amount of Vitamin A in IU the recipe can have. | [optional] [default to null]
- **minVitaminC** | **num**| The minimum amount of Vitamin C milligrams the recipe must have. | [optional] [default to null]
- **maxVitaminC** | **num**| The maximum amount of Vitamin C in milligrams the recipe can have. | [optional] [default to null]
- **minVitaminD** | **num**| The minimum amount of Vitamin D in micrograms the recipe must have. | [optional] [default to null]
- **maxVitaminD** | **num**| The maximum amount of Vitamin D in micrograms the recipe can have. | [optional] [default to null]
- **minVitaminE** | **num**| The minimum amount of Vitamin E in milligrams the recipe must have. | [optional] [default to null]
- **maxVitaminE** | **num**| The maximum amount of Vitamin E in milligrams the recipe can have. | [optional] [default to null]
- **minVitaminK** | **num**| The minimum amount of Vitamin K in micrograms the recipe must have. | [optional] [default to null]
- **maxVitaminK** | **num**| The maximum amount of Vitamin K in micrograms the recipe can have. | [optional] [default to null]
- **minVitaminB1** | **num**| The minimum amount of Vitamin B1 in milligrams the recipe must have. | [optional] [default to null]
- **maxVitaminB1** | **num**| The maximum amount of Vitamin B1 in milligrams the recipe can have. | [optional] [default to null]
- **minVitaminB2** | **num**| The minimum amount of Vitamin B2 in milligrams the recipe must have. | [optional] [default to null]
- **maxVitaminB2** | **num**| The maximum amount of Vitamin B2 in milligrams the recipe can have. | [optional] [default to null]
- **minVitaminB5** | **num**| The minimum amount of Vitamin B5 in milligrams the recipe must have. | [optional] [default to null]
- **maxVitaminB5** | **num**| The maximum amount of Vitamin B5 in milligrams the recipe can have. | [optional] [default to null]
- **minVitaminB3** | **num**| The minimum amount of Vitamin B3 in milligrams the recipe must have. | [optional] [default to null]
- **maxVitaminB3** | **num**| The maximum amount of Vitamin B3 in milligrams the recipe can have. | [optional] [default to null]
- **minVitaminB6** | **num**| The minimum amount of Vitamin B6 in milligrams the recipe must have. | [optional] [default to null]
- **maxVitaminB6** | **num**| The maximum amount of Vitamin B6 in milligrams the recipe can have. | [optional] [default to null]
- **minVitaminB12** | **num**| The minimum amount of Vitamin B12 in micrograms the recipe must have. | [optional] [default to null]
- **maxVitaminB12** | **num**| The maximum amount of Vitamin B12 in micrograms the recipe can have. | [optional] [default to null]
- **minFiber** | **num**| The minimum amount of fiber in grams the recipe must have. | [optional] [default to null]
- **maxFiber** | **num**| The maximum amount of fiber in grams the recipe can have. | [optional] [default to null]
- **minFolate** | **num**| The minimum amount of folate in grams the recipe must have. | [optional] [default to null]
- **maxFolate** | **num**| The maximum amount of folate in grams the recipe can have. | [optional] [default to null]
- **minFolicAcid** | **num**| The minimum amount of folic acid in grams the recipe must have. | [optional] [default to null]
- **maxFolicAcid** | **num**| The maximum amount of folic acid in grams the recipe can have. | [optional] [default to null]
- **minIodine** | **num**| The minimum amount of iodine in grams the recipe must have. | [optional] [default to null]
- **maxIodine** | **num**| The maximum amount of iodine in grams the recipe can have. | [optional] [default to null]
- **minIron** | **num**| The minimum amount of iron in milligrams the recipe must have. | [optional] [default to null]
- **maxIron** | **num**| The maximum amount of iron in milligrams the recipe can have. | [optional] [default to null]
- **minMagnesium** | **num**| The minimum amount of magnesium in milligrams the recipe must have. | [optional] [default to null]
- **maxMagnesium** | **num**| The maximum amount of magnesium in milligrams the recipe can have. | [optional] [default to null]
- **minManganese** | **num**| The minimum amount of manganese in milligrams the recipe must have. | [optional] [default to null]
- **maxManganese** | **num**| The maximum amount of manganese in milligrams the recipe can have. | [optional] [default to null]
- **minPhosphorus** | **num**| The minimum amount of phosphorus in milligrams the recipe must have. | [optional] [default to null]
- **maxPhosphorus** | **num**| The maximum amount of phosphorus in milligrams the recipe can have. | [optional] [default to null]
- **minPotassium** | **num**| The minimum amount of potassium in milligrams the recipe must have. | [optional] [default to null]
- **maxPotassium** | **num**| The maximum amount of potassium in milligrams the recipe can have. | [optional] [default to null]
- **minSelenium** | **num**| The minimum amount of selenium in grams the recipe must have. | [optional] [default to null]
- **maxSelenium** | **num**| The maximum amount of selenium in grams the recipe can have. | [optional] [default to null]
- **minSodium** | **num**| The minimum amount of sodium in milligrams the recipe must have. | [optional] [default to null]
- **maxSodium** | **num**| The maximum amount of sodium in milligrams the recipe can have. | [optional] [default to null]
- **minSugar** | **num**| The minimum amount of sugar in grams the recipe must have. | [optional] [default to null]
- **maxSugar** | **num**| The maximum amount of sugar in grams the recipe can have. | [optional] [default to null]
- **minZinc** | **num**| The minimum amount of zinc in milligrams the recipe must have. | [optional] [default to null]
- **maxZinc** | **num**| The maximum amount of zinc in milligrams the recipe can have. | [optional] [default to null]
- **offset** | **num**| The number of results to skip (between 0 and 900). | [optional] [default to null]
- **number** | **num**| The number of expected results (between 1 and 100). | [optional] [default to null]
  **limitLicense** | **bool**| Whether the recipes should have an open license that allows display with proper attribution. | [optional] [default to null]
 
 ### Return type
@@ -3346,25 +3588,24 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **visualizeEquipment**
-> String visualizeEquipment(ingredientList, servings, view, defaultCss, showBacklink)
+> String visualizeEquipment(instructions, view, defaultCss, showBacklink)
 
 Visualize Equipment
 
-Visualize the equipment used to make a recipe.
+Visualize the equipment used to make a recipe. You can play around with that endpoint!
 
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
 
 var api_instance = new DefaultApi();
-var ingredientList = ingredientList_example; // String | The ingredient list of the recipe, one ingredient per line.
-var servings = 8.14; // num | The number of servings.
+var instructions = instructions_example; // String | The recipe's instructions.
 var view = view_example; // String | How to visualize the equipment, either \\\"grid\\\" or \\\"list\\\".
 var defaultCss = true; // bool | Whether the default CSS should be added to the response.
 var showBacklink = true; // bool | Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
 
 try { 
-    var result = api_instance.visualizeEquipment(ingredientList, servings, view, defaultCss, showBacklink);
+    var result = api_instance.visualizeEquipment(instructions, view, defaultCss, showBacklink);
     print(result);
 } catch (e) {
     print("Exception when calling DefaultApi->visualizeEquipment: $e\n");
@@ -3375,8 +3616,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ingredientList** | **String**| The ingredient list of the recipe, one ingredient per line. | [default to null]
- **servings** | **num**| The number of servings. | [default to null]
+ **instructions** | **String**| The recipe&#39;s instructions. | [default to null]
  **view** | **String**| How to visualize the equipment, either \\\&quot;grid\\\&quot; or \\\&quot;list\\\&quot;. | [optional] [default to null]
  **defaultCss** | **bool**| Whether the default CSS should be added to the response. | [optional] [default to null]
  **showBacklink** | **bool**| Whether to show a backlink to spoonacular. If set false, this call counts against your quota. | [optional] [default to null]
@@ -3401,7 +3641,7 @@ No authorization required
 
 Visualize Ingredients
 
-Visualize ingredients of a recipe.
+Visualize ingredients of a recipe. You can play around with that endpoint!
 
 ### Example 
 ```dart
@@ -3499,7 +3739,7 @@ No authorization required
 
 Visualize Price Breakdown
 
-Visualize the price breakdown of a recipe.
+Visualize the price breakdown of a recipe. You can play around with that endpoint!
 
 ### Example 
 ```dart
@@ -3685,7 +3925,7 @@ No authorization required
 
 Visualize Recipe Nutrition
 
-Visualize a recipe's nutritional information as HTML including CSS
+Visualize a recipe's nutritional information as HTML including CSS. You can play around with that endpoint!
 
 ### Example 
 ```dart
@@ -3803,6 +4043,92 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **num**| The recipe id. | [default to null]
  **defaultCss** | **bool**| Whether the default CSS should be added to the response. | [optional] [default to null]
+
+### Return type
+
+**String**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/html
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **visualizeRecipeTaste**
+> String visualizeRecipeTaste(ingredientList)
+
+Visualize Recipe Taste
+
+Visualize a recipe's taste information as HTML including CSS. You can play around with that endpoint!
+
+### Example 
+```dart
+import 'package:openapi/api.dart';
+
+var api_instance = new DefaultApi();
+var ingredientList = ingredientList_example; // String | The ingredient list of the recipe, one ingredient per line.
+
+try { 
+    var result = api_instance.visualizeRecipeTaste(ingredientList);
+    print(result);
+} catch (e) {
+    print("Exception when calling DefaultApi->visualizeRecipeTaste: $e\n");
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ingredientList** | **String**| The ingredient list of the recipe, one ingredient per line. | [default to null]
+
+### Return type
+
+**String**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: text/html
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **visualizeRecipeTasteByID**
+> String visualizeRecipeTasteByID(id)
+
+Visualize Recipe Taste by ID
+
+Get a recipe's taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
+
+### Example 
+```dart
+import 'package:openapi/api.dart';
+
+var api_instance = new DefaultApi();
+var id = 69095; // num | The recipe id.
+
+try { 
+    var result = api_instance.visualizeRecipeTasteByID(id);
+    print(result);
+} catch (e) {
+    print("Exception when calling DefaultApi->visualizeRecipeTasteByID: $e\n");
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **num**| The recipe id. | [default to null]
 
 ### Return type
 

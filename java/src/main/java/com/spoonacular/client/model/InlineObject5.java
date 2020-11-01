@@ -27,50 +27,28 @@ import java.io.IOException;
 /**
  * InlineObject5
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-06-13T12:59:56.631+02:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-11-01T21:23:09.595+01:00[Europe/Berlin]")
 public class InlineObject5 {
-  public static final String SERIALIZED_NAME_TITLE = "title";
-  @SerializedName(SERIALIZED_NAME_TITLE)
-  private String title;
+  public static final String SERIALIZED_NAME_INSTRUCTIONS = "instructions";
+  @SerializedName(SERIALIZED_NAME_INSTRUCTIONS)
+  private String instructions;
 
-  public static final String SERIALIZED_NAME_INGREDIENT_LIST = "ingredientList";
-  @SerializedName(SERIALIZED_NAME_INGREDIENT_LIST)
-  private String ingredientList;
-
-  public InlineObject5 title(String title) {
-    this.title = title;
+  public InlineObject5 instructions(String instructions) {
+    this.instructions = instructions;
     return this;
   }
 
    /**
-   * The title of the recipe.
-   * @return title
+   * The instructions to be analyzed.
+   * @return instructions
   **/
-  @ApiModelProperty(example = "Pork roast with green beans", required = true, value = "The title of the recipe.")
-  public String getTitle() {
-    return title;
+  @ApiModelProperty(example = "Put the garlic in a pan and then add the onion. Add some salt and oregano.", required = true, value = "The instructions to be analyzed.")
+  public String getInstructions() {
+    return instructions;
   }
 
-  public void setTitle(String title) {
-    this.title = title;
-  }
-
-  public InlineObject5 ingredientList(String ingredientList) {
-    this.ingredientList = ingredientList;
-    return this;
-  }
-
-   /**
-   * The ingredient list of the recipe, one ingredient per line (separate lines with \\n).
-   * @return ingredientList
-  **/
-  @ApiModelProperty(example = "3 oz pork shoulder", required = true, value = "The ingredient list of the recipe, one ingredient per line (separate lines with \\n).")
-  public String getIngredientList() {
-    return ingredientList;
-  }
-
-  public void setIngredientList(String ingredientList) {
-    this.ingredientList = ingredientList;
+  public void setInstructions(String instructions) {
+    this.instructions = instructions;
   }
 
 
@@ -83,13 +61,12 @@ public class InlineObject5 {
       return false;
     }
     InlineObject5 inlineObject5 = (InlineObject5) o;
-    return Objects.equals(this.title, inlineObject5.title) &&
-        Objects.equals(this.ingredientList, inlineObject5.ingredientList);
+    return Objects.equals(this.instructions, inlineObject5.instructions);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(title, ingredientList);
+    return Objects.hash(instructions);
   }
 
 
@@ -97,8 +74,7 @@ public class InlineObject5 {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineObject5 {\n");
-    sb.append("    title: ").append(toIndentedString(title)).append("\n");
-    sb.append("    ingredientList: ").append(toIndentedString(ingredientList)).append("\n");
+    sb.append("    instructions: ").append(toIndentedString(instructions)).append("\n");
     sb.append("}");
     return sb.toString();
   }

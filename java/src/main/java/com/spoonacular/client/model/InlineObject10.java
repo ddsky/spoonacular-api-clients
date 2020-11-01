@@ -23,20 +23,19 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.math.BigDecimal;
 
 /**
  * InlineObject10
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-06-13T12:59:56.631+02:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-11-01T21:23:09.595+01:00[Europe/Berlin]")
 public class InlineObject10 {
   public static final String SERIALIZED_NAME_USERNAME = "username";
   @SerializedName(SERIALIZED_NAME_USERNAME)
   private String username;
 
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
-  private BigDecimal id;
+  public static final String SERIALIZED_NAME_DATE = "date";
+  @SerializedName(SERIALIZED_NAME_DATE)
+  private String date;
 
   public static final String SERIALIZED_NAME_HASH = "hash";
   @SerializedName(SERIALIZED_NAME_HASH)
@@ -60,22 +59,22 @@ public class InlineObject10 {
     this.username = username;
   }
 
-  public InlineObject10 id(BigDecimal id) {
-    this.id = id;
+  public InlineObject10 date(String date) {
+    this.date = date;
     return this;
   }
 
    /**
-   * The shopping list item id.
-   * @return id
+   * The date in the format yyyy-mm-dd.
+   * @return date
   **/
-  @ApiModelProperty(example = "15678", required = true, value = "The shopping list item id.")
-  public BigDecimal getId() {
-    return id;
+  @ApiModelProperty(example = "2020-06-01", required = true, value = "The date in the format yyyy-mm-dd.")
+  public String getDate() {
+    return date;
   }
 
-  public void setId(BigDecimal id) {
-    this.id = id;
+  public void setDate(String date) {
+    this.date = date;
   }
 
   public InlineObject10 hash(String hash) {
@@ -107,13 +106,13 @@ public class InlineObject10 {
     }
     InlineObject10 inlineObject10 = (InlineObject10) o;
     return Objects.equals(this.username, inlineObject10.username) &&
-        Objects.equals(this.id, inlineObject10.id) &&
+        Objects.equals(this.date, inlineObject10.date) &&
         Objects.equals(this.hash, inlineObject10.hash);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(username, id, hash);
+    return Objects.hash(username, date, hash);
   }
 
 
@@ -122,7 +121,7 @@ public class InlineObject10 {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineObject10 {\n");
     sb.append("    username: ").append(toIndentedString(username)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    date: ").append(toIndentedString(date)).append("\n");
     sb.append("    hash: ").append(toIndentedString(hash)).append("\n");
     sb.append("}");
     return sb.toString();

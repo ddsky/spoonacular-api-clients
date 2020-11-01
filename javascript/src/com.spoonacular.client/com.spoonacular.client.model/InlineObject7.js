@@ -23,7 +23,7 @@ class InlineObject7 {
      * Constructs a new <code>InlineObject7</code>.
      * @alias module:com.spoonacular.client/com.spoonacular.client.model/InlineObject7
      * @param ingredientList {String} The ingredient list of the recipe, one ingredient per line.
-     * @param servings {Number} The number of servings.
+     * @param servings {Number} The number of servings that you can make from the ingredients.
      */
     constructor(ingredientList, servings) { 
         
@@ -57,17 +57,8 @@ class InlineObject7 {
             if (data.hasOwnProperty('servings')) {
                 obj['servings'] = ApiClient.convertToType(data['servings'], 'Number');
             }
-            if (data.hasOwnProperty('measure')) {
-                obj['measure'] = ApiClient.convertToType(data['measure'], 'String');
-            }
-            if (data.hasOwnProperty('view')) {
-                obj['view'] = ApiClient.convertToType(data['view'], 'String');
-            }
-            if (data.hasOwnProperty('defaultCss')) {
-                obj['defaultCss'] = ApiClient.convertToType(data['defaultCss'], 'Boolean');
-            }
-            if (data.hasOwnProperty('showBacklink')) {
-                obj['showBacklink'] = ApiClient.convertToType(data['showBacklink'], 'Boolean');
+            if (data.hasOwnProperty('includeNutrition')) {
+                obj['includeNutrition'] = ApiClient.convertToType(data['includeNutrition'], 'Boolean');
             }
         }
         return obj;
@@ -83,34 +74,16 @@ class InlineObject7 {
 InlineObject7.prototype['ingredientList'] = undefined;
 
 /**
- * The number of servings.
+ * The number of servings that you can make from the ingredients.
  * @member {Number} servings
  */
 InlineObject7.prototype['servings'] = undefined;
 
 /**
- * The original system of measurement, either \"metric\" or \"us\".
- * @member {String} measure
+ * Whether nutrition data should be added to correctly parsed ingredients.
+ * @member {Boolean} includeNutrition
  */
-InlineObject7.prototype['measure'] = undefined;
-
-/**
- * How to visualize the ingredients, either \"grid\" or \"list\".
- * @member {String} view
- */
-InlineObject7.prototype['view'] = undefined;
-
-/**
- * Whether the default CSS should be added to the response.
- * @member {Boolean} defaultCss
- */
-InlineObject7.prototype['defaultCss'] = undefined;
-
-/**
- * Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
- * @member {Boolean} showBacklink
- */
-InlineObject7.prototype['showBacklink'] = undefined;
+InlineObject7.prototype['includeNutrition'] = undefined;
 
 
 

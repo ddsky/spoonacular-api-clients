@@ -52,6 +52,10 @@ class ApiClient {
           return InlineObject13.fromJson(value);
         case 'InlineObject14':
           return InlineObject14.fromJson(value);
+        case 'InlineObject15':
+          return InlineObject15.fromJson(value);
+        case 'InlineObject16':
+          return InlineObject16.fromJson(value);
         case 'InlineObject2':
           return InlineObject2.fromJson(value);
         case 'InlineObject3':

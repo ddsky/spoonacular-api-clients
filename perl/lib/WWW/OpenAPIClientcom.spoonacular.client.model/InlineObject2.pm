@@ -175,10 +175,10 @@ __PACKAGE__->method_documentation({
         format => '',
         read_only => '',
             },
-    'view' => {
-        datatype => 'string',
-        base_name => 'view',
-        description => 'How to visualize the equipment, either \&quot;grid\&quot; or \&quot;list\&quot;.',
+    'mode' => {
+        datatype => 'double',
+        base_name => 'mode',
+        description => 'The mode in which the widget should be delivered. 1 &#x3D; separate views (compact), 2 &#x3D; all in one view (full).',
         format => '',
         read_only => '',
             },
@@ -201,7 +201,7 @@ __PACKAGE__->method_documentation({
 __PACKAGE__->openapi_types( {
     'ingredient_list' => 'string',
     'servings' => 'double',
-    'view' => 'string',
+    'mode' => 'double',
     'default_css' => 'boolean',
     'show_backlink' => 'boolean'
 } );
@@ -209,7 +209,7 @@ __PACKAGE__->openapi_types( {
 __PACKAGE__->attribute_map( {
     'ingredient_list' => 'ingredientList',
     'servings' => 'servings',
-    'view' => 'view',
+    'mode' => 'mode',
     'default_css' => 'defaultCss',
     'show_backlink' => 'showBacklink'
 } );

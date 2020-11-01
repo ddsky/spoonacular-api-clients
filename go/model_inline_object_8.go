@@ -11,6 +11,16 @@
 package spoonacular
 
 type InlineObject8 struct {
-	// The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).
-	Locale string `json:"locale,omitempty"`
+	// The ingredient list of the recipe, one ingredient per line.
+	IngredientList string `json:"ingredientList"`
+	// The number of servings.
+	Servings float32 `json:"servings"`
+	// The original system of measurement, either \"metric\" or \"us\".
+	Measure string `json:"measure,omitempty"`
+	// How to visualize the ingredients, either \"grid\" or \"list\".
+	View string `json:"view,omitempty"`
+	// Whether the default CSS should be added to the response.
+	DefaultCss bool `json:"defaultCss,omitempty"`
+	// Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
+	ShowBacklink bool `json:"showBacklink,omitempty"`
 }

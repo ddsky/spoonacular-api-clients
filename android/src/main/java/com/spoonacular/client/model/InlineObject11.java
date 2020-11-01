@@ -10,10 +10,6 @@ public class InlineObject11  {
   
   @SerializedName("username")
   private String username = null;
-  @SerializedName("start-date")
-  private String startDate = null;
-  @SerializedName("end-date")
-  private String endDate = null;
   @SerializedName("hash")
   private String hash = null;
 
@@ -26,28 +22,6 @@ public class InlineObject11  {
   }
   public void setUsername(String username) {
     this.username = username;
-  }
-
-  /**
-   * The start date in the format yyyy-mm-dd.
-   **/
-  @ApiModelProperty(required = true, value = "The start date in the format yyyy-mm-dd.")
-  public String getStartDate() {
-    return startDate;
-  }
-  public void setStartDate(String startDate) {
-    this.startDate = startDate;
-  }
-
-  /**
-   * The end date in the format yyyy-mm-dd.
-   **/
-  @ApiModelProperty(required = true, value = "The end date in the format yyyy-mm-dd.")
-  public String getEndDate() {
-    return endDate;
-  }
-  public void setEndDate(String endDate) {
-    this.endDate = endDate;
   }
 
   /**
@@ -72,8 +46,6 @@ public class InlineObject11  {
     }
     InlineObject11 inlineObject11 = (InlineObject11) o;
     return (this.username == null ? inlineObject11.username == null : this.username.equals(inlineObject11.username)) &&
-        (this.startDate == null ? inlineObject11.startDate == null : this.startDate.equals(inlineObject11.startDate)) &&
-        (this.endDate == null ? inlineObject11.endDate == null : this.endDate.equals(inlineObject11.endDate)) &&
         (this.hash == null ? inlineObject11.hash == null : this.hash.equals(inlineObject11.hash));
   }
 
@@ -81,8 +53,6 @@ public class InlineObject11  {
   public int hashCode() {
     int result = 17;
     result = 31 * result + (this.username == null ? 0: this.username.hashCode());
-    result = 31 * result + (this.startDate == null ? 0: this.startDate.hashCode());
-    result = 31 * result + (this.endDate == null ? 0: this.endDate.hashCode());
     result = 31 * result + (this.hash == null ? 0: this.hash.hashCode());
     return result;
   }
@@ -93,8 +63,6 @@ public class InlineObject11  {
     sb.append("class InlineObject11 {\n");
     
     sb.append("  username: ").append(username).append("\n");
-    sb.append("  startDate: ").append(startDate).append("\n");
-    sb.append("  endDate: ").append(endDate).append("\n");
     sb.append("  hash: ").append(hash).append("\n");
     sb.append("}\n");
     return sb.toString();

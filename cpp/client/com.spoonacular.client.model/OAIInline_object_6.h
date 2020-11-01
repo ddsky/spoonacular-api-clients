@@ -22,7 +22,6 @@
 #include <QJsonObject>
 
 
-#include "com.spoonacular.client.model\OAINumber.h"
 #include <QString>
 
 #include "OAIObject.h"
@@ -42,16 +41,12 @@ public:
     void fromJson(QString jsonString) override;
 
     
+    QString getTitle() const;
+    void setTitle(const QString &title);
+
+    
     QString getIngredientList() const;
     void setIngredientList(const QString &ingredient_list);
-
-    
-    OAINumber getServings() const;
-    void setServings(const OAINumber &servings);
-
-    
-    bool isIncludeNutrition() const;
-    void setIncludeNutrition(const bool &include_nutrition);
 
     
     
@@ -61,17 +56,13 @@ public:
 private:
     void init();
     
+    QString title;
+    bool m_title_isSet;
+    bool m_title_isValid;
+    
     QString ingredient_list;
     bool m_ingredient_list_isSet;
     bool m_ingredient_list_isValid;
-    
-    OAINumber servings;
-    bool m_servings_isSet;
-    bool m_servings_isValid;
-    
-    bool include_nutrition;
-    bool m_include_nutrition_isSet;
-    bool m_include_nutrition_isValid;
     
     };
 

@@ -44,6 +44,9 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**ClassifyCuisine**](docs/DefaultApi.md#classifycuisine) | **Post** /recipes/cuisine | Classify Cuisine
 *DefaultApi* | [**ClassifyGroceryProduct**](docs/DefaultApi.md#classifygroceryproduct) | **Post** /food/products/classify | Classify Grocery Product
 *DefaultApi* | [**ClassifyGroceryProductBulk**](docs/DefaultApi.md#classifygroceryproductbulk) | **Post** /food/products/classifyBatch | Classify Grocery Product Bulk
+*DefaultApi* | [**ClearMealPlanDay**](docs/DefaultApi.md#clearmealplanday) | **Delete** /mealplanner/{username}/day/{date} | Clear Meal Plan Day
+*DefaultApi* | [**ComputeGlycemicLoad**](docs/DefaultApi.md#computeglycemicload) | **Post** /food/ingredients/glycemicLoad | Compute Glycemic Load
+*DefaultApi* | [**ConnectUser**](docs/DefaultApi.md#connectuser) | **Post** /users/connect | Connect User
 *DefaultApi* | [**ConvertAmounts**](docs/DefaultApi.md#convertamounts) | **Get** /recipes/convert | Convert Amounts
 *DefaultApi* | [**CreateRecipeCard**](docs/DefaultApi.md#createrecipecard) | **Post** /recipes/visualizeRecipe | Create Recipe Card
 *DefaultApi* | [**DeleteFromMealPlan**](docs/DefaultApi.md#deletefrommealplan) | **Delete** /mealplanner/{username}/items/{id} | Delete from Meal Plan
@@ -73,6 +76,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**GetRecipeIngredientsByID**](docs/DefaultApi.md#getrecipeingredientsbyid) | **Get** /recipes/{id}/ingredientWidget.json | Get Recipe Ingredients by ID
 *DefaultApi* | [**GetRecipeNutritionWidgetByID**](docs/DefaultApi.md#getrecipenutritionwidgetbyid) | **Get** /recipes/{id}/nutritionWidget.json | Get Recipe Nutrition Widget by ID
 *DefaultApi* | [**GetRecipePriceBreakdownByID**](docs/DefaultApi.md#getrecipepricebreakdownbyid) | **Get** /recipes/{id}/priceBreakdownWidget.json | Get Recipe Price Breakdown by ID
+*DefaultApi* | [**GetRecipeTasteByID**](docs/DefaultApi.md#getrecipetastebyid) | **Get** /recipes/{id}/tasteWidget.json | Get Recipe Taste by ID
 *DefaultApi* | [**GetShoppingList**](docs/DefaultApi.md#getshoppinglist) | **Get** /mealplanner/{username}/shopping-list | Get Shopping List
 *DefaultApi* | [**GetSimilarRecipes**](docs/DefaultApi.md#getsimilarrecipes) | **Get** /recipes/{id}/similar | Get Similar Recipes
 *DefaultApi* | [**GetWineDescription**](docs/DefaultApi.md#getwinedescription) | **Get** /food/wine/description | Get Wine Description
@@ -81,18 +85,19 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**GuessNutritionByDishName**](docs/DefaultApi.md#guessnutritionbydishname) | **Get** /recipes/guessNutrition | Guess Nutrition by Dish Name
 *DefaultApi* | [**ImageAnalysisByURL**](docs/DefaultApi.md#imageanalysisbyurl) | **Get** /food/images/analyze | Image Analysis by URL
 *DefaultApi* | [**ImageClassificationByURL**](docs/DefaultApi.md#imageclassificationbyurl) | **Get** /food/images/classify | Image Classification by URL
+*DefaultApi* | [**IngredientSearch**](docs/DefaultApi.md#ingredientsearch) | **Get** /food/ingredients/search | Ingredient Search
 *DefaultApi* | [**MapIngredientsToGroceryProducts**](docs/DefaultApi.md#mapingredientstogroceryproducts) | **Post** /food/ingredients/map | Map Ingredients to Grocery Products
 *DefaultApi* | [**ParseIngredients**](docs/DefaultApi.md#parseingredients) | **Post** /recipes/parseIngredients | Parse Ingredients
 *DefaultApi* | [**QuickAnswer**](docs/DefaultApi.md#quickanswer) | **Get** /recipes/quickAnswer | Quick Answer
+*DefaultApi* | [**SearchAllFood**](docs/DefaultApi.md#searchallfood) | **Get** /food/search | Search All Food
 *DefaultApi* | [**SearchCustomFoods**](docs/DefaultApi.md#searchcustomfoods) | **Get** /food/customFoods/search | Search Custom Foods
 *DefaultApi* | [**SearchFoodVideos**](docs/DefaultApi.md#searchfoodvideos) | **Get** /food/videos/search | Search Food Videos
 *DefaultApi* | [**SearchGroceryProducts**](docs/DefaultApi.md#searchgroceryproducts) | **Get** /food/products/search | Search Grocery Products
 *DefaultApi* | [**SearchGroceryProductsByUPC**](docs/DefaultApi.md#searchgroceryproductsbyupc) | **Get** /food/products/upc/{upc} | Search Grocery Products by UPC
 *DefaultApi* | [**SearchMenuItems**](docs/DefaultApi.md#searchmenuitems) | **Get** /food/menuItems/search | Search Menu Items
-*DefaultApi* | [**SearchRecipes**](docs/DefaultApi.md#searchrecipes) | **Get** /recipes/search | Search Recipes
+*DefaultApi* | [**SearchRecipes**](docs/DefaultApi.md#searchrecipes) | **Get** /recipes/complexSearch | Search Recipes
 *DefaultApi* | [**SearchRecipesByIngredients**](docs/DefaultApi.md#searchrecipesbyingredients) | **Get** /recipes/findByIngredients | Search Recipes by Ingredients
 *DefaultApi* | [**SearchRecipesByNutrients**](docs/DefaultApi.md#searchrecipesbynutrients) | **Get** /recipes/findByNutrients | Search Recipes by Nutrients
-*DefaultApi* | [**SearchRecipesComplex**](docs/DefaultApi.md#searchrecipescomplex) | **Get** /recipes/complexSearch | Search Recipes Complex
 *DefaultApi* | [**SearchSiteContent**](docs/DefaultApi.md#searchsitecontent) | **Get** /food/site/search | Search Site Content
 *DefaultApi* | [**SummarizeRecipe**](docs/DefaultApi.md#summarizerecipe) | **Get** /recipes/{id}/summary | Summarize Recipe
 *DefaultApi* | [**TalkToChatbot**](docs/DefaultApi.md#talktochatbot) | **Get** /food/converse | Talk to Chatbot
@@ -106,6 +111,8 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**VisualizeRecipeNutrition**](docs/DefaultApi.md#visualizerecipenutrition) | **Post** /recipes/visualizeNutrition | Visualize Recipe Nutrition
 *DefaultApi* | [**VisualizeRecipeNutritionByID**](docs/DefaultApi.md#visualizerecipenutritionbyid) | **Get** /recipes/{id}/nutritionWidget | Visualize Recipe Nutrition by ID
 *DefaultApi* | [**VisualizeRecipePriceBreakdownByID**](docs/DefaultApi.md#visualizerecipepricebreakdownbyid) | **Get** /recipes/{id}/priceBreakdownWidget | Visualize Recipe Price Breakdown by ID
+*DefaultApi* | [**VisualizeRecipeTaste**](docs/DefaultApi.md#visualizerecipetaste) | **Post** /recipes/visualizeTaste | Visualize Recipe Taste
+*DefaultApi* | [**VisualizeRecipeTasteByID**](docs/DefaultApi.md#visualizerecipetastebyid) | **Get** /recipes/{id}/tasteWidget | Visualize Recipe Taste by ID
 
 
 ## Documentation For Models
@@ -117,6 +124,8 @@ Class | Method | HTTP request | Description
  - [InlineObject12](docs/InlineObject12.md)
  - [InlineObject13](docs/InlineObject13.md)
  - [InlineObject14](docs/InlineObject14.md)
+ - [InlineObject15](docs/InlineObject15.md)
+ - [InlineObject16](docs/InlineObject16.md)
  - [InlineObject2](docs/InlineObject2.md)
  - [InlineObject3](docs/InlineObject3.md)
  - [InlineObject4](docs/InlineObject4.md)

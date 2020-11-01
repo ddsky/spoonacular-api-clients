@@ -22,11 +22,8 @@
 
 @interface OAIInlineObject9 : OAIObject
 
-/* The username. 
+/* The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). [optional]
  */
-@property(nonatomic) NSString* username;
-/* The private hash for the username. 
- */
-@property(nonatomic) NSString* hash;
+@property(nonatomic) NSString* locale;
 
 @end

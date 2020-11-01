@@ -15,6 +15,9 @@ Method | HTTP request | Description
 [**classifyCuisine**](DefaultApi.md#classifyCuisine) | **POST** /recipes/cuisine | Classify Cuisine
 [**classifyGroceryProduct**](DefaultApi.md#classifyGroceryProduct) | **POST** /food/products/classify | Classify Grocery Product
 [**classifyGroceryProductBulk**](DefaultApi.md#classifyGroceryProductBulk) | **POST** /food/products/classifyBatch | Classify Grocery Product Bulk
+[**clearMealPlanDay**](DefaultApi.md#clearMealPlanDay) | **DELETE** /mealplanner/{username}/day/{date} | Clear Meal Plan Day
+[**computeGlycemicLoad**](DefaultApi.md#computeGlycemicLoad) | **POST** /food/ingredients/glycemicLoad | Compute Glycemic Load
+[**connectUser**](DefaultApi.md#connectUser) | **POST** /users/connect | Connect User
 [**convertAmounts**](DefaultApi.md#convertAmounts) | **GET** /recipes/convert | Convert Amounts
 [**createRecipeCard**](DefaultApi.md#createRecipeCard) | **POST** /recipes/visualizeRecipe | Create Recipe Card
 [**deleteFromMealPlan**](DefaultApi.md#deleteFromMealPlan) | **DELETE** /mealplanner/{username}/items/{id} | Delete from Meal Plan
@@ -44,6 +47,7 @@ Method | HTTP request | Description
 [**getRecipeIngredientsByID**](DefaultApi.md#getRecipeIngredientsByID) | **GET** /recipes/{id}/ingredientWidget.json | Get Recipe Ingredients by ID
 [**getRecipeNutritionWidgetByID**](DefaultApi.md#getRecipeNutritionWidgetByID) | **GET** /recipes/{id}/nutritionWidget.json | Get Recipe Nutrition Widget by ID
 [**getRecipePriceBreakdownByID**](DefaultApi.md#getRecipePriceBreakdownByID) | **GET** /recipes/{id}/priceBreakdownWidget.json | Get Recipe Price Breakdown by ID
+[**getRecipeTasteByID**](DefaultApi.md#getRecipeTasteByID) | **GET** /recipes/{id}/tasteWidget.json | Get Recipe Taste by ID
 [**getShoppingList**](DefaultApi.md#getShoppingList) | **GET** /mealplanner/{username}/shopping-list | Get Shopping List
 [**getSimilarRecipes**](DefaultApi.md#getSimilarRecipes) | **GET** /recipes/{id}/similar | Get Similar Recipes
 [**getWineDescription**](DefaultApi.md#getWineDescription) | **GET** /food/wine/description | Get Wine Description
@@ -52,18 +56,19 @@ Method | HTTP request | Description
 [**guessNutritionByDishName**](DefaultApi.md#guessNutritionByDishName) | **GET** /recipes/guessNutrition | Guess Nutrition by Dish Name
 [**imageAnalysisByURL**](DefaultApi.md#imageAnalysisByURL) | **GET** /food/images/analyze | Image Analysis by URL
 [**imageClassificationByURL**](DefaultApi.md#imageClassificationByURL) | **GET** /food/images/classify | Image Classification by URL
+[**ingredientSearch**](DefaultApi.md#ingredientSearch) | **GET** /food/ingredients/search | Ingredient Search
 [**mapIngredientsToGroceryProducts**](DefaultApi.md#mapIngredientsToGroceryProducts) | **POST** /food/ingredients/map | Map Ingredients to Grocery Products
 [**parseIngredients**](DefaultApi.md#parseIngredients) | **POST** /recipes/parseIngredients | Parse Ingredients
 [**quickAnswer**](DefaultApi.md#quickAnswer) | **GET** /recipes/quickAnswer | Quick Answer
+[**searchAllFood**](DefaultApi.md#searchAllFood) | **GET** /food/search | Search All Food
 [**searchCustomFoods**](DefaultApi.md#searchCustomFoods) | **GET** /food/customFoods/search | Search Custom Foods
 [**searchFoodVideos**](DefaultApi.md#searchFoodVideos) | **GET** /food/videos/search | Search Food Videos
 [**searchGroceryProducts**](DefaultApi.md#searchGroceryProducts) | **GET** /food/products/search | Search Grocery Products
 [**searchGroceryProductsByUPC**](DefaultApi.md#searchGroceryProductsByUPC) | **GET** /food/products/upc/{upc} | Search Grocery Products by UPC
 [**searchMenuItems**](DefaultApi.md#searchMenuItems) | **GET** /food/menuItems/search | Search Menu Items
-[**searchRecipes**](DefaultApi.md#searchRecipes) | **GET** /recipes/search | Search Recipes
+[**searchRecipes**](DefaultApi.md#searchRecipes) | **GET** /recipes/complexSearch | Search Recipes
 [**searchRecipesByIngredients**](DefaultApi.md#searchRecipesByIngredients) | **GET** /recipes/findByIngredients | Search Recipes by Ingredients
 [**searchRecipesByNutrients**](DefaultApi.md#searchRecipesByNutrients) | **GET** /recipes/findByNutrients | Search Recipes by Nutrients
-[**searchRecipesComplex**](DefaultApi.md#searchRecipesComplex) | **GET** /recipes/complexSearch | Search Recipes Complex
 [**searchSiteContent**](DefaultApi.md#searchSiteContent) | **GET** /food/site/search | Search Site Content
 [**summarizeRecipe**](DefaultApi.md#summarizeRecipe) | **GET** /recipes/{id}/summary | Summarize Recipe
 [**talkToChatbot**](DefaultApi.md#talkToChatbot) | **GET** /food/converse | Talk to Chatbot
@@ -77,11 +82,13 @@ Method | HTTP request | Description
 [**visualizeRecipeNutrition**](DefaultApi.md#visualizeRecipeNutrition) | **POST** /recipes/visualizeNutrition | Visualize Recipe Nutrition
 [**visualizeRecipeNutritionByID**](DefaultApi.md#visualizeRecipeNutritionByID) | **GET** /recipes/{id}/nutritionWidget | Visualize Recipe Nutrition by ID
 [**visualizeRecipePriceBreakdownByID**](DefaultApi.md#visualizeRecipePriceBreakdownByID) | **GET** /recipes/{id}/priceBreakdownWidget | Visualize Recipe Price Breakdown by ID
+[**visualizeRecipeTaste**](DefaultApi.md#visualizeRecipeTaste) | **POST** /recipes/visualizeTaste | Visualize Recipe Taste
+[**visualizeRecipeTasteByID**](DefaultApi.md#visualizeRecipeTasteByID) | **GET** /recipes/{id}/tasteWidget | Visualize Recipe Taste by ID
 
 
 <a name="addToMealPlan"></a>
 # **addToMealPlan**
-> kotlin.Any addToMealPlan(username, hash, inlineObject9)
+> kotlin.Any addToMealPlan(username, hash, inlineObject11)
 
 Add to Meal Plan
 
@@ -96,9 +103,9 @@ Add an item to the user&#39;s meal plan.
 val apiInstance = DefaultApi()
 val username : kotlin.String = dsky // kotlin.String | The username.
 val hash : kotlin.String = 4b5v4398573406 // kotlin.String | The private hash for the username.
-val inlineObject9 : InlineObject9 =  // InlineObject9 | 
+val inlineObject11 : InlineObject11 =  // InlineObject11 | 
 try {
-    val result : kotlin.Any = apiInstance.addToMealPlan(username, hash, inlineObject9)
+    val result : kotlin.Any = apiInstance.addToMealPlan(username, hash, inlineObject11)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling DefaultApi#addToMealPlan")
@@ -115,7 +122,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **username** | **kotlin.String**| The username. |
  **hash** | **kotlin.String**| The private hash for the username. |
- **inlineObject9** | [**InlineObject9**](InlineObject9.md)|  |
+ **inlineObject11** | [**InlineObject11**](InlineObject11.md)|  |
 
 ### Return type
 
@@ -132,7 +139,7 @@ No authorization required
 
 <a name="addToShoppingList"></a>
 # **addToShoppingList**
-> kotlin.Any addToShoppingList(username, hash, inlineObject12)
+> kotlin.Any addToShoppingList(username, hash, inlineObject14)
 
 Add to Shopping List
 
@@ -147,9 +154,9 @@ Add an item to the current shopping list of a user.
 val apiInstance = DefaultApi()
 val username : kotlin.String = dsky // kotlin.String | The username.
 val hash : kotlin.String = 4b5v4398573406 // kotlin.String | The private hash for the username.
-val inlineObject12 : InlineObject12 =  // InlineObject12 | 
+val inlineObject14 : InlineObject14 =  // InlineObject14 | 
 try {
-    val result : kotlin.Any = apiInstance.addToShoppingList(username, hash, inlineObject12)
+    val result : kotlin.Any = apiInstance.addToShoppingList(username, hash, inlineObject14)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling DefaultApi#addToShoppingList")
@@ -166,7 +173,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **username** | **kotlin.String**| The username. |
  **hash** | **kotlin.String**| The private hash for the username. |
- **inlineObject12** | [**InlineObject12**](InlineObject12.md)|  |
+ **inlineObject14** | [**InlineObject14**](InlineObject14.md)|  |
 
 ### Return type
 
@@ -234,7 +241,7 @@ No authorization required
 
 Analyze Recipe Instructions
 
-Extract ingredients and equipment from the recipe&#39;s instructions.
+This endpoint allows you to break down instructions into atomic steps. Furthermore, each step will contain the ingredients and equipment required. Additionally, all ingredients and equipment from the recipe&#39;s instructions will be extracted independently of the step they&#39;re used in.
 
 ### Example
 ```kotlin
@@ -293,7 +300,7 @@ val apiInstance = DefaultApi()
 val query : kotlin.String = appl // kotlin.String | The partial or full ingredient name.
 val number : java.math.BigDecimal = 10 // java.math.BigDecimal | The number of results to return (between 1 and 100).
 val metaInformation : kotlin.Boolean = false // kotlin.Boolean | Whether to return more meta information about the ingredients.
-val intolerances : kotlin.Boolean = false // kotlin.Boolean | A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
+val intolerances : kotlin.String = egg // kotlin.String | A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
 try {
     val result : kotlin.Any = apiInstance.autocompleteIngredientSearch(query, number, metaInformation, intolerances)
     println(result)
@@ -313,7 +320,7 @@ Name | Type | Description  | Notes
  **query** | **kotlin.String**| The partial or full ingredient name. |
  **number** | **java.math.BigDecimal**| The number of results to return (between 1 and 100). | [optional]
  **metaInformation** | **kotlin.Boolean**| Whether to return more meta information about the ingredients. | [optional]
- **intolerances** | **kotlin.Boolean**| A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. | [optional]
+ **intolerances** | **kotlin.String**| A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. | [optional]
 
 ### Return type
 
@@ -526,7 +533,7 @@ No authorization required
 
 <a name="classifyGroceryProduct"></a>
 # **classifyGroceryProduct**
-> kotlin.Any classifyGroceryProduct(inlineObject8, locale)
+> kotlin.Any classifyGroceryProduct(inlineObject9, locale)
 
 Classify Grocery Product
 
@@ -539,10 +546,10 @@ This endpoint allows you to match a packaged food to a basic category, e.g. a sp
 //import com.spoonacular.client.model.*
 
 val apiInstance = DefaultApi()
-val inlineObject8 : InlineObject8 =  // InlineObject8 | 
+val inlineObject9 : InlineObject9 =  // InlineObject9 | 
 val locale : kotlin.String = en_US // kotlin.String | The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).
 try {
-    val result : kotlin.Any = apiInstance.classifyGroceryProduct(inlineObject8, locale)
+    val result : kotlin.Any = apiInstance.classifyGroceryProduct(inlineObject9, locale)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling DefaultApi#classifyGroceryProduct")
@@ -557,7 +564,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject8** | [**InlineObject8**](InlineObject8.md)|  |
+ **inlineObject9** | [**InlineObject9**](InlineObject9.md)|  |
  **locale** | **kotlin.String**| The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). | [optional]
 
 ### Return type
@@ -620,6 +627,153 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="clearMealPlanDay"></a>
+# **clearMealPlanDay**
+> kotlin.Any clearMealPlanDay(username, date, hash, inlineObject10)
+
+Clear Meal Plan Day
+
+Delete all planned items from the user&#39;s meal plan for a specific day.
+
+### Example
+```kotlin
+// Import classes:
+//import spoonacular.infrastructure.*
+//import com.spoonacular.client.model.*
+
+val apiInstance = DefaultApi()
+val username : kotlin.String = dsky // kotlin.String | The username.
+val date : kotlin.String = 2020-06-01 // kotlin.String | The date in the format yyyy-mm-dd.
+val hash : kotlin.String = 4b5v4398573406 // kotlin.String | The private hash for the username.
+val inlineObject10 : InlineObject10 =  // InlineObject10 | 
+try {
+    val result : kotlin.Any = apiInstance.clearMealPlanDay(username, date, hash, inlineObject10)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling DefaultApi#clearMealPlanDay")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling DefaultApi#clearMealPlanDay")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **kotlin.String**| The username. |
+ **date** | **kotlin.String**| The date in the format yyyy-mm-dd. |
+ **hash** | **kotlin.String**| The private hash for the username. |
+ **inlineObject10** | [**InlineObject10**](InlineObject10.md)|  |
+
+### Return type
+
+[**kotlin.Any**](kotlin.Any.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: 
+ - **Accept**: application/json
+
+<a name="computeGlycemicLoad"></a>
+# **computeGlycemicLoad**
+> kotlin.Any computeGlycemicLoad(body)
+
+Compute Glycemic Load
+
+Retrieve the glycemic index for a list of ingredients and compute the individual and total glycemic load.
+
+### Example
+```kotlin
+// Import classes:
+//import spoonacular.infrastructure.*
+//import com.spoonacular.client.model.*
+
+val apiInstance = DefaultApi()
+val body : kotlin.Any = Object // kotlin.Any | 
+try {
+    val result : kotlin.Any = apiInstance.computeGlycemicLoad(body)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling DefaultApi#computeGlycemicLoad")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling DefaultApi#computeGlycemicLoad")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | **kotlin.Any**|  |
+
+### Return type
+
+[**kotlin.Any**](kotlin.Any.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="connectUser"></a>
+# **connectUser**
+> kotlin.Any connectUser(body)
+
+Connect User
+
+In order to call user-specific endpoints, you need to connect your app&#39;s users to spoonacular users.
+
+### Example
+```kotlin
+// Import classes:
+//import spoonacular.infrastructure.*
+//import com.spoonacular.client.model.*
+
+val apiInstance = DefaultApi()
+val body : kotlin.Any = Object // kotlin.Any | 
+try {
+    val result : kotlin.Any = apiInstance.connectUser(body)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling DefaultApi#connectUser")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling DefaultApi#connectUser")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | **kotlin.Any**|  |
+
+### Return type
+
+[**kotlin.Any**](kotlin.Any.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: 
  - **Accept**: application/json
 
 <a name="convertAmounts"></a>
@@ -746,7 +900,7 @@ No authorization required
 
 <a name="deleteFromMealPlan"></a>
 # **deleteFromMealPlan**
-> kotlin.Any deleteFromMealPlan(username, id, hash, inlineObject10)
+> kotlin.Any deleteFromMealPlan(username, id, hash, inlineObject12)
 
 Delete from Meal Plan
 
@@ -762,9 +916,9 @@ val apiInstance = DefaultApi()
 val username : kotlin.String = dsky // kotlin.String | The username.
 val id : java.math.BigDecimal = 15678 // java.math.BigDecimal | The shopping list item id.
 val hash : kotlin.String = 4b5v4398573406 // kotlin.String | The private hash for the username.
-val inlineObject10 : InlineObject10 =  // InlineObject10 | 
+val inlineObject12 : InlineObject12 =  // InlineObject12 | 
 try {
-    val result : kotlin.Any = apiInstance.deleteFromMealPlan(username, id, hash, inlineObject10)
+    val result : kotlin.Any = apiInstance.deleteFromMealPlan(username, id, hash, inlineObject12)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling DefaultApi#deleteFromMealPlan")
@@ -782,7 +936,7 @@ Name | Type | Description  | Notes
  **username** | **kotlin.String**| The username. |
  **id** | **java.math.BigDecimal**| The shopping list item id. |
  **hash** | **kotlin.String**| The private hash for the username. |
- **inlineObject10** | [**InlineObject10**](InlineObject10.md)|  |
+ **inlineObject12** | [**InlineObject12**](InlineObject12.md)|  |
 
 ### Return type
 
@@ -799,7 +953,7 @@ No authorization required
 
 <a name="deleteFromShoppingList"></a>
 # **deleteFromShoppingList**
-> kotlin.Any deleteFromShoppingList(username, id, hash, inlineObject13)
+> kotlin.Any deleteFromShoppingList(username, id, hash, inlineObject15)
 
 Delete from Shopping List
 
@@ -815,9 +969,9 @@ val apiInstance = DefaultApi()
 val username : kotlin.String = dsky // kotlin.String | The username.
 val id : java.math.BigDecimal = 15678 // java.math.BigDecimal | The shopping list item id.
 val hash : kotlin.String = 4b5v4398573406 // kotlin.String | The private hash for the username.
-val inlineObject13 : InlineObject13 =  // InlineObject13 | 
+val inlineObject15 : InlineObject15 =  // InlineObject15 | 
 try {
-    val result : kotlin.Any = apiInstance.deleteFromShoppingList(username, id, hash, inlineObject13)
+    val result : kotlin.Any = apiInstance.deleteFromShoppingList(username, id, hash, inlineObject15)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling DefaultApi#deleteFromShoppingList")
@@ -835,7 +989,7 @@ Name | Type | Description  | Notes
  **username** | **kotlin.String**| The username. |
  **id** | **java.math.BigDecimal**| The shopping list item id. |
  **hash** | **kotlin.String**| The private hash for the username. |
- **inlineObject13** | [**InlineObject13**](InlineObject13.md)|  |
+ **inlineObject15** | [**InlineObject15**](InlineObject15.md)|  |
 
 ### Return type
 
@@ -1003,7 +1157,7 @@ No authorization required
 
 <a name="generateShoppingList"></a>
 # **generateShoppingList**
-> kotlin.Any generateShoppingList(username, startMinusDate, endMinusDate, hash, inlineObject11)
+> kotlin.Any generateShoppingList(username, startMinusDate, endMinusDate, hash, inlineObject13)
 
 Generate Shopping List
 
@@ -1020,9 +1174,9 @@ val username : kotlin.String = dsky // kotlin.String | The username.
 val startMinusDate : kotlin.String = 2020-06-01 // kotlin.String | The start date in the format yyyy-mm-dd.
 val endMinusDate : kotlin.String = 2020-06-07 // kotlin.String | The end date in the format yyyy-mm-dd.
 val hash : kotlin.String = 4b5v4398573406 // kotlin.String | The private hash for the username.
-val inlineObject11 : InlineObject11 =  // InlineObject11 | 
+val inlineObject13 : InlineObject13 =  // InlineObject13 | 
 try {
-    val result : kotlin.Any = apiInstance.generateShoppingList(username, startMinusDate, endMinusDate, hash, inlineObject11)
+    val result : kotlin.Any = apiInstance.generateShoppingList(username, startMinusDate, endMinusDate, hash, inlineObject13)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling DefaultApi#generateShoppingList")
@@ -1041,7 +1195,7 @@ Name | Type | Description  | Notes
  **startMinusDate** | **kotlin.String**| The start date in the format yyyy-mm-dd. |
  **endMinusDate** | **kotlin.String**| The end date in the format yyyy-mm-dd. |
  **hash** | **kotlin.String**| The private hash for the username. |
- **inlineObject11** | [**InlineObject11**](InlineObject11.md)|  |
+ **inlineObject13** | [**InlineObject13**](InlineObject13.md)|  |
 
 ### Return type
 
@@ -2061,6 +2215,53 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+<a name="getRecipeTasteByID"></a>
+# **getRecipeTasteByID**
+> kotlin.Any getRecipeTasteByID(id)
+
+Get Recipe Taste by ID
+
+Get a recipe&#39;s taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
+
+### Example
+```kotlin
+// Import classes:
+//import spoonacular.infrastructure.*
+//import com.spoonacular.client.model.*
+
+val apiInstance = DefaultApi()
+val id : java.math.BigDecimal = 69095 // java.math.BigDecimal | The recipe id.
+try {
+    val result : kotlin.Any = apiInstance.getRecipeTasteByID(id)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling DefaultApi#getRecipeTasteByID")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling DefaultApi#getRecipeTasteByID")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **java.math.BigDecimal**| The recipe id. |
+
+### Return type
+
+[**kotlin.Any**](kotlin.Any.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 <a name="getShoppingList"></a>
 # **getShoppingList**
 > kotlin.Any getShoppingList(username, hash)
@@ -2451,6 +2652,79 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+<a name="ingredientSearch"></a>
+# **ingredientSearch**
+> kotlin.Any ingredientSearch(query, addChildren, minProteinPercent, maxProteinPercent, minFatPercent, maxFatPercent, minCarbsPercent, maxCarbsPercent, metaInformation, intolerances, sort, sortDirection, offset, number)
+
+Ingredient Search
+
+Search for simple whole foods (e.g. fruits, vegetables, nuts, grains, meat, fish, dairy etc.).
+
+### Example
+```kotlin
+// Import classes:
+//import spoonacular.infrastructure.*
+//import com.spoonacular.client.model.*
+
+val apiInstance = DefaultApi()
+val query : kotlin.String = apple // kotlin.String | The partial or full ingredient name.
+val addChildren : kotlin.Boolean = true // kotlin.Boolean | Whether to add children of found foods.
+val minProteinPercent : java.math.BigDecimal = 10 // java.math.BigDecimal | The minimum percentage of protein the food must have (between 0 and 100).
+val maxProteinPercent : java.math.BigDecimal = 90 // java.math.BigDecimal | The maximum percentage of protein the food can have (between 0 and 100).
+val minFatPercent : java.math.BigDecimal = 10 // java.math.BigDecimal | The minimum percentage of fat the food must have (between 0 and 100).
+val maxFatPercent : java.math.BigDecimal = 90 // java.math.BigDecimal | The maximum percentage of fat the food can have (between 0 and 100).
+val minCarbsPercent : java.math.BigDecimal = 10 // java.math.BigDecimal | The minimum percentage of carbs the food must have (between 0 and 100).
+val maxCarbsPercent : java.math.BigDecimal = 90 // java.math.BigDecimal | The maximum percentage of carbs the food can have (between 0 and 100).
+val metaInformation : kotlin.Boolean = false // kotlin.Boolean | Whether to return more meta information about the ingredients.
+val intolerances : kotlin.String = egg // kotlin.String | A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
+val sort : kotlin.String = calories // kotlin.String | The strategy to sort recipes by. See a full list of supported sorting options.
+val sortDirection : kotlin.String = asc // kotlin.String | The direction in which to sort. Must be either 'asc' (ascending) or 'desc' (descending).
+val offset : java.math.BigDecimal = 0 // java.math.BigDecimal | The number of results to skip (between 0 and 990).
+val number : java.math.BigDecimal = 10 // java.math.BigDecimal | The number of expected results (between 1 and 100).
+try {
+    val result : kotlin.Any = apiInstance.ingredientSearch(query, addChildren, minProteinPercent, maxProteinPercent, minFatPercent, maxFatPercent, minCarbsPercent, maxCarbsPercent, metaInformation, intolerances, sort, sortDirection, offset, number)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling DefaultApi#ingredientSearch")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling DefaultApi#ingredientSearch")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **query** | **kotlin.String**| The partial or full ingredient name. |
+ **addChildren** | **kotlin.Boolean**| Whether to add children of found foods. | [optional]
+ **minProteinPercent** | **java.math.BigDecimal**| The minimum percentage of protein the food must have (between 0 and 100). | [optional]
+ **maxProteinPercent** | **java.math.BigDecimal**| The maximum percentage of protein the food can have (between 0 and 100). | [optional]
+ **minFatPercent** | **java.math.BigDecimal**| The minimum percentage of fat the food must have (between 0 and 100). | [optional]
+ **maxFatPercent** | **java.math.BigDecimal**| The maximum percentage of fat the food can have (between 0 and 100). | [optional]
+ **minCarbsPercent** | **java.math.BigDecimal**| The minimum percentage of carbs the food must have (between 0 and 100). | [optional]
+ **maxCarbsPercent** | **java.math.BigDecimal**| The maximum percentage of carbs the food can have (between 0 and 100). | [optional]
+ **metaInformation** | **kotlin.Boolean**| Whether to return more meta information about the ingredients. | [optional]
+ **intolerances** | **kotlin.String**| A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. | [optional]
+ **sort** | **kotlin.String**| The strategy to sort recipes by. See a full list of supported sorting options. | [optional]
+ **sortDirection** | **kotlin.String**| The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending). | [optional]
+ **offset** | **java.math.BigDecimal**| The number of results to skip (between 0 and 990). | [optional]
+ **number** | **java.math.BigDecimal**| The number of expected results (between 1 and 100). | [optional]
+
+### Return type
+
+[**kotlin.Any**](kotlin.Any.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 <a name="mapIngredientsToGroceryProducts"></a>
 # **mapIngredientsToGroceryProducts**
 > kotlin.Any mapIngredientsToGroceryProducts(body)
@@ -2582,6 +2856,57 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **q** | **kotlin.String**| The nutrition related question. |
+
+### Return type
+
+[**kotlin.Any**](kotlin.Any.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="searchAllFood"></a>
+# **searchAllFood**
+> kotlin.Any searchAllFood(query, offset, number)
+
+Search All Food
+
+Search all food content with one call. That includes recipes, grocery products, menu items, simple foods (ingredients), and food videos.
+
+### Example
+```kotlin
+// Import classes:
+//import spoonacular.infrastructure.*
+//import com.spoonacular.client.model.*
+
+val apiInstance = DefaultApi()
+val query : kotlin.String = apple // kotlin.String | The search query.
+val offset : java.math.BigDecimal = 0 // java.math.BigDecimal | The number of results to skip (between 0 and 990).
+val number : java.math.BigDecimal = 10 // java.math.BigDecimal | The number of expected results (between 1 and 100).
+try {
+    val result : kotlin.Any = apiInstance.searchAllFood(query, offset, number)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling DefaultApi#searchAllFood")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling DefaultApi#searchAllFood")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **query** | **kotlin.String**| The search query. |
+ **offset** | **java.math.BigDecimal**| The number of results to skip (between 0 and 990). | [optional]
+ **number** | **java.math.BigDecimal**| The number of expected results (between 1 and 100). | [optional]
 
 ### Return type
 
@@ -2899,11 +3224,11 @@ No authorization required
 
 <a name="searchRecipes"></a>
 # **searchRecipes**
-> kotlin.Any searchRecipes(query, cuisine, diet, excludeIngredients, intolerances, offset, number, limitLicense, instructionsRequired)
+> kotlin.Any searchRecipes(query, cuisine, excludeCuisine, diet, intolerances, equipment, includeIngredients, excludeIngredients, type, instructionsRequired, fillIngredients, addRecipeInformation, addRecipeNutrition, author, tags, recipeBoxId, titleMatch, maxReadyTime, ignorePantry, sort, sortDirection, minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, limitLicense)
 
 Search Recipes
 
-Our recipe API includes over 360,000 recipes as well as an open source recipe database. Consider using the \&quot;Search Recipes Complex\&quot; endpoint for much more flexibility.
+Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint.
 
 ### Example
 ```kotlin
@@ -2912,17 +3237,104 @@ Our recipe API includes over 360,000 recipes as well as an open source recipe da
 //import com.spoonacular.client.model.*
 
 val apiInstance = DefaultApi()
-val query : kotlin.String = burger // kotlin.String | The (natural language) recipe search query.
-val cuisine : kotlin.String = italian // kotlin.String | The cuisine(s) of the recipes. One or more comma separated. See a full list of supported cuisines.
+val query : kotlin.String = pasta // kotlin.String | The (natural language) recipe search query.
+val cuisine : kotlin.String = italian // kotlin.String | The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as 'OR'). See a full list of supported cuisines.
+val excludeCuisine : kotlin.String = greek // kotlin.String | The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as 'AND'). See a full list of supported cuisines.
 val diet : kotlin.String = vegetarian // kotlin.String | The diet for which the recipes must be suitable. See a full list of supported diets.
+val intolerances : kotlin.String = gluten // kotlin.String | A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
+val equipment : kotlin.String = pan // kotlin.String | The equipment required. Multiple values will be interpreted as 'or'. For example, value could be \"blender, frying pan, bowl\".
+val includeIngredients : kotlin.String = tomato,cheese // kotlin.String | A comma-separated list of ingredients that should/must be used in the recipes.
 val excludeIngredients : kotlin.String = eggs // kotlin.String | A comma-separated list of ingredients or ingredient types that the recipes must not contain.
-val intolerances : kotlin.String = gluten // kotlin.String | A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. Please note: due to the automatic nature of the recipe analysis, the API cannot be 100% accurate in all cases. Please advise your users to seek professional help with medical issues.
-val offset : java.math.BigDecimal = 0 // java.math.BigDecimal | The number of results to skip (between 0 and 900).
-val number : java.math.BigDecimal = 10 // java.math.BigDecimal | The number of results to return (between 1 and 100).
-val limitLicense : kotlin.Boolean = true // kotlin.Boolean | Whether the recipes should have an open license that allows display with proper attribution.
+val type : kotlin.String = main course // kotlin.String | The type of recipe. See a full list of supported meal types.
 val instructionsRequired : kotlin.Boolean = true // kotlin.Boolean | Whether the recipes must have instructions.
+val fillIngredients : kotlin.Boolean = false // kotlin.Boolean | Add information about the ingredients and whether they are used or missing in relation to the query.
+val addRecipeInformation : kotlin.Boolean = false // kotlin.Boolean | If set to true, you get more information about the recipes returned.
+val addRecipeNutrition : kotlin.Boolean = false // kotlin.Boolean | If set to true, you get nutritional information about each recipes returned.
+val author : kotlin.String = coffeebean // kotlin.String | The username of the recipe author.
+val tags : kotlin.String = myCustomTag // kotlin.String | User defined tags that have to match. The author param has to be set.
+val recipeBoxId : java.math.BigDecimal = 2468 // java.math.BigDecimal | The id of the recipe box to which the search should be limited to.
+val titleMatch : kotlin.String = Crock Pot // kotlin.String | Enter text that must be found in the title of the recipes.
+val maxReadyTime : java.math.BigDecimal = 20 // java.math.BigDecimal | The maximum time in minutes it should take to prepare and cook the recipe.
+val ignorePantry : kotlin.Boolean = true // kotlin.Boolean | Whether to ignore typical pantry items, such as water, salt, flour, etc.
+val sort : kotlin.String = calories // kotlin.String | The strategy to sort recipes by. See a full list of supported sorting options.
+val sortDirection : kotlin.String = asc // kotlin.String | The direction in which to sort. Must be either 'asc' (ascending) or 'desc' (descending).
+val minCarbs : java.math.BigDecimal = 10 // java.math.BigDecimal | The minimum amount of carbohydrates in grams the recipe must have.
+val maxCarbs : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of carbohydrates in grams the recipe can have.
+val minProtein : java.math.BigDecimal = 10 // java.math.BigDecimal | The minimum amount of protein in grams the recipe must have.
+val maxProtein : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of protein in grams the recipe can have.
+val minCalories : java.math.BigDecimal = 50 // java.math.BigDecimal | The minimum amount of calories the recipe must have.
+val maxCalories : java.math.BigDecimal = 800 // java.math.BigDecimal | The maximum amount of calories the recipe can have.
+val minFat : java.math.BigDecimal = 1 // java.math.BigDecimal | The minimum amount of fat in grams the recipe must have.
+val maxFat : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of fat in grams the recipe can have.
+val minAlcohol : java.math.BigDecimal = 0 // java.math.BigDecimal | The minimum amount of alcohol in grams the recipe must have.
+val maxAlcohol : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of alcohol in grams the recipe can have.
+val minCaffeine : java.math.BigDecimal = 0 // java.math.BigDecimal | The minimum amount of caffeine in milligrams the recipe must have.
+val maxCaffeine : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of caffeine in milligrams the recipe can have.
+val minCopper : java.math.BigDecimal = 0 // java.math.BigDecimal | The minimum amount of copper in milligrams the recipe must have.
+val maxCopper : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of copper in milligrams the recipe can have.
+val minCalcium : java.math.BigDecimal = 0 // java.math.BigDecimal | The minimum amount of calcium in milligrams the recipe must have.
+val maxCalcium : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of calcium in milligrams the recipe can have.
+val minCholine : java.math.BigDecimal = 0 // java.math.BigDecimal | The minimum amount of choline in milligrams the recipe must have.
+val maxCholine : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of choline in milligrams the recipe can have.
+val minCholesterol : java.math.BigDecimal = 0 // java.math.BigDecimal | The minimum amount of cholesterol in milligrams the recipe must have.
+val maxCholesterol : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of cholesterol in milligrams the recipe can have.
+val minFluoride : java.math.BigDecimal = 0 // java.math.BigDecimal | The minimum amount of fluoride in milligrams the recipe must have.
+val maxFluoride : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of fluoride in milligrams the recipe can have.
+val minSaturatedFat : java.math.BigDecimal = 0 // java.math.BigDecimal | The minimum amount of saturated fat in grams the recipe must have.
+val maxSaturatedFat : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of saturated fat in grams the recipe can have.
+val minVitaminA : java.math.BigDecimal = 0 // java.math.BigDecimal | The minimum amount of Vitamin A in IU the recipe must have.
+val maxVitaminA : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of Vitamin A in IU the recipe can have.
+val minVitaminC : java.math.BigDecimal = 0 // java.math.BigDecimal | The minimum amount of Vitamin C milligrams the recipe must have.
+val maxVitaminC : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of Vitamin C in milligrams the recipe can have.
+val minVitaminD : java.math.BigDecimal = 0 // java.math.BigDecimal | The minimum amount of Vitamin D in micrograms the recipe must have.
+val maxVitaminD : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of Vitamin D in micrograms the recipe can have.
+val minVitaminE : java.math.BigDecimal = 0 // java.math.BigDecimal | The minimum amount of Vitamin E in milligrams the recipe must have.
+val maxVitaminE : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of Vitamin E in milligrams the recipe can have.
+val minVitaminK : java.math.BigDecimal = 0 // java.math.BigDecimal | The minimum amount of Vitamin K in micrograms the recipe must have.
+val maxVitaminK : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of Vitamin K in micrograms the recipe can have.
+val minVitaminB1 : java.math.BigDecimal = 0 // java.math.BigDecimal | The minimum amount of Vitamin B1 in milligrams the recipe must have.
+val maxVitaminB1 : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of Vitamin B1 in milligrams the recipe can have.
+val minVitaminB2 : java.math.BigDecimal = 0 // java.math.BigDecimal | The minimum amount of Vitamin B2 in milligrams the recipe must have.
+val maxVitaminB2 : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of Vitamin B2 in milligrams the recipe can have.
+val minVitaminB5 : java.math.BigDecimal = 0 // java.math.BigDecimal | The minimum amount of Vitamin B5 in milligrams the recipe must have.
+val maxVitaminB5 : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of Vitamin B5 in milligrams the recipe can have.
+val minVitaminB3 : java.math.BigDecimal = 0 // java.math.BigDecimal | The minimum amount of Vitamin B3 in milligrams the recipe must have.
+val maxVitaminB3 : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of Vitamin B3 in milligrams the recipe can have.
+val minVitaminB6 : java.math.BigDecimal = 0 // java.math.BigDecimal | The minimum amount of Vitamin B6 in milligrams the recipe must have.
+val maxVitaminB6 : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of Vitamin B6 in milligrams the recipe can have.
+val minVitaminB12 : java.math.BigDecimal = 0 // java.math.BigDecimal | The minimum amount of Vitamin B12 in micrograms the recipe must have.
+val maxVitaminB12 : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of Vitamin B12 in micrograms the recipe can have.
+val minFiber : java.math.BigDecimal = 0 // java.math.BigDecimal | The minimum amount of fiber in grams the recipe must have.
+val maxFiber : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of fiber in grams the recipe can have.
+val minFolate : java.math.BigDecimal = 0 // java.math.BigDecimal | The minimum amount of folate in micrograms the recipe must have.
+val maxFolate : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of folate in micrograms the recipe can have.
+val minFolicAcid : java.math.BigDecimal = 0 // java.math.BigDecimal | The minimum amount of folic acid in micrograms the recipe must have.
+val maxFolicAcid : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of folic acid in micrograms the recipe can have.
+val minIodine : java.math.BigDecimal = 0 // java.math.BigDecimal | The minimum amount of iodine in micrograms the recipe must have.
+val maxIodine : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of iodine in micrograms the recipe can have.
+val minIron : java.math.BigDecimal = 0 // java.math.BigDecimal | The minimum amount of iron in milligrams the recipe must have.
+val maxIron : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of iron in milligrams the recipe can have.
+val minMagnesium : java.math.BigDecimal = 0 // java.math.BigDecimal | The minimum amount of magnesium in milligrams the recipe must have.
+val maxMagnesium : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of magnesium in milligrams the recipe can have.
+val minManganese : java.math.BigDecimal = 0 // java.math.BigDecimal | The minimum amount of manganese in milligrams the recipe must have.
+val maxManganese : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of manganese in milligrams the recipe can have.
+val minPhosphorus : java.math.BigDecimal = 0 // java.math.BigDecimal | The minimum amount of phosphorus in milligrams the recipe must have.
+val maxPhosphorus : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of phosphorus in milligrams the recipe can have.
+val minPotassium : java.math.BigDecimal = 0 // java.math.BigDecimal | The minimum amount of potassium in milligrams the recipe must have.
+val maxPotassium : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of potassium in milligrams the recipe can have.
+val minSelenium : java.math.BigDecimal = 0 // java.math.BigDecimal | The minimum amount of selenium in micrograms the recipe must have.
+val maxSelenium : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of selenium in micrograms the recipe can have.
+val minSodium : java.math.BigDecimal = 0 // java.math.BigDecimal | The minimum amount of sodium in milligrams the recipe must have.
+val maxSodium : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of sodium in milligrams the recipe can have.
+val minSugar : java.math.BigDecimal = 0 // java.math.BigDecimal | The minimum amount of sugar in grams the recipe must have.
+val maxSugar : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of sugar in grams the recipe can have.
+val minZinc : java.math.BigDecimal = 0 // java.math.BigDecimal | The minimum amount of zinc in milligrams the recipe must have.
+val maxZinc : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of zinc in milligrams the recipe can have.
+val offset : java.math.BigDecimal = 0 // java.math.BigDecimal | The number of results to skip (between 0 and 900).
+val number : java.math.BigDecimal = 10 // java.math.BigDecimal | The number of expected results (between 1 and 100).
+val limitLicense : kotlin.Boolean = true // kotlin.Boolean | Whether the recipes should have an open license that allows display with proper attribution.
 try {
-    val result : kotlin.Any = apiInstance.searchRecipes(query, cuisine, diet, excludeIngredients, intolerances, offset, number, limitLicense, instructionsRequired)
+    val result : kotlin.Any = apiInstance.searchRecipes(query, cuisine, excludeCuisine, diet, intolerances, equipment, includeIngredients, excludeIngredients, type, instructionsRequired, fillIngredients, addRecipeInformation, addRecipeNutrition, author, tags, recipeBoxId, titleMatch, maxReadyTime, ignorePantry, sort, sortDirection, minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, limitLicense)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling DefaultApi#searchRecipes")
@@ -2938,14 +3350,101 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **query** | **kotlin.String**| The (natural language) recipe search query. |
- **cuisine** | **kotlin.String**| The cuisine(s) of the recipes. One or more comma separated. See a full list of supported cuisines. | [optional]
+ **cuisine** | **kotlin.String**| The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as &#39;OR&#39;). See a full list of supported cuisines. | [optional]
+ **excludeCuisine** | **kotlin.String**| The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as &#39;AND&#39;). See a full list of supported cuisines. | [optional]
  **diet** | **kotlin.String**| The diet for which the recipes must be suitable. See a full list of supported diets. | [optional]
+ **intolerances** | **kotlin.String**| A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. | [optional]
+ **equipment** | **kotlin.String**| The equipment required. Multiple values will be interpreted as &#39;or&#39;. For example, value could be \&quot;blender, frying pan, bowl\&quot;. | [optional]
+ **includeIngredients** | **kotlin.String**| A comma-separated list of ingredients that should/must be used in the recipes. | [optional]
  **excludeIngredients** | **kotlin.String**| A comma-separated list of ingredients or ingredient types that the recipes must not contain. | [optional]
- **intolerances** | **kotlin.String**| A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. Please note: due to the automatic nature of the recipe analysis, the API cannot be 100% accurate in all cases. Please advise your users to seek professional help with medical issues. | [optional]
- **offset** | **java.math.BigDecimal**| The number of results to skip (between 0 and 900). | [optional]
- **number** | **java.math.BigDecimal**| The number of results to return (between 1 and 100). | [optional]
- **limitLicense** | **kotlin.Boolean**| Whether the recipes should have an open license that allows display with proper attribution. | [optional]
+ **type** | **kotlin.String**| The type of recipe. See a full list of supported meal types. | [optional]
  **instructionsRequired** | **kotlin.Boolean**| Whether the recipes must have instructions. | [optional]
+ **fillIngredients** | **kotlin.Boolean**| Add information about the ingredients and whether they are used or missing in relation to the query. | [optional]
+ **addRecipeInformation** | **kotlin.Boolean**| If set to true, you get more information about the recipes returned. | [optional]
+ **addRecipeNutrition** | **kotlin.Boolean**| If set to true, you get nutritional information about each recipes returned. | [optional]
+ **author** | **kotlin.String**| The username of the recipe author. | [optional]
+ **tags** | **kotlin.String**| User defined tags that have to match. The author param has to be set. | [optional]
+ **recipeBoxId** | **java.math.BigDecimal**| The id of the recipe box to which the search should be limited to. | [optional]
+ **titleMatch** | **kotlin.String**| Enter text that must be found in the title of the recipes. | [optional]
+ **maxReadyTime** | **java.math.BigDecimal**| The maximum time in minutes it should take to prepare and cook the recipe. | [optional]
+ **ignorePantry** | **kotlin.Boolean**| Whether to ignore typical pantry items, such as water, salt, flour, etc. | [optional]
+ **sort** | **kotlin.String**| The strategy to sort recipes by. See a full list of supported sorting options. | [optional]
+ **sortDirection** | **kotlin.String**| The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending). | [optional]
+ **minCarbs** | **java.math.BigDecimal**| The minimum amount of carbohydrates in grams the recipe must have. | [optional]
+ **maxCarbs** | **java.math.BigDecimal**| The maximum amount of carbohydrates in grams the recipe can have. | [optional]
+ **minProtein** | **java.math.BigDecimal**| The minimum amount of protein in grams the recipe must have. | [optional]
+ **maxProtein** | **java.math.BigDecimal**| The maximum amount of protein in grams the recipe can have. | [optional]
+ **minCalories** | **java.math.BigDecimal**| The minimum amount of calories the recipe must have. | [optional]
+ **maxCalories** | **java.math.BigDecimal**| The maximum amount of calories the recipe can have. | [optional]
+ **minFat** | **java.math.BigDecimal**| The minimum amount of fat in grams the recipe must have. | [optional]
+ **maxFat** | **java.math.BigDecimal**| The maximum amount of fat in grams the recipe can have. | [optional]
+ **minAlcohol** | **java.math.BigDecimal**| The minimum amount of alcohol in grams the recipe must have. | [optional]
+ **maxAlcohol** | **java.math.BigDecimal**| The maximum amount of alcohol in grams the recipe can have. | [optional]
+ **minCaffeine** | **java.math.BigDecimal**| The minimum amount of caffeine in milligrams the recipe must have. | [optional]
+ **maxCaffeine** | **java.math.BigDecimal**| The maximum amount of caffeine in milligrams the recipe can have. | [optional]
+ **minCopper** | **java.math.BigDecimal**| The minimum amount of copper in milligrams the recipe must have. | [optional]
+ **maxCopper** | **java.math.BigDecimal**| The maximum amount of copper in milligrams the recipe can have. | [optional]
+ **minCalcium** | **java.math.BigDecimal**| The minimum amount of calcium in milligrams the recipe must have. | [optional]
+ **maxCalcium** | **java.math.BigDecimal**| The maximum amount of calcium in milligrams the recipe can have. | [optional]
+ **minCholine** | **java.math.BigDecimal**| The minimum amount of choline in milligrams the recipe must have. | [optional]
+ **maxCholine** | **java.math.BigDecimal**| The maximum amount of choline in milligrams the recipe can have. | [optional]
+ **minCholesterol** | **java.math.BigDecimal**| The minimum amount of cholesterol in milligrams the recipe must have. | [optional]
+ **maxCholesterol** | **java.math.BigDecimal**| The maximum amount of cholesterol in milligrams the recipe can have. | [optional]
+ **minFluoride** | **java.math.BigDecimal**| The minimum amount of fluoride in milligrams the recipe must have. | [optional]
+ **maxFluoride** | **java.math.BigDecimal**| The maximum amount of fluoride in milligrams the recipe can have. | [optional]
+ **minSaturatedFat** | **java.math.BigDecimal**| The minimum amount of saturated fat in grams the recipe must have. | [optional]
+ **maxSaturatedFat** | **java.math.BigDecimal**| The maximum amount of saturated fat in grams the recipe can have. | [optional]
+ **minVitaminA** | **java.math.BigDecimal**| The minimum amount of Vitamin A in IU the recipe must have. | [optional]
+ **maxVitaminA** | **java.math.BigDecimal**| The maximum amount of Vitamin A in IU the recipe can have. | [optional]
+ **minVitaminC** | **java.math.BigDecimal**| The minimum amount of Vitamin C milligrams the recipe must have. | [optional]
+ **maxVitaminC** | **java.math.BigDecimal**| The maximum amount of Vitamin C in milligrams the recipe can have. | [optional]
+ **minVitaminD** | **java.math.BigDecimal**| The minimum amount of Vitamin D in micrograms the recipe must have. | [optional]
+ **maxVitaminD** | **java.math.BigDecimal**| The maximum amount of Vitamin D in micrograms the recipe can have. | [optional]
+ **minVitaminE** | **java.math.BigDecimal**| The minimum amount of Vitamin E in milligrams the recipe must have. | [optional]
+ **maxVitaminE** | **java.math.BigDecimal**| The maximum amount of Vitamin E in milligrams the recipe can have. | [optional]
+ **minVitaminK** | **java.math.BigDecimal**| The minimum amount of Vitamin K in micrograms the recipe must have. | [optional]
+ **maxVitaminK** | **java.math.BigDecimal**| The maximum amount of Vitamin K in micrograms the recipe can have. | [optional]
+ **minVitaminB1** | **java.math.BigDecimal**| The minimum amount of Vitamin B1 in milligrams the recipe must have. | [optional]
+ **maxVitaminB1** | **java.math.BigDecimal**| The maximum amount of Vitamin B1 in milligrams the recipe can have. | [optional]
+ **minVitaminB2** | **java.math.BigDecimal**| The minimum amount of Vitamin B2 in milligrams the recipe must have. | [optional]
+ **maxVitaminB2** | **java.math.BigDecimal**| The maximum amount of Vitamin B2 in milligrams the recipe can have. | [optional]
+ **minVitaminB5** | **java.math.BigDecimal**| The minimum amount of Vitamin B5 in milligrams the recipe must have. | [optional]
+ **maxVitaminB5** | **java.math.BigDecimal**| The maximum amount of Vitamin B5 in milligrams the recipe can have. | [optional]
+ **minVitaminB3** | **java.math.BigDecimal**| The minimum amount of Vitamin B3 in milligrams the recipe must have. | [optional]
+ **maxVitaminB3** | **java.math.BigDecimal**| The maximum amount of Vitamin B3 in milligrams the recipe can have. | [optional]
+ **minVitaminB6** | **java.math.BigDecimal**| The minimum amount of Vitamin B6 in milligrams the recipe must have. | [optional]
+ **maxVitaminB6** | **java.math.BigDecimal**| The maximum amount of Vitamin B6 in milligrams the recipe can have. | [optional]
+ **minVitaminB12** | **java.math.BigDecimal**| The minimum amount of Vitamin B12 in micrograms the recipe must have. | [optional]
+ **maxVitaminB12** | **java.math.BigDecimal**| The maximum amount of Vitamin B12 in micrograms the recipe can have. | [optional]
+ **minFiber** | **java.math.BigDecimal**| The minimum amount of fiber in grams the recipe must have. | [optional]
+ **maxFiber** | **java.math.BigDecimal**| The maximum amount of fiber in grams the recipe can have. | [optional]
+ **minFolate** | **java.math.BigDecimal**| The minimum amount of folate in micrograms the recipe must have. | [optional]
+ **maxFolate** | **java.math.BigDecimal**| The maximum amount of folate in micrograms the recipe can have. | [optional]
+ **minFolicAcid** | **java.math.BigDecimal**| The minimum amount of folic acid in micrograms the recipe must have. | [optional]
+ **maxFolicAcid** | **java.math.BigDecimal**| The maximum amount of folic acid in micrograms the recipe can have. | [optional]
+ **minIodine** | **java.math.BigDecimal**| The minimum amount of iodine in micrograms the recipe must have. | [optional]
+ **maxIodine** | **java.math.BigDecimal**| The maximum amount of iodine in micrograms the recipe can have. | [optional]
+ **minIron** | **java.math.BigDecimal**| The minimum amount of iron in milligrams the recipe must have. | [optional]
+ **maxIron** | **java.math.BigDecimal**| The maximum amount of iron in milligrams the recipe can have. | [optional]
+ **minMagnesium** | **java.math.BigDecimal**| The minimum amount of magnesium in milligrams the recipe must have. | [optional]
+ **maxMagnesium** | **java.math.BigDecimal**| The maximum amount of magnesium in milligrams the recipe can have. | [optional]
+ **minManganese** | **java.math.BigDecimal**| The minimum amount of manganese in milligrams the recipe must have. | [optional]
+ **maxManganese** | **java.math.BigDecimal**| The maximum amount of manganese in milligrams the recipe can have. | [optional]
+ **minPhosphorus** | **java.math.BigDecimal**| The minimum amount of phosphorus in milligrams the recipe must have. | [optional]
+ **maxPhosphorus** | **java.math.BigDecimal**| The maximum amount of phosphorus in milligrams the recipe can have. | [optional]
+ **minPotassium** | **java.math.BigDecimal**| The minimum amount of potassium in milligrams the recipe must have. | [optional]
+ **maxPotassium** | **java.math.BigDecimal**| The maximum amount of potassium in milligrams the recipe can have. | [optional]
+ **minSelenium** | **java.math.BigDecimal**| The minimum amount of selenium in micrograms the recipe must have. | [optional]
+ **maxSelenium** | **java.math.BigDecimal**| The maximum amount of selenium in micrograms the recipe can have. | [optional]
+ **minSodium** | **java.math.BigDecimal**| The minimum amount of sodium in milligrams the recipe must have. | [optional]
+ **maxSodium** | **java.math.BigDecimal**| The maximum amount of sodium in milligrams the recipe can have. | [optional]
+ **minSugar** | **java.math.BigDecimal**| The minimum amount of sugar in grams the recipe must have. | [optional]
+ **maxSugar** | **java.math.BigDecimal**| The maximum amount of sugar in grams the recipe can have. | [optional]
+ **minZinc** | **java.math.BigDecimal**| The minimum amount of zinc in milligrams the recipe must have. | [optional]
+ **maxZinc** | **java.math.BigDecimal**| The maximum amount of zinc in milligrams the recipe can have. | [optional]
+ **offset** | **java.math.BigDecimal**| The number of results to skip (between 0 and 900). | [optional]
+ **number** | **java.math.BigDecimal**| The number of expected results (between 1 and 100). | [optional]
+ **limitLicense** | **kotlin.Boolean**| Whether the recipes should have an open license that allows display with proper attribution. | [optional]
 
 ### Return type
 
@@ -3078,12 +3577,12 @@ val minVitaminB12 : java.math.BigDecimal = 0 // java.math.BigDecimal | The minim
 val maxVitaminB12 : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of Vitamin B12 in micrograms the recipe can have.
 val minFiber : java.math.BigDecimal = 0 // java.math.BigDecimal | The minimum amount of fiber in grams the recipe must have.
 val maxFiber : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of fiber in grams the recipe can have.
-val minFolate : java.math.BigDecimal = 0 // java.math.BigDecimal | The minimum amount of folate in grams the recipe must have.
-val maxFolate : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of folate in grams the recipe can have.
-val minFolicAcid : java.math.BigDecimal = 0 // java.math.BigDecimal | The minimum amount of folic acid in grams the recipe must have.
-val maxFolicAcid : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of folic acid in grams the recipe can have.
-val minIodine : java.math.BigDecimal = 0 // java.math.BigDecimal | The minimum amount of iodine in grams the recipe must have.
-val maxIodine : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of iodine in grams the recipe can have.
+val minFolate : java.math.BigDecimal = 0 // java.math.BigDecimal | The minimum amount of folate in micrograms the recipe must have.
+val maxFolate : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of folate in micrograms the recipe can have.
+val minFolicAcid : java.math.BigDecimal = 0 // java.math.BigDecimal | The minimum amount of folic acid in micrograms the recipe must have.
+val maxFolicAcid : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of folic acid in micrograms the recipe can have.
+val minIodine : java.math.BigDecimal = 0 // java.math.BigDecimal | The minimum amount of iodine in micrograms the recipe must have.
+val maxIodine : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of iodine in micrograms the recipe can have.
 val minIron : java.math.BigDecimal = 0 // java.math.BigDecimal | The minimum amount of iron in milligrams the recipe must have.
 val maxIron : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of iron in milligrams the recipe can have.
 val minMagnesium : java.math.BigDecimal = 0 // java.math.BigDecimal | The minimum amount of magnesium in milligrams the recipe must have.
@@ -3094,8 +3593,8 @@ val minPhosphorus : java.math.BigDecimal = 0 // java.math.BigDecimal | The minim
 val maxPhosphorus : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of phosphorus in milligrams the recipe can have.
 val minPotassium : java.math.BigDecimal = 0 // java.math.BigDecimal | The minimum amount of potassium in milligrams the recipe must have.
 val maxPotassium : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of potassium in milligrams the recipe can have.
-val minSelenium : java.math.BigDecimal = 0 // java.math.BigDecimal | The minimum amount of selenium in grams the recipe must have.
-val maxSelenium : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of selenium in grams the recipe can have.
+val minSelenium : java.math.BigDecimal = 0 // java.math.BigDecimal | The minimum amount of selenium in micrograms the recipe must have.
+val maxSelenium : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of selenium in micrograms the recipe can have.
 val minSodium : java.math.BigDecimal = 0 // java.math.BigDecimal | The minimum amount of sodium in milligrams the recipe must have.
 val maxSodium : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of sodium in milligrams the recipe can have.
 val minSugar : java.math.BigDecimal = 0 // java.math.BigDecimal | The minimum amount of sugar in grams the recipe must have.
@@ -3170,12 +3669,12 @@ Name | Type | Description  | Notes
  **maxVitaminB12** | **java.math.BigDecimal**| The maximum amount of Vitamin B12 in micrograms the recipe can have. | [optional]
  **minFiber** | **java.math.BigDecimal**| The minimum amount of fiber in grams the recipe must have. | [optional]
  **maxFiber** | **java.math.BigDecimal**| The maximum amount of fiber in grams the recipe can have. | [optional]
- **minFolate** | **java.math.BigDecimal**| The minimum amount of folate in grams the recipe must have. | [optional]
- **maxFolate** | **java.math.BigDecimal**| The maximum amount of folate in grams the recipe can have. | [optional]
- **minFolicAcid** | **java.math.BigDecimal**| The minimum amount of folic acid in grams the recipe must have. | [optional]
- **maxFolicAcid** | **java.math.BigDecimal**| The maximum amount of folic acid in grams the recipe can have. | [optional]
- **minIodine** | **java.math.BigDecimal**| The minimum amount of iodine in grams the recipe must have. | [optional]
- **maxIodine** | **java.math.BigDecimal**| The maximum amount of iodine in grams the recipe can have. | [optional]
+ **minFolate** | **java.math.BigDecimal**| The minimum amount of folate in micrograms the recipe must have. | [optional]
+ **maxFolate** | **java.math.BigDecimal**| The maximum amount of folate in micrograms the recipe can have. | [optional]
+ **minFolicAcid** | **java.math.BigDecimal**| The minimum amount of folic acid in micrograms the recipe must have. | [optional]
+ **maxFolicAcid** | **java.math.BigDecimal**| The maximum amount of folic acid in micrograms the recipe can have. | [optional]
+ **minIodine** | **java.math.BigDecimal**| The minimum amount of iodine in micrograms the recipe must have. | [optional]
+ **maxIodine** | **java.math.BigDecimal**| The maximum amount of iodine in micrograms the recipe can have. | [optional]
  **minIron** | **java.math.BigDecimal**| The minimum amount of iron in milligrams the recipe must have. | [optional]
  **maxIron** | **java.math.BigDecimal**| The maximum amount of iron in milligrams the recipe can have. | [optional]
  **minMagnesium** | **java.math.BigDecimal**| The minimum amount of magnesium in milligrams the recipe must have. | [optional]
@@ -3186,8 +3685,8 @@ Name | Type | Description  | Notes
  **maxPhosphorus** | **java.math.BigDecimal**| The maximum amount of phosphorus in milligrams the recipe can have. | [optional]
  **minPotassium** | **java.math.BigDecimal**| The minimum amount of potassium in milligrams the recipe must have. | [optional]
  **maxPotassium** | **java.math.BigDecimal**| The maximum amount of potassium in milligrams the recipe can have. | [optional]
- **minSelenium** | **java.math.BigDecimal**| The minimum amount of selenium in grams the recipe must have. | [optional]
- **maxSelenium** | **java.math.BigDecimal**| The maximum amount of selenium in grams the recipe can have. | [optional]
+ **minSelenium** | **java.math.BigDecimal**| The minimum amount of selenium in micrograms the recipe must have. | [optional]
+ **maxSelenium** | **java.math.BigDecimal**| The maximum amount of selenium in micrograms the recipe can have. | [optional]
  **minSodium** | **java.math.BigDecimal**| The minimum amount of sodium in milligrams the recipe must have. | [optional]
  **maxSodium** | **java.math.BigDecimal**| The maximum amount of sodium in milligrams the recipe can have. | [optional]
  **minSugar** | **java.math.BigDecimal**| The minimum amount of sugar in grams the recipe must have. | [optional]
@@ -3197,243 +3696,6 @@ Name | Type | Description  | Notes
  **offset** | **java.math.BigDecimal**| The number of results to skip (between 0 and 900). | [optional]
  **number** | **java.math.BigDecimal**| The number of expected results (between 1 and 100). | [optional]
  **random** | **kotlin.Boolean**| If true, every request will give you a random set of recipes within the requested limits. | [optional]
- **limitLicense** | **kotlin.Boolean**| Whether the recipes should have an open license that allows display with proper attribution. | [optional]
-
-### Return type
-
-[**kotlin.Any**](kotlin.Any.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a name="searchRecipesComplex"></a>
-# **searchRecipesComplex**
-> kotlin.Any searchRecipesComplex(query, cuisine, excludeCuisine, diet, intolerances, equipment, includeIngredients, excludeIngredients, type, instructionsRequired, fillIngredients, addRecipeInformation, addRecipeNutrition, author, tags, recipeBoxId, titleMatch, maxReadyTime, ignorePantry, sort, sortDirection, minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, limitLicense)
-
-Search Recipes Complex
-
-Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint.
-
-### Example
-```kotlin
-// Import classes:
-//import spoonacular.infrastructure.*
-//import com.spoonacular.client.model.*
-
-val apiInstance = DefaultApi()
-val query : kotlin.String = pasta // kotlin.String | The (natural language) recipe search query.
-val cuisine : kotlin.String = italian // kotlin.String | The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as 'OR'). See a full list of supported cuisines.
-val excludeCuisine : kotlin.String = greek // kotlin.String | The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as 'AND'). See a full list of supported cuisines.
-val diet : kotlin.String = vegetarian // kotlin.String | The diet for which the recipes must be suitable. See a full list of supported diets.
-val intolerances : kotlin.String = gluten // kotlin.String | A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
-val equipment : kotlin.String = pan // kotlin.String | The equipment required. Multiple values will be interpreted as 'or'. For example, value could be \"blender, frying pan, bowl\".
-val includeIngredients : kotlin.String = tomato,cheese // kotlin.String | A comma-separated list of ingredients that should/must be used in the recipes.
-val excludeIngredients : kotlin.String = eggs // kotlin.String | A comma-separated list of ingredients or ingredient types that the recipes must not contain.
-val type : kotlin.String = main course // kotlin.String | The type of recipe. See a full list of supported meal types.
-val instructionsRequired : kotlin.Boolean = true // kotlin.Boolean | Whether the recipes must have instructions.
-val fillIngredients : kotlin.Boolean = false // kotlin.Boolean | Add information about the ingredients and whether they are used or missing in relation to the query.
-val addRecipeInformation : kotlin.Boolean = false // kotlin.Boolean | If set to true, you get more information about the recipes returned.
-val addRecipeNutrition : kotlin.Boolean = false // kotlin.Boolean | If set to true, you get nutritional information about each recipes returned.
-val author : kotlin.String = coffeebean // kotlin.String | The username of the recipe author.
-val tags : kotlin.String = myCustomTag // kotlin.String | User defined tags that have to match. The author param has to be set.
-val recipeBoxId : java.math.BigDecimal = 2468 // java.math.BigDecimal | The id of the recipe box to which the search should be limited to.
-val titleMatch : kotlin.String = Crock Pot // kotlin.String | Enter text that must be found in the title of the recipes.
-val maxReadyTime : java.math.BigDecimal = 20 // java.math.BigDecimal | The maximum time in minutes it should take to prepare and cook the recipe.
-val ignorePantry : kotlin.Boolean = true // kotlin.Boolean | Whether to ignore typical pantry items, such as water, salt, flour, etc.
-val sort : kotlin.String = calories // kotlin.String | The strategy to sort recipes by. See a full list of supported sorting options.
-val sortDirection : kotlin.String = asc // kotlin.String | The direction in which to sort. Must be either 'asc' (ascending) or 'desc' (descending).
-val minCarbs : java.math.BigDecimal = 10 // java.math.BigDecimal | The minimum amount of carbohydrates in grams the recipe must have.
-val maxCarbs : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of carbohydrates in grams the recipe can have.
-val minProtein : java.math.BigDecimal = 10 // java.math.BigDecimal | The minimum amount of protein in grams the recipe must have.
-val maxProtein : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of protein in grams the recipe can have.
-val minCalories : java.math.BigDecimal = 50 // java.math.BigDecimal | The minimum amount of calories the recipe must have.
-val maxCalories : java.math.BigDecimal = 800 // java.math.BigDecimal | The maximum amount of calories the recipe can have.
-val minFat : java.math.BigDecimal = 1 // java.math.BigDecimal | The minimum amount of fat in grams the recipe must have.
-val maxFat : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of fat in grams the recipe can have.
-val minAlcohol : java.math.BigDecimal = 0 // java.math.BigDecimal | The minimum amount of alcohol in grams the recipe must have.
-val maxAlcohol : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of alcohol in grams the recipe can have.
-val minCaffeine : java.math.BigDecimal = 0 // java.math.BigDecimal | The minimum amount of caffeine in milligrams the recipe must have.
-val maxCaffeine : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of caffeine in milligrams the recipe can have.
-val minCopper : java.math.BigDecimal = 0 // java.math.BigDecimal | The minimum amount of copper in milligrams the recipe must have.
-val maxCopper : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of copper in milligrams the recipe can have.
-val minCalcium : java.math.BigDecimal = 0 // java.math.BigDecimal | The minimum amount of calcium in milligrams the recipe must have.
-val maxCalcium : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of calcium in milligrams the recipe can have.
-val minCholine : java.math.BigDecimal = 0 // java.math.BigDecimal | The minimum amount of choline in milligrams the recipe must have.
-val maxCholine : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of choline in milligrams the recipe can have.
-val minCholesterol : java.math.BigDecimal = 0 // java.math.BigDecimal | The minimum amount of cholesterol in milligrams the recipe must have.
-val maxCholesterol : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of cholesterol in milligrams the recipe can have.
-val minFluoride : java.math.BigDecimal = 0 // java.math.BigDecimal | The minimum amount of fluoride in milligrams the recipe must have.
-val maxFluoride : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of fluoride in milligrams the recipe can have.
-val minSaturatedFat : java.math.BigDecimal = 0 // java.math.BigDecimal | The minimum amount of saturated fat in grams the recipe must have.
-val maxSaturatedFat : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of saturated fat in grams the recipe can have.
-val minVitaminA : java.math.BigDecimal = 0 // java.math.BigDecimal | The minimum amount of Vitamin A in IU the recipe must have.
-val maxVitaminA : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of Vitamin A in IU the recipe can have.
-val minVitaminC : java.math.BigDecimal = 0 // java.math.BigDecimal | The minimum amount of Vitamin C milligrams the recipe must have.
-val maxVitaminC : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of Vitamin C in milligrams the recipe can have.
-val minVitaminD : java.math.BigDecimal = 0 // java.math.BigDecimal | The minimum amount of Vitamin D in micrograms the recipe must have.
-val maxVitaminD : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of Vitamin D in micrograms the recipe can have.
-val minVitaminE : java.math.BigDecimal = 0 // java.math.BigDecimal | The minimum amount of Vitamin E in milligrams the recipe must have.
-val maxVitaminE : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of Vitamin E in milligrams the recipe can have.
-val minVitaminK : java.math.BigDecimal = 0 // java.math.BigDecimal | The minimum amount of Vitamin K in micrograms the recipe must have.
-val maxVitaminK : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of Vitamin K in micrograms the recipe can have.
-val minVitaminB1 : java.math.BigDecimal = 0 // java.math.BigDecimal | The minimum amount of Vitamin B1 in milligrams the recipe must have.
-val maxVitaminB1 : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of Vitamin B1 in milligrams the recipe can have.
-val minVitaminB2 : java.math.BigDecimal = 0 // java.math.BigDecimal | The minimum amount of Vitamin B2 in milligrams the recipe must have.
-val maxVitaminB2 : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of Vitamin B2 in milligrams the recipe can have.
-val minVitaminB5 : java.math.BigDecimal = 0 // java.math.BigDecimal | The minimum amount of Vitamin B5 in milligrams the recipe must have.
-val maxVitaminB5 : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of Vitamin B5 in milligrams the recipe can have.
-val minVitaminB3 : java.math.BigDecimal = 0 // java.math.BigDecimal | The minimum amount of Vitamin B3 in milligrams the recipe must have.
-val maxVitaminB3 : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of Vitamin B3 in milligrams the recipe can have.
-val minVitaminB6 : java.math.BigDecimal = 0 // java.math.BigDecimal | The minimum amount of Vitamin B6 in milligrams the recipe must have.
-val maxVitaminB6 : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of Vitamin B6 in milligrams the recipe can have.
-val minVitaminB12 : java.math.BigDecimal = 0 // java.math.BigDecimal | The minimum amount of Vitamin B12 in micrograms the recipe must have.
-val maxVitaminB12 : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of Vitamin B12 in micrograms the recipe can have.
-val minFiber : java.math.BigDecimal = 0 // java.math.BigDecimal | The minimum amount of fiber in grams the recipe must have.
-val maxFiber : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of fiber in grams the recipe can have.
-val minFolate : java.math.BigDecimal = 0 // java.math.BigDecimal | The minimum amount of folate in grams the recipe must have.
-val maxFolate : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of folate in grams the recipe can have.
-val minFolicAcid : java.math.BigDecimal = 0 // java.math.BigDecimal | The minimum amount of folic acid in grams the recipe must have.
-val maxFolicAcid : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of folic acid in grams the recipe can have.
-val minIodine : java.math.BigDecimal = 0 // java.math.BigDecimal | The minimum amount of iodine in grams the recipe must have.
-val maxIodine : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of iodine in grams the recipe can have.
-val minIron : java.math.BigDecimal = 0 // java.math.BigDecimal | The minimum amount of iron in milligrams the recipe must have.
-val maxIron : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of iron in milligrams the recipe can have.
-val minMagnesium : java.math.BigDecimal = 0 // java.math.BigDecimal | The minimum amount of magnesium in milligrams the recipe must have.
-val maxMagnesium : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of magnesium in milligrams the recipe can have.
-val minManganese : java.math.BigDecimal = 0 // java.math.BigDecimal | The minimum amount of manganese in milligrams the recipe must have.
-val maxManganese : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of manganese in milligrams the recipe can have.
-val minPhosphorus : java.math.BigDecimal = 0 // java.math.BigDecimal | The minimum amount of phosphorus in milligrams the recipe must have.
-val maxPhosphorus : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of phosphorus in milligrams the recipe can have.
-val minPotassium : java.math.BigDecimal = 0 // java.math.BigDecimal | The minimum amount of potassium in milligrams the recipe must have.
-val maxPotassium : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of potassium in milligrams the recipe can have.
-val minSelenium : java.math.BigDecimal = 0 // java.math.BigDecimal | The minimum amount of selenium in grams the recipe must have.
-val maxSelenium : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of selenium in grams the recipe can have.
-val minSodium : java.math.BigDecimal = 0 // java.math.BigDecimal | The minimum amount of sodium in milligrams the recipe must have.
-val maxSodium : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of sodium in milligrams the recipe can have.
-val minSugar : java.math.BigDecimal = 0 // java.math.BigDecimal | The minimum amount of sugar in grams the recipe must have.
-val maxSugar : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of sugar in grams the recipe can have.
-val minZinc : java.math.BigDecimal = 0 // java.math.BigDecimal | The minimum amount of zinc in milligrams the recipe must have.
-val maxZinc : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of zinc in milligrams the recipe can have.
-val offset : java.math.BigDecimal = 0 // java.math.BigDecimal | The number of results to skip (between 0 and 900).
-val number : java.math.BigDecimal = 10 // java.math.BigDecimal | The number of expected results (between 1 and 100).
-val limitLicense : kotlin.Boolean = true // kotlin.Boolean | Whether the recipes should have an open license that allows display with proper attribution.
-try {
-    val result : kotlin.Any = apiInstance.searchRecipesComplex(query, cuisine, excludeCuisine, diet, intolerances, equipment, includeIngredients, excludeIngredients, type, instructionsRequired, fillIngredients, addRecipeInformation, addRecipeNutrition, author, tags, recipeBoxId, titleMatch, maxReadyTime, ignorePantry, sort, sortDirection, minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, limitLicense)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling DefaultApi#searchRecipesComplex")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling DefaultApi#searchRecipesComplex")
-    e.printStackTrace()
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **query** | **kotlin.String**| The (natural language) recipe search query. |
- **cuisine** | **kotlin.String**| The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as &#39;OR&#39;). See a full list of supported cuisines. | [optional]
- **excludeCuisine** | **kotlin.String**| The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as &#39;AND&#39;). See a full list of supported cuisines. | [optional]
- **diet** | **kotlin.String**| The diet for which the recipes must be suitable. See a full list of supported diets. | [optional]
- **intolerances** | **kotlin.String**| A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. | [optional]
- **equipment** | **kotlin.String**| The equipment required. Multiple values will be interpreted as &#39;or&#39;. For example, value could be \&quot;blender, frying pan, bowl\&quot;. | [optional]
- **includeIngredients** | **kotlin.String**| A comma-separated list of ingredients that should/must be used in the recipes. | [optional]
- **excludeIngredients** | **kotlin.String**| A comma-separated list of ingredients or ingredient types that the recipes must not contain. | [optional]
- **type** | **kotlin.String**| The type of recipe. See a full list of supported meal types. | [optional]
- **instructionsRequired** | **kotlin.Boolean**| Whether the recipes must have instructions. | [optional]
- **fillIngredients** | **kotlin.Boolean**| Add information about the ingredients and whether they are used or missing in relation to the query. | [optional]
- **addRecipeInformation** | **kotlin.Boolean**| If set to true, you get more information about the recipes returned. | [optional]
- **addRecipeNutrition** | **kotlin.Boolean**| If set to true, you get nutritional information about each recipes returned. | [optional]
- **author** | **kotlin.String**| The username of the recipe author. | [optional]
- **tags** | **kotlin.String**| User defined tags that have to match. The author param has to be set. | [optional]
- **recipeBoxId** | **java.math.BigDecimal**| The id of the recipe box to which the search should be limited to. | [optional]
- **titleMatch** | **kotlin.String**| Enter text that must be found in the title of the recipes. | [optional]
- **maxReadyTime** | **java.math.BigDecimal**| The maximum time in minutes it should take to prepare and cook the recipe. | [optional]
- **ignorePantry** | **kotlin.Boolean**| Whether to ignore typical pantry items, such as water, salt, flour, etc. | [optional]
- **sort** | **kotlin.String**| The strategy to sort recipes by. See a full list of supported sorting options. | [optional]
- **sortDirection** | **kotlin.String**| The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending). | [optional]
- **minCarbs** | **java.math.BigDecimal**| The minimum amount of carbohydrates in grams the recipe must have. | [optional]
- **maxCarbs** | **java.math.BigDecimal**| The maximum amount of carbohydrates in grams the recipe can have. | [optional]
- **minProtein** | **java.math.BigDecimal**| The minimum amount of protein in grams the recipe must have. | [optional]
- **maxProtein** | **java.math.BigDecimal**| The maximum amount of protein in grams the recipe can have. | [optional]
- **minCalories** | **java.math.BigDecimal**| The minimum amount of calories the recipe must have. | [optional]
- **maxCalories** | **java.math.BigDecimal**| The maximum amount of calories the recipe can have. | [optional]
- **minFat** | **java.math.BigDecimal**| The minimum amount of fat in grams the recipe must have. | [optional]
- **maxFat** | **java.math.BigDecimal**| The maximum amount of fat in grams the recipe can have. | [optional]
- **minAlcohol** | **java.math.BigDecimal**| The minimum amount of alcohol in grams the recipe must have. | [optional]
- **maxAlcohol** | **java.math.BigDecimal**| The maximum amount of alcohol in grams the recipe can have. | [optional]
- **minCaffeine** | **java.math.BigDecimal**| The minimum amount of caffeine in milligrams the recipe must have. | [optional]
- **maxCaffeine** | **java.math.BigDecimal**| The maximum amount of caffeine in milligrams the recipe can have. | [optional]
- **minCopper** | **java.math.BigDecimal**| The minimum amount of copper in milligrams the recipe must have. | [optional]
- **maxCopper** | **java.math.BigDecimal**| The maximum amount of copper in milligrams the recipe can have. | [optional]
- **minCalcium** | **java.math.BigDecimal**| The minimum amount of calcium in milligrams the recipe must have. | [optional]
- **maxCalcium** | **java.math.BigDecimal**| The maximum amount of calcium in milligrams the recipe can have. | [optional]
- **minCholine** | **java.math.BigDecimal**| The minimum amount of choline in milligrams the recipe must have. | [optional]
- **maxCholine** | **java.math.BigDecimal**| The maximum amount of choline in milligrams the recipe can have. | [optional]
- **minCholesterol** | **java.math.BigDecimal**| The minimum amount of cholesterol in milligrams the recipe must have. | [optional]
- **maxCholesterol** | **java.math.BigDecimal**| The maximum amount of cholesterol in milligrams the recipe can have. | [optional]
- **minFluoride** | **java.math.BigDecimal**| The minimum amount of fluoride in milligrams the recipe must have. | [optional]
- **maxFluoride** | **java.math.BigDecimal**| The maximum amount of fluoride in milligrams the recipe can have. | [optional]
- **minSaturatedFat** | **java.math.BigDecimal**| The minimum amount of saturated fat in grams the recipe must have. | [optional]
- **maxSaturatedFat** | **java.math.BigDecimal**| The maximum amount of saturated fat in grams the recipe can have. | [optional]
- **minVitaminA** | **java.math.BigDecimal**| The minimum amount of Vitamin A in IU the recipe must have. | [optional]
- **maxVitaminA** | **java.math.BigDecimal**| The maximum amount of Vitamin A in IU the recipe can have. | [optional]
- **minVitaminC** | **java.math.BigDecimal**| The minimum amount of Vitamin C milligrams the recipe must have. | [optional]
- **maxVitaminC** | **java.math.BigDecimal**| The maximum amount of Vitamin C in milligrams the recipe can have. | [optional]
- **minVitaminD** | **java.math.BigDecimal**| The minimum amount of Vitamin D in micrograms the recipe must have. | [optional]
- **maxVitaminD** | **java.math.BigDecimal**| The maximum amount of Vitamin D in micrograms the recipe can have. | [optional]
- **minVitaminE** | **java.math.BigDecimal**| The minimum amount of Vitamin E in milligrams the recipe must have. | [optional]
- **maxVitaminE** | **java.math.BigDecimal**| The maximum amount of Vitamin E in milligrams the recipe can have. | [optional]
- **minVitaminK** | **java.math.BigDecimal**| The minimum amount of Vitamin K in micrograms the recipe must have. | [optional]
- **maxVitaminK** | **java.math.BigDecimal**| The maximum amount of Vitamin K in micrograms the recipe can have. | [optional]
- **minVitaminB1** | **java.math.BigDecimal**| The minimum amount of Vitamin B1 in milligrams the recipe must have. | [optional]
- **maxVitaminB1** | **java.math.BigDecimal**| The maximum amount of Vitamin B1 in milligrams the recipe can have. | [optional]
- **minVitaminB2** | **java.math.BigDecimal**| The minimum amount of Vitamin B2 in milligrams the recipe must have. | [optional]
- **maxVitaminB2** | **java.math.BigDecimal**| The maximum amount of Vitamin B2 in milligrams the recipe can have. | [optional]
- **minVitaminB5** | **java.math.BigDecimal**| The minimum amount of Vitamin B5 in milligrams the recipe must have. | [optional]
- **maxVitaminB5** | **java.math.BigDecimal**| The maximum amount of Vitamin B5 in milligrams the recipe can have. | [optional]
- **minVitaminB3** | **java.math.BigDecimal**| The minimum amount of Vitamin B3 in milligrams the recipe must have. | [optional]
- **maxVitaminB3** | **java.math.BigDecimal**| The maximum amount of Vitamin B3 in milligrams the recipe can have. | [optional]
- **minVitaminB6** | **java.math.BigDecimal**| The minimum amount of Vitamin B6 in milligrams the recipe must have. | [optional]
- **maxVitaminB6** | **java.math.BigDecimal**| The maximum amount of Vitamin B6 in milligrams the recipe can have. | [optional]
- **minVitaminB12** | **java.math.BigDecimal**| The minimum amount of Vitamin B12 in micrograms the recipe must have. | [optional]
- **maxVitaminB12** | **java.math.BigDecimal**| The maximum amount of Vitamin B12 in micrograms the recipe can have. | [optional]
- **minFiber** | **java.math.BigDecimal**| The minimum amount of fiber in grams the recipe must have. | [optional]
- **maxFiber** | **java.math.BigDecimal**| The maximum amount of fiber in grams the recipe can have. | [optional]
- **minFolate** | **java.math.BigDecimal**| The minimum amount of folate in grams the recipe must have. | [optional]
- **maxFolate** | **java.math.BigDecimal**| The maximum amount of folate in grams the recipe can have. | [optional]
- **minFolicAcid** | **java.math.BigDecimal**| The minimum amount of folic acid in grams the recipe must have. | [optional]
- **maxFolicAcid** | **java.math.BigDecimal**| The maximum amount of folic acid in grams the recipe can have. | [optional]
- **minIodine** | **java.math.BigDecimal**| The minimum amount of iodine in grams the recipe must have. | [optional]
- **maxIodine** | **java.math.BigDecimal**| The maximum amount of iodine in grams the recipe can have. | [optional]
- **minIron** | **java.math.BigDecimal**| The minimum amount of iron in milligrams the recipe must have. | [optional]
- **maxIron** | **java.math.BigDecimal**| The maximum amount of iron in milligrams the recipe can have. | [optional]
- **minMagnesium** | **java.math.BigDecimal**| The minimum amount of magnesium in milligrams the recipe must have. | [optional]
- **maxMagnesium** | **java.math.BigDecimal**| The maximum amount of magnesium in milligrams the recipe can have. | [optional]
- **minManganese** | **java.math.BigDecimal**| The minimum amount of manganese in milligrams the recipe must have. | [optional]
- **maxManganese** | **java.math.BigDecimal**| The maximum amount of manganese in milligrams the recipe can have. | [optional]
- **minPhosphorus** | **java.math.BigDecimal**| The minimum amount of phosphorus in milligrams the recipe must have. | [optional]
- **maxPhosphorus** | **java.math.BigDecimal**| The maximum amount of phosphorus in milligrams the recipe can have. | [optional]
- **minPotassium** | **java.math.BigDecimal**| The minimum amount of potassium in milligrams the recipe must have. | [optional]
- **maxPotassium** | **java.math.BigDecimal**| The maximum amount of potassium in milligrams the recipe can have. | [optional]
- **minSelenium** | **java.math.BigDecimal**| The minimum amount of selenium in grams the recipe must have. | [optional]
- **maxSelenium** | **java.math.BigDecimal**| The maximum amount of selenium in grams the recipe can have. | [optional]
- **minSodium** | **java.math.BigDecimal**| The minimum amount of sodium in milligrams the recipe must have. | [optional]
- **maxSodium** | **java.math.BigDecimal**| The maximum amount of sodium in milligrams the recipe can have. | [optional]
- **minSugar** | **java.math.BigDecimal**| The minimum amount of sugar in grams the recipe must have. | [optional]
- **maxSugar** | **java.math.BigDecimal**| The maximum amount of sugar in grams the recipe can have. | [optional]
- **minZinc** | **java.math.BigDecimal**| The minimum amount of zinc in milligrams the recipe must have. | [optional]
- **maxZinc** | **java.math.BigDecimal**| The maximum amount of zinc in milligrams the recipe can have. | [optional]
- **offset** | **java.math.BigDecimal**| The number of results to skip (between 0 and 900). | [optional]
- **number** | **java.math.BigDecimal**| The number of expected results (between 1 and 100). | [optional]
  **limitLicense** | **kotlin.Boolean**| Whether the recipes should have an open license that allows display with proper attribution. | [optional]
 
 ### Return type
@@ -3594,11 +3856,11 @@ No authorization required
 
 <a name="visualizeEquipment"></a>
 # **visualizeEquipment**
-> kotlin.String visualizeEquipment(ingredientList, servings, view, defaultCss, showBacklink)
+> kotlin.String visualizeEquipment(instructions, view, defaultCss, showBacklink)
 
 Visualize Equipment
 
-Visualize the equipment used to make a recipe.
+Visualize the equipment used to make a recipe. You can play around with that endpoint!
 
 ### Example
 ```kotlin
@@ -3607,13 +3869,12 @@ Visualize the equipment used to make a recipe.
 //import com.spoonacular.client.model.*
 
 val apiInstance = DefaultApi()
-val ingredientList : kotlin.String = ingredientList_example // kotlin.String | The ingredient list of the recipe, one ingredient per line.
-val servings : java.math.BigDecimal = 8.14 // java.math.BigDecimal | The number of servings.
+val instructions : kotlin.String = instructions_example // kotlin.String | The recipe's instructions.
 val view : kotlin.String = view_example // kotlin.String | How to visualize the equipment, either \\\"grid\\\" or \\\"list\\\".
 val defaultCss : kotlin.Boolean = true // kotlin.Boolean | Whether the default CSS should be added to the response.
 val showBacklink : kotlin.Boolean = true // kotlin.Boolean | Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
 try {
-    val result : kotlin.String = apiInstance.visualizeEquipment(ingredientList, servings, view, defaultCss, showBacklink)
+    val result : kotlin.String = apiInstance.visualizeEquipment(instructions, view, defaultCss, showBacklink)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling DefaultApi#visualizeEquipment")
@@ -3628,8 +3889,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ingredientList** | **kotlin.String**| The ingredient list of the recipe, one ingredient per line. |
- **servings** | **java.math.BigDecimal**| The number of servings. |
+ **instructions** | **kotlin.String**| The recipe&#39;s instructions. |
  **view** | **kotlin.String**| How to visualize the equipment, either \\\&quot;grid\\\&quot; or \\\&quot;list\\\&quot;. | [optional]
  **defaultCss** | **kotlin.Boolean**| Whether the default CSS should be added to the response. | [optional]
  **showBacklink** | **kotlin.Boolean**| Whether to show a backlink to spoonacular. If set false, this call counts against your quota. | [optional]
@@ -3653,7 +3913,7 @@ No authorization required
 
 Visualize Ingredients
 
-Visualize ingredients of a recipe.
+Visualize ingredients of a recipe. You can play around with that endpoint!
 
 ### Example
 ```kotlin
@@ -3759,7 +4019,7 @@ No authorization required
 
 Visualize Price Breakdown
 
-Visualize the price breakdown of a recipe.
+Visualize the price breakdown of a recipe. You can play around with that endpoint!
 
 ### Example
 ```kotlin
@@ -3961,7 +4221,7 @@ No authorization required
 
 Visualize Recipe Nutrition
 
-Visualize a recipe&#39;s nutritional information as HTML including CSS
+Visualize a recipe&#39;s nutritional information as HTML including CSS. You can play around with that endpoint!
 
 ### Example
 ```kotlin
@@ -4092,6 +4352,100 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **java.math.BigDecimal**| The recipe id. |
  **defaultCss** | **kotlin.Boolean**| Whether the default CSS should be added to the response. | [optional]
+
+### Return type
+
+**kotlin.String**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/html
+
+<a name="visualizeRecipeTaste"></a>
+# **visualizeRecipeTaste**
+> kotlin.String visualizeRecipeTaste(ingredientList)
+
+Visualize Recipe Taste
+
+Visualize a recipe&#39;s taste information as HTML including CSS. You can play around with that endpoint!
+
+### Example
+```kotlin
+// Import classes:
+//import spoonacular.infrastructure.*
+//import com.spoonacular.client.model.*
+
+val apiInstance = DefaultApi()
+val ingredientList : kotlin.String = ingredientList_example // kotlin.String | The ingredient list of the recipe, one ingredient per line.
+try {
+    val result : kotlin.String = apiInstance.visualizeRecipeTaste(ingredientList)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling DefaultApi#visualizeRecipeTaste")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling DefaultApi#visualizeRecipeTaste")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ingredientList** | **kotlin.String**| The ingredient list of the recipe, one ingredient per line. |
+
+### Return type
+
+**kotlin.String**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: text/html
+
+<a name="visualizeRecipeTasteByID"></a>
+# **visualizeRecipeTasteByID**
+> kotlin.String visualizeRecipeTasteByID(id)
+
+Visualize Recipe Taste by ID
+
+Get a recipe&#39;s taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
+
+### Example
+```kotlin
+// Import classes:
+//import spoonacular.infrastructure.*
+//import com.spoonacular.client.model.*
+
+val apiInstance = DefaultApi()
+val id : java.math.BigDecimal = 69095 // java.math.BigDecimal | The recipe id.
+try {
+    val result : kotlin.String = apiInstance.visualizeRecipeTasteByID(id)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling DefaultApi#visualizeRecipeTasteByID")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling DefaultApi#visualizeRecipeTasteByID")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **java.math.BigDecimal**| The recipe id. |
 
 ### Return type
 

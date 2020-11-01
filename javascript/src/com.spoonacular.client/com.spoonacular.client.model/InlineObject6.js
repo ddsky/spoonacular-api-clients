@@ -22,12 +22,12 @@ class InlineObject6 {
     /**
      * Constructs a new <code>InlineObject6</code>.
      * @alias module:com.spoonacular.client/com.spoonacular.client.model/InlineObject6
-     * @param ingredientList {String} The ingredient list of the recipe, one ingredient per line.
-     * @param servings {Number} The number of servings that you can make from the ingredients.
+     * @param title {String} The title of the recipe.
+     * @param ingredientList {String} The ingredient list of the recipe, one ingredient per line (separate lines with \\n).
      */
-    constructor(ingredientList, servings) { 
+    constructor(title, ingredientList) { 
         
-        InlineObject6.initialize(this, ingredientList, servings);
+        InlineObject6.initialize(this, title, ingredientList);
     }
 
     /**
@@ -35,9 +35,9 @@ class InlineObject6 {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, ingredientList, servings) { 
+    static initialize(obj, title, ingredientList) { 
+        obj['title'] = title;
         obj['ingredientList'] = ingredientList;
-        obj['servings'] = servings;
     }
 
     /**
@@ -51,14 +51,11 @@ class InlineObject6 {
         if (data) {
             obj = obj || new InlineObject6();
 
+            if (data.hasOwnProperty('title')) {
+                obj['title'] = ApiClient.convertToType(data['title'], 'String');
+            }
             if (data.hasOwnProperty('ingredientList')) {
                 obj['ingredientList'] = ApiClient.convertToType(data['ingredientList'], 'String');
-            }
-            if (data.hasOwnProperty('servings')) {
-                obj['servings'] = ApiClient.convertToType(data['servings'], 'Number');
-            }
-            if (data.hasOwnProperty('includeNutrition')) {
-                obj['includeNutrition'] = ApiClient.convertToType(data['includeNutrition'], 'Boolean');
             }
         }
         return obj;
@@ -68,22 +65,16 @@ class InlineObject6 {
 }
 
 /**
- * The ingredient list of the recipe, one ingredient per line.
+ * The title of the recipe.
+ * @member {String} title
+ */
+InlineObject6.prototype['title'] = undefined;
+
+/**
+ * The ingredient list of the recipe, one ingredient per line (separate lines with \\n).
  * @member {String} ingredientList
  */
 InlineObject6.prototype['ingredientList'] = undefined;
-
-/**
- * The number of servings that you can make from the ingredients.
- * @member {Number} servings
- */
-InlineObject6.prototype['servings'] = undefined;
-
-/**
- * Whether nutrition data should be added to correctly parsed ingredients.
- * @member {Boolean} includeNutrition
- */
-InlineObject6.prototype['includeNutrition'] = undefined;
 
 
 

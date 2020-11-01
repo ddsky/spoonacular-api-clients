@@ -23,12 +23,12 @@ class InlineObject10 {
      * Constructs a new <code>InlineObject10</code>.
      * @alias module:com.spoonacular.client/com.spoonacular.client.model/InlineObject10
      * @param username {String} The username.
-     * @param id {Number} The shopping list item id.
+     * @param _date {String} The date in the format yyyy-mm-dd.
      * @param hash {String} The private hash for the username.
      */
-    constructor(username, id, hash) { 
+    constructor(username, _date, hash) { 
         
-        InlineObject10.initialize(this, username, id, hash);
+        InlineObject10.initialize(this, username, _date, hash);
     }
 
     /**
@@ -36,9 +36,9 @@ class InlineObject10 {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, username, id, hash) { 
+    static initialize(obj, username, _date, hash) { 
         obj['username'] = username;
-        obj['id'] = id;
+        obj['date'] = _date;
         obj['hash'] = hash;
     }
 
@@ -56,8 +56,8 @@ class InlineObject10 {
             if (data.hasOwnProperty('username')) {
                 obj['username'] = ApiClient.convertToType(data['username'], 'String');
             }
-            if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'Number');
+            if (data.hasOwnProperty('date')) {
+                obj['date'] = ApiClient.convertToType(data['date'], 'String');
             }
             if (data.hasOwnProperty('hash')) {
                 obj['hash'] = ApiClient.convertToType(data['hash'], 'String');
@@ -76,10 +76,10 @@ class InlineObject10 {
 InlineObject10.prototype['username'] = undefined;
 
 /**
- * The shopping list item id.
- * @member {Number} id
+ * The date in the format yyyy-mm-dd.
+ * @member {String} date
  */
-InlineObject10.prototype['id'] = undefined;
+InlineObject10.prototype['date'] = undefined;
 
 /**
  * The private hash for the username.

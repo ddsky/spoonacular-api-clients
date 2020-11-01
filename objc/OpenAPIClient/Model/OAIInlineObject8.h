@@ -22,8 +22,23 @@
 
 @interface OAIInlineObject8 : OAIObject
 
-/* The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). [optional]
+/* The ingredient list of the recipe, one ingredient per line. 
  */
-@property(nonatomic) NSString* locale;
+@property(nonatomic) NSString* ingredientList;
+/* The number of servings. 
+ */
+@property(nonatomic) NSNumber* servings;
+/* The original system of measurement, either \"metric\" or \"us\". [optional]
+ */
+@property(nonatomic) NSString* measure;
+/* How to visualize the ingredients, either \"grid\" or \"list\". [optional]
+ */
+@property(nonatomic) NSString* view;
+/* Whether the default CSS should be added to the response. [optional]
+ */
+@property(nonatomic) NSNumber* defaultCss;
+/* Whether to show a backlink to spoonacular. If set false, this call counts against your quota. [optional]
+ */
+@property(nonatomic) NSNumber* showBacklink;
 
 @end

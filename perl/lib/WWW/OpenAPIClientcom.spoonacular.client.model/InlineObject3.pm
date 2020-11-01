@@ -161,120 +161,48 @@ __PACKAGE__->class_documentation({description => '',
 }                                 );
 
 __PACKAGE__->method_documentation({
-    'title' => {
-        datatype => 'string',
-        base_name => 'title',
-        description => 'The title of the recipe.',
-        format => '',
-        read_only => '',
-            },
-    'image' => {
-        datatype => 'string',
-        base_name => 'image',
-        description => 'The binary image of the recipe as jpg.',
-        format => '',
-        read_only => '',
-            },
-    'ingredients' => {
-        datatype => 'string',
-        base_name => 'ingredients',
-        description => 'The ingredient list of the recipe, one ingredient per line (separate lines with \\n).',
-        format => '',
-        read_only => '',
-            },
     'instructions' => {
         datatype => 'string',
         base_name => 'instructions',
-        description => 'The instructions to make the recipe. One step per line (separate lines with \\n).',
+        description => 'The recipe&#39;s instructions.',
         format => '',
         read_only => '',
             },
-    'ready_in_minutes' => {
-        datatype => 'double',
-        base_name => 'readyInMinutes',
-        description => 'The number of minutes it takes to get the recipe on the table.',
-        format => '',
-        read_only => '',
-            },
-    'servings' => {
-        datatype => 'double',
-        base_name => 'servings',
-        description => 'The number of servings the recipe makes.',
-        format => '',
-        read_only => '',
-            },
-    'mask' => {
+    'view' => {
         datatype => 'string',
-        base_name => 'mask',
-        description => 'The mask to put over the recipe image (\&quot;ellipseMask\&quot;, \&quot;diamondMask\&quot;, \&quot;starMask\&quot;, \&quot;heartMask\&quot;, \&quot;potMask\&quot;, \&quot;fishMask\&quot;).',
+        base_name => 'view',
+        description => 'How to visualize the equipment, either \&quot;grid\&quot; or \&quot;list\&quot;.',
         format => '',
         read_only => '',
             },
-    'background_image' => {
-        datatype => 'string',
-        base_name => 'backgroundImage',
-        description => 'The background image (\&quot;none\&quot;,\&quot;background1\&quot;, or \&quot;background2\&quot;).',
+    'default_css' => {
+        datatype => 'boolean',
+        base_name => 'defaultCss',
+        description => 'Whether the default CSS should be added to the response.',
         format => '',
         read_only => '',
             },
-    'author' => {
-        datatype => 'string',
-        base_name => 'author',
-        description => 'The author of the recipe.',
-        format => '',
-        read_only => '',
-            },
-    'background_color' => {
-        datatype => 'string',
-        base_name => 'backgroundColor',
-        description => 'The background color for the recipe card as a hex-string.',
-        format => '',
-        read_only => '',
-            },
-    'font_color' => {
-        datatype => 'string',
-        base_name => 'fontColor',
-        description => 'The font color for the recipe card as a hex-string.',
-        format => '',
-        read_only => '',
-            },
-    'source' => {
-        datatype => 'string',
-        base_name => 'source',
-        description => 'The source of the recipe.',
+    'show_backlink' => {
+        datatype => 'boolean',
+        base_name => 'showBacklink',
+        description => 'Whether to show a backlink to spoonacular. If set false, this call counts against your quota.',
         format => '',
         read_only => '',
             },
 });
 
 __PACKAGE__->openapi_types( {
-    'title' => 'string',
-    'image' => 'string',
-    'ingredients' => 'string',
     'instructions' => 'string',
-    'ready_in_minutes' => 'double',
-    'servings' => 'double',
-    'mask' => 'string',
-    'background_image' => 'string',
-    'author' => 'string',
-    'background_color' => 'string',
-    'font_color' => 'string',
-    'source' => 'string'
+    'view' => 'string',
+    'default_css' => 'boolean',
+    'show_backlink' => 'boolean'
 } );
 
 __PACKAGE__->attribute_map( {
-    'title' => 'title',
-    'image' => 'image',
-    'ingredients' => 'ingredients',
     'instructions' => 'instructions',
-    'ready_in_minutes' => 'readyInMinutes',
-    'servings' => 'servings',
-    'mask' => 'mask',
-    'background_image' => 'backgroundImage',
-    'author' => 'author',
-    'background_color' => 'backgroundColor',
-    'font_color' => 'fontColor',
-    'source' => 'source'
+    'view' => 'view',
+    'default_css' => 'defaultCss',
+    'show_backlink' => 'showBacklink'
 } );
 
 __PACKAGE__->mk_accessors(keys %{__PACKAGE__->attribute_map});

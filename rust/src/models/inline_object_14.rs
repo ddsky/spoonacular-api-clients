@@ -14,15 +14,19 @@ use serde_json::Value;
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct InlineObject14 {
-    /// The text in which food items, such as dish names and ingredients, should be detected in.
-    #[serde(rename = "text")]
-    pub text: String,
+    /// The username.
+    #[serde(rename = "username")]
+    pub username: String,
+    /// The private hash for the username.
+    #[serde(rename = "hash")]
+    pub hash: String,
 }
 
 impl InlineObject14 {
-    pub fn new(text: String) -> InlineObject14 {
+    pub fn new(username: String, hash: String) -> InlineObject14 {
         InlineObject14 {
-            text: text,
+            username: username,
+            hash: hash,
         }
     }
 }

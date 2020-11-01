@@ -37,43 +37,43 @@ class DefaultApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def add_to_meal_plan(self, username, hash, inline_object9, **kwargs):  # noqa: E501
+    def add_to_meal_plan(self, username, hash, inline_object11, **kwargs):  # noqa: E501
         """Add to Meal Plan  # noqa: E501
 
         Add an item to the user's meal plan.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.add_to_meal_plan(username, hash, inline_object9, async_req=True)
+        >>> thread = api.add_to_meal_plan(username, hash, inline_object11, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
         :param str username: The username. (required)
         :param str hash: The private hash for the username. (required)
-        :param InlineObject9 inline_object9: (required)
+        :param InlineObject11 inline_object11: (required)
         :return: object
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.add_to_meal_plan_with_http_info(username, hash, inline_object9, **kwargs)  # noqa: E501
+            return self.add_to_meal_plan_with_http_info(username, hash, inline_object11, **kwargs)  # noqa: E501
         else:
-            (data) = self.add_to_meal_plan_with_http_info(username, hash, inline_object9, **kwargs)  # noqa: E501
+            (data) = self.add_to_meal_plan_with_http_info(username, hash, inline_object11, **kwargs)  # noqa: E501
             return data
 
-    def add_to_meal_plan_with_http_info(self, username, hash, inline_object9, **kwargs):  # noqa: E501
+    def add_to_meal_plan_with_http_info(self, username, hash, inline_object11, **kwargs):  # noqa: E501
         """Add to Meal Plan  # noqa: E501
 
         Add an item to the user's meal plan.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.add_to_meal_plan_with_http_info(username, hash, inline_object9, async_req=True)
+        >>> thread = api.add_to_meal_plan_with_http_info(username, hash, inline_object11, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
         :param str username: The username. (required)
         :param str hash: The private hash for the username. (required)
-        :param InlineObject9 inline_object9: (required)
+        :param InlineObject11 inline_object11: (required)
         :return: object
                  If the method is called asynchronously,
                  returns the request thread.
@@ -81,7 +81,7 @@ class DefaultApi(object):
 
         local_var_params = locals()
 
-        all_params = ['username', 'hash', 'inline_object9']  # noqa: E501
+        all_params = ['username', 'hash', 'inline_object11']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -103,10 +103,10 @@ class DefaultApi(object):
         if ('hash' not in local_var_params or
                 local_var_params['hash'] is None):
             raise ApiValueError("Missing the required parameter `hash` when calling `add_to_meal_plan`")  # noqa: E501
-        # verify the required parameter 'inline_object9' is set
-        if ('inline_object9' not in local_var_params or
-                local_var_params['inline_object9'] is None):
-            raise ApiValueError("Missing the required parameter `inline_object9` when calling `add_to_meal_plan`")  # noqa: E501
+        # verify the required parameter 'inline_object11' is set
+        if ('inline_object11' not in local_var_params or
+                local_var_params['inline_object11'] is None):
+            raise ApiValueError("Missing the required parameter `inline_object11` when calling `add_to_meal_plan`")  # noqa: E501
 
         collection_formats = {}
 
@@ -124,8 +124,8 @@ class DefaultApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'inline_object9' in local_var_params:
-            body_params = local_var_params['inline_object9']
+        if 'inline_object11' in local_var_params:
+            body_params = local_var_params['inline_object11']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -153,43 +153,43 @@ class DefaultApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def add_to_shopping_list(self, username, hash, inline_object12, **kwargs):  # noqa: E501
+    def add_to_shopping_list(self, username, hash, inline_object14, **kwargs):  # noqa: E501
         """Add to Shopping List  # noqa: E501
 
         Add an item to the current shopping list of a user.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.add_to_shopping_list(username, hash, inline_object12, async_req=True)
+        >>> thread = api.add_to_shopping_list(username, hash, inline_object14, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
         :param str username: The username. (required)
         :param str hash: The private hash for the username. (required)
-        :param InlineObject12 inline_object12: (required)
+        :param InlineObject14 inline_object14: (required)
         :return: object
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.add_to_shopping_list_with_http_info(username, hash, inline_object12, **kwargs)  # noqa: E501
+            return self.add_to_shopping_list_with_http_info(username, hash, inline_object14, **kwargs)  # noqa: E501
         else:
-            (data) = self.add_to_shopping_list_with_http_info(username, hash, inline_object12, **kwargs)  # noqa: E501
+            (data) = self.add_to_shopping_list_with_http_info(username, hash, inline_object14, **kwargs)  # noqa: E501
             return data
 
-    def add_to_shopping_list_with_http_info(self, username, hash, inline_object12, **kwargs):  # noqa: E501
+    def add_to_shopping_list_with_http_info(self, username, hash, inline_object14, **kwargs):  # noqa: E501
         """Add to Shopping List  # noqa: E501
 
         Add an item to the current shopping list of a user.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.add_to_shopping_list_with_http_info(username, hash, inline_object12, async_req=True)
+        >>> thread = api.add_to_shopping_list_with_http_info(username, hash, inline_object14, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
         :param str username: The username. (required)
         :param str hash: The private hash for the username. (required)
-        :param InlineObject12 inline_object12: (required)
+        :param InlineObject14 inline_object14: (required)
         :return: object
                  If the method is called asynchronously,
                  returns the request thread.
@@ -197,7 +197,7 @@ class DefaultApi(object):
 
         local_var_params = locals()
 
-        all_params = ['username', 'hash', 'inline_object12']  # noqa: E501
+        all_params = ['username', 'hash', 'inline_object14']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -219,10 +219,10 @@ class DefaultApi(object):
         if ('hash' not in local_var_params or
                 local_var_params['hash'] is None):
             raise ApiValueError("Missing the required parameter `hash` when calling `add_to_shopping_list`")  # noqa: E501
-        # verify the required parameter 'inline_object12' is set
-        if ('inline_object12' not in local_var_params or
-                local_var_params['inline_object12'] is None):
-            raise ApiValueError("Missing the required parameter `inline_object12` when calling `add_to_shopping_list`")  # noqa: E501
+        # verify the required parameter 'inline_object14' is set
+        if ('inline_object14' not in local_var_params or
+                local_var_params['inline_object14'] is None):
+            raise ApiValueError("Missing the required parameter `inline_object14` when calling `add_to_shopping_list`")  # noqa: E501
 
         collection_formats = {}
 
@@ -240,8 +240,8 @@ class DefaultApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'inline_object12' in local_var_params:
-            body_params = local_var_params['inline_object12']
+        if 'inline_object14' in local_var_params:
+            body_params = local_var_params['inline_object14']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -368,7 +368,7 @@ class DefaultApi(object):
     def analyze_recipe_instructions(self, instructions, **kwargs):  # noqa: E501
         """Analyze Recipe Instructions  # noqa: E501
 
-        Extract ingredients and equipment from the recipe's instructions.  # noqa: E501
+        This endpoint allows you to break down instructions into atomic steps. Furthermore, each step will contain the ingredients and equipment required. Additionally, all ingredients and equipment from the recipe's instructions will be extracted independently of the step they're used in.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.analyze_recipe_instructions(instructions, async_req=True)
@@ -390,7 +390,7 @@ class DefaultApi(object):
     def analyze_recipe_instructions_with_http_info(self, instructions, **kwargs):  # noqa: E501
         """Analyze Recipe Instructions  # noqa: E501
 
-        Extract ingredients and equipment from the recipe's instructions.  # noqa: E501
+        This endpoint allows you to break down instructions into atomic steps. Furthermore, each step will contain the ingredients and equipment required. Additionally, all ingredients and equipment from the recipe's instructions will be extracted independently of the step they're used in.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.analyze_recipe_instructions_with_http_info(instructions, async_req=True)
@@ -478,7 +478,7 @@ class DefaultApi(object):
         :param str query: The partial or full ingredient name. (required)
         :param float number: The number of results to return (between 1 and 100).
         :param bool meta_information: Whether to return more meta information about the ingredients.
-        :param bool intolerances: A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
+        :param str intolerances: A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
         :return: object
                  If the method is called asynchronously,
                  returns the request thread.
@@ -503,7 +503,7 @@ class DefaultApi(object):
         :param str query: The partial or full ingredient name. (required)
         :param float number: The number of results to return (between 1 and 100).
         :param bool meta_information: Whether to return more meta information about the ingredients.
-        :param bool intolerances: A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
+        :param str intolerances: A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
         :return: object
                  If the method is called asynchronously,
                  returns the request thread.
@@ -981,17 +981,17 @@ class DefaultApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def classify_grocery_product(self, inline_object8, **kwargs):  # noqa: E501
+    def classify_grocery_product(self, inline_object9, **kwargs):  # noqa: E501
         """Classify Grocery Product  # noqa: E501
 
         This endpoint allows you to match a packaged food to a basic category, e.g. a specific brand of milk to the category milk.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.classify_grocery_product(inline_object8, async_req=True)
+        >>> thread = api.classify_grocery_product(inline_object9, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param InlineObject8 inline_object8: (required)
+        :param InlineObject9 inline_object9: (required)
         :param str locale: The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).
         :return: object
                  If the method is called asynchronously,
@@ -999,22 +999,22 @@ class DefaultApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.classify_grocery_product_with_http_info(inline_object8, **kwargs)  # noqa: E501
+            return self.classify_grocery_product_with_http_info(inline_object9, **kwargs)  # noqa: E501
         else:
-            (data) = self.classify_grocery_product_with_http_info(inline_object8, **kwargs)  # noqa: E501
+            (data) = self.classify_grocery_product_with_http_info(inline_object9, **kwargs)  # noqa: E501
             return data
 
-    def classify_grocery_product_with_http_info(self, inline_object8, **kwargs):  # noqa: E501
+    def classify_grocery_product_with_http_info(self, inline_object9, **kwargs):  # noqa: E501
         """Classify Grocery Product  # noqa: E501
 
         This endpoint allows you to match a packaged food to a basic category, e.g. a specific brand of milk to the category milk.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.classify_grocery_product_with_http_info(inline_object8, async_req=True)
+        >>> thread = api.classify_grocery_product_with_http_info(inline_object9, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param InlineObject8 inline_object8: (required)
+        :param InlineObject9 inline_object9: (required)
         :param str locale: The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).
         :return: object
                  If the method is called asynchronously,
@@ -1023,7 +1023,7 @@ class DefaultApi(object):
 
         local_var_params = locals()
 
-        all_params = ['inline_object8', 'locale']  # noqa: E501
+        all_params = ['inline_object9', 'locale']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1037,10 +1037,10 @@ class DefaultApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'inline_object8' is set
-        if ('inline_object8' not in local_var_params or
-                local_var_params['inline_object8'] is None):
-            raise ApiValueError("Missing the required parameter `inline_object8` when calling `classify_grocery_product`")  # noqa: E501
+        # verify the required parameter 'inline_object9' is set
+        if ('inline_object9' not in local_var_params or
+                local_var_params['inline_object9'] is None):
+            raise ApiValueError("Missing the required parameter `inline_object9` when calling `classify_grocery_product`")  # noqa: E501
 
         collection_formats = {}
 
@@ -1056,8 +1056,8 @@ class DefaultApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'inline_object8' in local_var_params:
-            body_params = local_var_params['inline_object8']
+        if 'inline_object9' in local_var_params:
+            body_params = local_var_params['inline_object9']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -1175,6 +1175,330 @@ class DefaultApi(object):
 
         return self.api_client.call_api(
             '/food/products/classifyBatch', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='object',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def clear_meal_plan_day(self, username, date, hash, inline_object10, **kwargs):  # noqa: E501
+        """Clear Meal Plan Day  # noqa: E501
+
+        Delete all planned items from the user's meal plan for a specific day.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.clear_meal_plan_day(username, date, hash, inline_object10, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str username: The username. (required)
+        :param str date: The date in the format yyyy-mm-dd. (required)
+        :param str hash: The private hash for the username. (required)
+        :param InlineObject10 inline_object10: (required)
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.clear_meal_plan_day_with_http_info(username, date, hash, inline_object10, **kwargs)  # noqa: E501
+        else:
+            (data) = self.clear_meal_plan_day_with_http_info(username, date, hash, inline_object10, **kwargs)  # noqa: E501
+            return data
+
+    def clear_meal_plan_day_with_http_info(self, username, date, hash, inline_object10, **kwargs):  # noqa: E501
+        """Clear Meal Plan Day  # noqa: E501
+
+        Delete all planned items from the user's meal plan for a specific day.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.clear_meal_plan_day_with_http_info(username, date, hash, inline_object10, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str username: The username. (required)
+        :param str date: The date in the format yyyy-mm-dd. (required)
+        :param str hash: The private hash for the username. (required)
+        :param InlineObject10 inline_object10: (required)
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['username', 'date', 'hash', 'inline_object10']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method clear_meal_plan_day" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'username' is set
+        if ('username' not in local_var_params or
+                local_var_params['username'] is None):
+            raise ApiValueError("Missing the required parameter `username` when calling `clear_meal_plan_day`")  # noqa: E501
+        # verify the required parameter 'date' is set
+        if ('date' not in local_var_params or
+                local_var_params['date'] is None):
+            raise ApiValueError("Missing the required parameter `date` when calling `clear_meal_plan_day`")  # noqa: E501
+        # verify the required parameter 'hash' is set
+        if ('hash' not in local_var_params or
+                local_var_params['hash'] is None):
+            raise ApiValueError("Missing the required parameter `hash` when calling `clear_meal_plan_day`")  # noqa: E501
+        # verify the required parameter 'inline_object10' is set
+        if ('inline_object10' not in local_var_params or
+                local_var_params['inline_object10'] is None):
+            raise ApiValueError("Missing the required parameter `inline_object10` when calling `clear_meal_plan_day`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'username' in local_var_params:
+            path_params['username'] = local_var_params['username']  # noqa: E501
+        if 'date' in local_var_params:
+            path_params['date'] = local_var_params['date']  # noqa: E501
+
+        query_params = []
+        if 'hash' in local_var_params:
+            query_params.append(('hash', local_var_params['hash']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'inline_object10' in local_var_params:
+            body_params = local_var_params['inline_object10']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            [''])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/mealplanner/{username}/day/{date}', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='object',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def compute_glycemic_load(self, body, **kwargs):  # noqa: E501
+        """Compute Glycemic Load  # noqa: E501
+
+        Retrieve the glycemic index for a list of ingredients and compute the individual and total glycemic load.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.compute_glycemic_load(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param object body: (required)
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.compute_glycemic_load_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.compute_glycemic_load_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def compute_glycemic_load_with_http_info(self, body, **kwargs):  # noqa: E501
+        """Compute Glycemic Load  # noqa: E501
+
+        Retrieve the glycemic index for a list of ingredients and compute the individual and total glycemic load.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.compute_glycemic_load_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param object body: (required)
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method compute_glycemic_load" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'body' is set
+        if ('body' not in local_var_params or
+                local_var_params['body'] is None):
+            raise ApiValueError("Missing the required parameter `body` when calling `compute_glycemic_load`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in local_var_params:
+            body_params = local_var_params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/food/ingredients/glycemicLoad', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='object',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def connect_user(self, body, **kwargs):  # noqa: E501
+        """Connect User  # noqa: E501
+
+        In order to call user-specific endpoints, you need to connect your app's users to spoonacular users.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.connect_user(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param object body: (required)
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.connect_user_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.connect_user_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def connect_user_with_http_info(self, body, **kwargs):  # noqa: E501
+        """Connect User  # noqa: E501
+
+        In order to call user-specific endpoints, you need to connect your app's users to spoonacular users.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.connect_user_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param object body: (required)
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method connect_user" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'body' is set
+        if ('body' not in local_var_params or
+                local_var_params['body'] is None):
+            raise ApiValueError("Missing the required parameter `body` when calling `connect_user`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in local_var_params:
+            body_params = local_var_params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            [''])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/users/connect', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1481,45 +1805,45 @@ class DefaultApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def delete_from_meal_plan(self, username, id, hash, inline_object10, **kwargs):  # noqa: E501
+    def delete_from_meal_plan(self, username, id, hash, inline_object12, **kwargs):  # noqa: E501
         """Delete from Meal Plan  # noqa: E501
 
         Delete an item from the user's meal plan.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.delete_from_meal_plan(username, id, hash, inline_object10, async_req=True)
+        >>> thread = api.delete_from_meal_plan(username, id, hash, inline_object12, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
         :param str username: The username. (required)
         :param float id: The shopping list item id. (required)
         :param str hash: The private hash for the username. (required)
-        :param InlineObject10 inline_object10: (required)
+        :param InlineObject12 inline_object12: (required)
         :return: object
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.delete_from_meal_plan_with_http_info(username, id, hash, inline_object10, **kwargs)  # noqa: E501
+            return self.delete_from_meal_plan_with_http_info(username, id, hash, inline_object12, **kwargs)  # noqa: E501
         else:
-            (data) = self.delete_from_meal_plan_with_http_info(username, id, hash, inline_object10, **kwargs)  # noqa: E501
+            (data) = self.delete_from_meal_plan_with_http_info(username, id, hash, inline_object12, **kwargs)  # noqa: E501
             return data
 
-    def delete_from_meal_plan_with_http_info(self, username, id, hash, inline_object10, **kwargs):  # noqa: E501
+    def delete_from_meal_plan_with_http_info(self, username, id, hash, inline_object12, **kwargs):  # noqa: E501
         """Delete from Meal Plan  # noqa: E501
 
         Delete an item from the user's meal plan.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.delete_from_meal_plan_with_http_info(username, id, hash, inline_object10, async_req=True)
+        >>> thread = api.delete_from_meal_plan_with_http_info(username, id, hash, inline_object12, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
         :param str username: The username. (required)
         :param float id: The shopping list item id. (required)
         :param str hash: The private hash for the username. (required)
-        :param InlineObject10 inline_object10: (required)
+        :param InlineObject12 inline_object12: (required)
         :return: object
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1527,7 +1851,7 @@ class DefaultApi(object):
 
         local_var_params = locals()
 
-        all_params = ['username', 'id', 'hash', 'inline_object10']  # noqa: E501
+        all_params = ['username', 'id', 'hash', 'inline_object12']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1553,10 +1877,10 @@ class DefaultApi(object):
         if ('hash' not in local_var_params or
                 local_var_params['hash'] is None):
             raise ApiValueError("Missing the required parameter `hash` when calling `delete_from_meal_plan`")  # noqa: E501
-        # verify the required parameter 'inline_object10' is set
-        if ('inline_object10' not in local_var_params or
-                local_var_params['inline_object10'] is None):
-            raise ApiValueError("Missing the required parameter `inline_object10` when calling `delete_from_meal_plan`")  # noqa: E501
+        # verify the required parameter 'inline_object12' is set
+        if ('inline_object12' not in local_var_params or
+                local_var_params['inline_object12'] is None):
+            raise ApiValueError("Missing the required parameter `inline_object12` when calling `delete_from_meal_plan`")  # noqa: E501
 
         collection_formats = {}
 
@@ -1576,8 +1900,8 @@ class DefaultApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'inline_object10' in local_var_params:
-            body_params = local_var_params['inline_object10']
+        if 'inline_object12' in local_var_params:
+            body_params = local_var_params['inline_object12']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -1605,45 +1929,45 @@ class DefaultApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def delete_from_shopping_list(self, username, id, hash, inline_object13, **kwargs):  # noqa: E501
+    def delete_from_shopping_list(self, username, id, hash, inline_object15, **kwargs):  # noqa: E501
         """Delete from Shopping List  # noqa: E501
 
         Delete an item from the current shopping list of the user.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.delete_from_shopping_list(username, id, hash, inline_object13, async_req=True)
+        >>> thread = api.delete_from_shopping_list(username, id, hash, inline_object15, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
         :param str username: The username. (required)
         :param float id: The shopping list item id. (required)
         :param str hash: The private hash for the username. (required)
-        :param InlineObject13 inline_object13: (required)
+        :param InlineObject15 inline_object15: (required)
         :return: object
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.delete_from_shopping_list_with_http_info(username, id, hash, inline_object13, **kwargs)  # noqa: E501
+            return self.delete_from_shopping_list_with_http_info(username, id, hash, inline_object15, **kwargs)  # noqa: E501
         else:
-            (data) = self.delete_from_shopping_list_with_http_info(username, id, hash, inline_object13, **kwargs)  # noqa: E501
+            (data) = self.delete_from_shopping_list_with_http_info(username, id, hash, inline_object15, **kwargs)  # noqa: E501
             return data
 
-    def delete_from_shopping_list_with_http_info(self, username, id, hash, inline_object13, **kwargs):  # noqa: E501
+    def delete_from_shopping_list_with_http_info(self, username, id, hash, inline_object15, **kwargs):  # noqa: E501
         """Delete from Shopping List  # noqa: E501
 
         Delete an item from the current shopping list of the user.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.delete_from_shopping_list_with_http_info(username, id, hash, inline_object13, async_req=True)
+        >>> thread = api.delete_from_shopping_list_with_http_info(username, id, hash, inline_object15, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
         :param str username: The username. (required)
         :param float id: The shopping list item id. (required)
         :param str hash: The private hash for the username. (required)
-        :param InlineObject13 inline_object13: (required)
+        :param InlineObject15 inline_object15: (required)
         :return: object
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1651,7 +1975,7 @@ class DefaultApi(object):
 
         local_var_params = locals()
 
-        all_params = ['username', 'id', 'hash', 'inline_object13']  # noqa: E501
+        all_params = ['username', 'id', 'hash', 'inline_object15']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1677,10 +2001,10 @@ class DefaultApi(object):
         if ('hash' not in local_var_params or
                 local_var_params['hash'] is None):
             raise ApiValueError("Missing the required parameter `hash` when calling `delete_from_shopping_list`")  # noqa: E501
-        # verify the required parameter 'inline_object13' is set
-        if ('inline_object13' not in local_var_params or
-                local_var_params['inline_object13'] is None):
-            raise ApiValueError("Missing the required parameter `inline_object13` when calling `delete_from_shopping_list`")  # noqa: E501
+        # verify the required parameter 'inline_object15' is set
+        if ('inline_object15' not in local_var_params or
+                local_var_params['inline_object15'] is None):
+            raise ApiValueError("Missing the required parameter `inline_object15` when calling `delete_from_shopping_list`")  # noqa: E501
 
         collection_formats = {}
 
@@ -1700,8 +2024,8 @@ class DefaultApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'inline_object13' in local_var_params:
-            body_params = local_var_params['inline_object13']
+        if 'inline_object15' in local_var_params:
+            body_params = local_var_params['inline_object15']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -2037,13 +2361,13 @@ class DefaultApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def generate_shopping_list(self, username, start_date, end_date, hash, inline_object11, **kwargs):  # noqa: E501
+    def generate_shopping_list(self, username, start_date, end_date, hash, inline_object13, **kwargs):  # noqa: E501
         """Generate Shopping List  # noqa: E501
 
         Generate the shopping list for a user from the meal planner in a given time frame.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.generate_shopping_list(username, start_date, end_date, hash, inline_object11, async_req=True)
+        >>> thread = api.generate_shopping_list(username, start_date, end_date, hash, inline_object13, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -2051,25 +2375,25 @@ class DefaultApi(object):
         :param str start_date: The start date in the format yyyy-mm-dd. (required)
         :param str end_date: The end date in the format yyyy-mm-dd. (required)
         :param str hash: The private hash for the username. (required)
-        :param InlineObject11 inline_object11: (required)
+        :param InlineObject13 inline_object13: (required)
         :return: object
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.generate_shopping_list_with_http_info(username, start_date, end_date, hash, inline_object11, **kwargs)  # noqa: E501
+            return self.generate_shopping_list_with_http_info(username, start_date, end_date, hash, inline_object13, **kwargs)  # noqa: E501
         else:
-            (data) = self.generate_shopping_list_with_http_info(username, start_date, end_date, hash, inline_object11, **kwargs)  # noqa: E501
+            (data) = self.generate_shopping_list_with_http_info(username, start_date, end_date, hash, inline_object13, **kwargs)  # noqa: E501
             return data
 
-    def generate_shopping_list_with_http_info(self, username, start_date, end_date, hash, inline_object11, **kwargs):  # noqa: E501
+    def generate_shopping_list_with_http_info(self, username, start_date, end_date, hash, inline_object13, **kwargs):  # noqa: E501
         """Generate Shopping List  # noqa: E501
 
         Generate the shopping list for a user from the meal planner in a given time frame.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.generate_shopping_list_with_http_info(username, start_date, end_date, hash, inline_object11, async_req=True)
+        >>> thread = api.generate_shopping_list_with_http_info(username, start_date, end_date, hash, inline_object13, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -2077,7 +2401,7 @@ class DefaultApi(object):
         :param str start_date: The start date in the format yyyy-mm-dd. (required)
         :param str end_date: The end date in the format yyyy-mm-dd. (required)
         :param str hash: The private hash for the username. (required)
-        :param InlineObject11 inline_object11: (required)
+        :param InlineObject13 inline_object13: (required)
         :return: object
                  If the method is called asynchronously,
                  returns the request thread.
@@ -2085,7 +2409,7 @@ class DefaultApi(object):
 
         local_var_params = locals()
 
-        all_params = ['username', 'start_date', 'end_date', 'hash', 'inline_object11']  # noqa: E501
+        all_params = ['username', 'start_date', 'end_date', 'hash', 'inline_object13']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -2115,10 +2439,10 @@ class DefaultApi(object):
         if ('hash' not in local_var_params or
                 local_var_params['hash'] is None):
             raise ApiValueError("Missing the required parameter `hash` when calling `generate_shopping_list`")  # noqa: E501
-        # verify the required parameter 'inline_object11' is set
-        if ('inline_object11' not in local_var_params or
-                local_var_params['inline_object11'] is None):
-            raise ApiValueError("Missing the required parameter `inline_object11` when calling `generate_shopping_list`")  # noqa: E501
+        # verify the required parameter 'inline_object13' is set
+        if ('inline_object13' not in local_var_params or
+                local_var_params['inline_object13'] is None):
+            raise ApiValueError("Missing the required parameter `inline_object13` when calling `generate_shopping_list`")  # noqa: E501
 
         collection_formats = {}
 
@@ -2140,8 +2464,8 @@ class DefaultApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'inline_object11' in local_var_params:
-            body_params = local_var_params['inline_object11']
+        if 'inline_object13' in local_var_params:
+            body_params = local_var_params['inline_object13']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -4237,6 +4561,102 @@ class DefaultApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def get_recipe_taste_by_id(self, id, **kwargs):  # noqa: E501
+        """Get Recipe Taste by ID  # noqa: E501
+
+        Get a recipe's taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_recipe_taste_by_id(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param float id: The recipe id. (required)
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_recipe_taste_by_id_with_http_info(id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.get_recipe_taste_by_id_with_http_info(id, **kwargs)  # noqa: E501
+            return data
+
+    def get_recipe_taste_by_id_with_http_info(self, id, **kwargs):  # noqa: E501
+        """Get Recipe Taste by ID  # noqa: E501
+
+        Get a recipe's taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_recipe_taste_by_id_with_http_info(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param float id: The recipe id. (required)
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_recipe_taste_by_id" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
+            raise ApiValueError("Missing the required parameter `id` when calling `get_recipe_taste_by_id`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/recipes/{id}/tasteWidget.json', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='object',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def get_shopping_list(self, username, hash, **kwargs):  # noqa: E501
         """Get Shopping List  # noqa: E501
 
@@ -5037,6 +5457,154 @@ class DefaultApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def ingredient_search(self, query, **kwargs):  # noqa: E501
+        """Ingredient Search  # noqa: E501
+
+        Search for simple whole foods (e.g. fruits, vegetables, nuts, grains, meat, fish, dairy etc.).  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.ingredient_search(query, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str query: The partial or full ingredient name. (required)
+        :param bool add_children: Whether to add children of found foods.
+        :param float min_protein_percent: The minimum percentage of protein the food must have (between 0 and 100).
+        :param float max_protein_percent: The maximum percentage of protein the food can have (between 0 and 100).
+        :param float min_fat_percent: The minimum percentage of fat the food must have (between 0 and 100).
+        :param float max_fat_percent: The maximum percentage of fat the food can have (between 0 and 100).
+        :param float min_carbs_percent: The minimum percentage of carbs the food must have (between 0 and 100).
+        :param float max_carbs_percent: The maximum percentage of carbs the food can have (between 0 and 100).
+        :param bool meta_information: Whether to return more meta information about the ingredients.
+        :param str intolerances: A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
+        :param str sort: The strategy to sort recipes by. See a full list of supported sorting options.
+        :param str sort_direction: The direction in which to sort. Must be either 'asc' (ascending) or 'desc' (descending).
+        :param float offset: The number of results to skip (between 0 and 990).
+        :param float number: The number of expected results (between 1 and 100).
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.ingredient_search_with_http_info(query, **kwargs)  # noqa: E501
+        else:
+            (data) = self.ingredient_search_with_http_info(query, **kwargs)  # noqa: E501
+            return data
+
+    def ingredient_search_with_http_info(self, query, **kwargs):  # noqa: E501
+        """Ingredient Search  # noqa: E501
+
+        Search for simple whole foods (e.g. fruits, vegetables, nuts, grains, meat, fish, dairy etc.).  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.ingredient_search_with_http_info(query, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str query: The partial or full ingredient name. (required)
+        :param bool add_children: Whether to add children of found foods.
+        :param float min_protein_percent: The minimum percentage of protein the food must have (between 0 and 100).
+        :param float max_protein_percent: The maximum percentage of protein the food can have (between 0 and 100).
+        :param float min_fat_percent: The minimum percentage of fat the food must have (between 0 and 100).
+        :param float max_fat_percent: The maximum percentage of fat the food can have (between 0 and 100).
+        :param float min_carbs_percent: The minimum percentage of carbs the food must have (between 0 and 100).
+        :param float max_carbs_percent: The maximum percentage of carbs the food can have (between 0 and 100).
+        :param bool meta_information: Whether to return more meta information about the ingredients.
+        :param str intolerances: A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
+        :param str sort: The strategy to sort recipes by. See a full list of supported sorting options.
+        :param str sort_direction: The direction in which to sort. Must be either 'asc' (ascending) or 'desc' (descending).
+        :param float offset: The number of results to skip (between 0 and 990).
+        :param float number: The number of expected results (between 1 and 100).
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['query', 'add_children', 'min_protein_percent', 'max_protein_percent', 'min_fat_percent', 'max_fat_percent', 'min_carbs_percent', 'max_carbs_percent', 'meta_information', 'intolerances', 'sort', 'sort_direction', 'offset', 'number']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method ingredient_search" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'query' is set
+        if ('query' not in local_var_params or
+                local_var_params['query'] is None):
+            raise ApiValueError("Missing the required parameter `query` when calling `ingredient_search`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'query' in local_var_params:
+            query_params.append(('query', local_var_params['query']))  # noqa: E501
+        if 'add_children' in local_var_params:
+            query_params.append(('addChildren', local_var_params['add_children']))  # noqa: E501
+        if 'min_protein_percent' in local_var_params:
+            query_params.append(('minProteinPercent', local_var_params['min_protein_percent']))  # noqa: E501
+        if 'max_protein_percent' in local_var_params:
+            query_params.append(('maxProteinPercent', local_var_params['max_protein_percent']))  # noqa: E501
+        if 'min_fat_percent' in local_var_params:
+            query_params.append(('minFatPercent', local_var_params['min_fat_percent']))  # noqa: E501
+        if 'max_fat_percent' in local_var_params:
+            query_params.append(('maxFatPercent', local_var_params['max_fat_percent']))  # noqa: E501
+        if 'min_carbs_percent' in local_var_params:
+            query_params.append(('minCarbsPercent', local_var_params['min_carbs_percent']))  # noqa: E501
+        if 'max_carbs_percent' in local_var_params:
+            query_params.append(('maxCarbsPercent', local_var_params['max_carbs_percent']))  # noqa: E501
+        if 'meta_information' in local_var_params:
+            query_params.append(('metaInformation', local_var_params['meta_information']))  # noqa: E501
+        if 'intolerances' in local_var_params:
+            query_params.append(('intolerances', local_var_params['intolerances']))  # noqa: E501
+        if 'sort' in local_var_params:
+            query_params.append(('sort', local_var_params['sort']))  # noqa: E501
+        if 'sort_direction' in local_var_params:
+            query_params.append(('sortDirection', local_var_params['sort_direction']))  # noqa: E501
+        if 'offset' in local_var_params:
+            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
+        if 'number' in local_var_params:
+            query_params.append(('number', local_var_params['number']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/food/ingredients/search', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='object',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def map_ingredients_to_grocery_products(self, body, **kwargs):  # noqa: E501
         """Map Ingredients to Grocery Products  # noqa: E501
 
@@ -5331,6 +5899,110 @@ class DefaultApi(object):
 
         return self.api_client.call_api(
             '/recipes/quickAnswer', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='object',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def search_all_food(self, query, **kwargs):  # noqa: E501
+        """Search All Food  # noqa: E501
+
+        Search all food content with one call. That includes recipes, grocery products, menu items, simple foods (ingredients), and food videos.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_all_food(query, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str query: The search query. (required)
+        :param float offset: The number of results to skip (between 0 and 990).
+        :param float number: The number of expected results (between 1 and 100).
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.search_all_food_with_http_info(query, **kwargs)  # noqa: E501
+        else:
+            (data) = self.search_all_food_with_http_info(query, **kwargs)  # noqa: E501
+            return data
+
+    def search_all_food_with_http_info(self, query, **kwargs):  # noqa: E501
+        """Search All Food  # noqa: E501
+
+        Search all food content with one call. That includes recipes, grocery products, menu items, simple foods (ingredients), and food videos.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_all_food_with_http_info(query, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str query: The search query. (required)
+        :param float offset: The number of results to skip (between 0 and 990).
+        :param float number: The number of expected results (between 1 and 100).
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['query', 'offset', 'number']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method search_all_food" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'query' is set
+        if ('query' not in local_var_params or
+                local_var_params['query'] is None):
+            raise ApiValueError("Missing the required parameter `query` when calling `search_all_food`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'query' in local_var_params:
+            query_params.append(('query', local_var_params['query']))  # noqa: E501
+        if 'offset' in local_var_params:
+            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
+        if 'number' in local_var_params:
+            query_params.append(('number', local_var_params['number']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/food/search', 'GET',
             path_params,
             query_params,
             header_params,
@@ -5968,7 +6640,7 @@ class DefaultApi(object):
     def search_recipes(self, query, **kwargs):  # noqa: E501
         """Search Recipes  # noqa: E501
 
-        Our recipe API includes over 360,000 recipes as well as an open source recipe database. Consider using the \"Search Recipes Complex\" endpoint for much more flexibility.  # noqa: E501
+        Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.search_recipes(query, async_req=True)
@@ -5976,14 +6648,101 @@ class DefaultApi(object):
 
         :param async_req bool
         :param str query: The (natural language) recipe search query. (required)
-        :param str cuisine: The cuisine(s) of the recipes. One or more comma separated. See a full list of supported cuisines.
+        :param str cuisine: The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as 'OR'). See a full list of supported cuisines.
+        :param str exclude_cuisine: The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as 'AND'). See a full list of supported cuisines.
         :param str diet: The diet for which the recipes must be suitable. See a full list of supported diets.
+        :param str intolerances: A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
+        :param str equipment: The equipment required. Multiple values will be interpreted as 'or'. For example, value could be \"blender, frying pan, bowl\".
+        :param str include_ingredients: A comma-separated list of ingredients that should/must be used in the recipes.
         :param str exclude_ingredients: A comma-separated list of ingredients or ingredient types that the recipes must not contain.
-        :param str intolerances: A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. Please note: due to the automatic nature of the recipe analysis, the API cannot be 100% accurate in all cases. Please advise your users to seek professional help with medical issues.
-        :param float offset: The number of results to skip (between 0 and 900).
-        :param float number: The number of results to return (between 1 and 100).
-        :param bool limit_license: Whether the recipes should have an open license that allows display with proper attribution.
+        :param str type: The type of recipe. See a full list of supported meal types.
         :param bool instructions_required: Whether the recipes must have instructions.
+        :param bool fill_ingredients: Add information about the ingredients and whether they are used or missing in relation to the query.
+        :param bool add_recipe_information: If set to true, you get more information about the recipes returned.
+        :param bool add_recipe_nutrition: If set to true, you get nutritional information about each recipes returned.
+        :param str author: The username of the recipe author.
+        :param str tags: User defined tags that have to match. The author param has to be set.
+        :param float recipe_box_id: The id of the recipe box to which the search should be limited to.
+        :param str title_match: Enter text that must be found in the title of the recipes.
+        :param float max_ready_time: The maximum time in minutes it should take to prepare and cook the recipe.
+        :param bool ignore_pantry: Whether to ignore typical pantry items, such as water, salt, flour, etc.
+        :param str sort: The strategy to sort recipes by. See a full list of supported sorting options.
+        :param str sort_direction: The direction in which to sort. Must be either 'asc' (ascending) or 'desc' (descending).
+        :param float min_carbs: The minimum amount of carbohydrates in grams the recipe must have.
+        :param float max_carbs: The maximum amount of carbohydrates in grams the recipe can have.
+        :param float min_protein: The minimum amount of protein in grams the recipe must have.
+        :param float max_protein: The maximum amount of protein in grams the recipe can have.
+        :param float min_calories: The minimum amount of calories the recipe must have.
+        :param float max_calories: The maximum amount of calories the recipe can have.
+        :param float min_fat: The minimum amount of fat in grams the recipe must have.
+        :param float max_fat: The maximum amount of fat in grams the recipe can have.
+        :param float min_alcohol: The minimum amount of alcohol in grams the recipe must have.
+        :param float max_alcohol: The maximum amount of alcohol in grams the recipe can have.
+        :param float min_caffeine: The minimum amount of caffeine in milligrams the recipe must have.
+        :param float max_caffeine: The maximum amount of caffeine in milligrams the recipe can have.
+        :param float min_copper: The minimum amount of copper in milligrams the recipe must have.
+        :param float max_copper: The maximum amount of copper in milligrams the recipe can have.
+        :param float min_calcium: The minimum amount of calcium in milligrams the recipe must have.
+        :param float max_calcium: The maximum amount of calcium in milligrams the recipe can have.
+        :param float min_choline: The minimum amount of choline in milligrams the recipe must have.
+        :param float max_choline: The maximum amount of choline in milligrams the recipe can have.
+        :param float min_cholesterol: The minimum amount of cholesterol in milligrams the recipe must have.
+        :param float max_cholesterol: The maximum amount of cholesterol in milligrams the recipe can have.
+        :param float min_fluoride: The minimum amount of fluoride in milligrams the recipe must have.
+        :param float max_fluoride: The maximum amount of fluoride in milligrams the recipe can have.
+        :param float min_saturated_fat: The minimum amount of saturated fat in grams the recipe must have.
+        :param float max_saturated_fat: The maximum amount of saturated fat in grams the recipe can have.
+        :param float min_vitamin_a: The minimum amount of Vitamin A in IU the recipe must have.
+        :param float max_vitamin_a: The maximum amount of Vitamin A in IU the recipe can have.
+        :param float min_vitamin_c: The minimum amount of Vitamin C milligrams the recipe must have.
+        :param float max_vitamin_c: The maximum amount of Vitamin C in milligrams the recipe can have.
+        :param float min_vitamin_d: The minimum amount of Vitamin D in micrograms the recipe must have.
+        :param float max_vitamin_d: The maximum amount of Vitamin D in micrograms the recipe can have.
+        :param float min_vitamin_e: The minimum amount of Vitamin E in milligrams the recipe must have.
+        :param float max_vitamin_e: The maximum amount of Vitamin E in milligrams the recipe can have.
+        :param float min_vitamin_k: The minimum amount of Vitamin K in micrograms the recipe must have.
+        :param float max_vitamin_k: The maximum amount of Vitamin K in micrograms the recipe can have.
+        :param float min_vitamin_b1: The minimum amount of Vitamin B1 in milligrams the recipe must have.
+        :param float max_vitamin_b1: The maximum amount of Vitamin B1 in milligrams the recipe can have.
+        :param float min_vitamin_b2: The minimum amount of Vitamin B2 in milligrams the recipe must have.
+        :param float max_vitamin_b2: The maximum amount of Vitamin B2 in milligrams the recipe can have.
+        :param float min_vitamin_b5: The minimum amount of Vitamin B5 in milligrams the recipe must have.
+        :param float max_vitamin_b5: The maximum amount of Vitamin B5 in milligrams the recipe can have.
+        :param float min_vitamin_b3: The minimum amount of Vitamin B3 in milligrams the recipe must have.
+        :param float max_vitamin_b3: The maximum amount of Vitamin B3 in milligrams the recipe can have.
+        :param float min_vitamin_b6: The minimum amount of Vitamin B6 in milligrams the recipe must have.
+        :param float max_vitamin_b6: The maximum amount of Vitamin B6 in milligrams the recipe can have.
+        :param float min_vitamin_b12: The minimum amount of Vitamin B12 in micrograms the recipe must have.
+        :param float max_vitamin_b12: The maximum amount of Vitamin B12 in micrograms the recipe can have.
+        :param float min_fiber: The minimum amount of fiber in grams the recipe must have.
+        :param float max_fiber: The maximum amount of fiber in grams the recipe can have.
+        :param float min_folate: The minimum amount of folate in micrograms the recipe must have.
+        :param float max_folate: The maximum amount of folate in micrograms the recipe can have.
+        :param float min_folic_acid: The minimum amount of folic acid in micrograms the recipe must have.
+        :param float max_folic_acid: The maximum amount of folic acid in micrograms the recipe can have.
+        :param float min_iodine: The minimum amount of iodine in micrograms the recipe must have.
+        :param float max_iodine: The maximum amount of iodine in micrograms the recipe can have.
+        :param float min_iron: The minimum amount of iron in milligrams the recipe must have.
+        :param float max_iron: The maximum amount of iron in milligrams the recipe can have.
+        :param float min_magnesium: The minimum amount of magnesium in milligrams the recipe must have.
+        :param float max_magnesium: The maximum amount of magnesium in milligrams the recipe can have.
+        :param float min_manganese: The minimum amount of manganese in milligrams the recipe must have.
+        :param float max_manganese: The maximum amount of manganese in milligrams the recipe can have.
+        :param float min_phosphorus: The minimum amount of phosphorus in milligrams the recipe must have.
+        :param float max_phosphorus: The maximum amount of phosphorus in milligrams the recipe can have.
+        :param float min_potassium: The minimum amount of potassium in milligrams the recipe must have.
+        :param float max_potassium: The maximum amount of potassium in milligrams the recipe can have.
+        :param float min_selenium: The minimum amount of selenium in micrograms the recipe must have.
+        :param float max_selenium: The maximum amount of selenium in micrograms the recipe can have.
+        :param float min_sodium: The minimum amount of sodium in milligrams the recipe must have.
+        :param float max_sodium: The maximum amount of sodium in milligrams the recipe can have.
+        :param float min_sugar: The minimum amount of sugar in grams the recipe must have.
+        :param float max_sugar: The maximum amount of sugar in grams the recipe can have.
+        :param float min_zinc: The minimum amount of zinc in milligrams the recipe must have.
+        :param float max_zinc: The maximum amount of zinc in milligrams the recipe can have.
+        :param float offset: The number of results to skip (between 0 and 900).
+        :param float number: The number of expected results (between 1 and 100).
+        :param bool limit_license: Whether the recipes should have an open license that allows display with proper attribution.
         :return: object
                  If the method is called asynchronously,
                  returns the request thread.
@@ -5998,7 +6757,7 @@ class DefaultApi(object):
     def search_recipes_with_http_info(self, query, **kwargs):  # noqa: E501
         """Search Recipes  # noqa: E501
 
-        Our recipe API includes over 360,000 recipes as well as an open source recipe database. Consider using the \"Search Recipes Complex\" endpoint for much more flexibility.  # noqa: E501
+        Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.search_recipes_with_http_info(query, async_req=True)
@@ -6006,608 +6765,6 @@ class DefaultApi(object):
 
         :param async_req bool
         :param str query: The (natural language) recipe search query. (required)
-        :param str cuisine: The cuisine(s) of the recipes. One or more comma separated. See a full list of supported cuisines.
-        :param str diet: The diet for which the recipes must be suitable. See a full list of supported diets.
-        :param str exclude_ingredients: A comma-separated list of ingredients or ingredient types that the recipes must not contain.
-        :param str intolerances: A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. Please note: due to the automatic nature of the recipe analysis, the API cannot be 100% accurate in all cases. Please advise your users to seek professional help with medical issues.
-        :param float offset: The number of results to skip (between 0 and 900).
-        :param float number: The number of results to return (between 1 and 100).
-        :param bool limit_license: Whether the recipes should have an open license that allows display with proper attribution.
-        :param bool instructions_required: Whether the recipes must have instructions.
-        :return: object
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['query', 'cuisine', 'diet', 'exclude_ingredients', 'intolerances', 'offset', 'number', 'limit_license', 'instructions_required']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method search_recipes" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'query' is set
-        if ('query' not in local_var_params or
-                local_var_params['query'] is None):
-            raise ApiValueError("Missing the required parameter `query` when calling `search_recipes`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-        if 'query' in local_var_params:
-            query_params.append(('query', local_var_params['query']))  # noqa: E501
-        if 'cuisine' in local_var_params:
-            query_params.append(('cuisine', local_var_params['cuisine']))  # noqa: E501
-        if 'diet' in local_var_params:
-            query_params.append(('diet', local_var_params['diet']))  # noqa: E501
-        if 'exclude_ingredients' in local_var_params:
-            query_params.append(('excludeIngredients', local_var_params['exclude_ingredients']))  # noqa: E501
-        if 'intolerances' in local_var_params:
-            query_params.append(('intolerances', local_var_params['intolerances']))  # noqa: E501
-        if 'offset' in local_var_params:
-            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
-        if 'number' in local_var_params:
-            query_params.append(('number', local_var_params['number']))  # noqa: E501
-        if 'limit_license' in local_var_params:
-            query_params.append(('limitLicense', local_var_params['limit_license']))  # noqa: E501
-        if 'instructions_required' in local_var_params:
-            query_params.append(('instructionsRequired', local_var_params['instructions_required']))  # noqa: E501
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = []  # noqa: E501
-
-        return self.api_client.call_api(
-            '/recipes/search', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='object',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def search_recipes_by_ingredients(self, ingredients, **kwargs):  # noqa: E501
-        """Search Recipes by Ingredients  # noqa: E501
-
-                     Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don't currently have (post shopping).           # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.search_recipes_by_ingredients(ingredients, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str ingredients: A comma-separated list of ingredients that the recipes should contain. (required)
-        :param float number: The maximum number of recipes to return (between 1 and 100). Defaults to 10.
-        :param bool limit_license: Whether the recipes should have an open license that allows display with proper attribution.
-        :param float ranking: Whether to maximize used ingredients (1) or minimize missing ingredients (2) first.
-        :param bool ignore_pantry: Whether to ignore typical pantry items, such as water, salt, flour, etc.
-        :return: object
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.search_recipes_by_ingredients_with_http_info(ingredients, **kwargs)  # noqa: E501
-        else:
-            (data) = self.search_recipes_by_ingredients_with_http_info(ingredients, **kwargs)  # noqa: E501
-            return data
-
-    def search_recipes_by_ingredients_with_http_info(self, ingredients, **kwargs):  # noqa: E501
-        """Search Recipes by Ingredients  # noqa: E501
-
-                     Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don't currently have (post shopping).           # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.search_recipes_by_ingredients_with_http_info(ingredients, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str ingredients: A comma-separated list of ingredients that the recipes should contain. (required)
-        :param float number: The maximum number of recipes to return (between 1 and 100). Defaults to 10.
-        :param bool limit_license: Whether the recipes should have an open license that allows display with proper attribution.
-        :param float ranking: Whether to maximize used ingredients (1) or minimize missing ingredients (2) first.
-        :param bool ignore_pantry: Whether to ignore typical pantry items, such as water, salt, flour, etc.
-        :return: object
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['ingredients', 'number', 'limit_license', 'ranking', 'ignore_pantry']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method search_recipes_by_ingredients" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'ingredients' is set
-        if ('ingredients' not in local_var_params or
-                local_var_params['ingredients'] is None):
-            raise ApiValueError("Missing the required parameter `ingredients` when calling `search_recipes_by_ingredients`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-        if 'ingredients' in local_var_params:
-            query_params.append(('ingredients', local_var_params['ingredients']))  # noqa: E501
-        if 'number' in local_var_params:
-            query_params.append(('number', local_var_params['number']))  # noqa: E501
-        if 'limit_license' in local_var_params:
-            query_params.append(('limitLicense', local_var_params['limit_license']))  # noqa: E501
-        if 'ranking' in local_var_params:
-            query_params.append(('ranking', local_var_params['ranking']))  # noqa: E501
-        if 'ignore_pantry' in local_var_params:
-            query_params.append(('ignorePantry', local_var_params['ignore_pantry']))  # noqa: E501
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = []  # noqa: E501
-
-        return self.api_client.call_api(
-            '/recipes/findByIngredients', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='object',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def search_recipes_by_nutrients(self, **kwargs):  # noqa: E501
-        """Search Recipes by Nutrients  # noqa: E501
-
-        Find a set of recipes that adhere to the given nutritional limits. You may set limits for macronutrients (calories, protein, fat, and carbohydrate) and/or many micronutrients.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.search_recipes_by_nutrients(async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param float min_carbs: The minimum amount of carbohydrates in grams the recipe must have.
-        :param float max_carbs: The maximum amount of carbohydrates in grams the recipe can have.
-        :param float min_protein: The minimum amount of protein in grams the recipe must have.
-        :param float max_protein: The maximum amount of protein in grams the recipe can have.
-        :param float min_calories: The minimum amount of calories the recipe must have.
-        :param float max_calories: The maximum amount of calories the recipe can have.
-        :param float min_fat: The minimum amount of fat in grams the recipe must have.
-        :param float max_fat: The maximum amount of fat in grams the recipe can have.
-        :param float min_alcohol: The minimum amount of alcohol in grams the recipe must have.
-        :param float max_alcohol: The maximum amount of alcohol in grams the recipe can have.
-        :param float min_caffeine: The minimum amount of caffeine in milligrams the recipe must have.
-        :param float max_caffeine: The maximum amount of caffeine in milligrams the recipe can have.
-        :param float min_copper: The minimum amount of copper in milligrams the recipe must have.
-        :param float max_copper: The maximum amount of copper in milligrams the recipe can have.
-        :param float min_calcium: The minimum amount of calcium in milligrams the recipe must have.
-        :param float max_calcium: The maximum amount of calcium in milligrams the recipe can have.
-        :param float min_choline: The minimum amount of choline in milligrams the recipe must have.
-        :param float max_choline: The maximum amount of choline in milligrams the recipe can have.
-        :param float min_cholesterol: The minimum amount of cholesterol in milligrams the recipe must have.
-        :param float max_cholesterol: The maximum amount of cholesterol in milligrams the recipe can have.
-        :param float min_fluoride: The minimum amount of fluoride in milligrams the recipe must have.
-        :param float max_fluoride: The maximum amount of fluoride in milligrams the recipe can have.
-        :param float min_saturated_fat: The minimum amount of saturated fat in grams the recipe must have.
-        :param float max_saturated_fat: The maximum amount of saturated fat in grams the recipe can have.
-        :param float min_vitamin_a: The minimum amount of Vitamin A in IU the recipe must have.
-        :param float max_vitamin_a: The maximum amount of Vitamin A in IU the recipe can have.
-        :param float min_vitamin_c: The minimum amount of Vitamin C in milligrams the recipe must have.
-        :param float max_vitamin_c: The maximum amount of Vitamin C in milligrams the recipe can have.
-        :param float min_vitamin_d: The minimum amount of Vitamin D in micrograms the recipe must have.
-        :param float max_vitamin_d: The maximum amount of Vitamin D in micrograms the recipe can have.
-        :param float min_vitamin_e: The minimum amount of Vitamin E in milligrams the recipe must have.
-        :param float max_vitamin_e: The maximum amount of Vitamin E in milligrams the recipe can have.
-        :param float min_vitamin_k: The minimum amount of Vitamin K in micrograms the recipe must have.
-        :param float max_vitamin_k: The maximum amount of Vitamin K in micrograms the recipe can have.
-        :param float min_vitamin_b1: The minimum amount of Vitamin B1 in milligrams the recipe must have.
-        :param float max_vitamin_b1: The maximum amount of Vitamin B1 in milligrams the recipe can have.
-        :param float min_vitamin_b2: The minimum amount of Vitamin B2 in milligrams the recipe must have.
-        :param float max_vitamin_b2: The maximum amount of Vitamin B2 in milligrams the recipe can have.
-        :param float min_vitamin_b5: The minimum amount of Vitamin B5 in milligrams the recipe must have.
-        :param float max_vitamin_b5: The maximum amount of Vitamin B5 in milligrams the recipe can have.
-        :param float min_vitamin_b3: The minimum amount of Vitamin B3 in milligrams the recipe must have.
-        :param float max_vitamin_b3: The maximum amount of Vitamin B3 in milligrams the recipe can have.
-        :param float min_vitamin_b6: The minimum amount of Vitamin B6 in milligrams the recipe must have.
-        :param float max_vitamin_b6: The maximum amount of Vitamin B6 in milligrams the recipe can have.
-        :param float min_vitamin_b12: The minimum amount of Vitamin B12 in micrograms the recipe must have.
-        :param float max_vitamin_b12: The maximum amount of Vitamin B12 in micrograms the recipe can have.
-        :param float min_fiber: The minimum amount of fiber in grams the recipe must have.
-        :param float max_fiber: The maximum amount of fiber in grams the recipe can have.
-        :param float min_folate: The minimum amount of folate in grams the recipe must have.
-        :param float max_folate: The maximum amount of folate in grams the recipe can have.
-        :param float min_folic_acid: The minimum amount of folic acid in grams the recipe must have.
-        :param float max_folic_acid: The maximum amount of folic acid in grams the recipe can have.
-        :param float min_iodine: The minimum amount of iodine in grams the recipe must have.
-        :param float max_iodine: The maximum amount of iodine in grams the recipe can have.
-        :param float min_iron: The minimum amount of iron in milligrams the recipe must have.
-        :param float max_iron: The maximum amount of iron in milligrams the recipe can have.
-        :param float min_magnesium: The minimum amount of magnesium in milligrams the recipe must have.
-        :param float max_magnesium: The maximum amount of magnesium in milligrams the recipe can have.
-        :param float min_manganese: The minimum amount of manganese in milligrams the recipe must have.
-        :param float max_manganese: The maximum amount of manganese in milligrams the recipe can have.
-        :param float min_phosphorus: The minimum amount of phosphorus in milligrams the recipe must have.
-        :param float max_phosphorus: The maximum amount of phosphorus in milligrams the recipe can have.
-        :param float min_potassium: The minimum amount of potassium in milligrams the recipe must have.
-        :param float max_potassium: The maximum amount of potassium in milligrams the recipe can have.
-        :param float min_selenium: The minimum amount of selenium in grams the recipe must have.
-        :param float max_selenium: The maximum amount of selenium in grams the recipe can have.
-        :param float min_sodium: The minimum amount of sodium in milligrams the recipe must have.
-        :param float max_sodium: The maximum amount of sodium in milligrams the recipe can have.
-        :param float min_sugar: The minimum amount of sugar in grams the recipe must have.
-        :param float max_sugar: The maximum amount of sugar in grams the recipe can have.
-        :param float min_zinc: The minimum amount of zinc in milligrams the recipe must have.
-        :param float max_zinc: The maximum amount of zinc in milligrams the recipe can have.
-        :param float offset: The number of results to skip (between 0 and 900).
-        :param float number: The number of expected results (between 1 and 100).
-        :param bool random: If true, every request will give you a random set of recipes within the requested limits.
-        :param bool limit_license: Whether the recipes should have an open license that allows display with proper attribution.
-        :return: object
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.search_recipes_by_nutrients_with_http_info(**kwargs)  # noqa: E501
-        else:
-            (data) = self.search_recipes_by_nutrients_with_http_info(**kwargs)  # noqa: E501
-            return data
-
-    def search_recipes_by_nutrients_with_http_info(self, **kwargs):  # noqa: E501
-        """Search Recipes by Nutrients  # noqa: E501
-
-        Find a set of recipes that adhere to the given nutritional limits. You may set limits for macronutrients (calories, protein, fat, and carbohydrate) and/or many micronutrients.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.search_recipes_by_nutrients_with_http_info(async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param float min_carbs: The minimum amount of carbohydrates in grams the recipe must have.
-        :param float max_carbs: The maximum amount of carbohydrates in grams the recipe can have.
-        :param float min_protein: The minimum amount of protein in grams the recipe must have.
-        :param float max_protein: The maximum amount of protein in grams the recipe can have.
-        :param float min_calories: The minimum amount of calories the recipe must have.
-        :param float max_calories: The maximum amount of calories the recipe can have.
-        :param float min_fat: The minimum amount of fat in grams the recipe must have.
-        :param float max_fat: The maximum amount of fat in grams the recipe can have.
-        :param float min_alcohol: The minimum amount of alcohol in grams the recipe must have.
-        :param float max_alcohol: The maximum amount of alcohol in grams the recipe can have.
-        :param float min_caffeine: The minimum amount of caffeine in milligrams the recipe must have.
-        :param float max_caffeine: The maximum amount of caffeine in milligrams the recipe can have.
-        :param float min_copper: The minimum amount of copper in milligrams the recipe must have.
-        :param float max_copper: The maximum amount of copper in milligrams the recipe can have.
-        :param float min_calcium: The minimum amount of calcium in milligrams the recipe must have.
-        :param float max_calcium: The maximum amount of calcium in milligrams the recipe can have.
-        :param float min_choline: The minimum amount of choline in milligrams the recipe must have.
-        :param float max_choline: The maximum amount of choline in milligrams the recipe can have.
-        :param float min_cholesterol: The minimum amount of cholesterol in milligrams the recipe must have.
-        :param float max_cholesterol: The maximum amount of cholesterol in milligrams the recipe can have.
-        :param float min_fluoride: The minimum amount of fluoride in milligrams the recipe must have.
-        :param float max_fluoride: The maximum amount of fluoride in milligrams the recipe can have.
-        :param float min_saturated_fat: The minimum amount of saturated fat in grams the recipe must have.
-        :param float max_saturated_fat: The maximum amount of saturated fat in grams the recipe can have.
-        :param float min_vitamin_a: The minimum amount of Vitamin A in IU the recipe must have.
-        :param float max_vitamin_a: The maximum amount of Vitamin A in IU the recipe can have.
-        :param float min_vitamin_c: The minimum amount of Vitamin C in milligrams the recipe must have.
-        :param float max_vitamin_c: The maximum amount of Vitamin C in milligrams the recipe can have.
-        :param float min_vitamin_d: The minimum amount of Vitamin D in micrograms the recipe must have.
-        :param float max_vitamin_d: The maximum amount of Vitamin D in micrograms the recipe can have.
-        :param float min_vitamin_e: The minimum amount of Vitamin E in milligrams the recipe must have.
-        :param float max_vitamin_e: The maximum amount of Vitamin E in milligrams the recipe can have.
-        :param float min_vitamin_k: The minimum amount of Vitamin K in micrograms the recipe must have.
-        :param float max_vitamin_k: The maximum amount of Vitamin K in micrograms the recipe can have.
-        :param float min_vitamin_b1: The minimum amount of Vitamin B1 in milligrams the recipe must have.
-        :param float max_vitamin_b1: The maximum amount of Vitamin B1 in milligrams the recipe can have.
-        :param float min_vitamin_b2: The minimum amount of Vitamin B2 in milligrams the recipe must have.
-        :param float max_vitamin_b2: The maximum amount of Vitamin B2 in milligrams the recipe can have.
-        :param float min_vitamin_b5: The minimum amount of Vitamin B5 in milligrams the recipe must have.
-        :param float max_vitamin_b5: The maximum amount of Vitamin B5 in milligrams the recipe can have.
-        :param float min_vitamin_b3: The minimum amount of Vitamin B3 in milligrams the recipe must have.
-        :param float max_vitamin_b3: The maximum amount of Vitamin B3 in milligrams the recipe can have.
-        :param float min_vitamin_b6: The minimum amount of Vitamin B6 in milligrams the recipe must have.
-        :param float max_vitamin_b6: The maximum amount of Vitamin B6 in milligrams the recipe can have.
-        :param float min_vitamin_b12: The minimum amount of Vitamin B12 in micrograms the recipe must have.
-        :param float max_vitamin_b12: The maximum amount of Vitamin B12 in micrograms the recipe can have.
-        :param float min_fiber: The minimum amount of fiber in grams the recipe must have.
-        :param float max_fiber: The maximum amount of fiber in grams the recipe can have.
-        :param float min_folate: The minimum amount of folate in grams the recipe must have.
-        :param float max_folate: The maximum amount of folate in grams the recipe can have.
-        :param float min_folic_acid: The minimum amount of folic acid in grams the recipe must have.
-        :param float max_folic_acid: The maximum amount of folic acid in grams the recipe can have.
-        :param float min_iodine: The minimum amount of iodine in grams the recipe must have.
-        :param float max_iodine: The maximum amount of iodine in grams the recipe can have.
-        :param float min_iron: The minimum amount of iron in milligrams the recipe must have.
-        :param float max_iron: The maximum amount of iron in milligrams the recipe can have.
-        :param float min_magnesium: The minimum amount of magnesium in milligrams the recipe must have.
-        :param float max_magnesium: The maximum amount of magnesium in milligrams the recipe can have.
-        :param float min_manganese: The minimum amount of manganese in milligrams the recipe must have.
-        :param float max_manganese: The maximum amount of manganese in milligrams the recipe can have.
-        :param float min_phosphorus: The minimum amount of phosphorus in milligrams the recipe must have.
-        :param float max_phosphorus: The maximum amount of phosphorus in milligrams the recipe can have.
-        :param float min_potassium: The minimum amount of potassium in milligrams the recipe must have.
-        :param float max_potassium: The maximum amount of potassium in milligrams the recipe can have.
-        :param float min_selenium: The minimum amount of selenium in grams the recipe must have.
-        :param float max_selenium: The maximum amount of selenium in grams the recipe can have.
-        :param float min_sodium: The minimum amount of sodium in milligrams the recipe must have.
-        :param float max_sodium: The maximum amount of sodium in milligrams the recipe can have.
-        :param float min_sugar: The minimum amount of sugar in grams the recipe must have.
-        :param float max_sugar: The maximum amount of sugar in grams the recipe can have.
-        :param float min_zinc: The minimum amount of zinc in milligrams the recipe must have.
-        :param float max_zinc: The maximum amount of zinc in milligrams the recipe can have.
-        :param float offset: The number of results to skip (between 0 and 900).
-        :param float number: The number of expected results (between 1 and 100).
-        :param bool random: If true, every request will give you a random set of recipes within the requested limits.
-        :param bool limit_license: Whether the recipes should have an open license that allows display with proper attribution.
-        :return: object
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['min_carbs', 'max_carbs', 'min_protein', 'max_protein', 'min_calories', 'max_calories', 'min_fat', 'max_fat', 'min_alcohol', 'max_alcohol', 'min_caffeine', 'max_caffeine', 'min_copper', 'max_copper', 'min_calcium', 'max_calcium', 'min_choline', 'max_choline', 'min_cholesterol', 'max_cholesterol', 'min_fluoride', 'max_fluoride', 'min_saturated_fat', 'max_saturated_fat', 'min_vitamin_a', 'max_vitamin_a', 'min_vitamin_c', 'max_vitamin_c', 'min_vitamin_d', 'max_vitamin_d', 'min_vitamin_e', 'max_vitamin_e', 'min_vitamin_k', 'max_vitamin_k', 'min_vitamin_b1', 'max_vitamin_b1', 'min_vitamin_b2', 'max_vitamin_b2', 'min_vitamin_b5', 'max_vitamin_b5', 'min_vitamin_b3', 'max_vitamin_b3', 'min_vitamin_b6', 'max_vitamin_b6', 'min_vitamin_b12', 'max_vitamin_b12', 'min_fiber', 'max_fiber', 'min_folate', 'max_folate', 'min_folic_acid', 'max_folic_acid', 'min_iodine', 'max_iodine', 'min_iron', 'max_iron', 'min_magnesium', 'max_magnesium', 'min_manganese', 'max_manganese', 'min_phosphorus', 'max_phosphorus', 'min_potassium', 'max_potassium', 'min_selenium', 'max_selenium', 'min_sodium', 'max_sodium', 'min_sugar', 'max_sugar', 'min_zinc', 'max_zinc', 'offset', 'number', 'random', 'limit_license']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method search_recipes_by_nutrients" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-        if 'min_carbs' in local_var_params:
-            query_params.append(('minCarbs', local_var_params['min_carbs']))  # noqa: E501
-        if 'max_carbs' in local_var_params:
-            query_params.append(('maxCarbs', local_var_params['max_carbs']))  # noqa: E501
-        if 'min_protein' in local_var_params:
-            query_params.append(('minProtein', local_var_params['min_protein']))  # noqa: E501
-        if 'max_protein' in local_var_params:
-            query_params.append(('maxProtein', local_var_params['max_protein']))  # noqa: E501
-        if 'min_calories' in local_var_params:
-            query_params.append(('minCalories', local_var_params['min_calories']))  # noqa: E501
-        if 'max_calories' in local_var_params:
-            query_params.append(('maxCalories', local_var_params['max_calories']))  # noqa: E501
-        if 'min_fat' in local_var_params:
-            query_params.append(('minFat', local_var_params['min_fat']))  # noqa: E501
-        if 'max_fat' in local_var_params:
-            query_params.append(('maxFat', local_var_params['max_fat']))  # noqa: E501
-        if 'min_alcohol' in local_var_params:
-            query_params.append(('minAlcohol', local_var_params['min_alcohol']))  # noqa: E501
-        if 'max_alcohol' in local_var_params:
-            query_params.append(('maxAlcohol', local_var_params['max_alcohol']))  # noqa: E501
-        if 'min_caffeine' in local_var_params:
-            query_params.append(('minCaffeine', local_var_params['min_caffeine']))  # noqa: E501
-        if 'max_caffeine' in local_var_params:
-            query_params.append(('maxCaffeine', local_var_params['max_caffeine']))  # noqa: E501
-        if 'min_copper' in local_var_params:
-            query_params.append(('minCopper', local_var_params['min_copper']))  # noqa: E501
-        if 'max_copper' in local_var_params:
-            query_params.append(('maxCopper', local_var_params['max_copper']))  # noqa: E501
-        if 'min_calcium' in local_var_params:
-            query_params.append(('minCalcium', local_var_params['min_calcium']))  # noqa: E501
-        if 'max_calcium' in local_var_params:
-            query_params.append(('maxCalcium', local_var_params['max_calcium']))  # noqa: E501
-        if 'min_choline' in local_var_params:
-            query_params.append(('minCholine', local_var_params['min_choline']))  # noqa: E501
-        if 'max_choline' in local_var_params:
-            query_params.append(('maxCholine', local_var_params['max_choline']))  # noqa: E501
-        if 'min_cholesterol' in local_var_params:
-            query_params.append(('minCholesterol', local_var_params['min_cholesterol']))  # noqa: E501
-        if 'max_cholesterol' in local_var_params:
-            query_params.append(('maxCholesterol', local_var_params['max_cholesterol']))  # noqa: E501
-        if 'min_fluoride' in local_var_params:
-            query_params.append(('minFluoride', local_var_params['min_fluoride']))  # noqa: E501
-        if 'max_fluoride' in local_var_params:
-            query_params.append(('maxFluoride', local_var_params['max_fluoride']))  # noqa: E501
-        if 'min_saturated_fat' in local_var_params:
-            query_params.append(('minSaturatedFat', local_var_params['min_saturated_fat']))  # noqa: E501
-        if 'max_saturated_fat' in local_var_params:
-            query_params.append(('maxSaturatedFat', local_var_params['max_saturated_fat']))  # noqa: E501
-        if 'min_vitamin_a' in local_var_params:
-            query_params.append(('minVitaminA', local_var_params['min_vitamin_a']))  # noqa: E501
-        if 'max_vitamin_a' in local_var_params:
-            query_params.append(('maxVitaminA', local_var_params['max_vitamin_a']))  # noqa: E501
-        if 'min_vitamin_c' in local_var_params:
-            query_params.append(('minVitaminC', local_var_params['min_vitamin_c']))  # noqa: E501
-        if 'max_vitamin_c' in local_var_params:
-            query_params.append(('maxVitaminC', local_var_params['max_vitamin_c']))  # noqa: E501
-        if 'min_vitamin_d' in local_var_params:
-            query_params.append(('minVitaminD', local_var_params['min_vitamin_d']))  # noqa: E501
-        if 'max_vitamin_d' in local_var_params:
-            query_params.append(('maxVitaminD', local_var_params['max_vitamin_d']))  # noqa: E501
-        if 'min_vitamin_e' in local_var_params:
-            query_params.append(('minVitaminE', local_var_params['min_vitamin_e']))  # noqa: E501
-        if 'max_vitamin_e' in local_var_params:
-            query_params.append(('maxVitaminE', local_var_params['max_vitamin_e']))  # noqa: E501
-        if 'min_vitamin_k' in local_var_params:
-            query_params.append(('minVitaminK', local_var_params['min_vitamin_k']))  # noqa: E501
-        if 'max_vitamin_k' in local_var_params:
-            query_params.append(('maxVitaminK', local_var_params['max_vitamin_k']))  # noqa: E501
-        if 'min_vitamin_b1' in local_var_params:
-            query_params.append(('minVitaminB1', local_var_params['min_vitamin_b1']))  # noqa: E501
-        if 'max_vitamin_b1' in local_var_params:
-            query_params.append(('maxVitaminB1', local_var_params['max_vitamin_b1']))  # noqa: E501
-        if 'min_vitamin_b2' in local_var_params:
-            query_params.append(('minVitaminB2', local_var_params['min_vitamin_b2']))  # noqa: E501
-        if 'max_vitamin_b2' in local_var_params:
-            query_params.append(('maxVitaminB2', local_var_params['max_vitamin_b2']))  # noqa: E501
-        if 'min_vitamin_b5' in local_var_params:
-            query_params.append(('minVitaminB5', local_var_params['min_vitamin_b5']))  # noqa: E501
-        if 'max_vitamin_b5' in local_var_params:
-            query_params.append(('maxVitaminB5', local_var_params['max_vitamin_b5']))  # noqa: E501
-        if 'min_vitamin_b3' in local_var_params:
-            query_params.append(('minVitaminB3', local_var_params['min_vitamin_b3']))  # noqa: E501
-        if 'max_vitamin_b3' in local_var_params:
-            query_params.append(('maxVitaminB3', local_var_params['max_vitamin_b3']))  # noqa: E501
-        if 'min_vitamin_b6' in local_var_params:
-            query_params.append(('minVitaminB6', local_var_params['min_vitamin_b6']))  # noqa: E501
-        if 'max_vitamin_b6' in local_var_params:
-            query_params.append(('maxVitaminB6', local_var_params['max_vitamin_b6']))  # noqa: E501
-        if 'min_vitamin_b12' in local_var_params:
-            query_params.append(('minVitaminB12', local_var_params['min_vitamin_b12']))  # noqa: E501
-        if 'max_vitamin_b12' in local_var_params:
-            query_params.append(('maxVitaminB12', local_var_params['max_vitamin_b12']))  # noqa: E501
-        if 'min_fiber' in local_var_params:
-            query_params.append(('minFiber', local_var_params['min_fiber']))  # noqa: E501
-        if 'max_fiber' in local_var_params:
-            query_params.append(('maxFiber', local_var_params['max_fiber']))  # noqa: E501
-        if 'min_folate' in local_var_params:
-            query_params.append(('minFolate', local_var_params['min_folate']))  # noqa: E501
-        if 'max_folate' in local_var_params:
-            query_params.append(('maxFolate', local_var_params['max_folate']))  # noqa: E501
-        if 'min_folic_acid' in local_var_params:
-            query_params.append(('minFolicAcid', local_var_params['min_folic_acid']))  # noqa: E501
-        if 'max_folic_acid' in local_var_params:
-            query_params.append(('maxFolicAcid', local_var_params['max_folic_acid']))  # noqa: E501
-        if 'min_iodine' in local_var_params:
-            query_params.append(('minIodine', local_var_params['min_iodine']))  # noqa: E501
-        if 'max_iodine' in local_var_params:
-            query_params.append(('maxIodine', local_var_params['max_iodine']))  # noqa: E501
-        if 'min_iron' in local_var_params:
-            query_params.append(('minIron', local_var_params['min_iron']))  # noqa: E501
-        if 'max_iron' in local_var_params:
-            query_params.append(('maxIron', local_var_params['max_iron']))  # noqa: E501
-        if 'min_magnesium' in local_var_params:
-            query_params.append(('minMagnesium', local_var_params['min_magnesium']))  # noqa: E501
-        if 'max_magnesium' in local_var_params:
-            query_params.append(('maxMagnesium', local_var_params['max_magnesium']))  # noqa: E501
-        if 'min_manganese' in local_var_params:
-            query_params.append(('minManganese', local_var_params['min_manganese']))  # noqa: E501
-        if 'max_manganese' in local_var_params:
-            query_params.append(('maxManganese', local_var_params['max_manganese']))  # noqa: E501
-        if 'min_phosphorus' in local_var_params:
-            query_params.append(('minPhosphorus', local_var_params['min_phosphorus']))  # noqa: E501
-        if 'max_phosphorus' in local_var_params:
-            query_params.append(('maxPhosphorus', local_var_params['max_phosphorus']))  # noqa: E501
-        if 'min_potassium' in local_var_params:
-            query_params.append(('minPotassium', local_var_params['min_potassium']))  # noqa: E501
-        if 'max_potassium' in local_var_params:
-            query_params.append(('maxPotassium', local_var_params['max_potassium']))  # noqa: E501
-        if 'min_selenium' in local_var_params:
-            query_params.append(('minSelenium', local_var_params['min_selenium']))  # noqa: E501
-        if 'max_selenium' in local_var_params:
-            query_params.append(('maxSelenium', local_var_params['max_selenium']))  # noqa: E501
-        if 'min_sodium' in local_var_params:
-            query_params.append(('minSodium', local_var_params['min_sodium']))  # noqa: E501
-        if 'max_sodium' in local_var_params:
-            query_params.append(('maxSodium', local_var_params['max_sodium']))  # noqa: E501
-        if 'min_sugar' in local_var_params:
-            query_params.append(('minSugar', local_var_params['min_sugar']))  # noqa: E501
-        if 'max_sugar' in local_var_params:
-            query_params.append(('maxSugar', local_var_params['max_sugar']))  # noqa: E501
-        if 'min_zinc' in local_var_params:
-            query_params.append(('minZinc', local_var_params['min_zinc']))  # noqa: E501
-        if 'max_zinc' in local_var_params:
-            query_params.append(('maxZinc', local_var_params['max_zinc']))  # noqa: E501
-        if 'offset' in local_var_params:
-            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
-        if 'number' in local_var_params:
-            query_params.append(('number', local_var_params['number']))  # noqa: E501
-        if 'random' in local_var_params:
-            query_params.append(('random', local_var_params['random']))  # noqa: E501
-        if 'limit_license' in local_var_params:
-            query_params.append(('limitLicense', local_var_params['limit_license']))  # noqa: E501
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = []  # noqa: E501
-
-        return self.api_client.call_api(
-            '/recipes/findByNutrients', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='object',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def search_recipes_complex(self, query, **kwargs):  # noqa: E501
-        """Search Recipes Complex  # noqa: E501
-
-        Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.search_recipes_complex(query, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str query: The (natural language) recipe search query. (required)
         :param str cuisine: The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as 'OR'). See a full list of supported cuisines.
         :param str exclude_cuisine: The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as 'AND'). See a full list of supported cuisines.
         :param str diet: The diet for which the recipes must be suitable. See a full list of supported diets.
@@ -6676,12 +6833,12 @@ class DefaultApi(object):
         :param float max_vitamin_b12: The maximum amount of Vitamin B12 in micrograms the recipe can have.
         :param float min_fiber: The minimum amount of fiber in grams the recipe must have.
         :param float max_fiber: The maximum amount of fiber in grams the recipe can have.
-        :param float min_folate: The minimum amount of folate in grams the recipe must have.
-        :param float max_folate: The maximum amount of folate in grams the recipe can have.
-        :param float min_folic_acid: The minimum amount of folic acid in grams the recipe must have.
-        :param float max_folic_acid: The maximum amount of folic acid in grams the recipe can have.
-        :param float min_iodine: The minimum amount of iodine in grams the recipe must have.
-        :param float max_iodine: The maximum amount of iodine in grams the recipe can have.
+        :param float min_folate: The minimum amount of folate in micrograms the recipe must have.
+        :param float max_folate: The maximum amount of folate in micrograms the recipe can have.
+        :param float min_folic_acid: The minimum amount of folic acid in micrograms the recipe must have.
+        :param float max_folic_acid: The maximum amount of folic acid in micrograms the recipe can have.
+        :param float min_iodine: The minimum amount of iodine in micrograms the recipe must have.
+        :param float max_iodine: The maximum amount of iodine in micrograms the recipe can have.
         :param float min_iron: The minimum amount of iron in milligrams the recipe must have.
         :param float max_iron: The maximum amount of iron in milligrams the recipe can have.
         :param float min_magnesium: The minimum amount of magnesium in milligrams the recipe must have.
@@ -6692,125 +6849,8 @@ class DefaultApi(object):
         :param float max_phosphorus: The maximum amount of phosphorus in milligrams the recipe can have.
         :param float min_potassium: The minimum amount of potassium in milligrams the recipe must have.
         :param float max_potassium: The maximum amount of potassium in milligrams the recipe can have.
-        :param float min_selenium: The minimum amount of selenium in grams the recipe must have.
-        :param float max_selenium: The maximum amount of selenium in grams the recipe can have.
-        :param float min_sodium: The minimum amount of sodium in milligrams the recipe must have.
-        :param float max_sodium: The maximum amount of sodium in milligrams the recipe can have.
-        :param float min_sugar: The minimum amount of sugar in grams the recipe must have.
-        :param float max_sugar: The maximum amount of sugar in grams the recipe can have.
-        :param float min_zinc: The minimum amount of zinc in milligrams the recipe must have.
-        :param float max_zinc: The maximum amount of zinc in milligrams the recipe can have.
-        :param float offset: The number of results to skip (between 0 and 900).
-        :param float number: The number of expected results (between 1 and 100).
-        :param bool limit_license: Whether the recipes should have an open license that allows display with proper attribution.
-        :return: object
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.search_recipes_complex_with_http_info(query, **kwargs)  # noqa: E501
-        else:
-            (data) = self.search_recipes_complex_with_http_info(query, **kwargs)  # noqa: E501
-            return data
-
-    def search_recipes_complex_with_http_info(self, query, **kwargs):  # noqa: E501
-        """Search Recipes Complex  # noqa: E501
-
-        Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.search_recipes_complex_with_http_info(query, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str query: The (natural language) recipe search query. (required)
-        :param str cuisine: The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as 'OR'). See a full list of supported cuisines.
-        :param str exclude_cuisine: The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as 'AND'). See a full list of supported cuisines.
-        :param str diet: The diet for which the recipes must be suitable. See a full list of supported diets.
-        :param str intolerances: A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
-        :param str equipment: The equipment required. Multiple values will be interpreted as 'or'. For example, value could be \"blender, frying pan, bowl\".
-        :param str include_ingredients: A comma-separated list of ingredients that should/must be used in the recipes.
-        :param str exclude_ingredients: A comma-separated list of ingredients or ingredient types that the recipes must not contain.
-        :param str type: The type of recipe. See a full list of supported meal types.
-        :param bool instructions_required: Whether the recipes must have instructions.
-        :param bool fill_ingredients: Add information about the ingredients and whether they are used or missing in relation to the query.
-        :param bool add_recipe_information: If set to true, you get more information about the recipes returned.
-        :param bool add_recipe_nutrition: If set to true, you get nutritional information about each recipes returned.
-        :param str author: The username of the recipe author.
-        :param str tags: User defined tags that have to match. The author param has to be set.
-        :param float recipe_box_id: The id of the recipe box to which the search should be limited to.
-        :param str title_match: Enter text that must be found in the title of the recipes.
-        :param float max_ready_time: The maximum time in minutes it should take to prepare and cook the recipe.
-        :param bool ignore_pantry: Whether to ignore typical pantry items, such as water, salt, flour, etc.
-        :param str sort: The strategy to sort recipes by. See a full list of supported sorting options.
-        :param str sort_direction: The direction in which to sort. Must be either 'asc' (ascending) or 'desc' (descending).
-        :param float min_carbs: The minimum amount of carbohydrates in grams the recipe must have.
-        :param float max_carbs: The maximum amount of carbohydrates in grams the recipe can have.
-        :param float min_protein: The minimum amount of protein in grams the recipe must have.
-        :param float max_protein: The maximum amount of protein in grams the recipe can have.
-        :param float min_calories: The minimum amount of calories the recipe must have.
-        :param float max_calories: The maximum amount of calories the recipe can have.
-        :param float min_fat: The minimum amount of fat in grams the recipe must have.
-        :param float max_fat: The maximum amount of fat in grams the recipe can have.
-        :param float min_alcohol: The minimum amount of alcohol in grams the recipe must have.
-        :param float max_alcohol: The maximum amount of alcohol in grams the recipe can have.
-        :param float min_caffeine: The minimum amount of caffeine in milligrams the recipe must have.
-        :param float max_caffeine: The maximum amount of caffeine in milligrams the recipe can have.
-        :param float min_copper: The minimum amount of copper in milligrams the recipe must have.
-        :param float max_copper: The maximum amount of copper in milligrams the recipe can have.
-        :param float min_calcium: The minimum amount of calcium in milligrams the recipe must have.
-        :param float max_calcium: The maximum amount of calcium in milligrams the recipe can have.
-        :param float min_choline: The minimum amount of choline in milligrams the recipe must have.
-        :param float max_choline: The maximum amount of choline in milligrams the recipe can have.
-        :param float min_cholesterol: The minimum amount of cholesterol in milligrams the recipe must have.
-        :param float max_cholesterol: The maximum amount of cholesterol in milligrams the recipe can have.
-        :param float min_fluoride: The minimum amount of fluoride in milligrams the recipe must have.
-        :param float max_fluoride: The maximum amount of fluoride in milligrams the recipe can have.
-        :param float min_saturated_fat: The minimum amount of saturated fat in grams the recipe must have.
-        :param float max_saturated_fat: The maximum amount of saturated fat in grams the recipe can have.
-        :param float min_vitamin_a: The minimum amount of Vitamin A in IU the recipe must have.
-        :param float max_vitamin_a: The maximum amount of Vitamin A in IU the recipe can have.
-        :param float min_vitamin_c: The minimum amount of Vitamin C milligrams the recipe must have.
-        :param float max_vitamin_c: The maximum amount of Vitamin C in milligrams the recipe can have.
-        :param float min_vitamin_d: The minimum amount of Vitamin D in micrograms the recipe must have.
-        :param float max_vitamin_d: The maximum amount of Vitamin D in micrograms the recipe can have.
-        :param float min_vitamin_e: The minimum amount of Vitamin E in milligrams the recipe must have.
-        :param float max_vitamin_e: The maximum amount of Vitamin E in milligrams the recipe can have.
-        :param float min_vitamin_k: The minimum amount of Vitamin K in micrograms the recipe must have.
-        :param float max_vitamin_k: The maximum amount of Vitamin K in micrograms the recipe can have.
-        :param float min_vitamin_b1: The minimum amount of Vitamin B1 in milligrams the recipe must have.
-        :param float max_vitamin_b1: The maximum amount of Vitamin B1 in milligrams the recipe can have.
-        :param float min_vitamin_b2: The minimum amount of Vitamin B2 in milligrams the recipe must have.
-        :param float max_vitamin_b2: The maximum amount of Vitamin B2 in milligrams the recipe can have.
-        :param float min_vitamin_b5: The minimum amount of Vitamin B5 in milligrams the recipe must have.
-        :param float max_vitamin_b5: The maximum amount of Vitamin B5 in milligrams the recipe can have.
-        :param float min_vitamin_b3: The minimum amount of Vitamin B3 in milligrams the recipe must have.
-        :param float max_vitamin_b3: The maximum amount of Vitamin B3 in milligrams the recipe can have.
-        :param float min_vitamin_b6: The minimum amount of Vitamin B6 in milligrams the recipe must have.
-        :param float max_vitamin_b6: The maximum amount of Vitamin B6 in milligrams the recipe can have.
-        :param float min_vitamin_b12: The minimum amount of Vitamin B12 in micrograms the recipe must have.
-        :param float max_vitamin_b12: The maximum amount of Vitamin B12 in micrograms the recipe can have.
-        :param float min_fiber: The minimum amount of fiber in grams the recipe must have.
-        :param float max_fiber: The maximum amount of fiber in grams the recipe can have.
-        :param float min_folate: The minimum amount of folate in grams the recipe must have.
-        :param float max_folate: The maximum amount of folate in grams the recipe can have.
-        :param float min_folic_acid: The minimum amount of folic acid in grams the recipe must have.
-        :param float max_folic_acid: The maximum amount of folic acid in grams the recipe can have.
-        :param float min_iodine: The minimum amount of iodine in grams the recipe must have.
-        :param float max_iodine: The maximum amount of iodine in grams the recipe can have.
-        :param float min_iron: The minimum amount of iron in milligrams the recipe must have.
-        :param float max_iron: The maximum amount of iron in milligrams the recipe can have.
-        :param float min_magnesium: The minimum amount of magnesium in milligrams the recipe must have.
-        :param float max_magnesium: The maximum amount of magnesium in milligrams the recipe can have.
-        :param float min_manganese: The minimum amount of manganese in milligrams the recipe must have.
-        :param float max_manganese: The maximum amount of manganese in milligrams the recipe can have.
-        :param float min_phosphorus: The minimum amount of phosphorus in milligrams the recipe must have.
-        :param float max_phosphorus: The maximum amount of phosphorus in milligrams the recipe can have.
-        :param float min_potassium: The minimum amount of potassium in milligrams the recipe must have.
-        :param float max_potassium: The maximum amount of potassium in milligrams the recipe can have.
-        :param float min_selenium: The minimum amount of selenium in grams the recipe must have.
-        :param float max_selenium: The maximum amount of selenium in grams the recipe can have.
+        :param float min_selenium: The minimum amount of selenium in micrograms the recipe must have.
+        :param float max_selenium: The maximum amount of selenium in micrograms the recipe can have.
         :param float min_sodium: The minimum amount of sodium in milligrams the recipe must have.
         :param float max_sodium: The maximum amount of sodium in milligrams the recipe can have.
         :param float min_sugar: The minimum amount of sugar in grams the recipe must have.
@@ -6837,14 +6877,14 @@ class DefaultApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method search_recipes_complex" % key
+                    " to method search_recipes" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'query' is set
         if ('query' not in local_var_params or
                 local_var_params['query'] is None):
-            raise ApiValueError("Missing the required parameter `query` when calling `search_recipes_complex`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `query` when calling `search_recipes`")  # noqa: E501
 
         collection_formats = {}
 
@@ -7059,6 +7099,510 @@ class DefaultApi(object):
 
         return self.api_client.call_api(
             '/recipes/complexSearch', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='object',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def search_recipes_by_ingredients(self, ingredients, **kwargs):  # noqa: E501
+        """Search Recipes by Ingredients  # noqa: E501
+
+                     Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don't currently have (post shopping).           # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_recipes_by_ingredients(ingredients, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str ingredients: A comma-separated list of ingredients that the recipes should contain. (required)
+        :param float number: The maximum number of recipes to return (between 1 and 100). Defaults to 10.
+        :param bool limit_license: Whether the recipes should have an open license that allows display with proper attribution.
+        :param float ranking: Whether to maximize used ingredients (1) or minimize missing ingredients (2) first.
+        :param bool ignore_pantry: Whether to ignore typical pantry items, such as water, salt, flour, etc.
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.search_recipes_by_ingredients_with_http_info(ingredients, **kwargs)  # noqa: E501
+        else:
+            (data) = self.search_recipes_by_ingredients_with_http_info(ingredients, **kwargs)  # noqa: E501
+            return data
+
+    def search_recipes_by_ingredients_with_http_info(self, ingredients, **kwargs):  # noqa: E501
+        """Search Recipes by Ingredients  # noqa: E501
+
+                     Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don't currently have (post shopping).           # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_recipes_by_ingredients_with_http_info(ingredients, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str ingredients: A comma-separated list of ingredients that the recipes should contain. (required)
+        :param float number: The maximum number of recipes to return (between 1 and 100). Defaults to 10.
+        :param bool limit_license: Whether the recipes should have an open license that allows display with proper attribution.
+        :param float ranking: Whether to maximize used ingredients (1) or minimize missing ingredients (2) first.
+        :param bool ignore_pantry: Whether to ignore typical pantry items, such as water, salt, flour, etc.
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['ingredients', 'number', 'limit_license', 'ranking', 'ignore_pantry']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method search_recipes_by_ingredients" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'ingredients' is set
+        if ('ingredients' not in local_var_params or
+                local_var_params['ingredients'] is None):
+            raise ApiValueError("Missing the required parameter `ingredients` when calling `search_recipes_by_ingredients`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'ingredients' in local_var_params:
+            query_params.append(('ingredients', local_var_params['ingredients']))  # noqa: E501
+        if 'number' in local_var_params:
+            query_params.append(('number', local_var_params['number']))  # noqa: E501
+        if 'limit_license' in local_var_params:
+            query_params.append(('limitLicense', local_var_params['limit_license']))  # noqa: E501
+        if 'ranking' in local_var_params:
+            query_params.append(('ranking', local_var_params['ranking']))  # noqa: E501
+        if 'ignore_pantry' in local_var_params:
+            query_params.append(('ignorePantry', local_var_params['ignore_pantry']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/recipes/findByIngredients', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='object',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def search_recipes_by_nutrients(self, **kwargs):  # noqa: E501
+        """Search Recipes by Nutrients  # noqa: E501
+
+        Find a set of recipes that adhere to the given nutritional limits. You may set limits for macronutrients (calories, protein, fat, and carbohydrate) and/or many micronutrients.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_recipes_by_nutrients(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param float min_carbs: The minimum amount of carbohydrates in grams the recipe must have.
+        :param float max_carbs: The maximum amount of carbohydrates in grams the recipe can have.
+        :param float min_protein: The minimum amount of protein in grams the recipe must have.
+        :param float max_protein: The maximum amount of protein in grams the recipe can have.
+        :param float min_calories: The minimum amount of calories the recipe must have.
+        :param float max_calories: The maximum amount of calories the recipe can have.
+        :param float min_fat: The minimum amount of fat in grams the recipe must have.
+        :param float max_fat: The maximum amount of fat in grams the recipe can have.
+        :param float min_alcohol: The minimum amount of alcohol in grams the recipe must have.
+        :param float max_alcohol: The maximum amount of alcohol in grams the recipe can have.
+        :param float min_caffeine: The minimum amount of caffeine in milligrams the recipe must have.
+        :param float max_caffeine: The maximum amount of caffeine in milligrams the recipe can have.
+        :param float min_copper: The minimum amount of copper in milligrams the recipe must have.
+        :param float max_copper: The maximum amount of copper in milligrams the recipe can have.
+        :param float min_calcium: The minimum amount of calcium in milligrams the recipe must have.
+        :param float max_calcium: The maximum amount of calcium in milligrams the recipe can have.
+        :param float min_choline: The minimum amount of choline in milligrams the recipe must have.
+        :param float max_choline: The maximum amount of choline in milligrams the recipe can have.
+        :param float min_cholesterol: The minimum amount of cholesterol in milligrams the recipe must have.
+        :param float max_cholesterol: The maximum amount of cholesterol in milligrams the recipe can have.
+        :param float min_fluoride: The minimum amount of fluoride in milligrams the recipe must have.
+        :param float max_fluoride: The maximum amount of fluoride in milligrams the recipe can have.
+        :param float min_saturated_fat: The minimum amount of saturated fat in grams the recipe must have.
+        :param float max_saturated_fat: The maximum amount of saturated fat in grams the recipe can have.
+        :param float min_vitamin_a: The minimum amount of Vitamin A in IU the recipe must have.
+        :param float max_vitamin_a: The maximum amount of Vitamin A in IU the recipe can have.
+        :param float min_vitamin_c: The minimum amount of Vitamin C in milligrams the recipe must have.
+        :param float max_vitamin_c: The maximum amount of Vitamin C in milligrams the recipe can have.
+        :param float min_vitamin_d: The minimum amount of Vitamin D in micrograms the recipe must have.
+        :param float max_vitamin_d: The maximum amount of Vitamin D in micrograms the recipe can have.
+        :param float min_vitamin_e: The minimum amount of Vitamin E in milligrams the recipe must have.
+        :param float max_vitamin_e: The maximum amount of Vitamin E in milligrams the recipe can have.
+        :param float min_vitamin_k: The minimum amount of Vitamin K in micrograms the recipe must have.
+        :param float max_vitamin_k: The maximum amount of Vitamin K in micrograms the recipe can have.
+        :param float min_vitamin_b1: The minimum amount of Vitamin B1 in milligrams the recipe must have.
+        :param float max_vitamin_b1: The maximum amount of Vitamin B1 in milligrams the recipe can have.
+        :param float min_vitamin_b2: The minimum amount of Vitamin B2 in milligrams the recipe must have.
+        :param float max_vitamin_b2: The maximum amount of Vitamin B2 in milligrams the recipe can have.
+        :param float min_vitamin_b5: The minimum amount of Vitamin B5 in milligrams the recipe must have.
+        :param float max_vitamin_b5: The maximum amount of Vitamin B5 in milligrams the recipe can have.
+        :param float min_vitamin_b3: The minimum amount of Vitamin B3 in milligrams the recipe must have.
+        :param float max_vitamin_b3: The maximum amount of Vitamin B3 in milligrams the recipe can have.
+        :param float min_vitamin_b6: The minimum amount of Vitamin B6 in milligrams the recipe must have.
+        :param float max_vitamin_b6: The maximum amount of Vitamin B6 in milligrams the recipe can have.
+        :param float min_vitamin_b12: The minimum amount of Vitamin B12 in micrograms the recipe must have.
+        :param float max_vitamin_b12: The maximum amount of Vitamin B12 in micrograms the recipe can have.
+        :param float min_fiber: The minimum amount of fiber in grams the recipe must have.
+        :param float max_fiber: The maximum amount of fiber in grams the recipe can have.
+        :param float min_folate: The minimum amount of folate in micrograms the recipe must have.
+        :param float max_folate: The maximum amount of folate in micrograms the recipe can have.
+        :param float min_folic_acid: The minimum amount of folic acid in micrograms the recipe must have.
+        :param float max_folic_acid: The maximum amount of folic acid in micrograms the recipe can have.
+        :param float min_iodine: The minimum amount of iodine in micrograms the recipe must have.
+        :param float max_iodine: The maximum amount of iodine in micrograms the recipe can have.
+        :param float min_iron: The minimum amount of iron in milligrams the recipe must have.
+        :param float max_iron: The maximum amount of iron in milligrams the recipe can have.
+        :param float min_magnesium: The minimum amount of magnesium in milligrams the recipe must have.
+        :param float max_magnesium: The maximum amount of magnesium in milligrams the recipe can have.
+        :param float min_manganese: The minimum amount of manganese in milligrams the recipe must have.
+        :param float max_manganese: The maximum amount of manganese in milligrams the recipe can have.
+        :param float min_phosphorus: The minimum amount of phosphorus in milligrams the recipe must have.
+        :param float max_phosphorus: The maximum amount of phosphorus in milligrams the recipe can have.
+        :param float min_potassium: The minimum amount of potassium in milligrams the recipe must have.
+        :param float max_potassium: The maximum amount of potassium in milligrams the recipe can have.
+        :param float min_selenium: The minimum amount of selenium in micrograms the recipe must have.
+        :param float max_selenium: The maximum amount of selenium in micrograms the recipe can have.
+        :param float min_sodium: The minimum amount of sodium in milligrams the recipe must have.
+        :param float max_sodium: The maximum amount of sodium in milligrams the recipe can have.
+        :param float min_sugar: The minimum amount of sugar in grams the recipe must have.
+        :param float max_sugar: The maximum amount of sugar in grams the recipe can have.
+        :param float min_zinc: The minimum amount of zinc in milligrams the recipe must have.
+        :param float max_zinc: The maximum amount of zinc in milligrams the recipe can have.
+        :param float offset: The number of results to skip (between 0 and 900).
+        :param float number: The number of expected results (between 1 and 100).
+        :param bool random: If true, every request will give you a random set of recipes within the requested limits.
+        :param bool limit_license: Whether the recipes should have an open license that allows display with proper attribution.
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.search_recipes_by_nutrients_with_http_info(**kwargs)  # noqa: E501
+        else:
+            (data) = self.search_recipes_by_nutrients_with_http_info(**kwargs)  # noqa: E501
+            return data
+
+    def search_recipes_by_nutrients_with_http_info(self, **kwargs):  # noqa: E501
+        """Search Recipes by Nutrients  # noqa: E501
+
+        Find a set of recipes that adhere to the given nutritional limits. You may set limits for macronutrients (calories, protein, fat, and carbohydrate) and/or many micronutrients.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_recipes_by_nutrients_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param float min_carbs: The minimum amount of carbohydrates in grams the recipe must have.
+        :param float max_carbs: The maximum amount of carbohydrates in grams the recipe can have.
+        :param float min_protein: The minimum amount of protein in grams the recipe must have.
+        :param float max_protein: The maximum amount of protein in grams the recipe can have.
+        :param float min_calories: The minimum amount of calories the recipe must have.
+        :param float max_calories: The maximum amount of calories the recipe can have.
+        :param float min_fat: The minimum amount of fat in grams the recipe must have.
+        :param float max_fat: The maximum amount of fat in grams the recipe can have.
+        :param float min_alcohol: The minimum amount of alcohol in grams the recipe must have.
+        :param float max_alcohol: The maximum amount of alcohol in grams the recipe can have.
+        :param float min_caffeine: The minimum amount of caffeine in milligrams the recipe must have.
+        :param float max_caffeine: The maximum amount of caffeine in milligrams the recipe can have.
+        :param float min_copper: The minimum amount of copper in milligrams the recipe must have.
+        :param float max_copper: The maximum amount of copper in milligrams the recipe can have.
+        :param float min_calcium: The minimum amount of calcium in milligrams the recipe must have.
+        :param float max_calcium: The maximum amount of calcium in milligrams the recipe can have.
+        :param float min_choline: The minimum amount of choline in milligrams the recipe must have.
+        :param float max_choline: The maximum amount of choline in milligrams the recipe can have.
+        :param float min_cholesterol: The minimum amount of cholesterol in milligrams the recipe must have.
+        :param float max_cholesterol: The maximum amount of cholesterol in milligrams the recipe can have.
+        :param float min_fluoride: The minimum amount of fluoride in milligrams the recipe must have.
+        :param float max_fluoride: The maximum amount of fluoride in milligrams the recipe can have.
+        :param float min_saturated_fat: The minimum amount of saturated fat in grams the recipe must have.
+        :param float max_saturated_fat: The maximum amount of saturated fat in grams the recipe can have.
+        :param float min_vitamin_a: The minimum amount of Vitamin A in IU the recipe must have.
+        :param float max_vitamin_a: The maximum amount of Vitamin A in IU the recipe can have.
+        :param float min_vitamin_c: The minimum amount of Vitamin C in milligrams the recipe must have.
+        :param float max_vitamin_c: The maximum amount of Vitamin C in milligrams the recipe can have.
+        :param float min_vitamin_d: The minimum amount of Vitamin D in micrograms the recipe must have.
+        :param float max_vitamin_d: The maximum amount of Vitamin D in micrograms the recipe can have.
+        :param float min_vitamin_e: The minimum amount of Vitamin E in milligrams the recipe must have.
+        :param float max_vitamin_e: The maximum amount of Vitamin E in milligrams the recipe can have.
+        :param float min_vitamin_k: The minimum amount of Vitamin K in micrograms the recipe must have.
+        :param float max_vitamin_k: The maximum amount of Vitamin K in micrograms the recipe can have.
+        :param float min_vitamin_b1: The minimum amount of Vitamin B1 in milligrams the recipe must have.
+        :param float max_vitamin_b1: The maximum amount of Vitamin B1 in milligrams the recipe can have.
+        :param float min_vitamin_b2: The minimum amount of Vitamin B2 in milligrams the recipe must have.
+        :param float max_vitamin_b2: The maximum amount of Vitamin B2 in milligrams the recipe can have.
+        :param float min_vitamin_b5: The minimum amount of Vitamin B5 in milligrams the recipe must have.
+        :param float max_vitamin_b5: The maximum amount of Vitamin B5 in milligrams the recipe can have.
+        :param float min_vitamin_b3: The minimum amount of Vitamin B3 in milligrams the recipe must have.
+        :param float max_vitamin_b3: The maximum amount of Vitamin B3 in milligrams the recipe can have.
+        :param float min_vitamin_b6: The minimum amount of Vitamin B6 in milligrams the recipe must have.
+        :param float max_vitamin_b6: The maximum amount of Vitamin B6 in milligrams the recipe can have.
+        :param float min_vitamin_b12: The minimum amount of Vitamin B12 in micrograms the recipe must have.
+        :param float max_vitamin_b12: The maximum amount of Vitamin B12 in micrograms the recipe can have.
+        :param float min_fiber: The minimum amount of fiber in grams the recipe must have.
+        :param float max_fiber: The maximum amount of fiber in grams the recipe can have.
+        :param float min_folate: The minimum amount of folate in micrograms the recipe must have.
+        :param float max_folate: The maximum amount of folate in micrograms the recipe can have.
+        :param float min_folic_acid: The minimum amount of folic acid in micrograms the recipe must have.
+        :param float max_folic_acid: The maximum amount of folic acid in micrograms the recipe can have.
+        :param float min_iodine: The minimum amount of iodine in micrograms the recipe must have.
+        :param float max_iodine: The maximum amount of iodine in micrograms the recipe can have.
+        :param float min_iron: The minimum amount of iron in milligrams the recipe must have.
+        :param float max_iron: The maximum amount of iron in milligrams the recipe can have.
+        :param float min_magnesium: The minimum amount of magnesium in milligrams the recipe must have.
+        :param float max_magnesium: The maximum amount of magnesium in milligrams the recipe can have.
+        :param float min_manganese: The minimum amount of manganese in milligrams the recipe must have.
+        :param float max_manganese: The maximum amount of manganese in milligrams the recipe can have.
+        :param float min_phosphorus: The minimum amount of phosphorus in milligrams the recipe must have.
+        :param float max_phosphorus: The maximum amount of phosphorus in milligrams the recipe can have.
+        :param float min_potassium: The minimum amount of potassium in milligrams the recipe must have.
+        :param float max_potassium: The maximum amount of potassium in milligrams the recipe can have.
+        :param float min_selenium: The minimum amount of selenium in micrograms the recipe must have.
+        :param float max_selenium: The maximum amount of selenium in micrograms the recipe can have.
+        :param float min_sodium: The minimum amount of sodium in milligrams the recipe must have.
+        :param float max_sodium: The maximum amount of sodium in milligrams the recipe can have.
+        :param float min_sugar: The minimum amount of sugar in grams the recipe must have.
+        :param float max_sugar: The maximum amount of sugar in grams the recipe can have.
+        :param float min_zinc: The minimum amount of zinc in milligrams the recipe must have.
+        :param float max_zinc: The maximum amount of zinc in milligrams the recipe can have.
+        :param float offset: The number of results to skip (between 0 and 900).
+        :param float number: The number of expected results (between 1 and 100).
+        :param bool random: If true, every request will give you a random set of recipes within the requested limits.
+        :param bool limit_license: Whether the recipes should have an open license that allows display with proper attribution.
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['min_carbs', 'max_carbs', 'min_protein', 'max_protein', 'min_calories', 'max_calories', 'min_fat', 'max_fat', 'min_alcohol', 'max_alcohol', 'min_caffeine', 'max_caffeine', 'min_copper', 'max_copper', 'min_calcium', 'max_calcium', 'min_choline', 'max_choline', 'min_cholesterol', 'max_cholesterol', 'min_fluoride', 'max_fluoride', 'min_saturated_fat', 'max_saturated_fat', 'min_vitamin_a', 'max_vitamin_a', 'min_vitamin_c', 'max_vitamin_c', 'min_vitamin_d', 'max_vitamin_d', 'min_vitamin_e', 'max_vitamin_e', 'min_vitamin_k', 'max_vitamin_k', 'min_vitamin_b1', 'max_vitamin_b1', 'min_vitamin_b2', 'max_vitamin_b2', 'min_vitamin_b5', 'max_vitamin_b5', 'min_vitamin_b3', 'max_vitamin_b3', 'min_vitamin_b6', 'max_vitamin_b6', 'min_vitamin_b12', 'max_vitamin_b12', 'min_fiber', 'max_fiber', 'min_folate', 'max_folate', 'min_folic_acid', 'max_folic_acid', 'min_iodine', 'max_iodine', 'min_iron', 'max_iron', 'min_magnesium', 'max_magnesium', 'min_manganese', 'max_manganese', 'min_phosphorus', 'max_phosphorus', 'min_potassium', 'max_potassium', 'min_selenium', 'max_selenium', 'min_sodium', 'max_sodium', 'min_sugar', 'max_sugar', 'min_zinc', 'max_zinc', 'offset', 'number', 'random', 'limit_license']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method search_recipes_by_nutrients" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'min_carbs' in local_var_params:
+            query_params.append(('minCarbs', local_var_params['min_carbs']))  # noqa: E501
+        if 'max_carbs' in local_var_params:
+            query_params.append(('maxCarbs', local_var_params['max_carbs']))  # noqa: E501
+        if 'min_protein' in local_var_params:
+            query_params.append(('minProtein', local_var_params['min_protein']))  # noqa: E501
+        if 'max_protein' in local_var_params:
+            query_params.append(('maxProtein', local_var_params['max_protein']))  # noqa: E501
+        if 'min_calories' in local_var_params:
+            query_params.append(('minCalories', local_var_params['min_calories']))  # noqa: E501
+        if 'max_calories' in local_var_params:
+            query_params.append(('maxCalories', local_var_params['max_calories']))  # noqa: E501
+        if 'min_fat' in local_var_params:
+            query_params.append(('minFat', local_var_params['min_fat']))  # noqa: E501
+        if 'max_fat' in local_var_params:
+            query_params.append(('maxFat', local_var_params['max_fat']))  # noqa: E501
+        if 'min_alcohol' in local_var_params:
+            query_params.append(('minAlcohol', local_var_params['min_alcohol']))  # noqa: E501
+        if 'max_alcohol' in local_var_params:
+            query_params.append(('maxAlcohol', local_var_params['max_alcohol']))  # noqa: E501
+        if 'min_caffeine' in local_var_params:
+            query_params.append(('minCaffeine', local_var_params['min_caffeine']))  # noqa: E501
+        if 'max_caffeine' in local_var_params:
+            query_params.append(('maxCaffeine', local_var_params['max_caffeine']))  # noqa: E501
+        if 'min_copper' in local_var_params:
+            query_params.append(('minCopper', local_var_params['min_copper']))  # noqa: E501
+        if 'max_copper' in local_var_params:
+            query_params.append(('maxCopper', local_var_params['max_copper']))  # noqa: E501
+        if 'min_calcium' in local_var_params:
+            query_params.append(('minCalcium', local_var_params['min_calcium']))  # noqa: E501
+        if 'max_calcium' in local_var_params:
+            query_params.append(('maxCalcium', local_var_params['max_calcium']))  # noqa: E501
+        if 'min_choline' in local_var_params:
+            query_params.append(('minCholine', local_var_params['min_choline']))  # noqa: E501
+        if 'max_choline' in local_var_params:
+            query_params.append(('maxCholine', local_var_params['max_choline']))  # noqa: E501
+        if 'min_cholesterol' in local_var_params:
+            query_params.append(('minCholesterol', local_var_params['min_cholesterol']))  # noqa: E501
+        if 'max_cholesterol' in local_var_params:
+            query_params.append(('maxCholesterol', local_var_params['max_cholesterol']))  # noqa: E501
+        if 'min_fluoride' in local_var_params:
+            query_params.append(('minFluoride', local_var_params['min_fluoride']))  # noqa: E501
+        if 'max_fluoride' in local_var_params:
+            query_params.append(('maxFluoride', local_var_params['max_fluoride']))  # noqa: E501
+        if 'min_saturated_fat' in local_var_params:
+            query_params.append(('minSaturatedFat', local_var_params['min_saturated_fat']))  # noqa: E501
+        if 'max_saturated_fat' in local_var_params:
+            query_params.append(('maxSaturatedFat', local_var_params['max_saturated_fat']))  # noqa: E501
+        if 'min_vitamin_a' in local_var_params:
+            query_params.append(('minVitaminA', local_var_params['min_vitamin_a']))  # noqa: E501
+        if 'max_vitamin_a' in local_var_params:
+            query_params.append(('maxVitaminA', local_var_params['max_vitamin_a']))  # noqa: E501
+        if 'min_vitamin_c' in local_var_params:
+            query_params.append(('minVitaminC', local_var_params['min_vitamin_c']))  # noqa: E501
+        if 'max_vitamin_c' in local_var_params:
+            query_params.append(('maxVitaminC', local_var_params['max_vitamin_c']))  # noqa: E501
+        if 'min_vitamin_d' in local_var_params:
+            query_params.append(('minVitaminD', local_var_params['min_vitamin_d']))  # noqa: E501
+        if 'max_vitamin_d' in local_var_params:
+            query_params.append(('maxVitaminD', local_var_params['max_vitamin_d']))  # noqa: E501
+        if 'min_vitamin_e' in local_var_params:
+            query_params.append(('minVitaminE', local_var_params['min_vitamin_e']))  # noqa: E501
+        if 'max_vitamin_e' in local_var_params:
+            query_params.append(('maxVitaminE', local_var_params['max_vitamin_e']))  # noqa: E501
+        if 'min_vitamin_k' in local_var_params:
+            query_params.append(('minVitaminK', local_var_params['min_vitamin_k']))  # noqa: E501
+        if 'max_vitamin_k' in local_var_params:
+            query_params.append(('maxVitaminK', local_var_params['max_vitamin_k']))  # noqa: E501
+        if 'min_vitamin_b1' in local_var_params:
+            query_params.append(('minVitaminB1', local_var_params['min_vitamin_b1']))  # noqa: E501
+        if 'max_vitamin_b1' in local_var_params:
+            query_params.append(('maxVitaminB1', local_var_params['max_vitamin_b1']))  # noqa: E501
+        if 'min_vitamin_b2' in local_var_params:
+            query_params.append(('minVitaminB2', local_var_params['min_vitamin_b2']))  # noqa: E501
+        if 'max_vitamin_b2' in local_var_params:
+            query_params.append(('maxVitaminB2', local_var_params['max_vitamin_b2']))  # noqa: E501
+        if 'min_vitamin_b5' in local_var_params:
+            query_params.append(('minVitaminB5', local_var_params['min_vitamin_b5']))  # noqa: E501
+        if 'max_vitamin_b5' in local_var_params:
+            query_params.append(('maxVitaminB5', local_var_params['max_vitamin_b5']))  # noqa: E501
+        if 'min_vitamin_b3' in local_var_params:
+            query_params.append(('minVitaminB3', local_var_params['min_vitamin_b3']))  # noqa: E501
+        if 'max_vitamin_b3' in local_var_params:
+            query_params.append(('maxVitaminB3', local_var_params['max_vitamin_b3']))  # noqa: E501
+        if 'min_vitamin_b6' in local_var_params:
+            query_params.append(('minVitaminB6', local_var_params['min_vitamin_b6']))  # noqa: E501
+        if 'max_vitamin_b6' in local_var_params:
+            query_params.append(('maxVitaminB6', local_var_params['max_vitamin_b6']))  # noqa: E501
+        if 'min_vitamin_b12' in local_var_params:
+            query_params.append(('minVitaminB12', local_var_params['min_vitamin_b12']))  # noqa: E501
+        if 'max_vitamin_b12' in local_var_params:
+            query_params.append(('maxVitaminB12', local_var_params['max_vitamin_b12']))  # noqa: E501
+        if 'min_fiber' in local_var_params:
+            query_params.append(('minFiber', local_var_params['min_fiber']))  # noqa: E501
+        if 'max_fiber' in local_var_params:
+            query_params.append(('maxFiber', local_var_params['max_fiber']))  # noqa: E501
+        if 'min_folate' in local_var_params:
+            query_params.append(('minFolate', local_var_params['min_folate']))  # noqa: E501
+        if 'max_folate' in local_var_params:
+            query_params.append(('maxFolate', local_var_params['max_folate']))  # noqa: E501
+        if 'min_folic_acid' in local_var_params:
+            query_params.append(('minFolicAcid', local_var_params['min_folic_acid']))  # noqa: E501
+        if 'max_folic_acid' in local_var_params:
+            query_params.append(('maxFolicAcid', local_var_params['max_folic_acid']))  # noqa: E501
+        if 'min_iodine' in local_var_params:
+            query_params.append(('minIodine', local_var_params['min_iodine']))  # noqa: E501
+        if 'max_iodine' in local_var_params:
+            query_params.append(('maxIodine', local_var_params['max_iodine']))  # noqa: E501
+        if 'min_iron' in local_var_params:
+            query_params.append(('minIron', local_var_params['min_iron']))  # noqa: E501
+        if 'max_iron' in local_var_params:
+            query_params.append(('maxIron', local_var_params['max_iron']))  # noqa: E501
+        if 'min_magnesium' in local_var_params:
+            query_params.append(('minMagnesium', local_var_params['min_magnesium']))  # noqa: E501
+        if 'max_magnesium' in local_var_params:
+            query_params.append(('maxMagnesium', local_var_params['max_magnesium']))  # noqa: E501
+        if 'min_manganese' in local_var_params:
+            query_params.append(('minManganese', local_var_params['min_manganese']))  # noqa: E501
+        if 'max_manganese' in local_var_params:
+            query_params.append(('maxManganese', local_var_params['max_manganese']))  # noqa: E501
+        if 'min_phosphorus' in local_var_params:
+            query_params.append(('minPhosphorus', local_var_params['min_phosphorus']))  # noqa: E501
+        if 'max_phosphorus' in local_var_params:
+            query_params.append(('maxPhosphorus', local_var_params['max_phosphorus']))  # noqa: E501
+        if 'min_potassium' in local_var_params:
+            query_params.append(('minPotassium', local_var_params['min_potassium']))  # noqa: E501
+        if 'max_potassium' in local_var_params:
+            query_params.append(('maxPotassium', local_var_params['max_potassium']))  # noqa: E501
+        if 'min_selenium' in local_var_params:
+            query_params.append(('minSelenium', local_var_params['min_selenium']))  # noqa: E501
+        if 'max_selenium' in local_var_params:
+            query_params.append(('maxSelenium', local_var_params['max_selenium']))  # noqa: E501
+        if 'min_sodium' in local_var_params:
+            query_params.append(('minSodium', local_var_params['min_sodium']))  # noqa: E501
+        if 'max_sodium' in local_var_params:
+            query_params.append(('maxSodium', local_var_params['max_sodium']))  # noqa: E501
+        if 'min_sugar' in local_var_params:
+            query_params.append(('minSugar', local_var_params['min_sugar']))  # noqa: E501
+        if 'max_sugar' in local_var_params:
+            query_params.append(('maxSugar', local_var_params['max_sugar']))  # noqa: E501
+        if 'min_zinc' in local_var_params:
+            query_params.append(('minZinc', local_var_params['min_zinc']))  # noqa: E501
+        if 'max_zinc' in local_var_params:
+            query_params.append(('maxZinc', local_var_params['max_zinc']))  # noqa: E501
+        if 'offset' in local_var_params:
+            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
+        if 'number' in local_var_params:
+            query_params.append(('number', local_var_params['number']))  # noqa: E501
+        if 'random' in local_var_params:
+            query_params.append(('random', local_var_params['random']))  # noqa: E501
+        if 'limit_license' in local_var_params:
+            query_params.append(('limitLicense', local_var_params['limit_license']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/recipes/findByNutrients', 'GET',
             path_params,
             query_params,
             header_params,
@@ -7365,18 +7909,17 @@ class DefaultApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def visualize_equipment(self, ingredient_list, servings, **kwargs):  # noqa: E501
+    def visualize_equipment(self, instructions, **kwargs):  # noqa: E501
         """Visualize Equipment  # noqa: E501
 
-        Visualize the equipment used to make a recipe.  # noqa: E501
+        Visualize the equipment used to make a recipe. You can play around with that endpoint!  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.visualize_equipment(ingredient_list, servings, async_req=True)
+        >>> thread = api.visualize_equipment(instructions, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str ingredient_list: The ingredient list of the recipe, one ingredient per line. (required)
-        :param float servings: The number of servings. (required)
+        :param str instructions: The recipe's instructions. (required)
         :param str view: How to visualize the equipment, either \\\"grid\\\" or \\\"list\\\".
         :param bool default_css: Whether the default CSS should be added to the response.
         :param bool show_backlink: Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
@@ -7386,23 +7929,22 @@ class DefaultApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.visualize_equipment_with_http_info(ingredient_list, servings, **kwargs)  # noqa: E501
+            return self.visualize_equipment_with_http_info(instructions, **kwargs)  # noqa: E501
         else:
-            (data) = self.visualize_equipment_with_http_info(ingredient_list, servings, **kwargs)  # noqa: E501
+            (data) = self.visualize_equipment_with_http_info(instructions, **kwargs)  # noqa: E501
             return data
 
-    def visualize_equipment_with_http_info(self, ingredient_list, servings, **kwargs):  # noqa: E501
+    def visualize_equipment_with_http_info(self, instructions, **kwargs):  # noqa: E501
         """Visualize Equipment  # noqa: E501
 
-        Visualize the equipment used to make a recipe.  # noqa: E501
+        Visualize the equipment used to make a recipe. You can play around with that endpoint!  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.visualize_equipment_with_http_info(ingredient_list, servings, async_req=True)
+        >>> thread = api.visualize_equipment_with_http_info(instructions, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str ingredient_list: The ingredient list of the recipe, one ingredient per line. (required)
-        :param float servings: The number of servings. (required)
+        :param str instructions: The recipe's instructions. (required)
         :param str view: How to visualize the equipment, either \\\"grid\\\" or \\\"list\\\".
         :param bool default_css: Whether the default CSS should be added to the response.
         :param bool show_backlink: Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
@@ -7413,7 +7955,7 @@ class DefaultApi(object):
 
         local_var_params = locals()
 
-        all_params = ['ingredient_list', 'servings', 'view', 'default_css', 'show_backlink']  # noqa: E501
+        all_params = ['instructions', 'view', 'default_css', 'show_backlink']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -7427,14 +7969,10 @@ class DefaultApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'ingredient_list' is set
-        if ('ingredient_list' not in local_var_params or
-                local_var_params['ingredient_list'] is None):
-            raise ApiValueError("Missing the required parameter `ingredient_list` when calling `visualize_equipment`")  # noqa: E501
-        # verify the required parameter 'servings' is set
-        if ('servings' not in local_var_params or
-                local_var_params['servings'] is None):
-            raise ApiValueError("Missing the required parameter `servings` when calling `visualize_equipment`")  # noqa: E501
+        # verify the required parameter 'instructions' is set
+        if ('instructions' not in local_var_params or
+                local_var_params['instructions'] is None):
+            raise ApiValueError("Missing the required parameter `instructions` when calling `visualize_equipment`")  # noqa: E501
 
         collection_formats = {}
 
@@ -7446,10 +7984,8 @@ class DefaultApi(object):
 
         form_params = []
         local_var_files = {}
-        if 'ingredient_list' in local_var_params:
-            form_params.append(('ingredientList', local_var_params['ingredient_list']))  # noqa: E501
-        if 'servings' in local_var_params:
-            form_params.append(('servings', local_var_params['servings']))  # noqa: E501
+        if 'instructions' in local_var_params:
+            form_params.append(('instructions', local_var_params['instructions']))  # noqa: E501
         if 'view' in local_var_params:
             form_params.append(('view', local_var_params['view']))  # noqa: E501
         if 'default_css' in local_var_params:
@@ -7488,7 +8024,7 @@ class DefaultApi(object):
     def visualize_ingredients(self, ingredient_list, servings, **kwargs):  # noqa: E501
         """Visualize Ingredients  # noqa: E501
 
-        Visualize ingredients of a recipe.  # noqa: E501
+        Visualize ingredients of a recipe. You can play around with that endpoint!  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.visualize_ingredients(ingredient_list, servings, async_req=True)
@@ -7515,7 +8051,7 @@ class DefaultApi(object):
     def visualize_ingredients_with_http_info(self, ingredient_list, servings, **kwargs):  # noqa: E501
         """Visualize Ingredients  # noqa: E501
 
-        Visualize ingredients of a recipe.  # noqa: E501
+        Visualize ingredients of a recipe. You can play around with that endpoint!  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.visualize_ingredients_with_http_info(ingredient_list, servings, async_req=True)
@@ -7712,7 +8248,7 @@ class DefaultApi(object):
     def visualize_price_breakdown(self, ingredient_list, servings, **kwargs):  # noqa: E501
         """Visualize Price Breakdown  # noqa: E501
 
-        Visualize the price breakdown of a recipe.  # noqa: E501
+        Visualize the price breakdown of a recipe. You can play around with that endpoint!  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.visualize_price_breakdown(ingredient_list, servings, async_req=True)
@@ -7738,7 +8274,7 @@ class DefaultApi(object):
     def visualize_price_breakdown_with_http_info(self, ingredient_list, servings, **kwargs):  # noqa: E501
         """Visualize Price Breakdown  # noqa: E501
 
-        Visualize the price breakdown of a recipe.  # noqa: E501
+        Visualize the price breakdown of a recipe. You can play around with that endpoint!  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.visualize_price_breakdown_with_http_info(ingredient_list, servings, async_req=True)
@@ -8132,7 +8668,7 @@ class DefaultApi(object):
     def visualize_recipe_nutrition(self, ingredient_list, servings, **kwargs):  # noqa: E501
         """Visualize Recipe Nutrition  # noqa: E501
 
-        Visualize a recipe's nutritional information as HTML including CSS  # noqa: E501
+        Visualize a recipe's nutritional information as HTML including CSS. You can play around with that endpoint!  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.visualize_recipe_nutrition(ingredient_list, servings, async_req=True)
@@ -8157,7 +8693,7 @@ class DefaultApi(object):
     def visualize_recipe_nutrition_with_http_info(self, ingredient_list, servings, **kwargs):  # noqa: E501
         """Visualize Recipe Nutrition  # noqa: E501
 
-        Visualize a recipe's nutritional information as HTML including CSS  # noqa: E501
+        Visualize a recipe's nutritional information as HTML including CSS. You can play around with that endpoint!  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.visualize_recipe_nutrition_with_http_info(ingredient_list, servings, async_req=True)
@@ -8431,6 +8967,202 @@ class DefaultApi(object):
 
         return self.api_client.call_api(
             '/recipes/{id}/priceBreakdownWidget', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='str',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def visualize_recipe_taste(self, ingredient_list, **kwargs):  # noqa: E501
+        """Visualize Recipe Taste  # noqa: E501
+
+        Visualize a recipe's taste information as HTML including CSS. You can play around with that endpoint!  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.visualize_recipe_taste(ingredient_list, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str ingredient_list: The ingredient list of the recipe, one ingredient per line. (required)
+        :return: str
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.visualize_recipe_taste_with_http_info(ingredient_list, **kwargs)  # noqa: E501
+        else:
+            (data) = self.visualize_recipe_taste_with_http_info(ingredient_list, **kwargs)  # noqa: E501
+            return data
+
+    def visualize_recipe_taste_with_http_info(self, ingredient_list, **kwargs):  # noqa: E501
+        """Visualize Recipe Taste  # noqa: E501
+
+        Visualize a recipe's taste information as HTML including CSS. You can play around with that endpoint!  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.visualize_recipe_taste_with_http_info(ingredient_list, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str ingredient_list: The ingredient list of the recipe, one ingredient per line. (required)
+        :return: str
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['ingredient_list']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method visualize_recipe_taste" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'ingredient_list' is set
+        if ('ingredient_list' not in local_var_params or
+                local_var_params['ingredient_list'] is None):
+            raise ApiValueError("Missing the required parameter `ingredient_list` when calling `visualize_recipe_taste`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+        if 'ingredient_list' in local_var_params:
+            form_params.append(('ingredientList', local_var_params['ingredient_list']))  # noqa: E501
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['text/html'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/x-www-form-urlencoded'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/recipes/visualizeTaste', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='str',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def visualize_recipe_taste_by_id(self, id, **kwargs):  # noqa: E501
+        """Visualize Recipe Taste by ID  # noqa: E501
+
+        Get a recipe's taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.visualize_recipe_taste_by_id(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param float id: The recipe id. (required)
+        :return: str
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.visualize_recipe_taste_by_id_with_http_info(id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.visualize_recipe_taste_by_id_with_http_info(id, **kwargs)  # noqa: E501
+            return data
+
+    def visualize_recipe_taste_by_id_with_http_info(self, id, **kwargs):  # noqa: E501
+        """Visualize Recipe Taste by ID  # noqa: E501
+
+        Get a recipe's taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.visualize_recipe_taste_by_id_with_http_info(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param float id: The recipe id. (required)
+        :return: str
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method visualize_recipe_taste_by_id" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
+            raise ApiValueError("Missing the required parameter `id` when calling `visualize_recipe_taste_by_id`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['text/html'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/recipes/{id}/tasteWidget', 'GET',
             path_params,
             query_params,
             header_params,

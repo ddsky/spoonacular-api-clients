@@ -14,25 +14,20 @@ require 'date'
 
 module OpenapiClient
   class InlineObject9
-    # The username.
-    attr_accessor :username
-
-    # The private hash for the username.
-    attr_accessor :hash
+    # The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).
+    attr_accessor :locale
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'username' => :'username',
-        :'hash' => :'hash'
+        :'locale' => :'locale'
       }
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'username' => :'String',
-        :'hash' => :'String'
+        :'locale' => :'String'
       }
     end
 
@@ -51,12 +46,8 @@ module OpenapiClient
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'username')
-        self.username = attributes[:'username']
-      end
-
-      if attributes.key?(:'hash')
-        self.hash = attributes[:'hash']
+      if attributes.key?(:'locale')
+        self.locale = attributes[:'locale']
       end
     end
 
@@ -64,22 +55,12 @@ module OpenapiClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @username.nil?
-        invalid_properties.push('invalid value for "username", username cannot be nil.')
-      end
-
-      if @hash.nil?
-        invalid_properties.push('invalid value for "hash", hash cannot be nil.')
-      end
-
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @username.nil?
-      return false if @hash.nil?
       true
     end
 
@@ -88,8 +69,7 @@ module OpenapiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          username == o.username &&
-          hash == o.hash
+          locale == o.locale
     end
 
     # @see the `==` method
@@ -101,7 +81,7 @@ module OpenapiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [username, hash].hash
+      [locale].hash
     end
 
     # Builds the object from hash

@@ -16,17 +16,17 @@ namespace com.spoonacular
         /// </summary>
         /// <param name="username">The username.</param>
         /// <param name="hash">The private hash for the username.</param>
-        /// <param name="inlineObject9"></param>
+        /// <param name="inlineObject11"></param>
         /// <returns>Object</returns>
-        Object AddToMealPlan (string username, string hash, InlineObject9 inlineObject9);
+        Object AddToMealPlan (string username, string hash, InlineObject11 inlineObject11);
         /// <summary>
         /// Add to Shopping List Add an item to the current shopping list of a user.
         /// </summary>
         /// <param name="username">The username.</param>
         /// <param name="hash">The private hash for the username.</param>
-        /// <param name="inlineObject12"></param>
+        /// <param name="inlineObject14"></param>
         /// <returns>Object</returns>
-        Object AddToShoppingList (string username, string hash, InlineObject12 inlineObject12);
+        Object AddToShoppingList (string username, string hash, InlineObject14 inlineObject14);
         /// <summary>
         /// Analyze a Recipe Search Query Parse a recipe search query to find out its intention.
         /// </summary>
@@ -34,7 +34,7 @@ namespace com.spoonacular
         /// <returns>Object</returns>
         Object AnalyzeARecipeSearchQuery (string q);
         /// <summary>
-        /// Analyze Recipe Instructions Extract ingredients and equipment from the recipe&#39;s instructions.
+        /// Analyze Recipe Instructions This endpoint allows you to break down instructions into atomic steps. Furthermore, each step will contain the ingredients and equipment required. Additionally, all ingredients and equipment from the recipe&#39;s instructions will be extracted independently of the step they&#39;re used in.
         /// </summary>
         /// <param name="instructions">The instructions to be analyzed.</param>
         /// <returns>Object</returns>
@@ -47,7 +47,7 @@ namespace com.spoonacular
         /// <param name="metaInformation">Whether to return more meta information about the ingredients.</param>
         /// <param name="intolerances">A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.</param>
         /// <returns>Object</returns>
-        Object AutocompleteIngredientSearch (string query, decimal? number, bool? metaInformation, bool? intolerances);
+        Object AutocompleteIngredientSearch (string query, decimal? number, bool? metaInformation, string intolerances);
         /// <summary>
         /// Autocomplete Menu Item Search Generate suggestions for menu items based on a (partial) query. The matches will be found by looking in the title only.
         /// </summary>
@@ -79,10 +79,10 @@ namespace com.spoonacular
         /// <summary>
         /// Classify Grocery Product This endpoint allows you to match a packaged food to a basic category, e.g. a specific brand of milk to the category milk.
         /// </summary>
-        /// <param name="inlineObject8"></param>
+        /// <param name="inlineObject9"></param>
         /// <param name="locale">The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).</param>
         /// <returns>Object</returns>
-        Object ClassifyGroceryProduct (InlineObject8 inlineObject8, string locale);
+        Object ClassifyGroceryProduct (InlineObject9 inlineObject9, string locale);
         /// <summary>
         /// Classify Grocery Product Bulk Provide a set of product jsons, get back classified products.
         /// </summary>
@@ -90,6 +90,27 @@ namespace com.spoonacular
         /// <param name="locale">The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).</param>
         /// <returns>Object</returns>
         Object ClassifyGroceryProductBulk (Object body, string locale);
+        /// <summary>
+        /// Clear Meal Plan Day Delete all planned items from the user&#39;s meal plan for a specific day.
+        /// </summary>
+        /// <param name="username">The username.</param>
+        /// <param name="date">The date in the format yyyy-mm-dd.</param>
+        /// <param name="hash">The private hash for the username.</param>
+        /// <param name="inlineObject10"></param>
+        /// <returns>Object</returns>
+        Object ClearMealPlanDay (string username, string date, string hash, InlineObject10 inlineObject10);
+        /// <summary>
+        /// Compute Glycemic Load Retrieve the glycemic index for a list of ingredients and compute the individual and total glycemic load.
+        /// </summary>
+        /// <param name="body"></param>
+        /// <returns>Object</returns>
+        Object ComputeGlycemicLoad (Object body);
+        /// <summary>
+        /// Connect User In order to call user-specific endpoints, you need to connect your app&#39;s users to spoonacular users.
+        /// </summary>
+        /// <param name="body"></param>
+        /// <returns>Object</returns>
+        Object ConnectUser (Object body);
         /// <summary>
         /// Convert Amounts Convert amounts like \&quot;2 cups of flour to grams\&quot;.
         /// </summary>
@@ -122,18 +143,18 @@ namespace com.spoonacular
         /// <param name="username">The username.</param>
         /// <param name="id">The shopping list item id.</param>
         /// <param name="hash">The private hash for the username.</param>
-        /// <param name="inlineObject10"></param>
+        /// <param name="inlineObject12"></param>
         /// <returns>Object</returns>
-        Object DeleteFromMealPlan (string username, decimal? id, string hash, InlineObject10 inlineObject10);
+        Object DeleteFromMealPlan (string username, decimal? id, string hash, InlineObject12 inlineObject12);
         /// <summary>
         /// Delete from Shopping List Delete an item from the current shopping list of the user.
         /// </summary>
         /// <param name="username">The username.</param>
         /// <param name="id">The shopping list item id.</param>
         /// <param name="hash">The private hash for the username.</param>
-        /// <param name="inlineObject13"></param>
+        /// <param name="inlineObject15"></param>
         /// <returns>Object</returns>
-        Object DeleteFromShoppingList (string username, decimal? id, string hash, InlineObject13 inlineObject13);
+        Object DeleteFromShoppingList (string username, decimal? id, string hash, InlineObject15 inlineObject15);
         /// <summary>
         /// Detect Food in Text Take any text and find all mentions of food contained within it. This task is also called Named Entity Recognition (NER). In this case, the entities are foods. Either dishes, such as pizza or cheeseburger, or ingredients, such as cucumber or almonds.
         /// </summary>
@@ -164,9 +185,9 @@ namespace com.spoonacular
         /// <param name="startDate">The start date in the format yyyy-mm-dd.</param>
         /// <param name="endDate">The end date in the format yyyy-mm-dd.</param>
         /// <param name="hash">The private hash for the username.</param>
-        /// <param name="inlineObject11"></param>
+        /// <param name="inlineObject13"></param>
         /// <returns>Object</returns>
-        Object GenerateShoppingList (string username, string startDate, string endDate, string hash, InlineObject11 inlineObject11);
+        Object GenerateShoppingList (string username, string startDate, string endDate, string hash, InlineObject13 inlineObject13);
         /// <summary>
         /// Get a Random Food Joke Get a random joke that is related to food. Caution: this is an endpoint for adults!
         /// </summary>
@@ -305,6 +326,12 @@ namespace com.spoonacular
         /// <returns>Object</returns>
         Object GetRecipePriceBreakdownByID (decimal? id);
         /// <summary>
+        /// Get Recipe Taste by ID Get a recipe&#39;s taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
+        /// </summary>
+        /// <param name="id">The recipe id.</param>
+        /// <returns>Object</returns>
+        Object GetRecipeTasteByID (decimal? id);
+        /// <summary>
         /// Get Shopping List Get the current shopping list for the given user.
         /// </summary>
         /// <param name="username">The username.</param>
@@ -360,6 +387,25 @@ namespace com.spoonacular
         /// <returns>Object</returns>
         Object ImageClassificationByURL (string imageUrl);
         /// <summary>
+        /// Ingredient Search Search for simple whole foods (e.g. fruits, vegetables, nuts, grains, meat, fish, dairy etc.).
+        /// </summary>
+        /// <param name="query">The partial or full ingredient name.</param>
+        /// <param name="addChildren">Whether to add children of found foods.</param>
+        /// <param name="minProteinPercent">The minimum percentage of protein the food must have (between 0 and 100).</param>
+        /// <param name="maxProteinPercent">The maximum percentage of protein the food can have (between 0 and 100).</param>
+        /// <param name="minFatPercent">The minimum percentage of fat the food must have (between 0 and 100).</param>
+        /// <param name="maxFatPercent">The maximum percentage of fat the food can have (between 0 and 100).</param>
+        /// <param name="minCarbsPercent">The minimum percentage of carbs the food must have (between 0 and 100).</param>
+        /// <param name="maxCarbsPercent">The maximum percentage of carbs the food can have (between 0 and 100).</param>
+        /// <param name="metaInformation">Whether to return more meta information about the ingredients.</param>
+        /// <param name="intolerances">A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.</param>
+        /// <param name="sort">The strategy to sort recipes by. See a full list of supported sorting options.</param>
+        /// <param name="sortDirection">The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending).</param>
+        /// <param name="offset">The number of results to skip (between 0 and 990).</param>
+        /// <param name="number">The number of expected results (between 1 and 100).</param>
+        /// <returns>Object</returns>
+        Object IngredientSearch (string query, bool? addChildren, decimal? minProteinPercent, decimal? maxProteinPercent, decimal? minFatPercent, decimal? maxFatPercent, decimal? minCarbsPercent, decimal? maxCarbsPercent, bool? metaInformation, string intolerances, string sort, string sortDirection, decimal? offset, decimal? number);
+        /// <summary>
         /// Map Ingredients to Grocery Products Map a set of ingredients to products you can buy in the grocery store.
         /// </summary>
         /// <param name="body"></param>
@@ -379,6 +425,14 @@ namespace com.spoonacular
         /// <param name="q">The nutrition related question.</param>
         /// <returns>Object</returns>
         Object QuickAnswer (string q);
+        /// <summary>
+        /// Search All Food Search all food content with one call. That includes recipes, grocery products, menu items, simple foods (ingredients), and food videos.
+        /// </summary>
+        /// <param name="query">The search query.</param>
+        /// <param name="offset">The number of results to skip (between 0 and 990).</param>
+        /// <param name="number">The number of expected results (between 1 and 100).</param>
+        /// <returns>Object</returns>
+        Object SearchAllFood (string query, decimal? offset, decimal? number);
         /// <summary>
         /// Search Custom Foods Search custom foods in a user&#39;s account.
         /// </summary>
@@ -443,112 +497,7 @@ namespace com.spoonacular
         /// <returns>Object</returns>
         Object SearchMenuItems (string query, decimal? minCalories, decimal? maxCalories, decimal? minCarbs, decimal? maxCarbs, decimal? minProtein, decimal? maxProtein, decimal? minFat, decimal? maxFat, decimal? offset, decimal? number);
         /// <summary>
-        /// Search Recipes Our recipe API includes over 360,000 recipes as well as an open source recipe database. Consider using the \&quot;Search Recipes Complex\&quot; endpoint for much more flexibility.
-        /// </summary>
-        /// <param name="query">The (natural language) recipe search query.</param>
-        /// <param name="cuisine">The cuisine(s) of the recipes. One or more comma separated. See a full list of supported cuisines.</param>
-        /// <param name="diet">The diet for which the recipes must be suitable. See a full list of supported diets.</param>
-        /// <param name="excludeIngredients">A comma-separated list of ingredients or ingredient types that the recipes must not contain.</param>
-        /// <param name="intolerances">A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. Please note: due to the automatic nature of the recipe analysis, the API cannot be 100% accurate in all cases. Please advise your users to seek professional help with medical issues.</param>
-        /// <param name="offset">The number of results to skip (between 0 and 900).</param>
-        /// <param name="number">The number of results to return (between 1 and 100).</param>
-        /// <param name="limitLicense">Whether the recipes should have an open license that allows display with proper attribution.</param>
-        /// <param name="instructionsRequired">Whether the recipes must have instructions.</param>
-        /// <returns>Object</returns>
-        Object SearchRecipes (string query, string cuisine, string diet, string excludeIngredients, string intolerances, decimal? offset, decimal? number, bool? limitLicense, bool? instructionsRequired);
-        /// <summary>
-        /// Search Recipes by Ingredients              Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don&#39;t currently have (post shopping).         
-        /// </summary>
-        /// <param name="ingredients">A comma-separated list of ingredients that the recipes should contain.</param>
-        /// <param name="number">The maximum number of recipes to return (between 1 and 100). Defaults to 10.</param>
-        /// <param name="limitLicense">Whether the recipes should have an open license that allows display with proper attribution.</param>
-        /// <param name="ranking">Whether to maximize used ingredients (1) or minimize missing ingredients (2) first.</param>
-        /// <param name="ignorePantry">Whether to ignore typical pantry items, such as water, salt, flour, etc.</param>
-        /// <returns>Object</returns>
-        Object SearchRecipesByIngredients (string ingredients, decimal? number, bool? limitLicense, decimal? ranking, bool? ignorePantry);
-        /// <summary>
-        /// Search Recipes by Nutrients Find a set of recipes that adhere to the given nutritional limits. You may set limits for macronutrients (calories, protein, fat, and carbohydrate) and/or many micronutrients.
-        /// </summary>
-        /// <param name="minCarbs">The minimum amount of carbohydrates in grams the recipe must have.</param>
-        /// <param name="maxCarbs">The maximum amount of carbohydrates in grams the recipe can have.</param>
-        /// <param name="minProtein">The minimum amount of protein in grams the recipe must have.</param>
-        /// <param name="maxProtein">The maximum amount of protein in grams the recipe can have.</param>
-        /// <param name="minCalories">The minimum amount of calories the recipe must have.</param>
-        /// <param name="maxCalories">The maximum amount of calories the recipe can have.</param>
-        /// <param name="minFat">The minimum amount of fat in grams the recipe must have.</param>
-        /// <param name="maxFat">The maximum amount of fat in grams the recipe can have.</param>
-        /// <param name="minAlcohol">The minimum amount of alcohol in grams the recipe must have.</param>
-        /// <param name="maxAlcohol">The maximum amount of alcohol in grams the recipe can have.</param>
-        /// <param name="minCaffeine">The minimum amount of caffeine in milligrams the recipe must have.</param>
-        /// <param name="maxCaffeine">The maximum amount of caffeine in milligrams the recipe can have.</param>
-        /// <param name="minCopper">The minimum amount of copper in milligrams the recipe must have.</param>
-        /// <param name="maxCopper">The maximum amount of copper in milligrams the recipe can have.</param>
-        /// <param name="minCalcium">The minimum amount of calcium in milligrams the recipe must have.</param>
-        /// <param name="maxCalcium">The maximum amount of calcium in milligrams the recipe can have.</param>
-        /// <param name="minCholine">The minimum amount of choline in milligrams the recipe must have.</param>
-        /// <param name="maxCholine">The maximum amount of choline in milligrams the recipe can have.</param>
-        /// <param name="minCholesterol">The minimum amount of cholesterol in milligrams the recipe must have.</param>
-        /// <param name="maxCholesterol">The maximum amount of cholesterol in milligrams the recipe can have.</param>
-        /// <param name="minFluoride">The minimum amount of fluoride in milligrams the recipe must have.</param>
-        /// <param name="maxFluoride">The maximum amount of fluoride in milligrams the recipe can have.</param>
-        /// <param name="minSaturatedFat">The minimum amount of saturated fat in grams the recipe must have.</param>
-        /// <param name="maxSaturatedFat">The maximum amount of saturated fat in grams the recipe can have.</param>
-        /// <param name="minVitaminA">The minimum amount of Vitamin A in IU the recipe must have.</param>
-        /// <param name="maxVitaminA">The maximum amount of Vitamin A in IU the recipe can have.</param>
-        /// <param name="minVitaminC">The minimum amount of Vitamin C in milligrams the recipe must have.</param>
-        /// <param name="maxVitaminC">The maximum amount of Vitamin C in milligrams the recipe can have.</param>
-        /// <param name="minVitaminD">The minimum amount of Vitamin D in micrograms the recipe must have.</param>
-        /// <param name="maxVitaminD">The maximum amount of Vitamin D in micrograms the recipe can have.</param>
-        /// <param name="minVitaminE">The minimum amount of Vitamin E in milligrams the recipe must have.</param>
-        /// <param name="maxVitaminE">The maximum amount of Vitamin E in milligrams the recipe can have.</param>
-        /// <param name="minVitaminK">The minimum amount of Vitamin K in micrograms the recipe must have.</param>
-        /// <param name="maxVitaminK">The maximum amount of Vitamin K in micrograms the recipe can have.</param>
-        /// <param name="minVitaminB1">The minimum amount of Vitamin B1 in milligrams the recipe must have.</param>
-        /// <param name="maxVitaminB1">The maximum amount of Vitamin B1 in milligrams the recipe can have.</param>
-        /// <param name="minVitaminB2">The minimum amount of Vitamin B2 in milligrams the recipe must have.</param>
-        /// <param name="maxVitaminB2">The maximum amount of Vitamin B2 in milligrams the recipe can have.</param>
-        /// <param name="minVitaminB5">The minimum amount of Vitamin B5 in milligrams the recipe must have.</param>
-        /// <param name="maxVitaminB5">The maximum amount of Vitamin B5 in milligrams the recipe can have.</param>
-        /// <param name="minVitaminB3">The minimum amount of Vitamin B3 in milligrams the recipe must have.</param>
-        /// <param name="maxVitaminB3">The maximum amount of Vitamin B3 in milligrams the recipe can have.</param>
-        /// <param name="minVitaminB6">The minimum amount of Vitamin B6 in milligrams the recipe must have.</param>
-        /// <param name="maxVitaminB6">The maximum amount of Vitamin B6 in milligrams the recipe can have.</param>
-        /// <param name="minVitaminB12">The minimum amount of Vitamin B12 in micrograms the recipe must have.</param>
-        /// <param name="maxVitaminB12">The maximum amount of Vitamin B12 in micrograms the recipe can have.</param>
-        /// <param name="minFiber">The minimum amount of fiber in grams the recipe must have.</param>
-        /// <param name="maxFiber">The maximum amount of fiber in grams the recipe can have.</param>
-        /// <param name="minFolate">The minimum amount of folate in grams the recipe must have.</param>
-        /// <param name="maxFolate">The maximum amount of folate in grams the recipe can have.</param>
-        /// <param name="minFolicAcid">The minimum amount of folic acid in grams the recipe must have.</param>
-        /// <param name="maxFolicAcid">The maximum amount of folic acid in grams the recipe can have.</param>
-        /// <param name="minIodine">The minimum amount of iodine in grams the recipe must have.</param>
-        /// <param name="maxIodine">The maximum amount of iodine in grams the recipe can have.</param>
-        /// <param name="minIron">The minimum amount of iron in milligrams the recipe must have.</param>
-        /// <param name="maxIron">The maximum amount of iron in milligrams the recipe can have.</param>
-        /// <param name="minMagnesium">The minimum amount of magnesium in milligrams the recipe must have.</param>
-        /// <param name="maxMagnesium">The maximum amount of magnesium in milligrams the recipe can have.</param>
-        /// <param name="minManganese">The minimum amount of manganese in milligrams the recipe must have.</param>
-        /// <param name="maxManganese">The maximum amount of manganese in milligrams the recipe can have.</param>
-        /// <param name="minPhosphorus">The minimum amount of phosphorus in milligrams the recipe must have.</param>
-        /// <param name="maxPhosphorus">The maximum amount of phosphorus in milligrams the recipe can have.</param>
-        /// <param name="minPotassium">The minimum amount of potassium in milligrams the recipe must have.</param>
-        /// <param name="maxPotassium">The maximum amount of potassium in milligrams the recipe can have.</param>
-        /// <param name="minSelenium">The minimum amount of selenium in grams the recipe must have.</param>
-        /// <param name="maxSelenium">The maximum amount of selenium in grams the recipe can have.</param>
-        /// <param name="minSodium">The minimum amount of sodium in milligrams the recipe must have.</param>
-        /// <param name="maxSodium">The maximum amount of sodium in milligrams the recipe can have.</param>
-        /// <param name="minSugar">The minimum amount of sugar in grams the recipe must have.</param>
-        /// <param name="maxSugar">The maximum amount of sugar in grams the recipe can have.</param>
-        /// <param name="minZinc">The minimum amount of zinc in milligrams the recipe must have.</param>
-        /// <param name="maxZinc">The maximum amount of zinc in milligrams the recipe can have.</param>
-        /// <param name="offset">The number of results to skip (between 0 and 900).</param>
-        /// <param name="number">The number of expected results (between 1 and 100).</param>
-        /// <param name="random">If true, every request will give you a random set of recipes within the requested limits.</param>
-        /// <param name="limitLicense">Whether the recipes should have an open license that allows display with proper attribution.</param>
-        /// <returns>Object</returns>
-        Object SearchRecipesByNutrients (decimal? minCarbs, decimal? maxCarbs, decimal? minProtein, decimal? maxProtein, decimal? minCalories, decimal? maxCalories, decimal? minFat, decimal? maxFat, decimal? minAlcohol, decimal? maxAlcohol, decimal? minCaffeine, decimal? maxCaffeine, decimal? minCopper, decimal? maxCopper, decimal? minCalcium, decimal? maxCalcium, decimal? minCholine, decimal? maxCholine, decimal? minCholesterol, decimal? maxCholesterol, decimal? minFluoride, decimal? maxFluoride, decimal? minSaturatedFat, decimal? maxSaturatedFat, decimal? minVitaminA, decimal? maxVitaminA, decimal? minVitaminC, decimal? maxVitaminC, decimal? minVitaminD, decimal? maxVitaminD, decimal? minVitaminE, decimal? maxVitaminE, decimal? minVitaminK, decimal? maxVitaminK, decimal? minVitaminB1, decimal? maxVitaminB1, decimal? minVitaminB2, decimal? maxVitaminB2, decimal? minVitaminB5, decimal? maxVitaminB5, decimal? minVitaminB3, decimal? maxVitaminB3, decimal? minVitaminB6, decimal? maxVitaminB6, decimal? minVitaminB12, decimal? maxVitaminB12, decimal? minFiber, decimal? maxFiber, decimal? minFolate, decimal? maxFolate, decimal? minFolicAcid, decimal? maxFolicAcid, decimal? minIodine, decimal? maxIodine, decimal? minIron, decimal? maxIron, decimal? minMagnesium, decimal? maxMagnesium, decimal? minManganese, decimal? maxManganese, decimal? minPhosphorus, decimal? maxPhosphorus, decimal? minPotassium, decimal? maxPotassium, decimal? minSelenium, decimal? maxSelenium, decimal? minSodium, decimal? maxSodium, decimal? minSugar, decimal? maxSugar, decimal? minZinc, decimal? maxZinc, decimal? offset, decimal? number, bool? random, bool? limitLicense);
-        /// <summary>
-        /// Search Recipes Complex Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint.
+        /// Search Recipes Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint.
         /// </summary>
         /// <param name="query">The (natural language) recipe search query.</param>
         /// <param name="cuisine">The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as &#39;OR&#39;). See a full list of supported cuisines.</param>
@@ -619,12 +568,12 @@ namespace com.spoonacular
         /// <param name="maxVitaminB12">The maximum amount of Vitamin B12 in micrograms the recipe can have.</param>
         /// <param name="minFiber">The minimum amount of fiber in grams the recipe must have.</param>
         /// <param name="maxFiber">The maximum amount of fiber in grams the recipe can have.</param>
-        /// <param name="minFolate">The minimum amount of folate in grams the recipe must have.</param>
-        /// <param name="maxFolate">The maximum amount of folate in grams the recipe can have.</param>
-        /// <param name="minFolicAcid">The minimum amount of folic acid in grams the recipe must have.</param>
-        /// <param name="maxFolicAcid">The maximum amount of folic acid in grams the recipe can have.</param>
-        /// <param name="minIodine">The minimum amount of iodine in grams the recipe must have.</param>
-        /// <param name="maxIodine">The maximum amount of iodine in grams the recipe can have.</param>
+        /// <param name="minFolate">The minimum amount of folate in micrograms the recipe must have.</param>
+        /// <param name="maxFolate">The maximum amount of folate in micrograms the recipe can have.</param>
+        /// <param name="minFolicAcid">The minimum amount of folic acid in micrograms the recipe must have.</param>
+        /// <param name="maxFolicAcid">The maximum amount of folic acid in micrograms the recipe can have.</param>
+        /// <param name="minIodine">The minimum amount of iodine in micrograms the recipe must have.</param>
+        /// <param name="maxIodine">The maximum amount of iodine in micrograms the recipe can have.</param>
         /// <param name="minIron">The minimum amount of iron in milligrams the recipe must have.</param>
         /// <param name="maxIron">The maximum amount of iron in milligrams the recipe can have.</param>
         /// <param name="minMagnesium">The minimum amount of magnesium in milligrams the recipe must have.</param>
@@ -635,8 +584,8 @@ namespace com.spoonacular
         /// <param name="maxPhosphorus">The maximum amount of phosphorus in milligrams the recipe can have.</param>
         /// <param name="minPotassium">The minimum amount of potassium in milligrams the recipe must have.</param>
         /// <param name="maxPotassium">The maximum amount of potassium in milligrams the recipe can have.</param>
-        /// <param name="minSelenium">The minimum amount of selenium in grams the recipe must have.</param>
-        /// <param name="maxSelenium">The maximum amount of selenium in grams the recipe can have.</param>
+        /// <param name="minSelenium">The minimum amount of selenium in micrograms the recipe must have.</param>
+        /// <param name="maxSelenium">The maximum amount of selenium in micrograms the recipe can have.</param>
         /// <param name="minSodium">The minimum amount of sodium in milligrams the recipe must have.</param>
         /// <param name="maxSodium">The maximum amount of sodium in milligrams the recipe can have.</param>
         /// <param name="minSugar">The minimum amount of sugar in grams the recipe must have.</param>
@@ -647,7 +596,98 @@ namespace com.spoonacular
         /// <param name="number">The number of expected results (between 1 and 100).</param>
         /// <param name="limitLicense">Whether the recipes should have an open license that allows display with proper attribution.</param>
         /// <returns>Object</returns>
-        Object SearchRecipesComplex (string query, string cuisine, string excludeCuisine, string diet, string intolerances, string equipment, string includeIngredients, string excludeIngredients, string type, bool? instructionsRequired, bool? fillIngredients, bool? addRecipeInformation, bool? addRecipeNutrition, string author, string tags, decimal? recipeBoxId, string titleMatch, decimal? maxReadyTime, bool? ignorePantry, string sort, string sortDirection, decimal? minCarbs, decimal? maxCarbs, decimal? minProtein, decimal? maxProtein, decimal? minCalories, decimal? maxCalories, decimal? minFat, decimal? maxFat, decimal? minAlcohol, decimal? maxAlcohol, decimal? minCaffeine, decimal? maxCaffeine, decimal? minCopper, decimal? maxCopper, decimal? minCalcium, decimal? maxCalcium, decimal? minCholine, decimal? maxCholine, decimal? minCholesterol, decimal? maxCholesterol, decimal? minFluoride, decimal? maxFluoride, decimal? minSaturatedFat, decimal? maxSaturatedFat, decimal? minVitaminA, decimal? maxVitaminA, decimal? minVitaminC, decimal? maxVitaminC, decimal? minVitaminD, decimal? maxVitaminD, decimal? minVitaminE, decimal? maxVitaminE, decimal? minVitaminK, decimal? maxVitaminK, decimal? minVitaminB1, decimal? maxVitaminB1, decimal? minVitaminB2, decimal? maxVitaminB2, decimal? minVitaminB5, decimal? maxVitaminB5, decimal? minVitaminB3, decimal? maxVitaminB3, decimal? minVitaminB6, decimal? maxVitaminB6, decimal? minVitaminB12, decimal? maxVitaminB12, decimal? minFiber, decimal? maxFiber, decimal? minFolate, decimal? maxFolate, decimal? minFolicAcid, decimal? maxFolicAcid, decimal? minIodine, decimal? maxIodine, decimal? minIron, decimal? maxIron, decimal? minMagnesium, decimal? maxMagnesium, decimal? minManganese, decimal? maxManganese, decimal? minPhosphorus, decimal? maxPhosphorus, decimal? minPotassium, decimal? maxPotassium, decimal? minSelenium, decimal? maxSelenium, decimal? minSodium, decimal? maxSodium, decimal? minSugar, decimal? maxSugar, decimal? minZinc, decimal? maxZinc, decimal? offset, decimal? number, bool? limitLicense);
+        Object SearchRecipes (string query, string cuisine, string excludeCuisine, string diet, string intolerances, string equipment, string includeIngredients, string excludeIngredients, string type, bool? instructionsRequired, bool? fillIngredients, bool? addRecipeInformation, bool? addRecipeNutrition, string author, string tags, decimal? recipeBoxId, string titleMatch, decimal? maxReadyTime, bool? ignorePantry, string sort, string sortDirection, decimal? minCarbs, decimal? maxCarbs, decimal? minProtein, decimal? maxProtein, decimal? minCalories, decimal? maxCalories, decimal? minFat, decimal? maxFat, decimal? minAlcohol, decimal? maxAlcohol, decimal? minCaffeine, decimal? maxCaffeine, decimal? minCopper, decimal? maxCopper, decimal? minCalcium, decimal? maxCalcium, decimal? minCholine, decimal? maxCholine, decimal? minCholesterol, decimal? maxCholesterol, decimal? minFluoride, decimal? maxFluoride, decimal? minSaturatedFat, decimal? maxSaturatedFat, decimal? minVitaminA, decimal? maxVitaminA, decimal? minVitaminC, decimal? maxVitaminC, decimal? minVitaminD, decimal? maxVitaminD, decimal? minVitaminE, decimal? maxVitaminE, decimal? minVitaminK, decimal? maxVitaminK, decimal? minVitaminB1, decimal? maxVitaminB1, decimal? minVitaminB2, decimal? maxVitaminB2, decimal? minVitaminB5, decimal? maxVitaminB5, decimal? minVitaminB3, decimal? maxVitaminB3, decimal? minVitaminB6, decimal? maxVitaminB6, decimal? minVitaminB12, decimal? maxVitaminB12, decimal? minFiber, decimal? maxFiber, decimal? minFolate, decimal? maxFolate, decimal? minFolicAcid, decimal? maxFolicAcid, decimal? minIodine, decimal? maxIodine, decimal? minIron, decimal? maxIron, decimal? minMagnesium, decimal? maxMagnesium, decimal? minManganese, decimal? maxManganese, decimal? minPhosphorus, decimal? maxPhosphorus, decimal? minPotassium, decimal? maxPotassium, decimal? minSelenium, decimal? maxSelenium, decimal? minSodium, decimal? maxSodium, decimal? minSugar, decimal? maxSugar, decimal? minZinc, decimal? maxZinc, decimal? offset, decimal? number, bool? limitLicense);
+        /// <summary>
+        /// Search Recipes by Ingredients              Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don&#39;t currently have (post shopping).         
+        /// </summary>
+        /// <param name="ingredients">A comma-separated list of ingredients that the recipes should contain.</param>
+        /// <param name="number">The maximum number of recipes to return (between 1 and 100). Defaults to 10.</param>
+        /// <param name="limitLicense">Whether the recipes should have an open license that allows display with proper attribution.</param>
+        /// <param name="ranking">Whether to maximize used ingredients (1) or minimize missing ingredients (2) first.</param>
+        /// <param name="ignorePantry">Whether to ignore typical pantry items, such as water, salt, flour, etc.</param>
+        /// <returns>Object</returns>
+        Object SearchRecipesByIngredients (string ingredients, decimal? number, bool? limitLicense, decimal? ranking, bool? ignorePantry);
+        /// <summary>
+        /// Search Recipes by Nutrients Find a set of recipes that adhere to the given nutritional limits. You may set limits for macronutrients (calories, protein, fat, and carbohydrate) and/or many micronutrients.
+        /// </summary>
+        /// <param name="minCarbs">The minimum amount of carbohydrates in grams the recipe must have.</param>
+        /// <param name="maxCarbs">The maximum amount of carbohydrates in grams the recipe can have.</param>
+        /// <param name="minProtein">The minimum amount of protein in grams the recipe must have.</param>
+        /// <param name="maxProtein">The maximum amount of protein in grams the recipe can have.</param>
+        /// <param name="minCalories">The minimum amount of calories the recipe must have.</param>
+        /// <param name="maxCalories">The maximum amount of calories the recipe can have.</param>
+        /// <param name="minFat">The minimum amount of fat in grams the recipe must have.</param>
+        /// <param name="maxFat">The maximum amount of fat in grams the recipe can have.</param>
+        /// <param name="minAlcohol">The minimum amount of alcohol in grams the recipe must have.</param>
+        /// <param name="maxAlcohol">The maximum amount of alcohol in grams the recipe can have.</param>
+        /// <param name="minCaffeine">The minimum amount of caffeine in milligrams the recipe must have.</param>
+        /// <param name="maxCaffeine">The maximum amount of caffeine in milligrams the recipe can have.</param>
+        /// <param name="minCopper">The minimum amount of copper in milligrams the recipe must have.</param>
+        /// <param name="maxCopper">The maximum amount of copper in milligrams the recipe can have.</param>
+        /// <param name="minCalcium">The minimum amount of calcium in milligrams the recipe must have.</param>
+        /// <param name="maxCalcium">The maximum amount of calcium in milligrams the recipe can have.</param>
+        /// <param name="minCholine">The minimum amount of choline in milligrams the recipe must have.</param>
+        /// <param name="maxCholine">The maximum amount of choline in milligrams the recipe can have.</param>
+        /// <param name="minCholesterol">The minimum amount of cholesterol in milligrams the recipe must have.</param>
+        /// <param name="maxCholesterol">The maximum amount of cholesterol in milligrams the recipe can have.</param>
+        /// <param name="minFluoride">The minimum amount of fluoride in milligrams the recipe must have.</param>
+        /// <param name="maxFluoride">The maximum amount of fluoride in milligrams the recipe can have.</param>
+        /// <param name="minSaturatedFat">The minimum amount of saturated fat in grams the recipe must have.</param>
+        /// <param name="maxSaturatedFat">The maximum amount of saturated fat in grams the recipe can have.</param>
+        /// <param name="minVitaminA">The minimum amount of Vitamin A in IU the recipe must have.</param>
+        /// <param name="maxVitaminA">The maximum amount of Vitamin A in IU the recipe can have.</param>
+        /// <param name="minVitaminC">The minimum amount of Vitamin C in milligrams the recipe must have.</param>
+        /// <param name="maxVitaminC">The maximum amount of Vitamin C in milligrams the recipe can have.</param>
+        /// <param name="minVitaminD">The minimum amount of Vitamin D in micrograms the recipe must have.</param>
+        /// <param name="maxVitaminD">The maximum amount of Vitamin D in micrograms the recipe can have.</param>
+        /// <param name="minVitaminE">The minimum amount of Vitamin E in milligrams the recipe must have.</param>
+        /// <param name="maxVitaminE">The maximum amount of Vitamin E in milligrams the recipe can have.</param>
+        /// <param name="minVitaminK">The minimum amount of Vitamin K in micrograms the recipe must have.</param>
+        /// <param name="maxVitaminK">The maximum amount of Vitamin K in micrograms the recipe can have.</param>
+        /// <param name="minVitaminB1">The minimum amount of Vitamin B1 in milligrams the recipe must have.</param>
+        /// <param name="maxVitaminB1">The maximum amount of Vitamin B1 in milligrams the recipe can have.</param>
+        /// <param name="minVitaminB2">The minimum amount of Vitamin B2 in milligrams the recipe must have.</param>
+        /// <param name="maxVitaminB2">The maximum amount of Vitamin B2 in milligrams the recipe can have.</param>
+        /// <param name="minVitaminB5">The minimum amount of Vitamin B5 in milligrams the recipe must have.</param>
+        /// <param name="maxVitaminB5">The maximum amount of Vitamin B5 in milligrams the recipe can have.</param>
+        /// <param name="minVitaminB3">The minimum amount of Vitamin B3 in milligrams the recipe must have.</param>
+        /// <param name="maxVitaminB3">The maximum amount of Vitamin B3 in milligrams the recipe can have.</param>
+        /// <param name="minVitaminB6">The minimum amount of Vitamin B6 in milligrams the recipe must have.</param>
+        /// <param name="maxVitaminB6">The maximum amount of Vitamin B6 in milligrams the recipe can have.</param>
+        /// <param name="minVitaminB12">The minimum amount of Vitamin B12 in micrograms the recipe must have.</param>
+        /// <param name="maxVitaminB12">The maximum amount of Vitamin B12 in micrograms the recipe can have.</param>
+        /// <param name="minFiber">The minimum amount of fiber in grams the recipe must have.</param>
+        /// <param name="maxFiber">The maximum amount of fiber in grams the recipe can have.</param>
+        /// <param name="minFolate">The minimum amount of folate in micrograms the recipe must have.</param>
+        /// <param name="maxFolate">The maximum amount of folate in micrograms the recipe can have.</param>
+        /// <param name="minFolicAcid">The minimum amount of folic acid in micrograms the recipe must have.</param>
+        /// <param name="maxFolicAcid">The maximum amount of folic acid in micrograms the recipe can have.</param>
+        /// <param name="minIodine">The minimum amount of iodine in micrograms the recipe must have.</param>
+        /// <param name="maxIodine">The maximum amount of iodine in micrograms the recipe can have.</param>
+        /// <param name="minIron">The minimum amount of iron in milligrams the recipe must have.</param>
+        /// <param name="maxIron">The maximum amount of iron in milligrams the recipe can have.</param>
+        /// <param name="minMagnesium">The minimum amount of magnesium in milligrams the recipe must have.</param>
+        /// <param name="maxMagnesium">The maximum amount of magnesium in milligrams the recipe can have.</param>
+        /// <param name="minManganese">The minimum amount of manganese in milligrams the recipe must have.</param>
+        /// <param name="maxManganese">The maximum amount of manganese in milligrams the recipe can have.</param>
+        /// <param name="minPhosphorus">The minimum amount of phosphorus in milligrams the recipe must have.</param>
+        /// <param name="maxPhosphorus">The maximum amount of phosphorus in milligrams the recipe can have.</param>
+        /// <param name="minPotassium">The minimum amount of potassium in milligrams the recipe must have.</param>
+        /// <param name="maxPotassium">The maximum amount of potassium in milligrams the recipe can have.</param>
+        /// <param name="minSelenium">The minimum amount of selenium in micrograms the recipe must have.</param>
+        /// <param name="maxSelenium">The maximum amount of selenium in micrograms the recipe can have.</param>
+        /// <param name="minSodium">The minimum amount of sodium in milligrams the recipe must have.</param>
+        /// <param name="maxSodium">The maximum amount of sodium in milligrams the recipe can have.</param>
+        /// <param name="minSugar">The minimum amount of sugar in grams the recipe must have.</param>
+        /// <param name="maxSugar">The maximum amount of sugar in grams the recipe can have.</param>
+        /// <param name="minZinc">The minimum amount of zinc in milligrams the recipe must have.</param>
+        /// <param name="maxZinc">The maximum amount of zinc in milligrams the recipe can have.</param>
+        /// <param name="offset">The number of results to skip (between 0 and 900).</param>
+        /// <param name="number">The number of expected results (between 1 and 100).</param>
+        /// <param name="random">If true, every request will give you a random set of recipes within the requested limits.</param>
+        /// <param name="limitLicense">Whether the recipes should have an open license that allows display with proper attribution.</param>
+        /// <returns>Object</returns>
+        Object SearchRecipesByNutrients (decimal? minCarbs, decimal? maxCarbs, decimal? minProtein, decimal? maxProtein, decimal? minCalories, decimal? maxCalories, decimal? minFat, decimal? maxFat, decimal? minAlcohol, decimal? maxAlcohol, decimal? minCaffeine, decimal? maxCaffeine, decimal? minCopper, decimal? maxCopper, decimal? minCalcium, decimal? maxCalcium, decimal? minCholine, decimal? maxCholine, decimal? minCholesterol, decimal? maxCholesterol, decimal? minFluoride, decimal? maxFluoride, decimal? minSaturatedFat, decimal? maxSaturatedFat, decimal? minVitaminA, decimal? maxVitaminA, decimal? minVitaminC, decimal? maxVitaminC, decimal? minVitaminD, decimal? maxVitaminD, decimal? minVitaminE, decimal? maxVitaminE, decimal? minVitaminK, decimal? maxVitaminK, decimal? minVitaminB1, decimal? maxVitaminB1, decimal? minVitaminB2, decimal? maxVitaminB2, decimal? minVitaminB5, decimal? maxVitaminB5, decimal? minVitaminB3, decimal? maxVitaminB3, decimal? minVitaminB6, decimal? maxVitaminB6, decimal? minVitaminB12, decimal? maxVitaminB12, decimal? minFiber, decimal? maxFiber, decimal? minFolate, decimal? maxFolate, decimal? minFolicAcid, decimal? maxFolicAcid, decimal? minIodine, decimal? maxIodine, decimal? minIron, decimal? maxIron, decimal? minMagnesium, decimal? maxMagnesium, decimal? minManganese, decimal? maxManganese, decimal? minPhosphorus, decimal? maxPhosphorus, decimal? minPotassium, decimal? maxPotassium, decimal? minSelenium, decimal? maxSelenium, decimal? minSodium, decimal? maxSodium, decimal? minSugar, decimal? maxSugar, decimal? minZinc, decimal? maxZinc, decimal? offset, decimal? number, bool? random, bool? limitLicense);
         /// <summary>
         /// Search Site Content Search spoonacular&#39;s site content. You&#39;ll be able to find everything that you could also find using the search suggestions on spoonacular.com. This is a suggest API so you can send partial strings as queries.
         /// </summary>
@@ -668,17 +708,16 @@ namespace com.spoonacular
         /// <returns>Object</returns>
         Object TalkToChatbot (string text, string contextId);
         /// <summary>
-        /// Visualize Equipment Visualize the equipment used to make a recipe.
+        /// Visualize Equipment Visualize the equipment used to make a recipe. You can play around with that endpoint!
         /// </summary>
-        /// <param name="ingredientList">The ingredient list of the recipe, one ingredient per line.</param>
-        /// <param name="servings">The number of servings.</param>
+        /// <param name="instructions">The recipe&#39;s instructions.</param>
         /// <param name="view">How to visualize the equipment, either \\\&quot;grid\\\&quot; or \\\&quot;list\\\&quot;.</param>
         /// <param name="defaultCss">Whether the default CSS should be added to the response.</param>
         /// <param name="showBacklink">Whether to show a backlink to spoonacular. If set false, this call counts against your quota.</param>
         /// <returns>string</returns>
-        string VisualizeEquipment (string ingredientList, decimal? servings, string view, bool? defaultCss, bool? showBacklink);
+        string VisualizeEquipment (string instructions, string view, bool? defaultCss, bool? showBacklink);
         /// <summary>
-        /// Visualize Ingredients Visualize ingredients of a recipe.
+        /// Visualize Ingredients Visualize ingredients of a recipe. You can play around with that endpoint!
         /// </summary>
         /// <param name="ingredientList">The ingredient list of the recipe, one ingredient per line.</param>
         /// <param name="servings">The number of servings.</param>
@@ -696,7 +735,7 @@ namespace com.spoonacular
         /// <returns>string</returns>
         string VisualizeMenuItemNutritionByID (decimal? id, bool? defaultCss);
         /// <summary>
-        /// Visualize Price Breakdown Visualize the price breakdown of a recipe.
+        /// Visualize Price Breakdown Visualize the price breakdown of a recipe. You can play around with that endpoint!
         /// </summary>
         /// <param name="ingredientList">The ingredient list of the recipe, one ingredient per line.</param>
         /// <param name="servings">The number of servings.</param>
@@ -727,7 +766,7 @@ namespace com.spoonacular
         /// <returns>string</returns>
         string VisualizeRecipeIngredientsByID (decimal? id, bool? defaultCss);
         /// <summary>
-        /// Visualize Recipe Nutrition Visualize a recipe&#39;s nutritional information as HTML including CSS
+        /// Visualize Recipe Nutrition Visualize a recipe&#39;s nutritional information as HTML including CSS. You can play around with that endpoint!
         /// </summary>
         /// <param name="ingredientList">The ingredient list of the recipe, one ingredient per line.</param>
         /// <param name="servings">The number of servings.</param>
@@ -749,6 +788,18 @@ namespace com.spoonacular
         /// <param name="defaultCss">Whether the default CSS should be added to the response.</param>
         /// <returns>string</returns>
         string VisualizeRecipePriceBreakdownByID (decimal? id, bool? defaultCss);
+        /// <summary>
+        /// Visualize Recipe Taste Visualize a recipe&#39;s taste information as HTML including CSS. You can play around with that endpoint!
+        /// </summary>
+        /// <param name="ingredientList">The ingredient list of the recipe, one ingredient per line.</param>
+        /// <returns>string</returns>
+        string VisualizeRecipeTaste (string ingredientList);
+        /// <summary>
+        /// Visualize Recipe Taste by ID Get a recipe&#39;s taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
+        /// </summary>
+        /// <param name="id">The recipe id.</param>
+        /// <returns>string</returns>
+        string VisualizeRecipeTasteByID (decimal? id);
     }
   
     /// <summary>
@@ -809,9 +860,9 @@ namespace com.spoonacular
         /// </summary>
         /// <param name="username">The username.</param> 
         /// <param name="hash">The private hash for the username.</param> 
-        /// <param name="inlineObject9"></param> 
+        /// <param name="inlineObject11"></param> 
         /// <returns>Object</returns>            
-        public Object AddToMealPlan (string username, string hash, InlineObject9 inlineObject9)
+        public Object AddToMealPlan (string username, string hash, InlineObject11 inlineObject11)
         {
             
             // verify the required parameter 'username' is set
@@ -820,8 +871,8 @@ namespace com.spoonacular
             // verify the required parameter 'hash' is set
             if (hash == null) throw new ApiException(400, "Missing required parameter 'hash' when calling AddToMealPlan");
             
-            // verify the required parameter 'inlineObject9' is set
-            if (inlineObject9 == null) throw new ApiException(400, "Missing required parameter 'inlineObject9' when calling AddToMealPlan");
+            // verify the required parameter 'inlineObject11' is set
+            if (inlineObject11 == null) throw new ApiException(400, "Missing required parameter 'inlineObject11' when calling AddToMealPlan");
             
     
             var path = "/mealplanner/{username}/items";
@@ -835,7 +886,7 @@ namespace com.spoonacular
             String postBody = null;
     
              if (hash != null) queryParams.Add("hash", ApiClient.ParameterToString(hash)); // query parameter
-                                    postBody = ApiClient.Serialize(inlineObject9); // http body (model) parameter
+                                    postBody = ApiClient.Serialize(inlineObject11); // http body (model) parameter
     
             // authentication setting, if any
             String[] authSettings = new String[] {  };
@@ -856,9 +907,9 @@ namespace com.spoonacular
         /// </summary>
         /// <param name="username">The username.</param> 
         /// <param name="hash">The private hash for the username.</param> 
-        /// <param name="inlineObject12"></param> 
+        /// <param name="inlineObject14"></param> 
         /// <returns>Object</returns>            
-        public Object AddToShoppingList (string username, string hash, InlineObject12 inlineObject12)
+        public Object AddToShoppingList (string username, string hash, InlineObject14 inlineObject14)
         {
             
             // verify the required parameter 'username' is set
@@ -867,8 +918,8 @@ namespace com.spoonacular
             // verify the required parameter 'hash' is set
             if (hash == null) throw new ApiException(400, "Missing required parameter 'hash' when calling AddToShoppingList");
             
-            // verify the required parameter 'inlineObject12' is set
-            if (inlineObject12 == null) throw new ApiException(400, "Missing required parameter 'inlineObject12' when calling AddToShoppingList");
+            // verify the required parameter 'inlineObject14' is set
+            if (inlineObject14 == null) throw new ApiException(400, "Missing required parameter 'inlineObject14' when calling AddToShoppingList");
             
     
             var path = "/mealplanner/{username}/shopping-list/items";
@@ -882,7 +933,7 @@ namespace com.spoonacular
             String postBody = null;
     
              if (hash != null) queryParams.Add("hash", ApiClient.ParameterToString(hash)); // query parameter
-                                    postBody = ApiClient.Serialize(inlineObject12); // http body (model) parameter
+                                    postBody = ApiClient.Serialize(inlineObject14); // http body (model) parameter
     
             // authentication setting, if any
             String[] authSettings = new String[] {  };
@@ -936,7 +987,7 @@ namespace com.spoonacular
         }
     
         /// <summary>
-        /// Analyze Recipe Instructions Extract ingredients and equipment from the recipe&#39;s instructions.
+        /// Analyze Recipe Instructions This endpoint allows you to break down instructions into atomic steps. Furthermore, each step will contain the ingredients and equipment required. Additionally, all ingredients and equipment from the recipe&#39;s instructions will be extracted independently of the step they&#39;re used in.
         /// </summary>
         /// <param name="instructions">The instructions to be analyzed.</param> 
         /// <returns>Object</returns>            
@@ -980,7 +1031,7 @@ namespace com.spoonacular
         /// <param name="metaInformation">Whether to return more meta information about the ingredients.</param> 
         /// <param name="intolerances">A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.</param> 
         /// <returns>Object</returns>            
-        public Object AutocompleteIngredientSearch (string query, decimal? number, bool? metaInformation, bool? intolerances)
+        public Object AutocompleteIngredientSearch (string query, decimal? number, bool? metaInformation, string intolerances)
         {
             
             // verify the required parameter 'query' is set
@@ -1177,14 +1228,14 @@ if (ingredientList != null) formParams.Add("ingredientList", ApiClient.Parameter
         /// <summary>
         /// Classify Grocery Product This endpoint allows you to match a packaged food to a basic category, e.g. a specific brand of milk to the category milk.
         /// </summary>
-        /// <param name="inlineObject8"></param> 
+        /// <param name="inlineObject9"></param> 
         /// <param name="locale">The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).</param> 
         /// <returns>Object</returns>            
-        public Object ClassifyGroceryProduct (InlineObject8 inlineObject8, string locale)
+        public Object ClassifyGroceryProduct (InlineObject9 inlineObject9, string locale)
         {
             
-            // verify the required parameter 'inlineObject8' is set
-            if (inlineObject8 == null) throw new ApiException(400, "Missing required parameter 'inlineObject8' when calling ClassifyGroceryProduct");
+            // verify the required parameter 'inlineObject9' is set
+            if (inlineObject9 == null) throw new ApiException(400, "Missing required parameter 'inlineObject9' when calling ClassifyGroceryProduct");
             
     
             var path = "/food/products/classify";
@@ -1197,7 +1248,7 @@ if (ingredientList != null) formParams.Add("ingredientList", ApiClient.Parameter
             String postBody = null;
     
              if (locale != null) queryParams.Add("locale", ApiClient.ParameterToString(locale)); // query parameter
-                                    postBody = ApiClient.Serialize(inlineObject8); // http body (model) parameter
+                                    postBody = ApiClient.Serialize(inlineObject9); // http body (model) parameter
     
             // authentication setting, if any
             String[] authSettings = new String[] {  };
@@ -1248,6 +1299,132 @@ if (ingredientList != null) formParams.Add("ingredientList", ApiClient.Parameter
                 throw new ApiException ((int)response.StatusCode, "Error calling ClassifyGroceryProductBulk: " + response.Content, response.Content);
             else if (((int)response.StatusCode) == 0)
                 throw new ApiException ((int)response.StatusCode, "Error calling ClassifyGroceryProductBulk: " + response.ErrorMessage, response.ErrorMessage);
+    
+            return (Object) ApiClient.Deserialize(response.Content, typeof(Object), response.Headers);
+        }
+    
+        /// <summary>
+        /// Clear Meal Plan Day Delete all planned items from the user&#39;s meal plan for a specific day.
+        /// </summary>
+        /// <param name="username">The username.</param> 
+        /// <param name="date">The date in the format yyyy-mm-dd.</param> 
+        /// <param name="hash">The private hash for the username.</param> 
+        /// <param name="inlineObject10"></param> 
+        /// <returns>Object</returns>            
+        public Object ClearMealPlanDay (string username, string date, string hash, InlineObject10 inlineObject10)
+        {
+            
+            // verify the required parameter 'username' is set
+            if (username == null) throw new ApiException(400, "Missing required parameter 'username' when calling ClearMealPlanDay");
+            
+            // verify the required parameter 'date' is set
+            if (date == null) throw new ApiException(400, "Missing required parameter 'date' when calling ClearMealPlanDay");
+            
+            // verify the required parameter 'hash' is set
+            if (hash == null) throw new ApiException(400, "Missing required parameter 'hash' when calling ClearMealPlanDay");
+            
+            // verify the required parameter 'inlineObject10' is set
+            if (inlineObject10 == null) throw new ApiException(400, "Missing required parameter 'inlineObject10' when calling ClearMealPlanDay");
+            
+    
+            var path = "/mealplanner/{username}/day/{date}";
+            path = path.Replace("{format}", "json");
+            path = path.Replace("{" + "username" + "}", ApiClient.ParameterToString(username));
+path = path.Replace("{" + "date" + "}", ApiClient.ParameterToString(date));
+    
+            var queryParams = new Dictionary<String, String>();
+            var headerParams = new Dictionary<String, String>();
+            var formParams = new Dictionary<String, String>();
+            var fileParams = new Dictionary<String, FileParameter>();
+            String postBody = null;
+    
+             if (hash != null) queryParams.Add("hash", ApiClient.ParameterToString(hash)); // query parameter
+                                    postBody = ApiClient.Serialize(inlineObject10); // http body (model) parameter
+    
+            // authentication setting, if any
+            String[] authSettings = new String[] {  };
+    
+            // make the HTTP request
+            IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.DELETE, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
+    
+            if (((int)response.StatusCode) >= 400)
+                throw new ApiException ((int)response.StatusCode, "Error calling ClearMealPlanDay: " + response.Content, response.Content);
+            else if (((int)response.StatusCode) == 0)
+                throw new ApiException ((int)response.StatusCode, "Error calling ClearMealPlanDay: " + response.ErrorMessage, response.ErrorMessage);
+    
+            return (Object) ApiClient.Deserialize(response.Content, typeof(Object), response.Headers);
+        }
+    
+        /// <summary>
+        /// Compute Glycemic Load Retrieve the glycemic index for a list of ingredients and compute the individual and total glycemic load.
+        /// </summary>
+        /// <param name="body"></param> 
+        /// <returns>Object</returns>            
+        public Object ComputeGlycemicLoad (Object body)
+        {
+            
+            // verify the required parameter 'body' is set
+            if (body == null) throw new ApiException(400, "Missing required parameter 'body' when calling ComputeGlycemicLoad");
+            
+    
+            var path = "/food/ingredients/glycemicLoad";
+            path = path.Replace("{format}", "json");
+                
+            var queryParams = new Dictionary<String, String>();
+            var headerParams = new Dictionary<String, String>();
+            var formParams = new Dictionary<String, String>();
+            var fileParams = new Dictionary<String, FileParameter>();
+            String postBody = null;
+    
+                                                postBody = ApiClient.Serialize(body); // http body (model) parameter
+    
+            // authentication setting, if any
+            String[] authSettings = new String[] {  };
+    
+            // make the HTTP request
+            IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.POST, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
+    
+            if (((int)response.StatusCode) >= 400)
+                throw new ApiException ((int)response.StatusCode, "Error calling ComputeGlycemicLoad: " + response.Content, response.Content);
+            else if (((int)response.StatusCode) == 0)
+                throw new ApiException ((int)response.StatusCode, "Error calling ComputeGlycemicLoad: " + response.ErrorMessage, response.ErrorMessage);
+    
+            return (Object) ApiClient.Deserialize(response.Content, typeof(Object), response.Headers);
+        }
+    
+        /// <summary>
+        /// Connect User In order to call user-specific endpoints, you need to connect your app&#39;s users to spoonacular users.
+        /// </summary>
+        /// <param name="body"></param> 
+        /// <returns>Object</returns>            
+        public Object ConnectUser (Object body)
+        {
+            
+            // verify the required parameter 'body' is set
+            if (body == null) throw new ApiException(400, "Missing required parameter 'body' when calling ConnectUser");
+            
+    
+            var path = "/users/connect";
+            path = path.Replace("{format}", "json");
+                
+            var queryParams = new Dictionary<String, String>();
+            var headerParams = new Dictionary<String, String>();
+            var formParams = new Dictionary<String, String>();
+            var fileParams = new Dictionary<String, FileParameter>();
+            String postBody = null;
+    
+                                                postBody = ApiClient.Serialize(body); // http body (model) parameter
+    
+            // authentication setting, if any
+            String[] authSettings = new String[] {  };
+    
+            // make the HTTP request
+            IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.POST, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
+    
+            if (((int)response.StatusCode) >= 400)
+                throw new ApiException ((int)response.StatusCode, "Error calling ConnectUser: " + response.Content, response.Content);
+            else if (((int)response.StatusCode) == 0)
+                throw new ApiException ((int)response.StatusCode, "Error calling ConnectUser: " + response.ErrorMessage, response.ErrorMessage);
     
             return (Object) ApiClient.Deserialize(response.Content, typeof(Object), response.Headers);
         }
@@ -1390,9 +1567,9 @@ if (source != null) formParams.Add("source", ApiClient.ParameterToString(source)
         /// <param name="username">The username.</param> 
         /// <param name="id">The shopping list item id.</param> 
         /// <param name="hash">The private hash for the username.</param> 
-        /// <param name="inlineObject10"></param> 
+        /// <param name="inlineObject12"></param> 
         /// <returns>Object</returns>            
-        public Object DeleteFromMealPlan (string username, decimal? id, string hash, InlineObject10 inlineObject10)
+        public Object DeleteFromMealPlan (string username, decimal? id, string hash, InlineObject12 inlineObject12)
         {
             
             // verify the required parameter 'username' is set
@@ -1404,8 +1581,8 @@ if (source != null) formParams.Add("source", ApiClient.ParameterToString(source)
             // verify the required parameter 'hash' is set
             if (hash == null) throw new ApiException(400, "Missing required parameter 'hash' when calling DeleteFromMealPlan");
             
-            // verify the required parameter 'inlineObject10' is set
-            if (inlineObject10 == null) throw new ApiException(400, "Missing required parameter 'inlineObject10' when calling DeleteFromMealPlan");
+            // verify the required parameter 'inlineObject12' is set
+            if (inlineObject12 == null) throw new ApiException(400, "Missing required parameter 'inlineObject12' when calling DeleteFromMealPlan");
             
     
             var path = "/mealplanner/{username}/items/{id}";
@@ -1420,7 +1597,7 @@ path = path.Replace("{" + "id" + "}", ApiClient.ParameterToString(id));
             String postBody = null;
     
              if (hash != null) queryParams.Add("hash", ApiClient.ParameterToString(hash)); // query parameter
-                                    postBody = ApiClient.Serialize(inlineObject10); // http body (model) parameter
+                                    postBody = ApiClient.Serialize(inlineObject12); // http body (model) parameter
     
             // authentication setting, if any
             String[] authSettings = new String[] {  };
@@ -1442,9 +1619,9 @@ path = path.Replace("{" + "id" + "}", ApiClient.ParameterToString(id));
         /// <param name="username">The username.</param> 
         /// <param name="id">The shopping list item id.</param> 
         /// <param name="hash">The private hash for the username.</param> 
-        /// <param name="inlineObject13"></param> 
+        /// <param name="inlineObject15"></param> 
         /// <returns>Object</returns>            
-        public Object DeleteFromShoppingList (string username, decimal? id, string hash, InlineObject13 inlineObject13)
+        public Object DeleteFromShoppingList (string username, decimal? id, string hash, InlineObject15 inlineObject15)
         {
             
             // verify the required parameter 'username' is set
@@ -1456,8 +1633,8 @@ path = path.Replace("{" + "id" + "}", ApiClient.ParameterToString(id));
             // verify the required parameter 'hash' is set
             if (hash == null) throw new ApiException(400, "Missing required parameter 'hash' when calling DeleteFromShoppingList");
             
-            // verify the required parameter 'inlineObject13' is set
-            if (inlineObject13 == null) throw new ApiException(400, "Missing required parameter 'inlineObject13' when calling DeleteFromShoppingList");
+            // verify the required parameter 'inlineObject15' is set
+            if (inlineObject15 == null) throw new ApiException(400, "Missing required parameter 'inlineObject15' when calling DeleteFromShoppingList");
             
     
             var path = "/mealplanner/{username}/shopping-list/items/{id}";
@@ -1472,7 +1649,7 @@ path = path.Replace("{" + "id" + "}", ApiClient.ParameterToString(id));
             String postBody = null;
     
              if (hash != null) queryParams.Add("hash", ApiClient.ParameterToString(hash)); // query parameter
-                                    postBody = ApiClient.Serialize(inlineObject13); // http body (model) parameter
+                                    postBody = ApiClient.Serialize(inlineObject15); // http body (model) parameter
     
             // authentication setting, if any
             String[] authSettings = new String[] {  };
@@ -1613,9 +1790,9 @@ path = path.Replace("{" + "id" + "}", ApiClient.ParameterToString(id));
         /// <param name="startDate">The start date in the format yyyy-mm-dd.</param> 
         /// <param name="endDate">The end date in the format yyyy-mm-dd.</param> 
         /// <param name="hash">The private hash for the username.</param> 
-        /// <param name="inlineObject11"></param> 
+        /// <param name="inlineObject13"></param> 
         /// <returns>Object</returns>            
-        public Object GenerateShoppingList (string username, string startDate, string endDate, string hash, InlineObject11 inlineObject11)
+        public Object GenerateShoppingList (string username, string startDate, string endDate, string hash, InlineObject13 inlineObject13)
         {
             
             // verify the required parameter 'username' is set
@@ -1630,8 +1807,8 @@ path = path.Replace("{" + "id" + "}", ApiClient.ParameterToString(id));
             // verify the required parameter 'hash' is set
             if (hash == null) throw new ApiException(400, "Missing required parameter 'hash' when calling GenerateShoppingList");
             
-            // verify the required parameter 'inlineObject11' is set
-            if (inlineObject11 == null) throw new ApiException(400, "Missing required parameter 'inlineObject11' when calling GenerateShoppingList");
+            // verify the required parameter 'inlineObject13' is set
+            if (inlineObject13 == null) throw new ApiException(400, "Missing required parameter 'inlineObject13' when calling GenerateShoppingList");
             
     
             var path = "/mealplanner/{username}/shopping-list/{start-date}/{end-date}";
@@ -1647,7 +1824,7 @@ path = path.Replace("{" + "end-date" + "}", ApiClient.ParameterToString(endDate)
             String postBody = null;
     
              if (hash != null) queryParams.Add("hash", ApiClient.ParameterToString(hash)); // query parameter
-                                    postBody = ApiClient.Serialize(inlineObject11); // http body (model) parameter
+                                    postBody = ApiClient.Serialize(inlineObject13); // http body (model) parameter
     
             // authentication setting, if any
             String[] authSettings = new String[] {  };
@@ -2469,6 +2646,43 @@ path = path.Replace("{" + "start-date" + "}", ApiClient.ParameterToString(startD
         }
     
         /// <summary>
+        /// Get Recipe Taste by ID Get a recipe&#39;s taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
+        /// </summary>
+        /// <param name="id">The recipe id.</param> 
+        /// <returns>Object</returns>            
+        public Object GetRecipeTasteByID (decimal? id)
+        {
+            
+            // verify the required parameter 'id' is set
+            if (id == null) throw new ApiException(400, "Missing required parameter 'id' when calling GetRecipeTasteByID");
+            
+    
+            var path = "/recipes/{id}/tasteWidget.json";
+            path = path.Replace("{format}", "json");
+            path = path.Replace("{" + "id" + "}", ApiClient.ParameterToString(id));
+    
+            var queryParams = new Dictionary<String, String>();
+            var headerParams = new Dictionary<String, String>();
+            var formParams = new Dictionary<String, String>();
+            var fileParams = new Dictionary<String, FileParameter>();
+            String postBody = null;
+    
+                                                    
+            // authentication setting, if any
+            String[] authSettings = new String[] {  };
+    
+            // make the HTTP request
+            IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
+    
+            if (((int)response.StatusCode) >= 400)
+                throw new ApiException ((int)response.StatusCode, "Error calling GetRecipeTasteByID: " + response.Content, response.Content);
+            else if (((int)response.StatusCode) == 0)
+                throw new ApiException ((int)response.StatusCode, "Error calling GetRecipeTasteByID: " + response.ErrorMessage, response.ErrorMessage);
+    
+            return (Object) ApiClient.Deserialize(response.Content, typeof(Object), response.Headers);
+        }
+    
+        /// <summary>
         /// Get Shopping List Get the current shopping list for the given user.
         /// </summary>
         /// <param name="username">The username.</param> 
@@ -2782,6 +2996,69 @@ path = path.Replace("{" + "start-date" + "}", ApiClient.ParameterToString(startD
         }
     
         /// <summary>
+        /// Ingredient Search Search for simple whole foods (e.g. fruits, vegetables, nuts, grains, meat, fish, dairy etc.).
+        /// </summary>
+        /// <param name="query">The partial or full ingredient name.</param> 
+        /// <param name="addChildren">Whether to add children of found foods.</param> 
+        /// <param name="minProteinPercent">The minimum percentage of protein the food must have (between 0 and 100).</param> 
+        /// <param name="maxProteinPercent">The maximum percentage of protein the food can have (between 0 and 100).</param> 
+        /// <param name="minFatPercent">The minimum percentage of fat the food must have (between 0 and 100).</param> 
+        /// <param name="maxFatPercent">The maximum percentage of fat the food can have (between 0 and 100).</param> 
+        /// <param name="minCarbsPercent">The minimum percentage of carbs the food must have (between 0 and 100).</param> 
+        /// <param name="maxCarbsPercent">The maximum percentage of carbs the food can have (between 0 and 100).</param> 
+        /// <param name="metaInformation">Whether to return more meta information about the ingredients.</param> 
+        /// <param name="intolerances">A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.</param> 
+        /// <param name="sort">The strategy to sort recipes by. See a full list of supported sorting options.</param> 
+        /// <param name="sortDirection">The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending).</param> 
+        /// <param name="offset">The number of results to skip (between 0 and 990).</param> 
+        /// <param name="number">The number of expected results (between 1 and 100).</param> 
+        /// <returns>Object</returns>            
+        public Object IngredientSearch (string query, bool? addChildren, decimal? minProteinPercent, decimal? maxProteinPercent, decimal? minFatPercent, decimal? maxFatPercent, decimal? minCarbsPercent, decimal? maxCarbsPercent, bool? metaInformation, string intolerances, string sort, string sortDirection, decimal? offset, decimal? number)
+        {
+            
+            // verify the required parameter 'query' is set
+            if (query == null) throw new ApiException(400, "Missing required parameter 'query' when calling IngredientSearch");
+            
+    
+            var path = "/food/ingredients/search";
+            path = path.Replace("{format}", "json");
+                
+            var queryParams = new Dictionary<String, String>();
+            var headerParams = new Dictionary<String, String>();
+            var formParams = new Dictionary<String, String>();
+            var fileParams = new Dictionary<String, FileParameter>();
+            String postBody = null;
+    
+             if (query != null) queryParams.Add("query", ApiClient.ParameterToString(query)); // query parameter
+ if (addChildren != null) queryParams.Add("addChildren", ApiClient.ParameterToString(addChildren)); // query parameter
+ if (minProteinPercent != null) queryParams.Add("minProteinPercent", ApiClient.ParameterToString(minProteinPercent)); // query parameter
+ if (maxProteinPercent != null) queryParams.Add("maxProteinPercent", ApiClient.ParameterToString(maxProteinPercent)); // query parameter
+ if (minFatPercent != null) queryParams.Add("minFatPercent", ApiClient.ParameterToString(minFatPercent)); // query parameter
+ if (maxFatPercent != null) queryParams.Add("maxFatPercent", ApiClient.ParameterToString(maxFatPercent)); // query parameter
+ if (minCarbsPercent != null) queryParams.Add("minCarbsPercent", ApiClient.ParameterToString(minCarbsPercent)); // query parameter
+ if (maxCarbsPercent != null) queryParams.Add("maxCarbsPercent", ApiClient.ParameterToString(maxCarbsPercent)); // query parameter
+ if (metaInformation != null) queryParams.Add("metaInformation", ApiClient.ParameterToString(metaInformation)); // query parameter
+ if (intolerances != null) queryParams.Add("intolerances", ApiClient.ParameterToString(intolerances)); // query parameter
+ if (sort != null) queryParams.Add("sort", ApiClient.ParameterToString(sort)); // query parameter
+ if (sortDirection != null) queryParams.Add("sortDirection", ApiClient.ParameterToString(sortDirection)); // query parameter
+ if (offset != null) queryParams.Add("offset", ApiClient.ParameterToString(offset)); // query parameter
+ if (number != null) queryParams.Add("number", ApiClient.ParameterToString(number)); // query parameter
+                                        
+            // authentication setting, if any
+            String[] authSettings = new String[] {  };
+    
+            // make the HTTP request
+            IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
+    
+            if (((int)response.StatusCode) >= 400)
+                throw new ApiException ((int)response.StatusCode, "Error calling IngredientSearch: " + response.Content, response.Content);
+            else if (((int)response.StatusCode) == 0)
+                throw new ApiException ((int)response.StatusCode, "Error calling IngredientSearch: " + response.ErrorMessage, response.ErrorMessage);
+    
+            return (Object) ApiClient.Deserialize(response.Content, typeof(Object), response.Headers);
+        }
+    
+        /// <summary>
         /// Map Ingredients to Grocery Products Map a set of ingredients to products you can buy in the grocery store.
         /// </summary>
         /// <param name="body"></param> 
@@ -2895,6 +3172,47 @@ if (includeNutrition != null) formParams.Add("includeNutrition", ApiClient.Param
                 throw new ApiException ((int)response.StatusCode, "Error calling QuickAnswer: " + response.Content, response.Content);
             else if (((int)response.StatusCode) == 0)
                 throw new ApiException ((int)response.StatusCode, "Error calling QuickAnswer: " + response.ErrorMessage, response.ErrorMessage);
+    
+            return (Object) ApiClient.Deserialize(response.Content, typeof(Object), response.Headers);
+        }
+    
+        /// <summary>
+        /// Search All Food Search all food content with one call. That includes recipes, grocery products, menu items, simple foods (ingredients), and food videos.
+        /// </summary>
+        /// <param name="query">The search query.</param> 
+        /// <param name="offset">The number of results to skip (between 0 and 990).</param> 
+        /// <param name="number">The number of expected results (between 1 and 100).</param> 
+        /// <returns>Object</returns>            
+        public Object SearchAllFood (string query, decimal? offset, decimal? number)
+        {
+            
+            // verify the required parameter 'query' is set
+            if (query == null) throw new ApiException(400, "Missing required parameter 'query' when calling SearchAllFood");
+            
+    
+            var path = "/food/search";
+            path = path.Replace("{format}", "json");
+                
+            var queryParams = new Dictionary<String, String>();
+            var headerParams = new Dictionary<String, String>();
+            var formParams = new Dictionary<String, String>();
+            var fileParams = new Dictionary<String, FileParameter>();
+            String postBody = null;
+    
+             if (query != null) queryParams.Add("query", ApiClient.ParameterToString(query)); // query parameter
+ if (offset != null) queryParams.Add("offset", ApiClient.ParameterToString(offset)); // query parameter
+ if (number != null) queryParams.Add("number", ApiClient.ParameterToString(number)); // query parameter
+                                        
+            // authentication setting, if any
+            String[] authSettings = new String[] {  };
+    
+            // make the HTTP request
+            IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
+    
+            if (((int)response.StatusCode) >= 400)
+                throw new ApiException ((int)response.StatusCode, "Error calling SearchAllFood: " + response.Content, response.Content);
+            else if (((int)response.StatusCode) == 0)
+                throw new ApiException ((int)response.StatusCode, "Error calling SearchAllFood: " + response.ErrorMessage, response.ErrorMessage);
     
             return (Object) ApiClient.Deserialize(response.Content, typeof(Object), response.Headers);
         }
@@ -3157,289 +3475,7 @@ if (includeNutrition != null) formParams.Add("includeNutrition", ApiClient.Param
         }
     
         /// <summary>
-        /// Search Recipes Our recipe API includes over 360,000 recipes as well as an open source recipe database. Consider using the \&quot;Search Recipes Complex\&quot; endpoint for much more flexibility.
-        /// </summary>
-        /// <param name="query">The (natural language) recipe search query.</param> 
-        /// <param name="cuisine">The cuisine(s) of the recipes. One or more comma separated. See a full list of supported cuisines.</param> 
-        /// <param name="diet">The diet for which the recipes must be suitable. See a full list of supported diets.</param> 
-        /// <param name="excludeIngredients">A comma-separated list of ingredients or ingredient types that the recipes must not contain.</param> 
-        /// <param name="intolerances">A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. Please note: due to the automatic nature of the recipe analysis, the API cannot be 100% accurate in all cases. Please advise your users to seek professional help with medical issues.</param> 
-        /// <param name="offset">The number of results to skip (between 0 and 900).</param> 
-        /// <param name="number">The number of results to return (between 1 and 100).</param> 
-        /// <param name="limitLicense">Whether the recipes should have an open license that allows display with proper attribution.</param> 
-        /// <param name="instructionsRequired">Whether the recipes must have instructions.</param> 
-        /// <returns>Object</returns>            
-        public Object SearchRecipes (string query, string cuisine, string diet, string excludeIngredients, string intolerances, decimal? offset, decimal? number, bool? limitLicense, bool? instructionsRequired)
-        {
-            
-            // verify the required parameter 'query' is set
-            if (query == null) throw new ApiException(400, "Missing required parameter 'query' when calling SearchRecipes");
-            
-    
-            var path = "/recipes/search";
-            path = path.Replace("{format}", "json");
-                
-            var queryParams = new Dictionary<String, String>();
-            var headerParams = new Dictionary<String, String>();
-            var formParams = new Dictionary<String, String>();
-            var fileParams = new Dictionary<String, FileParameter>();
-            String postBody = null;
-    
-             if (query != null) queryParams.Add("query", ApiClient.ParameterToString(query)); // query parameter
- if (cuisine != null) queryParams.Add("cuisine", ApiClient.ParameterToString(cuisine)); // query parameter
- if (diet != null) queryParams.Add("diet", ApiClient.ParameterToString(diet)); // query parameter
- if (excludeIngredients != null) queryParams.Add("excludeIngredients", ApiClient.ParameterToString(excludeIngredients)); // query parameter
- if (intolerances != null) queryParams.Add("intolerances", ApiClient.ParameterToString(intolerances)); // query parameter
- if (offset != null) queryParams.Add("offset", ApiClient.ParameterToString(offset)); // query parameter
- if (number != null) queryParams.Add("number", ApiClient.ParameterToString(number)); // query parameter
- if (limitLicense != null) queryParams.Add("limitLicense", ApiClient.ParameterToString(limitLicense)); // query parameter
- if (instructionsRequired != null) queryParams.Add("instructionsRequired", ApiClient.ParameterToString(instructionsRequired)); // query parameter
-                                        
-            // authentication setting, if any
-            String[] authSettings = new String[] {  };
-    
-            // make the HTTP request
-            IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
-    
-            if (((int)response.StatusCode) >= 400)
-                throw new ApiException ((int)response.StatusCode, "Error calling SearchRecipes: " + response.Content, response.Content);
-            else if (((int)response.StatusCode) == 0)
-                throw new ApiException ((int)response.StatusCode, "Error calling SearchRecipes: " + response.ErrorMessage, response.ErrorMessage);
-    
-            return (Object) ApiClient.Deserialize(response.Content, typeof(Object), response.Headers);
-        }
-    
-        /// <summary>
-        /// Search Recipes by Ingredients              Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don&#39;t currently have (post shopping).         
-        /// </summary>
-        /// <param name="ingredients">A comma-separated list of ingredients that the recipes should contain.</param> 
-        /// <param name="number">The maximum number of recipes to return (between 1 and 100). Defaults to 10.</param> 
-        /// <param name="limitLicense">Whether the recipes should have an open license that allows display with proper attribution.</param> 
-        /// <param name="ranking">Whether to maximize used ingredients (1) or minimize missing ingredients (2) first.</param> 
-        /// <param name="ignorePantry">Whether to ignore typical pantry items, such as water, salt, flour, etc.</param> 
-        /// <returns>Object</returns>            
-        public Object SearchRecipesByIngredients (string ingredients, decimal? number, bool? limitLicense, decimal? ranking, bool? ignorePantry)
-        {
-            
-            // verify the required parameter 'ingredients' is set
-            if (ingredients == null) throw new ApiException(400, "Missing required parameter 'ingredients' when calling SearchRecipesByIngredients");
-            
-    
-            var path = "/recipes/findByIngredients";
-            path = path.Replace("{format}", "json");
-                
-            var queryParams = new Dictionary<String, String>();
-            var headerParams = new Dictionary<String, String>();
-            var formParams = new Dictionary<String, String>();
-            var fileParams = new Dictionary<String, FileParameter>();
-            String postBody = null;
-    
-             if (ingredients != null) queryParams.Add("ingredients", ApiClient.ParameterToString(ingredients)); // query parameter
- if (number != null) queryParams.Add("number", ApiClient.ParameterToString(number)); // query parameter
- if (limitLicense != null) queryParams.Add("limitLicense", ApiClient.ParameterToString(limitLicense)); // query parameter
- if (ranking != null) queryParams.Add("ranking", ApiClient.ParameterToString(ranking)); // query parameter
- if (ignorePantry != null) queryParams.Add("ignorePantry", ApiClient.ParameterToString(ignorePantry)); // query parameter
-                                        
-            // authentication setting, if any
-            String[] authSettings = new String[] {  };
-    
-            // make the HTTP request
-            IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
-    
-            if (((int)response.StatusCode) >= 400)
-                throw new ApiException ((int)response.StatusCode, "Error calling SearchRecipesByIngredients: " + response.Content, response.Content);
-            else if (((int)response.StatusCode) == 0)
-                throw new ApiException ((int)response.StatusCode, "Error calling SearchRecipesByIngredients: " + response.ErrorMessage, response.ErrorMessage);
-    
-            return (Object) ApiClient.Deserialize(response.Content, typeof(Object), response.Headers);
-        }
-    
-        /// <summary>
-        /// Search Recipes by Nutrients Find a set of recipes that adhere to the given nutritional limits. You may set limits for macronutrients (calories, protein, fat, and carbohydrate) and/or many micronutrients.
-        /// </summary>
-        /// <param name="minCarbs">The minimum amount of carbohydrates in grams the recipe must have.</param> 
-        /// <param name="maxCarbs">The maximum amount of carbohydrates in grams the recipe can have.</param> 
-        /// <param name="minProtein">The minimum amount of protein in grams the recipe must have.</param> 
-        /// <param name="maxProtein">The maximum amount of protein in grams the recipe can have.</param> 
-        /// <param name="minCalories">The minimum amount of calories the recipe must have.</param> 
-        /// <param name="maxCalories">The maximum amount of calories the recipe can have.</param> 
-        /// <param name="minFat">The minimum amount of fat in grams the recipe must have.</param> 
-        /// <param name="maxFat">The maximum amount of fat in grams the recipe can have.</param> 
-        /// <param name="minAlcohol">The minimum amount of alcohol in grams the recipe must have.</param> 
-        /// <param name="maxAlcohol">The maximum amount of alcohol in grams the recipe can have.</param> 
-        /// <param name="minCaffeine">The minimum amount of caffeine in milligrams the recipe must have.</param> 
-        /// <param name="maxCaffeine">The maximum amount of caffeine in milligrams the recipe can have.</param> 
-        /// <param name="minCopper">The minimum amount of copper in milligrams the recipe must have.</param> 
-        /// <param name="maxCopper">The maximum amount of copper in milligrams the recipe can have.</param> 
-        /// <param name="minCalcium">The minimum amount of calcium in milligrams the recipe must have.</param> 
-        /// <param name="maxCalcium">The maximum amount of calcium in milligrams the recipe can have.</param> 
-        /// <param name="minCholine">The minimum amount of choline in milligrams the recipe must have.</param> 
-        /// <param name="maxCholine">The maximum amount of choline in milligrams the recipe can have.</param> 
-        /// <param name="minCholesterol">The minimum amount of cholesterol in milligrams the recipe must have.</param> 
-        /// <param name="maxCholesterol">The maximum amount of cholesterol in milligrams the recipe can have.</param> 
-        /// <param name="minFluoride">The minimum amount of fluoride in milligrams the recipe must have.</param> 
-        /// <param name="maxFluoride">The maximum amount of fluoride in milligrams the recipe can have.</param> 
-        /// <param name="minSaturatedFat">The minimum amount of saturated fat in grams the recipe must have.</param> 
-        /// <param name="maxSaturatedFat">The maximum amount of saturated fat in grams the recipe can have.</param> 
-        /// <param name="minVitaminA">The minimum amount of Vitamin A in IU the recipe must have.</param> 
-        /// <param name="maxVitaminA">The maximum amount of Vitamin A in IU the recipe can have.</param> 
-        /// <param name="minVitaminC">The minimum amount of Vitamin C in milligrams the recipe must have.</param> 
-        /// <param name="maxVitaminC">The maximum amount of Vitamin C in milligrams the recipe can have.</param> 
-        /// <param name="minVitaminD">The minimum amount of Vitamin D in micrograms the recipe must have.</param> 
-        /// <param name="maxVitaminD">The maximum amount of Vitamin D in micrograms the recipe can have.</param> 
-        /// <param name="minVitaminE">The minimum amount of Vitamin E in milligrams the recipe must have.</param> 
-        /// <param name="maxVitaminE">The maximum amount of Vitamin E in milligrams the recipe can have.</param> 
-        /// <param name="minVitaminK">The minimum amount of Vitamin K in micrograms the recipe must have.</param> 
-        /// <param name="maxVitaminK">The maximum amount of Vitamin K in micrograms the recipe can have.</param> 
-        /// <param name="minVitaminB1">The minimum amount of Vitamin B1 in milligrams the recipe must have.</param> 
-        /// <param name="maxVitaminB1">The maximum amount of Vitamin B1 in milligrams the recipe can have.</param> 
-        /// <param name="minVitaminB2">The minimum amount of Vitamin B2 in milligrams the recipe must have.</param> 
-        /// <param name="maxVitaminB2">The maximum amount of Vitamin B2 in milligrams the recipe can have.</param> 
-        /// <param name="minVitaminB5">The minimum amount of Vitamin B5 in milligrams the recipe must have.</param> 
-        /// <param name="maxVitaminB5">The maximum amount of Vitamin B5 in milligrams the recipe can have.</param> 
-        /// <param name="minVitaminB3">The minimum amount of Vitamin B3 in milligrams the recipe must have.</param> 
-        /// <param name="maxVitaminB3">The maximum amount of Vitamin B3 in milligrams the recipe can have.</param> 
-        /// <param name="minVitaminB6">The minimum amount of Vitamin B6 in milligrams the recipe must have.</param> 
-        /// <param name="maxVitaminB6">The maximum amount of Vitamin B6 in milligrams the recipe can have.</param> 
-        /// <param name="minVitaminB12">The minimum amount of Vitamin B12 in micrograms the recipe must have.</param> 
-        /// <param name="maxVitaminB12">The maximum amount of Vitamin B12 in micrograms the recipe can have.</param> 
-        /// <param name="minFiber">The minimum amount of fiber in grams the recipe must have.</param> 
-        /// <param name="maxFiber">The maximum amount of fiber in grams the recipe can have.</param> 
-        /// <param name="minFolate">The minimum amount of folate in grams the recipe must have.</param> 
-        /// <param name="maxFolate">The maximum amount of folate in grams the recipe can have.</param> 
-        /// <param name="minFolicAcid">The minimum amount of folic acid in grams the recipe must have.</param> 
-        /// <param name="maxFolicAcid">The maximum amount of folic acid in grams the recipe can have.</param> 
-        /// <param name="minIodine">The minimum amount of iodine in grams the recipe must have.</param> 
-        /// <param name="maxIodine">The maximum amount of iodine in grams the recipe can have.</param> 
-        /// <param name="minIron">The minimum amount of iron in milligrams the recipe must have.</param> 
-        /// <param name="maxIron">The maximum amount of iron in milligrams the recipe can have.</param> 
-        /// <param name="minMagnesium">The minimum amount of magnesium in milligrams the recipe must have.</param> 
-        /// <param name="maxMagnesium">The maximum amount of magnesium in milligrams the recipe can have.</param> 
-        /// <param name="minManganese">The minimum amount of manganese in milligrams the recipe must have.</param> 
-        /// <param name="maxManganese">The maximum amount of manganese in milligrams the recipe can have.</param> 
-        /// <param name="minPhosphorus">The minimum amount of phosphorus in milligrams the recipe must have.</param> 
-        /// <param name="maxPhosphorus">The maximum amount of phosphorus in milligrams the recipe can have.</param> 
-        /// <param name="minPotassium">The minimum amount of potassium in milligrams the recipe must have.</param> 
-        /// <param name="maxPotassium">The maximum amount of potassium in milligrams the recipe can have.</param> 
-        /// <param name="minSelenium">The minimum amount of selenium in grams the recipe must have.</param> 
-        /// <param name="maxSelenium">The maximum amount of selenium in grams the recipe can have.</param> 
-        /// <param name="minSodium">The minimum amount of sodium in milligrams the recipe must have.</param> 
-        /// <param name="maxSodium">The maximum amount of sodium in milligrams the recipe can have.</param> 
-        /// <param name="minSugar">The minimum amount of sugar in grams the recipe must have.</param> 
-        /// <param name="maxSugar">The maximum amount of sugar in grams the recipe can have.</param> 
-        /// <param name="minZinc">The minimum amount of zinc in milligrams the recipe must have.</param> 
-        /// <param name="maxZinc">The maximum amount of zinc in milligrams the recipe can have.</param> 
-        /// <param name="offset">The number of results to skip (between 0 and 900).</param> 
-        /// <param name="number">The number of expected results (between 1 and 100).</param> 
-        /// <param name="random">If true, every request will give you a random set of recipes within the requested limits.</param> 
-        /// <param name="limitLicense">Whether the recipes should have an open license that allows display with proper attribution.</param> 
-        /// <returns>Object</returns>            
-        public Object SearchRecipesByNutrients (decimal? minCarbs, decimal? maxCarbs, decimal? minProtein, decimal? maxProtein, decimal? minCalories, decimal? maxCalories, decimal? minFat, decimal? maxFat, decimal? minAlcohol, decimal? maxAlcohol, decimal? minCaffeine, decimal? maxCaffeine, decimal? minCopper, decimal? maxCopper, decimal? minCalcium, decimal? maxCalcium, decimal? minCholine, decimal? maxCholine, decimal? minCholesterol, decimal? maxCholesterol, decimal? minFluoride, decimal? maxFluoride, decimal? minSaturatedFat, decimal? maxSaturatedFat, decimal? minVitaminA, decimal? maxVitaminA, decimal? minVitaminC, decimal? maxVitaminC, decimal? minVitaminD, decimal? maxVitaminD, decimal? minVitaminE, decimal? maxVitaminE, decimal? minVitaminK, decimal? maxVitaminK, decimal? minVitaminB1, decimal? maxVitaminB1, decimal? minVitaminB2, decimal? maxVitaminB2, decimal? minVitaminB5, decimal? maxVitaminB5, decimal? minVitaminB3, decimal? maxVitaminB3, decimal? minVitaminB6, decimal? maxVitaminB6, decimal? minVitaminB12, decimal? maxVitaminB12, decimal? minFiber, decimal? maxFiber, decimal? minFolate, decimal? maxFolate, decimal? minFolicAcid, decimal? maxFolicAcid, decimal? minIodine, decimal? maxIodine, decimal? minIron, decimal? maxIron, decimal? minMagnesium, decimal? maxMagnesium, decimal? minManganese, decimal? maxManganese, decimal? minPhosphorus, decimal? maxPhosphorus, decimal? minPotassium, decimal? maxPotassium, decimal? minSelenium, decimal? maxSelenium, decimal? minSodium, decimal? maxSodium, decimal? minSugar, decimal? maxSugar, decimal? minZinc, decimal? maxZinc, decimal? offset, decimal? number, bool? random, bool? limitLicense)
-        {
-            
-    
-            var path = "/recipes/findByNutrients";
-            path = path.Replace("{format}", "json");
-                
-            var queryParams = new Dictionary<String, String>();
-            var headerParams = new Dictionary<String, String>();
-            var formParams = new Dictionary<String, String>();
-            var fileParams = new Dictionary<String, FileParameter>();
-            String postBody = null;
-    
-             if (minCarbs != null) queryParams.Add("minCarbs", ApiClient.ParameterToString(minCarbs)); // query parameter
- if (maxCarbs != null) queryParams.Add("maxCarbs", ApiClient.ParameterToString(maxCarbs)); // query parameter
- if (minProtein != null) queryParams.Add("minProtein", ApiClient.ParameterToString(minProtein)); // query parameter
- if (maxProtein != null) queryParams.Add("maxProtein", ApiClient.ParameterToString(maxProtein)); // query parameter
- if (minCalories != null) queryParams.Add("minCalories", ApiClient.ParameterToString(minCalories)); // query parameter
- if (maxCalories != null) queryParams.Add("maxCalories", ApiClient.ParameterToString(maxCalories)); // query parameter
- if (minFat != null) queryParams.Add("minFat", ApiClient.ParameterToString(minFat)); // query parameter
- if (maxFat != null) queryParams.Add("maxFat", ApiClient.ParameterToString(maxFat)); // query parameter
- if (minAlcohol != null) queryParams.Add("minAlcohol", ApiClient.ParameterToString(minAlcohol)); // query parameter
- if (maxAlcohol != null) queryParams.Add("maxAlcohol", ApiClient.ParameterToString(maxAlcohol)); // query parameter
- if (minCaffeine != null) queryParams.Add("minCaffeine", ApiClient.ParameterToString(minCaffeine)); // query parameter
- if (maxCaffeine != null) queryParams.Add("maxCaffeine", ApiClient.ParameterToString(maxCaffeine)); // query parameter
- if (minCopper != null) queryParams.Add("minCopper", ApiClient.ParameterToString(minCopper)); // query parameter
- if (maxCopper != null) queryParams.Add("maxCopper", ApiClient.ParameterToString(maxCopper)); // query parameter
- if (minCalcium != null) queryParams.Add("minCalcium", ApiClient.ParameterToString(minCalcium)); // query parameter
- if (maxCalcium != null) queryParams.Add("maxCalcium", ApiClient.ParameterToString(maxCalcium)); // query parameter
- if (minCholine != null) queryParams.Add("minCholine", ApiClient.ParameterToString(minCholine)); // query parameter
- if (maxCholine != null) queryParams.Add("maxCholine", ApiClient.ParameterToString(maxCholine)); // query parameter
- if (minCholesterol != null) queryParams.Add("minCholesterol", ApiClient.ParameterToString(minCholesterol)); // query parameter
- if (maxCholesterol != null) queryParams.Add("maxCholesterol", ApiClient.ParameterToString(maxCholesterol)); // query parameter
- if (minFluoride != null) queryParams.Add("minFluoride", ApiClient.ParameterToString(minFluoride)); // query parameter
- if (maxFluoride != null) queryParams.Add("maxFluoride", ApiClient.ParameterToString(maxFluoride)); // query parameter
- if (minSaturatedFat != null) queryParams.Add("minSaturatedFat", ApiClient.ParameterToString(minSaturatedFat)); // query parameter
- if (maxSaturatedFat != null) queryParams.Add("maxSaturatedFat", ApiClient.ParameterToString(maxSaturatedFat)); // query parameter
- if (minVitaminA != null) queryParams.Add("minVitaminA", ApiClient.ParameterToString(minVitaminA)); // query parameter
- if (maxVitaminA != null) queryParams.Add("maxVitaminA", ApiClient.ParameterToString(maxVitaminA)); // query parameter
- if (minVitaminC != null) queryParams.Add("minVitaminC", ApiClient.ParameterToString(minVitaminC)); // query parameter
- if (maxVitaminC != null) queryParams.Add("maxVitaminC", ApiClient.ParameterToString(maxVitaminC)); // query parameter
- if (minVitaminD != null) queryParams.Add("minVitaminD", ApiClient.ParameterToString(minVitaminD)); // query parameter
- if (maxVitaminD != null) queryParams.Add("maxVitaminD", ApiClient.ParameterToString(maxVitaminD)); // query parameter
- if (minVitaminE != null) queryParams.Add("minVitaminE", ApiClient.ParameterToString(minVitaminE)); // query parameter
- if (maxVitaminE != null) queryParams.Add("maxVitaminE", ApiClient.ParameterToString(maxVitaminE)); // query parameter
- if (minVitaminK != null) queryParams.Add("minVitaminK", ApiClient.ParameterToString(minVitaminK)); // query parameter
- if (maxVitaminK != null) queryParams.Add("maxVitaminK", ApiClient.ParameterToString(maxVitaminK)); // query parameter
- if (minVitaminB1 != null) queryParams.Add("minVitaminB1", ApiClient.ParameterToString(minVitaminB1)); // query parameter
- if (maxVitaminB1 != null) queryParams.Add("maxVitaminB1", ApiClient.ParameterToString(maxVitaminB1)); // query parameter
- if (minVitaminB2 != null) queryParams.Add("minVitaminB2", ApiClient.ParameterToString(minVitaminB2)); // query parameter
- if (maxVitaminB2 != null) queryParams.Add("maxVitaminB2", ApiClient.ParameterToString(maxVitaminB2)); // query parameter
- if (minVitaminB5 != null) queryParams.Add("minVitaminB5", ApiClient.ParameterToString(minVitaminB5)); // query parameter
- if (maxVitaminB5 != null) queryParams.Add("maxVitaminB5", ApiClient.ParameterToString(maxVitaminB5)); // query parameter
- if (minVitaminB3 != null) queryParams.Add("minVitaminB3", ApiClient.ParameterToString(minVitaminB3)); // query parameter
- if (maxVitaminB3 != null) queryParams.Add("maxVitaminB3", ApiClient.ParameterToString(maxVitaminB3)); // query parameter
- if (minVitaminB6 != null) queryParams.Add("minVitaminB6", ApiClient.ParameterToString(minVitaminB6)); // query parameter
- if (maxVitaminB6 != null) queryParams.Add("maxVitaminB6", ApiClient.ParameterToString(maxVitaminB6)); // query parameter
- if (minVitaminB12 != null) queryParams.Add("minVitaminB12", ApiClient.ParameterToString(minVitaminB12)); // query parameter
- if (maxVitaminB12 != null) queryParams.Add("maxVitaminB12", ApiClient.ParameterToString(maxVitaminB12)); // query parameter
- if (minFiber != null) queryParams.Add("minFiber", ApiClient.ParameterToString(minFiber)); // query parameter
- if (maxFiber != null) queryParams.Add("maxFiber", ApiClient.ParameterToString(maxFiber)); // query parameter
- if (minFolate != null) queryParams.Add("minFolate", ApiClient.ParameterToString(minFolate)); // query parameter
- if (maxFolate != null) queryParams.Add("maxFolate", ApiClient.ParameterToString(maxFolate)); // query parameter
- if (minFolicAcid != null) queryParams.Add("minFolicAcid", ApiClient.ParameterToString(minFolicAcid)); // query parameter
- if (maxFolicAcid != null) queryParams.Add("maxFolicAcid", ApiClient.ParameterToString(maxFolicAcid)); // query parameter
- if (minIodine != null) queryParams.Add("minIodine", ApiClient.ParameterToString(minIodine)); // query parameter
- if (maxIodine != null) queryParams.Add("maxIodine", ApiClient.ParameterToString(maxIodine)); // query parameter
- if (minIron != null) queryParams.Add("minIron", ApiClient.ParameterToString(minIron)); // query parameter
- if (maxIron != null) queryParams.Add("maxIron", ApiClient.ParameterToString(maxIron)); // query parameter
- if (minMagnesium != null) queryParams.Add("minMagnesium", ApiClient.ParameterToString(minMagnesium)); // query parameter
- if (maxMagnesium != null) queryParams.Add("maxMagnesium", ApiClient.ParameterToString(maxMagnesium)); // query parameter
- if (minManganese != null) queryParams.Add("minManganese", ApiClient.ParameterToString(minManganese)); // query parameter
- if (maxManganese != null) queryParams.Add("maxManganese", ApiClient.ParameterToString(maxManganese)); // query parameter
- if (minPhosphorus != null) queryParams.Add("minPhosphorus", ApiClient.ParameterToString(minPhosphorus)); // query parameter
- if (maxPhosphorus != null) queryParams.Add("maxPhosphorus", ApiClient.ParameterToString(maxPhosphorus)); // query parameter
- if (minPotassium != null) queryParams.Add("minPotassium", ApiClient.ParameterToString(minPotassium)); // query parameter
- if (maxPotassium != null) queryParams.Add("maxPotassium", ApiClient.ParameterToString(maxPotassium)); // query parameter
- if (minSelenium != null) queryParams.Add("minSelenium", ApiClient.ParameterToString(minSelenium)); // query parameter
- if (maxSelenium != null) queryParams.Add("maxSelenium", ApiClient.ParameterToString(maxSelenium)); // query parameter
- if (minSodium != null) queryParams.Add("minSodium", ApiClient.ParameterToString(minSodium)); // query parameter
- if (maxSodium != null) queryParams.Add("maxSodium", ApiClient.ParameterToString(maxSodium)); // query parameter
- if (minSugar != null) queryParams.Add("minSugar", ApiClient.ParameterToString(minSugar)); // query parameter
- if (maxSugar != null) queryParams.Add("maxSugar", ApiClient.ParameterToString(maxSugar)); // query parameter
- if (minZinc != null) queryParams.Add("minZinc", ApiClient.ParameterToString(minZinc)); // query parameter
- if (maxZinc != null) queryParams.Add("maxZinc", ApiClient.ParameterToString(maxZinc)); // query parameter
- if (offset != null) queryParams.Add("offset", ApiClient.ParameterToString(offset)); // query parameter
- if (number != null) queryParams.Add("number", ApiClient.ParameterToString(number)); // query parameter
- if (random != null) queryParams.Add("random", ApiClient.ParameterToString(random)); // query parameter
- if (limitLicense != null) queryParams.Add("limitLicense", ApiClient.ParameterToString(limitLicense)); // query parameter
-                                        
-            // authentication setting, if any
-            String[] authSettings = new String[] {  };
-    
-            // make the HTTP request
-            IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
-    
-            if (((int)response.StatusCode) >= 400)
-                throw new ApiException ((int)response.StatusCode, "Error calling SearchRecipesByNutrients: " + response.Content, response.Content);
-            else if (((int)response.StatusCode) == 0)
-                throw new ApiException ((int)response.StatusCode, "Error calling SearchRecipesByNutrients: " + response.ErrorMessage, response.ErrorMessage);
-    
-            return (Object) ApiClient.Deserialize(response.Content, typeof(Object), response.Headers);
-        }
-    
-        /// <summary>
-        /// Search Recipes Complex Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint.
+        /// Search Recipes Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint.
         /// </summary>
         /// <param name="query">The (natural language) recipe search query.</param> 
         /// <param name="cuisine">The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as &#39;OR&#39;). See a full list of supported cuisines.</param> 
@@ -3510,12 +3546,12 @@ if (includeNutrition != null) formParams.Add("includeNutrition", ApiClient.Param
         /// <param name="maxVitaminB12">The maximum amount of Vitamin B12 in micrograms the recipe can have.</param> 
         /// <param name="minFiber">The minimum amount of fiber in grams the recipe must have.</param> 
         /// <param name="maxFiber">The maximum amount of fiber in grams the recipe can have.</param> 
-        /// <param name="minFolate">The minimum amount of folate in grams the recipe must have.</param> 
-        /// <param name="maxFolate">The maximum amount of folate in grams the recipe can have.</param> 
-        /// <param name="minFolicAcid">The minimum amount of folic acid in grams the recipe must have.</param> 
-        /// <param name="maxFolicAcid">The maximum amount of folic acid in grams the recipe can have.</param> 
-        /// <param name="minIodine">The minimum amount of iodine in grams the recipe must have.</param> 
-        /// <param name="maxIodine">The maximum amount of iodine in grams the recipe can have.</param> 
+        /// <param name="minFolate">The minimum amount of folate in micrograms the recipe must have.</param> 
+        /// <param name="maxFolate">The maximum amount of folate in micrograms the recipe can have.</param> 
+        /// <param name="minFolicAcid">The minimum amount of folic acid in micrograms the recipe must have.</param> 
+        /// <param name="maxFolicAcid">The maximum amount of folic acid in micrograms the recipe can have.</param> 
+        /// <param name="minIodine">The minimum amount of iodine in micrograms the recipe must have.</param> 
+        /// <param name="maxIodine">The maximum amount of iodine in micrograms the recipe can have.</param> 
         /// <param name="minIron">The minimum amount of iron in milligrams the recipe must have.</param> 
         /// <param name="maxIron">The maximum amount of iron in milligrams the recipe can have.</param> 
         /// <param name="minMagnesium">The minimum amount of magnesium in milligrams the recipe must have.</param> 
@@ -3526,8 +3562,8 @@ if (includeNutrition != null) formParams.Add("includeNutrition", ApiClient.Param
         /// <param name="maxPhosphorus">The maximum amount of phosphorus in milligrams the recipe can have.</param> 
         /// <param name="minPotassium">The minimum amount of potassium in milligrams the recipe must have.</param> 
         /// <param name="maxPotassium">The maximum amount of potassium in milligrams the recipe can have.</param> 
-        /// <param name="minSelenium">The minimum amount of selenium in grams the recipe must have.</param> 
-        /// <param name="maxSelenium">The maximum amount of selenium in grams the recipe can have.</param> 
+        /// <param name="minSelenium">The minimum amount of selenium in micrograms the recipe must have.</param> 
+        /// <param name="maxSelenium">The maximum amount of selenium in micrograms the recipe can have.</param> 
         /// <param name="minSodium">The minimum amount of sodium in milligrams the recipe must have.</param> 
         /// <param name="maxSodium">The maximum amount of sodium in milligrams the recipe can have.</param> 
         /// <param name="minSugar">The minimum amount of sugar in grams the recipe must have.</param> 
@@ -3538,11 +3574,11 @@ if (includeNutrition != null) formParams.Add("includeNutrition", ApiClient.Param
         /// <param name="number">The number of expected results (between 1 and 100).</param> 
         /// <param name="limitLicense">Whether the recipes should have an open license that allows display with proper attribution.</param> 
         /// <returns>Object</returns>            
-        public Object SearchRecipesComplex (string query, string cuisine, string excludeCuisine, string diet, string intolerances, string equipment, string includeIngredients, string excludeIngredients, string type, bool? instructionsRequired, bool? fillIngredients, bool? addRecipeInformation, bool? addRecipeNutrition, string author, string tags, decimal? recipeBoxId, string titleMatch, decimal? maxReadyTime, bool? ignorePantry, string sort, string sortDirection, decimal? minCarbs, decimal? maxCarbs, decimal? minProtein, decimal? maxProtein, decimal? minCalories, decimal? maxCalories, decimal? minFat, decimal? maxFat, decimal? minAlcohol, decimal? maxAlcohol, decimal? minCaffeine, decimal? maxCaffeine, decimal? minCopper, decimal? maxCopper, decimal? minCalcium, decimal? maxCalcium, decimal? minCholine, decimal? maxCholine, decimal? minCholesterol, decimal? maxCholesterol, decimal? minFluoride, decimal? maxFluoride, decimal? minSaturatedFat, decimal? maxSaturatedFat, decimal? minVitaminA, decimal? maxVitaminA, decimal? minVitaminC, decimal? maxVitaminC, decimal? minVitaminD, decimal? maxVitaminD, decimal? minVitaminE, decimal? maxVitaminE, decimal? minVitaminK, decimal? maxVitaminK, decimal? minVitaminB1, decimal? maxVitaminB1, decimal? minVitaminB2, decimal? maxVitaminB2, decimal? minVitaminB5, decimal? maxVitaminB5, decimal? minVitaminB3, decimal? maxVitaminB3, decimal? minVitaminB6, decimal? maxVitaminB6, decimal? minVitaminB12, decimal? maxVitaminB12, decimal? minFiber, decimal? maxFiber, decimal? minFolate, decimal? maxFolate, decimal? minFolicAcid, decimal? maxFolicAcid, decimal? minIodine, decimal? maxIodine, decimal? minIron, decimal? maxIron, decimal? minMagnesium, decimal? maxMagnesium, decimal? minManganese, decimal? maxManganese, decimal? minPhosphorus, decimal? maxPhosphorus, decimal? minPotassium, decimal? maxPotassium, decimal? minSelenium, decimal? maxSelenium, decimal? minSodium, decimal? maxSodium, decimal? minSugar, decimal? maxSugar, decimal? minZinc, decimal? maxZinc, decimal? offset, decimal? number, bool? limitLicense)
+        public Object SearchRecipes (string query, string cuisine, string excludeCuisine, string diet, string intolerances, string equipment, string includeIngredients, string excludeIngredients, string type, bool? instructionsRequired, bool? fillIngredients, bool? addRecipeInformation, bool? addRecipeNutrition, string author, string tags, decimal? recipeBoxId, string titleMatch, decimal? maxReadyTime, bool? ignorePantry, string sort, string sortDirection, decimal? minCarbs, decimal? maxCarbs, decimal? minProtein, decimal? maxProtein, decimal? minCalories, decimal? maxCalories, decimal? minFat, decimal? maxFat, decimal? minAlcohol, decimal? maxAlcohol, decimal? minCaffeine, decimal? maxCaffeine, decimal? minCopper, decimal? maxCopper, decimal? minCalcium, decimal? maxCalcium, decimal? minCholine, decimal? maxCholine, decimal? minCholesterol, decimal? maxCholesterol, decimal? minFluoride, decimal? maxFluoride, decimal? minSaturatedFat, decimal? maxSaturatedFat, decimal? minVitaminA, decimal? maxVitaminA, decimal? minVitaminC, decimal? maxVitaminC, decimal? minVitaminD, decimal? maxVitaminD, decimal? minVitaminE, decimal? maxVitaminE, decimal? minVitaminK, decimal? maxVitaminK, decimal? minVitaminB1, decimal? maxVitaminB1, decimal? minVitaminB2, decimal? maxVitaminB2, decimal? minVitaminB5, decimal? maxVitaminB5, decimal? minVitaminB3, decimal? maxVitaminB3, decimal? minVitaminB6, decimal? maxVitaminB6, decimal? minVitaminB12, decimal? maxVitaminB12, decimal? minFiber, decimal? maxFiber, decimal? minFolate, decimal? maxFolate, decimal? minFolicAcid, decimal? maxFolicAcid, decimal? minIodine, decimal? maxIodine, decimal? minIron, decimal? maxIron, decimal? minMagnesium, decimal? maxMagnesium, decimal? minManganese, decimal? maxManganese, decimal? minPhosphorus, decimal? maxPhosphorus, decimal? minPotassium, decimal? maxPotassium, decimal? minSelenium, decimal? maxSelenium, decimal? minSodium, decimal? maxSodium, decimal? minSugar, decimal? maxSugar, decimal? minZinc, decimal? maxZinc, decimal? offset, decimal? number, bool? limitLicense)
         {
             
             // verify the required parameter 'query' is set
-            if (query == null) throw new ApiException(400, "Missing required parameter 'query' when calling SearchRecipesComplex");
+            if (query == null) throw new ApiException(400, "Missing required parameter 'query' when calling SearchRecipes");
             
     
             var path = "/recipes/complexSearch";
@@ -3658,9 +3694,238 @@ if (includeNutrition != null) formParams.Add("includeNutrition", ApiClient.Param
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
     
             if (((int)response.StatusCode) >= 400)
-                throw new ApiException ((int)response.StatusCode, "Error calling SearchRecipesComplex: " + response.Content, response.Content);
+                throw new ApiException ((int)response.StatusCode, "Error calling SearchRecipes: " + response.Content, response.Content);
             else if (((int)response.StatusCode) == 0)
-                throw new ApiException ((int)response.StatusCode, "Error calling SearchRecipesComplex: " + response.ErrorMessage, response.ErrorMessage);
+                throw new ApiException ((int)response.StatusCode, "Error calling SearchRecipes: " + response.ErrorMessage, response.ErrorMessage);
+    
+            return (Object) ApiClient.Deserialize(response.Content, typeof(Object), response.Headers);
+        }
+    
+        /// <summary>
+        /// Search Recipes by Ingredients              Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don&#39;t currently have (post shopping).         
+        /// </summary>
+        /// <param name="ingredients">A comma-separated list of ingredients that the recipes should contain.</param> 
+        /// <param name="number">The maximum number of recipes to return (between 1 and 100). Defaults to 10.</param> 
+        /// <param name="limitLicense">Whether the recipes should have an open license that allows display with proper attribution.</param> 
+        /// <param name="ranking">Whether to maximize used ingredients (1) or minimize missing ingredients (2) first.</param> 
+        /// <param name="ignorePantry">Whether to ignore typical pantry items, such as water, salt, flour, etc.</param> 
+        /// <returns>Object</returns>            
+        public Object SearchRecipesByIngredients (string ingredients, decimal? number, bool? limitLicense, decimal? ranking, bool? ignorePantry)
+        {
+            
+            // verify the required parameter 'ingredients' is set
+            if (ingredients == null) throw new ApiException(400, "Missing required parameter 'ingredients' when calling SearchRecipesByIngredients");
+            
+    
+            var path = "/recipes/findByIngredients";
+            path = path.Replace("{format}", "json");
+                
+            var queryParams = new Dictionary<String, String>();
+            var headerParams = new Dictionary<String, String>();
+            var formParams = new Dictionary<String, String>();
+            var fileParams = new Dictionary<String, FileParameter>();
+            String postBody = null;
+    
+             if (ingredients != null) queryParams.Add("ingredients", ApiClient.ParameterToString(ingredients)); // query parameter
+ if (number != null) queryParams.Add("number", ApiClient.ParameterToString(number)); // query parameter
+ if (limitLicense != null) queryParams.Add("limitLicense", ApiClient.ParameterToString(limitLicense)); // query parameter
+ if (ranking != null) queryParams.Add("ranking", ApiClient.ParameterToString(ranking)); // query parameter
+ if (ignorePantry != null) queryParams.Add("ignorePantry", ApiClient.ParameterToString(ignorePantry)); // query parameter
+                                        
+            // authentication setting, if any
+            String[] authSettings = new String[] {  };
+    
+            // make the HTTP request
+            IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
+    
+            if (((int)response.StatusCode) >= 400)
+                throw new ApiException ((int)response.StatusCode, "Error calling SearchRecipesByIngredients: " + response.Content, response.Content);
+            else if (((int)response.StatusCode) == 0)
+                throw new ApiException ((int)response.StatusCode, "Error calling SearchRecipesByIngredients: " + response.ErrorMessage, response.ErrorMessage);
+    
+            return (Object) ApiClient.Deserialize(response.Content, typeof(Object), response.Headers);
+        }
+    
+        /// <summary>
+        /// Search Recipes by Nutrients Find a set of recipes that adhere to the given nutritional limits. You may set limits for macronutrients (calories, protein, fat, and carbohydrate) and/or many micronutrients.
+        /// </summary>
+        /// <param name="minCarbs">The minimum amount of carbohydrates in grams the recipe must have.</param> 
+        /// <param name="maxCarbs">The maximum amount of carbohydrates in grams the recipe can have.</param> 
+        /// <param name="minProtein">The minimum amount of protein in grams the recipe must have.</param> 
+        /// <param name="maxProtein">The maximum amount of protein in grams the recipe can have.</param> 
+        /// <param name="minCalories">The minimum amount of calories the recipe must have.</param> 
+        /// <param name="maxCalories">The maximum amount of calories the recipe can have.</param> 
+        /// <param name="minFat">The minimum amount of fat in grams the recipe must have.</param> 
+        /// <param name="maxFat">The maximum amount of fat in grams the recipe can have.</param> 
+        /// <param name="minAlcohol">The minimum amount of alcohol in grams the recipe must have.</param> 
+        /// <param name="maxAlcohol">The maximum amount of alcohol in grams the recipe can have.</param> 
+        /// <param name="minCaffeine">The minimum amount of caffeine in milligrams the recipe must have.</param> 
+        /// <param name="maxCaffeine">The maximum amount of caffeine in milligrams the recipe can have.</param> 
+        /// <param name="minCopper">The minimum amount of copper in milligrams the recipe must have.</param> 
+        /// <param name="maxCopper">The maximum amount of copper in milligrams the recipe can have.</param> 
+        /// <param name="minCalcium">The minimum amount of calcium in milligrams the recipe must have.</param> 
+        /// <param name="maxCalcium">The maximum amount of calcium in milligrams the recipe can have.</param> 
+        /// <param name="minCholine">The minimum amount of choline in milligrams the recipe must have.</param> 
+        /// <param name="maxCholine">The maximum amount of choline in milligrams the recipe can have.</param> 
+        /// <param name="minCholesterol">The minimum amount of cholesterol in milligrams the recipe must have.</param> 
+        /// <param name="maxCholesterol">The maximum amount of cholesterol in milligrams the recipe can have.</param> 
+        /// <param name="minFluoride">The minimum amount of fluoride in milligrams the recipe must have.</param> 
+        /// <param name="maxFluoride">The maximum amount of fluoride in milligrams the recipe can have.</param> 
+        /// <param name="minSaturatedFat">The minimum amount of saturated fat in grams the recipe must have.</param> 
+        /// <param name="maxSaturatedFat">The maximum amount of saturated fat in grams the recipe can have.</param> 
+        /// <param name="minVitaminA">The minimum amount of Vitamin A in IU the recipe must have.</param> 
+        /// <param name="maxVitaminA">The maximum amount of Vitamin A in IU the recipe can have.</param> 
+        /// <param name="minVitaminC">The minimum amount of Vitamin C in milligrams the recipe must have.</param> 
+        /// <param name="maxVitaminC">The maximum amount of Vitamin C in milligrams the recipe can have.</param> 
+        /// <param name="minVitaminD">The minimum amount of Vitamin D in micrograms the recipe must have.</param> 
+        /// <param name="maxVitaminD">The maximum amount of Vitamin D in micrograms the recipe can have.</param> 
+        /// <param name="minVitaminE">The minimum amount of Vitamin E in milligrams the recipe must have.</param> 
+        /// <param name="maxVitaminE">The maximum amount of Vitamin E in milligrams the recipe can have.</param> 
+        /// <param name="minVitaminK">The minimum amount of Vitamin K in micrograms the recipe must have.</param> 
+        /// <param name="maxVitaminK">The maximum amount of Vitamin K in micrograms the recipe can have.</param> 
+        /// <param name="minVitaminB1">The minimum amount of Vitamin B1 in milligrams the recipe must have.</param> 
+        /// <param name="maxVitaminB1">The maximum amount of Vitamin B1 in milligrams the recipe can have.</param> 
+        /// <param name="minVitaminB2">The minimum amount of Vitamin B2 in milligrams the recipe must have.</param> 
+        /// <param name="maxVitaminB2">The maximum amount of Vitamin B2 in milligrams the recipe can have.</param> 
+        /// <param name="minVitaminB5">The minimum amount of Vitamin B5 in milligrams the recipe must have.</param> 
+        /// <param name="maxVitaminB5">The maximum amount of Vitamin B5 in milligrams the recipe can have.</param> 
+        /// <param name="minVitaminB3">The minimum amount of Vitamin B3 in milligrams the recipe must have.</param> 
+        /// <param name="maxVitaminB3">The maximum amount of Vitamin B3 in milligrams the recipe can have.</param> 
+        /// <param name="minVitaminB6">The minimum amount of Vitamin B6 in milligrams the recipe must have.</param> 
+        /// <param name="maxVitaminB6">The maximum amount of Vitamin B6 in milligrams the recipe can have.</param> 
+        /// <param name="minVitaminB12">The minimum amount of Vitamin B12 in micrograms the recipe must have.</param> 
+        /// <param name="maxVitaminB12">The maximum amount of Vitamin B12 in micrograms the recipe can have.</param> 
+        /// <param name="minFiber">The minimum amount of fiber in grams the recipe must have.</param> 
+        /// <param name="maxFiber">The maximum amount of fiber in grams the recipe can have.</param> 
+        /// <param name="minFolate">The minimum amount of folate in micrograms the recipe must have.</param> 
+        /// <param name="maxFolate">The maximum amount of folate in micrograms the recipe can have.</param> 
+        /// <param name="minFolicAcid">The minimum amount of folic acid in micrograms the recipe must have.</param> 
+        /// <param name="maxFolicAcid">The maximum amount of folic acid in micrograms the recipe can have.</param> 
+        /// <param name="minIodine">The minimum amount of iodine in micrograms the recipe must have.</param> 
+        /// <param name="maxIodine">The maximum amount of iodine in micrograms the recipe can have.</param> 
+        /// <param name="minIron">The minimum amount of iron in milligrams the recipe must have.</param> 
+        /// <param name="maxIron">The maximum amount of iron in milligrams the recipe can have.</param> 
+        /// <param name="minMagnesium">The minimum amount of magnesium in milligrams the recipe must have.</param> 
+        /// <param name="maxMagnesium">The maximum amount of magnesium in milligrams the recipe can have.</param> 
+        /// <param name="minManganese">The minimum amount of manganese in milligrams the recipe must have.</param> 
+        /// <param name="maxManganese">The maximum amount of manganese in milligrams the recipe can have.</param> 
+        /// <param name="minPhosphorus">The minimum amount of phosphorus in milligrams the recipe must have.</param> 
+        /// <param name="maxPhosphorus">The maximum amount of phosphorus in milligrams the recipe can have.</param> 
+        /// <param name="minPotassium">The minimum amount of potassium in milligrams the recipe must have.</param> 
+        /// <param name="maxPotassium">The maximum amount of potassium in milligrams the recipe can have.</param> 
+        /// <param name="minSelenium">The minimum amount of selenium in micrograms the recipe must have.</param> 
+        /// <param name="maxSelenium">The maximum amount of selenium in micrograms the recipe can have.</param> 
+        /// <param name="minSodium">The minimum amount of sodium in milligrams the recipe must have.</param> 
+        /// <param name="maxSodium">The maximum amount of sodium in milligrams the recipe can have.</param> 
+        /// <param name="minSugar">The minimum amount of sugar in grams the recipe must have.</param> 
+        /// <param name="maxSugar">The maximum amount of sugar in grams the recipe can have.</param> 
+        /// <param name="minZinc">The minimum amount of zinc in milligrams the recipe must have.</param> 
+        /// <param name="maxZinc">The maximum amount of zinc in milligrams the recipe can have.</param> 
+        /// <param name="offset">The number of results to skip (between 0 and 900).</param> 
+        /// <param name="number">The number of expected results (between 1 and 100).</param> 
+        /// <param name="random">If true, every request will give you a random set of recipes within the requested limits.</param> 
+        /// <param name="limitLicense">Whether the recipes should have an open license that allows display with proper attribution.</param> 
+        /// <returns>Object</returns>            
+        public Object SearchRecipesByNutrients (decimal? minCarbs, decimal? maxCarbs, decimal? minProtein, decimal? maxProtein, decimal? minCalories, decimal? maxCalories, decimal? minFat, decimal? maxFat, decimal? minAlcohol, decimal? maxAlcohol, decimal? minCaffeine, decimal? maxCaffeine, decimal? minCopper, decimal? maxCopper, decimal? minCalcium, decimal? maxCalcium, decimal? minCholine, decimal? maxCholine, decimal? minCholesterol, decimal? maxCholesterol, decimal? minFluoride, decimal? maxFluoride, decimal? minSaturatedFat, decimal? maxSaturatedFat, decimal? minVitaminA, decimal? maxVitaminA, decimal? minVitaminC, decimal? maxVitaminC, decimal? minVitaminD, decimal? maxVitaminD, decimal? minVitaminE, decimal? maxVitaminE, decimal? minVitaminK, decimal? maxVitaminK, decimal? minVitaminB1, decimal? maxVitaminB1, decimal? minVitaminB2, decimal? maxVitaminB2, decimal? minVitaminB5, decimal? maxVitaminB5, decimal? minVitaminB3, decimal? maxVitaminB3, decimal? minVitaminB6, decimal? maxVitaminB6, decimal? minVitaminB12, decimal? maxVitaminB12, decimal? minFiber, decimal? maxFiber, decimal? minFolate, decimal? maxFolate, decimal? minFolicAcid, decimal? maxFolicAcid, decimal? minIodine, decimal? maxIodine, decimal? minIron, decimal? maxIron, decimal? minMagnesium, decimal? maxMagnesium, decimal? minManganese, decimal? maxManganese, decimal? minPhosphorus, decimal? maxPhosphorus, decimal? minPotassium, decimal? maxPotassium, decimal? minSelenium, decimal? maxSelenium, decimal? minSodium, decimal? maxSodium, decimal? minSugar, decimal? maxSugar, decimal? minZinc, decimal? maxZinc, decimal? offset, decimal? number, bool? random, bool? limitLicense)
+        {
+            
+    
+            var path = "/recipes/findByNutrients";
+            path = path.Replace("{format}", "json");
+                
+            var queryParams = new Dictionary<String, String>();
+            var headerParams = new Dictionary<String, String>();
+            var formParams = new Dictionary<String, String>();
+            var fileParams = new Dictionary<String, FileParameter>();
+            String postBody = null;
+    
+             if (minCarbs != null) queryParams.Add("minCarbs", ApiClient.ParameterToString(minCarbs)); // query parameter
+ if (maxCarbs != null) queryParams.Add("maxCarbs", ApiClient.ParameterToString(maxCarbs)); // query parameter
+ if (minProtein != null) queryParams.Add("minProtein", ApiClient.ParameterToString(minProtein)); // query parameter
+ if (maxProtein != null) queryParams.Add("maxProtein", ApiClient.ParameterToString(maxProtein)); // query parameter
+ if (minCalories != null) queryParams.Add("minCalories", ApiClient.ParameterToString(minCalories)); // query parameter
+ if (maxCalories != null) queryParams.Add("maxCalories", ApiClient.ParameterToString(maxCalories)); // query parameter
+ if (minFat != null) queryParams.Add("minFat", ApiClient.ParameterToString(minFat)); // query parameter
+ if (maxFat != null) queryParams.Add("maxFat", ApiClient.ParameterToString(maxFat)); // query parameter
+ if (minAlcohol != null) queryParams.Add("minAlcohol", ApiClient.ParameterToString(minAlcohol)); // query parameter
+ if (maxAlcohol != null) queryParams.Add("maxAlcohol", ApiClient.ParameterToString(maxAlcohol)); // query parameter
+ if (minCaffeine != null) queryParams.Add("minCaffeine", ApiClient.ParameterToString(minCaffeine)); // query parameter
+ if (maxCaffeine != null) queryParams.Add("maxCaffeine", ApiClient.ParameterToString(maxCaffeine)); // query parameter
+ if (minCopper != null) queryParams.Add("minCopper", ApiClient.ParameterToString(minCopper)); // query parameter
+ if (maxCopper != null) queryParams.Add("maxCopper", ApiClient.ParameterToString(maxCopper)); // query parameter
+ if (minCalcium != null) queryParams.Add("minCalcium", ApiClient.ParameterToString(minCalcium)); // query parameter
+ if (maxCalcium != null) queryParams.Add("maxCalcium", ApiClient.ParameterToString(maxCalcium)); // query parameter
+ if (minCholine != null) queryParams.Add("minCholine", ApiClient.ParameterToString(minCholine)); // query parameter
+ if (maxCholine != null) queryParams.Add("maxCholine", ApiClient.ParameterToString(maxCholine)); // query parameter
+ if (minCholesterol != null) queryParams.Add("minCholesterol", ApiClient.ParameterToString(minCholesterol)); // query parameter
+ if (maxCholesterol != null) queryParams.Add("maxCholesterol", ApiClient.ParameterToString(maxCholesterol)); // query parameter
+ if (minFluoride != null) queryParams.Add("minFluoride", ApiClient.ParameterToString(minFluoride)); // query parameter
+ if (maxFluoride != null) queryParams.Add("maxFluoride", ApiClient.ParameterToString(maxFluoride)); // query parameter
+ if (minSaturatedFat != null) queryParams.Add("minSaturatedFat", ApiClient.ParameterToString(minSaturatedFat)); // query parameter
+ if (maxSaturatedFat != null) queryParams.Add("maxSaturatedFat", ApiClient.ParameterToString(maxSaturatedFat)); // query parameter
+ if (minVitaminA != null) queryParams.Add("minVitaminA", ApiClient.ParameterToString(minVitaminA)); // query parameter
+ if (maxVitaminA != null) queryParams.Add("maxVitaminA", ApiClient.ParameterToString(maxVitaminA)); // query parameter
+ if (minVitaminC != null) queryParams.Add("minVitaminC", ApiClient.ParameterToString(minVitaminC)); // query parameter
+ if (maxVitaminC != null) queryParams.Add("maxVitaminC", ApiClient.ParameterToString(maxVitaminC)); // query parameter
+ if (minVitaminD != null) queryParams.Add("minVitaminD", ApiClient.ParameterToString(minVitaminD)); // query parameter
+ if (maxVitaminD != null) queryParams.Add("maxVitaminD", ApiClient.ParameterToString(maxVitaminD)); // query parameter
+ if (minVitaminE != null) queryParams.Add("minVitaminE", ApiClient.ParameterToString(minVitaminE)); // query parameter
+ if (maxVitaminE != null) queryParams.Add("maxVitaminE", ApiClient.ParameterToString(maxVitaminE)); // query parameter
+ if (minVitaminK != null) queryParams.Add("minVitaminK", ApiClient.ParameterToString(minVitaminK)); // query parameter
+ if (maxVitaminK != null) queryParams.Add("maxVitaminK", ApiClient.ParameterToString(maxVitaminK)); // query parameter
+ if (minVitaminB1 != null) queryParams.Add("minVitaminB1", ApiClient.ParameterToString(minVitaminB1)); // query parameter
+ if (maxVitaminB1 != null) queryParams.Add("maxVitaminB1", ApiClient.ParameterToString(maxVitaminB1)); // query parameter
+ if (minVitaminB2 != null) queryParams.Add("minVitaminB2", ApiClient.ParameterToString(minVitaminB2)); // query parameter
+ if (maxVitaminB2 != null) queryParams.Add("maxVitaminB2", ApiClient.ParameterToString(maxVitaminB2)); // query parameter
+ if (minVitaminB5 != null) queryParams.Add("minVitaminB5", ApiClient.ParameterToString(minVitaminB5)); // query parameter
+ if (maxVitaminB5 != null) queryParams.Add("maxVitaminB5", ApiClient.ParameterToString(maxVitaminB5)); // query parameter
+ if (minVitaminB3 != null) queryParams.Add("minVitaminB3", ApiClient.ParameterToString(minVitaminB3)); // query parameter
+ if (maxVitaminB3 != null) queryParams.Add("maxVitaminB3", ApiClient.ParameterToString(maxVitaminB3)); // query parameter
+ if (minVitaminB6 != null) queryParams.Add("minVitaminB6", ApiClient.ParameterToString(minVitaminB6)); // query parameter
+ if (maxVitaminB6 != null) queryParams.Add("maxVitaminB6", ApiClient.ParameterToString(maxVitaminB6)); // query parameter
+ if (minVitaminB12 != null) queryParams.Add("minVitaminB12", ApiClient.ParameterToString(minVitaminB12)); // query parameter
+ if (maxVitaminB12 != null) queryParams.Add("maxVitaminB12", ApiClient.ParameterToString(maxVitaminB12)); // query parameter
+ if (minFiber != null) queryParams.Add("minFiber", ApiClient.ParameterToString(minFiber)); // query parameter
+ if (maxFiber != null) queryParams.Add("maxFiber", ApiClient.ParameterToString(maxFiber)); // query parameter
+ if (minFolate != null) queryParams.Add("minFolate", ApiClient.ParameterToString(minFolate)); // query parameter
+ if (maxFolate != null) queryParams.Add("maxFolate", ApiClient.ParameterToString(maxFolate)); // query parameter
+ if (minFolicAcid != null) queryParams.Add("minFolicAcid", ApiClient.ParameterToString(minFolicAcid)); // query parameter
+ if (maxFolicAcid != null) queryParams.Add("maxFolicAcid", ApiClient.ParameterToString(maxFolicAcid)); // query parameter
+ if (minIodine != null) queryParams.Add("minIodine", ApiClient.ParameterToString(minIodine)); // query parameter
+ if (maxIodine != null) queryParams.Add("maxIodine", ApiClient.ParameterToString(maxIodine)); // query parameter
+ if (minIron != null) queryParams.Add("minIron", ApiClient.ParameterToString(minIron)); // query parameter
+ if (maxIron != null) queryParams.Add("maxIron", ApiClient.ParameterToString(maxIron)); // query parameter
+ if (minMagnesium != null) queryParams.Add("minMagnesium", ApiClient.ParameterToString(minMagnesium)); // query parameter
+ if (maxMagnesium != null) queryParams.Add("maxMagnesium", ApiClient.ParameterToString(maxMagnesium)); // query parameter
+ if (minManganese != null) queryParams.Add("minManganese", ApiClient.ParameterToString(minManganese)); // query parameter
+ if (maxManganese != null) queryParams.Add("maxManganese", ApiClient.ParameterToString(maxManganese)); // query parameter
+ if (minPhosphorus != null) queryParams.Add("minPhosphorus", ApiClient.ParameterToString(minPhosphorus)); // query parameter
+ if (maxPhosphorus != null) queryParams.Add("maxPhosphorus", ApiClient.ParameterToString(maxPhosphorus)); // query parameter
+ if (minPotassium != null) queryParams.Add("minPotassium", ApiClient.ParameterToString(minPotassium)); // query parameter
+ if (maxPotassium != null) queryParams.Add("maxPotassium", ApiClient.ParameterToString(maxPotassium)); // query parameter
+ if (minSelenium != null) queryParams.Add("minSelenium", ApiClient.ParameterToString(minSelenium)); // query parameter
+ if (maxSelenium != null) queryParams.Add("maxSelenium", ApiClient.ParameterToString(maxSelenium)); // query parameter
+ if (minSodium != null) queryParams.Add("minSodium", ApiClient.ParameterToString(minSodium)); // query parameter
+ if (maxSodium != null) queryParams.Add("maxSodium", ApiClient.ParameterToString(maxSodium)); // query parameter
+ if (minSugar != null) queryParams.Add("minSugar", ApiClient.ParameterToString(minSugar)); // query parameter
+ if (maxSugar != null) queryParams.Add("maxSugar", ApiClient.ParameterToString(maxSugar)); // query parameter
+ if (minZinc != null) queryParams.Add("minZinc", ApiClient.ParameterToString(minZinc)); // query parameter
+ if (maxZinc != null) queryParams.Add("maxZinc", ApiClient.ParameterToString(maxZinc)); // query parameter
+ if (offset != null) queryParams.Add("offset", ApiClient.ParameterToString(offset)); // query parameter
+ if (number != null) queryParams.Add("number", ApiClient.ParameterToString(number)); // query parameter
+ if (random != null) queryParams.Add("random", ApiClient.ParameterToString(random)); // query parameter
+ if (limitLicense != null) queryParams.Add("limitLicense", ApiClient.ParameterToString(limitLicense)); // query parameter
+                                        
+            // authentication setting, if any
+            String[] authSettings = new String[] {  };
+    
+            // make the HTTP request
+            IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
+    
+            if (((int)response.StatusCode) >= 400)
+                throw new ApiException ((int)response.StatusCode, "Error calling SearchRecipesByNutrients: " + response.Content, response.Content);
+            else if (((int)response.StatusCode) == 0)
+                throw new ApiException ((int)response.StatusCode, "Error calling SearchRecipesByNutrients: " + response.ErrorMessage, response.ErrorMessage);
     
             return (Object) ApiClient.Deserialize(response.Content, typeof(Object), response.Headers);
         }
@@ -3779,22 +4044,18 @@ if (includeNutrition != null) formParams.Add("includeNutrition", ApiClient.Param
         }
     
         /// <summary>
-        /// Visualize Equipment Visualize the equipment used to make a recipe.
+        /// Visualize Equipment Visualize the equipment used to make a recipe. You can play around with that endpoint!
         /// </summary>
-        /// <param name="ingredientList">The ingredient list of the recipe, one ingredient per line.</param> 
-        /// <param name="servings">The number of servings.</param> 
+        /// <param name="instructions">The recipe&#39;s instructions.</param> 
         /// <param name="view">How to visualize the equipment, either \\\&quot;grid\\\&quot; or \\\&quot;list\\\&quot;.</param> 
         /// <param name="defaultCss">Whether the default CSS should be added to the response.</param> 
         /// <param name="showBacklink">Whether to show a backlink to spoonacular. If set false, this call counts against your quota.</param> 
         /// <returns>string</returns>            
-        public string VisualizeEquipment (string ingredientList, decimal? servings, string view, bool? defaultCss, bool? showBacklink)
+        public string VisualizeEquipment (string instructions, string view, bool? defaultCss, bool? showBacklink)
         {
             
-            // verify the required parameter 'ingredientList' is set
-            if (ingredientList == null) throw new ApiException(400, "Missing required parameter 'ingredientList' when calling VisualizeEquipment");
-            
-            // verify the required parameter 'servings' is set
-            if (servings == null) throw new ApiException(400, "Missing required parameter 'servings' when calling VisualizeEquipment");
+            // verify the required parameter 'instructions' is set
+            if (instructions == null) throw new ApiException(400, "Missing required parameter 'instructions' when calling VisualizeEquipment");
             
     
             var path = "/recipes/visualizeEquipment";
@@ -3806,8 +4067,7 @@ if (includeNutrition != null) formParams.Add("includeNutrition", ApiClient.Param
             var fileParams = new Dictionary<String, FileParameter>();
             String postBody = null;
     
-                                    if (ingredientList != null) formParams.Add("ingredientList", ApiClient.ParameterToString(ingredientList)); // form parameter
-if (servings != null) formParams.Add("servings", ApiClient.ParameterToString(servings)); // form parameter
+                                    if (instructions != null) formParams.Add("instructions", ApiClient.ParameterToString(instructions)); // form parameter
 if (view != null) formParams.Add("view", ApiClient.ParameterToString(view)); // form parameter
 if (defaultCss != null) formParams.Add("defaultCss", ApiClient.ParameterToString(defaultCss)); // form parameter
 if (showBacklink != null) formParams.Add("showBacklink", ApiClient.ParameterToString(showBacklink)); // form parameter
@@ -3827,7 +4087,7 @@ if (showBacklink != null) formParams.Add("showBacklink", ApiClient.ParameterToSt
         }
     
         /// <summary>
-        /// Visualize Ingredients Visualize ingredients of a recipe.
+        /// Visualize Ingredients Visualize ingredients of a recipe. You can play around with that endpoint!
         /// </summary>
         /// <param name="ingredientList">The ingredient list of the recipe, one ingredient per line.</param> 
         /// <param name="servings">The number of servings.</param> 
@@ -3916,7 +4176,7 @@ if (showBacklink != null) formParams.Add("showBacklink", ApiClient.ParameterToSt
         }
     
         /// <summary>
-        /// Visualize Price Breakdown Visualize the price breakdown of a recipe.
+        /// Visualize Price Breakdown Visualize the price breakdown of a recipe. You can play around with that endpoint!
         /// </summary>
         /// <param name="ingredientList">The ingredient list of the recipe, one ingredient per line.</param> 
         /// <param name="servings">The number of servings.</param> 
@@ -4081,7 +4341,7 @@ if (showBacklink != null) formParams.Add("showBacklink", ApiClient.ParameterToSt
         }
     
         /// <summary>
-        /// Visualize Recipe Nutrition Visualize a recipe&#39;s nutritional information as HTML including CSS
+        /// Visualize Recipe Nutrition Visualize a recipe&#39;s nutritional information as HTML including CSS. You can play around with that endpoint!
         /// </summary>
         /// <param name="ingredientList">The ingredient list of the recipe, one ingredient per line.</param> 
         /// <param name="servings">The number of servings.</param> 
@@ -4200,6 +4460,80 @@ if (showBacklink != null) formParams.Add("showBacklink", ApiClient.ParameterToSt
                 throw new ApiException ((int)response.StatusCode, "Error calling VisualizeRecipePriceBreakdownByID: " + response.Content, response.Content);
             else if (((int)response.StatusCode) == 0)
                 throw new ApiException ((int)response.StatusCode, "Error calling VisualizeRecipePriceBreakdownByID: " + response.ErrorMessage, response.ErrorMessage);
+    
+            return (string) ApiClient.Deserialize(response.Content, typeof(string), response.Headers);
+        }
+    
+        /// <summary>
+        /// Visualize Recipe Taste Visualize a recipe&#39;s taste information as HTML including CSS. You can play around with that endpoint!
+        /// </summary>
+        /// <param name="ingredientList">The ingredient list of the recipe, one ingredient per line.</param> 
+        /// <returns>string</returns>            
+        public string VisualizeRecipeTaste (string ingredientList)
+        {
+            
+            // verify the required parameter 'ingredientList' is set
+            if (ingredientList == null) throw new ApiException(400, "Missing required parameter 'ingredientList' when calling VisualizeRecipeTaste");
+            
+    
+            var path = "/recipes/visualizeTaste";
+            path = path.Replace("{format}", "json");
+                
+            var queryParams = new Dictionary<String, String>();
+            var headerParams = new Dictionary<String, String>();
+            var formParams = new Dictionary<String, String>();
+            var fileParams = new Dictionary<String, FileParameter>();
+            String postBody = null;
+    
+                                    if (ingredientList != null) formParams.Add("ingredientList", ApiClient.ParameterToString(ingredientList)); // form parameter
+                
+            // authentication setting, if any
+            String[] authSettings = new String[] {  };
+    
+            // make the HTTP request
+            IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.POST, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
+    
+            if (((int)response.StatusCode) >= 400)
+                throw new ApiException ((int)response.StatusCode, "Error calling VisualizeRecipeTaste: " + response.Content, response.Content);
+            else if (((int)response.StatusCode) == 0)
+                throw new ApiException ((int)response.StatusCode, "Error calling VisualizeRecipeTaste: " + response.ErrorMessage, response.ErrorMessage);
+    
+            return (string) ApiClient.Deserialize(response.Content, typeof(string), response.Headers);
+        }
+    
+        /// <summary>
+        /// Visualize Recipe Taste by ID Get a recipe&#39;s taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
+        /// </summary>
+        /// <param name="id">The recipe id.</param> 
+        /// <returns>string</returns>            
+        public string VisualizeRecipeTasteByID (decimal? id)
+        {
+            
+            // verify the required parameter 'id' is set
+            if (id == null) throw new ApiException(400, "Missing required parameter 'id' when calling VisualizeRecipeTasteByID");
+            
+    
+            var path = "/recipes/{id}/tasteWidget";
+            path = path.Replace("{format}", "json");
+            path = path.Replace("{" + "id" + "}", ApiClient.ParameterToString(id));
+    
+            var queryParams = new Dictionary<String, String>();
+            var headerParams = new Dictionary<String, String>();
+            var formParams = new Dictionary<String, String>();
+            var fileParams = new Dictionary<String, FileParameter>();
+            String postBody = null;
+    
+                                                    
+            // authentication setting, if any
+            String[] authSettings = new String[] {  };
+    
+            // make the HTTP request
+            IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
+    
+            if (((int)response.StatusCode) >= 400)
+                throw new ApiException ((int)response.StatusCode, "Error calling VisualizeRecipeTasteByID: " + response.Content, response.Content);
+            else if (((int)response.StatusCode) == 0)
+                throw new ApiException ((int)response.StatusCode, "Error calling VisualizeRecipeTasteByID: " + response.ErrorMessage, response.ErrorMessage);
     
             return (string) ApiClient.Deserialize(response.Content, typeof(string), response.Headers);
         }

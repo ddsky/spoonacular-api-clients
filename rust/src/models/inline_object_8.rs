@@ -14,15 +14,35 @@ use serde_json::Value;
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct InlineObject8 {
-    /// The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).
-    #[serde(rename = "locale")]
-    pub locale: Option<String>,
+    /// The ingredient list of the recipe, one ingredient per line.
+    #[serde(rename = "ingredientList")]
+    pub ingredient_list: String,
+    /// The number of servings.
+    #[serde(rename = "servings")]
+    pub servings: f32,
+    /// The original system of measurement, either \"metric\" or \"us\".
+    #[serde(rename = "measure")]
+    pub measure: Option<String>,
+    /// How to visualize the ingredients, either \"grid\" or \"list\".
+    #[serde(rename = "view")]
+    pub view: Option<String>,
+    /// Whether the default CSS should be added to the response.
+    #[serde(rename = "defaultCss")]
+    pub default_css: Option<bool>,
+    /// Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
+    #[serde(rename = "showBacklink")]
+    pub show_backlink: Option<bool>,
 }
 
 impl InlineObject8 {
-    pub fn new() -> InlineObject8 {
+    pub fn new(ingredient_list: String, servings: f32) -> InlineObject8 {
         InlineObject8 {
-            locale: None,
+            ingredient_list: ingredient_list,
+            servings: servings,
+            measure: None,
+            view: None,
+            default_css: None,
+            show_backlink: None,
         }
     }
 }

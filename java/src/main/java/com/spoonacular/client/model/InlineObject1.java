@@ -28,7 +28,7 @@ import java.math.BigDecimal;
 /**
  * InlineObject1
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-06-13T12:59:56.631+02:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-11-01T21:23:09.595+01:00[Europe/Berlin]")
 public class InlineObject1 {
   public static final String SERIALIZED_NAME_INGREDIENT_LIST = "ingredientList";
   @SerializedName(SERIALIZED_NAME_INGREDIENT_LIST)
@@ -37,10 +37,6 @@ public class InlineObject1 {
   public static final String SERIALIZED_NAME_SERVINGS = "servings";
   @SerializedName(SERIALIZED_NAME_SERVINGS)
   private BigDecimal servings;
-
-  public static final String SERIALIZED_NAME_MODE = "mode";
-  @SerializedName(SERIALIZED_NAME_MODE)
-  private BigDecimal mode;
 
   public static final String SERIALIZED_NAME_DEFAULT_CSS = "defaultCss";
   @SerializedName(SERIALIZED_NAME_DEFAULT_CSS)
@@ -84,24 +80,6 @@ public class InlineObject1 {
 
   public void setServings(BigDecimal servings) {
     this.servings = servings;
-  }
-
-  public InlineObject1 mode(BigDecimal mode) {
-    this.mode = mode;
-    return this;
-  }
-
-   /**
-   * The mode in which the widget should be delivered. 1 &#x3D; separate views (compact), 2 &#x3D; all in one view (full).
-   * @return mode
-  **/
-  @ApiModelProperty(example = "1", value = "The mode in which the widget should be delivered. 1 = separate views (compact), 2 = all in one view (full).")
-  public BigDecimal getMode() {
-    return mode;
-  }
-
-  public void setMode(BigDecimal mode) {
-    this.mode = mode;
   }
 
   public InlineObject1 defaultCss(Boolean defaultCss) {
@@ -152,14 +130,13 @@ public class InlineObject1 {
     InlineObject1 inlineObject1 = (InlineObject1) o;
     return Objects.equals(this.ingredientList, inlineObject1.ingredientList) &&
         Objects.equals(this.servings, inlineObject1.servings) &&
-        Objects.equals(this.mode, inlineObject1.mode) &&
         Objects.equals(this.defaultCss, inlineObject1.defaultCss) &&
         Objects.equals(this.showBacklink, inlineObject1.showBacklink);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ingredientList, servings, mode, defaultCss, showBacklink);
+    return Objects.hash(ingredientList, servings, defaultCss, showBacklink);
   }
 
 
@@ -169,7 +146,6 @@ public class InlineObject1 {
     sb.append("class InlineObject1 {\n");
     sb.append("    ingredientList: ").append(toIndentedString(ingredientList)).append("\n");
     sb.append("    servings: ").append(toIndentedString(servings)).append("\n");
-    sb.append("    mode: ").append(toIndentedString(mode)).append("\n");
     sb.append("    defaultCss: ").append(toIndentedString(defaultCss)).append("\n");
     sb.append("    showBacklink: ").append(toIndentedString(showBacklink)).append("\n");
     sb.append("}");

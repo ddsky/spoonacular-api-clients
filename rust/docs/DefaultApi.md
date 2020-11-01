@@ -15,6 +15,9 @@ Method | HTTP request | Description
 [**classify_cuisine**](DefaultApi.md#classify_cuisine) | **Post** /recipes/cuisine | Classify Cuisine
 [**classify_grocery_product**](DefaultApi.md#classify_grocery_product) | **Post** /food/products/classify | Classify Grocery Product
 [**classify_grocery_product_bulk**](DefaultApi.md#classify_grocery_product_bulk) | **Post** /food/products/classifyBatch | Classify Grocery Product Bulk
+[**clear_meal_plan_day**](DefaultApi.md#clear_meal_plan_day) | **Delete** /mealplanner/{username}/day/{date} | Clear Meal Plan Day
+[**compute_glycemic_load**](DefaultApi.md#compute_glycemic_load) | **Post** /food/ingredients/glycemicLoad | Compute Glycemic Load
+[**connect_user**](DefaultApi.md#connect_user) | **Post** /users/connect | Connect User
 [**convert_amounts**](DefaultApi.md#convert_amounts) | **Get** /recipes/convert | Convert Amounts
 [**create_recipe_card**](DefaultApi.md#create_recipe_card) | **Post** /recipes/visualizeRecipe | Create Recipe Card
 [**delete_from_meal_plan**](DefaultApi.md#delete_from_meal_plan) | **Delete** /mealplanner/{username}/items/{id} | Delete from Meal Plan
@@ -44,6 +47,7 @@ Method | HTTP request | Description
 [**get_recipe_ingredients_by_id**](DefaultApi.md#get_recipe_ingredients_by_id) | **Get** /recipes/{id}/ingredientWidget.json | Get Recipe Ingredients by ID
 [**get_recipe_nutrition_widget_by_id**](DefaultApi.md#get_recipe_nutrition_widget_by_id) | **Get** /recipes/{id}/nutritionWidget.json | Get Recipe Nutrition Widget by ID
 [**get_recipe_price_breakdown_by_id**](DefaultApi.md#get_recipe_price_breakdown_by_id) | **Get** /recipes/{id}/priceBreakdownWidget.json | Get Recipe Price Breakdown by ID
+[**get_recipe_taste_by_id**](DefaultApi.md#get_recipe_taste_by_id) | **Get** /recipes/{id}/tasteWidget.json | Get Recipe Taste by ID
 [**get_shopping_list**](DefaultApi.md#get_shopping_list) | **Get** /mealplanner/{username}/shopping-list | Get Shopping List
 [**get_similar_recipes**](DefaultApi.md#get_similar_recipes) | **Get** /recipes/{id}/similar | Get Similar Recipes
 [**get_wine_description**](DefaultApi.md#get_wine_description) | **Get** /food/wine/description | Get Wine Description
@@ -52,18 +56,19 @@ Method | HTTP request | Description
 [**guess_nutrition_by_dish_name**](DefaultApi.md#guess_nutrition_by_dish_name) | **Get** /recipes/guessNutrition | Guess Nutrition by Dish Name
 [**image_analysis_by_url**](DefaultApi.md#image_analysis_by_url) | **Get** /food/images/analyze | Image Analysis by URL
 [**image_classification_by_url**](DefaultApi.md#image_classification_by_url) | **Get** /food/images/classify | Image Classification by URL
+[**ingredient_search**](DefaultApi.md#ingredient_search) | **Get** /food/ingredients/search | Ingredient Search
 [**map_ingredients_to_grocery_products**](DefaultApi.md#map_ingredients_to_grocery_products) | **Post** /food/ingredients/map | Map Ingredients to Grocery Products
 [**parse_ingredients**](DefaultApi.md#parse_ingredients) | **Post** /recipes/parseIngredients | Parse Ingredients
 [**quick_answer**](DefaultApi.md#quick_answer) | **Get** /recipes/quickAnswer | Quick Answer
+[**search_all_food**](DefaultApi.md#search_all_food) | **Get** /food/search | Search All Food
 [**search_custom_foods**](DefaultApi.md#search_custom_foods) | **Get** /food/customFoods/search | Search Custom Foods
 [**search_food_videos**](DefaultApi.md#search_food_videos) | **Get** /food/videos/search | Search Food Videos
 [**search_grocery_products**](DefaultApi.md#search_grocery_products) | **Get** /food/products/search | Search Grocery Products
 [**search_grocery_products_by_upc**](DefaultApi.md#search_grocery_products_by_upc) | **Get** /food/products/upc/{upc} | Search Grocery Products by UPC
 [**search_menu_items**](DefaultApi.md#search_menu_items) | **Get** /food/menuItems/search | Search Menu Items
-[**search_recipes**](DefaultApi.md#search_recipes) | **Get** /recipes/search | Search Recipes
+[**search_recipes**](DefaultApi.md#search_recipes) | **Get** /recipes/complexSearch | Search Recipes
 [**search_recipes_by_ingredients**](DefaultApi.md#search_recipes_by_ingredients) | **Get** /recipes/findByIngredients | Search Recipes by Ingredients
 [**search_recipes_by_nutrients**](DefaultApi.md#search_recipes_by_nutrients) | **Get** /recipes/findByNutrients | Search Recipes by Nutrients
-[**search_recipes_complex**](DefaultApi.md#search_recipes_complex) | **Get** /recipes/complexSearch | Search Recipes Complex
 [**search_site_content**](DefaultApi.md#search_site_content) | **Get** /food/site/search | Search Site Content
 [**summarize_recipe**](DefaultApi.md#summarize_recipe) | **Get** /recipes/{id}/summary | Summarize Recipe
 [**talk_to_chatbot**](DefaultApi.md#talk_to_chatbot) | **Get** /food/converse | Talk to Chatbot
@@ -77,12 +82,14 @@ Method | HTTP request | Description
 [**visualize_recipe_nutrition**](DefaultApi.md#visualize_recipe_nutrition) | **Post** /recipes/visualizeNutrition | Visualize Recipe Nutrition
 [**visualize_recipe_nutrition_by_id**](DefaultApi.md#visualize_recipe_nutrition_by_id) | **Get** /recipes/{id}/nutritionWidget | Visualize Recipe Nutrition by ID
 [**visualize_recipe_price_breakdown_by_id**](DefaultApi.md#visualize_recipe_price_breakdown_by_id) | **Get** /recipes/{id}/priceBreakdownWidget | Visualize Recipe Price Breakdown by ID
+[**visualize_recipe_taste**](DefaultApi.md#visualize_recipe_taste) | **Post** /recipes/visualizeTaste | Visualize Recipe Taste
+[**visualize_recipe_taste_by_id**](DefaultApi.md#visualize_recipe_taste_by_id) | **Get** /recipes/{id}/tasteWidget | Visualize Recipe Taste by ID
 
 
 
 ## add_to_meal_plan
 
-> Value add_to_meal_plan(username, hash, inline_object9)
+> Value add_to_meal_plan(username, hash, inline_object11)
 Add to Meal Plan
 
 Add an item to the user's meal plan.
@@ -94,7 +101,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
   **username** | **String**| The username. | 
   **hash** | **String**| The private hash for the username. | 
-  **inline_object9** | [**InlineObject9**](InlineObject9.md)|  | 
+  **inline_object11** | [**InlineObject11**](InlineObject11.md)|  | 
 
 ### Return type
 
@@ -114,7 +121,7 @@ No authorization required
 
 ## add_to_shopping_list
 
-> Value add_to_shopping_list(username, hash, inline_object12)
+> Value add_to_shopping_list(username, hash, inline_object14)
 Add to Shopping List
 
 Add an item to the current shopping list of a user.
@@ -126,7 +133,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
   **username** | **String**| The username. | 
   **hash** | **String**| The private hash for the username. | 
-  **inline_object12** | [**InlineObject12**](InlineObject12.md)|  | 
+  **inline_object14** | [**InlineObject14**](InlineObject14.md)|  | 
 
 ### Return type
 
@@ -179,7 +186,7 @@ No authorization required
 > Value analyze_recipe_instructions(instructions)
 Analyze Recipe Instructions
 
-Extract ingredients and equipment from the recipe's instructions.
+This endpoint allows you to break down instructions into atomic steps. Furthermore, each step will contain the ingredients and equipment required. Additionally, all ingredients and equipment from the recipe's instructions will be extracted independently of the step they're used in.
 
 ### Required Parameters
 
@@ -228,7 +235,7 @@ Name | Type | Description  | Notes
  **query** | **String**| The partial or full ingredient name. | 
  **number** | **f32**| The number of results to return (between 1 and 100). | 
  **meta_information** | **bool**| Whether to return more meta information about the ingredients. | 
- **intolerances** | **bool**| A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. | 
+ **intolerances** | **String**| A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. | 
 
 ### Return type
 
@@ -399,7 +406,7 @@ No authorization required
 
 ## classify_grocery_product
 
-> Value classify_grocery_product(inline_object8, optional)
+> Value classify_grocery_product(inline_object9, optional)
 Classify Grocery Product
 
 This endpoint allows you to match a packaged food to a basic category, e.g. a specific brand of milk to the category milk.
@@ -409,7 +416,7 @@ This endpoint allows you to match a packaged food to a basic category, e.g. a sp
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-  **inline_object8** | [**InlineObject8**](InlineObject8.md)|  | 
+  **inline_object9** | [**InlineObject9**](InlineObject9.md)|  | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -418,7 +425,7 @@ Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inline_object8** | [**InlineObject8**](InlineObject8.md)|  | 
+ **inline_object9** | [**InlineObject9**](InlineObject9.md)|  | 
  **locale** | **String**| The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). | 
 
 ### Return type
@@ -472,6 +479,99 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## clear_meal_plan_day
+
+> Value clear_meal_plan_day(username, date, hash, inline_object10)
+Clear Meal Plan Day
+
+Delete all planned items from the user's meal plan for a specific day.
+
+### Required Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+  **username** | **String**| The username. | 
+  **date** | **String**| The date in the format yyyy-mm-dd. | 
+  **hash** | **String**| The private hash for the username. | 
+  **inline_object10** | [**InlineObject10**](InlineObject10.md)|  | 
+
+### Return type
+
+[**Value**](Value.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: 
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## compute_glycemic_load
+
+> Value compute_glycemic_load(body)
+Compute Glycemic Load
+
+Retrieve the glycemic index for a list of ingredients and compute the individual and total glycemic load.
+
+### Required Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+  **body** | **Value**|  | 
+
+### Return type
+
+[**Value**](Value.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## connect_user
+
+> Value connect_user(body)
+Connect User
+
+In order to call user-specific endpoints, you need to connect your app's users to spoonacular users.
+
+### Required Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+  **body** | **Value**|  | 
+
+### Return type
+
+[**Value**](Value.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: 
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -569,7 +669,7 @@ No authorization required
 
 ## delete_from_meal_plan
 
-> Value delete_from_meal_plan(username, id, hash, inline_object10)
+> Value delete_from_meal_plan(username, id, hash, inline_object12)
 Delete from Meal Plan
 
 Delete an item from the user's meal plan.
@@ -582,7 +682,7 @@ Name | Type | Description  | Notes
   **username** | **String**| The username. | 
   **id** | **f32**| The shopping list item id. | 
   **hash** | **String**| The private hash for the username. | 
-  **inline_object10** | [**InlineObject10**](InlineObject10.md)|  | 
+  **inline_object12** | [**InlineObject12**](InlineObject12.md)|  | 
 
 ### Return type
 
@@ -602,7 +702,7 @@ No authorization required
 
 ## delete_from_shopping_list
 
-> Value delete_from_shopping_list(username, id, hash, inline_object13)
+> Value delete_from_shopping_list(username, id, hash, inline_object15)
 Delete from Shopping List
 
 Delete an item from the current shopping list of the user.
@@ -615,7 +715,7 @@ Name | Type | Description  | Notes
   **username** | **String**| The username. | 
   **id** | **f32**| The shopping list item id. | 
   **hash** | **String**| The private hash for the username. | 
-  **inline_object13** | [**InlineObject13**](InlineObject13.md)|  | 
+  **inline_object15** | [**InlineObject15**](InlineObject15.md)|  | 
 
 ### Return type
 
@@ -747,7 +847,7 @@ No authorization required
 
 ## generate_shopping_list
 
-> Value generate_shopping_list(username, start_date, end_date, hash, inline_object11)
+> Value generate_shopping_list(username, start_date, end_date, hash, inline_object13)
 Generate Shopping List
 
 Generate the shopping list for a user from the meal planner in a given time frame.
@@ -761,7 +861,7 @@ Name | Type | Description  | Notes
   **start_date** | **String**| The start date in the format yyyy-mm-dd. | 
   **end_date** | **String**| The end date in the format yyyy-mm-dd. | 
   **hash** | **String**| The private hash for the username. | 
-  **inline_object11** | [**InlineObject11**](InlineObject11.md)|  | 
+  **inline_object13** | [**InlineObject13**](InlineObject13.md)|  | 
 
 ### Return type
 
@@ -1469,6 +1569,36 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
+## get_recipe_taste_by_id
+
+> Value get_recipe_taste_by_id(id)
+Get Recipe Taste by ID
+
+Get a recipe's taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
+
+### Required Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+  **id** | **f32**| The recipe id. | 
+
+### Return type
+
+[**Value**](Value.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
 ## get_shopping_list
 
 > Value get_shopping_list(username, hash)
@@ -1743,6 +1873,58 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
+## ingredient_search
+
+> Value ingredient_search(query, optional)
+Ingredient Search
+
+Search for simple whole foods (e.g. fruits, vegetables, nuts, grains, meat, fish, dairy etc.).
+
+### Required Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+  **query** | **String**| The partial or full ingredient name. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **query** | **String**| The partial or full ingredient name. | 
+ **add_children** | **bool**| Whether to add children of found foods. | 
+ **min_protein_percent** | **f32**| The minimum percentage of protein the food must have (between 0 and 100). | 
+ **max_protein_percent** | **f32**| The maximum percentage of protein the food can have (between 0 and 100). | 
+ **min_fat_percent** | **f32**| The minimum percentage of fat the food must have (between 0 and 100). | 
+ **max_fat_percent** | **f32**| The maximum percentage of fat the food can have (between 0 and 100). | 
+ **min_carbs_percent** | **f32**| The minimum percentage of carbs the food must have (between 0 and 100). | 
+ **max_carbs_percent** | **f32**| The maximum percentage of carbs the food can have (between 0 and 100). | 
+ **meta_information** | **bool**| Whether to return more meta information about the ingredients. | 
+ **intolerances** | **String**| A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. | 
+ **sort** | **String**| The strategy to sort recipes by. See a full list of supported sorting options. | 
+ **sort_direction** | **String**| The direction in which to sort. Must be either 'asc' (ascending) or 'desc' (descending). | 
+ **offset** | **f32**| The number of results to skip (between 0 and 990). | 
+ **number** | **f32**| The number of expected results (between 1 and 100). | 
+
+### Return type
+
+[**Value**](Value.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
 ## map_ingredients_to_grocery_products
 
 > Value map_ingredients_to_grocery_products(body)
@@ -1828,6 +2010,47 @@ Answer a nutrition related natural language question.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
   **q** | **String**| The nutrition related question. | 
+
+### Return type
+
+[**Value**](Value.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## search_all_food
+
+> Value search_all_food(query, optional)
+Search All Food
+
+Search all food content with one call. That includes recipes, grocery products, menu items, simple foods (ingredients), and food videos.
+
+### Required Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+  **query** | **String**| The search query. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **query** | **String**| The search query. | 
+ **offset** | **f32**| The number of results to skip (between 0 and 990). | 
+ **number** | **f32**| The number of expected results (between 1 and 100). | 
 
 ### Return type
 
@@ -2071,7 +2294,7 @@ No authorization required
 > Value search_recipes(query, optional)
 Search Recipes
 
-Our recipe API includes over 360,000 recipes as well as an open source recipe database. Consider using the \"Search Recipes Complex\" endpoint for much more flexibility.
+Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint.
 
 ### Required Parameters
 
@@ -2088,14 +2311,101 @@ Optional parameters are passed through a map[string]interface{}.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **query** | **String**| The (natural language) recipe search query. | 
- **cuisine** | **String**| The cuisine(s) of the recipes. One or more comma separated. See a full list of supported cuisines. | 
+ **cuisine** | **String**| The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as 'OR'). See a full list of supported cuisines. | 
+ **exclude_cuisine** | **String**| The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as 'AND'). See a full list of supported cuisines. | 
  **diet** | **String**| The diet for which the recipes must be suitable. See a full list of supported diets. | 
+ **intolerances** | **String**| A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. | 
+ **equipment** | **String**| The equipment required. Multiple values will be interpreted as 'or'. For example, value could be \"blender, frying pan, bowl\". | 
+ **include_ingredients** | **String**| A comma-separated list of ingredients that should/must be used in the recipes. | 
  **exclude_ingredients** | **String**| A comma-separated list of ingredients or ingredient types that the recipes must not contain. | 
- **intolerances** | **String**| A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. Please note: due to the automatic nature of the recipe analysis, the API cannot be 100% accurate in all cases. Please advise your users to seek professional help with medical issues. | 
- **offset** | **f32**| The number of results to skip (between 0 and 900). | 
- **number** | **f32**| The number of results to return (between 1 and 100). | 
- **limit_license** | **bool**| Whether the recipes should have an open license that allows display with proper attribution. | 
+ **_type** | **String**| The type of recipe. See a full list of supported meal types. | 
  **instructions_required** | **bool**| Whether the recipes must have instructions. | 
+ **fill_ingredients** | **bool**| Add information about the ingredients and whether they are used or missing in relation to the query. | 
+ **add_recipe_information** | **bool**| If set to true, you get more information about the recipes returned. | 
+ **add_recipe_nutrition** | **bool**| If set to true, you get nutritional information about each recipes returned. | 
+ **author** | **String**| The username of the recipe author. | 
+ **tags** | **String**| User defined tags that have to match. The author param has to be set. | 
+ **recipe_box_id** | **f32**| The id of the recipe box to which the search should be limited to. | 
+ **title_match** | **String**| Enter text that must be found in the title of the recipes. | 
+ **max_ready_time** | **f32**| The maximum time in minutes it should take to prepare and cook the recipe. | 
+ **ignore_pantry** | **bool**| Whether to ignore typical pantry items, such as water, salt, flour, etc. | 
+ **sort** | **String**| The strategy to sort recipes by. See a full list of supported sorting options. | 
+ **sort_direction** | **String**| The direction in which to sort. Must be either 'asc' (ascending) or 'desc' (descending). | 
+ **min_carbs** | **f32**| The minimum amount of carbohydrates in grams the recipe must have. | 
+ **max_carbs** | **f32**| The maximum amount of carbohydrates in grams the recipe can have. | 
+ **min_protein** | **f32**| The minimum amount of protein in grams the recipe must have. | 
+ **max_protein** | **f32**| The maximum amount of protein in grams the recipe can have. | 
+ **min_calories** | **f32**| The minimum amount of calories the recipe must have. | 
+ **max_calories** | **f32**| The maximum amount of calories the recipe can have. | 
+ **min_fat** | **f32**| The minimum amount of fat in grams the recipe must have. | 
+ **max_fat** | **f32**| The maximum amount of fat in grams the recipe can have. | 
+ **min_alcohol** | **f32**| The minimum amount of alcohol in grams the recipe must have. | 
+ **max_alcohol** | **f32**| The maximum amount of alcohol in grams the recipe can have. | 
+ **min_caffeine** | **f32**| The minimum amount of caffeine in milligrams the recipe must have. | 
+ **max_caffeine** | **f32**| The maximum amount of caffeine in milligrams the recipe can have. | 
+ **min_copper** | **f32**| The minimum amount of copper in milligrams the recipe must have. | 
+ **max_copper** | **f32**| The maximum amount of copper in milligrams the recipe can have. | 
+ **min_calcium** | **f32**| The minimum amount of calcium in milligrams the recipe must have. | 
+ **max_calcium** | **f32**| The maximum amount of calcium in milligrams the recipe can have. | 
+ **min_choline** | **f32**| The minimum amount of choline in milligrams the recipe must have. | 
+ **max_choline** | **f32**| The maximum amount of choline in milligrams the recipe can have. | 
+ **min_cholesterol** | **f32**| The minimum amount of cholesterol in milligrams the recipe must have. | 
+ **max_cholesterol** | **f32**| The maximum amount of cholesterol in milligrams the recipe can have. | 
+ **min_fluoride** | **f32**| The minimum amount of fluoride in milligrams the recipe must have. | 
+ **max_fluoride** | **f32**| The maximum amount of fluoride in milligrams the recipe can have. | 
+ **min_saturated_fat** | **f32**| The minimum amount of saturated fat in grams the recipe must have. | 
+ **max_saturated_fat** | **f32**| The maximum amount of saturated fat in grams the recipe can have. | 
+ **min_vitamin_a** | **f32**| The minimum amount of Vitamin A in IU the recipe must have. | 
+ **max_vitamin_a** | **f32**| The maximum amount of Vitamin A in IU the recipe can have. | 
+ **min_vitamin_c** | **f32**| The minimum amount of Vitamin C milligrams the recipe must have. | 
+ **max_vitamin_c** | **f32**| The maximum amount of Vitamin C in milligrams the recipe can have. | 
+ **min_vitamin_d** | **f32**| The minimum amount of Vitamin D in micrograms the recipe must have. | 
+ **max_vitamin_d** | **f32**| The maximum amount of Vitamin D in micrograms the recipe can have. | 
+ **min_vitamin_e** | **f32**| The minimum amount of Vitamin E in milligrams the recipe must have. | 
+ **max_vitamin_e** | **f32**| The maximum amount of Vitamin E in milligrams the recipe can have. | 
+ **min_vitamin_k** | **f32**| The minimum amount of Vitamin K in micrograms the recipe must have. | 
+ **max_vitamin_k** | **f32**| The maximum amount of Vitamin K in micrograms the recipe can have. | 
+ **min_vitamin_b1** | **f32**| The minimum amount of Vitamin B1 in milligrams the recipe must have. | 
+ **max_vitamin_b1** | **f32**| The maximum amount of Vitamin B1 in milligrams the recipe can have. | 
+ **min_vitamin_b2** | **f32**| The minimum amount of Vitamin B2 in milligrams the recipe must have. | 
+ **max_vitamin_b2** | **f32**| The maximum amount of Vitamin B2 in milligrams the recipe can have. | 
+ **min_vitamin_b5** | **f32**| The minimum amount of Vitamin B5 in milligrams the recipe must have. | 
+ **max_vitamin_b5** | **f32**| The maximum amount of Vitamin B5 in milligrams the recipe can have. | 
+ **min_vitamin_b3** | **f32**| The minimum amount of Vitamin B3 in milligrams the recipe must have. | 
+ **max_vitamin_b3** | **f32**| The maximum amount of Vitamin B3 in milligrams the recipe can have. | 
+ **min_vitamin_b6** | **f32**| The minimum amount of Vitamin B6 in milligrams the recipe must have. | 
+ **max_vitamin_b6** | **f32**| The maximum amount of Vitamin B6 in milligrams the recipe can have. | 
+ **min_vitamin_b12** | **f32**| The minimum amount of Vitamin B12 in micrograms the recipe must have. | 
+ **max_vitamin_b12** | **f32**| The maximum amount of Vitamin B12 in micrograms the recipe can have. | 
+ **min_fiber** | **f32**| The minimum amount of fiber in grams the recipe must have. | 
+ **max_fiber** | **f32**| The maximum amount of fiber in grams the recipe can have. | 
+ **min_folate** | **f32**| The minimum amount of folate in micrograms the recipe must have. | 
+ **max_folate** | **f32**| The maximum amount of folate in micrograms the recipe can have. | 
+ **min_folic_acid** | **f32**| The minimum amount of folic acid in micrograms the recipe must have. | 
+ **max_folic_acid** | **f32**| The maximum amount of folic acid in micrograms the recipe can have. | 
+ **min_iodine** | **f32**| The minimum amount of iodine in micrograms the recipe must have. | 
+ **max_iodine** | **f32**| The maximum amount of iodine in micrograms the recipe can have. | 
+ **min_iron** | **f32**| The minimum amount of iron in milligrams the recipe must have. | 
+ **max_iron** | **f32**| The maximum amount of iron in milligrams the recipe can have. | 
+ **min_magnesium** | **f32**| The minimum amount of magnesium in milligrams the recipe must have. | 
+ **max_magnesium** | **f32**| The maximum amount of magnesium in milligrams the recipe can have. | 
+ **min_manganese** | **f32**| The minimum amount of manganese in milligrams the recipe must have. | 
+ **max_manganese** | **f32**| The maximum amount of manganese in milligrams the recipe can have. | 
+ **min_phosphorus** | **f32**| The minimum amount of phosphorus in milligrams the recipe must have. | 
+ **max_phosphorus** | **f32**| The maximum amount of phosphorus in milligrams the recipe can have. | 
+ **min_potassium** | **f32**| The minimum amount of potassium in milligrams the recipe must have. | 
+ **max_potassium** | **f32**| The maximum amount of potassium in milligrams the recipe can have. | 
+ **min_selenium** | **f32**| The minimum amount of selenium in micrograms the recipe must have. | 
+ **max_selenium** | **f32**| The maximum amount of selenium in micrograms the recipe can have. | 
+ **min_sodium** | **f32**| The minimum amount of sodium in milligrams the recipe must have. | 
+ **max_sodium** | **f32**| The maximum amount of sodium in milligrams the recipe can have. | 
+ **min_sugar** | **f32**| The minimum amount of sugar in grams the recipe must have. | 
+ **max_sugar** | **f32**| The maximum amount of sugar in grams the recipe can have. | 
+ **min_zinc** | **f32**| The minimum amount of zinc in milligrams the recipe must have. | 
+ **max_zinc** | **f32**| The maximum amount of zinc in milligrams the recipe can have. | 
+ **offset** | **f32**| The number of results to skip (between 0 and 900). | 
+ **number** | **f32**| The number of expected results (between 1 and 100). | 
+ **limit_license** | **bool**| Whether the recipes should have an open license that allows display with proper attribution. | 
 
 ### Return type
 
@@ -2224,12 +2534,12 @@ Name | Type | Description  | Notes
  **max_vitamin_b12** | **f32**| The maximum amount of Vitamin B12 in micrograms the recipe can have. | 
  **min_fiber** | **f32**| The minimum amount of fiber in grams the recipe must have. | 
  **max_fiber** | **f32**| The maximum amount of fiber in grams the recipe can have. | 
- **min_folate** | **f32**| The minimum amount of folate in grams the recipe must have. | 
- **max_folate** | **f32**| The maximum amount of folate in grams the recipe can have. | 
- **min_folic_acid** | **f32**| The minimum amount of folic acid in grams the recipe must have. | 
- **max_folic_acid** | **f32**| The maximum amount of folic acid in grams the recipe can have. | 
- **min_iodine** | **f32**| The minimum amount of iodine in grams the recipe must have. | 
- **max_iodine** | **f32**| The maximum amount of iodine in grams the recipe can have. | 
+ **min_folate** | **f32**| The minimum amount of folate in micrograms the recipe must have. | 
+ **max_folate** | **f32**| The maximum amount of folate in micrograms the recipe can have. | 
+ **min_folic_acid** | **f32**| The minimum amount of folic acid in micrograms the recipe must have. | 
+ **max_folic_acid** | **f32**| The maximum amount of folic acid in micrograms the recipe can have. | 
+ **min_iodine** | **f32**| The minimum amount of iodine in micrograms the recipe must have. | 
+ **max_iodine** | **f32**| The maximum amount of iodine in micrograms the recipe can have. | 
  **min_iron** | **f32**| The minimum amount of iron in milligrams the recipe must have. | 
  **max_iron** | **f32**| The maximum amount of iron in milligrams the recipe can have. | 
  **min_magnesium** | **f32**| The minimum amount of magnesium in milligrams the recipe must have. | 
@@ -2240,8 +2550,8 @@ Name | Type | Description  | Notes
  **max_phosphorus** | **f32**| The maximum amount of phosphorus in milligrams the recipe can have. | 
  **min_potassium** | **f32**| The minimum amount of potassium in milligrams the recipe must have. | 
  **max_potassium** | **f32**| The maximum amount of potassium in milligrams the recipe can have. | 
- **min_selenium** | **f32**| The minimum amount of selenium in grams the recipe must have. | 
- **max_selenium** | **f32**| The maximum amount of selenium in grams the recipe can have. | 
+ **min_selenium** | **f32**| The minimum amount of selenium in micrograms the recipe must have. | 
+ **max_selenium** | **f32**| The maximum amount of selenium in micrograms the recipe can have. | 
  **min_sodium** | **f32**| The minimum amount of sodium in milligrams the recipe must have. | 
  **max_sodium** | **f32**| The maximum amount of sodium in milligrams the recipe can have. | 
  **min_sugar** | **f32**| The minimum amount of sugar in grams the recipe must have. | 
@@ -2251,140 +2561,6 @@ Name | Type | Description  | Notes
  **offset** | **f32**| The number of results to skip (between 0 and 900). | 
  **number** | **f32**| The number of expected results (between 1 and 100). | 
  **random** | **bool**| If true, every request will give you a random set of recipes within the requested limits. | 
- **limit_license** | **bool**| Whether the recipes should have an open license that allows display with proper attribution. | 
-
-### Return type
-
-[**Value**](Value.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-
-## search_recipes_complex
-
-> Value search_recipes_complex(query, optional)
-Search Recipes Complex
-
-Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint.
-
-### Required Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-  **query** | **String**| The (natural language) recipe search query. | 
- **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
-
-### Optional Parameters
-
-Optional parameters are passed through a map[string]interface{}.
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **query** | **String**| The (natural language) recipe search query. | 
- **cuisine** | **String**| The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as 'OR'). See a full list of supported cuisines. | 
- **exclude_cuisine** | **String**| The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as 'AND'). See a full list of supported cuisines. | 
- **diet** | **String**| The diet for which the recipes must be suitable. See a full list of supported diets. | 
- **intolerances** | **String**| A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. | 
- **equipment** | **String**| The equipment required. Multiple values will be interpreted as 'or'. For example, value could be \"blender, frying pan, bowl\". | 
- **include_ingredients** | **String**| A comma-separated list of ingredients that should/must be used in the recipes. | 
- **exclude_ingredients** | **String**| A comma-separated list of ingredients or ingredient types that the recipes must not contain. | 
- **_type** | **String**| The type of recipe. See a full list of supported meal types. | 
- **instructions_required** | **bool**| Whether the recipes must have instructions. | 
- **fill_ingredients** | **bool**| Add information about the ingredients and whether they are used or missing in relation to the query. | 
- **add_recipe_information** | **bool**| If set to true, you get more information about the recipes returned. | 
- **add_recipe_nutrition** | **bool**| If set to true, you get nutritional information about each recipes returned. | 
- **author** | **String**| The username of the recipe author. | 
- **tags** | **String**| User defined tags that have to match. The author param has to be set. | 
- **recipe_box_id** | **f32**| The id of the recipe box to which the search should be limited to. | 
- **title_match** | **String**| Enter text that must be found in the title of the recipes. | 
- **max_ready_time** | **f32**| The maximum time in minutes it should take to prepare and cook the recipe. | 
- **ignore_pantry** | **bool**| Whether to ignore typical pantry items, such as water, salt, flour, etc. | 
- **sort** | **String**| The strategy to sort recipes by. See a full list of supported sorting options. | 
- **sort_direction** | **String**| The direction in which to sort. Must be either 'asc' (ascending) or 'desc' (descending). | 
- **min_carbs** | **f32**| The minimum amount of carbohydrates in grams the recipe must have. | 
- **max_carbs** | **f32**| The maximum amount of carbohydrates in grams the recipe can have. | 
- **min_protein** | **f32**| The minimum amount of protein in grams the recipe must have. | 
- **max_protein** | **f32**| The maximum amount of protein in grams the recipe can have. | 
- **min_calories** | **f32**| The minimum amount of calories the recipe must have. | 
- **max_calories** | **f32**| The maximum amount of calories the recipe can have. | 
- **min_fat** | **f32**| The minimum amount of fat in grams the recipe must have. | 
- **max_fat** | **f32**| The maximum amount of fat in grams the recipe can have. | 
- **min_alcohol** | **f32**| The minimum amount of alcohol in grams the recipe must have. | 
- **max_alcohol** | **f32**| The maximum amount of alcohol in grams the recipe can have. | 
- **min_caffeine** | **f32**| The minimum amount of caffeine in milligrams the recipe must have. | 
- **max_caffeine** | **f32**| The maximum amount of caffeine in milligrams the recipe can have. | 
- **min_copper** | **f32**| The minimum amount of copper in milligrams the recipe must have. | 
- **max_copper** | **f32**| The maximum amount of copper in milligrams the recipe can have. | 
- **min_calcium** | **f32**| The minimum amount of calcium in milligrams the recipe must have. | 
- **max_calcium** | **f32**| The maximum amount of calcium in milligrams the recipe can have. | 
- **min_choline** | **f32**| The minimum amount of choline in milligrams the recipe must have. | 
- **max_choline** | **f32**| The maximum amount of choline in milligrams the recipe can have. | 
- **min_cholesterol** | **f32**| The minimum amount of cholesterol in milligrams the recipe must have. | 
- **max_cholesterol** | **f32**| The maximum amount of cholesterol in milligrams the recipe can have. | 
- **min_fluoride** | **f32**| The minimum amount of fluoride in milligrams the recipe must have. | 
- **max_fluoride** | **f32**| The maximum amount of fluoride in milligrams the recipe can have. | 
- **min_saturated_fat** | **f32**| The minimum amount of saturated fat in grams the recipe must have. | 
- **max_saturated_fat** | **f32**| The maximum amount of saturated fat in grams the recipe can have. | 
- **min_vitamin_a** | **f32**| The minimum amount of Vitamin A in IU the recipe must have. | 
- **max_vitamin_a** | **f32**| The maximum amount of Vitamin A in IU the recipe can have. | 
- **min_vitamin_c** | **f32**| The minimum amount of Vitamin C milligrams the recipe must have. | 
- **max_vitamin_c** | **f32**| The maximum amount of Vitamin C in milligrams the recipe can have. | 
- **min_vitamin_d** | **f32**| The minimum amount of Vitamin D in micrograms the recipe must have. | 
- **max_vitamin_d** | **f32**| The maximum amount of Vitamin D in micrograms the recipe can have. | 
- **min_vitamin_e** | **f32**| The minimum amount of Vitamin E in milligrams the recipe must have. | 
- **max_vitamin_e** | **f32**| The maximum amount of Vitamin E in milligrams the recipe can have. | 
- **min_vitamin_k** | **f32**| The minimum amount of Vitamin K in micrograms the recipe must have. | 
- **max_vitamin_k** | **f32**| The maximum amount of Vitamin K in micrograms the recipe can have. | 
- **min_vitamin_b1** | **f32**| The minimum amount of Vitamin B1 in milligrams the recipe must have. | 
- **max_vitamin_b1** | **f32**| The maximum amount of Vitamin B1 in milligrams the recipe can have. | 
- **min_vitamin_b2** | **f32**| The minimum amount of Vitamin B2 in milligrams the recipe must have. | 
- **max_vitamin_b2** | **f32**| The maximum amount of Vitamin B2 in milligrams the recipe can have. | 
- **min_vitamin_b5** | **f32**| The minimum amount of Vitamin B5 in milligrams the recipe must have. | 
- **max_vitamin_b5** | **f32**| The maximum amount of Vitamin B5 in milligrams the recipe can have. | 
- **min_vitamin_b3** | **f32**| The minimum amount of Vitamin B3 in milligrams the recipe must have. | 
- **max_vitamin_b3** | **f32**| The maximum amount of Vitamin B3 in milligrams the recipe can have. | 
- **min_vitamin_b6** | **f32**| The minimum amount of Vitamin B6 in milligrams the recipe must have. | 
- **max_vitamin_b6** | **f32**| The maximum amount of Vitamin B6 in milligrams the recipe can have. | 
- **min_vitamin_b12** | **f32**| The minimum amount of Vitamin B12 in micrograms the recipe must have. | 
- **max_vitamin_b12** | **f32**| The maximum amount of Vitamin B12 in micrograms the recipe can have. | 
- **min_fiber** | **f32**| The minimum amount of fiber in grams the recipe must have. | 
- **max_fiber** | **f32**| The maximum amount of fiber in grams the recipe can have. | 
- **min_folate** | **f32**| The minimum amount of folate in grams the recipe must have. | 
- **max_folate** | **f32**| The maximum amount of folate in grams the recipe can have. | 
- **min_folic_acid** | **f32**| The minimum amount of folic acid in grams the recipe must have. | 
- **max_folic_acid** | **f32**| The maximum amount of folic acid in grams the recipe can have. | 
- **min_iodine** | **f32**| The minimum amount of iodine in grams the recipe must have. | 
- **max_iodine** | **f32**| The maximum amount of iodine in grams the recipe can have. | 
- **min_iron** | **f32**| The minimum amount of iron in milligrams the recipe must have. | 
- **max_iron** | **f32**| The maximum amount of iron in milligrams the recipe can have. | 
- **min_magnesium** | **f32**| The minimum amount of magnesium in milligrams the recipe must have. | 
- **max_magnesium** | **f32**| The maximum amount of magnesium in milligrams the recipe can have. | 
- **min_manganese** | **f32**| The minimum amount of manganese in milligrams the recipe must have. | 
- **max_manganese** | **f32**| The maximum amount of manganese in milligrams the recipe can have. | 
- **min_phosphorus** | **f32**| The minimum amount of phosphorus in milligrams the recipe must have. | 
- **max_phosphorus** | **f32**| The maximum amount of phosphorus in milligrams the recipe can have. | 
- **min_potassium** | **f32**| The minimum amount of potassium in milligrams the recipe must have. | 
- **max_potassium** | **f32**| The maximum amount of potassium in milligrams the recipe can have. | 
- **min_selenium** | **f32**| The minimum amount of selenium in grams the recipe must have. | 
- **max_selenium** | **f32**| The maximum amount of selenium in grams the recipe can have. | 
- **min_sodium** | **f32**| The minimum amount of sodium in milligrams the recipe must have. | 
- **max_sodium** | **f32**| The maximum amount of sodium in milligrams the recipe can have. | 
- **min_sugar** | **f32**| The minimum amount of sugar in grams the recipe must have. | 
- **max_sugar** | **f32**| The maximum amount of sugar in grams the recipe can have. | 
- **min_zinc** | **f32**| The minimum amount of zinc in milligrams the recipe must have. | 
- **max_zinc** | **f32**| The maximum amount of zinc in milligrams the recipe can have. | 
- **offset** | **f32**| The number of results to skip (between 0 and 900). | 
- **number** | **f32**| The number of expected results (between 1 and 100). | 
  **limit_license** | **bool**| Whether the recipes should have an open license that allows display with proper attribution. | 
 
 ### Return type
@@ -2505,18 +2681,17 @@ No authorization required
 
 ## visualize_equipment
 
-> String visualize_equipment(ingredient_list, servings, optional)
+> String visualize_equipment(instructions, optional)
 Visualize Equipment
 
-Visualize the equipment used to make a recipe.
+Visualize the equipment used to make a recipe. You can play around with that endpoint!
 
 ### Required Parameters
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-  **ingredient_list** | **String**| The ingredient list of the recipe, one ingredient per line. | 
-  **servings** | **f32**| The number of servings. | 
+  **instructions** | **String**| The recipe's instructions. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -2525,8 +2700,7 @@ Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ingredient_list** | **String**| The ingredient list of the recipe, one ingredient per line. | 
- **servings** | **f32**| The number of servings. | 
+ **instructions** | **String**| The recipe's instructions. | 
  **view** | **String**| How to visualize the equipment, either \\\"grid\\\" or \\\"list\\\". | 
  **default_css** | **bool**| Whether the default CSS should be added to the response. | 
  **show_backlink** | **bool**| Whether to show a backlink to spoonacular. If set false, this call counts against your quota. | 
@@ -2552,7 +2726,7 @@ No authorization required
 > String visualize_ingredients(ingredient_list, servings, optional)
 Visualize Ingredients
 
-Visualize ingredients of a recipe.
+Visualize ingredients of a recipe. You can play around with that endpoint!
 
 ### Required Parameters
 
@@ -2637,7 +2811,7 @@ No authorization required
 > String visualize_price_breakdown(ingredient_list, servings, optional)
 Visualize Price Breakdown
 
-Visualize the price breakdown of a recipe.
+Visualize the price breakdown of a recipe. You can play around with that endpoint!
 
 ### Required Parameters
 
@@ -2801,7 +2975,7 @@ No authorization required
 > String visualize_recipe_nutrition(ingredient_list, servings, optional)
 Visualize Recipe Nutrition
 
-Visualize a recipe's nutritional information as HTML including CSS
+Visualize a recipe's nutritional information as HTML including CSS. You can play around with that endpoint!
 
 ### Required Parameters
 
@@ -2902,6 +3076,66 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **f32**| The recipe id. | 
  **default_css** | **bool**| Whether the default CSS should be added to the response. | 
+
+### Return type
+
+**String**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: text/html
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## visualize_recipe_taste
+
+> String visualize_recipe_taste(ingredient_list)
+Visualize Recipe Taste
+
+Visualize a recipe's taste information as HTML including CSS. You can play around with that endpoint!
+
+### Required Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+  **ingredient_list** | **String**| The ingredient list of the recipe, one ingredient per line. | 
+
+### Return type
+
+**String**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/x-www-form-urlencoded
+- **Accept**: text/html
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## visualize_recipe_taste_by_id
+
+> String visualize_recipe_taste_by_id(id)
+Visualize Recipe Taste by ID
+
+Get a recipe's taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
+
+### Required Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+  **id** | **f32**| The recipe id. | 
 
 ### Return type
 

@@ -13,12 +13,52 @@ namespace spoonacular.Model {
   [DataContract]
   public class InlineObject8 {
     /// <summary>
-    /// The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).
+    /// The ingredient list of the recipe, one ingredient per line.
     /// </summary>
-    /// <value>The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).</value>
-    [DataMember(Name="locale", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "locale")]
-    public string Locale { get; set; }
+    /// <value>The ingredient list of the recipe, one ingredient per line.</value>
+    [DataMember(Name="ingredientList", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "ingredientList")]
+    public string IngredientList { get; set; }
+
+    /// <summary>
+    /// The number of servings.
+    /// </summary>
+    /// <value>The number of servings.</value>
+    [DataMember(Name="servings", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "servings")]
+    public decimal? Servings { get; set; }
+
+    /// <summary>
+    /// The original system of measurement, either \"metric\" or \"us\".
+    /// </summary>
+    /// <value>The original system of measurement, either \"metric\" or \"us\".</value>
+    [DataMember(Name="measure", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "measure")]
+    public string Measure { get; set; }
+
+    /// <summary>
+    /// How to visualize the ingredients, either \"grid\" or \"list\".
+    /// </summary>
+    /// <value>How to visualize the ingredients, either \"grid\" or \"list\".</value>
+    [DataMember(Name="view", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "view")]
+    public string View { get; set; }
+
+    /// <summary>
+    /// Whether the default CSS should be added to the response.
+    /// </summary>
+    /// <value>Whether the default CSS should be added to the response.</value>
+    [DataMember(Name="defaultCss", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "defaultCss")]
+    public bool? DefaultCss { get; set; }
+
+    /// <summary>
+    /// Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
+    /// </summary>
+    /// <value>Whether to show a backlink to spoonacular. If set false, this call counts against your quota.</value>
+    [DataMember(Name="showBacklink", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "showBacklink")]
+    public bool? ShowBacklink { get; set; }
 
 
     /// <summary>
@@ -28,7 +68,12 @@ namespace spoonacular.Model {
     public override string ToString()  {
       var sb = new StringBuilder();
       sb.Append("class InlineObject8 {\n");
-      sb.Append("  Locale: ").Append(Locale).Append("\n");
+      sb.Append("  IngredientList: ").Append(IngredientList).Append("\n");
+      sb.Append("  Servings: ").Append(Servings).Append("\n");
+      sb.Append("  Measure: ").Append(Measure).Append("\n");
+      sb.Append("  View: ").Append(View).Append("\n");
+      sb.Append("  DefaultCss: ").Append(DefaultCss).Append("\n");
+      sb.Append("  ShowBacklink: ").Append(ShowBacklink).Append("\n");
       sb.Append("}\n");
       return sb.ToString();
     }

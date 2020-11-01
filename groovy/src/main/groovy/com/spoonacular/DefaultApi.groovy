@@ -6,7 +6,8 @@ import com.spoonacular.client.model.InlineObject10
 import com.spoonacular.client.model.InlineObject11
 import com.spoonacular.client.model.InlineObject12
 import com.spoonacular.client.model.InlineObject13
-import com.spoonacular.client.model.InlineObject8
+import com.spoonacular.client.model.InlineObject14
+import com.spoonacular.client.model.InlineObject15
 import com.spoonacular.client.model.InlineObject9
 
 class DefaultApi {
@@ -14,7 +15,7 @@ class DefaultApi {
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def addToMealPlan ( String username, String hash, InlineObject9 inlineObject9, Closure onSuccess, Closure onFailure)  {
+    def addToMealPlan ( String username, String hash, InlineObject11 inlineObject11, Closure onSuccess, Closure onFailure)  {
         String resourcePath = "/mealplanner/${username}/items"
 
         // params
@@ -32,8 +33,8 @@ class DefaultApi {
             throw new RuntimeException("missing required params hash")
         }
         // verify required params are set
-        if (inlineObject9 == null) {
-            throw new RuntimeException("missing required params inlineObject9")
+        if (inlineObject11 == null) {
+            throw new RuntimeException("missing required params inlineObject11")
         }
 
         if (hash != null) {
@@ -42,7 +43,7 @@ class DefaultApi {
 
 
         contentType = '';
-        bodyParams = inlineObject9
+        bodyParams = inlineObject11
 
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
@@ -51,7 +52,7 @@ class DefaultApi {
 
     }
 
-    def addToShoppingList ( String username, String hash, InlineObject12 inlineObject12, Closure onSuccess, Closure onFailure)  {
+    def addToShoppingList ( String username, String hash, InlineObject14 inlineObject14, Closure onSuccess, Closure onFailure)  {
         String resourcePath = "/mealplanner/${username}/shopping-list/items"
 
         // params
@@ -69,8 +70,8 @@ class DefaultApi {
             throw new RuntimeException("missing required params hash")
         }
         // verify required params are set
-        if (inlineObject12 == null) {
-            throw new RuntimeException("missing required params inlineObject12")
+        if (inlineObject14 == null) {
+            throw new RuntimeException("missing required params inlineObject14")
         }
 
         if (hash != null) {
@@ -79,7 +80,7 @@ class DefaultApi {
 
 
         contentType = '';
-        bodyParams = inlineObject12
+        bodyParams = inlineObject14
 
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
@@ -141,7 +142,7 @@ class DefaultApi {
 
     }
 
-    def autocompleteIngredientSearch ( String query, BigDecimal number, Boolean metaInformation, Boolean intolerances, Closure onSuccess, Closure onFailure)  {
+    def autocompleteIngredientSearch ( String query, BigDecimal number, Boolean metaInformation, String intolerances, Closure onSuccess, Closure onFailure)  {
         String resourcePath = "/food/ingredients/autocomplete"
 
         // params
@@ -299,7 +300,7 @@ class DefaultApi {
 
     }
 
-    def classifyGroceryProduct ( InlineObject8 inlineObject8, String locale, Closure onSuccess, Closure onFailure)  {
+    def classifyGroceryProduct ( InlineObject9 inlineObject9, String locale, Closure onSuccess, Closure onFailure)  {
         String resourcePath = "/food/products/classify"
 
         // params
@@ -309,8 +310,8 @@ class DefaultApi {
         def contentType
 
         // verify required params are set
-        if (inlineObject8 == null) {
-            throw new RuntimeException("missing required params inlineObject8")
+        if (inlineObject9 == null) {
+            throw new RuntimeException("missing required params inlineObject9")
         }
 
         if (locale != null) {
@@ -319,7 +320,7 @@ class DefaultApi {
 
 
         contentType = 'application/json';
-        bodyParams = inlineObject8
+        bodyParams = inlineObject9
 
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
@@ -348,6 +349,99 @@ class DefaultApi {
 
 
         contentType = 'application/json';
+        bodyParams = body
+
+
+        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
+                    "POST", "",
+                    Object.class )
+
+    }
+
+    def clearMealPlanDay ( String username, String date, String hash, InlineObject10 inlineObject10, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/mealplanner/${username}/day/${date}"
+
+        // params
+        def queryParams = [:]
+        def headerParams = [:]
+        def bodyParams
+        def contentType
+
+        // verify required params are set
+        if (username == null) {
+            throw new RuntimeException("missing required params username")
+        }
+        // verify required params are set
+        if (date == null) {
+            throw new RuntimeException("missing required params date")
+        }
+        // verify required params are set
+        if (hash == null) {
+            throw new RuntimeException("missing required params hash")
+        }
+        // verify required params are set
+        if (inlineObject10 == null) {
+            throw new RuntimeException("missing required params inlineObject10")
+        }
+
+        if (hash != null) {
+            queryParams.put("hash", hash)
+        }
+
+
+        contentType = '';
+        bodyParams = inlineObject10
+
+
+        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
+                    "DELETE", "",
+                    Object.class )
+
+    }
+
+    def computeGlycemicLoad ( Object body, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/food/ingredients/glycemicLoad"
+
+        // params
+        def queryParams = [:]
+        def headerParams = [:]
+        def bodyParams
+        def contentType
+
+        // verify required params are set
+        if (body == null) {
+            throw new RuntimeException("missing required params body")
+        }
+
+
+
+        contentType = 'application/json';
+        bodyParams = body
+
+
+        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
+                    "POST", "",
+                    Object.class )
+
+    }
+
+    def connectUser ( Object body, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/users/connect"
+
+        // params
+        def queryParams = [:]
+        def headerParams = [:]
+        def bodyParams
+        def contentType
+
+        // verify required params are set
+        if (body == null) {
+            throw new RuntimeException("missing required params body")
+        }
+
+
+
+        contentType = '';
         bodyParams = body
 
 
@@ -471,7 +565,7 @@ class DefaultApi {
 
     }
 
-    def deleteFromMealPlan ( String username, BigDecimal id, String hash, InlineObject10 inlineObject10, Closure onSuccess, Closure onFailure)  {
+    def deleteFromMealPlan ( String username, BigDecimal id, String hash, InlineObject12 inlineObject12, Closure onSuccess, Closure onFailure)  {
         String resourcePath = "/mealplanner/${username}/items/${id}"
 
         // params
@@ -493,8 +587,8 @@ class DefaultApi {
             throw new RuntimeException("missing required params hash")
         }
         // verify required params are set
-        if (inlineObject10 == null) {
-            throw new RuntimeException("missing required params inlineObject10")
+        if (inlineObject12 == null) {
+            throw new RuntimeException("missing required params inlineObject12")
         }
 
         if (hash != null) {
@@ -503,7 +597,7 @@ class DefaultApi {
 
 
         contentType = '';
-        bodyParams = inlineObject10
+        bodyParams = inlineObject12
 
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
@@ -512,7 +606,7 @@ class DefaultApi {
 
     }
 
-    def deleteFromShoppingList ( String username, BigDecimal id, String hash, InlineObject13 inlineObject13, Closure onSuccess, Closure onFailure)  {
+    def deleteFromShoppingList ( String username, BigDecimal id, String hash, InlineObject15 inlineObject15, Closure onSuccess, Closure onFailure)  {
         String resourcePath = "/mealplanner/${username}/shopping-list/items/${id}"
 
         // params
@@ -534,8 +628,8 @@ class DefaultApi {
             throw new RuntimeException("missing required params hash")
         }
         // verify required params are set
-        if (inlineObject13 == null) {
-            throw new RuntimeException("missing required params inlineObject13")
+        if (inlineObject15 == null) {
+            throw new RuntimeException("missing required params inlineObject15")
         }
 
         if (hash != null) {
@@ -544,7 +638,7 @@ class DefaultApi {
 
 
         contentType = '';
-        bodyParams = inlineObject13
+        bodyParams = inlineObject15
 
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
@@ -644,7 +738,7 @@ class DefaultApi {
 
     }
 
-    def generateShoppingList ( String username, String startDate, String endDate, String hash, InlineObject11 inlineObject11, Closure onSuccess, Closure onFailure)  {
+    def generateShoppingList ( String username, String startDate, String endDate, String hash, InlineObject13 inlineObject13, Closure onSuccess, Closure onFailure)  {
         String resourcePath = "/mealplanner/${username}/shopping-list/${start-date}/${end-date}"
 
         // params
@@ -670,8 +764,8 @@ class DefaultApi {
             throw new RuntimeException("missing required params hash")
         }
         // verify required params are set
-        if (inlineObject11 == null) {
-            throw new RuntimeException("missing required params inlineObject11")
+        if (inlineObject13 == null) {
+            throw new RuntimeException("missing required params inlineObject13")
         }
 
         if (hash != null) {
@@ -680,7 +774,7 @@ class DefaultApi {
 
 
         contentType = '';
-        bodyParams = inlineObject11
+        bodyParams = inlineObject13
 
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
@@ -1249,6 +1343,30 @@ class DefaultApi {
 
     }
 
+    def getRecipeTasteByID ( BigDecimal id, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/recipes/${id}/tasteWidget.json"
+
+        // params
+        def queryParams = [:]
+        def headerParams = [:]
+        def bodyParams
+        def contentType
+
+        // verify required params are set
+        if (id == null) {
+            throw new RuntimeException("missing required params id")
+        }
+
+
+
+
+
+        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
+                    "GET", "",
+                    Object.class )
+
+    }
+
     def getShoppingList ( String username, String hash, Closure onSuccess, Closure onFailure)  {
         String resourcePath = "/mealplanner/${username}/shopping-list"
 
@@ -1484,6 +1602,72 @@ class DefaultApi {
 
     }
 
+    def ingredientSearch ( String query, Boolean addChildren, BigDecimal minProteinPercent, BigDecimal maxProteinPercent, BigDecimal minFatPercent, BigDecimal maxFatPercent, BigDecimal minCarbsPercent, BigDecimal maxCarbsPercent, Boolean metaInformation, String intolerances, String sort, String sortDirection, BigDecimal offset, BigDecimal number, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/food/ingredients/search"
+
+        // params
+        def queryParams = [:]
+        def headerParams = [:]
+        def bodyParams
+        def contentType
+
+        // verify required params are set
+        if (query == null) {
+            throw new RuntimeException("missing required params query")
+        }
+
+        if (query != null) {
+            queryParams.put("query", query)
+        }
+        if (addChildren != null) {
+            queryParams.put("addChildren", addChildren)
+        }
+        if (minProteinPercent != null) {
+            queryParams.put("minProteinPercent", minProteinPercent)
+        }
+        if (maxProteinPercent != null) {
+            queryParams.put("maxProteinPercent", maxProteinPercent)
+        }
+        if (minFatPercent != null) {
+            queryParams.put("minFatPercent", minFatPercent)
+        }
+        if (maxFatPercent != null) {
+            queryParams.put("maxFatPercent", maxFatPercent)
+        }
+        if (minCarbsPercent != null) {
+            queryParams.put("minCarbsPercent", minCarbsPercent)
+        }
+        if (maxCarbsPercent != null) {
+            queryParams.put("maxCarbsPercent", maxCarbsPercent)
+        }
+        if (metaInformation != null) {
+            queryParams.put("metaInformation", metaInformation)
+        }
+        if (intolerances != null) {
+            queryParams.put("intolerances", intolerances)
+        }
+        if (sort != null) {
+            queryParams.put("sort", sort)
+        }
+        if (sortDirection != null) {
+            queryParams.put("sortDirection", sortDirection)
+        }
+        if (offset != null) {
+            queryParams.put("offset", offset)
+        }
+        if (number != null) {
+            queryParams.put("number", number)
+        }
+
+
+
+
+        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
+                    "GET", "",
+                    Object.class )
+
+    }
+
     def mapIngredientsToGroceryProducts ( Object body, Closure onSuccess, Closure onFailure)  {
         String resourcePath = "/food/ingredients/map"
 
@@ -1559,6 +1743,39 @@ class DefaultApi {
 
         if (q != null) {
             queryParams.put("q", q)
+        }
+
+
+
+
+        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
+                    "GET", "",
+                    Object.class )
+
+    }
+
+    def searchAllFood ( String query, BigDecimal offset, BigDecimal number, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/food/search"
+
+        // params
+        def queryParams = [:]
+        def headerParams = [:]
+        def bodyParams
+        def contentType
+
+        // verify required params are set
+        if (query == null) {
+            throw new RuntimeException("missing required params query")
+        }
+
+        if (query != null) {
+            queryParams.put("query", query)
+        }
+        if (offset != null) {
+            queryParams.put("offset", offset)
+        }
+        if (number != null) {
+            queryParams.put("number", number)
         }
 
 
@@ -1809,345 +2026,7 @@ class DefaultApi {
 
     }
 
-    def searchRecipes ( String query, String cuisine, String diet, String excludeIngredients, String intolerances, BigDecimal offset, BigDecimal number, Boolean limitLicense, Boolean instructionsRequired, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/recipes/search"
-
-        // params
-        def queryParams = [:]
-        def headerParams = [:]
-        def bodyParams
-        def contentType
-
-        // verify required params are set
-        if (query == null) {
-            throw new RuntimeException("missing required params query")
-        }
-
-        if (query != null) {
-            queryParams.put("query", query)
-        }
-        if (cuisine != null) {
-            queryParams.put("cuisine", cuisine)
-        }
-        if (diet != null) {
-            queryParams.put("diet", diet)
-        }
-        if (excludeIngredients != null) {
-            queryParams.put("excludeIngredients", excludeIngredients)
-        }
-        if (intolerances != null) {
-            queryParams.put("intolerances", intolerances)
-        }
-        if (offset != null) {
-            queryParams.put("offset", offset)
-        }
-        if (number != null) {
-            queryParams.put("number", number)
-        }
-        if (limitLicense != null) {
-            queryParams.put("limitLicense", limitLicense)
-        }
-        if (instructionsRequired != null) {
-            queryParams.put("instructionsRequired", instructionsRequired)
-        }
-
-
-
-
-        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
-                    "GET", "",
-                    Object.class )
-
-    }
-
-    def searchRecipesByIngredients ( String ingredients, BigDecimal number, Boolean limitLicense, BigDecimal ranking, Boolean ignorePantry, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/recipes/findByIngredients"
-
-        // params
-        def queryParams = [:]
-        def headerParams = [:]
-        def bodyParams
-        def contentType
-
-        // verify required params are set
-        if (ingredients == null) {
-            throw new RuntimeException("missing required params ingredients")
-        }
-
-        if (ingredients != null) {
-            queryParams.put("ingredients", ingredients)
-        }
-        if (number != null) {
-            queryParams.put("number", number)
-        }
-        if (limitLicense != null) {
-            queryParams.put("limitLicense", limitLicense)
-        }
-        if (ranking != null) {
-            queryParams.put("ranking", ranking)
-        }
-        if (ignorePantry != null) {
-            queryParams.put("ignorePantry", ignorePantry)
-        }
-
-
-
-
-        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
-                    "GET", "",
-                    Object.class )
-
-    }
-
-    def searchRecipesByNutrients ( BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minFat, BigDecimal maxFat, BigDecimal minAlcohol, BigDecimal maxAlcohol, BigDecimal minCaffeine, BigDecimal maxCaffeine, BigDecimal minCopper, BigDecimal maxCopper, BigDecimal minCalcium, BigDecimal maxCalcium, BigDecimal minCholine, BigDecimal maxCholine, BigDecimal minCholesterol, BigDecimal maxCholesterol, BigDecimal minFluoride, BigDecimal maxFluoride, BigDecimal minSaturatedFat, BigDecimal maxSaturatedFat, BigDecimal minVitaminA, BigDecimal maxVitaminA, BigDecimal minVitaminC, BigDecimal maxVitaminC, BigDecimal minVitaminD, BigDecimal maxVitaminD, BigDecimal minVitaminE, BigDecimal maxVitaminE, BigDecimal minVitaminK, BigDecimal maxVitaminK, BigDecimal minVitaminB1, BigDecimal maxVitaminB1, BigDecimal minVitaminB2, BigDecimal maxVitaminB2, BigDecimal minVitaminB5, BigDecimal maxVitaminB5, BigDecimal minVitaminB3, BigDecimal maxVitaminB3, BigDecimal minVitaminB6, BigDecimal maxVitaminB6, BigDecimal minVitaminB12, BigDecimal maxVitaminB12, BigDecimal minFiber, BigDecimal maxFiber, BigDecimal minFolate, BigDecimal maxFolate, BigDecimal minFolicAcid, BigDecimal maxFolicAcid, BigDecimal minIodine, BigDecimal maxIodine, BigDecimal minIron, BigDecimal maxIron, BigDecimal minMagnesium, BigDecimal maxMagnesium, BigDecimal minManganese, BigDecimal maxManganese, BigDecimal minPhosphorus, BigDecimal maxPhosphorus, BigDecimal minPotassium, BigDecimal maxPotassium, BigDecimal minSelenium, BigDecimal maxSelenium, BigDecimal minSodium, BigDecimal maxSodium, BigDecimal minSugar, BigDecimal maxSugar, BigDecimal minZinc, BigDecimal maxZinc, BigDecimal offset, BigDecimal number, Boolean random, Boolean limitLicense, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/recipes/findByNutrients"
-
-        // params
-        def queryParams = [:]
-        def headerParams = [:]
-        def bodyParams
-        def contentType
-
-
-        if (minCarbs != null) {
-            queryParams.put("minCarbs", minCarbs)
-        }
-        if (maxCarbs != null) {
-            queryParams.put("maxCarbs", maxCarbs)
-        }
-        if (minProtein != null) {
-            queryParams.put("minProtein", minProtein)
-        }
-        if (maxProtein != null) {
-            queryParams.put("maxProtein", maxProtein)
-        }
-        if (minCalories != null) {
-            queryParams.put("minCalories", minCalories)
-        }
-        if (maxCalories != null) {
-            queryParams.put("maxCalories", maxCalories)
-        }
-        if (minFat != null) {
-            queryParams.put("minFat", minFat)
-        }
-        if (maxFat != null) {
-            queryParams.put("maxFat", maxFat)
-        }
-        if (minAlcohol != null) {
-            queryParams.put("minAlcohol", minAlcohol)
-        }
-        if (maxAlcohol != null) {
-            queryParams.put("maxAlcohol", maxAlcohol)
-        }
-        if (minCaffeine != null) {
-            queryParams.put("minCaffeine", minCaffeine)
-        }
-        if (maxCaffeine != null) {
-            queryParams.put("maxCaffeine", maxCaffeine)
-        }
-        if (minCopper != null) {
-            queryParams.put("minCopper", minCopper)
-        }
-        if (maxCopper != null) {
-            queryParams.put("maxCopper", maxCopper)
-        }
-        if (minCalcium != null) {
-            queryParams.put("minCalcium", minCalcium)
-        }
-        if (maxCalcium != null) {
-            queryParams.put("maxCalcium", maxCalcium)
-        }
-        if (minCholine != null) {
-            queryParams.put("minCholine", minCholine)
-        }
-        if (maxCholine != null) {
-            queryParams.put("maxCholine", maxCholine)
-        }
-        if (minCholesterol != null) {
-            queryParams.put("minCholesterol", minCholesterol)
-        }
-        if (maxCholesterol != null) {
-            queryParams.put("maxCholesterol", maxCholesterol)
-        }
-        if (minFluoride != null) {
-            queryParams.put("minFluoride", minFluoride)
-        }
-        if (maxFluoride != null) {
-            queryParams.put("maxFluoride", maxFluoride)
-        }
-        if (minSaturatedFat != null) {
-            queryParams.put("minSaturatedFat", minSaturatedFat)
-        }
-        if (maxSaturatedFat != null) {
-            queryParams.put("maxSaturatedFat", maxSaturatedFat)
-        }
-        if (minVitaminA != null) {
-            queryParams.put("minVitaminA", minVitaminA)
-        }
-        if (maxVitaminA != null) {
-            queryParams.put("maxVitaminA", maxVitaminA)
-        }
-        if (minVitaminC != null) {
-            queryParams.put("minVitaminC", minVitaminC)
-        }
-        if (maxVitaminC != null) {
-            queryParams.put("maxVitaminC", maxVitaminC)
-        }
-        if (minVitaminD != null) {
-            queryParams.put("minVitaminD", minVitaminD)
-        }
-        if (maxVitaminD != null) {
-            queryParams.put("maxVitaminD", maxVitaminD)
-        }
-        if (minVitaminE != null) {
-            queryParams.put("minVitaminE", minVitaminE)
-        }
-        if (maxVitaminE != null) {
-            queryParams.put("maxVitaminE", maxVitaminE)
-        }
-        if (minVitaminK != null) {
-            queryParams.put("minVitaminK", minVitaminK)
-        }
-        if (maxVitaminK != null) {
-            queryParams.put("maxVitaminK", maxVitaminK)
-        }
-        if (minVitaminB1 != null) {
-            queryParams.put("minVitaminB1", minVitaminB1)
-        }
-        if (maxVitaminB1 != null) {
-            queryParams.put("maxVitaminB1", maxVitaminB1)
-        }
-        if (minVitaminB2 != null) {
-            queryParams.put("minVitaminB2", minVitaminB2)
-        }
-        if (maxVitaminB2 != null) {
-            queryParams.put("maxVitaminB2", maxVitaminB2)
-        }
-        if (minVitaminB5 != null) {
-            queryParams.put("minVitaminB5", minVitaminB5)
-        }
-        if (maxVitaminB5 != null) {
-            queryParams.put("maxVitaminB5", maxVitaminB5)
-        }
-        if (minVitaminB3 != null) {
-            queryParams.put("minVitaminB3", minVitaminB3)
-        }
-        if (maxVitaminB3 != null) {
-            queryParams.put("maxVitaminB3", maxVitaminB3)
-        }
-        if (minVitaminB6 != null) {
-            queryParams.put("minVitaminB6", minVitaminB6)
-        }
-        if (maxVitaminB6 != null) {
-            queryParams.put("maxVitaminB6", maxVitaminB6)
-        }
-        if (minVitaminB12 != null) {
-            queryParams.put("minVitaminB12", minVitaminB12)
-        }
-        if (maxVitaminB12 != null) {
-            queryParams.put("maxVitaminB12", maxVitaminB12)
-        }
-        if (minFiber != null) {
-            queryParams.put("minFiber", minFiber)
-        }
-        if (maxFiber != null) {
-            queryParams.put("maxFiber", maxFiber)
-        }
-        if (minFolate != null) {
-            queryParams.put("minFolate", minFolate)
-        }
-        if (maxFolate != null) {
-            queryParams.put("maxFolate", maxFolate)
-        }
-        if (minFolicAcid != null) {
-            queryParams.put("minFolicAcid", minFolicAcid)
-        }
-        if (maxFolicAcid != null) {
-            queryParams.put("maxFolicAcid", maxFolicAcid)
-        }
-        if (minIodine != null) {
-            queryParams.put("minIodine", minIodine)
-        }
-        if (maxIodine != null) {
-            queryParams.put("maxIodine", maxIodine)
-        }
-        if (minIron != null) {
-            queryParams.put("minIron", minIron)
-        }
-        if (maxIron != null) {
-            queryParams.put("maxIron", maxIron)
-        }
-        if (minMagnesium != null) {
-            queryParams.put("minMagnesium", minMagnesium)
-        }
-        if (maxMagnesium != null) {
-            queryParams.put("maxMagnesium", maxMagnesium)
-        }
-        if (minManganese != null) {
-            queryParams.put("minManganese", minManganese)
-        }
-        if (maxManganese != null) {
-            queryParams.put("maxManganese", maxManganese)
-        }
-        if (minPhosphorus != null) {
-            queryParams.put("minPhosphorus", minPhosphorus)
-        }
-        if (maxPhosphorus != null) {
-            queryParams.put("maxPhosphorus", maxPhosphorus)
-        }
-        if (minPotassium != null) {
-            queryParams.put("minPotassium", minPotassium)
-        }
-        if (maxPotassium != null) {
-            queryParams.put("maxPotassium", maxPotassium)
-        }
-        if (minSelenium != null) {
-            queryParams.put("minSelenium", minSelenium)
-        }
-        if (maxSelenium != null) {
-            queryParams.put("maxSelenium", maxSelenium)
-        }
-        if (minSodium != null) {
-            queryParams.put("minSodium", minSodium)
-        }
-        if (maxSodium != null) {
-            queryParams.put("maxSodium", maxSodium)
-        }
-        if (minSugar != null) {
-            queryParams.put("minSugar", minSugar)
-        }
-        if (maxSugar != null) {
-            queryParams.put("maxSugar", maxSugar)
-        }
-        if (minZinc != null) {
-            queryParams.put("minZinc", minZinc)
-        }
-        if (maxZinc != null) {
-            queryParams.put("maxZinc", maxZinc)
-        }
-        if (offset != null) {
-            queryParams.put("offset", offset)
-        }
-        if (number != null) {
-            queryParams.put("number", number)
-        }
-        if (random != null) {
-            queryParams.put("random", random)
-        }
-        if (limitLicense != null) {
-            queryParams.put("limitLicense", limitLicense)
-        }
-
-
-
-
-        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
-                    "GET", "",
-                    Object.class )
-
-    }
-
-    def searchRecipesComplex ( String query, String cuisine, String excludeCuisine, String diet, String intolerances, String equipment, String includeIngredients, String excludeIngredients, String type, Boolean instructionsRequired, Boolean fillIngredients, Boolean addRecipeInformation, Boolean addRecipeNutrition, String author, String tags, BigDecimal recipeBoxId, String titleMatch, BigDecimal maxReadyTime, Boolean ignorePantry, String sort, String sortDirection, BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minFat, BigDecimal maxFat, BigDecimal minAlcohol, BigDecimal maxAlcohol, BigDecimal minCaffeine, BigDecimal maxCaffeine, BigDecimal minCopper, BigDecimal maxCopper, BigDecimal minCalcium, BigDecimal maxCalcium, BigDecimal minCholine, BigDecimal maxCholine, BigDecimal minCholesterol, BigDecimal maxCholesterol, BigDecimal minFluoride, BigDecimal maxFluoride, BigDecimal minSaturatedFat, BigDecimal maxSaturatedFat, BigDecimal minVitaminA, BigDecimal maxVitaminA, BigDecimal minVitaminC, BigDecimal maxVitaminC, BigDecimal minVitaminD, BigDecimal maxVitaminD, BigDecimal minVitaminE, BigDecimal maxVitaminE, BigDecimal minVitaminK, BigDecimal maxVitaminK, BigDecimal minVitaminB1, BigDecimal maxVitaminB1, BigDecimal minVitaminB2, BigDecimal maxVitaminB2, BigDecimal minVitaminB5, BigDecimal maxVitaminB5, BigDecimal minVitaminB3, BigDecimal maxVitaminB3, BigDecimal minVitaminB6, BigDecimal maxVitaminB6, BigDecimal minVitaminB12, BigDecimal maxVitaminB12, BigDecimal minFiber, BigDecimal maxFiber, BigDecimal minFolate, BigDecimal maxFolate, BigDecimal minFolicAcid, BigDecimal maxFolicAcid, BigDecimal minIodine, BigDecimal maxIodine, BigDecimal minIron, BigDecimal maxIron, BigDecimal minMagnesium, BigDecimal maxMagnesium, BigDecimal minManganese, BigDecimal maxManganese, BigDecimal minPhosphorus, BigDecimal maxPhosphorus, BigDecimal minPotassium, BigDecimal maxPotassium, BigDecimal minSelenium, BigDecimal maxSelenium, BigDecimal minSodium, BigDecimal maxSodium, BigDecimal minSugar, BigDecimal maxSugar, BigDecimal minZinc, BigDecimal maxZinc, BigDecimal offset, BigDecimal number, Boolean limitLicense, Closure onSuccess, Closure onFailure)  {
+    def searchRecipes ( String query, String cuisine, String excludeCuisine, String diet, String intolerances, String equipment, String includeIngredients, String excludeIngredients, String type, Boolean instructionsRequired, Boolean fillIngredients, Boolean addRecipeInformation, Boolean addRecipeNutrition, String author, String tags, BigDecimal recipeBoxId, String titleMatch, BigDecimal maxReadyTime, Boolean ignorePantry, String sort, String sortDirection, BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minFat, BigDecimal maxFat, BigDecimal minAlcohol, BigDecimal maxAlcohol, BigDecimal minCaffeine, BigDecimal maxCaffeine, BigDecimal minCopper, BigDecimal maxCopper, BigDecimal minCalcium, BigDecimal maxCalcium, BigDecimal minCholine, BigDecimal maxCholine, BigDecimal minCholesterol, BigDecimal maxCholesterol, BigDecimal minFluoride, BigDecimal maxFluoride, BigDecimal minSaturatedFat, BigDecimal maxSaturatedFat, BigDecimal minVitaminA, BigDecimal maxVitaminA, BigDecimal minVitaminC, BigDecimal maxVitaminC, BigDecimal minVitaminD, BigDecimal maxVitaminD, BigDecimal minVitaminE, BigDecimal maxVitaminE, BigDecimal minVitaminK, BigDecimal maxVitaminK, BigDecimal minVitaminB1, BigDecimal maxVitaminB1, BigDecimal minVitaminB2, BigDecimal maxVitaminB2, BigDecimal minVitaminB5, BigDecimal maxVitaminB5, BigDecimal minVitaminB3, BigDecimal maxVitaminB3, BigDecimal minVitaminB6, BigDecimal maxVitaminB6, BigDecimal minVitaminB12, BigDecimal maxVitaminB12, BigDecimal minFiber, BigDecimal maxFiber, BigDecimal minFolate, BigDecimal maxFolate, BigDecimal minFolicAcid, BigDecimal maxFolicAcid, BigDecimal minIodine, BigDecimal maxIodine, BigDecimal minIron, BigDecimal maxIron, BigDecimal minMagnesium, BigDecimal maxMagnesium, BigDecimal minManganese, BigDecimal maxManganese, BigDecimal minPhosphorus, BigDecimal maxPhosphorus, BigDecimal minPotassium, BigDecimal maxPotassium, BigDecimal minSelenium, BigDecimal maxSelenium, BigDecimal minSodium, BigDecimal maxSodium, BigDecimal minSugar, BigDecimal maxSugar, BigDecimal minZinc, BigDecimal maxZinc, BigDecimal offset, BigDecimal number, Boolean limitLicense, Closure onSuccess, Closure onFailure)  {
         String resourcePath = "/recipes/complexSearch"
 
         // params
@@ -2459,6 +2338,293 @@ class DefaultApi {
 
     }
 
+    def searchRecipesByIngredients ( String ingredients, BigDecimal number, Boolean limitLicense, BigDecimal ranking, Boolean ignorePantry, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/recipes/findByIngredients"
+
+        // params
+        def queryParams = [:]
+        def headerParams = [:]
+        def bodyParams
+        def contentType
+
+        // verify required params are set
+        if (ingredients == null) {
+            throw new RuntimeException("missing required params ingredients")
+        }
+
+        if (ingredients != null) {
+            queryParams.put("ingredients", ingredients)
+        }
+        if (number != null) {
+            queryParams.put("number", number)
+        }
+        if (limitLicense != null) {
+            queryParams.put("limitLicense", limitLicense)
+        }
+        if (ranking != null) {
+            queryParams.put("ranking", ranking)
+        }
+        if (ignorePantry != null) {
+            queryParams.put("ignorePantry", ignorePantry)
+        }
+
+
+
+
+        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
+                    "GET", "",
+                    Object.class )
+
+    }
+
+    def searchRecipesByNutrients ( BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minFat, BigDecimal maxFat, BigDecimal minAlcohol, BigDecimal maxAlcohol, BigDecimal minCaffeine, BigDecimal maxCaffeine, BigDecimal minCopper, BigDecimal maxCopper, BigDecimal minCalcium, BigDecimal maxCalcium, BigDecimal minCholine, BigDecimal maxCholine, BigDecimal minCholesterol, BigDecimal maxCholesterol, BigDecimal minFluoride, BigDecimal maxFluoride, BigDecimal minSaturatedFat, BigDecimal maxSaturatedFat, BigDecimal minVitaminA, BigDecimal maxVitaminA, BigDecimal minVitaminC, BigDecimal maxVitaminC, BigDecimal minVitaminD, BigDecimal maxVitaminD, BigDecimal minVitaminE, BigDecimal maxVitaminE, BigDecimal minVitaminK, BigDecimal maxVitaminK, BigDecimal minVitaminB1, BigDecimal maxVitaminB1, BigDecimal minVitaminB2, BigDecimal maxVitaminB2, BigDecimal minVitaminB5, BigDecimal maxVitaminB5, BigDecimal minVitaminB3, BigDecimal maxVitaminB3, BigDecimal minVitaminB6, BigDecimal maxVitaminB6, BigDecimal minVitaminB12, BigDecimal maxVitaminB12, BigDecimal minFiber, BigDecimal maxFiber, BigDecimal minFolate, BigDecimal maxFolate, BigDecimal minFolicAcid, BigDecimal maxFolicAcid, BigDecimal minIodine, BigDecimal maxIodine, BigDecimal minIron, BigDecimal maxIron, BigDecimal minMagnesium, BigDecimal maxMagnesium, BigDecimal minManganese, BigDecimal maxManganese, BigDecimal minPhosphorus, BigDecimal maxPhosphorus, BigDecimal minPotassium, BigDecimal maxPotassium, BigDecimal minSelenium, BigDecimal maxSelenium, BigDecimal minSodium, BigDecimal maxSodium, BigDecimal minSugar, BigDecimal maxSugar, BigDecimal minZinc, BigDecimal maxZinc, BigDecimal offset, BigDecimal number, Boolean random, Boolean limitLicense, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/recipes/findByNutrients"
+
+        // params
+        def queryParams = [:]
+        def headerParams = [:]
+        def bodyParams
+        def contentType
+
+
+        if (minCarbs != null) {
+            queryParams.put("minCarbs", minCarbs)
+        }
+        if (maxCarbs != null) {
+            queryParams.put("maxCarbs", maxCarbs)
+        }
+        if (minProtein != null) {
+            queryParams.put("minProtein", minProtein)
+        }
+        if (maxProtein != null) {
+            queryParams.put("maxProtein", maxProtein)
+        }
+        if (minCalories != null) {
+            queryParams.put("minCalories", minCalories)
+        }
+        if (maxCalories != null) {
+            queryParams.put("maxCalories", maxCalories)
+        }
+        if (minFat != null) {
+            queryParams.put("minFat", minFat)
+        }
+        if (maxFat != null) {
+            queryParams.put("maxFat", maxFat)
+        }
+        if (minAlcohol != null) {
+            queryParams.put("minAlcohol", minAlcohol)
+        }
+        if (maxAlcohol != null) {
+            queryParams.put("maxAlcohol", maxAlcohol)
+        }
+        if (minCaffeine != null) {
+            queryParams.put("minCaffeine", minCaffeine)
+        }
+        if (maxCaffeine != null) {
+            queryParams.put("maxCaffeine", maxCaffeine)
+        }
+        if (minCopper != null) {
+            queryParams.put("minCopper", minCopper)
+        }
+        if (maxCopper != null) {
+            queryParams.put("maxCopper", maxCopper)
+        }
+        if (minCalcium != null) {
+            queryParams.put("minCalcium", minCalcium)
+        }
+        if (maxCalcium != null) {
+            queryParams.put("maxCalcium", maxCalcium)
+        }
+        if (minCholine != null) {
+            queryParams.put("minCholine", minCholine)
+        }
+        if (maxCholine != null) {
+            queryParams.put("maxCholine", maxCholine)
+        }
+        if (minCholesterol != null) {
+            queryParams.put("minCholesterol", minCholesterol)
+        }
+        if (maxCholesterol != null) {
+            queryParams.put("maxCholesterol", maxCholesterol)
+        }
+        if (minFluoride != null) {
+            queryParams.put("minFluoride", minFluoride)
+        }
+        if (maxFluoride != null) {
+            queryParams.put("maxFluoride", maxFluoride)
+        }
+        if (minSaturatedFat != null) {
+            queryParams.put("minSaturatedFat", minSaturatedFat)
+        }
+        if (maxSaturatedFat != null) {
+            queryParams.put("maxSaturatedFat", maxSaturatedFat)
+        }
+        if (minVitaminA != null) {
+            queryParams.put("minVitaminA", minVitaminA)
+        }
+        if (maxVitaminA != null) {
+            queryParams.put("maxVitaminA", maxVitaminA)
+        }
+        if (minVitaminC != null) {
+            queryParams.put("minVitaminC", minVitaminC)
+        }
+        if (maxVitaminC != null) {
+            queryParams.put("maxVitaminC", maxVitaminC)
+        }
+        if (minVitaminD != null) {
+            queryParams.put("minVitaminD", minVitaminD)
+        }
+        if (maxVitaminD != null) {
+            queryParams.put("maxVitaminD", maxVitaminD)
+        }
+        if (minVitaminE != null) {
+            queryParams.put("minVitaminE", minVitaminE)
+        }
+        if (maxVitaminE != null) {
+            queryParams.put("maxVitaminE", maxVitaminE)
+        }
+        if (minVitaminK != null) {
+            queryParams.put("minVitaminK", minVitaminK)
+        }
+        if (maxVitaminK != null) {
+            queryParams.put("maxVitaminK", maxVitaminK)
+        }
+        if (minVitaminB1 != null) {
+            queryParams.put("minVitaminB1", minVitaminB1)
+        }
+        if (maxVitaminB1 != null) {
+            queryParams.put("maxVitaminB1", maxVitaminB1)
+        }
+        if (minVitaminB2 != null) {
+            queryParams.put("minVitaminB2", minVitaminB2)
+        }
+        if (maxVitaminB2 != null) {
+            queryParams.put("maxVitaminB2", maxVitaminB2)
+        }
+        if (minVitaminB5 != null) {
+            queryParams.put("minVitaminB5", minVitaminB5)
+        }
+        if (maxVitaminB5 != null) {
+            queryParams.put("maxVitaminB5", maxVitaminB5)
+        }
+        if (minVitaminB3 != null) {
+            queryParams.put("minVitaminB3", minVitaminB3)
+        }
+        if (maxVitaminB3 != null) {
+            queryParams.put("maxVitaminB3", maxVitaminB3)
+        }
+        if (minVitaminB6 != null) {
+            queryParams.put("minVitaminB6", minVitaminB6)
+        }
+        if (maxVitaminB6 != null) {
+            queryParams.put("maxVitaminB6", maxVitaminB6)
+        }
+        if (minVitaminB12 != null) {
+            queryParams.put("minVitaminB12", minVitaminB12)
+        }
+        if (maxVitaminB12 != null) {
+            queryParams.put("maxVitaminB12", maxVitaminB12)
+        }
+        if (minFiber != null) {
+            queryParams.put("minFiber", minFiber)
+        }
+        if (maxFiber != null) {
+            queryParams.put("maxFiber", maxFiber)
+        }
+        if (minFolate != null) {
+            queryParams.put("minFolate", minFolate)
+        }
+        if (maxFolate != null) {
+            queryParams.put("maxFolate", maxFolate)
+        }
+        if (minFolicAcid != null) {
+            queryParams.put("minFolicAcid", minFolicAcid)
+        }
+        if (maxFolicAcid != null) {
+            queryParams.put("maxFolicAcid", maxFolicAcid)
+        }
+        if (minIodine != null) {
+            queryParams.put("minIodine", minIodine)
+        }
+        if (maxIodine != null) {
+            queryParams.put("maxIodine", maxIodine)
+        }
+        if (minIron != null) {
+            queryParams.put("minIron", minIron)
+        }
+        if (maxIron != null) {
+            queryParams.put("maxIron", maxIron)
+        }
+        if (minMagnesium != null) {
+            queryParams.put("minMagnesium", minMagnesium)
+        }
+        if (maxMagnesium != null) {
+            queryParams.put("maxMagnesium", maxMagnesium)
+        }
+        if (minManganese != null) {
+            queryParams.put("minManganese", minManganese)
+        }
+        if (maxManganese != null) {
+            queryParams.put("maxManganese", maxManganese)
+        }
+        if (minPhosphorus != null) {
+            queryParams.put("minPhosphorus", minPhosphorus)
+        }
+        if (maxPhosphorus != null) {
+            queryParams.put("maxPhosphorus", maxPhosphorus)
+        }
+        if (minPotassium != null) {
+            queryParams.put("minPotassium", minPotassium)
+        }
+        if (maxPotassium != null) {
+            queryParams.put("maxPotassium", maxPotassium)
+        }
+        if (minSelenium != null) {
+            queryParams.put("minSelenium", minSelenium)
+        }
+        if (maxSelenium != null) {
+            queryParams.put("maxSelenium", maxSelenium)
+        }
+        if (minSodium != null) {
+            queryParams.put("minSodium", minSodium)
+        }
+        if (maxSodium != null) {
+            queryParams.put("maxSodium", maxSodium)
+        }
+        if (minSugar != null) {
+            queryParams.put("minSugar", minSugar)
+        }
+        if (maxSugar != null) {
+            queryParams.put("maxSugar", maxSugar)
+        }
+        if (minZinc != null) {
+            queryParams.put("minZinc", minZinc)
+        }
+        if (maxZinc != null) {
+            queryParams.put("maxZinc", maxZinc)
+        }
+        if (offset != null) {
+            queryParams.put("offset", offset)
+        }
+        if (number != null) {
+            queryParams.put("number", number)
+        }
+        if (random != null) {
+            queryParams.put("random", random)
+        }
+        if (limitLicense != null) {
+            queryParams.put("limitLicense", limitLicense)
+        }
+
+
+
+
+        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
+                    "GET", "",
+                    Object.class )
+
+    }
+
     def searchSiteContent ( String query, Closure onSuccess, Closure onFailure)  {
         String resourcePath = "/food/site/search"
 
@@ -2540,7 +2706,7 @@ class DefaultApi {
 
     }
 
-    def visualizeEquipment ( String ingredientList, BigDecimal servings, String view, Boolean defaultCss, Boolean showBacklink, Closure onSuccess, Closure onFailure)  {
+    def visualizeEquipment ( String instructions, String view, Boolean defaultCss, Boolean showBacklink, Closure onSuccess, Closure onFailure)  {
         String resourcePath = "/recipes/visualizeEquipment"
 
         // params
@@ -2550,12 +2716,8 @@ class DefaultApi {
         def contentType
 
         // verify required params are set
-        if (ingredientList == null) {
-            throw new RuntimeException("missing required params ingredientList")
-        }
-        // verify required params are set
-        if (servings == null) {
-            throw new RuntimeException("missing required params servings")
+        if (instructions == null) {
+            throw new RuntimeException("missing required params instructions")
         }
 
 
@@ -2563,8 +2725,7 @@ class DefaultApi {
 
         contentType = 'application/x-www-form-urlencoded';
         bodyParams = [:]
-        bodyParams.put("ingredientList", ingredientList)
-        bodyParams.put("servings", servings)
+        bodyParams.put("instructions", instructions)
         bodyParams.put("view", view)
         bodyParams.put("defaultCss", defaultCss)
         bodyParams.put("showBacklink", showBacklink)
@@ -2832,6 +2993,56 @@ class DefaultApi {
         if (defaultCss != null) {
             queryParams.put("defaultCss", defaultCss)
         }
+
+
+
+
+        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
+                    "GET", "",
+                    String.class )
+
+    }
+
+    def visualizeRecipeTaste ( String ingredientList, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/recipes/visualizeTaste"
+
+        // params
+        def queryParams = [:]
+        def headerParams = [:]
+        def bodyParams
+        def contentType
+
+        // verify required params are set
+        if (ingredientList == null) {
+            throw new RuntimeException("missing required params ingredientList")
+        }
+
+
+
+
+        contentType = 'application/x-www-form-urlencoded';
+        bodyParams = ingredientList
+
+        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
+                    "POST", "",
+                    String.class )
+
+    }
+
+    def visualizeRecipeTasteByID ( BigDecimal id, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/recipes/${id}/tasteWidget"
+
+        // params
+        def queryParams = [:]
+        def headerParams = [:]
+        def bodyParams
+        def contentType
+
+        // verify required params are set
+        if (id == null) {
+            throw new RuntimeException("missing required params id")
+        }
+
 
 
 

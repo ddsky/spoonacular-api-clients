@@ -161,30 +161,21 @@ __PACKAGE__->class_documentation({description => '',
 }                                 );
 
 __PACKAGE__->method_documentation({
-    'username' => {
+    'locale' => {
         datatype => 'string',
-        base_name => 'username',
-        description => 'The username.',
-        format => '',
-        read_only => '',
-            },
-    'hash' => {
-        datatype => 'string',
-        base_name => 'hash',
-        description => 'The private hash for the username.',
+        base_name => 'locale',
+        description => 'The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).',
         format => '',
         read_only => '',
             },
 });
 
 __PACKAGE__->openapi_types( {
-    'username' => 'string',
-    'hash' => 'string'
+    'locale' => 'string'
 } );
 
 __PACKAGE__->attribute_map( {
-    'username' => 'username',
-    'hash' => 'hash'
+    'locale' => 'locale'
 } );
 
 __PACKAGE__->mk_accessors(keys %{__PACKAGE__->attribute_map});

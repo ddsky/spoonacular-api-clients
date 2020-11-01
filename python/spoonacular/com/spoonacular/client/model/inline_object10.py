@@ -33,26 +33,26 @@ class InlineObject10(object):
     """
     openapi_types = {
         'username': 'str',
-        'id': 'float',
+        'date': 'str',
         'hash': 'str'
     }
 
     attribute_map = {
         'username': 'username',
-        'id': 'id',
+        'date': 'date',
         'hash': 'hash'
     }
 
-    def __init__(self, username=None, id=None, hash=None):  # noqa: E501
+    def __init__(self, username=None, date=None, hash=None):  # noqa: E501
         """InlineObject10 - a model defined in OpenAPI"""  # noqa: E501
 
         self._username = None
-        self._id = None
+        self._date = None
         self._hash = None
         self.discriminator = None
 
         self.username = username
-        self.id = id
+        self.date = date
         self.hash = hash
 
     @property
@@ -81,29 +81,29 @@ class InlineObject10(object):
         self._username = username
 
     @property
-    def id(self):
-        """Gets the id of this InlineObject10.  # noqa: E501
+    def date(self):
+        """Gets the date of this InlineObject10.  # noqa: E501
 
-        The shopping list item id.  # noqa: E501
+        The date in the format yyyy-mm-dd.  # noqa: E501
 
-        :return: The id of this InlineObject10.  # noqa: E501
-        :rtype: float
+        :return: The date of this InlineObject10.  # noqa: E501
+        :rtype: str
         """
-        return self._id
+        return self._date
 
-    @id.setter
-    def id(self, id):
-        """Sets the id of this InlineObject10.
+    @date.setter
+    def date(self, date):
+        """Sets the date of this InlineObject10.
 
-        The shopping list item id.  # noqa: E501
+        The date in the format yyyy-mm-dd.  # noqa: E501
 
-        :param id: The id of this InlineObject10.  # noqa: E501
-        :type: float
+        :param date: The date of this InlineObject10.  # noqa: E501
+        :type: str
         """
-        if id is None:
-            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
+        if date is None:
+            raise ValueError("Invalid value for `date`, must not be `None`")  # noqa: E501
 
-        self._id = id
+        self._date = date
 
     @property
     def hash(self):

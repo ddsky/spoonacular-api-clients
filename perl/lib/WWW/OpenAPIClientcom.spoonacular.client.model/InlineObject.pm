@@ -168,41 +168,14 @@ __PACKAGE__->method_documentation({
         format => '',
         read_only => '',
             },
-    'servings' => {
-        datatype => 'double',
-        base_name => 'servings',
-        description => 'The number of servings.',
-        format => '',
-        read_only => '',
-            },
-    'default_css' => {
-        datatype => 'boolean',
-        base_name => 'defaultCss',
-        description => 'Whether the default CSS should be added to the response.',
-        format => '',
-        read_only => '',
-            },
-    'show_backlink' => {
-        datatype => 'boolean',
-        base_name => 'showBacklink',
-        description => 'Whether to show a backlink to spoonacular. If set false, this call counts against your quota.',
-        format => '',
-        read_only => '',
-            },
 });
 
 __PACKAGE__->openapi_types( {
-    'ingredient_list' => 'string',
-    'servings' => 'double',
-    'default_css' => 'boolean',
-    'show_backlink' => 'boolean'
+    'ingredient_list' => 'string'
 } );
 
 __PACKAGE__->attribute_map( {
-    'ingredient_list' => 'ingredientList',
-    'servings' => 'servings',
-    'default_css' => 'defaultCss',
-    'show_backlink' => 'showBacklink'
+    'ingredient_list' => 'ingredientList'
 } );
 
 __PACKAGE__->mk_accessors(keys %{__PACKAGE__->attribute_map});

@@ -235,6 +235,8 @@ use WWW::OpenAPIClient::Object::InlineObject11;
 use WWW::OpenAPIClient::Object::InlineObject12;
 use WWW::OpenAPIClient::Object::InlineObject13;
 use WWW::OpenAPIClient::Object::InlineObject14;
+use WWW::OpenAPIClient::Object::InlineObject15;
+use WWW::OpenAPIClient::Object::InlineObject16;
 use WWW::OpenAPIClient::Object::InlineObject2;
 use WWW::OpenAPIClient::Object::InlineObject3;
 use WWW::OpenAPIClient::Object::InlineObject4;
@@ -264,6 +266,8 @@ use WWW::OpenAPIClient::Object::InlineObject11;
 use WWW::OpenAPIClient::Object::InlineObject12;
 use WWW::OpenAPIClient::Object::InlineObject13;
 use WWW::OpenAPIClient::Object::InlineObject14;
+use WWW::OpenAPIClient::Object::InlineObject15;
+use WWW::OpenAPIClient::Object::InlineObject16;
 use WWW::OpenAPIClient::Object::InlineObject2;
 use WWW::OpenAPIClient::Object::InlineObject3;
 use WWW::OpenAPIClient::Object::InlineObject4;
@@ -282,10 +286,10 @@ my $api_instance = WWW::OpenAPIClient::->new(
 
 my $username = dsky; # string | The username.
 my $hash = 4b5v4398573406; # string | The private hash for the username.
-my $inline_object9 = WWW::OpenAPIClient::Object::InlineObject9->new(); # InlineObject9 | 
+my $inline_object11 = WWW::OpenAPIClient::Object::InlineObject11->new(); # InlineObject11 | 
 
 eval {
-    my $result = $api_instance->add_to_meal_plan(username => $username, hash => $hash, inline_object9 => $inline_object9);
+    my $result = $api_instance->add_to_meal_plan(username => $username, hash => $hash, inline_object11 => $inline_object11);
     print Dumper($result);
 };
 if ($@) {
@@ -311,6 +315,9 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**classify_cuisine**](docs/DefaultApi.md#classify_cuisine) | **POST** /recipes/cuisine | Classify Cuisine
 *DefaultApi* | [**classify_grocery_product**](docs/DefaultApi.md#classify_grocery_product) | **POST** /food/products/classify | Classify Grocery Product
 *DefaultApi* | [**classify_grocery_product_bulk**](docs/DefaultApi.md#classify_grocery_product_bulk) | **POST** /food/products/classifyBatch | Classify Grocery Product Bulk
+*DefaultApi* | [**clear_meal_plan_day**](docs/DefaultApi.md#clear_meal_plan_day) | **DELETE** /mealplanner/{username}/day/{date} | Clear Meal Plan Day
+*DefaultApi* | [**compute_glycemic_load**](docs/DefaultApi.md#compute_glycemic_load) | **POST** /food/ingredients/glycemicLoad | Compute Glycemic Load
+*DefaultApi* | [**connect_user**](docs/DefaultApi.md#connect_user) | **POST** /users/connect | Connect User
 *DefaultApi* | [**convert_amounts**](docs/DefaultApi.md#convert_amounts) | **GET** /recipes/convert | Convert Amounts
 *DefaultApi* | [**create_recipe_card**](docs/DefaultApi.md#create_recipe_card) | **POST** /recipes/visualizeRecipe | Create Recipe Card
 *DefaultApi* | [**delete_from_meal_plan**](docs/DefaultApi.md#delete_from_meal_plan) | **DELETE** /mealplanner/{username}/items/{id} | Delete from Meal Plan
@@ -340,6 +347,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**get_recipe_ingredients_by_id**](docs/DefaultApi.md#get_recipe_ingredients_by_id) | **GET** /recipes/{id}/ingredientWidget.json | Get Recipe Ingredients by ID
 *DefaultApi* | [**get_recipe_nutrition_widget_by_id**](docs/DefaultApi.md#get_recipe_nutrition_widget_by_id) | **GET** /recipes/{id}/nutritionWidget.json | Get Recipe Nutrition Widget by ID
 *DefaultApi* | [**get_recipe_price_breakdown_by_id**](docs/DefaultApi.md#get_recipe_price_breakdown_by_id) | **GET** /recipes/{id}/priceBreakdownWidget.json | Get Recipe Price Breakdown by ID
+*DefaultApi* | [**get_recipe_taste_by_id**](docs/DefaultApi.md#get_recipe_taste_by_id) | **GET** /recipes/{id}/tasteWidget.json | Get Recipe Taste by ID
 *DefaultApi* | [**get_shopping_list**](docs/DefaultApi.md#get_shopping_list) | **GET** /mealplanner/{username}/shopping-list | Get Shopping List
 *DefaultApi* | [**get_similar_recipes**](docs/DefaultApi.md#get_similar_recipes) | **GET** /recipes/{id}/similar | Get Similar Recipes
 *DefaultApi* | [**get_wine_description**](docs/DefaultApi.md#get_wine_description) | **GET** /food/wine/description | Get Wine Description
@@ -348,18 +356,19 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**guess_nutrition_by_dish_name**](docs/DefaultApi.md#guess_nutrition_by_dish_name) | **GET** /recipes/guessNutrition | Guess Nutrition by Dish Name
 *DefaultApi* | [**image_analysis_by_url**](docs/DefaultApi.md#image_analysis_by_url) | **GET** /food/images/analyze | Image Analysis by URL
 *DefaultApi* | [**image_classification_by_url**](docs/DefaultApi.md#image_classification_by_url) | **GET** /food/images/classify | Image Classification by URL
+*DefaultApi* | [**ingredient_search**](docs/DefaultApi.md#ingredient_search) | **GET** /food/ingredients/search | Ingredient Search
 *DefaultApi* | [**map_ingredients_to_grocery_products**](docs/DefaultApi.md#map_ingredients_to_grocery_products) | **POST** /food/ingredients/map | Map Ingredients to Grocery Products
 *DefaultApi* | [**parse_ingredients**](docs/DefaultApi.md#parse_ingredients) | **POST** /recipes/parseIngredients | Parse Ingredients
 *DefaultApi* | [**quick_answer**](docs/DefaultApi.md#quick_answer) | **GET** /recipes/quickAnswer | Quick Answer
+*DefaultApi* | [**search_all_food**](docs/DefaultApi.md#search_all_food) | **GET** /food/search | Search All Food
 *DefaultApi* | [**search_custom_foods**](docs/DefaultApi.md#search_custom_foods) | **GET** /food/customFoods/search | Search Custom Foods
 *DefaultApi* | [**search_food_videos**](docs/DefaultApi.md#search_food_videos) | **GET** /food/videos/search | Search Food Videos
 *DefaultApi* | [**search_grocery_products**](docs/DefaultApi.md#search_grocery_products) | **GET** /food/products/search | Search Grocery Products
 *DefaultApi* | [**search_grocery_products_by_upc**](docs/DefaultApi.md#search_grocery_products_by_upc) | **GET** /food/products/upc/{upc} | Search Grocery Products by UPC
 *DefaultApi* | [**search_menu_items**](docs/DefaultApi.md#search_menu_items) | **GET** /food/menuItems/search | Search Menu Items
-*DefaultApi* | [**search_recipes**](docs/DefaultApi.md#search_recipes) | **GET** /recipes/search | Search Recipes
+*DefaultApi* | [**search_recipes**](docs/DefaultApi.md#search_recipes) | **GET** /recipes/complexSearch | Search Recipes
 *DefaultApi* | [**search_recipes_by_ingredients**](docs/DefaultApi.md#search_recipes_by_ingredients) | **GET** /recipes/findByIngredients | Search Recipes by Ingredients
 *DefaultApi* | [**search_recipes_by_nutrients**](docs/DefaultApi.md#search_recipes_by_nutrients) | **GET** /recipes/findByNutrients | Search Recipes by Nutrients
-*DefaultApi* | [**search_recipes_complex**](docs/DefaultApi.md#search_recipes_complex) | **GET** /recipes/complexSearch | Search Recipes Complex
 *DefaultApi* | [**search_site_content**](docs/DefaultApi.md#search_site_content) | **GET** /food/site/search | Search Site Content
 *DefaultApi* | [**summarize_recipe**](docs/DefaultApi.md#summarize_recipe) | **GET** /recipes/{id}/summary | Summarize Recipe
 *DefaultApi* | [**talk_to_chatbot**](docs/DefaultApi.md#talk_to_chatbot) | **GET** /food/converse | Talk to Chatbot
@@ -373,6 +382,8 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**visualize_recipe_nutrition**](docs/DefaultApi.md#visualize_recipe_nutrition) | **POST** /recipes/visualizeNutrition | Visualize Recipe Nutrition
 *DefaultApi* | [**visualize_recipe_nutrition_by_id**](docs/DefaultApi.md#visualize_recipe_nutrition_by_id) | **GET** /recipes/{id}/nutritionWidget | Visualize Recipe Nutrition by ID
 *DefaultApi* | [**visualize_recipe_price_breakdown_by_id**](docs/DefaultApi.md#visualize_recipe_price_breakdown_by_id) | **GET** /recipes/{id}/priceBreakdownWidget | Visualize Recipe Price Breakdown by ID
+*DefaultApi* | [**visualize_recipe_taste**](docs/DefaultApi.md#visualize_recipe_taste) | **POST** /recipes/visualizeTaste | Visualize Recipe Taste
+*DefaultApi* | [**visualize_recipe_taste_by_id**](docs/DefaultApi.md#visualize_recipe_taste_by_id) | **GET** /recipes/{id}/tasteWidget | Visualize Recipe Taste by ID
 
 
 # DOCUMENTATION FOR MODELS
@@ -383,6 +394,8 @@ Class | Method | HTTP request | Description
  - [WWW::OpenAPIClient::Object::InlineObject12](docs/InlineObject12.md)
  - [WWW::OpenAPIClient::Object::InlineObject13](docs/InlineObject13.md)
  - [WWW::OpenAPIClient::Object::InlineObject14](docs/InlineObject14.md)
+ - [WWW::OpenAPIClient::Object::InlineObject15](docs/InlineObject15.md)
+ - [WWW::OpenAPIClient::Object::InlineObject16](docs/InlineObject16.md)
  - [WWW::OpenAPIClient::Object::InlineObject2](docs/InlineObject2.md)
  - [WWW::OpenAPIClient::Object::InlineObject3](docs/InlineObject3.md)
  - [WWW::OpenAPIClient::Object::InlineObject4](docs/InlineObject4.md)

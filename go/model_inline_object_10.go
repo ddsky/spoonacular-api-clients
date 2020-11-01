@@ -13,8 +13,8 @@ package spoonacular
 type InlineObject10 struct {
 	// The username.
 	Username string `json:"username"`
-	// The shopping list item id.
-	Id float32 `json:"id"`
+	// The date in the format yyyy-mm-dd.
+	Date string `json:"date"`
 	// The private hash for the username.
 	Hash string `json:"hash"`
 }

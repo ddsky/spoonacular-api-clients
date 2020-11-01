@@ -19,9 +19,10 @@ local function cast_inline_object_14(t)
 	return setmetatable(t, inline_object_14_mt)
 end
 
-local function new_inline_object_14(text)
+local function new_inline_object_14(username, hash)
 	return cast_inline_object_14({
-		["text"] = text;
+		["username"] = username;
+		["hash"] = hash;
 	})
 end
 

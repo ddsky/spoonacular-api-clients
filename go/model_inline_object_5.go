@@ -11,8 +11,6 @@
 package spoonacular
 
 type InlineObject5 struct {
-	// The title of the recipe.
-	Title string `json:"title"`
-	// The ingredient list of the recipe, one ingredient per line (separate lines with \\n).
-	IngredientList string `json:"ingredientList"`
+	// The instructions to be analyzed.
+	Instructions string `json:"instructions"`
 }

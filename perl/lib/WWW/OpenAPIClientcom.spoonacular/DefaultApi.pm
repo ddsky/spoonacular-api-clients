@@ -55,7 +55,7 @@ sub new {
 # 
 # @param string $username The username. (required)
 # @param string $hash The private hash for the username. (required)
-# @param InlineObject9 $inline_object9  (required)
+# @param InlineObject11 $inline_object11  (required)
 {
     my $params = {
     'username' => {
@@ -68,8 +68,8 @@ sub new {
         description => 'The private hash for the username.',
         required => '1',
     },
-    'inline_object9' => {
-        data_type => 'InlineObject9',
+    'inline_object11' => {
+        data_type => 'InlineObject11',
         description => '',
         required => '1',
     },
@@ -95,9 +95,9 @@ sub add_to_meal_plan {
       croak("Missing the required parameter 'hash' when calling add_to_meal_plan");
     }
 
-    # verify the required parameter 'inline_object9' is set
-    unless (exists $args{'inline_object9'}) {
-      croak("Missing the required parameter 'inline_object9' when calling add_to_meal_plan");
+    # verify the required parameter 'inline_object11' is set
+    unless (exists $args{'inline_object11'}) {
+      croak("Missing the required parameter 'inline_object11' when calling add_to_meal_plan");
     }
 
     # parse inputs
@@ -129,8 +129,8 @@ sub add_to_meal_plan {
 
     my $_body_data;
     # body params
-    if ( exists $args{'inline_object9'}) {
-        $_body_data = $args{'inline_object9'};
+    if ( exists $args{'inline_object11'}) {
+        $_body_data = $args{'inline_object11'};
     }
 
     # authentication setting, if any
@@ -154,7 +154,7 @@ sub add_to_meal_plan {
 # 
 # @param string $username The username. (required)
 # @param string $hash The private hash for the username. (required)
-# @param InlineObject12 $inline_object12  (required)
+# @param InlineObject14 $inline_object14  (required)
 {
     my $params = {
     'username' => {
@@ -167,8 +167,8 @@ sub add_to_meal_plan {
         description => 'The private hash for the username.',
         required => '1',
     },
-    'inline_object12' => {
-        data_type => 'InlineObject12',
+    'inline_object14' => {
+        data_type => 'InlineObject14',
         description => '',
         required => '1',
     },
@@ -194,9 +194,9 @@ sub add_to_shopping_list {
       croak("Missing the required parameter 'hash' when calling add_to_shopping_list");
     }
 
-    # verify the required parameter 'inline_object12' is set
-    unless (exists $args{'inline_object12'}) {
-      croak("Missing the required parameter 'inline_object12' when calling add_to_shopping_list");
+    # verify the required parameter 'inline_object14' is set
+    unless (exists $args{'inline_object14'}) {
+      croak("Missing the required parameter 'inline_object14' when calling add_to_shopping_list");
     }
 
     # parse inputs
@@ -228,8 +228,8 @@ sub add_to_shopping_list {
 
     my $_body_data;
     # body params
-    if ( exists $args{'inline_object12'}) {
-        $_body_data = $args{'inline_object12'};
+    if ( exists $args{'inline_object14'}) {
+        $_body_data = $args{'inline_object14'};
     }
 
     # authentication setting, if any
@@ -384,7 +384,7 @@ sub analyze_recipe_instructions {
 # @param string $query The partial or full ingredient name. (required)
 # @param double $number The number of results to return (between 1 and 100). (optional)
 # @param boolean $meta_information Whether to return more meta information about the ingredients. (optional)
-# @param boolean $intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
+# @param string $intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
 {
     my $params = {
     'query' => {
@@ -403,7 +403,7 @@ sub analyze_recipe_instructions {
         required => '0',
     },
     'intolerances' => {
-        data_type => 'boolean',
+        data_type => 'string',
         description => 'A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.',
         required => '0',
     },
@@ -788,12 +788,12 @@ sub classify_cuisine {
 #
 # Classify Grocery Product
 # 
-# @param InlineObject8 $inline_object8  (required)
+# @param InlineObject9 $inline_object9  (required)
 # @param string $locale The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). (optional)
 {
     my $params = {
-    'inline_object8' => {
-        data_type => 'InlineObject8',
+    'inline_object9' => {
+        data_type => 'InlineObject9',
         description => '',
         required => '1',
     },
@@ -814,9 +814,9 @@ sub classify_cuisine {
 sub classify_grocery_product {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'inline_object8' is set
-    unless (exists $args{'inline_object8'}) {
-      croak("Missing the required parameter 'inline_object8' when calling classify_grocery_product");
+    # verify the required parameter 'inline_object9' is set
+    unless (exists $args{'inline_object9'}) {
+      croak("Missing the required parameter 'inline_object9' when calling classify_grocery_product");
     }
 
     # parse inputs
@@ -841,8 +841,8 @@ sub classify_grocery_product {
 
     my $_body_data;
     # body params
-    if ( exists $args{'inline_object8'}) {
-        $_body_data = $args{'inline_object8'};
+    if ( exists $args{'inline_object9'}) {
+        $_body_data = $args{'inline_object9'};
     }
 
     # authentication setting, if any
@@ -914,6 +914,253 @@ sub classify_grocery_product_bulk {
     if ( exists $args{'locale'}) {
         $query_params->{'locale'} = $self->{api_client}->to_query_value($args{'locale'});
     }
+
+    my $_body_data;
+    # body params
+    if ( exists $args{'body'}) {
+        $_body_data = $args{'body'};
+    }
+
+    # authentication setting, if any
+    my $auth_settings = [qw()];
+
+    # make the API Call
+    my $response = $self->{api_client}->call_api($_resource_path, $_method,
+                                           $query_params, $form_params,
+                                           $header_params, $_body_data, $auth_settings);
+    if (!$response) {
+        return;
+    }
+    my $_response_object = $self->{api_client}->deserialize('object', $response);
+    return $_response_object;
+}
+
+#
+# clear_meal_plan_day
+#
+# Clear Meal Plan Day
+# 
+# @param string $username The username. (required)
+# @param string $date The date in the format yyyy-mm-dd. (required)
+# @param string $hash The private hash for the username. (required)
+# @param InlineObject10 $inline_object10  (required)
+{
+    my $params = {
+    'username' => {
+        data_type => 'string',
+        description => 'The username.',
+        required => '1',
+    },
+    'date' => {
+        data_type => 'string',
+        description => 'The date in the format yyyy-mm-dd.',
+        required => '1',
+    },
+    'hash' => {
+        data_type => 'string',
+        description => 'The private hash for the username.',
+        required => '1',
+    },
+    'inline_object10' => {
+        data_type => 'InlineObject10',
+        description => '',
+        required => '1',
+    },
+    };
+    __PACKAGE__->method_documentation->{ 'clear_meal_plan_day' } = { 
+        summary => 'Clear Meal Plan Day',
+        params => $params,
+        returns => 'object',
+        };
+}
+# @return object
+#
+sub clear_meal_plan_day {
+    my ($self, %args) = @_;
+
+    # verify the required parameter 'username' is set
+    unless (exists $args{'username'}) {
+      croak("Missing the required parameter 'username' when calling clear_meal_plan_day");
+    }
+
+    # verify the required parameter 'date' is set
+    unless (exists $args{'date'}) {
+      croak("Missing the required parameter 'date' when calling clear_meal_plan_day");
+    }
+
+    # verify the required parameter 'hash' is set
+    unless (exists $args{'hash'}) {
+      croak("Missing the required parameter 'hash' when calling clear_meal_plan_day");
+    }
+
+    # verify the required parameter 'inline_object10' is set
+    unless (exists $args{'inline_object10'}) {
+      croak("Missing the required parameter 'inline_object10' when calling clear_meal_plan_day");
+    }
+
+    # parse inputs
+    my $_resource_path = '/mealplanner/{username}/day/{date}';
+
+    my $_method = 'DELETE';
+    my $query_params = {};
+    my $header_params = {};
+    my $form_params = {};
+
+    # 'Accept' and 'Content-Type' header
+    my $_header_accept = $self->{api_client}->select_header_accept('application/json');
+    if ($_header_accept) {
+        $header_params->{'Accept'} = $_header_accept;
+    }
+    $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type('');
+
+    # query params
+    if ( exists $args{'hash'}) {
+        $query_params->{'hash'} = $self->{api_client}->to_query_value($args{'hash'});
+    }
+
+    # path params
+    if ( exists $args{'username'}) {
+        my $_base_variable = "{" . "username" . "}";
+        my $_base_value = $self->{api_client}->to_path_value($args{'username'});
+        $_resource_path =~ s/$_base_variable/$_base_value/g;
+    }
+
+    # path params
+    if ( exists $args{'date'}) {
+        my $_base_variable = "{" . "date" . "}";
+        my $_base_value = $self->{api_client}->to_path_value($args{'date'});
+        $_resource_path =~ s/$_base_variable/$_base_value/g;
+    }
+
+    my $_body_data;
+    # body params
+    if ( exists $args{'inline_object10'}) {
+        $_body_data = $args{'inline_object10'};
+    }
+
+    # authentication setting, if any
+    my $auth_settings = [qw()];
+
+    # make the API Call
+    my $response = $self->{api_client}->call_api($_resource_path, $_method,
+                                           $query_params, $form_params,
+                                           $header_params, $_body_data, $auth_settings);
+    if (!$response) {
+        return;
+    }
+    my $_response_object = $self->{api_client}->deserialize('object', $response);
+    return $_response_object;
+}
+
+#
+# compute_glycemic_load
+#
+# Compute Glycemic Load
+# 
+# @param object $body  (required)
+{
+    my $params = {
+    'body' => {
+        data_type => 'object',
+        description => '',
+        required => '1',
+    },
+    };
+    __PACKAGE__->method_documentation->{ 'compute_glycemic_load' } = { 
+        summary => 'Compute Glycemic Load',
+        params => $params,
+        returns => 'object',
+        };
+}
+# @return object
+#
+sub compute_glycemic_load {
+    my ($self, %args) = @_;
+
+    # verify the required parameter 'body' is set
+    unless (exists $args{'body'}) {
+      croak("Missing the required parameter 'body' when calling compute_glycemic_load");
+    }
+
+    # parse inputs
+    my $_resource_path = '/food/ingredients/glycemicLoad';
+
+    my $_method = 'POST';
+    my $query_params = {};
+    my $header_params = {};
+    my $form_params = {};
+
+    # 'Accept' and 'Content-Type' header
+    my $_header_accept = $self->{api_client}->select_header_accept('application/json');
+    if ($_header_accept) {
+        $header_params->{'Accept'} = $_header_accept;
+    }
+    $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type('application/json');
+
+    my $_body_data;
+    # body params
+    if ( exists $args{'body'}) {
+        $_body_data = $args{'body'};
+    }
+
+    # authentication setting, if any
+    my $auth_settings = [qw()];
+
+    # make the API Call
+    my $response = $self->{api_client}->call_api($_resource_path, $_method,
+                                           $query_params, $form_params,
+                                           $header_params, $_body_data, $auth_settings);
+    if (!$response) {
+        return;
+    }
+    my $_response_object = $self->{api_client}->deserialize('object', $response);
+    return $_response_object;
+}
+
+#
+# connect_user
+#
+# Connect User
+# 
+# @param object $body  (required)
+{
+    my $params = {
+    'body' => {
+        data_type => 'object',
+        description => '',
+        required => '1',
+    },
+    };
+    __PACKAGE__->method_documentation->{ 'connect_user' } = { 
+        summary => 'Connect User',
+        params => $params,
+        returns => 'object',
+        };
+}
+# @return object
+#
+sub connect_user {
+    my ($self, %args) = @_;
+
+    # verify the required parameter 'body' is set
+    unless (exists $args{'body'}) {
+      croak("Missing the required parameter 'body' when calling connect_user");
+    }
+
+    # parse inputs
+    my $_resource_path = '/users/connect';
+
+    my $_method = 'POST';
+    my $query_params = {};
+    my $header_params = {};
+    my $form_params = {};
+
+    # 'Accept' and 'Content-Type' header
+    my $_header_accept = $self->{api_client}->select_header_accept('application/json');
+    if ($_header_accept) {
+        $header_params->{'Accept'} = $_header_accept;
+    }
+    $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type('');
 
     my $_body_data;
     # body params
@@ -1278,7 +1525,7 @@ sub create_recipe_card {
 # @param string $username The username. (required)
 # @param double $id The shopping list item id. (required)
 # @param string $hash The private hash for the username. (required)
-# @param InlineObject10 $inline_object10  (required)
+# @param InlineObject12 $inline_object12  (required)
 {
     my $params = {
     'username' => {
@@ -1296,8 +1543,8 @@ sub create_recipe_card {
         description => 'The private hash for the username.',
         required => '1',
     },
-    'inline_object10' => {
-        data_type => 'InlineObject10',
+    'inline_object12' => {
+        data_type => 'InlineObject12',
         description => '',
         required => '1',
     },
@@ -1328,9 +1575,9 @@ sub delete_from_meal_plan {
       croak("Missing the required parameter 'hash' when calling delete_from_meal_plan");
     }
 
-    # verify the required parameter 'inline_object10' is set
-    unless (exists $args{'inline_object10'}) {
-      croak("Missing the required parameter 'inline_object10' when calling delete_from_meal_plan");
+    # verify the required parameter 'inline_object12' is set
+    unless (exists $args{'inline_object12'}) {
+      croak("Missing the required parameter 'inline_object12' when calling delete_from_meal_plan");
     }
 
     # parse inputs
@@ -1369,8 +1616,8 @@ sub delete_from_meal_plan {
 
     my $_body_data;
     # body params
-    if ( exists $args{'inline_object10'}) {
-        $_body_data = $args{'inline_object10'};
+    if ( exists $args{'inline_object12'}) {
+        $_body_data = $args{'inline_object12'};
     }
 
     # authentication setting, if any
@@ -1395,7 +1642,7 @@ sub delete_from_meal_plan {
 # @param string $username The username. (required)
 # @param double $id The shopping list item id. (required)
 # @param string $hash The private hash for the username. (required)
-# @param InlineObject13 $inline_object13  (required)
+# @param InlineObject15 $inline_object15  (required)
 {
     my $params = {
     'username' => {
@@ -1413,8 +1660,8 @@ sub delete_from_meal_plan {
         description => 'The private hash for the username.',
         required => '1',
     },
-    'inline_object13' => {
-        data_type => 'InlineObject13',
+    'inline_object15' => {
+        data_type => 'InlineObject15',
         description => '',
         required => '1',
     },
@@ -1445,9 +1692,9 @@ sub delete_from_shopping_list {
       croak("Missing the required parameter 'hash' when calling delete_from_shopping_list");
     }
 
-    # verify the required parameter 'inline_object13' is set
-    unless (exists $args{'inline_object13'}) {
-      croak("Missing the required parameter 'inline_object13' when calling delete_from_shopping_list");
+    # verify the required parameter 'inline_object15' is set
+    unless (exists $args{'inline_object15'}) {
+      croak("Missing the required parameter 'inline_object15' when calling delete_from_shopping_list");
     }
 
     # parse inputs
@@ -1486,8 +1733,8 @@ sub delete_from_shopping_list {
 
     my $_body_data;
     # body params
-    if ( exists $args{'inline_object13'}) {
-        $_body_data = $args{'inline_object13'};
+    if ( exists $args{'inline_object15'}) {
+        $_body_data = $args{'inline_object15'};
     }
 
     # authentication setting, if any
@@ -1758,7 +2005,7 @@ sub generate_meal_plan {
 # @param string $start_date The start date in the format yyyy-mm-dd. (required)
 # @param string $end_date The end date in the format yyyy-mm-dd. (required)
 # @param string $hash The private hash for the username. (required)
-# @param InlineObject11 $inline_object11  (required)
+# @param InlineObject13 $inline_object13  (required)
 {
     my $params = {
     'username' => {
@@ -1781,8 +2028,8 @@ sub generate_meal_plan {
         description => 'The private hash for the username.',
         required => '1',
     },
-    'inline_object11' => {
-        data_type => 'InlineObject11',
+    'inline_object13' => {
+        data_type => 'InlineObject13',
         description => '',
         required => '1',
     },
@@ -1818,9 +2065,9 @@ sub generate_shopping_list {
       croak("Missing the required parameter 'hash' when calling generate_shopping_list");
     }
 
-    # verify the required parameter 'inline_object11' is set
-    unless (exists $args{'inline_object11'}) {
-      croak("Missing the required parameter 'inline_object11' when calling generate_shopping_list");
+    # verify the required parameter 'inline_object13' is set
+    unless (exists $args{'inline_object13'}) {
+      croak("Missing the required parameter 'inline_object13' when calling generate_shopping_list");
     }
 
     # parse inputs
@@ -1866,8 +2113,8 @@ sub generate_shopping_list {
 
     my $_body_data;
     # body params
-    if ( exists $args{'inline_object11'}) {
-        $_body_data = $args{'inline_object11'};
+    if ( exists $args{'inline_object13'}) {
+        $_body_data = $args{'inline_object13'};
     }
 
     # authentication setting, if any
@@ -3413,6 +3660,73 @@ sub get_recipe_price_breakdown_by_id {
 }
 
 #
+# get_recipe_taste_by_id
+#
+# Get Recipe Taste by ID
+# 
+# @param double $id The recipe id. (required)
+{
+    my $params = {
+    'id' => {
+        data_type => 'double',
+        description => 'The recipe id.',
+        required => '1',
+    },
+    };
+    __PACKAGE__->method_documentation->{ 'get_recipe_taste_by_id' } = { 
+        summary => 'Get Recipe Taste by ID',
+        params => $params,
+        returns => 'object',
+        };
+}
+# @return object
+#
+sub get_recipe_taste_by_id {
+    my ($self, %args) = @_;
+
+    # verify the required parameter 'id' is set
+    unless (exists $args{'id'}) {
+      croak("Missing the required parameter 'id' when calling get_recipe_taste_by_id");
+    }
+
+    # parse inputs
+    my $_resource_path = '/recipes/{id}/tasteWidget.json';
+
+    my $_method = 'GET';
+    my $query_params = {};
+    my $header_params = {};
+    my $form_params = {};
+
+    # 'Accept' and 'Content-Type' header
+    my $_header_accept = $self->{api_client}->select_header_accept('application/json');
+    if ($_header_accept) {
+        $header_params->{'Accept'} = $_header_accept;
+    }
+    $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
+
+    # path params
+    if ( exists $args{'id'}) {
+        my $_base_variable = "{" . "id" . "}";
+        my $_base_value = $self->{api_client}->to_path_value($args{'id'});
+        $_resource_path =~ s/$_base_variable/$_base_value/g;
+    }
+
+    my $_body_data;
+    # authentication setting, if any
+    my $auth_settings = [qw()];
+
+    # make the API Call
+    my $response = $self->{api_client}->call_api($_resource_path, $_method,
+                                           $query_params, $form_params,
+                                           $header_params, $_body_data, $auth_settings);
+    if (!$response) {
+        return;
+    }
+    my $_response_object = $self->{api_client}->deserialize('object', $response);
+    return $_response_object;
+}
+
+#
 # get_shopping_list
 #
 # Get Shopping List
@@ -4019,6 +4333,214 @@ sub image_classification_by_url {
 }
 
 #
+# ingredient_search
+#
+# Ingredient Search
+# 
+# @param string $query The partial or full ingredient name. (required)
+# @param boolean $add_children Whether to add children of found foods. (optional)
+# @param double $min_protein_percent The minimum percentage of protein the food must have (between 0 and 100). (optional)
+# @param double $max_protein_percent The maximum percentage of protein the food can have (between 0 and 100). (optional)
+# @param double $min_fat_percent The minimum percentage of fat the food must have (between 0 and 100). (optional)
+# @param double $max_fat_percent The maximum percentage of fat the food can have (between 0 and 100). (optional)
+# @param double $min_carbs_percent The minimum percentage of carbs the food must have (between 0 and 100). (optional)
+# @param double $max_carbs_percent The maximum percentage of carbs the food can have (between 0 and 100). (optional)
+# @param boolean $meta_information Whether to return more meta information about the ingredients. (optional)
+# @param string $intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
+# @param string $sort The strategy to sort recipes by. See a full list of supported sorting options. (optional)
+# @param string $sort_direction The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending). (optional)
+# @param double $offset The number of results to skip (between 0 and 990). (optional)
+# @param double $number The number of expected results (between 1 and 100). (optional)
+{
+    my $params = {
+    'query' => {
+        data_type => 'string',
+        description => 'The partial or full ingredient name.',
+        required => '1',
+    },
+    'add_children' => {
+        data_type => 'boolean',
+        description => 'Whether to add children of found foods.',
+        required => '0',
+    },
+    'min_protein_percent' => {
+        data_type => 'double',
+        description => 'The minimum percentage of protein the food must have (between 0 and 100).',
+        required => '0',
+    },
+    'max_protein_percent' => {
+        data_type => 'double',
+        description => 'The maximum percentage of protein the food can have (between 0 and 100).',
+        required => '0',
+    },
+    'min_fat_percent' => {
+        data_type => 'double',
+        description => 'The minimum percentage of fat the food must have (between 0 and 100).',
+        required => '0',
+    },
+    'max_fat_percent' => {
+        data_type => 'double',
+        description => 'The maximum percentage of fat the food can have (between 0 and 100).',
+        required => '0',
+    },
+    'min_carbs_percent' => {
+        data_type => 'double',
+        description => 'The minimum percentage of carbs the food must have (between 0 and 100).',
+        required => '0',
+    },
+    'max_carbs_percent' => {
+        data_type => 'double',
+        description => 'The maximum percentage of carbs the food can have (between 0 and 100).',
+        required => '0',
+    },
+    'meta_information' => {
+        data_type => 'boolean',
+        description => 'Whether to return more meta information about the ingredients.',
+        required => '0',
+    },
+    'intolerances' => {
+        data_type => 'string',
+        description => 'A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.',
+        required => '0',
+    },
+    'sort' => {
+        data_type => 'string',
+        description => 'The strategy to sort recipes by. See a full list of supported sorting options.',
+        required => '0',
+    },
+    'sort_direction' => {
+        data_type => 'string',
+        description => 'The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending).',
+        required => '0',
+    },
+    'offset' => {
+        data_type => 'double',
+        description => 'The number of results to skip (between 0 and 990).',
+        required => '0',
+    },
+    'number' => {
+        data_type => 'double',
+        description => 'The number of expected results (between 1 and 100).',
+        required => '0',
+    },
+    };
+    __PACKAGE__->method_documentation->{ 'ingredient_search' } = { 
+        summary => 'Ingredient Search',
+        params => $params,
+        returns => 'object',
+        };
+}
+# @return object
+#
+sub ingredient_search {
+    my ($self, %args) = @_;
+
+    # verify the required parameter 'query' is set
+    unless (exists $args{'query'}) {
+      croak("Missing the required parameter 'query' when calling ingredient_search");
+    }
+
+    # parse inputs
+    my $_resource_path = '/food/ingredients/search';
+
+    my $_method = 'GET';
+    my $query_params = {};
+    my $header_params = {};
+    my $form_params = {};
+
+    # 'Accept' and 'Content-Type' header
+    my $_header_accept = $self->{api_client}->select_header_accept('application/json');
+    if ($_header_accept) {
+        $header_params->{'Accept'} = $_header_accept;
+    }
+    $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
+
+    # query params
+    if ( exists $args{'query'}) {
+        $query_params->{'query'} = $self->{api_client}->to_query_value($args{'query'});
+    }
+
+    # query params
+    if ( exists $args{'add_children'}) {
+        $query_params->{'addChildren'} = $self->{api_client}->to_query_value($args{'add_children'});
+    }
+
+    # query params
+    if ( exists $args{'min_protein_percent'}) {
+        $query_params->{'minProteinPercent'} = $self->{api_client}->to_query_value($args{'min_protein_percent'});
+    }
+
+    # query params
+    if ( exists $args{'max_protein_percent'}) {
+        $query_params->{'maxProteinPercent'} = $self->{api_client}->to_query_value($args{'max_protein_percent'});
+    }
+
+    # query params
+    if ( exists $args{'min_fat_percent'}) {
+        $query_params->{'minFatPercent'} = $self->{api_client}->to_query_value($args{'min_fat_percent'});
+    }
+
+    # query params
+    if ( exists $args{'max_fat_percent'}) {
+        $query_params->{'maxFatPercent'} = $self->{api_client}->to_query_value($args{'max_fat_percent'});
+    }
+
+    # query params
+    if ( exists $args{'min_carbs_percent'}) {
+        $query_params->{'minCarbsPercent'} = $self->{api_client}->to_query_value($args{'min_carbs_percent'});
+    }
+
+    # query params
+    if ( exists $args{'max_carbs_percent'}) {
+        $query_params->{'maxCarbsPercent'} = $self->{api_client}->to_query_value($args{'max_carbs_percent'});
+    }
+
+    # query params
+    if ( exists $args{'meta_information'}) {
+        $query_params->{'metaInformation'} = $self->{api_client}->to_query_value($args{'meta_information'});
+    }
+
+    # query params
+    if ( exists $args{'intolerances'}) {
+        $query_params->{'intolerances'} = $self->{api_client}->to_query_value($args{'intolerances'});
+    }
+
+    # query params
+    if ( exists $args{'sort'}) {
+        $query_params->{'sort'} = $self->{api_client}->to_query_value($args{'sort'});
+    }
+
+    # query params
+    if ( exists $args{'sort_direction'}) {
+        $query_params->{'sortDirection'} = $self->{api_client}->to_query_value($args{'sort_direction'});
+    }
+
+    # query params
+    if ( exists $args{'offset'}) {
+        $query_params->{'offset'} = $self->{api_client}->to_query_value($args{'offset'});
+    }
+
+    # query params
+    if ( exists $args{'number'}) {
+        $query_params->{'number'} = $self->{api_client}->to_query_value($args{'number'});
+    }
+
+    my $_body_data;
+    # authentication setting, if any
+    my $auth_settings = [qw()];
+
+    # make the API Call
+    my $response = $self->{api_client}->call_api($_resource_path, $_method,
+                                           $query_params, $form_params,
+                                           $header_params, $_body_data, $auth_settings);
+    if (!$response) {
+        return;
+    }
+    my $_response_object = $self->{api_client}->deserialize('object', $response);
+    return $_response_object;
+}
+
+#
 # map_ingredients_to_grocery_products
 #
 # Map Ingredients to Grocery Products
@@ -4223,6 +4745,93 @@ sub quick_answer {
     # query params
     if ( exists $args{'q'}) {
         $query_params->{'q'} = $self->{api_client}->to_query_value($args{'q'});
+    }
+
+    my $_body_data;
+    # authentication setting, if any
+    my $auth_settings = [qw()];
+
+    # make the API Call
+    my $response = $self->{api_client}->call_api($_resource_path, $_method,
+                                           $query_params, $form_params,
+                                           $header_params, $_body_data, $auth_settings);
+    if (!$response) {
+        return;
+    }
+    my $_response_object = $self->{api_client}->deserialize('object', $response);
+    return $_response_object;
+}
+
+#
+# search_all_food
+#
+# Search All Food
+# 
+# @param string $query The search query. (required)
+# @param double $offset The number of results to skip (between 0 and 990). (optional)
+# @param double $number The number of expected results (between 1 and 100). (optional)
+{
+    my $params = {
+    'query' => {
+        data_type => 'string',
+        description => 'The search query.',
+        required => '1',
+    },
+    'offset' => {
+        data_type => 'double',
+        description => 'The number of results to skip (between 0 and 990).',
+        required => '0',
+    },
+    'number' => {
+        data_type => 'double',
+        description => 'The number of expected results (between 1 and 100).',
+        required => '0',
+    },
+    };
+    __PACKAGE__->method_documentation->{ 'search_all_food' } = { 
+        summary => 'Search All Food',
+        params => $params,
+        returns => 'object',
+        };
+}
+# @return object
+#
+sub search_all_food {
+    my ($self, %args) = @_;
+
+    # verify the required parameter 'query' is set
+    unless (exists $args{'query'}) {
+      croak("Missing the required parameter 'query' when calling search_all_food");
+    }
+
+    # parse inputs
+    my $_resource_path = '/food/search';
+
+    my $_method = 'GET';
+    my $query_params = {};
+    my $header_params = {};
+    my $form_params = {};
+
+    # 'Accept' and 'Content-Type' header
+    my $_header_accept = $self->{api_client}->select_header_accept('application/json');
+    if ($_header_accept) {
+        $header_params->{'Accept'} = $_header_accept;
+    }
+    $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
+
+    # query params
+    if ( exists $args{'query'}) {
+        $query_params->{'query'} = $self->{api_client}->to_query_value($args{'query'});
+    }
+
+    # query params
+    if ( exists $args{'offset'}) {
+        $query_params->{'offset'} = $self->{api_client}->to_query_value($args{'offset'});
+    }
+
+    # query params
+    if ( exists $args{'number'}) {
+        $query_params->{'number'} = $self->{api_client}->to_query_value($args{'number'});
     }
 
     my $_body_data;
@@ -4946,1153 +5555,6 @@ sub search_menu_items {
 # Search Recipes
 # 
 # @param string $query The (natural language) recipe search query. (required)
-# @param string $cuisine The cuisine(s) of the recipes. One or more comma separated. See a full list of supported cuisines. (optional)
-# @param string $diet The diet for which the recipes must be suitable. See a full list of supported diets. (optional)
-# @param string $exclude_ingredients A comma-separated list of ingredients or ingredient types that the recipes must not contain. (optional)
-# @param string $intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. Please note: due to the automatic nature of the recipe analysis, the API cannot be 100% accurate in all cases. Please advise your users to seek professional help with medical issues. (optional)
-# @param double $offset The number of results to skip (between 0 and 900). (optional)
-# @param double $number The number of results to return (between 1 and 100). (optional)
-# @param boolean $limit_license Whether the recipes should have an open license that allows display with proper attribution. (optional)
-# @param boolean $instructions_required Whether the recipes must have instructions. (optional)
-{
-    my $params = {
-    'query' => {
-        data_type => 'string',
-        description => 'The (natural language) recipe search query.',
-        required => '1',
-    },
-    'cuisine' => {
-        data_type => 'string',
-        description => 'The cuisine(s) of the recipes. One or more comma separated. See a full list of supported cuisines.',
-        required => '0',
-    },
-    'diet' => {
-        data_type => 'string',
-        description => 'The diet for which the recipes must be suitable. See a full list of supported diets.',
-        required => '0',
-    },
-    'exclude_ingredients' => {
-        data_type => 'string',
-        description => 'A comma-separated list of ingredients or ingredient types that the recipes must not contain.',
-        required => '0',
-    },
-    'intolerances' => {
-        data_type => 'string',
-        description => 'A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. Please note: due to the automatic nature of the recipe analysis, the API cannot be 100% accurate in all cases. Please advise your users to seek professional help with medical issues.',
-        required => '0',
-    },
-    'offset' => {
-        data_type => 'double',
-        description => 'The number of results to skip (between 0 and 900).',
-        required => '0',
-    },
-    'number' => {
-        data_type => 'double',
-        description => 'The number of results to return (between 1 and 100).',
-        required => '0',
-    },
-    'limit_license' => {
-        data_type => 'boolean',
-        description => 'Whether the recipes should have an open license that allows display with proper attribution.',
-        required => '0',
-    },
-    'instructions_required' => {
-        data_type => 'boolean',
-        description => 'Whether the recipes must have instructions.',
-        required => '0',
-    },
-    };
-    __PACKAGE__->method_documentation->{ 'search_recipes' } = { 
-        summary => 'Search Recipes',
-        params => $params,
-        returns => 'object',
-        };
-}
-# @return object
-#
-sub search_recipes {
-    my ($self, %args) = @_;
-
-    # verify the required parameter 'query' is set
-    unless (exists $args{'query'}) {
-      croak("Missing the required parameter 'query' when calling search_recipes");
-    }
-
-    # parse inputs
-    my $_resource_path = '/recipes/search';
-
-    my $_method = 'GET';
-    my $query_params = {};
-    my $header_params = {};
-    my $form_params = {};
-
-    # 'Accept' and 'Content-Type' header
-    my $_header_accept = $self->{api_client}->select_header_accept('application/json');
-    if ($_header_accept) {
-        $header_params->{'Accept'} = $_header_accept;
-    }
-    $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
-
-    # query params
-    if ( exists $args{'query'}) {
-        $query_params->{'query'} = $self->{api_client}->to_query_value($args{'query'});
-    }
-
-    # query params
-    if ( exists $args{'cuisine'}) {
-        $query_params->{'cuisine'} = $self->{api_client}->to_query_value($args{'cuisine'});
-    }
-
-    # query params
-    if ( exists $args{'diet'}) {
-        $query_params->{'diet'} = $self->{api_client}->to_query_value($args{'diet'});
-    }
-
-    # query params
-    if ( exists $args{'exclude_ingredients'}) {
-        $query_params->{'excludeIngredients'} = $self->{api_client}->to_query_value($args{'exclude_ingredients'});
-    }
-
-    # query params
-    if ( exists $args{'intolerances'}) {
-        $query_params->{'intolerances'} = $self->{api_client}->to_query_value($args{'intolerances'});
-    }
-
-    # query params
-    if ( exists $args{'offset'}) {
-        $query_params->{'offset'} = $self->{api_client}->to_query_value($args{'offset'});
-    }
-
-    # query params
-    if ( exists $args{'number'}) {
-        $query_params->{'number'} = $self->{api_client}->to_query_value($args{'number'});
-    }
-
-    # query params
-    if ( exists $args{'limit_license'}) {
-        $query_params->{'limitLicense'} = $self->{api_client}->to_query_value($args{'limit_license'});
-    }
-
-    # query params
-    if ( exists $args{'instructions_required'}) {
-        $query_params->{'instructionsRequired'} = $self->{api_client}->to_query_value($args{'instructions_required'});
-    }
-
-    my $_body_data;
-    # authentication setting, if any
-    my $auth_settings = [qw()];
-
-    # make the API Call
-    my $response = $self->{api_client}->call_api($_resource_path, $_method,
-                                           $query_params, $form_params,
-                                           $header_params, $_body_data, $auth_settings);
-    if (!$response) {
-        return;
-    }
-    my $_response_object = $self->{api_client}->deserialize('object', $response);
-    return $_response_object;
-}
-
-#
-# search_recipes_by_ingredients
-#
-# Search Recipes by Ingredients
-# 
-# @param string $ingredients A comma-separated list of ingredients that the recipes should contain. (required)
-# @param double $number The maximum number of recipes to return (between 1 and 100). Defaults to 10. (optional)
-# @param boolean $limit_license Whether the recipes should have an open license that allows display with proper attribution. (optional)
-# @param double $ranking Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. (optional)
-# @param boolean $ignore_pantry Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional)
-{
-    my $params = {
-    'ingredients' => {
-        data_type => 'string',
-        description => 'A comma-separated list of ingredients that the recipes should contain.',
-        required => '1',
-    },
-    'number' => {
-        data_type => 'double',
-        description => 'The maximum number of recipes to return (between 1 and 100). Defaults to 10.',
-        required => '0',
-    },
-    'limit_license' => {
-        data_type => 'boolean',
-        description => 'Whether the recipes should have an open license that allows display with proper attribution.',
-        required => '0',
-    },
-    'ranking' => {
-        data_type => 'double',
-        description => 'Whether to maximize used ingredients (1) or minimize missing ingredients (2) first.',
-        required => '0',
-    },
-    'ignore_pantry' => {
-        data_type => 'boolean',
-        description => 'Whether to ignore typical pantry items, such as water, salt, flour, etc.',
-        required => '0',
-    },
-    };
-    __PACKAGE__->method_documentation->{ 'search_recipes_by_ingredients' } = { 
-        summary => 'Search Recipes by Ingredients',
-        params => $params,
-        returns => 'object',
-        };
-}
-# @return object
-#
-sub search_recipes_by_ingredients {
-    my ($self, %args) = @_;
-
-    # verify the required parameter 'ingredients' is set
-    unless (exists $args{'ingredients'}) {
-      croak("Missing the required parameter 'ingredients' when calling search_recipes_by_ingredients");
-    }
-
-    # parse inputs
-    my $_resource_path = '/recipes/findByIngredients';
-
-    my $_method = 'GET';
-    my $query_params = {};
-    my $header_params = {};
-    my $form_params = {};
-
-    # 'Accept' and 'Content-Type' header
-    my $_header_accept = $self->{api_client}->select_header_accept('application/json');
-    if ($_header_accept) {
-        $header_params->{'Accept'} = $_header_accept;
-    }
-    $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
-
-    # query params
-    if ( exists $args{'ingredients'}) {
-        $query_params->{'ingredients'} = $self->{api_client}->to_query_value($args{'ingredients'});
-    }
-
-    # query params
-    if ( exists $args{'number'}) {
-        $query_params->{'number'} = $self->{api_client}->to_query_value($args{'number'});
-    }
-
-    # query params
-    if ( exists $args{'limit_license'}) {
-        $query_params->{'limitLicense'} = $self->{api_client}->to_query_value($args{'limit_license'});
-    }
-
-    # query params
-    if ( exists $args{'ranking'}) {
-        $query_params->{'ranking'} = $self->{api_client}->to_query_value($args{'ranking'});
-    }
-
-    # query params
-    if ( exists $args{'ignore_pantry'}) {
-        $query_params->{'ignorePantry'} = $self->{api_client}->to_query_value($args{'ignore_pantry'});
-    }
-
-    my $_body_data;
-    # authentication setting, if any
-    my $auth_settings = [qw()];
-
-    # make the API Call
-    my $response = $self->{api_client}->call_api($_resource_path, $_method,
-                                           $query_params, $form_params,
-                                           $header_params, $_body_data, $auth_settings);
-    if (!$response) {
-        return;
-    }
-    my $_response_object = $self->{api_client}->deserialize('object', $response);
-    return $_response_object;
-}
-
-#
-# search_recipes_by_nutrients
-#
-# Search Recipes by Nutrients
-# 
-# @param double $min_carbs The minimum amount of carbohydrates in grams the recipe must have. (optional)
-# @param double $max_carbs The maximum amount of carbohydrates in grams the recipe can have. (optional)
-# @param double $min_protein The minimum amount of protein in grams the recipe must have. (optional)
-# @param double $max_protein The maximum amount of protein in grams the recipe can have. (optional)
-# @param double $min_calories The minimum amount of calories the recipe must have. (optional)
-# @param double $max_calories The maximum amount of calories the recipe can have. (optional)
-# @param double $min_fat The minimum amount of fat in grams the recipe must have. (optional)
-# @param double $max_fat The maximum amount of fat in grams the recipe can have. (optional)
-# @param double $min_alcohol The minimum amount of alcohol in grams the recipe must have. (optional)
-# @param double $max_alcohol The maximum amount of alcohol in grams the recipe can have. (optional)
-# @param double $min_caffeine The minimum amount of caffeine in milligrams the recipe must have. (optional)
-# @param double $max_caffeine The maximum amount of caffeine in milligrams the recipe can have. (optional)
-# @param double $min_copper The minimum amount of copper in milligrams the recipe must have. (optional)
-# @param double $max_copper The maximum amount of copper in milligrams the recipe can have. (optional)
-# @param double $min_calcium The minimum amount of calcium in milligrams the recipe must have. (optional)
-# @param double $max_calcium The maximum amount of calcium in milligrams the recipe can have. (optional)
-# @param double $min_choline The minimum amount of choline in milligrams the recipe must have. (optional)
-# @param double $max_choline The maximum amount of choline in milligrams the recipe can have. (optional)
-# @param double $min_cholesterol The minimum amount of cholesterol in milligrams the recipe must have. (optional)
-# @param double $max_cholesterol The maximum amount of cholesterol in milligrams the recipe can have. (optional)
-# @param double $min_fluoride The minimum amount of fluoride in milligrams the recipe must have. (optional)
-# @param double $max_fluoride The maximum amount of fluoride in milligrams the recipe can have. (optional)
-# @param double $min_saturated_fat The minimum amount of saturated fat in grams the recipe must have. (optional)
-# @param double $max_saturated_fat The maximum amount of saturated fat in grams the recipe can have. (optional)
-# @param double $min_vitamin_a The minimum amount of Vitamin A in IU the recipe must have. (optional)
-# @param double $max_vitamin_a The maximum amount of Vitamin A in IU the recipe can have. (optional)
-# @param double $min_vitamin_c The minimum amount of Vitamin C in milligrams the recipe must have. (optional)
-# @param double $max_vitamin_c The maximum amount of Vitamin C in milligrams the recipe can have. (optional)
-# @param double $min_vitamin_d The minimum amount of Vitamin D in micrograms the recipe must have. (optional)
-# @param double $max_vitamin_d The maximum amount of Vitamin D in micrograms the recipe can have. (optional)
-# @param double $min_vitamin_e The minimum amount of Vitamin E in milligrams the recipe must have. (optional)
-# @param double $max_vitamin_e The maximum amount of Vitamin E in milligrams the recipe can have. (optional)
-# @param double $min_vitamin_k The minimum amount of Vitamin K in micrograms the recipe must have. (optional)
-# @param double $max_vitamin_k The maximum amount of Vitamin K in micrograms the recipe can have. (optional)
-# @param double $min_vitamin_b1 The minimum amount of Vitamin B1 in milligrams the recipe must have. (optional)
-# @param double $max_vitamin_b1 The maximum amount of Vitamin B1 in milligrams the recipe can have. (optional)
-# @param double $min_vitamin_b2 The minimum amount of Vitamin B2 in milligrams the recipe must have. (optional)
-# @param double $max_vitamin_b2 The maximum amount of Vitamin B2 in milligrams the recipe can have. (optional)
-# @param double $min_vitamin_b5 The minimum amount of Vitamin B5 in milligrams the recipe must have. (optional)
-# @param double $max_vitamin_b5 The maximum amount of Vitamin B5 in milligrams the recipe can have. (optional)
-# @param double $min_vitamin_b3 The minimum amount of Vitamin B3 in milligrams the recipe must have. (optional)
-# @param double $max_vitamin_b3 The maximum amount of Vitamin B3 in milligrams the recipe can have. (optional)
-# @param double $min_vitamin_b6 The minimum amount of Vitamin B6 in milligrams the recipe must have. (optional)
-# @param double $max_vitamin_b6 The maximum amount of Vitamin B6 in milligrams the recipe can have. (optional)
-# @param double $min_vitamin_b12 The minimum amount of Vitamin B12 in micrograms the recipe must have. (optional)
-# @param double $max_vitamin_b12 The maximum amount of Vitamin B12 in micrograms the recipe can have. (optional)
-# @param double $min_fiber The minimum amount of fiber in grams the recipe must have. (optional)
-# @param double $max_fiber The maximum amount of fiber in grams the recipe can have. (optional)
-# @param double $min_folate The minimum amount of folate in grams the recipe must have. (optional)
-# @param double $max_folate The maximum amount of folate in grams the recipe can have. (optional)
-# @param double $min_folic_acid The minimum amount of folic acid in grams the recipe must have. (optional)
-# @param double $max_folic_acid The maximum amount of folic acid in grams the recipe can have. (optional)
-# @param double $min_iodine The minimum amount of iodine in grams the recipe must have. (optional)
-# @param double $max_iodine The maximum amount of iodine in grams the recipe can have. (optional)
-# @param double $min_iron The minimum amount of iron in milligrams the recipe must have. (optional)
-# @param double $max_iron The maximum amount of iron in milligrams the recipe can have. (optional)
-# @param double $min_magnesium The minimum amount of magnesium in milligrams the recipe must have. (optional)
-# @param double $max_magnesium The maximum amount of magnesium in milligrams the recipe can have. (optional)
-# @param double $min_manganese The minimum amount of manganese in milligrams the recipe must have. (optional)
-# @param double $max_manganese The maximum amount of manganese in milligrams the recipe can have. (optional)
-# @param double $min_phosphorus The minimum amount of phosphorus in milligrams the recipe must have. (optional)
-# @param double $max_phosphorus The maximum amount of phosphorus in milligrams the recipe can have. (optional)
-# @param double $min_potassium The minimum amount of potassium in milligrams the recipe must have. (optional)
-# @param double $max_potassium The maximum amount of potassium in milligrams the recipe can have. (optional)
-# @param double $min_selenium The minimum amount of selenium in grams the recipe must have. (optional)
-# @param double $max_selenium The maximum amount of selenium in grams the recipe can have. (optional)
-# @param double $min_sodium The minimum amount of sodium in milligrams the recipe must have. (optional)
-# @param double $max_sodium The maximum amount of sodium in milligrams the recipe can have. (optional)
-# @param double $min_sugar The minimum amount of sugar in grams the recipe must have. (optional)
-# @param double $max_sugar The maximum amount of sugar in grams the recipe can have. (optional)
-# @param double $min_zinc The minimum amount of zinc in milligrams the recipe must have. (optional)
-# @param double $max_zinc The maximum amount of zinc in milligrams the recipe can have. (optional)
-# @param double $offset The number of results to skip (between 0 and 900). (optional)
-# @param double $number The number of expected results (between 1 and 100). (optional)
-# @param boolean $random If true, every request will give you a random set of recipes within the requested limits. (optional)
-# @param boolean $limit_license Whether the recipes should have an open license that allows display with proper attribution. (optional)
-{
-    my $params = {
-    'min_carbs' => {
-        data_type => 'double',
-        description => 'The minimum amount of carbohydrates in grams the recipe must have.',
-        required => '0',
-    },
-    'max_carbs' => {
-        data_type => 'double',
-        description => 'The maximum amount of carbohydrates in grams the recipe can have.',
-        required => '0',
-    },
-    'min_protein' => {
-        data_type => 'double',
-        description => 'The minimum amount of protein in grams the recipe must have.',
-        required => '0',
-    },
-    'max_protein' => {
-        data_type => 'double',
-        description => 'The maximum amount of protein in grams the recipe can have.',
-        required => '0',
-    },
-    'min_calories' => {
-        data_type => 'double',
-        description => 'The minimum amount of calories the recipe must have.',
-        required => '0',
-    },
-    'max_calories' => {
-        data_type => 'double',
-        description => 'The maximum amount of calories the recipe can have.',
-        required => '0',
-    },
-    'min_fat' => {
-        data_type => 'double',
-        description => 'The minimum amount of fat in grams the recipe must have.',
-        required => '0',
-    },
-    'max_fat' => {
-        data_type => 'double',
-        description => 'The maximum amount of fat in grams the recipe can have.',
-        required => '0',
-    },
-    'min_alcohol' => {
-        data_type => 'double',
-        description => 'The minimum amount of alcohol in grams the recipe must have.',
-        required => '0',
-    },
-    'max_alcohol' => {
-        data_type => 'double',
-        description => 'The maximum amount of alcohol in grams the recipe can have.',
-        required => '0',
-    },
-    'min_caffeine' => {
-        data_type => 'double',
-        description => 'The minimum amount of caffeine in milligrams the recipe must have.',
-        required => '0',
-    },
-    'max_caffeine' => {
-        data_type => 'double',
-        description => 'The maximum amount of caffeine in milligrams the recipe can have.',
-        required => '0',
-    },
-    'min_copper' => {
-        data_type => 'double',
-        description => 'The minimum amount of copper in milligrams the recipe must have.',
-        required => '0',
-    },
-    'max_copper' => {
-        data_type => 'double',
-        description => 'The maximum amount of copper in milligrams the recipe can have.',
-        required => '0',
-    },
-    'min_calcium' => {
-        data_type => 'double',
-        description => 'The minimum amount of calcium in milligrams the recipe must have.',
-        required => '0',
-    },
-    'max_calcium' => {
-        data_type => 'double',
-        description => 'The maximum amount of calcium in milligrams the recipe can have.',
-        required => '0',
-    },
-    'min_choline' => {
-        data_type => 'double',
-        description => 'The minimum amount of choline in milligrams the recipe must have.',
-        required => '0',
-    },
-    'max_choline' => {
-        data_type => 'double',
-        description => 'The maximum amount of choline in milligrams the recipe can have.',
-        required => '0',
-    },
-    'min_cholesterol' => {
-        data_type => 'double',
-        description => 'The minimum amount of cholesterol in milligrams the recipe must have.',
-        required => '0',
-    },
-    'max_cholesterol' => {
-        data_type => 'double',
-        description => 'The maximum amount of cholesterol in milligrams the recipe can have.',
-        required => '0',
-    },
-    'min_fluoride' => {
-        data_type => 'double',
-        description => 'The minimum amount of fluoride in milligrams the recipe must have.',
-        required => '0',
-    },
-    'max_fluoride' => {
-        data_type => 'double',
-        description => 'The maximum amount of fluoride in milligrams the recipe can have.',
-        required => '0',
-    },
-    'min_saturated_fat' => {
-        data_type => 'double',
-        description => 'The minimum amount of saturated fat in grams the recipe must have.',
-        required => '0',
-    },
-    'max_saturated_fat' => {
-        data_type => 'double',
-        description => 'The maximum amount of saturated fat in grams the recipe can have.',
-        required => '0',
-    },
-    'min_vitamin_a' => {
-        data_type => 'double',
-        description => 'The minimum amount of Vitamin A in IU the recipe must have.',
-        required => '0',
-    },
-    'max_vitamin_a' => {
-        data_type => 'double',
-        description => 'The maximum amount of Vitamin A in IU the recipe can have.',
-        required => '0',
-    },
-    'min_vitamin_c' => {
-        data_type => 'double',
-        description => 'The minimum amount of Vitamin C in milligrams the recipe must have.',
-        required => '0',
-    },
-    'max_vitamin_c' => {
-        data_type => 'double',
-        description => 'The maximum amount of Vitamin C in milligrams the recipe can have.',
-        required => '0',
-    },
-    'min_vitamin_d' => {
-        data_type => 'double',
-        description => 'The minimum amount of Vitamin D in micrograms the recipe must have.',
-        required => '0',
-    },
-    'max_vitamin_d' => {
-        data_type => 'double',
-        description => 'The maximum amount of Vitamin D in micrograms the recipe can have.',
-        required => '0',
-    },
-    'min_vitamin_e' => {
-        data_type => 'double',
-        description => 'The minimum amount of Vitamin E in milligrams the recipe must have.',
-        required => '0',
-    },
-    'max_vitamin_e' => {
-        data_type => 'double',
-        description => 'The maximum amount of Vitamin E in milligrams the recipe can have.',
-        required => '0',
-    },
-    'min_vitamin_k' => {
-        data_type => 'double',
-        description => 'The minimum amount of Vitamin K in micrograms the recipe must have.',
-        required => '0',
-    },
-    'max_vitamin_k' => {
-        data_type => 'double',
-        description => 'The maximum amount of Vitamin K in micrograms the recipe can have.',
-        required => '0',
-    },
-    'min_vitamin_b1' => {
-        data_type => 'double',
-        description => 'The minimum amount of Vitamin B1 in milligrams the recipe must have.',
-        required => '0',
-    },
-    'max_vitamin_b1' => {
-        data_type => 'double',
-        description => 'The maximum amount of Vitamin B1 in milligrams the recipe can have.',
-        required => '0',
-    },
-    'min_vitamin_b2' => {
-        data_type => 'double',
-        description => 'The minimum amount of Vitamin B2 in milligrams the recipe must have.',
-        required => '0',
-    },
-    'max_vitamin_b2' => {
-        data_type => 'double',
-        description => 'The maximum amount of Vitamin B2 in milligrams the recipe can have.',
-        required => '0',
-    },
-    'min_vitamin_b5' => {
-        data_type => 'double',
-        description => 'The minimum amount of Vitamin B5 in milligrams the recipe must have.',
-        required => '0',
-    },
-    'max_vitamin_b5' => {
-        data_type => 'double',
-        description => 'The maximum amount of Vitamin B5 in milligrams the recipe can have.',
-        required => '0',
-    },
-    'min_vitamin_b3' => {
-        data_type => 'double',
-        description => 'The minimum amount of Vitamin B3 in milligrams the recipe must have.',
-        required => '0',
-    },
-    'max_vitamin_b3' => {
-        data_type => 'double',
-        description => 'The maximum amount of Vitamin B3 in milligrams the recipe can have.',
-        required => '0',
-    },
-    'min_vitamin_b6' => {
-        data_type => 'double',
-        description => 'The minimum amount of Vitamin B6 in milligrams the recipe must have.',
-        required => '0',
-    },
-    'max_vitamin_b6' => {
-        data_type => 'double',
-        description => 'The maximum amount of Vitamin B6 in milligrams the recipe can have.',
-        required => '0',
-    },
-    'min_vitamin_b12' => {
-        data_type => 'double',
-        description => 'The minimum amount of Vitamin B12 in micrograms the recipe must have.',
-        required => '0',
-    },
-    'max_vitamin_b12' => {
-        data_type => 'double',
-        description => 'The maximum amount of Vitamin B12 in micrograms the recipe can have.',
-        required => '0',
-    },
-    'min_fiber' => {
-        data_type => 'double',
-        description => 'The minimum amount of fiber in grams the recipe must have.',
-        required => '0',
-    },
-    'max_fiber' => {
-        data_type => 'double',
-        description => 'The maximum amount of fiber in grams the recipe can have.',
-        required => '0',
-    },
-    'min_folate' => {
-        data_type => 'double',
-        description => 'The minimum amount of folate in grams the recipe must have.',
-        required => '0',
-    },
-    'max_folate' => {
-        data_type => 'double',
-        description => 'The maximum amount of folate in grams the recipe can have.',
-        required => '0',
-    },
-    'min_folic_acid' => {
-        data_type => 'double',
-        description => 'The minimum amount of folic acid in grams the recipe must have.',
-        required => '0',
-    },
-    'max_folic_acid' => {
-        data_type => 'double',
-        description => 'The maximum amount of folic acid in grams the recipe can have.',
-        required => '0',
-    },
-    'min_iodine' => {
-        data_type => 'double',
-        description => 'The minimum amount of iodine in grams the recipe must have.',
-        required => '0',
-    },
-    'max_iodine' => {
-        data_type => 'double',
-        description => 'The maximum amount of iodine in grams the recipe can have.',
-        required => '0',
-    },
-    'min_iron' => {
-        data_type => 'double',
-        description => 'The minimum amount of iron in milligrams the recipe must have.',
-        required => '0',
-    },
-    'max_iron' => {
-        data_type => 'double',
-        description => 'The maximum amount of iron in milligrams the recipe can have.',
-        required => '0',
-    },
-    'min_magnesium' => {
-        data_type => 'double',
-        description => 'The minimum amount of magnesium in milligrams the recipe must have.',
-        required => '0',
-    },
-    'max_magnesium' => {
-        data_type => 'double',
-        description => 'The maximum amount of magnesium in milligrams the recipe can have.',
-        required => '0',
-    },
-    'min_manganese' => {
-        data_type => 'double',
-        description => 'The minimum amount of manganese in milligrams the recipe must have.',
-        required => '0',
-    },
-    'max_manganese' => {
-        data_type => 'double',
-        description => 'The maximum amount of manganese in milligrams the recipe can have.',
-        required => '0',
-    },
-    'min_phosphorus' => {
-        data_type => 'double',
-        description => 'The minimum amount of phosphorus in milligrams the recipe must have.',
-        required => '0',
-    },
-    'max_phosphorus' => {
-        data_type => 'double',
-        description => 'The maximum amount of phosphorus in milligrams the recipe can have.',
-        required => '0',
-    },
-    'min_potassium' => {
-        data_type => 'double',
-        description => 'The minimum amount of potassium in milligrams the recipe must have.',
-        required => '0',
-    },
-    'max_potassium' => {
-        data_type => 'double',
-        description => 'The maximum amount of potassium in milligrams the recipe can have.',
-        required => '0',
-    },
-    'min_selenium' => {
-        data_type => 'double',
-        description => 'The minimum amount of selenium in grams the recipe must have.',
-        required => '0',
-    },
-    'max_selenium' => {
-        data_type => 'double',
-        description => 'The maximum amount of selenium in grams the recipe can have.',
-        required => '0',
-    },
-    'min_sodium' => {
-        data_type => 'double',
-        description => 'The minimum amount of sodium in milligrams the recipe must have.',
-        required => '0',
-    },
-    'max_sodium' => {
-        data_type => 'double',
-        description => 'The maximum amount of sodium in milligrams the recipe can have.',
-        required => '0',
-    },
-    'min_sugar' => {
-        data_type => 'double',
-        description => 'The minimum amount of sugar in grams the recipe must have.',
-        required => '0',
-    },
-    'max_sugar' => {
-        data_type => 'double',
-        description => 'The maximum amount of sugar in grams the recipe can have.',
-        required => '0',
-    },
-    'min_zinc' => {
-        data_type => 'double',
-        description => 'The minimum amount of zinc in milligrams the recipe must have.',
-        required => '0',
-    },
-    'max_zinc' => {
-        data_type => 'double',
-        description => 'The maximum amount of zinc in milligrams the recipe can have.',
-        required => '0',
-    },
-    'offset' => {
-        data_type => 'double',
-        description => 'The number of results to skip (between 0 and 900).',
-        required => '0',
-    },
-    'number' => {
-        data_type => 'double',
-        description => 'The number of expected results (between 1 and 100).',
-        required => '0',
-    },
-    'random' => {
-        data_type => 'boolean',
-        description => 'If true, every request will give you a random set of recipes within the requested limits.',
-        required => '0',
-    },
-    'limit_license' => {
-        data_type => 'boolean',
-        description => 'Whether the recipes should have an open license that allows display with proper attribution.',
-        required => '0',
-    },
-    };
-    __PACKAGE__->method_documentation->{ 'search_recipes_by_nutrients' } = { 
-        summary => 'Search Recipes by Nutrients',
-        params => $params,
-        returns => 'object',
-        };
-}
-# @return object
-#
-sub search_recipes_by_nutrients {
-    my ($self, %args) = @_;
-
-    # parse inputs
-    my $_resource_path = '/recipes/findByNutrients';
-
-    my $_method = 'GET';
-    my $query_params = {};
-    my $header_params = {};
-    my $form_params = {};
-
-    # 'Accept' and 'Content-Type' header
-    my $_header_accept = $self->{api_client}->select_header_accept('application/json');
-    if ($_header_accept) {
-        $header_params->{'Accept'} = $_header_accept;
-    }
-    $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
-
-    # query params
-    if ( exists $args{'min_carbs'}) {
-        $query_params->{'minCarbs'} = $self->{api_client}->to_query_value($args{'min_carbs'});
-    }
-
-    # query params
-    if ( exists $args{'max_carbs'}) {
-        $query_params->{'maxCarbs'} = $self->{api_client}->to_query_value($args{'max_carbs'});
-    }
-
-    # query params
-    if ( exists $args{'min_protein'}) {
-        $query_params->{'minProtein'} = $self->{api_client}->to_query_value($args{'min_protein'});
-    }
-
-    # query params
-    if ( exists $args{'max_protein'}) {
-        $query_params->{'maxProtein'} = $self->{api_client}->to_query_value($args{'max_protein'});
-    }
-
-    # query params
-    if ( exists $args{'min_calories'}) {
-        $query_params->{'minCalories'} = $self->{api_client}->to_query_value($args{'min_calories'});
-    }
-
-    # query params
-    if ( exists $args{'max_calories'}) {
-        $query_params->{'maxCalories'} = $self->{api_client}->to_query_value($args{'max_calories'});
-    }
-
-    # query params
-    if ( exists $args{'min_fat'}) {
-        $query_params->{'minFat'} = $self->{api_client}->to_query_value($args{'min_fat'});
-    }
-
-    # query params
-    if ( exists $args{'max_fat'}) {
-        $query_params->{'maxFat'} = $self->{api_client}->to_query_value($args{'max_fat'});
-    }
-
-    # query params
-    if ( exists $args{'min_alcohol'}) {
-        $query_params->{'minAlcohol'} = $self->{api_client}->to_query_value($args{'min_alcohol'});
-    }
-
-    # query params
-    if ( exists $args{'max_alcohol'}) {
-        $query_params->{'maxAlcohol'} = $self->{api_client}->to_query_value($args{'max_alcohol'});
-    }
-
-    # query params
-    if ( exists $args{'min_caffeine'}) {
-        $query_params->{'minCaffeine'} = $self->{api_client}->to_query_value($args{'min_caffeine'});
-    }
-
-    # query params
-    if ( exists $args{'max_caffeine'}) {
-        $query_params->{'maxCaffeine'} = $self->{api_client}->to_query_value($args{'max_caffeine'});
-    }
-
-    # query params
-    if ( exists $args{'min_copper'}) {
-        $query_params->{'minCopper'} = $self->{api_client}->to_query_value($args{'min_copper'});
-    }
-
-    # query params
-    if ( exists $args{'max_copper'}) {
-        $query_params->{'maxCopper'} = $self->{api_client}->to_query_value($args{'max_copper'});
-    }
-
-    # query params
-    if ( exists $args{'min_calcium'}) {
-        $query_params->{'minCalcium'} = $self->{api_client}->to_query_value($args{'min_calcium'});
-    }
-
-    # query params
-    if ( exists $args{'max_calcium'}) {
-        $query_params->{'maxCalcium'} = $self->{api_client}->to_query_value($args{'max_calcium'});
-    }
-
-    # query params
-    if ( exists $args{'min_choline'}) {
-        $query_params->{'minCholine'} = $self->{api_client}->to_query_value($args{'min_choline'});
-    }
-
-    # query params
-    if ( exists $args{'max_choline'}) {
-        $query_params->{'maxCholine'} = $self->{api_client}->to_query_value($args{'max_choline'});
-    }
-
-    # query params
-    if ( exists $args{'min_cholesterol'}) {
-        $query_params->{'minCholesterol'} = $self->{api_client}->to_query_value($args{'min_cholesterol'});
-    }
-
-    # query params
-    if ( exists $args{'max_cholesterol'}) {
-        $query_params->{'maxCholesterol'} = $self->{api_client}->to_query_value($args{'max_cholesterol'});
-    }
-
-    # query params
-    if ( exists $args{'min_fluoride'}) {
-        $query_params->{'minFluoride'} = $self->{api_client}->to_query_value($args{'min_fluoride'});
-    }
-
-    # query params
-    if ( exists $args{'max_fluoride'}) {
-        $query_params->{'maxFluoride'} = $self->{api_client}->to_query_value($args{'max_fluoride'});
-    }
-
-    # query params
-    if ( exists $args{'min_saturated_fat'}) {
-        $query_params->{'minSaturatedFat'} = $self->{api_client}->to_query_value($args{'min_saturated_fat'});
-    }
-
-    # query params
-    if ( exists $args{'max_saturated_fat'}) {
-        $query_params->{'maxSaturatedFat'} = $self->{api_client}->to_query_value($args{'max_saturated_fat'});
-    }
-
-    # query params
-    if ( exists $args{'min_vitamin_a'}) {
-        $query_params->{'minVitaminA'} = $self->{api_client}->to_query_value($args{'min_vitamin_a'});
-    }
-
-    # query params
-    if ( exists $args{'max_vitamin_a'}) {
-        $query_params->{'maxVitaminA'} = $self->{api_client}->to_query_value($args{'max_vitamin_a'});
-    }
-
-    # query params
-    if ( exists $args{'min_vitamin_c'}) {
-        $query_params->{'minVitaminC'} = $self->{api_client}->to_query_value($args{'min_vitamin_c'});
-    }
-
-    # query params
-    if ( exists $args{'max_vitamin_c'}) {
-        $query_params->{'maxVitaminC'} = $self->{api_client}->to_query_value($args{'max_vitamin_c'});
-    }
-
-    # query params
-    if ( exists $args{'min_vitamin_d'}) {
-        $query_params->{'minVitaminD'} = $self->{api_client}->to_query_value($args{'min_vitamin_d'});
-    }
-
-    # query params
-    if ( exists $args{'max_vitamin_d'}) {
-        $query_params->{'maxVitaminD'} = $self->{api_client}->to_query_value($args{'max_vitamin_d'});
-    }
-
-    # query params
-    if ( exists $args{'min_vitamin_e'}) {
-        $query_params->{'minVitaminE'} = $self->{api_client}->to_query_value($args{'min_vitamin_e'});
-    }
-
-    # query params
-    if ( exists $args{'max_vitamin_e'}) {
-        $query_params->{'maxVitaminE'} = $self->{api_client}->to_query_value($args{'max_vitamin_e'});
-    }
-
-    # query params
-    if ( exists $args{'min_vitamin_k'}) {
-        $query_params->{'minVitaminK'} = $self->{api_client}->to_query_value($args{'min_vitamin_k'});
-    }
-
-    # query params
-    if ( exists $args{'max_vitamin_k'}) {
-        $query_params->{'maxVitaminK'} = $self->{api_client}->to_query_value($args{'max_vitamin_k'});
-    }
-
-    # query params
-    if ( exists $args{'min_vitamin_b1'}) {
-        $query_params->{'minVitaminB1'} = $self->{api_client}->to_query_value($args{'min_vitamin_b1'});
-    }
-
-    # query params
-    if ( exists $args{'max_vitamin_b1'}) {
-        $query_params->{'maxVitaminB1'} = $self->{api_client}->to_query_value($args{'max_vitamin_b1'});
-    }
-
-    # query params
-    if ( exists $args{'min_vitamin_b2'}) {
-        $query_params->{'minVitaminB2'} = $self->{api_client}->to_query_value($args{'min_vitamin_b2'});
-    }
-
-    # query params
-    if ( exists $args{'max_vitamin_b2'}) {
-        $query_params->{'maxVitaminB2'} = $self->{api_client}->to_query_value($args{'max_vitamin_b2'});
-    }
-
-    # query params
-    if ( exists $args{'min_vitamin_b5'}) {
-        $query_params->{'minVitaminB5'} = $self->{api_client}->to_query_value($args{'min_vitamin_b5'});
-    }
-
-    # query params
-    if ( exists $args{'max_vitamin_b5'}) {
-        $query_params->{'maxVitaminB5'} = $self->{api_client}->to_query_value($args{'max_vitamin_b5'});
-    }
-
-    # query params
-    if ( exists $args{'min_vitamin_b3'}) {
-        $query_params->{'minVitaminB3'} = $self->{api_client}->to_query_value($args{'min_vitamin_b3'});
-    }
-
-    # query params
-    if ( exists $args{'max_vitamin_b3'}) {
-        $query_params->{'maxVitaminB3'} = $self->{api_client}->to_query_value($args{'max_vitamin_b3'});
-    }
-
-    # query params
-    if ( exists $args{'min_vitamin_b6'}) {
-        $query_params->{'minVitaminB6'} = $self->{api_client}->to_query_value($args{'min_vitamin_b6'});
-    }
-
-    # query params
-    if ( exists $args{'max_vitamin_b6'}) {
-        $query_params->{'maxVitaminB6'} = $self->{api_client}->to_query_value($args{'max_vitamin_b6'});
-    }
-
-    # query params
-    if ( exists $args{'min_vitamin_b12'}) {
-        $query_params->{'minVitaminB12'} = $self->{api_client}->to_query_value($args{'min_vitamin_b12'});
-    }
-
-    # query params
-    if ( exists $args{'max_vitamin_b12'}) {
-        $query_params->{'maxVitaminB12'} = $self->{api_client}->to_query_value($args{'max_vitamin_b12'});
-    }
-
-    # query params
-    if ( exists $args{'min_fiber'}) {
-        $query_params->{'minFiber'} = $self->{api_client}->to_query_value($args{'min_fiber'});
-    }
-
-    # query params
-    if ( exists $args{'max_fiber'}) {
-        $query_params->{'maxFiber'} = $self->{api_client}->to_query_value($args{'max_fiber'});
-    }
-
-    # query params
-    if ( exists $args{'min_folate'}) {
-        $query_params->{'minFolate'} = $self->{api_client}->to_query_value($args{'min_folate'});
-    }
-
-    # query params
-    if ( exists $args{'max_folate'}) {
-        $query_params->{'maxFolate'} = $self->{api_client}->to_query_value($args{'max_folate'});
-    }
-
-    # query params
-    if ( exists $args{'min_folic_acid'}) {
-        $query_params->{'minFolicAcid'} = $self->{api_client}->to_query_value($args{'min_folic_acid'});
-    }
-
-    # query params
-    if ( exists $args{'max_folic_acid'}) {
-        $query_params->{'maxFolicAcid'} = $self->{api_client}->to_query_value($args{'max_folic_acid'});
-    }
-
-    # query params
-    if ( exists $args{'min_iodine'}) {
-        $query_params->{'minIodine'} = $self->{api_client}->to_query_value($args{'min_iodine'});
-    }
-
-    # query params
-    if ( exists $args{'max_iodine'}) {
-        $query_params->{'maxIodine'} = $self->{api_client}->to_query_value($args{'max_iodine'});
-    }
-
-    # query params
-    if ( exists $args{'min_iron'}) {
-        $query_params->{'minIron'} = $self->{api_client}->to_query_value($args{'min_iron'});
-    }
-
-    # query params
-    if ( exists $args{'max_iron'}) {
-        $query_params->{'maxIron'} = $self->{api_client}->to_query_value($args{'max_iron'});
-    }
-
-    # query params
-    if ( exists $args{'min_magnesium'}) {
-        $query_params->{'minMagnesium'} = $self->{api_client}->to_query_value($args{'min_magnesium'});
-    }
-
-    # query params
-    if ( exists $args{'max_magnesium'}) {
-        $query_params->{'maxMagnesium'} = $self->{api_client}->to_query_value($args{'max_magnesium'});
-    }
-
-    # query params
-    if ( exists $args{'min_manganese'}) {
-        $query_params->{'minManganese'} = $self->{api_client}->to_query_value($args{'min_manganese'});
-    }
-
-    # query params
-    if ( exists $args{'max_manganese'}) {
-        $query_params->{'maxManganese'} = $self->{api_client}->to_query_value($args{'max_manganese'});
-    }
-
-    # query params
-    if ( exists $args{'min_phosphorus'}) {
-        $query_params->{'minPhosphorus'} = $self->{api_client}->to_query_value($args{'min_phosphorus'});
-    }
-
-    # query params
-    if ( exists $args{'max_phosphorus'}) {
-        $query_params->{'maxPhosphorus'} = $self->{api_client}->to_query_value($args{'max_phosphorus'});
-    }
-
-    # query params
-    if ( exists $args{'min_potassium'}) {
-        $query_params->{'minPotassium'} = $self->{api_client}->to_query_value($args{'min_potassium'});
-    }
-
-    # query params
-    if ( exists $args{'max_potassium'}) {
-        $query_params->{'maxPotassium'} = $self->{api_client}->to_query_value($args{'max_potassium'});
-    }
-
-    # query params
-    if ( exists $args{'min_selenium'}) {
-        $query_params->{'minSelenium'} = $self->{api_client}->to_query_value($args{'min_selenium'});
-    }
-
-    # query params
-    if ( exists $args{'max_selenium'}) {
-        $query_params->{'maxSelenium'} = $self->{api_client}->to_query_value($args{'max_selenium'});
-    }
-
-    # query params
-    if ( exists $args{'min_sodium'}) {
-        $query_params->{'minSodium'} = $self->{api_client}->to_query_value($args{'min_sodium'});
-    }
-
-    # query params
-    if ( exists $args{'max_sodium'}) {
-        $query_params->{'maxSodium'} = $self->{api_client}->to_query_value($args{'max_sodium'});
-    }
-
-    # query params
-    if ( exists $args{'min_sugar'}) {
-        $query_params->{'minSugar'} = $self->{api_client}->to_query_value($args{'min_sugar'});
-    }
-
-    # query params
-    if ( exists $args{'max_sugar'}) {
-        $query_params->{'maxSugar'} = $self->{api_client}->to_query_value($args{'max_sugar'});
-    }
-
-    # query params
-    if ( exists $args{'min_zinc'}) {
-        $query_params->{'minZinc'} = $self->{api_client}->to_query_value($args{'min_zinc'});
-    }
-
-    # query params
-    if ( exists $args{'max_zinc'}) {
-        $query_params->{'maxZinc'} = $self->{api_client}->to_query_value($args{'max_zinc'});
-    }
-
-    # query params
-    if ( exists $args{'offset'}) {
-        $query_params->{'offset'} = $self->{api_client}->to_query_value($args{'offset'});
-    }
-
-    # query params
-    if ( exists $args{'number'}) {
-        $query_params->{'number'} = $self->{api_client}->to_query_value($args{'number'});
-    }
-
-    # query params
-    if ( exists $args{'random'}) {
-        $query_params->{'random'} = $self->{api_client}->to_query_value($args{'random'});
-    }
-
-    # query params
-    if ( exists $args{'limit_license'}) {
-        $query_params->{'limitLicense'} = $self->{api_client}->to_query_value($args{'limit_license'});
-    }
-
-    my $_body_data;
-    # authentication setting, if any
-    my $auth_settings = [qw()];
-
-    # make the API Call
-    my $response = $self->{api_client}->call_api($_resource_path, $_method,
-                                           $query_params, $form_params,
-                                           $header_params, $_body_data, $auth_settings);
-    if (!$response) {
-        return;
-    }
-    my $_response_object = $self->{api_client}->deserialize('object', $response);
-    return $_response_object;
-}
-
-#
-# search_recipes_complex
-#
-# Search Recipes Complex
-# 
-# @param string $query The (natural language) recipe search query. (required)
 # @param string $cuisine The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as &#39;OR&#39;). See a full list of supported cuisines. (optional)
 # @param string $exclude_cuisine The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as &#39;AND&#39;). See a full list of supported cuisines. (optional)
 # @param string $diet The diet for which the recipes must be suitable. See a full list of supported diets. (optional)
@@ -6161,12 +5623,12 @@ sub search_recipes_by_nutrients {
 # @param double $max_vitamin_b12 The maximum amount of Vitamin B12 in micrograms the recipe can have. (optional)
 # @param double $min_fiber The minimum amount of fiber in grams the recipe must have. (optional)
 # @param double $max_fiber The maximum amount of fiber in grams the recipe can have. (optional)
-# @param double $min_folate The minimum amount of folate in grams the recipe must have. (optional)
-# @param double $max_folate The maximum amount of folate in grams the recipe can have. (optional)
-# @param double $min_folic_acid The minimum amount of folic acid in grams the recipe must have. (optional)
-# @param double $max_folic_acid The maximum amount of folic acid in grams the recipe can have. (optional)
-# @param double $min_iodine The minimum amount of iodine in grams the recipe must have. (optional)
-# @param double $max_iodine The maximum amount of iodine in grams the recipe can have. (optional)
+# @param double $min_folate The minimum amount of folate in micrograms the recipe must have. (optional)
+# @param double $max_folate The maximum amount of folate in micrograms the recipe can have. (optional)
+# @param double $min_folic_acid The minimum amount of folic acid in micrograms the recipe must have. (optional)
+# @param double $max_folic_acid The maximum amount of folic acid in micrograms the recipe can have. (optional)
+# @param double $min_iodine The minimum amount of iodine in micrograms the recipe must have. (optional)
+# @param double $max_iodine The maximum amount of iodine in micrograms the recipe can have. (optional)
 # @param double $min_iron The minimum amount of iron in milligrams the recipe must have. (optional)
 # @param double $max_iron The maximum amount of iron in milligrams the recipe can have. (optional)
 # @param double $min_magnesium The minimum amount of magnesium in milligrams the recipe must have. (optional)
@@ -6177,8 +5639,8 @@ sub search_recipes_by_nutrients {
 # @param double $max_phosphorus The maximum amount of phosphorus in milligrams the recipe can have. (optional)
 # @param double $min_potassium The minimum amount of potassium in milligrams the recipe must have. (optional)
 # @param double $max_potassium The maximum amount of potassium in milligrams the recipe can have. (optional)
-# @param double $min_selenium The minimum amount of selenium in grams the recipe must have. (optional)
-# @param double $max_selenium The maximum amount of selenium in grams the recipe can have. (optional)
+# @param double $min_selenium The minimum amount of selenium in micrograms the recipe must have. (optional)
+# @param double $max_selenium The maximum amount of selenium in micrograms the recipe can have. (optional)
 # @param double $min_sodium The minimum amount of sodium in milligrams the recipe must have. (optional)
 # @param double $max_sodium The maximum amount of sodium in milligrams the recipe can have. (optional)
 # @param double $min_sugar The minimum amount of sugar in grams the recipe must have. (optional)
@@ -6537,32 +5999,32 @@ sub search_recipes_by_nutrients {
     },
     'min_folate' => {
         data_type => 'double',
-        description => 'The minimum amount of folate in grams the recipe must have.',
+        description => 'The minimum amount of folate in micrograms the recipe must have.',
         required => '0',
     },
     'max_folate' => {
         data_type => 'double',
-        description => 'The maximum amount of folate in grams the recipe can have.',
+        description => 'The maximum amount of folate in micrograms the recipe can have.',
         required => '0',
     },
     'min_folic_acid' => {
         data_type => 'double',
-        description => 'The minimum amount of folic acid in grams the recipe must have.',
+        description => 'The minimum amount of folic acid in micrograms the recipe must have.',
         required => '0',
     },
     'max_folic_acid' => {
         data_type => 'double',
-        description => 'The maximum amount of folic acid in grams the recipe can have.',
+        description => 'The maximum amount of folic acid in micrograms the recipe can have.',
         required => '0',
     },
     'min_iodine' => {
         data_type => 'double',
-        description => 'The minimum amount of iodine in grams the recipe must have.',
+        description => 'The minimum amount of iodine in micrograms the recipe must have.',
         required => '0',
     },
     'max_iodine' => {
         data_type => 'double',
-        description => 'The maximum amount of iodine in grams the recipe can have.',
+        description => 'The maximum amount of iodine in micrograms the recipe can have.',
         required => '0',
     },
     'min_iron' => {
@@ -6617,12 +6079,12 @@ sub search_recipes_by_nutrients {
     },
     'min_selenium' => {
         data_type => 'double',
-        description => 'The minimum amount of selenium in grams the recipe must have.',
+        description => 'The minimum amount of selenium in micrograms the recipe must have.',
         required => '0',
     },
     'max_selenium' => {
         data_type => 'double',
-        description => 'The maximum amount of selenium in grams the recipe can have.',
+        description => 'The maximum amount of selenium in micrograms the recipe can have.',
         required => '0',
     },
     'min_sodium' => {
@@ -6671,20 +6133,20 @@ sub search_recipes_by_nutrients {
         required => '0',
     },
     };
-    __PACKAGE__->method_documentation->{ 'search_recipes_complex' } = { 
-        summary => 'Search Recipes Complex',
+    __PACKAGE__->method_documentation->{ 'search_recipes' } = { 
+        summary => 'Search Recipes',
         params => $params,
         returns => 'object',
         };
 }
 # @return object
 #
-sub search_recipes_complex {
+sub search_recipes {
     my ($self, %args) = @_;
 
     # verify the required parameter 'query' is set
     unless (exists $args{'query'}) {
-      croak("Missing the required parameter 'query' when calling search_recipes_complex");
+      croak("Missing the required parameter 'query' when calling search_recipes");
     }
 
     # parse inputs
@@ -7198,6 +6660,1000 @@ sub search_recipes_complex {
 }
 
 #
+# search_recipes_by_ingredients
+#
+# Search Recipes by Ingredients
+# 
+# @param string $ingredients A comma-separated list of ingredients that the recipes should contain. (required)
+# @param double $number The maximum number of recipes to return (between 1 and 100). Defaults to 10. (optional)
+# @param boolean $limit_license Whether the recipes should have an open license that allows display with proper attribution. (optional)
+# @param double $ranking Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. (optional)
+# @param boolean $ignore_pantry Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional)
+{
+    my $params = {
+    'ingredients' => {
+        data_type => 'string',
+        description => 'A comma-separated list of ingredients that the recipes should contain.',
+        required => '1',
+    },
+    'number' => {
+        data_type => 'double',
+        description => 'The maximum number of recipes to return (between 1 and 100). Defaults to 10.',
+        required => '0',
+    },
+    'limit_license' => {
+        data_type => 'boolean',
+        description => 'Whether the recipes should have an open license that allows display with proper attribution.',
+        required => '0',
+    },
+    'ranking' => {
+        data_type => 'double',
+        description => 'Whether to maximize used ingredients (1) or minimize missing ingredients (2) first.',
+        required => '0',
+    },
+    'ignore_pantry' => {
+        data_type => 'boolean',
+        description => 'Whether to ignore typical pantry items, such as water, salt, flour, etc.',
+        required => '0',
+    },
+    };
+    __PACKAGE__->method_documentation->{ 'search_recipes_by_ingredients' } = { 
+        summary => 'Search Recipes by Ingredients',
+        params => $params,
+        returns => 'object',
+        };
+}
+# @return object
+#
+sub search_recipes_by_ingredients {
+    my ($self, %args) = @_;
+
+    # verify the required parameter 'ingredients' is set
+    unless (exists $args{'ingredients'}) {
+      croak("Missing the required parameter 'ingredients' when calling search_recipes_by_ingredients");
+    }
+
+    # parse inputs
+    my $_resource_path = '/recipes/findByIngredients';
+
+    my $_method = 'GET';
+    my $query_params = {};
+    my $header_params = {};
+    my $form_params = {};
+
+    # 'Accept' and 'Content-Type' header
+    my $_header_accept = $self->{api_client}->select_header_accept('application/json');
+    if ($_header_accept) {
+        $header_params->{'Accept'} = $_header_accept;
+    }
+    $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
+
+    # query params
+    if ( exists $args{'ingredients'}) {
+        $query_params->{'ingredients'} = $self->{api_client}->to_query_value($args{'ingredients'});
+    }
+
+    # query params
+    if ( exists $args{'number'}) {
+        $query_params->{'number'} = $self->{api_client}->to_query_value($args{'number'});
+    }
+
+    # query params
+    if ( exists $args{'limit_license'}) {
+        $query_params->{'limitLicense'} = $self->{api_client}->to_query_value($args{'limit_license'});
+    }
+
+    # query params
+    if ( exists $args{'ranking'}) {
+        $query_params->{'ranking'} = $self->{api_client}->to_query_value($args{'ranking'});
+    }
+
+    # query params
+    if ( exists $args{'ignore_pantry'}) {
+        $query_params->{'ignorePantry'} = $self->{api_client}->to_query_value($args{'ignore_pantry'});
+    }
+
+    my $_body_data;
+    # authentication setting, if any
+    my $auth_settings = [qw()];
+
+    # make the API Call
+    my $response = $self->{api_client}->call_api($_resource_path, $_method,
+                                           $query_params, $form_params,
+                                           $header_params, $_body_data, $auth_settings);
+    if (!$response) {
+        return;
+    }
+    my $_response_object = $self->{api_client}->deserialize('object', $response);
+    return $_response_object;
+}
+
+#
+# search_recipes_by_nutrients
+#
+# Search Recipes by Nutrients
+# 
+# @param double $min_carbs The minimum amount of carbohydrates in grams the recipe must have. (optional)
+# @param double $max_carbs The maximum amount of carbohydrates in grams the recipe can have. (optional)
+# @param double $min_protein The minimum amount of protein in grams the recipe must have. (optional)
+# @param double $max_protein The maximum amount of protein in grams the recipe can have. (optional)
+# @param double $min_calories The minimum amount of calories the recipe must have. (optional)
+# @param double $max_calories The maximum amount of calories the recipe can have. (optional)
+# @param double $min_fat The minimum amount of fat in grams the recipe must have. (optional)
+# @param double $max_fat The maximum amount of fat in grams the recipe can have. (optional)
+# @param double $min_alcohol The minimum amount of alcohol in grams the recipe must have. (optional)
+# @param double $max_alcohol The maximum amount of alcohol in grams the recipe can have. (optional)
+# @param double $min_caffeine The minimum amount of caffeine in milligrams the recipe must have. (optional)
+# @param double $max_caffeine The maximum amount of caffeine in milligrams the recipe can have. (optional)
+# @param double $min_copper The minimum amount of copper in milligrams the recipe must have. (optional)
+# @param double $max_copper The maximum amount of copper in milligrams the recipe can have. (optional)
+# @param double $min_calcium The minimum amount of calcium in milligrams the recipe must have. (optional)
+# @param double $max_calcium The maximum amount of calcium in milligrams the recipe can have. (optional)
+# @param double $min_choline The minimum amount of choline in milligrams the recipe must have. (optional)
+# @param double $max_choline The maximum amount of choline in milligrams the recipe can have. (optional)
+# @param double $min_cholesterol The minimum amount of cholesterol in milligrams the recipe must have. (optional)
+# @param double $max_cholesterol The maximum amount of cholesterol in milligrams the recipe can have. (optional)
+# @param double $min_fluoride The minimum amount of fluoride in milligrams the recipe must have. (optional)
+# @param double $max_fluoride The maximum amount of fluoride in milligrams the recipe can have. (optional)
+# @param double $min_saturated_fat The minimum amount of saturated fat in grams the recipe must have. (optional)
+# @param double $max_saturated_fat The maximum amount of saturated fat in grams the recipe can have. (optional)
+# @param double $min_vitamin_a The minimum amount of Vitamin A in IU the recipe must have. (optional)
+# @param double $max_vitamin_a The maximum amount of Vitamin A in IU the recipe can have. (optional)
+# @param double $min_vitamin_c The minimum amount of Vitamin C in milligrams the recipe must have. (optional)
+# @param double $max_vitamin_c The maximum amount of Vitamin C in milligrams the recipe can have. (optional)
+# @param double $min_vitamin_d The minimum amount of Vitamin D in micrograms the recipe must have. (optional)
+# @param double $max_vitamin_d The maximum amount of Vitamin D in micrograms the recipe can have. (optional)
+# @param double $min_vitamin_e The minimum amount of Vitamin E in milligrams the recipe must have. (optional)
+# @param double $max_vitamin_e The maximum amount of Vitamin E in milligrams the recipe can have. (optional)
+# @param double $min_vitamin_k The minimum amount of Vitamin K in micrograms the recipe must have. (optional)
+# @param double $max_vitamin_k The maximum amount of Vitamin K in micrograms the recipe can have. (optional)
+# @param double $min_vitamin_b1 The minimum amount of Vitamin B1 in milligrams the recipe must have. (optional)
+# @param double $max_vitamin_b1 The maximum amount of Vitamin B1 in milligrams the recipe can have. (optional)
+# @param double $min_vitamin_b2 The minimum amount of Vitamin B2 in milligrams the recipe must have. (optional)
+# @param double $max_vitamin_b2 The maximum amount of Vitamin B2 in milligrams the recipe can have. (optional)
+# @param double $min_vitamin_b5 The minimum amount of Vitamin B5 in milligrams the recipe must have. (optional)
+# @param double $max_vitamin_b5 The maximum amount of Vitamin B5 in milligrams the recipe can have. (optional)
+# @param double $min_vitamin_b3 The minimum amount of Vitamin B3 in milligrams the recipe must have. (optional)
+# @param double $max_vitamin_b3 The maximum amount of Vitamin B3 in milligrams the recipe can have. (optional)
+# @param double $min_vitamin_b6 The minimum amount of Vitamin B6 in milligrams the recipe must have. (optional)
+# @param double $max_vitamin_b6 The maximum amount of Vitamin B6 in milligrams the recipe can have. (optional)
+# @param double $min_vitamin_b12 The minimum amount of Vitamin B12 in micrograms the recipe must have. (optional)
+# @param double $max_vitamin_b12 The maximum amount of Vitamin B12 in micrograms the recipe can have. (optional)
+# @param double $min_fiber The minimum amount of fiber in grams the recipe must have. (optional)
+# @param double $max_fiber The maximum amount of fiber in grams the recipe can have. (optional)
+# @param double $min_folate The minimum amount of folate in micrograms the recipe must have. (optional)
+# @param double $max_folate The maximum amount of folate in micrograms the recipe can have. (optional)
+# @param double $min_folic_acid The minimum amount of folic acid in micrograms the recipe must have. (optional)
+# @param double $max_folic_acid The maximum amount of folic acid in micrograms the recipe can have. (optional)
+# @param double $min_iodine The minimum amount of iodine in micrograms the recipe must have. (optional)
+# @param double $max_iodine The maximum amount of iodine in micrograms the recipe can have. (optional)
+# @param double $min_iron The minimum amount of iron in milligrams the recipe must have. (optional)
+# @param double $max_iron The maximum amount of iron in milligrams the recipe can have. (optional)
+# @param double $min_magnesium The minimum amount of magnesium in milligrams the recipe must have. (optional)
+# @param double $max_magnesium The maximum amount of magnesium in milligrams the recipe can have. (optional)
+# @param double $min_manganese The minimum amount of manganese in milligrams the recipe must have. (optional)
+# @param double $max_manganese The maximum amount of manganese in milligrams the recipe can have. (optional)
+# @param double $min_phosphorus The minimum amount of phosphorus in milligrams the recipe must have. (optional)
+# @param double $max_phosphorus The maximum amount of phosphorus in milligrams the recipe can have. (optional)
+# @param double $min_potassium The minimum amount of potassium in milligrams the recipe must have. (optional)
+# @param double $max_potassium The maximum amount of potassium in milligrams the recipe can have. (optional)
+# @param double $min_selenium The minimum amount of selenium in micrograms the recipe must have. (optional)
+# @param double $max_selenium The maximum amount of selenium in micrograms the recipe can have. (optional)
+# @param double $min_sodium The minimum amount of sodium in milligrams the recipe must have. (optional)
+# @param double $max_sodium The maximum amount of sodium in milligrams the recipe can have. (optional)
+# @param double $min_sugar The minimum amount of sugar in grams the recipe must have. (optional)
+# @param double $max_sugar The maximum amount of sugar in grams the recipe can have. (optional)
+# @param double $min_zinc The minimum amount of zinc in milligrams the recipe must have. (optional)
+# @param double $max_zinc The maximum amount of zinc in milligrams the recipe can have. (optional)
+# @param double $offset The number of results to skip (between 0 and 900). (optional)
+# @param double $number The number of expected results (between 1 and 100). (optional)
+# @param boolean $random If true, every request will give you a random set of recipes within the requested limits. (optional)
+# @param boolean $limit_license Whether the recipes should have an open license that allows display with proper attribution. (optional)
+{
+    my $params = {
+    'min_carbs' => {
+        data_type => 'double',
+        description => 'The minimum amount of carbohydrates in grams the recipe must have.',
+        required => '0',
+    },
+    'max_carbs' => {
+        data_type => 'double',
+        description => 'The maximum amount of carbohydrates in grams the recipe can have.',
+        required => '0',
+    },
+    'min_protein' => {
+        data_type => 'double',
+        description => 'The minimum amount of protein in grams the recipe must have.',
+        required => '0',
+    },
+    'max_protein' => {
+        data_type => 'double',
+        description => 'The maximum amount of protein in grams the recipe can have.',
+        required => '0',
+    },
+    'min_calories' => {
+        data_type => 'double',
+        description => 'The minimum amount of calories the recipe must have.',
+        required => '0',
+    },
+    'max_calories' => {
+        data_type => 'double',
+        description => 'The maximum amount of calories the recipe can have.',
+        required => '0',
+    },
+    'min_fat' => {
+        data_type => 'double',
+        description => 'The minimum amount of fat in grams the recipe must have.',
+        required => '0',
+    },
+    'max_fat' => {
+        data_type => 'double',
+        description => 'The maximum amount of fat in grams the recipe can have.',
+        required => '0',
+    },
+    'min_alcohol' => {
+        data_type => 'double',
+        description => 'The minimum amount of alcohol in grams the recipe must have.',
+        required => '0',
+    },
+    'max_alcohol' => {
+        data_type => 'double',
+        description => 'The maximum amount of alcohol in grams the recipe can have.',
+        required => '0',
+    },
+    'min_caffeine' => {
+        data_type => 'double',
+        description => 'The minimum amount of caffeine in milligrams the recipe must have.',
+        required => '0',
+    },
+    'max_caffeine' => {
+        data_type => 'double',
+        description => 'The maximum amount of caffeine in milligrams the recipe can have.',
+        required => '0',
+    },
+    'min_copper' => {
+        data_type => 'double',
+        description => 'The minimum amount of copper in milligrams the recipe must have.',
+        required => '0',
+    },
+    'max_copper' => {
+        data_type => 'double',
+        description => 'The maximum amount of copper in milligrams the recipe can have.',
+        required => '0',
+    },
+    'min_calcium' => {
+        data_type => 'double',
+        description => 'The minimum amount of calcium in milligrams the recipe must have.',
+        required => '0',
+    },
+    'max_calcium' => {
+        data_type => 'double',
+        description => 'The maximum amount of calcium in milligrams the recipe can have.',
+        required => '0',
+    },
+    'min_choline' => {
+        data_type => 'double',
+        description => 'The minimum amount of choline in milligrams the recipe must have.',
+        required => '0',
+    },
+    'max_choline' => {
+        data_type => 'double',
+        description => 'The maximum amount of choline in milligrams the recipe can have.',
+        required => '0',
+    },
+    'min_cholesterol' => {
+        data_type => 'double',
+        description => 'The minimum amount of cholesterol in milligrams the recipe must have.',
+        required => '0',
+    },
+    'max_cholesterol' => {
+        data_type => 'double',
+        description => 'The maximum amount of cholesterol in milligrams the recipe can have.',
+        required => '0',
+    },
+    'min_fluoride' => {
+        data_type => 'double',
+        description => 'The minimum amount of fluoride in milligrams the recipe must have.',
+        required => '0',
+    },
+    'max_fluoride' => {
+        data_type => 'double',
+        description => 'The maximum amount of fluoride in milligrams the recipe can have.',
+        required => '0',
+    },
+    'min_saturated_fat' => {
+        data_type => 'double',
+        description => 'The minimum amount of saturated fat in grams the recipe must have.',
+        required => '0',
+    },
+    'max_saturated_fat' => {
+        data_type => 'double',
+        description => 'The maximum amount of saturated fat in grams the recipe can have.',
+        required => '0',
+    },
+    'min_vitamin_a' => {
+        data_type => 'double',
+        description => 'The minimum amount of Vitamin A in IU the recipe must have.',
+        required => '0',
+    },
+    'max_vitamin_a' => {
+        data_type => 'double',
+        description => 'The maximum amount of Vitamin A in IU the recipe can have.',
+        required => '0',
+    },
+    'min_vitamin_c' => {
+        data_type => 'double',
+        description => 'The minimum amount of Vitamin C in milligrams the recipe must have.',
+        required => '0',
+    },
+    'max_vitamin_c' => {
+        data_type => 'double',
+        description => 'The maximum amount of Vitamin C in milligrams the recipe can have.',
+        required => '0',
+    },
+    'min_vitamin_d' => {
+        data_type => 'double',
+        description => 'The minimum amount of Vitamin D in micrograms the recipe must have.',
+        required => '0',
+    },
+    'max_vitamin_d' => {
+        data_type => 'double',
+        description => 'The maximum amount of Vitamin D in micrograms the recipe can have.',
+        required => '0',
+    },
+    'min_vitamin_e' => {
+        data_type => 'double',
+        description => 'The minimum amount of Vitamin E in milligrams the recipe must have.',
+        required => '0',
+    },
+    'max_vitamin_e' => {
+        data_type => 'double',
+        description => 'The maximum amount of Vitamin E in milligrams the recipe can have.',
+        required => '0',
+    },
+    'min_vitamin_k' => {
+        data_type => 'double',
+        description => 'The minimum amount of Vitamin K in micrograms the recipe must have.',
+        required => '0',
+    },
+    'max_vitamin_k' => {
+        data_type => 'double',
+        description => 'The maximum amount of Vitamin K in micrograms the recipe can have.',
+        required => '0',
+    },
+    'min_vitamin_b1' => {
+        data_type => 'double',
+        description => 'The minimum amount of Vitamin B1 in milligrams the recipe must have.',
+        required => '0',
+    },
+    'max_vitamin_b1' => {
+        data_type => 'double',
+        description => 'The maximum amount of Vitamin B1 in milligrams the recipe can have.',
+        required => '0',
+    },
+    'min_vitamin_b2' => {
+        data_type => 'double',
+        description => 'The minimum amount of Vitamin B2 in milligrams the recipe must have.',
+        required => '0',
+    },
+    'max_vitamin_b2' => {
+        data_type => 'double',
+        description => 'The maximum amount of Vitamin B2 in milligrams the recipe can have.',
+        required => '0',
+    },
+    'min_vitamin_b5' => {
+        data_type => 'double',
+        description => 'The minimum amount of Vitamin B5 in milligrams the recipe must have.',
+        required => '0',
+    },
+    'max_vitamin_b5' => {
+        data_type => 'double',
+        description => 'The maximum amount of Vitamin B5 in milligrams the recipe can have.',
+        required => '0',
+    },
+    'min_vitamin_b3' => {
+        data_type => 'double',
+        description => 'The minimum amount of Vitamin B3 in milligrams the recipe must have.',
+        required => '0',
+    },
+    'max_vitamin_b3' => {
+        data_type => 'double',
+        description => 'The maximum amount of Vitamin B3 in milligrams the recipe can have.',
+        required => '0',
+    },
+    'min_vitamin_b6' => {
+        data_type => 'double',
+        description => 'The minimum amount of Vitamin B6 in milligrams the recipe must have.',
+        required => '0',
+    },
+    'max_vitamin_b6' => {
+        data_type => 'double',
+        description => 'The maximum amount of Vitamin B6 in milligrams the recipe can have.',
+        required => '0',
+    },
+    'min_vitamin_b12' => {
+        data_type => 'double',
+        description => 'The minimum amount of Vitamin B12 in micrograms the recipe must have.',
+        required => '0',
+    },
+    'max_vitamin_b12' => {
+        data_type => 'double',
+        description => 'The maximum amount of Vitamin B12 in micrograms the recipe can have.',
+        required => '0',
+    },
+    'min_fiber' => {
+        data_type => 'double',
+        description => 'The minimum amount of fiber in grams the recipe must have.',
+        required => '0',
+    },
+    'max_fiber' => {
+        data_type => 'double',
+        description => 'The maximum amount of fiber in grams the recipe can have.',
+        required => '0',
+    },
+    'min_folate' => {
+        data_type => 'double',
+        description => 'The minimum amount of folate in micrograms the recipe must have.',
+        required => '0',
+    },
+    'max_folate' => {
+        data_type => 'double',
+        description => 'The maximum amount of folate in micrograms the recipe can have.',
+        required => '0',
+    },
+    'min_folic_acid' => {
+        data_type => 'double',
+        description => 'The minimum amount of folic acid in micrograms the recipe must have.',
+        required => '0',
+    },
+    'max_folic_acid' => {
+        data_type => 'double',
+        description => 'The maximum amount of folic acid in micrograms the recipe can have.',
+        required => '0',
+    },
+    'min_iodine' => {
+        data_type => 'double',
+        description => 'The minimum amount of iodine in micrograms the recipe must have.',
+        required => '0',
+    },
+    'max_iodine' => {
+        data_type => 'double',
+        description => 'The maximum amount of iodine in micrograms the recipe can have.',
+        required => '0',
+    },
+    'min_iron' => {
+        data_type => 'double',
+        description => 'The minimum amount of iron in milligrams the recipe must have.',
+        required => '0',
+    },
+    'max_iron' => {
+        data_type => 'double',
+        description => 'The maximum amount of iron in milligrams the recipe can have.',
+        required => '0',
+    },
+    'min_magnesium' => {
+        data_type => 'double',
+        description => 'The minimum amount of magnesium in milligrams the recipe must have.',
+        required => '0',
+    },
+    'max_magnesium' => {
+        data_type => 'double',
+        description => 'The maximum amount of magnesium in milligrams the recipe can have.',
+        required => '0',
+    },
+    'min_manganese' => {
+        data_type => 'double',
+        description => 'The minimum amount of manganese in milligrams the recipe must have.',
+        required => '0',
+    },
+    'max_manganese' => {
+        data_type => 'double',
+        description => 'The maximum amount of manganese in milligrams the recipe can have.',
+        required => '0',
+    },
+    'min_phosphorus' => {
+        data_type => 'double',
+        description => 'The minimum amount of phosphorus in milligrams the recipe must have.',
+        required => '0',
+    },
+    'max_phosphorus' => {
+        data_type => 'double',
+        description => 'The maximum amount of phosphorus in milligrams the recipe can have.',
+        required => '0',
+    },
+    'min_potassium' => {
+        data_type => 'double',
+        description => 'The minimum amount of potassium in milligrams the recipe must have.',
+        required => '0',
+    },
+    'max_potassium' => {
+        data_type => 'double',
+        description => 'The maximum amount of potassium in milligrams the recipe can have.',
+        required => '0',
+    },
+    'min_selenium' => {
+        data_type => 'double',
+        description => 'The minimum amount of selenium in micrograms the recipe must have.',
+        required => '0',
+    },
+    'max_selenium' => {
+        data_type => 'double',
+        description => 'The maximum amount of selenium in micrograms the recipe can have.',
+        required => '0',
+    },
+    'min_sodium' => {
+        data_type => 'double',
+        description => 'The minimum amount of sodium in milligrams the recipe must have.',
+        required => '0',
+    },
+    'max_sodium' => {
+        data_type => 'double',
+        description => 'The maximum amount of sodium in milligrams the recipe can have.',
+        required => '0',
+    },
+    'min_sugar' => {
+        data_type => 'double',
+        description => 'The minimum amount of sugar in grams the recipe must have.',
+        required => '0',
+    },
+    'max_sugar' => {
+        data_type => 'double',
+        description => 'The maximum amount of sugar in grams the recipe can have.',
+        required => '0',
+    },
+    'min_zinc' => {
+        data_type => 'double',
+        description => 'The minimum amount of zinc in milligrams the recipe must have.',
+        required => '0',
+    },
+    'max_zinc' => {
+        data_type => 'double',
+        description => 'The maximum amount of zinc in milligrams the recipe can have.',
+        required => '0',
+    },
+    'offset' => {
+        data_type => 'double',
+        description => 'The number of results to skip (between 0 and 900).',
+        required => '0',
+    },
+    'number' => {
+        data_type => 'double',
+        description => 'The number of expected results (between 1 and 100).',
+        required => '0',
+    },
+    'random' => {
+        data_type => 'boolean',
+        description => 'If true, every request will give you a random set of recipes within the requested limits.',
+        required => '0',
+    },
+    'limit_license' => {
+        data_type => 'boolean',
+        description => 'Whether the recipes should have an open license that allows display with proper attribution.',
+        required => '0',
+    },
+    };
+    __PACKAGE__->method_documentation->{ 'search_recipes_by_nutrients' } = { 
+        summary => 'Search Recipes by Nutrients',
+        params => $params,
+        returns => 'object',
+        };
+}
+# @return object
+#
+sub search_recipes_by_nutrients {
+    my ($self, %args) = @_;
+
+    # parse inputs
+    my $_resource_path = '/recipes/findByNutrients';
+
+    my $_method = 'GET';
+    my $query_params = {};
+    my $header_params = {};
+    my $form_params = {};
+
+    # 'Accept' and 'Content-Type' header
+    my $_header_accept = $self->{api_client}->select_header_accept('application/json');
+    if ($_header_accept) {
+        $header_params->{'Accept'} = $_header_accept;
+    }
+    $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
+
+    # query params
+    if ( exists $args{'min_carbs'}) {
+        $query_params->{'minCarbs'} = $self->{api_client}->to_query_value($args{'min_carbs'});
+    }
+
+    # query params
+    if ( exists $args{'max_carbs'}) {
+        $query_params->{'maxCarbs'} = $self->{api_client}->to_query_value($args{'max_carbs'});
+    }
+
+    # query params
+    if ( exists $args{'min_protein'}) {
+        $query_params->{'minProtein'} = $self->{api_client}->to_query_value($args{'min_protein'});
+    }
+
+    # query params
+    if ( exists $args{'max_protein'}) {
+        $query_params->{'maxProtein'} = $self->{api_client}->to_query_value($args{'max_protein'});
+    }
+
+    # query params
+    if ( exists $args{'min_calories'}) {
+        $query_params->{'minCalories'} = $self->{api_client}->to_query_value($args{'min_calories'});
+    }
+
+    # query params
+    if ( exists $args{'max_calories'}) {
+        $query_params->{'maxCalories'} = $self->{api_client}->to_query_value($args{'max_calories'});
+    }
+
+    # query params
+    if ( exists $args{'min_fat'}) {
+        $query_params->{'minFat'} = $self->{api_client}->to_query_value($args{'min_fat'});
+    }
+
+    # query params
+    if ( exists $args{'max_fat'}) {
+        $query_params->{'maxFat'} = $self->{api_client}->to_query_value($args{'max_fat'});
+    }
+
+    # query params
+    if ( exists $args{'min_alcohol'}) {
+        $query_params->{'minAlcohol'} = $self->{api_client}->to_query_value($args{'min_alcohol'});
+    }
+
+    # query params
+    if ( exists $args{'max_alcohol'}) {
+        $query_params->{'maxAlcohol'} = $self->{api_client}->to_query_value($args{'max_alcohol'});
+    }
+
+    # query params
+    if ( exists $args{'min_caffeine'}) {
+        $query_params->{'minCaffeine'} = $self->{api_client}->to_query_value($args{'min_caffeine'});
+    }
+
+    # query params
+    if ( exists $args{'max_caffeine'}) {
+        $query_params->{'maxCaffeine'} = $self->{api_client}->to_query_value($args{'max_caffeine'});
+    }
+
+    # query params
+    if ( exists $args{'min_copper'}) {
+        $query_params->{'minCopper'} = $self->{api_client}->to_query_value($args{'min_copper'});
+    }
+
+    # query params
+    if ( exists $args{'max_copper'}) {
+        $query_params->{'maxCopper'} = $self->{api_client}->to_query_value($args{'max_copper'});
+    }
+
+    # query params
+    if ( exists $args{'min_calcium'}) {
+        $query_params->{'minCalcium'} = $self->{api_client}->to_query_value($args{'min_calcium'});
+    }
+
+    # query params
+    if ( exists $args{'max_calcium'}) {
+        $query_params->{'maxCalcium'} = $self->{api_client}->to_query_value($args{'max_calcium'});
+    }
+
+    # query params
+    if ( exists $args{'min_choline'}) {
+        $query_params->{'minCholine'} = $self->{api_client}->to_query_value($args{'min_choline'});
+    }
+
+    # query params
+    if ( exists $args{'max_choline'}) {
+        $query_params->{'maxCholine'} = $self->{api_client}->to_query_value($args{'max_choline'});
+    }
+
+    # query params
+    if ( exists $args{'min_cholesterol'}) {
+        $query_params->{'minCholesterol'} = $self->{api_client}->to_query_value($args{'min_cholesterol'});
+    }
+
+    # query params
+    if ( exists $args{'max_cholesterol'}) {
+        $query_params->{'maxCholesterol'} = $self->{api_client}->to_query_value($args{'max_cholesterol'});
+    }
+
+    # query params
+    if ( exists $args{'min_fluoride'}) {
+        $query_params->{'minFluoride'} = $self->{api_client}->to_query_value($args{'min_fluoride'});
+    }
+
+    # query params
+    if ( exists $args{'max_fluoride'}) {
+        $query_params->{'maxFluoride'} = $self->{api_client}->to_query_value($args{'max_fluoride'});
+    }
+
+    # query params
+    if ( exists $args{'min_saturated_fat'}) {
+        $query_params->{'minSaturatedFat'} = $self->{api_client}->to_query_value($args{'min_saturated_fat'});
+    }
+
+    # query params
+    if ( exists $args{'max_saturated_fat'}) {
+        $query_params->{'maxSaturatedFat'} = $self->{api_client}->to_query_value($args{'max_saturated_fat'});
+    }
+
+    # query params
+    if ( exists $args{'min_vitamin_a'}) {
+        $query_params->{'minVitaminA'} = $self->{api_client}->to_query_value($args{'min_vitamin_a'});
+    }
+
+    # query params
+    if ( exists $args{'max_vitamin_a'}) {
+        $query_params->{'maxVitaminA'} = $self->{api_client}->to_query_value($args{'max_vitamin_a'});
+    }
+
+    # query params
+    if ( exists $args{'min_vitamin_c'}) {
+        $query_params->{'minVitaminC'} = $self->{api_client}->to_query_value($args{'min_vitamin_c'});
+    }
+
+    # query params
+    if ( exists $args{'max_vitamin_c'}) {
+        $query_params->{'maxVitaminC'} = $self->{api_client}->to_query_value($args{'max_vitamin_c'});
+    }
+
+    # query params
+    if ( exists $args{'min_vitamin_d'}) {
+        $query_params->{'minVitaminD'} = $self->{api_client}->to_query_value($args{'min_vitamin_d'});
+    }
+
+    # query params
+    if ( exists $args{'max_vitamin_d'}) {
+        $query_params->{'maxVitaminD'} = $self->{api_client}->to_query_value($args{'max_vitamin_d'});
+    }
+
+    # query params
+    if ( exists $args{'min_vitamin_e'}) {
+        $query_params->{'minVitaminE'} = $self->{api_client}->to_query_value($args{'min_vitamin_e'});
+    }
+
+    # query params
+    if ( exists $args{'max_vitamin_e'}) {
+        $query_params->{'maxVitaminE'} = $self->{api_client}->to_query_value($args{'max_vitamin_e'});
+    }
+
+    # query params
+    if ( exists $args{'min_vitamin_k'}) {
+        $query_params->{'minVitaminK'} = $self->{api_client}->to_query_value($args{'min_vitamin_k'});
+    }
+
+    # query params
+    if ( exists $args{'max_vitamin_k'}) {
+        $query_params->{'maxVitaminK'} = $self->{api_client}->to_query_value($args{'max_vitamin_k'});
+    }
+
+    # query params
+    if ( exists $args{'min_vitamin_b1'}) {
+        $query_params->{'minVitaminB1'} = $self->{api_client}->to_query_value($args{'min_vitamin_b1'});
+    }
+
+    # query params
+    if ( exists $args{'max_vitamin_b1'}) {
+        $query_params->{'maxVitaminB1'} = $self->{api_client}->to_query_value($args{'max_vitamin_b1'});
+    }
+
+    # query params
+    if ( exists $args{'min_vitamin_b2'}) {
+        $query_params->{'minVitaminB2'} = $self->{api_client}->to_query_value($args{'min_vitamin_b2'});
+    }
+
+    # query params
+    if ( exists $args{'max_vitamin_b2'}) {
+        $query_params->{'maxVitaminB2'} = $self->{api_client}->to_query_value($args{'max_vitamin_b2'});
+    }
+
+    # query params
+    if ( exists $args{'min_vitamin_b5'}) {
+        $query_params->{'minVitaminB5'} = $self->{api_client}->to_query_value($args{'min_vitamin_b5'});
+    }
+
+    # query params
+    if ( exists $args{'max_vitamin_b5'}) {
+        $query_params->{'maxVitaminB5'} = $self->{api_client}->to_query_value($args{'max_vitamin_b5'});
+    }
+
+    # query params
+    if ( exists $args{'min_vitamin_b3'}) {
+        $query_params->{'minVitaminB3'} = $self->{api_client}->to_query_value($args{'min_vitamin_b3'});
+    }
+
+    # query params
+    if ( exists $args{'max_vitamin_b3'}) {
+        $query_params->{'maxVitaminB3'} = $self->{api_client}->to_query_value($args{'max_vitamin_b3'});
+    }
+
+    # query params
+    if ( exists $args{'min_vitamin_b6'}) {
+        $query_params->{'minVitaminB6'} = $self->{api_client}->to_query_value($args{'min_vitamin_b6'});
+    }
+
+    # query params
+    if ( exists $args{'max_vitamin_b6'}) {
+        $query_params->{'maxVitaminB6'} = $self->{api_client}->to_query_value($args{'max_vitamin_b6'});
+    }
+
+    # query params
+    if ( exists $args{'min_vitamin_b12'}) {
+        $query_params->{'minVitaminB12'} = $self->{api_client}->to_query_value($args{'min_vitamin_b12'});
+    }
+
+    # query params
+    if ( exists $args{'max_vitamin_b12'}) {
+        $query_params->{'maxVitaminB12'} = $self->{api_client}->to_query_value($args{'max_vitamin_b12'});
+    }
+
+    # query params
+    if ( exists $args{'min_fiber'}) {
+        $query_params->{'minFiber'} = $self->{api_client}->to_query_value($args{'min_fiber'});
+    }
+
+    # query params
+    if ( exists $args{'max_fiber'}) {
+        $query_params->{'maxFiber'} = $self->{api_client}->to_query_value($args{'max_fiber'});
+    }
+
+    # query params
+    if ( exists $args{'min_folate'}) {
+        $query_params->{'minFolate'} = $self->{api_client}->to_query_value($args{'min_folate'});
+    }
+
+    # query params
+    if ( exists $args{'max_folate'}) {
+        $query_params->{'maxFolate'} = $self->{api_client}->to_query_value($args{'max_folate'});
+    }
+
+    # query params
+    if ( exists $args{'min_folic_acid'}) {
+        $query_params->{'minFolicAcid'} = $self->{api_client}->to_query_value($args{'min_folic_acid'});
+    }
+
+    # query params
+    if ( exists $args{'max_folic_acid'}) {
+        $query_params->{'maxFolicAcid'} = $self->{api_client}->to_query_value($args{'max_folic_acid'});
+    }
+
+    # query params
+    if ( exists $args{'min_iodine'}) {
+        $query_params->{'minIodine'} = $self->{api_client}->to_query_value($args{'min_iodine'});
+    }
+
+    # query params
+    if ( exists $args{'max_iodine'}) {
+        $query_params->{'maxIodine'} = $self->{api_client}->to_query_value($args{'max_iodine'});
+    }
+
+    # query params
+    if ( exists $args{'min_iron'}) {
+        $query_params->{'minIron'} = $self->{api_client}->to_query_value($args{'min_iron'});
+    }
+
+    # query params
+    if ( exists $args{'max_iron'}) {
+        $query_params->{'maxIron'} = $self->{api_client}->to_query_value($args{'max_iron'});
+    }
+
+    # query params
+    if ( exists $args{'min_magnesium'}) {
+        $query_params->{'minMagnesium'} = $self->{api_client}->to_query_value($args{'min_magnesium'});
+    }
+
+    # query params
+    if ( exists $args{'max_magnesium'}) {
+        $query_params->{'maxMagnesium'} = $self->{api_client}->to_query_value($args{'max_magnesium'});
+    }
+
+    # query params
+    if ( exists $args{'min_manganese'}) {
+        $query_params->{'minManganese'} = $self->{api_client}->to_query_value($args{'min_manganese'});
+    }
+
+    # query params
+    if ( exists $args{'max_manganese'}) {
+        $query_params->{'maxManganese'} = $self->{api_client}->to_query_value($args{'max_manganese'});
+    }
+
+    # query params
+    if ( exists $args{'min_phosphorus'}) {
+        $query_params->{'minPhosphorus'} = $self->{api_client}->to_query_value($args{'min_phosphorus'});
+    }
+
+    # query params
+    if ( exists $args{'max_phosphorus'}) {
+        $query_params->{'maxPhosphorus'} = $self->{api_client}->to_query_value($args{'max_phosphorus'});
+    }
+
+    # query params
+    if ( exists $args{'min_potassium'}) {
+        $query_params->{'minPotassium'} = $self->{api_client}->to_query_value($args{'min_potassium'});
+    }
+
+    # query params
+    if ( exists $args{'max_potassium'}) {
+        $query_params->{'maxPotassium'} = $self->{api_client}->to_query_value($args{'max_potassium'});
+    }
+
+    # query params
+    if ( exists $args{'min_selenium'}) {
+        $query_params->{'minSelenium'} = $self->{api_client}->to_query_value($args{'min_selenium'});
+    }
+
+    # query params
+    if ( exists $args{'max_selenium'}) {
+        $query_params->{'maxSelenium'} = $self->{api_client}->to_query_value($args{'max_selenium'});
+    }
+
+    # query params
+    if ( exists $args{'min_sodium'}) {
+        $query_params->{'minSodium'} = $self->{api_client}->to_query_value($args{'min_sodium'});
+    }
+
+    # query params
+    if ( exists $args{'max_sodium'}) {
+        $query_params->{'maxSodium'} = $self->{api_client}->to_query_value($args{'max_sodium'});
+    }
+
+    # query params
+    if ( exists $args{'min_sugar'}) {
+        $query_params->{'minSugar'} = $self->{api_client}->to_query_value($args{'min_sugar'});
+    }
+
+    # query params
+    if ( exists $args{'max_sugar'}) {
+        $query_params->{'maxSugar'} = $self->{api_client}->to_query_value($args{'max_sugar'});
+    }
+
+    # query params
+    if ( exists $args{'min_zinc'}) {
+        $query_params->{'minZinc'} = $self->{api_client}->to_query_value($args{'min_zinc'});
+    }
+
+    # query params
+    if ( exists $args{'max_zinc'}) {
+        $query_params->{'maxZinc'} = $self->{api_client}->to_query_value($args{'max_zinc'});
+    }
+
+    # query params
+    if ( exists $args{'offset'}) {
+        $query_params->{'offset'} = $self->{api_client}->to_query_value($args{'offset'});
+    }
+
+    # query params
+    if ( exists $args{'number'}) {
+        $query_params->{'number'} = $self->{api_client}->to_query_value($args{'number'});
+    }
+
+    # query params
+    if ( exists $args{'random'}) {
+        $query_params->{'random'} = $self->{api_client}->to_query_value($args{'random'});
+    }
+
+    # query params
+    if ( exists $args{'limit_license'}) {
+        $query_params->{'limitLicense'} = $self->{api_client}->to_query_value($args{'limit_license'});
+    }
+
+    my $_body_data;
+    # authentication setting, if any
+    my $auth_settings = [qw()];
+
+    # make the API Call
+    my $response = $self->{api_client}->call_api($_resource_path, $_method,
+                                           $query_params, $form_params,
+                                           $header_params, $_body_data, $auth_settings);
+    if (!$response) {
+        return;
+    }
+    my $_response_object = $self->{api_client}->deserialize('object', $response);
+    return $_response_object;
+}
+
+#
 # search_site_content
 #
 # Search Site Content
@@ -7410,21 +7866,15 @@ sub talk_to_chatbot {
 #
 # Visualize Equipment
 # 
-# @param string $ingredient_list The ingredient list of the recipe, one ingredient per line. (required)
-# @param double $servings The number of servings. (required)
+# @param string $instructions The recipe&#39;s instructions. (required)
 # @param string $view How to visualize the equipment, either \\\&quot;grid\\\&quot; or \\\&quot;list\\\&quot;. (optional)
 # @param boolean $default_css Whether the default CSS should be added to the response. (optional)
 # @param boolean $show_backlink Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)
 {
     my $params = {
-    'ingredient_list' => {
+    'instructions' => {
         data_type => 'string',
-        description => 'The ingredient list of the recipe, one ingredient per line.',
-        required => '1',
-    },
-    'servings' => {
-        data_type => 'double',
-        description => 'The number of servings.',
+        description => 'The recipe&#39;s instructions.',
         required => '1',
     },
     'view' => {
@@ -7454,14 +7904,9 @@ sub talk_to_chatbot {
 sub visualize_equipment {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'ingredient_list' is set
-    unless (exists $args{'ingredient_list'}) {
-      croak("Missing the required parameter 'ingredient_list' when calling visualize_equipment");
-    }
-
-    # verify the required parameter 'servings' is set
-    unless (exists $args{'servings'}) {
-      croak("Missing the required parameter 'servings' when calling visualize_equipment");
+    # verify the required parameter 'instructions' is set
+    unless (exists $args{'instructions'}) {
+      croak("Missing the required parameter 'instructions' when calling visualize_equipment");
     }
 
     # parse inputs
@@ -7480,13 +7925,8 @@ sub visualize_equipment {
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type('application/x-www-form-urlencoded');
 
     # form params
-    if ( exists $args{'ingredient_list'} ) {
-                $form_params->{'ingredientList'} = $self->{api_client}->to_form_value($args{'ingredient_list'});
-    }
-    
-    # form params
-    if ( exists $args{'servings'} ) {
-                $form_params->{'servings'} = $self->{api_client}->to_form_value($args{'servings'});
+    if ( exists $args{'instructions'} ) {
+                $form_params->{'instructions'} = $self->{api_client}->to_form_value($args{'instructions'});
     }
     
     # form params
@@ -8306,6 +8746,138 @@ sub visualize_recipe_price_breakdown_by_id {
     if ( exists $args{'default_css'}) {
         $query_params->{'defaultCss'} = $self->{api_client}->to_query_value($args{'default_css'});
     }
+
+    # path params
+    if ( exists $args{'id'}) {
+        my $_base_variable = "{" . "id" . "}";
+        my $_base_value = $self->{api_client}->to_path_value($args{'id'});
+        $_resource_path =~ s/$_base_variable/$_base_value/g;
+    }
+
+    my $_body_data;
+    # authentication setting, if any
+    my $auth_settings = [qw()];
+
+    # make the API Call
+    my $response = $self->{api_client}->call_api($_resource_path, $_method,
+                                           $query_params, $form_params,
+                                           $header_params, $_body_data, $auth_settings);
+    if (!$response) {
+        return;
+    }
+    my $_response_object = $self->{api_client}->deserialize('string', $response);
+    return $_response_object;
+}
+
+#
+# visualize_recipe_taste
+#
+# Visualize Recipe Taste
+# 
+# @param string $ingredient_list The ingredient list of the recipe, one ingredient per line. (required)
+{
+    my $params = {
+    'ingredient_list' => {
+        data_type => 'string',
+        description => 'The ingredient list of the recipe, one ingredient per line.',
+        required => '1',
+    },
+    };
+    __PACKAGE__->method_documentation->{ 'visualize_recipe_taste' } = { 
+        summary => 'Visualize Recipe Taste',
+        params => $params,
+        returns => 'string',
+        };
+}
+# @return string
+#
+sub visualize_recipe_taste {
+    my ($self, %args) = @_;
+
+    # verify the required parameter 'ingredient_list' is set
+    unless (exists $args{'ingredient_list'}) {
+      croak("Missing the required parameter 'ingredient_list' when calling visualize_recipe_taste");
+    }
+
+    # parse inputs
+    my $_resource_path = '/recipes/visualizeTaste';
+
+    my $_method = 'POST';
+    my $query_params = {};
+    my $header_params = {};
+    my $form_params = {};
+
+    # 'Accept' and 'Content-Type' header
+    my $_header_accept = $self->{api_client}->select_header_accept('text/html');
+    if ($_header_accept) {
+        $header_params->{'Accept'} = $_header_accept;
+    }
+    $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type('application/x-www-form-urlencoded');
+
+    # form params
+    if ( exists $args{'ingredient_list'} ) {
+                $form_params->{'ingredientList'} = $self->{api_client}->to_form_value($args{'ingredient_list'});
+    }
+    
+    my $_body_data;
+    # authentication setting, if any
+    my $auth_settings = [qw()];
+
+    # make the API Call
+    my $response = $self->{api_client}->call_api($_resource_path, $_method,
+                                           $query_params, $form_params,
+                                           $header_params, $_body_data, $auth_settings);
+    if (!$response) {
+        return;
+    }
+    my $_response_object = $self->{api_client}->deserialize('string', $response);
+    return $_response_object;
+}
+
+#
+# visualize_recipe_taste_by_id
+#
+# Visualize Recipe Taste by ID
+# 
+# @param double $id The recipe id. (required)
+{
+    my $params = {
+    'id' => {
+        data_type => 'double',
+        description => 'The recipe id.',
+        required => '1',
+    },
+    };
+    __PACKAGE__->method_documentation->{ 'visualize_recipe_taste_by_id' } = { 
+        summary => 'Visualize Recipe Taste by ID',
+        params => $params,
+        returns => 'string',
+        };
+}
+# @return string
+#
+sub visualize_recipe_taste_by_id {
+    my ($self, %args) = @_;
+
+    # verify the required parameter 'id' is set
+    unless (exists $args{'id'}) {
+      croak("Missing the required parameter 'id' when calling visualize_recipe_taste_by_id");
+    }
+
+    # parse inputs
+    my $_resource_path = '/recipes/{id}/tasteWidget';
+
+    my $_method = 'GET';
+    my $query_params = {};
+    my $header_params = {};
+    my $form_params = {};
+
+    # 'Accept' and 'Content-Type' header
+    my $_header_accept = $self->{api_client}->select_header_accept('text/html');
+    if ($_header_accept) {
+        $header_params->{'Accept'} = $_header_accept;
+    }
+    $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
 
     # path params
     if ( exists $args{'id'}) {

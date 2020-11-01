@@ -168,20 +168,6 @@ __PACKAGE__->method_documentation({
         format => '',
         read_only => '',
             },
-    'start_date' => {
-        datatype => 'string',
-        base_name => 'start-date',
-        description => 'The start date in the format yyyy-mm-dd.',
-        format => '',
-        read_only => '',
-            },
-    'end_date' => {
-        datatype => 'string',
-        base_name => 'end-date',
-        description => 'The end date in the format yyyy-mm-dd.',
-        format => '',
-        read_only => '',
-            },
     'hash' => {
         datatype => 'string',
         base_name => 'hash',
@@ -193,15 +179,11 @@ __PACKAGE__->method_documentation({
 
 __PACKAGE__->openapi_types( {
     'username' => 'string',
-    'start_date' => 'string',
-    'end_date' => 'string',
     'hash' => 'string'
 } );
 
 __PACKAGE__->attribute_map( {
     'username' => 'username',
-    'start_date' => 'start-date',
-    'end_date' => 'end-date',
     'hash' => 'hash'
 } );
 

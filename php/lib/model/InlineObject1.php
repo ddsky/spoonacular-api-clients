@@ -59,7 +59,6 @@ class InlineObject1 implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'ingredient_list' => 'string',
         'servings' => 'float',
-        'mode' => 'float',
         'default_css' => 'bool',
         'show_backlink' => 'bool'
     ];
@@ -72,7 +71,6 @@ class InlineObject1 implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'ingredient_list' => null,
         'servings' => null,
-        'mode' => null,
         'default_css' => null,
         'show_backlink' => null
     ];
@@ -106,7 +104,6 @@ class InlineObject1 implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'ingredient_list' => 'ingredientList',
         'servings' => 'servings',
-        'mode' => 'mode',
         'default_css' => 'defaultCss',
         'show_backlink' => 'showBacklink'
     ];
@@ -119,7 +116,6 @@ class InlineObject1 implements ModelInterface, ArrayAccess
     protected static $setters = [
         'ingredient_list' => 'setIngredientList',
         'servings' => 'setServings',
-        'mode' => 'setMode',
         'default_css' => 'setDefaultCss',
         'show_backlink' => 'setShowBacklink'
     ];
@@ -132,7 +128,6 @@ class InlineObject1 implements ModelInterface, ArrayAccess
     protected static $getters = [
         'ingredient_list' => 'getIngredientList',
         'servings' => 'getServings',
-        'mode' => 'getMode',
         'default_css' => 'getDefaultCss',
         'show_backlink' => 'getShowBacklink'
     ];
@@ -199,7 +194,6 @@ class InlineObject1 implements ModelInterface, ArrayAccess
     {
         $this->container['ingredient_list'] = isset($data['ingredient_list']) ? $data['ingredient_list'] : null;
         $this->container['servings'] = isset($data['servings']) ? $data['servings'] : null;
-        $this->container['mode'] = isset($data['mode']) ? $data['mode'] : null;
         $this->container['default_css'] = isset($data['default_css']) ? $data['default_css'] : null;
         $this->container['show_backlink'] = isset($data['show_backlink']) ? $data['show_backlink'] : null;
     }
@@ -278,30 +272,6 @@ class InlineObject1 implements ModelInterface, ArrayAccess
     public function setServings($servings)
     {
         $this->container['servings'] = $servings;
-
-        return $this;
-    }
-
-    /**
-     * Gets mode
-     *
-     * @return float|null
-     */
-    public function getMode()
-    {
-        return $this->container['mode'];
-    }
-
-    /**
-     * Sets mode
-     *
-     * @param float|null $mode The mode in which the widget should be delivered. 1 = separate views (compact), 2 = all in one view (full).
-     *
-     * @return $this
-     */
-    public function setMode($mode)
-    {
-        $this->container['mode'] = $mode;
 
         return $this;
     }

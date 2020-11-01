@@ -168,10 +168,17 @@ __PACKAGE__->method_documentation({
         format => '',
         read_only => '',
             },
-    'id' => {
-        datatype => 'double',
-        base_name => 'id',
-        description => 'The shopping list item id.',
+    'start_date' => {
+        datatype => 'string',
+        base_name => 'start-date',
+        description => 'The start date in the format yyyy-mm-dd.',
+        format => '',
+        read_only => '',
+            },
+    'end_date' => {
+        datatype => 'string',
+        base_name => 'end-date',
+        description => 'The end date in the format yyyy-mm-dd.',
         format => '',
         read_only => '',
             },
@@ -186,13 +193,15 @@ __PACKAGE__->method_documentation({
 
 __PACKAGE__->openapi_types( {
     'username' => 'string',
-    'id' => 'double',
+    'start_date' => 'string',
+    'end_date' => 'string',
     'hash' => 'string'
 } );
 
 __PACKAGE__->attribute_map( {
     'username' => 'username',
-    'id' => 'id',
+    'start_date' => 'start-date',
+    'end_date' => 'end-date',
     'hash' => 'hash'
 } );
 

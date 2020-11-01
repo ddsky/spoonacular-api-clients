@@ -11,8 +11,6 @@
 package spoonacular
 
 type InlineObject9 struct {
-	// The username.
-	Username string `json:"username"`
-	// The private hash for the username.
-	Hash string `json:"hash"`
+	// The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).
+	Locale string `json:"locale,omitempty"`
 }

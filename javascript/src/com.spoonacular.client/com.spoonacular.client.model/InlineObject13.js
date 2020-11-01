@@ -23,12 +23,13 @@ class InlineObject13 {
      * Constructs a new <code>InlineObject13</code>.
      * @alias module:com.spoonacular.client/com.spoonacular.client.model/InlineObject13
      * @param username {String} The username.
-     * @param id {Number} The shopping list item id.
+     * @param startDate {String} The start date in the format yyyy-mm-dd.
+     * @param endDate {String} The end date in the format yyyy-mm-dd.
      * @param hash {String} The private hash for the username.
      */
-    constructor(username, id, hash) { 
+    constructor(username, startDate, endDate, hash) { 
         
-        InlineObject13.initialize(this, username, id, hash);
+        InlineObject13.initialize(this, username, startDate, endDate, hash);
     }
 
     /**
@@ -36,9 +37,10 @@ class InlineObject13 {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, username, id, hash) { 
+    static initialize(obj, username, startDate, endDate, hash) { 
         obj['username'] = username;
-        obj['id'] = id;
+        obj['start-date'] = startDate;
+        obj['end-date'] = endDate;
         obj['hash'] = hash;
     }
 
@@ -56,8 +58,11 @@ class InlineObject13 {
             if (data.hasOwnProperty('username')) {
                 obj['username'] = ApiClient.convertToType(data['username'], 'String');
             }
-            if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'Number');
+            if (data.hasOwnProperty('start-date')) {
+                obj['start-date'] = ApiClient.convertToType(data['start-date'], 'String');
+            }
+            if (data.hasOwnProperty('end-date')) {
+                obj['end-date'] = ApiClient.convertToType(data['end-date'], 'String');
             }
             if (data.hasOwnProperty('hash')) {
                 obj['hash'] = ApiClient.convertToType(data['hash'], 'String');
@@ -76,10 +81,16 @@ class InlineObject13 {
 InlineObject13.prototype['username'] = undefined;
 
 /**
- * The shopping list item id.
- * @member {Number} id
+ * The start date in the format yyyy-mm-dd.
+ * @member {String} start-date
  */
-InlineObject13.prototype['id'] = undefined;
+InlineObject13.prototype['start-date'] = undefined;
+
+/**
+ * The end date in the format yyyy-mm-dd.
+ * @member {String} end-date
+ */
+InlineObject13.prototype['end-date'] = undefined;
 
 /**
  * The private hash for the username.

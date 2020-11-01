@@ -38,8 +38,23 @@ OAIInline_object_8::~OAIInline_object_8() {
 void
 OAIInline_object_8::init() {
     
-    m_locale_isSet = false;
-    m_locale_isValid = false;
+    m_ingredient_list_isSet = false;
+    m_ingredient_list_isValid = false;
+    
+    m_servings_isSet = false;
+    m_servings_isValid = false;
+    
+    m_measure_isSet = false;
+    m_measure_isValid = false;
+    
+    m_view_isSet = false;
+    m_view_isValid = false;
+    
+    m_default_css_isSet = false;
+    m_default_css_isValid = false;
+    
+    m_show_backlink_isSet = false;
+    m_show_backlink_isValid = false;
     }
 
 void
@@ -53,7 +68,22 @@ OAIInline_object_8::fromJson(QString jsonString) {
 void
 OAIInline_object_8::fromJsonObject(QJsonObject json) {
     
-    m_locale_isValid = ::OpenAPI::fromJsonValue(locale, json[QString("locale")]);
+    m_ingredient_list_isValid = ::OpenAPI::fromJsonValue(ingredient_list, json[QString("ingredientList")]);
+    
+    
+    m_servings_isValid = ::OpenAPI::fromJsonValue(servings, json[QString("servings")]);
+    
+    
+    m_measure_isValid = ::OpenAPI::fromJsonValue(measure, json[QString("measure")]);
+    
+    
+    m_view_isValid = ::OpenAPI::fromJsonValue(view, json[QString("view")]);
+    
+    
+    m_default_css_isValid = ::OpenAPI::fromJsonValue(default_css, json[QString("defaultCss")]);
+    
+    
+    m_show_backlink_isValid = ::OpenAPI::fromJsonValue(show_backlink, json[QString("showBacklink")]);
     
     
 }
@@ -69,28 +99,108 @@ OAIInline_object_8::asJson () const {
 QJsonObject
 OAIInline_object_8::asJsonObject() const {
     QJsonObject obj;
-	if(m_locale_isSet){
-        obj.insert(QString("locale"), ::OpenAPI::toJsonValue(locale));
+	if(m_ingredient_list_isSet){
+        obj.insert(QString("ingredientList"), ::OpenAPI::toJsonValue(ingredient_list));
+    }
+	if(servings.isSet()){
+        obj.insert(QString("servings"), ::OpenAPI::toJsonValue(servings));
+    }
+	if(m_measure_isSet){
+        obj.insert(QString("measure"), ::OpenAPI::toJsonValue(measure));
+    }
+	if(m_view_isSet){
+        obj.insert(QString("view"), ::OpenAPI::toJsonValue(view));
+    }
+	if(m_default_css_isSet){
+        obj.insert(QString("defaultCss"), ::OpenAPI::toJsonValue(default_css));
+    }
+	if(m_show_backlink_isSet){
+        obj.insert(QString("showBacklink"), ::OpenAPI::toJsonValue(show_backlink));
     }
     return obj;
 }
 
 
 QString
-OAIInline_object_8::getLocale() const {
-    return locale;
+OAIInline_object_8::getIngredientList() const {
+    return ingredient_list;
 }
 void
-OAIInline_object_8::setLocale(const QString &locale) {
-    this->locale = locale;
-    this->m_locale_isSet = true;
+OAIInline_object_8::setIngredientList(const QString &ingredient_list) {
+    this->ingredient_list = ingredient_list;
+    this->m_ingredient_list_isSet = true;
+}
+
+
+OAINumber
+OAIInline_object_8::getServings() const {
+    return servings;
+}
+void
+OAIInline_object_8::setServings(const OAINumber &servings) {
+    this->servings = servings;
+    this->m_servings_isSet = true;
+}
+
+
+QString
+OAIInline_object_8::getMeasure() const {
+    return measure;
+}
+void
+OAIInline_object_8::setMeasure(const QString &measure) {
+    this->measure = measure;
+    this->m_measure_isSet = true;
+}
+
+
+QString
+OAIInline_object_8::getView() const {
+    return view;
+}
+void
+OAIInline_object_8::setView(const QString &view) {
+    this->view = view;
+    this->m_view_isSet = true;
+}
+
+
+bool
+OAIInline_object_8::isDefaultCss() const {
+    return default_css;
+}
+void
+OAIInline_object_8::setDefaultCss(const bool &default_css) {
+    this->default_css = default_css;
+    this->m_default_css_isSet = true;
+}
+
+
+bool
+OAIInline_object_8::isShowBacklink() const {
+    return show_backlink;
+}
+void
+OAIInline_object_8::setShowBacklink(const bool &show_backlink) {
+    this->show_backlink = show_backlink;
+    this->m_show_backlink_isSet = true;
 }
 
 bool
 OAIInline_object_8::isSet() const {
     bool isObjectUpdated = false;
     do{ 
-        if(m_locale_isSet){ isObjectUpdated = true; break;}
+        if(m_ingredient_list_isSet){ isObjectUpdated = true; break;}
+    
+        if(servings.isSet()){ isObjectUpdated = true; break;}
+    
+        if(m_measure_isSet){ isObjectUpdated = true; break;}
+    
+        if(m_view_isSet){ isObjectUpdated = true; break;}
+    
+        if(m_default_css_isSet){ isObjectUpdated = true; break;}
+    
+        if(m_show_backlink_isSet){ isObjectUpdated = true; break;}
     }while(false);
     return isObjectUpdated;
 }
@@ -98,7 +208,7 @@ OAIInline_object_8::isSet() const {
 bool
 OAIInline_object_8::isValid() const {
     // only required properties are required for the object to be considered valid
-    return true;
+    return m_ingredient_list_isValid && m_servings_isValid && true;
 }
 
 }

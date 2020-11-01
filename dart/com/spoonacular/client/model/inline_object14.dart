@@ -1,28 +1,37 @@
 part of openapi.api;
 
 class InlineObject14 {
-  /* The text in which food items, such as dish names and ingredients, should be detected in. */
-  String text = null;
+  /* The username. */
+  String username = null;
+  /* The private hash for the username. */
+  String hash = null;
   InlineObject14();
 
   @override
   String toString() {
-    return 'InlineObject14[text=$text, ]';
+    return 'InlineObject14[username=$username, hash=$hash, ]';
   }
 
   InlineObject14.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    if (json['text'] == null) {
-      text = null;
+    if (json['username'] == null) {
+      username = null;
     } else {
-          text = json['text'];
+          username = json['username'];
+    }
+    if (json['hash'] == null) {
+      hash = null;
+    } else {
+          hash = json['hash'];
     }
   }
 
   Map<String, dynamic> toJson() {
     Map <String, dynamic> json = {};
-    if (text != null)
-      json['text'] = text;
+    if (username != null)
+      json['username'] = username;
+    if (hash != null)
+      json['hash'] = hash;
     return json;
   }
 

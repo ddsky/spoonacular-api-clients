@@ -15,6 +15,9 @@ Method | HTTP request | Description
 [**classifyCuisine**](OAIDefaultApi.md#classifycuisine) | **POST** /recipes/cuisine | Classify Cuisine
 [**classifyGroceryProduct**](OAIDefaultApi.md#classifygroceryproduct) | **POST** /food/products/classify | Classify Grocery Product
 [**classifyGroceryProductBulk**](OAIDefaultApi.md#classifygroceryproductbulk) | **POST** /food/products/classifyBatch | Classify Grocery Product Bulk
+[**clearMealPlanDay**](OAIDefaultApi.md#clearmealplanday) | **DELETE** /mealplanner/{username}/day/{date} | Clear Meal Plan Day
+[**computeGlycemicLoad**](OAIDefaultApi.md#computeglycemicload) | **POST** /food/ingredients/glycemicLoad | Compute Glycemic Load
+[**connectUser**](OAIDefaultApi.md#connectuser) | **POST** /users/connect | Connect User
 [**convertAmounts**](OAIDefaultApi.md#convertamounts) | **GET** /recipes/convert | Convert Amounts
 [**createRecipeCard**](OAIDefaultApi.md#createrecipecard) | **POST** /recipes/visualizeRecipe | Create Recipe Card
 [**deleteFromMealPlan**](OAIDefaultApi.md#deletefrommealplan) | **DELETE** /mealplanner/{username}/items/{id} | Delete from Meal Plan
@@ -44,6 +47,7 @@ Method | HTTP request | Description
 [**getRecipeIngredientsByID**](OAIDefaultApi.md#getrecipeingredientsbyid) | **GET** /recipes/{id}/ingredientWidget.json | Get Recipe Ingredients by ID
 [**getRecipeNutritionWidgetByID**](OAIDefaultApi.md#getrecipenutritionwidgetbyid) | **GET** /recipes/{id}/nutritionWidget.json | Get Recipe Nutrition Widget by ID
 [**getRecipePriceBreakdownByID**](OAIDefaultApi.md#getrecipepricebreakdownbyid) | **GET** /recipes/{id}/priceBreakdownWidget.json | Get Recipe Price Breakdown by ID
+[**getRecipeTasteByID**](OAIDefaultApi.md#getrecipetastebyid) | **GET** /recipes/{id}/tasteWidget.json | Get Recipe Taste by ID
 [**getShoppingList**](OAIDefaultApi.md#getshoppinglist) | **GET** /mealplanner/{username}/shopping-list | Get Shopping List
 [**getSimilarRecipes**](OAIDefaultApi.md#getsimilarrecipes) | **GET** /recipes/{id}/similar | Get Similar Recipes
 [**getWineDescription**](OAIDefaultApi.md#getwinedescription) | **GET** /food/wine/description | Get Wine Description
@@ -52,18 +56,19 @@ Method | HTTP request | Description
 [**guessNutritionByDishName**](OAIDefaultApi.md#guessnutritionbydishname) | **GET** /recipes/guessNutrition | Guess Nutrition by Dish Name
 [**imageAnalysisByURL**](OAIDefaultApi.md#imageanalysisbyurl) | **GET** /food/images/analyze | Image Analysis by URL
 [**imageClassificationByURL**](OAIDefaultApi.md#imageclassificationbyurl) | **GET** /food/images/classify | Image Classification by URL
+[**ingredientSearch**](OAIDefaultApi.md#ingredientsearch) | **GET** /food/ingredients/search | Ingredient Search
 [**mapIngredientsToGroceryProducts**](OAIDefaultApi.md#mapingredientstogroceryproducts) | **POST** /food/ingredients/map | Map Ingredients to Grocery Products
 [**parseIngredients**](OAIDefaultApi.md#parseingredients) | **POST** /recipes/parseIngredients | Parse Ingredients
 [**quickAnswer**](OAIDefaultApi.md#quickanswer) | **GET** /recipes/quickAnswer | Quick Answer
+[**searchAllFood**](OAIDefaultApi.md#searchallfood) | **GET** /food/search | Search All Food
 [**searchCustomFoods**](OAIDefaultApi.md#searchcustomfoods) | **GET** /food/customFoods/search | Search Custom Foods
 [**searchFoodVideos**](OAIDefaultApi.md#searchfoodvideos) | **GET** /food/videos/search | Search Food Videos
 [**searchGroceryProducts**](OAIDefaultApi.md#searchgroceryproducts) | **GET** /food/products/search | Search Grocery Products
 [**searchGroceryProductsByUPC**](OAIDefaultApi.md#searchgroceryproductsbyupc) | **GET** /food/products/upc/{upc} | Search Grocery Products by UPC
 [**searchMenuItems**](OAIDefaultApi.md#searchmenuitems) | **GET** /food/menuItems/search | Search Menu Items
-[**searchRecipes**](OAIDefaultApi.md#searchrecipes) | **GET** /recipes/search | Search Recipes
+[**searchRecipes**](OAIDefaultApi.md#searchrecipes) | **GET** /recipes/complexSearch | Search Recipes
 [**searchRecipesByIngredients**](OAIDefaultApi.md#searchrecipesbyingredients) | **GET** /recipes/findByIngredients | Search Recipes by Ingredients
 [**searchRecipesByNutrients**](OAIDefaultApi.md#searchrecipesbynutrients) | **GET** /recipes/findByNutrients | Search Recipes by Nutrients
-[**searchRecipesComplex**](OAIDefaultApi.md#searchrecipescomplex) | **GET** /recipes/complexSearch | Search Recipes Complex
 [**searchSiteContent**](OAIDefaultApi.md#searchsitecontent) | **GET** /food/site/search | Search Site Content
 [**summarizeRecipe**](OAIDefaultApi.md#summarizerecipe) | **GET** /recipes/{id}/summary | Summarize Recipe
 [**talkToChatbot**](OAIDefaultApi.md#talktochatbot) | **GET** /food/converse | Talk to Chatbot
@@ -77,13 +82,15 @@ Method | HTTP request | Description
 [**visualizeRecipeNutrition**](OAIDefaultApi.md#visualizerecipenutrition) | **POST** /recipes/visualizeNutrition | Visualize Recipe Nutrition
 [**visualizeRecipeNutritionByID**](OAIDefaultApi.md#visualizerecipenutritionbyid) | **GET** /recipes/{id}/nutritionWidget | Visualize Recipe Nutrition by ID
 [**visualizeRecipePriceBreakdownByID**](OAIDefaultApi.md#visualizerecipepricebreakdownbyid) | **GET** /recipes/{id}/priceBreakdownWidget | Visualize Recipe Price Breakdown by ID
+[**visualizeRecipeTaste**](OAIDefaultApi.md#visualizerecipetaste) | **POST** /recipes/visualizeTaste | Visualize Recipe Taste
+[**visualizeRecipeTasteByID**](OAIDefaultApi.md#visualizerecipetastebyid) | **GET** /recipes/{id}/tasteWidget | Visualize Recipe Taste by ID
 
 
 # **addToMealPlan**
 ```objc
 -(NSURLSessionTask*) addToMealPlanWithUsername: (NSString*) username
     hash: (NSString*) hash
-    inlineObject9: (OAIInlineObject9*) inlineObject9
+    inlineObject11: (OAIInlineObject11*) inlineObject11
         completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
 ```
 
@@ -96,14 +103,14 @@ Add an item to the user's meal plan.
 
 NSString* username = dsky; // The username.
 NSString* hash = 4b5v4398573406; // The private hash for the username.
-OAIInlineObject9* inlineObject9 = [[OAIInlineObject9 alloc] init]; // 
+OAIInlineObject11* inlineObject11 = [[OAIInlineObject11 alloc] init]; // 
 
 OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
 
 // Add to Meal Plan
 [apiInstance addToMealPlanWithUsername:username
               hash:hash
-              inlineObject9:inlineObject9
+              inlineObject11:inlineObject11
           completionHandler: ^(NSObject* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
@@ -120,7 +127,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **username** | **NSString***| The username. | 
  **hash** | **NSString***| The private hash for the username. | 
- **inlineObject9** | [**OAIInlineObject9***](OAIInlineObject9.md)|  | 
+ **inlineObject11** | [**OAIInlineObject11***](OAIInlineObject11.md)|  | 
 
 ### Return type
 
@@ -141,7 +148,7 @@ No authorization required
 ```objc
 -(NSURLSessionTask*) addToShoppingListWithUsername: (NSString*) username
     hash: (NSString*) hash
-    inlineObject12: (OAIInlineObject12*) inlineObject12
+    inlineObject14: (OAIInlineObject14*) inlineObject14
         completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
 ```
 
@@ -154,14 +161,14 @@ Add an item to the current shopping list of a user.
 
 NSString* username = dsky; // The username.
 NSString* hash = 4b5v4398573406; // The private hash for the username.
-OAIInlineObject12* inlineObject12 = [[OAIInlineObject12 alloc] init]; // 
+OAIInlineObject14* inlineObject14 = [[OAIInlineObject14 alloc] init]; // 
 
 OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
 
 // Add to Shopping List
 [apiInstance addToShoppingListWithUsername:username
               hash:hash
-              inlineObject12:inlineObject12
+              inlineObject14:inlineObject14
           completionHandler: ^(NSObject* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
@@ -178,7 +185,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **username** | **NSString***| The username. | 
  **hash** | **NSString***| The private hash for the username. | 
- **inlineObject12** | [**OAIInlineObject12***](OAIInlineObject12.md)|  | 
+ **inlineObject14** | [**OAIInlineObject14***](OAIInlineObject14.md)|  | 
 
 ### Return type
 
@@ -253,7 +260,7 @@ No authorization required
 
 Analyze Recipe Instructions
 
-Extract ingredients and equipment from the recipe's instructions.
+This endpoint allows you to break down instructions into atomic steps. Furthermore, each step will contain the ingredients and equipment required. Additionally, all ingredients and equipment from the recipe's instructions will be extracted independently of the step they're used in.
 
 ### Example 
 ```objc
@@ -300,7 +307,7 @@ No authorization required
 -(NSURLSessionTask*) autocompleteIngredientSearchWithQuery: (NSString*) query
     number: (NSNumber*) number
     metaInformation: (NSNumber*) metaInformation
-    intolerances: (NSNumber*) intolerances
+    intolerances: (NSString*) intolerances
         completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
 ```
 
@@ -314,7 +321,7 @@ Autocomplete the entry of an ingredient.
 NSString* query = appl; // The partial or full ingredient name.
 NSNumber* number = 10; // The number of results to return (between 1 and 100). (optional)
 NSNumber* metaInformation = false; // Whether to return more meta information about the ingredients. (optional)
-NSNumber* intolerances = false; // A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
+NSString* intolerances = egg; // A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
 
 OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
 
@@ -340,7 +347,7 @@ Name | Type | Description  | Notes
  **query** | **NSString***| The partial or full ingredient name. | 
  **number** | **NSNumber***| The number of results to return (between 1 and 100). | [optional] 
  **metaInformation** | **NSNumber***| Whether to return more meta information about the ingredients. | [optional] 
- **intolerances** | **NSNumber***| A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. | [optional] 
+ **intolerances** | **NSString***| A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. | [optional] 
 
 ### Return type
 
@@ -575,7 +582,7 @@ No authorization required
 
 # **classifyGroceryProduct**
 ```objc
--(NSURLSessionTask*) classifyGroceryProductWithInlineObject8: (OAIInlineObject8*) inlineObject8
+-(NSURLSessionTask*) classifyGroceryProductWithInlineObject9: (OAIInlineObject9*) inlineObject9
     locale: (NSString*) locale
         completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
 ```
@@ -587,13 +594,13 @@ This endpoint allows you to match a packaged food to a basic category, e.g. a sp
 ### Example 
 ```objc
 
-OAIInlineObject8* inlineObject8 = [[OAIInlineObject8 alloc] init]; // 
+OAIInlineObject9* inlineObject9 = [[OAIInlineObject9 alloc] init]; // 
 NSString* locale = en_US; // The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). (optional)
 
 OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
 
 // Classify Grocery Product
-[apiInstance classifyGroceryProductWithInlineObject8:inlineObject8
+[apiInstance classifyGroceryProductWithInlineObject9:inlineObject9
               locale:locale
           completionHandler: ^(NSObject* output, NSError* error) {
                         if (output) {
@@ -609,7 +616,7 @@ OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject8** | [**OAIInlineObject8***](OAIInlineObject8.md)|  | 
+ **inlineObject9** | [**OAIInlineObject9***](OAIInlineObject9.md)|  | 
  **locale** | **NSString***| The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). | [optional] 
 
 ### Return type
@@ -677,6 +684,168 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **clearMealPlanDay**
+```objc
+-(NSURLSessionTask*) clearMealPlanDayWithUsername: (NSString*) username
+    date: (NSString*) date
+    hash: (NSString*) hash
+    inlineObject10: (OAIInlineObject10*) inlineObject10
+        completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
+```
+
+Clear Meal Plan Day
+
+Delete all planned items from the user's meal plan for a specific day.
+
+### Example 
+```objc
+
+NSString* username = dsky; // The username.
+NSString* date = 2020-06-01; // The date in the format yyyy-mm-dd.
+NSString* hash = 4b5v4398573406; // The private hash for the username.
+OAIInlineObject10* inlineObject10 = [[OAIInlineObject10 alloc] init]; // 
+
+OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
+
+// Clear Meal Plan Day
+[apiInstance clearMealPlanDayWithUsername:username
+              date:date
+              hash:hash
+              inlineObject10:inlineObject10
+          completionHandler: ^(NSObject* output, NSError* error) {
+                        if (output) {
+                            NSLog(@"%@", output);
+                        }
+                        if (error) {
+                            NSLog(@"Error calling OAIDefaultApi->clearMealPlanDay: %@", error);
+                        }
+                    }];
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **NSString***| The username. | 
+ **date** | **NSString***| The date in the format yyyy-mm-dd. | 
+ **hash** | **NSString***| The private hash for the username. | 
+ **inlineObject10** | [**OAIInlineObject10***](OAIInlineObject10.md)|  | 
+
+### Return type
+
+**NSObject***
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: 
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **computeGlycemicLoad**
+```objc
+-(NSURLSessionTask*) computeGlycemicLoadWithBody: (NSObject*) body
+        completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
+```
+
+Compute Glycemic Load
+
+Retrieve the glycemic index for a list of ingredients and compute the individual and total glycemic load.
+
+### Example 
+```objc
+
+NSObject* body = NULL; // 
+
+OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
+
+// Compute Glycemic Load
+[apiInstance computeGlycemicLoadWithBody:body
+          completionHandler: ^(NSObject* output, NSError* error) {
+                        if (output) {
+                            NSLog(@"%@", output);
+                        }
+                        if (error) {
+                            NSLog(@"Error calling OAIDefaultApi->computeGlycemicLoad: %@", error);
+                        }
+                    }];
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | **NSObject***|  | 
+
+### Return type
+
+**NSObject***
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **connectUser**
+```objc
+-(NSURLSessionTask*) connectUserWithBody: (NSObject*) body
+        completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
+```
+
+Connect User
+
+In order to call user-specific endpoints, you need to connect your app's users to spoonacular users.
+
+### Example 
+```objc
+
+NSObject* body = NULL; // 
+
+OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
+
+// Connect User
+[apiInstance connectUserWithBody:body
+          completionHandler: ^(NSObject* output, NSError* error) {
+                        if (output) {
+                            NSLog(@"%@", output);
+                        }
+                        if (error) {
+                            NSLog(@"Error calling OAIDefaultApi->connectUser: %@", error);
+                        }
+                    }];
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | **NSObject***|  | 
+
+### Return type
+
+**NSObject***
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: 
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -842,7 +1011,7 @@ No authorization required
 -(NSURLSessionTask*) deleteFromMealPlanWithUsername: (NSString*) username
     _id: (NSNumber*) _id
     hash: (NSString*) hash
-    inlineObject10: (OAIInlineObject10*) inlineObject10
+    inlineObject12: (OAIInlineObject12*) inlineObject12
         completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
 ```
 
@@ -856,7 +1025,7 @@ Delete an item from the user's meal plan.
 NSString* username = dsky; // The username.
 NSNumber* _id = 15678; // The shopping list item id.
 NSString* hash = 4b5v4398573406; // The private hash for the username.
-OAIInlineObject10* inlineObject10 = [[OAIInlineObject10 alloc] init]; // 
+OAIInlineObject12* inlineObject12 = [[OAIInlineObject12 alloc] init]; // 
 
 OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
 
@@ -864,7 +1033,7 @@ OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
 [apiInstance deleteFromMealPlanWithUsername:username
               _id:_id
               hash:hash
-              inlineObject10:inlineObject10
+              inlineObject12:inlineObject12
           completionHandler: ^(NSObject* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
@@ -882,7 +1051,7 @@ Name | Type | Description  | Notes
  **username** | **NSString***| The username. | 
  **_id** | **NSNumber***| The shopping list item id. | 
  **hash** | **NSString***| The private hash for the username. | 
- **inlineObject10** | [**OAIInlineObject10***](OAIInlineObject10.md)|  | 
+ **inlineObject12** | [**OAIInlineObject12***](OAIInlineObject12.md)|  | 
 
 ### Return type
 
@@ -904,7 +1073,7 @@ No authorization required
 -(NSURLSessionTask*) deleteFromShoppingListWithUsername: (NSString*) username
     _id: (NSNumber*) _id
     hash: (NSString*) hash
-    inlineObject13: (OAIInlineObject13*) inlineObject13
+    inlineObject15: (OAIInlineObject15*) inlineObject15
         completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
 ```
 
@@ -918,7 +1087,7 @@ Delete an item from the current shopping list of the user.
 NSString* username = dsky; // The username.
 NSNumber* _id = 15678; // The shopping list item id.
 NSString* hash = 4b5v4398573406; // The private hash for the username.
-OAIInlineObject13* inlineObject13 = [[OAIInlineObject13 alloc] init]; // 
+OAIInlineObject15* inlineObject15 = [[OAIInlineObject15 alloc] init]; // 
 
 OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
 
@@ -926,7 +1095,7 @@ OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
 [apiInstance deleteFromShoppingListWithUsername:username
               _id:_id
               hash:hash
-              inlineObject13:inlineObject13
+              inlineObject15:inlineObject15
           completionHandler: ^(NSObject* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
@@ -944,7 +1113,7 @@ Name | Type | Description  | Notes
  **username** | **NSString***| The username. | 
  **_id** | **NSNumber***| The shopping list item id. | 
  **hash** | **NSString***| The private hash for the username. | 
- **inlineObject13** | [**OAIInlineObject13***](OAIInlineObject13.md)|  | 
+ **inlineObject15** | [**OAIInlineObject15***](OAIInlineObject15.md)|  | 
 
 ### Return type
 
@@ -1137,7 +1306,7 @@ No authorization required
     startDate: (NSString*) startDate
     endDate: (NSString*) endDate
     hash: (NSString*) hash
-    inlineObject11: (OAIInlineObject11*) inlineObject11
+    inlineObject13: (OAIInlineObject13*) inlineObject13
         completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
 ```
 
@@ -1152,7 +1321,7 @@ NSString* username = dsky; // The username.
 NSString* startDate = 2020-06-01; // The start date in the format yyyy-mm-dd.
 NSString* endDate = 2020-06-07; // The end date in the format yyyy-mm-dd.
 NSString* hash = 4b5v4398573406; // The private hash for the username.
-OAIInlineObject11* inlineObject11 = [[OAIInlineObject11 alloc] init]; // 
+OAIInlineObject13* inlineObject13 = [[OAIInlineObject13 alloc] init]; // 
 
 OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
 
@@ -1161,7 +1330,7 @@ OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
               startDate:startDate
               endDate:endDate
               hash:hash
-              inlineObject11:inlineObject11
+              inlineObject13:inlineObject13
           completionHandler: ^(NSObject* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
@@ -1180,7 +1349,7 @@ Name | Type | Description  | Notes
  **startDate** | **NSString***| The start date in the format yyyy-mm-dd. | 
  **endDate** | **NSString***| The end date in the format yyyy-mm-dd. | 
  **hash** | **NSString***| The private hash for the username. | 
- **inlineObject11** | [**OAIInlineObject11***](OAIInlineObject11.md)|  | 
+ **inlineObject13** | [**OAIInlineObject13***](OAIInlineObject13.md)|  | 
 
 ### Return type
 
@@ -2291,6 +2460,56 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **getRecipeTasteByID**
+```objc
+-(NSURLSessionTask*) getRecipeTasteByIDWithId: (NSNumber*) _id
+        completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
+```
+
+Get Recipe Taste by ID
+
+Get a recipe's taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
+
+### Example 
+```objc
+
+NSNumber* _id = 69095; // The recipe id.
+
+OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
+
+// Get Recipe Taste by ID
+[apiInstance getRecipeTasteByIDWithId:_id
+          completionHandler: ^(NSObject* output, NSError* error) {
+                        if (output) {
+                            NSLog(@"%@", output);
+                        }
+                        if (error) {
+                            NSLog(@"Error calling OAIDefaultApi->getRecipeTasteByID: %@", error);
+                        }
+                    }];
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **_id** | **NSNumber***| The recipe id. | 
+
+### Return type
+
+**NSObject***
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **getShoppingList**
 ```objc
 -(NSURLSessionTask*) getShoppingListWithUsername: (NSString*) username
@@ -2719,6 +2938,108 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **ingredientSearch**
+```objc
+-(NSURLSessionTask*) ingredientSearchWithQuery: (NSString*) query
+    addChildren: (NSNumber*) addChildren
+    minProteinPercent: (NSNumber*) minProteinPercent
+    maxProteinPercent: (NSNumber*) maxProteinPercent
+    minFatPercent: (NSNumber*) minFatPercent
+    maxFatPercent: (NSNumber*) maxFatPercent
+    minCarbsPercent: (NSNumber*) minCarbsPercent
+    maxCarbsPercent: (NSNumber*) maxCarbsPercent
+    metaInformation: (NSNumber*) metaInformation
+    intolerances: (NSString*) intolerances
+    sort: (NSString*) sort
+    sortDirection: (NSString*) sortDirection
+    offset: (NSNumber*) offset
+    number: (NSNumber*) number
+        completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
+```
+
+Ingredient Search
+
+Search for simple whole foods (e.g. fruits, vegetables, nuts, grains, meat, fish, dairy etc.).
+
+### Example 
+```objc
+
+NSString* query = apple; // The partial or full ingredient name.
+NSNumber* addChildren = true; // Whether to add children of found foods. (optional)
+NSNumber* minProteinPercent = 10; // The minimum percentage of protein the food must have (between 0 and 100). (optional)
+NSNumber* maxProteinPercent = 90; // The maximum percentage of protein the food can have (between 0 and 100). (optional)
+NSNumber* minFatPercent = 10; // The minimum percentage of fat the food must have (between 0 and 100). (optional)
+NSNumber* maxFatPercent = 90; // The maximum percentage of fat the food can have (between 0 and 100). (optional)
+NSNumber* minCarbsPercent = 10; // The minimum percentage of carbs the food must have (between 0 and 100). (optional)
+NSNumber* maxCarbsPercent = 90; // The maximum percentage of carbs the food can have (between 0 and 100). (optional)
+NSNumber* metaInformation = false; // Whether to return more meta information about the ingredients. (optional)
+NSString* intolerances = egg; // A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
+NSString* sort = calories; // The strategy to sort recipes by. See a full list of supported sorting options. (optional)
+NSString* sortDirection = asc; // The direction in which to sort. Must be either 'asc' (ascending) or 'desc' (descending). (optional)
+NSNumber* offset = 0; // The number of results to skip (between 0 and 990). (optional)
+NSNumber* number = 10; // The number of expected results (between 1 and 100). (optional)
+
+OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
+
+// Ingredient Search
+[apiInstance ingredientSearchWithQuery:query
+              addChildren:addChildren
+              minProteinPercent:minProteinPercent
+              maxProteinPercent:maxProteinPercent
+              minFatPercent:minFatPercent
+              maxFatPercent:maxFatPercent
+              minCarbsPercent:minCarbsPercent
+              maxCarbsPercent:maxCarbsPercent
+              metaInformation:metaInformation
+              intolerances:intolerances
+              sort:sort
+              sortDirection:sortDirection
+              offset:offset
+              number:number
+          completionHandler: ^(NSObject* output, NSError* error) {
+                        if (output) {
+                            NSLog(@"%@", output);
+                        }
+                        if (error) {
+                            NSLog(@"Error calling OAIDefaultApi->ingredientSearch: %@", error);
+                        }
+                    }];
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **query** | **NSString***| The partial or full ingredient name. | 
+ **addChildren** | **NSNumber***| Whether to add children of found foods. | [optional] 
+ **minProteinPercent** | **NSNumber***| The minimum percentage of protein the food must have (between 0 and 100). | [optional] 
+ **maxProteinPercent** | **NSNumber***| The maximum percentage of protein the food can have (between 0 and 100). | [optional] 
+ **minFatPercent** | **NSNumber***| The minimum percentage of fat the food must have (between 0 and 100). | [optional] 
+ **maxFatPercent** | **NSNumber***| The maximum percentage of fat the food can have (between 0 and 100). | [optional] 
+ **minCarbsPercent** | **NSNumber***| The minimum percentage of carbs the food must have (between 0 and 100). | [optional] 
+ **maxCarbsPercent** | **NSNumber***| The maximum percentage of carbs the food can have (between 0 and 100). | [optional] 
+ **metaInformation** | **NSNumber***| Whether to return more meta information about the ingredients. | [optional] 
+ **intolerances** | **NSString***| A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. | [optional] 
+ **sort** | **NSString***| The strategy to sort recipes by. See a full list of supported sorting options. | [optional] 
+ **sortDirection** | **NSString***| The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending). | [optional] 
+ **offset** | **NSNumber***| The number of results to skip (between 0 and 990). | [optional] 
+ **number** | **NSNumber***| The number of expected results (between 1 and 100). | [optional] 
+
+### Return type
+
+**NSObject***
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **mapIngredientsToGroceryProducts**
 ```objc
 -(NSURLSessionTask*) mapIngredientsToGroceryProductsWithBody: (NSObject*) body
@@ -2861,6 +3182,64 @@ OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **q** | **NSString***| The nutrition related question. | 
+
+### Return type
+
+**NSObject***
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **searchAllFood**
+```objc
+-(NSURLSessionTask*) searchAllFoodWithQuery: (NSString*) query
+    offset: (NSNumber*) offset
+    number: (NSNumber*) number
+        completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
+```
+
+Search All Food
+
+Search all food content with one call. That includes recipes, grocery products, menu items, simple foods (ingredients), and food videos.
+
+### Example 
+```objc
+
+NSString* query = apple; // The search query.
+NSNumber* offset = 0; // The number of results to skip (between 0 and 990). (optional)
+NSNumber* number = 10; // The number of expected results (between 1 and 100). (optional)
+
+OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
+
+// Search All Food
+[apiInstance searchAllFoodWithQuery:query
+              offset:offset
+              number:number
+          completionHandler: ^(NSObject* output, NSError* error) {
+                        if (output) {
+                            NSLog(@"%@", output);
+                        }
+                        if (error) {
+                            NSLog(@"Error calling OAIDefaultApi->searchAllFood: %@", error);
+                        }
+                    }];
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **query** | **NSString***| The search query. | 
+ **offset** | **NSNumber***| The number of results to skip (between 0 and 990). | [optional] 
+ **number** | **NSNumber***| The number of expected results (between 1 and 100). | [optional] 
 
 ### Return type
 
@@ -3263,45 +3642,306 @@ No authorization required
 ```objc
 -(NSURLSessionTask*) searchRecipesWithQuery: (NSString*) query
     cuisine: (NSString*) cuisine
+    excludeCuisine: (NSString*) excludeCuisine
     diet: (NSString*) diet
-    excludeIngredients: (NSString*) excludeIngredients
     intolerances: (NSString*) intolerances
+    equipment: (NSString*) equipment
+    includeIngredients: (NSString*) includeIngredients
+    excludeIngredients: (NSString*) excludeIngredients
+    type: (NSString*) type
+    instructionsRequired: (NSNumber*) instructionsRequired
+    fillIngredients: (NSNumber*) fillIngredients
+    addRecipeInformation: (NSNumber*) addRecipeInformation
+    addRecipeNutrition: (NSNumber*) addRecipeNutrition
+    author: (NSString*) author
+    tags: (NSString*) tags
+    recipeBoxId: (NSNumber*) recipeBoxId
+    titleMatch: (NSString*) titleMatch
+    maxReadyTime: (NSNumber*) maxReadyTime
+    ignorePantry: (NSNumber*) ignorePantry
+    sort: (NSString*) sort
+    sortDirection: (NSString*) sortDirection
+    minCarbs: (NSNumber*) minCarbs
+    maxCarbs: (NSNumber*) maxCarbs
+    minProtein: (NSNumber*) minProtein
+    maxProtein: (NSNumber*) maxProtein
+    minCalories: (NSNumber*) minCalories
+    maxCalories: (NSNumber*) maxCalories
+    minFat: (NSNumber*) minFat
+    maxFat: (NSNumber*) maxFat
+    minAlcohol: (NSNumber*) minAlcohol
+    maxAlcohol: (NSNumber*) maxAlcohol
+    minCaffeine: (NSNumber*) minCaffeine
+    maxCaffeine: (NSNumber*) maxCaffeine
+    minCopper: (NSNumber*) minCopper
+    maxCopper: (NSNumber*) maxCopper
+    minCalcium: (NSNumber*) minCalcium
+    maxCalcium: (NSNumber*) maxCalcium
+    minCholine: (NSNumber*) minCholine
+    maxCholine: (NSNumber*) maxCholine
+    minCholesterol: (NSNumber*) minCholesterol
+    maxCholesterol: (NSNumber*) maxCholesterol
+    minFluoride: (NSNumber*) minFluoride
+    maxFluoride: (NSNumber*) maxFluoride
+    minSaturatedFat: (NSNumber*) minSaturatedFat
+    maxSaturatedFat: (NSNumber*) maxSaturatedFat
+    minVitaminA: (NSNumber*) minVitaminA
+    maxVitaminA: (NSNumber*) maxVitaminA
+    minVitaminC: (NSNumber*) minVitaminC
+    maxVitaminC: (NSNumber*) maxVitaminC
+    minVitaminD: (NSNumber*) minVitaminD
+    maxVitaminD: (NSNumber*) maxVitaminD
+    minVitaminE: (NSNumber*) minVitaminE
+    maxVitaminE: (NSNumber*) maxVitaminE
+    minVitaminK: (NSNumber*) minVitaminK
+    maxVitaminK: (NSNumber*) maxVitaminK
+    minVitaminB1: (NSNumber*) minVitaminB1
+    maxVitaminB1: (NSNumber*) maxVitaminB1
+    minVitaminB2: (NSNumber*) minVitaminB2
+    maxVitaminB2: (NSNumber*) maxVitaminB2
+    minVitaminB5: (NSNumber*) minVitaminB5
+    maxVitaminB5: (NSNumber*) maxVitaminB5
+    minVitaminB3: (NSNumber*) minVitaminB3
+    maxVitaminB3: (NSNumber*) maxVitaminB3
+    minVitaminB6: (NSNumber*) minVitaminB6
+    maxVitaminB6: (NSNumber*) maxVitaminB6
+    minVitaminB12: (NSNumber*) minVitaminB12
+    maxVitaminB12: (NSNumber*) maxVitaminB12
+    minFiber: (NSNumber*) minFiber
+    maxFiber: (NSNumber*) maxFiber
+    minFolate: (NSNumber*) minFolate
+    maxFolate: (NSNumber*) maxFolate
+    minFolicAcid: (NSNumber*) minFolicAcid
+    maxFolicAcid: (NSNumber*) maxFolicAcid
+    minIodine: (NSNumber*) minIodine
+    maxIodine: (NSNumber*) maxIodine
+    minIron: (NSNumber*) minIron
+    maxIron: (NSNumber*) maxIron
+    minMagnesium: (NSNumber*) minMagnesium
+    maxMagnesium: (NSNumber*) maxMagnesium
+    minManganese: (NSNumber*) minManganese
+    maxManganese: (NSNumber*) maxManganese
+    minPhosphorus: (NSNumber*) minPhosphorus
+    maxPhosphorus: (NSNumber*) maxPhosphorus
+    minPotassium: (NSNumber*) minPotassium
+    maxPotassium: (NSNumber*) maxPotassium
+    minSelenium: (NSNumber*) minSelenium
+    maxSelenium: (NSNumber*) maxSelenium
+    minSodium: (NSNumber*) minSodium
+    maxSodium: (NSNumber*) maxSodium
+    minSugar: (NSNumber*) minSugar
+    maxSugar: (NSNumber*) maxSugar
+    minZinc: (NSNumber*) minZinc
+    maxZinc: (NSNumber*) maxZinc
     offset: (NSNumber*) offset
     number: (NSNumber*) number
     limitLicense: (NSNumber*) limitLicense
-    instructionsRequired: (NSNumber*) instructionsRequired
         completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
 ```
 
 Search Recipes
 
-Our recipe API includes over 360,000 recipes as well as an open source recipe database. Consider using the \"Search Recipes Complex\" endpoint for much more flexibility.
+Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint.
 
 ### Example 
 ```objc
 
-NSString* query = burger; // The (natural language) recipe search query.
-NSString* cuisine = italian; // The cuisine(s) of the recipes. One or more comma separated. See a full list of supported cuisines. (optional)
+NSString* query = pasta; // The (natural language) recipe search query.
+NSString* cuisine = italian; // The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as 'OR'). See a full list of supported cuisines. (optional)
+NSString* excludeCuisine = greek; // The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as 'AND'). See a full list of supported cuisines. (optional)
 NSString* diet = vegetarian; // The diet for which the recipes must be suitable. See a full list of supported diets. (optional)
+NSString* intolerances = gluten; // A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
+NSString* equipment = pan; // The equipment required. Multiple values will be interpreted as 'or'. For example, value could be \"blender, frying pan, bowl\". (optional)
+NSString* includeIngredients = tomato,cheese; // A comma-separated list of ingredients that should/must be used in the recipes. (optional)
 NSString* excludeIngredients = eggs; // A comma-separated list of ingredients or ingredient types that the recipes must not contain. (optional)
-NSString* intolerances = gluten; // A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. Please note: due to the automatic nature of the recipe analysis, the API cannot be 100% accurate in all cases. Please advise your users to seek professional help with medical issues. (optional)
-NSNumber* offset = 0; // The number of results to skip (between 0 and 900). (optional)
-NSNumber* number = 10; // The number of results to return (between 1 and 100). (optional)
-NSNumber* limitLicense = true; // Whether the recipes should have an open license that allows display with proper attribution. (optional)
+NSString* type = main course; // The type of recipe. See a full list of supported meal types. (optional)
 NSNumber* instructionsRequired = true; // Whether the recipes must have instructions. (optional)
+NSNumber* fillIngredients = false; // Add information about the ingredients and whether they are used or missing in relation to the query. (optional)
+NSNumber* addRecipeInformation = false; // If set to true, you get more information about the recipes returned. (optional)
+NSNumber* addRecipeNutrition = false; // If set to true, you get nutritional information about each recipes returned. (optional)
+NSString* author = coffeebean; // The username of the recipe author. (optional)
+NSString* tags = myCustomTag; // User defined tags that have to match. The author param has to be set. (optional)
+NSNumber* recipeBoxId = 2468; // The id of the recipe box to which the search should be limited to. (optional)
+NSString* titleMatch = Crock Pot; // Enter text that must be found in the title of the recipes. (optional)
+NSNumber* maxReadyTime = 20; // The maximum time in minutes it should take to prepare and cook the recipe. (optional)
+NSNumber* ignorePantry = true; // Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional)
+NSString* sort = calories; // The strategy to sort recipes by. See a full list of supported sorting options. (optional)
+NSString* sortDirection = asc; // The direction in which to sort. Must be either 'asc' (ascending) or 'desc' (descending). (optional)
+NSNumber* minCarbs = 10; // The minimum amount of carbohydrates in grams the recipe must have. (optional)
+NSNumber* maxCarbs = 100; // The maximum amount of carbohydrates in grams the recipe can have. (optional)
+NSNumber* minProtein = 10; // The minimum amount of protein in grams the recipe must have. (optional)
+NSNumber* maxProtein = 100; // The maximum amount of protein in grams the recipe can have. (optional)
+NSNumber* minCalories = 50; // The minimum amount of calories the recipe must have. (optional)
+NSNumber* maxCalories = 800; // The maximum amount of calories the recipe can have. (optional)
+NSNumber* minFat = 1; // The minimum amount of fat in grams the recipe must have. (optional)
+NSNumber* maxFat = 100; // The maximum amount of fat in grams the recipe can have. (optional)
+NSNumber* minAlcohol = 0; // The minimum amount of alcohol in grams the recipe must have. (optional)
+NSNumber* maxAlcohol = 100; // The maximum amount of alcohol in grams the recipe can have. (optional)
+NSNumber* minCaffeine = 0; // The minimum amount of caffeine in milligrams the recipe must have. (optional)
+NSNumber* maxCaffeine = 100; // The maximum amount of caffeine in milligrams the recipe can have. (optional)
+NSNumber* minCopper = 0; // The minimum amount of copper in milligrams the recipe must have. (optional)
+NSNumber* maxCopper = 100; // The maximum amount of copper in milligrams the recipe can have. (optional)
+NSNumber* minCalcium = 0; // The minimum amount of calcium in milligrams the recipe must have. (optional)
+NSNumber* maxCalcium = 100; // The maximum amount of calcium in milligrams the recipe can have. (optional)
+NSNumber* minCholine = 0; // The minimum amount of choline in milligrams the recipe must have. (optional)
+NSNumber* maxCholine = 100; // The maximum amount of choline in milligrams the recipe can have. (optional)
+NSNumber* minCholesterol = 0; // The minimum amount of cholesterol in milligrams the recipe must have. (optional)
+NSNumber* maxCholesterol = 100; // The maximum amount of cholesterol in milligrams the recipe can have. (optional)
+NSNumber* minFluoride = 0; // The minimum amount of fluoride in milligrams the recipe must have. (optional)
+NSNumber* maxFluoride = 100; // The maximum amount of fluoride in milligrams the recipe can have. (optional)
+NSNumber* minSaturatedFat = 0; // The minimum amount of saturated fat in grams the recipe must have. (optional)
+NSNumber* maxSaturatedFat = 100; // The maximum amount of saturated fat in grams the recipe can have. (optional)
+NSNumber* minVitaminA = 0; // The minimum amount of Vitamin A in IU the recipe must have. (optional)
+NSNumber* maxVitaminA = 100; // The maximum amount of Vitamin A in IU the recipe can have. (optional)
+NSNumber* minVitaminC = 0; // The minimum amount of Vitamin C milligrams the recipe must have. (optional)
+NSNumber* maxVitaminC = 100; // The maximum amount of Vitamin C in milligrams the recipe can have. (optional)
+NSNumber* minVitaminD = 0; // The minimum amount of Vitamin D in micrograms the recipe must have. (optional)
+NSNumber* maxVitaminD = 100; // The maximum amount of Vitamin D in micrograms the recipe can have. (optional)
+NSNumber* minVitaminE = 0; // The minimum amount of Vitamin E in milligrams the recipe must have. (optional)
+NSNumber* maxVitaminE = 100; // The maximum amount of Vitamin E in milligrams the recipe can have. (optional)
+NSNumber* minVitaminK = 0; // The minimum amount of Vitamin K in micrograms the recipe must have. (optional)
+NSNumber* maxVitaminK = 100; // The maximum amount of Vitamin K in micrograms the recipe can have. (optional)
+NSNumber* minVitaminB1 = 0; // The minimum amount of Vitamin B1 in milligrams the recipe must have. (optional)
+NSNumber* maxVitaminB1 = 100; // The maximum amount of Vitamin B1 in milligrams the recipe can have. (optional)
+NSNumber* minVitaminB2 = 0; // The minimum amount of Vitamin B2 in milligrams the recipe must have. (optional)
+NSNumber* maxVitaminB2 = 100; // The maximum amount of Vitamin B2 in milligrams the recipe can have. (optional)
+NSNumber* minVitaminB5 = 0; // The minimum amount of Vitamin B5 in milligrams the recipe must have. (optional)
+NSNumber* maxVitaminB5 = 100; // The maximum amount of Vitamin B5 in milligrams the recipe can have. (optional)
+NSNumber* minVitaminB3 = 0; // The minimum amount of Vitamin B3 in milligrams the recipe must have. (optional)
+NSNumber* maxVitaminB3 = 100; // The maximum amount of Vitamin B3 in milligrams the recipe can have. (optional)
+NSNumber* minVitaminB6 = 0; // The minimum amount of Vitamin B6 in milligrams the recipe must have. (optional)
+NSNumber* maxVitaminB6 = 100; // The maximum amount of Vitamin B6 in milligrams the recipe can have. (optional)
+NSNumber* minVitaminB12 = 0; // The minimum amount of Vitamin B12 in micrograms the recipe must have. (optional)
+NSNumber* maxVitaminB12 = 100; // The maximum amount of Vitamin B12 in micrograms the recipe can have. (optional)
+NSNumber* minFiber = 0; // The minimum amount of fiber in grams the recipe must have. (optional)
+NSNumber* maxFiber = 100; // The maximum amount of fiber in grams the recipe can have. (optional)
+NSNumber* minFolate = 0; // The minimum amount of folate in micrograms the recipe must have. (optional)
+NSNumber* maxFolate = 100; // The maximum amount of folate in micrograms the recipe can have. (optional)
+NSNumber* minFolicAcid = 0; // The minimum amount of folic acid in micrograms the recipe must have. (optional)
+NSNumber* maxFolicAcid = 100; // The maximum amount of folic acid in micrograms the recipe can have. (optional)
+NSNumber* minIodine = 0; // The minimum amount of iodine in micrograms the recipe must have. (optional)
+NSNumber* maxIodine = 100; // The maximum amount of iodine in micrograms the recipe can have. (optional)
+NSNumber* minIron = 0; // The minimum amount of iron in milligrams the recipe must have. (optional)
+NSNumber* maxIron = 100; // The maximum amount of iron in milligrams the recipe can have. (optional)
+NSNumber* minMagnesium = 0; // The minimum amount of magnesium in milligrams the recipe must have. (optional)
+NSNumber* maxMagnesium = 100; // The maximum amount of magnesium in milligrams the recipe can have. (optional)
+NSNumber* minManganese = 0; // The minimum amount of manganese in milligrams the recipe must have. (optional)
+NSNumber* maxManganese = 100; // The maximum amount of manganese in milligrams the recipe can have. (optional)
+NSNumber* minPhosphorus = 0; // The minimum amount of phosphorus in milligrams the recipe must have. (optional)
+NSNumber* maxPhosphorus = 100; // The maximum amount of phosphorus in milligrams the recipe can have. (optional)
+NSNumber* minPotassium = 0; // The minimum amount of potassium in milligrams the recipe must have. (optional)
+NSNumber* maxPotassium = 100; // The maximum amount of potassium in milligrams the recipe can have. (optional)
+NSNumber* minSelenium = 0; // The minimum amount of selenium in micrograms the recipe must have. (optional)
+NSNumber* maxSelenium = 100; // The maximum amount of selenium in micrograms the recipe can have. (optional)
+NSNumber* minSodium = 0; // The minimum amount of sodium in milligrams the recipe must have. (optional)
+NSNumber* maxSodium = 100; // The maximum amount of sodium in milligrams the recipe can have. (optional)
+NSNumber* minSugar = 0; // The minimum amount of sugar in grams the recipe must have. (optional)
+NSNumber* maxSugar = 100; // The maximum amount of sugar in grams the recipe can have. (optional)
+NSNumber* minZinc = 0; // The minimum amount of zinc in milligrams the recipe must have. (optional)
+NSNumber* maxZinc = 100; // The maximum amount of zinc in milligrams the recipe can have. (optional)
+NSNumber* offset = 0; // The number of results to skip (between 0 and 900). (optional)
+NSNumber* number = 10; // The number of expected results (between 1 and 100). (optional)
+NSNumber* limitLicense = true; // Whether the recipes should have an open license that allows display with proper attribution. (optional)
 
 OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
 
 // Search Recipes
 [apiInstance searchRecipesWithQuery:query
               cuisine:cuisine
+              excludeCuisine:excludeCuisine
               diet:diet
-              excludeIngredients:excludeIngredients
               intolerances:intolerances
+              equipment:equipment
+              includeIngredients:includeIngredients
+              excludeIngredients:excludeIngredients
+              type:type
+              instructionsRequired:instructionsRequired
+              fillIngredients:fillIngredients
+              addRecipeInformation:addRecipeInformation
+              addRecipeNutrition:addRecipeNutrition
+              author:author
+              tags:tags
+              recipeBoxId:recipeBoxId
+              titleMatch:titleMatch
+              maxReadyTime:maxReadyTime
+              ignorePantry:ignorePantry
+              sort:sort
+              sortDirection:sortDirection
+              minCarbs:minCarbs
+              maxCarbs:maxCarbs
+              minProtein:minProtein
+              maxProtein:maxProtein
+              minCalories:minCalories
+              maxCalories:maxCalories
+              minFat:minFat
+              maxFat:maxFat
+              minAlcohol:minAlcohol
+              maxAlcohol:maxAlcohol
+              minCaffeine:minCaffeine
+              maxCaffeine:maxCaffeine
+              minCopper:minCopper
+              maxCopper:maxCopper
+              minCalcium:minCalcium
+              maxCalcium:maxCalcium
+              minCholine:minCholine
+              maxCholine:maxCholine
+              minCholesterol:minCholesterol
+              maxCholesterol:maxCholesterol
+              minFluoride:minFluoride
+              maxFluoride:maxFluoride
+              minSaturatedFat:minSaturatedFat
+              maxSaturatedFat:maxSaturatedFat
+              minVitaminA:minVitaminA
+              maxVitaminA:maxVitaminA
+              minVitaminC:minVitaminC
+              maxVitaminC:maxVitaminC
+              minVitaminD:minVitaminD
+              maxVitaminD:maxVitaminD
+              minVitaminE:minVitaminE
+              maxVitaminE:maxVitaminE
+              minVitaminK:minVitaminK
+              maxVitaminK:maxVitaminK
+              minVitaminB1:minVitaminB1
+              maxVitaminB1:maxVitaminB1
+              minVitaminB2:minVitaminB2
+              maxVitaminB2:maxVitaminB2
+              minVitaminB5:minVitaminB5
+              maxVitaminB5:maxVitaminB5
+              minVitaminB3:minVitaminB3
+              maxVitaminB3:maxVitaminB3
+              minVitaminB6:minVitaminB6
+              maxVitaminB6:maxVitaminB6
+              minVitaminB12:minVitaminB12
+              maxVitaminB12:maxVitaminB12
+              minFiber:minFiber
+              maxFiber:maxFiber
+              minFolate:minFolate
+              maxFolate:maxFolate
+              minFolicAcid:minFolicAcid
+              maxFolicAcid:maxFolicAcid
+              minIodine:minIodine
+              maxIodine:maxIodine
+              minIron:minIron
+              maxIron:maxIron
+              minMagnesium:minMagnesium
+              maxMagnesium:maxMagnesium
+              minManganese:minManganese
+              maxManganese:maxManganese
+              minPhosphorus:minPhosphorus
+              maxPhosphorus:maxPhosphorus
+              minPotassium:minPotassium
+              maxPotassium:maxPotassium
+              minSelenium:minSelenium
+              maxSelenium:maxSelenium
+              minSodium:minSodium
+              maxSodium:maxSodium
+              minSugar:minSugar
+              maxSugar:maxSugar
+              minZinc:minZinc
+              maxZinc:maxZinc
               offset:offset
               number:number
               limitLicense:limitLicense
-              instructionsRequired:instructionsRequired
           completionHandler: ^(NSObject* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
@@ -3317,14 +3957,101 @@ OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **query** | **NSString***| The (natural language) recipe search query. | 
- **cuisine** | **NSString***| The cuisine(s) of the recipes. One or more comma separated. See a full list of supported cuisines. | [optional] 
+ **cuisine** | **NSString***| The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as &#39;OR&#39;). See a full list of supported cuisines. | [optional] 
+ **excludeCuisine** | **NSString***| The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as &#39;AND&#39;). See a full list of supported cuisines. | [optional] 
  **diet** | **NSString***| The diet for which the recipes must be suitable. See a full list of supported diets. | [optional] 
+ **intolerances** | **NSString***| A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. | [optional] 
+ **equipment** | **NSString***| The equipment required. Multiple values will be interpreted as &#39;or&#39;. For example, value could be \&quot;blender, frying pan, bowl\&quot;. | [optional] 
+ **includeIngredients** | **NSString***| A comma-separated list of ingredients that should/must be used in the recipes. | [optional] 
  **excludeIngredients** | **NSString***| A comma-separated list of ingredients or ingredient types that the recipes must not contain. | [optional] 
- **intolerances** | **NSString***| A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. Please note: due to the automatic nature of the recipe analysis, the API cannot be 100% accurate in all cases. Please advise your users to seek professional help with medical issues. | [optional] 
- **offset** | **NSNumber***| The number of results to skip (between 0 and 900). | [optional] 
- **number** | **NSNumber***| The number of results to return (between 1 and 100). | [optional] 
- **limitLicense** | **NSNumber***| Whether the recipes should have an open license that allows display with proper attribution. | [optional] 
+ **type** | **NSString***| The type of recipe. See a full list of supported meal types. | [optional] 
  **instructionsRequired** | **NSNumber***| Whether the recipes must have instructions. | [optional] 
+ **fillIngredients** | **NSNumber***| Add information about the ingredients and whether they are used or missing in relation to the query. | [optional] 
+ **addRecipeInformation** | **NSNumber***| If set to true, you get more information about the recipes returned. | [optional] 
+ **addRecipeNutrition** | **NSNumber***| If set to true, you get nutritional information about each recipes returned. | [optional] 
+ **author** | **NSString***| The username of the recipe author. | [optional] 
+ **tags** | **NSString***| User defined tags that have to match. The author param has to be set. | [optional] 
+ **recipeBoxId** | **NSNumber***| The id of the recipe box to which the search should be limited to. | [optional] 
+ **titleMatch** | **NSString***| Enter text that must be found in the title of the recipes. | [optional] 
+ **maxReadyTime** | **NSNumber***| The maximum time in minutes it should take to prepare and cook the recipe. | [optional] 
+ **ignorePantry** | **NSNumber***| Whether to ignore typical pantry items, such as water, salt, flour, etc. | [optional] 
+ **sort** | **NSString***| The strategy to sort recipes by. See a full list of supported sorting options. | [optional] 
+ **sortDirection** | **NSString***| The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending). | [optional] 
+ **minCarbs** | **NSNumber***| The minimum amount of carbohydrates in grams the recipe must have. | [optional] 
+ **maxCarbs** | **NSNumber***| The maximum amount of carbohydrates in grams the recipe can have. | [optional] 
+ **minProtein** | **NSNumber***| The minimum amount of protein in grams the recipe must have. | [optional] 
+ **maxProtein** | **NSNumber***| The maximum amount of protein in grams the recipe can have. | [optional] 
+ **minCalories** | **NSNumber***| The minimum amount of calories the recipe must have. | [optional] 
+ **maxCalories** | **NSNumber***| The maximum amount of calories the recipe can have. | [optional] 
+ **minFat** | **NSNumber***| The minimum amount of fat in grams the recipe must have. | [optional] 
+ **maxFat** | **NSNumber***| The maximum amount of fat in grams the recipe can have. | [optional] 
+ **minAlcohol** | **NSNumber***| The minimum amount of alcohol in grams the recipe must have. | [optional] 
+ **maxAlcohol** | **NSNumber***| The maximum amount of alcohol in grams the recipe can have. | [optional] 
+ **minCaffeine** | **NSNumber***| The minimum amount of caffeine in milligrams the recipe must have. | [optional] 
+ **maxCaffeine** | **NSNumber***| The maximum amount of caffeine in milligrams the recipe can have. | [optional] 
+ **minCopper** | **NSNumber***| The minimum amount of copper in milligrams the recipe must have. | [optional] 
+ **maxCopper** | **NSNumber***| The maximum amount of copper in milligrams the recipe can have. | [optional] 
+ **minCalcium** | **NSNumber***| The minimum amount of calcium in milligrams the recipe must have. | [optional] 
+ **maxCalcium** | **NSNumber***| The maximum amount of calcium in milligrams the recipe can have. | [optional] 
+ **minCholine** | **NSNumber***| The minimum amount of choline in milligrams the recipe must have. | [optional] 
+ **maxCholine** | **NSNumber***| The maximum amount of choline in milligrams the recipe can have. | [optional] 
+ **minCholesterol** | **NSNumber***| The minimum amount of cholesterol in milligrams the recipe must have. | [optional] 
+ **maxCholesterol** | **NSNumber***| The maximum amount of cholesterol in milligrams the recipe can have. | [optional] 
+ **minFluoride** | **NSNumber***| The minimum amount of fluoride in milligrams the recipe must have. | [optional] 
+ **maxFluoride** | **NSNumber***| The maximum amount of fluoride in milligrams the recipe can have. | [optional] 
+ **minSaturatedFat** | **NSNumber***| The minimum amount of saturated fat in grams the recipe must have. | [optional] 
+ **maxSaturatedFat** | **NSNumber***| The maximum amount of saturated fat in grams the recipe can have. | [optional] 
+ **minVitaminA** | **NSNumber***| The minimum amount of Vitamin A in IU the recipe must have. | [optional] 
+ **maxVitaminA** | **NSNumber***| The maximum amount of Vitamin A in IU the recipe can have. | [optional] 
+ **minVitaminC** | **NSNumber***| The minimum amount of Vitamin C milligrams the recipe must have. | [optional] 
+ **maxVitaminC** | **NSNumber***| The maximum amount of Vitamin C in milligrams the recipe can have. | [optional] 
+ **minVitaminD** | **NSNumber***| The minimum amount of Vitamin D in micrograms the recipe must have. | [optional] 
+ **maxVitaminD** | **NSNumber***| The maximum amount of Vitamin D in micrograms the recipe can have. | [optional] 
+ **minVitaminE** | **NSNumber***| The minimum amount of Vitamin E in milligrams the recipe must have. | [optional] 
+ **maxVitaminE** | **NSNumber***| The maximum amount of Vitamin E in milligrams the recipe can have. | [optional] 
+ **minVitaminK** | **NSNumber***| The minimum amount of Vitamin K in micrograms the recipe must have. | [optional] 
+ **maxVitaminK** | **NSNumber***| The maximum amount of Vitamin K in micrograms the recipe can have. | [optional] 
+ **minVitaminB1** | **NSNumber***| The minimum amount of Vitamin B1 in milligrams the recipe must have. | [optional] 
+ **maxVitaminB1** | **NSNumber***| The maximum amount of Vitamin B1 in milligrams the recipe can have. | [optional] 
+ **minVitaminB2** | **NSNumber***| The minimum amount of Vitamin B2 in milligrams the recipe must have. | [optional] 
+ **maxVitaminB2** | **NSNumber***| The maximum amount of Vitamin B2 in milligrams the recipe can have. | [optional] 
+ **minVitaminB5** | **NSNumber***| The minimum amount of Vitamin B5 in milligrams the recipe must have. | [optional] 
+ **maxVitaminB5** | **NSNumber***| The maximum amount of Vitamin B5 in milligrams the recipe can have. | [optional] 
+ **minVitaminB3** | **NSNumber***| The minimum amount of Vitamin B3 in milligrams the recipe must have. | [optional] 
+ **maxVitaminB3** | **NSNumber***| The maximum amount of Vitamin B3 in milligrams the recipe can have. | [optional] 
+ **minVitaminB6** | **NSNumber***| The minimum amount of Vitamin B6 in milligrams the recipe must have. | [optional] 
+ **maxVitaminB6** | **NSNumber***| The maximum amount of Vitamin B6 in milligrams the recipe can have. | [optional] 
+ **minVitaminB12** | **NSNumber***| The minimum amount of Vitamin B12 in micrograms the recipe must have. | [optional] 
+ **maxVitaminB12** | **NSNumber***| The maximum amount of Vitamin B12 in micrograms the recipe can have. | [optional] 
+ **minFiber** | **NSNumber***| The minimum amount of fiber in grams the recipe must have. | [optional] 
+ **maxFiber** | **NSNumber***| The maximum amount of fiber in grams the recipe can have. | [optional] 
+ **minFolate** | **NSNumber***| The minimum amount of folate in micrograms the recipe must have. | [optional] 
+ **maxFolate** | **NSNumber***| The maximum amount of folate in micrograms the recipe can have. | [optional] 
+ **minFolicAcid** | **NSNumber***| The minimum amount of folic acid in micrograms the recipe must have. | [optional] 
+ **maxFolicAcid** | **NSNumber***| The maximum amount of folic acid in micrograms the recipe can have. | [optional] 
+ **minIodine** | **NSNumber***| The minimum amount of iodine in micrograms the recipe must have. | [optional] 
+ **maxIodine** | **NSNumber***| The maximum amount of iodine in micrograms the recipe can have. | [optional] 
+ **minIron** | **NSNumber***| The minimum amount of iron in milligrams the recipe must have. | [optional] 
+ **maxIron** | **NSNumber***| The maximum amount of iron in milligrams the recipe can have. | [optional] 
+ **minMagnesium** | **NSNumber***| The minimum amount of magnesium in milligrams the recipe must have. | [optional] 
+ **maxMagnesium** | **NSNumber***| The maximum amount of magnesium in milligrams the recipe can have. | [optional] 
+ **minManganese** | **NSNumber***| The minimum amount of manganese in milligrams the recipe must have. | [optional] 
+ **maxManganese** | **NSNumber***| The maximum amount of manganese in milligrams the recipe can have. | [optional] 
+ **minPhosphorus** | **NSNumber***| The minimum amount of phosphorus in milligrams the recipe must have. | [optional] 
+ **maxPhosphorus** | **NSNumber***| The maximum amount of phosphorus in milligrams the recipe can have. | [optional] 
+ **minPotassium** | **NSNumber***| The minimum amount of potassium in milligrams the recipe must have. | [optional] 
+ **maxPotassium** | **NSNumber***| The maximum amount of potassium in milligrams the recipe can have. | [optional] 
+ **minSelenium** | **NSNumber***| The minimum amount of selenium in micrograms the recipe must have. | [optional] 
+ **maxSelenium** | **NSNumber***| The maximum amount of selenium in micrograms the recipe can have. | [optional] 
+ **minSodium** | **NSNumber***| The minimum amount of sodium in milligrams the recipe must have. | [optional] 
+ **maxSodium** | **NSNumber***| The maximum amount of sodium in milligrams the recipe can have. | [optional] 
+ **minSugar** | **NSNumber***| The minimum amount of sugar in grams the recipe must have. | [optional] 
+ **maxSugar** | **NSNumber***| The maximum amount of sugar in grams the recipe can have. | [optional] 
+ **minZinc** | **NSNumber***| The minimum amount of zinc in milligrams the recipe must have. | [optional] 
+ **maxZinc** | **NSNumber***| The maximum amount of zinc in milligrams the recipe can have. | [optional] 
+ **offset** | **NSNumber***| The number of results to skip (between 0 and 900). | [optional] 
+ **number** | **NSNumber***| The number of expected results (between 1 and 100). | [optional] 
+ **limitLicense** | **NSNumber***| Whether the recipes should have an open license that allows display with proper attribution. | [optional] 
 
 ### Return type
 
@@ -3543,12 +4270,12 @@ NSNumber* minVitaminB12 = 0; // The minimum amount of Vitamin B12 in micrograms 
 NSNumber* maxVitaminB12 = 100; // The maximum amount of Vitamin B12 in micrograms the recipe can have. (optional)
 NSNumber* minFiber = 0; // The minimum amount of fiber in grams the recipe must have. (optional)
 NSNumber* maxFiber = 100; // The maximum amount of fiber in grams the recipe can have. (optional)
-NSNumber* minFolate = 0; // The minimum amount of folate in grams the recipe must have. (optional)
-NSNumber* maxFolate = 100; // The maximum amount of folate in grams the recipe can have. (optional)
-NSNumber* minFolicAcid = 0; // The minimum amount of folic acid in grams the recipe must have. (optional)
-NSNumber* maxFolicAcid = 100; // The maximum amount of folic acid in grams the recipe can have. (optional)
-NSNumber* minIodine = 0; // The minimum amount of iodine in grams the recipe must have. (optional)
-NSNumber* maxIodine = 100; // The maximum amount of iodine in grams the recipe can have. (optional)
+NSNumber* minFolate = 0; // The minimum amount of folate in micrograms the recipe must have. (optional)
+NSNumber* maxFolate = 100; // The maximum amount of folate in micrograms the recipe can have. (optional)
+NSNumber* minFolicAcid = 0; // The minimum amount of folic acid in micrograms the recipe must have. (optional)
+NSNumber* maxFolicAcid = 100; // The maximum amount of folic acid in micrograms the recipe can have. (optional)
+NSNumber* minIodine = 0; // The minimum amount of iodine in micrograms the recipe must have. (optional)
+NSNumber* maxIodine = 100; // The maximum amount of iodine in micrograms the recipe can have. (optional)
 NSNumber* minIron = 0; // The minimum amount of iron in milligrams the recipe must have. (optional)
 NSNumber* maxIron = 100; // The maximum amount of iron in milligrams the recipe can have. (optional)
 NSNumber* minMagnesium = 0; // The minimum amount of magnesium in milligrams the recipe must have. (optional)
@@ -3559,8 +4286,8 @@ NSNumber* minPhosphorus = 0; // The minimum amount of phosphorus in milligrams t
 NSNumber* maxPhosphorus = 100; // The maximum amount of phosphorus in milligrams the recipe can have. (optional)
 NSNumber* minPotassium = 0; // The minimum amount of potassium in milligrams the recipe must have. (optional)
 NSNumber* maxPotassium = 100; // The maximum amount of potassium in milligrams the recipe can have. (optional)
-NSNumber* minSelenium = 0; // The minimum amount of selenium in grams the recipe must have. (optional)
-NSNumber* maxSelenium = 100; // The maximum amount of selenium in grams the recipe can have. (optional)
+NSNumber* minSelenium = 0; // The minimum amount of selenium in micrograms the recipe must have. (optional)
+NSNumber* maxSelenium = 100; // The maximum amount of selenium in micrograms the recipe can have. (optional)
 NSNumber* minSodium = 0; // The minimum amount of sodium in milligrams the recipe must have. (optional)
 NSNumber* maxSodium = 100; // The maximum amount of sodium in milligrams the recipe can have. (optional)
 NSNumber* minSugar = 0; // The minimum amount of sugar in grams the recipe must have. (optional)
@@ -3713,12 +4440,12 @@ Name | Type | Description  | Notes
  **maxVitaminB12** | **NSNumber***| The maximum amount of Vitamin B12 in micrograms the recipe can have. | [optional] 
  **minFiber** | **NSNumber***| The minimum amount of fiber in grams the recipe must have. | [optional] 
  **maxFiber** | **NSNumber***| The maximum amount of fiber in grams the recipe can have. | [optional] 
- **minFolate** | **NSNumber***| The minimum amount of folate in grams the recipe must have. | [optional] 
- **maxFolate** | **NSNumber***| The maximum amount of folate in grams the recipe can have. | [optional] 
- **minFolicAcid** | **NSNumber***| The minimum amount of folic acid in grams the recipe must have. | [optional] 
- **maxFolicAcid** | **NSNumber***| The maximum amount of folic acid in grams the recipe can have. | [optional] 
- **minIodine** | **NSNumber***| The minimum amount of iodine in grams the recipe must have. | [optional] 
- **maxIodine** | **NSNumber***| The maximum amount of iodine in grams the recipe can have. | [optional] 
+ **minFolate** | **NSNumber***| The minimum amount of folate in micrograms the recipe must have. | [optional] 
+ **maxFolate** | **NSNumber***| The maximum amount of folate in micrograms the recipe can have. | [optional] 
+ **minFolicAcid** | **NSNumber***| The minimum amount of folic acid in micrograms the recipe must have. | [optional] 
+ **maxFolicAcid** | **NSNumber***| The maximum amount of folic acid in micrograms the recipe can have. | [optional] 
+ **minIodine** | **NSNumber***| The minimum amount of iodine in micrograms the recipe must have. | [optional] 
+ **maxIodine** | **NSNumber***| The maximum amount of iodine in micrograms the recipe can have. | [optional] 
  **minIron** | **NSNumber***| The minimum amount of iron in milligrams the recipe must have. | [optional] 
  **maxIron** | **NSNumber***| The maximum amount of iron in milligrams the recipe can have. | [optional] 
  **minMagnesium** | **NSNumber***| The minimum amount of magnesium in milligrams the recipe must have. | [optional] 
@@ -3729,8 +4456,8 @@ Name | Type | Description  | Notes
  **maxPhosphorus** | **NSNumber***| The maximum amount of phosphorus in milligrams the recipe can have. | [optional] 
  **minPotassium** | **NSNumber***| The minimum amount of potassium in milligrams the recipe must have. | [optional] 
  **maxPotassium** | **NSNumber***| The maximum amount of potassium in milligrams the recipe can have. | [optional] 
- **minSelenium** | **NSNumber***| The minimum amount of selenium in grams the recipe must have. | [optional] 
- **maxSelenium** | **NSNumber***| The maximum amount of selenium in grams the recipe can have. | [optional] 
+ **minSelenium** | **NSNumber***| The minimum amount of selenium in micrograms the recipe must have. | [optional] 
+ **maxSelenium** | **NSNumber***| The maximum amount of selenium in micrograms the recipe can have. | [optional] 
  **minSodium** | **NSNumber***| The minimum amount of sodium in milligrams the recipe must have. | [optional] 
  **maxSodium** | **NSNumber***| The maximum amount of sodium in milligrams the recipe can have. | [optional] 
  **minSugar** | **NSNumber***| The minimum amount of sugar in grams the recipe must have. | [optional] 
@@ -3740,436 +4467,6 @@ Name | Type | Description  | Notes
  **offset** | **NSNumber***| The number of results to skip (between 0 and 900). | [optional] 
  **number** | **NSNumber***| The number of expected results (between 1 and 100). | [optional] 
  **random** | **NSNumber***| If true, every request will give you a random set of recipes within the requested limits. | [optional] 
- **limitLicense** | **NSNumber***| Whether the recipes should have an open license that allows display with proper attribution. | [optional] 
-
-### Return type
-
-**NSObject***
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **searchRecipesComplex**
-```objc
--(NSURLSessionTask*) searchRecipesComplexWithQuery: (NSString*) query
-    cuisine: (NSString*) cuisine
-    excludeCuisine: (NSString*) excludeCuisine
-    diet: (NSString*) diet
-    intolerances: (NSString*) intolerances
-    equipment: (NSString*) equipment
-    includeIngredients: (NSString*) includeIngredients
-    excludeIngredients: (NSString*) excludeIngredients
-    type: (NSString*) type
-    instructionsRequired: (NSNumber*) instructionsRequired
-    fillIngredients: (NSNumber*) fillIngredients
-    addRecipeInformation: (NSNumber*) addRecipeInformation
-    addRecipeNutrition: (NSNumber*) addRecipeNutrition
-    author: (NSString*) author
-    tags: (NSString*) tags
-    recipeBoxId: (NSNumber*) recipeBoxId
-    titleMatch: (NSString*) titleMatch
-    maxReadyTime: (NSNumber*) maxReadyTime
-    ignorePantry: (NSNumber*) ignorePantry
-    sort: (NSString*) sort
-    sortDirection: (NSString*) sortDirection
-    minCarbs: (NSNumber*) minCarbs
-    maxCarbs: (NSNumber*) maxCarbs
-    minProtein: (NSNumber*) minProtein
-    maxProtein: (NSNumber*) maxProtein
-    minCalories: (NSNumber*) minCalories
-    maxCalories: (NSNumber*) maxCalories
-    minFat: (NSNumber*) minFat
-    maxFat: (NSNumber*) maxFat
-    minAlcohol: (NSNumber*) minAlcohol
-    maxAlcohol: (NSNumber*) maxAlcohol
-    minCaffeine: (NSNumber*) minCaffeine
-    maxCaffeine: (NSNumber*) maxCaffeine
-    minCopper: (NSNumber*) minCopper
-    maxCopper: (NSNumber*) maxCopper
-    minCalcium: (NSNumber*) minCalcium
-    maxCalcium: (NSNumber*) maxCalcium
-    minCholine: (NSNumber*) minCholine
-    maxCholine: (NSNumber*) maxCholine
-    minCholesterol: (NSNumber*) minCholesterol
-    maxCholesterol: (NSNumber*) maxCholesterol
-    minFluoride: (NSNumber*) minFluoride
-    maxFluoride: (NSNumber*) maxFluoride
-    minSaturatedFat: (NSNumber*) minSaturatedFat
-    maxSaturatedFat: (NSNumber*) maxSaturatedFat
-    minVitaminA: (NSNumber*) minVitaminA
-    maxVitaminA: (NSNumber*) maxVitaminA
-    minVitaminC: (NSNumber*) minVitaminC
-    maxVitaminC: (NSNumber*) maxVitaminC
-    minVitaminD: (NSNumber*) minVitaminD
-    maxVitaminD: (NSNumber*) maxVitaminD
-    minVitaminE: (NSNumber*) minVitaminE
-    maxVitaminE: (NSNumber*) maxVitaminE
-    minVitaminK: (NSNumber*) minVitaminK
-    maxVitaminK: (NSNumber*) maxVitaminK
-    minVitaminB1: (NSNumber*) minVitaminB1
-    maxVitaminB1: (NSNumber*) maxVitaminB1
-    minVitaminB2: (NSNumber*) minVitaminB2
-    maxVitaminB2: (NSNumber*) maxVitaminB2
-    minVitaminB5: (NSNumber*) minVitaminB5
-    maxVitaminB5: (NSNumber*) maxVitaminB5
-    minVitaminB3: (NSNumber*) minVitaminB3
-    maxVitaminB3: (NSNumber*) maxVitaminB3
-    minVitaminB6: (NSNumber*) minVitaminB6
-    maxVitaminB6: (NSNumber*) maxVitaminB6
-    minVitaminB12: (NSNumber*) minVitaminB12
-    maxVitaminB12: (NSNumber*) maxVitaminB12
-    minFiber: (NSNumber*) minFiber
-    maxFiber: (NSNumber*) maxFiber
-    minFolate: (NSNumber*) minFolate
-    maxFolate: (NSNumber*) maxFolate
-    minFolicAcid: (NSNumber*) minFolicAcid
-    maxFolicAcid: (NSNumber*) maxFolicAcid
-    minIodine: (NSNumber*) minIodine
-    maxIodine: (NSNumber*) maxIodine
-    minIron: (NSNumber*) minIron
-    maxIron: (NSNumber*) maxIron
-    minMagnesium: (NSNumber*) minMagnesium
-    maxMagnesium: (NSNumber*) maxMagnesium
-    minManganese: (NSNumber*) minManganese
-    maxManganese: (NSNumber*) maxManganese
-    minPhosphorus: (NSNumber*) minPhosphorus
-    maxPhosphorus: (NSNumber*) maxPhosphorus
-    minPotassium: (NSNumber*) minPotassium
-    maxPotassium: (NSNumber*) maxPotassium
-    minSelenium: (NSNumber*) minSelenium
-    maxSelenium: (NSNumber*) maxSelenium
-    minSodium: (NSNumber*) minSodium
-    maxSodium: (NSNumber*) maxSodium
-    minSugar: (NSNumber*) minSugar
-    maxSugar: (NSNumber*) maxSugar
-    minZinc: (NSNumber*) minZinc
-    maxZinc: (NSNumber*) maxZinc
-    offset: (NSNumber*) offset
-    number: (NSNumber*) number
-    limitLicense: (NSNumber*) limitLicense
-        completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
-```
-
-Search Recipes Complex
-
-Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint.
-
-### Example 
-```objc
-
-NSString* query = pasta; // The (natural language) recipe search query.
-NSString* cuisine = italian; // The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as 'OR'). See a full list of supported cuisines. (optional)
-NSString* excludeCuisine = greek; // The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as 'AND'). See a full list of supported cuisines. (optional)
-NSString* diet = vegetarian; // The diet for which the recipes must be suitable. See a full list of supported diets. (optional)
-NSString* intolerances = gluten; // A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
-NSString* equipment = pan; // The equipment required. Multiple values will be interpreted as 'or'. For example, value could be \"blender, frying pan, bowl\". (optional)
-NSString* includeIngredients = tomato,cheese; // A comma-separated list of ingredients that should/must be used in the recipes. (optional)
-NSString* excludeIngredients = eggs; // A comma-separated list of ingredients or ingredient types that the recipes must not contain. (optional)
-NSString* type = main course; // The type of recipe. See a full list of supported meal types. (optional)
-NSNumber* instructionsRequired = true; // Whether the recipes must have instructions. (optional)
-NSNumber* fillIngredients = false; // Add information about the ingredients and whether they are used or missing in relation to the query. (optional)
-NSNumber* addRecipeInformation = false; // If set to true, you get more information about the recipes returned. (optional)
-NSNumber* addRecipeNutrition = false; // If set to true, you get nutritional information about each recipes returned. (optional)
-NSString* author = coffeebean; // The username of the recipe author. (optional)
-NSString* tags = myCustomTag; // User defined tags that have to match. The author param has to be set. (optional)
-NSNumber* recipeBoxId = 2468; // The id of the recipe box to which the search should be limited to. (optional)
-NSString* titleMatch = Crock Pot; // Enter text that must be found in the title of the recipes. (optional)
-NSNumber* maxReadyTime = 20; // The maximum time in minutes it should take to prepare and cook the recipe. (optional)
-NSNumber* ignorePantry = true; // Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional)
-NSString* sort = calories; // The strategy to sort recipes by. See a full list of supported sorting options. (optional)
-NSString* sortDirection = asc; // The direction in which to sort. Must be either 'asc' (ascending) or 'desc' (descending). (optional)
-NSNumber* minCarbs = 10; // The minimum amount of carbohydrates in grams the recipe must have. (optional)
-NSNumber* maxCarbs = 100; // The maximum amount of carbohydrates in grams the recipe can have. (optional)
-NSNumber* minProtein = 10; // The minimum amount of protein in grams the recipe must have. (optional)
-NSNumber* maxProtein = 100; // The maximum amount of protein in grams the recipe can have. (optional)
-NSNumber* minCalories = 50; // The minimum amount of calories the recipe must have. (optional)
-NSNumber* maxCalories = 800; // The maximum amount of calories the recipe can have. (optional)
-NSNumber* minFat = 1; // The minimum amount of fat in grams the recipe must have. (optional)
-NSNumber* maxFat = 100; // The maximum amount of fat in grams the recipe can have. (optional)
-NSNumber* minAlcohol = 0; // The minimum amount of alcohol in grams the recipe must have. (optional)
-NSNumber* maxAlcohol = 100; // The maximum amount of alcohol in grams the recipe can have. (optional)
-NSNumber* minCaffeine = 0; // The minimum amount of caffeine in milligrams the recipe must have. (optional)
-NSNumber* maxCaffeine = 100; // The maximum amount of caffeine in milligrams the recipe can have. (optional)
-NSNumber* minCopper = 0; // The minimum amount of copper in milligrams the recipe must have. (optional)
-NSNumber* maxCopper = 100; // The maximum amount of copper in milligrams the recipe can have. (optional)
-NSNumber* minCalcium = 0; // The minimum amount of calcium in milligrams the recipe must have. (optional)
-NSNumber* maxCalcium = 100; // The maximum amount of calcium in milligrams the recipe can have. (optional)
-NSNumber* minCholine = 0; // The minimum amount of choline in milligrams the recipe must have. (optional)
-NSNumber* maxCholine = 100; // The maximum amount of choline in milligrams the recipe can have. (optional)
-NSNumber* minCholesterol = 0; // The minimum amount of cholesterol in milligrams the recipe must have. (optional)
-NSNumber* maxCholesterol = 100; // The maximum amount of cholesterol in milligrams the recipe can have. (optional)
-NSNumber* minFluoride = 0; // The minimum amount of fluoride in milligrams the recipe must have. (optional)
-NSNumber* maxFluoride = 100; // The maximum amount of fluoride in milligrams the recipe can have. (optional)
-NSNumber* minSaturatedFat = 0; // The minimum amount of saturated fat in grams the recipe must have. (optional)
-NSNumber* maxSaturatedFat = 100; // The maximum amount of saturated fat in grams the recipe can have. (optional)
-NSNumber* minVitaminA = 0; // The minimum amount of Vitamin A in IU the recipe must have. (optional)
-NSNumber* maxVitaminA = 100; // The maximum amount of Vitamin A in IU the recipe can have. (optional)
-NSNumber* minVitaminC = 0; // The minimum amount of Vitamin C milligrams the recipe must have. (optional)
-NSNumber* maxVitaminC = 100; // The maximum amount of Vitamin C in milligrams the recipe can have. (optional)
-NSNumber* minVitaminD = 0; // The minimum amount of Vitamin D in micrograms the recipe must have. (optional)
-NSNumber* maxVitaminD = 100; // The maximum amount of Vitamin D in micrograms the recipe can have. (optional)
-NSNumber* minVitaminE = 0; // The minimum amount of Vitamin E in milligrams the recipe must have. (optional)
-NSNumber* maxVitaminE = 100; // The maximum amount of Vitamin E in milligrams the recipe can have. (optional)
-NSNumber* minVitaminK = 0; // The minimum amount of Vitamin K in micrograms the recipe must have. (optional)
-NSNumber* maxVitaminK = 100; // The maximum amount of Vitamin K in micrograms the recipe can have. (optional)
-NSNumber* minVitaminB1 = 0; // The minimum amount of Vitamin B1 in milligrams the recipe must have. (optional)
-NSNumber* maxVitaminB1 = 100; // The maximum amount of Vitamin B1 in milligrams the recipe can have. (optional)
-NSNumber* minVitaminB2 = 0; // The minimum amount of Vitamin B2 in milligrams the recipe must have. (optional)
-NSNumber* maxVitaminB2 = 100; // The maximum amount of Vitamin B2 in milligrams the recipe can have. (optional)
-NSNumber* minVitaminB5 = 0; // The minimum amount of Vitamin B5 in milligrams the recipe must have. (optional)
-NSNumber* maxVitaminB5 = 100; // The maximum amount of Vitamin B5 in milligrams the recipe can have. (optional)
-NSNumber* minVitaminB3 = 0; // The minimum amount of Vitamin B3 in milligrams the recipe must have. (optional)
-NSNumber* maxVitaminB3 = 100; // The maximum amount of Vitamin B3 in milligrams the recipe can have. (optional)
-NSNumber* minVitaminB6 = 0; // The minimum amount of Vitamin B6 in milligrams the recipe must have. (optional)
-NSNumber* maxVitaminB6 = 100; // The maximum amount of Vitamin B6 in milligrams the recipe can have. (optional)
-NSNumber* minVitaminB12 = 0; // The minimum amount of Vitamin B12 in micrograms the recipe must have. (optional)
-NSNumber* maxVitaminB12 = 100; // The maximum amount of Vitamin B12 in micrograms the recipe can have. (optional)
-NSNumber* minFiber = 0; // The minimum amount of fiber in grams the recipe must have. (optional)
-NSNumber* maxFiber = 100; // The maximum amount of fiber in grams the recipe can have. (optional)
-NSNumber* minFolate = 0; // The minimum amount of folate in grams the recipe must have. (optional)
-NSNumber* maxFolate = 100; // The maximum amount of folate in grams the recipe can have. (optional)
-NSNumber* minFolicAcid = 0; // The minimum amount of folic acid in grams the recipe must have. (optional)
-NSNumber* maxFolicAcid = 100; // The maximum amount of folic acid in grams the recipe can have. (optional)
-NSNumber* minIodine = 0; // The minimum amount of iodine in grams the recipe must have. (optional)
-NSNumber* maxIodine = 100; // The maximum amount of iodine in grams the recipe can have. (optional)
-NSNumber* minIron = 0; // The minimum amount of iron in milligrams the recipe must have. (optional)
-NSNumber* maxIron = 100; // The maximum amount of iron in milligrams the recipe can have. (optional)
-NSNumber* minMagnesium = 0; // The minimum amount of magnesium in milligrams the recipe must have. (optional)
-NSNumber* maxMagnesium = 100; // The maximum amount of magnesium in milligrams the recipe can have. (optional)
-NSNumber* minManganese = 0; // The minimum amount of manganese in milligrams the recipe must have. (optional)
-NSNumber* maxManganese = 100; // The maximum amount of manganese in milligrams the recipe can have. (optional)
-NSNumber* minPhosphorus = 0; // The minimum amount of phosphorus in milligrams the recipe must have. (optional)
-NSNumber* maxPhosphorus = 100; // The maximum amount of phosphorus in milligrams the recipe can have. (optional)
-NSNumber* minPotassium = 0; // The minimum amount of potassium in milligrams the recipe must have. (optional)
-NSNumber* maxPotassium = 100; // The maximum amount of potassium in milligrams the recipe can have. (optional)
-NSNumber* minSelenium = 0; // The minimum amount of selenium in grams the recipe must have. (optional)
-NSNumber* maxSelenium = 100; // The maximum amount of selenium in grams the recipe can have. (optional)
-NSNumber* minSodium = 0; // The minimum amount of sodium in milligrams the recipe must have. (optional)
-NSNumber* maxSodium = 100; // The maximum amount of sodium in milligrams the recipe can have. (optional)
-NSNumber* minSugar = 0; // The minimum amount of sugar in grams the recipe must have. (optional)
-NSNumber* maxSugar = 100; // The maximum amount of sugar in grams the recipe can have. (optional)
-NSNumber* minZinc = 0; // The minimum amount of zinc in milligrams the recipe must have. (optional)
-NSNumber* maxZinc = 100; // The maximum amount of zinc in milligrams the recipe can have. (optional)
-NSNumber* offset = 0; // The number of results to skip (between 0 and 900). (optional)
-NSNumber* number = 10; // The number of expected results (between 1 and 100). (optional)
-NSNumber* limitLicense = true; // Whether the recipes should have an open license that allows display with proper attribution. (optional)
-
-OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
-
-// Search Recipes Complex
-[apiInstance searchRecipesComplexWithQuery:query
-              cuisine:cuisine
-              excludeCuisine:excludeCuisine
-              diet:diet
-              intolerances:intolerances
-              equipment:equipment
-              includeIngredients:includeIngredients
-              excludeIngredients:excludeIngredients
-              type:type
-              instructionsRequired:instructionsRequired
-              fillIngredients:fillIngredients
-              addRecipeInformation:addRecipeInformation
-              addRecipeNutrition:addRecipeNutrition
-              author:author
-              tags:tags
-              recipeBoxId:recipeBoxId
-              titleMatch:titleMatch
-              maxReadyTime:maxReadyTime
-              ignorePantry:ignorePantry
-              sort:sort
-              sortDirection:sortDirection
-              minCarbs:minCarbs
-              maxCarbs:maxCarbs
-              minProtein:minProtein
-              maxProtein:maxProtein
-              minCalories:minCalories
-              maxCalories:maxCalories
-              minFat:minFat
-              maxFat:maxFat
-              minAlcohol:minAlcohol
-              maxAlcohol:maxAlcohol
-              minCaffeine:minCaffeine
-              maxCaffeine:maxCaffeine
-              minCopper:minCopper
-              maxCopper:maxCopper
-              minCalcium:minCalcium
-              maxCalcium:maxCalcium
-              minCholine:minCholine
-              maxCholine:maxCholine
-              minCholesterol:minCholesterol
-              maxCholesterol:maxCholesterol
-              minFluoride:minFluoride
-              maxFluoride:maxFluoride
-              minSaturatedFat:minSaturatedFat
-              maxSaturatedFat:maxSaturatedFat
-              minVitaminA:minVitaminA
-              maxVitaminA:maxVitaminA
-              minVitaminC:minVitaminC
-              maxVitaminC:maxVitaminC
-              minVitaminD:minVitaminD
-              maxVitaminD:maxVitaminD
-              minVitaminE:minVitaminE
-              maxVitaminE:maxVitaminE
-              minVitaminK:minVitaminK
-              maxVitaminK:maxVitaminK
-              minVitaminB1:minVitaminB1
-              maxVitaminB1:maxVitaminB1
-              minVitaminB2:minVitaminB2
-              maxVitaminB2:maxVitaminB2
-              minVitaminB5:minVitaminB5
-              maxVitaminB5:maxVitaminB5
-              minVitaminB3:minVitaminB3
-              maxVitaminB3:maxVitaminB3
-              minVitaminB6:minVitaminB6
-              maxVitaminB6:maxVitaminB6
-              minVitaminB12:minVitaminB12
-              maxVitaminB12:maxVitaminB12
-              minFiber:minFiber
-              maxFiber:maxFiber
-              minFolate:minFolate
-              maxFolate:maxFolate
-              minFolicAcid:minFolicAcid
-              maxFolicAcid:maxFolicAcid
-              minIodine:minIodine
-              maxIodine:maxIodine
-              minIron:minIron
-              maxIron:maxIron
-              minMagnesium:minMagnesium
-              maxMagnesium:maxMagnesium
-              minManganese:minManganese
-              maxManganese:maxManganese
-              minPhosphorus:minPhosphorus
-              maxPhosphorus:maxPhosphorus
-              minPotassium:minPotassium
-              maxPotassium:maxPotassium
-              minSelenium:minSelenium
-              maxSelenium:maxSelenium
-              minSodium:minSodium
-              maxSodium:maxSodium
-              minSugar:minSugar
-              maxSugar:maxSugar
-              minZinc:minZinc
-              maxZinc:maxZinc
-              offset:offset
-              number:number
-              limitLicense:limitLicense
-          completionHandler: ^(NSObject* output, NSError* error) {
-                        if (output) {
-                            NSLog(@"%@", output);
-                        }
-                        if (error) {
-                            NSLog(@"Error calling OAIDefaultApi->searchRecipesComplex: %@", error);
-                        }
-                    }];
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **query** | **NSString***| The (natural language) recipe search query. | 
- **cuisine** | **NSString***| The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as &#39;OR&#39;). See a full list of supported cuisines. | [optional] 
- **excludeCuisine** | **NSString***| The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as &#39;AND&#39;). See a full list of supported cuisines. | [optional] 
- **diet** | **NSString***| The diet for which the recipes must be suitable. See a full list of supported diets. | [optional] 
- **intolerances** | **NSString***| A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. | [optional] 
- **equipment** | **NSString***| The equipment required. Multiple values will be interpreted as &#39;or&#39;. For example, value could be \&quot;blender, frying pan, bowl\&quot;. | [optional] 
- **includeIngredients** | **NSString***| A comma-separated list of ingredients that should/must be used in the recipes. | [optional] 
- **excludeIngredients** | **NSString***| A comma-separated list of ingredients or ingredient types that the recipes must not contain. | [optional] 
- **type** | **NSString***| The type of recipe. See a full list of supported meal types. | [optional] 
- **instructionsRequired** | **NSNumber***| Whether the recipes must have instructions. | [optional] 
- **fillIngredients** | **NSNumber***| Add information about the ingredients and whether they are used or missing in relation to the query. | [optional] 
- **addRecipeInformation** | **NSNumber***| If set to true, you get more information about the recipes returned. | [optional] 
- **addRecipeNutrition** | **NSNumber***| If set to true, you get nutritional information about each recipes returned. | [optional] 
- **author** | **NSString***| The username of the recipe author. | [optional] 
- **tags** | **NSString***| User defined tags that have to match. The author param has to be set. | [optional] 
- **recipeBoxId** | **NSNumber***| The id of the recipe box to which the search should be limited to. | [optional] 
- **titleMatch** | **NSString***| Enter text that must be found in the title of the recipes. | [optional] 
- **maxReadyTime** | **NSNumber***| The maximum time in minutes it should take to prepare and cook the recipe. | [optional] 
- **ignorePantry** | **NSNumber***| Whether to ignore typical pantry items, such as water, salt, flour, etc. | [optional] 
- **sort** | **NSString***| The strategy to sort recipes by. See a full list of supported sorting options. | [optional] 
- **sortDirection** | **NSString***| The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending). | [optional] 
- **minCarbs** | **NSNumber***| The minimum amount of carbohydrates in grams the recipe must have. | [optional] 
- **maxCarbs** | **NSNumber***| The maximum amount of carbohydrates in grams the recipe can have. | [optional] 
- **minProtein** | **NSNumber***| The minimum amount of protein in grams the recipe must have. | [optional] 
- **maxProtein** | **NSNumber***| The maximum amount of protein in grams the recipe can have. | [optional] 
- **minCalories** | **NSNumber***| The minimum amount of calories the recipe must have. | [optional] 
- **maxCalories** | **NSNumber***| The maximum amount of calories the recipe can have. | [optional] 
- **minFat** | **NSNumber***| The minimum amount of fat in grams the recipe must have. | [optional] 
- **maxFat** | **NSNumber***| The maximum amount of fat in grams the recipe can have. | [optional] 
- **minAlcohol** | **NSNumber***| The minimum amount of alcohol in grams the recipe must have. | [optional] 
- **maxAlcohol** | **NSNumber***| The maximum amount of alcohol in grams the recipe can have. | [optional] 
- **minCaffeine** | **NSNumber***| The minimum amount of caffeine in milligrams the recipe must have. | [optional] 
- **maxCaffeine** | **NSNumber***| The maximum amount of caffeine in milligrams the recipe can have. | [optional] 
- **minCopper** | **NSNumber***| The minimum amount of copper in milligrams the recipe must have. | [optional] 
- **maxCopper** | **NSNumber***| The maximum amount of copper in milligrams the recipe can have. | [optional] 
- **minCalcium** | **NSNumber***| The minimum amount of calcium in milligrams the recipe must have. | [optional] 
- **maxCalcium** | **NSNumber***| The maximum amount of calcium in milligrams the recipe can have. | [optional] 
- **minCholine** | **NSNumber***| The minimum amount of choline in milligrams the recipe must have. | [optional] 
- **maxCholine** | **NSNumber***| The maximum amount of choline in milligrams the recipe can have. | [optional] 
- **minCholesterol** | **NSNumber***| The minimum amount of cholesterol in milligrams the recipe must have. | [optional] 
- **maxCholesterol** | **NSNumber***| The maximum amount of cholesterol in milligrams the recipe can have. | [optional] 
- **minFluoride** | **NSNumber***| The minimum amount of fluoride in milligrams the recipe must have. | [optional] 
- **maxFluoride** | **NSNumber***| The maximum amount of fluoride in milligrams the recipe can have. | [optional] 
- **minSaturatedFat** | **NSNumber***| The minimum amount of saturated fat in grams the recipe must have. | [optional] 
- **maxSaturatedFat** | **NSNumber***| The maximum amount of saturated fat in grams the recipe can have. | [optional] 
- **minVitaminA** | **NSNumber***| The minimum amount of Vitamin A in IU the recipe must have. | [optional] 
- **maxVitaminA** | **NSNumber***| The maximum amount of Vitamin A in IU the recipe can have. | [optional] 
- **minVitaminC** | **NSNumber***| The minimum amount of Vitamin C milligrams the recipe must have. | [optional] 
- **maxVitaminC** | **NSNumber***| The maximum amount of Vitamin C in milligrams the recipe can have. | [optional] 
- **minVitaminD** | **NSNumber***| The minimum amount of Vitamin D in micrograms the recipe must have. | [optional] 
- **maxVitaminD** | **NSNumber***| The maximum amount of Vitamin D in micrograms the recipe can have. | [optional] 
- **minVitaminE** | **NSNumber***| The minimum amount of Vitamin E in milligrams the recipe must have. | [optional] 
- **maxVitaminE** | **NSNumber***| The maximum amount of Vitamin E in milligrams the recipe can have. | [optional] 
- **minVitaminK** | **NSNumber***| The minimum amount of Vitamin K in micrograms the recipe must have. | [optional] 
- **maxVitaminK** | **NSNumber***| The maximum amount of Vitamin K in micrograms the recipe can have. | [optional] 
- **minVitaminB1** | **NSNumber***| The minimum amount of Vitamin B1 in milligrams the recipe must have. | [optional] 
- **maxVitaminB1** | **NSNumber***| The maximum amount of Vitamin B1 in milligrams the recipe can have. | [optional] 
- **minVitaminB2** | **NSNumber***| The minimum amount of Vitamin B2 in milligrams the recipe must have. | [optional] 
- **maxVitaminB2** | **NSNumber***| The maximum amount of Vitamin B2 in milligrams the recipe can have. | [optional] 
- **minVitaminB5** | **NSNumber***| The minimum amount of Vitamin B5 in milligrams the recipe must have. | [optional] 
- **maxVitaminB5** | **NSNumber***| The maximum amount of Vitamin B5 in milligrams the recipe can have. | [optional] 
- **minVitaminB3** | **NSNumber***| The minimum amount of Vitamin B3 in milligrams the recipe must have. | [optional] 
- **maxVitaminB3** | **NSNumber***| The maximum amount of Vitamin B3 in milligrams the recipe can have. | [optional] 
- **minVitaminB6** | **NSNumber***| The minimum amount of Vitamin B6 in milligrams the recipe must have. | [optional] 
- **maxVitaminB6** | **NSNumber***| The maximum amount of Vitamin B6 in milligrams the recipe can have. | [optional] 
- **minVitaminB12** | **NSNumber***| The minimum amount of Vitamin B12 in micrograms the recipe must have. | [optional] 
- **maxVitaminB12** | **NSNumber***| The maximum amount of Vitamin B12 in micrograms the recipe can have. | [optional] 
- **minFiber** | **NSNumber***| The minimum amount of fiber in grams the recipe must have. | [optional] 
- **maxFiber** | **NSNumber***| The maximum amount of fiber in grams the recipe can have. | [optional] 
- **minFolate** | **NSNumber***| The minimum amount of folate in grams the recipe must have. | [optional] 
- **maxFolate** | **NSNumber***| The maximum amount of folate in grams the recipe can have. | [optional] 
- **minFolicAcid** | **NSNumber***| The minimum amount of folic acid in grams the recipe must have. | [optional] 
- **maxFolicAcid** | **NSNumber***| The maximum amount of folic acid in grams the recipe can have. | [optional] 
- **minIodine** | **NSNumber***| The minimum amount of iodine in grams the recipe must have. | [optional] 
- **maxIodine** | **NSNumber***| The maximum amount of iodine in grams the recipe can have. | [optional] 
- **minIron** | **NSNumber***| The minimum amount of iron in milligrams the recipe must have. | [optional] 
- **maxIron** | **NSNumber***| The maximum amount of iron in milligrams the recipe can have. | [optional] 
- **minMagnesium** | **NSNumber***| The minimum amount of magnesium in milligrams the recipe must have. | [optional] 
- **maxMagnesium** | **NSNumber***| The maximum amount of magnesium in milligrams the recipe can have. | [optional] 
- **minManganese** | **NSNumber***| The minimum amount of manganese in milligrams the recipe must have. | [optional] 
- **maxManganese** | **NSNumber***| The maximum amount of manganese in milligrams the recipe can have. | [optional] 
- **minPhosphorus** | **NSNumber***| The minimum amount of phosphorus in milligrams the recipe must have. | [optional] 
- **maxPhosphorus** | **NSNumber***| The maximum amount of phosphorus in milligrams the recipe can have. | [optional] 
- **minPotassium** | **NSNumber***| The minimum amount of potassium in milligrams the recipe must have. | [optional] 
- **maxPotassium** | **NSNumber***| The maximum amount of potassium in milligrams the recipe can have. | [optional] 
- **minSelenium** | **NSNumber***| The minimum amount of selenium in grams the recipe must have. | [optional] 
- **maxSelenium** | **NSNumber***| The maximum amount of selenium in grams the recipe can have. | [optional] 
- **minSodium** | **NSNumber***| The minimum amount of sodium in milligrams the recipe must have. | [optional] 
- **maxSodium** | **NSNumber***| The maximum amount of sodium in milligrams the recipe can have. | [optional] 
- **minSugar** | **NSNumber***| The minimum amount of sugar in grams the recipe must have. | [optional] 
- **maxSugar** | **NSNumber***| The maximum amount of sugar in grams the recipe can have. | [optional] 
- **minZinc** | **NSNumber***| The minimum amount of zinc in milligrams the recipe must have. | [optional] 
- **maxZinc** | **NSNumber***| The maximum amount of zinc in milligrams the recipe can have. | [optional] 
- **offset** | **NSNumber***| The number of results to skip (between 0 and 900). | [optional] 
- **number** | **NSNumber***| The number of expected results (between 1 and 100). | [optional] 
  **limitLicense** | **NSNumber***| Whether the recipes should have an open license that allows display with proper attribution. | [optional] 
 
 ### Return type
@@ -4343,8 +4640,7 @@ No authorization required
 
 # **visualizeEquipment**
 ```objc
--(NSURLSessionTask*) visualizeEquipmentWithIngredientList: (NSString*) ingredientList
-    servings: (NSNumber*) servings
+-(NSURLSessionTask*) visualizeEquipmentWithInstructions: (NSString*) instructions
     view: (NSString*) view
     defaultCss: (NSNumber*) defaultCss
     showBacklink: (NSNumber*) showBacklink
@@ -4353,13 +4649,12 @@ No authorization required
 
 Visualize Equipment
 
-Visualize the equipment used to make a recipe.
+Visualize the equipment used to make a recipe. You can play around with that endpoint!
 
 ### Example 
 ```objc
 
-NSString* ingredientList = @"ingredientList_example"; // The ingredient list of the recipe, one ingredient per line.
-NSNumber* servings = @56; // The number of servings.
+NSString* instructions = @"instructions_example"; // The recipe's instructions.
 NSString* view = @"view_example"; // How to visualize the equipment, either \\\"grid\\\" or \\\"list\\\". (optional)
 NSNumber* defaultCss = @56; // Whether the default CSS should be added to the response. (optional)
 NSNumber* showBacklink = @56; // Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)
@@ -4367,8 +4662,7 @@ NSNumber* showBacklink = @56; // Whether to show a backlink to spoonacular. If s
 OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
 
 // Visualize Equipment
-[apiInstance visualizeEquipmentWithIngredientList:ingredientList
-              servings:servings
+[apiInstance visualizeEquipmentWithInstructions:instructions
               view:view
               defaultCss:defaultCss
               showBacklink:showBacklink
@@ -4386,8 +4680,7 @@ OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ingredientList** | **NSString***| The ingredient list of the recipe, one ingredient per line. | 
- **servings** | **NSNumber***| The number of servings. | 
+ **instructions** | **NSString***| The recipe&#39;s instructions. | 
  **view** | **NSString***| How to visualize the equipment, either \\\&quot;grid\\\&quot; or \\\&quot;list\\\&quot;. | [optional] 
  **defaultCss** | **NSNumber***| Whether the default CSS should be added to the response. | [optional] 
  **showBacklink** | **NSNumber***| Whether to show a backlink to spoonacular. If set false, this call counts against your quota. | [optional] 
@@ -4420,7 +4713,7 @@ No authorization required
 
 Visualize Ingredients
 
-Visualize ingredients of a recipe.
+Visualize ingredients of a recipe. You can play around with that endpoint!
 
 ### Example 
 ```objc
@@ -4543,7 +4836,7 @@ No authorization required
 
 Visualize Price Breakdown
 
-Visualize the price breakdown of a recipe.
+Visualize the price breakdown of a recipe. You can play around with that endpoint!
 
 ### Example 
 ```objc
@@ -4770,7 +5063,7 @@ No authorization required
 
 Visualize Recipe Nutrition
 
-Visualize a recipe's nutritional information as HTML including CSS
+Visualize a recipe's nutritional information as HTML including CSS. You can play around with that endpoint!
 
 ### Example 
 ```objc
@@ -4913,6 +5206,106 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_id** | **NSNumber***| The recipe id. | 
  **defaultCss** | **NSNumber***| Whether the default CSS should be added to the response. | [optional] 
+
+### Return type
+
+**NSString***
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/html
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **visualizeRecipeTaste**
+```objc
+-(NSURLSessionTask*) visualizeRecipeTasteWithIngredientList: (NSString*) ingredientList
+        completionHandler: (void (^)(NSString* output, NSError* error)) handler;
+```
+
+Visualize Recipe Taste
+
+Visualize a recipe's taste information as HTML including CSS. You can play around with that endpoint!
+
+### Example 
+```objc
+
+NSString* ingredientList = @"ingredientList_example"; // The ingredient list of the recipe, one ingredient per line.
+
+OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
+
+// Visualize Recipe Taste
+[apiInstance visualizeRecipeTasteWithIngredientList:ingredientList
+          completionHandler: ^(NSString* output, NSError* error) {
+                        if (output) {
+                            NSLog(@"%@", output);
+                        }
+                        if (error) {
+                            NSLog(@"Error calling OAIDefaultApi->visualizeRecipeTaste: %@", error);
+                        }
+                    }];
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ingredientList** | **NSString***| The ingredient list of the recipe, one ingredient per line. | 
+
+### Return type
+
+**NSString***
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: text/html
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **visualizeRecipeTasteByID**
+```objc
+-(NSURLSessionTask*) visualizeRecipeTasteByIDWithId: (NSNumber*) _id
+        completionHandler: (void (^)(NSString* output, NSError* error)) handler;
+```
+
+Visualize Recipe Taste by ID
+
+Get a recipe's taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
+
+### Example 
+```objc
+
+NSNumber* _id = 69095; // The recipe id.
+
+OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
+
+// Visualize Recipe Taste by ID
+[apiInstance visualizeRecipeTasteByIDWithId:_id
+          completionHandler: ^(NSString* output, NSError* error) {
+                        if (output) {
+                            NSLog(@"%@", output);
+                        }
+                        if (error) {
+                            NSLog(@"Error calling OAIDefaultApi->visualizeRecipeTasteByID: %@", error);
+                        }
+                    }];
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **_id** | **NSNumber***| The recipe id. | 
 
 ### Return type
 

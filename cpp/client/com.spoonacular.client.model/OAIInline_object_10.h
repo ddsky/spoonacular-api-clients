@@ -22,7 +22,6 @@
 #include <QJsonObject>
 
 
-#include "com.spoonacular.client.model\OAINumber.h"
 #include <QString>
 
 #include "OAIObject.h"
@@ -46,8 +45,8 @@ public:
     void setUsername(const QString &username);
 
     
-    OAINumber getId() const;
-    void setId(const OAINumber &id);
+    QString getDate() const;
+    void setDate(const QString &date);
 
     
     QString getHash() const;
@@ -65,9 +64,9 @@ private:
     bool m_username_isSet;
     bool m_username_isValid;
     
-    OAINumber id;
-    bool m_id_isSet;
-    bool m_id_isValid;
+    QString date;
+    bool m_date_isSet;
+    bool m_date_isValid;
     
     QString hash;
     bool m_hash_isSet;

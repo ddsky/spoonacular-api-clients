@@ -22,6 +22,8 @@ from spoonacular.com.spoonacular.client.model.inline_object11 import InlineObjec
 from spoonacular.com.spoonacular.client.model.inline_object12 import InlineObject12
 from spoonacular.com.spoonacular.client.model.inline_object13 import InlineObject13
 from spoonacular.com.spoonacular.client.model.inline_object14 import InlineObject14
+from spoonacular.com.spoonacular.client.model.inline_object15 import InlineObject15
+from spoonacular.com.spoonacular.client.model.inline_object16 import InlineObject16
 from spoonacular.com.spoonacular.client.model.inline_object2 import InlineObject2
 from spoonacular.com.spoonacular.client.model.inline_object3 import InlineObject3
 from spoonacular.com.spoonacular.client.model.inline_object4 import InlineObject4

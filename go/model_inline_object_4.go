@@ -9,8 +9,33 @@
  */
 
 package spoonacular
+import (
+	"os"
+)
 
 type InlineObject4 struct {
-	// The instructions to be analyzed.
+	// The title of the recipe.
+	Title string `json:"title"`
+	// The binary image of the recipe as jpg.
+	Image *os.File `json:"image"`
+	// The ingredient list of the recipe, one ingredient per line (separate lines with \\n).
+	Ingredients string `json:"ingredients"`
+	// The instructions to make the recipe. One step per line (separate lines with \\n).
 	Instructions string `json:"instructions"`
+	// The number of minutes it takes to get the recipe on the table.
+	ReadyInMinutes float32 `json:"readyInMinutes"`
+	// The number of servings the recipe makes.
+	Servings float32 `json:"servings"`
+	// The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\").
+	Mask string `json:"mask"`
+	// The background image (\"none\",\"background1\", or \"background2\").
+	BackgroundImage string `json:"backgroundImage"`
+	// The author of the recipe.
+	Author string `json:"author,omitempty"`
+	// The background color for the recipe card as a hex-string.
+	BackgroundColor string `json:"backgroundColor,omitempty"`
+	// The font color for the recipe card as a hex-string.
+	FontColor string `json:"fontColor,omitempty"`
+	// The source of the recipe.
+	Source string `json:"source,omitempty"`
 }

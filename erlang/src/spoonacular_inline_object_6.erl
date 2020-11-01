@@ -5,16 +5,13 @@
 -export_type([spoonacular_inline_object_6/0]).
 
 -type spoonacular_inline_object_6() ::
-    #{ 'ingredientList' := binary(),
-       'servings' := integer(),
-       'includeNutrition' => boolean()
+    #{ 'title' := binary(),
+       'ingredientList' := binary()
      }.
 
-encode(#{ 'ingredientList' := IngredientList,
-          'servings' := Servings,
-          'includeNutrition' := IncludeNutrition
+encode(#{ 'title' := Title,
+          'ingredientList' := IngredientList
         }) ->
-    #{ 'ingredientList' => IngredientList,
-       'servings' => Servings,
-       'includeNutrition' => IncludeNutrition
+    #{ 'title' => Title,
+       'ingredientList' => IngredientList
      }.

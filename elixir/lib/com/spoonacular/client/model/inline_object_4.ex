@@ -9,11 +9,33 @@ defmodule com.spoonacular.client.Model.InlineObject4 do
 
   @derive [Poison.Encoder]
   defstruct [
-    :"instructions"
+    :"title",
+    :"image",
+    :"ingredients",
+    :"instructions",
+    :"readyInMinutes",
+    :"servings",
+    :"mask",
+    :"backgroundImage",
+    :"author",
+    :"backgroundColor",
+    :"fontColor",
+    :"source"
   ]
 
   @type t :: %__MODULE__{
-    :"instructions" => String.t
+    :"title" => String.t,
+    :"image" => String.t,
+    :"ingredients" => String.t,
+    :"instructions" => String.t,
+    :"readyInMinutes" => float(),
+    :"servings" => float(),
+    :"mask" => String.t,
+    :"backgroundImage" => String.t,
+    :"author" => String.t | nil,
+    :"backgroundColor" => String.t | nil,
+    :"fontColor" => String.t | nil,
+    :"source" => String.t | nil
   }
 end
 

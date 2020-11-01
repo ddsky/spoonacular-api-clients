@@ -105,7 +105,7 @@ var SpoonacularApi = require('spoonacular_api');
 var api = new SpoonacularApi.DefaultApi()
 var username = dsky; // {String} The username.
 var hash = 4b5v4398573406; // {String} The private hash for the username.
-var inlineObject9 = new SpoonacularApi.InlineObject9(); // {InlineObject9} 
+var inlineObject11 = new SpoonacularApi.InlineObject11(); // {InlineObject11} 
 var callback = function(error, data, response) {
   if (error) {
     console.error(error);
@@ -113,7 +113,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-api.addToMealPlan(username, hash, inlineObject9, callback);
+api.addToMealPlan(username, hash, inlineObject11, callback);
 
 ```
 
@@ -134,6 +134,9 @@ Class | Method | HTTP request | Description
 *SpoonacularApi.DefaultApi* | [**classifyCuisine**](docs/DefaultApi.md#classifyCuisine) | **POST** /recipes/cuisine | Classify Cuisine
 *SpoonacularApi.DefaultApi* | [**classifyGroceryProduct**](docs/DefaultApi.md#classifyGroceryProduct) | **POST** /food/products/classify | Classify Grocery Product
 *SpoonacularApi.DefaultApi* | [**classifyGroceryProductBulk**](docs/DefaultApi.md#classifyGroceryProductBulk) | **POST** /food/products/classifyBatch | Classify Grocery Product Bulk
+*SpoonacularApi.DefaultApi* | [**clearMealPlanDay**](docs/DefaultApi.md#clearMealPlanDay) | **DELETE** /mealplanner/{username}/day/{date} | Clear Meal Plan Day
+*SpoonacularApi.DefaultApi* | [**computeGlycemicLoad**](docs/DefaultApi.md#computeGlycemicLoad) | **POST** /food/ingredients/glycemicLoad | Compute Glycemic Load
+*SpoonacularApi.DefaultApi* | [**connectUser**](docs/DefaultApi.md#connectUser) | **POST** /users/connect | Connect User
 *SpoonacularApi.DefaultApi* | [**convertAmounts**](docs/DefaultApi.md#convertAmounts) | **GET** /recipes/convert | Convert Amounts
 *SpoonacularApi.DefaultApi* | [**createRecipeCard**](docs/DefaultApi.md#createRecipeCard) | **POST** /recipes/visualizeRecipe | Create Recipe Card
 *SpoonacularApi.DefaultApi* | [**deleteFromMealPlan**](docs/DefaultApi.md#deleteFromMealPlan) | **DELETE** /mealplanner/{username}/items/{id} | Delete from Meal Plan
@@ -163,6 +166,7 @@ Class | Method | HTTP request | Description
 *SpoonacularApi.DefaultApi* | [**getRecipeIngredientsByID**](docs/DefaultApi.md#getRecipeIngredientsByID) | **GET** /recipes/{id}/ingredientWidget.json | Get Recipe Ingredients by ID
 *SpoonacularApi.DefaultApi* | [**getRecipeNutritionWidgetByID**](docs/DefaultApi.md#getRecipeNutritionWidgetByID) | **GET** /recipes/{id}/nutritionWidget.json | Get Recipe Nutrition Widget by ID
 *SpoonacularApi.DefaultApi* | [**getRecipePriceBreakdownByID**](docs/DefaultApi.md#getRecipePriceBreakdownByID) | **GET** /recipes/{id}/priceBreakdownWidget.json | Get Recipe Price Breakdown by ID
+*SpoonacularApi.DefaultApi* | [**getRecipeTasteByID**](docs/DefaultApi.md#getRecipeTasteByID) | **GET** /recipes/{id}/tasteWidget.json | Get Recipe Taste by ID
 *SpoonacularApi.DefaultApi* | [**getShoppingList**](docs/DefaultApi.md#getShoppingList) | **GET** /mealplanner/{username}/shopping-list | Get Shopping List
 *SpoonacularApi.DefaultApi* | [**getSimilarRecipes**](docs/DefaultApi.md#getSimilarRecipes) | **GET** /recipes/{id}/similar | Get Similar Recipes
 *SpoonacularApi.DefaultApi* | [**getWineDescription**](docs/DefaultApi.md#getWineDescription) | **GET** /food/wine/description | Get Wine Description
@@ -171,18 +175,19 @@ Class | Method | HTTP request | Description
 *SpoonacularApi.DefaultApi* | [**guessNutritionByDishName**](docs/DefaultApi.md#guessNutritionByDishName) | **GET** /recipes/guessNutrition | Guess Nutrition by Dish Name
 *SpoonacularApi.DefaultApi* | [**imageAnalysisByURL**](docs/DefaultApi.md#imageAnalysisByURL) | **GET** /food/images/analyze | Image Analysis by URL
 *SpoonacularApi.DefaultApi* | [**imageClassificationByURL**](docs/DefaultApi.md#imageClassificationByURL) | **GET** /food/images/classify | Image Classification by URL
+*SpoonacularApi.DefaultApi* | [**ingredientSearch**](docs/DefaultApi.md#ingredientSearch) | **GET** /food/ingredients/search | Ingredient Search
 *SpoonacularApi.DefaultApi* | [**mapIngredientsToGroceryProducts**](docs/DefaultApi.md#mapIngredientsToGroceryProducts) | **POST** /food/ingredients/map | Map Ingredients to Grocery Products
 *SpoonacularApi.DefaultApi* | [**parseIngredients**](docs/DefaultApi.md#parseIngredients) | **POST** /recipes/parseIngredients | Parse Ingredients
 *SpoonacularApi.DefaultApi* | [**quickAnswer**](docs/DefaultApi.md#quickAnswer) | **GET** /recipes/quickAnswer | Quick Answer
+*SpoonacularApi.DefaultApi* | [**searchAllFood**](docs/DefaultApi.md#searchAllFood) | **GET** /food/search | Search All Food
 *SpoonacularApi.DefaultApi* | [**searchCustomFoods**](docs/DefaultApi.md#searchCustomFoods) | **GET** /food/customFoods/search | Search Custom Foods
 *SpoonacularApi.DefaultApi* | [**searchFoodVideos**](docs/DefaultApi.md#searchFoodVideos) | **GET** /food/videos/search | Search Food Videos
 *SpoonacularApi.DefaultApi* | [**searchGroceryProducts**](docs/DefaultApi.md#searchGroceryProducts) | **GET** /food/products/search | Search Grocery Products
 *SpoonacularApi.DefaultApi* | [**searchGroceryProductsByUPC**](docs/DefaultApi.md#searchGroceryProductsByUPC) | **GET** /food/products/upc/{upc} | Search Grocery Products by UPC
 *SpoonacularApi.DefaultApi* | [**searchMenuItems**](docs/DefaultApi.md#searchMenuItems) | **GET** /food/menuItems/search | Search Menu Items
-*SpoonacularApi.DefaultApi* | [**searchRecipes**](docs/DefaultApi.md#searchRecipes) | **GET** /recipes/search | Search Recipes
+*SpoonacularApi.DefaultApi* | [**searchRecipes**](docs/DefaultApi.md#searchRecipes) | **GET** /recipes/complexSearch | Search Recipes
 *SpoonacularApi.DefaultApi* | [**searchRecipesByIngredients**](docs/DefaultApi.md#searchRecipesByIngredients) | **GET** /recipes/findByIngredients | Search Recipes by Ingredients
 *SpoonacularApi.DefaultApi* | [**searchRecipesByNutrients**](docs/DefaultApi.md#searchRecipesByNutrients) | **GET** /recipes/findByNutrients | Search Recipes by Nutrients
-*SpoonacularApi.DefaultApi* | [**searchRecipesComplex**](docs/DefaultApi.md#searchRecipesComplex) | **GET** /recipes/complexSearch | Search Recipes Complex
 *SpoonacularApi.DefaultApi* | [**searchSiteContent**](docs/DefaultApi.md#searchSiteContent) | **GET** /food/site/search | Search Site Content
 *SpoonacularApi.DefaultApi* | [**summarizeRecipe**](docs/DefaultApi.md#summarizeRecipe) | **GET** /recipes/{id}/summary | Summarize Recipe
 *SpoonacularApi.DefaultApi* | [**talkToChatbot**](docs/DefaultApi.md#talkToChatbot) | **GET** /food/converse | Talk to Chatbot
@@ -196,6 +201,8 @@ Class | Method | HTTP request | Description
 *SpoonacularApi.DefaultApi* | [**visualizeRecipeNutrition**](docs/DefaultApi.md#visualizeRecipeNutrition) | **POST** /recipes/visualizeNutrition | Visualize Recipe Nutrition
 *SpoonacularApi.DefaultApi* | [**visualizeRecipeNutritionByID**](docs/DefaultApi.md#visualizeRecipeNutritionByID) | **GET** /recipes/{id}/nutritionWidget | Visualize Recipe Nutrition by ID
 *SpoonacularApi.DefaultApi* | [**visualizeRecipePriceBreakdownByID**](docs/DefaultApi.md#visualizeRecipePriceBreakdownByID) | **GET** /recipes/{id}/priceBreakdownWidget | Visualize Recipe Price Breakdown by ID
+*SpoonacularApi.DefaultApi* | [**visualizeRecipeTaste**](docs/DefaultApi.md#visualizeRecipeTaste) | **POST** /recipes/visualizeTaste | Visualize Recipe Taste
+*SpoonacularApi.DefaultApi* | [**visualizeRecipeTasteByID**](docs/DefaultApi.md#visualizeRecipeTasteByID) | **GET** /recipes/{id}/tasteWidget | Visualize Recipe Taste by ID
 
 
 ## Documentation for Models
@@ -207,6 +214,8 @@ Class | Method | HTTP request | Description
  - [SpoonacularApi.InlineObject12](docs/InlineObject12.md)
  - [SpoonacularApi.InlineObject13](docs/InlineObject13.md)
  - [SpoonacularApi.InlineObject14](docs/InlineObject14.md)
+ - [SpoonacularApi.InlineObject15](docs/InlineObject15.md)
+ - [SpoonacularApi.InlineObject16](docs/InlineObject16.md)
  - [SpoonacularApi.InlineObject2](docs/InlineObject2.md)
  - [SpoonacularApi.InlineObject3](docs/InlineObject3.md)
  - [SpoonacularApi.InlineObject4](docs/InlineObject4.md)

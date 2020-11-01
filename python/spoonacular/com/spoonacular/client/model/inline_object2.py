@@ -34,7 +34,7 @@ class InlineObject2(object):
     openapi_types = {
         'ingredient_list': 'str',
         'servings': 'float',
-        'view': 'str',
+        'mode': 'float',
         'default_css': 'bool',
         'show_backlink': 'bool'
     }
@@ -42,25 +42,25 @@ class InlineObject2(object):
     attribute_map = {
         'ingredient_list': 'ingredientList',
         'servings': 'servings',
-        'view': 'view',
+        'mode': 'mode',
         'default_css': 'defaultCss',
         'show_backlink': 'showBacklink'
     }
 
-    def __init__(self, ingredient_list=None, servings=None, view=None, default_css=None, show_backlink=None):  # noqa: E501
+    def __init__(self, ingredient_list=None, servings=None, mode=None, default_css=None, show_backlink=None):  # noqa: E501
         """InlineObject2 - a model defined in OpenAPI"""  # noqa: E501
 
         self._ingredient_list = None
         self._servings = None
-        self._view = None
+        self._mode = None
         self._default_css = None
         self._show_backlink = None
         self.discriminator = None
 
         self.ingredient_list = ingredient_list
         self.servings = servings
-        if view is not None:
-            self.view = view
+        if mode is not None:
+            self.mode = mode
         if default_css is not None:
             self.default_css = default_css
         if show_backlink is not None:
@@ -117,27 +117,27 @@ class InlineObject2(object):
         self._servings = servings
 
     @property
-    def view(self):
-        """Gets the view of this InlineObject2.  # noqa: E501
+    def mode(self):
+        """Gets the mode of this InlineObject2.  # noqa: E501
 
-        How to visualize the equipment, either \"grid\" or \"list\".  # noqa: E501
+        The mode in which the widget should be delivered. 1 = separate views (compact), 2 = all in one view (full).  # noqa: E501
 
-        :return: The view of this InlineObject2.  # noqa: E501
-        :rtype: str
+        :return: The mode of this InlineObject2.  # noqa: E501
+        :rtype: float
         """
-        return self._view
+        return self._mode
 
-    @view.setter
-    def view(self, view):
-        """Sets the view of this InlineObject2.
+    @mode.setter
+    def mode(self, mode):
+        """Sets the mode of this InlineObject2.
 
-        How to visualize the equipment, either \"grid\" or \"list\".  # noqa: E501
+        The mode in which the widget should be delivered. 1 = separate views (compact), 2 = all in one view (full).  # noqa: E501
 
-        :param view: The view of this InlineObject2.  # noqa: E501
-        :type: str
+        :param mode: The mode of this InlineObject2.  # noqa: E501
+        :type: float
         """
 
-        self._view = view
+        self._mode = mode
 
     @property
     def default_css(self):

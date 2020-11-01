@@ -33,7 +33,8 @@ import com.spoonacular.client.model.InlineObject10;
 import com.spoonacular.client.model.InlineObject11;
 import com.spoonacular.client.model.InlineObject12;
 import com.spoonacular.client.model.InlineObject13;
-import com.spoonacular.client.model.InlineObject8;
+import com.spoonacular.client.model.InlineObject14;
+import com.spoonacular.client.model.InlineObject15;
 import com.spoonacular.client.model.InlineObject9;
 
 import java.lang.reflect.Type;
@@ -65,15 +66,15 @@ public class DefaultApi {
      * Build call for addToMealPlan
      * @param username The username. (required)
      * @param hash The private hash for the username. (required)
-     * @param inlineObject9  (required)
+     * @param inlineObject11  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Add-to-Meal-Plan">Add to Meal Plan Documentation</a>
      */
-    public okhttp3.Call addToMealPlanCall(String username, String hash, InlineObject9 inlineObject9, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = inlineObject9;
+    public okhttp3.Call addToMealPlanCall(String username, String hash, InlineObject11 inlineObject11, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = inlineObject11;
 
         // create path and map variables
         String localVarPath = "/mealplanner/{username}/items"
@@ -106,7 +107,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call addToMealPlanValidateBeforeCall(String username, String hash, InlineObject9 inlineObject9, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call addToMealPlanValidateBeforeCall(String username, String hash, InlineObject11 inlineObject11, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'username' is set
         if (username == null) {
@@ -118,13 +119,13 @@ public class DefaultApi {
             throw new ApiException("Missing the required parameter 'hash' when calling addToMealPlan(Async)");
         }
         
-        // verify the required parameter 'inlineObject9' is set
-        if (inlineObject9 == null) {
-            throw new ApiException("Missing the required parameter 'inlineObject9' when calling addToMealPlan(Async)");
+        // verify the required parameter 'inlineObject11' is set
+        if (inlineObject11 == null) {
+            throw new ApiException("Missing the required parameter 'inlineObject11' when calling addToMealPlan(Async)");
         }
         
 
-        okhttp3.Call localVarCall = addToMealPlanCall(username, hash, inlineObject9, _callback);
+        okhttp3.Call localVarCall = addToMealPlanCall(username, hash, inlineObject11, _callback);
         return localVarCall;
 
     }
@@ -134,14 +135,14 @@ public class DefaultApi {
      * Add an item to the user&#39;s meal plan.
      * @param username The username. (required)
      * @param hash The private hash for the username. (required)
-     * @param inlineObject9  (required)
+     * @param inlineObject11  (required)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Add-to-Meal-Plan">Add to Meal Plan Documentation</a>
      */
-    public Object addToMealPlan(String username, String hash, InlineObject9 inlineObject9) throws ApiException {
-        ApiResponse<Object> localVarResp = addToMealPlanWithHttpInfo(username, hash, inlineObject9);
+    public Object addToMealPlan(String username, String hash, InlineObject11 inlineObject11) throws ApiException {
+        ApiResponse<Object> localVarResp = addToMealPlanWithHttpInfo(username, hash, inlineObject11);
         return localVarResp.getData();
     }
 
@@ -150,14 +151,14 @@ public class DefaultApi {
      * Add an item to the user&#39;s meal plan.
      * @param username The username. (required)
      * @param hash The private hash for the username. (required)
-     * @param inlineObject9  (required)
+     * @param inlineObject11  (required)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Add-to-Meal-Plan">Add to Meal Plan Documentation</a>
      */
-    public ApiResponse<Object> addToMealPlanWithHttpInfo(String username, String hash, InlineObject9 inlineObject9) throws ApiException {
-        okhttp3.Call localVarCall = addToMealPlanValidateBeforeCall(username, hash, inlineObject9, null);
+    public ApiResponse<Object> addToMealPlanWithHttpInfo(String username, String hash, InlineObject11 inlineObject11) throws ApiException {
+        okhttp3.Call localVarCall = addToMealPlanValidateBeforeCall(username, hash, inlineObject11, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -167,16 +168,16 @@ public class DefaultApi {
      * Add an item to the user&#39;s meal plan.
      * @param username The username. (required)
      * @param hash The private hash for the username. (required)
-     * @param inlineObject9  (required)
+     * @param inlineObject11  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Add-to-Meal-Plan">Add to Meal Plan Documentation</a>
      */
-    public okhttp3.Call addToMealPlanAsync(String username, String hash, InlineObject9 inlineObject9, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call addToMealPlanAsync(String username, String hash, InlineObject11 inlineObject11, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = addToMealPlanValidateBeforeCall(username, hash, inlineObject9, _callback);
+        okhttp3.Call localVarCall = addToMealPlanValidateBeforeCall(username, hash, inlineObject11, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -185,15 +186,15 @@ public class DefaultApi {
      * Build call for addToShoppingList
      * @param username The username. (required)
      * @param hash The private hash for the username. (required)
-     * @param inlineObject12  (required)
+     * @param inlineObject14  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Add-to-Shopping-List">Add to Shopping List Documentation</a>
      */
-    public okhttp3.Call addToShoppingListCall(String username, String hash, InlineObject12 inlineObject12, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = inlineObject12;
+    public okhttp3.Call addToShoppingListCall(String username, String hash, InlineObject14 inlineObject14, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = inlineObject14;
 
         // create path and map variables
         String localVarPath = "/mealplanner/{username}/shopping-list/items"
@@ -226,7 +227,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call addToShoppingListValidateBeforeCall(String username, String hash, InlineObject12 inlineObject12, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call addToShoppingListValidateBeforeCall(String username, String hash, InlineObject14 inlineObject14, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'username' is set
         if (username == null) {
@@ -238,13 +239,13 @@ public class DefaultApi {
             throw new ApiException("Missing the required parameter 'hash' when calling addToShoppingList(Async)");
         }
         
-        // verify the required parameter 'inlineObject12' is set
-        if (inlineObject12 == null) {
-            throw new ApiException("Missing the required parameter 'inlineObject12' when calling addToShoppingList(Async)");
+        // verify the required parameter 'inlineObject14' is set
+        if (inlineObject14 == null) {
+            throw new ApiException("Missing the required parameter 'inlineObject14' when calling addToShoppingList(Async)");
         }
         
 
-        okhttp3.Call localVarCall = addToShoppingListCall(username, hash, inlineObject12, _callback);
+        okhttp3.Call localVarCall = addToShoppingListCall(username, hash, inlineObject14, _callback);
         return localVarCall;
 
     }
@@ -254,14 +255,14 @@ public class DefaultApi {
      * Add an item to the current shopping list of a user.
      * @param username The username. (required)
      * @param hash The private hash for the username. (required)
-     * @param inlineObject12  (required)
+     * @param inlineObject14  (required)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Add-to-Shopping-List">Add to Shopping List Documentation</a>
      */
-    public Object addToShoppingList(String username, String hash, InlineObject12 inlineObject12) throws ApiException {
-        ApiResponse<Object> localVarResp = addToShoppingListWithHttpInfo(username, hash, inlineObject12);
+    public Object addToShoppingList(String username, String hash, InlineObject14 inlineObject14) throws ApiException {
+        ApiResponse<Object> localVarResp = addToShoppingListWithHttpInfo(username, hash, inlineObject14);
         return localVarResp.getData();
     }
 
@@ -270,14 +271,14 @@ public class DefaultApi {
      * Add an item to the current shopping list of a user.
      * @param username The username. (required)
      * @param hash The private hash for the username. (required)
-     * @param inlineObject12  (required)
+     * @param inlineObject14  (required)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Add-to-Shopping-List">Add to Shopping List Documentation</a>
      */
-    public ApiResponse<Object> addToShoppingListWithHttpInfo(String username, String hash, InlineObject12 inlineObject12) throws ApiException {
-        okhttp3.Call localVarCall = addToShoppingListValidateBeforeCall(username, hash, inlineObject12, null);
+    public ApiResponse<Object> addToShoppingListWithHttpInfo(String username, String hash, InlineObject14 inlineObject14) throws ApiException {
+        okhttp3.Call localVarCall = addToShoppingListValidateBeforeCall(username, hash, inlineObject14, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -287,16 +288,16 @@ public class DefaultApi {
      * Add an item to the current shopping list of a user.
      * @param username The username. (required)
      * @param hash The private hash for the username. (required)
-     * @param inlineObject12  (required)
+     * @param inlineObject14  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Add-to-Shopping-List">Add to Shopping List Documentation</a>
      */
-    public okhttp3.Call addToShoppingListAsync(String username, String hash, InlineObject12 inlineObject12, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call addToShoppingListAsync(String username, String hash, InlineObject14 inlineObject14, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = addToShoppingListValidateBeforeCall(username, hash, inlineObject12, _callback);
+        okhttp3.Call localVarCall = addToShoppingListValidateBeforeCall(username, hash, inlineObject14, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -459,7 +460,7 @@ public class DefaultApi {
 
     /**
      * Analyze Recipe Instructions
-     * Extract ingredients and equipment from the recipe&#39;s instructions.
+     * This endpoint allows you to break down instructions into atomic steps. Furthermore, each step will contain the ingredients and equipment required. Additionally, all ingredients and equipment from the recipe&#39;s instructions will be extracted independently of the step they&#39;re used in.
      * @param instructions The instructions to be analyzed. (required)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -473,7 +474,7 @@ public class DefaultApi {
 
     /**
      * Analyze Recipe Instructions
-     * Extract ingredients and equipment from the recipe&#39;s instructions.
+     * This endpoint allows you to break down instructions into atomic steps. Furthermore, each step will contain the ingredients and equipment required. Additionally, all ingredients and equipment from the recipe&#39;s instructions will be extracted independently of the step they&#39;re used in.
      * @param instructions The instructions to be analyzed. (required)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -488,7 +489,7 @@ public class DefaultApi {
 
     /**
      * Analyze Recipe Instructions (asynchronously)
-     * Extract ingredients and equipment from the recipe&#39;s instructions.
+     * This endpoint allows you to break down instructions into atomic steps. Furthermore, each step will contain the ingredients and equipment required. Additionally, all ingredients and equipment from the recipe&#39;s instructions will be extracted independently of the step they&#39;re used in.
      * @param instructions The instructions to be analyzed. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -515,7 +516,7 @@ public class DefaultApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Autocomplete-Ingredient-Search">Autocomplete Ingredient Search Documentation</a>
      */
-    public okhttp3.Call autocompleteIngredientSearchCall(String query, BigDecimal number, Boolean metaInformation, Boolean intolerances, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call autocompleteIngredientSearchCall(String query, BigDecimal number, Boolean metaInformation, String intolerances, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = new Object();
 
         // create path and map variables
@@ -560,7 +561,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call autocompleteIngredientSearchValidateBeforeCall(String query, BigDecimal number, Boolean metaInformation, Boolean intolerances, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call autocompleteIngredientSearchValidateBeforeCall(String query, BigDecimal number, Boolean metaInformation, String intolerances, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'query' is set
         if (query == null) {
@@ -585,7 +586,7 @@ public class DefaultApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Autocomplete-Ingredient-Search">Autocomplete Ingredient Search Documentation</a>
      */
-    public Object autocompleteIngredientSearch(String query, BigDecimal number, Boolean metaInformation, Boolean intolerances) throws ApiException {
+    public Object autocompleteIngredientSearch(String query, BigDecimal number, Boolean metaInformation, String intolerances) throws ApiException {
         ApiResponse<Object> localVarResp = autocompleteIngredientSearchWithHttpInfo(query, number, metaInformation, intolerances);
         return localVarResp.getData();
     }
@@ -602,7 +603,7 @@ public class DefaultApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Autocomplete-Ingredient-Search">Autocomplete Ingredient Search Documentation</a>
      */
-    public ApiResponse<Object> autocompleteIngredientSearchWithHttpInfo(String query, BigDecimal number, Boolean metaInformation, Boolean intolerances) throws ApiException {
+    public ApiResponse<Object> autocompleteIngredientSearchWithHttpInfo(String query, BigDecimal number, Boolean metaInformation, String intolerances) throws ApiException {
         okhttp3.Call localVarCall = autocompleteIngredientSearchValidateBeforeCall(query, number, metaInformation, intolerances, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -621,7 +622,7 @@ public class DefaultApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Autocomplete-Ingredient-Search">Autocomplete Ingredient Search Documentation</a>
      */
-    public okhttp3.Call autocompleteIngredientSearchAsync(String query, BigDecimal number, Boolean metaInformation, Boolean intolerances, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call autocompleteIngredientSearchAsync(String query, BigDecimal number, Boolean metaInformation, String intolerances, final ApiCallback<Object> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = autocompleteIngredientSearchValidateBeforeCall(query, number, metaInformation, intolerances, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
@@ -1071,7 +1072,7 @@ public class DefaultApi {
     }
     /**
      * Build call for classifyGroceryProduct
-     * @param inlineObject8  (required)
+     * @param inlineObject9  (required)
      * @param locale The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -1079,8 +1080,8 @@ public class DefaultApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Classify-Grocery-Product">Classify Grocery Product Documentation</a>
      */
-    public okhttp3.Call classifyGroceryProductCall(InlineObject8 inlineObject8, String locale, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = inlineObject8;
+    public okhttp3.Call classifyGroceryProductCall(InlineObject9 inlineObject9, String locale, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = inlineObject9;
 
         // create path and map variables
         String localVarPath = "/food/products/classify";
@@ -1112,15 +1113,15 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call classifyGroceryProductValidateBeforeCall(InlineObject8 inlineObject8, String locale, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call classifyGroceryProductValidateBeforeCall(InlineObject9 inlineObject9, String locale, final ApiCallback _callback) throws ApiException {
         
-        // verify the required parameter 'inlineObject8' is set
-        if (inlineObject8 == null) {
-            throw new ApiException("Missing the required parameter 'inlineObject8' when calling classifyGroceryProduct(Async)");
+        // verify the required parameter 'inlineObject9' is set
+        if (inlineObject9 == null) {
+            throw new ApiException("Missing the required parameter 'inlineObject9' when calling classifyGroceryProduct(Async)");
         }
         
 
-        okhttp3.Call localVarCall = classifyGroceryProductCall(inlineObject8, locale, _callback);
+        okhttp3.Call localVarCall = classifyGroceryProductCall(inlineObject9, locale, _callback);
         return localVarCall;
 
     }
@@ -1128,30 +1129,30 @@ public class DefaultApi {
     /**
      * Classify Grocery Product
      * This endpoint allows you to match a packaged food to a basic category, e.g. a specific brand of milk to the category milk.
-     * @param inlineObject8  (required)
+     * @param inlineObject9  (required)
      * @param locale The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). (optional)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Classify-Grocery-Product">Classify Grocery Product Documentation</a>
      */
-    public Object classifyGroceryProduct(InlineObject8 inlineObject8, String locale) throws ApiException {
-        ApiResponse<Object> localVarResp = classifyGroceryProductWithHttpInfo(inlineObject8, locale);
+    public Object classifyGroceryProduct(InlineObject9 inlineObject9, String locale) throws ApiException {
+        ApiResponse<Object> localVarResp = classifyGroceryProductWithHttpInfo(inlineObject9, locale);
         return localVarResp.getData();
     }
 
     /**
      * Classify Grocery Product
      * This endpoint allows you to match a packaged food to a basic category, e.g. a specific brand of milk to the category milk.
-     * @param inlineObject8  (required)
+     * @param inlineObject9  (required)
      * @param locale The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). (optional)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Classify-Grocery-Product">Classify Grocery Product Documentation</a>
      */
-    public ApiResponse<Object> classifyGroceryProductWithHttpInfo(InlineObject8 inlineObject8, String locale) throws ApiException {
-        okhttp3.Call localVarCall = classifyGroceryProductValidateBeforeCall(inlineObject8, locale, null);
+    public ApiResponse<Object> classifyGroceryProductWithHttpInfo(InlineObject9 inlineObject9, String locale) throws ApiException {
+        okhttp3.Call localVarCall = classifyGroceryProductValidateBeforeCall(inlineObject9, locale, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1159,7 +1160,7 @@ public class DefaultApi {
     /**
      * Classify Grocery Product (asynchronously)
      * This endpoint allows you to match a packaged food to a basic category, e.g. a specific brand of milk to the category milk.
-     * @param inlineObject8  (required)
+     * @param inlineObject9  (required)
      * @param locale The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1167,9 +1168,9 @@ public class DefaultApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Classify-Grocery-Product">Classify Grocery Product Documentation</a>
      */
-    public okhttp3.Call classifyGroceryProductAsync(InlineObject8 inlineObject8, String locale, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call classifyGroceryProductAsync(InlineObject9 inlineObject9, String locale, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = classifyGroceryProductValidateBeforeCall(inlineObject8, locale, _callback);
+        okhttp3.Call localVarCall = classifyGroceryProductValidateBeforeCall(inlineObject9, locale, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1275,6 +1276,330 @@ public class DefaultApi {
     public okhttp3.Call classifyGroceryProductBulkAsync(Object body, String locale, final ApiCallback<Object> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = classifyGroceryProductBulkValidateBeforeCall(body, locale, _callback);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for clearMealPlanDay
+     * @param username The username. (required)
+     * @param date The date in the format yyyy-mm-dd. (required)
+     * @param hash The private hash for the username. (required)
+     * @param inlineObject10  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Clear-Meal-Plan-Day">Clear Meal Plan Day Documentation</a>
+     */
+    public okhttp3.Call clearMealPlanDayCall(String username, String date, String hash, InlineObject10 inlineObject10, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = inlineObject10;
+
+        // create path and map variables
+        String localVarPath = "/mealplanner/{username}/day/{date}"
+            .replaceAll("\\{" + "username" + "\\}", localVarApiClient.escapeString(username.toString()))
+            .replaceAll("\\{" + "date" + "\\}", localVarApiClient.escapeString(date.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (hash != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("hash", hash));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            ""
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call clearMealPlanDayValidateBeforeCall(String username, String date, String hash, InlineObject10 inlineObject10, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'username' is set
+        if (username == null) {
+            throw new ApiException("Missing the required parameter 'username' when calling clearMealPlanDay(Async)");
+        }
+        
+        // verify the required parameter 'date' is set
+        if (date == null) {
+            throw new ApiException("Missing the required parameter 'date' when calling clearMealPlanDay(Async)");
+        }
+        
+        // verify the required parameter 'hash' is set
+        if (hash == null) {
+            throw new ApiException("Missing the required parameter 'hash' when calling clearMealPlanDay(Async)");
+        }
+        
+        // verify the required parameter 'inlineObject10' is set
+        if (inlineObject10 == null) {
+            throw new ApiException("Missing the required parameter 'inlineObject10' when calling clearMealPlanDay(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = clearMealPlanDayCall(username, date, hash, inlineObject10, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Clear Meal Plan Day
+     * Delete all planned items from the user&#39;s meal plan for a specific day.
+     * @param username The username. (required)
+     * @param date The date in the format yyyy-mm-dd. (required)
+     * @param hash The private hash for the username. (required)
+     * @param inlineObject10  (required)
+     * @return Object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Clear-Meal-Plan-Day">Clear Meal Plan Day Documentation</a>
+     */
+    public Object clearMealPlanDay(String username, String date, String hash, InlineObject10 inlineObject10) throws ApiException {
+        ApiResponse<Object> localVarResp = clearMealPlanDayWithHttpInfo(username, date, hash, inlineObject10);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Clear Meal Plan Day
+     * Delete all planned items from the user&#39;s meal plan for a specific day.
+     * @param username The username. (required)
+     * @param date The date in the format yyyy-mm-dd. (required)
+     * @param hash The private hash for the username. (required)
+     * @param inlineObject10  (required)
+     * @return ApiResponse&lt;Object&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Clear-Meal-Plan-Day">Clear Meal Plan Day Documentation</a>
+     */
+    public ApiResponse<Object> clearMealPlanDayWithHttpInfo(String username, String date, String hash, InlineObject10 inlineObject10) throws ApiException {
+        okhttp3.Call localVarCall = clearMealPlanDayValidateBeforeCall(username, date, hash, inlineObject10, null);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Clear Meal Plan Day (asynchronously)
+     * Delete all planned items from the user&#39;s meal plan for a specific day.
+     * @param username The username. (required)
+     * @param date The date in the format yyyy-mm-dd. (required)
+     * @param hash The private hash for the username. (required)
+     * @param inlineObject10  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Clear-Meal-Plan-Day">Clear Meal Plan Day Documentation</a>
+     */
+    public okhttp3.Call clearMealPlanDayAsync(String username, String date, String hash, InlineObject10 inlineObject10, final ApiCallback<Object> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = clearMealPlanDayValidateBeforeCall(username, date, hash, inlineObject10, _callback);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for computeGlycemicLoad
+     * @param body  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Compute-Glycemic-Load">Compute Glycemic Load Documentation</a>
+     */
+    public okhttp3.Call computeGlycemicLoadCall(Object body, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = body;
+
+        // create path and map variables
+        String localVarPath = "/food/ingredients/glycemicLoad";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call computeGlycemicLoadValidateBeforeCall(Object body, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling computeGlycemicLoad(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = computeGlycemicLoadCall(body, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Compute Glycemic Load
+     * Retrieve the glycemic index for a list of ingredients and compute the individual and total glycemic load.
+     * @param body  (required)
+     * @return Object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Compute-Glycemic-Load">Compute Glycemic Load Documentation</a>
+     */
+    public Object computeGlycemicLoad(Object body) throws ApiException {
+        ApiResponse<Object> localVarResp = computeGlycemicLoadWithHttpInfo(body);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Compute Glycemic Load
+     * Retrieve the glycemic index for a list of ingredients and compute the individual and total glycemic load.
+     * @param body  (required)
+     * @return ApiResponse&lt;Object&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Compute-Glycemic-Load">Compute Glycemic Load Documentation</a>
+     */
+    public ApiResponse<Object> computeGlycemicLoadWithHttpInfo(Object body) throws ApiException {
+        okhttp3.Call localVarCall = computeGlycemicLoadValidateBeforeCall(body, null);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Compute Glycemic Load (asynchronously)
+     * Retrieve the glycemic index for a list of ingredients and compute the individual and total glycemic load.
+     * @param body  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Compute-Glycemic-Load">Compute Glycemic Load Documentation</a>
+     */
+    public okhttp3.Call computeGlycemicLoadAsync(Object body, final ApiCallback<Object> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = computeGlycemicLoadValidateBeforeCall(body, _callback);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for connectUser
+     * @param body  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Connect-User">Connect User Documentation</a>
+     */
+    public okhttp3.Call connectUserCall(Object body, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = body;
+
+        // create path and map variables
+        String localVarPath = "/users/connect";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            ""
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call connectUserValidateBeforeCall(Object body, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling connectUser(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = connectUserCall(body, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Connect User
+     * In order to call user-specific endpoints, you need to connect your app&#39;s users to spoonacular users.
+     * @param body  (required)
+     * @return Object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Connect-User">Connect User Documentation</a>
+     */
+    public Object connectUser(Object body) throws ApiException {
+        ApiResponse<Object> localVarResp = connectUserWithHttpInfo(body);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Connect User
+     * In order to call user-specific endpoints, you need to connect your app&#39;s users to spoonacular users.
+     * @param body  (required)
+     * @return ApiResponse&lt;Object&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Connect-User">Connect User Documentation</a>
+     */
+    public ApiResponse<Object> connectUserWithHttpInfo(Object body) throws ApiException {
+        okhttp3.Call localVarCall = connectUserValidateBeforeCall(body, null);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Connect User (asynchronously)
+     * In order to call user-specific endpoints, you need to connect your app&#39;s users to spoonacular users.
+     * @param body  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Connect-User">Connect User Documentation</a>
+     */
+    public okhttp3.Call connectUserAsync(Object body, final ApiCallback<Object> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = connectUserValidateBeforeCall(body, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1648,15 +1973,15 @@ public class DefaultApi {
      * @param username The username. (required)
      * @param id The shopping list item id. (required)
      * @param hash The private hash for the username. (required)
-     * @param inlineObject10  (required)
+     * @param inlineObject12  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Delete-from-Meal-Plan">Delete from Meal Plan Documentation</a>
      */
-    public okhttp3.Call deleteFromMealPlanCall(String username, BigDecimal id, String hash, InlineObject10 inlineObject10, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = inlineObject10;
+    public okhttp3.Call deleteFromMealPlanCall(String username, BigDecimal id, String hash, InlineObject12 inlineObject12, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = inlineObject12;
 
         // create path and map variables
         String localVarPath = "/mealplanner/{username}/items/{id}"
@@ -1690,7 +2015,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteFromMealPlanValidateBeforeCall(String username, BigDecimal id, String hash, InlineObject10 inlineObject10, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteFromMealPlanValidateBeforeCall(String username, BigDecimal id, String hash, InlineObject12 inlineObject12, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'username' is set
         if (username == null) {
@@ -1707,13 +2032,13 @@ public class DefaultApi {
             throw new ApiException("Missing the required parameter 'hash' when calling deleteFromMealPlan(Async)");
         }
         
-        // verify the required parameter 'inlineObject10' is set
-        if (inlineObject10 == null) {
-            throw new ApiException("Missing the required parameter 'inlineObject10' when calling deleteFromMealPlan(Async)");
+        // verify the required parameter 'inlineObject12' is set
+        if (inlineObject12 == null) {
+            throw new ApiException("Missing the required parameter 'inlineObject12' when calling deleteFromMealPlan(Async)");
         }
         
 
-        okhttp3.Call localVarCall = deleteFromMealPlanCall(username, id, hash, inlineObject10, _callback);
+        okhttp3.Call localVarCall = deleteFromMealPlanCall(username, id, hash, inlineObject12, _callback);
         return localVarCall;
 
     }
@@ -1724,14 +2049,14 @@ public class DefaultApi {
      * @param username The username. (required)
      * @param id The shopping list item id. (required)
      * @param hash The private hash for the username. (required)
-     * @param inlineObject10  (required)
+     * @param inlineObject12  (required)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Delete-from-Meal-Plan">Delete from Meal Plan Documentation</a>
      */
-    public Object deleteFromMealPlan(String username, BigDecimal id, String hash, InlineObject10 inlineObject10) throws ApiException {
-        ApiResponse<Object> localVarResp = deleteFromMealPlanWithHttpInfo(username, id, hash, inlineObject10);
+    public Object deleteFromMealPlan(String username, BigDecimal id, String hash, InlineObject12 inlineObject12) throws ApiException {
+        ApiResponse<Object> localVarResp = deleteFromMealPlanWithHttpInfo(username, id, hash, inlineObject12);
         return localVarResp.getData();
     }
 
@@ -1741,14 +2066,14 @@ public class DefaultApi {
      * @param username The username. (required)
      * @param id The shopping list item id. (required)
      * @param hash The private hash for the username. (required)
-     * @param inlineObject10  (required)
+     * @param inlineObject12  (required)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Delete-from-Meal-Plan">Delete from Meal Plan Documentation</a>
      */
-    public ApiResponse<Object> deleteFromMealPlanWithHttpInfo(String username, BigDecimal id, String hash, InlineObject10 inlineObject10) throws ApiException {
-        okhttp3.Call localVarCall = deleteFromMealPlanValidateBeforeCall(username, id, hash, inlineObject10, null);
+    public ApiResponse<Object> deleteFromMealPlanWithHttpInfo(String username, BigDecimal id, String hash, InlineObject12 inlineObject12) throws ApiException {
+        okhttp3.Call localVarCall = deleteFromMealPlanValidateBeforeCall(username, id, hash, inlineObject12, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1759,16 +2084,16 @@ public class DefaultApi {
      * @param username The username. (required)
      * @param id The shopping list item id. (required)
      * @param hash The private hash for the username. (required)
-     * @param inlineObject10  (required)
+     * @param inlineObject12  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Delete-from-Meal-Plan">Delete from Meal Plan Documentation</a>
      */
-    public okhttp3.Call deleteFromMealPlanAsync(String username, BigDecimal id, String hash, InlineObject10 inlineObject10, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call deleteFromMealPlanAsync(String username, BigDecimal id, String hash, InlineObject12 inlineObject12, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteFromMealPlanValidateBeforeCall(username, id, hash, inlineObject10, _callback);
+        okhttp3.Call localVarCall = deleteFromMealPlanValidateBeforeCall(username, id, hash, inlineObject12, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1778,15 +2103,15 @@ public class DefaultApi {
      * @param username The username. (required)
      * @param id The shopping list item id. (required)
      * @param hash The private hash for the username. (required)
-     * @param inlineObject13  (required)
+     * @param inlineObject15  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Delete-from-Shopping-List">Delete from Shopping List Documentation</a>
      */
-    public okhttp3.Call deleteFromShoppingListCall(String username, BigDecimal id, String hash, InlineObject13 inlineObject13, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = inlineObject13;
+    public okhttp3.Call deleteFromShoppingListCall(String username, BigDecimal id, String hash, InlineObject15 inlineObject15, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = inlineObject15;
 
         // create path and map variables
         String localVarPath = "/mealplanner/{username}/shopping-list/items/{id}"
@@ -1820,7 +2145,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteFromShoppingListValidateBeforeCall(String username, BigDecimal id, String hash, InlineObject13 inlineObject13, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteFromShoppingListValidateBeforeCall(String username, BigDecimal id, String hash, InlineObject15 inlineObject15, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'username' is set
         if (username == null) {
@@ -1837,13 +2162,13 @@ public class DefaultApi {
             throw new ApiException("Missing the required parameter 'hash' when calling deleteFromShoppingList(Async)");
         }
         
-        // verify the required parameter 'inlineObject13' is set
-        if (inlineObject13 == null) {
-            throw new ApiException("Missing the required parameter 'inlineObject13' when calling deleteFromShoppingList(Async)");
+        // verify the required parameter 'inlineObject15' is set
+        if (inlineObject15 == null) {
+            throw new ApiException("Missing the required parameter 'inlineObject15' when calling deleteFromShoppingList(Async)");
         }
         
 
-        okhttp3.Call localVarCall = deleteFromShoppingListCall(username, id, hash, inlineObject13, _callback);
+        okhttp3.Call localVarCall = deleteFromShoppingListCall(username, id, hash, inlineObject15, _callback);
         return localVarCall;
 
     }
@@ -1854,14 +2179,14 @@ public class DefaultApi {
      * @param username The username. (required)
      * @param id The shopping list item id. (required)
      * @param hash The private hash for the username. (required)
-     * @param inlineObject13  (required)
+     * @param inlineObject15  (required)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Delete-from-Shopping-List">Delete from Shopping List Documentation</a>
      */
-    public Object deleteFromShoppingList(String username, BigDecimal id, String hash, InlineObject13 inlineObject13) throws ApiException {
-        ApiResponse<Object> localVarResp = deleteFromShoppingListWithHttpInfo(username, id, hash, inlineObject13);
+    public Object deleteFromShoppingList(String username, BigDecimal id, String hash, InlineObject15 inlineObject15) throws ApiException {
+        ApiResponse<Object> localVarResp = deleteFromShoppingListWithHttpInfo(username, id, hash, inlineObject15);
         return localVarResp.getData();
     }
 
@@ -1871,14 +2196,14 @@ public class DefaultApi {
      * @param username The username. (required)
      * @param id The shopping list item id. (required)
      * @param hash The private hash for the username. (required)
-     * @param inlineObject13  (required)
+     * @param inlineObject15  (required)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Delete-from-Shopping-List">Delete from Shopping List Documentation</a>
      */
-    public ApiResponse<Object> deleteFromShoppingListWithHttpInfo(String username, BigDecimal id, String hash, InlineObject13 inlineObject13) throws ApiException {
-        okhttp3.Call localVarCall = deleteFromShoppingListValidateBeforeCall(username, id, hash, inlineObject13, null);
+    public ApiResponse<Object> deleteFromShoppingListWithHttpInfo(String username, BigDecimal id, String hash, InlineObject15 inlineObject15) throws ApiException {
+        okhttp3.Call localVarCall = deleteFromShoppingListValidateBeforeCall(username, id, hash, inlineObject15, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1889,16 +2214,16 @@ public class DefaultApi {
      * @param username The username. (required)
      * @param id The shopping list item id. (required)
      * @param hash The private hash for the username. (required)
-     * @param inlineObject13  (required)
+     * @param inlineObject15  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Delete-from-Shopping-List">Delete from Shopping List Documentation</a>
      */
-    public okhttp3.Call deleteFromShoppingListAsync(String username, BigDecimal id, String hash, InlineObject13 inlineObject13, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call deleteFromShoppingListAsync(String username, BigDecimal id, String hash, InlineObject15 inlineObject15, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteFromShoppingListValidateBeforeCall(username, id, hash, inlineObject13, _callback);
+        okhttp3.Call localVarCall = deleteFromShoppingListValidateBeforeCall(username, id, hash, inlineObject15, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2247,15 +2572,15 @@ public class DefaultApi {
      * @param startDate The start date in the format yyyy-mm-dd. (required)
      * @param endDate The end date in the format yyyy-mm-dd. (required)
      * @param hash The private hash for the username. (required)
-     * @param inlineObject11  (required)
+     * @param inlineObject13  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Generate-Shopping-List">Generate Shopping List Documentation</a>
      */
-    public okhttp3.Call generateShoppingListCall(String username, String startDate, String endDate, String hash, InlineObject11 inlineObject11, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = inlineObject11;
+    public okhttp3.Call generateShoppingListCall(String username, String startDate, String endDate, String hash, InlineObject13 inlineObject13, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = inlineObject13;
 
         // create path and map variables
         String localVarPath = "/mealplanner/{username}/shopping-list/{start-date}/{end-date}"
@@ -2290,7 +2615,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call generateShoppingListValidateBeforeCall(String username, String startDate, String endDate, String hash, InlineObject11 inlineObject11, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call generateShoppingListValidateBeforeCall(String username, String startDate, String endDate, String hash, InlineObject13 inlineObject13, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'username' is set
         if (username == null) {
@@ -2312,13 +2637,13 @@ public class DefaultApi {
             throw new ApiException("Missing the required parameter 'hash' when calling generateShoppingList(Async)");
         }
         
-        // verify the required parameter 'inlineObject11' is set
-        if (inlineObject11 == null) {
-            throw new ApiException("Missing the required parameter 'inlineObject11' when calling generateShoppingList(Async)");
+        // verify the required parameter 'inlineObject13' is set
+        if (inlineObject13 == null) {
+            throw new ApiException("Missing the required parameter 'inlineObject13' when calling generateShoppingList(Async)");
         }
         
 
-        okhttp3.Call localVarCall = generateShoppingListCall(username, startDate, endDate, hash, inlineObject11, _callback);
+        okhttp3.Call localVarCall = generateShoppingListCall(username, startDate, endDate, hash, inlineObject13, _callback);
         return localVarCall;
 
     }
@@ -2330,14 +2655,14 @@ public class DefaultApi {
      * @param startDate The start date in the format yyyy-mm-dd. (required)
      * @param endDate The end date in the format yyyy-mm-dd. (required)
      * @param hash The private hash for the username. (required)
-     * @param inlineObject11  (required)
+     * @param inlineObject13  (required)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Generate-Shopping-List">Generate Shopping List Documentation</a>
      */
-    public Object generateShoppingList(String username, String startDate, String endDate, String hash, InlineObject11 inlineObject11) throws ApiException {
-        ApiResponse<Object> localVarResp = generateShoppingListWithHttpInfo(username, startDate, endDate, hash, inlineObject11);
+    public Object generateShoppingList(String username, String startDate, String endDate, String hash, InlineObject13 inlineObject13) throws ApiException {
+        ApiResponse<Object> localVarResp = generateShoppingListWithHttpInfo(username, startDate, endDate, hash, inlineObject13);
         return localVarResp.getData();
     }
 
@@ -2348,14 +2673,14 @@ public class DefaultApi {
      * @param startDate The start date in the format yyyy-mm-dd. (required)
      * @param endDate The end date in the format yyyy-mm-dd. (required)
      * @param hash The private hash for the username. (required)
-     * @param inlineObject11  (required)
+     * @param inlineObject13  (required)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Generate-Shopping-List">Generate Shopping List Documentation</a>
      */
-    public ApiResponse<Object> generateShoppingListWithHttpInfo(String username, String startDate, String endDate, String hash, InlineObject11 inlineObject11) throws ApiException {
-        okhttp3.Call localVarCall = generateShoppingListValidateBeforeCall(username, startDate, endDate, hash, inlineObject11, null);
+    public ApiResponse<Object> generateShoppingListWithHttpInfo(String username, String startDate, String endDate, String hash, InlineObject13 inlineObject13) throws ApiException {
+        okhttp3.Call localVarCall = generateShoppingListValidateBeforeCall(username, startDate, endDate, hash, inlineObject13, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2367,16 +2692,16 @@ public class DefaultApi {
      * @param startDate The start date in the format yyyy-mm-dd. (required)
      * @param endDate The end date in the format yyyy-mm-dd. (required)
      * @param hash The private hash for the username. (required)
-     * @param inlineObject11  (required)
+     * @param inlineObject13  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Generate-Shopping-List">Generate Shopping List Documentation</a>
      */
-    public okhttp3.Call generateShoppingListAsync(String username, String startDate, String endDate, String hash, InlineObject11 inlineObject11, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call generateShoppingListAsync(String username, String startDate, String endDate, String hash, InlineObject13 inlineObject13, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = generateShoppingListValidateBeforeCall(username, startDate, endDate, hash, inlineObject11, _callback);
+        okhttp3.Call localVarCall = generateShoppingListValidateBeforeCall(username, startDate, endDate, hash, inlineObject13, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -4553,6 +4878,104 @@ public class DefaultApi {
         return localVarCall;
     }
     /**
+     * Build call for getRecipeTasteByID
+     * @param id The recipe id. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Get-Recipe-Taste-by-ID">Get Recipe Taste by ID Documentation</a>
+     */
+    public okhttp3.Call getRecipeTasteByIDCall(BigDecimal id, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = new Object();
+
+        // create path and map variables
+        String localVarPath = "/recipes/{id}/tasteWidget.json"
+            .replaceAll("\\{" + "id" + "\\}", localVarApiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getRecipeTasteByIDValidateBeforeCall(BigDecimal id, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling getRecipeTasteByID(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = getRecipeTasteByIDCall(id, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Get Recipe Taste by ID
+     * Get a recipe&#39;s taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
+     * @param id The recipe id. (required)
+     * @return Object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Get-Recipe-Taste-by-ID">Get Recipe Taste by ID Documentation</a>
+     */
+    public Object getRecipeTasteByID(BigDecimal id) throws ApiException {
+        ApiResponse<Object> localVarResp = getRecipeTasteByIDWithHttpInfo(id);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get Recipe Taste by ID
+     * Get a recipe&#39;s taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
+     * @param id The recipe id. (required)
+     * @return ApiResponse&lt;Object&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Get-Recipe-Taste-by-ID">Get Recipe Taste by ID Documentation</a>
+     */
+    public ApiResponse<Object> getRecipeTasteByIDWithHttpInfo(BigDecimal id) throws ApiException {
+        okhttp3.Call localVarCall = getRecipeTasteByIDValidateBeforeCall(id, null);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get Recipe Taste by ID (asynchronously)
+     * Get a recipe&#39;s taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
+     * @param id The recipe id. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Get-Recipe-Taste-by-ID">Get Recipe Taste by ID Documentation</a>
+     */
+    public okhttp3.Call getRecipeTasteByIDAsync(BigDecimal id, final ApiCallback<Object> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getRecipeTasteByIDValidateBeforeCall(id, _callback);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for getShoppingList
      * @param username The username. (required)
      * @param hash The private hash for the username. (required)
@@ -5416,6 +5839,211 @@ public class DefaultApi {
         return localVarCall;
     }
     /**
+     * Build call for ingredientSearch
+     * @param query The partial or full ingredient name. (required)
+     * @param addChildren Whether to add children of found foods. (optional)
+     * @param minProteinPercent The minimum percentage of protein the food must have (between 0 and 100). (optional)
+     * @param maxProteinPercent The maximum percentage of protein the food can have (between 0 and 100). (optional)
+     * @param minFatPercent The minimum percentage of fat the food must have (between 0 and 100). (optional)
+     * @param maxFatPercent The maximum percentage of fat the food can have (between 0 and 100). (optional)
+     * @param minCarbsPercent The minimum percentage of carbs the food must have (between 0 and 100). (optional)
+     * @param maxCarbsPercent The maximum percentage of carbs the food can have (between 0 and 100). (optional)
+     * @param metaInformation Whether to return more meta information about the ingredients. (optional)
+     * @param intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
+     * @param sort The strategy to sort recipes by. See a full list of supported sorting options. (optional)
+     * @param sortDirection The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending). (optional)
+     * @param offset The number of results to skip (between 0 and 990). (optional)
+     * @param number The number of expected results (between 1 and 100). (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Ingredient-Search">Ingredient Search Documentation</a>
+     */
+    public okhttp3.Call ingredientSearchCall(String query, Boolean addChildren, BigDecimal minProteinPercent, BigDecimal maxProteinPercent, BigDecimal minFatPercent, BigDecimal maxFatPercent, BigDecimal minCarbsPercent, BigDecimal maxCarbsPercent, Boolean metaInformation, String intolerances, String sort, String sortDirection, BigDecimal offset, BigDecimal number, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = new Object();
+
+        // create path and map variables
+        String localVarPath = "/food/ingredients/search";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (query != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("query", query));
+        }
+
+        if (addChildren != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("addChildren", addChildren));
+        }
+
+        if (minProteinPercent != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("minProteinPercent", minProteinPercent));
+        }
+
+        if (maxProteinPercent != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxProteinPercent", maxProteinPercent));
+        }
+
+        if (minFatPercent != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("minFatPercent", minFatPercent));
+        }
+
+        if (maxFatPercent != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxFatPercent", maxFatPercent));
+        }
+
+        if (minCarbsPercent != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("minCarbsPercent", minCarbsPercent));
+        }
+
+        if (maxCarbsPercent != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxCarbsPercent", maxCarbsPercent));
+        }
+
+        if (metaInformation != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("metaInformation", metaInformation));
+        }
+
+        if (intolerances != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("intolerances", intolerances));
+        }
+
+        if (sort != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("sort", sort));
+        }
+
+        if (sortDirection != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("sortDirection", sortDirection));
+        }
+
+        if (offset != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("offset", offset));
+        }
+
+        if (number != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("number", number));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call ingredientSearchValidateBeforeCall(String query, Boolean addChildren, BigDecimal minProteinPercent, BigDecimal maxProteinPercent, BigDecimal minFatPercent, BigDecimal maxFatPercent, BigDecimal minCarbsPercent, BigDecimal maxCarbsPercent, Boolean metaInformation, String intolerances, String sort, String sortDirection, BigDecimal offset, BigDecimal number, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'query' is set
+        if (query == null) {
+            throw new ApiException("Missing the required parameter 'query' when calling ingredientSearch(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = ingredientSearchCall(query, addChildren, minProteinPercent, maxProteinPercent, minFatPercent, maxFatPercent, minCarbsPercent, maxCarbsPercent, metaInformation, intolerances, sort, sortDirection, offset, number, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Ingredient Search
+     * Search for simple whole foods (e.g. fruits, vegetables, nuts, grains, meat, fish, dairy etc.).
+     * @param query The partial or full ingredient name. (required)
+     * @param addChildren Whether to add children of found foods. (optional)
+     * @param minProteinPercent The minimum percentage of protein the food must have (between 0 and 100). (optional)
+     * @param maxProteinPercent The maximum percentage of protein the food can have (between 0 and 100). (optional)
+     * @param minFatPercent The minimum percentage of fat the food must have (between 0 and 100). (optional)
+     * @param maxFatPercent The maximum percentage of fat the food can have (between 0 and 100). (optional)
+     * @param minCarbsPercent The minimum percentage of carbs the food must have (between 0 and 100). (optional)
+     * @param maxCarbsPercent The maximum percentage of carbs the food can have (between 0 and 100). (optional)
+     * @param metaInformation Whether to return more meta information about the ingredients. (optional)
+     * @param intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
+     * @param sort The strategy to sort recipes by. See a full list of supported sorting options. (optional)
+     * @param sortDirection The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending). (optional)
+     * @param offset The number of results to skip (between 0 and 990). (optional)
+     * @param number The number of expected results (between 1 and 100). (optional)
+     * @return Object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Ingredient-Search">Ingredient Search Documentation</a>
+     */
+    public Object ingredientSearch(String query, Boolean addChildren, BigDecimal minProteinPercent, BigDecimal maxProteinPercent, BigDecimal minFatPercent, BigDecimal maxFatPercent, BigDecimal minCarbsPercent, BigDecimal maxCarbsPercent, Boolean metaInformation, String intolerances, String sort, String sortDirection, BigDecimal offset, BigDecimal number) throws ApiException {
+        ApiResponse<Object> localVarResp = ingredientSearchWithHttpInfo(query, addChildren, minProteinPercent, maxProteinPercent, minFatPercent, maxFatPercent, minCarbsPercent, maxCarbsPercent, metaInformation, intolerances, sort, sortDirection, offset, number);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Ingredient Search
+     * Search for simple whole foods (e.g. fruits, vegetables, nuts, grains, meat, fish, dairy etc.).
+     * @param query The partial or full ingredient name. (required)
+     * @param addChildren Whether to add children of found foods. (optional)
+     * @param minProteinPercent The minimum percentage of protein the food must have (between 0 and 100). (optional)
+     * @param maxProteinPercent The maximum percentage of protein the food can have (between 0 and 100). (optional)
+     * @param minFatPercent The minimum percentage of fat the food must have (between 0 and 100). (optional)
+     * @param maxFatPercent The maximum percentage of fat the food can have (between 0 and 100). (optional)
+     * @param minCarbsPercent The minimum percentage of carbs the food must have (between 0 and 100). (optional)
+     * @param maxCarbsPercent The maximum percentage of carbs the food can have (between 0 and 100). (optional)
+     * @param metaInformation Whether to return more meta information about the ingredients. (optional)
+     * @param intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
+     * @param sort The strategy to sort recipes by. See a full list of supported sorting options. (optional)
+     * @param sortDirection The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending). (optional)
+     * @param offset The number of results to skip (between 0 and 990). (optional)
+     * @param number The number of expected results (between 1 and 100). (optional)
+     * @return ApiResponse&lt;Object&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Ingredient-Search">Ingredient Search Documentation</a>
+     */
+    public ApiResponse<Object> ingredientSearchWithHttpInfo(String query, Boolean addChildren, BigDecimal minProteinPercent, BigDecimal maxProteinPercent, BigDecimal minFatPercent, BigDecimal maxFatPercent, BigDecimal minCarbsPercent, BigDecimal maxCarbsPercent, Boolean metaInformation, String intolerances, String sort, String sortDirection, BigDecimal offset, BigDecimal number) throws ApiException {
+        okhttp3.Call localVarCall = ingredientSearchValidateBeforeCall(query, addChildren, minProteinPercent, maxProteinPercent, minFatPercent, maxFatPercent, minCarbsPercent, maxCarbsPercent, metaInformation, intolerances, sort, sortDirection, offset, number, null);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Ingredient Search (asynchronously)
+     * Search for simple whole foods (e.g. fruits, vegetables, nuts, grains, meat, fish, dairy etc.).
+     * @param query The partial or full ingredient name. (required)
+     * @param addChildren Whether to add children of found foods. (optional)
+     * @param minProteinPercent The minimum percentage of protein the food must have (between 0 and 100). (optional)
+     * @param maxProteinPercent The maximum percentage of protein the food can have (between 0 and 100). (optional)
+     * @param minFatPercent The minimum percentage of fat the food must have (between 0 and 100). (optional)
+     * @param maxFatPercent The maximum percentage of fat the food can have (between 0 and 100). (optional)
+     * @param minCarbsPercent The minimum percentage of carbs the food must have (between 0 and 100). (optional)
+     * @param maxCarbsPercent The maximum percentage of carbs the food can have (between 0 and 100). (optional)
+     * @param metaInformation Whether to return more meta information about the ingredients. (optional)
+     * @param intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
+     * @param sort The strategy to sort recipes by. See a full list of supported sorting options. (optional)
+     * @param sortDirection The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending). (optional)
+     * @param offset The number of results to skip (between 0 and 990). (optional)
+     * @param number The number of expected results (between 1 and 100). (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Ingredient-Search">Ingredient Search Documentation</a>
+     */
+    public okhttp3.Call ingredientSearchAsync(String query, Boolean addChildren, BigDecimal minProteinPercent, BigDecimal maxProteinPercent, BigDecimal minFatPercent, BigDecimal maxFatPercent, BigDecimal minCarbsPercent, BigDecimal maxCarbsPercent, Boolean metaInformation, String intolerances, String sort, String sortDirection, BigDecimal offset, BigDecimal number, final ApiCallback<Object> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = ingredientSearchValidateBeforeCall(query, addChildren, minProteinPercent, maxProteinPercent, minFatPercent, maxFatPercent, minCarbsPercent, maxCarbsPercent, metaInformation, intolerances, sort, sortDirection, offset, number, _callback);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for mapIngredientsToGroceryProducts
      * @param body  (required)
      * @param _callback Callback for upload/download progress
@@ -5731,6 +6359,123 @@ public class DefaultApi {
     public okhttp3.Call quickAnswerAsync(String q, final ApiCallback<Object> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = quickAnswerValidateBeforeCall(q, _callback);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for searchAllFood
+     * @param query The search query. (required)
+     * @param offset The number of results to skip (between 0 and 990). (optional)
+     * @param number The number of expected results (between 1 and 100). (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Search-All-Food">Search All Food Documentation</a>
+     */
+    public okhttp3.Call searchAllFoodCall(String query, BigDecimal offset, BigDecimal number, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = new Object();
+
+        // create path and map variables
+        String localVarPath = "/food/search";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (query != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("query", query));
+        }
+
+        if (offset != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("offset", offset));
+        }
+
+        if (number != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("number", number));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call searchAllFoodValidateBeforeCall(String query, BigDecimal offset, BigDecimal number, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'query' is set
+        if (query == null) {
+            throw new ApiException("Missing the required parameter 'query' when calling searchAllFood(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = searchAllFoodCall(query, offset, number, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Search All Food
+     * Search all food content with one call. That includes recipes, grocery products, menu items, simple foods (ingredients), and food videos.
+     * @param query The search query. (required)
+     * @param offset The number of results to skip (between 0 and 990). (optional)
+     * @param number The number of expected results (between 1 and 100). (optional)
+     * @return Object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Search-All-Food">Search All Food Documentation</a>
+     */
+    public Object searchAllFood(String query, BigDecimal offset, BigDecimal number) throws ApiException {
+        ApiResponse<Object> localVarResp = searchAllFoodWithHttpInfo(query, offset, number);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Search All Food
+     * Search all food content with one call. That includes recipes, grocery products, menu items, simple foods (ingredients), and food videos.
+     * @param query The search query. (required)
+     * @param offset The number of results to skip (between 0 and 990). (optional)
+     * @param number The number of expected results (between 1 and 100). (optional)
+     * @return ApiResponse&lt;Object&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Search-All-Food">Search All Food Documentation</a>
+     */
+    public ApiResponse<Object> searchAllFoodWithHttpInfo(String query, BigDecimal offset, BigDecimal number) throws ApiException {
+        okhttp3.Call localVarCall = searchAllFoodValidateBeforeCall(query, offset, number, null);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Search All Food (asynchronously)
+     * Search all food content with one call. That includes recipes, grocery products, menu items, simple foods (ingredients), and food videos.
+     * @param query The search query. (required)
+     * @param offset The number of results to skip (between 0 and 990). (optional)
+     * @param number The number of expected results (between 1 and 100). (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Search-All-Food">Search All Food Documentation</a>
+     */
+    public okhttp3.Call searchAllFoodAsync(String query, BigDecimal offset, BigDecimal number, final ApiCallback<Object> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = searchAllFoodValidateBeforeCall(query, offset, number, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -6514,1000 +7259,6 @@ public class DefaultApi {
     /**
      * Build call for searchRecipes
      * @param query The (natural language) recipe search query. (required)
-     * @param cuisine The cuisine(s) of the recipes. One or more comma separated. See a full list of supported cuisines. (optional)
-     * @param diet The diet for which the recipes must be suitable. See a full list of supported diets. (optional)
-     * @param excludeIngredients A comma-separated list of ingredients or ingredient types that the recipes must not contain. (optional)
-     * @param intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. Please note: due to the automatic nature of the recipe analysis, the API cannot be 100% accurate in all cases. Please advise your users to seek professional help with medical issues. (optional)
-     * @param offset The number of results to skip (between 0 and 900). (optional)
-     * @param number The number of results to return (between 1 and 100). (optional)
-     * @param limitLicense Whether the recipes should have an open license that allows display with proper attribution. (optional)
-     * @param instructionsRequired Whether the recipes must have instructions. (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Search-Recipes">Search Recipes Documentation</a>
-     */
-    public okhttp3.Call searchRecipesCall(String query, String cuisine, String diet, String excludeIngredients, String intolerances, BigDecimal offset, BigDecimal number, Boolean limitLicense, Boolean instructionsRequired, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = new Object();
-
-        // create path and map variables
-        String localVarPath = "/recipes/search";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (query != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("query", query));
-        }
-
-        if (cuisine != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("cuisine", cuisine));
-        }
-
-        if (diet != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("diet", diet));
-        }
-
-        if (excludeIngredients != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("excludeIngredients", excludeIngredients));
-        }
-
-        if (intolerances != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("intolerances", intolerances));
-        }
-
-        if (offset != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("offset", offset));
-        }
-
-        if (number != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("number", number));
-        }
-
-        if (limitLicense != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limitLicense", limitLicense));
-        }
-
-        if (instructionsRequired != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("instructionsRequired", instructionsRequired));
-        }
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        String[] localVarAuthNames = new String[] {  };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchRecipesValidateBeforeCall(String query, String cuisine, String diet, String excludeIngredients, String intolerances, BigDecimal offset, BigDecimal number, Boolean limitLicense, Boolean instructionsRequired, final ApiCallback _callback) throws ApiException {
-        
-        // verify the required parameter 'query' is set
-        if (query == null) {
-            throw new ApiException("Missing the required parameter 'query' when calling searchRecipes(Async)");
-        }
-        
-
-        okhttp3.Call localVarCall = searchRecipesCall(query, cuisine, diet, excludeIngredients, intolerances, offset, number, limitLicense, instructionsRequired, _callback);
-        return localVarCall;
-
-    }
-
-    /**
-     * Search Recipes
-     * Our recipe API includes over 360,000 recipes as well as an open source recipe database. Consider using the \&quot;Search Recipes Complex\&quot; endpoint for much more flexibility.
-     * @param query The (natural language) recipe search query. (required)
-     * @param cuisine The cuisine(s) of the recipes. One or more comma separated. See a full list of supported cuisines. (optional)
-     * @param diet The diet for which the recipes must be suitable. See a full list of supported diets. (optional)
-     * @param excludeIngredients A comma-separated list of ingredients or ingredient types that the recipes must not contain. (optional)
-     * @param intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. Please note: due to the automatic nature of the recipe analysis, the API cannot be 100% accurate in all cases. Please advise your users to seek professional help with medical issues. (optional)
-     * @param offset The number of results to skip (between 0 and 900). (optional)
-     * @param number The number of results to return (between 1 and 100). (optional)
-     * @param limitLicense Whether the recipes should have an open license that allows display with proper attribution. (optional)
-     * @param instructionsRequired Whether the recipes must have instructions. (optional)
-     * @return Object
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Search-Recipes">Search Recipes Documentation</a>
-     */
-    public Object searchRecipes(String query, String cuisine, String diet, String excludeIngredients, String intolerances, BigDecimal offset, BigDecimal number, Boolean limitLicense, Boolean instructionsRequired) throws ApiException {
-        ApiResponse<Object> localVarResp = searchRecipesWithHttpInfo(query, cuisine, diet, excludeIngredients, intolerances, offset, number, limitLicense, instructionsRequired);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Search Recipes
-     * Our recipe API includes over 360,000 recipes as well as an open source recipe database. Consider using the \&quot;Search Recipes Complex\&quot; endpoint for much more flexibility.
-     * @param query The (natural language) recipe search query. (required)
-     * @param cuisine The cuisine(s) of the recipes. One or more comma separated. See a full list of supported cuisines. (optional)
-     * @param diet The diet for which the recipes must be suitable. See a full list of supported diets. (optional)
-     * @param excludeIngredients A comma-separated list of ingredients or ingredient types that the recipes must not contain. (optional)
-     * @param intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. Please note: due to the automatic nature of the recipe analysis, the API cannot be 100% accurate in all cases. Please advise your users to seek professional help with medical issues. (optional)
-     * @param offset The number of results to skip (between 0 and 900). (optional)
-     * @param number The number of results to return (between 1 and 100). (optional)
-     * @param limitLicense Whether the recipes should have an open license that allows display with proper attribution. (optional)
-     * @param instructionsRequired Whether the recipes must have instructions. (optional)
-     * @return ApiResponse&lt;Object&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Search-Recipes">Search Recipes Documentation</a>
-     */
-    public ApiResponse<Object> searchRecipesWithHttpInfo(String query, String cuisine, String diet, String excludeIngredients, String intolerances, BigDecimal offset, BigDecimal number, Boolean limitLicense, Boolean instructionsRequired) throws ApiException {
-        okhttp3.Call localVarCall = searchRecipesValidateBeforeCall(query, cuisine, diet, excludeIngredients, intolerances, offset, number, limitLicense, instructionsRequired, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * Search Recipes (asynchronously)
-     * Our recipe API includes over 360,000 recipes as well as an open source recipe database. Consider using the \&quot;Search Recipes Complex\&quot; endpoint for much more flexibility.
-     * @param query The (natural language) recipe search query. (required)
-     * @param cuisine The cuisine(s) of the recipes. One or more comma separated. See a full list of supported cuisines. (optional)
-     * @param diet The diet for which the recipes must be suitable. See a full list of supported diets. (optional)
-     * @param excludeIngredients A comma-separated list of ingredients or ingredient types that the recipes must not contain. (optional)
-     * @param intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. Please note: due to the automatic nature of the recipe analysis, the API cannot be 100% accurate in all cases. Please advise your users to seek professional help with medical issues. (optional)
-     * @param offset The number of results to skip (between 0 and 900). (optional)
-     * @param number The number of results to return (between 1 and 100). (optional)
-     * @param limitLicense Whether the recipes should have an open license that allows display with proper attribution. (optional)
-     * @param instructionsRequired Whether the recipes must have instructions. (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Search-Recipes">Search Recipes Documentation</a>
-     */
-    public okhttp3.Call searchRecipesAsync(String query, String cuisine, String diet, String excludeIngredients, String intolerances, BigDecimal offset, BigDecimal number, Boolean limitLicense, Boolean instructionsRequired, final ApiCallback<Object> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = searchRecipesValidateBeforeCall(query, cuisine, diet, excludeIngredients, intolerances, offset, number, limitLicense, instructionsRequired, _callback);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for searchRecipesByIngredients
-     * @param ingredients A comma-separated list of ingredients that the recipes should contain. (required)
-     * @param number The maximum number of recipes to return (between 1 and 100). Defaults to 10. (optional)
-     * @param limitLicense Whether the recipes should have an open license that allows display with proper attribution. (optional)
-     * @param ranking Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. (optional)
-     * @param ignorePantry Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Search-Recipes-by-Ingredients">Search Recipes by Ingredients Documentation</a>
-     */
-    public okhttp3.Call searchRecipesByIngredientsCall(String ingredients, BigDecimal number, Boolean limitLicense, BigDecimal ranking, Boolean ignorePantry, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = new Object();
-
-        // create path and map variables
-        String localVarPath = "/recipes/findByIngredients";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (ingredients != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("ingredients", ingredients));
-        }
-
-        if (number != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("number", number));
-        }
-
-        if (limitLicense != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limitLicense", limitLicense));
-        }
-
-        if (ranking != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("ranking", ranking));
-        }
-
-        if (ignorePantry != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("ignorePantry", ignorePantry));
-        }
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        String[] localVarAuthNames = new String[] {  };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchRecipesByIngredientsValidateBeforeCall(String ingredients, BigDecimal number, Boolean limitLicense, BigDecimal ranking, Boolean ignorePantry, final ApiCallback _callback) throws ApiException {
-        
-        // verify the required parameter 'ingredients' is set
-        if (ingredients == null) {
-            throw new ApiException("Missing the required parameter 'ingredients' when calling searchRecipesByIngredients(Async)");
-        }
-        
-
-        okhttp3.Call localVarCall = searchRecipesByIngredientsCall(ingredients, number, limitLicense, ranking, ignorePantry, _callback);
-        return localVarCall;
-
-    }
-
-    /**
-     * Search Recipes by Ingredients
-     *              Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don&#39;t currently have (post shopping).         
-     * @param ingredients A comma-separated list of ingredients that the recipes should contain. (required)
-     * @param number The maximum number of recipes to return (between 1 and 100). Defaults to 10. (optional)
-     * @param limitLicense Whether the recipes should have an open license that allows display with proper attribution. (optional)
-     * @param ranking Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. (optional)
-     * @param ignorePantry Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional)
-     * @return Object
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Search-Recipes-by-Ingredients">Search Recipes by Ingredients Documentation</a>
-     */
-    public Object searchRecipesByIngredients(String ingredients, BigDecimal number, Boolean limitLicense, BigDecimal ranking, Boolean ignorePantry) throws ApiException {
-        ApiResponse<Object> localVarResp = searchRecipesByIngredientsWithHttpInfo(ingredients, number, limitLicense, ranking, ignorePantry);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Search Recipes by Ingredients
-     *              Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don&#39;t currently have (post shopping).         
-     * @param ingredients A comma-separated list of ingredients that the recipes should contain. (required)
-     * @param number The maximum number of recipes to return (between 1 and 100). Defaults to 10. (optional)
-     * @param limitLicense Whether the recipes should have an open license that allows display with proper attribution. (optional)
-     * @param ranking Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. (optional)
-     * @param ignorePantry Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional)
-     * @return ApiResponse&lt;Object&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Search-Recipes-by-Ingredients">Search Recipes by Ingredients Documentation</a>
-     */
-    public ApiResponse<Object> searchRecipesByIngredientsWithHttpInfo(String ingredients, BigDecimal number, Boolean limitLicense, BigDecimal ranking, Boolean ignorePantry) throws ApiException {
-        okhttp3.Call localVarCall = searchRecipesByIngredientsValidateBeforeCall(ingredients, number, limitLicense, ranking, ignorePantry, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * Search Recipes by Ingredients (asynchronously)
-     *              Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don&#39;t currently have (post shopping).         
-     * @param ingredients A comma-separated list of ingredients that the recipes should contain. (required)
-     * @param number The maximum number of recipes to return (between 1 and 100). Defaults to 10. (optional)
-     * @param limitLicense Whether the recipes should have an open license that allows display with proper attribution. (optional)
-     * @param ranking Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. (optional)
-     * @param ignorePantry Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Search-Recipes-by-Ingredients">Search Recipes by Ingredients Documentation</a>
-     */
-    public okhttp3.Call searchRecipesByIngredientsAsync(String ingredients, BigDecimal number, Boolean limitLicense, BigDecimal ranking, Boolean ignorePantry, final ApiCallback<Object> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = searchRecipesByIngredientsValidateBeforeCall(ingredients, number, limitLicense, ranking, ignorePantry, _callback);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for searchRecipesByNutrients
-     * @param minCarbs The minimum amount of carbohydrates in grams the recipe must have. (optional)
-     * @param maxCarbs The maximum amount of carbohydrates in grams the recipe can have. (optional)
-     * @param minProtein The minimum amount of protein in grams the recipe must have. (optional)
-     * @param maxProtein The maximum amount of protein in grams the recipe can have. (optional)
-     * @param minCalories The minimum amount of calories the recipe must have. (optional)
-     * @param maxCalories The maximum amount of calories the recipe can have. (optional)
-     * @param minFat The minimum amount of fat in grams the recipe must have. (optional)
-     * @param maxFat The maximum amount of fat in grams the recipe can have. (optional)
-     * @param minAlcohol The minimum amount of alcohol in grams the recipe must have. (optional)
-     * @param maxAlcohol The maximum amount of alcohol in grams the recipe can have. (optional)
-     * @param minCaffeine The minimum amount of caffeine in milligrams the recipe must have. (optional)
-     * @param maxCaffeine The maximum amount of caffeine in milligrams the recipe can have. (optional)
-     * @param minCopper The minimum amount of copper in milligrams the recipe must have. (optional)
-     * @param maxCopper The maximum amount of copper in milligrams the recipe can have. (optional)
-     * @param minCalcium The minimum amount of calcium in milligrams the recipe must have. (optional)
-     * @param maxCalcium The maximum amount of calcium in milligrams the recipe can have. (optional)
-     * @param minCholine The minimum amount of choline in milligrams the recipe must have. (optional)
-     * @param maxCholine The maximum amount of choline in milligrams the recipe can have. (optional)
-     * @param minCholesterol The minimum amount of cholesterol in milligrams the recipe must have. (optional)
-     * @param maxCholesterol The maximum amount of cholesterol in milligrams the recipe can have. (optional)
-     * @param minFluoride The minimum amount of fluoride in milligrams the recipe must have. (optional)
-     * @param maxFluoride The maximum amount of fluoride in milligrams the recipe can have. (optional)
-     * @param minSaturatedFat The minimum amount of saturated fat in grams the recipe must have. (optional)
-     * @param maxSaturatedFat The maximum amount of saturated fat in grams the recipe can have. (optional)
-     * @param minVitaminA The minimum amount of Vitamin A in IU the recipe must have. (optional)
-     * @param maxVitaminA The maximum amount of Vitamin A in IU the recipe can have. (optional)
-     * @param minVitaminC The minimum amount of Vitamin C in milligrams the recipe must have. (optional)
-     * @param maxVitaminC The maximum amount of Vitamin C in milligrams the recipe can have. (optional)
-     * @param minVitaminD The minimum amount of Vitamin D in micrograms the recipe must have. (optional)
-     * @param maxVitaminD The maximum amount of Vitamin D in micrograms the recipe can have. (optional)
-     * @param minVitaminE The minimum amount of Vitamin E in milligrams the recipe must have. (optional)
-     * @param maxVitaminE The maximum amount of Vitamin E in milligrams the recipe can have. (optional)
-     * @param minVitaminK The minimum amount of Vitamin K in micrograms the recipe must have. (optional)
-     * @param maxVitaminK The maximum amount of Vitamin K in micrograms the recipe can have. (optional)
-     * @param minVitaminB1 The minimum amount of Vitamin B1 in milligrams the recipe must have. (optional)
-     * @param maxVitaminB1 The maximum amount of Vitamin B1 in milligrams the recipe can have. (optional)
-     * @param minVitaminB2 The minimum amount of Vitamin B2 in milligrams the recipe must have. (optional)
-     * @param maxVitaminB2 The maximum amount of Vitamin B2 in milligrams the recipe can have. (optional)
-     * @param minVitaminB5 The minimum amount of Vitamin B5 in milligrams the recipe must have. (optional)
-     * @param maxVitaminB5 The maximum amount of Vitamin B5 in milligrams the recipe can have. (optional)
-     * @param minVitaminB3 The minimum amount of Vitamin B3 in milligrams the recipe must have. (optional)
-     * @param maxVitaminB3 The maximum amount of Vitamin B3 in milligrams the recipe can have. (optional)
-     * @param minVitaminB6 The minimum amount of Vitamin B6 in milligrams the recipe must have. (optional)
-     * @param maxVitaminB6 The maximum amount of Vitamin B6 in milligrams the recipe can have. (optional)
-     * @param minVitaminB12 The minimum amount of Vitamin B12 in micrograms the recipe must have. (optional)
-     * @param maxVitaminB12 The maximum amount of Vitamin B12 in micrograms the recipe can have. (optional)
-     * @param minFiber The minimum amount of fiber in grams the recipe must have. (optional)
-     * @param maxFiber The maximum amount of fiber in grams the recipe can have. (optional)
-     * @param minFolate The minimum amount of folate in grams the recipe must have. (optional)
-     * @param maxFolate The maximum amount of folate in grams the recipe can have. (optional)
-     * @param minFolicAcid The minimum amount of folic acid in grams the recipe must have. (optional)
-     * @param maxFolicAcid The maximum amount of folic acid in grams the recipe can have. (optional)
-     * @param minIodine The minimum amount of iodine in grams the recipe must have. (optional)
-     * @param maxIodine The maximum amount of iodine in grams the recipe can have. (optional)
-     * @param minIron The minimum amount of iron in milligrams the recipe must have. (optional)
-     * @param maxIron The maximum amount of iron in milligrams the recipe can have. (optional)
-     * @param minMagnesium The minimum amount of magnesium in milligrams the recipe must have. (optional)
-     * @param maxMagnesium The maximum amount of magnesium in milligrams the recipe can have. (optional)
-     * @param minManganese The minimum amount of manganese in milligrams the recipe must have. (optional)
-     * @param maxManganese The maximum amount of manganese in milligrams the recipe can have. (optional)
-     * @param minPhosphorus The minimum amount of phosphorus in milligrams the recipe must have. (optional)
-     * @param maxPhosphorus The maximum amount of phosphorus in milligrams the recipe can have. (optional)
-     * @param minPotassium The minimum amount of potassium in milligrams the recipe must have. (optional)
-     * @param maxPotassium The maximum amount of potassium in milligrams the recipe can have. (optional)
-     * @param minSelenium The minimum amount of selenium in grams the recipe must have. (optional)
-     * @param maxSelenium The maximum amount of selenium in grams the recipe can have. (optional)
-     * @param minSodium The minimum amount of sodium in milligrams the recipe must have. (optional)
-     * @param maxSodium The maximum amount of sodium in milligrams the recipe can have. (optional)
-     * @param minSugar The minimum amount of sugar in grams the recipe must have. (optional)
-     * @param maxSugar The maximum amount of sugar in grams the recipe can have. (optional)
-     * @param minZinc The minimum amount of zinc in milligrams the recipe must have. (optional)
-     * @param maxZinc The maximum amount of zinc in milligrams the recipe can have. (optional)
-     * @param offset The number of results to skip (between 0 and 900). (optional)
-     * @param number The number of expected results (between 1 and 100). (optional)
-     * @param random If true, every request will give you a random set of recipes within the requested limits. (optional)
-     * @param limitLicense Whether the recipes should have an open license that allows display with proper attribution. (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Search-Recipes-by-Nutrients">Search Recipes by Nutrients Documentation</a>
-     */
-    public okhttp3.Call searchRecipesByNutrientsCall(BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minFat, BigDecimal maxFat, BigDecimal minAlcohol, BigDecimal maxAlcohol, BigDecimal minCaffeine, BigDecimal maxCaffeine, BigDecimal minCopper, BigDecimal maxCopper, BigDecimal minCalcium, BigDecimal maxCalcium, BigDecimal minCholine, BigDecimal maxCholine, BigDecimal minCholesterol, BigDecimal maxCholesterol, BigDecimal minFluoride, BigDecimal maxFluoride, BigDecimal minSaturatedFat, BigDecimal maxSaturatedFat, BigDecimal minVitaminA, BigDecimal maxVitaminA, BigDecimal minVitaminC, BigDecimal maxVitaminC, BigDecimal minVitaminD, BigDecimal maxVitaminD, BigDecimal minVitaminE, BigDecimal maxVitaminE, BigDecimal minVitaminK, BigDecimal maxVitaminK, BigDecimal minVitaminB1, BigDecimal maxVitaminB1, BigDecimal minVitaminB2, BigDecimal maxVitaminB2, BigDecimal minVitaminB5, BigDecimal maxVitaminB5, BigDecimal minVitaminB3, BigDecimal maxVitaminB3, BigDecimal minVitaminB6, BigDecimal maxVitaminB6, BigDecimal minVitaminB12, BigDecimal maxVitaminB12, BigDecimal minFiber, BigDecimal maxFiber, BigDecimal minFolate, BigDecimal maxFolate, BigDecimal minFolicAcid, BigDecimal maxFolicAcid, BigDecimal minIodine, BigDecimal maxIodine, BigDecimal minIron, BigDecimal maxIron, BigDecimal minMagnesium, BigDecimal maxMagnesium, BigDecimal minManganese, BigDecimal maxManganese, BigDecimal minPhosphorus, BigDecimal maxPhosphorus, BigDecimal minPotassium, BigDecimal maxPotassium, BigDecimal minSelenium, BigDecimal maxSelenium, BigDecimal minSodium, BigDecimal maxSodium, BigDecimal minSugar, BigDecimal maxSugar, BigDecimal minZinc, BigDecimal maxZinc, BigDecimal offset, BigDecimal number, Boolean random, Boolean limitLicense, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = new Object();
-
-        // create path and map variables
-        String localVarPath = "/recipes/findByNutrients";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (minCarbs != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("minCarbs", minCarbs));
-        }
-
-        if (maxCarbs != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxCarbs", maxCarbs));
-        }
-
-        if (minProtein != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("minProtein", minProtein));
-        }
-
-        if (maxProtein != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxProtein", maxProtein));
-        }
-
-        if (minCalories != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("minCalories", minCalories));
-        }
-
-        if (maxCalories != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxCalories", maxCalories));
-        }
-
-        if (minFat != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("minFat", minFat));
-        }
-
-        if (maxFat != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxFat", maxFat));
-        }
-
-        if (minAlcohol != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("minAlcohol", minAlcohol));
-        }
-
-        if (maxAlcohol != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxAlcohol", maxAlcohol));
-        }
-
-        if (minCaffeine != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("minCaffeine", minCaffeine));
-        }
-
-        if (maxCaffeine != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxCaffeine", maxCaffeine));
-        }
-
-        if (minCopper != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("minCopper", minCopper));
-        }
-
-        if (maxCopper != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxCopper", maxCopper));
-        }
-
-        if (minCalcium != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("minCalcium", minCalcium));
-        }
-
-        if (maxCalcium != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxCalcium", maxCalcium));
-        }
-
-        if (minCholine != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("minCholine", minCholine));
-        }
-
-        if (maxCholine != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxCholine", maxCholine));
-        }
-
-        if (minCholesterol != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("minCholesterol", minCholesterol));
-        }
-
-        if (maxCholesterol != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxCholesterol", maxCholesterol));
-        }
-
-        if (minFluoride != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("minFluoride", minFluoride));
-        }
-
-        if (maxFluoride != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxFluoride", maxFluoride));
-        }
-
-        if (minSaturatedFat != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("minSaturatedFat", minSaturatedFat));
-        }
-
-        if (maxSaturatedFat != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxSaturatedFat", maxSaturatedFat));
-        }
-
-        if (minVitaminA != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("minVitaminA", minVitaminA));
-        }
-
-        if (maxVitaminA != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxVitaminA", maxVitaminA));
-        }
-
-        if (minVitaminC != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("minVitaminC", minVitaminC));
-        }
-
-        if (maxVitaminC != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxVitaminC", maxVitaminC));
-        }
-
-        if (minVitaminD != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("minVitaminD", minVitaminD));
-        }
-
-        if (maxVitaminD != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxVitaminD", maxVitaminD));
-        }
-
-        if (minVitaminE != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("minVitaminE", minVitaminE));
-        }
-
-        if (maxVitaminE != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxVitaminE", maxVitaminE));
-        }
-
-        if (minVitaminK != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("minVitaminK", minVitaminK));
-        }
-
-        if (maxVitaminK != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxVitaminK", maxVitaminK));
-        }
-
-        if (minVitaminB1 != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("minVitaminB1", minVitaminB1));
-        }
-
-        if (maxVitaminB1 != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxVitaminB1", maxVitaminB1));
-        }
-
-        if (minVitaminB2 != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("minVitaminB2", minVitaminB2));
-        }
-
-        if (maxVitaminB2 != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxVitaminB2", maxVitaminB2));
-        }
-
-        if (minVitaminB5 != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("minVitaminB5", minVitaminB5));
-        }
-
-        if (maxVitaminB5 != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxVitaminB5", maxVitaminB5));
-        }
-
-        if (minVitaminB3 != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("minVitaminB3", minVitaminB3));
-        }
-
-        if (maxVitaminB3 != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxVitaminB3", maxVitaminB3));
-        }
-
-        if (minVitaminB6 != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("minVitaminB6", minVitaminB6));
-        }
-
-        if (maxVitaminB6 != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxVitaminB6", maxVitaminB6));
-        }
-
-        if (minVitaminB12 != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("minVitaminB12", minVitaminB12));
-        }
-
-        if (maxVitaminB12 != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxVitaminB12", maxVitaminB12));
-        }
-
-        if (minFiber != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("minFiber", minFiber));
-        }
-
-        if (maxFiber != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxFiber", maxFiber));
-        }
-
-        if (minFolate != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("minFolate", minFolate));
-        }
-
-        if (maxFolate != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxFolate", maxFolate));
-        }
-
-        if (minFolicAcid != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("minFolicAcid", minFolicAcid));
-        }
-
-        if (maxFolicAcid != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxFolicAcid", maxFolicAcid));
-        }
-
-        if (minIodine != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("minIodine", minIodine));
-        }
-
-        if (maxIodine != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxIodine", maxIodine));
-        }
-
-        if (minIron != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("minIron", minIron));
-        }
-
-        if (maxIron != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxIron", maxIron));
-        }
-
-        if (minMagnesium != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("minMagnesium", minMagnesium));
-        }
-
-        if (maxMagnesium != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxMagnesium", maxMagnesium));
-        }
-
-        if (minManganese != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("minManganese", minManganese));
-        }
-
-        if (maxManganese != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxManganese", maxManganese));
-        }
-
-        if (minPhosphorus != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("minPhosphorus", minPhosphorus));
-        }
-
-        if (maxPhosphorus != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxPhosphorus", maxPhosphorus));
-        }
-
-        if (minPotassium != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("minPotassium", minPotassium));
-        }
-
-        if (maxPotassium != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxPotassium", maxPotassium));
-        }
-
-        if (minSelenium != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("minSelenium", minSelenium));
-        }
-
-        if (maxSelenium != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxSelenium", maxSelenium));
-        }
-
-        if (minSodium != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("minSodium", minSodium));
-        }
-
-        if (maxSodium != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxSodium", maxSodium));
-        }
-
-        if (minSugar != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("minSugar", minSugar));
-        }
-
-        if (maxSugar != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxSugar", maxSugar));
-        }
-
-        if (minZinc != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("minZinc", minZinc));
-        }
-
-        if (maxZinc != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxZinc", maxZinc));
-        }
-
-        if (offset != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("offset", offset));
-        }
-
-        if (number != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("number", number));
-        }
-
-        if (random != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("random", random));
-        }
-
-        if (limitLicense != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limitLicense", limitLicense));
-        }
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        String[] localVarAuthNames = new String[] {  };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchRecipesByNutrientsValidateBeforeCall(BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minFat, BigDecimal maxFat, BigDecimal minAlcohol, BigDecimal maxAlcohol, BigDecimal minCaffeine, BigDecimal maxCaffeine, BigDecimal minCopper, BigDecimal maxCopper, BigDecimal minCalcium, BigDecimal maxCalcium, BigDecimal minCholine, BigDecimal maxCholine, BigDecimal minCholesterol, BigDecimal maxCholesterol, BigDecimal minFluoride, BigDecimal maxFluoride, BigDecimal minSaturatedFat, BigDecimal maxSaturatedFat, BigDecimal minVitaminA, BigDecimal maxVitaminA, BigDecimal minVitaminC, BigDecimal maxVitaminC, BigDecimal minVitaminD, BigDecimal maxVitaminD, BigDecimal minVitaminE, BigDecimal maxVitaminE, BigDecimal minVitaminK, BigDecimal maxVitaminK, BigDecimal minVitaminB1, BigDecimal maxVitaminB1, BigDecimal minVitaminB2, BigDecimal maxVitaminB2, BigDecimal minVitaminB5, BigDecimal maxVitaminB5, BigDecimal minVitaminB3, BigDecimal maxVitaminB3, BigDecimal minVitaminB6, BigDecimal maxVitaminB6, BigDecimal minVitaminB12, BigDecimal maxVitaminB12, BigDecimal minFiber, BigDecimal maxFiber, BigDecimal minFolate, BigDecimal maxFolate, BigDecimal minFolicAcid, BigDecimal maxFolicAcid, BigDecimal minIodine, BigDecimal maxIodine, BigDecimal minIron, BigDecimal maxIron, BigDecimal minMagnesium, BigDecimal maxMagnesium, BigDecimal minManganese, BigDecimal maxManganese, BigDecimal minPhosphorus, BigDecimal maxPhosphorus, BigDecimal minPotassium, BigDecimal maxPotassium, BigDecimal minSelenium, BigDecimal maxSelenium, BigDecimal minSodium, BigDecimal maxSodium, BigDecimal minSugar, BigDecimal maxSugar, BigDecimal minZinc, BigDecimal maxZinc, BigDecimal offset, BigDecimal number, Boolean random, Boolean limitLicense, final ApiCallback _callback) throws ApiException {
-        
-
-        okhttp3.Call localVarCall = searchRecipesByNutrientsCall(minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, random, limitLicense, _callback);
-        return localVarCall;
-
-    }
-
-    /**
-     * Search Recipes by Nutrients
-     * Find a set of recipes that adhere to the given nutritional limits. You may set limits for macronutrients (calories, protein, fat, and carbohydrate) and/or many micronutrients.
-     * @param minCarbs The minimum amount of carbohydrates in grams the recipe must have. (optional)
-     * @param maxCarbs The maximum amount of carbohydrates in grams the recipe can have. (optional)
-     * @param minProtein The minimum amount of protein in grams the recipe must have. (optional)
-     * @param maxProtein The maximum amount of protein in grams the recipe can have. (optional)
-     * @param minCalories The minimum amount of calories the recipe must have. (optional)
-     * @param maxCalories The maximum amount of calories the recipe can have. (optional)
-     * @param minFat The minimum amount of fat in grams the recipe must have. (optional)
-     * @param maxFat The maximum amount of fat in grams the recipe can have. (optional)
-     * @param minAlcohol The minimum amount of alcohol in grams the recipe must have. (optional)
-     * @param maxAlcohol The maximum amount of alcohol in grams the recipe can have. (optional)
-     * @param minCaffeine The minimum amount of caffeine in milligrams the recipe must have. (optional)
-     * @param maxCaffeine The maximum amount of caffeine in milligrams the recipe can have. (optional)
-     * @param minCopper The minimum amount of copper in milligrams the recipe must have. (optional)
-     * @param maxCopper The maximum amount of copper in milligrams the recipe can have. (optional)
-     * @param minCalcium The minimum amount of calcium in milligrams the recipe must have. (optional)
-     * @param maxCalcium The maximum amount of calcium in milligrams the recipe can have. (optional)
-     * @param minCholine The minimum amount of choline in milligrams the recipe must have. (optional)
-     * @param maxCholine The maximum amount of choline in milligrams the recipe can have. (optional)
-     * @param minCholesterol The minimum amount of cholesterol in milligrams the recipe must have. (optional)
-     * @param maxCholesterol The maximum amount of cholesterol in milligrams the recipe can have. (optional)
-     * @param minFluoride The minimum amount of fluoride in milligrams the recipe must have. (optional)
-     * @param maxFluoride The maximum amount of fluoride in milligrams the recipe can have. (optional)
-     * @param minSaturatedFat The minimum amount of saturated fat in grams the recipe must have. (optional)
-     * @param maxSaturatedFat The maximum amount of saturated fat in grams the recipe can have. (optional)
-     * @param minVitaminA The minimum amount of Vitamin A in IU the recipe must have. (optional)
-     * @param maxVitaminA The maximum amount of Vitamin A in IU the recipe can have. (optional)
-     * @param minVitaminC The minimum amount of Vitamin C in milligrams the recipe must have. (optional)
-     * @param maxVitaminC The maximum amount of Vitamin C in milligrams the recipe can have. (optional)
-     * @param minVitaminD The minimum amount of Vitamin D in micrograms the recipe must have. (optional)
-     * @param maxVitaminD The maximum amount of Vitamin D in micrograms the recipe can have. (optional)
-     * @param minVitaminE The minimum amount of Vitamin E in milligrams the recipe must have. (optional)
-     * @param maxVitaminE The maximum amount of Vitamin E in milligrams the recipe can have. (optional)
-     * @param minVitaminK The minimum amount of Vitamin K in micrograms the recipe must have. (optional)
-     * @param maxVitaminK The maximum amount of Vitamin K in micrograms the recipe can have. (optional)
-     * @param minVitaminB1 The minimum amount of Vitamin B1 in milligrams the recipe must have. (optional)
-     * @param maxVitaminB1 The maximum amount of Vitamin B1 in milligrams the recipe can have. (optional)
-     * @param minVitaminB2 The minimum amount of Vitamin B2 in milligrams the recipe must have. (optional)
-     * @param maxVitaminB2 The maximum amount of Vitamin B2 in milligrams the recipe can have. (optional)
-     * @param minVitaminB5 The minimum amount of Vitamin B5 in milligrams the recipe must have. (optional)
-     * @param maxVitaminB5 The maximum amount of Vitamin B5 in milligrams the recipe can have. (optional)
-     * @param minVitaminB3 The minimum amount of Vitamin B3 in milligrams the recipe must have. (optional)
-     * @param maxVitaminB3 The maximum amount of Vitamin B3 in milligrams the recipe can have. (optional)
-     * @param minVitaminB6 The minimum amount of Vitamin B6 in milligrams the recipe must have. (optional)
-     * @param maxVitaminB6 The maximum amount of Vitamin B6 in milligrams the recipe can have. (optional)
-     * @param minVitaminB12 The minimum amount of Vitamin B12 in micrograms the recipe must have. (optional)
-     * @param maxVitaminB12 The maximum amount of Vitamin B12 in micrograms the recipe can have. (optional)
-     * @param minFiber The minimum amount of fiber in grams the recipe must have. (optional)
-     * @param maxFiber The maximum amount of fiber in grams the recipe can have. (optional)
-     * @param minFolate The minimum amount of folate in grams the recipe must have. (optional)
-     * @param maxFolate The maximum amount of folate in grams the recipe can have. (optional)
-     * @param minFolicAcid The minimum amount of folic acid in grams the recipe must have. (optional)
-     * @param maxFolicAcid The maximum amount of folic acid in grams the recipe can have. (optional)
-     * @param minIodine The minimum amount of iodine in grams the recipe must have. (optional)
-     * @param maxIodine The maximum amount of iodine in grams the recipe can have. (optional)
-     * @param minIron The minimum amount of iron in milligrams the recipe must have. (optional)
-     * @param maxIron The maximum amount of iron in milligrams the recipe can have. (optional)
-     * @param minMagnesium The minimum amount of magnesium in milligrams the recipe must have. (optional)
-     * @param maxMagnesium The maximum amount of magnesium in milligrams the recipe can have. (optional)
-     * @param minManganese The minimum amount of manganese in milligrams the recipe must have. (optional)
-     * @param maxManganese The maximum amount of manganese in milligrams the recipe can have. (optional)
-     * @param minPhosphorus The minimum amount of phosphorus in milligrams the recipe must have. (optional)
-     * @param maxPhosphorus The maximum amount of phosphorus in milligrams the recipe can have. (optional)
-     * @param minPotassium The minimum amount of potassium in milligrams the recipe must have. (optional)
-     * @param maxPotassium The maximum amount of potassium in milligrams the recipe can have. (optional)
-     * @param minSelenium The minimum amount of selenium in grams the recipe must have. (optional)
-     * @param maxSelenium The maximum amount of selenium in grams the recipe can have. (optional)
-     * @param minSodium The minimum amount of sodium in milligrams the recipe must have. (optional)
-     * @param maxSodium The maximum amount of sodium in milligrams the recipe can have. (optional)
-     * @param minSugar The minimum amount of sugar in grams the recipe must have. (optional)
-     * @param maxSugar The maximum amount of sugar in grams the recipe can have. (optional)
-     * @param minZinc The minimum amount of zinc in milligrams the recipe must have. (optional)
-     * @param maxZinc The maximum amount of zinc in milligrams the recipe can have. (optional)
-     * @param offset The number of results to skip (between 0 and 900). (optional)
-     * @param number The number of expected results (between 1 and 100). (optional)
-     * @param random If true, every request will give you a random set of recipes within the requested limits. (optional)
-     * @param limitLicense Whether the recipes should have an open license that allows display with proper attribution. (optional)
-     * @return Object
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Search-Recipes-by-Nutrients">Search Recipes by Nutrients Documentation</a>
-     */
-    public Object searchRecipesByNutrients(BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minFat, BigDecimal maxFat, BigDecimal minAlcohol, BigDecimal maxAlcohol, BigDecimal minCaffeine, BigDecimal maxCaffeine, BigDecimal minCopper, BigDecimal maxCopper, BigDecimal minCalcium, BigDecimal maxCalcium, BigDecimal minCholine, BigDecimal maxCholine, BigDecimal minCholesterol, BigDecimal maxCholesterol, BigDecimal minFluoride, BigDecimal maxFluoride, BigDecimal minSaturatedFat, BigDecimal maxSaturatedFat, BigDecimal minVitaminA, BigDecimal maxVitaminA, BigDecimal minVitaminC, BigDecimal maxVitaminC, BigDecimal minVitaminD, BigDecimal maxVitaminD, BigDecimal minVitaminE, BigDecimal maxVitaminE, BigDecimal minVitaminK, BigDecimal maxVitaminK, BigDecimal minVitaminB1, BigDecimal maxVitaminB1, BigDecimal minVitaminB2, BigDecimal maxVitaminB2, BigDecimal minVitaminB5, BigDecimal maxVitaminB5, BigDecimal minVitaminB3, BigDecimal maxVitaminB3, BigDecimal minVitaminB6, BigDecimal maxVitaminB6, BigDecimal minVitaminB12, BigDecimal maxVitaminB12, BigDecimal minFiber, BigDecimal maxFiber, BigDecimal minFolate, BigDecimal maxFolate, BigDecimal minFolicAcid, BigDecimal maxFolicAcid, BigDecimal minIodine, BigDecimal maxIodine, BigDecimal minIron, BigDecimal maxIron, BigDecimal minMagnesium, BigDecimal maxMagnesium, BigDecimal minManganese, BigDecimal maxManganese, BigDecimal minPhosphorus, BigDecimal maxPhosphorus, BigDecimal minPotassium, BigDecimal maxPotassium, BigDecimal minSelenium, BigDecimal maxSelenium, BigDecimal minSodium, BigDecimal maxSodium, BigDecimal minSugar, BigDecimal maxSugar, BigDecimal minZinc, BigDecimal maxZinc, BigDecimal offset, BigDecimal number, Boolean random, Boolean limitLicense) throws ApiException {
-        ApiResponse<Object> localVarResp = searchRecipesByNutrientsWithHttpInfo(minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, random, limitLicense);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Search Recipes by Nutrients
-     * Find a set of recipes that adhere to the given nutritional limits. You may set limits for macronutrients (calories, protein, fat, and carbohydrate) and/or many micronutrients.
-     * @param minCarbs The minimum amount of carbohydrates in grams the recipe must have. (optional)
-     * @param maxCarbs The maximum amount of carbohydrates in grams the recipe can have. (optional)
-     * @param minProtein The minimum amount of protein in grams the recipe must have. (optional)
-     * @param maxProtein The maximum amount of protein in grams the recipe can have. (optional)
-     * @param minCalories The minimum amount of calories the recipe must have. (optional)
-     * @param maxCalories The maximum amount of calories the recipe can have. (optional)
-     * @param minFat The minimum amount of fat in grams the recipe must have. (optional)
-     * @param maxFat The maximum amount of fat in grams the recipe can have. (optional)
-     * @param minAlcohol The minimum amount of alcohol in grams the recipe must have. (optional)
-     * @param maxAlcohol The maximum amount of alcohol in grams the recipe can have. (optional)
-     * @param minCaffeine The minimum amount of caffeine in milligrams the recipe must have. (optional)
-     * @param maxCaffeine The maximum amount of caffeine in milligrams the recipe can have. (optional)
-     * @param minCopper The minimum amount of copper in milligrams the recipe must have. (optional)
-     * @param maxCopper The maximum amount of copper in milligrams the recipe can have. (optional)
-     * @param minCalcium The minimum amount of calcium in milligrams the recipe must have. (optional)
-     * @param maxCalcium The maximum amount of calcium in milligrams the recipe can have. (optional)
-     * @param minCholine The minimum amount of choline in milligrams the recipe must have. (optional)
-     * @param maxCholine The maximum amount of choline in milligrams the recipe can have. (optional)
-     * @param minCholesterol The minimum amount of cholesterol in milligrams the recipe must have. (optional)
-     * @param maxCholesterol The maximum amount of cholesterol in milligrams the recipe can have. (optional)
-     * @param minFluoride The minimum amount of fluoride in milligrams the recipe must have. (optional)
-     * @param maxFluoride The maximum amount of fluoride in milligrams the recipe can have. (optional)
-     * @param minSaturatedFat The minimum amount of saturated fat in grams the recipe must have. (optional)
-     * @param maxSaturatedFat The maximum amount of saturated fat in grams the recipe can have. (optional)
-     * @param minVitaminA The minimum amount of Vitamin A in IU the recipe must have. (optional)
-     * @param maxVitaminA The maximum amount of Vitamin A in IU the recipe can have. (optional)
-     * @param minVitaminC The minimum amount of Vitamin C in milligrams the recipe must have. (optional)
-     * @param maxVitaminC The maximum amount of Vitamin C in milligrams the recipe can have. (optional)
-     * @param minVitaminD The minimum amount of Vitamin D in micrograms the recipe must have. (optional)
-     * @param maxVitaminD The maximum amount of Vitamin D in micrograms the recipe can have. (optional)
-     * @param minVitaminE The minimum amount of Vitamin E in milligrams the recipe must have. (optional)
-     * @param maxVitaminE The maximum amount of Vitamin E in milligrams the recipe can have. (optional)
-     * @param minVitaminK The minimum amount of Vitamin K in micrograms the recipe must have. (optional)
-     * @param maxVitaminK The maximum amount of Vitamin K in micrograms the recipe can have. (optional)
-     * @param minVitaminB1 The minimum amount of Vitamin B1 in milligrams the recipe must have. (optional)
-     * @param maxVitaminB1 The maximum amount of Vitamin B1 in milligrams the recipe can have. (optional)
-     * @param minVitaminB2 The minimum amount of Vitamin B2 in milligrams the recipe must have. (optional)
-     * @param maxVitaminB2 The maximum amount of Vitamin B2 in milligrams the recipe can have. (optional)
-     * @param minVitaminB5 The minimum amount of Vitamin B5 in milligrams the recipe must have. (optional)
-     * @param maxVitaminB5 The maximum amount of Vitamin B5 in milligrams the recipe can have. (optional)
-     * @param minVitaminB3 The minimum amount of Vitamin B3 in milligrams the recipe must have. (optional)
-     * @param maxVitaminB3 The maximum amount of Vitamin B3 in milligrams the recipe can have. (optional)
-     * @param minVitaminB6 The minimum amount of Vitamin B6 in milligrams the recipe must have. (optional)
-     * @param maxVitaminB6 The maximum amount of Vitamin B6 in milligrams the recipe can have. (optional)
-     * @param minVitaminB12 The minimum amount of Vitamin B12 in micrograms the recipe must have. (optional)
-     * @param maxVitaminB12 The maximum amount of Vitamin B12 in micrograms the recipe can have. (optional)
-     * @param minFiber The minimum amount of fiber in grams the recipe must have. (optional)
-     * @param maxFiber The maximum amount of fiber in grams the recipe can have. (optional)
-     * @param minFolate The minimum amount of folate in grams the recipe must have. (optional)
-     * @param maxFolate The maximum amount of folate in grams the recipe can have. (optional)
-     * @param minFolicAcid The minimum amount of folic acid in grams the recipe must have. (optional)
-     * @param maxFolicAcid The maximum amount of folic acid in grams the recipe can have. (optional)
-     * @param minIodine The minimum amount of iodine in grams the recipe must have. (optional)
-     * @param maxIodine The maximum amount of iodine in grams the recipe can have. (optional)
-     * @param minIron The minimum amount of iron in milligrams the recipe must have. (optional)
-     * @param maxIron The maximum amount of iron in milligrams the recipe can have. (optional)
-     * @param minMagnesium The minimum amount of magnesium in milligrams the recipe must have. (optional)
-     * @param maxMagnesium The maximum amount of magnesium in milligrams the recipe can have. (optional)
-     * @param minManganese The minimum amount of manganese in milligrams the recipe must have. (optional)
-     * @param maxManganese The maximum amount of manganese in milligrams the recipe can have. (optional)
-     * @param minPhosphorus The minimum amount of phosphorus in milligrams the recipe must have. (optional)
-     * @param maxPhosphorus The maximum amount of phosphorus in milligrams the recipe can have. (optional)
-     * @param minPotassium The minimum amount of potassium in milligrams the recipe must have. (optional)
-     * @param maxPotassium The maximum amount of potassium in milligrams the recipe can have. (optional)
-     * @param minSelenium The minimum amount of selenium in grams the recipe must have. (optional)
-     * @param maxSelenium The maximum amount of selenium in grams the recipe can have. (optional)
-     * @param minSodium The minimum amount of sodium in milligrams the recipe must have. (optional)
-     * @param maxSodium The maximum amount of sodium in milligrams the recipe can have. (optional)
-     * @param minSugar The minimum amount of sugar in grams the recipe must have. (optional)
-     * @param maxSugar The maximum amount of sugar in grams the recipe can have. (optional)
-     * @param minZinc The minimum amount of zinc in milligrams the recipe must have. (optional)
-     * @param maxZinc The maximum amount of zinc in milligrams the recipe can have. (optional)
-     * @param offset The number of results to skip (between 0 and 900). (optional)
-     * @param number The number of expected results (between 1 and 100). (optional)
-     * @param random If true, every request will give you a random set of recipes within the requested limits. (optional)
-     * @param limitLicense Whether the recipes should have an open license that allows display with proper attribution. (optional)
-     * @return ApiResponse&lt;Object&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Search-Recipes-by-Nutrients">Search Recipes by Nutrients Documentation</a>
-     */
-    public ApiResponse<Object> searchRecipesByNutrientsWithHttpInfo(BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minFat, BigDecimal maxFat, BigDecimal minAlcohol, BigDecimal maxAlcohol, BigDecimal minCaffeine, BigDecimal maxCaffeine, BigDecimal minCopper, BigDecimal maxCopper, BigDecimal minCalcium, BigDecimal maxCalcium, BigDecimal minCholine, BigDecimal maxCholine, BigDecimal minCholesterol, BigDecimal maxCholesterol, BigDecimal minFluoride, BigDecimal maxFluoride, BigDecimal minSaturatedFat, BigDecimal maxSaturatedFat, BigDecimal minVitaminA, BigDecimal maxVitaminA, BigDecimal minVitaminC, BigDecimal maxVitaminC, BigDecimal minVitaminD, BigDecimal maxVitaminD, BigDecimal minVitaminE, BigDecimal maxVitaminE, BigDecimal minVitaminK, BigDecimal maxVitaminK, BigDecimal minVitaminB1, BigDecimal maxVitaminB1, BigDecimal minVitaminB2, BigDecimal maxVitaminB2, BigDecimal minVitaminB5, BigDecimal maxVitaminB5, BigDecimal minVitaminB3, BigDecimal maxVitaminB3, BigDecimal minVitaminB6, BigDecimal maxVitaminB6, BigDecimal minVitaminB12, BigDecimal maxVitaminB12, BigDecimal minFiber, BigDecimal maxFiber, BigDecimal minFolate, BigDecimal maxFolate, BigDecimal minFolicAcid, BigDecimal maxFolicAcid, BigDecimal minIodine, BigDecimal maxIodine, BigDecimal minIron, BigDecimal maxIron, BigDecimal minMagnesium, BigDecimal maxMagnesium, BigDecimal minManganese, BigDecimal maxManganese, BigDecimal minPhosphorus, BigDecimal maxPhosphorus, BigDecimal minPotassium, BigDecimal maxPotassium, BigDecimal minSelenium, BigDecimal maxSelenium, BigDecimal minSodium, BigDecimal maxSodium, BigDecimal minSugar, BigDecimal maxSugar, BigDecimal minZinc, BigDecimal maxZinc, BigDecimal offset, BigDecimal number, Boolean random, Boolean limitLicense) throws ApiException {
-        okhttp3.Call localVarCall = searchRecipesByNutrientsValidateBeforeCall(minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, random, limitLicense, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * Search Recipes by Nutrients (asynchronously)
-     * Find a set of recipes that adhere to the given nutritional limits. You may set limits for macronutrients (calories, protein, fat, and carbohydrate) and/or many micronutrients.
-     * @param minCarbs The minimum amount of carbohydrates in grams the recipe must have. (optional)
-     * @param maxCarbs The maximum amount of carbohydrates in grams the recipe can have. (optional)
-     * @param minProtein The minimum amount of protein in grams the recipe must have. (optional)
-     * @param maxProtein The maximum amount of protein in grams the recipe can have. (optional)
-     * @param minCalories The minimum amount of calories the recipe must have. (optional)
-     * @param maxCalories The maximum amount of calories the recipe can have. (optional)
-     * @param minFat The minimum amount of fat in grams the recipe must have. (optional)
-     * @param maxFat The maximum amount of fat in grams the recipe can have. (optional)
-     * @param minAlcohol The minimum amount of alcohol in grams the recipe must have. (optional)
-     * @param maxAlcohol The maximum amount of alcohol in grams the recipe can have. (optional)
-     * @param minCaffeine The minimum amount of caffeine in milligrams the recipe must have. (optional)
-     * @param maxCaffeine The maximum amount of caffeine in milligrams the recipe can have. (optional)
-     * @param minCopper The minimum amount of copper in milligrams the recipe must have. (optional)
-     * @param maxCopper The maximum amount of copper in milligrams the recipe can have. (optional)
-     * @param minCalcium The minimum amount of calcium in milligrams the recipe must have. (optional)
-     * @param maxCalcium The maximum amount of calcium in milligrams the recipe can have. (optional)
-     * @param minCholine The minimum amount of choline in milligrams the recipe must have. (optional)
-     * @param maxCholine The maximum amount of choline in milligrams the recipe can have. (optional)
-     * @param minCholesterol The minimum amount of cholesterol in milligrams the recipe must have. (optional)
-     * @param maxCholesterol The maximum amount of cholesterol in milligrams the recipe can have. (optional)
-     * @param minFluoride The minimum amount of fluoride in milligrams the recipe must have. (optional)
-     * @param maxFluoride The maximum amount of fluoride in milligrams the recipe can have. (optional)
-     * @param minSaturatedFat The minimum amount of saturated fat in grams the recipe must have. (optional)
-     * @param maxSaturatedFat The maximum amount of saturated fat in grams the recipe can have. (optional)
-     * @param minVitaminA The minimum amount of Vitamin A in IU the recipe must have. (optional)
-     * @param maxVitaminA The maximum amount of Vitamin A in IU the recipe can have. (optional)
-     * @param minVitaminC The minimum amount of Vitamin C in milligrams the recipe must have. (optional)
-     * @param maxVitaminC The maximum amount of Vitamin C in milligrams the recipe can have. (optional)
-     * @param minVitaminD The minimum amount of Vitamin D in micrograms the recipe must have. (optional)
-     * @param maxVitaminD The maximum amount of Vitamin D in micrograms the recipe can have. (optional)
-     * @param minVitaminE The minimum amount of Vitamin E in milligrams the recipe must have. (optional)
-     * @param maxVitaminE The maximum amount of Vitamin E in milligrams the recipe can have. (optional)
-     * @param minVitaminK The minimum amount of Vitamin K in micrograms the recipe must have. (optional)
-     * @param maxVitaminK The maximum amount of Vitamin K in micrograms the recipe can have. (optional)
-     * @param minVitaminB1 The minimum amount of Vitamin B1 in milligrams the recipe must have. (optional)
-     * @param maxVitaminB1 The maximum amount of Vitamin B1 in milligrams the recipe can have. (optional)
-     * @param minVitaminB2 The minimum amount of Vitamin B2 in milligrams the recipe must have. (optional)
-     * @param maxVitaminB2 The maximum amount of Vitamin B2 in milligrams the recipe can have. (optional)
-     * @param minVitaminB5 The minimum amount of Vitamin B5 in milligrams the recipe must have. (optional)
-     * @param maxVitaminB5 The maximum amount of Vitamin B5 in milligrams the recipe can have. (optional)
-     * @param minVitaminB3 The minimum amount of Vitamin B3 in milligrams the recipe must have. (optional)
-     * @param maxVitaminB3 The maximum amount of Vitamin B3 in milligrams the recipe can have. (optional)
-     * @param minVitaminB6 The minimum amount of Vitamin B6 in milligrams the recipe must have. (optional)
-     * @param maxVitaminB6 The maximum amount of Vitamin B6 in milligrams the recipe can have. (optional)
-     * @param minVitaminB12 The minimum amount of Vitamin B12 in micrograms the recipe must have. (optional)
-     * @param maxVitaminB12 The maximum amount of Vitamin B12 in micrograms the recipe can have. (optional)
-     * @param minFiber The minimum amount of fiber in grams the recipe must have. (optional)
-     * @param maxFiber The maximum amount of fiber in grams the recipe can have. (optional)
-     * @param minFolate The minimum amount of folate in grams the recipe must have. (optional)
-     * @param maxFolate The maximum amount of folate in grams the recipe can have. (optional)
-     * @param minFolicAcid The minimum amount of folic acid in grams the recipe must have. (optional)
-     * @param maxFolicAcid The maximum amount of folic acid in grams the recipe can have. (optional)
-     * @param minIodine The minimum amount of iodine in grams the recipe must have. (optional)
-     * @param maxIodine The maximum amount of iodine in grams the recipe can have. (optional)
-     * @param minIron The minimum amount of iron in milligrams the recipe must have. (optional)
-     * @param maxIron The maximum amount of iron in milligrams the recipe can have. (optional)
-     * @param minMagnesium The minimum amount of magnesium in milligrams the recipe must have. (optional)
-     * @param maxMagnesium The maximum amount of magnesium in milligrams the recipe can have. (optional)
-     * @param minManganese The minimum amount of manganese in milligrams the recipe must have. (optional)
-     * @param maxManganese The maximum amount of manganese in milligrams the recipe can have. (optional)
-     * @param minPhosphorus The minimum amount of phosphorus in milligrams the recipe must have. (optional)
-     * @param maxPhosphorus The maximum amount of phosphorus in milligrams the recipe can have. (optional)
-     * @param minPotassium The minimum amount of potassium in milligrams the recipe must have. (optional)
-     * @param maxPotassium The maximum amount of potassium in milligrams the recipe can have. (optional)
-     * @param minSelenium The minimum amount of selenium in grams the recipe must have. (optional)
-     * @param maxSelenium The maximum amount of selenium in grams the recipe can have. (optional)
-     * @param minSodium The minimum amount of sodium in milligrams the recipe must have. (optional)
-     * @param maxSodium The maximum amount of sodium in milligrams the recipe can have. (optional)
-     * @param minSugar The minimum amount of sugar in grams the recipe must have. (optional)
-     * @param maxSugar The maximum amount of sugar in grams the recipe can have. (optional)
-     * @param minZinc The minimum amount of zinc in milligrams the recipe must have. (optional)
-     * @param maxZinc The maximum amount of zinc in milligrams the recipe can have. (optional)
-     * @param offset The number of results to skip (between 0 and 900). (optional)
-     * @param number The number of expected results (between 1 and 100). (optional)
-     * @param random If true, every request will give you a random set of recipes within the requested limits. (optional)
-     * @param limitLicense Whether the recipes should have an open license that allows display with proper attribution. (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Search-Recipes-by-Nutrients">Search Recipes by Nutrients Documentation</a>
-     */
-    public okhttp3.Call searchRecipesByNutrientsAsync(BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minFat, BigDecimal maxFat, BigDecimal minAlcohol, BigDecimal maxAlcohol, BigDecimal minCaffeine, BigDecimal maxCaffeine, BigDecimal minCopper, BigDecimal maxCopper, BigDecimal minCalcium, BigDecimal maxCalcium, BigDecimal minCholine, BigDecimal maxCholine, BigDecimal minCholesterol, BigDecimal maxCholesterol, BigDecimal minFluoride, BigDecimal maxFluoride, BigDecimal minSaturatedFat, BigDecimal maxSaturatedFat, BigDecimal minVitaminA, BigDecimal maxVitaminA, BigDecimal minVitaminC, BigDecimal maxVitaminC, BigDecimal minVitaminD, BigDecimal maxVitaminD, BigDecimal minVitaminE, BigDecimal maxVitaminE, BigDecimal minVitaminK, BigDecimal maxVitaminK, BigDecimal minVitaminB1, BigDecimal maxVitaminB1, BigDecimal minVitaminB2, BigDecimal maxVitaminB2, BigDecimal minVitaminB5, BigDecimal maxVitaminB5, BigDecimal minVitaminB3, BigDecimal maxVitaminB3, BigDecimal minVitaminB6, BigDecimal maxVitaminB6, BigDecimal minVitaminB12, BigDecimal maxVitaminB12, BigDecimal minFiber, BigDecimal maxFiber, BigDecimal minFolate, BigDecimal maxFolate, BigDecimal minFolicAcid, BigDecimal maxFolicAcid, BigDecimal minIodine, BigDecimal maxIodine, BigDecimal minIron, BigDecimal maxIron, BigDecimal minMagnesium, BigDecimal maxMagnesium, BigDecimal minManganese, BigDecimal maxManganese, BigDecimal minPhosphorus, BigDecimal maxPhosphorus, BigDecimal minPotassium, BigDecimal maxPotassium, BigDecimal minSelenium, BigDecimal maxSelenium, BigDecimal minSodium, BigDecimal maxSodium, BigDecimal minSugar, BigDecimal maxSugar, BigDecimal minZinc, BigDecimal maxZinc, BigDecimal offset, BigDecimal number, Boolean random, Boolean limitLicense, final ApiCallback<Object> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = searchRecipesByNutrientsValidateBeforeCall(minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, random, limitLicense, _callback);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for searchRecipesComplex
-     * @param query The (natural language) recipe search query. (required)
      * @param cuisine The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as &#39;OR&#39;). See a full list of supported cuisines. (optional)
      * @param excludeCuisine The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as &#39;AND&#39;). See a full list of supported cuisines. (optional)
      * @param diet The diet for which the recipes must be suitable. See a full list of supported diets. (optional)
@@ -7576,12 +7327,12 @@ public class DefaultApi {
      * @param maxVitaminB12 The maximum amount of Vitamin B12 in micrograms the recipe can have. (optional)
      * @param minFiber The minimum amount of fiber in grams the recipe must have. (optional)
      * @param maxFiber The maximum amount of fiber in grams the recipe can have. (optional)
-     * @param minFolate The minimum amount of folate in grams the recipe must have. (optional)
-     * @param maxFolate The maximum amount of folate in grams the recipe can have. (optional)
-     * @param minFolicAcid The minimum amount of folic acid in grams the recipe must have. (optional)
-     * @param maxFolicAcid The maximum amount of folic acid in grams the recipe can have. (optional)
-     * @param minIodine The minimum amount of iodine in grams the recipe must have. (optional)
-     * @param maxIodine The maximum amount of iodine in grams the recipe can have. (optional)
+     * @param minFolate The minimum amount of folate in micrograms the recipe must have. (optional)
+     * @param maxFolate The maximum amount of folate in micrograms the recipe can have. (optional)
+     * @param minFolicAcid The minimum amount of folic acid in micrograms the recipe must have. (optional)
+     * @param maxFolicAcid The maximum amount of folic acid in micrograms the recipe can have. (optional)
+     * @param minIodine The minimum amount of iodine in micrograms the recipe must have. (optional)
+     * @param maxIodine The maximum amount of iodine in micrograms the recipe can have. (optional)
      * @param minIron The minimum amount of iron in milligrams the recipe must have. (optional)
      * @param maxIron The maximum amount of iron in milligrams the recipe can have. (optional)
      * @param minMagnesium The minimum amount of magnesium in milligrams the recipe must have. (optional)
@@ -7592,8 +7343,8 @@ public class DefaultApi {
      * @param maxPhosphorus The maximum amount of phosphorus in milligrams the recipe can have. (optional)
      * @param minPotassium The minimum amount of potassium in milligrams the recipe must have. (optional)
      * @param maxPotassium The maximum amount of potassium in milligrams the recipe can have. (optional)
-     * @param minSelenium The minimum amount of selenium in grams the recipe must have. (optional)
-     * @param maxSelenium The maximum amount of selenium in grams the recipe can have. (optional)
+     * @param minSelenium The minimum amount of selenium in micrograms the recipe must have. (optional)
+     * @param maxSelenium The maximum amount of selenium in micrograms the recipe can have. (optional)
      * @param minSodium The minimum amount of sodium in milligrams the recipe must have. (optional)
      * @param maxSodium The maximum amount of sodium in milligrams the recipe can have. (optional)
      * @param minSugar The minimum amount of sugar in grams the recipe must have. (optional)
@@ -7607,9 +7358,9 @@ public class DefaultApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Search-Recipes-Complex">Search Recipes Complex Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Search-Recipes">Search Recipes Documentation</a>
      */
-    public okhttp3.Call searchRecipesComplexCall(String query, String cuisine, String excludeCuisine, String diet, String intolerances, String equipment, String includeIngredients, String excludeIngredients, String type, Boolean instructionsRequired, Boolean fillIngredients, Boolean addRecipeInformation, Boolean addRecipeNutrition, String author, String tags, BigDecimal recipeBoxId, String titleMatch, BigDecimal maxReadyTime, Boolean ignorePantry, String sort, String sortDirection, BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minFat, BigDecimal maxFat, BigDecimal minAlcohol, BigDecimal maxAlcohol, BigDecimal minCaffeine, BigDecimal maxCaffeine, BigDecimal minCopper, BigDecimal maxCopper, BigDecimal minCalcium, BigDecimal maxCalcium, BigDecimal minCholine, BigDecimal maxCholine, BigDecimal minCholesterol, BigDecimal maxCholesterol, BigDecimal minFluoride, BigDecimal maxFluoride, BigDecimal minSaturatedFat, BigDecimal maxSaturatedFat, BigDecimal minVitaminA, BigDecimal maxVitaminA, BigDecimal minVitaminC, BigDecimal maxVitaminC, BigDecimal minVitaminD, BigDecimal maxVitaminD, BigDecimal minVitaminE, BigDecimal maxVitaminE, BigDecimal minVitaminK, BigDecimal maxVitaminK, BigDecimal minVitaminB1, BigDecimal maxVitaminB1, BigDecimal minVitaminB2, BigDecimal maxVitaminB2, BigDecimal minVitaminB5, BigDecimal maxVitaminB5, BigDecimal minVitaminB3, BigDecimal maxVitaminB3, BigDecimal minVitaminB6, BigDecimal maxVitaminB6, BigDecimal minVitaminB12, BigDecimal maxVitaminB12, BigDecimal minFiber, BigDecimal maxFiber, BigDecimal minFolate, BigDecimal maxFolate, BigDecimal minFolicAcid, BigDecimal maxFolicAcid, BigDecimal minIodine, BigDecimal maxIodine, BigDecimal minIron, BigDecimal maxIron, BigDecimal minMagnesium, BigDecimal maxMagnesium, BigDecimal minManganese, BigDecimal maxManganese, BigDecimal minPhosphorus, BigDecimal maxPhosphorus, BigDecimal minPotassium, BigDecimal maxPotassium, BigDecimal minSelenium, BigDecimal maxSelenium, BigDecimal minSodium, BigDecimal maxSodium, BigDecimal minSugar, BigDecimal maxSugar, BigDecimal minZinc, BigDecimal maxZinc, BigDecimal offset, BigDecimal number, Boolean limitLicense, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchRecipesCall(String query, String cuisine, String excludeCuisine, String diet, String intolerances, String equipment, String includeIngredients, String excludeIngredients, String type, Boolean instructionsRequired, Boolean fillIngredients, Boolean addRecipeInformation, Boolean addRecipeNutrition, String author, String tags, BigDecimal recipeBoxId, String titleMatch, BigDecimal maxReadyTime, Boolean ignorePantry, String sort, String sortDirection, BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minFat, BigDecimal maxFat, BigDecimal minAlcohol, BigDecimal maxAlcohol, BigDecimal minCaffeine, BigDecimal maxCaffeine, BigDecimal minCopper, BigDecimal maxCopper, BigDecimal minCalcium, BigDecimal maxCalcium, BigDecimal minCholine, BigDecimal maxCholine, BigDecimal minCholesterol, BigDecimal maxCholesterol, BigDecimal minFluoride, BigDecimal maxFluoride, BigDecimal minSaturatedFat, BigDecimal maxSaturatedFat, BigDecimal minVitaminA, BigDecimal maxVitaminA, BigDecimal minVitaminC, BigDecimal maxVitaminC, BigDecimal minVitaminD, BigDecimal maxVitaminD, BigDecimal minVitaminE, BigDecimal maxVitaminE, BigDecimal minVitaminK, BigDecimal maxVitaminK, BigDecimal minVitaminB1, BigDecimal maxVitaminB1, BigDecimal minVitaminB2, BigDecimal maxVitaminB2, BigDecimal minVitaminB5, BigDecimal maxVitaminB5, BigDecimal minVitaminB3, BigDecimal maxVitaminB3, BigDecimal minVitaminB6, BigDecimal maxVitaminB6, BigDecimal minVitaminB12, BigDecimal maxVitaminB12, BigDecimal minFiber, BigDecimal maxFiber, BigDecimal minFolate, BigDecimal maxFolate, BigDecimal minFolicAcid, BigDecimal maxFolicAcid, BigDecimal minIodine, BigDecimal maxIodine, BigDecimal minIron, BigDecimal maxIron, BigDecimal minMagnesium, BigDecimal maxMagnesium, BigDecimal minManganese, BigDecimal maxManganese, BigDecimal minPhosphorus, BigDecimal maxPhosphorus, BigDecimal minPotassium, BigDecimal maxPotassium, BigDecimal minSelenium, BigDecimal maxSelenium, BigDecimal minSodium, BigDecimal maxSodium, BigDecimal minSugar, BigDecimal maxSugar, BigDecimal minZinc, BigDecimal maxZinc, BigDecimal offset, BigDecimal number, Boolean limitLicense, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = new Object();
 
         // create path and map variables
@@ -8022,21 +7773,21 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchRecipesComplexValidateBeforeCall(String query, String cuisine, String excludeCuisine, String diet, String intolerances, String equipment, String includeIngredients, String excludeIngredients, String type, Boolean instructionsRequired, Boolean fillIngredients, Boolean addRecipeInformation, Boolean addRecipeNutrition, String author, String tags, BigDecimal recipeBoxId, String titleMatch, BigDecimal maxReadyTime, Boolean ignorePantry, String sort, String sortDirection, BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minFat, BigDecimal maxFat, BigDecimal minAlcohol, BigDecimal maxAlcohol, BigDecimal minCaffeine, BigDecimal maxCaffeine, BigDecimal minCopper, BigDecimal maxCopper, BigDecimal minCalcium, BigDecimal maxCalcium, BigDecimal minCholine, BigDecimal maxCholine, BigDecimal minCholesterol, BigDecimal maxCholesterol, BigDecimal minFluoride, BigDecimal maxFluoride, BigDecimal minSaturatedFat, BigDecimal maxSaturatedFat, BigDecimal minVitaminA, BigDecimal maxVitaminA, BigDecimal minVitaminC, BigDecimal maxVitaminC, BigDecimal minVitaminD, BigDecimal maxVitaminD, BigDecimal minVitaminE, BigDecimal maxVitaminE, BigDecimal minVitaminK, BigDecimal maxVitaminK, BigDecimal minVitaminB1, BigDecimal maxVitaminB1, BigDecimal minVitaminB2, BigDecimal maxVitaminB2, BigDecimal minVitaminB5, BigDecimal maxVitaminB5, BigDecimal minVitaminB3, BigDecimal maxVitaminB3, BigDecimal minVitaminB6, BigDecimal maxVitaminB6, BigDecimal minVitaminB12, BigDecimal maxVitaminB12, BigDecimal minFiber, BigDecimal maxFiber, BigDecimal minFolate, BigDecimal maxFolate, BigDecimal minFolicAcid, BigDecimal maxFolicAcid, BigDecimal minIodine, BigDecimal maxIodine, BigDecimal minIron, BigDecimal maxIron, BigDecimal minMagnesium, BigDecimal maxMagnesium, BigDecimal minManganese, BigDecimal maxManganese, BigDecimal minPhosphorus, BigDecimal maxPhosphorus, BigDecimal minPotassium, BigDecimal maxPotassium, BigDecimal minSelenium, BigDecimal maxSelenium, BigDecimal minSodium, BigDecimal maxSodium, BigDecimal minSugar, BigDecimal maxSugar, BigDecimal minZinc, BigDecimal maxZinc, BigDecimal offset, BigDecimal number, Boolean limitLicense, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call searchRecipesValidateBeforeCall(String query, String cuisine, String excludeCuisine, String diet, String intolerances, String equipment, String includeIngredients, String excludeIngredients, String type, Boolean instructionsRequired, Boolean fillIngredients, Boolean addRecipeInformation, Boolean addRecipeNutrition, String author, String tags, BigDecimal recipeBoxId, String titleMatch, BigDecimal maxReadyTime, Boolean ignorePantry, String sort, String sortDirection, BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minFat, BigDecimal maxFat, BigDecimal minAlcohol, BigDecimal maxAlcohol, BigDecimal minCaffeine, BigDecimal maxCaffeine, BigDecimal minCopper, BigDecimal maxCopper, BigDecimal minCalcium, BigDecimal maxCalcium, BigDecimal minCholine, BigDecimal maxCholine, BigDecimal minCholesterol, BigDecimal maxCholesterol, BigDecimal minFluoride, BigDecimal maxFluoride, BigDecimal minSaturatedFat, BigDecimal maxSaturatedFat, BigDecimal minVitaminA, BigDecimal maxVitaminA, BigDecimal minVitaminC, BigDecimal maxVitaminC, BigDecimal minVitaminD, BigDecimal maxVitaminD, BigDecimal minVitaminE, BigDecimal maxVitaminE, BigDecimal minVitaminK, BigDecimal maxVitaminK, BigDecimal minVitaminB1, BigDecimal maxVitaminB1, BigDecimal minVitaminB2, BigDecimal maxVitaminB2, BigDecimal minVitaminB5, BigDecimal maxVitaminB5, BigDecimal minVitaminB3, BigDecimal maxVitaminB3, BigDecimal minVitaminB6, BigDecimal maxVitaminB6, BigDecimal minVitaminB12, BigDecimal maxVitaminB12, BigDecimal minFiber, BigDecimal maxFiber, BigDecimal minFolate, BigDecimal maxFolate, BigDecimal minFolicAcid, BigDecimal maxFolicAcid, BigDecimal minIodine, BigDecimal maxIodine, BigDecimal minIron, BigDecimal maxIron, BigDecimal minMagnesium, BigDecimal maxMagnesium, BigDecimal minManganese, BigDecimal maxManganese, BigDecimal minPhosphorus, BigDecimal maxPhosphorus, BigDecimal minPotassium, BigDecimal maxPotassium, BigDecimal minSelenium, BigDecimal maxSelenium, BigDecimal minSodium, BigDecimal maxSodium, BigDecimal minSugar, BigDecimal maxSugar, BigDecimal minZinc, BigDecimal maxZinc, BigDecimal offset, BigDecimal number, Boolean limitLicense, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'query' is set
         if (query == null) {
-            throw new ApiException("Missing the required parameter 'query' when calling searchRecipesComplex(Async)");
+            throw new ApiException("Missing the required parameter 'query' when calling searchRecipes(Async)");
         }
         
 
-        okhttp3.Call localVarCall = searchRecipesComplexCall(query, cuisine, excludeCuisine, diet, intolerances, equipment, includeIngredients, excludeIngredients, type, instructionsRequired, fillIngredients, addRecipeInformation, addRecipeNutrition, author, tags, recipeBoxId, titleMatch, maxReadyTime, ignorePantry, sort, sortDirection, minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, limitLicense, _callback);
+        okhttp3.Call localVarCall = searchRecipesCall(query, cuisine, excludeCuisine, diet, intolerances, equipment, includeIngredients, excludeIngredients, type, instructionsRequired, fillIngredients, addRecipeInformation, addRecipeNutrition, author, tags, recipeBoxId, titleMatch, maxReadyTime, ignorePantry, sort, sortDirection, minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, limitLicense, _callback);
         return localVarCall;
 
     }
 
     /**
-     * Search Recipes Complex
+     * Search Recipes
      * Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint.
      * @param query The (natural language) recipe search query. (required)
      * @param cuisine The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as &#39;OR&#39;). See a full list of supported cuisines. (optional)
@@ -8107,12 +7858,12 @@ public class DefaultApi {
      * @param maxVitaminB12 The maximum amount of Vitamin B12 in micrograms the recipe can have. (optional)
      * @param minFiber The minimum amount of fiber in grams the recipe must have. (optional)
      * @param maxFiber The maximum amount of fiber in grams the recipe can have. (optional)
-     * @param minFolate The minimum amount of folate in grams the recipe must have. (optional)
-     * @param maxFolate The maximum amount of folate in grams the recipe can have. (optional)
-     * @param minFolicAcid The minimum amount of folic acid in grams the recipe must have. (optional)
-     * @param maxFolicAcid The maximum amount of folic acid in grams the recipe can have. (optional)
-     * @param minIodine The minimum amount of iodine in grams the recipe must have. (optional)
-     * @param maxIodine The maximum amount of iodine in grams the recipe can have. (optional)
+     * @param minFolate The minimum amount of folate in micrograms the recipe must have. (optional)
+     * @param maxFolate The maximum amount of folate in micrograms the recipe can have. (optional)
+     * @param minFolicAcid The minimum amount of folic acid in micrograms the recipe must have. (optional)
+     * @param maxFolicAcid The maximum amount of folic acid in micrograms the recipe can have. (optional)
+     * @param minIodine The minimum amount of iodine in micrograms the recipe must have. (optional)
+     * @param maxIodine The maximum amount of iodine in micrograms the recipe can have. (optional)
      * @param minIron The minimum amount of iron in milligrams the recipe must have. (optional)
      * @param maxIron The maximum amount of iron in milligrams the recipe can have. (optional)
      * @param minMagnesium The minimum amount of magnesium in milligrams the recipe must have. (optional)
@@ -8123,8 +7874,8 @@ public class DefaultApi {
      * @param maxPhosphorus The maximum amount of phosphorus in milligrams the recipe can have. (optional)
      * @param minPotassium The minimum amount of potassium in milligrams the recipe must have. (optional)
      * @param maxPotassium The maximum amount of potassium in milligrams the recipe can have. (optional)
-     * @param minSelenium The minimum amount of selenium in grams the recipe must have. (optional)
-     * @param maxSelenium The maximum amount of selenium in grams the recipe can have. (optional)
+     * @param minSelenium The minimum amount of selenium in micrograms the recipe must have. (optional)
+     * @param maxSelenium The maximum amount of selenium in micrograms the recipe can have. (optional)
      * @param minSodium The minimum amount of sodium in milligrams the recipe must have. (optional)
      * @param maxSodium The maximum amount of sodium in milligrams the recipe can have. (optional)
      * @param minSugar The minimum amount of sugar in grams the recipe must have. (optional)
@@ -8137,15 +7888,15 @@ public class DefaultApi {
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Search-Recipes-Complex">Search Recipes Complex Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Search-Recipes">Search Recipes Documentation</a>
      */
-    public Object searchRecipesComplex(String query, String cuisine, String excludeCuisine, String diet, String intolerances, String equipment, String includeIngredients, String excludeIngredients, String type, Boolean instructionsRequired, Boolean fillIngredients, Boolean addRecipeInformation, Boolean addRecipeNutrition, String author, String tags, BigDecimal recipeBoxId, String titleMatch, BigDecimal maxReadyTime, Boolean ignorePantry, String sort, String sortDirection, BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minFat, BigDecimal maxFat, BigDecimal minAlcohol, BigDecimal maxAlcohol, BigDecimal minCaffeine, BigDecimal maxCaffeine, BigDecimal minCopper, BigDecimal maxCopper, BigDecimal minCalcium, BigDecimal maxCalcium, BigDecimal minCholine, BigDecimal maxCholine, BigDecimal minCholesterol, BigDecimal maxCholesterol, BigDecimal minFluoride, BigDecimal maxFluoride, BigDecimal minSaturatedFat, BigDecimal maxSaturatedFat, BigDecimal minVitaminA, BigDecimal maxVitaminA, BigDecimal minVitaminC, BigDecimal maxVitaminC, BigDecimal minVitaminD, BigDecimal maxVitaminD, BigDecimal minVitaminE, BigDecimal maxVitaminE, BigDecimal minVitaminK, BigDecimal maxVitaminK, BigDecimal minVitaminB1, BigDecimal maxVitaminB1, BigDecimal minVitaminB2, BigDecimal maxVitaminB2, BigDecimal minVitaminB5, BigDecimal maxVitaminB5, BigDecimal minVitaminB3, BigDecimal maxVitaminB3, BigDecimal minVitaminB6, BigDecimal maxVitaminB6, BigDecimal minVitaminB12, BigDecimal maxVitaminB12, BigDecimal minFiber, BigDecimal maxFiber, BigDecimal minFolate, BigDecimal maxFolate, BigDecimal minFolicAcid, BigDecimal maxFolicAcid, BigDecimal minIodine, BigDecimal maxIodine, BigDecimal minIron, BigDecimal maxIron, BigDecimal minMagnesium, BigDecimal maxMagnesium, BigDecimal minManganese, BigDecimal maxManganese, BigDecimal minPhosphorus, BigDecimal maxPhosphorus, BigDecimal minPotassium, BigDecimal maxPotassium, BigDecimal minSelenium, BigDecimal maxSelenium, BigDecimal minSodium, BigDecimal maxSodium, BigDecimal minSugar, BigDecimal maxSugar, BigDecimal minZinc, BigDecimal maxZinc, BigDecimal offset, BigDecimal number, Boolean limitLicense) throws ApiException {
-        ApiResponse<Object> localVarResp = searchRecipesComplexWithHttpInfo(query, cuisine, excludeCuisine, diet, intolerances, equipment, includeIngredients, excludeIngredients, type, instructionsRequired, fillIngredients, addRecipeInformation, addRecipeNutrition, author, tags, recipeBoxId, titleMatch, maxReadyTime, ignorePantry, sort, sortDirection, minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, limitLicense);
+    public Object searchRecipes(String query, String cuisine, String excludeCuisine, String diet, String intolerances, String equipment, String includeIngredients, String excludeIngredients, String type, Boolean instructionsRequired, Boolean fillIngredients, Boolean addRecipeInformation, Boolean addRecipeNutrition, String author, String tags, BigDecimal recipeBoxId, String titleMatch, BigDecimal maxReadyTime, Boolean ignorePantry, String sort, String sortDirection, BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minFat, BigDecimal maxFat, BigDecimal minAlcohol, BigDecimal maxAlcohol, BigDecimal minCaffeine, BigDecimal maxCaffeine, BigDecimal minCopper, BigDecimal maxCopper, BigDecimal minCalcium, BigDecimal maxCalcium, BigDecimal minCholine, BigDecimal maxCholine, BigDecimal minCholesterol, BigDecimal maxCholesterol, BigDecimal minFluoride, BigDecimal maxFluoride, BigDecimal minSaturatedFat, BigDecimal maxSaturatedFat, BigDecimal minVitaminA, BigDecimal maxVitaminA, BigDecimal minVitaminC, BigDecimal maxVitaminC, BigDecimal minVitaminD, BigDecimal maxVitaminD, BigDecimal minVitaminE, BigDecimal maxVitaminE, BigDecimal minVitaminK, BigDecimal maxVitaminK, BigDecimal minVitaminB1, BigDecimal maxVitaminB1, BigDecimal minVitaminB2, BigDecimal maxVitaminB2, BigDecimal minVitaminB5, BigDecimal maxVitaminB5, BigDecimal minVitaminB3, BigDecimal maxVitaminB3, BigDecimal minVitaminB6, BigDecimal maxVitaminB6, BigDecimal minVitaminB12, BigDecimal maxVitaminB12, BigDecimal minFiber, BigDecimal maxFiber, BigDecimal minFolate, BigDecimal maxFolate, BigDecimal minFolicAcid, BigDecimal maxFolicAcid, BigDecimal minIodine, BigDecimal maxIodine, BigDecimal minIron, BigDecimal maxIron, BigDecimal minMagnesium, BigDecimal maxMagnesium, BigDecimal minManganese, BigDecimal maxManganese, BigDecimal minPhosphorus, BigDecimal maxPhosphorus, BigDecimal minPotassium, BigDecimal maxPotassium, BigDecimal minSelenium, BigDecimal maxSelenium, BigDecimal minSodium, BigDecimal maxSodium, BigDecimal minSugar, BigDecimal maxSugar, BigDecimal minZinc, BigDecimal maxZinc, BigDecimal offset, BigDecimal number, Boolean limitLicense) throws ApiException {
+        ApiResponse<Object> localVarResp = searchRecipesWithHttpInfo(query, cuisine, excludeCuisine, diet, intolerances, equipment, includeIngredients, excludeIngredients, type, instructionsRequired, fillIngredients, addRecipeInformation, addRecipeNutrition, author, tags, recipeBoxId, titleMatch, maxReadyTime, ignorePantry, sort, sortDirection, minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, limitLicense);
         return localVarResp.getData();
     }
 
     /**
-     * Search Recipes Complex
+     * Search Recipes
      * Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint.
      * @param query The (natural language) recipe search query. (required)
      * @param cuisine The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as &#39;OR&#39;). See a full list of supported cuisines. (optional)
@@ -8216,12 +7967,12 @@ public class DefaultApi {
      * @param maxVitaminB12 The maximum amount of Vitamin B12 in micrograms the recipe can have. (optional)
      * @param minFiber The minimum amount of fiber in grams the recipe must have. (optional)
      * @param maxFiber The maximum amount of fiber in grams the recipe can have. (optional)
-     * @param minFolate The minimum amount of folate in grams the recipe must have. (optional)
-     * @param maxFolate The maximum amount of folate in grams the recipe can have. (optional)
-     * @param minFolicAcid The minimum amount of folic acid in grams the recipe must have. (optional)
-     * @param maxFolicAcid The maximum amount of folic acid in grams the recipe can have. (optional)
-     * @param minIodine The minimum amount of iodine in grams the recipe must have. (optional)
-     * @param maxIodine The maximum amount of iodine in grams the recipe can have. (optional)
+     * @param minFolate The minimum amount of folate in micrograms the recipe must have. (optional)
+     * @param maxFolate The maximum amount of folate in micrograms the recipe can have. (optional)
+     * @param minFolicAcid The minimum amount of folic acid in micrograms the recipe must have. (optional)
+     * @param maxFolicAcid The maximum amount of folic acid in micrograms the recipe can have. (optional)
+     * @param minIodine The minimum amount of iodine in micrograms the recipe must have. (optional)
+     * @param maxIodine The maximum amount of iodine in micrograms the recipe can have. (optional)
      * @param minIron The minimum amount of iron in milligrams the recipe must have. (optional)
      * @param maxIron The maximum amount of iron in milligrams the recipe can have. (optional)
      * @param minMagnesium The minimum amount of magnesium in milligrams the recipe must have. (optional)
@@ -8232,8 +7983,8 @@ public class DefaultApi {
      * @param maxPhosphorus The maximum amount of phosphorus in milligrams the recipe can have. (optional)
      * @param minPotassium The minimum amount of potassium in milligrams the recipe must have. (optional)
      * @param maxPotassium The maximum amount of potassium in milligrams the recipe can have. (optional)
-     * @param minSelenium The minimum amount of selenium in grams the recipe must have. (optional)
-     * @param maxSelenium The maximum amount of selenium in grams the recipe can have. (optional)
+     * @param minSelenium The minimum amount of selenium in micrograms the recipe must have. (optional)
+     * @param maxSelenium The maximum amount of selenium in micrograms the recipe can have. (optional)
      * @param minSodium The minimum amount of sodium in milligrams the recipe must have. (optional)
      * @param maxSodium The maximum amount of sodium in milligrams the recipe can have. (optional)
      * @param minSugar The minimum amount of sugar in grams the recipe must have. (optional)
@@ -8246,16 +7997,16 @@ public class DefaultApi {
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Search-Recipes-Complex">Search Recipes Complex Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Search-Recipes">Search Recipes Documentation</a>
      */
-    public ApiResponse<Object> searchRecipesComplexWithHttpInfo(String query, String cuisine, String excludeCuisine, String diet, String intolerances, String equipment, String includeIngredients, String excludeIngredients, String type, Boolean instructionsRequired, Boolean fillIngredients, Boolean addRecipeInformation, Boolean addRecipeNutrition, String author, String tags, BigDecimal recipeBoxId, String titleMatch, BigDecimal maxReadyTime, Boolean ignorePantry, String sort, String sortDirection, BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minFat, BigDecimal maxFat, BigDecimal minAlcohol, BigDecimal maxAlcohol, BigDecimal minCaffeine, BigDecimal maxCaffeine, BigDecimal minCopper, BigDecimal maxCopper, BigDecimal minCalcium, BigDecimal maxCalcium, BigDecimal minCholine, BigDecimal maxCholine, BigDecimal minCholesterol, BigDecimal maxCholesterol, BigDecimal minFluoride, BigDecimal maxFluoride, BigDecimal minSaturatedFat, BigDecimal maxSaturatedFat, BigDecimal minVitaminA, BigDecimal maxVitaminA, BigDecimal minVitaminC, BigDecimal maxVitaminC, BigDecimal minVitaminD, BigDecimal maxVitaminD, BigDecimal minVitaminE, BigDecimal maxVitaminE, BigDecimal minVitaminK, BigDecimal maxVitaminK, BigDecimal minVitaminB1, BigDecimal maxVitaminB1, BigDecimal minVitaminB2, BigDecimal maxVitaminB2, BigDecimal minVitaminB5, BigDecimal maxVitaminB5, BigDecimal minVitaminB3, BigDecimal maxVitaminB3, BigDecimal minVitaminB6, BigDecimal maxVitaminB6, BigDecimal minVitaminB12, BigDecimal maxVitaminB12, BigDecimal minFiber, BigDecimal maxFiber, BigDecimal minFolate, BigDecimal maxFolate, BigDecimal minFolicAcid, BigDecimal maxFolicAcid, BigDecimal minIodine, BigDecimal maxIodine, BigDecimal minIron, BigDecimal maxIron, BigDecimal minMagnesium, BigDecimal maxMagnesium, BigDecimal minManganese, BigDecimal maxManganese, BigDecimal minPhosphorus, BigDecimal maxPhosphorus, BigDecimal minPotassium, BigDecimal maxPotassium, BigDecimal minSelenium, BigDecimal maxSelenium, BigDecimal minSodium, BigDecimal maxSodium, BigDecimal minSugar, BigDecimal maxSugar, BigDecimal minZinc, BigDecimal maxZinc, BigDecimal offset, BigDecimal number, Boolean limitLicense) throws ApiException {
-        okhttp3.Call localVarCall = searchRecipesComplexValidateBeforeCall(query, cuisine, excludeCuisine, diet, intolerances, equipment, includeIngredients, excludeIngredients, type, instructionsRequired, fillIngredients, addRecipeInformation, addRecipeNutrition, author, tags, recipeBoxId, titleMatch, maxReadyTime, ignorePantry, sort, sortDirection, minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, limitLicense, null);
+    public ApiResponse<Object> searchRecipesWithHttpInfo(String query, String cuisine, String excludeCuisine, String diet, String intolerances, String equipment, String includeIngredients, String excludeIngredients, String type, Boolean instructionsRequired, Boolean fillIngredients, Boolean addRecipeInformation, Boolean addRecipeNutrition, String author, String tags, BigDecimal recipeBoxId, String titleMatch, BigDecimal maxReadyTime, Boolean ignorePantry, String sort, String sortDirection, BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minFat, BigDecimal maxFat, BigDecimal minAlcohol, BigDecimal maxAlcohol, BigDecimal minCaffeine, BigDecimal maxCaffeine, BigDecimal minCopper, BigDecimal maxCopper, BigDecimal minCalcium, BigDecimal maxCalcium, BigDecimal minCholine, BigDecimal maxCholine, BigDecimal minCholesterol, BigDecimal maxCholesterol, BigDecimal minFluoride, BigDecimal maxFluoride, BigDecimal minSaturatedFat, BigDecimal maxSaturatedFat, BigDecimal minVitaminA, BigDecimal maxVitaminA, BigDecimal minVitaminC, BigDecimal maxVitaminC, BigDecimal minVitaminD, BigDecimal maxVitaminD, BigDecimal minVitaminE, BigDecimal maxVitaminE, BigDecimal minVitaminK, BigDecimal maxVitaminK, BigDecimal minVitaminB1, BigDecimal maxVitaminB1, BigDecimal minVitaminB2, BigDecimal maxVitaminB2, BigDecimal minVitaminB5, BigDecimal maxVitaminB5, BigDecimal minVitaminB3, BigDecimal maxVitaminB3, BigDecimal minVitaminB6, BigDecimal maxVitaminB6, BigDecimal minVitaminB12, BigDecimal maxVitaminB12, BigDecimal minFiber, BigDecimal maxFiber, BigDecimal minFolate, BigDecimal maxFolate, BigDecimal minFolicAcid, BigDecimal maxFolicAcid, BigDecimal minIodine, BigDecimal maxIodine, BigDecimal minIron, BigDecimal maxIron, BigDecimal minMagnesium, BigDecimal maxMagnesium, BigDecimal minManganese, BigDecimal maxManganese, BigDecimal minPhosphorus, BigDecimal maxPhosphorus, BigDecimal minPotassium, BigDecimal maxPotassium, BigDecimal minSelenium, BigDecimal maxSelenium, BigDecimal minSodium, BigDecimal maxSodium, BigDecimal minSugar, BigDecimal maxSugar, BigDecimal minZinc, BigDecimal maxZinc, BigDecimal offset, BigDecimal number, Boolean limitLicense) throws ApiException {
+        okhttp3.Call localVarCall = searchRecipesValidateBeforeCall(query, cuisine, excludeCuisine, diet, intolerances, equipment, includeIngredients, excludeIngredients, type, instructionsRequired, fillIngredients, addRecipeInformation, addRecipeNutrition, author, tags, recipeBoxId, titleMatch, maxReadyTime, ignorePantry, sort, sortDirection, minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, limitLicense, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     * Search Recipes Complex (asynchronously)
+     * Search Recipes (asynchronously)
      * Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint.
      * @param query The (natural language) recipe search query. (required)
      * @param cuisine The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as &#39;OR&#39;). See a full list of supported cuisines. (optional)
@@ -8326,12 +8077,12 @@ public class DefaultApi {
      * @param maxVitaminB12 The maximum amount of Vitamin B12 in micrograms the recipe can have. (optional)
      * @param minFiber The minimum amount of fiber in grams the recipe must have. (optional)
      * @param maxFiber The maximum amount of fiber in grams the recipe can have. (optional)
-     * @param minFolate The minimum amount of folate in grams the recipe must have. (optional)
-     * @param maxFolate The maximum amount of folate in grams the recipe can have. (optional)
-     * @param minFolicAcid The minimum amount of folic acid in grams the recipe must have. (optional)
-     * @param maxFolicAcid The maximum amount of folic acid in grams the recipe can have. (optional)
-     * @param minIodine The minimum amount of iodine in grams the recipe must have. (optional)
-     * @param maxIodine The maximum amount of iodine in grams the recipe can have. (optional)
+     * @param minFolate The minimum amount of folate in micrograms the recipe must have. (optional)
+     * @param maxFolate The maximum amount of folate in micrograms the recipe can have. (optional)
+     * @param minFolicAcid The minimum amount of folic acid in micrograms the recipe must have. (optional)
+     * @param maxFolicAcid The maximum amount of folic acid in micrograms the recipe can have. (optional)
+     * @param minIodine The minimum amount of iodine in micrograms the recipe must have. (optional)
+     * @param maxIodine The maximum amount of iodine in micrograms the recipe can have. (optional)
      * @param minIron The minimum amount of iron in milligrams the recipe must have. (optional)
      * @param maxIron The maximum amount of iron in milligrams the recipe can have. (optional)
      * @param minMagnesium The minimum amount of magnesium in milligrams the recipe must have. (optional)
@@ -8342,8 +8093,8 @@ public class DefaultApi {
      * @param maxPhosphorus The maximum amount of phosphorus in milligrams the recipe can have. (optional)
      * @param minPotassium The minimum amount of potassium in milligrams the recipe must have. (optional)
      * @param maxPotassium The maximum amount of potassium in milligrams the recipe can have. (optional)
-     * @param minSelenium The minimum amount of selenium in grams the recipe must have. (optional)
-     * @param maxSelenium The maximum amount of selenium in grams the recipe can have. (optional)
+     * @param minSelenium The minimum amount of selenium in micrograms the recipe must have. (optional)
+     * @param maxSelenium The maximum amount of selenium in micrograms the recipe can have. (optional)
      * @param minSodium The minimum amount of sodium in milligrams the recipe must have. (optional)
      * @param maxSodium The maximum amount of sodium in milligrams the recipe can have. (optional)
      * @param minSugar The minimum amount of sugar in grams the recipe must have. (optional)
@@ -8357,11 +8108,840 @@ public class DefaultApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * Read entire docs
-     * @see <a href="https://spoonacular.com/food-api/docs#Search-Recipes-Complex">Search Recipes Complex Documentation</a>
+     * @see <a href="https://spoonacular.com/food-api/docs#Search-Recipes">Search Recipes Documentation</a>
      */
-    public okhttp3.Call searchRecipesComplexAsync(String query, String cuisine, String excludeCuisine, String diet, String intolerances, String equipment, String includeIngredients, String excludeIngredients, String type, Boolean instructionsRequired, Boolean fillIngredients, Boolean addRecipeInformation, Boolean addRecipeNutrition, String author, String tags, BigDecimal recipeBoxId, String titleMatch, BigDecimal maxReadyTime, Boolean ignorePantry, String sort, String sortDirection, BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minFat, BigDecimal maxFat, BigDecimal minAlcohol, BigDecimal maxAlcohol, BigDecimal minCaffeine, BigDecimal maxCaffeine, BigDecimal minCopper, BigDecimal maxCopper, BigDecimal minCalcium, BigDecimal maxCalcium, BigDecimal minCholine, BigDecimal maxCholine, BigDecimal minCholesterol, BigDecimal maxCholesterol, BigDecimal minFluoride, BigDecimal maxFluoride, BigDecimal minSaturatedFat, BigDecimal maxSaturatedFat, BigDecimal minVitaminA, BigDecimal maxVitaminA, BigDecimal minVitaminC, BigDecimal maxVitaminC, BigDecimal minVitaminD, BigDecimal maxVitaminD, BigDecimal minVitaminE, BigDecimal maxVitaminE, BigDecimal minVitaminK, BigDecimal maxVitaminK, BigDecimal minVitaminB1, BigDecimal maxVitaminB1, BigDecimal minVitaminB2, BigDecimal maxVitaminB2, BigDecimal minVitaminB5, BigDecimal maxVitaminB5, BigDecimal minVitaminB3, BigDecimal maxVitaminB3, BigDecimal minVitaminB6, BigDecimal maxVitaminB6, BigDecimal minVitaminB12, BigDecimal maxVitaminB12, BigDecimal minFiber, BigDecimal maxFiber, BigDecimal minFolate, BigDecimal maxFolate, BigDecimal minFolicAcid, BigDecimal maxFolicAcid, BigDecimal minIodine, BigDecimal maxIodine, BigDecimal minIron, BigDecimal maxIron, BigDecimal minMagnesium, BigDecimal maxMagnesium, BigDecimal minManganese, BigDecimal maxManganese, BigDecimal minPhosphorus, BigDecimal maxPhosphorus, BigDecimal minPotassium, BigDecimal maxPotassium, BigDecimal minSelenium, BigDecimal maxSelenium, BigDecimal minSodium, BigDecimal maxSodium, BigDecimal minSugar, BigDecimal maxSugar, BigDecimal minZinc, BigDecimal maxZinc, BigDecimal offset, BigDecimal number, Boolean limitLicense, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call searchRecipesAsync(String query, String cuisine, String excludeCuisine, String diet, String intolerances, String equipment, String includeIngredients, String excludeIngredients, String type, Boolean instructionsRequired, Boolean fillIngredients, Boolean addRecipeInformation, Boolean addRecipeNutrition, String author, String tags, BigDecimal recipeBoxId, String titleMatch, BigDecimal maxReadyTime, Boolean ignorePantry, String sort, String sortDirection, BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minFat, BigDecimal maxFat, BigDecimal minAlcohol, BigDecimal maxAlcohol, BigDecimal minCaffeine, BigDecimal maxCaffeine, BigDecimal minCopper, BigDecimal maxCopper, BigDecimal minCalcium, BigDecimal maxCalcium, BigDecimal minCholine, BigDecimal maxCholine, BigDecimal minCholesterol, BigDecimal maxCholesterol, BigDecimal minFluoride, BigDecimal maxFluoride, BigDecimal minSaturatedFat, BigDecimal maxSaturatedFat, BigDecimal minVitaminA, BigDecimal maxVitaminA, BigDecimal minVitaminC, BigDecimal maxVitaminC, BigDecimal minVitaminD, BigDecimal maxVitaminD, BigDecimal minVitaminE, BigDecimal maxVitaminE, BigDecimal minVitaminK, BigDecimal maxVitaminK, BigDecimal minVitaminB1, BigDecimal maxVitaminB1, BigDecimal minVitaminB2, BigDecimal maxVitaminB2, BigDecimal minVitaminB5, BigDecimal maxVitaminB5, BigDecimal minVitaminB3, BigDecimal maxVitaminB3, BigDecimal minVitaminB6, BigDecimal maxVitaminB6, BigDecimal minVitaminB12, BigDecimal maxVitaminB12, BigDecimal minFiber, BigDecimal maxFiber, BigDecimal minFolate, BigDecimal maxFolate, BigDecimal minFolicAcid, BigDecimal maxFolicAcid, BigDecimal minIodine, BigDecimal maxIodine, BigDecimal minIron, BigDecimal maxIron, BigDecimal minMagnesium, BigDecimal maxMagnesium, BigDecimal minManganese, BigDecimal maxManganese, BigDecimal minPhosphorus, BigDecimal maxPhosphorus, BigDecimal minPotassium, BigDecimal maxPotassium, BigDecimal minSelenium, BigDecimal maxSelenium, BigDecimal minSodium, BigDecimal maxSodium, BigDecimal minSugar, BigDecimal maxSugar, BigDecimal minZinc, BigDecimal maxZinc, BigDecimal offset, BigDecimal number, Boolean limitLicense, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchRecipesComplexValidateBeforeCall(query, cuisine, excludeCuisine, diet, intolerances, equipment, includeIngredients, excludeIngredients, type, instructionsRequired, fillIngredients, addRecipeInformation, addRecipeNutrition, author, tags, recipeBoxId, titleMatch, maxReadyTime, ignorePantry, sort, sortDirection, minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, limitLicense, _callback);
+        okhttp3.Call localVarCall = searchRecipesValidateBeforeCall(query, cuisine, excludeCuisine, diet, intolerances, equipment, includeIngredients, excludeIngredients, type, instructionsRequired, fillIngredients, addRecipeInformation, addRecipeNutrition, author, tags, recipeBoxId, titleMatch, maxReadyTime, ignorePantry, sort, sortDirection, minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, limitLicense, _callback);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for searchRecipesByIngredients
+     * @param ingredients A comma-separated list of ingredients that the recipes should contain. (required)
+     * @param number The maximum number of recipes to return (between 1 and 100). Defaults to 10. (optional)
+     * @param limitLicense Whether the recipes should have an open license that allows display with proper attribution. (optional)
+     * @param ranking Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. (optional)
+     * @param ignorePantry Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Search-Recipes-by-Ingredients">Search Recipes by Ingredients Documentation</a>
+     */
+    public okhttp3.Call searchRecipesByIngredientsCall(String ingredients, BigDecimal number, Boolean limitLicense, BigDecimal ranking, Boolean ignorePantry, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = new Object();
+
+        // create path and map variables
+        String localVarPath = "/recipes/findByIngredients";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (ingredients != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("ingredients", ingredients));
+        }
+
+        if (number != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("number", number));
+        }
+
+        if (limitLicense != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limitLicense", limitLicense));
+        }
+
+        if (ranking != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("ranking", ranking));
+        }
+
+        if (ignorePantry != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("ignorePantry", ignorePantry));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call searchRecipesByIngredientsValidateBeforeCall(String ingredients, BigDecimal number, Boolean limitLicense, BigDecimal ranking, Boolean ignorePantry, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'ingredients' is set
+        if (ingredients == null) {
+            throw new ApiException("Missing the required parameter 'ingredients' when calling searchRecipesByIngredients(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = searchRecipesByIngredientsCall(ingredients, number, limitLicense, ranking, ignorePantry, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Search Recipes by Ingredients
+     *              Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don&#39;t currently have (post shopping).         
+     * @param ingredients A comma-separated list of ingredients that the recipes should contain. (required)
+     * @param number The maximum number of recipes to return (between 1 and 100). Defaults to 10. (optional)
+     * @param limitLicense Whether the recipes should have an open license that allows display with proper attribution. (optional)
+     * @param ranking Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. (optional)
+     * @param ignorePantry Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional)
+     * @return Object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Search-Recipes-by-Ingredients">Search Recipes by Ingredients Documentation</a>
+     */
+    public Object searchRecipesByIngredients(String ingredients, BigDecimal number, Boolean limitLicense, BigDecimal ranking, Boolean ignorePantry) throws ApiException {
+        ApiResponse<Object> localVarResp = searchRecipesByIngredientsWithHttpInfo(ingredients, number, limitLicense, ranking, ignorePantry);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Search Recipes by Ingredients
+     *              Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don&#39;t currently have (post shopping).         
+     * @param ingredients A comma-separated list of ingredients that the recipes should contain. (required)
+     * @param number The maximum number of recipes to return (between 1 and 100). Defaults to 10. (optional)
+     * @param limitLicense Whether the recipes should have an open license that allows display with proper attribution. (optional)
+     * @param ranking Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. (optional)
+     * @param ignorePantry Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional)
+     * @return ApiResponse&lt;Object&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Search-Recipes-by-Ingredients">Search Recipes by Ingredients Documentation</a>
+     */
+    public ApiResponse<Object> searchRecipesByIngredientsWithHttpInfo(String ingredients, BigDecimal number, Boolean limitLicense, BigDecimal ranking, Boolean ignorePantry) throws ApiException {
+        okhttp3.Call localVarCall = searchRecipesByIngredientsValidateBeforeCall(ingredients, number, limitLicense, ranking, ignorePantry, null);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Search Recipes by Ingredients (asynchronously)
+     *              Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don&#39;t currently have (post shopping).         
+     * @param ingredients A comma-separated list of ingredients that the recipes should contain. (required)
+     * @param number The maximum number of recipes to return (between 1 and 100). Defaults to 10. (optional)
+     * @param limitLicense Whether the recipes should have an open license that allows display with proper attribution. (optional)
+     * @param ranking Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. (optional)
+     * @param ignorePantry Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Search-Recipes-by-Ingredients">Search Recipes by Ingredients Documentation</a>
+     */
+    public okhttp3.Call searchRecipesByIngredientsAsync(String ingredients, BigDecimal number, Boolean limitLicense, BigDecimal ranking, Boolean ignorePantry, final ApiCallback<Object> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = searchRecipesByIngredientsValidateBeforeCall(ingredients, number, limitLicense, ranking, ignorePantry, _callback);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for searchRecipesByNutrients
+     * @param minCarbs The minimum amount of carbohydrates in grams the recipe must have. (optional)
+     * @param maxCarbs The maximum amount of carbohydrates in grams the recipe can have. (optional)
+     * @param minProtein The minimum amount of protein in grams the recipe must have. (optional)
+     * @param maxProtein The maximum amount of protein in grams the recipe can have. (optional)
+     * @param minCalories The minimum amount of calories the recipe must have. (optional)
+     * @param maxCalories The maximum amount of calories the recipe can have. (optional)
+     * @param minFat The minimum amount of fat in grams the recipe must have. (optional)
+     * @param maxFat The maximum amount of fat in grams the recipe can have. (optional)
+     * @param minAlcohol The minimum amount of alcohol in grams the recipe must have. (optional)
+     * @param maxAlcohol The maximum amount of alcohol in grams the recipe can have. (optional)
+     * @param minCaffeine The minimum amount of caffeine in milligrams the recipe must have. (optional)
+     * @param maxCaffeine The maximum amount of caffeine in milligrams the recipe can have. (optional)
+     * @param minCopper The minimum amount of copper in milligrams the recipe must have. (optional)
+     * @param maxCopper The maximum amount of copper in milligrams the recipe can have. (optional)
+     * @param minCalcium The minimum amount of calcium in milligrams the recipe must have. (optional)
+     * @param maxCalcium The maximum amount of calcium in milligrams the recipe can have. (optional)
+     * @param minCholine The minimum amount of choline in milligrams the recipe must have. (optional)
+     * @param maxCholine The maximum amount of choline in milligrams the recipe can have. (optional)
+     * @param minCholesterol The minimum amount of cholesterol in milligrams the recipe must have. (optional)
+     * @param maxCholesterol The maximum amount of cholesterol in milligrams the recipe can have. (optional)
+     * @param minFluoride The minimum amount of fluoride in milligrams the recipe must have. (optional)
+     * @param maxFluoride The maximum amount of fluoride in milligrams the recipe can have. (optional)
+     * @param minSaturatedFat The minimum amount of saturated fat in grams the recipe must have. (optional)
+     * @param maxSaturatedFat The maximum amount of saturated fat in grams the recipe can have. (optional)
+     * @param minVitaminA The minimum amount of Vitamin A in IU the recipe must have. (optional)
+     * @param maxVitaminA The maximum amount of Vitamin A in IU the recipe can have. (optional)
+     * @param minVitaminC The minimum amount of Vitamin C in milligrams the recipe must have. (optional)
+     * @param maxVitaminC The maximum amount of Vitamin C in milligrams the recipe can have. (optional)
+     * @param minVitaminD The minimum amount of Vitamin D in micrograms the recipe must have. (optional)
+     * @param maxVitaminD The maximum amount of Vitamin D in micrograms the recipe can have. (optional)
+     * @param minVitaminE The minimum amount of Vitamin E in milligrams the recipe must have. (optional)
+     * @param maxVitaminE The maximum amount of Vitamin E in milligrams the recipe can have. (optional)
+     * @param minVitaminK The minimum amount of Vitamin K in micrograms the recipe must have. (optional)
+     * @param maxVitaminK The maximum amount of Vitamin K in micrograms the recipe can have. (optional)
+     * @param minVitaminB1 The minimum amount of Vitamin B1 in milligrams the recipe must have. (optional)
+     * @param maxVitaminB1 The maximum amount of Vitamin B1 in milligrams the recipe can have. (optional)
+     * @param minVitaminB2 The minimum amount of Vitamin B2 in milligrams the recipe must have. (optional)
+     * @param maxVitaminB2 The maximum amount of Vitamin B2 in milligrams the recipe can have. (optional)
+     * @param minVitaminB5 The minimum amount of Vitamin B5 in milligrams the recipe must have. (optional)
+     * @param maxVitaminB5 The maximum amount of Vitamin B5 in milligrams the recipe can have. (optional)
+     * @param minVitaminB3 The minimum amount of Vitamin B3 in milligrams the recipe must have. (optional)
+     * @param maxVitaminB3 The maximum amount of Vitamin B3 in milligrams the recipe can have. (optional)
+     * @param minVitaminB6 The minimum amount of Vitamin B6 in milligrams the recipe must have. (optional)
+     * @param maxVitaminB6 The maximum amount of Vitamin B6 in milligrams the recipe can have. (optional)
+     * @param minVitaminB12 The minimum amount of Vitamin B12 in micrograms the recipe must have. (optional)
+     * @param maxVitaminB12 The maximum amount of Vitamin B12 in micrograms the recipe can have. (optional)
+     * @param minFiber The minimum amount of fiber in grams the recipe must have. (optional)
+     * @param maxFiber The maximum amount of fiber in grams the recipe can have. (optional)
+     * @param minFolate The minimum amount of folate in micrograms the recipe must have. (optional)
+     * @param maxFolate The maximum amount of folate in micrograms the recipe can have. (optional)
+     * @param minFolicAcid The minimum amount of folic acid in micrograms the recipe must have. (optional)
+     * @param maxFolicAcid The maximum amount of folic acid in micrograms the recipe can have. (optional)
+     * @param minIodine The minimum amount of iodine in micrograms the recipe must have. (optional)
+     * @param maxIodine The maximum amount of iodine in micrograms the recipe can have. (optional)
+     * @param minIron The minimum amount of iron in milligrams the recipe must have. (optional)
+     * @param maxIron The maximum amount of iron in milligrams the recipe can have. (optional)
+     * @param minMagnesium The minimum amount of magnesium in milligrams the recipe must have. (optional)
+     * @param maxMagnesium The maximum amount of magnesium in milligrams the recipe can have. (optional)
+     * @param minManganese The minimum amount of manganese in milligrams the recipe must have. (optional)
+     * @param maxManganese The maximum amount of manganese in milligrams the recipe can have. (optional)
+     * @param minPhosphorus The minimum amount of phosphorus in milligrams the recipe must have. (optional)
+     * @param maxPhosphorus The maximum amount of phosphorus in milligrams the recipe can have. (optional)
+     * @param minPotassium The minimum amount of potassium in milligrams the recipe must have. (optional)
+     * @param maxPotassium The maximum amount of potassium in milligrams the recipe can have. (optional)
+     * @param minSelenium The minimum amount of selenium in micrograms the recipe must have. (optional)
+     * @param maxSelenium The maximum amount of selenium in micrograms the recipe can have. (optional)
+     * @param minSodium The minimum amount of sodium in milligrams the recipe must have. (optional)
+     * @param maxSodium The maximum amount of sodium in milligrams the recipe can have. (optional)
+     * @param minSugar The minimum amount of sugar in grams the recipe must have. (optional)
+     * @param maxSugar The maximum amount of sugar in grams the recipe can have. (optional)
+     * @param minZinc The minimum amount of zinc in milligrams the recipe must have. (optional)
+     * @param maxZinc The maximum amount of zinc in milligrams the recipe can have. (optional)
+     * @param offset The number of results to skip (between 0 and 900). (optional)
+     * @param number The number of expected results (between 1 and 100). (optional)
+     * @param random If true, every request will give you a random set of recipes within the requested limits. (optional)
+     * @param limitLicense Whether the recipes should have an open license that allows display with proper attribution. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Search-Recipes-by-Nutrients">Search Recipes by Nutrients Documentation</a>
+     */
+    public okhttp3.Call searchRecipesByNutrientsCall(BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minFat, BigDecimal maxFat, BigDecimal minAlcohol, BigDecimal maxAlcohol, BigDecimal minCaffeine, BigDecimal maxCaffeine, BigDecimal minCopper, BigDecimal maxCopper, BigDecimal minCalcium, BigDecimal maxCalcium, BigDecimal minCholine, BigDecimal maxCholine, BigDecimal minCholesterol, BigDecimal maxCholesterol, BigDecimal minFluoride, BigDecimal maxFluoride, BigDecimal minSaturatedFat, BigDecimal maxSaturatedFat, BigDecimal minVitaminA, BigDecimal maxVitaminA, BigDecimal minVitaminC, BigDecimal maxVitaminC, BigDecimal minVitaminD, BigDecimal maxVitaminD, BigDecimal minVitaminE, BigDecimal maxVitaminE, BigDecimal minVitaminK, BigDecimal maxVitaminK, BigDecimal minVitaminB1, BigDecimal maxVitaminB1, BigDecimal minVitaminB2, BigDecimal maxVitaminB2, BigDecimal minVitaminB5, BigDecimal maxVitaminB5, BigDecimal minVitaminB3, BigDecimal maxVitaminB3, BigDecimal minVitaminB6, BigDecimal maxVitaminB6, BigDecimal minVitaminB12, BigDecimal maxVitaminB12, BigDecimal minFiber, BigDecimal maxFiber, BigDecimal minFolate, BigDecimal maxFolate, BigDecimal minFolicAcid, BigDecimal maxFolicAcid, BigDecimal minIodine, BigDecimal maxIodine, BigDecimal minIron, BigDecimal maxIron, BigDecimal minMagnesium, BigDecimal maxMagnesium, BigDecimal minManganese, BigDecimal maxManganese, BigDecimal minPhosphorus, BigDecimal maxPhosphorus, BigDecimal minPotassium, BigDecimal maxPotassium, BigDecimal minSelenium, BigDecimal maxSelenium, BigDecimal minSodium, BigDecimal maxSodium, BigDecimal minSugar, BigDecimal maxSugar, BigDecimal minZinc, BigDecimal maxZinc, BigDecimal offset, BigDecimal number, Boolean random, Boolean limitLicense, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = new Object();
+
+        // create path and map variables
+        String localVarPath = "/recipes/findByNutrients";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (minCarbs != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("minCarbs", minCarbs));
+        }
+
+        if (maxCarbs != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxCarbs", maxCarbs));
+        }
+
+        if (minProtein != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("minProtein", minProtein));
+        }
+
+        if (maxProtein != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxProtein", maxProtein));
+        }
+
+        if (minCalories != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("minCalories", minCalories));
+        }
+
+        if (maxCalories != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxCalories", maxCalories));
+        }
+
+        if (minFat != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("minFat", minFat));
+        }
+
+        if (maxFat != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxFat", maxFat));
+        }
+
+        if (minAlcohol != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("minAlcohol", minAlcohol));
+        }
+
+        if (maxAlcohol != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxAlcohol", maxAlcohol));
+        }
+
+        if (minCaffeine != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("minCaffeine", minCaffeine));
+        }
+
+        if (maxCaffeine != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxCaffeine", maxCaffeine));
+        }
+
+        if (minCopper != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("minCopper", minCopper));
+        }
+
+        if (maxCopper != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxCopper", maxCopper));
+        }
+
+        if (minCalcium != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("minCalcium", minCalcium));
+        }
+
+        if (maxCalcium != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxCalcium", maxCalcium));
+        }
+
+        if (minCholine != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("minCholine", minCholine));
+        }
+
+        if (maxCholine != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxCholine", maxCholine));
+        }
+
+        if (minCholesterol != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("minCholesterol", minCholesterol));
+        }
+
+        if (maxCholesterol != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxCholesterol", maxCholesterol));
+        }
+
+        if (minFluoride != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("minFluoride", minFluoride));
+        }
+
+        if (maxFluoride != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxFluoride", maxFluoride));
+        }
+
+        if (minSaturatedFat != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("minSaturatedFat", minSaturatedFat));
+        }
+
+        if (maxSaturatedFat != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxSaturatedFat", maxSaturatedFat));
+        }
+
+        if (minVitaminA != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("minVitaminA", minVitaminA));
+        }
+
+        if (maxVitaminA != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxVitaminA", maxVitaminA));
+        }
+
+        if (minVitaminC != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("minVitaminC", minVitaminC));
+        }
+
+        if (maxVitaminC != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxVitaminC", maxVitaminC));
+        }
+
+        if (minVitaminD != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("minVitaminD", minVitaminD));
+        }
+
+        if (maxVitaminD != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxVitaminD", maxVitaminD));
+        }
+
+        if (minVitaminE != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("minVitaminE", minVitaminE));
+        }
+
+        if (maxVitaminE != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxVitaminE", maxVitaminE));
+        }
+
+        if (minVitaminK != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("minVitaminK", minVitaminK));
+        }
+
+        if (maxVitaminK != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxVitaminK", maxVitaminK));
+        }
+
+        if (minVitaminB1 != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("minVitaminB1", minVitaminB1));
+        }
+
+        if (maxVitaminB1 != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxVitaminB1", maxVitaminB1));
+        }
+
+        if (minVitaminB2 != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("minVitaminB2", minVitaminB2));
+        }
+
+        if (maxVitaminB2 != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxVitaminB2", maxVitaminB2));
+        }
+
+        if (minVitaminB5 != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("minVitaminB5", minVitaminB5));
+        }
+
+        if (maxVitaminB5 != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxVitaminB5", maxVitaminB5));
+        }
+
+        if (minVitaminB3 != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("minVitaminB3", minVitaminB3));
+        }
+
+        if (maxVitaminB3 != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxVitaminB3", maxVitaminB3));
+        }
+
+        if (minVitaminB6 != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("minVitaminB6", minVitaminB6));
+        }
+
+        if (maxVitaminB6 != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxVitaminB6", maxVitaminB6));
+        }
+
+        if (minVitaminB12 != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("minVitaminB12", minVitaminB12));
+        }
+
+        if (maxVitaminB12 != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxVitaminB12", maxVitaminB12));
+        }
+
+        if (minFiber != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("minFiber", minFiber));
+        }
+
+        if (maxFiber != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxFiber", maxFiber));
+        }
+
+        if (minFolate != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("minFolate", minFolate));
+        }
+
+        if (maxFolate != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxFolate", maxFolate));
+        }
+
+        if (minFolicAcid != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("minFolicAcid", minFolicAcid));
+        }
+
+        if (maxFolicAcid != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxFolicAcid", maxFolicAcid));
+        }
+
+        if (minIodine != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("minIodine", minIodine));
+        }
+
+        if (maxIodine != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxIodine", maxIodine));
+        }
+
+        if (minIron != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("minIron", minIron));
+        }
+
+        if (maxIron != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxIron", maxIron));
+        }
+
+        if (minMagnesium != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("minMagnesium", minMagnesium));
+        }
+
+        if (maxMagnesium != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxMagnesium", maxMagnesium));
+        }
+
+        if (minManganese != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("minManganese", minManganese));
+        }
+
+        if (maxManganese != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxManganese", maxManganese));
+        }
+
+        if (minPhosphorus != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("minPhosphorus", minPhosphorus));
+        }
+
+        if (maxPhosphorus != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxPhosphorus", maxPhosphorus));
+        }
+
+        if (minPotassium != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("minPotassium", minPotassium));
+        }
+
+        if (maxPotassium != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxPotassium", maxPotassium));
+        }
+
+        if (minSelenium != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("minSelenium", minSelenium));
+        }
+
+        if (maxSelenium != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxSelenium", maxSelenium));
+        }
+
+        if (minSodium != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("minSodium", minSodium));
+        }
+
+        if (maxSodium != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxSodium", maxSodium));
+        }
+
+        if (minSugar != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("minSugar", minSugar));
+        }
+
+        if (maxSugar != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxSugar", maxSugar));
+        }
+
+        if (minZinc != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("minZinc", minZinc));
+        }
+
+        if (maxZinc != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxZinc", maxZinc));
+        }
+
+        if (offset != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("offset", offset));
+        }
+
+        if (number != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("number", number));
+        }
+
+        if (random != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("random", random));
+        }
+
+        if (limitLicense != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limitLicense", limitLicense));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call searchRecipesByNutrientsValidateBeforeCall(BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minFat, BigDecimal maxFat, BigDecimal minAlcohol, BigDecimal maxAlcohol, BigDecimal minCaffeine, BigDecimal maxCaffeine, BigDecimal minCopper, BigDecimal maxCopper, BigDecimal minCalcium, BigDecimal maxCalcium, BigDecimal minCholine, BigDecimal maxCholine, BigDecimal minCholesterol, BigDecimal maxCholesterol, BigDecimal minFluoride, BigDecimal maxFluoride, BigDecimal minSaturatedFat, BigDecimal maxSaturatedFat, BigDecimal minVitaminA, BigDecimal maxVitaminA, BigDecimal minVitaminC, BigDecimal maxVitaminC, BigDecimal minVitaminD, BigDecimal maxVitaminD, BigDecimal minVitaminE, BigDecimal maxVitaminE, BigDecimal minVitaminK, BigDecimal maxVitaminK, BigDecimal minVitaminB1, BigDecimal maxVitaminB1, BigDecimal minVitaminB2, BigDecimal maxVitaminB2, BigDecimal minVitaminB5, BigDecimal maxVitaminB5, BigDecimal minVitaminB3, BigDecimal maxVitaminB3, BigDecimal minVitaminB6, BigDecimal maxVitaminB6, BigDecimal minVitaminB12, BigDecimal maxVitaminB12, BigDecimal minFiber, BigDecimal maxFiber, BigDecimal minFolate, BigDecimal maxFolate, BigDecimal minFolicAcid, BigDecimal maxFolicAcid, BigDecimal minIodine, BigDecimal maxIodine, BigDecimal minIron, BigDecimal maxIron, BigDecimal minMagnesium, BigDecimal maxMagnesium, BigDecimal minManganese, BigDecimal maxManganese, BigDecimal minPhosphorus, BigDecimal maxPhosphorus, BigDecimal minPotassium, BigDecimal maxPotassium, BigDecimal minSelenium, BigDecimal maxSelenium, BigDecimal minSodium, BigDecimal maxSodium, BigDecimal minSugar, BigDecimal maxSugar, BigDecimal minZinc, BigDecimal maxZinc, BigDecimal offset, BigDecimal number, Boolean random, Boolean limitLicense, final ApiCallback _callback) throws ApiException {
+        
+
+        okhttp3.Call localVarCall = searchRecipesByNutrientsCall(minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, random, limitLicense, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Search Recipes by Nutrients
+     * Find a set of recipes that adhere to the given nutritional limits. You may set limits for macronutrients (calories, protein, fat, and carbohydrate) and/or many micronutrients.
+     * @param minCarbs The minimum amount of carbohydrates in grams the recipe must have. (optional)
+     * @param maxCarbs The maximum amount of carbohydrates in grams the recipe can have. (optional)
+     * @param minProtein The minimum amount of protein in grams the recipe must have. (optional)
+     * @param maxProtein The maximum amount of protein in grams the recipe can have. (optional)
+     * @param minCalories The minimum amount of calories the recipe must have. (optional)
+     * @param maxCalories The maximum amount of calories the recipe can have. (optional)
+     * @param minFat The minimum amount of fat in grams the recipe must have. (optional)
+     * @param maxFat The maximum amount of fat in grams the recipe can have. (optional)
+     * @param minAlcohol The minimum amount of alcohol in grams the recipe must have. (optional)
+     * @param maxAlcohol The maximum amount of alcohol in grams the recipe can have. (optional)
+     * @param minCaffeine The minimum amount of caffeine in milligrams the recipe must have. (optional)
+     * @param maxCaffeine The maximum amount of caffeine in milligrams the recipe can have. (optional)
+     * @param minCopper The minimum amount of copper in milligrams the recipe must have. (optional)
+     * @param maxCopper The maximum amount of copper in milligrams the recipe can have. (optional)
+     * @param minCalcium The minimum amount of calcium in milligrams the recipe must have. (optional)
+     * @param maxCalcium The maximum amount of calcium in milligrams the recipe can have. (optional)
+     * @param minCholine The minimum amount of choline in milligrams the recipe must have. (optional)
+     * @param maxCholine The maximum amount of choline in milligrams the recipe can have. (optional)
+     * @param minCholesterol The minimum amount of cholesterol in milligrams the recipe must have. (optional)
+     * @param maxCholesterol The maximum amount of cholesterol in milligrams the recipe can have. (optional)
+     * @param minFluoride The minimum amount of fluoride in milligrams the recipe must have. (optional)
+     * @param maxFluoride The maximum amount of fluoride in milligrams the recipe can have. (optional)
+     * @param minSaturatedFat The minimum amount of saturated fat in grams the recipe must have. (optional)
+     * @param maxSaturatedFat The maximum amount of saturated fat in grams the recipe can have. (optional)
+     * @param minVitaminA The minimum amount of Vitamin A in IU the recipe must have. (optional)
+     * @param maxVitaminA The maximum amount of Vitamin A in IU the recipe can have. (optional)
+     * @param minVitaminC The minimum amount of Vitamin C in milligrams the recipe must have. (optional)
+     * @param maxVitaminC The maximum amount of Vitamin C in milligrams the recipe can have. (optional)
+     * @param minVitaminD The minimum amount of Vitamin D in micrograms the recipe must have. (optional)
+     * @param maxVitaminD The maximum amount of Vitamin D in micrograms the recipe can have. (optional)
+     * @param minVitaminE The minimum amount of Vitamin E in milligrams the recipe must have. (optional)
+     * @param maxVitaminE The maximum amount of Vitamin E in milligrams the recipe can have. (optional)
+     * @param minVitaminK The minimum amount of Vitamin K in micrograms the recipe must have. (optional)
+     * @param maxVitaminK The maximum amount of Vitamin K in micrograms the recipe can have. (optional)
+     * @param minVitaminB1 The minimum amount of Vitamin B1 in milligrams the recipe must have. (optional)
+     * @param maxVitaminB1 The maximum amount of Vitamin B1 in milligrams the recipe can have. (optional)
+     * @param minVitaminB2 The minimum amount of Vitamin B2 in milligrams the recipe must have. (optional)
+     * @param maxVitaminB2 The maximum amount of Vitamin B2 in milligrams the recipe can have. (optional)
+     * @param minVitaminB5 The minimum amount of Vitamin B5 in milligrams the recipe must have. (optional)
+     * @param maxVitaminB5 The maximum amount of Vitamin B5 in milligrams the recipe can have. (optional)
+     * @param minVitaminB3 The minimum amount of Vitamin B3 in milligrams the recipe must have. (optional)
+     * @param maxVitaminB3 The maximum amount of Vitamin B3 in milligrams the recipe can have. (optional)
+     * @param minVitaminB6 The minimum amount of Vitamin B6 in milligrams the recipe must have. (optional)
+     * @param maxVitaminB6 The maximum amount of Vitamin B6 in milligrams the recipe can have. (optional)
+     * @param minVitaminB12 The minimum amount of Vitamin B12 in micrograms the recipe must have. (optional)
+     * @param maxVitaminB12 The maximum amount of Vitamin B12 in micrograms the recipe can have. (optional)
+     * @param minFiber The minimum amount of fiber in grams the recipe must have. (optional)
+     * @param maxFiber The maximum amount of fiber in grams the recipe can have. (optional)
+     * @param minFolate The minimum amount of folate in micrograms the recipe must have. (optional)
+     * @param maxFolate The maximum amount of folate in micrograms the recipe can have. (optional)
+     * @param minFolicAcid The minimum amount of folic acid in micrograms the recipe must have. (optional)
+     * @param maxFolicAcid The maximum amount of folic acid in micrograms the recipe can have. (optional)
+     * @param minIodine The minimum amount of iodine in micrograms the recipe must have. (optional)
+     * @param maxIodine The maximum amount of iodine in micrograms the recipe can have. (optional)
+     * @param minIron The minimum amount of iron in milligrams the recipe must have. (optional)
+     * @param maxIron The maximum amount of iron in milligrams the recipe can have. (optional)
+     * @param minMagnesium The minimum amount of magnesium in milligrams the recipe must have. (optional)
+     * @param maxMagnesium The maximum amount of magnesium in milligrams the recipe can have. (optional)
+     * @param minManganese The minimum amount of manganese in milligrams the recipe must have. (optional)
+     * @param maxManganese The maximum amount of manganese in milligrams the recipe can have. (optional)
+     * @param minPhosphorus The minimum amount of phosphorus in milligrams the recipe must have. (optional)
+     * @param maxPhosphorus The maximum amount of phosphorus in milligrams the recipe can have. (optional)
+     * @param minPotassium The minimum amount of potassium in milligrams the recipe must have. (optional)
+     * @param maxPotassium The maximum amount of potassium in milligrams the recipe can have. (optional)
+     * @param minSelenium The minimum amount of selenium in micrograms the recipe must have. (optional)
+     * @param maxSelenium The maximum amount of selenium in micrograms the recipe can have. (optional)
+     * @param minSodium The minimum amount of sodium in milligrams the recipe must have. (optional)
+     * @param maxSodium The maximum amount of sodium in milligrams the recipe can have. (optional)
+     * @param minSugar The minimum amount of sugar in grams the recipe must have. (optional)
+     * @param maxSugar The maximum amount of sugar in grams the recipe can have. (optional)
+     * @param minZinc The minimum amount of zinc in milligrams the recipe must have. (optional)
+     * @param maxZinc The maximum amount of zinc in milligrams the recipe can have. (optional)
+     * @param offset The number of results to skip (between 0 and 900). (optional)
+     * @param number The number of expected results (between 1 and 100). (optional)
+     * @param random If true, every request will give you a random set of recipes within the requested limits. (optional)
+     * @param limitLicense Whether the recipes should have an open license that allows display with proper attribution. (optional)
+     * @return Object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Search-Recipes-by-Nutrients">Search Recipes by Nutrients Documentation</a>
+     */
+    public Object searchRecipesByNutrients(BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minFat, BigDecimal maxFat, BigDecimal minAlcohol, BigDecimal maxAlcohol, BigDecimal minCaffeine, BigDecimal maxCaffeine, BigDecimal minCopper, BigDecimal maxCopper, BigDecimal minCalcium, BigDecimal maxCalcium, BigDecimal minCholine, BigDecimal maxCholine, BigDecimal minCholesterol, BigDecimal maxCholesterol, BigDecimal minFluoride, BigDecimal maxFluoride, BigDecimal minSaturatedFat, BigDecimal maxSaturatedFat, BigDecimal minVitaminA, BigDecimal maxVitaminA, BigDecimal minVitaminC, BigDecimal maxVitaminC, BigDecimal minVitaminD, BigDecimal maxVitaminD, BigDecimal minVitaminE, BigDecimal maxVitaminE, BigDecimal minVitaminK, BigDecimal maxVitaminK, BigDecimal minVitaminB1, BigDecimal maxVitaminB1, BigDecimal minVitaminB2, BigDecimal maxVitaminB2, BigDecimal minVitaminB5, BigDecimal maxVitaminB5, BigDecimal minVitaminB3, BigDecimal maxVitaminB3, BigDecimal minVitaminB6, BigDecimal maxVitaminB6, BigDecimal minVitaminB12, BigDecimal maxVitaminB12, BigDecimal minFiber, BigDecimal maxFiber, BigDecimal minFolate, BigDecimal maxFolate, BigDecimal minFolicAcid, BigDecimal maxFolicAcid, BigDecimal minIodine, BigDecimal maxIodine, BigDecimal minIron, BigDecimal maxIron, BigDecimal minMagnesium, BigDecimal maxMagnesium, BigDecimal minManganese, BigDecimal maxManganese, BigDecimal minPhosphorus, BigDecimal maxPhosphorus, BigDecimal minPotassium, BigDecimal maxPotassium, BigDecimal minSelenium, BigDecimal maxSelenium, BigDecimal minSodium, BigDecimal maxSodium, BigDecimal minSugar, BigDecimal maxSugar, BigDecimal minZinc, BigDecimal maxZinc, BigDecimal offset, BigDecimal number, Boolean random, Boolean limitLicense) throws ApiException {
+        ApiResponse<Object> localVarResp = searchRecipesByNutrientsWithHttpInfo(minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, random, limitLicense);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Search Recipes by Nutrients
+     * Find a set of recipes that adhere to the given nutritional limits. You may set limits for macronutrients (calories, protein, fat, and carbohydrate) and/or many micronutrients.
+     * @param minCarbs The minimum amount of carbohydrates in grams the recipe must have. (optional)
+     * @param maxCarbs The maximum amount of carbohydrates in grams the recipe can have. (optional)
+     * @param minProtein The minimum amount of protein in grams the recipe must have. (optional)
+     * @param maxProtein The maximum amount of protein in grams the recipe can have. (optional)
+     * @param minCalories The minimum amount of calories the recipe must have. (optional)
+     * @param maxCalories The maximum amount of calories the recipe can have. (optional)
+     * @param minFat The minimum amount of fat in grams the recipe must have. (optional)
+     * @param maxFat The maximum amount of fat in grams the recipe can have. (optional)
+     * @param minAlcohol The minimum amount of alcohol in grams the recipe must have. (optional)
+     * @param maxAlcohol The maximum amount of alcohol in grams the recipe can have. (optional)
+     * @param minCaffeine The minimum amount of caffeine in milligrams the recipe must have. (optional)
+     * @param maxCaffeine The maximum amount of caffeine in milligrams the recipe can have. (optional)
+     * @param minCopper The minimum amount of copper in milligrams the recipe must have. (optional)
+     * @param maxCopper The maximum amount of copper in milligrams the recipe can have. (optional)
+     * @param minCalcium The minimum amount of calcium in milligrams the recipe must have. (optional)
+     * @param maxCalcium The maximum amount of calcium in milligrams the recipe can have. (optional)
+     * @param minCholine The minimum amount of choline in milligrams the recipe must have. (optional)
+     * @param maxCholine The maximum amount of choline in milligrams the recipe can have. (optional)
+     * @param minCholesterol The minimum amount of cholesterol in milligrams the recipe must have. (optional)
+     * @param maxCholesterol The maximum amount of cholesterol in milligrams the recipe can have. (optional)
+     * @param minFluoride The minimum amount of fluoride in milligrams the recipe must have. (optional)
+     * @param maxFluoride The maximum amount of fluoride in milligrams the recipe can have. (optional)
+     * @param minSaturatedFat The minimum amount of saturated fat in grams the recipe must have. (optional)
+     * @param maxSaturatedFat The maximum amount of saturated fat in grams the recipe can have. (optional)
+     * @param minVitaminA The minimum amount of Vitamin A in IU the recipe must have. (optional)
+     * @param maxVitaminA The maximum amount of Vitamin A in IU the recipe can have. (optional)
+     * @param minVitaminC The minimum amount of Vitamin C in milligrams the recipe must have. (optional)
+     * @param maxVitaminC The maximum amount of Vitamin C in milligrams the recipe can have. (optional)
+     * @param minVitaminD The minimum amount of Vitamin D in micrograms the recipe must have. (optional)
+     * @param maxVitaminD The maximum amount of Vitamin D in micrograms the recipe can have. (optional)
+     * @param minVitaminE The minimum amount of Vitamin E in milligrams the recipe must have. (optional)
+     * @param maxVitaminE The maximum amount of Vitamin E in milligrams the recipe can have. (optional)
+     * @param minVitaminK The minimum amount of Vitamin K in micrograms the recipe must have. (optional)
+     * @param maxVitaminK The maximum amount of Vitamin K in micrograms the recipe can have. (optional)
+     * @param minVitaminB1 The minimum amount of Vitamin B1 in milligrams the recipe must have. (optional)
+     * @param maxVitaminB1 The maximum amount of Vitamin B1 in milligrams the recipe can have. (optional)
+     * @param minVitaminB2 The minimum amount of Vitamin B2 in milligrams the recipe must have. (optional)
+     * @param maxVitaminB2 The maximum amount of Vitamin B2 in milligrams the recipe can have. (optional)
+     * @param minVitaminB5 The minimum amount of Vitamin B5 in milligrams the recipe must have. (optional)
+     * @param maxVitaminB5 The maximum amount of Vitamin B5 in milligrams the recipe can have. (optional)
+     * @param minVitaminB3 The minimum amount of Vitamin B3 in milligrams the recipe must have. (optional)
+     * @param maxVitaminB3 The maximum amount of Vitamin B3 in milligrams the recipe can have. (optional)
+     * @param minVitaminB6 The minimum amount of Vitamin B6 in milligrams the recipe must have. (optional)
+     * @param maxVitaminB6 The maximum amount of Vitamin B6 in milligrams the recipe can have. (optional)
+     * @param minVitaminB12 The minimum amount of Vitamin B12 in micrograms the recipe must have. (optional)
+     * @param maxVitaminB12 The maximum amount of Vitamin B12 in micrograms the recipe can have. (optional)
+     * @param minFiber The minimum amount of fiber in grams the recipe must have. (optional)
+     * @param maxFiber The maximum amount of fiber in grams the recipe can have. (optional)
+     * @param minFolate The minimum amount of folate in micrograms the recipe must have. (optional)
+     * @param maxFolate The maximum amount of folate in micrograms the recipe can have. (optional)
+     * @param minFolicAcid The minimum amount of folic acid in micrograms the recipe must have. (optional)
+     * @param maxFolicAcid The maximum amount of folic acid in micrograms the recipe can have. (optional)
+     * @param minIodine The minimum amount of iodine in micrograms the recipe must have. (optional)
+     * @param maxIodine The maximum amount of iodine in micrograms the recipe can have. (optional)
+     * @param minIron The minimum amount of iron in milligrams the recipe must have. (optional)
+     * @param maxIron The maximum amount of iron in milligrams the recipe can have. (optional)
+     * @param minMagnesium The minimum amount of magnesium in milligrams the recipe must have. (optional)
+     * @param maxMagnesium The maximum amount of magnesium in milligrams the recipe can have. (optional)
+     * @param minManganese The minimum amount of manganese in milligrams the recipe must have. (optional)
+     * @param maxManganese The maximum amount of manganese in milligrams the recipe can have. (optional)
+     * @param minPhosphorus The minimum amount of phosphorus in milligrams the recipe must have. (optional)
+     * @param maxPhosphorus The maximum amount of phosphorus in milligrams the recipe can have. (optional)
+     * @param minPotassium The minimum amount of potassium in milligrams the recipe must have. (optional)
+     * @param maxPotassium The maximum amount of potassium in milligrams the recipe can have. (optional)
+     * @param minSelenium The minimum amount of selenium in micrograms the recipe must have. (optional)
+     * @param maxSelenium The maximum amount of selenium in micrograms the recipe can have. (optional)
+     * @param minSodium The minimum amount of sodium in milligrams the recipe must have. (optional)
+     * @param maxSodium The maximum amount of sodium in milligrams the recipe can have. (optional)
+     * @param minSugar The minimum amount of sugar in grams the recipe must have. (optional)
+     * @param maxSugar The maximum amount of sugar in grams the recipe can have. (optional)
+     * @param minZinc The minimum amount of zinc in milligrams the recipe must have. (optional)
+     * @param maxZinc The maximum amount of zinc in milligrams the recipe can have. (optional)
+     * @param offset The number of results to skip (between 0 and 900). (optional)
+     * @param number The number of expected results (between 1 and 100). (optional)
+     * @param random If true, every request will give you a random set of recipes within the requested limits. (optional)
+     * @param limitLicense Whether the recipes should have an open license that allows display with proper attribution. (optional)
+     * @return ApiResponse&lt;Object&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Search-Recipes-by-Nutrients">Search Recipes by Nutrients Documentation</a>
+     */
+    public ApiResponse<Object> searchRecipesByNutrientsWithHttpInfo(BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minFat, BigDecimal maxFat, BigDecimal minAlcohol, BigDecimal maxAlcohol, BigDecimal minCaffeine, BigDecimal maxCaffeine, BigDecimal minCopper, BigDecimal maxCopper, BigDecimal minCalcium, BigDecimal maxCalcium, BigDecimal minCholine, BigDecimal maxCholine, BigDecimal minCholesterol, BigDecimal maxCholesterol, BigDecimal minFluoride, BigDecimal maxFluoride, BigDecimal minSaturatedFat, BigDecimal maxSaturatedFat, BigDecimal minVitaminA, BigDecimal maxVitaminA, BigDecimal minVitaminC, BigDecimal maxVitaminC, BigDecimal minVitaminD, BigDecimal maxVitaminD, BigDecimal minVitaminE, BigDecimal maxVitaminE, BigDecimal minVitaminK, BigDecimal maxVitaminK, BigDecimal minVitaminB1, BigDecimal maxVitaminB1, BigDecimal minVitaminB2, BigDecimal maxVitaminB2, BigDecimal minVitaminB5, BigDecimal maxVitaminB5, BigDecimal minVitaminB3, BigDecimal maxVitaminB3, BigDecimal minVitaminB6, BigDecimal maxVitaminB6, BigDecimal minVitaminB12, BigDecimal maxVitaminB12, BigDecimal minFiber, BigDecimal maxFiber, BigDecimal minFolate, BigDecimal maxFolate, BigDecimal minFolicAcid, BigDecimal maxFolicAcid, BigDecimal minIodine, BigDecimal maxIodine, BigDecimal minIron, BigDecimal maxIron, BigDecimal minMagnesium, BigDecimal maxMagnesium, BigDecimal minManganese, BigDecimal maxManganese, BigDecimal minPhosphorus, BigDecimal maxPhosphorus, BigDecimal minPotassium, BigDecimal maxPotassium, BigDecimal minSelenium, BigDecimal maxSelenium, BigDecimal minSodium, BigDecimal maxSodium, BigDecimal minSugar, BigDecimal maxSugar, BigDecimal minZinc, BigDecimal maxZinc, BigDecimal offset, BigDecimal number, Boolean random, Boolean limitLicense) throws ApiException {
+        okhttp3.Call localVarCall = searchRecipesByNutrientsValidateBeforeCall(minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, random, limitLicense, null);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Search Recipes by Nutrients (asynchronously)
+     * Find a set of recipes that adhere to the given nutritional limits. You may set limits for macronutrients (calories, protein, fat, and carbohydrate) and/or many micronutrients.
+     * @param minCarbs The minimum amount of carbohydrates in grams the recipe must have. (optional)
+     * @param maxCarbs The maximum amount of carbohydrates in grams the recipe can have. (optional)
+     * @param minProtein The minimum amount of protein in grams the recipe must have. (optional)
+     * @param maxProtein The maximum amount of protein in grams the recipe can have. (optional)
+     * @param minCalories The minimum amount of calories the recipe must have. (optional)
+     * @param maxCalories The maximum amount of calories the recipe can have. (optional)
+     * @param minFat The minimum amount of fat in grams the recipe must have. (optional)
+     * @param maxFat The maximum amount of fat in grams the recipe can have. (optional)
+     * @param minAlcohol The minimum amount of alcohol in grams the recipe must have. (optional)
+     * @param maxAlcohol The maximum amount of alcohol in grams the recipe can have. (optional)
+     * @param minCaffeine The minimum amount of caffeine in milligrams the recipe must have. (optional)
+     * @param maxCaffeine The maximum amount of caffeine in milligrams the recipe can have. (optional)
+     * @param minCopper The minimum amount of copper in milligrams the recipe must have. (optional)
+     * @param maxCopper The maximum amount of copper in milligrams the recipe can have. (optional)
+     * @param minCalcium The minimum amount of calcium in milligrams the recipe must have. (optional)
+     * @param maxCalcium The maximum amount of calcium in milligrams the recipe can have. (optional)
+     * @param minCholine The minimum amount of choline in milligrams the recipe must have. (optional)
+     * @param maxCholine The maximum amount of choline in milligrams the recipe can have. (optional)
+     * @param minCholesterol The minimum amount of cholesterol in milligrams the recipe must have. (optional)
+     * @param maxCholesterol The maximum amount of cholesterol in milligrams the recipe can have. (optional)
+     * @param minFluoride The minimum amount of fluoride in milligrams the recipe must have. (optional)
+     * @param maxFluoride The maximum amount of fluoride in milligrams the recipe can have. (optional)
+     * @param minSaturatedFat The minimum amount of saturated fat in grams the recipe must have. (optional)
+     * @param maxSaturatedFat The maximum amount of saturated fat in grams the recipe can have. (optional)
+     * @param minVitaminA The minimum amount of Vitamin A in IU the recipe must have. (optional)
+     * @param maxVitaminA The maximum amount of Vitamin A in IU the recipe can have. (optional)
+     * @param minVitaminC The minimum amount of Vitamin C in milligrams the recipe must have. (optional)
+     * @param maxVitaminC The maximum amount of Vitamin C in milligrams the recipe can have. (optional)
+     * @param minVitaminD The minimum amount of Vitamin D in micrograms the recipe must have. (optional)
+     * @param maxVitaminD The maximum amount of Vitamin D in micrograms the recipe can have. (optional)
+     * @param minVitaminE The minimum amount of Vitamin E in milligrams the recipe must have. (optional)
+     * @param maxVitaminE The maximum amount of Vitamin E in milligrams the recipe can have. (optional)
+     * @param minVitaminK The minimum amount of Vitamin K in micrograms the recipe must have. (optional)
+     * @param maxVitaminK The maximum amount of Vitamin K in micrograms the recipe can have. (optional)
+     * @param minVitaminB1 The minimum amount of Vitamin B1 in milligrams the recipe must have. (optional)
+     * @param maxVitaminB1 The maximum amount of Vitamin B1 in milligrams the recipe can have. (optional)
+     * @param minVitaminB2 The minimum amount of Vitamin B2 in milligrams the recipe must have. (optional)
+     * @param maxVitaminB2 The maximum amount of Vitamin B2 in milligrams the recipe can have. (optional)
+     * @param minVitaminB5 The minimum amount of Vitamin B5 in milligrams the recipe must have. (optional)
+     * @param maxVitaminB5 The maximum amount of Vitamin B5 in milligrams the recipe can have. (optional)
+     * @param minVitaminB3 The minimum amount of Vitamin B3 in milligrams the recipe must have. (optional)
+     * @param maxVitaminB3 The maximum amount of Vitamin B3 in milligrams the recipe can have. (optional)
+     * @param minVitaminB6 The minimum amount of Vitamin B6 in milligrams the recipe must have. (optional)
+     * @param maxVitaminB6 The maximum amount of Vitamin B6 in milligrams the recipe can have. (optional)
+     * @param minVitaminB12 The minimum amount of Vitamin B12 in micrograms the recipe must have. (optional)
+     * @param maxVitaminB12 The maximum amount of Vitamin B12 in micrograms the recipe can have. (optional)
+     * @param minFiber The minimum amount of fiber in grams the recipe must have. (optional)
+     * @param maxFiber The maximum amount of fiber in grams the recipe can have. (optional)
+     * @param minFolate The minimum amount of folate in micrograms the recipe must have. (optional)
+     * @param maxFolate The maximum amount of folate in micrograms the recipe can have. (optional)
+     * @param minFolicAcid The minimum amount of folic acid in micrograms the recipe must have. (optional)
+     * @param maxFolicAcid The maximum amount of folic acid in micrograms the recipe can have. (optional)
+     * @param minIodine The minimum amount of iodine in micrograms the recipe must have. (optional)
+     * @param maxIodine The maximum amount of iodine in micrograms the recipe can have. (optional)
+     * @param minIron The minimum amount of iron in milligrams the recipe must have. (optional)
+     * @param maxIron The maximum amount of iron in milligrams the recipe can have. (optional)
+     * @param minMagnesium The minimum amount of magnesium in milligrams the recipe must have. (optional)
+     * @param maxMagnesium The maximum amount of magnesium in milligrams the recipe can have. (optional)
+     * @param minManganese The minimum amount of manganese in milligrams the recipe must have. (optional)
+     * @param maxManganese The maximum amount of manganese in milligrams the recipe can have. (optional)
+     * @param minPhosphorus The minimum amount of phosphorus in milligrams the recipe must have. (optional)
+     * @param maxPhosphorus The maximum amount of phosphorus in milligrams the recipe can have. (optional)
+     * @param minPotassium The minimum amount of potassium in milligrams the recipe must have. (optional)
+     * @param maxPotassium The maximum amount of potassium in milligrams the recipe can have. (optional)
+     * @param minSelenium The minimum amount of selenium in micrograms the recipe must have. (optional)
+     * @param maxSelenium The maximum amount of selenium in micrograms the recipe can have. (optional)
+     * @param minSodium The minimum amount of sodium in milligrams the recipe must have. (optional)
+     * @param maxSodium The maximum amount of sodium in milligrams the recipe can have. (optional)
+     * @param minSugar The minimum amount of sugar in grams the recipe must have. (optional)
+     * @param maxSugar The maximum amount of sugar in grams the recipe can have. (optional)
+     * @param minZinc The minimum amount of zinc in milligrams the recipe must have. (optional)
+     * @param maxZinc The maximum amount of zinc in milligrams the recipe can have. (optional)
+     * @param offset The number of results to skip (between 0 and 900). (optional)
+     * @param number The number of expected results (between 1 and 100). (optional)
+     * @param random If true, every request will give you a random set of recipes within the requested limits. (optional)
+     * @param limitLicense Whether the recipes should have an open license that allows display with proper attribution. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Search-Recipes-by-Nutrients">Search Recipes by Nutrients Documentation</a>
+     */
+    public okhttp3.Call searchRecipesByNutrientsAsync(BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minFat, BigDecimal maxFat, BigDecimal minAlcohol, BigDecimal maxAlcohol, BigDecimal minCaffeine, BigDecimal maxCaffeine, BigDecimal minCopper, BigDecimal maxCopper, BigDecimal minCalcium, BigDecimal maxCalcium, BigDecimal minCholine, BigDecimal maxCholine, BigDecimal minCholesterol, BigDecimal maxCholesterol, BigDecimal minFluoride, BigDecimal maxFluoride, BigDecimal minSaturatedFat, BigDecimal maxSaturatedFat, BigDecimal minVitaminA, BigDecimal maxVitaminA, BigDecimal minVitaminC, BigDecimal maxVitaminC, BigDecimal minVitaminD, BigDecimal maxVitaminD, BigDecimal minVitaminE, BigDecimal maxVitaminE, BigDecimal minVitaminK, BigDecimal maxVitaminK, BigDecimal minVitaminB1, BigDecimal maxVitaminB1, BigDecimal minVitaminB2, BigDecimal maxVitaminB2, BigDecimal minVitaminB5, BigDecimal maxVitaminB5, BigDecimal minVitaminB3, BigDecimal maxVitaminB3, BigDecimal minVitaminB6, BigDecimal maxVitaminB6, BigDecimal minVitaminB12, BigDecimal maxVitaminB12, BigDecimal minFiber, BigDecimal maxFiber, BigDecimal minFolate, BigDecimal maxFolate, BigDecimal minFolicAcid, BigDecimal maxFolicAcid, BigDecimal minIodine, BigDecimal maxIodine, BigDecimal minIron, BigDecimal maxIron, BigDecimal minMagnesium, BigDecimal maxMagnesium, BigDecimal minManganese, BigDecimal maxManganese, BigDecimal minPhosphorus, BigDecimal maxPhosphorus, BigDecimal minPotassium, BigDecimal maxPotassium, BigDecimal minSelenium, BigDecimal maxSelenium, BigDecimal minSodium, BigDecimal maxSodium, BigDecimal minSugar, BigDecimal maxSugar, BigDecimal minZinc, BigDecimal maxZinc, BigDecimal offset, BigDecimal number, Boolean random, Boolean limitLicense, final ApiCallback<Object> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = searchRecipesByNutrientsValidateBeforeCall(minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, random, limitLicense, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -8676,8 +9256,7 @@ public class DefaultApi {
     }
     /**
      * Build call for visualizeEquipment
-     * @param ingredientList The ingredient list of the recipe, one ingredient per line. (required)
-     * @param servings The number of servings. (required)
+     * @param instructions The recipe&#39;s instructions. (required)
      * @param view How to visualize the equipment, either \\\&quot;grid\\\&quot; or \\\&quot;list\\\&quot;. (optional)
      * @param defaultCss Whether the default CSS should be added to the response. (optional)
      * @param showBacklink Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)
@@ -8687,7 +9266,7 @@ public class DefaultApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Visualize-Equipment">Visualize Equipment Documentation</a>
      */
-    public okhttp3.Call visualizeEquipmentCall(String ingredientList, BigDecimal servings, String view, Boolean defaultCss, Boolean showBacklink, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call visualizeEquipmentCall(String instructions, String view, Boolean defaultCss, Boolean showBacklink, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = new Object();
 
         // create path and map variables
@@ -8697,12 +9276,8 @@ public class DefaultApi {
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-        if (ingredientList != null) {
-            localVarFormParams.put("ingredientList", ingredientList);
-        }
-
-        if (servings != null) {
-            localVarFormParams.put("servings", servings);
+        if (instructions != null) {
+            localVarFormParams.put("instructions", instructions);
         }
 
         if (view != null) {
@@ -8736,29 +9311,23 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call visualizeEquipmentValidateBeforeCall(String ingredientList, BigDecimal servings, String view, Boolean defaultCss, Boolean showBacklink, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call visualizeEquipmentValidateBeforeCall(String instructions, String view, Boolean defaultCss, Boolean showBacklink, final ApiCallback _callback) throws ApiException {
         
-        // verify the required parameter 'ingredientList' is set
-        if (ingredientList == null) {
-            throw new ApiException("Missing the required parameter 'ingredientList' when calling visualizeEquipment(Async)");
-        }
-        
-        // verify the required parameter 'servings' is set
-        if (servings == null) {
-            throw new ApiException("Missing the required parameter 'servings' when calling visualizeEquipment(Async)");
+        // verify the required parameter 'instructions' is set
+        if (instructions == null) {
+            throw new ApiException("Missing the required parameter 'instructions' when calling visualizeEquipment(Async)");
         }
         
 
-        okhttp3.Call localVarCall = visualizeEquipmentCall(ingredientList, servings, view, defaultCss, showBacklink, _callback);
+        okhttp3.Call localVarCall = visualizeEquipmentCall(instructions, view, defaultCss, showBacklink, _callback);
         return localVarCall;
 
     }
 
     /**
      * Visualize Equipment
-     * Visualize the equipment used to make a recipe.
-     * @param ingredientList The ingredient list of the recipe, one ingredient per line. (required)
-     * @param servings The number of servings. (required)
+     * Visualize the equipment used to make a recipe. You can play around with that endpoint!
+     * @param instructions The recipe&#39;s instructions. (required)
      * @param view How to visualize the equipment, either \\\&quot;grid\\\&quot; or \\\&quot;list\\\&quot;. (optional)
      * @param defaultCss Whether the default CSS should be added to the response. (optional)
      * @param showBacklink Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)
@@ -8767,16 +9336,15 @@ public class DefaultApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Visualize-Equipment">Visualize Equipment Documentation</a>
      */
-    public String visualizeEquipment(String ingredientList, BigDecimal servings, String view, Boolean defaultCss, Boolean showBacklink) throws ApiException {
-        ApiResponse<String> localVarResp = visualizeEquipmentWithHttpInfo(ingredientList, servings, view, defaultCss, showBacklink);
+    public String visualizeEquipment(String instructions, String view, Boolean defaultCss, Boolean showBacklink) throws ApiException {
+        ApiResponse<String> localVarResp = visualizeEquipmentWithHttpInfo(instructions, view, defaultCss, showBacklink);
         return localVarResp.getData();
     }
 
     /**
      * Visualize Equipment
-     * Visualize the equipment used to make a recipe.
-     * @param ingredientList The ingredient list of the recipe, one ingredient per line. (required)
-     * @param servings The number of servings. (required)
+     * Visualize the equipment used to make a recipe. You can play around with that endpoint!
+     * @param instructions The recipe&#39;s instructions. (required)
      * @param view How to visualize the equipment, either \\\&quot;grid\\\&quot; or \\\&quot;list\\\&quot;. (optional)
      * @param defaultCss Whether the default CSS should be added to the response. (optional)
      * @param showBacklink Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)
@@ -8785,17 +9353,16 @@ public class DefaultApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Visualize-Equipment">Visualize Equipment Documentation</a>
      */
-    public ApiResponse<String> visualizeEquipmentWithHttpInfo(String ingredientList, BigDecimal servings, String view, Boolean defaultCss, Boolean showBacklink) throws ApiException {
-        okhttp3.Call localVarCall = visualizeEquipmentValidateBeforeCall(ingredientList, servings, view, defaultCss, showBacklink, null);
+    public ApiResponse<String> visualizeEquipmentWithHttpInfo(String instructions, String view, Boolean defaultCss, Boolean showBacklink) throws ApiException {
+        okhttp3.Call localVarCall = visualizeEquipmentValidateBeforeCall(instructions, view, defaultCss, showBacklink, null);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Visualize Equipment (asynchronously)
-     * Visualize the equipment used to make a recipe.
-     * @param ingredientList The ingredient list of the recipe, one ingredient per line. (required)
-     * @param servings The number of servings. (required)
+     * Visualize the equipment used to make a recipe. You can play around with that endpoint!
+     * @param instructions The recipe&#39;s instructions. (required)
      * @param view How to visualize the equipment, either \\\&quot;grid\\\&quot; or \\\&quot;list\\\&quot;. (optional)
      * @param defaultCss Whether the default CSS should be added to the response. (optional)
      * @param showBacklink Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)
@@ -8805,9 +9372,9 @@ public class DefaultApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Visualize-Equipment">Visualize Equipment Documentation</a>
      */
-    public okhttp3.Call visualizeEquipmentAsync(String ingredientList, BigDecimal servings, String view, Boolean defaultCss, Boolean showBacklink, final ApiCallback<String> _callback) throws ApiException {
+    public okhttp3.Call visualizeEquipmentAsync(String instructions, String view, Boolean defaultCss, Boolean showBacklink, final ApiCallback<String> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = visualizeEquipmentValidateBeforeCall(ingredientList, servings, view, defaultCss, showBacklink, _callback);
+        okhttp3.Call localVarCall = visualizeEquipmentValidateBeforeCall(instructions, view, defaultCss, showBacklink, _callback);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -8899,7 +9466,7 @@ public class DefaultApi {
 
     /**
      * Visualize Ingredients
-     * Visualize ingredients of a recipe.
+     * Visualize ingredients of a recipe. You can play around with that endpoint!
      * @param ingredientList The ingredient list of the recipe, one ingredient per line. (required)
      * @param servings The number of servings. (required)
      * @param measure The original system of measurement, either \\\&quot;metric\\\&quot; or \\\&quot;us\\\&quot;. (optional)
@@ -8918,7 +9485,7 @@ public class DefaultApi {
 
     /**
      * Visualize Ingredients
-     * Visualize ingredients of a recipe.
+     * Visualize ingredients of a recipe. You can play around with that endpoint!
      * @param ingredientList The ingredient list of the recipe, one ingredient per line. (required)
      * @param servings The number of servings. (required)
      * @param measure The original system of measurement, either \\\&quot;metric\\\&quot; or \\\&quot;us\\\&quot;. (optional)
@@ -8938,7 +9505,7 @@ public class DefaultApi {
 
     /**
      * Visualize Ingredients (asynchronously)
-     * Visualize ingredients of a recipe.
+     * Visualize ingredients of a recipe. You can play around with that endpoint!
      * @param ingredientList The ingredient list of the recipe, one ingredient per line. (required)
      * @param servings The number of servings. (required)
      * @param measure The original system of measurement, either \\\&quot;metric\\\&quot; or \\\&quot;us\\\&quot;. (optional)
@@ -9146,7 +9713,7 @@ public class DefaultApi {
 
     /**
      * Visualize Price Breakdown
-     * Visualize the price breakdown of a recipe.
+     * Visualize the price breakdown of a recipe. You can play around with that endpoint!
      * @param ingredientList The ingredient list of the recipe, one ingredient per line. (required)
      * @param servings The number of servings. (required)
      * @param mode The mode in which the widget should be delivered. 1 &#x3D; separate views (compact), 2 &#x3D; all in one view (full). (optional)
@@ -9164,7 +9731,7 @@ public class DefaultApi {
 
     /**
      * Visualize Price Breakdown
-     * Visualize the price breakdown of a recipe.
+     * Visualize the price breakdown of a recipe. You can play around with that endpoint!
      * @param ingredientList The ingredient list of the recipe, one ingredient per line. (required)
      * @param servings The number of servings. (required)
      * @param mode The mode in which the widget should be delivered. 1 &#x3D; separate views (compact), 2 &#x3D; all in one view (full). (optional)
@@ -9183,7 +9750,7 @@ public class DefaultApi {
 
     /**
      * Visualize Price Breakdown (asynchronously)
-     * Visualize the price breakdown of a recipe.
+     * Visualize the price breakdown of a recipe. You can play around with that endpoint!
      * @param ingredientList The ingredient list of the recipe, one ingredient per line. (required)
      * @param servings The number of servings. (required)
      * @param mode The mode in which the widget should be delivered. 1 &#x3D; separate views (compact), 2 &#x3D; all in one view (full). (optional)
@@ -9597,7 +10164,7 @@ public class DefaultApi {
 
     /**
      * Visualize Recipe Nutrition
-     * Visualize a recipe&#39;s nutritional information as HTML including CSS
+     * Visualize a recipe&#39;s nutritional information as HTML including CSS. You can play around with that endpoint!
      * @param ingredientList The ingredient list of the recipe, one ingredient per line. (required)
      * @param servings The number of servings. (required)
      * @param defaultCss Whether the default CSS should be added to the response. (optional)
@@ -9614,7 +10181,7 @@ public class DefaultApi {
 
     /**
      * Visualize Recipe Nutrition
-     * Visualize a recipe&#39;s nutritional information as HTML including CSS
+     * Visualize a recipe&#39;s nutritional information as HTML including CSS. You can play around with that endpoint!
      * @param ingredientList The ingredient list of the recipe, one ingredient per line. (required)
      * @param servings The number of servings. (required)
      * @param defaultCss Whether the default CSS should be added to the response. (optional)
@@ -9632,7 +10199,7 @@ public class DefaultApi {
 
     /**
      * Visualize Recipe Nutrition (asynchronously)
-     * Visualize a recipe&#39;s nutritional information as HTML including CSS
+     * Visualize a recipe&#39;s nutritional information as HTML including CSS. You can play around with that endpoint!
      * @param ingredientList The ingredient list of the recipe, one ingredient per line. (required)
      * @param servings The number of servings. (required)
      * @param defaultCss Whether the default CSS should be added to the response. (optional)
@@ -9858,6 +10425,205 @@ public class DefaultApi {
     public okhttp3.Call visualizeRecipePriceBreakdownByIDAsync(BigDecimal id, Boolean defaultCss, final ApiCallback<String> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = visualizeRecipePriceBreakdownByIDValidateBeforeCall(id, defaultCss, _callback);
+        Type localVarReturnType = new TypeToken<String>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for visualizeRecipeTaste
+     * @param ingredientList The ingredient list of the recipe, one ingredient per line. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Visualize-Recipe-Taste">Visualize Recipe Taste Documentation</a>
+     */
+    public okhttp3.Call visualizeRecipeTasteCall(String ingredientList, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = new Object();
+
+        // create path and map variables
+        String localVarPath = "/recipes/visualizeTaste";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (ingredientList != null) {
+            localVarFormParams.put("ingredientList", ingredientList);
+        }
+
+        final String[] localVarAccepts = {
+            "text/html"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/x-www-form-urlencoded"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call visualizeRecipeTasteValidateBeforeCall(String ingredientList, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'ingredientList' is set
+        if (ingredientList == null) {
+            throw new ApiException("Missing the required parameter 'ingredientList' when calling visualizeRecipeTaste(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = visualizeRecipeTasteCall(ingredientList, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Visualize Recipe Taste
+     * Visualize a recipe&#39;s taste information as HTML including CSS. You can play around with that endpoint!
+     * @param ingredientList The ingredient list of the recipe, one ingredient per line. (required)
+     * @return String
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Visualize-Recipe-Taste">Visualize Recipe Taste Documentation</a>
+     */
+    public String visualizeRecipeTaste(String ingredientList) throws ApiException {
+        ApiResponse<String> localVarResp = visualizeRecipeTasteWithHttpInfo(ingredientList);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Visualize Recipe Taste
+     * Visualize a recipe&#39;s taste information as HTML including CSS. You can play around with that endpoint!
+     * @param ingredientList The ingredient list of the recipe, one ingredient per line. (required)
+     * @return ApiResponse&lt;String&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Visualize-Recipe-Taste">Visualize Recipe Taste Documentation</a>
+     */
+    public ApiResponse<String> visualizeRecipeTasteWithHttpInfo(String ingredientList) throws ApiException {
+        okhttp3.Call localVarCall = visualizeRecipeTasteValidateBeforeCall(ingredientList, null);
+        Type localVarReturnType = new TypeToken<String>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Visualize Recipe Taste (asynchronously)
+     * Visualize a recipe&#39;s taste information as HTML including CSS. You can play around with that endpoint!
+     * @param ingredientList The ingredient list of the recipe, one ingredient per line. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Visualize-Recipe-Taste">Visualize Recipe Taste Documentation</a>
+     */
+    public okhttp3.Call visualizeRecipeTasteAsync(String ingredientList, final ApiCallback<String> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = visualizeRecipeTasteValidateBeforeCall(ingredientList, _callback);
+        Type localVarReturnType = new TypeToken<String>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for visualizeRecipeTasteByID
+     * @param id The recipe id. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Visualize-Recipe-Taste-by-ID">Visualize Recipe Taste by ID Documentation</a>
+     */
+    public okhttp3.Call visualizeRecipeTasteByIDCall(BigDecimal id, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = new Object();
+
+        // create path and map variables
+        String localVarPath = "/recipes/{id}/tasteWidget"
+            .replaceAll("\\{" + "id" + "\\}", localVarApiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "text/html"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call visualizeRecipeTasteByIDValidateBeforeCall(BigDecimal id, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling visualizeRecipeTasteByID(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = visualizeRecipeTasteByIDCall(id, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Visualize Recipe Taste by ID
+     * Get a recipe&#39;s taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
+     * @param id The recipe id. (required)
+     * @return String
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Visualize-Recipe-Taste-by-ID">Visualize Recipe Taste by ID Documentation</a>
+     */
+    public String visualizeRecipeTasteByID(BigDecimal id) throws ApiException {
+        ApiResponse<String> localVarResp = visualizeRecipeTasteByIDWithHttpInfo(id);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Visualize Recipe Taste by ID
+     * Get a recipe&#39;s taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
+     * @param id The recipe id. (required)
+     * @return ApiResponse&lt;String&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Visualize-Recipe-Taste-by-ID">Visualize Recipe Taste by ID Documentation</a>
+     */
+    public ApiResponse<String> visualizeRecipeTasteByIDWithHttpInfo(BigDecimal id) throws ApiException {
+        okhttp3.Call localVarCall = visualizeRecipeTasteByIDValidateBeforeCall(id, null);
+        Type localVarReturnType = new TypeToken<String>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Visualize Recipe Taste by ID (asynchronously)
+     * Get a recipe&#39;s taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
+     * @param id The recipe id. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Visualize-Recipe-Taste-by-ID">Visualize Recipe Taste by ID Documentation</a>
+     */
+    public okhttp3.Call visualizeRecipeTasteByIDAsync(BigDecimal id, final ApiCallback<String> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = visualizeRecipeTasteByIDValidateBeforeCall(id, _callback);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

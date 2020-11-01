@@ -22,11 +22,8 @@
 
 @interface OAIInlineObject5 : OAIObject
 
-/* The title of the recipe. 
+/* The instructions to be analyzed. 
  */
-@property(nonatomic) NSString* title;
-/* The ingredient list of the recipe, one ingredient per line (separate lines with \\n). 
- */
-@property(nonatomic) NSString* ingredientList;
+@property(nonatomic) NSString* instructions;
 
 @end

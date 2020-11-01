@@ -32,74 +32,44 @@ class InlineObject9(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'username': 'str',
-        'hash': 'str'
+        'locale': 'str'
     }
 
     attribute_map = {
-        'username': 'username',
-        'hash': 'hash'
+        'locale': 'locale'
     }
 
-    def __init__(self, username=None, hash=None):  # noqa: E501
+    def __init__(self, locale=None):  # noqa: E501
         """InlineObject9 - a model defined in OpenAPI"""  # noqa: E501
 
-        self._username = None
-        self._hash = None
+        self._locale = None
         self.discriminator = None
 
-        self.username = username
-        self.hash = hash
+        if locale is not None:
+            self.locale = locale
 
     @property
-    def username(self):
-        """Gets the username of this InlineObject9.  # noqa: E501
+    def locale(self):
+        """Gets the locale of this InlineObject9.  # noqa: E501
 
-        The username.  # noqa: E501
+        The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).  # noqa: E501
 
-        :return: The username of this InlineObject9.  # noqa: E501
+        :return: The locale of this InlineObject9.  # noqa: E501
         :rtype: str
         """
-        return self._username
+        return self._locale
 
-    @username.setter
-    def username(self, username):
-        """Sets the username of this InlineObject9.
+    @locale.setter
+    def locale(self, locale):
+        """Sets the locale of this InlineObject9.
 
-        The username.  # noqa: E501
+        The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).  # noqa: E501
 
-        :param username: The username of this InlineObject9.  # noqa: E501
+        :param locale: The locale of this InlineObject9.  # noqa: E501
         :type: str
         """
-        if username is None:
-            raise ValueError("Invalid value for `username`, must not be `None`")  # noqa: E501
 
-        self._username = username
-
-    @property
-    def hash(self):
-        """Gets the hash of this InlineObject9.  # noqa: E501
-
-        The private hash for the username.  # noqa: E501
-
-        :return: The hash of this InlineObject9.  # noqa: E501
-        :rtype: str
-        """
-        return self._hash
-
-    @hash.setter
-    def hash(self, hash):
-        """Sets the hash of this InlineObject9.
-
-        The private hash for the username.  # noqa: E501
-
-        :param hash: The hash of this InlineObject9.  # noqa: E501
-        :type: str
-        """
-        if hash is None:
-            raise ValueError("Invalid value for `hash`, must not be `None`")  # noqa: E501
-
-        self._hash = hash
+        self._locale = locale
 
     def to_dict(self):
         """Returns the model properties as a dict"""

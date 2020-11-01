@@ -67,6 +67,9 @@ import qualified Prelude as P
 -- * Parameter newtypes
 
 
+-- ** AddChildren
+newtype AddChildren = AddChildren { unAddChildren :: Bool } deriving (P.Eq, P.Show)
+
 -- ** AddRecipeInformation
 newtype AddRecipeInformation = AddRecipeInformation { unAddRecipeInformation :: Bool } deriving (P.Eq, P.Show)
 
@@ -172,9 +175,6 @@ newtype InstructionsRequired = InstructionsRequired { unInstructionsRequired :: 
 -- ** Intolerances
 newtype Intolerances = Intolerances { unIntolerances :: Text } deriving (P.Eq, P.Show)
 
--- ** IntolerancesBool
-newtype IntolerancesBool = IntolerancesBool { unIntolerancesBool :: Bool } deriving (P.Eq, P.Show)
-
 -- ** LimitLicense
 newtype LimitLicense = LimitLicense { unLimitLicense :: Bool } deriving (P.Eq, P.Show)
 
@@ -199,6 +199,9 @@ newtype MaxCalories = MaxCalories { unMaxCalories :: Double } deriving (P.Eq, P.
 -- ** MaxCarbs
 newtype MaxCarbs = MaxCarbs { unMaxCarbs :: Double } deriving (P.Eq, P.Show)
 
+-- ** MaxCarbsPercent
+newtype MaxCarbsPercent = MaxCarbsPercent { unMaxCarbsPercent :: Double } deriving (P.Eq, P.Show)
+
 -- ** MaxCholesterol
 newtype MaxCholesterol = MaxCholesterol { unMaxCholesterol :: Double } deriving (P.Eq, P.Show)
 
@@ -210,6 +213,9 @@ newtype MaxCopper = MaxCopper { unMaxCopper :: Double } deriving (P.Eq, P.Show)
 
 -- ** MaxFat
 newtype MaxFat = MaxFat { unMaxFat :: Double } deriving (P.Eq, P.Show)
+
+-- ** MaxFatPercent
+newtype MaxFatPercent = MaxFatPercent { unMaxFatPercent :: Double } deriving (P.Eq, P.Show)
 
 -- ** MaxFiber
 newtype MaxFiber = MaxFiber { unMaxFiber :: Double } deriving (P.Eq, P.Show)
@@ -249,6 +255,9 @@ newtype MaxPrice = MaxPrice { unMaxPrice :: Double } deriving (P.Eq, P.Show)
 
 -- ** MaxProtein
 newtype MaxProtein = MaxProtein { unMaxProtein :: Double } deriving (P.Eq, P.Show)
+
+-- ** MaxProteinPercent
+newtype MaxProteinPercent = MaxProteinPercent { unMaxProteinPercent :: Double } deriving (P.Eq, P.Show)
 
 -- ** MaxReadyTime
 newtype MaxReadyTime = MaxReadyTime { unMaxReadyTime :: Double } deriving (P.Eq, P.Show)
@@ -322,6 +331,9 @@ newtype MinCalories = MinCalories { unMinCalories :: Double } deriving (P.Eq, P.
 -- ** MinCarbs
 newtype MinCarbs = MinCarbs { unMinCarbs :: Double } deriving (P.Eq, P.Show)
 
+-- ** MinCarbsPercent
+newtype MinCarbsPercent = MinCarbsPercent { unMinCarbsPercent :: Double } deriving (P.Eq, P.Show)
+
 -- ** MinCholesterol
 newtype MinCholesterol = MinCholesterol { unMinCholesterol :: Double } deriving (P.Eq, P.Show)
 
@@ -333,6 +345,9 @@ newtype MinCopper = MinCopper { unMinCopper :: Double } deriving (P.Eq, P.Show)
 
 -- ** MinFat
 newtype MinFat = MinFat { unMinFat :: Double } deriving (P.Eq, P.Show)
+
+-- ** MinFatPercent
+newtype MinFatPercent = MinFatPercent { unMinFatPercent :: Double } deriving (P.Eq, P.Show)
 
 -- ** MinFiber
 newtype MinFiber = MinFiber { unMinFiber :: Double } deriving (P.Eq, P.Show)
@@ -369,6 +384,9 @@ newtype MinPotassium = MinPotassium { unMinPotassium :: Double } deriving (P.Eq,
 
 -- ** MinProtein
 newtype MinProtein = MinProtein { unMinProtein :: Double } deriving (P.Eq, P.Show)
+
+-- ** MinProteinPercent
+newtype MinProteinPercent = MinProteinPercent { unMinProteinPercent :: Double } deriving (P.Eq, P.Show)
 
 -- ** MinRating
 newtype MinRating = MinRating { unMinRating :: Double } deriving (P.Eq, P.Show)
@@ -429,6 +447,9 @@ newtype Number = Number { unNumber :: Double } deriving (P.Eq, P.Show)
 
 -- ** Offset
 newtype Offset = Offset { unOffset :: Double } deriving (P.Eq, P.Show)
+
+-- ** ParamDate
+newtype ParamDate = ParamDate { unParamDate :: Text } deriving (P.Eq, P.Show)
 
 -- ** ParamText
 newtype ParamText = ParamText { unParamText :: Text } deriving (P.Eq, P.Show)
@@ -524,9 +545,6 @@ newtype Wine = Wine { unWine :: Text } deriving (P.Eq, P.Show)
 -- | InlineObject
 data InlineObject = InlineObject
   { inlineObjectIngredientList :: !(Text) -- ^ /Required/ "ingredientList" - The ingredient list of the recipe, one ingredient per line.
-  , inlineObjectServings :: !(Double) -- ^ /Required/ "servings" - The number of servings.
-  , inlineObjectDefaultCss :: !(Maybe Bool) -- ^ "defaultCss" - Whether the default CSS should be added to the response.
-  , inlineObjectShowBacklink :: !(Maybe Bool) -- ^ "showBacklink" - Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON InlineObject
@@ -534,32 +552,22 @@ instance A.FromJSON InlineObject where
   parseJSON = A.withObject "InlineObject" $ \o ->
     InlineObject
       <$> (o .:  "ingredientList")
-      <*> (o .:  "servings")
-      <*> (o .:? "defaultCss")
-      <*> (o .:? "showBacklink")
 
 -- | ToJSON InlineObject
 instance A.ToJSON InlineObject where
   toJSON InlineObject {..} =
    _omitNulls
       [ "ingredientList" .= inlineObjectIngredientList
-      , "servings" .= inlineObjectServings
-      , "defaultCss" .= inlineObjectDefaultCss
-      , "showBacklink" .= inlineObjectShowBacklink
       ]
 
 
 -- | Construct a value of type 'InlineObject' (by applying it's required fields, if any)
 mkInlineObject
   :: Text -- ^ 'inlineObjectIngredientList': The ingredient list of the recipe, one ingredient per line.
-  -> Double -- ^ 'inlineObjectServings': The number of servings.
   -> InlineObject
-mkInlineObject inlineObjectIngredientList inlineObjectServings =
+mkInlineObject inlineObjectIngredientList =
   InlineObject
   { inlineObjectIngredientList
-  , inlineObjectServings
-  , inlineObjectDefaultCss = Nothing
-  , inlineObjectShowBacklink = Nothing
   }
 
 -- ** InlineObject1
@@ -567,7 +575,6 @@ mkInlineObject inlineObjectIngredientList inlineObjectServings =
 data InlineObject1 = InlineObject1
   { inlineObject1IngredientList :: !(Text) -- ^ /Required/ "ingredientList" - The ingredient list of the recipe, one ingredient per line.
   , inlineObject1Servings :: !(Double) -- ^ /Required/ "servings" - The number of servings.
-  , inlineObject1Mode :: !(Maybe Double) -- ^ "mode" - The mode in which the widget should be delivered. 1 &#x3D; separate views (compact), 2 &#x3D; all in one view (full).
   , inlineObject1DefaultCss :: !(Maybe Bool) -- ^ "defaultCss" - Whether the default CSS should be added to the response.
   , inlineObject1ShowBacklink :: !(Maybe Bool) -- ^ "showBacklink" - Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
   } deriving (P.Show, P.Eq, P.Typeable)
@@ -578,7 +585,6 @@ instance A.FromJSON InlineObject1 where
     InlineObject1
       <$> (o .:  "ingredientList")
       <*> (o .:  "servings")
-      <*> (o .:? "mode")
       <*> (o .:? "defaultCss")
       <*> (o .:? "showBacklink")
 
@@ -588,7 +594,6 @@ instance A.ToJSON InlineObject1 where
    _omitNulls
       [ "ingredientList" .= inlineObject1IngredientList
       , "servings" .= inlineObject1Servings
-      , "mode" .= inlineObject1Mode
       , "defaultCss" .= inlineObject1DefaultCss
       , "showBacklink" .= inlineObject1ShowBacklink
       ]
@@ -603,7 +608,6 @@ mkInlineObject1 inlineObject1IngredientList inlineObject1Servings =
   InlineObject1
   { inlineObject1IngredientList
   , inlineObject1Servings
-  , inlineObject1Mode = Nothing
   , inlineObject1DefaultCss = Nothing
   , inlineObject1ShowBacklink = Nothing
   }
@@ -612,7 +616,7 @@ mkInlineObject1 inlineObject1IngredientList inlineObject1Servings =
 -- | InlineObject10
 data InlineObject10 = InlineObject10
   { inlineObject10Username :: !(Text) -- ^ /Required/ "username" - The username.
-  , inlineObject10Id :: !(Double) -- ^ /Required/ "id" - The shopping list item id.
+  , inlineObject10Date :: !(Text) -- ^ /Required/ "date" - The date in the format yyyy-mm-dd.
   , inlineObject10Hash :: !(Text) -- ^ /Required/ "hash" - The private hash for the username.
   } deriving (P.Show, P.Eq, P.Typeable)
 
@@ -621,7 +625,7 @@ instance A.FromJSON InlineObject10 where
   parseJSON = A.withObject "InlineObject10" $ \o ->
     InlineObject10
       <$> (o .:  "username")
-      <*> (o .:  "id")
+      <*> (o .:  "date")
       <*> (o .:  "hash")
 
 -- | ToJSON InlineObject10
@@ -629,7 +633,7 @@ instance A.ToJSON InlineObject10 where
   toJSON InlineObject10 {..} =
    _omitNulls
       [ "username" .= inlineObject10Username
-      , "id" .= inlineObject10Id
+      , "date" .= inlineObject10Date
       , "hash" .= inlineObject10Hash
       ]
 
@@ -637,13 +641,13 @@ instance A.ToJSON InlineObject10 where
 -- | Construct a value of type 'InlineObject10' (by applying it's required fields, if any)
 mkInlineObject10
   :: Text -- ^ 'inlineObject10Username': The username.
-  -> Double -- ^ 'inlineObject10Id': The shopping list item id.
+  -> Text -- ^ 'inlineObject10Date': The date in the format yyyy-mm-dd.
   -> Text -- ^ 'inlineObject10Hash': The private hash for the username.
   -> InlineObject10
-mkInlineObject10 inlineObject10Username inlineObject10Id inlineObject10Hash =
+mkInlineObject10 inlineObject10Username inlineObject10Date inlineObject10Hash =
   InlineObject10
   { inlineObject10Username
-  , inlineObject10Id
+  , inlineObject10Date
   , inlineObject10Hash
   }
 
@@ -651,8 +655,6 @@ mkInlineObject10 inlineObject10Username inlineObject10Id inlineObject10Hash =
 -- | InlineObject11
 data InlineObject11 = InlineObject11
   { inlineObject11Username :: !(Text) -- ^ /Required/ "username" - The username.
-  , inlineObject11StartDate :: !(Text) -- ^ /Required/ "start-date" - The start date in the format yyyy-mm-dd.
-  , inlineObject11EndDate :: !(Text) -- ^ /Required/ "end-date" - The end date in the format yyyy-mm-dd.
   , inlineObject11Hash :: !(Text) -- ^ /Required/ "hash" - The private hash for the username.
   } deriving (P.Show, P.Eq, P.Typeable)
 
@@ -661,8 +663,6 @@ instance A.FromJSON InlineObject11 where
   parseJSON = A.withObject "InlineObject11" $ \o ->
     InlineObject11
       <$> (o .:  "username")
-      <*> (o .:  "start-date")
-      <*> (o .:  "end-date")
       <*> (o .:  "hash")
 
 -- | ToJSON InlineObject11
@@ -670,8 +670,6 @@ instance A.ToJSON InlineObject11 where
   toJSON InlineObject11 {..} =
    _omitNulls
       [ "username" .= inlineObject11Username
-      , "start-date" .= inlineObject11StartDate
-      , "end-date" .= inlineObject11EndDate
       , "hash" .= inlineObject11Hash
       ]
 
@@ -679,15 +677,11 @@ instance A.ToJSON InlineObject11 where
 -- | Construct a value of type 'InlineObject11' (by applying it's required fields, if any)
 mkInlineObject11
   :: Text -- ^ 'inlineObject11Username': The username.
-  -> Text -- ^ 'inlineObject11StartDate': The start date in the format yyyy-mm-dd.
-  -> Text -- ^ 'inlineObject11EndDate': The end date in the format yyyy-mm-dd.
   -> Text -- ^ 'inlineObject11Hash': The private hash for the username.
   -> InlineObject11
-mkInlineObject11 inlineObject11Username inlineObject11StartDate inlineObject11EndDate inlineObject11Hash =
+mkInlineObject11 inlineObject11Username inlineObject11Hash =
   InlineObject11
   { inlineObject11Username
-  , inlineObject11StartDate
-  , inlineObject11EndDate
   , inlineObject11Hash
   }
 
@@ -695,6 +689,7 @@ mkInlineObject11 inlineObject11Username inlineObject11StartDate inlineObject11En
 -- | InlineObject12
 data InlineObject12 = InlineObject12
   { inlineObject12Username :: !(Text) -- ^ /Required/ "username" - The username.
+  , inlineObject12Id :: !(Double) -- ^ /Required/ "id" - The shopping list item id.
   , inlineObject12Hash :: !(Text) -- ^ /Required/ "hash" - The private hash for the username.
   } deriving (P.Show, P.Eq, P.Typeable)
 
@@ -703,6 +698,7 @@ instance A.FromJSON InlineObject12 where
   parseJSON = A.withObject "InlineObject12" $ \o ->
     InlineObject12
       <$> (o .:  "username")
+      <*> (o .:  "id")
       <*> (o .:  "hash")
 
 -- | ToJSON InlineObject12
@@ -710,6 +706,7 @@ instance A.ToJSON InlineObject12 where
   toJSON InlineObject12 {..} =
    _omitNulls
       [ "username" .= inlineObject12Username
+      , "id" .= inlineObject12Id
       , "hash" .= inlineObject12Hash
       ]
 
@@ -717,11 +714,13 @@ instance A.ToJSON InlineObject12 where
 -- | Construct a value of type 'InlineObject12' (by applying it's required fields, if any)
 mkInlineObject12
   :: Text -- ^ 'inlineObject12Username': The username.
+  -> Double -- ^ 'inlineObject12Id': The shopping list item id.
   -> Text -- ^ 'inlineObject12Hash': The private hash for the username.
   -> InlineObject12
-mkInlineObject12 inlineObject12Username inlineObject12Hash =
+mkInlineObject12 inlineObject12Username inlineObject12Id inlineObject12Hash =
   InlineObject12
   { inlineObject12Username
+  , inlineObject12Id
   , inlineObject12Hash
   }
 
@@ -729,7 +728,8 @@ mkInlineObject12 inlineObject12Username inlineObject12Hash =
 -- | InlineObject13
 data InlineObject13 = InlineObject13
   { inlineObject13Username :: !(Text) -- ^ /Required/ "username" - The username.
-  , inlineObject13Id :: !(Double) -- ^ /Required/ "id" - The shopping list item id.
+  , inlineObject13StartDate :: !(Text) -- ^ /Required/ "start-date" - The start date in the format yyyy-mm-dd.
+  , inlineObject13EndDate :: !(Text) -- ^ /Required/ "end-date" - The end date in the format yyyy-mm-dd.
   , inlineObject13Hash :: !(Text) -- ^ /Required/ "hash" - The private hash for the username.
   } deriving (P.Show, P.Eq, P.Typeable)
 
@@ -738,7 +738,8 @@ instance A.FromJSON InlineObject13 where
   parseJSON = A.withObject "InlineObject13" $ \o ->
     InlineObject13
       <$> (o .:  "username")
-      <*> (o .:  "id")
+      <*> (o .:  "start-date")
+      <*> (o .:  "end-date")
       <*> (o .:  "hash")
 
 -- | ToJSON InlineObject13
@@ -746,7 +747,8 @@ instance A.ToJSON InlineObject13 where
   toJSON InlineObject13 {..} =
    _omitNulls
       [ "username" .= inlineObject13Username
-      , "id" .= inlineObject13Id
+      , "start-date" .= inlineObject13StartDate
+      , "end-date" .= inlineObject13EndDate
       , "hash" .= inlineObject13Hash
       ]
 
@@ -754,43 +756,118 @@ instance A.ToJSON InlineObject13 where
 -- | Construct a value of type 'InlineObject13' (by applying it's required fields, if any)
 mkInlineObject13
   :: Text -- ^ 'inlineObject13Username': The username.
-  -> Double -- ^ 'inlineObject13Id': The shopping list item id.
+  -> Text -- ^ 'inlineObject13StartDate': The start date in the format yyyy-mm-dd.
+  -> Text -- ^ 'inlineObject13EndDate': The end date in the format yyyy-mm-dd.
   -> Text -- ^ 'inlineObject13Hash': The private hash for the username.
   -> InlineObject13
-mkInlineObject13 inlineObject13Username inlineObject13Id inlineObject13Hash =
+mkInlineObject13 inlineObject13Username inlineObject13StartDate inlineObject13EndDate inlineObject13Hash =
   InlineObject13
   { inlineObject13Username
-  , inlineObject13Id
+  , inlineObject13StartDate
+  , inlineObject13EndDate
   , inlineObject13Hash
   }
 
 -- ** InlineObject14
 -- | InlineObject14
 data InlineObject14 = InlineObject14
-  { inlineObject14Text :: !(Text) -- ^ /Required/ "text" - The text in which food items, such as dish names and ingredients, should be detected in.
+  { inlineObject14Username :: !(Text) -- ^ /Required/ "username" - The username.
+  , inlineObject14Hash :: !(Text) -- ^ /Required/ "hash" - The private hash for the username.
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON InlineObject14
 instance A.FromJSON InlineObject14 where
   parseJSON = A.withObject "InlineObject14" $ \o ->
     InlineObject14
-      <$> (o .:  "text")
+      <$> (o .:  "username")
+      <*> (o .:  "hash")
 
 -- | ToJSON InlineObject14
 instance A.ToJSON InlineObject14 where
   toJSON InlineObject14 {..} =
    _omitNulls
-      [ "text" .= inlineObject14Text
+      [ "username" .= inlineObject14Username
+      , "hash" .= inlineObject14Hash
       ]
 
 
 -- | Construct a value of type 'InlineObject14' (by applying it's required fields, if any)
 mkInlineObject14
-  :: Text -- ^ 'inlineObject14Text': The text in which food items, such as dish names and ingredients, should be detected in.
+  :: Text -- ^ 'inlineObject14Username': The username.
+  -> Text -- ^ 'inlineObject14Hash': The private hash for the username.
   -> InlineObject14
-mkInlineObject14 inlineObject14Text =
+mkInlineObject14 inlineObject14Username inlineObject14Hash =
   InlineObject14
-  { inlineObject14Text
+  { inlineObject14Username
+  , inlineObject14Hash
+  }
+
+-- ** InlineObject15
+-- | InlineObject15
+data InlineObject15 = InlineObject15
+  { inlineObject15Username :: !(Text) -- ^ /Required/ "username" - The username.
+  , inlineObject15Id :: !(Double) -- ^ /Required/ "id" - The shopping list item id.
+  , inlineObject15Hash :: !(Text) -- ^ /Required/ "hash" - The private hash for the username.
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON InlineObject15
+instance A.FromJSON InlineObject15 where
+  parseJSON = A.withObject "InlineObject15" $ \o ->
+    InlineObject15
+      <$> (o .:  "username")
+      <*> (o .:  "id")
+      <*> (o .:  "hash")
+
+-- | ToJSON InlineObject15
+instance A.ToJSON InlineObject15 where
+  toJSON InlineObject15 {..} =
+   _omitNulls
+      [ "username" .= inlineObject15Username
+      , "id" .= inlineObject15Id
+      , "hash" .= inlineObject15Hash
+      ]
+
+
+-- | Construct a value of type 'InlineObject15' (by applying it's required fields, if any)
+mkInlineObject15
+  :: Text -- ^ 'inlineObject15Username': The username.
+  -> Double -- ^ 'inlineObject15Id': The shopping list item id.
+  -> Text -- ^ 'inlineObject15Hash': The private hash for the username.
+  -> InlineObject15
+mkInlineObject15 inlineObject15Username inlineObject15Id inlineObject15Hash =
+  InlineObject15
+  { inlineObject15Username
+  , inlineObject15Id
+  , inlineObject15Hash
+  }
+
+-- ** InlineObject16
+-- | InlineObject16
+data InlineObject16 = InlineObject16
+  { inlineObject16Text :: !(Text) -- ^ /Required/ "text" - The text in which food items, such as dish names and ingredients, should be detected in.
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON InlineObject16
+instance A.FromJSON InlineObject16 where
+  parseJSON = A.withObject "InlineObject16" $ \o ->
+    InlineObject16
+      <$> (o .:  "text")
+
+-- | ToJSON InlineObject16
+instance A.ToJSON InlineObject16 where
+  toJSON InlineObject16 {..} =
+   _omitNulls
+      [ "text" .= inlineObject16Text
+      ]
+
+
+-- | Construct a value of type 'InlineObject16' (by applying it's required fields, if any)
+mkInlineObject16
+  :: Text -- ^ 'inlineObject16Text': The text in which food items, such as dish names and ingredients, should be detected in.
+  -> InlineObject16
+mkInlineObject16 inlineObject16Text =
+  InlineObject16
+  { inlineObject16Text
   }
 
 -- ** InlineObject2
@@ -798,7 +875,7 @@ mkInlineObject14 inlineObject14Text =
 data InlineObject2 = InlineObject2
   { inlineObject2IngredientList :: !(Text) -- ^ /Required/ "ingredientList" - The ingredient list of the recipe, one ingredient per line.
   , inlineObject2Servings :: !(Double) -- ^ /Required/ "servings" - The number of servings.
-  , inlineObject2View :: !(Maybe Text) -- ^ "view" - How to visualize the equipment, either \&quot;grid\&quot; or \&quot;list\&quot;.
+  , inlineObject2Mode :: !(Maybe Double) -- ^ "mode" - The mode in which the widget should be delivered. 1 &#x3D; separate views (compact), 2 &#x3D; all in one view (full).
   , inlineObject2DefaultCss :: !(Maybe Bool) -- ^ "defaultCss" - Whether the default CSS should be added to the response.
   , inlineObject2ShowBacklink :: !(Maybe Bool) -- ^ "showBacklink" - Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
   } deriving (P.Show, P.Eq, P.Typeable)
@@ -809,7 +886,7 @@ instance A.FromJSON InlineObject2 where
     InlineObject2
       <$> (o .:  "ingredientList")
       <*> (o .:  "servings")
-      <*> (o .:? "view")
+      <*> (o .:? "mode")
       <*> (o .:? "defaultCss")
       <*> (o .:? "showBacklink")
 
@@ -819,7 +896,7 @@ instance A.ToJSON InlineObject2 where
    _omitNulls
       [ "ingredientList" .= inlineObject2IngredientList
       , "servings" .= inlineObject2Servings
-      , "view" .= inlineObject2View
+      , "mode" .= inlineObject2Mode
       , "defaultCss" .= inlineObject2DefaultCss
       , "showBacklink" .= inlineObject2ShowBacklink
       ]
@@ -834,7 +911,7 @@ mkInlineObject2 inlineObject2IngredientList inlineObject2Servings =
   InlineObject2
   { inlineObject2IngredientList
   , inlineObject2Servings
-  , inlineObject2View = Nothing
+  , inlineObject2Mode = Nothing
   , inlineObject2DefaultCss = Nothing
   , inlineObject2ShowBacklink = Nothing
   }
@@ -842,24 +919,65 @@ mkInlineObject2 inlineObject2IngredientList inlineObject2Servings =
 -- ** InlineObject3
 -- | InlineObject3
 data InlineObject3 = InlineObject3
-  { inlineObject3Title :: !(Text) -- ^ /Required/ "title" - The title of the recipe.
-  , inlineObject3Image :: !(FilePath) -- ^ /Required/ "image" - The binary image of the recipe as jpg.
-  , inlineObject3Ingredients :: !(Text) -- ^ /Required/ "ingredients" - The ingredient list of the recipe, one ingredient per line (separate lines with \\n).
-  , inlineObject3Instructions :: !(Text) -- ^ /Required/ "instructions" - The instructions to make the recipe. One step per line (separate lines with \\n).
-  , inlineObject3ReadyInMinutes :: !(Double) -- ^ /Required/ "readyInMinutes" - The number of minutes it takes to get the recipe on the table.
-  , inlineObject3Servings :: !(Double) -- ^ /Required/ "servings" - The number of servings the recipe makes.
-  , inlineObject3Mask :: !(Text) -- ^ /Required/ "mask" - The mask to put over the recipe image (\&quot;ellipseMask\&quot;, \&quot;diamondMask\&quot;, \&quot;starMask\&quot;, \&quot;heartMask\&quot;, \&quot;potMask\&quot;, \&quot;fishMask\&quot;).
-  , inlineObject3BackgroundImage :: !(Text) -- ^ /Required/ "backgroundImage" - The background image (\&quot;none\&quot;,\&quot;background1\&quot;, or \&quot;background2\&quot;).
-  , inlineObject3Author :: !(Maybe Text) -- ^ "author" - The author of the recipe.
-  , inlineObject3BackgroundColor :: !(Maybe Text) -- ^ "backgroundColor" - The background color for the recipe card as a hex-string.
-  , inlineObject3FontColor :: !(Maybe Text) -- ^ "fontColor" - The font color for the recipe card as a hex-string.
-  , inlineObject3Source :: !(Maybe Text) -- ^ "source" - The source of the recipe.
+  { inlineObject3Instructions :: !(Text) -- ^ /Required/ "instructions" - The recipe&#39;s instructions.
+  , inlineObject3View :: !(Maybe Text) -- ^ "view" - How to visualize the equipment, either \&quot;grid\&quot; or \&quot;list\&quot;.
+  , inlineObject3DefaultCss :: !(Maybe Bool) -- ^ "defaultCss" - Whether the default CSS should be added to the response.
+  , inlineObject3ShowBacklink :: !(Maybe Bool) -- ^ "showBacklink" - Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON InlineObject3
 instance A.FromJSON InlineObject3 where
   parseJSON = A.withObject "InlineObject3" $ \o ->
     InlineObject3
+      <$> (o .:  "instructions")
+      <*> (o .:? "view")
+      <*> (o .:? "defaultCss")
+      <*> (o .:? "showBacklink")
+
+-- | ToJSON InlineObject3
+instance A.ToJSON InlineObject3 where
+  toJSON InlineObject3 {..} =
+   _omitNulls
+      [ "instructions" .= inlineObject3Instructions
+      , "view" .= inlineObject3View
+      , "defaultCss" .= inlineObject3DefaultCss
+      , "showBacklink" .= inlineObject3ShowBacklink
+      ]
+
+
+-- | Construct a value of type 'InlineObject3' (by applying it's required fields, if any)
+mkInlineObject3
+  :: Text -- ^ 'inlineObject3Instructions': The recipe's instructions.
+  -> InlineObject3
+mkInlineObject3 inlineObject3Instructions =
+  InlineObject3
+  { inlineObject3Instructions
+  , inlineObject3View = Nothing
+  , inlineObject3DefaultCss = Nothing
+  , inlineObject3ShowBacklink = Nothing
+  }
+
+-- ** InlineObject4
+-- | InlineObject4
+data InlineObject4 = InlineObject4
+  { inlineObject4Title :: !(Text) -- ^ /Required/ "title" - The title of the recipe.
+  , inlineObject4Image :: !(FilePath) -- ^ /Required/ "image" - The binary image of the recipe as jpg.
+  , inlineObject4Ingredients :: !(Text) -- ^ /Required/ "ingredients" - The ingredient list of the recipe, one ingredient per line (separate lines with \\n).
+  , inlineObject4Instructions :: !(Text) -- ^ /Required/ "instructions" - The instructions to make the recipe. One step per line (separate lines with \\n).
+  , inlineObject4ReadyInMinutes :: !(Double) -- ^ /Required/ "readyInMinutes" - The number of minutes it takes to get the recipe on the table.
+  , inlineObject4Servings :: !(Double) -- ^ /Required/ "servings" - The number of servings the recipe makes.
+  , inlineObject4Mask :: !(Text) -- ^ /Required/ "mask" - The mask to put over the recipe image (\&quot;ellipseMask\&quot;, \&quot;diamondMask\&quot;, \&quot;starMask\&quot;, \&quot;heartMask\&quot;, \&quot;potMask\&quot;, \&quot;fishMask\&quot;).
+  , inlineObject4BackgroundImage :: !(Text) -- ^ /Required/ "backgroundImage" - The background image (\&quot;none\&quot;,\&quot;background1\&quot;, or \&quot;background2\&quot;).
+  , inlineObject4Author :: !(Maybe Text) -- ^ "author" - The author of the recipe.
+  , inlineObject4BackgroundColor :: !(Maybe Text) -- ^ "backgroundColor" - The background color for the recipe card as a hex-string.
+  , inlineObject4FontColor :: !(Maybe Text) -- ^ "fontColor" - The font color for the recipe card as a hex-string.
+  , inlineObject4Source :: !(Maybe Text) -- ^ "source" - The source of the recipe.
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON InlineObject4
+instance A.FromJSON InlineObject4 where
+  parseJSON = A.withObject "InlineObject4" $ \o ->
+    InlineObject4
       <$> (o .:  "title")
       <*> (o .:  "image")
       <*> (o .:  "ingredients")
@@ -873,162 +991,121 @@ instance A.FromJSON InlineObject3 where
       <*> (o .:? "fontColor")
       <*> (o .:? "source")
 
--- | ToJSON InlineObject3
-instance A.ToJSON InlineObject3 where
-  toJSON InlineObject3 {..} =
-   _omitNulls
-      [ "title" .= inlineObject3Title
-      , "image" .= inlineObject3Image
-      , "ingredients" .= inlineObject3Ingredients
-      , "instructions" .= inlineObject3Instructions
-      , "readyInMinutes" .= inlineObject3ReadyInMinutes
-      , "servings" .= inlineObject3Servings
-      , "mask" .= inlineObject3Mask
-      , "backgroundImage" .= inlineObject3BackgroundImage
-      , "author" .= inlineObject3Author
-      , "backgroundColor" .= inlineObject3BackgroundColor
-      , "fontColor" .= inlineObject3FontColor
-      , "source" .= inlineObject3Source
-      ]
-
-
--- | Construct a value of type 'InlineObject3' (by applying it's required fields, if any)
-mkInlineObject3
-  :: Text -- ^ 'inlineObject3Title': The title of the recipe.
-  -> FilePath -- ^ 'inlineObject3Image': The binary image of the recipe as jpg.
-  -> Text -- ^ 'inlineObject3Ingredients': The ingredient list of the recipe, one ingredient per line (separate lines with \\n).
-  -> Text -- ^ 'inlineObject3Instructions': The instructions to make the recipe. One step per line (separate lines with \\n).
-  -> Double -- ^ 'inlineObject3ReadyInMinutes': The number of minutes it takes to get the recipe on the table.
-  -> Double -- ^ 'inlineObject3Servings': The number of servings the recipe makes.
-  -> Text -- ^ 'inlineObject3Mask': The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\").
-  -> Text -- ^ 'inlineObject3BackgroundImage': The background image (\"none\",\"background1\", or \"background2\").
-  -> InlineObject3
-mkInlineObject3 inlineObject3Title inlineObject3Image inlineObject3Ingredients inlineObject3Instructions inlineObject3ReadyInMinutes inlineObject3Servings inlineObject3Mask inlineObject3BackgroundImage =
-  InlineObject3
-  { inlineObject3Title
-  , inlineObject3Image
-  , inlineObject3Ingredients
-  , inlineObject3Instructions
-  , inlineObject3ReadyInMinutes
-  , inlineObject3Servings
-  , inlineObject3Mask
-  , inlineObject3BackgroundImage
-  , inlineObject3Author = Nothing
-  , inlineObject3BackgroundColor = Nothing
-  , inlineObject3FontColor = Nothing
-  , inlineObject3Source = Nothing
-  }
-
--- ** InlineObject4
--- | InlineObject4
-data InlineObject4 = InlineObject4
-  { inlineObject4Instructions :: !(Text) -- ^ /Required/ "instructions" - The instructions to be analyzed.
-  } deriving (P.Show, P.Eq, P.Typeable)
-
--- | FromJSON InlineObject4
-instance A.FromJSON InlineObject4 where
-  parseJSON = A.withObject "InlineObject4" $ \o ->
-    InlineObject4
-      <$> (o .:  "instructions")
-
 -- | ToJSON InlineObject4
 instance A.ToJSON InlineObject4 where
   toJSON InlineObject4 {..} =
    _omitNulls
-      [ "instructions" .= inlineObject4Instructions
+      [ "title" .= inlineObject4Title
+      , "image" .= inlineObject4Image
+      , "ingredients" .= inlineObject4Ingredients
+      , "instructions" .= inlineObject4Instructions
+      , "readyInMinutes" .= inlineObject4ReadyInMinutes
+      , "servings" .= inlineObject4Servings
+      , "mask" .= inlineObject4Mask
+      , "backgroundImage" .= inlineObject4BackgroundImage
+      , "author" .= inlineObject4Author
+      , "backgroundColor" .= inlineObject4BackgroundColor
+      , "fontColor" .= inlineObject4FontColor
+      , "source" .= inlineObject4Source
       ]
 
 
 -- | Construct a value of type 'InlineObject4' (by applying it's required fields, if any)
 mkInlineObject4
-  :: Text -- ^ 'inlineObject4Instructions': The instructions to be analyzed.
+  :: Text -- ^ 'inlineObject4Title': The title of the recipe.
+  -> FilePath -- ^ 'inlineObject4Image': The binary image of the recipe as jpg.
+  -> Text -- ^ 'inlineObject4Ingredients': The ingredient list of the recipe, one ingredient per line (separate lines with \\n).
+  -> Text -- ^ 'inlineObject4Instructions': The instructions to make the recipe. One step per line (separate lines with \\n).
+  -> Double -- ^ 'inlineObject4ReadyInMinutes': The number of minutes it takes to get the recipe on the table.
+  -> Double -- ^ 'inlineObject4Servings': The number of servings the recipe makes.
+  -> Text -- ^ 'inlineObject4Mask': The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\").
+  -> Text -- ^ 'inlineObject4BackgroundImage': The background image (\"none\",\"background1\", or \"background2\").
   -> InlineObject4
-mkInlineObject4 inlineObject4Instructions =
+mkInlineObject4 inlineObject4Title inlineObject4Image inlineObject4Ingredients inlineObject4Instructions inlineObject4ReadyInMinutes inlineObject4Servings inlineObject4Mask inlineObject4BackgroundImage =
   InlineObject4
-  { inlineObject4Instructions
+  { inlineObject4Title
+  , inlineObject4Image
+  , inlineObject4Ingredients
+  , inlineObject4Instructions
+  , inlineObject4ReadyInMinutes
+  , inlineObject4Servings
+  , inlineObject4Mask
+  , inlineObject4BackgroundImage
+  , inlineObject4Author = Nothing
+  , inlineObject4BackgroundColor = Nothing
+  , inlineObject4FontColor = Nothing
+  , inlineObject4Source = Nothing
   }
 
 -- ** InlineObject5
 -- | InlineObject5
 data InlineObject5 = InlineObject5
-  { inlineObject5Title :: !(Text) -- ^ /Required/ "title" - The title of the recipe.
-  , inlineObject5IngredientList :: !(Text) -- ^ /Required/ "ingredientList" - The ingredient list of the recipe, one ingredient per line (separate lines with \\n).
+  { inlineObject5Instructions :: !(Text) -- ^ /Required/ "instructions" - The instructions to be analyzed.
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON InlineObject5
 instance A.FromJSON InlineObject5 where
   parseJSON = A.withObject "InlineObject5" $ \o ->
     InlineObject5
-      <$> (o .:  "title")
-      <*> (o .:  "ingredientList")
+      <$> (o .:  "instructions")
 
 -- | ToJSON InlineObject5
 instance A.ToJSON InlineObject5 where
   toJSON InlineObject5 {..} =
    _omitNulls
-      [ "title" .= inlineObject5Title
-      , "ingredientList" .= inlineObject5IngredientList
+      [ "instructions" .= inlineObject5Instructions
       ]
 
 
 -- | Construct a value of type 'InlineObject5' (by applying it's required fields, if any)
 mkInlineObject5
-  :: Text -- ^ 'inlineObject5Title': The title of the recipe.
-  -> Text -- ^ 'inlineObject5IngredientList': The ingredient list of the recipe, one ingredient per line (separate lines with \\n).
+  :: Text -- ^ 'inlineObject5Instructions': The instructions to be analyzed.
   -> InlineObject5
-mkInlineObject5 inlineObject5Title inlineObject5IngredientList =
+mkInlineObject5 inlineObject5Instructions =
   InlineObject5
-  { inlineObject5Title
-  , inlineObject5IngredientList
+  { inlineObject5Instructions
   }
 
 -- ** InlineObject6
 -- | InlineObject6
 data InlineObject6 = InlineObject6
-  { inlineObject6IngredientList :: !(Text) -- ^ /Required/ "ingredientList" - The ingredient list of the recipe, one ingredient per line.
-  , inlineObject6Servings :: !(Double) -- ^ /Required/ "servings" - The number of servings that you can make from the ingredients.
-  , inlineObject6IncludeNutrition :: !(Maybe Bool) -- ^ "includeNutrition" - Whether nutrition data should be added to correctly parsed ingredients.
+  { inlineObject6Title :: !(Text) -- ^ /Required/ "title" - The title of the recipe.
+  , inlineObject6IngredientList :: !(Text) -- ^ /Required/ "ingredientList" - The ingredient list of the recipe, one ingredient per line (separate lines with \\n).
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON InlineObject6
 instance A.FromJSON InlineObject6 where
   parseJSON = A.withObject "InlineObject6" $ \o ->
     InlineObject6
-      <$> (o .:  "ingredientList")
-      <*> (o .:  "servings")
-      <*> (o .:? "includeNutrition")
+      <$> (o .:  "title")
+      <*> (o .:  "ingredientList")
 
 -- | ToJSON InlineObject6
 instance A.ToJSON InlineObject6 where
   toJSON InlineObject6 {..} =
    _omitNulls
-      [ "ingredientList" .= inlineObject6IngredientList
-      , "servings" .= inlineObject6Servings
-      , "includeNutrition" .= inlineObject6IncludeNutrition
+      [ "title" .= inlineObject6Title
+      , "ingredientList" .= inlineObject6IngredientList
       ]
 
 
 -- | Construct a value of type 'InlineObject6' (by applying it's required fields, if any)
 mkInlineObject6
-  :: Text -- ^ 'inlineObject6IngredientList': The ingredient list of the recipe, one ingredient per line.
-  -> Double -- ^ 'inlineObject6Servings': The number of servings that you can make from the ingredients.
+  :: Text -- ^ 'inlineObject6Title': The title of the recipe.
+  -> Text -- ^ 'inlineObject6IngredientList': The ingredient list of the recipe, one ingredient per line (separate lines with \\n).
   -> InlineObject6
-mkInlineObject6 inlineObject6IngredientList inlineObject6Servings =
+mkInlineObject6 inlineObject6Title inlineObject6IngredientList =
   InlineObject6
-  { inlineObject6IngredientList
-  , inlineObject6Servings
-  , inlineObject6IncludeNutrition = Nothing
+  { inlineObject6Title
+  , inlineObject6IngredientList
   }
 
 -- ** InlineObject7
 -- | InlineObject7
 data InlineObject7 = InlineObject7
   { inlineObject7IngredientList :: !(Text) -- ^ /Required/ "ingredientList" - The ingredient list of the recipe, one ingredient per line.
-  , inlineObject7Servings :: !(Double) -- ^ /Required/ "servings" - The number of servings.
-  , inlineObject7Measure :: !(Maybe Text) -- ^ "measure" - The original system of measurement, either \&quot;metric\&quot; or \&quot;us\&quot;.
-  , inlineObject7View :: !(Maybe Text) -- ^ "view" - How to visualize the ingredients, either \&quot;grid\&quot; or \&quot;list\&quot;.
-  , inlineObject7DefaultCss :: !(Maybe Bool) -- ^ "defaultCss" - Whether the default CSS should be added to the response.
-  , inlineObject7ShowBacklink :: !(Maybe Bool) -- ^ "showBacklink" - Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
+  , inlineObject7Servings :: !(Double) -- ^ /Required/ "servings" - The number of servings that you can make from the ingredients.
+  , inlineObject7IncludeNutrition :: !(Maybe Bool) -- ^ "includeNutrition" - Whether nutrition data should be added to correctly parsed ingredients.
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON InlineObject7
@@ -1037,10 +1114,7 @@ instance A.FromJSON InlineObject7 where
     InlineObject7
       <$> (o .:  "ingredientList")
       <*> (o .:  "servings")
-      <*> (o .:? "measure")
-      <*> (o .:? "view")
-      <*> (o .:? "defaultCss")
-      <*> (o .:? "showBacklink")
+      <*> (o .:? "includeNutrition")
 
 -- | ToJSON InlineObject7
 instance A.ToJSON InlineObject7 where
@@ -1048,88 +1122,98 @@ instance A.ToJSON InlineObject7 where
    _omitNulls
       [ "ingredientList" .= inlineObject7IngredientList
       , "servings" .= inlineObject7Servings
-      , "measure" .= inlineObject7Measure
-      , "view" .= inlineObject7View
-      , "defaultCss" .= inlineObject7DefaultCss
-      , "showBacklink" .= inlineObject7ShowBacklink
+      , "includeNutrition" .= inlineObject7IncludeNutrition
       ]
 
 
 -- | Construct a value of type 'InlineObject7' (by applying it's required fields, if any)
 mkInlineObject7
   :: Text -- ^ 'inlineObject7IngredientList': The ingredient list of the recipe, one ingredient per line.
-  -> Double -- ^ 'inlineObject7Servings': The number of servings.
+  -> Double -- ^ 'inlineObject7Servings': The number of servings that you can make from the ingredients.
   -> InlineObject7
 mkInlineObject7 inlineObject7IngredientList inlineObject7Servings =
   InlineObject7
   { inlineObject7IngredientList
   , inlineObject7Servings
-  , inlineObject7Measure = Nothing
-  , inlineObject7View = Nothing
-  , inlineObject7DefaultCss = Nothing
-  , inlineObject7ShowBacklink = Nothing
+  , inlineObject7IncludeNutrition = Nothing
   }
 
 -- ** InlineObject8
 -- | InlineObject8
 data InlineObject8 = InlineObject8
-  { inlineObject8Locale :: !(Maybe Text) -- ^ "locale" - The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).
+  { inlineObject8IngredientList :: !(Text) -- ^ /Required/ "ingredientList" - The ingredient list of the recipe, one ingredient per line.
+  , inlineObject8Servings :: !(Double) -- ^ /Required/ "servings" - The number of servings.
+  , inlineObject8Measure :: !(Maybe Text) -- ^ "measure" - The original system of measurement, either \&quot;metric\&quot; or \&quot;us\&quot;.
+  , inlineObject8View :: !(Maybe Text) -- ^ "view" - How to visualize the ingredients, either \&quot;grid\&quot; or \&quot;list\&quot;.
+  , inlineObject8DefaultCss :: !(Maybe Bool) -- ^ "defaultCss" - Whether the default CSS should be added to the response.
+  , inlineObject8ShowBacklink :: !(Maybe Bool) -- ^ "showBacklink" - Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON InlineObject8
 instance A.FromJSON InlineObject8 where
   parseJSON = A.withObject "InlineObject8" $ \o ->
     InlineObject8
-      <$> (o .:? "locale")
+      <$> (o .:  "ingredientList")
+      <*> (o .:  "servings")
+      <*> (o .:? "measure")
+      <*> (o .:? "view")
+      <*> (o .:? "defaultCss")
+      <*> (o .:? "showBacklink")
 
 -- | ToJSON InlineObject8
 instance A.ToJSON InlineObject8 where
   toJSON InlineObject8 {..} =
    _omitNulls
-      [ "locale" .= inlineObject8Locale
+      [ "ingredientList" .= inlineObject8IngredientList
+      , "servings" .= inlineObject8Servings
+      , "measure" .= inlineObject8Measure
+      , "view" .= inlineObject8View
+      , "defaultCss" .= inlineObject8DefaultCss
+      , "showBacklink" .= inlineObject8ShowBacklink
       ]
 
 
 -- | Construct a value of type 'InlineObject8' (by applying it's required fields, if any)
 mkInlineObject8
-  :: InlineObject8
-mkInlineObject8 =
+  :: Text -- ^ 'inlineObject8IngredientList': The ingredient list of the recipe, one ingredient per line.
+  -> Double -- ^ 'inlineObject8Servings': The number of servings.
+  -> InlineObject8
+mkInlineObject8 inlineObject8IngredientList inlineObject8Servings =
   InlineObject8
-  { inlineObject8Locale = Nothing
+  { inlineObject8IngredientList
+  , inlineObject8Servings
+  , inlineObject8Measure = Nothing
+  , inlineObject8View = Nothing
+  , inlineObject8DefaultCss = Nothing
+  , inlineObject8ShowBacklink = Nothing
   }
 
 -- ** InlineObject9
 -- | InlineObject9
 data InlineObject9 = InlineObject9
-  { inlineObject9Username :: !(Text) -- ^ /Required/ "username" - The username.
-  , inlineObject9Hash :: !(Text) -- ^ /Required/ "hash" - The private hash for the username.
+  { inlineObject9Locale :: !(Maybe Text) -- ^ "locale" - The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON InlineObject9
 instance A.FromJSON InlineObject9 where
   parseJSON = A.withObject "InlineObject9" $ \o ->
     InlineObject9
-      <$> (o .:  "username")
-      <*> (o .:  "hash")
+      <$> (o .:? "locale")
 
 -- | ToJSON InlineObject9
 instance A.ToJSON InlineObject9 where
   toJSON InlineObject9 {..} =
    _omitNulls
-      [ "username" .= inlineObject9Username
-      , "hash" .= inlineObject9Hash
+      [ "locale" .= inlineObject9Locale
       ]
 
 
 -- | Construct a value of type 'InlineObject9' (by applying it's required fields, if any)
 mkInlineObject9
-  :: Text -- ^ 'inlineObject9Username': The username.
-  -> Text -- ^ 'inlineObject9Hash': The private hash for the username.
-  -> InlineObject9
-mkInlineObject9 inlineObject9Username inlineObject9Hash =
+  :: InlineObject9
+mkInlineObject9 =
   InlineObject9
-  { inlineObject9Username
-  , inlineObject9Hash
+  { inlineObject9Locale = Nothing
   }
 
 

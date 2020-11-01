@@ -13,10 +13,4 @@ package spoonacular
 type InlineObject struct {
 	// The ingredient list of the recipe, one ingredient per line.
 	IngredientList string `json:"ingredientList"`
-	// The number of servings.
-	Servings float32 `json:"servings"`
-	// Whether the default CSS should be added to the response.
-	DefaultCss bool `json:"defaultCss,omitempty"`
-	// Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
-	ShowBacklink bool `json:"showBacklink,omitempty"`
 }

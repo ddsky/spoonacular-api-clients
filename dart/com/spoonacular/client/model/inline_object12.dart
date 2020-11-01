@@ -3,13 +3,15 @@ part of openapi.api;
 class InlineObject12 {
   /* The username. */
   String username = null;
+  /* The shopping list item id. */
+  num id = null;
   /* The private hash for the username. */
   String hash = null;
   InlineObject12();
 
   @override
   String toString() {
-    return 'InlineObject12[username=$username, hash=$hash, ]';
+    return 'InlineObject12[username=$username, id=$id, hash=$hash, ]';
   }
 
   InlineObject12.fromJson(Map<String, dynamic> json) {
@@ -18,6 +20,11 @@ class InlineObject12 {
       username = null;
     } else {
           username = json['username'];
+    }
+    if (json['id'] == null) {
+      id = null;
+    } else {
+          id = json['id'];
     }
     if (json['hash'] == null) {
       hash = null;
@@ -30,6 +37,8 @@ class InlineObject12 {
     Map <String, dynamic> json = {};
     if (username != null)
       json['username'] = username;
+    if (id != null)
+      json['id'] = id;
     if (hash != null)
       json['hash'] = hash;
     return json;

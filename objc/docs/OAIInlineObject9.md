@@ -3,8 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**username** | **NSString*** | The username. | 
-**hash** | **NSString*** | The private hash for the username. | 
+**locale** | **NSString*** | The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

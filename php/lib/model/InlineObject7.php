@@ -59,10 +59,7 @@ class InlineObject7 implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'ingredient_list' => 'string',
         'servings' => 'float',
-        'measure' => 'string',
-        'view' => 'string',
-        'default_css' => 'bool',
-        'show_backlink' => 'bool'
+        'include_nutrition' => 'bool'
     ];
 
     /**
@@ -73,10 +70,7 @@ class InlineObject7 implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'ingredient_list' => null,
         'servings' => null,
-        'measure' => null,
-        'view' => null,
-        'default_css' => null,
-        'show_backlink' => null
+        'include_nutrition' => null
     ];
 
     /**
@@ -108,10 +102,7 @@ class InlineObject7 implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'ingredient_list' => 'ingredientList',
         'servings' => 'servings',
-        'measure' => 'measure',
-        'view' => 'view',
-        'default_css' => 'defaultCss',
-        'show_backlink' => 'showBacklink'
+        'include_nutrition' => 'includeNutrition'
     ];
 
     /**
@@ -122,10 +113,7 @@ class InlineObject7 implements ModelInterface, ArrayAccess
     protected static $setters = [
         'ingredient_list' => 'setIngredientList',
         'servings' => 'setServings',
-        'measure' => 'setMeasure',
-        'view' => 'setView',
-        'default_css' => 'setDefaultCss',
-        'show_backlink' => 'setShowBacklink'
+        'include_nutrition' => 'setIncludeNutrition'
     ];
 
     /**
@@ -136,10 +124,7 @@ class InlineObject7 implements ModelInterface, ArrayAccess
     protected static $getters = [
         'ingredient_list' => 'getIngredientList',
         'servings' => 'getServings',
-        'measure' => 'getMeasure',
-        'view' => 'getView',
-        'default_css' => 'getDefaultCss',
-        'show_backlink' => 'getShowBacklink'
+        'include_nutrition' => 'getIncludeNutrition'
     ];
 
     /**
@@ -204,10 +189,7 @@ class InlineObject7 implements ModelInterface, ArrayAccess
     {
         $this->container['ingredient_list'] = isset($data['ingredient_list']) ? $data['ingredient_list'] : null;
         $this->container['servings'] = isset($data['servings']) ? $data['servings'] : null;
-        $this->container['measure'] = isset($data['measure']) ? $data['measure'] : null;
-        $this->container['view'] = isset($data['view']) ? $data['view'] : null;
-        $this->container['default_css'] = isset($data['default_css']) ? $data['default_css'] : null;
-        $this->container['show_backlink'] = isset($data['show_backlink']) ? $data['show_backlink'] : null;
+        $this->container['include_nutrition'] = isset($data['include_nutrition']) ? $data['include_nutrition'] : null;
     }
 
     /**
@@ -277,7 +259,7 @@ class InlineObject7 implements ModelInterface, ArrayAccess
     /**
      * Sets servings
      *
-     * @param float $servings The number of servings.
+     * @param float $servings The number of servings that you can make from the ingredients.
      *
      * @return $this
      */
@@ -289,97 +271,25 @@ class InlineObject7 implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets measure
-     *
-     * @return string|null
-     */
-    public function getMeasure()
-    {
-        return $this->container['measure'];
-    }
-
-    /**
-     * Sets measure
-     *
-     * @param string|null $measure The original system of measurement, either \"metric\" or \"us\".
-     *
-     * @return $this
-     */
-    public function setMeasure($measure)
-    {
-        $this->container['measure'] = $measure;
-
-        return $this;
-    }
-
-    /**
-     * Gets view
-     *
-     * @return string|null
-     */
-    public function getView()
-    {
-        return $this->container['view'];
-    }
-
-    /**
-     * Sets view
-     *
-     * @param string|null $view How to visualize the ingredients, either \"grid\" or \"list\".
-     *
-     * @return $this
-     */
-    public function setView($view)
-    {
-        $this->container['view'] = $view;
-
-        return $this;
-    }
-
-    /**
-     * Gets default_css
+     * Gets include_nutrition
      *
      * @return bool|null
      */
-    public function getDefaultCss()
+    public function getIncludeNutrition()
     {
-        return $this->container['default_css'];
+        return $this->container['include_nutrition'];
     }
 
     /**
-     * Sets default_css
+     * Sets include_nutrition
      *
-     * @param bool|null $default_css Whether the default CSS should be added to the response.
+     * @param bool|null $include_nutrition Whether nutrition data should be added to correctly parsed ingredients.
      *
      * @return $this
      */
-    public function setDefaultCss($default_css)
+    public function setIncludeNutrition($include_nutrition)
     {
-        $this->container['default_css'] = $default_css;
-
-        return $this;
-    }
-
-    /**
-     * Gets show_backlink
-     *
-     * @return bool|null
-     */
-    public function getShowBacklink()
-    {
-        return $this->container['show_backlink'];
-    }
-
-    /**
-     * Sets show_backlink
-     *
-     * @param bool|null $show_backlink Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
-     *
-     * @return $this
-     */
-    public function setShowBacklink($show_backlink)
-    {
-        $this->container['show_backlink'] = $show_backlink;
+        $this->container['include_nutrition'] = $include_nutrition;
 
         return $this;
     }
