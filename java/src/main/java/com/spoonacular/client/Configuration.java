@@ -13,7 +13,7 @@
 
 package com.spoonacular.client;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-11-01T21:23:09.595+01:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-01-31T13:52:34.035+01:00[Europe/Berlin]")
 public class Configuration {
     private static ApiClient defaultApiClient = new ApiClient();
 

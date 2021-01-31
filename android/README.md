@@ -195,7 +195,7 @@ Authentication schemes defined for the API:
 
 - **Type**: API key
 
-- **API key parameter name**: api_key
+- **API key parameter name**: apiKey
 - **Location**: URL query string
 
 

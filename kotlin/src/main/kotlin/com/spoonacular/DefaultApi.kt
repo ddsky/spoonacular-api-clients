@@ -358,13 +358,13 @@ class DefaultApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiC
     /**
     * Classify Grocery Product Bulk
     * Provide a set of product jsons, get back classified products.
-    * @param body  
+    * @param kotlinPeriodAny  
     * @param locale The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). (optional)
     * @return kotlin.Any
     */
     @Suppress("UNCHECKED_CAST")
-    fun classifyGroceryProductBulk(body: kotlin.Any, locale: kotlin.String?) : kotlin.Any {
-        val localVariableBody: kotlin.Any? = body
+    fun classifyGroceryProductBulk(kotlinPeriodAny: kotlin.Array<kotlin.Any>, locale: kotlin.String?) : kotlin.Any {
+        val localVariableBody: kotlin.Any? = kotlinPeriodAny
         val localVariableQuery: MultiValueMap = mapOf("locale" to listOf("$locale"))
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         val localVariableConfig = RequestConfig(

@@ -86,10 +86,10 @@ namespace com.spoonacular
         /// <summary>
         /// Classify Grocery Product Bulk Provide a set of product jsons, get back classified products.
         /// </summary>
-        /// <param name="body"></param>
+        /// <param name="requestBody"></param>
         /// <param name="locale">The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).</param>
         /// <returns>Object</returns>
-        Object ClassifyGroceryProductBulk (Object body, string locale);
+        Object ClassifyGroceryProductBulk (List<Object> requestBody, string locale);
         /// <summary>
         /// Clear Meal Plan Day Delete all planned items from the user&#39;s meal plan for a specific day.
         /// </summary>
@@ -889,7 +889,7 @@ namespace com.spoonacular
                                     postBody = ApiClient.Serialize(inlineObject11); // http body (model) parameter
     
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "apiKeyScheme" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.POST, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -936,7 +936,7 @@ namespace com.spoonacular
                                     postBody = ApiClient.Serialize(inlineObject14); // http body (model) parameter
     
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "apiKeyScheme" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.POST, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -973,7 +973,7 @@ namespace com.spoonacular
              if (q != null) queryParams.Add("q", ApiClient.ParameterToString(q)); // query parameter
                                         
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "apiKeyScheme" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -1010,7 +1010,7 @@ namespace com.spoonacular
                                     if (instructions != null) formParams.Add("instructions", ApiClient.ParameterToString(instructions)); // form parameter
                 
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "apiKeyScheme" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.POST, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -1053,7 +1053,7 @@ namespace com.spoonacular
  if (intolerances != null) queryParams.Add("intolerances", ApiClient.ParameterToString(intolerances)); // query parameter
                                         
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "apiKeyScheme" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -1092,7 +1092,7 @@ namespace com.spoonacular
  if (number != null) queryParams.Add("number", ApiClient.ParameterToString(number)); // query parameter
                                         
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "apiKeyScheme" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -1131,7 +1131,7 @@ namespace com.spoonacular
  if (number != null) queryParams.Add("number", ApiClient.ParameterToString(number)); // query parameter
                                         
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "apiKeyScheme" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -1170,7 +1170,7 @@ namespace com.spoonacular
  if (number != null) queryParams.Add("number", ApiClient.ParameterToString(number)); // query parameter
                                         
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "apiKeyScheme" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -1212,7 +1212,7 @@ namespace com.spoonacular
 if (ingredientList != null) formParams.Add("ingredientList", ApiClient.ParameterToString(ingredientList)); // form parameter
                 
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "apiKeyScheme" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.POST, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -1251,7 +1251,7 @@ if (ingredientList != null) formParams.Add("ingredientList", ApiClient.Parameter
                                     postBody = ApiClient.Serialize(inlineObject9); // http body (model) parameter
     
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "apiKeyScheme" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.POST, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -1267,14 +1267,14 @@ if (ingredientList != null) formParams.Add("ingredientList", ApiClient.Parameter
         /// <summary>
         /// Classify Grocery Product Bulk Provide a set of product jsons, get back classified products.
         /// </summary>
-        /// <param name="body"></param> 
+        /// <param name="requestBody"></param> 
         /// <param name="locale">The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).</param> 
         /// <returns>Object</returns>            
-        public Object ClassifyGroceryProductBulk (Object body, string locale)
+        public Object ClassifyGroceryProductBulk (List<Object> requestBody, string locale)
         {
             
-            // verify the required parameter 'body' is set
-            if (body == null) throw new ApiException(400, "Missing required parameter 'body' when calling ClassifyGroceryProductBulk");
+            // verify the required parameter 'requestBody' is set
+            if (requestBody == null) throw new ApiException(400, "Missing required parameter 'requestBody' when calling ClassifyGroceryProductBulk");
             
     
             var path = "/food/products/classifyBatch";
@@ -1287,10 +1287,10 @@ if (ingredientList != null) formParams.Add("ingredientList", ApiClient.Parameter
             String postBody = null;
     
              if (locale != null) queryParams.Add("locale", ApiClient.ParameterToString(locale)); // query parameter
-                                    postBody = ApiClient.Serialize(body); // http body (model) parameter
+                                    postBody = ApiClient.Serialize(requestBody); // http body (model) parameter
     
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "apiKeyScheme" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.POST, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -1342,7 +1342,7 @@ path = path.Replace("{" + "date" + "}", ApiClient.ParameterToString(date));
                                     postBody = ApiClient.Serialize(inlineObject10); // http body (model) parameter
     
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "apiKeyScheme" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.DELETE, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -1379,7 +1379,7 @@ path = path.Replace("{" + "date" + "}", ApiClient.ParameterToString(date));
                                                 postBody = ApiClient.Serialize(body); // http body (model) parameter
     
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "apiKeyScheme" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.POST, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -1416,7 +1416,7 @@ path = path.Replace("{" + "date" + "}", ApiClient.ParameterToString(date));
                                                 postBody = ApiClient.Serialize(body); // http body (model) parameter
     
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "apiKeyScheme" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.POST, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -1468,7 +1468,7 @@ path = path.Replace("{" + "date" + "}", ApiClient.ParameterToString(date));
  if (targetUnit != null) queryParams.Add("targetUnit", ApiClient.ParameterToString(targetUnit)); // query parameter
                                         
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "apiKeyScheme" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -1548,7 +1548,7 @@ if (fontColor != null) formParams.Add("fontColor", ApiClient.ParameterToString(f
 if (source != null) formParams.Add("source", ApiClient.ParameterToString(source)); // form parameter
                 
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "apiKeyScheme" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.POST, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -1600,7 +1600,7 @@ path = path.Replace("{" + "id" + "}", ApiClient.ParameterToString(id));
                                     postBody = ApiClient.Serialize(inlineObject12); // http body (model) parameter
     
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "apiKeyScheme" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.DELETE, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -1652,7 +1652,7 @@ path = path.Replace("{" + "id" + "}", ApiClient.ParameterToString(id));
                                     postBody = ApiClient.Serialize(inlineObject15); // http body (model) parameter
     
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "apiKeyScheme" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.DELETE, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -1689,7 +1689,7 @@ path = path.Replace("{" + "id" + "}", ApiClient.ParameterToString(id));
                                     if (text != null) formParams.Add("text", ApiClient.ParameterToString(text)); // form parameter
                 
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "apiKeyScheme" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.POST, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -1730,7 +1730,7 @@ path = path.Replace("{" + "id" + "}", ApiClient.ParameterToString(id));
  if (analyze != null) queryParams.Add("analyze", ApiClient.ParameterToString(analyze)); // query parameter
                                         
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "apiKeyScheme" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -1770,7 +1770,7 @@ path = path.Replace("{" + "id" + "}", ApiClient.ParameterToString(id));
  if (exclude != null) queryParams.Add("exclude", ApiClient.ParameterToString(exclude)); // query parameter
                                         
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "apiKeyScheme" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -1827,7 +1827,7 @@ path = path.Replace("{" + "end-date" + "}", ApiClient.ParameterToString(endDate)
                                     postBody = ApiClient.Serialize(inlineObject13); // http body (model) parameter
     
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "apiKeyScheme" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.POST, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -1859,7 +1859,7 @@ path = path.Replace("{" + "end-date" + "}", ApiClient.ParameterToString(endDate)
     
                                                     
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "apiKeyScheme" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -1898,7 +1898,7 @@ path = path.Replace("{" + "end-date" + "}", ApiClient.ParameterToString(endDate)
              if (stepBreakdown != null) queryParams.Add("stepBreakdown", ApiClient.ParameterToString(stepBreakdown)); // query parameter
                                         
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "apiKeyScheme" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -1935,7 +1935,7 @@ path = path.Replace("{" + "end-date" + "}", ApiClient.ParameterToString(endDate)
     
                                                     
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "apiKeyScheme" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -1974,7 +1974,7 @@ path = path.Replace("{" + "end-date" + "}", ApiClient.ParameterToString(endDate)
  if (number != null) queryParams.Add("number", ApiClient.ParameterToString(number)); // query parameter
                                         
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "apiKeyScheme" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -2011,7 +2011,7 @@ path = path.Replace("{" + "end-date" + "}", ApiClient.ParameterToString(endDate)
              if (wine != null) queryParams.Add("wine", ApiClient.ParameterToString(wine)); // query parameter
                                         
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "apiKeyScheme" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -2052,7 +2052,7 @@ path = path.Replace("{" + "end-date" + "}", ApiClient.ParameterToString(endDate)
  if (unit != null) queryParams.Add("unit", ApiClient.ParameterToString(unit)); // query parameter
                                         
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "apiKeyScheme" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -2089,7 +2089,7 @@ path = path.Replace("{" + "end-date" + "}", ApiClient.ParameterToString(endDate)
              if (ingredientName != null) queryParams.Add("ingredientName", ApiClient.ParameterToString(ingredientName)); // query parameter
                                         
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "apiKeyScheme" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -2126,7 +2126,7 @@ path = path.Replace("{" + "end-date" + "}", ApiClient.ParameterToString(endDate)
     
                                                     
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "apiKeyScheme" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -2173,7 +2173,7 @@ path = path.Replace("{" + "id" + "}", ApiClient.ParameterToString(id));
              if (hash != null) queryParams.Add("hash", ApiClient.ParameterToString(hash)); // query parameter
                                         
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "apiKeyScheme" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -2215,7 +2215,7 @@ path = path.Replace("{" + "id" + "}", ApiClient.ParameterToString(id));
              if (hash != null) queryParams.Add("hash", ApiClient.ParameterToString(hash)); // query parameter
                                         
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "apiKeyScheme" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -2262,7 +2262,7 @@ path = path.Replace("{" + "start-date" + "}", ApiClient.ParameterToString(startD
              if (hash != null) queryParams.Add("hash", ApiClient.ParameterToString(hash)); // query parameter
                                         
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "apiKeyScheme" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -2299,7 +2299,7 @@ path = path.Replace("{" + "start-date" + "}", ApiClient.ParameterToString(startD
     
                                                     
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "apiKeyScheme" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -2336,7 +2336,7 @@ path = path.Replace("{" + "start-date" + "}", ApiClient.ParameterToString(startD
     
                                                     
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "apiKeyScheme" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -2368,7 +2368,7 @@ path = path.Replace("{" + "start-date" + "}", ApiClient.ParameterToString(startD
     
                                                     
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "apiKeyScheme" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -2406,7 +2406,7 @@ path = path.Replace("{" + "start-date" + "}", ApiClient.ParameterToString(startD
  if (number != null) queryParams.Add("number", ApiClient.ParameterToString(number)); // query parameter
                                         
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "apiKeyScheme" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -2443,7 +2443,7 @@ path = path.Replace("{" + "start-date" + "}", ApiClient.ParameterToString(startD
     
                                                     
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "apiKeyScheme" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -2482,7 +2482,7 @@ path = path.Replace("{" + "start-date" + "}", ApiClient.ParameterToString(startD
              if (includeNutrition != null) queryParams.Add("includeNutrition", ApiClient.ParameterToString(includeNutrition)); // query parameter
                                         
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "apiKeyScheme" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -2521,7 +2521,7 @@ path = path.Replace("{" + "start-date" + "}", ApiClient.ParameterToString(startD
  if (includeNutrition != null) queryParams.Add("includeNutrition", ApiClient.ParameterToString(includeNutrition)); // query parameter
                                         
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "apiKeyScheme" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -2558,7 +2558,7 @@ path = path.Replace("{" + "start-date" + "}", ApiClient.ParameterToString(startD
     
                                                     
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "apiKeyScheme" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -2595,7 +2595,7 @@ path = path.Replace("{" + "start-date" + "}", ApiClient.ParameterToString(startD
     
                                                     
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "apiKeyScheme" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -2632,7 +2632,7 @@ path = path.Replace("{" + "start-date" + "}", ApiClient.ParameterToString(startD
     
                                                     
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "apiKeyScheme" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -2669,7 +2669,7 @@ path = path.Replace("{" + "start-date" + "}", ApiClient.ParameterToString(startD
     
                                                     
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "apiKeyScheme" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -2711,7 +2711,7 @@ path = path.Replace("{" + "start-date" + "}", ApiClient.ParameterToString(startD
              if (hash != null) queryParams.Add("hash", ApiClient.ParameterToString(hash)); // query parameter
                                         
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "apiKeyScheme" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -2752,7 +2752,7 @@ path = path.Replace("{" + "start-date" + "}", ApiClient.ParameterToString(startD
  if (limitLicense != null) queryParams.Add("limitLicense", ApiClient.ParameterToString(limitLicense)); // query parameter
                                         
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "apiKeyScheme" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -2789,7 +2789,7 @@ path = path.Replace("{" + "start-date" + "}", ApiClient.ParameterToString(startD
              if (wine != null) queryParams.Add("wine", ApiClient.ParameterToString(wine)); // query parameter
                                         
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "apiKeyScheme" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -2828,7 +2828,7 @@ path = path.Replace("{" + "start-date" + "}", ApiClient.ParameterToString(startD
  if (maxPrice != null) queryParams.Add("maxPrice", ApiClient.ParameterToString(maxPrice)); // query parameter
                                         
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "apiKeyScheme" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -2871,7 +2871,7 @@ path = path.Replace("{" + "start-date" + "}", ApiClient.ParameterToString(startD
  if (number != null) queryParams.Add("number", ApiClient.ParameterToString(number)); // query parameter
                                         
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "apiKeyScheme" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -2908,7 +2908,7 @@ path = path.Replace("{" + "start-date" + "}", ApiClient.ParameterToString(startD
              if (title != null) queryParams.Add("title", ApiClient.ParameterToString(title)); // query parameter
                                         
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "apiKeyScheme" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -2945,7 +2945,7 @@ path = path.Replace("{" + "start-date" + "}", ApiClient.ParameterToString(startD
              if (imageUrl != null) queryParams.Add("imageUrl", ApiClient.ParameterToString(imageUrl)); // query parameter
                                         
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "apiKeyScheme" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -2982,7 +2982,7 @@ path = path.Replace("{" + "start-date" + "}", ApiClient.ParameterToString(startD
              if (imageUrl != null) queryParams.Add("imageUrl", ApiClient.ParameterToString(imageUrl)); // query parameter
                                         
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "apiKeyScheme" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -3045,7 +3045,7 @@ path = path.Replace("{" + "start-date" + "}", ApiClient.ParameterToString(startD
  if (number != null) queryParams.Add("number", ApiClient.ParameterToString(number)); // query parameter
                                         
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "apiKeyScheme" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -3082,7 +3082,7 @@ path = path.Replace("{" + "start-date" + "}", ApiClient.ParameterToString(startD
                                                 postBody = ApiClient.Serialize(body); // http body (model) parameter
     
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "apiKeyScheme" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.POST, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -3126,7 +3126,7 @@ if (servings != null) formParams.Add("servings", ApiClient.ParameterToString(ser
 if (includeNutrition != null) formParams.Add("includeNutrition", ApiClient.ParameterToString(includeNutrition)); // form parameter
                 
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "apiKeyScheme" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.POST, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -3163,7 +3163,7 @@ if (includeNutrition != null) formParams.Add("includeNutrition", ApiClient.Param
              if (q != null) queryParams.Add("q", ApiClient.ParameterToString(q)); // query parameter
                                         
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "apiKeyScheme" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -3204,7 +3204,7 @@ if (includeNutrition != null) formParams.Add("includeNutrition", ApiClient.Param
  if (number != null) queryParams.Add("number", ApiClient.ParameterToString(number)); // query parameter
                                         
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "apiKeyScheme" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -3255,7 +3255,7 @@ if (includeNutrition != null) formParams.Add("includeNutrition", ApiClient.Param
  if (number != null) queryParams.Add("number", ApiClient.ParameterToString(number)); // query parameter
                                         
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "apiKeyScheme" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -3310,7 +3310,7 @@ if (includeNutrition != null) formParams.Add("includeNutrition", ApiClient.Param
  if (number != null) queryParams.Add("number", ApiClient.ParameterToString(number)); // query parameter
                                         
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "apiKeyScheme" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -3367,7 +3367,7 @@ if (includeNutrition != null) formParams.Add("includeNutrition", ApiClient.Param
  if (number != null) queryParams.Add("number", ApiClient.ParameterToString(number)); // query parameter
                                         
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "apiKeyScheme" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -3404,7 +3404,7 @@ if (includeNutrition != null) formParams.Add("includeNutrition", ApiClient.Param
     
                                                     
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "apiKeyScheme" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -3461,7 +3461,7 @@ if (includeNutrition != null) formParams.Add("includeNutrition", ApiClient.Param
  if (number != null) queryParams.Add("number", ApiClient.ParameterToString(number)); // query parameter
                                         
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "apiKeyScheme" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -3688,7 +3688,7 @@ if (includeNutrition != null) formParams.Add("includeNutrition", ApiClient.Param
  if (limitLicense != null) queryParams.Add("limitLicense", ApiClient.ParameterToString(limitLicense)); // query parameter
                                         
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "apiKeyScheme" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -3733,7 +3733,7 @@ if (includeNutrition != null) formParams.Add("includeNutrition", ApiClient.Param
  if (ignorePantry != null) queryParams.Add("ignorePantry", ApiClient.ParameterToString(ignorePantry)); // query parameter
                                         
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "apiKeyScheme" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -3917,7 +3917,7 @@ if (includeNutrition != null) formParams.Add("includeNutrition", ApiClient.Param
  if (limitLicense != null) queryParams.Add("limitLicense", ApiClient.ParameterToString(limitLicense)); // query parameter
                                         
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "apiKeyScheme" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -3954,7 +3954,7 @@ if (includeNutrition != null) formParams.Add("includeNutrition", ApiClient.Param
              if (query != null) queryParams.Add("query", ApiClient.ParameterToString(query)); // query parameter
                                         
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "apiKeyScheme" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -3991,7 +3991,7 @@ if (includeNutrition != null) formParams.Add("includeNutrition", ApiClient.Param
     
                                                     
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "apiKeyScheme" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -4030,7 +4030,7 @@ if (includeNutrition != null) formParams.Add("includeNutrition", ApiClient.Param
  if (contextId != null) queryParams.Add("contextId", ApiClient.ParameterToString(contextId)); // query parameter
                                         
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "apiKeyScheme" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -4073,7 +4073,7 @@ if (defaultCss != null) formParams.Add("defaultCss", ApiClient.ParameterToString
 if (showBacklink != null) formParams.Add("showBacklink", ApiClient.ParameterToString(showBacklink)); // form parameter
                 
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "apiKeyScheme" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.POST, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -4123,7 +4123,7 @@ if (defaultCss != null) formParams.Add("defaultCss", ApiClient.ParameterToString
 if (showBacklink != null) formParams.Add("showBacklink", ApiClient.ParameterToString(showBacklink)); // form parameter
                 
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "apiKeyScheme" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.POST, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -4162,7 +4162,7 @@ if (showBacklink != null) formParams.Add("showBacklink", ApiClient.ParameterToSt
              if (defaultCss != null) queryParams.Add("defaultCss", ApiClient.ParameterToString(defaultCss)); // query parameter
                                         
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "apiKeyScheme" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -4210,7 +4210,7 @@ if (defaultCss != null) formParams.Add("defaultCss", ApiClient.ParameterToString
 if (showBacklink != null) formParams.Add("showBacklink", ApiClient.ParameterToString(showBacklink)); // form parameter
                 
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "apiKeyScheme" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.POST, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -4249,7 +4249,7 @@ if (showBacklink != null) formParams.Add("showBacklink", ApiClient.ParameterToSt
              if (defaultCss != null) queryParams.Add("defaultCss", ApiClient.ParameterToString(defaultCss)); // query parameter
                                         
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "apiKeyScheme" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -4288,7 +4288,7 @@ if (showBacklink != null) formParams.Add("showBacklink", ApiClient.ParameterToSt
              if (defaultCss != null) queryParams.Add("defaultCss", ApiClient.ParameterToString(defaultCss)); // query parameter
                                         
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "apiKeyScheme" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -4327,7 +4327,7 @@ if (showBacklink != null) formParams.Add("showBacklink", ApiClient.ParameterToSt
              if (defaultCss != null) queryParams.Add("defaultCss", ApiClient.ParameterToString(defaultCss)); // query parameter
                                         
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "apiKeyScheme" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -4373,7 +4373,7 @@ if (defaultCss != null) formParams.Add("defaultCss", ApiClient.ParameterToString
 if (showBacklink != null) formParams.Add("showBacklink", ApiClient.ParameterToString(showBacklink)); // form parameter
                 
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "apiKeyScheme" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.POST, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -4412,7 +4412,7 @@ if (showBacklink != null) formParams.Add("showBacklink", ApiClient.ParameterToSt
              if (defaultCss != null) queryParams.Add("defaultCss", ApiClient.ParameterToString(defaultCss)); // query parameter
                                         
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "apiKeyScheme" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -4451,7 +4451,7 @@ if (showBacklink != null) formParams.Add("showBacklink", ApiClient.ParameterToSt
              if (defaultCss != null) queryParams.Add("defaultCss", ApiClient.ParameterToString(defaultCss)); // query parameter
                                         
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "apiKeyScheme" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -4488,7 +4488,7 @@ if (showBacklink != null) formParams.Add("showBacklink", ApiClient.ParameterToSt
                                     if (ingredientList != null) formParams.Add("ingredientList", ApiClient.ParameterToString(ingredientList)); // form parameter
                 
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "apiKeyScheme" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.POST, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -4525,7 +4525,7 @@ if (showBacklink != null) formParams.Add("showBacklink", ApiClient.ParameterToSt
     
                                                     
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "apiKeyScheme" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);

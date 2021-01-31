@@ -109,6 +109,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
             var username = dsky;  // string | The username.
             var hash = 4b5v4398573406;  // string | The private hash for the username.
@@ -143,7 +148,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -175,6 +180,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
             var username = dsky;  // string | The username.
             var hash = 4b5v4398573406;  // string | The private hash for the username.
@@ -209,7 +219,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -241,6 +251,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
             var q = salmon with fusilli and no nuts;  // string | The recipe search query.
 
@@ -271,7 +286,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -303,6 +318,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
             var instructions = instructions_example;  // string | The instructions to be analyzed.
 
@@ -333,7 +353,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -365,6 +385,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
             var query = appl;  // string | The partial or full ingredient name.
             var number = 10;  // decimal? | The number of results to return (between 1 and 100). (optional) 
@@ -401,7 +426,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -433,6 +458,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
             var query = chicke;  // string | The (partial) search query.
             var number = 10;  // decimal? | The number of results to return (between 1 and 25). (optional) 
@@ -465,7 +495,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -497,6 +527,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
             var query = chicke;  // string | The (partial) search query.
             var number = 10;  // decimal? | The number of results to return (between 1 and 25). (optional) 
@@ -529,7 +564,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -561,6 +596,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
             var query = burger;  // string | The query to be autocompleted.
             var number = 10;  // decimal? | The number of results to return (between 1 and 25). (optional) 
@@ -593,7 +633,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -625,6 +665,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
             var title = title_example;  // string | The title of the recipe.
             var ingredientList = ingredientList_example;  // string | The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
@@ -657,7 +702,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -689,6 +734,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
             var inlineObject9 = new InlineObject9(); // InlineObject9 | 
             var locale = en_US;  // string | The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). (optional) 
@@ -721,7 +771,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -732,7 +782,7 @@ No authorization required
 
 <a name="classifygroceryproductbulk"></a>
 # **ClassifyGroceryProductBulk**
-> Object ClassifyGroceryProductBulk (Object body, string locale)
+> Object ClassifyGroceryProductBulk (List<Object> requestBody, string locale)
 
 Classify Grocery Product Bulk
 
@@ -753,14 +803,19 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
-            var body = ;  // Object | 
+            var requestBody = new List<Object>(); // List<Object> | 
             var locale = en_US;  // string | The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). (optional) 
 
             try
             {
                 // Classify Grocery Product Bulk
-                Object result = apiInstance.ClassifyGroceryProductBulk(body, locale);
+                Object result = apiInstance.ClassifyGroceryProductBulk(requestBody, locale);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -776,7 +831,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | **Object**|  | 
+ **requestBody** | [**List<Object>**](List.md)|  | 
  **locale** | **string**| The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). | [optional] 
 
 ### Return type
@@ -785,7 +840,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -817,6 +872,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
             var username = dsky;  // string | The username.
             var date = 2020-06-01;  // string | The date in the format yyyy-mm-dd.
@@ -853,7 +913,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -885,6 +945,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
             var body = ;  // Object | 
 
@@ -915,7 +980,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -947,6 +1012,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
             var body = ;  // Object | 
 
@@ -977,7 +1047,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1009,6 +1079,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
             var ingredientName = flour;  // string | The ingredient which you want to convert.
             var sourceAmount = 2.5;  // decimal? | The amount from which you want to convert, e.g. the 2.5 in \"2.5 cups of flour to grams\".
@@ -1045,7 +1120,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1077,6 +1152,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
             var title = title_example;  // string | The title of the recipe.
             var image = new System.IO.Stream(); // System.IO.Stream | The binary image of the recipe as jpg.
@@ -1129,7 +1209,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1161,6 +1241,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
             var username = dsky;  // string | The username.
             var id = 15678;  // decimal? | The shopping list item id.
@@ -1197,7 +1282,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1229,6 +1314,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
             var username = dsky;  // string | The username.
             var id = 15678;  // decimal? | The shopping list item id.
@@ -1265,7 +1355,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1297,6 +1387,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
             var text = text_example;  // string | The text in which food items, such as dish names and ingredients, should be detected in.
 
@@ -1327,7 +1422,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1359,6 +1454,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
             var url = https://foodista.com/recipe/ZHK4KPB6/chocolate-crinkle-cookies;  // string | The URL of the recipe page.
             var forceExtraction = true;  // bool? | If true, the extraction will be triggered whether we already know the recipe or not. Use this only if information is missing as this operation is slower. (optional) 
@@ -1393,7 +1493,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1425,6 +1525,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
             var timeFrame = day;  // string | Either for one \"day\" or an entire \"week\". (optional) 
             var targetCalories = 2000;  // decimal? | What is the caloric target for one day? The meal plan generator will try to get as close as possible to that goal. (optional) 
@@ -1461,7 +1566,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1493,6 +1598,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
             var username = dsky;  // string | The username.
             var startDate = 2020-06-01;  // string | The start date in the format yyyy-mm-dd.
@@ -1531,7 +1641,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1563,6 +1673,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
 
             try
@@ -1589,7 +1704,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1621,6 +1736,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
             var id = 324694;  // decimal? | The recipe id.
             var stepBreakdown = true;  // bool? | Whether to break down the recipe steps even more. (optional) 
@@ -1653,7 +1773,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1685,6 +1805,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
             var upc = 33698816271;  // decimal? | The UPC of the product for which you want to find comparable products.
 
@@ -1715,7 +1840,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1747,6 +1872,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
             var query = tell;  // string | A (partial) query from the user. The endpoint will return if it matches topics it can talk about.
             var number = 5;  // decimal? | The number of suggestions to return (between 1 and 25). (optional) 
@@ -1779,7 +1909,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1811,6 +1941,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
             var wine = malbec;  // string | The type of wine that should be paired, e.g. \"merlot\", \"riesling\", or \"malbec\".
 
@@ -1841,7 +1976,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1873,6 +2008,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
             var id = 9266;  // decimal? | The ingredient id.
             var amount = 150;  // decimal? | The amount of this ingredient. (optional) 
@@ -1907,7 +2047,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1939,6 +2079,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
             var ingredientName = butter;  // string | The name of the ingredient you want to replace.
 
@@ -1969,7 +2114,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2001,6 +2146,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
             var id = 1001;  // decimal? | The id of the ingredient you want substitutes for.
 
@@ -2031,7 +2181,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2063,6 +2213,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
             var username = dsky;  // string | The username.
             var id = 15678;  // decimal? | The shopping list item id.
@@ -2097,7 +2252,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2129,6 +2284,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
             var username = dsky;  // string | The username.
             var hash = 4b5v4398573406;  // string | The private hash for the username.
@@ -2161,7 +2321,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2193,6 +2353,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
             var username = dsky;  // string | The username.
             var startDate = 2020-06-01;  // string | The start date of the meal planned week in the format yyyy-mm-dd.
@@ -2227,7 +2392,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2259,6 +2424,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
             var id = 424571;  // decimal? | The menu item id.
 
@@ -2289,7 +2459,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2321,6 +2491,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
             var id = 22347;  // decimal? | The id of the packaged food.
 
@@ -2351,7 +2526,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2383,6 +2558,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
 
             try
@@ -2409,7 +2589,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2441,6 +2621,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
             var limitLicense = true;  // bool? | Whether the recipes should have an open license that allows display with proper attribution. (optional) 
             var tags = vegetarian, dessert;  // string | The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have. (optional) 
@@ -2475,7 +2660,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2507,6 +2692,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
             var id = 1003464;  // decimal? | The recipe id.
 
@@ -2537,7 +2727,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2569,6 +2759,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
             var id = 716429;  // decimal? | The id of the recipe.
             var includeNutrition = false;  // bool? | Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional) 
@@ -2601,7 +2796,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2633,6 +2828,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
             var ids = 715538,716429;  // string | A comma-separated list of recipe ids.
             var includeNutrition = false;  // bool? | Include nutrition data to the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional) 
@@ -2665,7 +2865,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2697,6 +2897,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
             var id = 1003464;  // decimal? | The recipe id.
 
@@ -2727,7 +2932,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2759,6 +2964,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
             var id = 1003464;  // decimal? | The recipe id.
 
@@ -2789,7 +2999,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2821,6 +3031,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
             var id = 1003464;  // decimal? | The recipe id.
 
@@ -2851,7 +3066,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2883,6 +3098,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
             var id = 69095;  // decimal? | The recipe id.
 
@@ -2913,7 +3133,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2945,6 +3165,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
             var username = dsky;  // string | The username.
             var hash = 4b5v4398573406;  // string | The private hash for the username.
@@ -2977,7 +3202,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3009,6 +3234,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
             var id = 715538;  // decimal? | The id of the source recipe for which similar recipes should be found.
             var number = 1;  // decimal? | The number of random recipes to be returned (between 1 and 100). (optional) 
@@ -3043,7 +3273,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3075,6 +3305,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
             var wine = merlot;  // string | The name of the wine that should be paired, e.g. \"merlot\", \"riesling\", or \"malbec\".
 
@@ -3105,7 +3340,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3137,6 +3372,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
             var food = steak;  // string | The food to get a pairing for. This can be a dish (\"steak\"), an ingredient (\"salmon\"), or a cuisine (\"italian\").
             var maxPrice = 50;  // decimal? | The maximum price for the specific wine recommendation in USD. (optional) 
@@ -3169,7 +3409,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3201,6 +3441,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
             var wine = merlot;  // string | The type of wine to get a specific product recommendation for.
             var maxPrice = 50;  // decimal? | The maximum price for the specific wine recommendation in USD. (optional) 
@@ -3237,7 +3482,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3269,6 +3514,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
             var title = Spaghetti Aglio et Olio;  // string | The title of the dish.
 
@@ -3299,7 +3549,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3331,6 +3581,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
             var imageUrl = https://spoonacular.com/recipeImages/635350-240x150.jpg;  // string | The URL of the image to be analyzed.
 
@@ -3361,7 +3616,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3393,6 +3648,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
             var imageUrl = https://spoonacular.com/recipeImages/635350-240x150.jpg;  // string | The URL of the image to be classified.
 
@@ -3423,7 +3683,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3455,6 +3715,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
             var query = apple;  // string | The partial or full ingredient name.
             var addChildren = true;  // bool? | Whether to add children of found foods. (optional) 
@@ -3511,7 +3776,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3543,6 +3808,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
             var body = ;  // Object | 
 
@@ -3573,7 +3843,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3605,6 +3875,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
             var ingredientList = ingredientList_example;  // string | The ingredient list of the recipe, one ingredient per line.
             var servings = 8.14;  // decimal? | The number of servings that you can make from the ingredients.
@@ -3639,7 +3914,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3671,6 +3946,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
             var q = How much vitamin c is in 2 apples?;  // string | The nutrition related question.
 
@@ -3701,7 +3981,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3733,6 +4013,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
             var query = apple;  // string | The search query.
             var offset = 0;  // decimal? | The number of results to skip (between 0 and 990). (optional) 
@@ -3767,7 +4052,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3799,6 +4084,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
             var query = brat;  // string | The search query.
             var username = dsky;  // string | The username.
@@ -3837,7 +4127,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3869,6 +4159,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
             var query = chicken soup;  // string | The search query.
             var type = main course;  // string | The type of the recipes. See a full list of supported meal types. (optional) 
@@ -3917,7 +4212,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3949,6 +4244,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
             var query = greek yogurt;  // string | The search query.
             var minCalories = 50;  // decimal? | The minimum amount of calories the product must have. (optional) 
@@ -3999,7 +4299,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -4031,6 +4331,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
             var upc = 41631000564;  // decimal? | The product's UPC.
 
@@ -4061,7 +4366,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -4093,6 +4398,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
             var query = snickers;  // string | The search query.
             var minCalories = 50;  // decimal? | The minimum amount of calories the menu item must have. (optional) 
@@ -4143,7 +4453,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -4175,6 +4485,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
             var query = pasta;  // string | The (natural language) recipe search query.
             var cuisine = italian;  // string | The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as 'OR'). See a full list of supported cuisines. (optional) 
@@ -4395,7 +4710,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -4427,6 +4742,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
             var ingredients = apples,flour,sugar;  // string | A comma-separated list of ingredients that the recipes should contain.
             var number = 10;  // decimal? | The maximum number of recipes to return (between 1 and 100). Defaults to 10. (optional) 
@@ -4465,7 +4785,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -4497,6 +4817,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
             var minCarbs = 10;  // decimal? | The minimum amount of carbohydrates in grams the recipe must have. (optional) 
             var maxCarbs = 100;  // decimal? | The maximum amount of carbohydrates in grams the recipe can have. (optional) 
@@ -4677,7 +5002,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -4709,6 +5034,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
             var query = past;  // string | The query to search for. You can also use partial queries such as \"spagh\" to already find spaghetti recipes, articles, grocery products, and other content.
 
@@ -4739,7 +5069,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -4771,6 +5101,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
             var id = 4632;  // decimal? | The recipe id.
 
@@ -4801,7 +5136,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -4833,6 +5168,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
             var text = donut recipes;  // string | The request / question / answer from the user to the chatbot.
             var contextId = 342938;  // string | An arbitrary globally unique id for your conversation. The conversation can contain states so you should pass your context id if you want the bot to be able to remember the conversation. (optional) 
@@ -4865,7 +5205,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -4897,6 +5237,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
             var instructions = instructions_example;  // string | The recipe's instructions.
             var view = view_example;  // string | How to visualize the equipment, either \\\"grid\\\" or \\\"list\\\". (optional) 
@@ -4933,7 +5278,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -4965,6 +5310,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
             var ingredientList = ingredientList_example;  // string | The ingredient list of the recipe, one ingredient per line.
             var servings = 8.14;  // decimal? | The number of servings.
@@ -5005,7 +5355,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -5037,6 +5387,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
             var id = 1003464;  // decimal? | The menu item id.
             var defaultCss = true;  // bool? | Whether the default CSS should be added to the response. (optional) 
@@ -5069,7 +5424,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -5101,6 +5456,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
             var ingredientList = ingredientList_example;  // string | The ingredient list of the recipe, one ingredient per line.
             var servings = 8.14;  // decimal? | The number of servings.
@@ -5139,7 +5499,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -5171,6 +5531,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
             var id = 7657;  // decimal? | The id of the product.
             var defaultCss = true;  // bool? | Whether the default CSS should be added to the response. (optional) 
@@ -5203,7 +5568,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -5235,6 +5600,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
             var id = 44860;  // decimal? | The recipe id.
             var defaultCss = true;  // bool? | Whether the default CSS should be added to the response. (optional) 
@@ -5267,7 +5637,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -5299,6 +5669,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
             var id = 1082038;  // decimal? | The recipe id.
             var defaultCss = true;  // bool? | Whether the default CSS should be added to the response. (optional) 
@@ -5331,7 +5706,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -5363,6 +5738,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
             var ingredientList = ingredientList_example;  // string | The ingredient list of the recipe, one ingredient per line.
             var servings = 8.14;  // decimal? | The number of servings.
@@ -5399,7 +5779,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -5431,6 +5811,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
             var id = 1082038;  // decimal? | The recipe id.
             var defaultCss = true;  // bool? | Whether the default CSS should be added to the response. (optional) 
@@ -5463,7 +5848,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -5495,6 +5880,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
             var id = 1082038;  // decimal? | The recipe id.
             var defaultCss = true;  // bool? | Whether the default CSS should be added to the response. (optional) 
@@ -5527,7 +5917,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -5559,6 +5949,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
             var ingredientList = ingredientList_example;  // string | The ingredient list of the recipe, one ingredient per line.
 
@@ -5589,7 +5984,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -5621,6 +6016,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
             var id = 69095;  // decimal? | The recipe id.
 
@@ -5651,7 +6051,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 

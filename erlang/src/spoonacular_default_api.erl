@@ -295,12 +295,12 @@ classify_grocery_product(Ctx, SpoonacularInlineObject9, Optional) ->
 
 %% @doc Classify Grocery Product Bulk
 %% Provide a set of product jsons, get back classified products.
--spec classify_grocery_product_bulk(ctx:ctx(), maps:map()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
-classify_grocery_product_bulk(Ctx, Body) ->
-    classify_grocery_product_bulk(Ctx, Body, #{}).
+-spec classify_grocery_product_bulk(ctx:ctx(), list()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+classify_grocery_product_bulk(Ctx, MapsArray) ->
+    classify_grocery_product_bulk(Ctx, MapsArray, #{}).
 
--spec classify_grocery_product_bulk(ctx:ctx(), maps:map(), maps:map()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
-classify_grocery_product_bulk(Ctx, Body, Optional) ->
+-spec classify_grocery_product_bulk(ctx:ctx(), list(), maps:map()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+classify_grocery_product_bulk(Ctx, MapsArray, Optional) ->
     _OptionalParams = maps:get(params, Optional, #{}),
     Cfg = maps:get(cfg, Optional, application:get_env(kuberl, config, #{})),
 
@@ -308,7 +308,7 @@ classify_grocery_product_bulk(Ctx, Body, Optional) ->
     Path = ["/food/products/classifyBatch"],
     QS = lists:flatten([])++spoonacular_utils:optional_params(['locale'], _OptionalParams),
     Headers = [],
-    Body1 = Body,
+    Body1 = MapsArray,
     ContentTypeHeader = spoonacular_utils:select_header_content_type([<<"application/json">>]),
     Opts = maps:get(hackney_opts, Optional, []),
 

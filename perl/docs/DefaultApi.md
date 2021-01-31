@@ -103,6 +103,11 @@ Add an item to the user's meal plan.
 use Data::Dumper;
 use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
 my $username = dsky; # string | The username.
@@ -132,7 +137,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -153,6 +158,11 @@ Add an item to the current shopping list of a user.
 use Data::Dumper;
 use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
 my $username = dsky; # string | The username.
@@ -182,7 +192,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -203,6 +213,11 @@ Parse a recipe search query to find out its intention.
 use Data::Dumper;
 use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
 my $q = salmon with fusilli and no nuts; # string | The recipe search query.
@@ -228,7 +243,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -249,6 +264,11 @@ This endpoint allows you to break down instructions into atomic steps. Furthermo
 use Data::Dumper;
 use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
 my $instructions = "instructions_example"; # string | The instructions to be analyzed.
@@ -274,7 +294,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -295,6 +315,11 @@ Autocomplete the entry of an ingredient.
 use Data::Dumper;
 use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
 my $query = appl; # string | The partial or full ingredient name.
@@ -326,7 +351,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -347,6 +372,11 @@ Generate suggestions for menu items based on a (partial) query. The matches will
 use Data::Dumper;
 use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
 my $query = chicke; # string | The (partial) search query.
@@ -374,7 +404,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -395,6 +425,11 @@ Generate suggestions for grocery products based on a (partial) query. The matche
 use Data::Dumper;
 use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
 my $query = chicke; # string | The (partial) search query.
@@ -422,7 +457,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -443,6 +478,11 @@ Autocomplete a partial input to suggest possible recipe names.
 use Data::Dumper;
 use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
 my $query = burger; # string | The query to be autocompleted.
@@ -470,7 +510,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -491,6 +531,11 @@ Classify the recipe's cuisine.
 use Data::Dumper;
 use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
 my $title = "title_example"; # string | The title of the recipe.
@@ -518,7 +563,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -539,6 +584,11 @@ This endpoint allows you to match a packaged food to a basic category, e.g. a sp
 use Data::Dumper;
 use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
 my $inline_object9 = WWW::OpenAPIClient::Object::InlineObject9->new(); # InlineObject9 | 
@@ -566,7 +616,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -576,7 +626,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **classify_grocery_product_bulk**
-> object classify_grocery_product_bulk(body => $body, locale => $locale)
+> object classify_grocery_product_bulk(request_body => $request_body, locale => $locale)
 
 Classify Grocery Product Bulk
 
@@ -587,13 +637,18 @@ Provide a set of product jsons, get back classified products.
 use Data::Dumper;
 use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
-my $body = WWW::OpenAPIClient::Object::object->new(); # object | 
+my $request_body = [WWW::OpenAPIClient::Object::ARRAY[object]->new()]; # ARRAY[object] | 
 my $locale = en_US; # string | The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).
 
 eval { 
-    my $result = $api_instance->classify_grocery_product_bulk(body => $body, locale => $locale);
+    my $result = $api_instance->classify_grocery_product_bulk(request_body => $request_body, locale => $locale);
     print Dumper($result);
 };
 if ($@) {
@@ -605,7 +660,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | **object**|  | 
+ **request_body** | [**ARRAY[object]**](ARRAY.md)|  | 
  **locale** | **string**| The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). | [optional] 
 
 ### Return type
@@ -614,7 +669,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -635,6 +690,11 @@ Delete all planned items from the user's meal plan for a specific day.
 use Data::Dumper;
 use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
 my $username = dsky; # string | The username.
@@ -666,7 +726,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -687,6 +747,11 @@ Retrieve the glycemic index for a list of ingredients and compute the individual
 use Data::Dumper;
 use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
 my $body = WWW::OpenAPIClient::Object::object->new(); # object | 
@@ -712,7 +777,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -733,6 +798,11 @@ In order to call user-specific endpoints, you need to connect your app's users t
 use Data::Dumper;
 use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
 my $body = WWW::OpenAPIClient::Object::object->new(); # object | 
@@ -758,7 +828,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -779,6 +849,11 @@ Convert amounts like \"2 cups of flour to grams\".
 use Data::Dumper;
 use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
 my $ingredient_name = flour; # string | The ingredient which you want to convert.
@@ -810,7 +885,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -831,6 +906,11 @@ Generate a recipe card for a recipe.
 use Data::Dumper;
 use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
 my $title = "title_example"; # string | The title of the recipe.
@@ -878,7 +958,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -899,6 +979,11 @@ Delete an item from the user's meal plan.
 use Data::Dumper;
 use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
 my $username = dsky; # string | The username.
@@ -930,7 +1015,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -951,6 +1036,11 @@ Delete an item from the current shopping list of the user.
 use Data::Dumper;
 use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
 my $username = dsky; # string | The username.
@@ -982,7 +1072,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1003,6 +1093,11 @@ Take any text and find all mentions of food contained within it. This task is al
 use Data::Dumper;
 use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
 my $text = "text_example"; # string | The text in which food items, such as dish names and ingredients, should be detected in.
@@ -1028,7 +1123,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1049,6 +1144,11 @@ This endpoint lets you extract recipe data such as title, ingredients, and instr
 use Data::Dumper;
 use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
 my $url = https://foodista.com/recipe/ZHK4KPB6/chocolate-crinkle-cookies; # string | The URL of the recipe page.
@@ -1078,7 +1178,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1099,6 +1199,11 @@ Generate a meal plan with three meals per day (breakfast, lunch, and dinner).
 use Data::Dumper;
 use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
 my $time_frame = day; # string | Either for one \"day\" or an entire \"week\".
@@ -1130,7 +1235,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1151,6 +1256,11 @@ Generate the shopping list for a user from the meal planner in a given time fram
 use Data::Dumper;
 use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
 my $username = dsky; # string | The username.
@@ -1184,7 +1294,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1205,6 +1315,11 @@ Get a random joke that is related to food. Caution: this is an endpoint for adul
 use Data::Dumper;
 use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
 
@@ -1226,7 +1341,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1247,6 +1362,11 @@ Get an analyzed breakdown of a recipe's instructions. Each step is enriched with
 use Data::Dumper;
 use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
 my $id = 324694; # double | The recipe id.
@@ -1274,7 +1394,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1295,6 +1415,11 @@ Find comparable products to the given one.
 use Data::Dumper;
 use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
 my $upc = 33698816271; # double | The UPC of the product for which you want to find comparable products.
@@ -1320,7 +1445,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1341,6 +1466,11 @@ This endpoint returns suggestions for things the user can say or ask the chatbot
 use Data::Dumper;
 use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
 my $query = tell; # string | A (partial) query from the user. The endpoint will return if it matches topics it can talk about.
@@ -1368,7 +1498,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1389,6 +1519,11 @@ Find a dish that goes well with a given wine.
 use Data::Dumper;
 use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
 my $wine = malbec; # string | The type of wine that should be paired, e.g. \"merlot\", \"riesling\", or \"malbec\".
@@ -1414,7 +1549,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1435,6 +1570,11 @@ Use an ingredient id to get all available information about an ingredient, such 
 use Data::Dumper;
 use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
 my $id = 9266; # double | The ingredient id.
@@ -1464,7 +1604,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1485,6 +1625,11 @@ Search for substitutes for a given ingredient.
 use Data::Dumper;
 use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
 my $ingredient_name = butter; # string | The name of the ingredient you want to replace.
@@ -1510,7 +1655,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1531,6 +1676,11 @@ Search for substitutes for a given ingredient.
 use Data::Dumper;
 use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
 my $id = 1001; # double | The id of the ingredient you want substitutes for.
@@ -1556,7 +1706,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1577,6 +1727,11 @@ Get information about a meal plan template.
 use Data::Dumper;
 use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
 my $username = dsky; # string | The username.
@@ -1606,7 +1761,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1627,6 +1782,11 @@ Get meal plan templates from user or public ones.
 use Data::Dumper;
 use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
 my $username = dsky; # string | The username.
@@ -1654,7 +1814,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1675,6 +1835,11 @@ Retrieve a meal planned week for the given user. The username must be a spoonacu
 use Data::Dumper;
 use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
 my $username = dsky; # string | The username.
@@ -1704,7 +1869,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1725,6 +1890,11 @@ Use a menu item id to get all available information about a menu item, such as n
 use Data::Dumper;
 use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
 my $id = 424571; # double | The menu item id.
@@ -1750,7 +1920,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1771,6 +1941,11 @@ Use a product id to get full information about a product, such as ingredients, n
 use Data::Dumper;
 use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
 my $id = 22347; # double | The id of the packaged food.
@@ -1796,7 +1971,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1817,6 +1992,11 @@ Returns random food trivia.
 use Data::Dumper;
 use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
 
@@ -1838,7 +2018,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1859,6 +2039,11 @@ Find random (popular) recipes. If you need to filter recipes by diet, nutrition 
 use Data::Dumper;
 use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
 my $limit_license = true; # boolean | Whether the recipes should have an open license that allows display with proper attribution.
@@ -1888,7 +2073,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1909,6 +2094,11 @@ Get a recipe's equipment list.
 use Data::Dumper;
 use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
 my $id = 1003464; # double | The recipe id.
@@ -1934,7 +2124,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1955,6 +2145,11 @@ Use a recipe id to get full information about a recipe, such as ingredients, nut
 use Data::Dumper;
 use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
 my $id = 716429; # double | The id of the recipe.
@@ -1982,7 +2177,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2003,6 +2198,11 @@ Get information about multiple recipes at once. This is equivalent to calling th
 use Data::Dumper;
 use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
 my $ids = 715538,716429; # string | A comma-separated list of recipe ids.
@@ -2030,7 +2230,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2051,6 +2251,11 @@ Get a recipe's ingredient list.
 use Data::Dumper;
 use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
 my $id = 1003464; # double | The recipe id.
@@ -2076,7 +2281,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2097,6 +2302,11 @@ Get a recipe's nutrition widget data.
 use Data::Dumper;
 use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
 my $id = 1003464; # double | The recipe id.
@@ -2122,7 +2332,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2143,6 +2353,11 @@ Get a recipe's price breakdown data.
 use Data::Dumper;
 use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
 my $id = 1003464; # double | The recipe id.
@@ -2168,7 +2383,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2189,6 +2404,11 @@ Get a recipe's taste. The tastes supported are sweet, salty, sour, bitter, savor
 use Data::Dumper;
 use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
 my $id = 69095; # double | The recipe id.
@@ -2214,7 +2434,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2235,6 +2455,11 @@ Get the current shopping list for the given user.
 use Data::Dumper;
 use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
 my $username = dsky; # string | The username.
@@ -2262,7 +2487,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2283,6 +2508,11 @@ Find recipes which are similar to the given one.
 use Data::Dumper;
 use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
 my $id = 715538; # double | The id of the source recipe for which similar recipes should be found.
@@ -2312,7 +2542,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2333,6 +2563,11 @@ Get a simple description of a certain wine, e.g. \"malbec\", \"riesling\", or \"
 use Data::Dumper;
 use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
 my $wine = merlot; # string | The name of the wine that should be paired, e.g. \"merlot\", \"riesling\", or \"malbec\".
@@ -2358,7 +2593,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2379,6 +2614,11 @@ Find a wine that goes well with a food. Food can be a dish name (\"steak\"), an 
 use Data::Dumper;
 use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
 my $food = steak; # string | The food to get a pairing for. This can be a dish (\"steak\"), an ingredient (\"salmon\"), or a cuisine (\"italian\").
@@ -2406,7 +2646,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2427,6 +2667,11 @@ Get a specific wine recommendation (concrete product) for a given wine type, e.g
 use Data::Dumper;
 use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
 my $wine = merlot; # string | The type of wine to get a specific product recommendation for.
@@ -2458,7 +2703,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2479,6 +2724,11 @@ Estimate the macronutrients of a dish based on its title.
 use Data::Dumper;
 use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
 my $title = Spaghetti Aglio et Olio; # string | The title of the dish.
@@ -2504,7 +2754,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2525,6 +2775,11 @@ Analyze a food image. The API tries to classify the image, guess the nutrition, 
 use Data::Dumper;
 use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
 my $image_url = https://spoonacular.com/recipeImages/635350-240x150.jpg; # string | The URL of the image to be analyzed.
@@ -2550,7 +2805,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2571,6 +2826,11 @@ Classify a food image. You can play around with that endpoint!
 use Data::Dumper;
 use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
 my $image_url = https://spoonacular.com/recipeImages/635350-240x150.jpg; # string | The URL of the image to be classified.
@@ -2596,7 +2856,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2617,6 +2877,11 @@ Search for simple whole foods (e.g. fruits, vegetables, nuts, grains, meat, fish
 use Data::Dumper;
 use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
 my $query = apple; # string | The partial or full ingredient name.
@@ -2668,7 +2933,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2689,6 +2954,11 @@ Map a set of ingredients to products you can buy in the grocery store.
 use Data::Dumper;
 use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
 my $body = WWW::OpenAPIClient::Object::object->new(); # object | 
@@ -2714,7 +2984,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2735,6 +3005,11 @@ Extract an ingredient from plain text.
 use Data::Dumper;
 use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
 my $ingredient_list = "ingredient_list_example"; # string | The ingredient list of the recipe, one ingredient per line.
@@ -2764,7 +3039,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2785,6 +3060,11 @@ Answer a nutrition related natural language question.
 use Data::Dumper;
 use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
 my $q = How much vitamin c is in 2 apples?; # string | The nutrition related question.
@@ -2810,7 +3090,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2831,6 +3111,11 @@ Search all food content with one call. That includes recipes, grocery products, 
 use Data::Dumper;
 use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
 my $query = apple; # string | The search query.
@@ -2860,7 +3145,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2881,6 +3166,11 @@ Search custom foods in a user's account.
 use Data::Dumper;
 use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
 my $query = brat; # string | The search query.
@@ -2914,7 +3204,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2935,6 +3225,11 @@ Find recipe and other food related videos.
 use Data::Dumper;
 use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
 my $query = chicken soup; # string | The search query.
@@ -2978,7 +3273,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2999,6 +3294,11 @@ Search packaged food products, such as frozen pizza or Greek yogurt.
 use Data::Dumper;
 use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
 my $query = greek yogurt; # string | The search query.
@@ -3044,7 +3344,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3065,6 +3365,11 @@ Get information about a packaged food using its UPC.
 use Data::Dumper;
 use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
 my $upc = 41631000564; # double | The product's UPC.
@@ -3090,7 +3395,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3111,6 +3416,11 @@ Search over 115,000 menu items from over 800 fast food and chain restaurants. Fo
 use Data::Dumper;
 use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
 my $query = snickers; # string | The search query.
@@ -3156,7 +3466,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3177,6 +3487,11 @@ Search through hundreds of thousands of recipes using advanced filtering and ran
 use Data::Dumper;
 use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
 my $query = pasta; # string | The (natural language) recipe search query.
@@ -3392,7 +3707,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3413,6 +3728,11 @@ Search Recipes by Ingredients
 use Data::Dumper;
 use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
 my $ingredients = apples,flour,sugar; # string | A comma-separated list of ingredients that the recipes should contain.
@@ -3446,7 +3766,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3467,6 +3787,11 @@ Find a set of recipes that adhere to the given nutritional limits. You may set l
 use Data::Dumper;
 use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
 my $min_carbs = 10; # double | The minimum amount of carbohydrates in grams the recipe must have.
@@ -3642,7 +3967,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3663,6 +3988,11 @@ Search spoonacular's site content. You'll be able to find everything that you co
 use Data::Dumper;
 use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
 my $query = past; # string | The query to search for. You can also use partial queries such as \"spagh\" to already find spaghetti recipes, articles, grocery products, and other content.
@@ -3688,7 +4018,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3709,6 +4039,11 @@ Automatically generate a short description that summarizes key information about
 use Data::Dumper;
 use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
 my $id = 4632; # double | The recipe id.
@@ -3734,7 +4069,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3755,6 +4090,11 @@ This endpoint can be used to have a conversation about food with the spoonacular
 use Data::Dumper;
 use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
 my $text = donut recipes; # string | The request / question / answer from the user to the chatbot.
@@ -3782,7 +4122,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3803,6 +4143,11 @@ Visualize the equipment used to make a recipe. You can play around with that end
 use Data::Dumper;
 use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
 my $instructions = "instructions_example"; # string | The recipe's instructions.
@@ -3834,7 +4179,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3855,6 +4200,11 @@ Visualize ingredients of a recipe. You can play around with that endpoint!
 use Data::Dumper;
 use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
 my $ingredient_list = "ingredient_list_example"; # string | The ingredient list of the recipe, one ingredient per line.
@@ -3890,7 +4240,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3911,6 +4261,11 @@ Visualize a menu item's nutritional information as HTML including CSS.
 use Data::Dumper;
 use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
 my $id = 1003464; # double | The menu item id.
@@ -3938,7 +4293,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3959,6 +4314,11 @@ Visualize the price breakdown of a recipe. You can play around with that endpoin
 use Data::Dumper;
 use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
 my $ingredient_list = "ingredient_list_example"; # string | The ingredient list of the recipe, one ingredient per line.
@@ -3992,7 +4352,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -4013,6 +4373,11 @@ Visualize a product's nutritional information as HTML including CSS.
 use Data::Dumper;
 use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
 my $id = 7657; # double | The id of the product.
@@ -4040,7 +4405,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -4061,6 +4426,11 @@ Visualize a recipe's equipment list.
 use Data::Dumper;
 use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
 my $id = 44860; # double | The recipe id.
@@ -4088,7 +4458,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -4109,6 +4479,11 @@ Visualize a recipe's ingredient list.
 use Data::Dumper;
 use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
 my $id = 1082038; # double | The recipe id.
@@ -4136,7 +4511,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -4157,6 +4532,11 @@ Visualize a recipe's nutritional information as HTML including CSS. You can play
 use Data::Dumper;
 use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
 my $ingredient_list = "ingredient_list_example"; # string | The ingredient list of the recipe, one ingredient per line.
@@ -4188,7 +4568,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -4209,6 +4589,11 @@ Visualize a recipe's nutritional information as HTML including CSS.
 use Data::Dumper;
 use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
 my $id = 1082038; # double | The recipe id.
@@ -4236,7 +4621,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -4257,6 +4642,11 @@ Visualize a recipe's price breakdown.
 use Data::Dumper;
 use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
 my $id = 1082038; # double | The recipe id.
@@ -4284,7 +4674,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -4305,6 +4695,11 @@ Visualize a recipe's taste information as HTML including CSS. You can play aroun
 use Data::Dumper;
 use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
 my $ingredient_list = "ingredient_list_example"; # string | The ingredient list of the recipe, one ingredient per line.
@@ -4330,7 +4725,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -4351,6 +4746,11 @@ Get a recipe's taste. The tastes supported are sweet, salty, sour, bitter, savor
 use Data::Dumper;
 use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
 my $id = 69095; # double | The recipe id.
@@ -4376,7 +4776,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 

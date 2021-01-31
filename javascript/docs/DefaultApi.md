@@ -99,6 +99,12 @@ Add an item to the user&#39;s meal plan.
 
 ```javascript
 import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
 let username = dsky; // String | The username.
@@ -128,7 +134,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -148,6 +154,12 @@ Add an item to the current shopping list of a user.
 
 ```javascript
 import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
 let username = dsky; // String | The username.
@@ -177,7 +189,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -197,6 +209,12 @@ Parse a recipe search query to find out its intention.
 
 ```javascript
 import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
 let q = salmon with fusilli and no nuts; // String | The recipe search query.
@@ -222,7 +240,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -242,6 +260,12 @@ This endpoint allows you to break down instructions into atomic steps. Furthermo
 
 ```javascript
 import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
 let instructions = "instructions_example"; // String | The instructions to be analyzed.
@@ -267,7 +291,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -287,6 +311,12 @@ Autocomplete the entry of an ingredient.
 
 ```javascript
 import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
 let query = appl; // String | The partial or full ingredient name.
@@ -320,7 +350,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -340,6 +370,12 @@ Generate suggestions for menu items based on a (partial) query. The matches will
 
 ```javascript
 import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
 let query = chicke; // String | The (partial) search query.
@@ -369,7 +405,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -389,6 +425,12 @@ Generate suggestions for grocery products based on a (partial) query. The matche
 
 ```javascript
 import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
 let query = chicke; // String | The (partial) search query.
@@ -418,7 +460,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -438,6 +480,12 @@ Autocomplete a partial input to suggest possible recipe names.
 
 ```javascript
 import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
 let query = burger; // String | The query to be autocompleted.
@@ -467,7 +515,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -487,6 +535,12 @@ Classify the recipe&#39;s cuisine.
 
 ```javascript
 import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
 let title = "title_example"; // String | The title of the recipe.
@@ -514,7 +568,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -534,6 +588,12 @@ This endpoint allows you to match a packaged food to a basic category, e.g. a sp
 
 ```javascript
 import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
 let inlineObject9 = new SpoonacularApi.InlineObject9(); // InlineObject9 | 
@@ -563,7 +623,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -573,7 +633,7 @@ No authorization required
 
 ## classifyGroceryProductBulk
 
-> Object classifyGroceryProductBulk(body, opts)
+> Object classifyGroceryProductBulk(requestBody, opts)
 
 Classify Grocery Product Bulk
 
@@ -583,13 +643,19 @@ Provide a set of product jsons, get back classified products.
 
 ```javascript
 import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
-let body = null; // Object | 
+let requestBody = [null]; // [Object] | 
 let opts = {
   'locale': en_US // String | The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).
 };
-apiInstance.classifyGroceryProductBulk(body, opts, (error, data, response) => {
+apiInstance.classifyGroceryProductBulk(requestBody, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -603,7 +669,7 @@ apiInstance.classifyGroceryProductBulk(body, opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | **Object**|  | 
+ **requestBody** | [**[Object]**](Array.md)|  | 
  **locale** | **String**| The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). | [optional] 
 
 ### Return type
@@ -612,7 +678,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -632,6 +698,12 @@ Delete all planned items from the user&#39;s meal plan for a specific day.
 
 ```javascript
 import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
 let username = dsky; // String | The username.
@@ -663,7 +735,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -683,6 +755,12 @@ Retrieve the glycemic index for a list of ingredients and compute the individual
 
 ```javascript
 import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
 let body = null; // Object | 
@@ -708,7 +786,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -728,6 +806,12 @@ In order to call user-specific endpoints, you need to connect your app&#39;s use
 
 ```javascript
 import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
 let body = null; // Object | 
@@ -753,7 +837,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -773,6 +857,12 @@ Convert amounts like \&quot;2 cups of flour to grams\&quot;.
 
 ```javascript
 import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
 let ingredientName = flour; // String | The ingredient which you want to convert.
@@ -804,7 +894,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -824,6 +914,12 @@ Generate a recipe card for a recipe.
 
 ```javascript
 import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
 let title = "title_example"; // String | The title of the recipe.
@@ -873,7 +969,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -893,6 +989,12 @@ Delete an item from the user&#39;s meal plan.
 
 ```javascript
 import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
 let username = dsky; // String | The username.
@@ -924,7 +1026,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -944,6 +1046,12 @@ Delete an item from the current shopping list of the user.
 
 ```javascript
 import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
 let username = dsky; // String | The username.
@@ -975,7 +1083,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -995,6 +1103,12 @@ Take any text and find all mentions of food contained within it. This task is al
 
 ```javascript
 import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
 let text = "text_example"; // String | The text in which food items, such as dish names and ingredients, should be detected in.
@@ -1020,7 +1134,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1040,6 +1154,12 @@ This endpoint lets you extract recipe data such as title, ingredients, and instr
 
 ```javascript
 import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
 let url = https://foodista.com/recipe/ZHK4KPB6/chocolate-crinkle-cookies; // String | The URL of the recipe page.
@@ -1071,7 +1191,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1091,6 +1211,12 @@ Generate a meal plan with three meals per day (breakfast, lunch, and dinner).
 
 ```javascript
 import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
 let opts = {
@@ -1124,7 +1250,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1144,6 +1270,12 @@ Generate the shopping list for a user from the meal planner in a given time fram
 
 ```javascript
 import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
 let username = dsky; // String | The username.
@@ -1177,7 +1309,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1197,6 +1329,12 @@ Get a random joke that is related to food. Caution: this is an endpoint for adul
 
 ```javascript
 import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
 apiInstance.getARandomFoodJoke((error, data, response) => {
@@ -1218,7 +1356,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1238,6 +1376,12 @@ Get an analyzed breakdown of a recipe&#39;s instructions. Each step is enriched 
 
 ```javascript
 import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
 let id = 324694; // Number | The recipe id.
@@ -1267,7 +1411,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1287,6 +1431,12 @@ Find comparable products to the given one.
 
 ```javascript
 import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
 let upc = 33698816271; // Number | The UPC of the product for which you want to find comparable products.
@@ -1312,7 +1462,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1332,6 +1482,12 @@ This endpoint returns suggestions for things the user can say or ask the chatbot
 
 ```javascript
 import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
 let query = tell; // String | A (partial) query from the user. The endpoint will return if it matches topics it can talk about.
@@ -1361,7 +1517,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1381,6 +1537,12 @@ Find a dish that goes well with a given wine.
 
 ```javascript
 import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
 let wine = malbec; // String | The type of wine that should be paired, e.g. \"merlot\", \"riesling\", or \"malbec\".
@@ -1406,7 +1568,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1426,6 +1588,12 @@ Use an ingredient id to get all available information about an ingredient, such 
 
 ```javascript
 import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
 let id = 9266; // Number | The ingredient id.
@@ -1457,7 +1625,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1477,6 +1645,12 @@ Search for substitutes for a given ingredient.
 
 ```javascript
 import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
 let ingredientName = butter; // String | The name of the ingredient you want to replace.
@@ -1502,7 +1676,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1522,6 +1696,12 @@ Search for substitutes for a given ingredient.
 
 ```javascript
 import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
 let id = 1001; // Number | The id of the ingredient you want substitutes for.
@@ -1547,7 +1727,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1567,6 +1747,12 @@ Get information about a meal plan template.
 
 ```javascript
 import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
 let username = dsky; // String | The username.
@@ -1596,7 +1782,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1616,6 +1802,12 @@ Get meal plan templates from user or public ones.
 
 ```javascript
 import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
 let username = dsky; // String | The username.
@@ -1643,7 +1835,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1663,6 +1855,12 @@ Retrieve a meal planned week for the given user. The username must be a spoonacu
 
 ```javascript
 import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
 let username = dsky; // String | The username.
@@ -1692,7 +1890,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1712,6 +1910,12 @@ Use a menu item id to get all available information about a menu item, such as n
 
 ```javascript
 import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
 let id = 424571; // Number | The menu item id.
@@ -1737,7 +1941,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1757,6 +1961,12 @@ Use a product id to get full information about a product, such as ingredients, n
 
 ```javascript
 import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
 let id = 22347; // Number | The id of the packaged food.
@@ -1782,7 +1992,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1802,6 +2012,12 @@ Returns random food trivia.
 
 ```javascript
 import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
 apiInstance.getRandomFoodTrivia((error, data, response) => {
@@ -1823,7 +2039,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1843,6 +2059,12 @@ Find random (popular) recipes. If you need to filter recipes by diet, nutrition 
 
 ```javascript
 import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
 let opts = {
@@ -1874,7 +2096,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1894,6 +2116,12 @@ Get a recipe&#39;s equipment list.
 
 ```javascript
 import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
 let id = 1003464; // Number | The recipe id.
@@ -1919,7 +2147,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1939,6 +2167,12 @@ Use a recipe id to get full information about a recipe, such as ingredients, nut
 
 ```javascript
 import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
 let id = 716429; // Number | The id of the recipe.
@@ -1968,7 +2202,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1988,6 +2222,12 @@ Get information about multiple recipes at once. This is equivalent to calling th
 
 ```javascript
 import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
 let ids = 715538,716429; // String | A comma-separated list of recipe ids.
@@ -2017,7 +2257,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2037,6 +2277,12 @@ Get a recipe&#39;s ingredient list.
 
 ```javascript
 import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
 let id = 1003464; // Number | The recipe id.
@@ -2062,7 +2308,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2082,6 +2328,12 @@ Get a recipe&#39;s nutrition widget data.
 
 ```javascript
 import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
 let id = 1003464; // Number | The recipe id.
@@ -2107,7 +2359,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2127,6 +2379,12 @@ Get a recipe&#39;s price breakdown data.
 
 ```javascript
 import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
 let id = 1003464; // Number | The recipe id.
@@ -2152,7 +2410,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2172,6 +2430,12 @@ Get a recipe&#39;s taste. The tastes supported are sweet, salty, sour, bitter, s
 
 ```javascript
 import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
 let id = 69095; // Number | The recipe id.
@@ -2197,7 +2461,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2217,6 +2481,12 @@ Get the current shopping list for the given user.
 
 ```javascript
 import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
 let username = dsky; // String | The username.
@@ -2244,7 +2514,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2264,6 +2534,12 @@ Find recipes which are similar to the given one.
 
 ```javascript
 import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
 let id = 715538; // Number | The id of the source recipe for which similar recipes should be found.
@@ -2295,7 +2571,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2315,6 +2591,12 @@ Get a simple description of a certain wine, e.g. \&quot;malbec\&quot;, \&quot;ri
 
 ```javascript
 import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
 let wine = merlot; // String | The name of the wine that should be paired, e.g. \"merlot\", \"riesling\", or \"malbec\".
@@ -2340,7 +2622,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2360,6 +2642,12 @@ Find a wine that goes well with a food. Food can be a dish name (\&quot;steak\&q
 
 ```javascript
 import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
 let food = steak; // String | The food to get a pairing for. This can be a dish (\"steak\"), an ingredient (\"salmon\"), or a cuisine (\"italian\").
@@ -2389,7 +2677,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2409,6 +2697,12 @@ Get a specific wine recommendation (concrete product) for a given wine type, e.g
 
 ```javascript
 import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
 let wine = merlot; // String | The type of wine to get a specific product recommendation for.
@@ -2442,7 +2736,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2462,6 +2756,12 @@ Estimate the macronutrients of a dish based on its title.
 
 ```javascript
 import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
 let title = Spaghetti Aglio et Olio; // String | The title of the dish.
@@ -2487,7 +2787,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2507,6 +2807,12 @@ Analyze a food image. The API tries to classify the image, guess the nutrition, 
 
 ```javascript
 import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
 let imageUrl = https://spoonacular.com/recipeImages/635350-240x150.jpg; // String | The URL of the image to be analyzed.
@@ -2532,7 +2838,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2552,6 +2858,12 @@ Classify a food image. You can play around with that endpoint!
 
 ```javascript
 import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
 let imageUrl = https://spoonacular.com/recipeImages/635350-240x150.jpg; // String | The URL of the image to be classified.
@@ -2577,7 +2889,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2597,6 +2909,12 @@ Search for simple whole foods (e.g. fruits, vegetables, nuts, grains, meat, fish
 
 ```javascript
 import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
 let query = apple; // String | The partial or full ingredient name.
@@ -2650,7 +2968,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2670,6 +2988,12 @@ Map a set of ingredients to products you can buy in the grocery store.
 
 ```javascript
 import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
 let body = null; // Object | 
@@ -2695,7 +3019,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2715,6 +3039,12 @@ Extract an ingredient from plain text.
 
 ```javascript
 import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
 let ingredientList = "ingredientList_example"; // String | The ingredient list of the recipe, one ingredient per line.
@@ -2746,7 +3076,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2766,6 +3096,12 @@ Answer a nutrition related natural language question.
 
 ```javascript
 import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
 let q = How much vitamin c is in 2 apples?; // String | The nutrition related question.
@@ -2791,7 +3127,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2811,6 +3147,12 @@ Search all food content with one call. That includes recipes, grocery products, 
 
 ```javascript
 import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
 let query = apple; // String | The search query.
@@ -2842,7 +3184,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2862,6 +3204,12 @@ Search custom foods in a user&#39;s account.
 
 ```javascript
 import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
 let query = brat; // String | The search query.
@@ -2897,7 +3245,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2917,6 +3265,12 @@ Find recipe and other food related videos.
 
 ```javascript
 import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
 let query = chicken soup; // String | The search query.
@@ -2962,7 +3316,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2982,6 +3336,12 @@ Search packaged food products, such as frozen pizza or Greek yogurt.
 
 ```javascript
 import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
 let query = greek yogurt; // String | The search query.
@@ -3029,7 +3389,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3049,6 +3409,12 @@ Get information about a packaged food using its UPC.
 
 ```javascript
 import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
 let upc = 41631000564; // Number | The product's UPC.
@@ -3074,7 +3440,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3094,6 +3460,12 @@ Search over 115,000 menu items from over 800 fast food and chain restaurants. Fo
 
 ```javascript
 import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
 let query = snickers; // String | The search query.
@@ -3141,7 +3513,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3161,6 +3533,12 @@ Search through hundreds of thousands of recipes using advanced filtering and ran
 
 ```javascript
 import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
 let query = pasta; // String | The (natural language) recipe search query.
@@ -3378,7 +3756,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3398,6 +3776,12 @@ Search Recipes by Ingredients
 
 ```javascript
 import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
 let ingredients = apples,flour,sugar; // String | A comma-separated list of ingredients that the recipes should contain.
@@ -3433,7 +3817,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3453,6 +3837,12 @@ Find a set of recipes that adhere to the given nutritional limits. You may set l
 
 ```javascript
 import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
 let opts = {
@@ -3630,7 +4020,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3650,6 +4040,12 @@ Search spoonacular&#39;s site content. You&#39;ll be able to find everything tha
 
 ```javascript
 import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
 let query = past; // String | The query to search for. You can also use partial queries such as \"spagh\" to already find spaghetti recipes, articles, grocery products, and other content.
@@ -3675,7 +4071,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3695,6 +4091,12 @@ Automatically generate a short description that summarizes key information about
 
 ```javascript
 import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
 let id = 4632; // Number | The recipe id.
@@ -3720,7 +4122,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3740,6 +4142,12 @@ This endpoint can be used to have a conversation about food with the spoonacular
 
 ```javascript
 import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
 let text = donut recipes; // String | The request / question / answer from the user to the chatbot.
@@ -3769,7 +4177,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3789,6 +4197,12 @@ Visualize the equipment used to make a recipe. You can play around with that end
 
 ```javascript
 import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
 let instructions = "instructions_example"; // String | The recipe's instructions.
@@ -3822,7 +4236,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3842,6 +4256,12 @@ Visualize ingredients of a recipe. You can play around with that endpoint!
 
 ```javascript
 import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
 let ingredientList = "ingredientList_example"; // String | The ingredient list of the recipe, one ingredient per line.
@@ -3879,7 +4299,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3899,6 +4319,12 @@ Visualize a menu item&#39;s nutritional information as HTML including CSS.
 
 ```javascript
 import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
 let id = 1003464; // Number | The menu item id.
@@ -3928,7 +4354,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3948,6 +4374,12 @@ Visualize the price breakdown of a recipe. You can play around with that endpoin
 
 ```javascript
 import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
 let ingredientList = "ingredientList_example"; // String | The ingredient list of the recipe, one ingredient per line.
@@ -3983,7 +4415,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -4003,6 +4435,12 @@ Visualize a product&#39;s nutritional information as HTML including CSS.
 
 ```javascript
 import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
 let id = 7657; // Number | The id of the product.
@@ -4032,7 +4470,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -4052,6 +4490,12 @@ Visualize a recipe&#39;s equipment list.
 
 ```javascript
 import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
 let id = 44860; // Number | The recipe id.
@@ -4081,7 +4525,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -4101,6 +4545,12 @@ Visualize a recipe&#39;s ingredient list.
 
 ```javascript
 import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
 let id = 1082038; // Number | The recipe id.
@@ -4130,7 +4580,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -4150,6 +4600,12 @@ Visualize a recipe&#39;s nutritional information as HTML including CSS. You can 
 
 ```javascript
 import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
 let ingredientList = "ingredientList_example"; // String | The ingredient list of the recipe, one ingredient per line.
@@ -4183,7 +4639,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -4203,6 +4659,12 @@ Visualize a recipe&#39;s nutritional information as HTML including CSS.
 
 ```javascript
 import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
 let id = 1082038; // Number | The recipe id.
@@ -4232,7 +4694,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -4252,6 +4714,12 @@ Visualize a recipe&#39;s price breakdown.
 
 ```javascript
 import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
 let id = 1082038; // Number | The recipe id.
@@ -4281,7 +4749,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -4301,6 +4769,12 @@ Visualize a recipe&#39;s taste information as HTML including CSS. You can play a
 
 ```javascript
 import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
 let ingredientList = "ingredientList_example"; // String | The ingredient list of the recipe, one ingredient per line.
@@ -4326,7 +4800,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -4346,6 +4820,12 @@ Get a recipe&#39;s taste. The tastes supported are sweet, salty, sour, bitter, s
 
 ```javascript
 import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
 let id = 69095; // Number | The recipe id.
@@ -4371,7 +4851,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 

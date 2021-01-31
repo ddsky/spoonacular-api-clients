@@ -20,7 +20,7 @@ class ApiClient {
 
   ApiClient({this.basePath = "https://api.spoonacular.com"}) {
     // Setup authentications (key: authentication name, value: authentication).
-    _authentications['apiKeyScheme'] = ApiKeyAuth("query", "api_key");
+    _authentications['apiKeyScheme'] = ApiKeyAuth("query", "apiKey");
   }
 
   void addDefaultHeader(String key, String value) {

@@ -89,7 +89,7 @@ Method | HTTP request | Description
 
 ## add_to_meal_plan
 
-> Value add_to_meal_plan(username, hash, inline_object11)
+> Value add_to_meal_plan(ctx, username, hash, inline_object11)
 Add to Meal Plan
 
 Add an item to the user's meal plan.
@@ -99,6 +99,7 @@ Add an item to the user's meal plan.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **username** | **String**| The username. | 
   **hash** | **String**| The private hash for the username. | 
   **inline_object11** | [**InlineObject11**](InlineObject11.md)|  | 
@@ -109,7 +110,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -121,7 +122,7 @@ No authorization required
 
 ## add_to_shopping_list
 
-> Value add_to_shopping_list(username, hash, inline_object14)
+> Value add_to_shopping_list(ctx, username, hash, inline_object14)
 Add to Shopping List
 
 Add an item to the current shopping list of a user.
@@ -131,6 +132,7 @@ Add an item to the current shopping list of a user.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **username** | **String**| The username. | 
   **hash** | **String**| The private hash for the username. | 
   **inline_object14** | [**InlineObject14**](InlineObject14.md)|  | 
@@ -141,7 +143,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -153,7 +155,7 @@ No authorization required
 
 ## analyze_a_recipe_search_query
 
-> Value analyze_a_recipe_search_query(q)
+> Value analyze_a_recipe_search_query(ctx, q)
 Analyze a Recipe Search Query
 
 Parse a recipe search query to find out its intention.
@@ -163,6 +165,7 @@ Parse a recipe search query to find out its intention.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **q** | **String**| The recipe search query. | 
 
 ### Return type
@@ -171,7 +174,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -183,7 +186,7 @@ No authorization required
 
 ## analyze_recipe_instructions
 
-> Value analyze_recipe_instructions(instructions)
+> Value analyze_recipe_instructions(ctx, instructions)
 Analyze Recipe Instructions
 
 This endpoint allows you to break down instructions into atomic steps. Furthermore, each step will contain the ingredients and equipment required. Additionally, all ingredients and equipment from the recipe's instructions will be extracted independently of the step they're used in.
@@ -193,6 +196,7 @@ This endpoint allows you to break down instructions into atomic steps. Furthermo
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **instructions** | **String**| The instructions to be analyzed. | 
 
 ### Return type
@@ -201,7 +205,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -213,7 +217,7 @@ No authorization required
 
 ## autocomplete_ingredient_search
 
-> Value autocomplete_ingredient_search(query, optional)
+> Value autocomplete_ingredient_search(ctx, query, optional)
 Autocomplete Ingredient Search
 
 Autocomplete the entry of an ingredient.
@@ -223,6 +227,7 @@ Autocomplete the entry of an ingredient.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **query** | **String**| The partial or full ingredient name. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -243,7 +248,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -255,7 +260,7 @@ No authorization required
 
 ## autocomplete_menu_item_search
 
-> Value autocomplete_menu_item_search(query, optional)
+> Value autocomplete_menu_item_search(ctx, query, optional)
 Autocomplete Menu Item Search
 
 Generate suggestions for menu items based on a (partial) query. The matches will be found by looking in the title only.
@@ -265,6 +270,7 @@ Generate suggestions for menu items based on a (partial) query. The matches will
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **query** | **String**| The (partial) search query. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -283,7 +289,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -295,7 +301,7 @@ No authorization required
 
 ## autocomplete_product_search
 
-> Value autocomplete_product_search(query, optional)
+> Value autocomplete_product_search(ctx, query, optional)
 Autocomplete Product Search
 
 Generate suggestions for grocery products based on a (partial) query. The matches will be found by looking in the title only.
@@ -305,6 +311,7 @@ Generate suggestions for grocery products based on a (partial) query. The matche
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **query** | **String**| The (partial) search query. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -323,7 +330,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -335,7 +342,7 @@ No authorization required
 
 ## autocomplete_recipe_search
 
-> Value autocomplete_recipe_search(query, optional)
+> Value autocomplete_recipe_search(ctx, query, optional)
 Autocomplete Recipe Search
 
 Autocomplete a partial input to suggest possible recipe names.
@@ -345,6 +352,7 @@ Autocomplete a partial input to suggest possible recipe names.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **query** | **String**| The query to be autocompleted. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -363,7 +371,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -375,7 +383,7 @@ No authorization required
 
 ## classify_cuisine
 
-> Value classify_cuisine(title, ingredient_list)
+> Value classify_cuisine(ctx, title, ingredient_list)
 Classify Cuisine
 
 Classify the recipe's cuisine.
@@ -385,6 +393,7 @@ Classify the recipe's cuisine.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **title** | **String**| The title of the recipe. | 
   **ingredient_list** | **String**| The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n). | 
 
@@ -394,7 +403,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -406,7 +415,7 @@ No authorization required
 
 ## classify_grocery_product
 
-> Value classify_grocery_product(inline_object9, optional)
+> Value classify_grocery_product(ctx, inline_object9, optional)
 Classify Grocery Product
 
 This endpoint allows you to match a packaged food to a basic category, e.g. a specific brand of milk to the category milk.
@@ -416,6 +425,7 @@ This endpoint allows you to match a packaged food to a basic category, e.g. a sp
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **inline_object9** | [**InlineObject9**](InlineObject9.md)|  | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -434,7 +444,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -446,7 +456,7 @@ No authorization required
 
 ## classify_grocery_product_bulk
 
-> Value classify_grocery_product_bulk(body, optional)
+> Value classify_grocery_product_bulk(ctx, value, optional)
 Classify Grocery Product Bulk
 
 Provide a set of product jsons, get back classified products.
@@ -456,7 +466,8 @@ Provide a set of product jsons, get back classified products.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-  **body** | **Value**|  | 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **value** | [**Vec<Value>**](array.md)|  | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -465,7 +476,7 @@ Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | **Value**|  | 
+ **value** | [**Vec<Value>**](array.md)|  | 
  **locale** | **String**| The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). | 
 
 ### Return type
@@ -474,7 +485,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -486,7 +497,7 @@ No authorization required
 
 ## clear_meal_plan_day
 
-> Value clear_meal_plan_day(username, date, hash, inline_object10)
+> Value clear_meal_plan_day(ctx, username, date, hash, inline_object10)
 Clear Meal Plan Day
 
 Delete all planned items from the user's meal plan for a specific day.
@@ -496,6 +507,7 @@ Delete all planned items from the user's meal plan for a specific day.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **username** | **String**| The username. | 
   **date** | **String**| The date in the format yyyy-mm-dd. | 
   **hash** | **String**| The private hash for the username. | 
@@ -507,7 +519,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -519,7 +531,7 @@ No authorization required
 
 ## compute_glycemic_load
 
-> Value compute_glycemic_load(body)
+> Value compute_glycemic_load(ctx, body)
 Compute Glycemic Load
 
 Retrieve the glycemic index for a list of ingredients and compute the individual and total glycemic load.
@@ -529,6 +541,7 @@ Retrieve the glycemic index for a list of ingredients and compute the individual
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **body** | **Value**|  | 
 
 ### Return type
@@ -537,7 +550,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -549,7 +562,7 @@ No authorization required
 
 ## connect_user
 
-> Value connect_user(body)
+> Value connect_user(ctx, body)
 Connect User
 
 In order to call user-specific endpoints, you need to connect your app's users to spoonacular users.
@@ -559,6 +572,7 @@ In order to call user-specific endpoints, you need to connect your app's users t
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **body** | **Value**|  | 
 
 ### Return type
@@ -567,7 +581,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -579,7 +593,7 @@ No authorization required
 
 ## convert_amounts
 
-> Value convert_amounts(ingredient_name, source_amount, source_unit, target_unit)
+> Value convert_amounts(ctx, ingredient_name, source_amount, source_unit, target_unit)
 Convert Amounts
 
 Convert amounts like \"2 cups of flour to grams\".
@@ -589,6 +603,7 @@ Convert amounts like \"2 cups of flour to grams\".
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **ingredient_name** | **String**| The ingredient which you want to convert. | 
   **source_amount** | **f32**| The amount from which you want to convert, e.g. the 2.5 in \"2.5 cups of flour to grams\". | 
   **source_unit** | **String**| The unit from which you want to convert, e.g. the grams in \"2.5 cups of flour to grams\". You can also use \"piece\", e.g. \"3.4 oz tomatoes to piece\" | 
@@ -600,7 +615,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -612,7 +627,7 @@ No authorization required
 
 ## create_recipe_card
 
-> Value create_recipe_card(title, image, ingredients, instructions, ready_in_minutes, servings, mask, background_image, optional)
+> Value create_recipe_card(ctx, title, image, ingredients, instructions, ready_in_minutes, servings, mask, background_image, optional)
 Create Recipe Card
 
 Generate a recipe card for a recipe.
@@ -622,6 +637,7 @@ Generate a recipe card for a recipe.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **title** | **String**| The title of the recipe. | 
   **image** | **&std::path::Path**| The binary image of the recipe as jpg. | 
   **ingredients** | **String**| The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n). | 
@@ -657,7 +673,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -669,7 +685,7 @@ No authorization required
 
 ## delete_from_meal_plan
 
-> Value delete_from_meal_plan(username, id, hash, inline_object12)
+> Value delete_from_meal_plan(ctx, username, id, hash, inline_object12)
 Delete from Meal Plan
 
 Delete an item from the user's meal plan.
@@ -679,6 +695,7 @@ Delete an item from the user's meal plan.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **username** | **String**| The username. | 
   **id** | **f32**| The shopping list item id. | 
   **hash** | **String**| The private hash for the username. | 
@@ -690,7 +707,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -702,7 +719,7 @@ No authorization required
 
 ## delete_from_shopping_list
 
-> Value delete_from_shopping_list(username, id, hash, inline_object15)
+> Value delete_from_shopping_list(ctx, username, id, hash, inline_object15)
 Delete from Shopping List
 
 Delete an item from the current shopping list of the user.
@@ -712,6 +729,7 @@ Delete an item from the current shopping list of the user.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **username** | **String**| The username. | 
   **id** | **f32**| The shopping list item id. | 
   **hash** | **String**| The private hash for the username. | 
@@ -723,7 +741,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -735,7 +753,7 @@ No authorization required
 
 ## detect_food_in_text
 
-> Value detect_food_in_text(text)
+> Value detect_food_in_text(ctx, text)
 Detect Food in Text
 
 Take any text and find all mentions of food contained within it. This task is also called Named Entity Recognition (NER). In this case, the entities are foods. Either dishes, such as pizza or cheeseburger, or ingredients, such as cucumber or almonds.
@@ -745,6 +763,7 @@ Take any text and find all mentions of food contained within it. This task is al
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **text** | **String**| The text in which food items, such as dish names and ingredients, should be detected in. | 
 
 ### Return type
@@ -753,7 +772,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -765,7 +784,7 @@ No authorization required
 
 ## extract_recipe_from_website
 
-> Value extract_recipe_from_website(url, optional)
+> Value extract_recipe_from_website(ctx, url, optional)
 Extract Recipe from Website
 
 This endpoint lets you extract recipe data such as title, ingredients, and instructions from any properly formatted Website.
@@ -775,6 +794,7 @@ This endpoint lets you extract recipe data such as title, ingredients, and instr
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **url** | **String**| The URL of the recipe page. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -794,7 +814,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -806,7 +826,7 @@ No authorization required
 
 ## generate_meal_plan
 
-> Value generate_meal_plan(optional)
+> Value generate_meal_plan(ctx, optional)
 Generate Meal Plan
 
 Generate a meal plan with three meals per day (breakfast, lunch, and dinner).
@@ -816,6 +836,7 @@ Generate a meal plan with three meals per day (breakfast, lunch, and dinner).
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -835,7 +856,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -847,7 +868,7 @@ No authorization required
 
 ## generate_shopping_list
 
-> Value generate_shopping_list(username, start_date, end_date, hash, inline_object13)
+> Value generate_shopping_list(ctx, username, start_date, end_date, hash, inline_object13)
 Generate Shopping List
 
 Generate the shopping list for a user from the meal planner in a given time frame.
@@ -857,6 +878,7 @@ Generate the shopping list for a user from the meal planner in a given time fram
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **username** | **String**| The username. | 
   **start_date** | **String**| The start date in the format yyyy-mm-dd. | 
   **end_date** | **String**| The end date in the format yyyy-mm-dd. | 
@@ -869,7 +891,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -881,7 +903,7 @@ No authorization required
 
 ## get_a_random_food_joke
 
-> Value get_a_random_food_joke()
+> Value get_a_random_food_joke(ctx, )
 Get a Random Food Joke
 
 Get a random joke that is related to food. Caution: this is an endpoint for adults!
@@ -896,7 +918,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -908,7 +930,7 @@ No authorization required
 
 ## get_analyzed_recipe_instructions
 
-> Value get_analyzed_recipe_instructions(id, optional)
+> Value get_analyzed_recipe_instructions(ctx, id, optional)
 Get Analyzed Recipe Instructions
 
 Get an analyzed breakdown of a recipe's instructions. Each step is enriched with the ingredients and equipment required.
@@ -918,6 +940,7 @@ Get an analyzed breakdown of a recipe's instructions. Each step is enriched with
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **f32**| The recipe id. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -936,7 +959,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -948,7 +971,7 @@ No authorization required
 
 ## get_comparable_products
 
-> Value get_comparable_products(upc)
+> Value get_comparable_products(ctx, upc)
 Get Comparable Products
 
 Find comparable products to the given one.
@@ -958,6 +981,7 @@ Find comparable products to the given one.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **upc** | **f32**| The UPC of the product for which you want to find comparable products. | 
 
 ### Return type
@@ -966,7 +990,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -978,7 +1002,7 @@ No authorization required
 
 ## get_conversation_suggests
 
-> Value get_conversation_suggests(query, optional)
+> Value get_conversation_suggests(ctx, query, optional)
 Get Conversation Suggests
 
 This endpoint returns suggestions for things the user can say or ask the chatbot.
@@ -988,6 +1012,7 @@ This endpoint returns suggestions for things the user can say or ask the chatbot
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **query** | **String**| A (partial) query from the user. The endpoint will return if it matches topics it can talk about. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -1006,7 +1031,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1018,7 +1043,7 @@ No authorization required
 
 ## get_dish_pairing_for_wine
 
-> Value get_dish_pairing_for_wine(wine)
+> Value get_dish_pairing_for_wine(ctx, wine)
 Get Dish Pairing for Wine
 
 Find a dish that goes well with a given wine.
@@ -1028,6 +1053,7 @@ Find a dish that goes well with a given wine.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **wine** | **String**| The type of wine that should be paired, e.g. \"merlot\", \"riesling\", or \"malbec\". | 
 
 ### Return type
@@ -1036,7 +1062,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1048,7 +1074,7 @@ No authorization required
 
 ## get_ingredient_information
 
-> Value get_ingredient_information(id, optional)
+> Value get_ingredient_information(ctx, id, optional)
 Get Ingredient Information
 
 Use an ingredient id to get all available information about an ingredient, such as its image and supermarket aisle.
@@ -1058,6 +1084,7 @@ Use an ingredient id to get all available information about an ingredient, such 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **f32**| The ingredient id. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -1077,7 +1104,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1089,7 +1116,7 @@ No authorization required
 
 ## get_ingredient_substitutes
 
-> Value get_ingredient_substitutes(ingredient_name)
+> Value get_ingredient_substitutes(ctx, ingredient_name)
 Get Ingredient Substitutes
 
 Search for substitutes for a given ingredient.
@@ -1099,6 +1126,7 @@ Search for substitutes for a given ingredient.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **ingredient_name** | **String**| The name of the ingredient you want to replace. | 
 
 ### Return type
@@ -1107,7 +1135,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1119,7 +1147,7 @@ No authorization required
 
 ## get_ingredient_substitutes_by_id
 
-> Value get_ingredient_substitutes_by_id(id)
+> Value get_ingredient_substitutes_by_id(ctx, id)
 Get Ingredient Substitutes by ID
 
 Search for substitutes for a given ingredient.
@@ -1129,6 +1157,7 @@ Search for substitutes for a given ingredient.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **f32**| The id of the ingredient you want substitutes for. | 
 
 ### Return type
@@ -1137,7 +1166,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1149,7 +1178,7 @@ No authorization required
 
 ## get_meal_plan_template
 
-> Value get_meal_plan_template(username, id, hash)
+> Value get_meal_plan_template(ctx, username, id, hash)
 Get Meal Plan Template
 
 Get information about a meal plan template.
@@ -1159,6 +1188,7 @@ Get information about a meal plan template.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **username** | **String**| The username. | 
   **id** | **f32**| The shopping list item id. | 
   **hash** | **String**| The private hash for the username. | 
@@ -1169,7 +1199,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1181,7 +1211,7 @@ No authorization required
 
 ## get_meal_plan_templates
 
-> Value get_meal_plan_templates(username, hash)
+> Value get_meal_plan_templates(ctx, username, hash)
 Get Meal Plan Templates
 
 Get meal plan templates from user or public ones.
@@ -1191,6 +1221,7 @@ Get meal plan templates from user or public ones.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **username** | **String**| The username. | 
   **hash** | **String**| The private hash for the username. | 
 
@@ -1200,7 +1231,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1212,7 +1243,7 @@ No authorization required
 
 ## get_meal_plan_week
 
-> Value get_meal_plan_week(username, start_date, hash)
+> Value get_meal_plan_week(ctx, username, start_date, hash)
 Get Meal Plan Week
 
 Retrieve a meal planned week for the given user. The username must be a spoonacular user and the hash must the the user's hash that can be found in his/her account.
@@ -1222,6 +1253,7 @@ Retrieve a meal planned week for the given user. The username must be a spoonacu
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **username** | **String**| The username. | 
   **start_date** | **String**| The start date of the meal planned week in the format yyyy-mm-dd. | 
   **hash** | **String**| The private hash for the username. | 
@@ -1232,7 +1264,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1244,7 +1276,7 @@ No authorization required
 
 ## get_menu_item_information
 
-> Value get_menu_item_information(id)
+> Value get_menu_item_information(ctx, id)
 Get Menu Item Information
 
 Use a menu item id to get all available information about a menu item, such as nutrition.
@@ -1254,6 +1286,7 @@ Use a menu item id to get all available information about a menu item, such as n
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **f32**| The menu item id. | 
 
 ### Return type
@@ -1262,7 +1295,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1274,7 +1307,7 @@ No authorization required
 
 ## get_product_information
 
-> Value get_product_information(id)
+> Value get_product_information(ctx, id)
 Get Product Information
 
 Use a product id to get full information about a product, such as ingredients, nutrition, etc. The nutritional information is per serving.
@@ -1284,6 +1317,7 @@ Use a product id to get full information about a product, such as ingredients, n
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **f32**| The id of the packaged food. | 
 
 ### Return type
@@ -1292,7 +1326,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1304,7 +1338,7 @@ No authorization required
 
 ## get_random_food_trivia
 
-> Value get_random_food_trivia()
+> Value get_random_food_trivia(ctx, )
 Get Random Food Trivia
 
 Returns random food trivia.
@@ -1319,7 +1353,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1331,7 +1365,7 @@ No authorization required
 
 ## get_random_recipes
 
-> Value get_random_recipes(optional)
+> Value get_random_recipes(ctx, optional)
 Get Random Recipes
 
 Find random (popular) recipes. If you need to filter recipes by diet, nutrition etc. you might want to consider using the complex recipe search endpoint and set the sort request parameter to random.
@@ -1341,6 +1375,7 @@ Find random (popular) recipes. If you need to filter recipes by diet, nutrition 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -1359,7 +1394,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1371,7 +1406,7 @@ No authorization required
 
 ## get_recipe_equipment_by_id
 
-> Value get_recipe_equipment_by_id(id)
+> Value get_recipe_equipment_by_id(ctx, id)
 Get Recipe Equipment by ID
 
 Get a recipe's equipment list.
@@ -1381,6 +1416,7 @@ Get a recipe's equipment list.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **f32**| The recipe id. | 
 
 ### Return type
@@ -1389,7 +1425,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1401,7 +1437,7 @@ No authorization required
 
 ## get_recipe_information
 
-> Value get_recipe_information(id, optional)
+> Value get_recipe_information(ctx, id, optional)
 Get Recipe Information
 
 Use a recipe id to get full information about a recipe, such as ingredients, nutrition, diet and allergen information, etc.
@@ -1411,6 +1447,7 @@ Use a recipe id to get full information about a recipe, such as ingredients, nut
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **f32**| The id of the recipe. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -1429,7 +1466,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1441,7 +1478,7 @@ No authorization required
 
 ## get_recipe_information_bulk
 
-> Value get_recipe_information_bulk(ids, optional)
+> Value get_recipe_information_bulk(ctx, ids, optional)
 Get Recipe Information Bulk
 
 Get information about multiple recipes at once. This is equivalent to calling the Get Recipe Information endpoint multiple times, but faster.
@@ -1451,6 +1488,7 @@ Get information about multiple recipes at once. This is equivalent to calling th
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **ids** | **String**| A comma-separated list of recipe ids. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -1469,7 +1507,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1481,7 +1519,7 @@ No authorization required
 
 ## get_recipe_ingredients_by_id
 
-> Value get_recipe_ingredients_by_id(id)
+> Value get_recipe_ingredients_by_id(ctx, id)
 Get Recipe Ingredients by ID
 
 Get a recipe's ingredient list.
@@ -1491,6 +1529,7 @@ Get a recipe's ingredient list.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **f32**| The recipe id. | 
 
 ### Return type
@@ -1499,7 +1538,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1511,7 +1550,7 @@ No authorization required
 
 ## get_recipe_nutrition_widget_by_id
 
-> Value get_recipe_nutrition_widget_by_id(id)
+> Value get_recipe_nutrition_widget_by_id(ctx, id)
 Get Recipe Nutrition Widget by ID
 
 Get a recipe's nutrition widget data.
@@ -1521,6 +1560,7 @@ Get a recipe's nutrition widget data.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **f32**| The recipe id. | 
 
 ### Return type
@@ -1529,7 +1569,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1541,7 +1581,7 @@ No authorization required
 
 ## get_recipe_price_breakdown_by_id
 
-> Value get_recipe_price_breakdown_by_id(id)
+> Value get_recipe_price_breakdown_by_id(ctx, id)
 Get Recipe Price Breakdown by ID
 
 Get a recipe's price breakdown data.
@@ -1551,6 +1591,7 @@ Get a recipe's price breakdown data.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **f32**| The recipe id. | 
 
 ### Return type
@@ -1559,7 +1600,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1571,7 +1612,7 @@ No authorization required
 
 ## get_recipe_taste_by_id
 
-> Value get_recipe_taste_by_id(id)
+> Value get_recipe_taste_by_id(ctx, id)
 Get Recipe Taste by ID
 
 Get a recipe's taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
@@ -1581,6 +1622,7 @@ Get a recipe's taste. The tastes supported are sweet, salty, sour, bitter, savor
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **f32**| The recipe id. | 
 
 ### Return type
@@ -1589,7 +1631,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1601,7 +1643,7 @@ No authorization required
 
 ## get_shopping_list
 
-> Value get_shopping_list(username, hash)
+> Value get_shopping_list(ctx, username, hash)
 Get Shopping List
 
 Get the current shopping list for the given user.
@@ -1611,6 +1653,7 @@ Get the current shopping list for the given user.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **username** | **String**| The username. | 
   **hash** | **String**| The private hash for the username. | 
 
@@ -1620,7 +1663,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1632,7 +1675,7 @@ No authorization required
 
 ## get_similar_recipes
 
-> Value get_similar_recipes(id, optional)
+> Value get_similar_recipes(ctx, id, optional)
 Get Similar Recipes
 
 Find recipes which are similar to the given one.
@@ -1642,6 +1685,7 @@ Find recipes which are similar to the given one.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **f32**| The id of the source recipe for which similar recipes should be found. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -1661,7 +1705,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1673,7 +1717,7 @@ No authorization required
 
 ## get_wine_description
 
-> Value get_wine_description(wine)
+> Value get_wine_description(ctx, wine)
 Get Wine Description
 
 Get a simple description of a certain wine, e.g. \"malbec\", \"riesling\", or \"merlot\".
@@ -1683,6 +1727,7 @@ Get a simple description of a certain wine, e.g. \"malbec\", \"riesling\", or \"
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **wine** | **String**| The name of the wine that should be paired, e.g. \"merlot\", \"riesling\", or \"malbec\". | 
 
 ### Return type
@@ -1691,7 +1736,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1703,7 +1748,7 @@ No authorization required
 
 ## get_wine_pairing
 
-> Value get_wine_pairing(food, optional)
+> Value get_wine_pairing(ctx, food, optional)
 Get Wine Pairing
 
 Find a wine that goes well with a food. Food can be a dish name (\"steak\"), an ingredient name (\"salmon\"), or a cuisine (\"italian\").
@@ -1713,6 +1758,7 @@ Find a wine that goes well with a food. Food can be a dish name (\"steak\"), an 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **food** | **String**| The food to get a pairing for. This can be a dish (\"steak\"), an ingredient (\"salmon\"), or a cuisine (\"italian\"). | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -1731,7 +1777,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1743,7 +1789,7 @@ No authorization required
 
 ## get_wine_recommendation
 
-> Value get_wine_recommendation(wine, optional)
+> Value get_wine_recommendation(ctx, wine, optional)
 Get Wine Recommendation
 
 Get a specific wine recommendation (concrete product) for a given wine type, e.g. \"merlot\".
@@ -1753,6 +1799,7 @@ Get a specific wine recommendation (concrete product) for a given wine type, e.g
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **wine** | **String**| The type of wine to get a specific product recommendation for. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -1773,7 +1820,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1785,7 +1832,7 @@ No authorization required
 
 ## guess_nutrition_by_dish_name
 
-> Value guess_nutrition_by_dish_name(title)
+> Value guess_nutrition_by_dish_name(ctx, title)
 Guess Nutrition by Dish Name
 
 Estimate the macronutrients of a dish based on its title.
@@ -1795,6 +1842,7 @@ Estimate the macronutrients of a dish based on its title.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **title** | **String**| The title of the dish. | 
 
 ### Return type
@@ -1803,7 +1851,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1815,7 +1863,7 @@ No authorization required
 
 ## image_analysis_by_url
 
-> Value image_analysis_by_url(image_url)
+> Value image_analysis_by_url(ctx, image_url)
 Image Analysis by URL
 
 Analyze a food image. The API tries to classify the image, guess the nutrition, and find a matching recipes. You can play around with that endpoint!
@@ -1825,6 +1873,7 @@ Analyze a food image. The API tries to classify the image, guess the nutrition, 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **image_url** | **String**| The URL of the image to be analyzed. | 
 
 ### Return type
@@ -1833,7 +1882,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1845,7 +1894,7 @@ No authorization required
 
 ## image_classification_by_url
 
-> Value image_classification_by_url(image_url)
+> Value image_classification_by_url(ctx, image_url)
 Image Classification by URL
 
 Classify a food image. You can play around with that endpoint!
@@ -1855,6 +1904,7 @@ Classify a food image. You can play around with that endpoint!
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **image_url** | **String**| The URL of the image to be classified. | 
 
 ### Return type
@@ -1863,7 +1913,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1875,7 +1925,7 @@ No authorization required
 
 ## ingredient_search
 
-> Value ingredient_search(query, optional)
+> Value ingredient_search(ctx, query, optional)
 Ingredient Search
 
 Search for simple whole foods (e.g. fruits, vegetables, nuts, grains, meat, fish, dairy etc.).
@@ -1885,6 +1935,7 @@ Search for simple whole foods (e.g. fruits, vegetables, nuts, grains, meat, fish
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **query** | **String**| The partial or full ingredient name. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -1915,7 +1966,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1927,7 +1978,7 @@ No authorization required
 
 ## map_ingredients_to_grocery_products
 
-> Value map_ingredients_to_grocery_products(body)
+> Value map_ingredients_to_grocery_products(ctx, body)
 Map Ingredients to Grocery Products
 
 Map a set of ingredients to products you can buy in the grocery store.
@@ -1937,6 +1988,7 @@ Map a set of ingredients to products you can buy in the grocery store.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **body** | **Value**|  | 
 
 ### Return type
@@ -1945,7 +1997,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1957,7 +2009,7 @@ No authorization required
 
 ## parse_ingredients
 
-> Value parse_ingredients(ingredient_list, servings, optional)
+> Value parse_ingredients(ctx, ingredient_list, servings, optional)
 Parse Ingredients
 
 Extract an ingredient from plain text.
@@ -1967,6 +2019,7 @@ Extract an ingredient from plain text.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **ingredient_list** | **String**| The ingredient list of the recipe, one ingredient per line. | 
   **servings** | **f32**| The number of servings that you can make from the ingredients. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
@@ -1987,7 +2040,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1999,7 +2052,7 @@ No authorization required
 
 ## quick_answer
 
-> Value quick_answer(q)
+> Value quick_answer(ctx, q)
 Quick Answer
 
 Answer a nutrition related natural language question.
@@ -2009,6 +2062,7 @@ Answer a nutrition related natural language question.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **q** | **String**| The nutrition related question. | 
 
 ### Return type
@@ -2017,7 +2071,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2029,7 +2083,7 @@ No authorization required
 
 ## search_all_food
 
-> Value search_all_food(query, optional)
+> Value search_all_food(ctx, query, optional)
 Search All Food
 
 Search all food content with one call. That includes recipes, grocery products, menu items, simple foods (ingredients), and food videos.
@@ -2039,6 +2093,7 @@ Search all food content with one call. That includes recipes, grocery products, 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **query** | **String**| The search query. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -2058,7 +2113,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2070,7 +2125,7 @@ No authorization required
 
 ## search_custom_foods
 
-> Value search_custom_foods(query, username, hash, optional)
+> Value search_custom_foods(ctx, query, username, hash, optional)
 Search Custom Foods
 
 Search custom foods in a user's account.
@@ -2080,6 +2135,7 @@ Search custom foods in a user's account.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **query** | **String**| The search query. | 
   **username** | **String**| The username. | 
   **hash** | **String**| The private hash for the username. | 
@@ -2103,7 +2159,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2115,7 +2171,7 @@ No authorization required
 
 ## search_food_videos
 
-> Value search_food_videos(query, optional)
+> Value search_food_videos(ctx, query, optional)
 Search Food Videos
 
 Find recipe and other food related videos.
@@ -2125,6 +2181,7 @@ Find recipe and other food related videos.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **query** | **String**| The search query. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -2151,7 +2208,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2163,7 +2220,7 @@ No authorization required
 
 ## search_grocery_products
 
-> Value search_grocery_products(query, optional)
+> Value search_grocery_products(ctx, query, optional)
 Search Grocery Products
 
 Search packaged food products, such as frozen pizza or Greek yogurt.
@@ -2173,6 +2230,7 @@ Search packaged food products, such as frozen pizza or Greek yogurt.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **query** | **String**| The search query. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -2200,7 +2258,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2212,7 +2270,7 @@ No authorization required
 
 ## search_grocery_products_by_upc
 
-> Value search_grocery_products_by_upc(upc)
+> Value search_grocery_products_by_upc(ctx, upc)
 Search Grocery Products by UPC
 
 Get information about a packaged food using its UPC.
@@ -2222,6 +2280,7 @@ Get information about a packaged food using its UPC.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **upc** | **f32**| The product's UPC. | 
 
 ### Return type
@@ -2230,7 +2289,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2242,7 +2301,7 @@ No authorization required
 
 ## search_menu_items
 
-> Value search_menu_items(query, optional)
+> Value search_menu_items(ctx, query, optional)
 Search Menu Items
 
 Search over 115,000 menu items from over 800 fast food and chain restaurants. For example, McDonald's Big Mac or Starbucks Mocha.
@@ -2252,6 +2311,7 @@ Search over 115,000 menu items from over 800 fast food and chain restaurants. Fo
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **query** | **String**| The search query. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -2279,7 +2339,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2291,7 +2351,7 @@ No authorization required
 
 ## search_recipes
 
-> Value search_recipes(query, optional)
+> Value search_recipes(ctx, query, optional)
 Search Recipes
 
 Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint.
@@ -2301,6 +2361,7 @@ Search through hundreds of thousands of recipes using advanced filtering and ran
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **query** | **String**| The (natural language) recipe search query. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -2413,7 +2474,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2425,7 +2486,7 @@ No authorization required
 
 ## search_recipes_by_ingredients
 
-> Value search_recipes_by_ingredients(ingredients, optional)
+> Value search_recipes_by_ingredients(ctx, ingredients, optional)
 Search Recipes by Ingredients
 
              Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don't currently have (post shopping).         
@@ -2435,6 +2496,7 @@ Search Recipes by Ingredients
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **ingredients** | **String**| A comma-separated list of ingredients that the recipes should contain. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -2456,7 +2518,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2468,7 +2530,7 @@ No authorization required
 
 ## search_recipes_by_nutrients
 
-> Value search_recipes_by_nutrients(optional)
+> Value search_recipes_by_nutrients(ctx, optional)
 Search Recipes by Nutrients
 
 Find a set of recipes that adhere to the given nutritional limits. You may set limits for macronutrients (calories, protein, fat, and carbohydrate) and/or many micronutrients.
@@ -2478,6 +2540,7 @@ Find a set of recipes that adhere to the given nutritional limits. You may set l
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -2569,7 +2632,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2581,7 +2644,7 @@ No authorization required
 
 ## search_site_content
 
-> Value search_site_content(query)
+> Value search_site_content(ctx, query)
 Search Site Content
 
 Search spoonacular's site content. You'll be able to find everything that you could also find using the search suggestions on spoonacular.com. This is a suggest API so you can send partial strings as queries.
@@ -2591,6 +2654,7 @@ Search spoonacular's site content. You'll be able to find everything that you co
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **query** | **String**| The query to search for. You can also use partial queries such as \"spagh\" to already find spaghetti recipes, articles, grocery products, and other content. | 
 
 ### Return type
@@ -2599,7 +2663,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2611,7 +2675,7 @@ No authorization required
 
 ## summarize_recipe
 
-> Value summarize_recipe(id)
+> Value summarize_recipe(ctx, id)
 Summarize Recipe
 
 Automatically generate a short description that summarizes key information about the recipe.
@@ -2621,6 +2685,7 @@ Automatically generate a short description that summarizes key information about
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **f32**| The recipe id. | 
 
 ### Return type
@@ -2629,7 +2694,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2641,7 +2706,7 @@ No authorization required
 
 ## talk_to_chatbot
 
-> Value talk_to_chatbot(text, optional)
+> Value talk_to_chatbot(ctx, text, optional)
 Talk to Chatbot
 
 This endpoint can be used to have a conversation about food with the spoonacular chatbot. Use the \"Get Conversation Suggests\" endpoint to show your user what he or she can say.
@@ -2651,6 +2716,7 @@ This endpoint can be used to have a conversation about food with the spoonacular
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **text** | **String**| The request / question / answer from the user to the chatbot. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -2669,7 +2735,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2681,7 +2747,7 @@ No authorization required
 
 ## visualize_equipment
 
-> String visualize_equipment(instructions, optional)
+> String visualize_equipment(ctx, instructions, optional)
 Visualize Equipment
 
 Visualize the equipment used to make a recipe. You can play around with that endpoint!
@@ -2691,6 +2757,7 @@ Visualize the equipment used to make a recipe. You can play around with that end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **instructions** | **String**| The recipe's instructions. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -2711,7 +2778,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2723,7 +2790,7 @@ No authorization required
 
 ## visualize_ingredients
 
-> String visualize_ingredients(ingredient_list, servings, optional)
+> String visualize_ingredients(ctx, ingredient_list, servings, optional)
 Visualize Ingredients
 
 Visualize ingredients of a recipe. You can play around with that endpoint!
@@ -2733,6 +2800,7 @@ Visualize ingredients of a recipe. You can play around with that endpoint!
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **ingredient_list** | **String**| The ingredient list of the recipe, one ingredient per line. | 
   **servings** | **f32**| The number of servings. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
@@ -2756,7 +2824,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2768,7 +2836,7 @@ No authorization required
 
 ## visualize_menu_item_nutrition_by_id
 
-> String visualize_menu_item_nutrition_by_id(id, optional)
+> String visualize_menu_item_nutrition_by_id(ctx, id, optional)
 Visualize Menu Item Nutrition by ID
 
 Visualize a menu item's nutritional information as HTML including CSS.
@@ -2778,6 +2846,7 @@ Visualize a menu item's nutritional information as HTML including CSS.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **f32**| The menu item id. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -2796,7 +2865,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2808,7 +2877,7 @@ No authorization required
 
 ## visualize_price_breakdown
 
-> String visualize_price_breakdown(ingredient_list, servings, optional)
+> String visualize_price_breakdown(ctx, ingredient_list, servings, optional)
 Visualize Price Breakdown
 
 Visualize the price breakdown of a recipe. You can play around with that endpoint!
@@ -2818,6 +2887,7 @@ Visualize the price breakdown of a recipe. You can play around with that endpoin
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **ingredient_list** | **String**| The ingredient list of the recipe, one ingredient per line. | 
   **servings** | **f32**| The number of servings. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
@@ -2840,7 +2910,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2852,7 +2922,7 @@ No authorization required
 
 ## visualize_product_nutrition_by_id
 
-> String visualize_product_nutrition_by_id(id, optional)
+> String visualize_product_nutrition_by_id(ctx, id, optional)
 Visualize Product Nutrition by ID
 
 Visualize a product's nutritional information as HTML including CSS.
@@ -2862,6 +2932,7 @@ Visualize a product's nutritional information as HTML including CSS.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **f32**| The id of the product. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -2880,7 +2951,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2892,7 +2963,7 @@ No authorization required
 
 ## visualize_recipe_equipment_by_id
 
-> String visualize_recipe_equipment_by_id(id, optional)
+> String visualize_recipe_equipment_by_id(ctx, id, optional)
 Visualize Recipe Equipment by ID
 
 Visualize a recipe's equipment list.
@@ -2902,6 +2973,7 @@ Visualize a recipe's equipment list.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **f32**| The recipe id. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -2920,7 +2992,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2932,7 +3004,7 @@ No authorization required
 
 ## visualize_recipe_ingredients_by_id
 
-> String visualize_recipe_ingredients_by_id(id, optional)
+> String visualize_recipe_ingredients_by_id(ctx, id, optional)
 Visualize Recipe Ingredients by ID
 
 Visualize a recipe's ingredient list.
@@ -2942,6 +3014,7 @@ Visualize a recipe's ingredient list.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **f32**| The recipe id. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -2960,7 +3033,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2972,7 +3045,7 @@ No authorization required
 
 ## visualize_recipe_nutrition
 
-> String visualize_recipe_nutrition(ingredient_list, servings, optional)
+> String visualize_recipe_nutrition(ctx, ingredient_list, servings, optional)
 Visualize Recipe Nutrition
 
 Visualize a recipe's nutritional information as HTML including CSS. You can play around with that endpoint!
@@ -2982,6 +3055,7 @@ Visualize a recipe's nutritional information as HTML including CSS. You can play
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **ingredient_list** | **String**| The ingredient list of the recipe, one ingredient per line. | 
   **servings** | **f32**| The number of servings. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
@@ -3003,7 +3077,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3015,7 +3089,7 @@ No authorization required
 
 ## visualize_recipe_nutrition_by_id
 
-> String visualize_recipe_nutrition_by_id(id, optional)
+> String visualize_recipe_nutrition_by_id(ctx, id, optional)
 Visualize Recipe Nutrition by ID
 
 Visualize a recipe's nutritional information as HTML including CSS.
@@ -3025,6 +3099,7 @@ Visualize a recipe's nutritional information as HTML including CSS.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **f32**| The recipe id. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -3043,7 +3118,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3055,7 +3130,7 @@ No authorization required
 
 ## visualize_recipe_price_breakdown_by_id
 
-> String visualize_recipe_price_breakdown_by_id(id, optional)
+> String visualize_recipe_price_breakdown_by_id(ctx, id, optional)
 Visualize Recipe Price Breakdown by ID
 
 Visualize a recipe's price breakdown.
@@ -3065,6 +3140,7 @@ Visualize a recipe's price breakdown.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **f32**| The recipe id. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -3083,7 +3159,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3095,7 +3171,7 @@ No authorization required
 
 ## visualize_recipe_taste
 
-> String visualize_recipe_taste(ingredient_list)
+> String visualize_recipe_taste(ctx, ingredient_list)
 Visualize Recipe Taste
 
 Visualize a recipe's taste information as HTML including CSS. You can play around with that endpoint!
@@ -3105,6 +3181,7 @@ Visualize a recipe's taste information as HTML including CSS. You can play aroun
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **ingredient_list** | **String**| The ingredient list of the recipe, one ingredient per line. | 
 
 ### Return type
@@ -3113,7 +3190,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3125,7 +3202,7 @@ No authorization required
 
 ## visualize_recipe_taste_by_id
 
-> String visualize_recipe_taste_by_id(id)
+> String visualize_recipe_taste_by_id(ctx, id)
 Visualize Recipe Taste by ID
 
 Get a recipe's taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
@@ -3135,6 +3212,7 @@ Get a recipe's taste. The tastes supported are sweet, salty, sour, bitter, savor
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **f32**| The recipe id. | 
 
 ### Return type
@@ -3143,7 +3221,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 

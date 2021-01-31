@@ -206,7 +206,7 @@ extern NSInteger kOAIDefaultApiMissingParamErrorCode;
 /// Classify Grocery Product Bulk
 /// Provide a set of product jsons, get back classified products.
 ///
-/// @param body 
+/// @param requestBody 
 /// @param locale The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). (optional)
 /// 
 ///  code:200 message:"Success",
@@ -215,7 +215,7 @@ extern NSInteger kOAIDefaultApiMissingParamErrorCode;
 ///  code:404 message:"Not Found"
 ///
 /// @return NSObject*
--(NSURLSessionTask*) classifyGroceryProductBulkWithBody: (NSObject*) body
+-(NSURLSessionTask*) classifyGroceryProductBulkWithRequestBody: (NSArray<NSObject*>*) requestBody
     locale: (NSString*) locale
     completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
 

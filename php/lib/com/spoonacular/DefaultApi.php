@@ -395,6 +395,11 @@ class DefaultApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -696,6 +701,11 @@ class DefaultApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -964,6 +974,11 @@ class DefaultApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -1232,6 +1247,11 @@ class DefaultApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -1527,6 +1547,11 @@ class DefaultApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -1804,6 +1829,11 @@ class DefaultApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -2081,6 +2111,11 @@ class DefaultApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -2358,6 +2393,11 @@ class DefaultApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -2641,6 +2681,11 @@ class DefaultApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -2917,6 +2962,11 @@ class DefaultApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -2943,16 +2993,16 @@ class DefaultApi
      *
      * Classify Grocery Product Bulk
      *
-     * @param  object $body body (required)
+     * @param  object[] $request_body request_body (required)
      * @param  string $locale The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). (optional)
      *
      * @throws \com.spoonacular.client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return object
      */
-    public function classifyGroceryProductBulk($body, $locale = null)
+    public function classifyGroceryProductBulk($request_body, $locale = null)
     {
-        list($response) = $this->classifyGroceryProductBulkWithHttpInfo($body, $locale);
+        list($response) = $this->classifyGroceryProductBulkWithHttpInfo($request_body, $locale);
         return $response;
     }
 
@@ -2961,16 +3011,16 @@ class DefaultApi
      *
      * Classify Grocery Product Bulk
      *
-     * @param  object $body (required)
+     * @param  object[] $request_body (required)
      * @param  string $locale The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). (optional)
      *
      * @throws \com.spoonacular.client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
-    public function classifyGroceryProductBulkWithHttpInfo($body, $locale = null)
+    public function classifyGroceryProductBulkWithHttpInfo($request_body, $locale = null)
     {
-        $request = $this->classifyGroceryProductBulkRequest($body, $locale);
+        $request = $this->classifyGroceryProductBulkRequest($request_body, $locale);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3050,15 +3100,15 @@ class DefaultApi
      *
      * Classify Grocery Product Bulk
      *
-     * @param  object $body (required)
+     * @param  object[] $request_body (required)
      * @param  string $locale The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function classifyGroceryProductBulkAsync($body, $locale = null)
+    public function classifyGroceryProductBulkAsync($request_body, $locale = null)
     {
-        return $this->classifyGroceryProductBulkAsyncWithHttpInfo($body, $locale)
+        return $this->classifyGroceryProductBulkAsyncWithHttpInfo($request_body, $locale)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3071,16 +3121,16 @@ class DefaultApi
      *
      * Classify Grocery Product Bulk
      *
-     * @param  object $body (required)
+     * @param  object[] $request_body (required)
      * @param  string $locale The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function classifyGroceryProductBulkAsyncWithHttpInfo($body, $locale = null)
+    public function classifyGroceryProductBulkAsyncWithHttpInfo($request_body, $locale = null)
     {
         $returnType = 'object';
-        $request = $this->classifyGroceryProductBulkRequest($body, $locale);
+        $request = $this->classifyGroceryProductBulkRequest($request_body, $locale);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3119,18 +3169,18 @@ class DefaultApi
     /**
      * Create request for operation 'classifyGroceryProductBulk'
      *
-     * @param  object $body (required)
+     * @param  object[] $request_body (required)
      * @param  string $locale The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function classifyGroceryProductBulkRequest($body, $locale = null)
+    protected function classifyGroceryProductBulkRequest($request_body, $locale = null)
     {
-        // verify the required parameter 'body' is set
-        if ($body === null || (is_array($body) && count($body) === 0)) {
+        // verify the required parameter 'request_body' is set
+        if ($request_body === null || (is_array($request_body) && count($request_body) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $body when calling classifyGroceryProductBulk'
+                'Missing the required parameter $request_body when calling classifyGroceryProductBulk'
             );
         }
 
@@ -3149,8 +3199,8 @@ class DefaultApi
 
         // body params
         $_tempBody = null;
-        if (isset($body)) {
-            $_tempBody = $body;
+        if (isset($request_body)) {
+            $_tempBody = $request_body;
         }
 
         if ($multipart) {
@@ -3193,6 +3243,11 @@ class DefaultApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -3513,6 +3568,11 @@ class DefaultApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -3780,6 +3840,11 @@ class DefaultApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -4047,6 +4112,11 @@ class DefaultApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -4360,6 +4430,11 @@ class DefaultApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -4770,6 +4845,11 @@ class DefaultApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -5090,6 +5170,11 @@ class DefaultApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -5410,6 +5495,11 @@ class DefaultApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -5678,6 +5768,11 @@ class DefaultApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -5964,6 +6059,11 @@ class DefaultApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -6253,6 +6353,11 @@ class DefaultApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -6592,6 +6697,11 @@ class DefaultApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -6845,6 +6955,11 @@ class DefaultApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -7126,6 +7241,11 @@ class DefaultApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -7398,6 +7518,11 @@ class DefaultApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -7675,6 +7800,11 @@ class DefaultApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -7943,6 +8073,11 @@ class DefaultApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -8233,6 +8368,11 @@ class DefaultApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -8501,6 +8641,11 @@ class DefaultApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -8773,6 +8918,11 @@ class DefaultApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -9079,6 +9229,11 @@ class DefaultApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -9366,6 +9521,11 @@ class DefaultApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -9672,6 +9832,11 @@ class DefaultApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -9944,6 +10109,11 @@ class DefaultApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -10216,6 +10386,11 @@ class DefaultApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -10469,6 +10644,11 @@ class DefaultApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -10749,6 +10929,11 @@ class DefaultApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -11021,6 +11206,11 @@ class DefaultApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -11302,6 +11492,11 @@ class DefaultApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -11579,6 +11774,11 @@ class DefaultApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -11851,6 +12051,11 @@ class DefaultApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -12123,6 +12328,11 @@ class DefaultApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -12395,6 +12605,11 @@ class DefaultApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -12667,6 +12882,11 @@ class DefaultApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -12954,6 +13174,11 @@ class DefaultApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -13244,6 +13469,11 @@ class DefaultApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -13512,6 +13742,11 @@ class DefaultApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -13789,6 +14024,11 @@ class DefaultApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -14084,6 +14324,11 @@ class DefaultApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -14352,6 +14597,11 @@ class DefaultApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -14620,6 +14870,11 @@ class DefaultApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -14888,6 +15143,11 @@ class DefaultApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -15273,6 +15533,11 @@ class DefaultApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -15540,6 +15805,11 @@ class DefaultApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -15832,6 +16102,11 @@ class DefaultApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -16100,6 +16375,11 @@ class DefaultApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -16386,6 +16666,11 @@ class DefaultApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -16702,6 +16987,11 @@ class DefaultApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -17051,6 +17341,11 @@ class DefaultApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -17409,6 +17704,11 @@ class DefaultApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -17681,6 +17981,11 @@ class DefaultApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -18039,6 +18344,11 @@ class DefaultApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -19162,6 +19472,11 @@ class DefaultApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -19466,6 +19781,11 @@ class DefaultApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -20403,6 +20723,11 @@ class DefaultApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -20671,6 +20996,11 @@ class DefaultApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -20943,6 +21273,11 @@ class DefaultApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -21220,6 +21555,11 @@ class DefaultApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -21515,6 +21855,11 @@ class DefaultApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -21834,6 +22179,11 @@ class DefaultApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -22115,6 +22465,11 @@ class DefaultApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -22425,6 +22780,11 @@ class DefaultApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -22706,6 +23066,11 @@ class DefaultApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -22987,6 +23352,11 @@ class DefaultApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -23268,6 +23638,11 @@ class DefaultApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -23569,6 +23944,11 @@ class DefaultApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -23850,6 +24230,11 @@ class DefaultApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -24131,6 +24516,11 @@ class DefaultApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -24399,6 +24789,11 @@ class DefaultApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -24671,6 +25066,11 @@ class DefaultApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {

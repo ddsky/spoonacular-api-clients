@@ -101,6 +101,12 @@ Please follow the [installation](#installation) instruction and execute the foll
 ```javascript
 var SpoonacularApi = require('spoonacular_api');
 
+var defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+var apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = "YOUR API KEY"
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix['apiKey'] = "Token"
 
 var api = new SpoonacularApi.DefaultApi()
 var username = dsky; // {String} The username.
@@ -234,6 +240,6 @@ Class | Method | HTTP request | Description
 
 
 - **Type**: API key
-- **API key parameter name**: api_key
+- **API key parameter name**: apiKey
 - **Location**: URL query string
 

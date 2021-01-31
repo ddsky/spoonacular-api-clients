@@ -4039,9 +4039,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "required": [],
-                "type": "object",
-                "properties": {}
+                "type": "object"
               }
             }
           }
@@ -5139,7 +5137,6 @@
           "content": {
             "application/json": {
               "schema": {
-                "required": [],
                 "type": "object",
                 "properties": {
                   "locale": {
@@ -5205,15 +5202,8 @@
           "content": {
             "application/json": {
               "schema": {
-                "required": [],
                 "type": "array",
-                "properties": {
-                  "locale": {
-                    "type": "string",
-                    "description": "The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).",
-                    "example": "en_US"
-                  }
-                }
+                "items": {}
               }
             }
           }
@@ -5271,9 +5261,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "required": [],
-                "type": "object",
-                "properties": {}
+                "type": "object"
               }
             }
           }
@@ -6466,9 +6454,7 @@
           "content": {
             "": {
               "schema": {
-                "required": [],
-                "type": "object",
-                "properties": {}
+                "type": "object"
               }
             }
           }
@@ -7657,7 +7643,7 @@
     "securitySchemes": {
       "apiKeyScheme": {
         "type": "apiKey",
-        "name": "api_key",
+        "name": "apiKey",
         "in": "query"
       }
     }
@@ -7669,7 +7655,7 @@
   },
   "security": [
     {
-      "api_key": []
+      "apiKeyScheme": []
     }
   ]
 }

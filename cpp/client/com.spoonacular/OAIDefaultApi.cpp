@@ -621,7 +621,7 @@ OAIDefaultApi::classifyGroceryProductCallback(OAIHttpRequestWorker * worker) {
 }
 
 void
-OAIDefaultApi::classifyGroceryProductBulk(const OAIObject& body, const QString& locale) {
+OAIDefaultApi::classifyGroceryProductBulk(const QList<OAIObject>& oai_object, const QString& locale) {
     QString fullPath;
     fullPath.append(this->host).append(this->basePath).append("/food/products/classifyBatch");
     
@@ -637,8 +637,9 @@ OAIDefaultApi::classifyGroceryProductBulk(const OAIObject& body, const QString& 
     OAIHttpRequestInput input(fullPath, "POST");
 
     
-    QString output = body.asJson();
-    input.request_body.append(output);
+    QJsonDocument doc(::OpenAPI::toJsonValue(oai_object).toArray());
+    QByteArray bytes = doc.toJson();
+    input.request_body.append(bytes);
     
 
     foreach(QString key, this->defaultHeaders.keys()) {

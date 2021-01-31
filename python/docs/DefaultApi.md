@@ -95,15 +95,21 @@ Add an item to the user's meal plan.
 
 ### Example
 
+* Api Key Authentication (apiKeyScheme):
 ```python
 from __future__ import print_function
 import time
 import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = spoonacular.DefaultApi()
+api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
 username = 'dsky' # str | The username.
 hash = '4b5v4398573406' # str | The private hash for the username.
 inline_object11 = spoonacular.InlineObject11() # InlineObject11 | 
@@ -130,7 +136,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -148,15 +154,21 @@ Add an item to the current shopping list of a user.
 
 ### Example
 
+* Api Key Authentication (apiKeyScheme):
 ```python
 from __future__ import print_function
 import time
 import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = spoonacular.DefaultApi()
+api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
 username = 'dsky' # str | The username.
 hash = '4b5v4398573406' # str | The private hash for the username.
 inline_object14 = spoonacular.InlineObject14() # InlineObject14 | 
@@ -183,7 +195,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -201,15 +213,21 @@ Parse a recipe search query to find out its intention.
 
 ### Example
 
+* Api Key Authentication (apiKeyScheme):
 ```python
 from __future__ import print_function
 import time
 import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = spoonacular.DefaultApi()
+api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
 q = 'salmon with fusilli and no nuts' # str | The recipe search query.
 
 try:
@@ -232,7 +250,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -250,15 +268,21 @@ This endpoint allows you to break down instructions into atomic steps. Furthermo
 
 ### Example
 
+* Api Key Authentication (apiKeyScheme):
 ```python
 from __future__ import print_function
 import time
 import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = spoonacular.DefaultApi()
+api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
 instructions = 'instructions_example' # str | The instructions to be analyzed.
 
 try:
@@ -281,7 +305,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -299,15 +323,21 @@ Autocomplete the entry of an ingredient.
 
 ### Example
 
+* Api Key Authentication (apiKeyScheme):
 ```python
 from __future__ import print_function
 import time
 import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = spoonacular.DefaultApi()
+api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
 query = 'appl' # str | The partial or full ingredient name.
 number = 10 # float | The number of results to return (between 1 and 100). (optional)
 meta_information = false # bool | Whether to return more meta information about the ingredients. (optional)
@@ -336,7 +366,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -354,15 +384,21 @@ Generate suggestions for menu items based on a (partial) query. The matches will
 
 ### Example
 
+* Api Key Authentication (apiKeyScheme):
 ```python
 from __future__ import print_function
 import time
 import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = spoonacular.DefaultApi()
+api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
 query = 'chicke' # str | The (partial) search query.
 number = 10 # float | The number of results to return (between 1 and 25). (optional)
 
@@ -387,7 +423,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -405,15 +441,21 @@ Generate suggestions for grocery products based on a (partial) query. The matche
 
 ### Example
 
+* Api Key Authentication (apiKeyScheme):
 ```python
 from __future__ import print_function
 import time
 import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = spoonacular.DefaultApi()
+api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
 query = 'chicke' # str | The (partial) search query.
 number = 10 # float | The number of results to return (between 1 and 25). (optional)
 
@@ -438,7 +480,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -456,15 +498,21 @@ Autocomplete a partial input to suggest possible recipe names.
 
 ### Example
 
+* Api Key Authentication (apiKeyScheme):
 ```python
 from __future__ import print_function
 import time
 import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = spoonacular.DefaultApi()
+api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
 query = 'burger' # str | The query to be autocompleted.
 number = 10 # float | The number of results to return (between 1 and 25). (optional)
 
@@ -489,7 +537,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -507,15 +555,21 @@ Classify the recipe's cuisine.
 
 ### Example
 
+* Api Key Authentication (apiKeyScheme):
 ```python
 from __future__ import print_function
 import time
 import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = spoonacular.DefaultApi()
+api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
 title = 'title_example' # str | The title of the recipe.
 ingredient_list = 'ingredient_list_example' # str | The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
 
@@ -540,7 +594,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -558,15 +612,21 @@ This endpoint allows you to match a packaged food to a basic category, e.g. a sp
 
 ### Example
 
+* Api Key Authentication (apiKeyScheme):
 ```python
 from __future__ import print_function
 import time
 import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = spoonacular.DefaultApi()
+api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
 inline_object9 = spoonacular.InlineObject9() # InlineObject9 | 
 locale = 'en_US' # str | The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). (optional)
 
@@ -591,7 +651,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -601,7 +661,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **classify_grocery_product_bulk**
-> object classify_grocery_product_bulk(body, locale=locale)
+> object classify_grocery_product_bulk(request_body, locale=locale)
 
 Classify Grocery Product Bulk
 
@@ -609,21 +669,27 @@ Provide a set of product jsons, get back classified products.
 
 ### Example
 
+* Api Key Authentication (apiKeyScheme):
 ```python
 from __future__ import print_function
 import time
 import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = spoonacular.DefaultApi()
-body = None # object | 
+api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
+request_body = None # list[object] | 
 locale = 'en_US' # str | The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). (optional)
 
 try:
     # Classify Grocery Product Bulk
-    api_response = api_instance.classify_grocery_product_bulk(body, locale=locale)
+    api_response = api_instance.classify_grocery_product_bulk(request_body, locale=locale)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->classify_grocery_product_bulk: %s\n" % e)
@@ -633,7 +699,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | **object**|  | 
+ **request_body** | [**list[object]**](list.md)|  | 
  **locale** | **str**| The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). | [optional] 
 
 ### Return type
@@ -642,7 +708,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -660,15 +726,21 @@ Delete all planned items from the user's meal plan for a specific day.
 
 ### Example
 
+* Api Key Authentication (apiKeyScheme):
 ```python
 from __future__ import print_function
 import time
 import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = spoonacular.DefaultApi()
+api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
 username = 'dsky' # str | The username.
 date = '2020-06-01' # str | The date in the format yyyy-mm-dd.
 hash = '4b5v4398573406' # str | The private hash for the username.
@@ -697,7 +769,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -715,15 +787,21 @@ Retrieve the glycemic index for a list of ingredients and compute the individual
 
 ### Example
 
+* Api Key Authentication (apiKeyScheme):
 ```python
 from __future__ import print_function
 import time
 import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = spoonacular.DefaultApi()
+api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
 body = None # object | 
 
 try:
@@ -746,7 +824,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -764,15 +842,21 @@ In order to call user-specific endpoints, you need to connect your app's users t
 
 ### Example
 
+* Api Key Authentication (apiKeyScheme):
 ```python
 from __future__ import print_function
 import time
 import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = spoonacular.DefaultApi()
+api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
 body = None # object | 
 
 try:
@@ -795,7 +879,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -813,15 +897,21 @@ Convert amounts like \"2 cups of flour to grams\".
 
 ### Example
 
+* Api Key Authentication (apiKeyScheme):
 ```python
 from __future__ import print_function
 import time
 import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = spoonacular.DefaultApi()
+api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
 ingredient_name = 'flour' # str | The ingredient which you want to convert.
 source_amount = 2.5 # float | The amount from which you want to convert, e.g. the 2.5 in \"2.5 cups of flour to grams\".
 source_unit = 'cups' # str | The unit from which you want to convert, e.g. the grams in \"2.5 cups of flour to grams\". You can also use \"piece\", e.g. \"3.4 oz tomatoes to piece\"
@@ -850,7 +940,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -868,15 +958,21 @@ Generate a recipe card for a recipe.
 
 ### Example
 
+* Api Key Authentication (apiKeyScheme):
 ```python
 from __future__ import print_function
 import time
 import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = spoonacular.DefaultApi()
+api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
 title = 'title_example' # str | The title of the recipe.
 image = '/path/to/file' # file | The binary image of the recipe as jpg.
 ingredients = 'ingredients_example' # str | The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
@@ -921,7 +1017,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -939,15 +1035,21 @@ Delete an item from the user's meal plan.
 
 ### Example
 
+* Api Key Authentication (apiKeyScheme):
 ```python
 from __future__ import print_function
 import time
 import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = spoonacular.DefaultApi()
+api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
 username = 'dsky' # str | The username.
 id = 15678 # float | The shopping list item id.
 hash = '4b5v4398573406' # str | The private hash for the username.
@@ -976,7 +1078,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -994,15 +1096,21 @@ Delete an item from the current shopping list of the user.
 
 ### Example
 
+* Api Key Authentication (apiKeyScheme):
 ```python
 from __future__ import print_function
 import time
 import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = spoonacular.DefaultApi()
+api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
 username = 'dsky' # str | The username.
 id = 15678 # float | The shopping list item id.
 hash = '4b5v4398573406' # str | The private hash for the username.
@@ -1031,7 +1139,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1049,15 +1157,21 @@ Take any text and find all mentions of food contained within it. This task is al
 
 ### Example
 
+* Api Key Authentication (apiKeyScheme):
 ```python
 from __future__ import print_function
 import time
 import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = spoonacular.DefaultApi()
+api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
 text = 'text_example' # str | The text in which food items, such as dish names and ingredients, should be detected in.
 
 try:
@@ -1080,7 +1194,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1098,15 +1212,21 @@ This endpoint lets you extract recipe data such as title, ingredients, and instr
 
 ### Example
 
+* Api Key Authentication (apiKeyScheme):
 ```python
 from __future__ import print_function
 import time
 import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = spoonacular.DefaultApi()
+api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
 url = 'https://foodista.com/recipe/ZHK4KPB6/chocolate-crinkle-cookies' # str | The URL of the recipe page.
 force_extraction = true # bool | If true, the extraction will be triggered whether we already know the recipe or not. Use this only if information is missing as this operation is slower. (optional)
 analyze = false # bool | If true, the recipe will be analyzed and classified resolving in more data such as cuisines, dish types, and more. (optional)
@@ -1133,7 +1253,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1151,15 +1271,21 @@ Generate a meal plan with three meals per day (breakfast, lunch, and dinner).
 
 ### Example
 
+* Api Key Authentication (apiKeyScheme):
 ```python
 from __future__ import print_function
 import time
 import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = spoonacular.DefaultApi()
+api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
 time_frame = 'day' # str | Either for one \"day\" or an entire \"week\". (optional)
 target_calories = 2000 # float | What is the caloric target for one day? The meal plan generator will try to get as close as possible to that goal. (optional)
 diet = 'vegetarian' # str | Enter a diet that the meal plan has to adhere to. See a full list of supported diets. (optional)
@@ -1188,7 +1314,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1206,15 +1332,21 @@ Generate the shopping list for a user from the meal planner in a given time fram
 
 ### Example
 
+* Api Key Authentication (apiKeyScheme):
 ```python
 from __future__ import print_function
 import time
 import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = spoonacular.DefaultApi()
+api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
 username = 'dsky' # str | The username.
 start_date = '2020-06-01' # str | The start date in the format yyyy-mm-dd.
 end_date = '2020-06-07' # str | The end date in the format yyyy-mm-dd.
@@ -1245,7 +1377,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1263,15 +1395,21 @@ Get a random joke that is related to food. Caution: this is an endpoint for adul
 
 ### Example
 
+* Api Key Authentication (apiKeyScheme):
 ```python
 from __future__ import print_function
 import time
 import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = spoonacular.DefaultApi()
+api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
 
 try:
     # Get a Random Food Joke
@@ -1290,7 +1428,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1308,15 +1446,21 @@ Get an analyzed breakdown of a recipe's instructions. Each step is enriched with
 
 ### Example
 
+* Api Key Authentication (apiKeyScheme):
 ```python
 from __future__ import print_function
 import time
 import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = spoonacular.DefaultApi()
+api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
 id = 324694 # float | The recipe id.
 step_breakdown = true # bool | Whether to break down the recipe steps even more. (optional)
 
@@ -1341,7 +1485,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1359,15 +1503,21 @@ Find comparable products to the given one.
 
 ### Example
 
+* Api Key Authentication (apiKeyScheme):
 ```python
 from __future__ import print_function
 import time
 import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = spoonacular.DefaultApi()
+api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
 upc = 33698816271 # float | The UPC of the product for which you want to find comparable products.
 
 try:
@@ -1390,7 +1540,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1408,15 +1558,21 @@ This endpoint returns suggestions for things the user can say or ask the chatbot
 
 ### Example
 
+* Api Key Authentication (apiKeyScheme):
 ```python
 from __future__ import print_function
 import time
 import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = spoonacular.DefaultApi()
+api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
 query = 'tell' # str | A (partial) query from the user. The endpoint will return if it matches topics it can talk about.
 number = 5 # float | The number of suggestions to return (between 1 and 25). (optional)
 
@@ -1441,7 +1597,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1459,15 +1615,21 @@ Find a dish that goes well with a given wine.
 
 ### Example
 
+* Api Key Authentication (apiKeyScheme):
 ```python
 from __future__ import print_function
 import time
 import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = spoonacular.DefaultApi()
+api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
 wine = 'malbec' # str | The type of wine that should be paired, e.g. \"merlot\", \"riesling\", or \"malbec\".
 
 try:
@@ -1490,7 +1652,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1508,15 +1670,21 @@ Use an ingredient id to get all available information about an ingredient, such 
 
 ### Example
 
+* Api Key Authentication (apiKeyScheme):
 ```python
 from __future__ import print_function
 import time
 import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = spoonacular.DefaultApi()
+api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
 id = 9266 # float | The ingredient id.
 amount = 150 # float | The amount of this ingredient. (optional)
 unit = 'grams' # str | The unit for the given amount. (optional)
@@ -1543,7 +1711,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1561,15 +1729,21 @@ Search for substitutes for a given ingredient.
 
 ### Example
 
+* Api Key Authentication (apiKeyScheme):
 ```python
 from __future__ import print_function
 import time
 import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = spoonacular.DefaultApi()
+api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
 ingredient_name = 'butter' # str | The name of the ingredient you want to replace.
 
 try:
@@ -1592,7 +1766,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1610,15 +1784,21 @@ Search for substitutes for a given ingredient.
 
 ### Example
 
+* Api Key Authentication (apiKeyScheme):
 ```python
 from __future__ import print_function
 import time
 import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = spoonacular.DefaultApi()
+api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
 id = 1001 # float | The id of the ingredient you want substitutes for.
 
 try:
@@ -1641,7 +1821,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1659,15 +1839,21 @@ Get information about a meal plan template.
 
 ### Example
 
+* Api Key Authentication (apiKeyScheme):
 ```python
 from __future__ import print_function
 import time
 import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = spoonacular.DefaultApi()
+api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
 username = 'dsky' # str | The username.
 id = 15678 # float | The shopping list item id.
 hash = '4b5v4398573406' # str | The private hash for the username.
@@ -1694,7 +1880,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1712,15 +1898,21 @@ Get meal plan templates from user or public ones.
 
 ### Example
 
+* Api Key Authentication (apiKeyScheme):
 ```python
 from __future__ import print_function
 import time
 import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = spoonacular.DefaultApi()
+api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
 username = 'dsky' # str | The username.
 hash = '4b5v4398573406' # str | The private hash for the username.
 
@@ -1745,7 +1937,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1763,15 +1955,21 @@ Retrieve a meal planned week for the given user. The username must be a spoonacu
 
 ### Example
 
+* Api Key Authentication (apiKeyScheme):
 ```python
 from __future__ import print_function
 import time
 import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = spoonacular.DefaultApi()
+api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
 username = 'dsky' # str | The username.
 start_date = '2020-06-01' # str | The start date of the meal planned week in the format yyyy-mm-dd.
 hash = '4b5v4398573406' # str | The private hash for the username.
@@ -1798,7 +1996,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1816,15 +2014,21 @@ Use a menu item id to get all available information about a menu item, such as n
 
 ### Example
 
+* Api Key Authentication (apiKeyScheme):
 ```python
 from __future__ import print_function
 import time
 import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = spoonacular.DefaultApi()
+api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
 id = 424571 # float | The menu item id.
 
 try:
@@ -1847,7 +2051,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1865,15 +2069,21 @@ Use a product id to get full information about a product, such as ingredients, n
 
 ### Example
 
+* Api Key Authentication (apiKeyScheme):
 ```python
 from __future__ import print_function
 import time
 import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = spoonacular.DefaultApi()
+api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
 id = 22347 # float | The id of the packaged food.
 
 try:
@@ -1896,7 +2106,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1914,15 +2124,21 @@ Returns random food trivia.
 
 ### Example
 
+* Api Key Authentication (apiKeyScheme):
 ```python
 from __future__ import print_function
 import time
 import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = spoonacular.DefaultApi()
+api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
 
 try:
     # Get Random Food Trivia
@@ -1941,7 +2157,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1959,15 +2175,21 @@ Find random (popular) recipes. If you need to filter recipes by diet, nutrition 
 
 ### Example
 
+* Api Key Authentication (apiKeyScheme):
 ```python
 from __future__ import print_function
 import time
 import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = spoonacular.DefaultApi()
+api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
 limit_license = true # bool | Whether the recipes should have an open license that allows display with proper attribution. (optional)
 tags = 'vegetarian, dessert' # str | The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have. (optional)
 number = 1 # float | The number of random recipes to be returned (between 1 and 100). (optional)
@@ -1994,7 +2216,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2012,15 +2234,21 @@ Get a recipe's equipment list.
 
 ### Example
 
+* Api Key Authentication (apiKeyScheme):
 ```python
 from __future__ import print_function
 import time
 import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = spoonacular.DefaultApi()
+api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
 id = 1003464 # float | The recipe id.
 
 try:
@@ -2043,7 +2271,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2061,15 +2289,21 @@ Use a recipe id to get full information about a recipe, such as ingredients, nut
 
 ### Example
 
+* Api Key Authentication (apiKeyScheme):
 ```python
 from __future__ import print_function
 import time
 import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = spoonacular.DefaultApi()
+api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
 id = 716429 # float | The id of the recipe.
 include_nutrition = false # bool | Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional)
 
@@ -2094,7 +2328,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2112,15 +2346,21 @@ Get information about multiple recipes at once. This is equivalent to calling th
 
 ### Example
 
+* Api Key Authentication (apiKeyScheme):
 ```python
 from __future__ import print_function
 import time
 import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = spoonacular.DefaultApi()
+api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
 ids = '715538,716429' # str | A comma-separated list of recipe ids.
 include_nutrition = false # bool | Include nutrition data to the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional)
 
@@ -2145,7 +2385,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2163,15 +2403,21 @@ Get a recipe's ingredient list.
 
 ### Example
 
+* Api Key Authentication (apiKeyScheme):
 ```python
 from __future__ import print_function
 import time
 import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = spoonacular.DefaultApi()
+api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
 id = 1003464 # float | The recipe id.
 
 try:
@@ -2194,7 +2440,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2212,15 +2458,21 @@ Get a recipe's nutrition widget data.
 
 ### Example
 
+* Api Key Authentication (apiKeyScheme):
 ```python
 from __future__ import print_function
 import time
 import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = spoonacular.DefaultApi()
+api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
 id = 1003464 # float | The recipe id.
 
 try:
@@ -2243,7 +2495,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2261,15 +2513,21 @@ Get a recipe's price breakdown data.
 
 ### Example
 
+* Api Key Authentication (apiKeyScheme):
 ```python
 from __future__ import print_function
 import time
 import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = spoonacular.DefaultApi()
+api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
 id = 1003464 # float | The recipe id.
 
 try:
@@ -2292,7 +2550,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2310,15 +2568,21 @@ Get a recipe's taste. The tastes supported are sweet, salty, sour, bitter, savor
 
 ### Example
 
+* Api Key Authentication (apiKeyScheme):
 ```python
 from __future__ import print_function
 import time
 import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = spoonacular.DefaultApi()
+api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
 id = 69095 # float | The recipe id.
 
 try:
@@ -2341,7 +2605,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2359,15 +2623,21 @@ Get the current shopping list for the given user.
 
 ### Example
 
+* Api Key Authentication (apiKeyScheme):
 ```python
 from __future__ import print_function
 import time
 import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = spoonacular.DefaultApi()
+api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
 username = 'dsky' # str | The username.
 hash = '4b5v4398573406' # str | The private hash for the username.
 
@@ -2392,7 +2662,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2410,15 +2680,21 @@ Find recipes which are similar to the given one.
 
 ### Example
 
+* Api Key Authentication (apiKeyScheme):
 ```python
 from __future__ import print_function
 import time
 import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = spoonacular.DefaultApi()
+api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
 id = 715538 # float | The id of the source recipe for which similar recipes should be found.
 number = 1 # float | The number of random recipes to be returned (between 1 and 100). (optional)
 limit_license = true # bool | Whether the recipes should have an open license that allows display with proper attribution. (optional)
@@ -2445,7 +2721,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2463,15 +2739,21 @@ Get a simple description of a certain wine, e.g. \"malbec\", \"riesling\", or \"
 
 ### Example
 
+* Api Key Authentication (apiKeyScheme):
 ```python
 from __future__ import print_function
 import time
 import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = spoonacular.DefaultApi()
+api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
 wine = 'merlot' # str | The name of the wine that should be paired, e.g. \"merlot\", \"riesling\", or \"malbec\".
 
 try:
@@ -2494,7 +2776,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2512,15 +2794,21 @@ Find a wine that goes well with a food. Food can be a dish name (\"steak\"), an 
 
 ### Example
 
+* Api Key Authentication (apiKeyScheme):
 ```python
 from __future__ import print_function
 import time
 import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = spoonacular.DefaultApi()
+api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
 food = 'steak' # str | The food to get a pairing for. This can be a dish (\"steak\"), an ingredient (\"salmon\"), or a cuisine (\"italian\").
 max_price = 50 # float | The maximum price for the specific wine recommendation in USD. (optional)
 
@@ -2545,7 +2833,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2563,15 +2851,21 @@ Get a specific wine recommendation (concrete product) for a given wine type, e.g
 
 ### Example
 
+* Api Key Authentication (apiKeyScheme):
 ```python
 from __future__ import print_function
 import time
 import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = spoonacular.DefaultApi()
+api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
 wine = 'merlot' # str | The type of wine to get a specific product recommendation for.
 max_price = 50 # float | The maximum price for the specific wine recommendation in USD. (optional)
 min_rating = 0.7 # float | The minimum rating of the recommended wine between 0 and 1. For example, 0.8 equals 4 out of 5 stars. (optional)
@@ -2600,7 +2894,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2618,15 +2912,21 @@ Estimate the macronutrients of a dish based on its title.
 
 ### Example
 
+* Api Key Authentication (apiKeyScheme):
 ```python
 from __future__ import print_function
 import time
 import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = spoonacular.DefaultApi()
+api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
 title = 'Spaghetti Aglio et Olio' # str | The title of the dish.
 
 try:
@@ -2649,7 +2949,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2667,15 +2967,21 @@ Analyze a food image. The API tries to classify the image, guess the nutrition, 
 
 ### Example
 
+* Api Key Authentication (apiKeyScheme):
 ```python
 from __future__ import print_function
 import time
 import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = spoonacular.DefaultApi()
+api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
 image_url = 'https://spoonacular.com/recipeImages/635350-240x150.jpg' # str | The URL of the image to be analyzed.
 
 try:
@@ -2698,7 +3004,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2716,15 +3022,21 @@ Classify a food image. You can play around with that endpoint!
 
 ### Example
 
+* Api Key Authentication (apiKeyScheme):
 ```python
 from __future__ import print_function
 import time
 import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = spoonacular.DefaultApi()
+api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
 image_url = 'https://spoonacular.com/recipeImages/635350-240x150.jpg' # str | The URL of the image to be classified.
 
 try:
@@ -2747,7 +3059,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2765,15 +3077,21 @@ Search for simple whole foods (e.g. fruits, vegetables, nuts, grains, meat, fish
 
 ### Example
 
+* Api Key Authentication (apiKeyScheme):
 ```python
 from __future__ import print_function
 import time
 import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = spoonacular.DefaultApi()
+api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
 query = 'apple' # str | The partial or full ingredient name.
 add_children = true # bool | Whether to add children of found foods. (optional)
 min_protein_percent = 10 # float | The minimum percentage of protein the food must have (between 0 and 100). (optional)
@@ -2822,7 +3140,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2840,15 +3158,21 @@ Map a set of ingredients to products you can buy in the grocery store.
 
 ### Example
 
+* Api Key Authentication (apiKeyScheme):
 ```python
 from __future__ import print_function
 import time
 import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = spoonacular.DefaultApi()
+api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
 body = None # object | 
 
 try:
@@ -2871,7 +3195,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2889,15 +3213,21 @@ Extract an ingredient from plain text.
 
 ### Example
 
+* Api Key Authentication (apiKeyScheme):
 ```python
 from __future__ import print_function
 import time
 import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = spoonacular.DefaultApi()
+api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
 ingredient_list = 'ingredient_list_example' # str | The ingredient list of the recipe, one ingredient per line.
 servings = 3.4 # float | The number of servings that you can make from the ingredients.
 include_nutrition = True # bool | Whether nutrition data should be added to correctly parsed ingredients. (optional)
@@ -2924,7 +3254,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2942,15 +3272,21 @@ Answer a nutrition related natural language question.
 
 ### Example
 
+* Api Key Authentication (apiKeyScheme):
 ```python
 from __future__ import print_function
 import time
 import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = spoonacular.DefaultApi()
+api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
 q = 'How much vitamin c is in 2 apples?' # str | The nutrition related question.
 
 try:
@@ -2973,7 +3309,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2991,15 +3327,21 @@ Search all food content with one call. That includes recipes, grocery products, 
 
 ### Example
 
+* Api Key Authentication (apiKeyScheme):
 ```python
 from __future__ import print_function
 import time
 import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = spoonacular.DefaultApi()
+api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
 query = 'apple' # str | The search query.
 offset = 0 # float | The number of results to skip (between 0 and 990). (optional)
 number = 10 # float | The number of expected results (between 1 and 100). (optional)
@@ -3026,7 +3368,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3044,15 +3386,21 @@ Search custom foods in a user's account.
 
 ### Example
 
+* Api Key Authentication (apiKeyScheme):
 ```python
 from __future__ import print_function
 import time
 import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = spoonacular.DefaultApi()
+api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
 query = 'brat' # str | The search query.
 username = 'dsky' # str | The username.
 hash = '4b5v4398573406' # str | The private hash for the username.
@@ -3083,7 +3431,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3101,15 +3449,21 @@ Find recipe and other food related videos.
 
 ### Example
 
+* Api Key Authentication (apiKeyScheme):
 ```python
 from __future__ import print_function
 import time
 import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = spoonacular.DefaultApi()
+api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
 query = 'chicken soup' # str | The search query.
 type = 'main course' # str | The type of the recipes. See a full list of supported meal types. (optional)
 cuisine = 'italian' # str | The cuisine(s) of the recipes. One or more, comma separated. See a full list of supported cuisines. (optional)
@@ -3150,7 +3504,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3168,15 +3522,21 @@ Search packaged food products, such as frozen pizza or Greek yogurt.
 
 ### Example
 
+* Api Key Authentication (apiKeyScheme):
 ```python
 from __future__ import print_function
 import time
 import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = spoonacular.DefaultApi()
+api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
 query = 'greek yogurt' # str | The search query.
 min_calories = 50 # float | The minimum amount of calories the product must have. (optional)
 max_calories = 800 # float | The maximum amount of calories the product can have. (optional)
@@ -3219,7 +3579,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3237,15 +3597,21 @@ Get information about a packaged food using its UPC.
 
 ### Example
 
+* Api Key Authentication (apiKeyScheme):
 ```python
 from __future__ import print_function
 import time
 import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = spoonacular.DefaultApi()
+api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
 upc = 41631000564 # float | The product's UPC.
 
 try:
@@ -3268,7 +3634,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3286,15 +3652,21 @@ Search over 115,000 menu items from over 800 fast food and chain restaurants. Fo
 
 ### Example
 
+* Api Key Authentication (apiKeyScheme):
 ```python
 from __future__ import print_function
 import time
 import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = spoonacular.DefaultApi()
+api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
 query = 'snickers' # str | The search query.
 min_calories = 50 # float | The minimum amount of calories the menu item must have. (optional)
 max_calories = 800 # float | The maximum amount of calories the menu item can have. (optional)
@@ -3337,7 +3709,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3355,15 +3727,21 @@ Search through hundreds of thousands of recipes using advanced filtering and ran
 
 ### Example
 
+* Api Key Authentication (apiKeyScheme):
 ```python
 from __future__ import print_function
 import time
 import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = spoonacular.DefaultApi()
+api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
 query = 'pasta' # str | The (natural language) recipe search query.
 cuisine = 'italian' # str | The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as 'OR'). See a full list of supported cuisines. (optional)
 exclude_cuisine = 'greek' # str | The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as 'AND'). See a full list of supported cuisines. (optional)
@@ -3576,7 +3954,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3594,15 +3972,21 @@ Search Recipes by Ingredients
 
 ### Example
 
+* Api Key Authentication (apiKeyScheme):
 ```python
 from __future__ import print_function
 import time
 import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = spoonacular.DefaultApi()
+api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
 ingredients = 'apples,flour,sugar' # str | A comma-separated list of ingredients that the recipes should contain.
 number = 10 # float | The maximum number of recipes to return (between 1 and 100). Defaults to 10. (optional)
 limit_license = true # bool | Whether the recipes should have an open license that allows display with proper attribution. (optional)
@@ -3633,7 +4017,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3651,15 +4035,21 @@ Find a set of recipes that adhere to the given nutritional limits. You may set l
 
 ### Example
 
+* Api Key Authentication (apiKeyScheme):
 ```python
 from __future__ import print_function
 import time
 import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = spoonacular.DefaultApi()
+api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
 min_carbs = 10 # float | The minimum amount of carbohydrates in grams the recipe must have. (optional)
 max_carbs = 100 # float | The maximum amount of carbohydrates in grams the recipe can have. (optional)
 min_protein = 10 # float | The minimum amount of protein in grams the recipe must have. (optional)
@@ -3832,7 +4222,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3850,15 +4240,21 @@ Search spoonacular's site content. You'll be able to find everything that you co
 
 ### Example
 
+* Api Key Authentication (apiKeyScheme):
 ```python
 from __future__ import print_function
 import time
 import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = spoonacular.DefaultApi()
+api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
 query = 'past' # str | The query to search for. You can also use partial queries such as \"spagh\" to already find spaghetti recipes, articles, grocery products, and other content.
 
 try:
@@ -3881,7 +4277,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3899,15 +4295,21 @@ Automatically generate a short description that summarizes key information about
 
 ### Example
 
+* Api Key Authentication (apiKeyScheme):
 ```python
 from __future__ import print_function
 import time
 import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = spoonacular.DefaultApi()
+api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
 id = 4632 # float | The recipe id.
 
 try:
@@ -3930,7 +4332,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3948,15 +4350,21 @@ This endpoint can be used to have a conversation about food with the spoonacular
 
 ### Example
 
+* Api Key Authentication (apiKeyScheme):
 ```python
 from __future__ import print_function
 import time
 import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = spoonacular.DefaultApi()
+api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
 text = 'donut recipes' # str | The request / question / answer from the user to the chatbot.
 context_id = '342938' # str | An arbitrary globally unique id for your conversation. The conversation can contain states so you should pass your context id if you want the bot to be able to remember the conversation. (optional)
 
@@ -3981,7 +4389,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3999,15 +4407,21 @@ Visualize the equipment used to make a recipe. You can play around with that end
 
 ### Example
 
+* Api Key Authentication (apiKeyScheme):
 ```python
 from __future__ import print_function
 import time
 import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = spoonacular.DefaultApi()
+api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
 instructions = 'instructions_example' # str | The recipe's instructions.
 view = 'view_example' # str | How to visualize the equipment, either \\\"grid\\\" or \\\"list\\\". (optional)
 default_css = True # bool | Whether the default CSS should be added to the response. (optional)
@@ -4036,7 +4450,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -4054,15 +4468,21 @@ Visualize ingredients of a recipe. You can play around with that endpoint!
 
 ### Example
 
+* Api Key Authentication (apiKeyScheme):
 ```python
 from __future__ import print_function
 import time
 import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = spoonacular.DefaultApi()
+api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
 ingredient_list = 'ingredient_list_example' # str | The ingredient list of the recipe, one ingredient per line.
 servings = 3.4 # float | The number of servings.
 measure = 'measure_example' # str | The original system of measurement, either \\\"metric\\\" or \\\"us\\\". (optional)
@@ -4095,7 +4515,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -4113,15 +4533,21 @@ Visualize a menu item's nutritional information as HTML including CSS.
 
 ### Example
 
+* Api Key Authentication (apiKeyScheme):
 ```python
 from __future__ import print_function
 import time
 import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = spoonacular.DefaultApi()
+api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
 id = 1003464 # float | The menu item id.
 default_css = true # bool | Whether the default CSS should be added to the response. (optional)
 
@@ -4146,7 +4572,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -4164,15 +4590,21 @@ Visualize the price breakdown of a recipe. You can play around with that endpoin
 
 ### Example
 
+* Api Key Authentication (apiKeyScheme):
 ```python
 from __future__ import print_function
 import time
 import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = spoonacular.DefaultApi()
+api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
 ingredient_list = 'ingredient_list_example' # str | The ingredient list of the recipe, one ingredient per line.
 servings = 3.4 # float | The number of servings.
 mode = 3.4 # float | The mode in which the widget should be delivered. 1 = separate views (compact), 2 = all in one view (full). (optional)
@@ -4203,7 +4635,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -4221,15 +4653,21 @@ Visualize a product's nutritional information as HTML including CSS.
 
 ### Example
 
+* Api Key Authentication (apiKeyScheme):
 ```python
 from __future__ import print_function
 import time
 import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = spoonacular.DefaultApi()
+api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
 id = 7657 # float | The id of the product.
 default_css = true # bool | Whether the default CSS should be added to the response. (optional)
 
@@ -4254,7 +4692,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -4272,15 +4710,21 @@ Visualize a recipe's equipment list.
 
 ### Example
 
+* Api Key Authentication (apiKeyScheme):
 ```python
 from __future__ import print_function
 import time
 import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = spoonacular.DefaultApi()
+api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
 id = 44860 # float | The recipe id.
 default_css = true # bool | Whether the default CSS should be added to the response. (optional)
 
@@ -4305,7 +4749,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -4323,15 +4767,21 @@ Visualize a recipe's ingredient list.
 
 ### Example
 
+* Api Key Authentication (apiKeyScheme):
 ```python
 from __future__ import print_function
 import time
 import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = spoonacular.DefaultApi()
+api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
 id = 1082038 # float | The recipe id.
 default_css = true # bool | Whether the default CSS should be added to the response. (optional)
 
@@ -4356,7 +4806,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -4374,15 +4824,21 @@ Visualize a recipe's nutritional information as HTML including CSS. You can play
 
 ### Example
 
+* Api Key Authentication (apiKeyScheme):
 ```python
 from __future__ import print_function
 import time
 import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = spoonacular.DefaultApi()
+api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
 ingredient_list = 'ingredient_list_example' # str | The ingredient list of the recipe, one ingredient per line.
 servings = 3.4 # float | The number of servings.
 default_css = True # bool | Whether the default CSS should be added to the response. (optional)
@@ -4411,7 +4867,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -4429,15 +4885,21 @@ Visualize a recipe's nutritional information as HTML including CSS.
 
 ### Example
 
+* Api Key Authentication (apiKeyScheme):
 ```python
 from __future__ import print_function
 import time
 import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = spoonacular.DefaultApi()
+api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
 id = 1082038 # float | The recipe id.
 default_css = true # bool | Whether the default CSS should be added to the response. (optional)
 
@@ -4462,7 +4924,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -4480,15 +4942,21 @@ Visualize a recipe's price breakdown.
 
 ### Example
 
+* Api Key Authentication (apiKeyScheme):
 ```python
 from __future__ import print_function
 import time
 import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = spoonacular.DefaultApi()
+api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
 id = 1082038 # float | The recipe id.
 default_css = true # bool | Whether the default CSS should be added to the response. (optional)
 
@@ -4513,7 +4981,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -4531,15 +4999,21 @@ Visualize a recipe's taste information as HTML including CSS. You can play aroun
 
 ### Example
 
+* Api Key Authentication (apiKeyScheme):
 ```python
 from __future__ import print_function
 import time
 import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = spoonacular.DefaultApi()
+api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
 ingredient_list = 'ingredient_list_example' # str | The ingredient list of the recipe, one ingredient per line.
 
 try:
@@ -4562,7 +5036,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -4580,15 +5054,21 @@ Get a recipe's taste. The tastes supported are sweet, salty, sour, bitter, savor
 
 ### Example
 
+* Api Key Authentication (apiKeyScheme):
 ```python
 from __future__ import print_function
 import time
 import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = spoonacular.DefaultApi()
+api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
 id = 69095 # float | The recipe id.
 
 try:
@@ -4611,7 +5091,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 

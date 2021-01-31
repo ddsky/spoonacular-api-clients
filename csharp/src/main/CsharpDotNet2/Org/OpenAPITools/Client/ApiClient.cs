@@ -258,7 +258,7 @@ namespace Org.OpenAPITools.Client
                 switch(auth)
                 {
                     case "apiKeyScheme":
-                        queryParams["api_key"] = GetApiKeyWithPrefix("api_key");
+                        queryParams["apiKey"] = GetApiKeyWithPrefix("apiKey");
                         
                         break;
                     default:

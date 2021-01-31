@@ -9,6 +9,7 @@ import com.spoonacular.client.model.InlineObject13
 import com.spoonacular.client.model.InlineObject14
 import com.spoonacular.client.model.InlineObject15
 import com.spoonacular.client.model.InlineObject9
+import java.util.List
 
 class DefaultApi {
     String basePath = "https://api.spoonacular.com"
@@ -329,7 +330,7 @@ class DefaultApi {
 
     }
 
-    def classifyGroceryProductBulk ( Object body, String locale, Closure onSuccess, Closure onFailure)  {
+    def classifyGroceryProductBulk ( List<Object> requestBody, String locale, Closure onSuccess, Closure onFailure)  {
         String resourcePath = "/food/products/classifyBatch"
 
         // params
@@ -339,8 +340,8 @@ class DefaultApi {
         def contentType
 
         // verify required params are set
-        if (body == null) {
-            throw new RuntimeException("missing required params body")
+        if (requestBody == null) {
+            throw new RuntimeException("missing required params requestBody")
         }
 
         if (locale != null) {
@@ -349,7 +350,7 @@ class DefaultApi {
 
 
         contentType = 'application/json';
-        bodyParams = body
+        bodyParams = requestBody
 
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,

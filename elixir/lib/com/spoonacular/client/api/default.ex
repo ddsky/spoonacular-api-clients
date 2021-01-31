@@ -355,7 +355,7 @@ defmodule com.spoonacular.client.Api.Default do
   ## Parameters
 
   - connection (com.spoonacular.client.Connection): Connection to server
-  - body (Map): 
+  - request_body ([Map]): 
   - opts (KeywordList): [optional] Optional parameters
     - :locale (String.t): The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).
   ## Returns
@@ -363,15 +363,15 @@ defmodule com.spoonacular.client.Api.Default do
   {:ok, %com.spoonacular.client.Model.Map{}} on success
   {:error, info} on failure
   """
-  @spec classify_grocery_product_bulk(Tesla.Env.client, Map, keyword()) :: {:ok, Map.t} | {:error, Tesla.Env.t}
-  def classify_grocery_product_bulk(connection, body, opts \\ []) do
+  @spec classify_grocery_product_bulk(Tesla.Env.client, list(Map.t), keyword()) :: {:ok, Map.t} | {:error, Tesla.Env.t}
+  def classify_grocery_product_bulk(connection, request_body, opts \\ []) do
     optional_params = %{
       :"locale" => :query
     }
     %{}
     |> method(:post)
     |> url("/food/products/classifyBatch")
-    |> add_param(:body, :body, body)
+    |> add_param(:body, :body, request_body)
     |> add_optional_params(optional_params, opts)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()

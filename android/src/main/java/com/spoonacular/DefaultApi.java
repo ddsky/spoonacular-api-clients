@@ -29,6 +29,7 @@ import com.spoonacular.client.model.InlineObject13;
 import com.spoonacular.client.model.InlineObject14;
 import com.spoonacular.client.model.InlineObject15;
 import com.spoonacular.client.model.InlineObject9;
+import java.util.*;
 
 import org.apache.http.entity.mime.MultipartEntityBuilder;
 
@@ -640,15 +641,15 @@ localVarFormParams.put("ingredientList", ApiInvoker.parameterToString(ingredient
   /**
    * Classify Grocery Product Bulk
    * Provide a set of product jsons, get back classified products.
-   * @param body 
+   * @param requestBody 
    * @param locale The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).
    * @return Object
    */
-  public Object  classifyGroceryProductBulk (Object body, String locale) throws ApiException {
-    Object localVarPostBody = body;
-    // verify the required parameter 'body' is set
-    if (body == null) {
-       throw new ApiException(400, "Missing the required parameter 'body' when calling classifyGroceryProductBulk");
+  public Object  classifyGroceryProductBulk (List<Object> requestBody, String locale) throws ApiException {
+    Object localVarPostBody = requestBody;
+    // verify the required parameter 'requestBody' is set
+    if (requestBody == null) {
+       throw new ApiException(400, "Missing the required parameter 'requestBody' when calling classifyGroceryProductBulk");
     }
 
     // create path and map variables

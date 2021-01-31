@@ -134,7 +134,7 @@ sub add_to_meal_plan {
     }
 
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(apiKeyScheme )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -233,7 +233,7 @@ sub add_to_shopping_list {
     }
 
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(apiKeyScheme )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -298,7 +298,7 @@ sub analyze_a_recipe_search_query {
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(apiKeyScheme )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -363,7 +363,7 @@ sub analyze_recipe_instructions {
     
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(apiKeyScheme )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -461,7 +461,7 @@ sub autocomplete_ingredient_search {
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(apiKeyScheme )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -537,7 +537,7 @@ sub autocomplete_menu_item_search {
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(apiKeyScheme )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -613,7 +613,7 @@ sub autocomplete_product_search {
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(apiKeyScheme )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -689,7 +689,7 @@ sub autocomplete_recipe_search {
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(apiKeyScheme )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -770,7 +770,7 @@ sub classify_cuisine {
     
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(apiKeyScheme )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -846,7 +846,7 @@ sub classify_grocery_product {
     }
 
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(apiKeyScheme )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -864,12 +864,12 @@ sub classify_grocery_product {
 #
 # Classify Grocery Product Bulk
 # 
-# @param object $body  (required)
+# @param ARRAY[object] $request_body  (required)
 # @param string $locale The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). (optional)
 {
     my $params = {
-    'body' => {
-        data_type => 'object',
+    'request_body' => {
+        data_type => 'ARRAY[object]',
         description => '',
         required => '1',
     },
@@ -890,9 +890,9 @@ sub classify_grocery_product {
 sub classify_grocery_product_bulk {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'body' is set
-    unless (exists $args{'body'}) {
-      croak("Missing the required parameter 'body' when calling classify_grocery_product_bulk");
+    # verify the required parameter 'request_body' is set
+    unless (exists $args{'request_body'}) {
+      croak("Missing the required parameter 'request_body' when calling classify_grocery_product_bulk");
     }
 
     # parse inputs
@@ -917,12 +917,12 @@ sub classify_grocery_product_bulk {
 
     my $_body_data;
     # body params
-    if ( exists $args{'body'}) {
-        $_body_data = $args{'body'};
+    if ( exists $args{'request_body'}) {
+        $_body_data = $args{'request_body'};
     }
 
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(apiKeyScheme )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -1039,7 +1039,7 @@ sub clear_meal_plan_day {
     }
 
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(apiKeyScheme )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -1104,7 +1104,7 @@ sub compute_glycemic_load {
     }
 
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(apiKeyScheme )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -1169,7 +1169,7 @@ sub connect_user {
     }
 
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(apiKeyScheme )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -1282,7 +1282,7 @@ sub convert_amounts {
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(apiKeyScheme )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -1504,7 +1504,7 @@ sub create_recipe_card {
     
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(apiKeyScheme )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -1621,7 +1621,7 @@ sub delete_from_meal_plan {
     }
 
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(apiKeyScheme )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -1738,7 +1738,7 @@ sub delete_from_shopping_list {
     }
 
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(apiKeyScheme )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -1803,7 +1803,7 @@ sub detect_food_in_text {
     
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(apiKeyScheme )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -1890,7 +1890,7 @@ sub extract_recipe_from_website {
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(apiKeyScheme )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -1983,7 +1983,7 @@ sub generate_meal_plan {
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(apiKeyScheme )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -2118,7 +2118,7 @@ sub generate_shopping_list {
     }
 
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(apiKeyScheme )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -2167,7 +2167,7 @@ sub get_a_random_food_joke {
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(apiKeyScheme )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -2245,7 +2245,7 @@ sub get_analyzed_recipe_instructions {
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(apiKeyScheme )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -2312,7 +2312,7 @@ sub get_comparable_products {
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(apiKeyScheme )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -2388,7 +2388,7 @@ sub get_conversation_suggests {
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(apiKeyScheme )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -2453,7 +2453,7 @@ sub get_dish_pairing_for_wine {
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(apiKeyScheme )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -2542,7 +2542,7 @@ sub get_ingredient_information {
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(apiKeyScheme )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -2607,7 +2607,7 @@ sub get_ingredient_substitutes {
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(apiKeyScheme )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -2674,7 +2674,7 @@ sub get_ingredient_substitutes_by_id {
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(apiKeyScheme )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -2775,7 +2775,7 @@ sub get_meal_plan_template {
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(apiKeyScheme )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -2858,7 +2858,7 @@ sub get_meal_plan_templates {
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(apiKeyScheme )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -2959,7 +2959,7 @@ sub get_meal_plan_week {
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(apiKeyScheme )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -3026,7 +3026,7 @@ sub get_menu_item_information {
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(apiKeyScheme )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -3093,7 +3093,7 @@ sub get_product_information {
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(apiKeyScheme )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -3142,7 +3142,7 @@ sub get_random_food_trivia {
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(apiKeyScheme )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -3224,7 +3224,7 @@ sub get_random_recipes {
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(apiKeyScheme )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -3291,7 +3291,7 @@ sub get_recipe_equipment_by_id {
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(apiKeyScheme )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -3369,7 +3369,7 @@ sub get_recipe_information {
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(apiKeyScheme )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -3445,7 +3445,7 @@ sub get_recipe_information_bulk {
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(apiKeyScheme )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -3512,7 +3512,7 @@ sub get_recipe_ingredients_by_id {
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(apiKeyScheme )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -3579,7 +3579,7 @@ sub get_recipe_nutrition_widget_by_id {
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(apiKeyScheme )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -3646,7 +3646,7 @@ sub get_recipe_price_breakdown_by_id {
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(apiKeyScheme )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -3713,7 +3713,7 @@ sub get_recipe_taste_by_id {
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(apiKeyScheme )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -3796,7 +3796,7 @@ sub get_shopping_list {
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(apiKeyScheme )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -3885,7 +3885,7 @@ sub get_similar_recipes {
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(apiKeyScheme )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -3950,7 +3950,7 @@ sub get_wine_description {
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(apiKeyScheme )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -4026,7 +4026,7 @@ sub get_wine_pairing {
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(apiKeyScheme )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -4124,7 +4124,7 @@ sub get_wine_recommendation {
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(apiKeyScheme )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -4189,7 +4189,7 @@ sub guess_nutrition_by_dish_name {
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(apiKeyScheme )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -4254,7 +4254,7 @@ sub image_analysis_by_url {
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(apiKeyScheme )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -4319,7 +4319,7 @@ sub image_classification_by_url {
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(apiKeyScheme )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -4527,7 +4527,7 @@ sub ingredient_search {
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(apiKeyScheme )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -4592,7 +4592,7 @@ sub map_ingredients_to_grocery_products {
     }
 
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(apiKeyScheme )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -4684,7 +4684,7 @@ sub parse_ingredients {
     
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(apiKeyScheme )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -4749,7 +4749,7 @@ sub quick_answer {
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(apiKeyScheme )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -4836,7 +4836,7 @@ sub search_all_food {
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(apiKeyScheme )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -4955,7 +4955,7 @@ sub search_custom_foods {
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(apiKeyScheme )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -5119,7 +5119,7 @@ sub search_food_videos {
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(apiKeyScheme )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -5294,7 +5294,7 @@ sub search_grocery_products {
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(apiKeyScheme )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -5361,7 +5361,7 @@ sub search_grocery_products_by_upc {
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(apiKeyScheme )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -5536,7 +5536,7 @@ sub search_menu_items {
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(apiKeyScheme )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -6646,7 +6646,7 @@ sub search_recipes {
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(apiKeyScheme )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -6755,7 +6755,7 @@ sub search_recipes_by_ingredients {
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(apiKeyScheme )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -7640,7 +7640,7 @@ sub search_recipes_by_nutrients {
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(apiKeyScheme )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -7705,7 +7705,7 @@ sub search_site_content {
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(apiKeyScheme )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -7772,7 +7772,7 @@ sub summarize_recipe {
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(apiKeyScheme )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -7848,7 +7848,7 @@ sub talk_to_chatbot {
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(apiKeyScheme )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -7946,7 +7946,7 @@ sub visualize_equipment {
     
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(apiKeyScheme )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -8071,7 +8071,7 @@ sub visualize_ingredients {
     
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(apiKeyScheme )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -8149,7 +8149,7 @@ sub visualize_menu_item_nutrition_by_id {
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(apiKeyScheme )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -8263,7 +8263,7 @@ sub visualize_price_breakdown {
     
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(apiKeyScheme )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -8341,7 +8341,7 @@ sub visualize_product_nutrition_by_id {
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(apiKeyScheme )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -8419,7 +8419,7 @@ sub visualize_recipe_equipment_by_id {
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(apiKeyScheme )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -8497,7 +8497,7 @@ sub visualize_recipe_ingredients_by_id {
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(apiKeyScheme )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -8600,7 +8600,7 @@ sub visualize_recipe_nutrition {
     
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(apiKeyScheme )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -8678,7 +8678,7 @@ sub visualize_recipe_nutrition_by_id {
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(apiKeyScheme )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -8756,7 +8756,7 @@ sub visualize_recipe_price_breakdown_by_id {
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(apiKeyScheme )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -8821,7 +8821,7 @@ sub visualize_recipe_taste {
     
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(apiKeyScheme )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -8888,7 +8888,7 @@ sub visualize_recipe_taste_by_id {
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(apiKeyScheme )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,

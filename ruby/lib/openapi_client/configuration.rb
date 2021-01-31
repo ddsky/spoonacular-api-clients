@@ -200,8 +200,8 @@ module OpenapiClient
           {
             type: 'api_key',
             in: 'query',
-            key: 'api_key',
-            value: api_key_with_prefix('api_key')
+            key: 'apiKey',
+            value: api_key_with_prefix('apiKey')
           },
       }
     end

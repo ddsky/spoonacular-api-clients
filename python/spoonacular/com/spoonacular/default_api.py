@@ -135,7 +135,7 @@ class DefaultApi(object):
             [''])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['apiKeyScheme']  # noqa: E501
 
         return self.api_client.call_api(
             '/mealplanner/{username}/items', 'POST',
@@ -251,7 +251,7 @@ class DefaultApi(object):
             [''])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['apiKeyScheme']  # noqa: E501
 
         return self.api_client.call_api(
             '/mealplanner/{username}/shopping-list/items', 'POST',
@@ -347,7 +347,7 @@ class DefaultApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['apiKeyScheme']  # noqa: E501
 
         return self.api_client.call_api(
             '/recipes/queries/analyze', 'GET',
@@ -447,7 +447,7 @@ class DefaultApi(object):
             ['application/x-www-form-urlencoded'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['apiKeyScheme']  # noqa: E501
 
         return self.api_client.call_api(
             '/recipes/analyzeInstructions', 'POST',
@@ -555,7 +555,7 @@ class DefaultApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['apiKeyScheme']  # noqa: E501
 
         return self.api_client.call_api(
             '/food/ingredients/autocomplete', 'GET',
@@ -655,7 +655,7 @@ class DefaultApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['apiKeyScheme']  # noqa: E501
 
         return self.api_client.call_api(
             '/food/menuItems/suggest', 'GET',
@@ -755,7 +755,7 @@ class DefaultApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['apiKeyScheme']  # noqa: E501
 
         return self.api_client.call_api(
             '/food/products/suggest', 'GET',
@@ -855,7 +855,7 @@ class DefaultApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['apiKeyScheme']  # noqa: E501
 
         return self.api_client.call_api(
             '/recipes/autocomplete', 'GET',
@@ -963,7 +963,7 @@ class DefaultApi(object):
             ['application/x-www-form-urlencoded'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['apiKeyScheme']  # noqa: E501
 
         return self.api_client.call_api(
             '/recipes/cuisine', 'POST',
@@ -1067,7 +1067,7 @@ class DefaultApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['apiKeyScheme']  # noqa: E501
 
         return self.api_client.call_api(
             '/food/products/classify', 'POST',
@@ -1085,17 +1085,17 @@ class DefaultApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def classify_grocery_product_bulk(self, body, **kwargs):  # noqa: E501
+    def classify_grocery_product_bulk(self, request_body, **kwargs):  # noqa: E501
         """Classify Grocery Product Bulk  # noqa: E501
 
         Provide a set of product jsons, get back classified products.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.classify_grocery_product_bulk(body, async_req=True)
+        >>> thread = api.classify_grocery_product_bulk(request_body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param object body: (required)
+        :param list[object] request_body: (required)
         :param str locale: The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).
         :return: object
                  If the method is called asynchronously,
@@ -1103,22 +1103,22 @@ class DefaultApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.classify_grocery_product_bulk_with_http_info(body, **kwargs)  # noqa: E501
+            return self.classify_grocery_product_bulk_with_http_info(request_body, **kwargs)  # noqa: E501
         else:
-            (data) = self.classify_grocery_product_bulk_with_http_info(body, **kwargs)  # noqa: E501
+            (data) = self.classify_grocery_product_bulk_with_http_info(request_body, **kwargs)  # noqa: E501
             return data
 
-    def classify_grocery_product_bulk_with_http_info(self, body, **kwargs):  # noqa: E501
+    def classify_grocery_product_bulk_with_http_info(self, request_body, **kwargs):  # noqa: E501
         """Classify Grocery Product Bulk  # noqa: E501
 
         Provide a set of product jsons, get back classified products.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.classify_grocery_product_bulk_with_http_info(body, async_req=True)
+        >>> thread = api.classify_grocery_product_bulk_with_http_info(request_body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param object body: (required)
+        :param list[object] request_body: (required)
         :param str locale: The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).
         :return: object
                  If the method is called asynchronously,
@@ -1127,7 +1127,7 @@ class DefaultApi(object):
 
         local_var_params = locals()
 
-        all_params = ['body', 'locale']  # noqa: E501
+        all_params = ['request_body', 'locale']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1141,10 +1141,10 @@ class DefaultApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'body' is set
-        if ('body' not in local_var_params or
-                local_var_params['body'] is None):
-            raise ApiValueError("Missing the required parameter `body` when calling `classify_grocery_product_bulk`")  # noqa: E501
+        # verify the required parameter 'request_body' is set
+        if ('request_body' not in local_var_params or
+                local_var_params['request_body'] is None):
+            raise ApiValueError("Missing the required parameter `request_body` when calling `classify_grocery_product_bulk`")  # noqa: E501
 
         collection_formats = {}
 
@@ -1160,8 +1160,8 @@ class DefaultApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'body' in local_var_params:
-            body_params = local_var_params['body']
+        if 'request_body' in local_var_params:
+            body_params = local_var_params['request_body']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -1171,7 +1171,7 @@ class DefaultApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['apiKeyScheme']  # noqa: E501
 
         return self.api_client.call_api(
             '/food/products/classifyBatch', 'POST',
@@ -1295,7 +1295,7 @@ class DefaultApi(object):
             [''])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['apiKeyScheme']  # noqa: E501
 
         return self.api_client.call_api(
             '/mealplanner/{username}/day/{date}', 'DELETE',
@@ -1395,7 +1395,7 @@ class DefaultApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['apiKeyScheme']  # noqa: E501
 
         return self.api_client.call_api(
             '/food/ingredients/glycemicLoad', 'POST',
@@ -1495,7 +1495,7 @@ class DefaultApi(object):
             [''])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['apiKeyScheme']  # noqa: E501
 
         return self.api_client.call_api(
             '/users/connect', 'POST',
@@ -1615,7 +1615,7 @@ class DefaultApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['apiKeyScheme']  # noqa: E501
 
         return self.api_client.call_api(
             '/recipes/convert', 'GET',
@@ -1787,7 +1787,7 @@ class DefaultApi(object):
             ['multipart/form-data'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['apiKeyScheme']  # noqa: E501
 
         return self.api_client.call_api(
             '/recipes/visualizeRecipe', 'POST',
@@ -1911,7 +1911,7 @@ class DefaultApi(object):
             [''])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['apiKeyScheme']  # noqa: E501
 
         return self.api_client.call_api(
             '/mealplanner/{username}/items/{id}', 'DELETE',
@@ -2035,7 +2035,7 @@ class DefaultApi(object):
             [''])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['apiKeyScheme']  # noqa: E501
 
         return self.api_client.call_api(
             '/mealplanner/{username}/shopping-list/items/{id}', 'DELETE',
@@ -2135,7 +2135,7 @@ class DefaultApi(object):
             ['application/x-www-form-urlencoded'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['apiKeyScheme']  # noqa: E501
 
         return self.api_client.call_api(
             '/food/detect', 'POST',
@@ -2239,7 +2239,7 @@ class DefaultApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['apiKeyScheme']  # noqa: E501
 
         return self.api_client.call_api(
             '/recipes/extract', 'GET',
@@ -2343,7 +2343,7 @@ class DefaultApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['apiKeyScheme']  # noqa: E501
 
         return self.api_client.call_api(
             '/mealplanner/generate', 'GET',
@@ -2475,7 +2475,7 @@ class DefaultApi(object):
             [''])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['apiKeyScheme']  # noqa: E501
 
         return self.api_client.call_api(
             '/mealplanner/{username}/shopping-list/{start-date}/{end-date}', 'POST',
@@ -2563,7 +2563,7 @@ class DefaultApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['apiKeyScheme']  # noqa: E501
 
         return self.api_client.call_api(
             '/food/jokes/random', 'GET',
@@ -2663,7 +2663,7 @@ class DefaultApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['apiKeyScheme']  # noqa: E501
 
         return self.api_client.call_api(
             '/recipes/{id}/analyzedInstructions', 'GET',
@@ -2759,7 +2759,7 @@ class DefaultApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['apiKeyScheme']  # noqa: E501
 
         return self.api_client.call_api(
             '/food/products/upc/{upc}/comparable', 'GET',
@@ -2859,7 +2859,7 @@ class DefaultApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['apiKeyScheme']  # noqa: E501
 
         return self.api_client.call_api(
             '/food/converse/suggest', 'GET',
@@ -2955,7 +2955,7 @@ class DefaultApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['apiKeyScheme']  # noqa: E501
 
         return self.api_client.call_api(
             '/food/wine/dishes', 'GET',
@@ -3059,7 +3059,7 @@ class DefaultApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['apiKeyScheme']  # noqa: E501
 
         return self.api_client.call_api(
             '/food/ingredients/{id}/information', 'GET',
@@ -3155,7 +3155,7 @@ class DefaultApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['apiKeyScheme']  # noqa: E501
 
         return self.api_client.call_api(
             '/food/ingredients/substitutes', 'GET',
@@ -3251,7 +3251,7 @@ class DefaultApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['apiKeyScheme']  # noqa: E501
 
         return self.api_client.call_api(
             '/food/ingredients/{id}/substitutes', 'GET',
@@ -3363,7 +3363,7 @@ class DefaultApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['apiKeyScheme']  # noqa: E501
 
         return self.api_client.call_api(
             '/mealplanner/{username}/templates/{id}', 'GET',
@@ -3467,7 +3467,7 @@ class DefaultApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['apiKeyScheme']  # noqa: E501
 
         return self.api_client.call_api(
             '/mealplanner/{username}/templates', 'GET',
@@ -3579,7 +3579,7 @@ class DefaultApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['apiKeyScheme']  # noqa: E501
 
         return self.api_client.call_api(
             '/mealplanner/{username}/week/{start-date}', 'GET',
@@ -3675,7 +3675,7 @@ class DefaultApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['apiKeyScheme']  # noqa: E501
 
         return self.api_client.call_api(
             '/food/menuItems/{id}', 'GET',
@@ -3771,7 +3771,7 @@ class DefaultApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['apiKeyScheme']  # noqa: E501
 
         return self.api_client.call_api(
             '/food/products/{id}', 'GET',
@@ -3859,7 +3859,7 @@ class DefaultApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['apiKeyScheme']  # noqa: E501
 
         return self.api_client.call_api(
             '/food/trivia/random', 'GET',
@@ -3959,7 +3959,7 @@ class DefaultApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['apiKeyScheme']  # noqa: E501
 
         return self.api_client.call_api(
             '/recipes/random', 'GET',
@@ -4055,7 +4055,7 @@ class DefaultApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['apiKeyScheme']  # noqa: E501
 
         return self.api_client.call_api(
             '/recipes/{id}/equipmentWidget.json', 'GET',
@@ -4155,7 +4155,7 @@ class DefaultApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['apiKeyScheme']  # noqa: E501
 
         return self.api_client.call_api(
             '/recipes/{id}/information', 'GET',
@@ -4255,7 +4255,7 @@ class DefaultApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['apiKeyScheme']  # noqa: E501
 
         return self.api_client.call_api(
             '/recipes/informationBulk', 'GET',
@@ -4351,7 +4351,7 @@ class DefaultApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['apiKeyScheme']  # noqa: E501
 
         return self.api_client.call_api(
             '/recipes/{id}/ingredientWidget.json', 'GET',
@@ -4447,7 +4447,7 @@ class DefaultApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['apiKeyScheme']  # noqa: E501
 
         return self.api_client.call_api(
             '/recipes/{id}/nutritionWidget.json', 'GET',
@@ -4543,7 +4543,7 @@ class DefaultApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['apiKeyScheme']  # noqa: E501
 
         return self.api_client.call_api(
             '/recipes/{id}/priceBreakdownWidget.json', 'GET',
@@ -4639,7 +4639,7 @@ class DefaultApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['apiKeyScheme']  # noqa: E501
 
         return self.api_client.call_api(
             '/recipes/{id}/tasteWidget.json', 'GET',
@@ -4743,7 +4743,7 @@ class DefaultApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['apiKeyScheme']  # noqa: E501
 
         return self.api_client.call_api(
             '/mealplanner/{username}/shopping-list', 'GET',
@@ -4847,7 +4847,7 @@ class DefaultApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['apiKeyScheme']  # noqa: E501
 
         return self.api_client.call_api(
             '/recipes/{id}/similar', 'GET',
@@ -4943,7 +4943,7 @@ class DefaultApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['apiKeyScheme']  # noqa: E501
 
         return self.api_client.call_api(
             '/food/wine/description', 'GET',
@@ -5043,7 +5043,7 @@ class DefaultApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['apiKeyScheme']  # noqa: E501
 
         return self.api_client.call_api(
             '/food/wine/pairing', 'GET',
@@ -5151,7 +5151,7 @@ class DefaultApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['apiKeyScheme']  # noqa: E501
 
         return self.api_client.call_api(
             '/food/wine/recommendation', 'GET',
@@ -5247,7 +5247,7 @@ class DefaultApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['apiKeyScheme']  # noqa: E501
 
         return self.api_client.call_api(
             '/recipes/guessNutrition', 'GET',
@@ -5343,7 +5343,7 @@ class DefaultApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['apiKeyScheme']  # noqa: E501
 
         return self.api_client.call_api(
             '/food/images/analyze', 'GET',
@@ -5439,7 +5439,7 @@ class DefaultApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['apiKeyScheme']  # noqa: E501
 
         return self.api_client.call_api(
             '/food/images/classify', 'GET',
@@ -5587,7 +5587,7 @@ class DefaultApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['apiKeyScheme']  # noqa: E501
 
         return self.api_client.call_api(
             '/food/ingredients/search', 'GET',
@@ -5687,7 +5687,7 @@ class DefaultApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['apiKeyScheme']  # noqa: E501
 
         return self.api_client.call_api(
             '/food/ingredients/map', 'POST',
@@ -5799,7 +5799,7 @@ class DefaultApi(object):
             ['application/x-www-form-urlencoded'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['apiKeyScheme']  # noqa: E501
 
         return self.api_client.call_api(
             '/recipes/parseIngredients', 'POST',
@@ -5895,7 +5895,7 @@ class DefaultApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['apiKeyScheme']  # noqa: E501
 
         return self.api_client.call_api(
             '/recipes/quickAnswer', 'GET',
@@ -5999,7 +5999,7 @@ class DefaultApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['apiKeyScheme']  # noqa: E501
 
         return self.api_client.call_api(
             '/food/search', 'GET',
@@ -6119,7 +6119,7 @@ class DefaultApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['apiKeyScheme']  # noqa: E501
 
         return self.api_client.call_api(
             '/food/customFoods/search', 'GET',
@@ -6251,7 +6251,7 @@ class DefaultApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['apiKeyScheme']  # noqa: E501
 
         return self.api_client.call_api(
             '/food/videos/search', 'GET',
@@ -6387,7 +6387,7 @@ class DefaultApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['apiKeyScheme']  # noqa: E501
 
         return self.api_client.call_api(
             '/food/products/search', 'GET',
@@ -6483,7 +6483,7 @@ class DefaultApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['apiKeyScheme']  # noqa: E501
 
         return self.api_client.call_api(
             '/food/products/upc/{upc}', 'GET',
@@ -6619,7 +6619,7 @@ class DefaultApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['apiKeyScheme']  # noqa: E501
 
         return self.api_client.call_api(
             '/food/menuItems/search', 'GET',
@@ -7095,7 +7095,7 @@ class DefaultApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['apiKeyScheme']  # noqa: E501
 
         return self.api_client.call_api(
             '/recipes/complexSearch', 'GET',
@@ -7207,7 +7207,7 @@ class DefaultApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['apiKeyScheme']  # noqa: E501
 
         return self.api_client.call_api(
             '/recipes/findByIngredients', 'GET',
@@ -7599,7 +7599,7 @@ class DefaultApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['apiKeyScheme']  # noqa: E501
 
         return self.api_client.call_api(
             '/recipes/findByNutrients', 'GET',
@@ -7695,7 +7695,7 @@ class DefaultApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['apiKeyScheme']  # noqa: E501
 
         return self.api_client.call_api(
             '/food/site/search', 'GET',
@@ -7791,7 +7791,7 @@ class DefaultApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['apiKeyScheme']  # noqa: E501
 
         return self.api_client.call_api(
             '/recipes/{id}/summary', 'GET',
@@ -7891,7 +7891,7 @@ class DefaultApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['apiKeyScheme']  # noqa: E501
 
         return self.api_client.call_api(
             '/food/converse', 'GET',
@@ -8003,7 +8003,7 @@ class DefaultApi(object):
             ['application/x-www-form-urlencoded'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['apiKeyScheme']  # noqa: E501
 
         return self.api_client.call_api(
             '/recipes/visualizeEquipment', 'POST',
@@ -8127,7 +8127,7 @@ class DefaultApi(object):
             ['application/x-www-form-urlencoded'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['apiKeyScheme']  # noqa: E501
 
         return self.api_client.call_api(
             '/recipes/visualizeIngredients', 'POST',
@@ -8227,7 +8227,7 @@ class DefaultApi(object):
             ['text/html'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['apiKeyScheme']  # noqa: E501
 
         return self.api_client.call_api(
             '/food/menuItems/{id}/nutritionWidget', 'GET',
@@ -8347,7 +8347,7 @@ class DefaultApi(object):
             ['application/x-www-form-urlencoded'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['apiKeyScheme']  # noqa: E501
 
         return self.api_client.call_api(
             '/recipes/visualizePriceEstimator', 'POST',
@@ -8447,7 +8447,7 @@ class DefaultApi(object):
             ['text/html'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['apiKeyScheme']  # noqa: E501
 
         return self.api_client.call_api(
             '/food/products/{id}/nutritionWidget', 'GET',
@@ -8547,7 +8547,7 @@ class DefaultApi(object):
             ['text/html'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['apiKeyScheme']  # noqa: E501
 
         return self.api_client.call_api(
             '/recipes/{id}/equipmentWidget', 'GET',
@@ -8647,7 +8647,7 @@ class DefaultApi(object):
             ['text/html'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['apiKeyScheme']  # noqa: E501
 
         return self.api_client.call_api(
             '/recipes/{id}/ingredientWidget', 'GET',
@@ -8763,7 +8763,7 @@ class DefaultApi(object):
             ['application/x-www-form-urlencoded'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['apiKeyScheme']  # noqa: E501
 
         return self.api_client.call_api(
             '/recipes/visualizeNutrition', 'POST',
@@ -8863,7 +8863,7 @@ class DefaultApi(object):
             ['text/html'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['apiKeyScheme']  # noqa: E501
 
         return self.api_client.call_api(
             '/recipes/{id}/nutritionWidget', 'GET',
@@ -8963,7 +8963,7 @@ class DefaultApi(object):
             ['text/html'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['apiKeyScheme']  # noqa: E501
 
         return self.api_client.call_api(
             '/recipes/{id}/priceBreakdownWidget', 'GET',
@@ -9063,7 +9063,7 @@ class DefaultApi(object):
             ['application/x-www-form-urlencoded'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['apiKeyScheme']  # noqa: E501
 
         return self.api_client.call_api(
             '/recipes/visualizeTaste', 'POST',
@@ -9159,7 +9159,7 @@ class DefaultApi(object):
             ['text/html'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['apiKeyScheme']  # noqa: E501
 
         return self.api_client.call_api(
             '/recipes/{id}/tasteWidget', 'GET',
