@@ -41,7 +41,7 @@ pub trait DefaultApi {
     fn autocomplete_recipe_search(&self, query: &str, number: f32) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>>;
     fn classify_cuisine(&self, title: &str, ingredient_list: &str) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>>;
     fn classify_grocery_product(&self, inline_object9: ::models::InlineObject9, locale: &str) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>>;
-    fn classify_grocery_product_bulk(&self, body: Value, locale: &str) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>>;
+    fn classify_grocery_product_bulk(&self, value: Vec<Value>, locale: &str) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>>;
     fn clear_meal_plan_day(&self, username: &str, date: &str, hash: &str, inline_object10: ::models::InlineObject10) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>>;
     fn compute_glycemic_load(&self, body: Value) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>>;
     fn connect_user(&self, body: Value) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>>;
@@ -117,6 +117,11 @@ pub trait DefaultApi {
 impl<C: hyper::client::Connect>DefaultApi for DefaultApiClient<C> {
     fn add_to_meal_plan(&self, username: &str, hash: &str, inline_object11: ::models::InlineObject11) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Post, "/mealplanner/{username}/items".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
             .with_query_param("hash".to_string(), hash.to_string())
             .with_path_param("username".to_string(), username.to_string())
             .with_body_param(inline_object11)
@@ -125,6 +130,11 @@ impl<C: hyper::client::Connect>DefaultApi for DefaultApiClient<C> {
 
     fn add_to_shopping_list(&self, username: &str, hash: &str, inline_object14: ::models::InlineObject14) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Post, "/mealplanner/{username}/shopping-list/items".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
             .with_query_param("hash".to_string(), hash.to_string())
             .with_path_param("username".to_string(), username.to_string())
             .with_body_param(inline_object14)
@@ -133,18 +143,33 @@ impl<C: hyper::client::Connect>DefaultApi for DefaultApiClient<C> {
 
     fn analyze_a_recipe_search_query(&self, q: &str) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/recipes/queries/analyze".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
             .with_query_param("q".to_string(), q.to_string())
             .execute(self.configuration.borrow())
     }
 
     fn analyze_recipe_instructions(&self, instructions: &str) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Post, "/recipes/analyzeInstructions".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
             .with_form_param("instructions".to_string(), instructions.to_string())
             .execute(self.configuration.borrow())
     }
 
     fn autocomplete_ingredient_search(&self, query: &str, number: f32, meta_information: bool, intolerances: &str) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/food/ingredients/autocomplete".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
             .with_query_param("query".to_string(), query.to_string())
             .with_query_param("number".to_string(), number.to_string())
             .with_query_param("metaInformation".to_string(), meta_information.to_string())
@@ -154,6 +179,11 @@ impl<C: hyper::client::Connect>DefaultApi for DefaultApiClient<C> {
 
     fn autocomplete_menu_item_search(&self, query: &str, number: f32) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/food/menuItems/suggest".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
             .with_query_param("query".to_string(), query.to_string())
             .with_query_param("number".to_string(), number.to_string())
             .execute(self.configuration.borrow())
@@ -161,6 +191,11 @@ impl<C: hyper::client::Connect>DefaultApi for DefaultApiClient<C> {
 
     fn autocomplete_product_search(&self, query: &str, number: f32) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/food/products/suggest".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
             .with_query_param("query".to_string(), query.to_string())
             .with_query_param("number".to_string(), number.to_string())
             .execute(self.configuration.borrow())
@@ -168,6 +203,11 @@ impl<C: hyper::client::Connect>DefaultApi for DefaultApiClient<C> {
 
     fn autocomplete_recipe_search(&self, query: &str, number: f32) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/recipes/autocomplete".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
             .with_query_param("query".to_string(), query.to_string())
             .with_query_param("number".to_string(), number.to_string())
             .execute(self.configuration.borrow())
@@ -175,6 +215,11 @@ impl<C: hyper::client::Connect>DefaultApi for DefaultApiClient<C> {
 
     fn classify_cuisine(&self, title: &str, ingredient_list: &str) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Post, "/recipes/cuisine".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
             .with_form_param("title".to_string(), title.to_string())
             .with_form_param("ingredientList".to_string(), ingredient_list.to_string())
             .execute(self.configuration.borrow())
@@ -182,20 +227,35 @@ impl<C: hyper::client::Connect>DefaultApi for DefaultApiClient<C> {
 
     fn classify_grocery_product(&self, inline_object9: ::models::InlineObject9, locale: &str) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Post, "/food/products/classify".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
             .with_query_param("locale".to_string(), locale.to_string())
             .with_body_param(inline_object9)
             .execute(self.configuration.borrow())
     }
 
-    fn classify_grocery_product_bulk(&self, body: Value, locale: &str) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
+    fn classify_grocery_product_bulk(&self, value: Vec<Value>, locale: &str) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Post, "/food/products/classifyBatch".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
             .with_query_param("locale".to_string(), locale.to_string())
-            .with_body_param(body)
+            .with_body_param(value)
             .execute(self.configuration.borrow())
     }
 
     fn clear_meal_plan_day(&self, username: &str, date: &str, hash: &str, inline_object10: ::models::InlineObject10) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Delete, "/mealplanner/{username}/day/{date}".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
             .with_query_param("hash".to_string(), hash.to_string())
             .with_path_param("username".to_string(), username.to_string())
             .with_path_param("date".to_string(), date.to_string())
@@ -205,18 +265,33 @@ impl<C: hyper::client::Connect>DefaultApi for DefaultApiClient<C> {
 
     fn compute_glycemic_load(&self, body: Value) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Post, "/food/ingredients/glycemicLoad".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
             .with_body_param(body)
             .execute(self.configuration.borrow())
     }
 
     fn connect_user(&self, body: Value) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Post, "/users/connect".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
             .with_body_param(body)
             .execute(self.configuration.borrow())
     }
 
     fn convert_amounts(&self, ingredient_name: &str, source_amount: f32, source_unit: &str, target_unit: &str) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/recipes/convert".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
             .with_query_param("ingredientName".to_string(), ingredient_name.to_string())
             .with_query_param("sourceAmount".to_string(), source_amount.to_string())
             .with_query_param("sourceUnit".to_string(), source_unit.to_string())
@@ -226,6 +301,11 @@ impl<C: hyper::client::Connect>DefaultApi for DefaultApiClient<C> {
 
     fn create_recipe_card(&self, title: &str, image: &std::path::Path, ingredients: &str, instructions: &str, ready_in_minutes: f32, servings: f32, mask: &str, background_image: &str, author: &str, background_color: &str, font_color: &str, source: &str) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Post, "/recipes/visualizeRecipe".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
             .with_form_param("title".to_string(), title.to_string())
             .with_form_param("image".to_string(), unimplemented!())
             .with_form_param("ingredients".to_string(), ingredients.to_string())
@@ -243,6 +323,11 @@ impl<C: hyper::client::Connect>DefaultApi for DefaultApiClient<C> {
 
     fn delete_from_meal_plan(&self, username: &str, id: f32, hash: &str, inline_object12: ::models::InlineObject12) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Delete, "/mealplanner/{username}/items/{id}".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
             .with_query_param("hash".to_string(), hash.to_string())
             .with_path_param("username".to_string(), username.to_string())
             .with_path_param("id".to_string(), id.to_string())
@@ -252,6 +337,11 @@ impl<C: hyper::client::Connect>DefaultApi for DefaultApiClient<C> {
 
     fn delete_from_shopping_list(&self, username: &str, id: f32, hash: &str, inline_object15: ::models::InlineObject15) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Delete, "/mealplanner/{username}/shopping-list/items/{id}".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
             .with_query_param("hash".to_string(), hash.to_string())
             .with_path_param("username".to_string(), username.to_string())
             .with_path_param("id".to_string(), id.to_string())
@@ -261,12 +351,22 @@ impl<C: hyper::client::Connect>DefaultApi for DefaultApiClient<C> {
 
     fn detect_food_in_text(&self, text: &str) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Post, "/food/detect".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
             .with_form_param("text".to_string(), text.to_string())
             .execute(self.configuration.borrow())
     }
 
     fn extract_recipe_from_website(&self, url: &str, force_extraction: bool, analyze: bool) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/recipes/extract".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
             .with_query_param("url".to_string(), url.to_string())
             .with_query_param("forceExtraction".to_string(), force_extraction.to_string())
             .with_query_param("analyze".to_string(), analyze.to_string())
@@ -275,6 +375,11 @@ impl<C: hyper::client::Connect>DefaultApi for DefaultApiClient<C> {
 
     fn generate_meal_plan(&self, time_frame: &str, target_calories: f32, diet: &str, exclude: &str) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/mealplanner/generate".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
             .with_query_param("timeFrame".to_string(), time_frame.to_string())
             .with_query_param("targetCalories".to_string(), target_calories.to_string())
             .with_query_param("diet".to_string(), diet.to_string())
@@ -284,6 +389,11 @@ impl<C: hyper::client::Connect>DefaultApi for DefaultApiClient<C> {
 
     fn generate_shopping_list(&self, username: &str, start_date: &str, end_date: &str, hash: &str, inline_object13: ::models::InlineObject13) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Post, "/mealplanner/{username}/shopping-list/{start-date}/{end-date}".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
             .with_query_param("hash".to_string(), hash.to_string())
             .with_path_param("username".to_string(), username.to_string())
             .with_path_param("start-date".to_string(), start_date.to_string())
@@ -294,11 +404,21 @@ impl<C: hyper::client::Connect>DefaultApi for DefaultApiClient<C> {
 
     fn get_a_random_food_joke(&self, ) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/food/jokes/random".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
             .execute(self.configuration.borrow())
     }
 
     fn get_analyzed_recipe_instructions(&self, id: f32, step_breakdown: bool) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/recipes/{id}/analyzedInstructions".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
             .with_query_param("stepBreakdown".to_string(), step_breakdown.to_string())
             .with_path_param("id".to_string(), id.to_string())
             .execute(self.configuration.borrow())
@@ -306,12 +426,22 @@ impl<C: hyper::client::Connect>DefaultApi for DefaultApiClient<C> {
 
     fn get_comparable_products(&self, upc: f32) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/food/products/upc/{upc}/comparable".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
             .with_path_param("upc".to_string(), upc.to_string())
             .execute(self.configuration.borrow())
     }
 
     fn get_conversation_suggests(&self, query: &str, number: f32) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/food/converse/suggest".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
             .with_query_param("query".to_string(), query.to_string())
             .with_query_param("number".to_string(), number.to_string())
             .execute(self.configuration.borrow())
@@ -319,12 +449,22 @@ impl<C: hyper::client::Connect>DefaultApi for DefaultApiClient<C> {
 
     fn get_dish_pairing_for_wine(&self, wine: &str) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/food/wine/dishes".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
             .with_query_param("wine".to_string(), wine.to_string())
             .execute(self.configuration.borrow())
     }
 
     fn get_ingredient_information(&self, id: f32, amount: f32, unit: &str) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/food/ingredients/{id}/information".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
             .with_query_param("amount".to_string(), amount.to_string())
             .with_query_param("unit".to_string(), unit.to_string())
             .with_path_param("id".to_string(), id.to_string())
@@ -333,18 +473,33 @@ impl<C: hyper::client::Connect>DefaultApi for DefaultApiClient<C> {
 
     fn get_ingredient_substitutes(&self, ingredient_name: &str) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/food/ingredients/substitutes".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
             .with_query_param("ingredientName".to_string(), ingredient_name.to_string())
             .execute(self.configuration.borrow())
     }
 
     fn get_ingredient_substitutes_by_id(&self, id: f32) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/food/ingredients/{id}/substitutes".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
             .with_path_param("id".to_string(), id.to_string())
             .execute(self.configuration.borrow())
     }
 
     fn get_meal_plan_template(&self, username: &str, id: f32, hash: &str) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/mealplanner/{username}/templates/{id}".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
             .with_query_param("hash".to_string(), hash.to_string())
             .with_path_param("username".to_string(), username.to_string())
             .with_path_param("id".to_string(), id.to_string())
@@ -353,6 +508,11 @@ impl<C: hyper::client::Connect>DefaultApi for DefaultApiClient<C> {
 
     fn get_meal_plan_templates(&self, username: &str, hash: &str) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/mealplanner/{username}/templates".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
             .with_query_param("hash".to_string(), hash.to_string())
             .with_path_param("username".to_string(), username.to_string())
             .execute(self.configuration.borrow())
@@ -360,6 +520,11 @@ impl<C: hyper::client::Connect>DefaultApi for DefaultApiClient<C> {
 
     fn get_meal_plan_week(&self, username: &str, start_date: &str, hash: &str) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/mealplanner/{username}/week/{start-date}".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
             .with_query_param("hash".to_string(), hash.to_string())
             .with_path_param("username".to_string(), username.to_string())
             .with_path_param("start-date".to_string(), start_date.to_string())
@@ -368,23 +533,43 @@ impl<C: hyper::client::Connect>DefaultApi for DefaultApiClient<C> {
 
     fn get_menu_item_information(&self, id: f32) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/food/menuItems/{id}".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
             .with_path_param("id".to_string(), id.to_string())
             .execute(self.configuration.borrow())
     }
 
     fn get_product_information(&self, id: f32) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/food/products/{id}".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
             .with_path_param("id".to_string(), id.to_string())
             .execute(self.configuration.borrow())
     }
 
     fn get_random_food_trivia(&self, ) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/food/trivia/random".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
             .execute(self.configuration.borrow())
     }
 
     fn get_random_recipes(&self, limit_license: bool, tags: &str, number: f32) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/recipes/random".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
             .with_query_param("limitLicense".to_string(), limit_license.to_string())
             .with_query_param("tags".to_string(), tags.to_string())
             .with_query_param("number".to_string(), number.to_string())
@@ -393,12 +578,22 @@ impl<C: hyper::client::Connect>DefaultApi for DefaultApiClient<C> {
 
     fn get_recipe_equipment_by_id(&self, id: f32) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/recipes/{id}/equipmentWidget.json".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
             .with_path_param("id".to_string(), id.to_string())
             .execute(self.configuration.borrow())
     }
 
     fn get_recipe_information(&self, id: f32, include_nutrition: bool) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/recipes/{id}/information".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
             .with_query_param("includeNutrition".to_string(), include_nutrition.to_string())
             .with_path_param("id".to_string(), id.to_string())
             .execute(self.configuration.borrow())
@@ -406,6 +601,11 @@ impl<C: hyper::client::Connect>DefaultApi for DefaultApiClient<C> {
 
     fn get_recipe_information_bulk(&self, ids: &str, include_nutrition: bool) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/recipes/informationBulk".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
             .with_query_param("ids".to_string(), ids.to_string())
             .with_query_param("includeNutrition".to_string(), include_nutrition.to_string())
             .execute(self.configuration.borrow())
@@ -413,30 +613,55 @@ impl<C: hyper::client::Connect>DefaultApi for DefaultApiClient<C> {
 
     fn get_recipe_ingredients_by_id(&self, id: f32) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/recipes/{id}/ingredientWidget.json".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
             .with_path_param("id".to_string(), id.to_string())
             .execute(self.configuration.borrow())
     }
 
     fn get_recipe_nutrition_widget_by_id(&self, id: f32) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/recipes/{id}/nutritionWidget.json".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
             .with_path_param("id".to_string(), id.to_string())
             .execute(self.configuration.borrow())
     }
 
     fn get_recipe_price_breakdown_by_id(&self, id: f32) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/recipes/{id}/priceBreakdownWidget.json".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
             .with_path_param("id".to_string(), id.to_string())
             .execute(self.configuration.borrow())
     }
 
     fn get_recipe_taste_by_id(&self, id: f32) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/recipes/{id}/tasteWidget.json".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
             .with_path_param("id".to_string(), id.to_string())
             .execute(self.configuration.borrow())
     }
 
     fn get_shopping_list(&self, username: &str, hash: &str) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/mealplanner/{username}/shopping-list".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
             .with_query_param("hash".to_string(), hash.to_string())
             .with_path_param("username".to_string(), username.to_string())
             .execute(self.configuration.borrow())
@@ -444,6 +669,11 @@ impl<C: hyper::client::Connect>DefaultApi for DefaultApiClient<C> {
 
     fn get_similar_recipes(&self, id: f32, number: f32, limit_license: bool) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/recipes/{id}/similar".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
             .with_query_param("number".to_string(), number.to_string())
             .with_query_param("limitLicense".to_string(), limit_license.to_string())
             .with_path_param("id".to_string(), id.to_string())
@@ -452,12 +682,22 @@ impl<C: hyper::client::Connect>DefaultApi for DefaultApiClient<C> {
 
     fn get_wine_description(&self, wine: &str) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/food/wine/description".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
             .with_query_param("wine".to_string(), wine.to_string())
             .execute(self.configuration.borrow())
     }
 
     fn get_wine_pairing(&self, food: &str, max_price: f32) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/food/wine/pairing".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
             .with_query_param("food".to_string(), food.to_string())
             .with_query_param("maxPrice".to_string(), max_price.to_string())
             .execute(self.configuration.borrow())
@@ -465,6 +705,11 @@ impl<C: hyper::client::Connect>DefaultApi for DefaultApiClient<C> {
 
     fn get_wine_recommendation(&self, wine: &str, max_price: f32, min_rating: f32, number: f32) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/food/wine/recommendation".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
             .with_query_param("wine".to_string(), wine.to_string())
             .with_query_param("maxPrice".to_string(), max_price.to_string())
             .with_query_param("minRating".to_string(), min_rating.to_string())
@@ -474,24 +719,44 @@ impl<C: hyper::client::Connect>DefaultApi for DefaultApiClient<C> {
 
     fn guess_nutrition_by_dish_name(&self, title: &str) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/recipes/guessNutrition".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
             .with_query_param("title".to_string(), title.to_string())
             .execute(self.configuration.borrow())
     }
 
     fn image_analysis_by_url(&self, image_url: &str) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/food/images/analyze".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
             .with_query_param("imageUrl".to_string(), image_url.to_string())
             .execute(self.configuration.borrow())
     }
 
     fn image_classification_by_url(&self, image_url: &str) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/food/images/classify".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
             .with_query_param("imageUrl".to_string(), image_url.to_string())
             .execute(self.configuration.borrow())
     }
 
     fn ingredient_search(&self, query: &str, add_children: bool, min_protein_percent: f32, max_protein_percent: f32, min_fat_percent: f32, max_fat_percent: f32, min_carbs_percent: f32, max_carbs_percent: f32, meta_information: bool, intolerances: &str, sort: &str, sort_direction: &str, offset: f32, number: f32) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/food/ingredients/search".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
             .with_query_param("query".to_string(), query.to_string())
             .with_query_param("addChildren".to_string(), add_children.to_string())
             .with_query_param("minProteinPercent".to_string(), min_protein_percent.to_string())
@@ -511,12 +776,22 @@ impl<C: hyper::client::Connect>DefaultApi for DefaultApiClient<C> {
 
     fn map_ingredients_to_grocery_products(&self, body: Value) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Post, "/food/ingredients/map".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
             .with_body_param(body)
             .execute(self.configuration.borrow())
     }
 
     fn parse_ingredients(&self, ingredient_list: &str, servings: f32, include_nutrition: bool) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Post, "/recipes/parseIngredients".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
             .with_form_param("ingredientList".to_string(), ingredient_list.to_string())
             .with_form_param("servings".to_string(), servings.to_string())
             .with_form_param("includeNutrition".to_string(), include_nutrition.to_string())
@@ -525,12 +800,22 @@ impl<C: hyper::client::Connect>DefaultApi for DefaultApiClient<C> {
 
     fn quick_answer(&self, q: &str) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/recipes/quickAnswer".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
             .with_query_param("q".to_string(), q.to_string())
             .execute(self.configuration.borrow())
     }
 
     fn search_all_food(&self, query: &str, offset: f32, number: f32) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/food/search".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
             .with_query_param("query".to_string(), query.to_string())
             .with_query_param("offset".to_string(), offset.to_string())
             .with_query_param("number".to_string(), number.to_string())
@@ -539,6 +824,11 @@ impl<C: hyper::client::Connect>DefaultApi for DefaultApiClient<C> {
 
     fn search_custom_foods(&self, query: &str, username: &str, hash: &str, offset: f32, number: f32) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/food/customFoods/search".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
             .with_query_param("query".to_string(), query.to_string())
             .with_query_param("username".to_string(), username.to_string())
             .with_query_param("hash".to_string(), hash.to_string())
@@ -549,6 +839,11 @@ impl<C: hyper::client::Connect>DefaultApi for DefaultApiClient<C> {
 
     fn search_food_videos(&self, query: &str, _type: &str, cuisine: &str, diet: &str, include_ingredients: &str, exclude_ingredients: &str, min_length: f32, max_length: f32, offset: f32, number: f32) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/food/videos/search".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
             .with_query_param("query".to_string(), query.to_string())
             .with_query_param("type".to_string(), _type.to_string())
             .with_query_param("cuisine".to_string(), cuisine.to_string())
@@ -564,6 +859,11 @@ impl<C: hyper::client::Connect>DefaultApi for DefaultApiClient<C> {
 
     fn search_grocery_products(&self, query: &str, min_calories: f32, max_calories: f32, min_carbs: f32, max_carbs: f32, min_protein: f32, max_protein: f32, min_fat: f32, max_fat: f32, offset: f32, number: f32) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/food/products/search".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
             .with_query_param("query".to_string(), query.to_string())
             .with_query_param("minCalories".to_string(), min_calories.to_string())
             .with_query_param("maxCalories".to_string(), max_calories.to_string())
@@ -580,12 +880,22 @@ impl<C: hyper::client::Connect>DefaultApi for DefaultApiClient<C> {
 
     fn search_grocery_products_by_upc(&self, upc: f32) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/food/products/upc/{upc}".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
             .with_path_param("upc".to_string(), upc.to_string())
             .execute(self.configuration.borrow())
     }
 
     fn search_menu_items(&self, query: &str, min_calories: f32, max_calories: f32, min_carbs: f32, max_carbs: f32, min_protein: f32, max_protein: f32, min_fat: f32, max_fat: f32, offset: f32, number: f32) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/food/menuItems/search".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
             .with_query_param("query".to_string(), query.to_string())
             .with_query_param("minCalories".to_string(), min_calories.to_string())
             .with_query_param("maxCalories".to_string(), max_calories.to_string())
@@ -602,6 +912,11 @@ impl<C: hyper::client::Connect>DefaultApi for DefaultApiClient<C> {
 
     fn search_recipes(&self, query: &str, cuisine: &str, exclude_cuisine: &str, diet: &str, intolerances: &str, equipment: &str, include_ingredients: &str, exclude_ingredients: &str, _type: &str, instructions_required: bool, fill_ingredients: bool, add_recipe_information: bool, add_recipe_nutrition: bool, author: &str, tags: &str, recipe_box_id: f32, title_match: &str, max_ready_time: f32, ignore_pantry: bool, sort: &str, sort_direction: &str, min_carbs: f32, max_carbs: f32, min_protein: f32, max_protein: f32, min_calories: f32, max_calories: f32, min_fat: f32, max_fat: f32, min_alcohol: f32, max_alcohol: f32, min_caffeine: f32, max_caffeine: f32, min_copper: f32, max_copper: f32, min_calcium: f32, max_calcium: f32, min_choline: f32, max_choline: f32, min_cholesterol: f32, max_cholesterol: f32, min_fluoride: f32, max_fluoride: f32, min_saturated_fat: f32, max_saturated_fat: f32, min_vitamin_a: f32, max_vitamin_a: f32, min_vitamin_c: f32, max_vitamin_c: f32, min_vitamin_d: f32, max_vitamin_d: f32, min_vitamin_e: f32, max_vitamin_e: f32, min_vitamin_k: f32, max_vitamin_k: f32, min_vitamin_b1: f32, max_vitamin_b1: f32, min_vitamin_b2: f32, max_vitamin_b2: f32, min_vitamin_b5: f32, max_vitamin_b5: f32, min_vitamin_b3: f32, max_vitamin_b3: f32, min_vitamin_b6: f32, max_vitamin_b6: f32, min_vitamin_b12: f32, max_vitamin_b12: f32, min_fiber: f32, max_fiber: f32, min_folate: f32, max_folate: f32, min_folic_acid: f32, max_folic_acid: f32, min_iodine: f32, max_iodine: f32, min_iron: f32, max_iron: f32, min_magnesium: f32, max_magnesium: f32, min_manganese: f32, max_manganese: f32, min_phosphorus: f32, max_phosphorus: f32, min_potassium: f32, max_potassium: f32, min_selenium: f32, max_selenium: f32, min_sodium: f32, max_sodium: f32, min_sugar: f32, max_sugar: f32, min_zinc: f32, max_zinc: f32, offset: f32, number: f32, limit_license: bool) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/recipes/complexSearch".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
             .with_query_param("query".to_string(), query.to_string())
             .with_query_param("cuisine".to_string(), cuisine.to_string())
             .with_query_param("excludeCuisine".to_string(), exclude_cuisine.to_string())
@@ -703,6 +1018,11 @@ impl<C: hyper::client::Connect>DefaultApi for DefaultApiClient<C> {
 
     fn search_recipes_by_ingredients(&self, ingredients: &str, number: f32, limit_license: bool, ranking: f32, ignore_pantry: bool) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/recipes/findByIngredients".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
             .with_query_param("ingredients".to_string(), ingredients.to_string())
             .with_query_param("number".to_string(), number.to_string())
             .with_query_param("limitLicense".to_string(), limit_license.to_string())
@@ -713,6 +1033,11 @@ impl<C: hyper::client::Connect>DefaultApi for DefaultApiClient<C> {
 
     fn search_recipes_by_nutrients(&self, min_carbs: f32, max_carbs: f32, min_protein: f32, max_protein: f32, min_calories: f32, max_calories: f32, min_fat: f32, max_fat: f32, min_alcohol: f32, max_alcohol: f32, min_caffeine: f32, max_caffeine: f32, min_copper: f32, max_copper: f32, min_calcium: f32, max_calcium: f32, min_choline: f32, max_choline: f32, min_cholesterol: f32, max_cholesterol: f32, min_fluoride: f32, max_fluoride: f32, min_saturated_fat: f32, max_saturated_fat: f32, min_vitamin_a: f32, max_vitamin_a: f32, min_vitamin_c: f32, max_vitamin_c: f32, min_vitamin_d: f32, max_vitamin_d: f32, min_vitamin_e: f32, max_vitamin_e: f32, min_vitamin_k: f32, max_vitamin_k: f32, min_vitamin_b1: f32, max_vitamin_b1: f32, min_vitamin_b2: f32, max_vitamin_b2: f32, min_vitamin_b5: f32, max_vitamin_b5: f32, min_vitamin_b3: f32, max_vitamin_b3: f32, min_vitamin_b6: f32, max_vitamin_b6: f32, min_vitamin_b12: f32, max_vitamin_b12: f32, min_fiber: f32, max_fiber: f32, min_folate: f32, max_folate: f32, min_folic_acid: f32, max_folic_acid: f32, min_iodine: f32, max_iodine: f32, min_iron: f32, max_iron: f32, min_magnesium: f32, max_magnesium: f32, min_manganese: f32, max_manganese: f32, min_phosphorus: f32, max_phosphorus: f32, min_potassium: f32, max_potassium: f32, min_selenium: f32, max_selenium: f32, min_sodium: f32, max_sodium: f32, min_sugar: f32, max_sugar: f32, min_zinc: f32, max_zinc: f32, offset: f32, number: f32, random: bool, limit_license: bool) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/recipes/findByNutrients".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
             .with_query_param("minCarbs".to_string(), min_carbs.to_string())
             .with_query_param("maxCarbs".to_string(), max_carbs.to_string())
             .with_query_param("minProtein".to_string(), min_protein.to_string())
@@ -794,18 +1119,33 @@ impl<C: hyper::client::Connect>DefaultApi for DefaultApiClient<C> {
 
     fn search_site_content(&self, query: &str) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/food/site/search".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
             .with_query_param("query".to_string(), query.to_string())
             .execute(self.configuration.borrow())
     }
 
     fn summarize_recipe(&self, id: f32) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/recipes/{id}/summary".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
             .with_path_param("id".to_string(), id.to_string())
             .execute(self.configuration.borrow())
     }
 
     fn talk_to_chatbot(&self, text: &str, context_id: &str) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/food/converse".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
             .with_query_param("text".to_string(), text.to_string())
             .with_query_param("contextId".to_string(), context_id.to_string())
             .execute(self.configuration.borrow())
@@ -813,6 +1153,11 @@ impl<C: hyper::client::Connect>DefaultApi for DefaultApiClient<C> {
 
     fn visualize_equipment(&self, instructions: &str, view: &str, default_css: bool, show_backlink: bool) -> Box<Future<Item = String, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Post, "/recipes/visualizeEquipment".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
             .with_form_param("instructions".to_string(), instructions.to_string())
             .with_form_param("view".to_string(), view.to_string())
             .with_form_param("defaultCss".to_string(), default_css.to_string())
@@ -822,6 +1167,11 @@ impl<C: hyper::client::Connect>DefaultApi for DefaultApiClient<C> {
 
     fn visualize_ingredients(&self, ingredient_list: &str, servings: f32, measure: &str, view: &str, default_css: bool, show_backlink: bool) -> Box<Future<Item = String, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Post, "/recipes/visualizeIngredients".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
             .with_form_param("ingredientList".to_string(), ingredient_list.to_string())
             .with_form_param("servings".to_string(), servings.to_string())
             .with_form_param("measure".to_string(), measure.to_string())
@@ -833,6 +1183,11 @@ impl<C: hyper::client::Connect>DefaultApi for DefaultApiClient<C> {
 
     fn visualize_menu_item_nutrition_by_id(&self, id: f32, default_css: bool) -> Box<Future<Item = String, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/food/menuItems/{id}/nutritionWidget".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
             .with_query_param("defaultCss".to_string(), default_css.to_string())
             .with_path_param("id".to_string(), id.to_string())
             .execute(self.configuration.borrow())
@@ -840,6 +1195,11 @@ impl<C: hyper::client::Connect>DefaultApi for DefaultApiClient<C> {
 
     fn visualize_price_breakdown(&self, ingredient_list: &str, servings: f32, mode: f32, default_css: bool, show_backlink: bool) -> Box<Future<Item = String, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Post, "/recipes/visualizePriceEstimator".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
             .with_form_param("ingredientList".to_string(), ingredient_list.to_string())
             .with_form_param("servings".to_string(), servings.to_string())
             .with_form_param("mode".to_string(), mode.to_string())
@@ -850,6 +1210,11 @@ impl<C: hyper::client::Connect>DefaultApi for DefaultApiClient<C> {
 
     fn visualize_product_nutrition_by_id(&self, id: f32, default_css: bool) -> Box<Future<Item = String, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/food/products/{id}/nutritionWidget".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
             .with_query_param("defaultCss".to_string(), default_css.to_string())
             .with_path_param("id".to_string(), id.to_string())
             .execute(self.configuration.borrow())
@@ -857,6 +1222,11 @@ impl<C: hyper::client::Connect>DefaultApi for DefaultApiClient<C> {
 
     fn visualize_recipe_equipment_by_id(&self, id: f32, default_css: bool) -> Box<Future<Item = String, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/recipes/{id}/equipmentWidget".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
             .with_query_param("defaultCss".to_string(), default_css.to_string())
             .with_path_param("id".to_string(), id.to_string())
             .execute(self.configuration.borrow())
@@ -864,6 +1234,11 @@ impl<C: hyper::client::Connect>DefaultApi for DefaultApiClient<C> {
 
     fn visualize_recipe_ingredients_by_id(&self, id: f32, default_css: bool) -> Box<Future<Item = String, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/recipes/{id}/ingredientWidget".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
             .with_query_param("defaultCss".to_string(), default_css.to_string())
             .with_path_param("id".to_string(), id.to_string())
             .execute(self.configuration.borrow())
@@ -871,6 +1246,11 @@ impl<C: hyper::client::Connect>DefaultApi for DefaultApiClient<C> {
 
     fn visualize_recipe_nutrition(&self, ingredient_list: &str, servings: f32, default_css: bool, show_backlink: bool) -> Box<Future<Item = String, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Post, "/recipes/visualizeNutrition".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
             .with_form_param("ingredientList".to_string(), ingredient_list.to_string())
             .with_form_param("servings".to_string(), servings.to_string())
             .with_form_param("defaultCss".to_string(), default_css.to_string())
@@ -880,6 +1260,11 @@ impl<C: hyper::client::Connect>DefaultApi for DefaultApiClient<C> {
 
     fn visualize_recipe_nutrition_by_id(&self, id: f32, default_css: bool) -> Box<Future<Item = String, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/recipes/{id}/nutritionWidget".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
             .with_query_param("defaultCss".to_string(), default_css.to_string())
             .with_path_param("id".to_string(), id.to_string())
             .execute(self.configuration.borrow())
@@ -887,6 +1272,11 @@ impl<C: hyper::client::Connect>DefaultApi for DefaultApiClient<C> {
 
     fn visualize_recipe_price_breakdown_by_id(&self, id: f32, default_css: bool) -> Box<Future<Item = String, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/recipes/{id}/priceBreakdownWidget".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
             .with_query_param("defaultCss".to_string(), default_css.to_string())
             .with_path_param("id".to_string(), id.to_string())
             .execute(self.configuration.borrow())
@@ -894,12 +1284,22 @@ impl<C: hyper::client::Connect>DefaultApi for DefaultApiClient<C> {
 
     fn visualize_recipe_taste(&self, ingredient_list: &str) -> Box<Future<Item = String, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Post, "/recipes/visualizeTaste".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
             .with_form_param("ingredientList".to_string(), ingredient_list.to_string())
             .execute(self.configuration.borrow())
     }
 
     fn visualize_recipe_taste_by_id(&self, id: f32) -> Box<Future<Item = String, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/recipes/{id}/tasteWidget".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
             .with_path_param("id".to_string(), id.to_string())
             .execute(self.configuration.borrow())
     }

@@ -52,6 +52,11 @@ import spoonacular
 from spoonacular.rest import ApiException
 from pprint import pprint
 
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = spoonacular.DefaultApi(spoonacular.ApiClient(configuration))
@@ -183,7 +188,7 @@ Class | Method | HTTP request | Description
 ## apiKeyScheme
 
 - **Type**: API key
-- **API key parameter name**: api_key
+- **API key parameter name**: apiKey
 - **Location**: URL query string
 
 

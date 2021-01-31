@@ -101,6 +101,10 @@ Add an item to the user's meal plan.
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var username = dsky; // String | The username.
@@ -129,7 +133,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -148,6 +152,10 @@ Add an item to the current shopping list of a user.
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var username = dsky; // String | The username.
@@ -176,7 +184,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -195,6 +203,10 @@ Parse a recipe search query to find out its intention.
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var q = salmon with fusilli and no nuts; // String | The recipe search query.
@@ -219,7 +231,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -238,6 +250,10 @@ This endpoint allows you to break down instructions into atomic steps. Furthermo
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var instructions = instructions_example; // String | The instructions to be analyzed.
@@ -262,7 +278,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -281,6 +297,10 @@ Autocomplete the entry of an ingredient.
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var query = appl; // String | The partial or full ingredient name.
@@ -311,7 +331,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -330,6 +350,10 @@ Generate suggestions for menu items based on a (partial) query. The matches will
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var query = chicke; // String | The (partial) search query.
@@ -356,7 +380,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -375,6 +399,10 @@ Generate suggestions for grocery products based on a (partial) query. The matche
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var query = chicke; // String | The (partial) search query.
@@ -401,7 +429,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -420,6 +448,10 @@ Autocomplete a partial input to suggest possible recipe names.
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var query = burger; // String | The query to be autocompleted.
@@ -446,7 +478,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -465,6 +497,10 @@ Classify the recipe's cuisine.
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var title = title_example; // String | The title of the recipe.
@@ -491,7 +527,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -510,6 +546,10 @@ This endpoint allows you to match a packaged food to a basic category, e.g. a sp
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var inlineObject9 = new InlineObject9(); // InlineObject9 | 
@@ -536,7 +576,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -546,7 +586,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **classifyGroceryProductBulk**
-> Object classifyGroceryProductBulk(body, locale)
+> Object classifyGroceryProductBulk(object, locale)
 
 Classify Grocery Product Bulk
 
@@ -555,13 +595,17 @@ Provide a set of product jsons, get back classified products.
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
-var body = new Object(); // Object | 
+var object = [new List&lt;Object&gt;()]; // List<Object> | 
 var locale = en_US; // String | The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).
 
 try { 
-    var result = api_instance.classifyGroceryProductBulk(body, locale);
+    var result = api_instance.classifyGroceryProductBulk(object, locale);
     print(result);
 } catch (e) {
     print("Exception when calling DefaultApi->classifyGroceryProductBulk: $e\n");
@@ -572,7 +616,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | **Object**|  | 
+ **object** | [**List&lt;Object&gt;**](List.md)|  | 
  **locale** | **String**| The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). | [optional] [default to null]
 
 ### Return type
@@ -581,7 +625,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -600,6 +644,10 @@ Delete all planned items from the user's meal plan for a specific day.
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var username = dsky; // String | The username.
@@ -630,7 +678,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -649,6 +697,10 @@ Retrieve the glycemic index for a list of ingredients and compute the individual
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var body = new Object(); // Object | 
@@ -673,7 +725,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -692,6 +744,10 @@ In order to call user-specific endpoints, you need to connect your app's users t
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var body = new Object(); // Object | 
@@ -716,7 +772,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -735,6 +791,10 @@ Convert amounts like \"2 cups of flour to grams\".
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var ingredientName = flour; // String | The ingredient which you want to convert.
@@ -765,7 +825,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -784,6 +844,10 @@ Generate a recipe card for a recipe.
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var title = title_example; // String | The title of the recipe.
@@ -830,7 +894,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -849,6 +913,10 @@ Delete an item from the user's meal plan.
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var username = dsky; // String | The username.
@@ -879,7 +947,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -898,6 +966,10 @@ Delete an item from the current shopping list of the user.
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var username = dsky; // String | The username.
@@ -928,7 +1000,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -947,6 +1019,10 @@ Take any text and find all mentions of food contained within it. This task is al
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var text = text_example; // String | The text in which food items, such as dish names and ingredients, should be detected in.
@@ -971,7 +1047,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -990,6 +1066,10 @@ This endpoint lets you extract recipe data such as title, ingredients, and instr
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var url = https://foodista.com/recipe/ZHK4KPB6/chocolate-crinkle-cookies; // String | The URL of the recipe page.
@@ -1018,7 +1098,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1037,6 +1117,10 @@ Generate a meal plan with three meals per day (breakfast, lunch, and dinner).
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var timeFrame = day; // String | Either for one \"day\" or an entire \"week\".
@@ -1067,7 +1151,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1086,6 +1170,10 @@ Generate the shopping list for a user from the meal planner in a given time fram
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var username = dsky; // String | The username.
@@ -1118,7 +1206,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1137,6 +1225,10 @@ Get a random joke that is related to food. Caution: this is an endpoint for adul
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 
@@ -1157,7 +1249,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1176,6 +1268,10 @@ Get an analyzed breakdown of a recipe's instructions. Each step is enriched with
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var id = 324694; // num | The recipe id.
@@ -1202,7 +1298,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1221,6 +1317,10 @@ Find comparable products to the given one.
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var upc = 33698816271; // num | The UPC of the product for which you want to find comparable products.
@@ -1245,7 +1345,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1264,6 +1364,10 @@ This endpoint returns suggestions for things the user can say or ask the chatbot
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var query = tell; // String | A (partial) query from the user. The endpoint will return if it matches topics it can talk about.
@@ -1290,7 +1394,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1309,6 +1413,10 @@ Find a dish that goes well with a given wine.
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var wine = malbec; // String | The type of wine that should be paired, e.g. \"merlot\", \"riesling\", or \"malbec\".
@@ -1333,7 +1441,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1352,6 +1460,10 @@ Use an ingredient id to get all available information about an ingredient, such 
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var id = 9266; // num | The ingredient id.
@@ -1380,7 +1492,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1399,6 +1511,10 @@ Search for substitutes for a given ingredient.
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var ingredientName = butter; // String | The name of the ingredient you want to replace.
@@ -1423,7 +1539,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1442,6 +1558,10 @@ Search for substitutes for a given ingredient.
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var id = 1001; // num | The id of the ingredient you want substitutes for.
@@ -1466,7 +1586,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1485,6 +1605,10 @@ Get information about a meal plan template.
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var username = dsky; // String | The username.
@@ -1513,7 +1637,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1532,6 +1656,10 @@ Get meal plan templates from user or public ones.
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var username = dsky; // String | The username.
@@ -1558,7 +1686,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1577,6 +1705,10 @@ Retrieve a meal planned week for the given user. The username must be a spoonacu
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var username = dsky; // String | The username.
@@ -1605,7 +1737,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1624,6 +1756,10 @@ Use a menu item id to get all available information about a menu item, such as n
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var id = 424571; // num | The menu item id.
@@ -1648,7 +1784,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1667,6 +1803,10 @@ Use a product id to get full information about a product, such as ingredients, n
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var id = 22347; // num | The id of the packaged food.
@@ -1691,7 +1831,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1710,6 +1850,10 @@ Returns random food trivia.
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 
@@ -1730,7 +1874,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1749,6 +1893,10 @@ Find random (popular) recipes. If you need to filter recipes by diet, nutrition 
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var limitLicense = true; // bool | Whether the recipes should have an open license that allows display with proper attribution.
@@ -1777,7 +1925,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1796,6 +1944,10 @@ Get a recipe's equipment list.
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var id = 1003464; // num | The recipe id.
@@ -1820,7 +1972,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1839,6 +1991,10 @@ Use a recipe id to get full information about a recipe, such as ingredients, nut
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var id = 716429; // num | The id of the recipe.
@@ -1865,7 +2021,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1884,6 +2040,10 @@ Get information about multiple recipes at once. This is equivalent to calling th
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var ids = 715538,716429; // String | A comma-separated list of recipe ids.
@@ -1910,7 +2070,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1929,6 +2089,10 @@ Get a recipe's ingredient list.
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var id = 1003464; // num | The recipe id.
@@ -1953,7 +2117,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1972,6 +2136,10 @@ Get a recipe's nutrition widget data.
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var id = 1003464; // num | The recipe id.
@@ -1996,7 +2164,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2015,6 +2183,10 @@ Get a recipe's price breakdown data.
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var id = 1003464; // num | The recipe id.
@@ -2039,7 +2211,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2058,6 +2230,10 @@ Get a recipe's taste. The tastes supported are sweet, salty, sour, bitter, savor
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var id = 69095; // num | The recipe id.
@@ -2082,7 +2258,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2101,6 +2277,10 @@ Get the current shopping list for the given user.
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var username = dsky; // String | The username.
@@ -2127,7 +2307,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2146,6 +2326,10 @@ Find recipes which are similar to the given one.
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var id = 715538; // num | The id of the source recipe for which similar recipes should be found.
@@ -2174,7 +2358,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2193,6 +2377,10 @@ Get a simple description of a certain wine, e.g. \"malbec\", \"riesling\", or \"
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var wine = merlot; // String | The name of the wine that should be paired, e.g. \"merlot\", \"riesling\", or \"malbec\".
@@ -2217,7 +2405,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2236,6 +2424,10 @@ Find a wine that goes well with a food. Food can be a dish name (\"steak\"), an 
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var food = steak; // String | The food to get a pairing for. This can be a dish (\"steak\"), an ingredient (\"salmon\"), or a cuisine (\"italian\").
@@ -2262,7 +2454,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2281,6 +2473,10 @@ Get a specific wine recommendation (concrete product) for a given wine type, e.g
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var wine = merlot; // String | The type of wine to get a specific product recommendation for.
@@ -2311,7 +2507,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2330,6 +2526,10 @@ Estimate the macronutrients of a dish based on its title.
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var title = Spaghetti Aglio et Olio; // String | The title of the dish.
@@ -2354,7 +2554,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2373,6 +2573,10 @@ Analyze a food image. The API tries to classify the image, guess the nutrition, 
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var imageUrl = https://spoonacular.com/recipeImages/635350-240x150.jpg; // String | The URL of the image to be analyzed.
@@ -2397,7 +2601,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2416,6 +2620,10 @@ Classify a food image. You can play around with that endpoint!
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var imageUrl = https://spoonacular.com/recipeImages/635350-240x150.jpg; // String | The URL of the image to be classified.
@@ -2440,7 +2648,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2459,6 +2667,10 @@ Search for simple whole foods (e.g. fruits, vegetables, nuts, grains, meat, fish
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var query = apple; // String | The partial or full ingredient name.
@@ -2509,7 +2721,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2528,6 +2740,10 @@ Map a set of ingredients to products you can buy in the grocery store.
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var body = new Object(); // Object | 
@@ -2552,7 +2768,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2571,6 +2787,10 @@ Extract an ingredient from plain text.
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var ingredientList = ingredientList_example; // String | The ingredient list of the recipe, one ingredient per line.
@@ -2599,7 +2819,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2618,6 +2838,10 @@ Answer a nutrition related natural language question.
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var q = How much vitamin c is in 2 apples?; // String | The nutrition related question.
@@ -2642,7 +2866,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2661,6 +2885,10 @@ Search all food content with one call. That includes recipes, grocery products, 
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var query = apple; // String | The search query.
@@ -2689,7 +2917,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2708,6 +2936,10 @@ Search custom foods in a user's account.
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var query = brat; // String | The search query.
@@ -2740,7 +2972,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2759,6 +2991,10 @@ Find recipe and other food related videos.
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var query = chicken soup; // String | The search query.
@@ -2801,7 +3037,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2820,6 +3056,10 @@ Search packaged food products, such as frozen pizza or Greek yogurt.
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var query = greek yogurt; // String | The search query.
@@ -2864,7 +3104,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2883,6 +3123,10 @@ Get information about a packaged food using its UPC.
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var upc = 41631000564; // num | The product's UPC.
@@ -2907,7 +3151,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2926,6 +3170,10 @@ Search over 115,000 menu items from over 800 fast food and chain restaurants. Fo
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var query = snickers; // String | The search query.
@@ -2970,7 +3218,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2989,6 +3237,10 @@ Search through hundreds of thousands of recipes using advanced filtering and ran
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var query = pasta; // String | The (natural language) recipe search query.
@@ -3203,7 +3455,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3222,6 +3474,10 @@ Search Recipes by Ingredients
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var ingredients = apples,flour,sugar; // String | A comma-separated list of ingredients that the recipes should contain.
@@ -3254,7 +3510,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3273,6 +3529,10 @@ Find a set of recipes that adhere to the given nutritional limits. You may set l
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var minCarbs = 10; // num | The minimum amount of carbohydrates in grams the recipe must have.
@@ -3447,7 +3707,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3466,6 +3726,10 @@ Search spoonacular's site content. You'll be able to find everything that you co
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var query = past; // String | The query to search for. You can also use partial queries such as \"spagh\" to already find spaghetti recipes, articles, grocery products, and other content.
@@ -3490,7 +3754,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3509,6 +3773,10 @@ Automatically generate a short description that summarizes key information about
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var id = 4632; // num | The recipe id.
@@ -3533,7 +3801,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3552,6 +3820,10 @@ This endpoint can be used to have a conversation about food with the spoonacular
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var text = donut recipes; // String | The request / question / answer from the user to the chatbot.
@@ -3578,7 +3850,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3597,6 +3869,10 @@ Visualize the equipment used to make a recipe. You can play around with that end
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var instructions = instructions_example; // String | The recipe's instructions.
@@ -3627,7 +3903,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3646,6 +3922,10 @@ Visualize ingredients of a recipe. You can play around with that endpoint!
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var ingredientList = ingredientList_example; // String | The ingredient list of the recipe, one ingredient per line.
@@ -3680,7 +3960,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3699,6 +3979,10 @@ Visualize a menu item's nutritional information as HTML including CSS.
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var id = 1003464; // num | The menu item id.
@@ -3725,7 +4009,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3744,6 +4028,10 @@ Visualize the price breakdown of a recipe. You can play around with that endpoin
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var ingredientList = ingredientList_example; // String | The ingredient list of the recipe, one ingredient per line.
@@ -3776,7 +4064,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3795,6 +4083,10 @@ Visualize a product's nutritional information as HTML including CSS.
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var id = 7657; // num | The id of the product.
@@ -3821,7 +4113,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3840,6 +4132,10 @@ Visualize a recipe's equipment list.
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var id = 44860; // num | The recipe id.
@@ -3866,7 +4162,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3885,6 +4181,10 @@ Visualize a recipe's ingredient list.
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var id = 1082038; // num | The recipe id.
@@ -3911,7 +4211,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3930,6 +4230,10 @@ Visualize a recipe's nutritional information as HTML including CSS. You can play
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var ingredientList = ingredientList_example; // String | The ingredient list of the recipe, one ingredient per line.
@@ -3960,7 +4264,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3979,6 +4283,10 @@ Visualize a recipe's nutritional information as HTML including CSS.
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var id = 1082038; // num | The recipe id.
@@ -4005,7 +4313,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -4024,6 +4332,10 @@ Visualize a recipe's price breakdown.
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var id = 1082038; // num | The recipe id.
@@ -4050,7 +4362,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -4069,6 +4381,10 @@ Visualize a recipe's taste information as HTML including CSS. You can play aroun
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var ingredientList = ingredientList_example; // String | The ingredient list of the recipe, one ingredient per line.
@@ -4093,7 +4409,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -4112,6 +4428,10 @@ Get a recipe's taste. The tastes supported are sweet, salty, sour, bitter, savor
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var id = 69095; // num | The recipe id.
@@ -4136,7 +4456,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 

@@ -37,7 +37,7 @@
              :body-param    inline-object-11
              :content-types [""]
              :accepts       ["application/json"]
-             :auth-names    []}))
+             :auth-names    ["apiKeyScheme"]}))
 
 (defn-spec add-to-meal-plan any?
   "Add to Meal Plan
@@ -62,7 +62,7 @@
              :body-param    inline-object-14
              :content-types [""]
              :accepts       ["application/json"]
-             :auth-names    []}))
+             :auth-names    ["apiKeyScheme"]}))
 
 (defn-spec add-to-shopping-list any?
   "Add to Shopping List
@@ -86,7 +86,7 @@
              :form-params   {}
              :content-types []
              :accepts       ["application/json"]
-             :auth-names    []}))
+             :auth-names    ["apiKeyScheme"]}))
 
 (defn-spec analyze-a-recipe-search-query any?
   "Analyze a Recipe Search Query
@@ -110,7 +110,7 @@
              :form-params   {"instructions" instructions }
              :content-types ["application/x-www-form-urlencoded"]
              :accepts       ["application/json"]
-             :auth-names    []}))
+             :auth-names    ["apiKeyScheme"]}))
 
 (defn-spec analyze-recipe-instructions any?
   "Analyze Recipe Instructions
@@ -135,7 +135,7 @@
               :form-params   {}
               :content-types []
               :accepts       ["application/json"]
-              :auth-names    []})))
+              :auth-names    ["apiKeyScheme"]})))
 
 (defn-spec autocomplete-ingredient-search any?
   "Autocomplete Ingredient Search
@@ -161,7 +161,7 @@
               :form-params   {}
               :content-types []
               :accepts       ["application/json"]
-              :auth-names    []})))
+              :auth-names    ["apiKeyScheme"]})))
 
 (defn-spec autocomplete-menu-item-search any?
   "Autocomplete Menu Item Search
@@ -187,7 +187,7 @@
               :form-params   {}
               :content-types []
               :accepts       ["application/json"]
-              :auth-names    []})))
+              :auth-names    ["apiKeyScheme"]})))
 
 (defn-spec autocomplete-product-search any?
   "Autocomplete Product Search
@@ -213,7 +213,7 @@
               :form-params   {}
               :content-types []
               :accepts       ["application/json"]
-              :auth-names    []})))
+              :auth-names    ["apiKeyScheme"]})))
 
 (defn-spec autocomplete-recipe-search any?
   "Autocomplete Recipe Search
@@ -238,7 +238,7 @@
              :form-params   {"title" title "ingredientList" ingredientList }
              :content-types ["application/x-www-form-urlencoded"]
              :accepts       ["application/json"]
-             :auth-names    []}))
+             :auth-names    ["apiKeyScheme"]}))
 
 (defn-spec classify-cuisine any?
   "Classify Cuisine
@@ -264,7 +264,7 @@
               :body-param    inline-object-9
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    []})))
+              :auth-names    ["apiKeyScheme"]})))
 
 (defn-spec classify-grocery-product any?
   "Classify Grocery Product
@@ -280,25 +280,25 @@
 (defn-spec classify-grocery-product-bulk-with-http-info any?
   "Classify Grocery Product Bulk
   Provide a set of product jsons, get back classified products."
-  ([body any?, ] (classify-grocery-product-bulk-with-http-info body nil))
-  ([body any?, {:keys [locale]} (s/map-of keyword? any?)]
-   (check-required-params body)
+  ([any (s/coll-of any?), ] (classify-grocery-product-bulk-with-http-info any nil))
+  ([any (s/coll-of any?), {:keys [locale]} (s/map-of keyword? any?)]
+   (check-required-params any)
    (call-api "/food/products/classifyBatch" :post
              {:path-params   {}
               :header-params {}
               :query-params  {"locale" locale }
               :form-params   {}
-              :body-param    body
+              :body-param    any
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    []})))
+              :auth-names    ["apiKeyScheme"]})))
 
 (defn-spec classify-grocery-product-bulk any?
   "Classify Grocery Product Bulk
   Provide a set of product jsons, get back classified products."
-  ([body any?, ] (classify-grocery-product-bulk body nil))
-  ([body any?, optional-params any?]
-   (let [res (:data (classify-grocery-product-bulk-with-http-info body optional-params))]
+  ([any (s/coll-of any?), ] (classify-grocery-product-bulk any nil))
+  ([any (s/coll-of any?), optional-params any?]
+   (let [res (:data (classify-grocery-product-bulk-with-http-info any optional-params))]
      (if (:decode-models *api-context*)
         (st/decode any? res st/string-transformer)
         res))))
@@ -317,7 +317,7 @@
              :body-param    inline-object-10
              :content-types [""]
              :accepts       ["application/json"]
-             :auth-names    []}))
+             :auth-names    ["apiKeyScheme"]}))
 
 (defn-spec clear-meal-plan-day any?
   "Clear Meal Plan Day
@@ -342,7 +342,7 @@
              :body-param    body
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    []}))
+             :auth-names    ["apiKeyScheme"]}))
 
 (defn-spec compute-glycemic-load any?
   "Compute Glycemic Load
@@ -367,7 +367,7 @@
              :body-param    body
              :content-types [""]
              :accepts       ["application/json"]
-             :auth-names    []}))
+             :auth-names    ["apiKeyScheme"]}))
 
 (defn-spec connect-user any?
   "Connect User
@@ -391,7 +391,7 @@
              :form-params   {}
              :content-types []
              :accepts       ["application/json"]
-             :auth-names    []}))
+             :auth-names    ["apiKeyScheme"]}))
 
 (defn-spec convert-amounts any?
   "Convert Amounts
@@ -416,7 +416,7 @@
               :form-params   {"title" title "image" image "ingredients" ingredients "instructions" instructions "readyInMinutes" readyInMinutes "servings" servings "mask" mask "backgroundImage" backgroundImage "author" author "backgroundColor" backgroundColor "fontColor" fontColor "source" source }
               :content-types ["multipart/form-data"]
               :accepts       ["application/json"]
-              :auth-names    []})))
+              :auth-names    ["apiKeyScheme"]})))
 
 (defn-spec create-recipe-card any?
   "Create Recipe Card
@@ -442,7 +442,7 @@
              :body-param    inline-object-12
              :content-types [""]
              :accepts       ["application/json"]
-             :auth-names    []}))
+             :auth-names    ["apiKeyScheme"]}))
 
 (defn-spec delete-from-meal-plan any?
   "Delete from Meal Plan
@@ -467,7 +467,7 @@
              :body-param    inline-object-15
              :content-types [""]
              :accepts       ["application/json"]
-             :auth-names    []}))
+             :auth-names    ["apiKeyScheme"]}))
 
 (defn-spec delete-from-shopping-list any?
   "Delete from Shopping List
@@ -491,7 +491,7 @@
              :form-params   {"text" text }
              :content-types ["application/x-www-form-urlencoded"]
              :accepts       ["application/json"]
-             :auth-names    []}))
+             :auth-names    ["apiKeyScheme"]}))
 
 (defn-spec detect-food-in-text any?
   "Detect Food in Text
@@ -516,7 +516,7 @@
               :form-params   {}
               :content-types []
               :accepts       ["application/json"]
-              :auth-names    []})))
+              :auth-names    ["apiKeyScheme"]})))
 
 (defn-spec extract-recipe-from-website any?
   "Extract Recipe from Website
@@ -541,7 +541,7 @@
               :form-params   {}
               :content-types []
               :accepts       ["application/json"]
-              :auth-names    []})))
+              :auth-names    ["apiKeyScheme"]})))
 
 (defn-spec generate-meal-plan any?
   "Generate Meal Plan
@@ -567,7 +567,7 @@
              :body-param    inline-object-13
              :content-types [""]
              :accepts       ["application/json"]
-             :auth-names    []}))
+             :auth-names    ["apiKeyScheme"]}))
 
 (defn-spec generate-shopping-list any?
   "Generate Shopping List
@@ -590,7 +590,7 @@
              :form-params   {}
              :content-types []
              :accepts       ["application/json"]
-             :auth-names    []}))
+             :auth-names    ["apiKeyScheme"]}))
 
 (defn-spec get-a-random-food-joke any?
   "Get a Random Food Joke
@@ -615,7 +615,7 @@
               :form-params   {}
               :content-types []
               :accepts       ["application/json"]
-              :auth-names    []})))
+              :auth-names    ["apiKeyScheme"]})))
 
 (defn-spec get-analyzed-recipe-instructions any?
   "Get Analyzed Recipe Instructions
@@ -640,7 +640,7 @@
              :form-params   {}
              :content-types []
              :accepts       ["application/json"]
-             :auth-names    []}))
+             :auth-names    ["apiKeyScheme"]}))
 
 (defn-spec get-comparable-products any?
   "Get Comparable Products
@@ -665,7 +665,7 @@
               :form-params   {}
               :content-types []
               :accepts       ["application/json"]
-              :auth-names    []})))
+              :auth-names    ["apiKeyScheme"]})))
 
 (defn-spec get-conversation-suggests any?
   "Get Conversation Suggests
@@ -690,7 +690,7 @@
              :form-params   {}
              :content-types []
              :accepts       ["application/json"]
-             :auth-names    []}))
+             :auth-names    ["apiKeyScheme"]}))
 
 (defn-spec get-dish-pairing-for-wine any?
   "Get Dish Pairing for Wine
@@ -715,7 +715,7 @@
               :form-params   {}
               :content-types []
               :accepts       ["application/json"]
-              :auth-names    []})))
+              :auth-names    ["apiKeyScheme"]})))
 
 (defn-spec get-ingredient-information any?
   "Get Ingredient Information
@@ -740,7 +740,7 @@
              :form-params   {}
              :content-types []
              :accepts       ["application/json"]
-             :auth-names    []}))
+             :auth-names    ["apiKeyScheme"]}))
 
 (defn-spec get-ingredient-substitutes any?
   "Get Ingredient Substitutes
@@ -764,7 +764,7 @@
              :form-params   {}
              :content-types []
              :accepts       ["application/json"]
-             :auth-names    []}))
+             :auth-names    ["apiKeyScheme"]}))
 
 (defn-spec get-ingredient-substitutes-by-id any?
   "Get Ingredient Substitutes by ID
@@ -788,7 +788,7 @@
              :form-params   {}
              :content-types []
              :accepts       ["application/json"]
-             :auth-names    []}))
+             :auth-names    ["apiKeyScheme"]}))
 
 (defn-spec get-meal-plan-template any?
   "Get Meal Plan Template
@@ -812,7 +812,7 @@
              :form-params   {}
              :content-types []
              :accepts       ["application/json"]
-             :auth-names    []}))
+             :auth-names    ["apiKeyScheme"]}))
 
 (defn-spec get-meal-plan-templates any?
   "Get Meal Plan Templates
@@ -836,7 +836,7 @@
              :form-params   {}
              :content-types []
              :accepts       ["application/json"]
-             :auth-names    []}))
+             :auth-names    ["apiKeyScheme"]}))
 
 (defn-spec get-meal-plan-week any?
   "Get Meal Plan Week
@@ -860,7 +860,7 @@
              :form-params   {}
              :content-types []
              :accepts       ["application/json"]
-             :auth-names    []}))
+             :auth-names    ["apiKeyScheme"]}))
 
 (defn-spec get-menu-item-information any?
   "Get Menu Item Information
@@ -884,7 +884,7 @@
              :form-params   {}
              :content-types []
              :accepts       ["application/json"]
-             :auth-names    []}))
+             :auth-names    ["apiKeyScheme"]}))
 
 (defn-spec get-product-information any?
   "Get Product Information
@@ -907,7 +907,7 @@
              :form-params   {}
              :content-types []
              :accepts       ["application/json"]
-             :auth-names    []}))
+             :auth-names    ["apiKeyScheme"]}))
 
 (defn-spec get-random-food-trivia any?
   "Get Random Food Trivia
@@ -931,7 +931,7 @@
               :form-params   {}
               :content-types []
               :accepts       ["application/json"]
-              :auth-names    []})))
+              :auth-names    ["apiKeyScheme"]})))
 
 (defn-spec get-random-recipes any?
   "Get Random Recipes
@@ -956,7 +956,7 @@
              :form-params   {}
              :content-types []
              :accepts       ["application/json"]
-             :auth-names    []}))
+             :auth-names    ["apiKeyScheme"]}))
 
 (defn-spec get-recipe-equipment-by-id any?
   "Get Recipe Equipment by ID
@@ -981,7 +981,7 @@
               :form-params   {}
               :content-types []
               :accepts       ["application/json"]
-              :auth-names    []})))
+              :auth-names    ["apiKeyScheme"]})))
 
 (defn-spec get-recipe-information any?
   "Get Recipe Information
@@ -1007,7 +1007,7 @@
               :form-params   {}
               :content-types []
               :accepts       ["application/json"]
-              :auth-names    []})))
+              :auth-names    ["apiKeyScheme"]})))
 
 (defn-spec get-recipe-information-bulk any?
   "Get Recipe Information Bulk
@@ -1032,7 +1032,7 @@
              :form-params   {}
              :content-types []
              :accepts       ["application/json"]
-             :auth-names    []}))
+             :auth-names    ["apiKeyScheme"]}))
 
 (defn-spec get-recipe-ingredients-by-id any?
   "Get Recipe Ingredients by ID
@@ -1056,7 +1056,7 @@
              :form-params   {}
              :content-types []
              :accepts       ["application/json"]
-             :auth-names    []}))
+             :auth-names    ["apiKeyScheme"]}))
 
 (defn-spec get-recipe-nutrition-widget-by-id any?
   "Get Recipe Nutrition Widget by ID
@@ -1080,7 +1080,7 @@
              :form-params   {}
              :content-types []
              :accepts       ["application/json"]
-             :auth-names    []}))
+             :auth-names    ["apiKeyScheme"]}))
 
 (defn-spec get-recipe-price-breakdown-by-id any?
   "Get Recipe Price Breakdown by ID
@@ -1104,7 +1104,7 @@
              :form-params   {}
              :content-types []
              :accepts       ["application/json"]
-             :auth-names    []}))
+             :auth-names    ["apiKeyScheme"]}))
 
 (defn-spec get-recipe-taste-by-id any?
   "Get Recipe Taste by ID
@@ -1128,7 +1128,7 @@
              :form-params   {}
              :content-types []
              :accepts       ["application/json"]
-             :auth-names    []}))
+             :auth-names    ["apiKeyScheme"]}))
 
 (defn-spec get-shopping-list any?
   "Get Shopping List
@@ -1153,7 +1153,7 @@
               :form-params   {}
               :content-types []
               :accepts       ["application/json"]
-              :auth-names    []})))
+              :auth-names    ["apiKeyScheme"]})))
 
 (defn-spec get-similar-recipes any?
   "Get Similar Recipes
@@ -1178,7 +1178,7 @@
              :form-params   {}
              :content-types []
              :accepts       ["application/json"]
-             :auth-names    []}))
+             :auth-names    ["apiKeyScheme"]}))
 
 (defn-spec get-wine-description any?
   "Get Wine Description
@@ -1203,7 +1203,7 @@
               :form-params   {}
               :content-types []
               :accepts       ["application/json"]
-              :auth-names    []})))
+              :auth-names    ["apiKeyScheme"]})))
 
 (defn-spec get-wine-pairing any?
   "Get Wine Pairing
@@ -1229,7 +1229,7 @@
               :form-params   {}
               :content-types []
               :accepts       ["application/json"]
-              :auth-names    []})))
+              :auth-names    ["apiKeyScheme"]})))
 
 (defn-spec get-wine-recommendation any?
   "Get Wine Recommendation
@@ -1254,7 +1254,7 @@
              :form-params   {}
              :content-types []
              :accepts       ["application/json"]
-             :auth-names    []}))
+             :auth-names    ["apiKeyScheme"]}))
 
 (defn-spec guess-nutrition-by-dish-name any?
   "Guess Nutrition by Dish Name
@@ -1278,7 +1278,7 @@
              :form-params   {}
              :content-types []
              :accepts       ["application/json"]
-             :auth-names    []}))
+             :auth-names    ["apiKeyScheme"]}))
 
 (defn-spec image-analysis-by-url any?
   "Image Analysis by URL
@@ -1302,7 +1302,7 @@
              :form-params   {}
              :content-types []
              :accepts       ["application/json"]
-             :auth-names    []}))
+             :auth-names    ["apiKeyScheme"]}))
 
 (defn-spec image-classification-by-url any?
   "Image Classification by URL
@@ -1327,7 +1327,7 @@
               :form-params   {}
               :content-types []
               :accepts       ["application/json"]
-              :auth-names    []})))
+              :auth-names    ["apiKeyScheme"]})))
 
 (defn-spec ingredient-search any?
   "Ingredient Search
@@ -1353,7 +1353,7 @@
              :body-param    body
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    []}))
+             :auth-names    ["apiKeyScheme"]}))
 
 (defn-spec map-ingredients-to-grocery-products any?
   "Map Ingredients to Grocery Products
@@ -1378,7 +1378,7 @@
               :form-params   {"ingredientList" ingredientList "servings" servings "includeNutrition" includeNutrition }
               :content-types ["application/x-www-form-urlencoded"]
               :accepts       ["application/json"]
-              :auth-names    []})))
+              :auth-names    ["apiKeyScheme"]})))
 
 (defn-spec parse-ingredients any?
   "Parse Ingredients
@@ -1403,7 +1403,7 @@
              :form-params   {}
              :content-types []
              :accepts       ["application/json"]
-             :auth-names    []}))
+             :auth-names    ["apiKeyScheme"]}))
 
 (defn-spec quick-answer any?
   "Quick Answer
@@ -1428,7 +1428,7 @@
               :form-params   {}
               :content-types []
               :accepts       ["application/json"]
-              :auth-names    []})))
+              :auth-names    ["apiKeyScheme"]})))
 
 (defn-spec search-all-food any?
   "Search All Food
@@ -1454,7 +1454,7 @@
               :form-params   {}
               :content-types []
               :accepts       ["application/json"]
-              :auth-names    []})))
+              :auth-names    ["apiKeyScheme"]})))
 
 (defn-spec search-custom-foods any?
   "Search Custom Foods
@@ -1480,7 +1480,7 @@
               :form-params   {}
               :content-types []
               :accepts       ["application/json"]
-              :auth-names    []})))
+              :auth-names    ["apiKeyScheme"]})))
 
 (defn-spec search-food-videos any?
   "Search Food Videos
@@ -1506,7 +1506,7 @@
               :form-params   {}
               :content-types []
               :accepts       ["application/json"]
-              :auth-names    []})))
+              :auth-names    ["apiKeyScheme"]})))
 
 (defn-spec search-grocery-products any?
   "Search Grocery Products
@@ -1531,7 +1531,7 @@
              :form-params   {}
              :content-types []
              :accepts       ["application/json"]
-             :auth-names    []}))
+             :auth-names    ["apiKeyScheme"]}))
 
 (defn-spec search-grocery-products-by-upc any?
   "Search Grocery Products by UPC
@@ -1556,7 +1556,7 @@
               :form-params   {}
               :content-types []
               :accepts       ["application/json"]
-              :auth-names    []})))
+              :auth-names    ["apiKeyScheme"]})))
 
 (defn-spec search-menu-items any?
   "Search Menu Items
@@ -1582,7 +1582,7 @@
               :form-params   {}
               :content-types []
               :accepts       ["application/json"]
-              :auth-names    []})))
+              :auth-names    ["apiKeyScheme"]})))
 
 (defn-spec search-recipes any?
   "Search Recipes
@@ -1608,7 +1608,7 @@
               :form-params   {}
               :content-types []
               :accepts       ["application/json"]
-              :auth-names    []})))
+              :auth-names    ["apiKeyScheme"]})))
 
 (defn-spec search-recipes-by-ingredients any?
   "Search Recipes by Ingredients
@@ -1633,7 +1633,7 @@
               :form-params   {}
               :content-types []
               :accepts       ["application/json"]
-              :auth-names    []})))
+              :auth-names    ["apiKeyScheme"]})))
 
 (defn-spec search-recipes-by-nutrients any?
   "Search Recipes by Nutrients
@@ -1658,7 +1658,7 @@
              :form-params   {}
              :content-types []
              :accepts       ["application/json"]
-             :auth-names    []}))
+             :auth-names    ["apiKeyScheme"]}))
 
 (defn-spec search-site-content any?
   "Search Site Content
@@ -1682,7 +1682,7 @@
              :form-params   {}
              :content-types []
              :accepts       ["application/json"]
-             :auth-names    []}))
+             :auth-names    ["apiKeyScheme"]}))
 
 (defn-spec summarize-recipe any?
   "Summarize Recipe
@@ -1707,7 +1707,7 @@
               :form-params   {}
               :content-types []
               :accepts       ["application/json"]
-              :auth-names    []})))
+              :auth-names    ["apiKeyScheme"]})))
 
 (defn-spec talk-to-chatbot any?
   "Talk to Chatbot
@@ -1733,7 +1733,7 @@
               :form-params   {"instructions" instructions "view" view "defaultCss" defaultCss "showBacklink" showBacklink }
               :content-types ["application/x-www-form-urlencoded"]
               :accepts       ["text/html"]
-              :auth-names    []})))
+              :auth-names    ["apiKeyScheme"]})))
 
 (defn-spec visualize-equipment string?
   "Visualize Equipment
@@ -1759,7 +1759,7 @@
               :form-params   {"ingredientList" ingredientList "servings" servings "measure" measure "view" view "defaultCss" defaultCss "showBacklink" showBacklink }
               :content-types ["application/x-www-form-urlencoded"]
               :accepts       ["text/html"]
-              :auth-names    []})))
+              :auth-names    ["apiKeyScheme"]})))
 
 (defn-spec visualize-ingredients string?
   "Visualize Ingredients
@@ -1785,7 +1785,7 @@
               :form-params   {}
               :content-types []
               :accepts       ["text/html"]
-              :auth-names    []})))
+              :auth-names    ["apiKeyScheme"]})))
 
 (defn-spec visualize-menu-item-nutrition-by-id string?
   "Visualize Menu Item Nutrition by ID
@@ -1811,7 +1811,7 @@
               :form-params   {"ingredientList" ingredientList "servings" servings "mode" mode "defaultCss" defaultCss "showBacklink" showBacklink }
               :content-types ["application/x-www-form-urlencoded"]
               :accepts       ["text/html"]
-              :auth-names    []})))
+              :auth-names    ["apiKeyScheme"]})))
 
 (defn-spec visualize-price-breakdown string?
   "Visualize Price Breakdown
@@ -1837,7 +1837,7 @@
               :form-params   {}
               :content-types []
               :accepts       ["text/html"]
-              :auth-names    []})))
+              :auth-names    ["apiKeyScheme"]})))
 
 (defn-spec visualize-product-nutrition-by-id string?
   "Visualize Product Nutrition by ID
@@ -1863,7 +1863,7 @@
               :form-params   {}
               :content-types []
               :accepts       ["text/html"]
-              :auth-names    []})))
+              :auth-names    ["apiKeyScheme"]})))
 
 (defn-spec visualize-recipe-equipment-by-id string?
   "Visualize Recipe Equipment by ID
@@ -1889,7 +1889,7 @@
               :form-params   {}
               :content-types []
               :accepts       ["text/html"]
-              :auth-names    []})))
+              :auth-names    ["apiKeyScheme"]})))
 
 (defn-spec visualize-recipe-ingredients-by-id string?
   "Visualize Recipe Ingredients by ID
@@ -1915,7 +1915,7 @@
               :form-params   {"ingredientList" ingredientList "servings" servings "defaultCss" defaultCss "showBacklink" showBacklink }
               :content-types ["application/x-www-form-urlencoded"]
               :accepts       ["text/html"]
-              :auth-names    []})))
+              :auth-names    ["apiKeyScheme"]})))
 
 (defn-spec visualize-recipe-nutrition string?
   "Visualize Recipe Nutrition
@@ -1941,7 +1941,7 @@
               :form-params   {}
               :content-types []
               :accepts       ["text/html"]
-              :auth-names    []})))
+              :auth-names    ["apiKeyScheme"]})))
 
 (defn-spec visualize-recipe-nutrition-by-id string?
   "Visualize Recipe Nutrition by ID
@@ -1967,7 +1967,7 @@
               :form-params   {}
               :content-types []
               :accepts       ["text/html"]
-              :auth-names    []})))
+              :auth-names    ["apiKeyScheme"]})))
 
 (defn-spec visualize-recipe-price-breakdown-by-id string?
   "Visualize Recipe Price Breakdown by ID
@@ -1992,7 +1992,7 @@
              :form-params   {"ingredientList" ingredientList }
              :content-types ["application/x-www-form-urlencoded"]
              :accepts       ["text/html"]
-             :auth-names    []}))
+             :auth-names    ["apiKeyScheme"]}))
 
 (defn-spec visualize-recipe-taste string?
   "Visualize Recipe Taste
@@ -2016,7 +2016,7 @@
              :form-params   {}
              :content-types []
              :accepts       ["text/html"]
-             :auth-names    []}))
+             :auth-names    ["apiKeyScheme"]}))
 
 (defn-spec visualize-recipe-taste-by-id string?
   "Visualize Recipe Taste by ID

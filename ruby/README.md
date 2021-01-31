@@ -59,6 +59,14 @@ Please follow the [installation](#installation) procedure and then run the follo
 # Load the gem
 require 'openapi_client'
 
+# Setup authorization
+OpenapiClient.configure do |config|
+  # Configure API key authorization: apiKeyScheme
+  config.api_key['apiKey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['apiKey'] = 'Bearer'
+end
+
 api_instance = OpenapiClient::DefaultApi.new
 username = 'dsky' # String | The username.
 hash = '4b5v4398573406' # String | The private hash for the username.
@@ -180,6 +188,6 @@ Class | Method | HTTP request | Description
 
 
 - **Type**: API key
-- **API key parameter name**: api_key
+- **API key parameter name**: apiKey
 - **Location**: URL query string
 

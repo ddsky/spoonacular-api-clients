@@ -36,7 +36,7 @@ class DefaultApi {
     List<String> contentTypes = [""];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["apiKeyScheme"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -93,7 +93,7 @@ class DefaultApi {
     List<String> contentTypes = [""];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["apiKeyScheme"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -144,7 +144,7 @@ class DefaultApi {
     List<String> contentTypes = [];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["apiKeyScheme"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -194,7 +194,7 @@ class DefaultApi {
     List<String> contentTypes = ["application/x-www-form-urlencoded"];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["apiKeyScheme"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -260,7 +260,7 @@ class DefaultApi {
     List<String> contentTypes = [];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["apiKeyScheme"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -314,7 +314,7 @@ class DefaultApi {
     List<String> contentTypes = [];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["apiKeyScheme"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -368,7 +368,7 @@ class DefaultApi {
     List<String> contentTypes = [];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["apiKeyScheme"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -422,7 +422,7 @@ class DefaultApi {
     List<String> contentTypes = [];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["apiKeyScheme"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -475,7 +475,7 @@ class DefaultApi {
     List<String> contentTypes = ["application/x-www-form-urlencoded"];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["apiKeyScheme"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -540,7 +540,7 @@ class DefaultApi {
     List<String> contentTypes = ["application/json"];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["apiKeyScheme"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -571,12 +571,12 @@ class DefaultApi {
   /// Classify Grocery Product Bulk
   ///
   /// Provide a set of product jsons, get back classified products.
-  Future<Object> classifyGroceryProductBulk(Object body, { String locale }) async {
-    Object postBody = body;
+  Future<Object> classifyGroceryProductBulk(List<Object> object, { String locale }) async {
+    Object postBody = object;
 
     // verify required params are set
-    if(body == null) {
-     throw new ApiException(400, "Missing required param: body");
+    if(object == null) {
+     throw new ApiException(400, "Missing required param: object");
     }
 
     // create path and map variables
@@ -593,7 +593,7 @@ class DefaultApi {
     List<String> contentTypes = ["application/json"];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["apiKeyScheme"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -653,7 +653,7 @@ class DefaultApi {
     List<String> contentTypes = [""];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["apiKeyScheme"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -703,7 +703,7 @@ class DefaultApi {
     List<String> contentTypes = ["application/json"];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["apiKeyScheme"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -753,7 +753,7 @@ class DefaultApi {
     List<String> contentTypes = [""];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["apiKeyScheme"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -816,7 +816,7 @@ class DefaultApi {
     List<String> contentTypes = [];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["apiKeyScheme"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -887,7 +887,7 @@ class DefaultApi {
     List<String> contentTypes = ["multipart/form-data"];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["apiKeyScheme"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -1018,7 +1018,7 @@ class DefaultApi {
     List<String> contentTypes = [""];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["apiKeyScheme"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -1078,7 +1078,7 @@ class DefaultApi {
     List<String> contentTypes = [""];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["apiKeyScheme"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -1128,7 +1128,7 @@ class DefaultApi {
     List<String> contentTypes = ["application/x-www-form-urlencoded"];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["apiKeyScheme"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -1191,7 +1191,7 @@ class DefaultApi {
     List<String> contentTypes = [];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["apiKeyScheme"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -1250,7 +1250,7 @@ class DefaultApi {
     List<String> contentTypes = [];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["apiKeyScheme"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -1313,7 +1313,7 @@ class DefaultApi {
     List<String> contentTypes = [""];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["apiKeyScheme"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -1360,7 +1360,7 @@ class DefaultApi {
     List<String> contentTypes = [];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["apiKeyScheme"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -1413,7 +1413,7 @@ class DefaultApi {
     List<String> contentTypes = [];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["apiKeyScheme"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -1463,7 +1463,7 @@ class DefaultApi {
     List<String> contentTypes = [];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["apiKeyScheme"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -1517,7 +1517,7 @@ class DefaultApi {
     List<String> contentTypes = [];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["apiKeyScheme"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -1568,7 +1568,7 @@ class DefaultApi {
     List<String> contentTypes = [];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["apiKeyScheme"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -1624,7 +1624,7 @@ class DefaultApi {
     List<String> contentTypes = [];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["apiKeyScheme"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -1675,7 +1675,7 @@ class DefaultApi {
     List<String> contentTypes = [];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["apiKeyScheme"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -1725,7 +1725,7 @@ class DefaultApi {
     List<String> contentTypes = [];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["apiKeyScheme"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -1782,7 +1782,7 @@ class DefaultApi {
     List<String> contentTypes = [];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["apiKeyScheme"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -1836,7 +1836,7 @@ class DefaultApi {
     List<String> contentTypes = [];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["apiKeyScheme"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -1893,7 +1893,7 @@ class DefaultApi {
     List<String> contentTypes = [];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["apiKeyScheme"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -1943,7 +1943,7 @@ class DefaultApi {
     List<String> contentTypes = [];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["apiKeyScheme"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -1993,7 +1993,7 @@ class DefaultApi {
     List<String> contentTypes = [];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["apiKeyScheme"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -2040,7 +2040,7 @@ class DefaultApi {
     List<String> contentTypes = [];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["apiKeyScheme"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -2096,7 +2096,7 @@ class DefaultApi {
     List<String> contentTypes = [];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["apiKeyScheme"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -2146,7 +2146,7 @@ class DefaultApi {
     List<String> contentTypes = [];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["apiKeyScheme"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -2199,7 +2199,7 @@ class DefaultApi {
     List<String> contentTypes = [];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["apiKeyScheme"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -2253,7 +2253,7 @@ class DefaultApi {
     List<String> contentTypes = [];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["apiKeyScheme"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -2303,7 +2303,7 @@ class DefaultApi {
     List<String> contentTypes = [];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["apiKeyScheme"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -2353,7 +2353,7 @@ class DefaultApi {
     List<String> contentTypes = [];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["apiKeyScheme"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -2403,7 +2403,7 @@ class DefaultApi {
     List<String> contentTypes = [];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["apiKeyScheme"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -2453,7 +2453,7 @@ class DefaultApi {
     List<String> contentTypes = [];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["apiKeyScheme"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -2507,7 +2507,7 @@ class DefaultApi {
     List<String> contentTypes = [];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["apiKeyScheme"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -2563,7 +2563,7 @@ class DefaultApi {
     List<String> contentTypes = [];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["apiKeyScheme"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -2614,7 +2614,7 @@ class DefaultApi {
     List<String> contentTypes = [];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["apiKeyScheme"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -2668,7 +2668,7 @@ class DefaultApi {
     List<String> contentTypes = [];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["apiKeyScheme"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -2728,7 +2728,7 @@ class DefaultApi {
     List<String> contentTypes = [];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["apiKeyScheme"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -2779,7 +2779,7 @@ class DefaultApi {
     List<String> contentTypes = [];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["apiKeyScheme"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -2830,7 +2830,7 @@ class DefaultApi {
     List<String> contentTypes = [];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["apiKeyScheme"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -2881,7 +2881,7 @@ class DefaultApi {
     List<String> contentTypes = [];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["apiKeyScheme"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -2971,7 +2971,7 @@ class DefaultApi {
     List<String> contentTypes = [];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["apiKeyScheme"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -3021,7 +3021,7 @@ class DefaultApi {
     List<String> contentTypes = ["application/json"];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["apiKeyScheme"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -3074,7 +3074,7 @@ class DefaultApi {
     List<String> contentTypes = ["application/x-www-form-urlencoded"];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["apiKeyScheme"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -3143,7 +3143,7 @@ class DefaultApi {
     List<String> contentTypes = [];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["apiKeyScheme"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -3200,7 +3200,7 @@ class DefaultApi {
     List<String> contentTypes = [];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["apiKeyScheme"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -3265,7 +3265,7 @@ class DefaultApi {
     List<String> contentTypes = [];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["apiKeyScheme"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -3343,7 +3343,7 @@ class DefaultApi {
     List<String> contentTypes = [];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["apiKeyScheme"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -3424,7 +3424,7 @@ class DefaultApi {
     List<String> contentTypes = [];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["apiKeyScheme"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -3474,7 +3474,7 @@ class DefaultApi {
     List<String> contentTypes = [];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["apiKeyScheme"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -3555,7 +3555,7 @@ class DefaultApi {
     List<String> contentTypes = [];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["apiKeyScheme"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -3891,7 +3891,7 @@ class DefaultApi {
     List<String> contentTypes = [];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["apiKeyScheme"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -3954,7 +3954,7 @@ class DefaultApi {
     List<String> contentTypes = [];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["apiKeyScheme"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -4229,7 +4229,7 @@ class DefaultApi {
     List<String> contentTypes = [];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["apiKeyScheme"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -4280,7 +4280,7 @@ class DefaultApi {
     List<String> contentTypes = [];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["apiKeyScheme"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -4330,7 +4330,7 @@ class DefaultApi {
     List<String> contentTypes = [];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["apiKeyScheme"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -4384,7 +4384,7 @@ class DefaultApi {
     List<String> contentTypes = [];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["apiKeyScheme"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -4434,7 +4434,7 @@ class DefaultApi {
     List<String> contentTypes = ["application/x-www-form-urlencoded"];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["apiKeyScheme"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -4511,7 +4511,7 @@ class DefaultApi {
     List<String> contentTypes = ["application/x-www-form-urlencoded"];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["apiKeyScheme"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -4600,7 +4600,7 @@ class DefaultApi {
     List<String> contentTypes = [];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["apiKeyScheme"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -4653,7 +4653,7 @@ class DefaultApi {
     List<String> contentTypes = ["application/x-www-form-urlencoded"];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["apiKeyScheme"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -4736,7 +4736,7 @@ class DefaultApi {
     List<String> contentTypes = [];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["apiKeyScheme"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -4789,7 +4789,7 @@ class DefaultApi {
     List<String> contentTypes = [];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["apiKeyScheme"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -4842,7 +4842,7 @@ class DefaultApi {
     List<String> contentTypes = [];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["apiKeyScheme"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -4895,7 +4895,7 @@ class DefaultApi {
     List<String> contentTypes = ["application/x-www-form-urlencoded"];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["apiKeyScheme"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -4972,7 +4972,7 @@ class DefaultApi {
     List<String> contentTypes = [];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["apiKeyScheme"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -5025,7 +5025,7 @@ class DefaultApi {
     List<String> contentTypes = [];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["apiKeyScheme"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -5075,7 +5075,7 @@ class DefaultApi {
     List<String> contentTypes = ["application/x-www-form-urlencoded"];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["apiKeyScheme"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -5131,7 +5131,7 @@ class DefaultApi {
     List<String> contentTypes = [];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["apiKeyScheme"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;

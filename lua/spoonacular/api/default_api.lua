@@ -72,6 +72,7 @@ function default_api:add_to_meal_plan(username, hash, inline_object_11)
 
 	req:set_body(dkjson.encode(inline_object_11))
 
+	-- TODO: api key in query 'apiKey'
 
 	-- make the HTTP call
 	local headers, stream, errno = req:go()
@@ -124,6 +125,7 @@ function default_api:add_to_shopping_list(username, hash, inline_object_14)
 
 	req:set_body(dkjson.encode(inline_object_14))
 
+	-- TODO: api key in query 'apiKey'
 
 	-- make the HTTP call
 	local headers, stream, errno = req:go()
@@ -170,6 +172,7 @@ function default_api:analyze_a_recipe_search_query(q)
 	--local var_accept = { "application/json" }
 	req.headers:upsert("content-type", "application/json")
 
+	-- TODO: api key in query 'apiKey'
 
 	-- make the HTTP call
 	local headers, stream, errno = req:go()
@@ -223,6 +226,7 @@ function default_api:analyze_recipe_instructions(instructions)
 	req:set_body(http_util.dict_to_query({
 		["instructions"] = instructions;
 	}))
+	-- TODO: api key in query 'apiKey'
 
 	-- make the HTTP call
 	local headers, stream, errno = req:go()
@@ -269,6 +273,7 @@ function default_api:autocomplete_ingredient_search(query, Number_, meta_informa
 	--local var_accept = { "application/json" }
 	req.headers:upsert("content-type", "application/json")
 
+	-- TODO: api key in query 'apiKey'
 
 	-- make the HTTP call
 	local headers, stream, errno = req:go()
@@ -315,6 +320,7 @@ function default_api:autocomplete_menu_item_search(query, Number_)
 	--local var_accept = { "application/json" }
 	req.headers:upsert("content-type", "application/json")
 
+	-- TODO: api key in query 'apiKey'
 
 	-- make the HTTP call
 	local headers, stream, errno = req:go()
@@ -361,6 +367,7 @@ function default_api:autocomplete_product_search(query, Number_)
 	--local var_accept = { "application/json" }
 	req.headers:upsert("content-type", "application/json")
 
+	-- TODO: api key in query 'apiKey'
 
 	-- make the HTTP call
 	local headers, stream, errno = req:go()
@@ -407,6 +414,7 @@ function default_api:autocomplete_recipe_search(query, Number_)
 	--local var_accept = { "application/json" }
 	req.headers:upsert("content-type", "application/json")
 
+	-- TODO: api key in query 'apiKey'
 
 	-- make the HTTP call
 	local headers, stream, errno = req:go()
@@ -461,6 +469,7 @@ function default_api:classify_cuisine(title, ingredient_list)
 		["title"] = title;
 		["ingredientList"] = ingredient_list;
 	}))
+	-- TODO: api key in query 'apiKey'
 
 	-- make the HTTP call
 	local headers, stream, errno = req:go()
@@ -513,6 +522,7 @@ function default_api:classify_grocery_product(inline_object_9, locale)
 
 	req:set_body(dkjson.encode(inline_object_9))
 
+	-- TODO: api key in query 'apiKey'
 
 	-- make the HTTP call
 	local headers, stream, errno = req:go()
@@ -544,7 +554,7 @@ function default_api:classify_grocery_product(inline_object_9, locale)
 	end
 end
 
-function default_api:classify_grocery_product_bulk(body, locale)
+function default_api:classify_grocery_product_bulk(TODO_OBJECT_MAPPING, locale)
 	local req = http_request.new_from_uri({
 		scheme = self.default_scheme;
 		host = self.host;
@@ -563,8 +573,9 @@ function default_api:classify_grocery_product_bulk(body, locale)
 	--local var_accept = { "application/json" }
 	req.headers:upsert("content-type", "application/json")
 
-	req:set_body(dkjson.encode(body))
+	req:set_body(dkjson.encode(TODO_OBJECT_MAPPING))
 
+	-- TODO: api key in query 'apiKey'
 
 	-- make the HTTP call
 	local headers, stream, errno = req:go()
@@ -617,6 +628,7 @@ function default_api:clear_meal_plan_day(username, date, hash, inline_object_10)
 
 	req:set_body(dkjson.encode(inline_object_10))
 
+	-- TODO: api key in query 'apiKey'
 
 	-- make the HTTP call
 	local headers, stream, errno = req:go()
@@ -669,6 +681,7 @@ function default_api:compute_glycemic_load(body)
 
 	req:set_body(dkjson.encode(body))
 
+	-- TODO: api key in query 'apiKey'
 
 	-- make the HTTP call
 	local headers, stream, errno = req:go()
@@ -721,6 +734,7 @@ function default_api:connect_user(body)
 
 	req:set_body(dkjson.encode(body))
 
+	-- TODO: api key in query 'apiKey'
 
 	-- make the HTTP call
 	local headers, stream, errno = req:go()
@@ -767,6 +781,7 @@ function default_api:convert_amounts(ingredient_name, source_amount, source_unit
 	--local var_accept = { "application/json" }
 	req.headers:upsert("content-type", "application/json")
 
+	-- TODO: api key in query 'apiKey'
 
 	-- make the HTTP call
 	local headers, stream, errno = req:go()
@@ -831,6 +846,7 @@ function default_api:create_recipe_card(title, image, ingredients, instructions,
 		["fontColor"] = font_color;
 		["source"] = source;
 	}))
+	-- TODO: api key in query 'apiKey'
 
 	-- make the HTTP call
 	local headers, stream, errno = req:go()
@@ -883,6 +899,7 @@ function default_api:delete_from_meal_plan(username, id, hash, inline_object_12)
 
 	req:set_body(dkjson.encode(inline_object_12))
 
+	-- TODO: api key in query 'apiKey'
 
 	-- make the HTTP call
 	local headers, stream, errno = req:go()
@@ -935,6 +952,7 @@ function default_api:delete_from_shopping_list(username, id, hash, inline_object
 
 	req:set_body(dkjson.encode(inline_object_15))
 
+	-- TODO: api key in query 'apiKey'
 
 	-- make the HTTP call
 	local headers, stream, errno = req:go()
@@ -988,6 +1006,7 @@ function default_api:detect_food_in_text(text)
 	req:set_body(http_util.dict_to_query({
 		["text"] = text;
 	}))
+	-- TODO: api key in query 'apiKey'
 
 	-- make the HTTP call
 	local headers, stream, errno = req:go()
@@ -1034,6 +1053,7 @@ function default_api:extract_recipe_from_website(url, force_extraction, analyze)
 	--local var_accept = { "application/json" }
 	req.headers:upsert("content-type", "application/json")
 
+	-- TODO: api key in query 'apiKey'
 
 	-- make the HTTP call
 	local headers, stream, errno = req:go()
@@ -1080,6 +1100,7 @@ function default_api:generate_meal_plan(time_frame, target_calories, diet, exclu
 	--local var_accept = { "application/json" }
 	req.headers:upsert("content-type", "application/json")
 
+	-- TODO: api key in query 'apiKey'
 
 	-- make the HTTP call
 	local headers, stream, errno = req:go()
@@ -1132,6 +1153,7 @@ function default_api:generate_shopping_list(username, start_date, end_date, hash
 
 	req:set_body(dkjson.encode(inline_object_13))
 
+	-- TODO: api key in query 'apiKey'
 
 	-- make the HTTP call
 	local headers, stream, errno = req:go()
@@ -1178,6 +1200,7 @@ function default_api:get_a_random_food_joke()
 	--local var_accept = { "application/json" }
 	req.headers:upsert("content-type", "application/json")
 
+	-- TODO: api key in query 'apiKey'
 
 	-- make the HTTP call
 	local headers, stream, errno = req:go()
@@ -1224,6 +1247,7 @@ function default_api:get_analyzed_recipe_instructions(id, step_breakdown)
 	--local var_accept = { "application/json" }
 	req.headers:upsert("content-type", "application/json")
 
+	-- TODO: api key in query 'apiKey'
 
 	-- make the HTTP call
 	local headers, stream, errno = req:go()
@@ -1270,6 +1294,7 @@ function default_api:get_comparable_products(upc)
 	--local var_accept = { "application/json" }
 	req.headers:upsert("content-type", "application/json")
 
+	-- TODO: api key in query 'apiKey'
 
 	-- make the HTTP call
 	local headers, stream, errno = req:go()
@@ -1316,6 +1341,7 @@ function default_api:get_conversation_suggests(query, Number_)
 	--local var_accept = { "application/json" }
 	req.headers:upsert("content-type", "application/json")
 
+	-- TODO: api key in query 'apiKey'
 
 	-- make the HTTP call
 	local headers, stream, errno = req:go()
@@ -1362,6 +1388,7 @@ function default_api:get_dish_pairing_for_wine(wine)
 	--local var_accept = { "application/json" }
 	req.headers:upsert("content-type", "application/json")
 
+	-- TODO: api key in query 'apiKey'
 
 	-- make the HTTP call
 	local headers, stream, errno = req:go()
@@ -1408,6 +1435,7 @@ function default_api:get_ingredient_information(id, amount, unit)
 	--local var_accept = { "application/json" }
 	req.headers:upsert("content-type", "application/json")
 
+	-- TODO: api key in query 'apiKey'
 
 	-- make the HTTP call
 	local headers, stream, errno = req:go()
@@ -1454,6 +1482,7 @@ function default_api:get_ingredient_substitutes(ingredient_name)
 	--local var_accept = { "application/json" }
 	req.headers:upsert("content-type", "application/json")
 
+	-- TODO: api key in query 'apiKey'
 
 	-- make the HTTP call
 	local headers, stream, errno = req:go()
@@ -1500,6 +1529,7 @@ function default_api:get_ingredient_substitutes_by_id(id)
 	--local var_accept = { "application/json" }
 	req.headers:upsert("content-type", "application/json")
 
+	-- TODO: api key in query 'apiKey'
 
 	-- make the HTTP call
 	local headers, stream, errno = req:go()
@@ -1546,6 +1576,7 @@ function default_api:get_meal_plan_template(username, id, hash)
 	--local var_accept = { "application/json" }
 	req.headers:upsert("content-type", "application/json")
 
+	-- TODO: api key in query 'apiKey'
 
 	-- make the HTTP call
 	local headers, stream, errno = req:go()
@@ -1592,6 +1623,7 @@ function default_api:get_meal_plan_templates(username, hash)
 	--local var_accept = { "application/json" }
 	req.headers:upsert("content-type", "application/json")
 
+	-- TODO: api key in query 'apiKey'
 
 	-- make the HTTP call
 	local headers, stream, errno = req:go()
@@ -1638,6 +1670,7 @@ function default_api:get_meal_plan_week(username, start_date, hash)
 	--local var_accept = { "application/json" }
 	req.headers:upsert("content-type", "application/json")
 
+	-- TODO: api key in query 'apiKey'
 
 	-- make the HTTP call
 	local headers, stream, errno = req:go()
@@ -1684,6 +1717,7 @@ function default_api:get_menu_item_information(id)
 	--local var_accept = { "application/json" }
 	req.headers:upsert("content-type", "application/json")
 
+	-- TODO: api key in query 'apiKey'
 
 	-- make the HTTP call
 	local headers, stream, errno = req:go()
@@ -1730,6 +1764,7 @@ function default_api:get_product_information(id)
 	--local var_accept = { "application/json" }
 	req.headers:upsert("content-type", "application/json")
 
+	-- TODO: api key in query 'apiKey'
 
 	-- make the HTTP call
 	local headers, stream, errno = req:go()
@@ -1776,6 +1811,7 @@ function default_api:get_random_food_trivia()
 	--local var_accept = { "application/json" }
 	req.headers:upsert("content-type", "application/json")
 
+	-- TODO: api key in query 'apiKey'
 
 	-- make the HTTP call
 	local headers, stream, errno = req:go()
@@ -1822,6 +1858,7 @@ function default_api:get_random_recipes(limit_license, tags, Number_)
 	--local var_accept = { "application/json" }
 	req.headers:upsert("content-type", "application/json")
 
+	-- TODO: api key in query 'apiKey'
 
 	-- make the HTTP call
 	local headers, stream, errno = req:go()
@@ -1868,6 +1905,7 @@ function default_api:get_recipe_equipment_by_id(id)
 	--local var_accept = { "application/json" }
 	req.headers:upsert("content-type", "application/json")
 
+	-- TODO: api key in query 'apiKey'
 
 	-- make the HTTP call
 	local headers, stream, errno = req:go()
@@ -1914,6 +1952,7 @@ function default_api:get_recipe_information(id, include_nutrition)
 	--local var_accept = { "application/json" }
 	req.headers:upsert("content-type", "application/json")
 
+	-- TODO: api key in query 'apiKey'
 
 	-- make the HTTP call
 	local headers, stream, errno = req:go()
@@ -1960,6 +1999,7 @@ function default_api:get_recipe_information_bulk(ids, include_nutrition)
 	--local var_accept = { "application/json" }
 	req.headers:upsert("content-type", "application/json")
 
+	-- TODO: api key in query 'apiKey'
 
 	-- make the HTTP call
 	local headers, stream, errno = req:go()
@@ -2006,6 +2046,7 @@ function default_api:get_recipe_ingredients_by_id(id)
 	--local var_accept = { "application/json" }
 	req.headers:upsert("content-type", "application/json")
 
+	-- TODO: api key in query 'apiKey'
 
 	-- make the HTTP call
 	local headers, stream, errno = req:go()
@@ -2052,6 +2093,7 @@ function default_api:get_recipe_nutrition_widget_by_id(id)
 	--local var_accept = { "application/json" }
 	req.headers:upsert("content-type", "application/json")
 
+	-- TODO: api key in query 'apiKey'
 
 	-- make the HTTP call
 	local headers, stream, errno = req:go()
@@ -2098,6 +2140,7 @@ function default_api:get_recipe_price_breakdown_by_id(id)
 	--local var_accept = { "application/json" }
 	req.headers:upsert("content-type", "application/json")
 
+	-- TODO: api key in query 'apiKey'
 
 	-- make the HTTP call
 	local headers, stream, errno = req:go()
@@ -2144,6 +2187,7 @@ function default_api:get_recipe_taste_by_id(id)
 	--local var_accept = { "application/json" }
 	req.headers:upsert("content-type", "application/json")
 
+	-- TODO: api key in query 'apiKey'
 
 	-- make the HTTP call
 	local headers, stream, errno = req:go()
@@ -2190,6 +2234,7 @@ function default_api:get_shopping_list(username, hash)
 	--local var_accept = { "application/json" }
 	req.headers:upsert("content-type", "application/json")
 
+	-- TODO: api key in query 'apiKey'
 
 	-- make the HTTP call
 	local headers, stream, errno = req:go()
@@ -2236,6 +2281,7 @@ function default_api:get_similar_recipes(id, Number_, limit_license)
 	--local var_accept = { "application/json" }
 	req.headers:upsert("content-type", "application/json")
 
+	-- TODO: api key in query 'apiKey'
 
 	-- make the HTTP call
 	local headers, stream, errno = req:go()
@@ -2282,6 +2328,7 @@ function default_api:get_wine_description(wine)
 	--local var_accept = { "application/json" }
 	req.headers:upsert("content-type", "application/json")
 
+	-- TODO: api key in query 'apiKey'
 
 	-- make the HTTP call
 	local headers, stream, errno = req:go()
@@ -2328,6 +2375,7 @@ function default_api:get_wine_pairing(food, max_price)
 	--local var_accept = { "application/json" }
 	req.headers:upsert("content-type", "application/json")
 
+	-- TODO: api key in query 'apiKey'
 
 	-- make the HTTP call
 	local headers, stream, errno = req:go()
@@ -2374,6 +2422,7 @@ function default_api:get_wine_recommendation(wine, max_price, min_rating, Number
 	--local var_accept = { "application/json" }
 	req.headers:upsert("content-type", "application/json")
 
+	-- TODO: api key in query 'apiKey'
 
 	-- make the HTTP call
 	local headers, stream, errno = req:go()
@@ -2420,6 +2469,7 @@ function default_api:guess_nutrition_by_dish_name(title)
 	--local var_accept = { "application/json" }
 	req.headers:upsert("content-type", "application/json")
 
+	-- TODO: api key in query 'apiKey'
 
 	-- make the HTTP call
 	local headers, stream, errno = req:go()
@@ -2466,6 +2516,7 @@ function default_api:image_analysis_by_url(image_url)
 	--local var_accept = { "application/json" }
 	req.headers:upsert("content-type", "application/json")
 
+	-- TODO: api key in query 'apiKey'
 
 	-- make the HTTP call
 	local headers, stream, errno = req:go()
@@ -2512,6 +2563,7 @@ function default_api:image_classification_by_url(image_url)
 	--local var_accept = { "application/json" }
 	req.headers:upsert("content-type", "application/json")
 
+	-- TODO: api key in query 'apiKey'
 
 	-- make the HTTP call
 	local headers, stream, errno = req:go()
@@ -2558,6 +2610,7 @@ function default_api:ingredient_search(query, add_children, min_protein_percent,
 	--local var_accept = { "application/json" }
 	req.headers:upsert("content-type", "application/json")
 
+	-- TODO: api key in query 'apiKey'
 
 	-- make the HTTP call
 	local headers, stream, errno = req:go()
@@ -2610,6 +2663,7 @@ function default_api:map_ingredients_to_grocery_products(body)
 
 	req:set_body(dkjson.encode(body))
 
+	-- TODO: api key in query 'apiKey'
 
 	-- make the HTTP call
 	local headers, stream, errno = req:go()
@@ -2665,6 +2719,7 @@ function default_api:parse_ingredients(ingredient_list, servings, include_nutrit
 		["servings"] = servings;
 		["includeNutrition"] = include_nutrition;
 	}))
+	-- TODO: api key in query 'apiKey'
 
 	-- make the HTTP call
 	local headers, stream, errno = req:go()
@@ -2711,6 +2766,7 @@ function default_api:quick_answer(q)
 	--local var_accept = { "application/json" }
 	req.headers:upsert("content-type", "application/json")
 
+	-- TODO: api key in query 'apiKey'
 
 	-- make the HTTP call
 	local headers, stream, errno = req:go()
@@ -2757,6 +2813,7 @@ function default_api:search_all_food(query, offset, Number_)
 	--local var_accept = { "application/json" }
 	req.headers:upsert("content-type", "application/json")
 
+	-- TODO: api key in query 'apiKey'
 
 	-- make the HTTP call
 	local headers, stream, errno = req:go()
@@ -2803,6 +2860,7 @@ function default_api:search_custom_foods(query, username, hash, offset, Number_)
 	--local var_accept = { "application/json" }
 	req.headers:upsert("content-type", "application/json")
 
+	-- TODO: api key in query 'apiKey'
 
 	-- make the HTTP call
 	local headers, stream, errno = req:go()
@@ -2849,6 +2907,7 @@ function default_api:search_food_videos(query, type, cuisine, diet, include_ingr
 	--local var_accept = { "application/json" }
 	req.headers:upsert("content-type", "application/json")
 
+	-- TODO: api key in query 'apiKey'
 
 	-- make the HTTP call
 	local headers, stream, errno = req:go()
@@ -2895,6 +2954,7 @@ function default_api:search_grocery_products(query, min_calories, max_calories, 
 	--local var_accept = { "application/json" }
 	req.headers:upsert("content-type", "application/json")
 
+	-- TODO: api key in query 'apiKey'
 
 	-- make the HTTP call
 	local headers, stream, errno = req:go()
@@ -2941,6 +3001,7 @@ function default_api:search_grocery_products_by_upc(upc)
 	--local var_accept = { "application/json" }
 	req.headers:upsert("content-type", "application/json")
 
+	-- TODO: api key in query 'apiKey'
 
 	-- make the HTTP call
 	local headers, stream, errno = req:go()
@@ -2987,6 +3048,7 @@ function default_api:search_menu_items(query, min_calories, max_calories, min_ca
 	--local var_accept = { "application/json" }
 	req.headers:upsert("content-type", "application/json")
 
+	-- TODO: api key in query 'apiKey'
 
 	-- make the HTTP call
 	local headers, stream, errno = req:go()
@@ -3033,6 +3095,7 @@ function default_api:search_recipes(query, cuisine, exclude_cuisine, diet, intol
 	--local var_accept = { "application/json" }
 	req.headers:upsert("content-type", "application/json")
 
+	-- TODO: api key in query 'apiKey'
 
 	-- make the HTTP call
 	local headers, stream, errno = req:go()
@@ -3079,6 +3142,7 @@ function default_api:search_recipes_by_ingredients(ingredients, Number_, limit_l
 	--local var_accept = { "application/json" }
 	req.headers:upsert("content-type", "application/json")
 
+	-- TODO: api key in query 'apiKey'
 
 	-- make the HTTP call
 	local headers, stream, errno = req:go()
@@ -3125,6 +3189,7 @@ function default_api:search_recipes_by_nutrients(min_carbs, max_carbs, min_prote
 	--local var_accept = { "application/json" }
 	req.headers:upsert("content-type", "application/json")
 
+	-- TODO: api key in query 'apiKey'
 
 	-- make the HTTP call
 	local headers, stream, errno = req:go()
@@ -3171,6 +3236,7 @@ function default_api:search_site_content(query)
 	--local var_accept = { "application/json" }
 	req.headers:upsert("content-type", "application/json")
 
+	-- TODO: api key in query 'apiKey'
 
 	-- make the HTTP call
 	local headers, stream, errno = req:go()
@@ -3217,6 +3283,7 @@ function default_api:summarize_recipe(id)
 	--local var_accept = { "application/json" }
 	req.headers:upsert("content-type", "application/json")
 
+	-- TODO: api key in query 'apiKey'
 
 	-- make the HTTP call
 	local headers, stream, errno = req:go()
@@ -3263,6 +3330,7 @@ function default_api:talk_to_chatbot(text, context_id)
 	--local var_accept = { "application/json" }
 	req.headers:upsert("content-type", "application/json")
 
+	-- TODO: api key in query 'apiKey'
 
 	-- make the HTTP call
 	local headers, stream, errno = req:go()
@@ -3319,6 +3387,7 @@ function default_api:visualize_equipment(instructions, view, default_css, show_b
 		["defaultCss"] = default_css;
 		["showBacklink"] = show_backlink;
 	}))
+	-- TODO: api key in query 'apiKey'
 
 	-- make the HTTP call
 	local headers, stream, errno = req:go()
@@ -3377,6 +3446,7 @@ function default_api:visualize_ingredients(ingredient_list, servings, measure, v
 		["defaultCss"] = default_css;
 		["showBacklink"] = show_backlink;
 	}))
+	-- TODO: api key in query 'apiKey'
 
 	-- make the HTTP call
 	local headers, stream, errno = req:go()
@@ -3423,6 +3493,7 @@ function default_api:visualize_menu_item_nutrition_by_id(id, default_css)
 	--local var_accept = { "text/html" }
 	req.headers:upsert("content-type", "text/html")
 
+	-- TODO: api key in query 'apiKey'
 
 	-- make the HTTP call
 	local headers, stream, errno = req:go()
@@ -3480,6 +3551,7 @@ function default_api:visualize_price_breakdown(ingredient_list, servings, mode, 
 		["defaultCss"] = default_css;
 		["showBacklink"] = show_backlink;
 	}))
+	-- TODO: api key in query 'apiKey'
 
 	-- make the HTTP call
 	local headers, stream, errno = req:go()
@@ -3526,6 +3598,7 @@ function default_api:visualize_product_nutrition_by_id(id, default_css)
 	--local var_accept = { "text/html" }
 	req.headers:upsert("content-type", "text/html")
 
+	-- TODO: api key in query 'apiKey'
 
 	-- make the HTTP call
 	local headers, stream, errno = req:go()
@@ -3572,6 +3645,7 @@ function default_api:visualize_recipe_equipment_by_id(id, default_css)
 	--local var_accept = { "text/html" }
 	req.headers:upsert("content-type", "text/html")
 
+	-- TODO: api key in query 'apiKey'
 
 	-- make the HTTP call
 	local headers, stream, errno = req:go()
@@ -3618,6 +3692,7 @@ function default_api:visualize_recipe_ingredients_by_id(id, default_css)
 	--local var_accept = { "text/html" }
 	req.headers:upsert("content-type", "text/html")
 
+	-- TODO: api key in query 'apiKey'
 
 	-- make the HTTP call
 	local headers, stream, errno = req:go()
@@ -3674,6 +3749,7 @@ function default_api:visualize_recipe_nutrition(ingredient_list, servings, defau
 		["defaultCss"] = default_css;
 		["showBacklink"] = show_backlink;
 	}))
+	-- TODO: api key in query 'apiKey'
 
 	-- make the HTTP call
 	local headers, stream, errno = req:go()
@@ -3720,6 +3796,7 @@ function default_api:visualize_recipe_nutrition_by_id(id, default_css)
 	--local var_accept = { "text/html" }
 	req.headers:upsert("content-type", "text/html")
 
+	-- TODO: api key in query 'apiKey'
 
 	-- make the HTTP call
 	local headers, stream, errno = req:go()
@@ -3766,6 +3843,7 @@ function default_api:visualize_recipe_price_breakdown_by_id(id, default_css)
 	--local var_accept = { "text/html" }
 	req.headers:upsert("content-type", "text/html")
 
+	-- TODO: api key in query 'apiKey'
 
 	-- make the HTTP call
 	local headers, stream, errno = req:go()
@@ -3819,6 +3897,7 @@ function default_api:visualize_recipe_taste(ingredient_list)
 	req:set_body(http_util.dict_to_query({
 		["ingredientList"] = ingredient_list;
 	}))
+	-- TODO: api key in query 'apiKey'
 
 	-- make the HTTP call
 	local headers, stream, errno = req:go()
@@ -3865,6 +3944,7 @@ function default_api:visualize_recipe_taste_by_id(id)
 	--local var_accept = { "text/html" }
 	req.headers:upsert("content-type", "text/html")
 
+	-- TODO: api key in query 'apiKey'
 
 	-- make the HTTP call
 	local headers, stream, errno = req:go()

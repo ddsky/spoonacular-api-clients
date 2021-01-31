@@ -74,6 +74,13 @@ Please follow the [installation procedure](#installation--usage) and then run th
 
 ```objc
 
+OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
+
+// Configure API key authorization: (authentication scheme: apiKeyScheme)
+[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"apiKey"];
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"apiKey"];
+
 
 NSString* *username = dsky; // The username.
 NSString* *hash = 4b5v4398573406; // The private hash for the username.
@@ -211,7 +218,7 @@ Class | Method | HTTP request | Description
 ## apiKeyScheme
 
 - **Type**: API key
-- **API key parameter name**: api_key
+- **API key parameter name**: apiKey
 - **Location**: URL query string
 
 

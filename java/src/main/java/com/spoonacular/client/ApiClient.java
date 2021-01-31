@@ -79,7 +79,7 @@ public class ApiClient {
         init();
 
         // Setup authentications (key: authentication name, value: authentication).
-        authentications.put("apiKeyScheme", new ApiKeyAuth("query", "api_key"));
+        authentications.put("apiKeyScheme", new ApiKeyAuth("query", "apiKey"));
         // Prevent the authentications from being modified.
         authentications = Collections.unmodifiableMap(authentications);
     }

@@ -97,9 +97,19 @@ Add an item to the user&#39;s meal plan.
 ### Example
 ```java
 // Import classes:
+//import com.spoonacular.client.ApiClient;
 //import com.spoonacular.client.ApiException;
+//import com.spoonacular.client.Configuration;
+//import com.spoonacular.client.auth.*;
 //import com.spoonacular.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKeyScheme
+ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+apiKeyScheme.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 String username = dsky; // String | The username.
@@ -128,7 +138,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -146,9 +156,19 @@ Add an item to the current shopping list of a user.
 ### Example
 ```java
 // Import classes:
+//import com.spoonacular.client.ApiClient;
 //import com.spoonacular.client.ApiException;
+//import com.spoonacular.client.Configuration;
+//import com.spoonacular.client.auth.*;
 //import com.spoonacular.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKeyScheme
+ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+apiKeyScheme.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 String username = dsky; // String | The username.
@@ -177,7 +197,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -195,9 +215,19 @@ Parse a recipe search query to find out its intention.
 ### Example
 ```java
 // Import classes:
+//import com.spoonacular.client.ApiClient;
 //import com.spoonacular.client.ApiException;
+//import com.spoonacular.client.Configuration;
+//import com.spoonacular.client.auth.*;
 //import com.spoonacular.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKeyScheme
+ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+apiKeyScheme.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 String q = salmon with fusilli and no nuts; // String | The recipe search query.
@@ -222,7 +252,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -240,9 +270,19 @@ This endpoint allows you to break down instructions into atomic steps. Furthermo
 ### Example
 ```java
 // Import classes:
+//import com.spoonacular.client.ApiClient;
 //import com.spoonacular.client.ApiException;
+//import com.spoonacular.client.Configuration;
+//import com.spoonacular.client.auth.*;
 //import com.spoonacular.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKeyScheme
+ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+apiKeyScheme.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 String instructions = "instructions_example"; // String | The instructions to be analyzed.
@@ -267,7 +307,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -285,9 +325,19 @@ Autocomplete the entry of an ingredient.
 ### Example
 ```java
 // Import classes:
+//import com.spoonacular.client.ApiClient;
 //import com.spoonacular.client.ApiException;
+//import com.spoonacular.client.Configuration;
+//import com.spoonacular.client.auth.*;
 //import com.spoonacular.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKeyScheme
+ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+apiKeyScheme.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 String query = appl; // String | The partial or full ingredient name.
@@ -318,7 +368,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -336,9 +386,19 @@ Generate suggestions for menu items based on a (partial) query. The matches will
 ### Example
 ```java
 // Import classes:
+//import com.spoonacular.client.ApiClient;
 //import com.spoonacular.client.ApiException;
+//import com.spoonacular.client.Configuration;
+//import com.spoonacular.client.auth.*;
 //import com.spoonacular.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKeyScheme
+ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+apiKeyScheme.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 String query = chicke; // String | The (partial) search query.
@@ -365,7 +425,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -383,9 +443,19 @@ Generate suggestions for grocery products based on a (partial) query. The matche
 ### Example
 ```java
 // Import classes:
+//import com.spoonacular.client.ApiClient;
 //import com.spoonacular.client.ApiException;
+//import com.spoonacular.client.Configuration;
+//import com.spoonacular.client.auth.*;
 //import com.spoonacular.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKeyScheme
+ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+apiKeyScheme.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 String query = chicke; // String | The (partial) search query.
@@ -412,7 +482,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -430,9 +500,19 @@ Autocomplete a partial input to suggest possible recipe names.
 ### Example
 ```java
 // Import classes:
+//import com.spoonacular.client.ApiClient;
 //import com.spoonacular.client.ApiException;
+//import com.spoonacular.client.Configuration;
+//import com.spoonacular.client.auth.*;
 //import com.spoonacular.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKeyScheme
+ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+apiKeyScheme.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 String query = burger; // String | The query to be autocompleted.
@@ -459,7 +539,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -477,9 +557,19 @@ Classify the recipe&#39;s cuisine.
 ### Example
 ```java
 // Import classes:
+//import com.spoonacular.client.ApiClient;
 //import com.spoonacular.client.ApiException;
+//import com.spoonacular.client.Configuration;
+//import com.spoonacular.client.auth.*;
 //import com.spoonacular.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKeyScheme
+ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+apiKeyScheme.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 String title = "title_example"; // String | The title of the recipe.
@@ -506,7 +596,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -524,9 +614,19 @@ This endpoint allows you to match a packaged food to a basic category, e.g. a sp
 ### Example
 ```java
 // Import classes:
+//import com.spoonacular.client.ApiClient;
 //import com.spoonacular.client.ApiException;
+//import com.spoonacular.client.Configuration;
+//import com.spoonacular.client.auth.*;
 //import com.spoonacular.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKeyScheme
+ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+apiKeyScheme.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 InlineObject9 inlineObject9 = new InlineObject9(); // InlineObject9 | 
@@ -553,7 +653,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -562,7 +662,7 @@ No authorization required
 
 <a name="classifyGroceryProductBulk"></a>
 # **classifyGroceryProductBulk**
-> Object classifyGroceryProductBulk(body, locale)
+> Object classifyGroceryProductBulk(requestBody, locale)
 
 Classify Grocery Product Bulk
 
@@ -571,15 +671,25 @@ Provide a set of product jsons, get back classified products.
 ### Example
 ```java
 // Import classes:
+//import com.spoonacular.client.ApiClient;
 //import com.spoonacular.client.ApiException;
+//import com.spoonacular.client.Configuration;
+//import com.spoonacular.client.auth.*;
 //import com.spoonacular.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKeyScheme
+ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+apiKeyScheme.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
-Object body = null; // Object | 
+List<Object> requestBody = Arrays.asList(null); // List<Object> | 
 String locale = en_US; // String | The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).
 try {
-    Object result = apiInstance.classifyGroceryProductBulk(body, locale);
+    Object result = apiInstance.classifyGroceryProductBulk(requestBody, locale);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DefaultApi#classifyGroceryProductBulk");
@@ -591,7 +701,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | **Object**|  |
+ **requestBody** | [**List&lt;Object&gt;**](List.md)|  |
  **locale** | **String**| The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). | [optional]
 
 ### Return type
@@ -600,7 +710,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -618,9 +728,19 @@ Delete all planned items from the user&#39;s meal plan for a specific day.
 ### Example
 ```java
 // Import classes:
+//import com.spoonacular.client.ApiClient;
 //import com.spoonacular.client.ApiException;
+//import com.spoonacular.client.Configuration;
+//import com.spoonacular.client.auth.*;
 //import com.spoonacular.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKeyScheme
+ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+apiKeyScheme.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 String username = dsky; // String | The username.
@@ -651,7 +771,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -669,9 +789,19 @@ Retrieve the glycemic index for a list of ingredients and compute the individual
 ### Example
 ```java
 // Import classes:
+//import com.spoonacular.client.ApiClient;
 //import com.spoonacular.client.ApiException;
+//import com.spoonacular.client.Configuration;
+//import com.spoonacular.client.auth.*;
 //import com.spoonacular.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKeyScheme
+ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+apiKeyScheme.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 Object body = null; // Object | 
@@ -696,7 +826,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -714,9 +844,19 @@ In order to call user-specific endpoints, you need to connect your app&#39;s use
 ### Example
 ```java
 // Import classes:
+//import com.spoonacular.client.ApiClient;
 //import com.spoonacular.client.ApiException;
+//import com.spoonacular.client.Configuration;
+//import com.spoonacular.client.auth.*;
 //import com.spoonacular.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKeyScheme
+ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+apiKeyScheme.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 Object body = null; // Object | 
@@ -741,7 +881,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -759,9 +899,19 @@ Convert amounts like \&quot;2 cups of flour to grams\&quot;.
 ### Example
 ```java
 // Import classes:
+//import com.spoonacular.client.ApiClient;
 //import com.spoonacular.client.ApiException;
+//import com.spoonacular.client.Configuration;
+//import com.spoonacular.client.auth.*;
 //import com.spoonacular.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKeyScheme
+ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+apiKeyScheme.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 String ingredientName = flour; // String | The ingredient which you want to convert.
@@ -792,7 +942,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -810,9 +960,19 @@ Generate a recipe card for a recipe.
 ### Example
 ```java
 // Import classes:
+//import com.spoonacular.client.ApiClient;
 //import com.spoonacular.client.ApiException;
+//import com.spoonacular.client.Configuration;
+//import com.spoonacular.client.auth.*;
 //import com.spoonacular.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKeyScheme
+ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+apiKeyScheme.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 String title = "title_example"; // String | The title of the recipe.
@@ -859,7 +1019,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -877,9 +1037,19 @@ Delete an item from the user&#39;s meal plan.
 ### Example
 ```java
 // Import classes:
+//import com.spoonacular.client.ApiClient;
 //import com.spoonacular.client.ApiException;
+//import com.spoonacular.client.Configuration;
+//import com.spoonacular.client.auth.*;
 //import com.spoonacular.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKeyScheme
+ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+apiKeyScheme.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 String username = dsky; // String | The username.
@@ -910,7 +1080,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -928,9 +1098,19 @@ Delete an item from the current shopping list of the user.
 ### Example
 ```java
 // Import classes:
+//import com.spoonacular.client.ApiClient;
 //import com.spoonacular.client.ApiException;
+//import com.spoonacular.client.Configuration;
+//import com.spoonacular.client.auth.*;
 //import com.spoonacular.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKeyScheme
+ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+apiKeyScheme.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 String username = dsky; // String | The username.
@@ -961,7 +1141,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -979,9 +1159,19 @@ Take any text and find all mentions of food contained within it. This task is al
 ### Example
 ```java
 // Import classes:
+//import com.spoonacular.client.ApiClient;
 //import com.spoonacular.client.ApiException;
+//import com.spoonacular.client.Configuration;
+//import com.spoonacular.client.auth.*;
 //import com.spoonacular.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKeyScheme
+ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+apiKeyScheme.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 String text = "text_example"; // String | The text in which food items, such as dish names and ingredients, should be detected in.
@@ -1006,7 +1196,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1024,9 +1214,19 @@ This endpoint lets you extract recipe data such as title, ingredients, and instr
 ### Example
 ```java
 // Import classes:
+//import com.spoonacular.client.ApiClient;
 //import com.spoonacular.client.ApiException;
+//import com.spoonacular.client.Configuration;
+//import com.spoonacular.client.auth.*;
 //import com.spoonacular.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKeyScheme
+ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+apiKeyScheme.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 String url = https://foodista.com/recipe/ZHK4KPB6/chocolate-crinkle-cookies; // String | The URL of the recipe page.
@@ -1055,7 +1255,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1073,9 +1273,19 @@ Generate a meal plan with three meals per day (breakfast, lunch, and dinner).
 ### Example
 ```java
 // Import classes:
+//import com.spoonacular.client.ApiClient;
 //import com.spoonacular.client.ApiException;
+//import com.spoonacular.client.Configuration;
+//import com.spoonacular.client.auth.*;
 //import com.spoonacular.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKeyScheme
+ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+apiKeyScheme.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 String timeFrame = day; // String | Either for one \"day\" or an entire \"week\".
@@ -1106,7 +1316,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1124,9 +1334,19 @@ Generate the shopping list for a user from the meal planner in a given time fram
 ### Example
 ```java
 // Import classes:
+//import com.spoonacular.client.ApiClient;
 //import com.spoonacular.client.ApiException;
+//import com.spoonacular.client.Configuration;
+//import com.spoonacular.client.auth.*;
 //import com.spoonacular.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKeyScheme
+ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+apiKeyScheme.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 String username = dsky; // String | The username.
@@ -1159,7 +1379,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1177,9 +1397,19 @@ Get a random joke that is related to food. Caution: this is an endpoint for adul
 ### Example
 ```java
 // Import classes:
+//import com.spoonacular.client.ApiClient;
 //import com.spoonacular.client.ApiException;
+//import com.spoonacular.client.Configuration;
+//import com.spoonacular.client.auth.*;
 //import com.spoonacular.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKeyScheme
+ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+apiKeyScheme.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 try {
@@ -1200,7 +1430,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1218,9 +1448,19 @@ Get an analyzed breakdown of a recipe&#39;s instructions. Each step is enriched 
 ### Example
 ```java
 // Import classes:
+//import com.spoonacular.client.ApiClient;
 //import com.spoonacular.client.ApiException;
+//import com.spoonacular.client.Configuration;
+//import com.spoonacular.client.auth.*;
 //import com.spoonacular.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKeyScheme
+ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+apiKeyScheme.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 BigDecimal id = 324694; // BigDecimal | The recipe id.
@@ -1247,7 +1487,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1265,9 +1505,19 @@ Find comparable products to the given one.
 ### Example
 ```java
 // Import classes:
+//import com.spoonacular.client.ApiClient;
 //import com.spoonacular.client.ApiException;
+//import com.spoonacular.client.Configuration;
+//import com.spoonacular.client.auth.*;
 //import com.spoonacular.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKeyScheme
+ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+apiKeyScheme.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 BigDecimal upc = 33698816271; // BigDecimal | The UPC of the product for which you want to find comparable products.
@@ -1292,7 +1542,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1310,9 +1560,19 @@ This endpoint returns suggestions for things the user can say or ask the chatbot
 ### Example
 ```java
 // Import classes:
+//import com.spoonacular.client.ApiClient;
 //import com.spoonacular.client.ApiException;
+//import com.spoonacular.client.Configuration;
+//import com.spoonacular.client.auth.*;
 //import com.spoonacular.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKeyScheme
+ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+apiKeyScheme.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 String query = tell; // String | A (partial) query from the user. The endpoint will return if it matches topics it can talk about.
@@ -1339,7 +1599,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1357,9 +1617,19 @@ Find a dish that goes well with a given wine.
 ### Example
 ```java
 // Import classes:
+//import com.spoonacular.client.ApiClient;
 //import com.spoonacular.client.ApiException;
+//import com.spoonacular.client.Configuration;
+//import com.spoonacular.client.auth.*;
 //import com.spoonacular.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKeyScheme
+ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+apiKeyScheme.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 String wine = malbec; // String | The type of wine that should be paired, e.g. \"merlot\", \"riesling\", or \"malbec\".
@@ -1384,7 +1654,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1402,9 +1672,19 @@ Use an ingredient id to get all available information about an ingredient, such 
 ### Example
 ```java
 // Import classes:
+//import com.spoonacular.client.ApiClient;
 //import com.spoonacular.client.ApiException;
+//import com.spoonacular.client.Configuration;
+//import com.spoonacular.client.auth.*;
 //import com.spoonacular.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKeyScheme
+ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+apiKeyScheme.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 BigDecimal id = 9266; // BigDecimal | The ingredient id.
@@ -1433,7 +1713,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1451,9 +1731,19 @@ Search for substitutes for a given ingredient.
 ### Example
 ```java
 // Import classes:
+//import com.spoonacular.client.ApiClient;
 //import com.spoonacular.client.ApiException;
+//import com.spoonacular.client.Configuration;
+//import com.spoonacular.client.auth.*;
 //import com.spoonacular.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKeyScheme
+ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+apiKeyScheme.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 String ingredientName = butter; // String | The name of the ingredient you want to replace.
@@ -1478,7 +1768,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1496,9 +1786,19 @@ Search for substitutes for a given ingredient.
 ### Example
 ```java
 // Import classes:
+//import com.spoonacular.client.ApiClient;
 //import com.spoonacular.client.ApiException;
+//import com.spoonacular.client.Configuration;
+//import com.spoonacular.client.auth.*;
 //import com.spoonacular.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKeyScheme
+ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+apiKeyScheme.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 BigDecimal id = 1001; // BigDecimal | The id of the ingredient you want substitutes for.
@@ -1523,7 +1823,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1541,9 +1841,19 @@ Get information about a meal plan template.
 ### Example
 ```java
 // Import classes:
+//import com.spoonacular.client.ApiClient;
 //import com.spoonacular.client.ApiException;
+//import com.spoonacular.client.Configuration;
+//import com.spoonacular.client.auth.*;
 //import com.spoonacular.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKeyScheme
+ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+apiKeyScheme.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 String username = dsky; // String | The username.
@@ -1572,7 +1882,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1590,9 +1900,19 @@ Get meal plan templates from user or public ones.
 ### Example
 ```java
 // Import classes:
+//import com.spoonacular.client.ApiClient;
 //import com.spoonacular.client.ApiException;
+//import com.spoonacular.client.Configuration;
+//import com.spoonacular.client.auth.*;
 //import com.spoonacular.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKeyScheme
+ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+apiKeyScheme.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 String username = dsky; // String | The username.
@@ -1619,7 +1939,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1637,9 +1957,19 @@ Retrieve a meal planned week for the given user. The username must be a spoonacu
 ### Example
 ```java
 // Import classes:
+//import com.spoonacular.client.ApiClient;
 //import com.spoonacular.client.ApiException;
+//import com.spoonacular.client.Configuration;
+//import com.spoonacular.client.auth.*;
 //import com.spoonacular.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKeyScheme
+ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+apiKeyScheme.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 String username = dsky; // String | The username.
@@ -1668,7 +1998,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1686,9 +2016,19 @@ Use a menu item id to get all available information about a menu item, such as n
 ### Example
 ```java
 // Import classes:
+//import com.spoonacular.client.ApiClient;
 //import com.spoonacular.client.ApiException;
+//import com.spoonacular.client.Configuration;
+//import com.spoonacular.client.auth.*;
 //import com.spoonacular.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKeyScheme
+ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+apiKeyScheme.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 BigDecimal id = 424571; // BigDecimal | The menu item id.
@@ -1713,7 +2053,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1731,9 +2071,19 @@ Use a product id to get full information about a product, such as ingredients, n
 ### Example
 ```java
 // Import classes:
+//import com.spoonacular.client.ApiClient;
 //import com.spoonacular.client.ApiException;
+//import com.spoonacular.client.Configuration;
+//import com.spoonacular.client.auth.*;
 //import com.spoonacular.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKeyScheme
+ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+apiKeyScheme.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 BigDecimal id = 22347; // BigDecimal | The id of the packaged food.
@@ -1758,7 +2108,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1776,9 +2126,19 @@ Returns random food trivia.
 ### Example
 ```java
 // Import classes:
+//import com.spoonacular.client.ApiClient;
 //import com.spoonacular.client.ApiException;
+//import com.spoonacular.client.Configuration;
+//import com.spoonacular.client.auth.*;
 //import com.spoonacular.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKeyScheme
+ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+apiKeyScheme.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 try {
@@ -1799,7 +2159,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1817,9 +2177,19 @@ Find random (popular) recipes. If you need to filter recipes by diet, nutrition 
 ### Example
 ```java
 // Import classes:
+//import com.spoonacular.client.ApiClient;
 //import com.spoonacular.client.ApiException;
+//import com.spoonacular.client.Configuration;
+//import com.spoonacular.client.auth.*;
 //import com.spoonacular.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKeyScheme
+ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+apiKeyScheme.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 Boolean limitLicense = true; // Boolean | Whether the recipes should have an open license that allows display with proper attribution.
@@ -1848,7 +2218,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1866,9 +2236,19 @@ Get a recipe&#39;s equipment list.
 ### Example
 ```java
 // Import classes:
+//import com.spoonacular.client.ApiClient;
 //import com.spoonacular.client.ApiException;
+//import com.spoonacular.client.Configuration;
+//import com.spoonacular.client.auth.*;
 //import com.spoonacular.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKeyScheme
+ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+apiKeyScheme.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 BigDecimal id = 1003464; // BigDecimal | The recipe id.
@@ -1893,7 +2273,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1911,9 +2291,19 @@ Use a recipe id to get full information about a recipe, such as ingredients, nut
 ### Example
 ```java
 // Import classes:
+//import com.spoonacular.client.ApiClient;
 //import com.spoonacular.client.ApiException;
+//import com.spoonacular.client.Configuration;
+//import com.spoonacular.client.auth.*;
 //import com.spoonacular.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKeyScheme
+ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+apiKeyScheme.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 BigDecimal id = 716429; // BigDecimal | The id of the recipe.
@@ -1940,7 +2330,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1958,9 +2348,19 @@ Get information about multiple recipes at once. This is equivalent to calling th
 ### Example
 ```java
 // Import classes:
+//import com.spoonacular.client.ApiClient;
 //import com.spoonacular.client.ApiException;
+//import com.spoonacular.client.Configuration;
+//import com.spoonacular.client.auth.*;
 //import com.spoonacular.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKeyScheme
+ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+apiKeyScheme.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 String ids = 715538,716429; // String | A comma-separated list of recipe ids.
@@ -1987,7 +2387,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2005,9 +2405,19 @@ Get a recipe&#39;s ingredient list.
 ### Example
 ```java
 // Import classes:
+//import com.spoonacular.client.ApiClient;
 //import com.spoonacular.client.ApiException;
+//import com.spoonacular.client.Configuration;
+//import com.spoonacular.client.auth.*;
 //import com.spoonacular.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKeyScheme
+ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+apiKeyScheme.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 BigDecimal id = 1003464; // BigDecimal | The recipe id.
@@ -2032,7 +2442,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2050,9 +2460,19 @@ Get a recipe&#39;s nutrition widget data.
 ### Example
 ```java
 // Import classes:
+//import com.spoonacular.client.ApiClient;
 //import com.spoonacular.client.ApiException;
+//import com.spoonacular.client.Configuration;
+//import com.spoonacular.client.auth.*;
 //import com.spoonacular.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKeyScheme
+ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+apiKeyScheme.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 BigDecimal id = 1003464; // BigDecimal | The recipe id.
@@ -2077,7 +2497,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2095,9 +2515,19 @@ Get a recipe&#39;s price breakdown data.
 ### Example
 ```java
 // Import classes:
+//import com.spoonacular.client.ApiClient;
 //import com.spoonacular.client.ApiException;
+//import com.spoonacular.client.Configuration;
+//import com.spoonacular.client.auth.*;
 //import com.spoonacular.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKeyScheme
+ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+apiKeyScheme.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 BigDecimal id = 1003464; // BigDecimal | The recipe id.
@@ -2122,7 +2552,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2140,9 +2570,19 @@ Get a recipe&#39;s taste. The tastes supported are sweet, salty, sour, bitter, s
 ### Example
 ```java
 // Import classes:
+//import com.spoonacular.client.ApiClient;
 //import com.spoonacular.client.ApiException;
+//import com.spoonacular.client.Configuration;
+//import com.spoonacular.client.auth.*;
 //import com.spoonacular.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKeyScheme
+ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+apiKeyScheme.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 BigDecimal id = 69095; // BigDecimal | The recipe id.
@@ -2167,7 +2607,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2185,9 +2625,19 @@ Get the current shopping list for the given user.
 ### Example
 ```java
 // Import classes:
+//import com.spoonacular.client.ApiClient;
 //import com.spoonacular.client.ApiException;
+//import com.spoonacular.client.Configuration;
+//import com.spoonacular.client.auth.*;
 //import com.spoonacular.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKeyScheme
+ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+apiKeyScheme.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 String username = dsky; // String | The username.
@@ -2214,7 +2664,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2232,9 +2682,19 @@ Find recipes which are similar to the given one.
 ### Example
 ```java
 // Import classes:
+//import com.spoonacular.client.ApiClient;
 //import com.spoonacular.client.ApiException;
+//import com.spoonacular.client.Configuration;
+//import com.spoonacular.client.auth.*;
 //import com.spoonacular.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKeyScheme
+ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+apiKeyScheme.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 BigDecimal id = 715538; // BigDecimal | The id of the source recipe for which similar recipes should be found.
@@ -2263,7 +2723,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2281,9 +2741,19 @@ Get a simple description of a certain wine, e.g. \&quot;malbec\&quot;, \&quot;ri
 ### Example
 ```java
 // Import classes:
+//import com.spoonacular.client.ApiClient;
 //import com.spoonacular.client.ApiException;
+//import com.spoonacular.client.Configuration;
+//import com.spoonacular.client.auth.*;
 //import com.spoonacular.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKeyScheme
+ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+apiKeyScheme.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 String wine = merlot; // String | The name of the wine that should be paired, e.g. \"merlot\", \"riesling\", or \"malbec\".
@@ -2308,7 +2778,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2326,9 +2796,19 @@ Find a wine that goes well with a food. Food can be a dish name (\&quot;steak\&q
 ### Example
 ```java
 // Import classes:
+//import com.spoonacular.client.ApiClient;
 //import com.spoonacular.client.ApiException;
+//import com.spoonacular.client.Configuration;
+//import com.spoonacular.client.auth.*;
 //import com.spoonacular.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKeyScheme
+ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+apiKeyScheme.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 String food = steak; // String | The food to get a pairing for. This can be a dish (\"steak\"), an ingredient (\"salmon\"), or a cuisine (\"italian\").
@@ -2355,7 +2835,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2373,9 +2853,19 @@ Get a specific wine recommendation (concrete product) for a given wine type, e.g
 ### Example
 ```java
 // Import classes:
+//import com.spoonacular.client.ApiClient;
 //import com.spoonacular.client.ApiException;
+//import com.spoonacular.client.Configuration;
+//import com.spoonacular.client.auth.*;
 //import com.spoonacular.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKeyScheme
+ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+apiKeyScheme.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 String wine = merlot; // String | The type of wine to get a specific product recommendation for.
@@ -2406,7 +2896,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2424,9 +2914,19 @@ Estimate the macronutrients of a dish based on its title.
 ### Example
 ```java
 // Import classes:
+//import com.spoonacular.client.ApiClient;
 //import com.spoonacular.client.ApiException;
+//import com.spoonacular.client.Configuration;
+//import com.spoonacular.client.auth.*;
 //import com.spoonacular.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKeyScheme
+ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+apiKeyScheme.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 String title = Spaghetti Aglio et Olio; // String | The title of the dish.
@@ -2451,7 +2951,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2469,9 +2969,19 @@ Analyze a food image. The API tries to classify the image, guess the nutrition, 
 ### Example
 ```java
 // Import classes:
+//import com.spoonacular.client.ApiClient;
 //import com.spoonacular.client.ApiException;
+//import com.spoonacular.client.Configuration;
+//import com.spoonacular.client.auth.*;
 //import com.spoonacular.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKeyScheme
+ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+apiKeyScheme.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 String imageUrl = https://spoonacular.com/recipeImages/635350-240x150.jpg; // String | The URL of the image to be analyzed.
@@ -2496,7 +3006,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2514,9 +3024,19 @@ Classify a food image. You can play around with that endpoint!
 ### Example
 ```java
 // Import classes:
+//import com.spoonacular.client.ApiClient;
 //import com.spoonacular.client.ApiException;
+//import com.spoonacular.client.Configuration;
+//import com.spoonacular.client.auth.*;
 //import com.spoonacular.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKeyScheme
+ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+apiKeyScheme.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 String imageUrl = https://spoonacular.com/recipeImages/635350-240x150.jpg; // String | The URL of the image to be classified.
@@ -2541,7 +3061,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2559,9 +3079,19 @@ Search for simple whole foods (e.g. fruits, vegetables, nuts, grains, meat, fish
 ### Example
 ```java
 // Import classes:
+//import com.spoonacular.client.ApiClient;
 //import com.spoonacular.client.ApiException;
+//import com.spoonacular.client.Configuration;
+//import com.spoonacular.client.auth.*;
 //import com.spoonacular.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKeyScheme
+ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+apiKeyScheme.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 String query = apple; // String | The partial or full ingredient name.
@@ -2612,7 +3142,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2630,9 +3160,19 @@ Map a set of ingredients to products you can buy in the grocery store.
 ### Example
 ```java
 // Import classes:
+//import com.spoonacular.client.ApiClient;
 //import com.spoonacular.client.ApiException;
+//import com.spoonacular.client.Configuration;
+//import com.spoonacular.client.auth.*;
 //import com.spoonacular.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKeyScheme
+ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+apiKeyScheme.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 Object body = null; // Object | 
@@ -2657,7 +3197,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2675,9 +3215,19 @@ Extract an ingredient from plain text.
 ### Example
 ```java
 // Import classes:
+//import com.spoonacular.client.ApiClient;
 //import com.spoonacular.client.ApiException;
+//import com.spoonacular.client.Configuration;
+//import com.spoonacular.client.auth.*;
 //import com.spoonacular.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKeyScheme
+ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+apiKeyScheme.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 String ingredientList = "ingredientList_example"; // String | The ingredient list of the recipe, one ingredient per line.
@@ -2706,7 +3256,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2724,9 +3274,19 @@ Answer a nutrition related natural language question.
 ### Example
 ```java
 // Import classes:
+//import com.spoonacular.client.ApiClient;
 //import com.spoonacular.client.ApiException;
+//import com.spoonacular.client.Configuration;
+//import com.spoonacular.client.auth.*;
 //import com.spoonacular.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKeyScheme
+ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+apiKeyScheme.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 String q = How much vitamin c is in 2 apples?; // String | The nutrition related question.
@@ -2751,7 +3311,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2769,9 +3329,19 @@ Search all food content with one call. That includes recipes, grocery products, 
 ### Example
 ```java
 // Import classes:
+//import com.spoonacular.client.ApiClient;
 //import com.spoonacular.client.ApiException;
+//import com.spoonacular.client.Configuration;
+//import com.spoonacular.client.auth.*;
 //import com.spoonacular.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKeyScheme
+ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+apiKeyScheme.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 String query = apple; // String | The search query.
@@ -2800,7 +3370,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2818,9 +3388,19 @@ Search custom foods in a user&#39;s account.
 ### Example
 ```java
 // Import classes:
+//import com.spoonacular.client.ApiClient;
 //import com.spoonacular.client.ApiException;
+//import com.spoonacular.client.Configuration;
+//import com.spoonacular.client.auth.*;
 //import com.spoonacular.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKeyScheme
+ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+apiKeyScheme.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 String query = brat; // String | The search query.
@@ -2853,7 +3433,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2871,9 +3451,19 @@ Find recipe and other food related videos.
 ### Example
 ```java
 // Import classes:
+//import com.spoonacular.client.ApiClient;
 //import com.spoonacular.client.ApiException;
+//import com.spoonacular.client.Configuration;
+//import com.spoonacular.client.auth.*;
 //import com.spoonacular.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKeyScheme
+ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+apiKeyScheme.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 String query = chicken soup; // String | The search query.
@@ -2916,7 +3506,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2934,9 +3524,19 @@ Search packaged food products, such as frozen pizza or Greek yogurt.
 ### Example
 ```java
 // Import classes:
+//import com.spoonacular.client.ApiClient;
 //import com.spoonacular.client.ApiException;
+//import com.spoonacular.client.Configuration;
+//import com.spoonacular.client.auth.*;
 //import com.spoonacular.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKeyScheme
+ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+apiKeyScheme.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 String query = greek yogurt; // String | The search query.
@@ -2981,7 +3581,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2999,9 +3599,19 @@ Get information about a packaged food using its UPC.
 ### Example
 ```java
 // Import classes:
+//import com.spoonacular.client.ApiClient;
 //import com.spoonacular.client.ApiException;
+//import com.spoonacular.client.Configuration;
+//import com.spoonacular.client.auth.*;
 //import com.spoonacular.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKeyScheme
+ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+apiKeyScheme.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 BigDecimal upc = 41631000564; // BigDecimal | The product's UPC.
@@ -3026,7 +3636,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3044,9 +3654,19 @@ Search over 115,000 menu items from over 800 fast food and chain restaurants. Fo
 ### Example
 ```java
 // Import classes:
+//import com.spoonacular.client.ApiClient;
 //import com.spoonacular.client.ApiException;
+//import com.spoonacular.client.Configuration;
+//import com.spoonacular.client.auth.*;
 //import com.spoonacular.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKeyScheme
+ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+apiKeyScheme.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 String query = snickers; // String | The search query.
@@ -3091,7 +3711,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3109,9 +3729,19 @@ Search through hundreds of thousands of recipes using advanced filtering and ran
 ### Example
 ```java
 // Import classes:
+//import com.spoonacular.client.ApiClient;
 //import com.spoonacular.client.ApiException;
+//import com.spoonacular.client.Configuration;
+//import com.spoonacular.client.auth.*;
 //import com.spoonacular.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKeyScheme
+ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+apiKeyScheme.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 String query = pasta; // String | The (natural language) recipe search query.
@@ -3326,7 +3956,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3344,9 +3974,19 @@ Search Recipes by Ingredients
 ### Example
 ```java
 // Import classes:
+//import com.spoonacular.client.ApiClient;
 //import com.spoonacular.client.ApiException;
+//import com.spoonacular.client.Configuration;
+//import com.spoonacular.client.auth.*;
 //import com.spoonacular.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKeyScheme
+ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+apiKeyScheme.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 String ingredients = apples,flour,sugar; // String | A comma-separated list of ingredients that the recipes should contain.
@@ -3379,7 +4019,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3397,9 +4037,19 @@ Find a set of recipes that adhere to the given nutritional limits. You may set l
 ### Example
 ```java
 // Import classes:
+//import com.spoonacular.client.ApiClient;
 //import com.spoonacular.client.ApiException;
+//import com.spoonacular.client.Configuration;
+//import com.spoonacular.client.auth.*;
 //import com.spoonacular.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKeyScheme
+ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+apiKeyScheme.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 BigDecimal minCarbs = 10; // BigDecimal | The minimum amount of carbohydrates in grams the recipe must have.
@@ -3574,7 +4224,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3592,9 +4242,19 @@ Search spoonacular&#39;s site content. You&#39;ll be able to find everything tha
 ### Example
 ```java
 // Import classes:
+//import com.spoonacular.client.ApiClient;
 //import com.spoonacular.client.ApiException;
+//import com.spoonacular.client.Configuration;
+//import com.spoonacular.client.auth.*;
 //import com.spoonacular.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKeyScheme
+ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+apiKeyScheme.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 String query = past; // String | The query to search for. You can also use partial queries such as \"spagh\" to already find spaghetti recipes, articles, grocery products, and other content.
@@ -3619,7 +4279,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3637,9 +4297,19 @@ Automatically generate a short description that summarizes key information about
 ### Example
 ```java
 // Import classes:
+//import com.spoonacular.client.ApiClient;
 //import com.spoonacular.client.ApiException;
+//import com.spoonacular.client.Configuration;
+//import com.spoonacular.client.auth.*;
 //import com.spoonacular.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKeyScheme
+ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+apiKeyScheme.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 BigDecimal id = 4632; // BigDecimal | The recipe id.
@@ -3664,7 +4334,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3682,9 +4352,19 @@ This endpoint can be used to have a conversation about food with the spoonacular
 ### Example
 ```java
 // Import classes:
+//import com.spoonacular.client.ApiClient;
 //import com.spoonacular.client.ApiException;
+//import com.spoonacular.client.Configuration;
+//import com.spoonacular.client.auth.*;
 //import com.spoonacular.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKeyScheme
+ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+apiKeyScheme.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 String text = donut recipes; // String | The request / question / answer from the user to the chatbot.
@@ -3711,7 +4391,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3729,9 +4409,19 @@ Visualize the equipment used to make a recipe. You can play around with that end
 ### Example
 ```java
 // Import classes:
+//import com.spoonacular.client.ApiClient;
 //import com.spoonacular.client.ApiException;
+//import com.spoonacular.client.Configuration;
+//import com.spoonacular.client.auth.*;
 //import com.spoonacular.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKeyScheme
+ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+apiKeyScheme.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 String instructions = "instructions_example"; // String | The recipe's instructions.
@@ -3762,7 +4452,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3780,9 +4470,19 @@ Visualize ingredients of a recipe. You can play around with that endpoint!
 ### Example
 ```java
 // Import classes:
+//import com.spoonacular.client.ApiClient;
 //import com.spoonacular.client.ApiException;
+//import com.spoonacular.client.Configuration;
+//import com.spoonacular.client.auth.*;
 //import com.spoonacular.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKeyScheme
+ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+apiKeyScheme.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 String ingredientList = "ingredientList_example"; // String | The ingredient list of the recipe, one ingredient per line.
@@ -3817,7 +4517,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3835,9 +4535,19 @@ Visualize a menu item&#39;s nutritional information as HTML including CSS.
 ### Example
 ```java
 // Import classes:
+//import com.spoonacular.client.ApiClient;
 //import com.spoonacular.client.ApiException;
+//import com.spoonacular.client.Configuration;
+//import com.spoonacular.client.auth.*;
 //import com.spoonacular.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKeyScheme
+ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+apiKeyScheme.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 BigDecimal id = 1003464; // BigDecimal | The menu item id.
@@ -3864,7 +4574,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3882,9 +4592,19 @@ Visualize the price breakdown of a recipe. You can play around with that endpoin
 ### Example
 ```java
 // Import classes:
+//import com.spoonacular.client.ApiClient;
 //import com.spoonacular.client.ApiException;
+//import com.spoonacular.client.Configuration;
+//import com.spoonacular.client.auth.*;
 //import com.spoonacular.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKeyScheme
+ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+apiKeyScheme.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 String ingredientList = "ingredientList_example"; // String | The ingredient list of the recipe, one ingredient per line.
@@ -3917,7 +4637,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3935,9 +4655,19 @@ Visualize a product&#39;s nutritional information as HTML including CSS.
 ### Example
 ```java
 // Import classes:
+//import com.spoonacular.client.ApiClient;
 //import com.spoonacular.client.ApiException;
+//import com.spoonacular.client.Configuration;
+//import com.spoonacular.client.auth.*;
 //import com.spoonacular.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKeyScheme
+ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+apiKeyScheme.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 BigDecimal id = 7657; // BigDecimal | The id of the product.
@@ -3964,7 +4694,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3982,9 +4712,19 @@ Visualize a recipe&#39;s equipment list.
 ### Example
 ```java
 // Import classes:
+//import com.spoonacular.client.ApiClient;
 //import com.spoonacular.client.ApiException;
+//import com.spoonacular.client.Configuration;
+//import com.spoonacular.client.auth.*;
 //import com.spoonacular.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKeyScheme
+ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+apiKeyScheme.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 BigDecimal id = 44860; // BigDecimal | The recipe id.
@@ -4011,7 +4751,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -4029,9 +4769,19 @@ Visualize a recipe&#39;s ingredient list.
 ### Example
 ```java
 // Import classes:
+//import com.spoonacular.client.ApiClient;
 //import com.spoonacular.client.ApiException;
+//import com.spoonacular.client.Configuration;
+//import com.spoonacular.client.auth.*;
 //import com.spoonacular.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKeyScheme
+ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+apiKeyScheme.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 BigDecimal id = 1082038; // BigDecimal | The recipe id.
@@ -4058,7 +4808,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -4076,9 +4826,19 @@ Visualize a recipe&#39;s nutritional information as HTML including CSS. You can 
 ### Example
 ```java
 // Import classes:
+//import com.spoonacular.client.ApiClient;
 //import com.spoonacular.client.ApiException;
+//import com.spoonacular.client.Configuration;
+//import com.spoonacular.client.auth.*;
 //import com.spoonacular.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKeyScheme
+ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+apiKeyScheme.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 String ingredientList = "ingredientList_example"; // String | The ingredient list of the recipe, one ingredient per line.
@@ -4109,7 +4869,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -4127,9 +4887,19 @@ Visualize a recipe&#39;s nutritional information as HTML including CSS.
 ### Example
 ```java
 // Import classes:
+//import com.spoonacular.client.ApiClient;
 //import com.spoonacular.client.ApiException;
+//import com.spoonacular.client.Configuration;
+//import com.spoonacular.client.auth.*;
 //import com.spoonacular.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKeyScheme
+ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+apiKeyScheme.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 BigDecimal id = 1082038; // BigDecimal | The recipe id.
@@ -4156,7 +4926,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -4174,9 +4944,19 @@ Visualize a recipe&#39;s price breakdown.
 ### Example
 ```java
 // Import classes:
+//import com.spoonacular.client.ApiClient;
 //import com.spoonacular.client.ApiException;
+//import com.spoonacular.client.Configuration;
+//import com.spoonacular.client.auth.*;
 //import com.spoonacular.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKeyScheme
+ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+apiKeyScheme.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 BigDecimal id = 1082038; // BigDecimal | The recipe id.
@@ -4203,7 +4983,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -4221,9 +5001,19 @@ Visualize a recipe&#39;s taste information as HTML including CSS. You can play a
 ### Example
 ```java
 // Import classes:
+//import com.spoonacular.client.ApiClient;
 //import com.spoonacular.client.ApiException;
+//import com.spoonacular.client.Configuration;
+//import com.spoonacular.client.auth.*;
 //import com.spoonacular.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKeyScheme
+ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+apiKeyScheme.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 String ingredientList = "ingredientList_example"; // String | The ingredient list of the recipe, one ingredient per line.
@@ -4248,7 +5038,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -4266,9 +5056,19 @@ Get a recipe&#39;s taste. The tastes supported are sweet, salty, sour, bitter, s
 ### Example
 ```java
 // Import classes:
+//import com.spoonacular.client.ApiClient;
 //import com.spoonacular.client.ApiException;
+//import com.spoonacular.client.Configuration;
+//import com.spoonacular.client.auth.*;
 //import com.spoonacular.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKeyScheme
+ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+apiKeyScheme.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 BigDecimal id = 69095; // BigDecimal | The recipe id.
@@ -4293,7 +5093,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../README.md#apiKeyScheme)
 
 ### HTTP request headers
 

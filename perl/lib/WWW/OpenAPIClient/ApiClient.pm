@@ -337,9 +337,9 @@ sub update_params_for_auth {
             # TODO show warning about auth setting not defined
         }
         elsif ($auth eq 'apiKeyScheme') {
-            my $api_key = $self->get_api_key_with_prefix('api_key');
+            my $api_key = $self->get_api_key_with_prefix('apiKey');
             if ($api_key) {
-                $query_params->{'api_key'} = $api_key;
+                $query_params->{'apiKey'} = $api_key;
             }
         }
         else {

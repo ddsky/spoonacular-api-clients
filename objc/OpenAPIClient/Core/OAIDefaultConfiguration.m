@@ -108,8 +108,8 @@
                    @{
                        @"type": @"api_key",
                        @"in": @"query",
-                       @"key": @"api_key",
-                       @"value": [self getApiKeyWithPrefix:@"api_key"]
+                       @"key": @"apiKey",
+                       @"value": [self getApiKeyWithPrefix:@"apiKey"]
                    },
                };
 }

@@ -66,6 +66,8 @@ import qualified Prelude as P
 -- 
 -- Add an item to the user's meal plan.
 -- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
 addToMealPlan 
   :: (Consumes AddToMealPlan , MimeRender  InlineObject11)
   => InlineObject11 -- ^ "inlineObject11"
@@ -74,6 +76,7 @@ addToMealPlan
   -> SpoonacularRequest AddToMealPlan  A.Value MimeJSON
 addToMealPlan inlineObject11 (Username username) (Hash hash) =
   _mkRequest "POST" ["/mealplanner/",toPath username,"/items"]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
     `setBodyParam` inlineObject11
     `setQuery` toQuery ("hash", Just hash)
 
@@ -95,6 +98,8 @@ instance Produces AddToMealPlan MimeJSON
 -- 
 -- Add an item to the current shopping list of a user.
 -- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
 addToShoppingList 
   :: (Consumes AddToShoppingList , MimeRender  InlineObject14)
   => InlineObject14 -- ^ "inlineObject14"
@@ -103,6 +108,7 @@ addToShoppingList
   -> SpoonacularRequest AddToShoppingList  A.Value MimeJSON
 addToShoppingList inlineObject14 (Username username) (Hash hash) =
   _mkRequest "POST" ["/mealplanner/",toPath username,"/shopping-list/items"]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
     `setBodyParam` inlineObject14
     `setQuery` toQuery ("hash", Just hash)
 
@@ -124,11 +130,14 @@ instance Produces AddToShoppingList MimeJSON
 -- 
 -- Parse a recipe search query to find out its intention.
 -- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
 analyzeARecipeSearchQuery 
   :: Q -- ^ "q" -  The recipe search query.
   -> SpoonacularRequest AnalyzeARecipeSearchQuery MimeNoContent A.Value MimeJSON
 analyzeARecipeSearchQuery (Q q) =
   _mkRequest "GET" ["/recipes/queries/analyze"]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
     `setQuery` toQuery ("q", Just q)
 
 data AnalyzeARecipeSearchQuery  
@@ -144,12 +153,15 @@ instance Produces AnalyzeARecipeSearchQuery MimeJSON
 -- 
 -- This endpoint allows you to break down instructions into atomic steps. Furthermore, each step will contain the ingredients and equipment required. Additionally, all ingredients and equipment from the recipe's instructions will be extracted independently of the step they're used in.
 -- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
 analyzeRecipeInstructions 
   :: (Consumes AnalyzeRecipeInstructions MimeFormUrlEncoded)
   => Instructions -- ^ "instructions" -  The instructions to be analyzed.
   -> SpoonacularRequest AnalyzeRecipeInstructions MimeFormUrlEncoded A.Value MimeJSON
 analyzeRecipeInstructions (Instructions instructions) =
   _mkRequest "POST" ["/recipes/analyzeInstructions"]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
     `addForm` toForm ("instructions", instructions)
 
 data AnalyzeRecipeInstructions  
@@ -169,11 +181,14 @@ instance Produces AnalyzeRecipeInstructions MimeJSON
 -- 
 -- Autocomplete the entry of an ingredient.
 -- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
 autocompleteIngredientSearch 
   :: Query -- ^ "query" -  The partial or full ingredient name.
   -> SpoonacularRequest AutocompleteIngredientSearch MimeNoContent A.Value MimeJSON
 autocompleteIngredientSearch (Query query) =
   _mkRequest "GET" ["/food/ingredients/autocomplete"]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
     `setQuery` toQuery ("query", Just query)
 
 data AutocompleteIngredientSearch  
@@ -204,11 +219,14 @@ instance Produces AutocompleteIngredientSearch MimeJSON
 -- 
 -- Generate suggestions for menu items based on a (partial) query. The matches will be found by looking in the title only.
 -- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
 autocompleteMenuItemSearch 
   :: Query -- ^ "query" -  The (partial) search query.
   -> SpoonacularRequest AutocompleteMenuItemSearch MimeNoContent A.Value MimeJSON
 autocompleteMenuItemSearch (Query query) =
   _mkRequest "GET" ["/food/menuItems/suggest"]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
     `setQuery` toQuery ("query", Just query)
 
 data AutocompleteMenuItemSearch  
@@ -229,11 +247,14 @@ instance Produces AutocompleteMenuItemSearch MimeJSON
 -- 
 -- Generate suggestions for grocery products based on a (partial) query. The matches will be found by looking in the title only.
 -- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
 autocompleteProductSearch 
   :: Query -- ^ "query" -  The (partial) search query.
   -> SpoonacularRequest AutocompleteProductSearch MimeNoContent A.Value MimeJSON
 autocompleteProductSearch (Query query) =
   _mkRequest "GET" ["/food/products/suggest"]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
     `setQuery` toQuery ("query", Just query)
 
 data AutocompleteProductSearch  
@@ -254,11 +275,14 @@ instance Produces AutocompleteProductSearch MimeJSON
 -- 
 -- Autocomplete a partial input to suggest possible recipe names.
 -- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
 autocompleteRecipeSearch 
   :: Query -- ^ "query" -  The query to be autocompleted.
   -> SpoonacularRequest AutocompleteRecipeSearch MimeNoContent A.Value MimeJSON
 autocompleteRecipeSearch (Query query) =
   _mkRequest "GET" ["/recipes/autocomplete"]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
     `setQuery` toQuery ("query", Just query)
 
 data AutocompleteRecipeSearch  
@@ -279,6 +303,8 @@ instance Produces AutocompleteRecipeSearch MimeJSON
 -- 
 -- Classify the recipe's cuisine.
 -- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
 classifyCuisine 
   :: (Consumes ClassifyCuisine MimeFormUrlEncoded)
   => Title -- ^ "title" -  The title of the recipe.
@@ -286,6 +312,7 @@ classifyCuisine
   -> SpoonacularRequest ClassifyCuisine MimeFormUrlEncoded A.Value MimeJSON
 classifyCuisine (Title title) (IngredientList ingredientList) =
   _mkRequest "POST" ["/recipes/cuisine"]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
     `addForm` toForm ("title", title)
     `addForm` toForm ("ingredientList", ingredientList)
 
@@ -306,12 +333,15 @@ instance Produces ClassifyCuisine MimeJSON
 -- 
 -- This endpoint allows you to match a packaged food to a basic category, e.g. a specific brand of milk to the category milk.
 -- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
 classifyGroceryProduct 
   :: (Consumes ClassifyGroceryProduct MimeJSON, MimeRender MimeJSON InlineObject9)
   => InlineObject9 -- ^ "inlineObject9"
   -> SpoonacularRequest ClassifyGroceryProduct MimeJSON A.Value MimeJSON
 classifyGroceryProduct inlineObject9 =
   _mkRequest "POST" ["/food/products/classify"]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
     `setBodyParam` inlineObject9
 
 data ClassifyGroceryProduct 
@@ -337,16 +367,19 @@ instance Produces ClassifyGroceryProduct MimeJSON
 -- 
 -- Provide a set of product jsons, get back classified products.
 -- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
 classifyGroceryProductBulk 
-  :: (Consumes ClassifyGroceryProductBulk MimeJSON, MimeRender MimeJSON Body)
-  => Body -- ^ "body"
+  :: (Consumes ClassifyGroceryProductBulk MimeJSON, MimeRender MimeJSON AValue)
+  => AValue -- ^ "aValue"
   -> SpoonacularRequest ClassifyGroceryProductBulk MimeJSON A.Value MimeJSON
-classifyGroceryProductBulk body =
+classifyGroceryProductBulk aValue =
   _mkRequest "POST" ["/food/products/classifyBatch"]
-    `setBodyParam` body
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
+    `setBodyParam` aValue
 
 data ClassifyGroceryProductBulk 
-instance HasBodyParam ClassifyGroceryProductBulk Body 
+instance HasBodyParam ClassifyGroceryProductBulk AValue 
 
 -- | /Optional Param/ "locale" - The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).
 instance HasOptionalParam ClassifyGroceryProductBulk Locale where
@@ -368,6 +401,8 @@ instance Produces ClassifyGroceryProductBulk MimeJSON
 -- 
 -- Delete all planned items from the user's meal plan for a specific day.
 -- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
 clearMealPlanDay 
   :: (Consumes ClearMealPlanDay , MimeRender  InlineObject10)
   => InlineObject10 -- ^ "inlineObject10"
@@ -377,6 +412,7 @@ clearMealPlanDay
   -> SpoonacularRequest ClearMealPlanDay  A.Value MimeJSON
 clearMealPlanDay inlineObject10 (Username username) (ParamDate date) (Hash hash) =
   _mkRequest "DELETE" ["/mealplanner/",toPath username,"/day/",toPath date]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
     `setBodyParam` inlineObject10
     `setQuery` toQuery ("hash", Just hash)
 
@@ -398,12 +434,15 @@ instance Produces ClearMealPlanDay MimeJSON
 -- 
 -- Retrieve the glycemic index for a list of ingredients and compute the individual and total glycemic load.
 -- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
 computeGlycemicLoad 
   :: (Consumes ComputeGlycemicLoad MimeJSON, MimeRender MimeJSON Body)
   => Body -- ^ "body"
   -> SpoonacularRequest ComputeGlycemicLoad MimeJSON A.Value MimeJSON
 computeGlycemicLoad body =
   _mkRequest "POST" ["/food/ingredients/glycemicLoad"]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
     `setBodyParam` body
 
 data ComputeGlycemicLoad 
@@ -424,12 +463,15 @@ instance Produces ComputeGlycemicLoad MimeJSON
 -- 
 -- In order to call user-specific endpoints, you need to connect your app's users to spoonacular users.
 -- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
 connectUser 
   :: (Consumes ConnectUser , MimeRender  Body)
   => Body -- ^ "body"
   -> SpoonacularRequest ConnectUser  A.Value MimeJSON
 connectUser body =
   _mkRequest "POST" ["/users/connect"]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
     `setBodyParam` body
 
 data ConnectUser 
@@ -450,6 +492,8 @@ instance Produces ConnectUser MimeJSON
 -- 
 -- Convert amounts like \"2 cups of flour to grams\".
 -- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
 convertAmounts 
   :: IngredientName -- ^ "ingredientName" -  The ingredient which you want to convert.
   -> SourceAmount -- ^ "sourceAmount" -  The amount from which you want to convert, e.g. the 2.5 in \"2.5 cups of flour to grams\".
@@ -458,6 +502,7 @@ convertAmounts
   -> SpoonacularRequest ConvertAmounts MimeNoContent A.Value MimeJSON
 convertAmounts (IngredientName ingredientName) (SourceAmount sourceAmount) (SourceUnit sourceUnit) (TargetUnit targetUnit) =
   _mkRequest "GET" ["/recipes/convert"]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
     `setQuery` toQuery ("ingredientName", Just ingredientName)
     `setQuery` toQuery ("sourceAmount", Just sourceAmount)
     `setQuery` toQuery ("sourceUnit", Just sourceUnit)
@@ -476,6 +521,8 @@ instance Produces ConvertAmounts MimeJSON
 -- 
 -- Generate a recipe card for a recipe.
 -- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
 createRecipeCard 
   :: (Consumes CreateRecipeCard MimeMultipartFormData)
   => Title -- ^ "title" -  The title of the recipe.
@@ -489,6 +536,7 @@ createRecipeCard
   -> SpoonacularRequest CreateRecipeCard MimeMultipartFormData A.Value MimeJSON
 createRecipeCard (Title title) (Image image) (Ingredients ingredients) (Instructions instructions) (ReadyInMinutes readyInMinutes) (Servings servings) (Mask mask) (BackgroundImage backgroundImage) =
   _mkRequest "POST" ["/recipes/visualizeRecipe"]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
     `_addMultiFormPart` NH.partLBS "title" (mimeRender' MimeMultipartFormData title)
     `_addMultiFormPart` NH.partFileSource "image" image
     `_addMultiFormPart` NH.partLBS "ingredients" (mimeRender' MimeMultipartFormData ingredients)
@@ -535,6 +583,8 @@ instance Produces CreateRecipeCard MimeJSON
 -- 
 -- Delete an item from the user's meal plan.
 -- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
 deleteFromMealPlan 
   :: (Consumes DeleteFromMealPlan , MimeRender  InlineObject12)
   => InlineObject12 -- ^ "inlineObject12"
@@ -544,6 +594,7 @@ deleteFromMealPlan
   -> SpoonacularRequest DeleteFromMealPlan  A.Value MimeJSON
 deleteFromMealPlan inlineObject12 (Username username) (Id id) (Hash hash) =
   _mkRequest "DELETE" ["/mealplanner/",toPath username,"/items/",toPath id]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
     `setBodyParam` inlineObject12
     `setQuery` toQuery ("hash", Just hash)
 
@@ -565,6 +616,8 @@ instance Produces DeleteFromMealPlan MimeJSON
 -- 
 -- Delete an item from the current shopping list of the user.
 -- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
 deleteFromShoppingList 
   :: (Consumes DeleteFromShoppingList , MimeRender  InlineObject15)
   => InlineObject15 -- ^ "inlineObject15"
@@ -574,6 +627,7 @@ deleteFromShoppingList
   -> SpoonacularRequest DeleteFromShoppingList  A.Value MimeJSON
 deleteFromShoppingList inlineObject15 (Username username) (Id id) (Hash hash) =
   _mkRequest "DELETE" ["/mealplanner/",toPath username,"/shopping-list/items/",toPath id]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
     `setBodyParam` inlineObject15
     `setQuery` toQuery ("hash", Just hash)
 
@@ -595,12 +649,15 @@ instance Produces DeleteFromShoppingList MimeJSON
 -- 
 -- Take any text and find all mentions of food contained within it. This task is also called Named Entity Recognition (NER). In this case, the entities are foods. Either dishes, such as pizza or cheeseburger, or ingredients, such as cucumber or almonds.
 -- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
 detectFoodInText 
   :: (Consumes DetectFoodInText MimeFormUrlEncoded)
   => ParamText -- ^ "text" -  The text in which food items, such as dish names and ingredients, should be detected in.
   -> SpoonacularRequest DetectFoodInText MimeFormUrlEncoded A.Value MimeJSON
 detectFoodInText (ParamText text) =
   _mkRequest "POST" ["/food/detect"]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
     `addForm` toForm ("text", text)
 
 data DetectFoodInText  
@@ -620,11 +677,14 @@ instance Produces DetectFoodInText MimeJSON
 -- 
 -- This endpoint lets you extract recipe data such as title, ingredients, and instructions from any properly formatted Website.
 -- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
 extractRecipeFromWebsite 
   :: Url -- ^ "url" -  The URL of the recipe page.
   -> SpoonacularRequest ExtractRecipeFromWebsite MimeNoContent A.Value MimeJSON
 extractRecipeFromWebsite (Url url) =
   _mkRequest "GET" ["/recipes/extract"]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
     `setQuery` toQuery ("url", Just url)
 
 data ExtractRecipeFromWebsite  
@@ -650,10 +710,13 @@ instance Produces ExtractRecipeFromWebsite MimeJSON
 -- 
 -- Generate a meal plan with three meals per day (breakfast, lunch, and dinner).
 -- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
 generateMealPlan 
   :: SpoonacularRequest GenerateMealPlan MimeNoContent A.Value MimeJSON
 generateMealPlan =
   _mkRequest "GET" ["/mealplanner/generate"]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
 
 data GenerateMealPlan  
 
@@ -688,6 +751,8 @@ instance Produces GenerateMealPlan MimeJSON
 -- 
 -- Generate the shopping list for a user from the meal planner in a given time frame.
 -- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
 generateShoppingList 
   :: (Consumes GenerateShoppingList , MimeRender  InlineObject13)
   => InlineObject13 -- ^ "inlineObject13"
@@ -698,6 +763,7 @@ generateShoppingList
   -> SpoonacularRequest GenerateShoppingList  A.Value MimeJSON
 generateShoppingList inlineObject13 (Username username) (StartDate startDate) (EndDate endDate) (Hash hash) =
   _mkRequest "POST" ["/mealplanner/",toPath username,"/shopping-list/",toPath startDate,"/",toPath endDate]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
     `setBodyParam` inlineObject13
     `setQuery` toQuery ("hash", Just hash)
 
@@ -719,10 +785,13 @@ instance Produces GenerateShoppingList MimeJSON
 -- 
 -- Get a random joke that is related to food. Caution: this is an endpoint for adults!
 -- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
 getARandomFoodJoke 
   :: SpoonacularRequest GetARandomFoodJoke MimeNoContent A.Value MimeJSON
 getARandomFoodJoke =
   _mkRequest "GET" ["/food/jokes/random"]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
 
 data GetARandomFoodJoke  
 -- | @application/json@
@@ -737,11 +806,14 @@ instance Produces GetARandomFoodJoke MimeJSON
 -- 
 -- Get an analyzed breakdown of a recipe's instructions. Each step is enriched with the ingredients and equipment required.
 -- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
 getAnalyzedRecipeInstructions 
   :: Id -- ^ "id" -  The recipe id.
   -> SpoonacularRequest GetAnalyzedRecipeInstructions MimeNoContent A.Value MimeJSON
 getAnalyzedRecipeInstructions (Id id) =
   _mkRequest "GET" ["/recipes/",toPath id,"/analyzedInstructions"]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
 
 data GetAnalyzedRecipeInstructions  
 
@@ -761,11 +833,14 @@ instance Produces GetAnalyzedRecipeInstructions MimeJSON
 -- 
 -- Find comparable products to the given one.
 -- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
 getComparableProducts 
   :: Upc -- ^ "upc" -  The UPC of the product for which you want to find comparable products.
   -> SpoonacularRequest GetComparableProducts MimeNoContent A.Value MimeJSON
 getComparableProducts (Upc upc) =
   _mkRequest "GET" ["/food/products/upc/",toPath upc,"/comparable"]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
 
 data GetComparableProducts  
 -- | @application/json@
@@ -780,11 +855,14 @@ instance Produces GetComparableProducts MimeJSON
 -- 
 -- This endpoint returns suggestions for things the user can say or ask the chatbot.
 -- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
 getConversationSuggests 
   :: Query -- ^ "query" -  A (partial) query from the user. The endpoint will return if it matches topics it can talk about.
   -> SpoonacularRequest GetConversationSuggests MimeNoContent A.Value MimeJSON
 getConversationSuggests (Query query) =
   _mkRequest "GET" ["/food/converse/suggest"]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
     `setQuery` toQuery ("query", Just query)
 
 data GetConversationSuggests  
@@ -805,11 +883,14 @@ instance Produces GetConversationSuggests MimeJSON
 -- 
 -- Find a dish that goes well with a given wine.
 -- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
 getDishPairingForWine 
   :: Wine -- ^ "wine" -  The type of wine that should be paired, e.g. \"merlot\", \"riesling\", or \"malbec\".
   -> SpoonacularRequest GetDishPairingForWine MimeNoContent A.Value MimeJSON
 getDishPairingForWine (Wine wine) =
   _mkRequest "GET" ["/food/wine/dishes"]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
     `setQuery` toQuery ("wine", Just wine)
 
 data GetDishPairingForWine  
@@ -825,11 +906,14 @@ instance Produces GetDishPairingForWine MimeJSON
 -- 
 -- Use an ingredient id to get all available information about an ingredient, such as its image and supermarket aisle.
 -- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
 getIngredientInformation 
   :: Id -- ^ "id" -  The ingredient id.
   -> SpoonacularRequest GetIngredientInformation MimeNoContent A.Value MimeJSON
 getIngredientInformation (Id id) =
   _mkRequest "GET" ["/food/ingredients/",toPath id,"/information"]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
 
 data GetIngredientInformation  
 
@@ -854,11 +938,14 @@ instance Produces GetIngredientInformation MimeJSON
 -- 
 -- Search for substitutes for a given ingredient.
 -- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
 getIngredientSubstitutes 
   :: IngredientName -- ^ "ingredientName" -  The name of the ingredient you want to replace.
   -> SpoonacularRequest GetIngredientSubstitutes MimeNoContent A.Value MimeJSON
 getIngredientSubstitutes (IngredientName ingredientName) =
   _mkRequest "GET" ["/food/ingredients/substitutes"]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
     `setQuery` toQuery ("ingredientName", Just ingredientName)
 
 data GetIngredientSubstitutes  
@@ -874,11 +961,14 @@ instance Produces GetIngredientSubstitutes MimeJSON
 -- 
 -- Search for substitutes for a given ingredient.
 -- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
 getIngredientSubstitutesByID 
   :: Id -- ^ "id" -  The id of the ingredient you want substitutes for.
   -> SpoonacularRequest GetIngredientSubstitutesByID MimeNoContent A.Value MimeJSON
 getIngredientSubstitutesByID (Id id) =
   _mkRequest "GET" ["/food/ingredients/",toPath id,"/substitutes"]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
 
 data GetIngredientSubstitutesByID  
 -- | @application/json@
@@ -893,6 +983,8 @@ instance Produces GetIngredientSubstitutesByID MimeJSON
 -- 
 -- Get information about a meal plan template.
 -- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
 getMealPlanTemplate 
   :: Username -- ^ "username" -  The username.
   -> Id -- ^ "id" -  The shopping list item id.
@@ -900,6 +992,7 @@ getMealPlanTemplate
   -> SpoonacularRequest GetMealPlanTemplate MimeNoContent A.Value MimeJSON
 getMealPlanTemplate (Username username) (Id id) (Hash hash) =
   _mkRequest "GET" ["/mealplanner/",toPath username,"/templates/",toPath id]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
     `setQuery` toQuery ("hash", Just hash)
 
 data GetMealPlanTemplate  
@@ -915,12 +1008,15 @@ instance Produces GetMealPlanTemplate MimeJSON
 -- 
 -- Get meal plan templates from user or public ones.
 -- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
 getMealPlanTemplates 
   :: Username -- ^ "username" -  The username.
   -> Hash -- ^ "hash" -  The private hash for the username.
   -> SpoonacularRequest GetMealPlanTemplates MimeNoContent A.Value MimeJSON
 getMealPlanTemplates (Username username) (Hash hash) =
   _mkRequest "GET" ["/mealplanner/",toPath username,"/templates"]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
     `setQuery` toQuery ("hash", Just hash)
 
 data GetMealPlanTemplates  
@@ -936,6 +1032,8 @@ instance Produces GetMealPlanTemplates MimeJSON
 -- 
 -- Retrieve a meal planned week for the given user. The username must be a spoonacular user and the hash must the the user's hash that can be found in his/her account.
 -- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
 getMealPlanWeek 
   :: Username -- ^ "username" -  The username.
   -> StartDate -- ^ "startDate" -  The start date of the meal planned week in the format yyyy-mm-dd.
@@ -943,6 +1041,7 @@ getMealPlanWeek
   -> SpoonacularRequest GetMealPlanWeek MimeNoContent A.Value MimeJSON
 getMealPlanWeek (Username username) (StartDate startDate) (Hash hash) =
   _mkRequest "GET" ["/mealplanner/",toPath username,"/week/",toPath startDate]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
     `setQuery` toQuery ("hash", Just hash)
 
 data GetMealPlanWeek  
@@ -958,11 +1057,14 @@ instance Produces GetMealPlanWeek MimeJSON
 -- 
 -- Use a menu item id to get all available information about a menu item, such as nutrition.
 -- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
 getMenuItemInformation 
   :: Id -- ^ "id" -  The menu item id.
   -> SpoonacularRequest GetMenuItemInformation MimeNoContent A.Value MimeJSON
 getMenuItemInformation (Id id) =
   _mkRequest "GET" ["/food/menuItems/",toPath id]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
 
 data GetMenuItemInformation  
 -- | @application/json@
@@ -977,11 +1079,14 @@ instance Produces GetMenuItemInformation MimeJSON
 -- 
 -- Use a product id to get full information about a product, such as ingredients, nutrition, etc. The nutritional information is per serving.
 -- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
 getProductInformation 
   :: Id -- ^ "id" -  The id of the packaged food.
   -> SpoonacularRequest GetProductInformation MimeNoContent A.Value MimeJSON
 getProductInformation (Id id) =
   _mkRequest "GET" ["/food/products/",toPath id]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
 
 data GetProductInformation  
 -- | @application/json@
@@ -996,10 +1101,13 @@ instance Produces GetProductInformation MimeJSON
 -- 
 -- Returns random food trivia.
 -- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
 getRandomFoodTrivia 
   :: SpoonacularRequest GetRandomFoodTrivia MimeNoContent A.Value MimeJSON
 getRandomFoodTrivia =
   _mkRequest "GET" ["/food/trivia/random"]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
 
 data GetRandomFoodTrivia  
 -- | @application/json@
@@ -1014,10 +1122,13 @@ instance Produces GetRandomFoodTrivia MimeJSON
 -- 
 -- Find random (popular) recipes. If you need to filter recipes by diet, nutrition etc. you might want to consider using the complex recipe search endpoint and set the sort request parameter to random.
 -- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
 getRandomRecipes 
   :: SpoonacularRequest GetRandomRecipes MimeNoContent A.Value MimeJSON
 getRandomRecipes =
   _mkRequest "GET" ["/recipes/random"]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
 
 data GetRandomRecipes  
 
@@ -1047,11 +1158,14 @@ instance Produces GetRandomRecipes MimeJSON
 -- 
 -- Get a recipe's equipment list.
 -- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
 getRecipeEquipmentByID 
   :: Id -- ^ "id" -  The recipe id.
   -> SpoonacularRequest GetRecipeEquipmentByID MimeNoContent A.Value MimeJSON
 getRecipeEquipmentByID (Id id) =
   _mkRequest "GET" ["/recipes/",toPath id,"/equipmentWidget.json"]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
 
 data GetRecipeEquipmentByID  
 -- | @application/json@
@@ -1066,11 +1180,14 @@ instance Produces GetRecipeEquipmentByID MimeJSON
 -- 
 -- Use a recipe id to get full information about a recipe, such as ingredients, nutrition, diet and allergen information, etc.
 -- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
 getRecipeInformation 
   :: Id -- ^ "id" -  The id of the recipe.
   -> SpoonacularRequest GetRecipeInformation MimeNoContent A.Value MimeJSON
 getRecipeInformation (Id id) =
   _mkRequest "GET" ["/recipes/",toPath id,"/information"]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
 
 data GetRecipeInformation  
 
@@ -1090,11 +1207,14 @@ instance Produces GetRecipeInformation MimeJSON
 -- 
 -- Get information about multiple recipes at once. This is equivalent to calling the Get Recipe Information endpoint multiple times, but faster.
 -- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
 getRecipeInformationBulk 
   :: Ids -- ^ "ids" -  A comma-separated list of recipe ids.
   -> SpoonacularRequest GetRecipeInformationBulk MimeNoContent A.Value MimeJSON
 getRecipeInformationBulk (Ids ids) =
   _mkRequest "GET" ["/recipes/informationBulk"]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
     `setQuery` toQuery ("ids", Just ids)
 
 data GetRecipeInformationBulk  
@@ -1115,11 +1235,14 @@ instance Produces GetRecipeInformationBulk MimeJSON
 -- 
 -- Get a recipe's ingredient list.
 -- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
 getRecipeIngredientsByID 
   :: Id -- ^ "id" -  The recipe id.
   -> SpoonacularRequest GetRecipeIngredientsByID MimeNoContent A.Value MimeJSON
 getRecipeIngredientsByID (Id id) =
   _mkRequest "GET" ["/recipes/",toPath id,"/ingredientWidget.json"]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
 
 data GetRecipeIngredientsByID  
 -- | @application/json@
@@ -1134,11 +1257,14 @@ instance Produces GetRecipeIngredientsByID MimeJSON
 -- 
 -- Get a recipe's nutrition widget data.
 -- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
 getRecipeNutritionWidgetByID 
   :: Id -- ^ "id" -  The recipe id.
   -> SpoonacularRequest GetRecipeNutritionWidgetByID MimeNoContent A.Value MimeJSON
 getRecipeNutritionWidgetByID (Id id) =
   _mkRequest "GET" ["/recipes/",toPath id,"/nutritionWidget.json"]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
 
 data GetRecipeNutritionWidgetByID  
 -- | @application/json@
@@ -1153,11 +1279,14 @@ instance Produces GetRecipeNutritionWidgetByID MimeJSON
 -- 
 -- Get a recipe's price breakdown data.
 -- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
 getRecipePriceBreakdownByID 
   :: Id -- ^ "id" -  The recipe id.
   -> SpoonacularRequest GetRecipePriceBreakdownByID MimeNoContent A.Value MimeJSON
 getRecipePriceBreakdownByID (Id id) =
   _mkRequest "GET" ["/recipes/",toPath id,"/priceBreakdownWidget.json"]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
 
 data GetRecipePriceBreakdownByID  
 -- | @application/json@
@@ -1172,11 +1301,14 @@ instance Produces GetRecipePriceBreakdownByID MimeJSON
 -- 
 -- Get a recipe's taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
 -- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
 getRecipeTasteByID 
   :: Id -- ^ "id" -  The recipe id.
   -> SpoonacularRequest GetRecipeTasteByID MimeNoContent A.Value MimeJSON
 getRecipeTasteByID (Id id) =
   _mkRequest "GET" ["/recipes/",toPath id,"/tasteWidget.json"]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
 
 data GetRecipeTasteByID  
 -- | @application/json@
@@ -1191,12 +1323,15 @@ instance Produces GetRecipeTasteByID MimeJSON
 -- 
 -- Get the current shopping list for the given user.
 -- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
 getShoppingList 
   :: Username -- ^ "username" -  The username.
   -> Hash -- ^ "hash" -  The private hash for the username.
   -> SpoonacularRequest GetShoppingList MimeNoContent A.Value MimeJSON
 getShoppingList (Username username) (Hash hash) =
   _mkRequest "GET" ["/mealplanner/",toPath username,"/shopping-list"]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
     `setQuery` toQuery ("hash", Just hash)
 
 data GetShoppingList  
@@ -1212,11 +1347,14 @@ instance Produces GetShoppingList MimeJSON
 -- 
 -- Find recipes which are similar to the given one.
 -- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
 getSimilarRecipes 
   :: Id -- ^ "id" -  The id of the source recipe for which similar recipes should be found.
   -> SpoonacularRequest GetSimilarRecipes MimeNoContent A.Value MimeJSON
 getSimilarRecipes (Id id) =
   _mkRequest "GET" ["/recipes/",toPath id,"/similar"]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
 
 data GetSimilarRecipes  
 
@@ -1241,11 +1379,14 @@ instance Produces GetSimilarRecipes MimeJSON
 -- 
 -- Get a simple description of a certain wine, e.g. \"malbec\", \"riesling\", or \"merlot\".
 -- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
 getWineDescription 
   :: Wine -- ^ "wine" -  The name of the wine that should be paired, e.g. \"merlot\", \"riesling\", or \"malbec\".
   -> SpoonacularRequest GetWineDescription MimeNoContent A.Value MimeJSON
 getWineDescription (Wine wine) =
   _mkRequest "GET" ["/food/wine/description"]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
     `setQuery` toQuery ("wine", Just wine)
 
 data GetWineDescription  
@@ -1261,11 +1402,14 @@ instance Produces GetWineDescription MimeJSON
 -- 
 -- Find a wine that goes well with a food. Food can be a dish name (\"steak\"), an ingredient name (\"salmon\"), or a cuisine (\"italian\").
 -- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
 getWinePairing 
   :: Food -- ^ "food" -  The food to get a pairing for. This can be a dish (\"steak\"), an ingredient (\"salmon\"), or a cuisine (\"italian\").
   -> SpoonacularRequest GetWinePairing MimeNoContent A.Value MimeJSON
 getWinePairing (Food food) =
   _mkRequest "GET" ["/food/wine/pairing"]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
     `setQuery` toQuery ("food", Just food)
 
 data GetWinePairing  
@@ -1286,11 +1430,14 @@ instance Produces GetWinePairing MimeJSON
 -- 
 -- Get a specific wine recommendation (concrete product) for a given wine type, e.g. \"merlot\".
 -- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
 getWineRecommendation 
   :: Wine -- ^ "wine" -  The type of wine to get a specific product recommendation for.
   -> SpoonacularRequest GetWineRecommendation MimeNoContent A.Value MimeJSON
 getWineRecommendation (Wine wine) =
   _mkRequest "GET" ["/food/wine/recommendation"]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
     `setQuery` toQuery ("wine", Just wine)
 
 data GetWineRecommendation  
@@ -1321,11 +1468,14 @@ instance Produces GetWineRecommendation MimeJSON
 -- 
 -- Estimate the macronutrients of a dish based on its title.
 -- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
 guessNutritionByDishName 
   :: Title -- ^ "title" -  The title of the dish.
   -> SpoonacularRequest GuessNutritionByDishName MimeNoContent A.Value MimeJSON
 guessNutritionByDishName (Title title) =
   _mkRequest "GET" ["/recipes/guessNutrition"]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
     `setQuery` toQuery ("title", Just title)
 
 data GuessNutritionByDishName  
@@ -1341,11 +1491,14 @@ instance Produces GuessNutritionByDishName MimeJSON
 -- 
 -- Analyze a food image. The API tries to classify the image, guess the nutrition, and find a matching recipes. You can play around with that endpoint!
 -- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
 imageAnalysisByURL 
   :: ImageUrl -- ^ "imageUrl" -  The URL of the image to be analyzed.
   -> SpoonacularRequest ImageAnalysisByURL MimeNoContent A.Value MimeJSON
 imageAnalysisByURL (ImageUrl imageUrl) =
   _mkRequest "GET" ["/food/images/analyze"]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
     `setQuery` toQuery ("imageUrl", Just imageUrl)
 
 data ImageAnalysisByURL  
@@ -1361,11 +1514,14 @@ instance Produces ImageAnalysisByURL MimeJSON
 -- 
 -- Classify a food image. You can play around with that endpoint!
 -- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
 imageClassificationByURL 
   :: ImageUrl -- ^ "imageUrl" -  The URL of the image to be classified.
   -> SpoonacularRequest ImageClassificationByURL MimeNoContent A.Value MimeJSON
 imageClassificationByURL (ImageUrl imageUrl) =
   _mkRequest "GET" ["/food/images/classify"]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
     `setQuery` toQuery ("imageUrl", Just imageUrl)
 
 data ImageClassificationByURL  
@@ -1381,11 +1537,14 @@ instance Produces ImageClassificationByURL MimeJSON
 -- 
 -- Search for simple whole foods (e.g. fruits, vegetables, nuts, grains, meat, fish, dairy etc.).
 -- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
 ingredientSearch 
   :: Query -- ^ "query" -  The partial or full ingredient name.
   -> SpoonacularRequest IngredientSearch MimeNoContent A.Value MimeJSON
 ingredientSearch (Query query) =
   _mkRequest "GET" ["/food/ingredients/search"]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
     `setQuery` toQuery ("query", Just query)
 
 data IngredientSearch  
@@ -1466,12 +1625,15 @@ instance Produces IngredientSearch MimeJSON
 -- 
 -- Map a set of ingredients to products you can buy in the grocery store.
 -- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
 mapIngredientsToGroceryProducts 
   :: (Consumes MapIngredientsToGroceryProducts MimeJSON, MimeRender MimeJSON Body)
   => Body -- ^ "body"
   -> SpoonacularRequest MapIngredientsToGroceryProducts MimeJSON A.Value MimeJSON
 mapIngredientsToGroceryProducts body =
   _mkRequest "POST" ["/food/ingredients/map"]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
     `setBodyParam` body
 
 data MapIngredientsToGroceryProducts 
@@ -1492,6 +1654,8 @@ instance Produces MapIngredientsToGroceryProducts MimeJSON
 -- 
 -- Extract an ingredient from plain text.
 -- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
 parseIngredients 
   :: (Consumes ParseIngredients MimeFormUrlEncoded)
   => IngredientList -- ^ "ingredientList" -  The ingredient list of the recipe, one ingredient per line.
@@ -1499,6 +1663,7 @@ parseIngredients
   -> SpoonacularRequest ParseIngredients MimeFormUrlEncoded A.Value MimeJSON
 parseIngredients (IngredientList ingredientList) (Servings servings) =
   _mkRequest "POST" ["/recipes/parseIngredients"]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
     `addForm` toForm ("ingredientList", ingredientList)
     `addForm` toForm ("servings", servings)
 
@@ -1524,11 +1689,14 @@ instance Produces ParseIngredients MimeJSON
 -- 
 -- Answer a nutrition related natural language question.
 -- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
 quickAnswer 
   :: Q -- ^ "q" -  The nutrition related question.
   -> SpoonacularRequest QuickAnswer MimeNoContent A.Value MimeJSON
 quickAnswer (Q q) =
   _mkRequest "GET" ["/recipes/quickAnswer"]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
     `setQuery` toQuery ("q", Just q)
 
 data QuickAnswer  
@@ -1544,11 +1712,14 @@ instance Produces QuickAnswer MimeJSON
 -- 
 -- Search all food content with one call. That includes recipes, grocery products, menu items, simple foods (ingredients), and food videos.
 -- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
 searchAllFood 
   :: Query -- ^ "query" -  The search query.
   -> SpoonacularRequest SearchAllFood MimeNoContent A.Value MimeJSON
 searchAllFood (Query query) =
   _mkRequest "GET" ["/food/search"]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
     `setQuery` toQuery ("query", Just query)
 
 data SearchAllFood  
@@ -1574,6 +1745,8 @@ instance Produces SearchAllFood MimeJSON
 -- 
 -- Search custom foods in a user's account.
 -- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
 searchCustomFoods 
   :: Query -- ^ "query" -  The search query.
   -> Username -- ^ "username" -  The username.
@@ -1581,6 +1754,7 @@ searchCustomFoods
   -> SpoonacularRequest SearchCustomFoods MimeNoContent A.Value MimeJSON
 searchCustomFoods (Query query) (Username username) (Hash hash) =
   _mkRequest "GET" ["/food/customFoods/search"]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
     `setQuery` toQuery ("query", Just query)
     `setQuery` toQuery ("username", Just username)
     `setQuery` toQuery ("hash", Just hash)
@@ -1608,11 +1782,14 @@ instance Produces SearchCustomFoods MimeJSON
 -- 
 -- Find recipe and other food related videos.
 -- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
 searchFoodVideos 
   :: Query -- ^ "query" -  The search query.
   -> SpoonacularRequest SearchFoodVideos MimeNoContent A.Value MimeJSON
 searchFoodVideos (Query query) =
   _mkRequest "GET" ["/food/videos/search"]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
     `setQuery` toQuery ("query", Just query)
 
 data SearchFoodVideos  
@@ -1673,11 +1850,14 @@ instance Produces SearchFoodVideos MimeJSON
 -- 
 -- Search packaged food products, such as frozen pizza or Greek yogurt.
 -- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
 searchGroceryProducts 
   :: Query -- ^ "query" -  The search query.
   -> SpoonacularRequest SearchGroceryProducts MimeNoContent A.Value MimeJSON
 searchGroceryProducts (Query query) =
   _mkRequest "GET" ["/food/products/search"]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
     `setQuery` toQuery ("query", Just query)
 
 data SearchGroceryProducts  
@@ -1743,11 +1923,14 @@ instance Produces SearchGroceryProducts MimeJSON
 -- 
 -- Get information about a packaged food using its UPC.
 -- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
 searchGroceryProductsByUPC 
   :: Upc -- ^ "upc" -  The product's UPC.
   -> SpoonacularRequest SearchGroceryProductsByUPC MimeNoContent A.Value MimeJSON
 searchGroceryProductsByUPC (Upc upc) =
   _mkRequest "GET" ["/food/products/upc/",toPath upc]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
 
 data SearchGroceryProductsByUPC  
 -- | @application/json@
@@ -1762,11 +1945,14 @@ instance Produces SearchGroceryProductsByUPC MimeJSON
 -- 
 -- Search over 115,000 menu items from over 800 fast food and chain restaurants. For example, McDonald's Big Mac or Starbucks Mocha.
 -- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
 searchMenuItems 
   :: Query -- ^ "query" -  The search query.
   -> SpoonacularRequest SearchMenuItems MimeNoContent A.Value MimeJSON
 searchMenuItems (Query query) =
   _mkRequest "GET" ["/food/menuItems/search"]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
     `setQuery` toQuery ("query", Just query)
 
 data SearchMenuItems  
@@ -1832,11 +2018,14 @@ instance Produces SearchMenuItems MimeJSON
 -- 
 -- Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint.
 -- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
 searchRecipes 
   :: Query -- ^ "query" -  The (natural language) recipe search query.
   -> SpoonacularRequest SearchRecipes MimeNoContent A.Value MimeJSON
 searchRecipes (Query query) =
   _mkRequest "GET" ["/recipes/complexSearch"]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
     `setQuery` toQuery ("query", Just query)
 
 data SearchRecipes  
@@ -2327,11 +2516,14 @@ instance Produces SearchRecipes MimeJSON
 -- 
 --              Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don't currently have (post shopping).         
 -- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
 searchRecipesByIngredients 
   :: Ingredients -- ^ "ingredients" -  A comma-separated list of ingredients that the recipes should contain.
   -> SpoonacularRequest SearchRecipesByIngredients MimeNoContent A.Value MimeJSON
 searchRecipesByIngredients (Ingredients ingredients) =
   _mkRequest "GET" ["/recipes/findByIngredients"]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
     `setQuery` toQuery ("ingredients", Just ingredients)
 
 data SearchRecipesByIngredients  
@@ -2367,10 +2559,13 @@ instance Produces SearchRecipesByIngredients MimeJSON
 -- 
 -- Find a set of recipes that adhere to the given nutritional limits. You may set limits for macronutrients (calories, protein, fat, and carbohydrate) and/or many micronutrients.
 -- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
 searchRecipesByNutrients 
   :: SpoonacularRequest SearchRecipesByNutrients MimeNoContent A.Value MimeJSON
 searchRecipesByNutrients =
   _mkRequest "GET" ["/recipes/findByNutrients"]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
 
 data SearchRecipesByNutrients  
 
@@ -2765,11 +2960,14 @@ instance Produces SearchRecipesByNutrients MimeJSON
 -- 
 -- Search spoonacular's site content. You'll be able to find everything that you could also find using the search suggestions on spoonacular.com. This is a suggest API so you can send partial strings as queries.
 -- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
 searchSiteContent 
   :: Query -- ^ "query" -  The query to search for. You can also use partial queries such as \"spagh\" to already find spaghetti recipes, articles, grocery products, and other content.
   -> SpoonacularRequest SearchSiteContent MimeNoContent A.Value MimeJSON
 searchSiteContent (Query query) =
   _mkRequest "GET" ["/food/site/search"]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
     `setQuery` toQuery ("query", Just query)
 
 data SearchSiteContent  
@@ -2785,11 +2983,14 @@ instance Produces SearchSiteContent MimeJSON
 -- 
 -- Automatically generate a short description that summarizes key information about the recipe.
 -- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
 summarizeRecipe 
   :: Id -- ^ "id" -  The recipe id.
   -> SpoonacularRequest SummarizeRecipe MimeNoContent A.Value MimeJSON
 summarizeRecipe (Id id) =
   _mkRequest "GET" ["/recipes/",toPath id,"/summary"]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
 
 data SummarizeRecipe  
 -- | @application/json@
@@ -2804,11 +3005,14 @@ instance Produces SummarizeRecipe MimeJSON
 -- 
 -- This endpoint can be used to have a conversation about food with the spoonacular chatbot. Use the \"Get Conversation Suggests\" endpoint to show your user what he or she can say.
 -- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
 talkToChatbot 
   :: ParamText -- ^ "text" -  The request / question / answer from the user to the chatbot.
   -> SpoonacularRequest TalkToChatbot MimeNoContent A.Value MimeJSON
 talkToChatbot (ParamText text) =
   _mkRequest "GET" ["/food/converse"]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
     `setQuery` toQuery ("text", Just text)
 
 data TalkToChatbot  
@@ -2829,12 +3033,15 @@ instance Produces TalkToChatbot MimeJSON
 -- 
 -- Visualize the equipment used to make a recipe. You can play around with that endpoint!
 -- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
 visualizeEquipment 
   :: (Consumes VisualizeEquipment MimeFormUrlEncoded)
   => Instructions -- ^ "instructions" -  The recipe's instructions.
   -> SpoonacularRequest VisualizeEquipment MimeFormUrlEncoded Text MimeTextHtml
 visualizeEquipment (Instructions instructions) =
   _mkRequest "POST" ["/recipes/visualizeEquipment"]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
     `addForm` toForm ("instructions", instructions)
 
 data VisualizeEquipment  
@@ -2869,6 +3076,8 @@ instance Produces VisualizeEquipment MimeTextHtml
 -- 
 -- Visualize ingredients of a recipe. You can play around with that endpoint!
 -- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
 visualizeIngredients 
   :: (Consumes VisualizeIngredients MimeFormUrlEncoded)
   => IngredientList -- ^ "ingredientList" -  The ingredient list of the recipe, one ingredient per line.
@@ -2876,6 +3085,7 @@ visualizeIngredients
   -> SpoonacularRequest VisualizeIngredients MimeFormUrlEncoded Text MimeTextHtml
 visualizeIngredients (IngredientList ingredientList) (Servings servings) =
   _mkRequest "POST" ["/recipes/visualizeIngredients"]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
     `addForm` toForm ("ingredientList", ingredientList)
     `addForm` toForm ("servings", servings)
 
@@ -2916,11 +3126,14 @@ instance Produces VisualizeIngredients MimeTextHtml
 -- 
 -- Visualize a menu item's nutritional information as HTML including CSS.
 -- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
 visualizeMenuItemNutritionByID 
   :: Id -- ^ "id" -  The menu item id.
   -> SpoonacularRequest VisualizeMenuItemNutritionByID MimeNoContent Text MimeTextHtml
 visualizeMenuItemNutritionByID (Id id) =
   _mkRequest "GET" ["/food/menuItems/",toPath id,"/nutritionWidget"]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
 
 data VisualizeMenuItemNutritionByID  
 
@@ -2940,6 +3153,8 @@ instance Produces VisualizeMenuItemNutritionByID MimeTextHtml
 -- 
 -- Visualize the price breakdown of a recipe. You can play around with that endpoint!
 -- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
 visualizePriceBreakdown 
   :: (Consumes VisualizePriceBreakdown MimeFormUrlEncoded)
   => IngredientList -- ^ "ingredientList" -  The ingredient list of the recipe, one ingredient per line.
@@ -2947,6 +3162,7 @@ visualizePriceBreakdown
   -> SpoonacularRequest VisualizePriceBreakdown MimeFormUrlEncoded Text MimeTextHtml
 visualizePriceBreakdown (IngredientList ingredientList) (Servings servings) =
   _mkRequest "POST" ["/recipes/visualizePriceEstimator"]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
     `addForm` toForm ("ingredientList", ingredientList)
     `addForm` toForm ("servings", servings)
 
@@ -2982,11 +3198,14 @@ instance Produces VisualizePriceBreakdown MimeTextHtml
 -- 
 -- Visualize a product's nutritional information as HTML including CSS.
 -- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
 visualizeProductNutritionByID 
   :: Id -- ^ "id" -  The id of the product.
   -> SpoonacularRequest VisualizeProductNutritionByID MimeNoContent Text MimeTextHtml
 visualizeProductNutritionByID (Id id) =
   _mkRequest "GET" ["/food/products/",toPath id,"/nutritionWidget"]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
 
 data VisualizeProductNutritionByID  
 
@@ -3006,11 +3225,14 @@ instance Produces VisualizeProductNutritionByID MimeTextHtml
 -- 
 -- Visualize a recipe's equipment list.
 -- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
 visualizeRecipeEquipmentByID 
   :: Id -- ^ "id" -  The recipe id.
   -> SpoonacularRequest VisualizeRecipeEquipmentByID MimeNoContent Text MimeTextHtml
 visualizeRecipeEquipmentByID (Id id) =
   _mkRequest "GET" ["/recipes/",toPath id,"/equipmentWidget"]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
 
 data VisualizeRecipeEquipmentByID  
 
@@ -3030,11 +3252,14 @@ instance Produces VisualizeRecipeEquipmentByID MimeTextHtml
 -- 
 -- Visualize a recipe's ingredient list.
 -- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
 visualizeRecipeIngredientsByID 
   :: Id -- ^ "id" -  The recipe id.
   -> SpoonacularRequest VisualizeRecipeIngredientsByID MimeNoContent Text MimeTextHtml
 visualizeRecipeIngredientsByID (Id id) =
   _mkRequest "GET" ["/recipes/",toPath id,"/ingredientWidget"]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
 
 data VisualizeRecipeIngredientsByID  
 
@@ -3054,6 +3279,8 @@ instance Produces VisualizeRecipeIngredientsByID MimeTextHtml
 -- 
 -- Visualize a recipe's nutritional information as HTML including CSS. You can play around with that endpoint!
 -- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
 visualizeRecipeNutrition 
   :: (Consumes VisualizeRecipeNutrition MimeFormUrlEncoded)
   => IngredientList -- ^ "ingredientList" -  The ingredient list of the recipe, one ingredient per line.
@@ -3061,6 +3288,7 @@ visualizeRecipeNutrition
   -> SpoonacularRequest VisualizeRecipeNutrition MimeFormUrlEncoded Text MimeTextHtml
 visualizeRecipeNutrition (IngredientList ingredientList) (Servings servings) =
   _mkRequest "POST" ["/recipes/visualizeNutrition"]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
     `addForm` toForm ("ingredientList", ingredientList)
     `addForm` toForm ("servings", servings)
 
@@ -3091,11 +3319,14 @@ instance Produces VisualizeRecipeNutrition MimeTextHtml
 -- 
 -- Visualize a recipe's nutritional information as HTML including CSS.
 -- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
 visualizeRecipeNutritionByID 
   :: Id -- ^ "id" -  The recipe id.
   -> SpoonacularRequest VisualizeRecipeNutritionByID MimeNoContent Text MimeTextHtml
 visualizeRecipeNutritionByID (Id id) =
   _mkRequest "GET" ["/recipes/",toPath id,"/nutritionWidget"]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
 
 data VisualizeRecipeNutritionByID  
 
@@ -3115,11 +3346,14 @@ instance Produces VisualizeRecipeNutritionByID MimeTextHtml
 -- 
 -- Visualize a recipe's price breakdown.
 -- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
 visualizeRecipePriceBreakdownByID 
   :: Id -- ^ "id" -  The recipe id.
   -> SpoonacularRequest VisualizeRecipePriceBreakdownByID MimeNoContent Text MimeTextHtml
 visualizeRecipePriceBreakdownByID (Id id) =
   _mkRequest "GET" ["/recipes/",toPath id,"/priceBreakdownWidget"]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
 
 data VisualizeRecipePriceBreakdownByID  
 
@@ -3139,12 +3373,15 @@ instance Produces VisualizeRecipePriceBreakdownByID MimeTextHtml
 -- 
 -- Visualize a recipe's taste information as HTML including CSS. You can play around with that endpoint!
 -- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
 visualizeRecipeTaste 
   :: (Consumes VisualizeRecipeTaste MimeFormUrlEncoded)
   => IngredientList -- ^ "ingredientList" -  The ingredient list of the recipe, one ingredient per line.
   -> SpoonacularRequest VisualizeRecipeTaste MimeFormUrlEncoded Text MimeTextHtml
 visualizeRecipeTaste (IngredientList ingredientList) =
   _mkRequest "POST" ["/recipes/visualizeTaste"]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
     `addForm` toForm ("ingredientList", ingredientList)
 
 data VisualizeRecipeTaste  
@@ -3164,11 +3401,14 @@ instance Produces VisualizeRecipeTaste MimeTextHtml
 -- 
 -- Get a recipe's taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
 -- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
 visualizeRecipeTasteByID 
   :: Id -- ^ "id" -  The recipe id.
   -> SpoonacularRequest VisualizeRecipeTasteByID MimeNoContent Text MimeTextHtml
 visualizeRecipeTasteByID (Id id) =
   _mkRequest "GET" ["/recipes/",toPath id,"/tasteWidget"]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
 
 data VisualizeRecipeTasteByID  
 -- | @text/html@

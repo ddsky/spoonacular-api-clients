@@ -102,10 +102,17 @@ Add an item to the user's meal plan.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
 $apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $username = dsky; // string | The username.
 $hash = 4b5v4398573406; // string | The private hash for the username.
@@ -135,7 +142,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -162,10 +169,17 @@ Add an item to the current shopping list of a user.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
 $apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $username = dsky; // string | The username.
 $hash = 4b5v4398573406; // string | The private hash for the username.
@@ -195,7 +209,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -222,10 +236,17 @@ Parse a recipe search query to find out its intention.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
 $apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $q = salmon with fusilli and no nuts; // string | The recipe search query.
 
@@ -251,7 +272,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -278,10 +299,17 @@ This endpoint allows you to break down instructions into atomic steps. Furthermo
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
 $apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $instructions = 'instructions_example'; // string | The instructions to be analyzed.
 
@@ -307,7 +335,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -334,10 +362,17 @@ Autocomplete the entry of an ingredient.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
 $apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $query = appl; // string | The partial or full ingredient name.
 $number = 10; // float | The number of results to return (between 1 and 100).
@@ -369,7 +404,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -396,10 +431,17 @@ Generate suggestions for menu items based on a (partial) query. The matches will
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
 $apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $query = chicke; // string | The (partial) search query.
 $number = 10; // float | The number of results to return (between 1 and 25).
@@ -427,7 +469,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -454,10 +496,17 @@ Generate suggestions for grocery products based on a (partial) query. The matche
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
 $apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $query = chicke; // string | The (partial) search query.
 $number = 10; // float | The number of results to return (between 1 and 25).
@@ -485,7 +534,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -512,10 +561,17 @@ Autocomplete a partial input to suggest possible recipe names.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
 $apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $query = burger; // string | The query to be autocompleted.
 $number = 10; // float | The number of results to return (between 1 and 25).
@@ -543,7 +599,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -570,10 +626,17 @@ Classify the recipe's cuisine.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
 $apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $title = 'title_example'; // string | The title of the recipe.
 $ingredient_list = 'ingredient_list_example'; // string | The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
@@ -601,7 +664,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -628,10 +691,17 @@ This endpoint allows you to match a packaged food to a basic category, e.g. a sp
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
 $apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $inline_object9 = new \com.spoonacular.client\com.spoonacular.client.model\InlineObject9(); // \com.spoonacular.client\com.spoonacular.client.model\InlineObject9 | 
 $locale = en_US; // string | The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).
@@ -659,7 +729,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -673,7 +743,7 @@ No authorization required
 
 ## classifyGroceryProductBulk
 
-> object classifyGroceryProductBulk($body, $locale)
+> object classifyGroceryProductBulk($request_body, $locale)
 
 Classify Grocery Product Bulk
 
@@ -686,16 +756,23 @@ Provide a set of product jsons, get back classified products.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
 $apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
-$body = new \stdClass; // object | 
+$request_body = array(new \com.spoonacular.client\com.spoonacular.client.model\array()); // object[] | 
 $locale = en_US; // string | The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).
 
 try {
-    $result = $apiInstance->classifyGroceryProductBulk($body, $locale);
+    $result = $apiInstance->classifyGroceryProductBulk($request_body, $locale);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->classifyGroceryProductBulk: ', $e->getMessage(), PHP_EOL;
@@ -708,7 +785,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | **object**|  |
+ **request_body** | [**object[]**](../Model/array.md)|  |
  **locale** | **string**| The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). | [optional]
 
 ### Return type
@@ -717,7 +794,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -744,10 +821,17 @@ Delete all planned items from the user's meal plan for a specific day.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
 $apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $username = dsky; // string | The username.
 $date = 2020-06-01; // string | The date in the format yyyy-mm-dd.
@@ -779,7 +863,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -806,10 +890,17 @@ Retrieve the glycemic index for a list of ingredients and compute the individual
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
 $apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $body = new \stdClass; // object | 
 
@@ -835,7 +926,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -862,10 +953,17 @@ In order to call user-specific endpoints, you need to connect your app's users t
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
 $apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $body = new \stdClass; // object | 
 
@@ -891,7 +989,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -918,10 +1016,17 @@ Convert amounts like \"2 cups of flour to grams\".
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
 $apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $ingredient_name = flour; // string | The ingredient which you want to convert.
 $source_amount = 2.5; // float | The amount from which you want to convert, e.g. the 2.5 in \"2.5 cups of flour to grams\".
@@ -953,7 +1058,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -980,10 +1085,17 @@ Generate a recipe card for a recipe.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
 $apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $title = 'title_example'; // string | The title of the recipe.
 $image = "/path/to/file.txt"; // \SplFileObject | The binary image of the recipe as jpg.
@@ -1031,7 +1143,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1058,10 +1170,17 @@ Delete an item from the user's meal plan.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
 $apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $username = dsky; // string | The username.
 $id = 15678; // float | The shopping list item id.
@@ -1093,7 +1212,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1120,10 +1239,17 @@ Delete an item from the current shopping list of the user.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
 $apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $username = dsky; // string | The username.
 $id = 15678; // float | The shopping list item id.
@@ -1155,7 +1281,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1182,10 +1308,17 @@ Take any text and find all mentions of food contained within it. This task is al
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
 $apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $text = 'text_example'; // string | The text in which food items, such as dish names and ingredients, should be detected in.
 
@@ -1211,7 +1344,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1238,10 +1371,17 @@ This endpoint lets you extract recipe data such as title, ingredients, and instr
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
 $apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $url = https://foodista.com/recipe/ZHK4KPB6/chocolate-crinkle-cookies; // string | The URL of the recipe page.
 $force_extraction = true; // bool | If true, the extraction will be triggered whether we already know the recipe or not. Use this only if information is missing as this operation is slower.
@@ -1271,7 +1411,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1298,10 +1438,17 @@ Generate a meal plan with three meals per day (breakfast, lunch, and dinner).
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
 $apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $time_frame = day; // string | Either for one \"day\" or an entire \"week\".
 $target_calories = 2000; // float | What is the caloric target for one day? The meal plan generator will try to get as close as possible to that goal.
@@ -1333,7 +1480,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1360,10 +1507,17 @@ Generate the shopping list for a user from the meal planner in a given time fram
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
 $apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $username = dsky; // string | The username.
 $start_date = 2020-06-01; // string | The start date in the format yyyy-mm-dd.
@@ -1397,7 +1551,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1424,10 +1578,17 @@ Get a random joke that is related to food. Caution: this is an endpoint for adul
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
 $apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 
 try {
@@ -1449,7 +1610,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1476,10 +1637,17 @@ Get an analyzed breakdown of a recipe's instructions. Each step is enriched with
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
 $apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $id = 324694; // float | The recipe id.
 $step_breakdown = true; // bool | Whether to break down the recipe steps even more.
@@ -1507,7 +1675,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1534,10 +1702,17 @@ Find comparable products to the given one.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
 $apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $upc = 33698816271; // float | The UPC of the product for which you want to find comparable products.
 
@@ -1563,7 +1738,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1590,10 +1765,17 @@ This endpoint returns suggestions for things the user can say or ask the chatbot
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
 $apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $query = tell; // string | A (partial) query from the user. The endpoint will return if it matches topics it can talk about.
 $number = 5; // float | The number of suggestions to return (between 1 and 25).
@@ -1621,7 +1803,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1648,10 +1830,17 @@ Find a dish that goes well with a given wine.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
 $apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $wine = malbec; // string | The type of wine that should be paired, e.g. \"merlot\", \"riesling\", or \"malbec\".
 
@@ -1677,7 +1866,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1704,10 +1893,17 @@ Use an ingredient id to get all available information about an ingredient, such 
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
 $apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $id = 9266; // float | The ingredient id.
 $amount = 150; // float | The amount of this ingredient.
@@ -1737,7 +1933,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1764,10 +1960,17 @@ Search for substitutes for a given ingredient.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
 $apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $ingredient_name = butter; // string | The name of the ingredient you want to replace.
 
@@ -1793,7 +1996,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1820,10 +2023,17 @@ Search for substitutes for a given ingredient.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
 $apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $id = 1001; // float | The id of the ingredient you want substitutes for.
 
@@ -1849,7 +2059,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1876,10 +2086,17 @@ Get information about a meal plan template.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
 $apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $username = dsky; // string | The username.
 $id = 15678; // float | The shopping list item id.
@@ -1909,7 +2126,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1936,10 +2153,17 @@ Get meal plan templates from user or public ones.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
 $apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $username = dsky; // string | The username.
 $hash = 4b5v4398573406; // string | The private hash for the username.
@@ -1967,7 +2191,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -1994,10 +2218,17 @@ Retrieve a meal planned week for the given user. The username must be a spoonacu
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
 $apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $username = dsky; // string | The username.
 $start_date = 2020-06-01; // string | The start date of the meal planned week in the format yyyy-mm-dd.
@@ -2027,7 +2258,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2054,10 +2285,17 @@ Use a menu item id to get all available information about a menu item, such as n
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
 $apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $id = 424571; // float | The menu item id.
 
@@ -2083,7 +2321,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2110,10 +2348,17 @@ Use a product id to get full information about a product, such as ingredients, n
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
 $apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $id = 22347; // float | The id of the packaged food.
 
@@ -2139,7 +2384,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2166,10 +2411,17 @@ Returns random food trivia.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
 $apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 
 try {
@@ -2191,7 +2443,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2218,10 +2470,17 @@ Find random (popular) recipes. If you need to filter recipes by diet, nutrition 
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
 $apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $limit_license = true; // bool | Whether the recipes should have an open license that allows display with proper attribution.
 $tags = vegetarian, dessert; // string | The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have.
@@ -2251,7 +2510,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2278,10 +2537,17 @@ Get a recipe's equipment list.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
 $apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $id = 1003464; // float | The recipe id.
 
@@ -2307,7 +2573,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2334,10 +2600,17 @@ Use a recipe id to get full information about a recipe, such as ingredients, nut
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
 $apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $id = 716429; // float | The id of the recipe.
 $include_nutrition = false; // bool | Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
@@ -2365,7 +2638,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2392,10 +2665,17 @@ Get information about multiple recipes at once. This is equivalent to calling th
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
 $apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $ids = 715538,716429; // string | A comma-separated list of recipe ids.
 $include_nutrition = false; // bool | Include nutrition data to the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
@@ -2423,7 +2703,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2450,10 +2730,17 @@ Get a recipe's ingredient list.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
 $apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $id = 1003464; // float | The recipe id.
 
@@ -2479,7 +2766,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2506,10 +2793,17 @@ Get a recipe's nutrition widget data.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
 $apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $id = 1003464; // float | The recipe id.
 
@@ -2535,7 +2829,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2562,10 +2856,17 @@ Get a recipe's price breakdown data.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
 $apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $id = 1003464; // float | The recipe id.
 
@@ -2591,7 +2892,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2618,10 +2919,17 @@ Get a recipe's taste. The tastes supported are sweet, salty, sour, bitter, savor
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
 $apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $id = 69095; // float | The recipe id.
 
@@ -2647,7 +2955,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2674,10 +2982,17 @@ Get the current shopping list for the given user.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
 $apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $username = dsky; // string | The username.
 $hash = 4b5v4398573406; // string | The private hash for the username.
@@ -2705,7 +3020,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2732,10 +3047,17 @@ Find recipes which are similar to the given one.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
 $apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $id = 715538; // float | The id of the source recipe for which similar recipes should be found.
 $number = 1; // float | The number of random recipes to be returned (between 1 and 100).
@@ -2765,7 +3087,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2792,10 +3114,17 @@ Get a simple description of a certain wine, e.g. \"malbec\", \"riesling\", or \"
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
 $apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $wine = merlot; // string | The name of the wine that should be paired, e.g. \"merlot\", \"riesling\", or \"malbec\".
 
@@ -2821,7 +3150,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2848,10 +3177,17 @@ Find a wine that goes well with a food. Food can be a dish name (\"steak\"), an 
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
 $apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $food = steak; // string | The food to get a pairing for. This can be a dish (\"steak\"), an ingredient (\"salmon\"), or a cuisine (\"italian\").
 $max_price = 50; // float | The maximum price for the specific wine recommendation in USD.
@@ -2879,7 +3215,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2906,10 +3242,17 @@ Get a specific wine recommendation (concrete product) for a given wine type, e.g
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
 $apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $wine = merlot; // string | The type of wine to get a specific product recommendation for.
 $max_price = 50; // float | The maximum price for the specific wine recommendation in USD.
@@ -2941,7 +3284,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -2968,10 +3311,17 @@ Estimate the macronutrients of a dish based on its title.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
 $apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $title = Spaghetti Aglio et Olio; // string | The title of the dish.
 
@@ -2997,7 +3347,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3024,10 +3374,17 @@ Analyze a food image. The API tries to classify the image, guess the nutrition, 
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
 $apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $image_url = https://spoonacular.com/recipeImages/635350-240x150.jpg; // string | The URL of the image to be analyzed.
 
@@ -3053,7 +3410,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3080,10 +3437,17 @@ Classify a food image. You can play around with that endpoint!
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
 $apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $image_url = https://spoonacular.com/recipeImages/635350-240x150.jpg; // string | The URL of the image to be classified.
 
@@ -3109,7 +3473,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3136,10 +3500,17 @@ Search for simple whole foods (e.g. fruits, vegetables, nuts, grains, meat, fish
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
 $apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $query = apple; // string | The partial or full ingredient name.
 $add_children = true; // bool | Whether to add children of found foods.
@@ -3191,7 +3562,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3218,10 +3589,17 @@ Map a set of ingredients to products you can buy in the grocery store.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
 $apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $body = new \stdClass; // object | 
 
@@ -3247,7 +3625,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3274,10 +3652,17 @@ Extract an ingredient from plain text.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
 $apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $ingredient_list = 'ingredient_list_example'; // string | The ingredient list of the recipe, one ingredient per line.
 $servings = 3.4; // float | The number of servings that you can make from the ingredients.
@@ -3307,7 +3692,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3334,10 +3719,17 @@ Answer a nutrition related natural language question.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
 $apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $q = How much vitamin c is in 2 apples?; // string | The nutrition related question.
 
@@ -3363,7 +3755,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3390,10 +3782,17 @@ Search all food content with one call. That includes recipes, grocery products, 
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
 $apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $query = apple; // string | The search query.
 $offset = 0; // float | The number of results to skip (between 0 and 990).
@@ -3423,7 +3822,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3450,10 +3849,17 @@ Search custom foods in a user's account.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
 $apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $query = brat; // string | The search query.
 $username = dsky; // string | The username.
@@ -3487,7 +3893,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3514,10 +3920,17 @@ Find recipe and other food related videos.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
 $apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $query = chicken soup; // string | The search query.
 $type = main course; // string | The type of the recipes. See a full list of supported meal types.
@@ -3561,7 +3974,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3588,10 +4001,17 @@ Search packaged food products, such as frozen pizza or Greek yogurt.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
 $apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $query = greek yogurt; // string | The search query.
 $min_calories = 50; // float | The minimum amount of calories the product must have.
@@ -3637,7 +4057,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3664,10 +4084,17 @@ Get information about a packaged food using its UPC.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
 $apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $upc = 41631000564; // float | The product's UPC.
 
@@ -3693,7 +4120,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3720,10 +4147,17 @@ Search over 115,000 menu items from over 800 fast food and chain restaurants. Fo
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
 $apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $query = snickers; // string | The search query.
 $min_calories = 50; // float | The minimum amount of calories the menu item must have.
@@ -3769,7 +4203,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -3796,10 +4230,17 @@ Search through hundreds of thousands of recipes using advanced filtering and ran
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
 $apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $query = pasta; // string | The (natural language) recipe search query.
 $cuisine = italian; // string | The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as 'OR'). See a full list of supported cuisines.
@@ -4015,7 +4456,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -4042,10 +4483,17 @@ Ever wondered what recipes you can cook with the ingredients you have in your fr
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
 $apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $ingredients = apples,flour,sugar; // string | A comma-separated list of ingredients that the recipes should contain.
 $number = 10; // float | The maximum number of recipes to return (between 1 and 100). Defaults to 10.
@@ -4079,7 +4527,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -4106,10 +4554,17 @@ Find a set of recipes that adhere to the given nutritional limits. You may set l
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
 $apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $min_carbs = 10; // float | The minimum amount of carbohydrates in grams the recipe must have.
 $max_carbs = 100; // float | The maximum amount of carbohydrates in grams the recipe can have.
@@ -4285,7 +4740,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -4312,10 +4767,17 @@ Search spoonacular's site content. You'll be able to find everything that you co
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
 $apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $query = past; // string | The query to search for. You can also use partial queries such as \"spagh\" to already find spaghetti recipes, articles, grocery products, and other content.
 
@@ -4341,7 +4803,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -4368,10 +4830,17 @@ Automatically generate a short description that summarizes key information about
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
 $apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $id = 4632; // float | The recipe id.
 
@@ -4397,7 +4866,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -4424,10 +4893,17 @@ This endpoint can be used to have a conversation about food with the spoonacular
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
 $apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $text = donut recipes; // string | The request / question / answer from the user to the chatbot.
 $context_id = 342938; // string | An arbitrary globally unique id for your conversation. The conversation can contain states so you should pass your context id if you want the bot to be able to remember the conversation.
@@ -4455,7 +4931,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -4482,10 +4958,17 @@ Visualize the equipment used to make a recipe. You can play around with that end
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
 $apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $instructions = 'instructions_example'; // string | The recipe's instructions.
 $view = 'view_example'; // string | How to visualize the equipment, either \\\"grid\\\" or \\\"list\\\".
@@ -4517,7 +5000,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -4544,10 +5027,17 @@ Visualize ingredients of a recipe. You can play around with that endpoint!
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
 $apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $ingredient_list = 'ingredient_list_example'; // string | The ingredient list of the recipe, one ingredient per line.
 $servings = 3.4; // float | The number of servings.
@@ -4583,7 +5073,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -4610,10 +5100,17 @@ Visualize a menu item's nutritional information as HTML including CSS.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
 $apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $id = 1003464; // float | The menu item id.
 $default_css = true; // bool | Whether the default CSS should be added to the response.
@@ -4641,7 +5138,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -4668,10 +5165,17 @@ Visualize the price breakdown of a recipe. You can play around with that endpoin
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
 $apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $ingredient_list = 'ingredient_list_example'; // string | The ingredient list of the recipe, one ingredient per line.
 $servings = 3.4; // float | The number of servings.
@@ -4705,7 +5209,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -4732,10 +5236,17 @@ Visualize a product's nutritional information as HTML including CSS.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
 $apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $id = 7657; // float | The id of the product.
 $default_css = true; // bool | Whether the default CSS should be added to the response.
@@ -4763,7 +5274,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -4790,10 +5301,17 @@ Visualize a recipe's equipment list.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
 $apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $id = 44860; // float | The recipe id.
 $default_css = true; // bool | Whether the default CSS should be added to the response.
@@ -4821,7 +5339,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -4848,10 +5366,17 @@ Visualize a recipe's ingredient list.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
 $apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $id = 1082038; // float | The recipe id.
 $default_css = true; // bool | Whether the default CSS should be added to the response.
@@ -4879,7 +5404,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -4906,10 +5431,17 @@ Visualize a recipe's nutritional information as HTML including CSS. You can play
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
 $apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $ingredient_list = 'ingredient_list_example'; // string | The ingredient list of the recipe, one ingredient per line.
 $servings = 3.4; // float | The number of servings.
@@ -4941,7 +5473,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -4968,10 +5500,17 @@ Visualize a recipe's nutritional information as HTML including CSS.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
 $apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $id = 1082038; // float | The recipe id.
 $default_css = true; // bool | Whether the default CSS should be added to the response.
@@ -4999,7 +5538,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -5026,10 +5565,17 @@ Visualize a recipe's price breakdown.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
 $apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $id = 1082038; // float | The recipe id.
 $default_css = true; // bool | Whether the default CSS should be added to the response.
@@ -5057,7 +5603,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -5084,10 +5630,17 @@ Visualize a recipe's taste information as HTML including CSS. You can play aroun
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
 $apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $ingredient_list = 'ingredient_list_example'; // string | The ingredient list of the recipe, one ingredient per line.
 
@@ -5113,7 +5666,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../../README.md#apiKeyScheme)
 
 ### HTTP request headers
 
@@ -5140,10 +5693,17 @@ Get a recipe's taste. The tastes supported are sweet, salty, sour, bitter, savor
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
 $apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $id = 69095; // float | The recipe id.
 
@@ -5169,7 +5729,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyScheme](../../README.md#apiKeyScheme)
 
 ### HTTP request headers
 

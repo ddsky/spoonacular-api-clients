@@ -41,7 +41,7 @@ class ApiClient {
          * @type {Array.<String>}
          */
         this.authentications = {
-            'apiKeyScheme': {type: 'apiKey', 'in': 'query', name: 'api_key'}
+            'apiKeyScheme': {type: 'apiKey', 'in': 'query', name: 'apiKey'}
         }
 
         /**

@@ -67,6 +67,9 @@ import qualified Prelude as P
 -- * Parameter newtypes
 
 
+-- ** AValue
+newtype AValue = AValue { unAValue :: [A.Value] } deriving (P.Eq, P.Show, A.ToJSON)
+
 -- ** AddChildren
 newtype AddChildren = AddChildren { unAddChildren :: Bool } deriving (P.Eq, P.Show)
 
@@ -1230,7 +1233,7 @@ instance AuthMethod AuthApiKeyApiKeyScheme where
   applyAuthMethod _ a@(AuthApiKeyApiKeyScheme secret) req =
     P.pure $
     if (P.typeOf a `P.elem` rAuthTypes req)
-      then req `setQuery` toQuery ("api_key", Just secret)
+      then req `setQuery` toQuery ("apiKey", Just secret)
            & L.over rAuthTypesL (P.filter (/= P.typeOf a))
       else req
 

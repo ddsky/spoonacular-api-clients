@@ -50,6 +50,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
             var apiInstance = new DefaultApi();
             var username = dsky;  // string | The username.
             var hash = 4b5v4398573406;  // string | The private hash for the username.
@@ -188,6 +193,6 @@ Class | Method | HTTP request | Description
 ### apiKeyScheme
 
 - **Type**: API key
-- **API key parameter name**: api_key
+- **API key parameter name**: apiKey
 - **Location**: URL query string
 

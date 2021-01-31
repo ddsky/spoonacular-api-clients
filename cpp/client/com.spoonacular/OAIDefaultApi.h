@@ -25,6 +25,7 @@
 #include "com.spoonacular.client.model\OAIInline_object_9.h"
 #include "com.spoonacular.client.model\OAINumber.h"
 #include "com.spoonacular.client.model\OAIObject.h"
+#include <QList>
 #include <QString>
 
 #include <QObject>
@@ -53,7 +54,7 @@ public:
     void autocompleteRecipeSearch(const QString& query, const OAINumber& number);
     void classifyCuisine(const QString& title, const QString& ingredient_list);
     void classifyGroceryProduct(const OAIInline_object_9& oai_inline_object_9, const QString& locale);
-    void classifyGroceryProductBulk(const OAIObject& body, const QString& locale);
+    void classifyGroceryProductBulk(const QList<OAIObject>& oai_object, const QString& locale);
     void clearMealPlanDay(const QString& username, const QString& date, const QString& hash, const OAIInline_object_10& oai_inline_object_10);
     void computeGlycemicLoad(const OAIObject& body);
     void connectUser(const OAIObject& body);

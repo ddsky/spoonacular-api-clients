@@ -74,7 +74,7 @@ update_params_with_auth(Cfg, Headers, QS) ->
     AuthSettings = maps:get(auth, Cfg, #{}),
     Auths = #{ 'apiKeyScheme' =>
                 #{type => 'apiKey',
-                  key => <<"api_key">>,
+                  key => <<"apiKey">>,
                   in => query}},
 
     maps:fold(fun(AuthName, #{type := _Type,

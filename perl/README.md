@@ -282,6 +282,11 @@ use Data::Dumper;
 use WWW::OpenAPIClient::;
 
 my $api_instance = WWW::OpenAPIClient::->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'apiKey' => 'Bearer'},
 );
 
 my $username = dsky; # string | The username.
@@ -411,6 +416,6 @@ Class | Method | HTTP request | Description
 ## apiKeyScheme
 
 - **Type**: API key
-- **API key parameter name**: api_key
+- **API key parameter name**: apiKey
 - **Location**: URL query string
 
