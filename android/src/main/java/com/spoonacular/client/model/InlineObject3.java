@@ -8,57 +8,44 @@ import com.google.gson.annotations.SerializedName;
 @ApiModel(description = "")
 public class InlineObject3  {
   
-  @SerializedName("instructions")
-  private String instructions = null;
-  @SerializedName("view")
-  private String view = null;
-  @SerializedName("defaultCss")
-  private Boolean defaultCss = null;
-  @SerializedName("showBacklink")
-  private Boolean showBacklink = null;
+  @SerializedName("username")
+  private String username = null;
+  @SerializedName("date")
+  private String date = null;
+  @SerializedName("hash")
+  private String hash = null;
 
   /**
-   * The recipe's instructions.
+   * The username.
    **/
-  @ApiModelProperty(required = true, value = "The recipe's instructions.")
-  public String getInstructions() {
-    return instructions;
+  @ApiModelProperty(required = true, value = "The username.")
+  public String getUsername() {
+    return username;
   }
-  public void setInstructions(String instructions) {
-    this.instructions = instructions;
-  }
-
-  /**
-   * How to visualize the equipment, either \"grid\" or \"list\".
-   **/
-  @ApiModelProperty(value = "How to visualize the equipment, either \"grid\" or \"list\".")
-  public String getView() {
-    return view;
-  }
-  public void setView(String view) {
-    this.view = view;
+  public void setUsername(String username) {
+    this.username = username;
   }
 
   /**
-   * Whether the default CSS should be added to the response.
+   * The date in the format yyyy-mm-dd.
    **/
-  @ApiModelProperty(value = "Whether the default CSS should be added to the response.")
-  public Boolean getDefaultCss() {
-    return defaultCss;
+  @ApiModelProperty(required = true, value = "The date in the format yyyy-mm-dd.")
+  public String getDate() {
+    return date;
   }
-  public void setDefaultCss(Boolean defaultCss) {
-    this.defaultCss = defaultCss;
+  public void setDate(String date) {
+    this.date = date;
   }
 
   /**
-   * Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
+   * The private hash for the username.
    **/
-  @ApiModelProperty(value = "Whether to show a backlink to spoonacular. If set false, this call counts against your quota.")
-  public Boolean getShowBacklink() {
-    return showBacklink;
+  @ApiModelProperty(required = true, value = "The private hash for the username.")
+  public String getHash() {
+    return hash;
   }
-  public void setShowBacklink(Boolean showBacklink) {
-    this.showBacklink = showBacklink;
+  public void setHash(String hash) {
+    this.hash = hash;
   }
 
 
@@ -71,19 +58,17 @@ public class InlineObject3  {
       return false;
     }
     InlineObject3 inlineObject3 = (InlineObject3) o;
-    return (this.instructions == null ? inlineObject3.instructions == null : this.instructions.equals(inlineObject3.instructions)) &&
-        (this.view == null ? inlineObject3.view == null : this.view.equals(inlineObject3.view)) &&
-        (this.defaultCss == null ? inlineObject3.defaultCss == null : this.defaultCss.equals(inlineObject3.defaultCss)) &&
-        (this.showBacklink == null ? inlineObject3.showBacklink == null : this.showBacklink.equals(inlineObject3.showBacklink));
+    return (this.username == null ? inlineObject3.username == null : this.username.equals(inlineObject3.username)) &&
+        (this.date == null ? inlineObject3.date == null : this.date.equals(inlineObject3.date)) &&
+        (this.hash == null ? inlineObject3.hash == null : this.hash.equals(inlineObject3.hash));
   }
 
   @Override
   public int hashCode() {
     int result = 17;
-    result = 31 * result + (this.instructions == null ? 0: this.instructions.hashCode());
-    result = 31 * result + (this.view == null ? 0: this.view.hashCode());
-    result = 31 * result + (this.defaultCss == null ? 0: this.defaultCss.hashCode());
-    result = 31 * result + (this.showBacklink == null ? 0: this.showBacklink.hashCode());
+    result = 31 * result + (this.username == null ? 0: this.username.hashCode());
+    result = 31 * result + (this.date == null ? 0: this.date.hashCode());
+    result = 31 * result + (this.hash == null ? 0: this.hash.hashCode());
     return result;
   }
 
@@ -92,10 +77,9 @@ public class InlineObject3  {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineObject3 {\n");
     
-    sb.append("  instructions: ").append(instructions).append("\n");
-    sb.append("  view: ").append(view).append("\n");
-    sb.append("  defaultCss: ").append(defaultCss).append("\n");
-    sb.append("  showBacklink: ").append(showBacklink).append("\n");
+    sb.append("  username: ").append(username).append("\n");
+    sb.append("  date: ").append(date).append("\n");
+    sb.append("  hash: ").append(hash).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

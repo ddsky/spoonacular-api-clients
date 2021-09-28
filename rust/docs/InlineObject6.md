@@ -4,8 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**title** | **String** | The title of the recipe. | 
-**ingredient_list** | **String** | The ingredient list of the recipe, one ingredient per line (separate lines with \\n). | 
+**username** | **String** | The username. | 
+**start_date** | **String** | The start date in the format yyyy-mm-dd. | 
+**end_date** | **String** | The end date in the format yyyy-mm-dd. | 
+**hash** | **String** | The private hash for the username. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

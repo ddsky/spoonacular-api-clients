@@ -2,7 +2,7 @@
 
 OpenapiClient - the Ruby gem for the spoonacular API
 
-The spoonacular Nutrition, Recipe, and Food API allows you to access over 380,000 recipes, thousands of ingredients, 80,000 food products, and 100,000 menu items. Our food ontology and semantic recipe search engine makes it possible to search for recipes using natural language queries, such as \"gluten free brownies without sugar\" or \"low fat vegan cupcakes.\" You can automatically calculate the nutritional information for any recipe, analyze recipe costs, visualize ingredient lists, find recipes for what's in your fridge, find recipes based on special diets, nutritional requirements, or favorite ingredients, classify recipes into types and cuisines, convert ingredient amounts, or even compute an entire meal plan. With our powerful API, you can create many kinds of food and especially nutrition apps.
+The spoonacular Nutrition, Recipe, and Food API allows you to access over 380,000 recipes, thousands of ingredients, 800,000 food products, and 100,000 menu items. Our food ontology and semantic recipe search engine makes it possible to search for recipes using natural language queries, such as \"gluten free brownies without sugar\" or \"low fat vegan cupcakes.\" You can automatically calculate the nutritional information for any recipe, analyze recipe costs, visualize ingredient lists, find recipes for what's in your fridge, find recipes based on special diets, nutritional requirements, or favorite ingredients, classify recipes into types and cuisines, convert ingredient amounts, or even compute an entire meal plan. With our powerful API, you can create many kinds of food and especially nutrition apps.
 
 Special diets/dietary requirements currently available include: vegan, vegetarian, pescetarian, gluten free, grain free, dairy free, high protein, whole 30, low sodium, low carb, Paleo, ketogenic, FODMAP, and Primal.
 
@@ -67,17 +67,20 @@ OpenapiClient.configure do |config|
   #config.api_key_prefix['apiKey'] = 'Bearer'
 end
 
-api_instance = OpenapiClient::DefaultApi.new
-username = 'dsky' # String | The username.
-hash = '4b5v4398573406' # String | The private hash for the username.
-inline_object11 = OpenapiClient::InlineObject11.new # InlineObject11 | 
+api_instance = OpenapiClient::IngredientsApi.new
+opts = {
+  query: 'burger', # String | The (natural language) search query.
+  number: 10, # Integer | The maximum number of items to return (between 1 and 100). Defaults to 10.
+  meta_information: false, # Boolean | Whether to return more meta information about the ingredients.
+  intolerances: 'egg' # String | A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
+}
 
 begin
-  #Add to Meal Plan
-  result = api_instance.add_to_meal_plan(username, hash, inline_object11)
+  #Autocomplete Ingredient Search
+  result = api_instance.autocomplete_ingredient_search(opts)
   p result
 rescue OpenapiClient::ApiError => e
-  puts "Exception when calling DefaultApi->add_to_meal_plan: #{e}"
+  puts "Exception when calling IngredientsApi->autocomplete_ingredient_search: #{e}"
 end
 
 ```
@@ -88,97 +91,233 @@ All URIs are relative to *https://api.spoonacular.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*OpenapiClient::DefaultApi* | [**add_to_meal_plan**](docs/DefaultApi.md#add_to_meal_plan) | **POST** /mealplanner/{username}/items | Add to Meal Plan
-*OpenapiClient::DefaultApi* | [**add_to_shopping_list**](docs/DefaultApi.md#add_to_shopping_list) | **POST** /mealplanner/{username}/shopping-list/items | Add to Shopping List
-*OpenapiClient::DefaultApi* | [**analyze_a_recipe_search_query**](docs/DefaultApi.md#analyze_a_recipe_search_query) | **GET** /recipes/queries/analyze | Analyze a Recipe Search Query
-*OpenapiClient::DefaultApi* | [**analyze_recipe_instructions**](docs/DefaultApi.md#analyze_recipe_instructions) | **POST** /recipes/analyzeInstructions | Analyze Recipe Instructions
-*OpenapiClient::DefaultApi* | [**autocomplete_ingredient_search**](docs/DefaultApi.md#autocomplete_ingredient_search) | **GET** /food/ingredients/autocomplete | Autocomplete Ingredient Search
-*OpenapiClient::DefaultApi* | [**autocomplete_menu_item_search**](docs/DefaultApi.md#autocomplete_menu_item_search) | **GET** /food/menuItems/suggest | Autocomplete Menu Item Search
-*OpenapiClient::DefaultApi* | [**autocomplete_product_search**](docs/DefaultApi.md#autocomplete_product_search) | **GET** /food/products/suggest | Autocomplete Product Search
-*OpenapiClient::DefaultApi* | [**autocomplete_recipe_search**](docs/DefaultApi.md#autocomplete_recipe_search) | **GET** /recipes/autocomplete | Autocomplete Recipe Search
-*OpenapiClient::DefaultApi* | [**classify_cuisine**](docs/DefaultApi.md#classify_cuisine) | **POST** /recipes/cuisine | Classify Cuisine
-*OpenapiClient::DefaultApi* | [**classify_grocery_product**](docs/DefaultApi.md#classify_grocery_product) | **POST** /food/products/classify | Classify Grocery Product
-*OpenapiClient::DefaultApi* | [**classify_grocery_product_bulk**](docs/DefaultApi.md#classify_grocery_product_bulk) | **POST** /food/products/classifyBatch | Classify Grocery Product Bulk
-*OpenapiClient::DefaultApi* | [**clear_meal_plan_day**](docs/DefaultApi.md#clear_meal_plan_day) | **DELETE** /mealplanner/{username}/day/{date} | Clear Meal Plan Day
-*OpenapiClient::DefaultApi* | [**compute_glycemic_load**](docs/DefaultApi.md#compute_glycemic_load) | **POST** /food/ingredients/glycemicLoad | Compute Glycemic Load
-*OpenapiClient::DefaultApi* | [**connect_user**](docs/DefaultApi.md#connect_user) | **POST** /users/connect | Connect User
-*OpenapiClient::DefaultApi* | [**convert_amounts**](docs/DefaultApi.md#convert_amounts) | **GET** /recipes/convert | Convert Amounts
-*OpenapiClient::DefaultApi* | [**create_recipe_card**](docs/DefaultApi.md#create_recipe_card) | **POST** /recipes/visualizeRecipe | Create Recipe Card
-*OpenapiClient::DefaultApi* | [**delete_from_meal_plan**](docs/DefaultApi.md#delete_from_meal_plan) | **DELETE** /mealplanner/{username}/items/{id} | Delete from Meal Plan
-*OpenapiClient::DefaultApi* | [**delete_from_shopping_list**](docs/DefaultApi.md#delete_from_shopping_list) | **DELETE** /mealplanner/{username}/shopping-list/items/{id} | Delete from Shopping List
-*OpenapiClient::DefaultApi* | [**detect_food_in_text**](docs/DefaultApi.md#detect_food_in_text) | **POST** /food/detect | Detect Food in Text
-*OpenapiClient::DefaultApi* | [**extract_recipe_from_website**](docs/DefaultApi.md#extract_recipe_from_website) | **GET** /recipes/extract | Extract Recipe from Website
-*OpenapiClient::DefaultApi* | [**generate_meal_plan**](docs/DefaultApi.md#generate_meal_plan) | **GET** /mealplanner/generate | Generate Meal Plan
-*OpenapiClient::DefaultApi* | [**generate_shopping_list**](docs/DefaultApi.md#generate_shopping_list) | **POST** /mealplanner/{username}/shopping-list/{start-date}/{end-date} | Generate Shopping List
-*OpenapiClient::DefaultApi* | [**get_a_random_food_joke**](docs/DefaultApi.md#get_a_random_food_joke) | **GET** /food/jokes/random | Get a Random Food Joke
-*OpenapiClient::DefaultApi* | [**get_analyzed_recipe_instructions**](docs/DefaultApi.md#get_analyzed_recipe_instructions) | **GET** /recipes/{id}/analyzedInstructions | Get Analyzed Recipe Instructions
-*OpenapiClient::DefaultApi* | [**get_comparable_products**](docs/DefaultApi.md#get_comparable_products) | **GET** /food/products/upc/{upc}/comparable | Get Comparable Products
-*OpenapiClient::DefaultApi* | [**get_conversation_suggests**](docs/DefaultApi.md#get_conversation_suggests) | **GET** /food/converse/suggest | Get Conversation Suggests
-*OpenapiClient::DefaultApi* | [**get_dish_pairing_for_wine**](docs/DefaultApi.md#get_dish_pairing_for_wine) | **GET** /food/wine/dishes | Get Dish Pairing for Wine
-*OpenapiClient::DefaultApi* | [**get_ingredient_information**](docs/DefaultApi.md#get_ingredient_information) | **GET** /food/ingredients/{id}/information | Get Ingredient Information
-*OpenapiClient::DefaultApi* | [**get_ingredient_substitutes**](docs/DefaultApi.md#get_ingredient_substitutes) | **GET** /food/ingredients/substitutes | Get Ingredient Substitutes
-*OpenapiClient::DefaultApi* | [**get_ingredient_substitutes_by_id**](docs/DefaultApi.md#get_ingredient_substitutes_by_id) | **GET** /food/ingredients/{id}/substitutes | Get Ingredient Substitutes by ID
-*OpenapiClient::DefaultApi* | [**get_meal_plan_template**](docs/DefaultApi.md#get_meal_plan_template) | **GET** /mealplanner/{username}/templates/{id} | Get Meal Plan Template
-*OpenapiClient::DefaultApi* | [**get_meal_plan_templates**](docs/DefaultApi.md#get_meal_plan_templates) | **GET** /mealplanner/{username}/templates | Get Meal Plan Templates
-*OpenapiClient::DefaultApi* | [**get_meal_plan_week**](docs/DefaultApi.md#get_meal_plan_week) | **GET** /mealplanner/{username}/week/{start-date} | Get Meal Plan Week
-*OpenapiClient::DefaultApi* | [**get_menu_item_information**](docs/DefaultApi.md#get_menu_item_information) | **GET** /food/menuItems/{id} | Get Menu Item Information
-*OpenapiClient::DefaultApi* | [**get_product_information**](docs/DefaultApi.md#get_product_information) | **GET** /food/products/{id} | Get Product Information
-*OpenapiClient::DefaultApi* | [**get_random_food_trivia**](docs/DefaultApi.md#get_random_food_trivia) | **GET** /food/trivia/random | Get Random Food Trivia
-*OpenapiClient::DefaultApi* | [**get_random_recipes**](docs/DefaultApi.md#get_random_recipes) | **GET** /recipes/random | Get Random Recipes
-*OpenapiClient::DefaultApi* | [**get_recipe_equipment_by_id**](docs/DefaultApi.md#get_recipe_equipment_by_id) | **GET** /recipes/{id}/equipmentWidget.json | Get Recipe Equipment by ID
-*OpenapiClient::DefaultApi* | [**get_recipe_information**](docs/DefaultApi.md#get_recipe_information) | **GET** /recipes/{id}/information | Get Recipe Information
-*OpenapiClient::DefaultApi* | [**get_recipe_information_bulk**](docs/DefaultApi.md#get_recipe_information_bulk) | **GET** /recipes/informationBulk | Get Recipe Information Bulk
-*OpenapiClient::DefaultApi* | [**get_recipe_ingredients_by_id**](docs/DefaultApi.md#get_recipe_ingredients_by_id) | **GET** /recipes/{id}/ingredientWidget.json | Get Recipe Ingredients by ID
-*OpenapiClient::DefaultApi* | [**get_recipe_nutrition_widget_by_id**](docs/DefaultApi.md#get_recipe_nutrition_widget_by_id) | **GET** /recipes/{id}/nutritionWidget.json | Get Recipe Nutrition Widget by ID
-*OpenapiClient::DefaultApi* | [**get_recipe_price_breakdown_by_id**](docs/DefaultApi.md#get_recipe_price_breakdown_by_id) | **GET** /recipes/{id}/priceBreakdownWidget.json | Get Recipe Price Breakdown by ID
-*OpenapiClient::DefaultApi* | [**get_recipe_taste_by_id**](docs/DefaultApi.md#get_recipe_taste_by_id) | **GET** /recipes/{id}/tasteWidget.json | Get Recipe Taste by ID
-*OpenapiClient::DefaultApi* | [**get_shopping_list**](docs/DefaultApi.md#get_shopping_list) | **GET** /mealplanner/{username}/shopping-list | Get Shopping List
-*OpenapiClient::DefaultApi* | [**get_similar_recipes**](docs/DefaultApi.md#get_similar_recipes) | **GET** /recipes/{id}/similar | Get Similar Recipes
-*OpenapiClient::DefaultApi* | [**get_wine_description**](docs/DefaultApi.md#get_wine_description) | **GET** /food/wine/description | Get Wine Description
-*OpenapiClient::DefaultApi* | [**get_wine_pairing**](docs/DefaultApi.md#get_wine_pairing) | **GET** /food/wine/pairing | Get Wine Pairing
-*OpenapiClient::DefaultApi* | [**get_wine_recommendation**](docs/DefaultApi.md#get_wine_recommendation) | **GET** /food/wine/recommendation | Get Wine Recommendation
-*OpenapiClient::DefaultApi* | [**guess_nutrition_by_dish_name**](docs/DefaultApi.md#guess_nutrition_by_dish_name) | **GET** /recipes/guessNutrition | Guess Nutrition by Dish Name
-*OpenapiClient::DefaultApi* | [**image_analysis_by_url**](docs/DefaultApi.md#image_analysis_by_url) | **GET** /food/images/analyze | Image Analysis by URL
-*OpenapiClient::DefaultApi* | [**image_classification_by_url**](docs/DefaultApi.md#image_classification_by_url) | **GET** /food/images/classify | Image Classification by URL
-*OpenapiClient::DefaultApi* | [**ingredient_search**](docs/DefaultApi.md#ingredient_search) | **GET** /food/ingredients/search | Ingredient Search
-*OpenapiClient::DefaultApi* | [**map_ingredients_to_grocery_products**](docs/DefaultApi.md#map_ingredients_to_grocery_products) | **POST** /food/ingredients/map | Map Ingredients to Grocery Products
-*OpenapiClient::DefaultApi* | [**parse_ingredients**](docs/DefaultApi.md#parse_ingredients) | **POST** /recipes/parseIngredients | Parse Ingredients
-*OpenapiClient::DefaultApi* | [**quick_answer**](docs/DefaultApi.md#quick_answer) | **GET** /recipes/quickAnswer | Quick Answer
-*OpenapiClient::DefaultApi* | [**search_all_food**](docs/DefaultApi.md#search_all_food) | **GET** /food/search | Search All Food
-*OpenapiClient::DefaultApi* | [**search_custom_foods**](docs/DefaultApi.md#search_custom_foods) | **GET** /food/customFoods/search | Search Custom Foods
-*OpenapiClient::DefaultApi* | [**search_food_videos**](docs/DefaultApi.md#search_food_videos) | **GET** /food/videos/search | Search Food Videos
-*OpenapiClient::DefaultApi* | [**search_grocery_products**](docs/DefaultApi.md#search_grocery_products) | **GET** /food/products/search | Search Grocery Products
-*OpenapiClient::DefaultApi* | [**search_grocery_products_by_upc**](docs/DefaultApi.md#search_grocery_products_by_upc) | **GET** /food/products/upc/{upc} | Search Grocery Products by UPC
-*OpenapiClient::DefaultApi* | [**search_menu_items**](docs/DefaultApi.md#search_menu_items) | **GET** /food/menuItems/search | Search Menu Items
-*OpenapiClient::DefaultApi* | [**search_recipes**](docs/DefaultApi.md#search_recipes) | **GET** /recipes/complexSearch | Search Recipes
-*OpenapiClient::DefaultApi* | [**search_recipes_by_ingredients**](docs/DefaultApi.md#search_recipes_by_ingredients) | **GET** /recipes/findByIngredients | Search Recipes by Ingredients
-*OpenapiClient::DefaultApi* | [**search_recipes_by_nutrients**](docs/DefaultApi.md#search_recipes_by_nutrients) | **GET** /recipes/findByNutrients | Search Recipes by Nutrients
-*OpenapiClient::DefaultApi* | [**search_site_content**](docs/DefaultApi.md#search_site_content) | **GET** /food/site/search | Search Site Content
-*OpenapiClient::DefaultApi* | [**summarize_recipe**](docs/DefaultApi.md#summarize_recipe) | **GET** /recipes/{id}/summary | Summarize Recipe
-*OpenapiClient::DefaultApi* | [**talk_to_chatbot**](docs/DefaultApi.md#talk_to_chatbot) | **GET** /food/converse | Talk to Chatbot
-*OpenapiClient::DefaultApi* | [**visualize_equipment**](docs/DefaultApi.md#visualize_equipment) | **POST** /recipes/visualizeEquipment | Visualize Equipment
-*OpenapiClient::DefaultApi* | [**visualize_ingredients**](docs/DefaultApi.md#visualize_ingredients) | **POST** /recipes/visualizeIngredients | Visualize Ingredients
-*OpenapiClient::DefaultApi* | [**visualize_menu_item_nutrition_by_id**](docs/DefaultApi.md#visualize_menu_item_nutrition_by_id) | **GET** /food/menuItems/{id}/nutritionWidget | Visualize Menu Item Nutrition by ID
-*OpenapiClient::DefaultApi* | [**visualize_price_breakdown**](docs/DefaultApi.md#visualize_price_breakdown) | **POST** /recipes/visualizePriceEstimator | Visualize Price Breakdown
-*OpenapiClient::DefaultApi* | [**visualize_product_nutrition_by_id**](docs/DefaultApi.md#visualize_product_nutrition_by_id) | **GET** /food/products/{id}/nutritionWidget | Visualize Product Nutrition by ID
-*OpenapiClient::DefaultApi* | [**visualize_recipe_equipment_by_id**](docs/DefaultApi.md#visualize_recipe_equipment_by_id) | **GET** /recipes/{id}/equipmentWidget | Visualize Recipe Equipment by ID
-*OpenapiClient::DefaultApi* | [**visualize_recipe_ingredients_by_id**](docs/DefaultApi.md#visualize_recipe_ingredients_by_id) | **GET** /recipes/{id}/ingredientWidget | Visualize Recipe Ingredients by ID
-*OpenapiClient::DefaultApi* | [**visualize_recipe_nutrition**](docs/DefaultApi.md#visualize_recipe_nutrition) | **POST** /recipes/visualizeNutrition | Visualize Recipe Nutrition
-*OpenapiClient::DefaultApi* | [**visualize_recipe_nutrition_by_id**](docs/DefaultApi.md#visualize_recipe_nutrition_by_id) | **GET** /recipes/{id}/nutritionWidget | Visualize Recipe Nutrition by ID
-*OpenapiClient::DefaultApi* | [**visualize_recipe_price_breakdown_by_id**](docs/DefaultApi.md#visualize_recipe_price_breakdown_by_id) | **GET** /recipes/{id}/priceBreakdownWidget | Visualize Recipe Price Breakdown by ID
-*OpenapiClient::DefaultApi* | [**visualize_recipe_taste**](docs/DefaultApi.md#visualize_recipe_taste) | **POST** /recipes/visualizeTaste | Visualize Recipe Taste
-*OpenapiClient::DefaultApi* | [**visualize_recipe_taste_by_id**](docs/DefaultApi.md#visualize_recipe_taste_by_id) | **GET** /recipes/{id}/tasteWidget | Visualize Recipe Taste by ID
+*OpenapiClient::IngredientsApi* | [**autocomplete_ingredient_search**](docs/IngredientsApi.md#autocomplete_ingredient_search) | **GET** /food/ingredients/autocomplete | Autocomplete Ingredient Search
+*OpenapiClient::IngredientsApi* | [**compute_ingredient_amount**](docs/IngredientsApi.md#compute_ingredient_amount) | **GET** /food/ingredients/{id}/amount | Compute Ingredient Amount
+*OpenapiClient::IngredientsApi* | [**get_ingredient_information**](docs/IngredientsApi.md#get_ingredient_information) | **GET** /food/ingredients/{id}/information | Get Ingredient Information
+*OpenapiClient::IngredientsApi* | [**get_ingredient_substitutes**](docs/IngredientsApi.md#get_ingredient_substitutes) | **GET** /food/ingredients/substitutes | Get Ingredient Substitutes
+*OpenapiClient::IngredientsApi* | [**get_ingredient_substitutes_by_id**](docs/IngredientsApi.md#get_ingredient_substitutes_by_id) | **GET** /food/ingredients/{id}/substitutes | Get Ingredient Substitutes by ID
+*OpenapiClient::IngredientsApi* | [**ingredient_search**](docs/IngredientsApi.md#ingredient_search) | **GET** /food/ingredients/search | Ingredient Search
+*OpenapiClient::IngredientsApi* | [**ingredients_by_id_image**](docs/IngredientsApi.md#ingredients_by_id_image) | **GET** /recipes/{id}/ingredientWidget.png | Ingredients by ID Image
+*OpenapiClient::IngredientsApi* | [**map_ingredients_to_grocery_products**](docs/IngredientsApi.md#map_ingredients_to_grocery_products) | **POST** /food/ingredients/map | Map Ingredients to Grocery Products
+*OpenapiClient::IngredientsApi* | [**visualize_ingredients**](docs/IngredientsApi.md#visualize_ingredients) | **POST** /recipes/visualizeIngredients | Ingredients Widget
+*OpenapiClient::MealPlanningApi* | [**add_to_meal_plan**](docs/MealPlanningApi.md#add_to_meal_plan) | **POST** /mealplanner/{username}/items | Add to Meal Plan
+*OpenapiClient::MealPlanningApi* | [**add_to_shopping_list**](docs/MealPlanningApi.md#add_to_shopping_list) | **POST** /mealplanner/{username}/shopping-list/items | Add to Shopping List
+*OpenapiClient::MealPlanningApi* | [**clear_meal_plan_day**](docs/MealPlanningApi.md#clear_meal_plan_day) | **DELETE** /mealplanner/{username}/day/{date} | Clear Meal Plan Day
+*OpenapiClient::MealPlanningApi* | [**connect_user**](docs/MealPlanningApi.md#connect_user) | **POST** /users/connect | Connect User
+*OpenapiClient::MealPlanningApi* | [**delete_from_meal_plan**](docs/MealPlanningApi.md#delete_from_meal_plan) | **DELETE** /mealplanner/{username}/items/{id} | Delete from Meal Plan
+*OpenapiClient::MealPlanningApi* | [**delete_from_shopping_list**](docs/MealPlanningApi.md#delete_from_shopping_list) | **DELETE** /mealplanner/{username}/shopping-list/items/{id} | Delete from Shopping List
+*OpenapiClient::MealPlanningApi* | [**generate_meal_plan**](docs/MealPlanningApi.md#generate_meal_plan) | **GET** /mealplanner/generate | Generate Meal Plan
+*OpenapiClient::MealPlanningApi* | [**generate_shopping_list**](docs/MealPlanningApi.md#generate_shopping_list) | **POST** /mealplanner/{username}/shopping-list/{start-date}/{end-date} | Generate Shopping List
+*OpenapiClient::MealPlanningApi* | [**get_meal_plan_template**](docs/MealPlanningApi.md#get_meal_plan_template) | **GET** /mealplanner/{username}/templates/{id} | Get Meal Plan Template
+*OpenapiClient::MealPlanningApi* | [**get_meal_plan_templates**](docs/MealPlanningApi.md#get_meal_plan_templates) | **GET** /mealplanner/{username}/templates | Get Meal Plan Templates
+*OpenapiClient::MealPlanningApi* | [**get_meal_plan_week**](docs/MealPlanningApi.md#get_meal_plan_week) | **GET** /mealplanner/{username}/week/{start-date} | Get Meal Plan Week
+*OpenapiClient::MealPlanningApi* | [**get_shopping_list**](docs/MealPlanningApi.md#get_shopping_list) | **GET** /mealplanner/{username}/shopping-list | Get Shopping List
+*OpenapiClient::MenuItemsApi* | [**autocomplete_menu_item_search**](docs/MenuItemsApi.md#autocomplete_menu_item_search) | **GET** /food/menuItems/suggest | Autocomplete Menu Item Search
+*OpenapiClient::MenuItemsApi* | [**get_menu_item_information**](docs/MenuItemsApi.md#get_menu_item_information) | **GET** /food/menuItems/{id} | Get Menu Item Information
+*OpenapiClient::MenuItemsApi* | [**menu_item_nutrition_by_id_image**](docs/MenuItemsApi.md#menu_item_nutrition_by_id_image) | **GET** /food/menuItems/{id}/nutritionWidget.png | Menu Item Nutrition by ID Image
+*OpenapiClient::MenuItemsApi* | [**menu_item_nutrition_label_image**](docs/MenuItemsApi.md#menu_item_nutrition_label_image) | **GET** /food/menuItems/{id}/nutritionLabel.png | Menu Item Nutrition Label Image
+*OpenapiClient::MenuItemsApi* | [**menu_item_nutrition_label_widget**](docs/MenuItemsApi.md#menu_item_nutrition_label_widget) | **GET** /food/menuItems/{id}/nutritionLabel | Menu Item Nutrition Label Widget
+*OpenapiClient::MenuItemsApi* | [**search_menu_items**](docs/MenuItemsApi.md#search_menu_items) | **GET** /food/menuItems/search | Search Menu Items
+*OpenapiClient::MenuItemsApi* | [**visualize_menu_item_nutrition_by_id**](docs/MenuItemsApi.md#visualize_menu_item_nutrition_by_id) | **GET** /food/menuItems/{id}/nutritionWidget | Menu Item Nutrition by ID Widget
+*OpenapiClient::MiscApi* | [**detect_food_in_text**](docs/MiscApi.md#detect_food_in_text) | **POST** /food/detect | Detect Food in Text
+*OpenapiClient::MiscApi* | [**get_a_random_food_joke**](docs/MiscApi.md#get_a_random_food_joke) | **GET** /food/jokes/random | Random Food Joke
+*OpenapiClient::MiscApi* | [**get_conversation_suggests**](docs/MiscApi.md#get_conversation_suggests) | **GET** /food/converse/suggest | Conversation Suggests
+*OpenapiClient::MiscApi* | [**get_random_food_trivia**](docs/MiscApi.md#get_random_food_trivia) | **GET** /food/trivia/random | Random Food Trivia
+*OpenapiClient::MiscApi* | [**image_analysis_by_url**](docs/MiscApi.md#image_analysis_by_url) | **GET** /food/images/analyze | Image Analysis by URL
+*OpenapiClient::MiscApi* | [**image_classification_by_url**](docs/MiscApi.md#image_classification_by_url) | **GET** /food/images/classify | Image Classification by URL
+*OpenapiClient::MiscApi* | [**search_all_food**](docs/MiscApi.md#search_all_food) | **GET** /food/search | Search All Food
+*OpenapiClient::MiscApi* | [**search_custom_foods**](docs/MiscApi.md#search_custom_foods) | **GET** /food/customFoods/search | Search Custom Foods
+*OpenapiClient::MiscApi* | [**search_food_videos**](docs/MiscApi.md#search_food_videos) | **GET** /food/videos/search | Search Food Videos
+*OpenapiClient::MiscApi* | [**search_site_content**](docs/MiscApi.md#search_site_content) | **GET** /food/site/search | Search Site Content
+*OpenapiClient::MiscApi* | [**talk_to_chatbot**](docs/MiscApi.md#talk_to_chatbot) | **GET** /food/converse | Talk to Chatbot
+*OpenapiClient::ProductsApi* | [**autocomplete_product_search**](docs/ProductsApi.md#autocomplete_product_search) | **GET** /food/products/suggest | Autocomplete Product Search
+*OpenapiClient::ProductsApi* | [**classify_grocery_product**](docs/ProductsApi.md#classify_grocery_product) | **POST** /food/products/classify | Classify Grocery Product
+*OpenapiClient::ProductsApi* | [**classify_grocery_product_bulk**](docs/ProductsApi.md#classify_grocery_product_bulk) | **POST** /food/products/classifyBatch | Classify Grocery Product Bulk
+*OpenapiClient::ProductsApi* | [**get_comparable_products**](docs/ProductsApi.md#get_comparable_products) | **GET** /food/products/upc/{upc}/comparable | Get Comparable Products
+*OpenapiClient::ProductsApi* | [**get_product_information**](docs/ProductsApi.md#get_product_information) | **GET** /food/products/{id} | Get Product Information
+*OpenapiClient::ProductsApi* | [**product_nutrition_by_id_image**](docs/ProductsApi.md#product_nutrition_by_id_image) | **GET** /food/products/{id}/nutritionWidget.png | Product Nutrition by ID Image
+*OpenapiClient::ProductsApi* | [**product_nutrition_label_image**](docs/ProductsApi.md#product_nutrition_label_image) | **GET** /food/products/{id}/nutritionLabel.png | Product Nutrition Label Image
+*OpenapiClient::ProductsApi* | [**product_nutrition_label_widget**](docs/ProductsApi.md#product_nutrition_label_widget) | **GET** /food/products/{id}/nutritionLabel | Product Nutrition Label Widget
+*OpenapiClient::ProductsApi* | [**search_grocery_products**](docs/ProductsApi.md#search_grocery_products) | **GET** /food/products/search | Search Grocery Products
+*OpenapiClient::ProductsApi* | [**search_grocery_products_by_upc**](docs/ProductsApi.md#search_grocery_products_by_upc) | **GET** /food/products/upc/{upc} | Search Grocery Products by UPC
+*OpenapiClient::ProductsApi* | [**visualize_product_nutrition_by_id**](docs/ProductsApi.md#visualize_product_nutrition_by_id) | **GET** /food/products/{id}/nutritionWidget | Product Nutrition by ID Widget
+*OpenapiClient::RecipesApi* | [**analyze_a_recipe_search_query**](docs/RecipesApi.md#analyze_a_recipe_search_query) | **GET** /recipes/queries/analyze | Analyze a Recipe Search Query
+*OpenapiClient::RecipesApi* | [**analyze_recipe_instructions**](docs/RecipesApi.md#analyze_recipe_instructions) | **POST** /recipes/analyzeInstructions | Analyze Recipe Instructions
+*OpenapiClient::RecipesApi* | [**autocomplete_recipe_search**](docs/RecipesApi.md#autocomplete_recipe_search) | **GET** /recipes/autocomplete | Autocomplete Recipe Search
+*OpenapiClient::RecipesApi* | [**classify_cuisine**](docs/RecipesApi.md#classify_cuisine) | **POST** /recipes/cuisine | Classify Cuisine
+*OpenapiClient::RecipesApi* | [**compute_glycemic_load**](docs/RecipesApi.md#compute_glycemic_load) | **POST** /food/ingredients/glycemicLoad | Compute Glycemic Load
+*OpenapiClient::RecipesApi* | [**convert_amounts**](docs/RecipesApi.md#convert_amounts) | **GET** /recipes/convert | Convert Amounts
+*OpenapiClient::RecipesApi* | [**create_recipe_card**](docs/RecipesApi.md#create_recipe_card) | **POST** /recipes/visualizeRecipe | Create Recipe Card
+*OpenapiClient::RecipesApi* | [**equipment_by_id_image**](docs/RecipesApi.md#equipment_by_id_image) | **GET** /recipes/{id}/equipmentWidget.png | Equipment by ID Image
+*OpenapiClient::RecipesApi* | [**extract_recipe_from_website**](docs/RecipesApi.md#extract_recipe_from_website) | **GET** /recipes/extract | Extract Recipe from Website
+*OpenapiClient::RecipesApi* | [**get_analyzed_recipe_instructions**](docs/RecipesApi.md#get_analyzed_recipe_instructions) | **GET** /recipes/{id}/analyzedInstructions | Get Analyzed Recipe Instructions
+*OpenapiClient::RecipesApi* | [**get_random_recipes**](docs/RecipesApi.md#get_random_recipes) | **GET** /recipes/random | Get Random Recipes
+*OpenapiClient::RecipesApi* | [**get_recipe_equipment_by_id**](docs/RecipesApi.md#get_recipe_equipment_by_id) | **GET** /recipes/{id}/equipmentWidget.json | Equipment by ID
+*OpenapiClient::RecipesApi* | [**get_recipe_information**](docs/RecipesApi.md#get_recipe_information) | **GET** /recipes/{id}/information | Get Recipe Information
+*OpenapiClient::RecipesApi* | [**get_recipe_information_bulk**](docs/RecipesApi.md#get_recipe_information_bulk) | **GET** /recipes/informationBulk | Get Recipe Information Bulk
+*OpenapiClient::RecipesApi* | [**get_recipe_ingredients_by_id**](docs/RecipesApi.md#get_recipe_ingredients_by_id) | **GET** /recipes/{id}/ingredientWidget.json | Ingredients by ID
+*OpenapiClient::RecipesApi* | [**get_recipe_nutrition_widget_by_id**](docs/RecipesApi.md#get_recipe_nutrition_widget_by_id) | **GET** /recipes/{id}/nutritionWidget.json | Nutrition by ID
+*OpenapiClient::RecipesApi* | [**get_recipe_price_breakdown_by_id**](docs/RecipesApi.md#get_recipe_price_breakdown_by_id) | **GET** /recipes/{id}/priceBreakdownWidget.json | Price Breakdown by ID
+*OpenapiClient::RecipesApi* | [**get_recipe_taste_by_id**](docs/RecipesApi.md#get_recipe_taste_by_id) | **GET** /recipes/{id}/tasteWidget.json | Taste by ID
+*OpenapiClient::RecipesApi* | [**get_similar_recipes**](docs/RecipesApi.md#get_similar_recipes) | **GET** /recipes/{id}/similar | Get Similar Recipes
+*OpenapiClient::RecipesApi* | [**guess_nutrition_by_dish_name**](docs/RecipesApi.md#guess_nutrition_by_dish_name) | **GET** /recipes/guessNutrition | Guess Nutrition by Dish Name
+*OpenapiClient::RecipesApi* | [**ingredients_by_id_image**](docs/RecipesApi.md#ingredients_by_id_image) | **GET** /recipes/{id}/ingredientWidget.png | Ingredients by ID Image
+*OpenapiClient::RecipesApi* | [**parse_ingredients**](docs/RecipesApi.md#parse_ingredients) | **POST** /recipes/parseIngredients | Parse Ingredients
+*OpenapiClient::RecipesApi* | [**price_breakdown_by_id_image**](docs/RecipesApi.md#price_breakdown_by_id_image) | **GET** /recipes/{id}/priceBreakdownWidget.png | Price Breakdown by ID Image
+*OpenapiClient::RecipesApi* | [**quick_answer**](docs/RecipesApi.md#quick_answer) | **GET** /recipes/quickAnswer | Quick Answer
+*OpenapiClient::RecipesApi* | [**recipe_nutrition_by_id_image**](docs/RecipesApi.md#recipe_nutrition_by_id_image) | **GET** /recipes/{id}/nutritionWidget.png | Recipe Nutrition by ID Image
+*OpenapiClient::RecipesApi* | [**recipe_nutrition_label_image**](docs/RecipesApi.md#recipe_nutrition_label_image) | **GET** /recipes/{id}/nutritionLabel.png | Recipe Nutrition Label Image
+*OpenapiClient::RecipesApi* | [**recipe_nutrition_label_widget**](docs/RecipesApi.md#recipe_nutrition_label_widget) | **GET** /recipes/{id}/nutritionLabel | Recipe Nutrition Label Widget
+*OpenapiClient::RecipesApi* | [**recipe_taste_by_id_image**](docs/RecipesApi.md#recipe_taste_by_id_image) | **GET** /recipes/{id}/tasteWidget.png | Recipe Taste by ID Image
+*OpenapiClient::RecipesApi* | [**search_recipes**](docs/RecipesApi.md#search_recipes) | **GET** /recipes/complexSearch | Search Recipes
+*OpenapiClient::RecipesApi* | [**search_recipes_by_ingredients**](docs/RecipesApi.md#search_recipes_by_ingredients) | **GET** /recipes/findByIngredients | Search Recipes by Ingredients
+*OpenapiClient::RecipesApi* | [**search_recipes_by_nutrients**](docs/RecipesApi.md#search_recipes_by_nutrients) | **GET** /recipes/findByNutrients | Search Recipes by Nutrients
+*OpenapiClient::RecipesApi* | [**summarize_recipe**](docs/RecipesApi.md#summarize_recipe) | **GET** /recipes/{id}/summary | Summarize Recipe
+*OpenapiClient::RecipesApi* | [**visualize_equipment**](docs/RecipesApi.md#visualize_equipment) | **POST** /recipes/visualizeEquipment | Equipment Widget
+*OpenapiClient::RecipesApi* | [**visualize_price_breakdown**](docs/RecipesApi.md#visualize_price_breakdown) | **POST** /recipes/visualizePriceEstimator | Price Breakdown Widget
+*OpenapiClient::RecipesApi* | [**visualize_recipe_equipment_by_id**](docs/RecipesApi.md#visualize_recipe_equipment_by_id) | **GET** /recipes/{id}/equipmentWidget | Equipment by ID Widget
+*OpenapiClient::RecipesApi* | [**visualize_recipe_ingredients_by_id**](docs/RecipesApi.md#visualize_recipe_ingredients_by_id) | **GET** /recipes/{id}/ingredientWidget | Ingredients by ID Widget
+*OpenapiClient::RecipesApi* | [**visualize_recipe_nutrition**](docs/RecipesApi.md#visualize_recipe_nutrition) | **POST** /recipes/visualizeNutrition | Recipe Nutrition Widget
+*OpenapiClient::RecipesApi* | [**visualize_recipe_nutrition_by_id**](docs/RecipesApi.md#visualize_recipe_nutrition_by_id) | **GET** /recipes/{id}/nutritionWidget | Recipe Nutrition by ID Widget
+*OpenapiClient::RecipesApi* | [**visualize_recipe_price_breakdown_by_id**](docs/RecipesApi.md#visualize_recipe_price_breakdown_by_id) | **GET** /recipes/{id}/priceBreakdownWidget | Price Breakdown by ID Widget
+*OpenapiClient::RecipesApi* | [**visualize_recipe_taste**](docs/RecipesApi.md#visualize_recipe_taste) | **POST** /recipes/visualizeTaste | Recipe Taste Widget
+*OpenapiClient::RecipesApi* | [**visualize_recipe_taste_by_id**](docs/RecipesApi.md#visualize_recipe_taste_by_id) | **GET** /recipes/{id}/tasteWidget | Recipe Taste by ID Widget
+*OpenapiClient::WineApi* | [**get_dish_pairing_for_wine**](docs/WineApi.md#get_dish_pairing_for_wine) | **GET** /food/wine/dishes | Dish Pairing for Wine
+*OpenapiClient::WineApi* | [**get_wine_description**](docs/WineApi.md#get_wine_description) | **GET** /food/wine/description | Wine Description
+*OpenapiClient::WineApi* | [**get_wine_pairing**](docs/WineApi.md#get_wine_pairing) | **GET** /food/wine/pairing | Wine Pairing
+*OpenapiClient::WineApi* | [**get_wine_recommendation**](docs/WineApi.md#get_wine_recommendation) | **GET** /food/wine/recommendation | Wine Recommendation
 
 
 ## Documentation for Models
 
- - [OpenapiClient::InlineObject10](docs/InlineObject10.md)
- - [OpenapiClient::InlineObject11](docs/InlineObject11.md)
- - [OpenapiClient::InlineObject12](docs/InlineObject12.md)
- - [OpenapiClient::InlineObject13](docs/InlineObject13.md)
- - [OpenapiClient::InlineObject14](docs/InlineObject14.md)
- - [OpenapiClient::InlineObject15](docs/InlineObject15.md)
- - [OpenapiClient::InlineObject9](docs/InlineObject9.md)
+ - [OpenapiClient::FoodIngredientsMapProducts](docs/FoodIngredientsMapProducts.md)
+ - [OpenapiClient::InlineObject](docs/InlineObject.md)
+ - [OpenapiClient::InlineObject1](docs/InlineObject1.md)
+ - [OpenapiClient::InlineObject2](docs/InlineObject2.md)
+ - [OpenapiClient::InlineObject3](docs/InlineObject3.md)
+ - [OpenapiClient::InlineObject4](docs/InlineObject4.md)
+ - [OpenapiClient::InlineObject5](docs/InlineObject5.md)
+ - [OpenapiClient::InlineObject6](docs/InlineObject6.md)
+ - [OpenapiClient::InlineObject7](docs/InlineObject7.md)
+ - [OpenapiClient::InlineObject8](docs/InlineObject8.md)
+ - [OpenapiClient::InlineResponse200](docs/InlineResponse200.md)
+ - [OpenapiClient::InlineResponse2001](docs/InlineResponse2001.md)
+ - [OpenapiClient::InlineResponse20010](docs/InlineResponse20010.md)
+ - [OpenapiClient::InlineResponse20010Amount](docs/InlineResponse20010Amount.md)
+ - [OpenapiClient::InlineResponse20010AmountMetric](docs/InlineResponse20010AmountMetric.md)
+ - [OpenapiClient::InlineResponse20010Ingredients](docs/InlineResponse20010Ingredients.md)
+ - [OpenapiClient::InlineResponse20011](docs/InlineResponse20011.md)
+ - [OpenapiClient::InlineResponse20011Ingredients](docs/InlineResponse20011Ingredients.md)
+ - [OpenapiClient::InlineResponse20012](docs/InlineResponse20012.md)
+ - [OpenapiClient::InlineResponse20013](docs/InlineResponse20013.md)
+ - [OpenapiClient::InlineResponse20013Ingredients](docs/InlineResponse20013Ingredients.md)
+ - [OpenapiClient::InlineResponse20013Ingredients1](docs/InlineResponse20013Ingredients1.md)
+ - [OpenapiClient::InlineResponse20013ParsedInstructions](docs/InlineResponse20013ParsedInstructions.md)
+ - [OpenapiClient::InlineResponse20013Steps](docs/InlineResponse20013Steps.md)
+ - [OpenapiClient::InlineResponse20014](docs/InlineResponse20014.md)
+ - [OpenapiClient::InlineResponse20015](docs/InlineResponse20015.md)
+ - [OpenapiClient::InlineResponse20016](docs/InlineResponse20016.md)
+ - [OpenapiClient::InlineResponse20017](docs/InlineResponse20017.md)
+ - [OpenapiClient::InlineResponse20018](docs/InlineResponse20018.md)
+ - [OpenapiClient::InlineResponse20018Dishes](docs/InlineResponse20018Dishes.md)
+ - [OpenapiClient::InlineResponse20018Ingredients](docs/InlineResponse20018Ingredients.md)
+ - [OpenapiClient::InlineResponse20019](docs/InlineResponse20019.md)
+ - [OpenapiClient::InlineResponse2002](docs/InlineResponse2002.md)
+ - [OpenapiClient::InlineResponse20020](docs/InlineResponse20020.md)
+ - [OpenapiClient::InlineResponse20021](docs/InlineResponse20021.md)
+ - [OpenapiClient::InlineResponse20021Calories](docs/InlineResponse20021Calories.md)
+ - [OpenapiClient::InlineResponse20021CaloriesConfidenceRange95Percent](docs/InlineResponse20021CaloriesConfidenceRange95Percent.md)
+ - [OpenapiClient::InlineResponse20022](docs/InlineResponse20022.md)
+ - [OpenapiClient::InlineResponse20022Nutrition](docs/InlineResponse20022Nutrition.md)
+ - [OpenapiClient::InlineResponse20023](docs/InlineResponse20023.md)
+ - [OpenapiClient::InlineResponse20023Ingredients](docs/InlineResponse20023Ingredients.md)
+ - [OpenapiClient::InlineResponse20024](docs/InlineResponse20024.md)
+ - [OpenapiClient::InlineResponse20025](docs/InlineResponse20025.md)
+ - [OpenapiClient::InlineResponse20025Results](docs/InlineResponse20025Results.md)
+ - [OpenapiClient::InlineResponse20026](docs/InlineResponse20026.md)
+ - [OpenapiClient::InlineResponse20027](docs/InlineResponse20027.md)
+ - [OpenapiClient::InlineResponse20028](docs/InlineResponse20028.md)
+ - [OpenapiClient::InlineResponse20028Ingredients](docs/InlineResponse20028Ingredients.md)
+ - [OpenapiClient::InlineResponse20028Nutrition](docs/InlineResponse20028Nutrition.md)
+ - [OpenapiClient::InlineResponse20028Servings](docs/InlineResponse20028Servings.md)
+ - [OpenapiClient::InlineResponse20029](docs/InlineResponse20029.md)
+ - [OpenapiClient::InlineResponse20029CustomFoods](docs/InlineResponse20029CustomFoods.md)
+ - [OpenapiClient::InlineResponse2003](docs/InlineResponse2003.md)
+ - [OpenapiClient::InlineResponse20030](docs/InlineResponse20030.md)
+ - [OpenapiClient::InlineResponse20030Ingredients](docs/InlineResponse20030Ingredients.md)
+ - [OpenapiClient::InlineResponse20031](docs/InlineResponse20031.md)
+ - [OpenapiClient::InlineResponse20031ComparableProducts](docs/InlineResponse20031ComparableProducts.md)
+ - [OpenapiClient::InlineResponse20031ComparableProductsProtein](docs/InlineResponse20031ComparableProductsProtein.md)
+ - [OpenapiClient::InlineResponse20032](docs/InlineResponse20032.md)
+ - [OpenapiClient::InlineResponse20032Results](docs/InlineResponse20032Results.md)
+ - [OpenapiClient::InlineResponse20033](docs/InlineResponse20033.md)
+ - [OpenapiClient::InlineResponse20034](docs/InlineResponse20034.md)
+ - [OpenapiClient::InlineResponse20035](docs/InlineResponse20035.md)
+ - [OpenapiClient::InlineResponse20035MenuItems](docs/InlineResponse20035MenuItems.md)
+ - [OpenapiClient::InlineResponse20036](docs/InlineResponse20036.md)
+ - [OpenapiClient::InlineResponse20037](docs/InlineResponse20037.md)
+ - [OpenapiClient::InlineResponse20037Nutrients](docs/InlineResponse20037Nutrients.md)
+ - [OpenapiClient::InlineResponse20038](docs/InlineResponse20038.md)
+ - [OpenapiClient::InlineResponse20038Days](docs/InlineResponse20038Days.md)
+ - [OpenapiClient::InlineResponse20038Items](docs/InlineResponse20038Items.md)
+ - [OpenapiClient::InlineResponse20038NutritionSummary](docs/InlineResponse20038NutritionSummary.md)
+ - [OpenapiClient::InlineResponse20038NutritionSummaryNutrients](docs/InlineResponse20038NutritionSummaryNutrients.md)
+ - [OpenapiClient::InlineResponse20038Value](docs/InlineResponse20038Value.md)
+ - [OpenapiClient::InlineResponse20039](docs/InlineResponse20039.md)
+ - [OpenapiClient::InlineResponse2003ExtendedIngredients](docs/InlineResponse2003ExtendedIngredients.md)
+ - [OpenapiClient::InlineResponse2003Measures](docs/InlineResponse2003Measures.md)
+ - [OpenapiClient::InlineResponse2003MeasuresMetric](docs/InlineResponse2003MeasuresMetric.md)
+ - [OpenapiClient::InlineResponse2003WinePairing](docs/InlineResponse2003WinePairing.md)
+ - [OpenapiClient::InlineResponse2003WinePairingProductMatches](docs/InlineResponse2003WinePairingProductMatches.md)
+ - [OpenapiClient::InlineResponse2004](docs/InlineResponse2004.md)
+ - [OpenapiClient::InlineResponse20040](docs/InlineResponse20040.md)
+ - [OpenapiClient::InlineResponse20040Days](docs/InlineResponse20040Days.md)
+ - [OpenapiClient::InlineResponse20040Items](docs/InlineResponse20040Items.md)
+ - [OpenapiClient::InlineResponse20040Value](docs/InlineResponse20040Value.md)
+ - [OpenapiClient::InlineResponse20041](docs/InlineResponse20041.md)
+ - [OpenapiClient::InlineResponse20041Aisles](docs/InlineResponse20041Aisles.md)
+ - [OpenapiClient::InlineResponse20041Items](docs/InlineResponse20041Items.md)
+ - [OpenapiClient::InlineResponse20041Measures](docs/InlineResponse20041Measures.md)
+ - [OpenapiClient::InlineResponse20042](docs/InlineResponse20042.md)
+ - [OpenapiClient::InlineResponse20043](docs/InlineResponse20043.md)
+ - [OpenapiClient::InlineResponse20044](docs/InlineResponse20044.md)
+ - [OpenapiClient::InlineResponse20044ProductMatches](docs/InlineResponse20044ProductMatches.md)
+ - [OpenapiClient::InlineResponse20045](docs/InlineResponse20045.md)
+ - [OpenapiClient::InlineResponse20046](docs/InlineResponse20046.md)
+ - [OpenapiClient::InlineResponse20046RecommendedWines](docs/InlineResponse20046RecommendedWines.md)
+ - [OpenapiClient::InlineResponse20047](docs/InlineResponse20047.md)
+ - [OpenapiClient::InlineResponse20048](docs/InlineResponse20048.md)
+ - [OpenapiClient::InlineResponse20048Category](docs/InlineResponse20048Category.md)
+ - [OpenapiClient::InlineResponse20048Nutrition](docs/InlineResponse20048Nutrition.md)
+ - [OpenapiClient::InlineResponse20048NutritionCalories](docs/InlineResponse20048NutritionCalories.md)
+ - [OpenapiClient::InlineResponse20048NutritionCaloriesConfidenceRange95Percent](docs/InlineResponse20048NutritionCaloriesConfidenceRange95Percent.md)
+ - [OpenapiClient::InlineResponse20048Recipes](docs/InlineResponse20048Recipes.md)
+ - [OpenapiClient::InlineResponse20049](docs/InlineResponse20049.md)
+ - [OpenapiClient::InlineResponse2005](docs/InlineResponse2005.md)
+ - [OpenapiClient::InlineResponse20050](docs/InlineResponse20050.md)
+ - [OpenapiClient::InlineResponse20051](docs/InlineResponse20051.md)
+ - [OpenapiClient::InlineResponse20052](docs/InlineResponse20052.md)
+ - [OpenapiClient::InlineResponse20052Results](docs/InlineResponse20052Results.md)
+ - [OpenapiClient::InlineResponse20052SearchResults](docs/InlineResponse20052SearchResults.md)
+ - [OpenapiClient::InlineResponse20053](docs/InlineResponse20053.md)
+ - [OpenapiClient::InlineResponse20053Videos](docs/InlineResponse20053Videos.md)
+ - [OpenapiClient::InlineResponse20054](docs/InlineResponse20054.md)
+ - [OpenapiClient::InlineResponse20055](docs/InlineResponse20055.md)
+ - [OpenapiClient::InlineResponse20056](docs/InlineResponse20056.md)
+ - [OpenapiClient::InlineResponse20056Suggests](docs/InlineResponse20056Suggests.md)
+ - [OpenapiClient::InlineResponse2006](docs/InlineResponse2006.md)
+ - [OpenapiClient::InlineResponse2006Recipes](docs/InlineResponse2006Recipes.md)
+ - [OpenapiClient::InlineResponse2007](docs/InlineResponse2007.md)
+ - [OpenapiClient::InlineResponse2008](docs/InlineResponse2008.md)
+ - [OpenapiClient::InlineResponse2009](docs/InlineResponse2009.md)
+ - [OpenapiClient::InlineResponse200Results](docs/InlineResponse200Results.md)
+ - [OpenapiClient::RecipesFindByIngredientsMissedIngredients](docs/RecipesFindByIngredientsMissedIngredients.md)
+ - [OpenapiClient::RecipesParseIngredientsEstimatedCost](docs/RecipesParseIngredientsEstimatedCost.md)
+ - [OpenapiClient::RecipesParseIngredientsNutrition](docs/RecipesParseIngredientsNutrition.md)
+ - [OpenapiClient::RecipesParseIngredientsNutritionCaloricBreakdown](docs/RecipesParseIngredientsNutritionCaloricBreakdown.md)
+ - [OpenapiClient::RecipesParseIngredientsNutritionNutrients](docs/RecipesParseIngredientsNutritionNutrients.md)
+ - [OpenapiClient::RecipesParseIngredientsNutritionProperties](docs/RecipesParseIngredientsNutritionProperties.md)
+ - [OpenapiClient::RecipesParseIngredientsNutritionWeightPerServing](docs/RecipesParseIngredientsNutritionWeightPerServing.md)
 
 
 ## Documentation for Authorization

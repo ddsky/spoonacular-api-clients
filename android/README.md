@@ -58,20 +58,21 @@ Please follow the [installation](#installation) instruction and execute the foll
 
 ```java
 
-import com.spoonacular.DefaultApi;
+import com.spoonacular.IngredientsApi;
 
-public class DefaultApiExample {
+public class IngredientsApiExample {
 
     public static void main(String[] args) {
-        DefaultApi apiInstance = new DefaultApi();
-        String username = dsky; // String | The username.
-        String hash = 4b5v4398573406; // String | The private hash for the username.
-        InlineObject11 inlineObject11 = new InlineObject11(); // InlineObject11 | 
+        IngredientsApi apiInstance = new IngredientsApi();
+        String query = burger; // String | The (natural language) search query.
+        Integer number = 10; // Integer | The maximum number of items to return (between 1 and 100). Defaults to 10.
+        Boolean metaInformation = false; // Boolean | Whether to return more meta information about the ingredients.
+        String intolerances = egg; // String | A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
         try {
-            Object result = apiInstance.addToMealPlan(username, hash, inlineObject11);
+            List<InlineResponse20024> result = apiInstance.autocompleteIngredientSearch(query, number, metaInformation, intolerances);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#addToMealPlan");
+            System.err.println("Exception when calling IngredientsApi#autocompleteIngredientSearch");
             e.printStackTrace();
         }
     }
@@ -85,99 +86,108 @@ All URIs are relative to *https://api.spoonacular.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*DefaultApi* | [**addToMealPlan**](docs/DefaultApi.md#addToMealPlan) | **POST** /mealplanner/{username}/items | Add to Meal Plan
-*DefaultApi* | [**addToShoppingList**](docs/DefaultApi.md#addToShoppingList) | **POST** /mealplanner/{username}/shopping-list/items | Add to Shopping List
-*DefaultApi* | [**analyzeARecipeSearchQuery**](docs/DefaultApi.md#analyzeARecipeSearchQuery) | **GET** /recipes/queries/analyze | Analyze a Recipe Search Query
-*DefaultApi* | [**analyzeRecipeInstructions**](docs/DefaultApi.md#analyzeRecipeInstructions) | **POST** /recipes/analyzeInstructions | Analyze Recipe Instructions
-*DefaultApi* | [**autocompleteIngredientSearch**](docs/DefaultApi.md#autocompleteIngredientSearch) | **GET** /food/ingredients/autocomplete | Autocomplete Ingredient Search
-*DefaultApi* | [**autocompleteMenuItemSearch**](docs/DefaultApi.md#autocompleteMenuItemSearch) | **GET** /food/menuItems/suggest | Autocomplete Menu Item Search
-*DefaultApi* | [**autocompleteProductSearch**](docs/DefaultApi.md#autocompleteProductSearch) | **GET** /food/products/suggest | Autocomplete Product Search
-*DefaultApi* | [**autocompleteRecipeSearch**](docs/DefaultApi.md#autocompleteRecipeSearch) | **GET** /recipes/autocomplete | Autocomplete Recipe Search
-*DefaultApi* | [**classifyCuisine**](docs/DefaultApi.md#classifyCuisine) | **POST** /recipes/cuisine | Classify Cuisine
-*DefaultApi* | [**classifyGroceryProduct**](docs/DefaultApi.md#classifyGroceryProduct) | **POST** /food/products/classify | Classify Grocery Product
-*DefaultApi* | [**classifyGroceryProductBulk**](docs/DefaultApi.md#classifyGroceryProductBulk) | **POST** /food/products/classifyBatch | Classify Grocery Product Bulk
-*DefaultApi* | [**clearMealPlanDay**](docs/DefaultApi.md#clearMealPlanDay) | **DELETE** /mealplanner/{username}/day/{date} | Clear Meal Plan Day
-*DefaultApi* | [**computeGlycemicLoad**](docs/DefaultApi.md#computeGlycemicLoad) | **POST** /food/ingredients/glycemicLoad | Compute Glycemic Load
-*DefaultApi* | [**connectUser**](docs/DefaultApi.md#connectUser) | **POST** /users/connect | Connect User
-*DefaultApi* | [**convertAmounts**](docs/DefaultApi.md#convertAmounts) | **GET** /recipes/convert | Convert Amounts
-*DefaultApi* | [**createRecipeCard**](docs/DefaultApi.md#createRecipeCard) | **POST** /recipes/visualizeRecipe | Create Recipe Card
-*DefaultApi* | [**deleteFromMealPlan**](docs/DefaultApi.md#deleteFromMealPlan) | **DELETE** /mealplanner/{username}/items/{id} | Delete from Meal Plan
-*DefaultApi* | [**deleteFromShoppingList**](docs/DefaultApi.md#deleteFromShoppingList) | **DELETE** /mealplanner/{username}/shopping-list/items/{id} | Delete from Shopping List
-*DefaultApi* | [**detectFoodInText**](docs/DefaultApi.md#detectFoodInText) | **POST** /food/detect | Detect Food in Text
-*DefaultApi* | [**extractRecipeFromWebsite**](docs/DefaultApi.md#extractRecipeFromWebsite) | **GET** /recipes/extract | Extract Recipe from Website
-*DefaultApi* | [**generateMealPlan**](docs/DefaultApi.md#generateMealPlan) | **GET** /mealplanner/generate | Generate Meal Plan
-*DefaultApi* | [**generateShoppingList**](docs/DefaultApi.md#generateShoppingList) | **POST** /mealplanner/{username}/shopping-list/{start-date}/{end-date} | Generate Shopping List
-*DefaultApi* | [**getARandomFoodJoke**](docs/DefaultApi.md#getARandomFoodJoke) | **GET** /food/jokes/random | Get a Random Food Joke
-*DefaultApi* | [**getAnalyzedRecipeInstructions**](docs/DefaultApi.md#getAnalyzedRecipeInstructions) | **GET** /recipes/{id}/analyzedInstructions | Get Analyzed Recipe Instructions
-*DefaultApi* | [**getComparableProducts**](docs/DefaultApi.md#getComparableProducts) | **GET** /food/products/upc/{upc}/comparable | Get Comparable Products
-*DefaultApi* | [**getConversationSuggests**](docs/DefaultApi.md#getConversationSuggests) | **GET** /food/converse/suggest | Get Conversation Suggests
-*DefaultApi* | [**getDishPairingForWine**](docs/DefaultApi.md#getDishPairingForWine) | **GET** /food/wine/dishes | Get Dish Pairing for Wine
-*DefaultApi* | [**getIngredientInformation**](docs/DefaultApi.md#getIngredientInformation) | **GET** /food/ingredients/{id}/information | Get Ingredient Information
-*DefaultApi* | [**getIngredientSubstitutes**](docs/DefaultApi.md#getIngredientSubstitutes) | **GET** /food/ingredients/substitutes | Get Ingredient Substitutes
-*DefaultApi* | [**getIngredientSubstitutesByID**](docs/DefaultApi.md#getIngredientSubstitutesByID) | **GET** /food/ingredients/{id}/substitutes | Get Ingredient Substitutes by ID
-*DefaultApi* | [**getMealPlanTemplate**](docs/DefaultApi.md#getMealPlanTemplate) | **GET** /mealplanner/{username}/templates/{id} | Get Meal Plan Template
-*DefaultApi* | [**getMealPlanTemplates**](docs/DefaultApi.md#getMealPlanTemplates) | **GET** /mealplanner/{username}/templates | Get Meal Plan Templates
-*DefaultApi* | [**getMealPlanWeek**](docs/DefaultApi.md#getMealPlanWeek) | **GET** /mealplanner/{username}/week/{start-date} | Get Meal Plan Week
-*DefaultApi* | [**getMenuItemInformation**](docs/DefaultApi.md#getMenuItemInformation) | **GET** /food/menuItems/{id} | Get Menu Item Information
-*DefaultApi* | [**getProductInformation**](docs/DefaultApi.md#getProductInformation) | **GET** /food/products/{id} | Get Product Information
-*DefaultApi* | [**getRandomFoodTrivia**](docs/DefaultApi.md#getRandomFoodTrivia) | **GET** /food/trivia/random | Get Random Food Trivia
-*DefaultApi* | [**getRandomRecipes**](docs/DefaultApi.md#getRandomRecipes) | **GET** /recipes/random | Get Random Recipes
-*DefaultApi* | [**getRecipeEquipmentByID**](docs/DefaultApi.md#getRecipeEquipmentByID) | **GET** /recipes/{id}/equipmentWidget.json | Get Recipe Equipment by ID
-*DefaultApi* | [**getRecipeInformation**](docs/DefaultApi.md#getRecipeInformation) | **GET** /recipes/{id}/information | Get Recipe Information
-*DefaultApi* | [**getRecipeInformationBulk**](docs/DefaultApi.md#getRecipeInformationBulk) | **GET** /recipes/informationBulk | Get Recipe Information Bulk
-*DefaultApi* | [**getRecipeIngredientsByID**](docs/DefaultApi.md#getRecipeIngredientsByID) | **GET** /recipes/{id}/ingredientWidget.json | Get Recipe Ingredients by ID
-*DefaultApi* | [**getRecipeNutritionWidgetByID**](docs/DefaultApi.md#getRecipeNutritionWidgetByID) | **GET** /recipes/{id}/nutritionWidget.json | Get Recipe Nutrition Widget by ID
-*DefaultApi* | [**getRecipePriceBreakdownByID**](docs/DefaultApi.md#getRecipePriceBreakdownByID) | **GET** /recipes/{id}/priceBreakdownWidget.json | Get Recipe Price Breakdown by ID
-*DefaultApi* | [**getRecipeTasteByID**](docs/DefaultApi.md#getRecipeTasteByID) | **GET** /recipes/{id}/tasteWidget.json | Get Recipe Taste by ID
-*DefaultApi* | [**getShoppingList**](docs/DefaultApi.md#getShoppingList) | **GET** /mealplanner/{username}/shopping-list | Get Shopping List
-*DefaultApi* | [**getSimilarRecipes**](docs/DefaultApi.md#getSimilarRecipes) | **GET** /recipes/{id}/similar | Get Similar Recipes
-*DefaultApi* | [**getWineDescription**](docs/DefaultApi.md#getWineDescription) | **GET** /food/wine/description | Get Wine Description
-*DefaultApi* | [**getWinePairing**](docs/DefaultApi.md#getWinePairing) | **GET** /food/wine/pairing | Get Wine Pairing
-*DefaultApi* | [**getWineRecommendation**](docs/DefaultApi.md#getWineRecommendation) | **GET** /food/wine/recommendation | Get Wine Recommendation
-*DefaultApi* | [**guessNutritionByDishName**](docs/DefaultApi.md#guessNutritionByDishName) | **GET** /recipes/guessNutrition | Guess Nutrition by Dish Name
-*DefaultApi* | [**imageAnalysisByURL**](docs/DefaultApi.md#imageAnalysisByURL) | **GET** /food/images/analyze | Image Analysis by URL
-*DefaultApi* | [**imageClassificationByURL**](docs/DefaultApi.md#imageClassificationByURL) | **GET** /food/images/classify | Image Classification by URL
-*DefaultApi* | [**ingredientSearch**](docs/DefaultApi.md#ingredientSearch) | **GET** /food/ingredients/search | Ingredient Search
-*DefaultApi* | [**mapIngredientsToGroceryProducts**](docs/DefaultApi.md#mapIngredientsToGroceryProducts) | **POST** /food/ingredients/map | Map Ingredients to Grocery Products
-*DefaultApi* | [**parseIngredients**](docs/DefaultApi.md#parseIngredients) | **POST** /recipes/parseIngredients | Parse Ingredients
-*DefaultApi* | [**quickAnswer**](docs/DefaultApi.md#quickAnswer) | **GET** /recipes/quickAnswer | Quick Answer
-*DefaultApi* | [**searchAllFood**](docs/DefaultApi.md#searchAllFood) | **GET** /food/search | Search All Food
-*DefaultApi* | [**searchCustomFoods**](docs/DefaultApi.md#searchCustomFoods) | **GET** /food/customFoods/search | Search Custom Foods
-*DefaultApi* | [**searchFoodVideos**](docs/DefaultApi.md#searchFoodVideos) | **GET** /food/videos/search | Search Food Videos
-*DefaultApi* | [**searchGroceryProducts**](docs/DefaultApi.md#searchGroceryProducts) | **GET** /food/products/search | Search Grocery Products
-*DefaultApi* | [**searchGroceryProductsByUPC**](docs/DefaultApi.md#searchGroceryProductsByUPC) | **GET** /food/products/upc/{upc} | Search Grocery Products by UPC
-*DefaultApi* | [**searchMenuItems**](docs/DefaultApi.md#searchMenuItems) | **GET** /food/menuItems/search | Search Menu Items
-*DefaultApi* | [**searchRecipes**](docs/DefaultApi.md#searchRecipes) | **GET** /recipes/complexSearch | Search Recipes
-*DefaultApi* | [**searchRecipesByIngredients**](docs/DefaultApi.md#searchRecipesByIngredients) | **GET** /recipes/findByIngredients | Search Recipes by Ingredients
-*DefaultApi* | [**searchRecipesByNutrients**](docs/DefaultApi.md#searchRecipesByNutrients) | **GET** /recipes/findByNutrients | Search Recipes by Nutrients
-*DefaultApi* | [**searchSiteContent**](docs/DefaultApi.md#searchSiteContent) | **GET** /food/site/search | Search Site Content
-*DefaultApi* | [**summarizeRecipe**](docs/DefaultApi.md#summarizeRecipe) | **GET** /recipes/{id}/summary | Summarize Recipe
-*DefaultApi* | [**talkToChatbot**](docs/DefaultApi.md#talkToChatbot) | **GET** /food/converse | Talk to Chatbot
-*DefaultApi* | [**visualizeEquipment**](docs/DefaultApi.md#visualizeEquipment) | **POST** /recipes/visualizeEquipment | Visualize Equipment
-*DefaultApi* | [**visualizeIngredients**](docs/DefaultApi.md#visualizeIngredients) | **POST** /recipes/visualizeIngredients | Visualize Ingredients
-*DefaultApi* | [**visualizeMenuItemNutritionByID**](docs/DefaultApi.md#visualizeMenuItemNutritionByID) | **GET** /food/menuItems/{id}/nutritionWidget | Visualize Menu Item Nutrition by ID
-*DefaultApi* | [**visualizePriceBreakdown**](docs/DefaultApi.md#visualizePriceBreakdown) | **POST** /recipes/visualizePriceEstimator | Visualize Price Breakdown
-*DefaultApi* | [**visualizeProductNutritionByID**](docs/DefaultApi.md#visualizeProductNutritionByID) | **GET** /food/products/{id}/nutritionWidget | Visualize Product Nutrition by ID
-*DefaultApi* | [**visualizeRecipeEquipmentByID**](docs/DefaultApi.md#visualizeRecipeEquipmentByID) | **GET** /recipes/{id}/equipmentWidget | Visualize Recipe Equipment by ID
-*DefaultApi* | [**visualizeRecipeIngredientsByID**](docs/DefaultApi.md#visualizeRecipeIngredientsByID) | **GET** /recipes/{id}/ingredientWidget | Visualize Recipe Ingredients by ID
-*DefaultApi* | [**visualizeRecipeNutrition**](docs/DefaultApi.md#visualizeRecipeNutrition) | **POST** /recipes/visualizeNutrition | Visualize Recipe Nutrition
-*DefaultApi* | [**visualizeRecipeNutritionByID**](docs/DefaultApi.md#visualizeRecipeNutritionByID) | **GET** /recipes/{id}/nutritionWidget | Visualize Recipe Nutrition by ID
-*DefaultApi* | [**visualizeRecipePriceBreakdownByID**](docs/DefaultApi.md#visualizeRecipePriceBreakdownByID) | **GET** /recipes/{id}/priceBreakdownWidget | Visualize Recipe Price Breakdown by ID
-*DefaultApi* | [**visualizeRecipeTaste**](docs/DefaultApi.md#visualizeRecipeTaste) | **POST** /recipes/visualizeTaste | Visualize Recipe Taste
-*DefaultApi* | [**visualizeRecipeTasteByID**](docs/DefaultApi.md#visualizeRecipeTasteByID) | **GET** /recipes/{id}/tasteWidget | Visualize Recipe Taste by ID
+*IngredientsApi* | [**autocompleteIngredientSearch**](docs/IngredientsApi.md#autocompleteIngredientSearch) | **GET** /food/ingredients/autocomplete | Autocomplete Ingredient Search
+*IngredientsApi* | [**computeIngredientAmount**](docs/IngredientsApi.md#computeIngredientAmount) | **GET** /food/ingredients/{id}/amount | Compute Ingredient Amount
+*IngredientsApi* | [**getIngredientInformation**](docs/IngredientsApi.md#getIngredientInformation) | **GET** /food/ingredients/{id}/information | Get Ingredient Information
+*IngredientsApi* | [**getIngredientSubstitutes**](docs/IngredientsApi.md#getIngredientSubstitutes) | **GET** /food/ingredients/substitutes | Get Ingredient Substitutes
+*IngredientsApi* | [**getIngredientSubstitutesByID**](docs/IngredientsApi.md#getIngredientSubstitutesByID) | **GET** /food/ingredients/{id}/substitutes | Get Ingredient Substitutes by ID
+*IngredientsApi* | [**ingredientSearch**](docs/IngredientsApi.md#ingredientSearch) | **GET** /food/ingredients/search | Ingredient Search
+*IngredientsApi* | [**ingredientsByIDImage**](docs/IngredientsApi.md#ingredientsByIDImage) | **GET** /recipes/{id}/ingredientWidget.png | Ingredients by ID Image
+*IngredientsApi* | [**mapIngredientsToGroceryProducts**](docs/IngredientsApi.md#mapIngredientsToGroceryProducts) | **POST** /food/ingredients/map | Map Ingredients to Grocery Products
+*IngredientsApi* | [**visualizeIngredients**](docs/IngredientsApi.md#visualizeIngredients) | **POST** /recipes/visualizeIngredients | Ingredients Widget
+*MealPlanningApi* | [**addToMealPlan**](docs/MealPlanningApi.md#addToMealPlan) | **POST** /mealplanner/{username}/items | Add to Meal Plan
+*MealPlanningApi* | [**addToShoppingList**](docs/MealPlanningApi.md#addToShoppingList) | **POST** /mealplanner/{username}/shopping-list/items | Add to Shopping List
+*MealPlanningApi* | [**clearMealPlanDay**](docs/MealPlanningApi.md#clearMealPlanDay) | **DELETE** /mealplanner/{username}/day/{date} | Clear Meal Plan Day
+*MealPlanningApi* | [**connectUser**](docs/MealPlanningApi.md#connectUser) | **POST** /users/connect | Connect User
+*MealPlanningApi* | [**deleteFromMealPlan**](docs/MealPlanningApi.md#deleteFromMealPlan) | **DELETE** /mealplanner/{username}/items/{id} | Delete from Meal Plan
+*MealPlanningApi* | [**deleteFromShoppingList**](docs/MealPlanningApi.md#deleteFromShoppingList) | **DELETE** /mealplanner/{username}/shopping-list/items/{id} | Delete from Shopping List
+*MealPlanningApi* | [**generateMealPlan**](docs/MealPlanningApi.md#generateMealPlan) | **GET** /mealplanner/generate | Generate Meal Plan
+*MealPlanningApi* | [**generateShoppingList**](docs/MealPlanningApi.md#generateShoppingList) | **POST** /mealplanner/{username}/shopping-list/{start-date}/{end-date} | Generate Shopping List
+*MealPlanningApi* | [**getMealPlanTemplate**](docs/MealPlanningApi.md#getMealPlanTemplate) | **GET** /mealplanner/{username}/templates/{id} | Get Meal Plan Template
+*MealPlanningApi* | [**getMealPlanTemplates**](docs/MealPlanningApi.md#getMealPlanTemplates) | **GET** /mealplanner/{username}/templates | Get Meal Plan Templates
+*MealPlanningApi* | [**getMealPlanWeek**](docs/MealPlanningApi.md#getMealPlanWeek) | **GET** /mealplanner/{username}/week/{start-date} | Get Meal Plan Week
+*MealPlanningApi* | [**getShoppingList**](docs/MealPlanningApi.md#getShoppingList) | **GET** /mealplanner/{username}/shopping-list | Get Shopping List
+*MenuItemsApi* | [**autocompleteMenuItemSearch**](docs/MenuItemsApi.md#autocompleteMenuItemSearch) | **GET** /food/menuItems/suggest | Autocomplete Menu Item Search
+*MenuItemsApi* | [**getMenuItemInformation**](docs/MenuItemsApi.md#getMenuItemInformation) | **GET** /food/menuItems/{id} | Get Menu Item Information
+*MenuItemsApi* | [**menuItemNutritionByIDImage**](docs/MenuItemsApi.md#menuItemNutritionByIDImage) | **GET** /food/menuItems/{id}/nutritionWidget.png | Menu Item Nutrition by ID Image
+*MenuItemsApi* | [**menuItemNutritionLabelImage**](docs/MenuItemsApi.md#menuItemNutritionLabelImage) | **GET** /food/menuItems/{id}/nutritionLabel.png | Menu Item Nutrition Label Image
+*MenuItemsApi* | [**menuItemNutritionLabelWidget**](docs/MenuItemsApi.md#menuItemNutritionLabelWidget) | **GET** /food/menuItems/{id}/nutritionLabel | Menu Item Nutrition Label Widget
+*MenuItemsApi* | [**searchMenuItems**](docs/MenuItemsApi.md#searchMenuItems) | **GET** /food/menuItems/search | Search Menu Items
+*MenuItemsApi* | [**visualizeMenuItemNutritionByID**](docs/MenuItemsApi.md#visualizeMenuItemNutritionByID) | **GET** /food/menuItems/{id}/nutritionWidget | Menu Item Nutrition by ID Widget
+*MiscApi* | [**detectFoodInText**](docs/MiscApi.md#detectFoodInText) | **POST** /food/detect | Detect Food in Text
+*MiscApi* | [**getARandomFoodJoke**](docs/MiscApi.md#getARandomFoodJoke) | **GET** /food/jokes/random | Random Food Joke
+*MiscApi* | [**getConversationSuggests**](docs/MiscApi.md#getConversationSuggests) | **GET** /food/converse/suggest | Conversation Suggests
+*MiscApi* | [**getRandomFoodTrivia**](docs/MiscApi.md#getRandomFoodTrivia) | **GET** /food/trivia/random | Random Food Trivia
+*MiscApi* | [**imageAnalysisByURL**](docs/MiscApi.md#imageAnalysisByURL) | **GET** /food/images/analyze | Image Analysis by URL
+*MiscApi* | [**imageClassificationByURL**](docs/MiscApi.md#imageClassificationByURL) | **GET** /food/images/classify | Image Classification by URL
+*MiscApi* | [**searchAllFood**](docs/MiscApi.md#searchAllFood) | **GET** /food/search | Search All Food
+*MiscApi* | [**searchCustomFoods**](docs/MiscApi.md#searchCustomFoods) | **GET** /food/customFoods/search | Search Custom Foods
+*MiscApi* | [**searchFoodVideos**](docs/MiscApi.md#searchFoodVideos) | **GET** /food/videos/search | Search Food Videos
+*MiscApi* | [**searchSiteContent**](docs/MiscApi.md#searchSiteContent) | **GET** /food/site/search | Search Site Content
+*MiscApi* | [**talkToChatbot**](docs/MiscApi.md#talkToChatbot) | **GET** /food/converse | Talk to Chatbot
+*ProductsApi* | [**autocompleteProductSearch**](docs/ProductsApi.md#autocompleteProductSearch) | **GET** /food/products/suggest | Autocomplete Product Search
+*ProductsApi* | [**classifyGroceryProduct**](docs/ProductsApi.md#classifyGroceryProduct) | **POST** /food/products/classify | Classify Grocery Product
+*ProductsApi* | [**classifyGroceryProductBulk**](docs/ProductsApi.md#classifyGroceryProductBulk) | **POST** /food/products/classifyBatch | Classify Grocery Product Bulk
+*ProductsApi* | [**getComparableProducts**](docs/ProductsApi.md#getComparableProducts) | **GET** /food/products/upc/{upc}/comparable | Get Comparable Products
+*ProductsApi* | [**getProductInformation**](docs/ProductsApi.md#getProductInformation) | **GET** /food/products/{id} | Get Product Information
+*ProductsApi* | [**productNutritionByIDImage**](docs/ProductsApi.md#productNutritionByIDImage) | **GET** /food/products/{id}/nutritionWidget.png | Product Nutrition by ID Image
+*ProductsApi* | [**productNutritionLabelImage**](docs/ProductsApi.md#productNutritionLabelImage) | **GET** /food/products/{id}/nutritionLabel.png | Product Nutrition Label Image
+*ProductsApi* | [**productNutritionLabelWidget**](docs/ProductsApi.md#productNutritionLabelWidget) | **GET** /food/products/{id}/nutritionLabel | Product Nutrition Label Widget
+*ProductsApi* | [**searchGroceryProducts**](docs/ProductsApi.md#searchGroceryProducts) | **GET** /food/products/search | Search Grocery Products
+*ProductsApi* | [**searchGroceryProductsByUPC**](docs/ProductsApi.md#searchGroceryProductsByUPC) | **GET** /food/products/upc/{upc} | Search Grocery Products by UPC
+*ProductsApi* | [**visualizeProductNutritionByID**](docs/ProductsApi.md#visualizeProductNutritionByID) | **GET** /food/products/{id}/nutritionWidget | Product Nutrition by ID Widget
+*RecipesApi* | [**analyzeARecipeSearchQuery**](docs/RecipesApi.md#analyzeARecipeSearchQuery) | **GET** /recipes/queries/analyze | Analyze a Recipe Search Query
+*RecipesApi* | [**analyzeRecipeInstructions**](docs/RecipesApi.md#analyzeRecipeInstructions) | **POST** /recipes/analyzeInstructions | Analyze Recipe Instructions
+*RecipesApi* | [**autocompleteRecipeSearch**](docs/RecipesApi.md#autocompleteRecipeSearch) | **GET** /recipes/autocomplete | Autocomplete Recipe Search
+*RecipesApi* | [**classifyCuisine**](docs/RecipesApi.md#classifyCuisine) | **POST** /recipes/cuisine | Classify Cuisine
+*RecipesApi* | [**computeGlycemicLoad**](docs/RecipesApi.md#computeGlycemicLoad) | **POST** /food/ingredients/glycemicLoad | Compute Glycemic Load
+*RecipesApi* | [**convertAmounts**](docs/RecipesApi.md#convertAmounts) | **GET** /recipes/convert | Convert Amounts
+*RecipesApi* | [**createRecipeCard**](docs/RecipesApi.md#createRecipeCard) | **POST** /recipes/visualizeRecipe | Create Recipe Card
+*RecipesApi* | [**equipmentByIDImage**](docs/RecipesApi.md#equipmentByIDImage) | **GET** /recipes/{id}/equipmentWidget.png | Equipment by ID Image
+*RecipesApi* | [**extractRecipeFromWebsite**](docs/RecipesApi.md#extractRecipeFromWebsite) | **GET** /recipes/extract | Extract Recipe from Website
+*RecipesApi* | [**getAnalyzedRecipeInstructions**](docs/RecipesApi.md#getAnalyzedRecipeInstructions) | **GET** /recipes/{id}/analyzedInstructions | Get Analyzed Recipe Instructions
+*RecipesApi* | [**getRandomRecipes**](docs/RecipesApi.md#getRandomRecipes) | **GET** /recipes/random | Get Random Recipes
+*RecipesApi* | [**getRecipeEquipmentByID**](docs/RecipesApi.md#getRecipeEquipmentByID) | **GET** /recipes/{id}/equipmentWidget.json | Equipment by ID
+*RecipesApi* | [**getRecipeInformation**](docs/RecipesApi.md#getRecipeInformation) | **GET** /recipes/{id}/information | Get Recipe Information
+*RecipesApi* | [**getRecipeInformationBulk**](docs/RecipesApi.md#getRecipeInformationBulk) | **GET** /recipes/informationBulk | Get Recipe Information Bulk
+*RecipesApi* | [**getRecipeIngredientsByID**](docs/RecipesApi.md#getRecipeIngredientsByID) | **GET** /recipes/{id}/ingredientWidget.json | Ingredients by ID
+*RecipesApi* | [**getRecipeNutritionWidgetByID**](docs/RecipesApi.md#getRecipeNutritionWidgetByID) | **GET** /recipes/{id}/nutritionWidget.json | Nutrition by ID
+*RecipesApi* | [**getRecipePriceBreakdownByID**](docs/RecipesApi.md#getRecipePriceBreakdownByID) | **GET** /recipes/{id}/priceBreakdownWidget.json | Price Breakdown by ID
+*RecipesApi* | [**getRecipeTasteByID**](docs/RecipesApi.md#getRecipeTasteByID) | **GET** /recipes/{id}/tasteWidget.json | Taste by ID
+*RecipesApi* | [**getSimilarRecipes**](docs/RecipesApi.md#getSimilarRecipes) | **GET** /recipes/{id}/similar | Get Similar Recipes
+*RecipesApi* | [**guessNutritionByDishName**](docs/RecipesApi.md#guessNutritionByDishName) | **GET** /recipes/guessNutrition | Guess Nutrition by Dish Name
+*RecipesApi* | [**ingredientsByIDImage**](docs/RecipesApi.md#ingredientsByIDImage) | **GET** /recipes/{id}/ingredientWidget.png | Ingredients by ID Image
+*RecipesApi* | [**parseIngredients**](docs/RecipesApi.md#parseIngredients) | **POST** /recipes/parseIngredients | Parse Ingredients
+*RecipesApi* | [**priceBreakdownByIDImage**](docs/RecipesApi.md#priceBreakdownByIDImage) | **GET** /recipes/{id}/priceBreakdownWidget.png | Price Breakdown by ID Image
+*RecipesApi* | [**quickAnswer**](docs/RecipesApi.md#quickAnswer) | **GET** /recipes/quickAnswer | Quick Answer
+*RecipesApi* | [**recipeNutritionByIDImage**](docs/RecipesApi.md#recipeNutritionByIDImage) | **GET** /recipes/{id}/nutritionWidget.png | Recipe Nutrition by ID Image
+*RecipesApi* | [**recipeNutritionLabelImage**](docs/RecipesApi.md#recipeNutritionLabelImage) | **GET** /recipes/{id}/nutritionLabel.png | Recipe Nutrition Label Image
+*RecipesApi* | [**recipeNutritionLabelWidget**](docs/RecipesApi.md#recipeNutritionLabelWidget) | **GET** /recipes/{id}/nutritionLabel | Recipe Nutrition Label Widget
+*RecipesApi* | [**recipeTasteByIDImage**](docs/RecipesApi.md#recipeTasteByIDImage) | **GET** /recipes/{id}/tasteWidget.png | Recipe Taste by ID Image
+*RecipesApi* | [**searchRecipes**](docs/RecipesApi.md#searchRecipes) | **GET** /recipes/complexSearch | Search Recipes
+*RecipesApi* | [**searchRecipesByIngredients**](docs/RecipesApi.md#searchRecipesByIngredients) | **GET** /recipes/findByIngredients | Search Recipes by Ingredients
+*RecipesApi* | [**searchRecipesByNutrients**](docs/RecipesApi.md#searchRecipesByNutrients) | **GET** /recipes/findByNutrients | Search Recipes by Nutrients
+*RecipesApi* | [**summarizeRecipe**](docs/RecipesApi.md#summarizeRecipe) | **GET** /recipes/{id}/summary | Summarize Recipe
+*RecipesApi* | [**visualizeEquipment**](docs/RecipesApi.md#visualizeEquipment) | **POST** /recipes/visualizeEquipment | Equipment Widget
+*RecipesApi* | [**visualizePriceBreakdown**](docs/RecipesApi.md#visualizePriceBreakdown) | **POST** /recipes/visualizePriceEstimator | Price Breakdown Widget
+*RecipesApi* | [**visualizeRecipeEquipmentByID**](docs/RecipesApi.md#visualizeRecipeEquipmentByID) | **GET** /recipes/{id}/equipmentWidget | Equipment by ID Widget
+*RecipesApi* | [**visualizeRecipeIngredientsByID**](docs/RecipesApi.md#visualizeRecipeIngredientsByID) | **GET** /recipes/{id}/ingredientWidget | Ingredients by ID Widget
+*RecipesApi* | [**visualizeRecipeNutrition**](docs/RecipesApi.md#visualizeRecipeNutrition) | **POST** /recipes/visualizeNutrition | Recipe Nutrition Widget
+*RecipesApi* | [**visualizeRecipeNutritionByID**](docs/RecipesApi.md#visualizeRecipeNutritionByID) | **GET** /recipes/{id}/nutritionWidget | Recipe Nutrition by ID Widget
+*RecipesApi* | [**visualizeRecipePriceBreakdownByID**](docs/RecipesApi.md#visualizeRecipePriceBreakdownByID) | **GET** /recipes/{id}/priceBreakdownWidget | Price Breakdown by ID Widget
+*RecipesApi* | [**visualizeRecipeTaste**](docs/RecipesApi.md#visualizeRecipeTaste) | **POST** /recipes/visualizeTaste | Recipe Taste Widget
+*RecipesApi* | [**visualizeRecipeTasteByID**](docs/RecipesApi.md#visualizeRecipeTasteByID) | **GET** /recipes/{id}/tasteWidget | Recipe Taste by ID Widget
+*WineApi* | [**getDishPairingForWine**](docs/WineApi.md#getDishPairingForWine) | **GET** /food/wine/dishes | Dish Pairing for Wine
+*WineApi* | [**getWineDescription**](docs/WineApi.md#getWineDescription) | **GET** /food/wine/description | Wine Description
+*WineApi* | [**getWinePairing**](docs/WineApi.md#getWinePairing) | **GET** /food/wine/pairing | Wine Pairing
+*WineApi* | [**getWineRecommendation**](docs/WineApi.md#getWineRecommendation) | **GET** /food/wine/recommendation | Wine Recommendation
 
 
 ## Documentation for Models
 
+ - [FoodIngredientsMapProducts](docs/FoodIngredientsMapProducts.md)
  - [InlineObject](docs/InlineObject.md)
  - [InlineObject1](docs/InlineObject1.md)
- - [InlineObject10](docs/InlineObject10.md)
- - [InlineObject11](docs/InlineObject11.md)
- - [InlineObject12](docs/InlineObject12.md)
- - [InlineObject13](docs/InlineObject13.md)
- - [InlineObject14](docs/InlineObject14.md)
- - [InlineObject15](docs/InlineObject15.md)
- - [InlineObject16](docs/InlineObject16.md)
  - [InlineObject2](docs/InlineObject2.md)
  - [InlineObject3](docs/InlineObject3.md)
  - [InlineObject4](docs/InlineObject4.md)
@@ -185,7 +195,124 @@ Class | Method | HTTP request | Description
  - [InlineObject6](docs/InlineObject6.md)
  - [InlineObject7](docs/InlineObject7.md)
  - [InlineObject8](docs/InlineObject8.md)
- - [InlineObject9](docs/InlineObject9.md)
+ - [InlineResponse200](docs/InlineResponse200.md)
+ - [InlineResponse2001](docs/InlineResponse2001.md)
+ - [InlineResponse20010](docs/InlineResponse20010.md)
+ - [InlineResponse20010Amount](docs/InlineResponse20010Amount.md)
+ - [InlineResponse20010AmountMetric](docs/InlineResponse20010AmountMetric.md)
+ - [InlineResponse20010Ingredients](docs/InlineResponse20010Ingredients.md)
+ - [InlineResponse20011](docs/InlineResponse20011.md)
+ - [InlineResponse20011Ingredients](docs/InlineResponse20011Ingredients.md)
+ - [InlineResponse20012](docs/InlineResponse20012.md)
+ - [InlineResponse20013](docs/InlineResponse20013.md)
+ - [InlineResponse20013Ingredients](docs/InlineResponse20013Ingredients.md)
+ - [InlineResponse20013Ingredients1](docs/InlineResponse20013Ingredients1.md)
+ - [InlineResponse20013ParsedInstructions](docs/InlineResponse20013ParsedInstructions.md)
+ - [InlineResponse20013Steps](docs/InlineResponse20013Steps.md)
+ - [InlineResponse20014](docs/InlineResponse20014.md)
+ - [InlineResponse20015](docs/InlineResponse20015.md)
+ - [InlineResponse20016](docs/InlineResponse20016.md)
+ - [InlineResponse20017](docs/InlineResponse20017.md)
+ - [InlineResponse20018](docs/InlineResponse20018.md)
+ - [InlineResponse20018Dishes](docs/InlineResponse20018Dishes.md)
+ - [InlineResponse20018Ingredients](docs/InlineResponse20018Ingredients.md)
+ - [InlineResponse20019](docs/InlineResponse20019.md)
+ - [InlineResponse2002](docs/InlineResponse2002.md)
+ - [InlineResponse20020](docs/InlineResponse20020.md)
+ - [InlineResponse20021](docs/InlineResponse20021.md)
+ - [InlineResponse20021Calories](docs/InlineResponse20021Calories.md)
+ - [InlineResponse20021CaloriesConfidenceRange95Percent](docs/InlineResponse20021CaloriesConfidenceRange95Percent.md)
+ - [InlineResponse20022](docs/InlineResponse20022.md)
+ - [InlineResponse20022Nutrition](docs/InlineResponse20022Nutrition.md)
+ - [InlineResponse20023](docs/InlineResponse20023.md)
+ - [InlineResponse20023Ingredients](docs/InlineResponse20023Ingredients.md)
+ - [InlineResponse20024](docs/InlineResponse20024.md)
+ - [InlineResponse20025](docs/InlineResponse20025.md)
+ - [InlineResponse20025Results](docs/InlineResponse20025Results.md)
+ - [InlineResponse20026](docs/InlineResponse20026.md)
+ - [InlineResponse20027](docs/InlineResponse20027.md)
+ - [InlineResponse20028](docs/InlineResponse20028.md)
+ - [InlineResponse20028Ingredients](docs/InlineResponse20028Ingredients.md)
+ - [InlineResponse20028Nutrition](docs/InlineResponse20028Nutrition.md)
+ - [InlineResponse20028Servings](docs/InlineResponse20028Servings.md)
+ - [InlineResponse20029](docs/InlineResponse20029.md)
+ - [InlineResponse20029CustomFoods](docs/InlineResponse20029CustomFoods.md)
+ - [InlineResponse2003](docs/InlineResponse2003.md)
+ - [InlineResponse20030](docs/InlineResponse20030.md)
+ - [InlineResponse20030Ingredients](docs/InlineResponse20030Ingredients.md)
+ - [InlineResponse20031](docs/InlineResponse20031.md)
+ - [InlineResponse20031ComparableProducts](docs/InlineResponse20031ComparableProducts.md)
+ - [InlineResponse20031ComparableProductsProtein](docs/InlineResponse20031ComparableProductsProtein.md)
+ - [InlineResponse20032](docs/InlineResponse20032.md)
+ - [InlineResponse20032Results](docs/InlineResponse20032Results.md)
+ - [InlineResponse20033](docs/InlineResponse20033.md)
+ - [InlineResponse20034](docs/InlineResponse20034.md)
+ - [InlineResponse20035](docs/InlineResponse20035.md)
+ - [InlineResponse20035MenuItems](docs/InlineResponse20035MenuItems.md)
+ - [InlineResponse20036](docs/InlineResponse20036.md)
+ - [InlineResponse20037](docs/InlineResponse20037.md)
+ - [InlineResponse20037Nutrients](docs/InlineResponse20037Nutrients.md)
+ - [InlineResponse20038](docs/InlineResponse20038.md)
+ - [InlineResponse20038Days](docs/InlineResponse20038Days.md)
+ - [InlineResponse20038Items](docs/InlineResponse20038Items.md)
+ - [InlineResponse20038NutritionSummary](docs/InlineResponse20038NutritionSummary.md)
+ - [InlineResponse20038NutritionSummaryNutrients](docs/InlineResponse20038NutritionSummaryNutrients.md)
+ - [InlineResponse20038Value](docs/InlineResponse20038Value.md)
+ - [InlineResponse20039](docs/InlineResponse20039.md)
+ - [InlineResponse2003ExtendedIngredients](docs/InlineResponse2003ExtendedIngredients.md)
+ - [InlineResponse2003Measures](docs/InlineResponse2003Measures.md)
+ - [InlineResponse2003MeasuresMetric](docs/InlineResponse2003MeasuresMetric.md)
+ - [InlineResponse2003WinePairing](docs/InlineResponse2003WinePairing.md)
+ - [InlineResponse2003WinePairingProductMatches](docs/InlineResponse2003WinePairingProductMatches.md)
+ - [InlineResponse2004](docs/InlineResponse2004.md)
+ - [InlineResponse20040](docs/InlineResponse20040.md)
+ - [InlineResponse20040Days](docs/InlineResponse20040Days.md)
+ - [InlineResponse20040Items](docs/InlineResponse20040Items.md)
+ - [InlineResponse20040Value](docs/InlineResponse20040Value.md)
+ - [InlineResponse20041](docs/InlineResponse20041.md)
+ - [InlineResponse20041Aisles](docs/InlineResponse20041Aisles.md)
+ - [InlineResponse20041Items](docs/InlineResponse20041Items.md)
+ - [InlineResponse20041Measures](docs/InlineResponse20041Measures.md)
+ - [InlineResponse20042](docs/InlineResponse20042.md)
+ - [InlineResponse20043](docs/InlineResponse20043.md)
+ - [InlineResponse20044](docs/InlineResponse20044.md)
+ - [InlineResponse20044ProductMatches](docs/InlineResponse20044ProductMatches.md)
+ - [InlineResponse20045](docs/InlineResponse20045.md)
+ - [InlineResponse20046](docs/InlineResponse20046.md)
+ - [InlineResponse20046RecommendedWines](docs/InlineResponse20046RecommendedWines.md)
+ - [InlineResponse20047](docs/InlineResponse20047.md)
+ - [InlineResponse20048](docs/InlineResponse20048.md)
+ - [InlineResponse20048Category](docs/InlineResponse20048Category.md)
+ - [InlineResponse20048Nutrition](docs/InlineResponse20048Nutrition.md)
+ - [InlineResponse20048NutritionCalories](docs/InlineResponse20048NutritionCalories.md)
+ - [InlineResponse20048NutritionCaloriesConfidenceRange95Percent](docs/InlineResponse20048NutritionCaloriesConfidenceRange95Percent.md)
+ - [InlineResponse20048Recipes](docs/InlineResponse20048Recipes.md)
+ - [InlineResponse20049](docs/InlineResponse20049.md)
+ - [InlineResponse2005](docs/InlineResponse2005.md)
+ - [InlineResponse20050](docs/InlineResponse20050.md)
+ - [InlineResponse20051](docs/InlineResponse20051.md)
+ - [InlineResponse20052](docs/InlineResponse20052.md)
+ - [InlineResponse20052Results](docs/InlineResponse20052Results.md)
+ - [InlineResponse20052SearchResults](docs/InlineResponse20052SearchResults.md)
+ - [InlineResponse20053](docs/InlineResponse20053.md)
+ - [InlineResponse20053Videos](docs/InlineResponse20053Videos.md)
+ - [InlineResponse20054](docs/InlineResponse20054.md)
+ - [InlineResponse20055](docs/InlineResponse20055.md)
+ - [InlineResponse20056](docs/InlineResponse20056.md)
+ - [InlineResponse20056Suggests](docs/InlineResponse20056Suggests.md)
+ - [InlineResponse2006](docs/InlineResponse2006.md)
+ - [InlineResponse2006Recipes](docs/InlineResponse2006Recipes.md)
+ - [InlineResponse2007](docs/InlineResponse2007.md)
+ - [InlineResponse2008](docs/InlineResponse2008.md)
+ - [InlineResponse2009](docs/InlineResponse2009.md)
+ - [InlineResponse200Results](docs/InlineResponse200Results.md)
+ - [RecipesFindByIngredientsMissedIngredients](docs/RecipesFindByIngredientsMissedIngredients.md)
+ - [RecipesParseIngredientsEstimatedCost](docs/RecipesParseIngredientsEstimatedCost.md)
+ - [RecipesParseIngredientsNutrition](docs/RecipesParseIngredientsNutrition.md)
+ - [RecipesParseIngredientsNutritionCaloricBreakdown](docs/RecipesParseIngredientsNutritionCaloricBreakdown.md)
+ - [RecipesParseIngredientsNutritionNutrients](docs/RecipesParseIngredientsNutritionNutrients.md)
+ - [RecipesParseIngredientsNutritionProperties](docs/RecipesParseIngredientsNutritionProperties.md)
+ - [RecipesParseIngredientsNutritionWeightPerServing](docs/RecipesParseIngredientsNutritionWeightPerServing.md)
 
 
 ## Documentation for Authorization
@@ -205,5 +332,5 @@ It's recommended to create an instance of `ApiClient` per thread in a multithrea
 
 ## Author
 
-david@spoonacular.com
+mail@spoonacular.com
 

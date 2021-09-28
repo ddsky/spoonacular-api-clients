@@ -6,8 +6,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**title** | **String** | The title of the recipe. | 
-**ingredientList** | **String** | The ingredient list of the recipe, one ingredient per line (separate lines with \\n). | 
+**username** | **String** | The username. | 
+**startDate** | **String** | The start date in the format yyyy-mm-dd. | 
+**endDate** | **String** | The end date in the format yyyy-mm-dd. | 
+**hash** | **String** | The private hash for the username. | 
 
 
 

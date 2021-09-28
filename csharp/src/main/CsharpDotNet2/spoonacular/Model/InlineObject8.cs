@@ -13,52 +13,28 @@ namespace spoonacular.Model {
   [DataContract]
   public class InlineObject8 {
     /// <summary>
-    /// The ingredient list of the recipe, one ingredient per line.
+    /// The username.
     /// </summary>
-    /// <value>The ingredient list of the recipe, one ingredient per line.</value>
-    [DataMember(Name="ingredientList", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "ingredientList")]
-    public string IngredientList { get; set; }
+    /// <value>The username.</value>
+    [DataMember(Name="username", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "username")]
+    public string Username { get; set; }
 
     /// <summary>
-    /// The number of servings.
+    /// The shopping list item id.
     /// </summary>
-    /// <value>The number of servings.</value>
-    [DataMember(Name="servings", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "servings")]
-    public decimal? Servings { get; set; }
+    /// <value>The shopping list item id.</value>
+    [DataMember(Name="id", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "id")]
+    public decimal? Id { get; set; }
 
     /// <summary>
-    /// The original system of measurement, either \"metric\" or \"us\".
+    /// The private hash for the username.
     /// </summary>
-    /// <value>The original system of measurement, either \"metric\" or \"us\".</value>
-    [DataMember(Name="measure", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "measure")]
-    public string Measure { get; set; }
-
-    /// <summary>
-    /// How to visualize the ingredients, either \"grid\" or \"list\".
-    /// </summary>
-    /// <value>How to visualize the ingredients, either \"grid\" or \"list\".</value>
-    [DataMember(Name="view", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "view")]
-    public string View { get; set; }
-
-    /// <summary>
-    /// Whether the default CSS should be added to the response.
-    /// </summary>
-    /// <value>Whether the default CSS should be added to the response.</value>
-    [DataMember(Name="defaultCss", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "defaultCss")]
-    public bool? DefaultCss { get; set; }
-
-    /// <summary>
-    /// Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
-    /// </summary>
-    /// <value>Whether to show a backlink to spoonacular. If set false, this call counts against your quota.</value>
-    [DataMember(Name="showBacklink", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "showBacklink")]
-    public bool? ShowBacklink { get; set; }
+    /// <value>The private hash for the username.</value>
+    [DataMember(Name="hash", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "hash")]
+    public string Hash { get; set; }
 
 
     /// <summary>
@@ -68,12 +44,9 @@ namespace spoonacular.Model {
     public override string ToString()  {
       var sb = new StringBuilder();
       sb.Append("class InlineObject8 {\n");
-      sb.Append("  IngredientList: ").Append(IngredientList).Append("\n");
-      sb.Append("  Servings: ").Append(Servings).Append("\n");
-      sb.Append("  Measure: ").Append(Measure).Append("\n");
-      sb.Append("  View: ").Append(View).Append("\n");
-      sb.Append("  DefaultCss: ").Append(DefaultCss).Append("\n");
-      sb.Append("  ShowBacklink: ").Append(ShowBacklink).Append("\n");
+      sb.Append("  Username: ").Append(Username).Append("\n");
+      sb.Append("  Id: ").Append(Id).Append("\n");
+      sb.Append("  Hash: ").Append(Hash).Append("\n");
       sb.Append("}\n");
       return sb.ToString();
     }

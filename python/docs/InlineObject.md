@@ -3,7 +3,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ingredient_list** | **str** | The ingredient list of the recipe, one ingredient per line. | 
+**title** | **str** |  | 
+**upc** | **str** |  | 
+**plu_code** | **str** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

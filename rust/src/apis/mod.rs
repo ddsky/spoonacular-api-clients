@@ -53,8 +53,20 @@ use super::models::*;
 
 mod request;
 
-mod default_api;
-pub use self::default_api::{ DefaultApi, DefaultApiClient };
+mod ingredients_api;
+pub use self::ingredients_api::{ IngredientsApi, IngredientsApiClient };
+mod meal_planning_api;
+pub use self::meal_planning_api::{ MealPlanningApi, MealPlanningApiClient };
+mod menu_items_api;
+pub use self::menu_items_api::{ MenuItemsApi, MenuItemsApiClient };
+mod misc_api;
+pub use self::misc_api::{ MiscApi, MiscApiClient };
+mod products_api;
+pub use self::products_api::{ ProductsApi, ProductsApiClient };
+mod recipes_api;
+pub use self::recipes_api::{ RecipesApi, RecipesApiClient };
+mod wine_api;
+pub use self::wine_api::{ WineApi, WineApiClient };
 
 pub mod configuration;
 pub mod client;

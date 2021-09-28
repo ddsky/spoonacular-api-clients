@@ -1,64 +1,37 @@
 part of openapi.api;
 
 class InlineObject2 {
-  /* The ingredient list of the recipe, one ingredient per line. */
-  String ingredientList = null;
-  /* The number of servings. */
+  
+  List<String> ingredients = [];
+  
   num servings = null;
-  /* The mode in which the widget should be delivered. 1 = separate views (compact), 2 = all in one view (full). */
-  num mode = null;
-  /* Whether the default CSS should be added to the response. */
-  bool defaultCss = null;
-  /* Whether to show a backlink to spoonacular. If set false, this call counts against your quota. */
-  bool showBacklink = null;
   InlineObject2();
 
   @override
   String toString() {
-    return 'InlineObject2[ingredientList=$ingredientList, servings=$servings, mode=$mode, defaultCss=$defaultCss, showBacklink=$showBacklink, ]';
+    return 'InlineObject2[ingredients=$ingredients, servings=$servings, ]';
   }
 
   InlineObject2.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    if (json['ingredientList'] == null) {
-      ingredientList = null;
+    if (json['ingredients'] == null) {
+      ingredients = null;
     } else {
-          ingredientList = json['ingredientList'];
+      ingredients = (json['ingredients'] as List).cast<String>();
     }
     if (json['servings'] == null) {
       servings = null;
     } else {
           servings = json['servings'];
     }
-    if (json['mode'] == null) {
-      mode = null;
-    } else {
-          mode = json['mode'];
-    }
-    if (json['defaultCss'] == null) {
-      defaultCss = null;
-    } else {
-          defaultCss = json['defaultCss'];
-    }
-    if (json['showBacklink'] == null) {
-      showBacklink = null;
-    } else {
-          showBacklink = json['showBacklink'];
-    }
   }
 
   Map<String, dynamic> toJson() {
     Map <String, dynamic> json = {};
-    if (ingredientList != null)
-      json['ingredientList'] = ingredientList;
+    if (ingredients != null)
+      json['ingredients'] = ingredients;
     if (servings != null)
       json['servings'] = servings;
-    if (mode != null)
-      json['mode'] = mode;
-    if (defaultCss != null)
-      json['defaultCss'] = defaultCss;
-    if (showBacklink != null)
-      json['showBacklink'] = showBacklink;
     return json;
   }
 

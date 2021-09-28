@@ -5,12 +5,17 @@ import io.finch.circe._
 import io.circe.generic.semiauto._
 import io.circe.java8.time._
 import spoonacular._
+import java.math.BigDecimal
 
 /**
  * 
- * @param instructions The instructions to be analyzed.
+ * @param username The username.
+ * @param id The shopping list item id.
+ * @param hash The private hash for the username.
  */
-case class InlineObject5(instructions: String
+case class InlineObject5(username: String,
+                id: BigDecimal,
+                hash: String
                 )
 
 object InlineObject5 {

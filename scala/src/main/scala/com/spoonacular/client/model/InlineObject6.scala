@@ -8,11 +8,15 @@ import spoonacular._
 
 /**
  * 
- * @param title The title of the recipe.
- * @param ingredientList The ingredient list of the recipe, one ingredient per line (separate lines with \\n).
+ * @param username The username.
+ * @param startMinusdate The start date in the format yyyy-mm-dd.
+ * @param endMinusdate The end date in the format yyyy-mm-dd.
+ * @param hash The private hash for the username.
  */
-case class InlineObject6(title: String,
-                ingredientList: String
+case class InlineObject6(username: String,
+                startMinusdate: String,
+                endMinusdate: String,
+                hash: String
                 )
 
 object InlineObject6 {

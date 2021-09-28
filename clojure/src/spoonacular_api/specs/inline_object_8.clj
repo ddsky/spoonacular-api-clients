@@ -7,12 +7,9 @@
 
 (def inline-object-8-data
   {
-   (ds/req :ingredientList) string?
-   (ds/req :servings) float?
-   (ds/opt :measure) string?
-   (ds/opt :view) string?
-   (ds/opt :defaultCss) boolean?
-   (ds/opt :showBacklink) boolean?
+   (ds/req :username) string?
+   (ds/req :id) float?
+   (ds/req :hash) string?
    })
 
 (def inline-object-8-spec

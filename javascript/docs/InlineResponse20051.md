@@ -1,0 +1,12 @@
+# SpoonacularApi.InlineResponse20051
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**articles** | **[Object]** |  | 
+**groceryProducts** | **[Object]** |  | 
+**menuItems** | **[Object]** |  | 
+**recipes** | **[Object]** |  | 
+
+

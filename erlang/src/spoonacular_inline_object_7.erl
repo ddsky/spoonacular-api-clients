@@ -5,16 +5,13 @@
 -export_type([spoonacular_inline_object_7/0]).
 
 -type spoonacular_inline_object_7() ::
-    #{ 'ingredientList' := binary(),
-       'servings' := integer(),
-       'includeNutrition' => boolean()
+    #{ 'username' := binary(),
+       'hash' := binary()
      }.
 
-encode(#{ 'ingredientList' := IngredientList,
-          'servings' := Servings,
-          'includeNutrition' := IncludeNutrition
+encode(#{ 'username' := Username,
+          'hash' := Hash
         }) ->
-    #{ 'ingredientList' => IngredientList,
-       'servings' => Servings,
-       'includeNutrition' => IncludeNutrition
+    #{ 'username' => Username,
+       'hash' => Hash
      }.

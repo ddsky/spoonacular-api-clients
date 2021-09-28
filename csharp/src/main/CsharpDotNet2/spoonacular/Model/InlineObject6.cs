@@ -13,20 +13,36 @@ namespace spoonacular.Model {
   [DataContract]
   public class InlineObject6 {
     /// <summary>
-    /// The title of the recipe.
+    /// The username.
     /// </summary>
-    /// <value>The title of the recipe.</value>
-    [DataMember(Name="title", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "title")]
-    public string Title { get; set; }
+    /// <value>The username.</value>
+    [DataMember(Name="username", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "username")]
+    public string Username { get; set; }
 
     /// <summary>
-    /// The ingredient list of the recipe, one ingredient per line (separate lines with \\n).
+    /// The start date in the format yyyy-mm-dd.
     /// </summary>
-    /// <value>The ingredient list of the recipe, one ingredient per line (separate lines with \\n).</value>
-    [DataMember(Name="ingredientList", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "ingredientList")]
-    public string IngredientList { get; set; }
+    /// <value>The start date in the format yyyy-mm-dd.</value>
+    [DataMember(Name="start-date", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "start-date")]
+    public string StartDate { get; set; }
+
+    /// <summary>
+    /// The end date in the format yyyy-mm-dd.
+    /// </summary>
+    /// <value>The end date in the format yyyy-mm-dd.</value>
+    [DataMember(Name="end-date", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "end-date")]
+    public string EndDate { get; set; }
+
+    /// <summary>
+    /// The private hash for the username.
+    /// </summary>
+    /// <value>The private hash for the username.</value>
+    [DataMember(Name="hash", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "hash")]
+    public string Hash { get; set; }
 
 
     /// <summary>
@@ -36,8 +52,10 @@ namespace spoonacular.Model {
     public override string ToString()  {
       var sb = new StringBuilder();
       sb.Append("class InlineObject6 {\n");
-      sb.Append("  Title: ").Append(Title).Append("\n");
-      sb.Append("  IngredientList: ").Append(IngredientList).Append("\n");
+      sb.Append("  Username: ").Append(Username).Append("\n");
+      sb.Append("  StartDate: ").Append(StartDate).Append("\n");
+      sb.Append("  EndDate: ").Append(EndDate).Append("\n");
+      sb.Append("  Hash: ").Append(Hash).Append("\n");
       sb.Append("}\n");
       return sb.ToString();
     }

@@ -4,14 +4,18 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**locale** | **String** | The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). | [optional] 
+**username** | **String** | The username. | 
+**id** | **Float** | The shopping list item id. | 
+**hash** | **String** | The private hash for the username. | 
 
 ## Code Sample
 
 ```ruby
 require 'OpenapiClient'
 
-instance = OpenapiClient::InlineObject8.new(locale: en_US)
+instance = OpenapiClient::InlineObject8.new(username: dsky,
+                                 id: 15678,
+                                 hash: 4b5v4398573406)
 ```
 
 

@@ -7,7 +7,9 @@
 
 (def inline-object-data
   {
-   (ds/req :ingredientList) string?
+   (ds/req :title) string?
+   (ds/req :upc) string?
+   (ds/req :plu_code) string?
    })
 
 (def inline-object-spec

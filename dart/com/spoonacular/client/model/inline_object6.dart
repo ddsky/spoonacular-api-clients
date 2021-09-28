@@ -1,37 +1,55 @@
 part of openapi.api;
 
 class InlineObject6 {
-  /* The title of the recipe. */
-  String title = null;
-  /* The ingredient list of the recipe, one ingredient per line (separate lines with \\n). */
-  String ingredientList = null;
+  /* The username. */
+  String username = null;
+  /* The start date in the format yyyy-mm-dd. */
+  String startDate = null;
+  /* The end date in the format yyyy-mm-dd. */
+  String endDate = null;
+  /* The private hash for the username. */
+  String hash = null;
   InlineObject6();
 
   @override
   String toString() {
-    return 'InlineObject6[title=$title, ingredientList=$ingredientList, ]';
+    return 'InlineObject6[username=$username, startDate=$startDate, endDate=$endDate, hash=$hash, ]';
   }
 
   InlineObject6.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    if (json['title'] == null) {
-      title = null;
+    if (json['username'] == null) {
+      username = null;
     } else {
-          title = json['title'];
+          username = json['username'];
     }
-    if (json['ingredientList'] == null) {
-      ingredientList = null;
+    if (json['start-date'] == null) {
+      startDate = null;
     } else {
-          ingredientList = json['ingredientList'];
+          startDate = json['start-date'];
+    }
+    if (json['end-date'] == null) {
+      endDate = null;
+    } else {
+          endDate = json['end-date'];
+    }
+    if (json['hash'] == null) {
+      hash = null;
+    } else {
+          hash = json['hash'];
     }
   }
 
   Map<String, dynamic> toJson() {
     Map <String, dynamic> json = {};
-    if (title != null)
-      json['title'] = title;
-    if (ingredientList != null)
-      json['ingredientList'] = ingredientList;
+    if (username != null)
+      json['username'] = username;
+    if (startDate != null)
+      json['start-date'] = startDate;
+    if (endDate != null)
+      json['end-date'] = endDate;
+    if (hash != null)
+      json['hash'] = hash;
     return json;
   }
 

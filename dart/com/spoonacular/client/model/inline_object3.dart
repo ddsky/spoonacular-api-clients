@@ -1,55 +1,46 @@
 part of openapi.api;
 
 class InlineObject3 {
-  /* The recipe's instructions. */
-  String instructions = null;
-  /* How to visualize the equipment, either \"grid\" or \"list\". */
-  String view = null;
-  /* Whether the default CSS should be added to the response. */
-  bool defaultCss = null;
-  /* Whether to show a backlink to spoonacular. If set false, this call counts against your quota. */
-  bool showBacklink = null;
+  /* The username. */
+  String username = null;
+  /* The date in the format yyyy-mm-dd. */
+  String date = null;
+  /* The private hash for the username. */
+  String hash = null;
   InlineObject3();
 
   @override
   String toString() {
-    return 'InlineObject3[instructions=$instructions, view=$view, defaultCss=$defaultCss, showBacklink=$showBacklink, ]';
+    return 'InlineObject3[username=$username, date=$date, hash=$hash, ]';
   }
 
   InlineObject3.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    if (json['instructions'] == null) {
-      instructions = null;
+    if (json['username'] == null) {
+      username = null;
     } else {
-          instructions = json['instructions'];
+          username = json['username'];
     }
-    if (json['view'] == null) {
-      view = null;
+    if (json['date'] == null) {
+      date = null;
     } else {
-          view = json['view'];
+          date = json['date'];
     }
-    if (json['defaultCss'] == null) {
-      defaultCss = null;
+    if (json['hash'] == null) {
+      hash = null;
     } else {
-          defaultCss = json['defaultCss'];
-    }
-    if (json['showBacklink'] == null) {
-      showBacklink = null;
-    } else {
-          showBacklink = json['showBacklink'];
+          hash = json['hash'];
     }
   }
 
   Map<String, dynamic> toJson() {
     Map <String, dynamic> json = {};
-    if (instructions != null)
-      json['instructions'] = instructions;
-    if (view != null)
-      json['view'] = view;
-    if (defaultCss != null)
-      json['defaultCss'] = defaultCss;
-    if (showBacklink != null)
-      json['showBacklink'] = showBacklink;
+    if (username != null)
+      json['username'] = username;
+    if (date != null)
+      json['date'] = date;
+    if (hash != null)
+      json['hash'] = hash;
     return json;
   }
 

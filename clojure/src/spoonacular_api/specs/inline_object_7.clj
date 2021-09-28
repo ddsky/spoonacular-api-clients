@@ -7,9 +7,8 @@
 
 (def inline-object-7-data
   {
-   (ds/req :ingredientList) string?
-   (ds/req :servings) float?
-   (ds/opt :includeNutrition) boolean?
+   (ds/req :username) string?
+   (ds/req :hash) string?
    })
 
 (def inline-object-7-spec

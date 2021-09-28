@@ -1,28 +1,46 @@
 part of openapi.api;
 
 class InlineObject5 {
-  /* The instructions to be analyzed. */
-  String instructions = null;
+  /* The username. */
+  String username = null;
+  /* The shopping list item id. */
+  num id = null;
+  /* The private hash for the username. */
+  String hash = null;
   InlineObject5();
 
   @override
   String toString() {
-    return 'InlineObject5[instructions=$instructions, ]';
+    return 'InlineObject5[username=$username, id=$id, hash=$hash, ]';
   }
 
   InlineObject5.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    if (json['instructions'] == null) {
-      instructions = null;
+    if (json['username'] == null) {
+      username = null;
     } else {
-          instructions = json['instructions'];
+          username = json['username'];
+    }
+    if (json['id'] == null) {
+      id = null;
+    } else {
+          id = json['id'];
+    }
+    if (json['hash'] == null) {
+      hash = null;
+    } else {
+          hash = json['hash'];
     }
   }
 
   Map<String, dynamic> toJson() {
     Map <String, dynamic> json = {};
-    if (instructions != null)
-      json['instructions'] = instructions;
+    if (username != null)
+      json['username'] = username;
+    if (id != null)
+      json['id'] = id;
+    if (hash != null)
+      json['hash'] = hash;
     return json;
   }
 

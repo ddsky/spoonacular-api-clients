@@ -6,8 +6,12 @@ import io.swagger.annotations.ApiModelProperty;
 
 @Canonical
 class InlineObject6 {
-    /* The title of the recipe. */
-    String title
-    /* The ingredient list of the recipe, one ingredient per line (separate lines with \\n). */
-    String ingredientList
+    /* The username. */
+    String username
+    /* The start date in the format yyyy-mm-dd. */
+    String startDate
+    /* The end date in the format yyyy-mm-dd. */
+    String endDate
+    /* The private hash for the username. */
+    String hash
 }

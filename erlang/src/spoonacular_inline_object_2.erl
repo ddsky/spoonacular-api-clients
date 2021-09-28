@@ -5,22 +5,13 @@
 -export_type([spoonacular_inline_object_2/0]).
 
 -type spoonacular_inline_object_2() ::
-    #{ 'ingredientList' := binary(),
-       'servings' := integer(),
-       'mode' => integer(),
-       'defaultCss' => boolean(),
-       'showBacklink' => boolean()
+    #{ 'ingredients' := list(),
+       'servings' := integer()
      }.
 
-encode(#{ 'ingredientList' := IngredientList,
-          'servings' := Servings,
-          'mode' := Mode,
-          'defaultCss' := DefaultCss,
-          'showBacklink' := ShowBacklink
+encode(#{ 'ingredients' := Ingredients,
+          'servings' := Servings
         }) ->
-    #{ 'ingredientList' => IngredientList,
-       'servings' => Servings,
-       'mode' => Mode,
-       'defaultCss' => DefaultCss,
-       'showBacklink' => ShowBacklink
+    #{ 'ingredients' => Ingredients,
+       'servings' => Servings
      }.

@@ -5,10 +5,16 @@
 -export_type([spoonacular_inline_object_5/0]).
 
 -type spoonacular_inline_object_5() ::
-    #{ 'instructions' := binary()
+    #{ 'username' := binary(),
+       'id' := integer(),
+       'hash' := binary()
      }.
 
-encode(#{ 'instructions' := Instructions
+encode(#{ 'username' := Username,
+          'id' := Id,
+          'hash' := Hash
         }) ->
-    #{ 'instructions' => Instructions
+    #{ 'username' => Username,
+       'id' => Id,
+       'hash' => Hash
      }.

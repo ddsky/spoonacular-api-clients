@@ -13,12 +13,28 @@ namespace spoonacular.Model {
   [DataContract]
   public class InlineObject5 {
     /// <summary>
-    /// The instructions to be analyzed.
+    /// The username.
     /// </summary>
-    /// <value>The instructions to be analyzed.</value>
-    [DataMember(Name="instructions", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "instructions")]
-    public string Instructions { get; set; }
+    /// <value>The username.</value>
+    [DataMember(Name="username", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "username")]
+    public string Username { get; set; }
+
+    /// <summary>
+    /// The shopping list item id.
+    /// </summary>
+    /// <value>The shopping list item id.</value>
+    [DataMember(Name="id", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "id")]
+    public decimal? Id { get; set; }
+
+    /// <summary>
+    /// The private hash for the username.
+    /// </summary>
+    /// <value>The private hash for the username.</value>
+    [DataMember(Name="hash", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "hash")]
+    public string Hash { get; set; }
 
 
     /// <summary>
@@ -28,7 +44,9 @@ namespace spoonacular.Model {
     public override string ToString()  {
       var sb = new StringBuilder();
       sb.Append("class InlineObject5 {\n");
-      sb.Append("  Instructions: ").Append(Instructions).Append("\n");
+      sb.Append("  Username: ").Append(Username).Append("\n");
+      sb.Append("  Id: ").Append(Id).Append("\n");
+      sb.Append("  Hash: ").Append(Hash).Append("\n");
       sb.Append("}\n");
       return sb.ToString();
     }

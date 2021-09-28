@@ -4,7 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**instructions** | **String** | The instructions to be analyzed. | 
+**username** | **String** | The username. | 
+**id** | **f32** | The shopping list item id. | 
+**hash** | **String** | The private hash for the username. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

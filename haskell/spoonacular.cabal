@@ -64,7 +64,13 @@ library
   exposed-modules:
       Spoonacular
       Spoonacular.API
-      Spoonacular.API.ApiDefault
+      Spoonacular.API.Ingredients
+      Spoonacular.API.MealPlanning
+      Spoonacular.API.MenuItems
+      Spoonacular.API.Misc
+      Spoonacular.API.Products
+      Spoonacular.API.Recipes
+      Spoonacular.API.Wine
       Spoonacular.Client
       Spoonacular.Core
       Spoonacular.Logging

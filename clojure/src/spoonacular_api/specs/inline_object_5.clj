@@ -7,7 +7,9 @@
 
 (def inline-object-5-data
   {
-   (ds/req :instructions) string?
+   (ds/req :username) string?
+   (ds/req :id) float?
+   (ds/req :hash) string?
    })
 
 (def inline-object-5-spec

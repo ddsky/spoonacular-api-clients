@@ -9,11 +9,15 @@ defmodule com.spoonacular.client.Model.InlineObject5 do
 
   @derive [Poison.Encoder]
   defstruct [
-    :"instructions"
+    :"username",
+    :"id",
+    :"hash"
   ]
 
   @type t :: %__MODULE__{
-    :"instructions" => String.t
+    :"username" => String.t,
+    :"id" => float(),
+    :"hash" => String.t
   }
 end
 

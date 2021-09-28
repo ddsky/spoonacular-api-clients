@@ -13,36 +13,28 @@ namespace spoonacular.Model {
   [DataContract]
   public class InlineObject3 {
     /// <summary>
-    /// The recipe's instructions.
+    /// The username.
     /// </summary>
-    /// <value>The recipe's instructions.</value>
-    [DataMember(Name="instructions", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "instructions")]
-    public string Instructions { get; set; }
+    /// <value>The username.</value>
+    [DataMember(Name="username", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "username")]
+    public string Username { get; set; }
 
     /// <summary>
-    /// How to visualize the equipment, either \"grid\" or \"list\".
+    /// The date in the format yyyy-mm-dd.
     /// </summary>
-    /// <value>How to visualize the equipment, either \"grid\" or \"list\".</value>
-    [DataMember(Name="view", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "view")]
-    public string View { get; set; }
+    /// <value>The date in the format yyyy-mm-dd.</value>
+    [DataMember(Name="date", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "date")]
+    public string Date { get; set; }
 
     /// <summary>
-    /// Whether the default CSS should be added to the response.
+    /// The private hash for the username.
     /// </summary>
-    /// <value>Whether the default CSS should be added to the response.</value>
-    [DataMember(Name="defaultCss", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "defaultCss")]
-    public bool? DefaultCss { get; set; }
-
-    /// <summary>
-    /// Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
-    /// </summary>
-    /// <value>Whether to show a backlink to spoonacular. If set false, this call counts against your quota.</value>
-    [DataMember(Name="showBacklink", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "showBacklink")]
-    public bool? ShowBacklink { get; set; }
+    /// <value>The private hash for the username.</value>
+    [DataMember(Name="hash", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "hash")]
+    public string Hash { get; set; }
 
 
     /// <summary>
@@ -52,10 +44,9 @@ namespace spoonacular.Model {
     public override string ToString()  {
       var sb = new StringBuilder();
       sb.Append("class InlineObject3 {\n");
-      sb.Append("  Instructions: ").Append(Instructions).Append("\n");
-      sb.Append("  View: ").Append(View).Append("\n");
-      sb.Append("  DefaultCss: ").Append(DefaultCss).Append("\n");
-      sb.Append("  ShowBacklink: ").Append(ShowBacklink).Append("\n");
+      sb.Append("  Username: ").Append(Username).Append("\n");
+      sb.Append("  Date: ").Append(Date).Append("\n");
+      sb.Append("  Hash: ").Append(Hash).Append("\n");
       sb.Append("}\n");
       return sb.ToString();
     }

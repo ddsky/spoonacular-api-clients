@@ -1,6 +1,5 @@
 package com.spoonacular.client.model;
 
-import java.math.BigDecimal;
 
 import io.swagger.annotations.*;
 import com.google.gson.annotations.SerializedName;
@@ -9,44 +8,31 @@ import com.google.gson.annotations.SerializedName;
 @ApiModel(description = "")
 public class InlineObject7  {
   
-  @SerializedName("ingredientList")
-  private String ingredientList = null;
-  @SerializedName("servings")
-  private BigDecimal servings = null;
-  @SerializedName("includeNutrition")
-  private Boolean includeNutrition = null;
+  @SerializedName("username")
+  private String username = null;
+  @SerializedName("hash")
+  private String hash = null;
 
   /**
-   * The ingredient list of the recipe, one ingredient per line.
+   * The username.
    **/
-  @ApiModelProperty(required = true, value = "The ingredient list of the recipe, one ingredient per line.")
-  public String getIngredientList() {
-    return ingredientList;
+  @ApiModelProperty(required = true, value = "The username.")
+  public String getUsername() {
+    return username;
   }
-  public void setIngredientList(String ingredientList) {
-    this.ingredientList = ingredientList;
-  }
-
-  /**
-   * The number of servings that you can make from the ingredients.
-   **/
-  @ApiModelProperty(required = true, value = "The number of servings that you can make from the ingredients.")
-  public BigDecimal getServings() {
-    return servings;
-  }
-  public void setServings(BigDecimal servings) {
-    this.servings = servings;
+  public void setUsername(String username) {
+    this.username = username;
   }
 
   /**
-   * Whether nutrition data should be added to correctly parsed ingredients.
+   * The private hash for the username.
    **/
-  @ApiModelProperty(value = "Whether nutrition data should be added to correctly parsed ingredients.")
-  public Boolean getIncludeNutrition() {
-    return includeNutrition;
+  @ApiModelProperty(required = true, value = "The private hash for the username.")
+  public String getHash() {
+    return hash;
   }
-  public void setIncludeNutrition(Boolean includeNutrition) {
-    this.includeNutrition = includeNutrition;
+  public void setHash(String hash) {
+    this.hash = hash;
   }
 
 
@@ -59,17 +45,15 @@ public class InlineObject7  {
       return false;
     }
     InlineObject7 inlineObject7 = (InlineObject7) o;
-    return (this.ingredientList == null ? inlineObject7.ingredientList == null : this.ingredientList.equals(inlineObject7.ingredientList)) &&
-        (this.servings == null ? inlineObject7.servings == null : this.servings.equals(inlineObject7.servings)) &&
-        (this.includeNutrition == null ? inlineObject7.includeNutrition == null : this.includeNutrition.equals(inlineObject7.includeNutrition));
+    return (this.username == null ? inlineObject7.username == null : this.username.equals(inlineObject7.username)) &&
+        (this.hash == null ? inlineObject7.hash == null : this.hash.equals(inlineObject7.hash));
   }
 
   @Override
   public int hashCode() {
     int result = 17;
-    result = 31 * result + (this.ingredientList == null ? 0: this.ingredientList.hashCode());
-    result = 31 * result + (this.servings == null ? 0: this.servings.hashCode());
-    result = 31 * result + (this.includeNutrition == null ? 0: this.includeNutrition.hashCode());
+    result = 31 * result + (this.username == null ? 0: this.username.hashCode());
+    result = 31 * result + (this.hash == null ? 0: this.hash.hashCode());
     return result;
   }
 
@@ -78,9 +62,8 @@ public class InlineObject7  {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineObject7 {\n");
     
-    sb.append("  ingredientList: ").append(ingredientList).append("\n");
-    sb.append("  servings: ").append(servings).append("\n");
-    sb.append("  includeNutrition: ").append(includeNutrition).append("\n");
+    sb.append("  username: ").append(username).append("\n");
+    sb.append("  hash: ").append(hash).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

@@ -4,7 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ingredient_list** | **String** | The ingredient list of the recipe, one ingredient per line. | 
+**title** | **String** |  | 
+**upc** | **String** |  | 
+**plu_code** | **String** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

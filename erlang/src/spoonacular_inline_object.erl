@@ -5,10 +5,16 @@
 -export_type([spoonacular_inline_object/0]).
 
 -type spoonacular_inline_object() ::
-    #{ 'ingredientList' := binary()
+    #{ 'title' := binary(),
+       'upc' := binary(),
+       'plu_code' := binary()
      }.
 
-encode(#{ 'ingredientList' := IngredientList
+encode(#{ 'title' := Title,
+          'upc' := Upc,
+          'plu_code' := PluCode
         }) ->
-    #{ 'ingredientList' => IngredientList
+    #{ 'title' => Title,
+       'upc' => Upc,
+       'plu_code' => PluCode
      }.

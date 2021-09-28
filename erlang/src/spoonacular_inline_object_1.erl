@@ -5,19 +5,16 @@
 -export_type([spoonacular_inline_object_1/0]).
 
 -type spoonacular_inline_object_1() ::
-    #{ 'ingredientList' := binary(),
-       'servings' := integer(),
-       'defaultCss' => boolean(),
-       'showBacklink' => boolean()
+    #{ 'title' := binary(),
+       'upc' := binary(),
+       'plu_code' := binary()
      }.
 
-encode(#{ 'ingredientList' := IngredientList,
-          'servings' := Servings,
-          'defaultCss' := DefaultCss,
-          'showBacklink' := ShowBacklink
+encode(#{ 'title' := Title,
+          'upc' := Upc,
+          'plu_code' := PluCode
         }) ->
-    #{ 'ingredientList' => IngredientList,
-       'servings' => Servings,
-       'defaultCss' => DefaultCss,
-       'showBacklink' => ShowBacklink
+    #{ 'title' => Title,
+       'upc' => Upc,
+       'plu_code' => PluCode
      }.

@@ -7,8 +7,10 @@
 
 (def inline-object-6-data
   {
-   (ds/req :title) string?
-   (ds/req :ingredientList) string?
+   (ds/req :username) string?
+   (ds/req :start-date) string?
+   (ds/req :end-date) string?
+   (ds/req :hash) string?
    })
 
 (def inline-object-6-spec

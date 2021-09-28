@@ -38,7 +38,13 @@ object endpoint {
   * @return A service that contains all provided endpoints of the API.
   */
   def makeService(da: DataAccessor): Service[Request, Response] = (
-          DefaultApi.endpoints(da) 
+          IngredientsApi.endpoints(da)  :+:
+          MealPlanningApi.endpoints(da)  :+:
+          MenuItemsApi.endpoints(da)  :+:
+          MiscApi.endpoints(da)  :+:
+          ProductsApi.endpoints(da)  :+:
+          RecipesApi.endpoints(da)  :+:
+          WineApi.endpoints(da) 
   ).handle({
       case e: CommonError => NotFound(e)
   }).toService

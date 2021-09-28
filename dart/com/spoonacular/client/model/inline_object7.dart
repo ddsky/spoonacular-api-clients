@@ -1,46 +1,37 @@
 part of openapi.api;
 
 class InlineObject7 {
-  /* The ingredient list of the recipe, one ingredient per line. */
-  String ingredientList = null;
-  /* The number of servings that you can make from the ingredients. */
-  num servings = null;
-  /* Whether nutrition data should be added to correctly parsed ingredients. */
-  bool includeNutrition = null;
+  /* The username. */
+  String username = null;
+  /* The private hash for the username. */
+  String hash = null;
   InlineObject7();
 
   @override
   String toString() {
-    return 'InlineObject7[ingredientList=$ingredientList, servings=$servings, includeNutrition=$includeNutrition, ]';
+    return 'InlineObject7[username=$username, hash=$hash, ]';
   }
 
   InlineObject7.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    if (json['ingredientList'] == null) {
-      ingredientList = null;
+    if (json['username'] == null) {
+      username = null;
     } else {
-          ingredientList = json['ingredientList'];
+          username = json['username'];
     }
-    if (json['servings'] == null) {
-      servings = null;
+    if (json['hash'] == null) {
+      hash = null;
     } else {
-          servings = json['servings'];
-    }
-    if (json['includeNutrition'] == null) {
-      includeNutrition = null;
-    } else {
-          includeNutrition = json['includeNutrition'];
+          hash = json['hash'];
     }
   }
 
   Map<String, dynamic> toJson() {
     Map <String, dynamic> json = {};
-    if (ingredientList != null)
-      json['ingredientList'] = ingredientList;
-    if (servings != null)
-      json['servings'] = servings;
-    if (includeNutrition != null)
-      json['includeNutrition'] = includeNutrition;
+    if (username != null)
+      json['username'] = username;
+    if (hash != null)
+      json['hash'] = hash;
     return json;
   }
 
