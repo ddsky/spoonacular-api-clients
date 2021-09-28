@@ -4,6 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**instructions** | **String** | The instructions to be analyzed. | 
+**username** | **String** | The username. | 
+**id** | **Number** | The shopping list item id. | 
+**hash** | **String** | The private hash for the username. | 
 
 

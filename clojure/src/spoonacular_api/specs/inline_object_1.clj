@@ -7,10 +7,9 @@
 
 (def inline-object-1-data
   {
-   (ds/req :ingredientList) string?
-   (ds/req :servings) float?
-   (ds/opt :defaultCss) boolean?
-   (ds/opt :showBacklink) boolean?
+   (ds/req :title) string?
+   (ds/req :upc) string?
+   (ds/req :plu_code) string?
    })
 
 (def inline-object-1-spec

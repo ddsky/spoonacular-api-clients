@@ -4,8 +4,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**title** | **kotlin.String** | The title of the recipe. | 
-**ingredientList** | **kotlin.String** | The ingredient list of the recipe, one ingredient per line (separate lines with \\n). | 
+**username** | **kotlin.String** | The username. | 
+**startMinusDate** | **kotlin.String** | The start date in the format yyyy-mm-dd. | 
+**endMinusDate** | **kotlin.String** | The end date in the format yyyy-mm-dd. | 
+**hash** | **kotlin.String** | The private hash for the username. | 
 
 
 

@@ -3,10 +3,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**instructions** | **str** | The recipe&#39;s instructions. | 
-**view** | **str** | How to visualize the equipment, either \&quot;grid\&quot; or \&quot;list\&quot;. | [optional] 
-**default_css** | **bool** | Whether the default CSS should be added to the response. | [optional] 
-**show_backlink** | **bool** | Whether to show a backlink to spoonacular. If set false, this call counts against your quota. | [optional] 
+**username** | **str** | The username. | 
+**date** | **str** | The date in the format yyyy-mm-dd. | 
+**hash** | **str** | The private hash for the username. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -7,11 +7,8 @@
 
 (def inline-object-2-data
   {
-   (ds/req :ingredientList) string?
+   (ds/req :ingredients) (s/coll-of string?)
    (ds/req :servings) float?
-   (ds/opt :mode) float?
-   (ds/opt :defaultCss) boolean?
-   (ds/opt :showBacklink) boolean?
    })
 
 (def inline-object-2-spec

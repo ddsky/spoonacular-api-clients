@@ -13,12 +13,25 @@ namespace spoonacular.Model {
   [DataContract]
   public class InlineObject {
     /// <summary>
-    /// The ingredient list of the recipe, one ingredient per line.
+    /// Gets or Sets Title
     /// </summary>
-    /// <value>The ingredient list of the recipe, one ingredient per line.</value>
-    [DataMember(Name="ingredientList", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "ingredientList")]
-    public string IngredientList { get; set; }
+    [DataMember(Name="title", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "title")]
+    public string Title { get; set; }
+
+    /// <summary>
+    /// Gets or Sets Upc
+    /// </summary>
+    [DataMember(Name="upc", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "upc")]
+    public string Upc { get; set; }
+
+    /// <summary>
+    /// Gets or Sets PluCode
+    /// </summary>
+    [DataMember(Name="plu_code", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "plu_code")]
+    public string PluCode { get; set; }
 
 
     /// <summary>
@@ -28,7 +41,9 @@ namespace spoonacular.Model {
     public override string ToString()  {
       var sb = new StringBuilder();
       sb.Append("class InlineObject {\n");
-      sb.Append("  IngredientList: ").Append(IngredientList).Append("\n");
+      sb.Append("  Title: ").Append(Title).Append("\n");
+      sb.Append("  Upc: ").Append(Upc).Append("\n");
+      sb.Append("  PluCode: ").Append(PluCode).Append("\n");
       sb.Append("}\n");
       return sb.ToString();
     }

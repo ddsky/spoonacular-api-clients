@@ -3,9 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ingredientList** | **NSString*** | The ingredient list of the recipe, one ingredient per line. | 
-**servings** | **NSNumber*** | The number of servings that you can make from the ingredients. | 
-**includeNutrition** | **NSNumber*** | Whether nutrition data should be added to correctly parsed ingredients. | [optional] 
+**username** | **NSString*** | The username. | 
+**hash** | **NSString*** | The private hash for the username. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

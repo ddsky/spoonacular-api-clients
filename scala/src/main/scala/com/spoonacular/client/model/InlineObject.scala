@@ -8,9 +8,13 @@ import spoonacular._
 
 /**
  * 
- * @param ingredientList The ingredient list of the recipe, one ingredient per line.
+ * @param title 
+ * @param upc 
+ * @param pluUnderscorecode 
  */
-case class InlineObject(ingredientList: String
+case class InlineObject(title: String,
+                upc: String,
+                pluUnderscorecode: String
                 )
 
 object InlineObject {

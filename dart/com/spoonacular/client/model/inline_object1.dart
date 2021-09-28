@@ -1,55 +1,46 @@
 part of openapi.api;
 
 class InlineObject1 {
-  /* The ingredient list of the recipe, one ingredient per line. */
-  String ingredientList = null;
-  /* The number of servings. */
-  num servings = null;
-  /* Whether the default CSS should be added to the response. */
-  bool defaultCss = null;
-  /* Whether to show a backlink to spoonacular. If set false, this call counts against your quota. */
-  bool showBacklink = null;
+  
+  String title = null;
+  
+  String upc = null;
+  
+  String pluCode = null;
   InlineObject1();
 
   @override
   String toString() {
-    return 'InlineObject1[ingredientList=$ingredientList, servings=$servings, defaultCss=$defaultCss, showBacklink=$showBacklink, ]';
+    return 'InlineObject1[title=$title, upc=$upc, pluCode=$pluCode, ]';
   }
 
   InlineObject1.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    if (json['ingredientList'] == null) {
-      ingredientList = null;
+    if (json['title'] == null) {
+      title = null;
     } else {
-          ingredientList = json['ingredientList'];
+          title = json['title'];
     }
-    if (json['servings'] == null) {
-      servings = null;
+    if (json['upc'] == null) {
+      upc = null;
     } else {
-          servings = json['servings'];
+          upc = json['upc'];
     }
-    if (json['defaultCss'] == null) {
-      defaultCss = null;
+    if (json['plu_code'] == null) {
+      pluCode = null;
     } else {
-          defaultCss = json['defaultCss'];
-    }
-    if (json['showBacklink'] == null) {
-      showBacklink = null;
-    } else {
-          showBacklink = json['showBacklink'];
+          pluCode = json['plu_code'];
     }
   }
 
   Map<String, dynamic> toJson() {
     Map <String, dynamic> json = {};
-    if (ingredientList != null)
-      json['ingredientList'] = ingredientList;
-    if (servings != null)
-      json['servings'] = servings;
-    if (defaultCss != null)
-      json['defaultCss'] = defaultCss;
-    if (showBacklink != null)
-      json['showBacklink'] = showBacklink;
+    if (title != null)
+      json['title'] = title;
+    if (upc != null)
+      json['upc'] = upc;
+    if (pluCode != null)
+      json['plu_code'] = pluCode;
     return json;
   }
 

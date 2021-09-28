@@ -1,0 +1,14 @@
+# OAIInlineResponse20035
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**menuItems** | [**NSArray&lt;OAIInlineResponse20035MenuItems&gt;***](OAIInlineResponse20035MenuItems.md) |  | 
+**totalMenuItems** | **NSNumber*** |  | 
+**type** | **NSString*** |  | 
+**offset** | **NSNumber*** |  | 
+**number** | **NSNumber*** |  | 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

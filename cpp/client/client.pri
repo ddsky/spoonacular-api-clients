@@ -2,15 +2,9 @@ QT += network
 
 HEADERS += \
 # Models
+    $${PWD}/OAIInlineObject.h \
     $${PWD}/OAIInline_object.h \
     $${PWD}/OAIInline_object_1.h \
-    $${PWD}/OAIInline_object_10.h \
-    $${PWD}/OAIInline_object_11.h \
-    $${PWD}/OAIInline_object_12.h \
-    $${PWD}/OAIInline_object_13.h \
-    $${PWD}/OAIInline_object_14.h \
-    $${PWD}/OAIInline_object_15.h \
-    $${PWD}/OAIInline_object_16.h \
     $${PWD}/OAIInline_object_2.h \
     $${PWD}/OAIInline_object_3.h \
     $${PWD}/OAIInline_object_4.h \
@@ -18,9 +12,133 @@ HEADERS += \
     $${PWD}/OAIInline_object_6.h \
     $${PWD}/OAIInline_object_7.h \
     $${PWD}/OAIInline_object_8.h \
-    $${PWD}/OAIInline_object_9.h \
+    $${PWD}/OAIInline_response_200.h \
+    $${PWD}/OAIInline_response_200_1.h \
+    $${PWD}/OAIInline_response_200_10.h \
+    $${PWD}/OAIInline_response_200_10_amount.h \
+    $${PWD}/OAIInline_response_200_10_amount_metric.h \
+    $${PWD}/OAIInline_response_200_10_ingredients.h \
+    $${PWD}/OAIInline_response_200_11.h \
+    $${PWD}/OAIInline_response_200_11_ingredients.h \
+    $${PWD}/OAIInline_response_200_12.h \
+    $${PWD}/OAIInline_response_200_13.h \
+    $${PWD}/OAIInline_response_200_13_ingredients.h \
+    $${PWD}/OAIInline_response_200_13_ingredients_1.h \
+    $${PWD}/OAIInline_response_200_13_parsedInstructions.h \
+    $${PWD}/OAIInline_response_200_13_steps.h \
+    $${PWD}/OAIInline_response_200_14.h \
+    $${PWD}/OAIInline_response_200_15.h \
+    $${PWD}/OAIInline_response_200_16.h \
+    $${PWD}/OAIInline_response_200_17.h \
+    $${PWD}/OAIInline_response_200_18.h \
+    $${PWD}/OAIInline_response_200_18_dishes.h \
+    $${PWD}/OAIInline_response_200_18_ingredients.h \
+    $${PWD}/OAIInline_response_200_19.h \
+    $${PWD}/OAIInline_response_200_2.h \
+    $${PWD}/OAIInline_response_200_20.h \
+    $${PWD}/OAIInline_response_200_21.h \
+    $${PWD}/OAIInline_response_200_21_calories.h \
+    $${PWD}/OAIInline_response_200_21_calories_confidenceRange95Percent.h \
+    $${PWD}/OAIInline_response_200_22.h \
+    $${PWD}/OAIInline_response_200_22_nutrition.h \
+    $${PWD}/OAIInline_response_200_23.h \
+    $${PWD}/OAIInline_response_200_23_ingredients.h \
+    $${PWD}/OAIInline_response_200_24.h \
+    $${PWD}/OAIInline_response_200_25.h \
+    $${PWD}/OAIInline_response_200_25_results.h \
+    $${PWD}/OAIInline_response_200_26.h \
+    $${PWD}/OAIInline_response_200_27.h \
+    $${PWD}/OAIInline_response_200_28.h \
+    $${PWD}/OAIInline_response_200_28_ingredients.h \
+    $${PWD}/OAIInline_response_200_28_nutrition.h \
+    $${PWD}/OAIInline_response_200_28_servings.h \
+    $${PWD}/OAIInline_response_200_29.h \
+    $${PWD}/OAIInline_response_200_29_customFoods.h \
+    $${PWD}/OAIInline_response_200_3.h \
+    $${PWD}/OAIInline_response_200_30.h \
+    $${PWD}/OAIInline_response_200_30_ingredients.h \
+    $${PWD}/OAIInline_response_200_31.h \
+    $${PWD}/OAIInline_response_200_31_comparableProducts.h \
+    $${PWD}/OAIInline_response_200_31_comparableProducts_protein.h \
+    $${PWD}/OAIInline_response_200_32.h \
+    $${PWD}/OAIInline_response_200_32_results.h \
+    $${PWD}/OAIInline_response_200_33.h \
+    $${PWD}/OAIInline_response_200_34.h \
+    $${PWD}/OAIInline_response_200_35.h \
+    $${PWD}/OAIInline_response_200_35_menuItems.h \
+    $${PWD}/OAIInline_response_200_36.h \
+    $${PWD}/OAIInline_response_200_37.h \
+    $${PWD}/OAIInline_response_200_37_nutrients.h \
+    $${PWD}/OAIInline_response_200_38.h \
+    $${PWD}/OAIInline_response_200_38_days.h \
+    $${PWD}/OAIInline_response_200_38_items.h \
+    $${PWD}/OAIInline_response_200_38_nutritionSummary.h \
+    $${PWD}/OAIInline_response_200_38_nutritionSummary_nutrients.h \
+    $${PWD}/OAIInline_response_200_38_value.h \
+    $${PWD}/OAIInline_response_200_39.h \
+    $${PWD}/OAIInline_response_200_3_extendedIngredients.h \
+    $${PWD}/OAIInline_response_200_3_measures.h \
+    $${PWD}/OAIInline_response_200_3_measures_metric.h \
+    $${PWD}/OAIInline_response_200_3_winePairing.h \
+    $${PWD}/OAIInline_response_200_3_winePairing_productMatches.h \
+    $${PWD}/OAIInline_response_200_4.h \
+    $${PWD}/OAIInline_response_200_40.h \
+    $${PWD}/OAIInline_response_200_40_days.h \
+    $${PWD}/OAIInline_response_200_40_items.h \
+    $${PWD}/OAIInline_response_200_40_value.h \
+    $${PWD}/OAIInline_response_200_41.h \
+    $${PWD}/OAIInline_response_200_41_aisles.h \
+    $${PWD}/OAIInline_response_200_41_items.h \
+    $${PWD}/OAIInline_response_200_41_measures.h \
+    $${PWD}/OAIInline_response_200_42.h \
+    $${PWD}/OAIInline_response_200_43.h \
+    $${PWD}/OAIInline_response_200_44.h \
+    $${PWD}/OAIInline_response_200_44_productMatches.h \
+    $${PWD}/OAIInline_response_200_45.h \
+    $${PWD}/OAIInline_response_200_46.h \
+    $${PWD}/OAIInline_response_200_46_recommendedWines.h \
+    $${PWD}/OAIInline_response_200_47.h \
+    $${PWD}/OAIInline_response_200_48.h \
+    $${PWD}/OAIInline_response_200_48_category.h \
+    $${PWD}/OAIInline_response_200_48_nutrition.h \
+    $${PWD}/OAIInline_response_200_48_nutrition_calories.h \
+    $${PWD}/OAIInline_response_200_48_nutrition_calories_confidenceRange95Percent.h \
+    $${PWD}/OAIInline_response_200_48_recipes.h \
+    $${PWD}/OAIInline_response_200_49.h \
+    $${PWD}/OAIInline_response_200_5.h \
+    $${PWD}/OAIInline_response_200_50.h \
+    $${PWD}/OAIInline_response_200_51.h \
+    $${PWD}/OAIInline_response_200_52.h \
+    $${PWD}/OAIInline_response_200_52_results.h \
+    $${PWD}/OAIInline_response_200_52_searchResults.h \
+    $${PWD}/OAIInline_response_200_53.h \
+    $${PWD}/OAIInline_response_200_53_videos.h \
+    $${PWD}/OAIInline_response_200_54.h \
+    $${PWD}/OAIInline_response_200_55.h \
+    $${PWD}/OAIInline_response_200_56.h \
+    $${PWD}/OAIInline_response_200_56_suggests.h \
+    $${PWD}/OAIInline_response_200_6.h \
+    $${PWD}/OAIInline_response_200_6_recipes.h \
+    $${PWD}/OAIInline_response_200_7.h \
+    $${PWD}/OAIInline_response_200_8.h \
+    $${PWD}/OAIInline_response_200_9.h \
+    $${PWD}/OAIInline_response_200_results.h \
+    $${PWD}/OAI_food_ingredients_map_products.h \
+    $${PWD}/OAI_recipes_findByIngredients_missedIngredients.h \
+    $${PWD}/OAI_recipes_parseIngredients_estimatedCost.h \
+    $${PWD}/OAI_recipes_parseIngredients_nutrition.h \
+    $${PWD}/OAI_recipes_parseIngredients_nutrition_caloricBreakdown.h \
+    $${PWD}/OAI_recipes_parseIngredients_nutrition_nutrients.h \
+    $${PWD}/OAI_recipes_parseIngredients_nutrition_properties.h \
+    $${PWD}/OAI_recipes_parseIngredients_nutrition_weightPerServing.h \
 # APIs
-    $${PWD}/OAIDefaultApi.h \
+    $${PWD}/OAIIngredientsApi.h \
+    $${PWD}/OAIMealPlanningApi.h \
+    $${PWD}/OAIMenuItemsApi.h \
+    $${PWD}/OAIMiscApi.h \
+    $${PWD}/OAIProductsApi.h \
+    $${PWD}/OAIRecipesApi.h \
+    $${PWD}/OAIWineApi.h \
 # Others
     $${PWD}/OAIHelpers.h \
     $${PWD}/OAIHttpRequest.h \
@@ -29,15 +147,9 @@ HEADERS += \
 
 SOURCES += \
 # Models
+    $${PWD}/OAIInlineObject.cpp \
     $${PWD}/OAIInline_object.cpp \
     $${PWD}/OAIInline_object_1.cpp \
-    $${PWD}/OAIInline_object_10.cpp \
-    $${PWD}/OAIInline_object_11.cpp \
-    $${PWD}/OAIInline_object_12.cpp \
-    $${PWD}/OAIInline_object_13.cpp \
-    $${PWD}/OAIInline_object_14.cpp \
-    $${PWD}/OAIInline_object_15.cpp \
-    $${PWD}/OAIInline_object_16.cpp \
     $${PWD}/OAIInline_object_2.cpp \
     $${PWD}/OAIInline_object_3.cpp \
     $${PWD}/OAIInline_object_4.cpp \
@@ -45,9 +157,133 @@ SOURCES += \
     $${PWD}/OAIInline_object_6.cpp \
     $${PWD}/OAIInline_object_7.cpp \
     $${PWD}/OAIInline_object_8.cpp \
-    $${PWD}/OAIInline_object_9.cpp \
+    $${PWD}/OAIInline_response_200.cpp \
+    $${PWD}/OAIInline_response_200_1.cpp \
+    $${PWD}/OAIInline_response_200_10.cpp \
+    $${PWD}/OAIInline_response_200_10_amount.cpp \
+    $${PWD}/OAIInline_response_200_10_amount_metric.cpp \
+    $${PWD}/OAIInline_response_200_10_ingredients.cpp \
+    $${PWD}/OAIInline_response_200_11.cpp \
+    $${PWD}/OAIInline_response_200_11_ingredients.cpp \
+    $${PWD}/OAIInline_response_200_12.cpp \
+    $${PWD}/OAIInline_response_200_13.cpp \
+    $${PWD}/OAIInline_response_200_13_ingredients.cpp \
+    $${PWD}/OAIInline_response_200_13_ingredients_1.cpp \
+    $${PWD}/OAIInline_response_200_13_parsedInstructions.cpp \
+    $${PWD}/OAIInline_response_200_13_steps.cpp \
+    $${PWD}/OAIInline_response_200_14.cpp \
+    $${PWD}/OAIInline_response_200_15.cpp \
+    $${PWD}/OAIInline_response_200_16.cpp \
+    $${PWD}/OAIInline_response_200_17.cpp \
+    $${PWD}/OAIInline_response_200_18.cpp \
+    $${PWD}/OAIInline_response_200_18_dishes.cpp \
+    $${PWD}/OAIInline_response_200_18_ingredients.cpp \
+    $${PWD}/OAIInline_response_200_19.cpp \
+    $${PWD}/OAIInline_response_200_2.cpp \
+    $${PWD}/OAIInline_response_200_20.cpp \
+    $${PWD}/OAIInline_response_200_21.cpp \
+    $${PWD}/OAIInline_response_200_21_calories.cpp \
+    $${PWD}/OAIInline_response_200_21_calories_confidenceRange95Percent.cpp \
+    $${PWD}/OAIInline_response_200_22.cpp \
+    $${PWD}/OAIInline_response_200_22_nutrition.cpp \
+    $${PWD}/OAIInline_response_200_23.cpp \
+    $${PWD}/OAIInline_response_200_23_ingredients.cpp \
+    $${PWD}/OAIInline_response_200_24.cpp \
+    $${PWD}/OAIInline_response_200_25.cpp \
+    $${PWD}/OAIInline_response_200_25_results.cpp \
+    $${PWD}/OAIInline_response_200_26.cpp \
+    $${PWD}/OAIInline_response_200_27.cpp \
+    $${PWD}/OAIInline_response_200_28.cpp \
+    $${PWD}/OAIInline_response_200_28_ingredients.cpp \
+    $${PWD}/OAIInline_response_200_28_nutrition.cpp \
+    $${PWD}/OAIInline_response_200_28_servings.cpp \
+    $${PWD}/OAIInline_response_200_29.cpp \
+    $${PWD}/OAIInline_response_200_29_customFoods.cpp \
+    $${PWD}/OAIInline_response_200_3.cpp \
+    $${PWD}/OAIInline_response_200_30.cpp \
+    $${PWD}/OAIInline_response_200_30_ingredients.cpp \
+    $${PWD}/OAIInline_response_200_31.cpp \
+    $${PWD}/OAIInline_response_200_31_comparableProducts.cpp \
+    $${PWD}/OAIInline_response_200_31_comparableProducts_protein.cpp \
+    $${PWD}/OAIInline_response_200_32.cpp \
+    $${PWD}/OAIInline_response_200_32_results.cpp \
+    $${PWD}/OAIInline_response_200_33.cpp \
+    $${PWD}/OAIInline_response_200_34.cpp \
+    $${PWD}/OAIInline_response_200_35.cpp \
+    $${PWD}/OAIInline_response_200_35_menuItems.cpp \
+    $${PWD}/OAIInline_response_200_36.cpp \
+    $${PWD}/OAIInline_response_200_37.cpp \
+    $${PWD}/OAIInline_response_200_37_nutrients.cpp \
+    $${PWD}/OAIInline_response_200_38.cpp \
+    $${PWD}/OAIInline_response_200_38_days.cpp \
+    $${PWD}/OAIInline_response_200_38_items.cpp \
+    $${PWD}/OAIInline_response_200_38_nutritionSummary.cpp \
+    $${PWD}/OAIInline_response_200_38_nutritionSummary_nutrients.cpp \
+    $${PWD}/OAIInline_response_200_38_value.cpp \
+    $${PWD}/OAIInline_response_200_39.cpp \
+    $${PWD}/OAIInline_response_200_3_extendedIngredients.cpp \
+    $${PWD}/OAIInline_response_200_3_measures.cpp \
+    $${PWD}/OAIInline_response_200_3_measures_metric.cpp \
+    $${PWD}/OAIInline_response_200_3_winePairing.cpp \
+    $${PWD}/OAIInline_response_200_3_winePairing_productMatches.cpp \
+    $${PWD}/OAIInline_response_200_4.cpp \
+    $${PWD}/OAIInline_response_200_40.cpp \
+    $${PWD}/OAIInline_response_200_40_days.cpp \
+    $${PWD}/OAIInline_response_200_40_items.cpp \
+    $${PWD}/OAIInline_response_200_40_value.cpp \
+    $${PWD}/OAIInline_response_200_41.cpp \
+    $${PWD}/OAIInline_response_200_41_aisles.cpp \
+    $${PWD}/OAIInline_response_200_41_items.cpp \
+    $${PWD}/OAIInline_response_200_41_measures.cpp \
+    $${PWD}/OAIInline_response_200_42.cpp \
+    $${PWD}/OAIInline_response_200_43.cpp \
+    $${PWD}/OAIInline_response_200_44.cpp \
+    $${PWD}/OAIInline_response_200_44_productMatches.cpp \
+    $${PWD}/OAIInline_response_200_45.cpp \
+    $${PWD}/OAIInline_response_200_46.cpp \
+    $${PWD}/OAIInline_response_200_46_recommendedWines.cpp \
+    $${PWD}/OAIInline_response_200_47.cpp \
+    $${PWD}/OAIInline_response_200_48.cpp \
+    $${PWD}/OAIInline_response_200_48_category.cpp \
+    $${PWD}/OAIInline_response_200_48_nutrition.cpp \
+    $${PWD}/OAIInline_response_200_48_nutrition_calories.cpp \
+    $${PWD}/OAIInline_response_200_48_nutrition_calories_confidenceRange95Percent.cpp \
+    $${PWD}/OAIInline_response_200_48_recipes.cpp \
+    $${PWD}/OAIInline_response_200_49.cpp \
+    $${PWD}/OAIInline_response_200_5.cpp \
+    $${PWD}/OAIInline_response_200_50.cpp \
+    $${PWD}/OAIInline_response_200_51.cpp \
+    $${PWD}/OAIInline_response_200_52.cpp \
+    $${PWD}/OAIInline_response_200_52_results.cpp \
+    $${PWD}/OAIInline_response_200_52_searchResults.cpp \
+    $${PWD}/OAIInline_response_200_53.cpp \
+    $${PWD}/OAIInline_response_200_53_videos.cpp \
+    $${PWD}/OAIInline_response_200_54.cpp \
+    $${PWD}/OAIInline_response_200_55.cpp \
+    $${PWD}/OAIInline_response_200_56.cpp \
+    $${PWD}/OAIInline_response_200_56_suggests.cpp \
+    $${PWD}/OAIInline_response_200_6.cpp \
+    $${PWD}/OAIInline_response_200_6_recipes.cpp \
+    $${PWD}/OAIInline_response_200_7.cpp \
+    $${PWD}/OAIInline_response_200_8.cpp \
+    $${PWD}/OAIInline_response_200_9.cpp \
+    $${PWD}/OAIInline_response_200_results.cpp \
+    $${PWD}/OAI_food_ingredients_map_products.cpp \
+    $${PWD}/OAI_recipes_findByIngredients_missedIngredients.cpp \
+    $${PWD}/OAI_recipes_parseIngredients_estimatedCost.cpp \
+    $${PWD}/OAI_recipes_parseIngredients_nutrition.cpp \
+    $${PWD}/OAI_recipes_parseIngredients_nutrition_caloricBreakdown.cpp \
+    $${PWD}/OAI_recipes_parseIngredients_nutrition_nutrients.cpp \
+    $${PWD}/OAI_recipes_parseIngredients_nutrition_properties.cpp \
+    $${PWD}/OAI_recipes_parseIngredients_nutrition_weightPerServing.cpp \
 # APIs
-    $${PWD}/OAIDefaultApi.cpp \
+    $${PWD}/OAIIngredientsApi.cpp \
+    $${PWD}/OAIMealPlanningApi.cpp \
+    $${PWD}/OAIMenuItemsApi.cpp \
+    $${PWD}/OAIMiscApi.cpp \
+    $${PWD}/OAIProductsApi.cpp \
+    $${PWD}/OAIRecipesApi.cpp \
+    $${PWD}/OAIWineApi.cpp \
 # Others
     $${PWD}/OAIHelpers.cpp \
     $${PWD}/OAIHttpRequest.cpp

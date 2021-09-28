@@ -5,25 +5,16 @@
 -export_type([spoonacular_inline_object_8/0]).
 
 -type spoonacular_inline_object_8() ::
-    #{ 'ingredientList' := binary(),
-       'servings' := integer(),
-       'measure' => binary(),
-       'view' => binary(),
-       'defaultCss' => boolean(),
-       'showBacklink' => boolean()
+    #{ 'username' := binary(),
+       'id' := integer(),
+       'hash' := binary()
      }.
 
-encode(#{ 'ingredientList' := IngredientList,
-          'servings' := Servings,
-          'measure' := Measure,
-          'view' := View,
-          'defaultCss' := DefaultCss,
-          'showBacklink' := ShowBacklink
+encode(#{ 'username' := Username,
+          'id' := Id,
+          'hash' := Hash
         }) ->
-    #{ 'ingredientList' => IngredientList,
-       'servings' => Servings,
-       'measure' => Measure,
-       'view' => View,
-       'defaultCss' => DefaultCss,
-       'showBacklink' => ShowBacklink
+    #{ 'username' => Username,
+       'id' => Id,
+       'hash' => Hash
      }.

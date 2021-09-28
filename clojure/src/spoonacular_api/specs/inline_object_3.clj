@@ -7,10 +7,9 @@
 
 (def inline-object-3-data
   {
-   (ds/req :instructions) string?
-   (ds/opt :view) string?
-   (ds/opt :defaultCss) boolean?
-   (ds/opt :showBacklink) boolean?
+   (ds/req :username) string?
+   (ds/req :date) string?
+   (ds/req :hash) string?
    })
 
 (def inline-object-3-spec

@@ -9,15 +9,13 @@ defmodule com.spoonacular.client.Model.InlineObject7 do
 
   @derive [Poison.Encoder]
   defstruct [
-    :"ingredientList",
-    :"servings",
-    :"includeNutrition"
+    :"username",
+    :"hash"
   ]
 
   @type t :: %__MODULE__{
-    :"ingredientList" => String.t,
-    :"servings" => float(),
-    :"includeNutrition" => boolean() | nil
+    :"username" => String.t,
+    :"hash" => String.t
   }
 end
 

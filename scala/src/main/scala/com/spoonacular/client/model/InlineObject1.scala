@@ -5,19 +5,16 @@ import io.finch.circe._
 import io.circe.generic.semiauto._
 import io.circe.java8.time._
 import spoonacular._
-import java.math.BigDecimal
 
 /**
  * 
- * @param ingredientList The ingredient list of the recipe, one ingredient per line.
- * @param servings The number of servings.
- * @param defaultCss Whether the default CSS should be added to the response.
- * @param showBacklink Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
+ * @param title 
+ * @param upc 
+ * @param pluUnderscorecode 
  */
-case class InlineObject1(ingredientList: String,
-                servings: BigDecimal,
-                defaultCss: Option[Boolean],
-                showBacklink: Option[Boolean]
+case class InlineObject1(title: String,
+                upc: String,
+                pluUnderscorecode: String
                 )
 
 object InlineObject1 {

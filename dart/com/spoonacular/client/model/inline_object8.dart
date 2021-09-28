@@ -1,73 +1,46 @@
 part of openapi.api;
 
 class InlineObject8 {
-  /* The ingredient list of the recipe, one ingredient per line. */
-  String ingredientList = null;
-  /* The number of servings. */
-  num servings = null;
-  /* The original system of measurement, either \"metric\" or \"us\". */
-  String measure = null;
-  /* How to visualize the ingredients, either \"grid\" or \"list\". */
-  String view = null;
-  /* Whether the default CSS should be added to the response. */
-  bool defaultCss = null;
-  /* Whether to show a backlink to spoonacular. If set false, this call counts against your quota. */
-  bool showBacklink = null;
+  /* The username. */
+  String username = null;
+  /* The shopping list item id. */
+  num id = null;
+  /* The private hash for the username. */
+  String hash = null;
   InlineObject8();
 
   @override
   String toString() {
-    return 'InlineObject8[ingredientList=$ingredientList, servings=$servings, measure=$measure, view=$view, defaultCss=$defaultCss, showBacklink=$showBacklink, ]';
+    return 'InlineObject8[username=$username, id=$id, hash=$hash, ]';
   }
 
   InlineObject8.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    if (json['ingredientList'] == null) {
-      ingredientList = null;
+    if (json['username'] == null) {
+      username = null;
     } else {
-          ingredientList = json['ingredientList'];
+          username = json['username'];
     }
-    if (json['servings'] == null) {
-      servings = null;
+    if (json['id'] == null) {
+      id = null;
     } else {
-          servings = json['servings'];
+          id = json['id'];
     }
-    if (json['measure'] == null) {
-      measure = null;
+    if (json['hash'] == null) {
+      hash = null;
     } else {
-          measure = json['measure'];
-    }
-    if (json['view'] == null) {
-      view = null;
-    } else {
-          view = json['view'];
-    }
-    if (json['defaultCss'] == null) {
-      defaultCss = null;
-    } else {
-          defaultCss = json['defaultCss'];
-    }
-    if (json['showBacklink'] == null) {
-      showBacklink = null;
-    } else {
-          showBacklink = json['showBacklink'];
+          hash = json['hash'];
     }
   }
 
   Map<String, dynamic> toJson() {
     Map <String, dynamic> json = {};
-    if (ingredientList != null)
-      json['ingredientList'] = ingredientList;
-    if (servings != null)
-      json['servings'] = servings;
-    if (measure != null)
-      json['measure'] = measure;
-    if (view != null)
-      json['view'] = view;
-    if (defaultCss != null)
-      json['defaultCss'] = defaultCss;
-    if (showBacklink != null)
-      json['showBacklink'] = showBacklink;
+    if (username != null)
+      json['username'] = username;
+    if (id != null)
+      json['id'] = id;
+    if (hash != null)
+      json['hash'] = hash;
     return json;
   }
 

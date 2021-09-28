@@ -5,19 +5,16 @@
 -export_type([spoonacular_inline_object_3/0]).
 
 -type spoonacular_inline_object_3() ::
-    #{ 'instructions' := binary(),
-       'view' => binary(),
-       'defaultCss' => boolean(),
-       'showBacklink' => boolean()
+    #{ 'username' := binary(),
+       'date' := binary(),
+       'hash' := binary()
      }.
 
-encode(#{ 'instructions' := Instructions,
-          'view' := View,
-          'defaultCss' := DefaultCss,
-          'showBacklink' := ShowBacklink
+encode(#{ 'username' := Username,
+          'date' := Date,
+          'hash' := Hash
         }) ->
-    #{ 'instructions' => Instructions,
-       'view' => View,
-       'defaultCss' => DefaultCss,
-       'showBacklink' => ShowBacklink
+    #{ 'username' => Username,
+       'date' => Date,
+       'hash' => Hash
      }.

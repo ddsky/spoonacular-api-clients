@@ -5,13 +5,19 @@
 -export_type([spoonacular_inline_object_6/0]).
 
 -type spoonacular_inline_object_6() ::
-    #{ 'title' := binary(),
-       'ingredientList' := binary()
+    #{ 'username' := binary(),
+       'start_date' := binary(),
+       'end_date' := binary(),
+       'hash' := binary()
      }.
 
-encode(#{ 'title' := Title,
-          'ingredientList' := IngredientList
+encode(#{ 'username' := Username,
+          'start_date' := StartDate,
+          'end_date' := EndDate,
+          'hash' := Hash
         }) ->
-    #{ 'title' => Title,
-       'ingredientList' => IngredientList
+    #{ 'username' => Username,
+       'start-date' => StartDate,
+       'end-date' => EndDate,
+       'hash' => Hash
      }.

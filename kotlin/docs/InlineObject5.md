@@ -4,7 +4,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**instructions** | **kotlin.String** | The instructions to be analyzed. | 
+**username** | **kotlin.String** | The username. | 
+**id** | [**java.math.BigDecimal**](java.math.BigDecimal.md) | The shopping list item id. | 
+**hash** | **kotlin.String** | The private hash for the username. | 
 
 
 

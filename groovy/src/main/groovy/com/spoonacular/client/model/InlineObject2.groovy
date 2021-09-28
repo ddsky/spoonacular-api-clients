@@ -4,17 +4,13 @@ import groovy.transform.Canonical
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 @Canonical
 class InlineObject2 {
-    /* The ingredient list of the recipe, one ingredient per line. */
-    String ingredientList
-    /* The number of servings. */
+    
+    List<String> ingredients = new ArrayList<String>()
+    
     BigDecimal servings
-    /* The mode in which the widget should be delivered. 1 = separate views (compact), 2 = all in one view (full). */
-    BigDecimal mode
-    /* Whether the default CSS should be added to the response. */
-    Boolean defaultCss
-    /* Whether to show a backlink to spoonacular. If set false, this call counts against your quota. */
-    Boolean showBacklink
 }

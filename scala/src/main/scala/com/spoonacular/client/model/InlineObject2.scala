@@ -6,20 +6,15 @@ import io.circe.generic.semiauto._
 import io.circe.java8.time._
 import spoonacular._
 import java.math.BigDecimal
+import scala.collection.immutable.Seq
 
 /**
  * 
- * @param ingredientList The ingredient list of the recipe, one ingredient per line.
- * @param servings The number of servings.
- * @param mode The mode in which the widget should be delivered. 1 = separate views (compact), 2 = all in one view (full).
- * @param defaultCss Whether the default CSS should be added to the response.
- * @param showBacklink Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
+ * @param ingredients 
+ * @param servings 
  */
-case class InlineObject2(ingredientList: String,
-                servings: BigDecimal,
-                mode: Option[BigDecimal],
-                defaultCss: Option[Boolean],
-                showBacklink: Option[Boolean]
+case class InlineObject2(ingredients: Seq[String],
+                servings: BigDecimal
                 )
 
 object InlineObject2 {
