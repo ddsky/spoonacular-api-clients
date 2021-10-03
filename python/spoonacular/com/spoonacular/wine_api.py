@@ -48,7 +48,7 @@ class WineApi(object):
 
         :param async_req bool
         :param str wine: The type of wine that should be paired, e.g. \"merlot\", \"riesling\", or \"malbec\". (required)
-        :return: InlineResponse20043
+        :return: InlineResponse20044
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -70,7 +70,7 @@ class WineApi(object):
 
         :param async_req bool
         :param str wine: The type of wine that should be paired, e.g. \"merlot\", \"riesling\", or \"malbec\". (required)
-        :return: InlineResponse20043
+        :return: InlineResponse20044
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -125,7 +125,7 @@ class WineApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20043',  # noqa: E501
+            response_type='InlineResponse20044',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -144,7 +144,7 @@ class WineApi(object):
 
         :param async_req bool
         :param str wine: The name of the wine that should be paired, e.g. \"merlot\", \"riesling\", or \"malbec\". (required)
-        :return: InlineResponse20045
+        :return: InlineResponse20046
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -166,7 +166,7 @@ class WineApi(object):
 
         :param async_req bool
         :param str wine: The name of the wine that should be paired, e.g. \"merlot\", \"riesling\", or \"malbec\". (required)
-        :return: InlineResponse20045
+        :return: InlineResponse20046
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -221,7 +221,7 @@ class WineApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20045',  # noqa: E501
+            response_type='InlineResponse20046',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -241,7 +241,7 @@ class WineApi(object):
         :param async_req bool
         :param str food: The food to get a pairing for. This can be a dish (\"steak\"), an ingredient (\"salmon\"), or a cuisine (\"italian\"). (required)
         :param float max_price: The maximum price for the specific wine recommendation in USD.
-        :return: InlineResponse20044
+        :return: InlineResponse20045
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -264,7 +264,7 @@ class WineApi(object):
         :param async_req bool
         :param str food: The food to get a pairing for. This can be a dish (\"steak\"), an ingredient (\"salmon\"), or a cuisine (\"italian\"). (required)
         :param float max_price: The maximum price for the specific wine recommendation in USD.
-        :return: InlineResponse20044
+        :return: InlineResponse20045
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -321,7 +321,7 @@ class WineApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20044',  # noqa: E501
+            response_type='InlineResponse20045',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -343,7 +343,7 @@ class WineApi(object):
         :param float max_price: The maximum price for the specific wine recommendation in USD.
         :param float min_rating: The minimum rating of the recommended wine between 0 and 1. For example, 0.8 equals 4 out of 5 stars.
         :param float number: The number of wine recommendations expected (between 1 and 100).
-        :return: InlineResponse20046
+        :return: InlineResponse20047
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -368,7 +368,7 @@ class WineApi(object):
         :param float max_price: The maximum price for the specific wine recommendation in USD.
         :param float min_rating: The minimum rating of the recommended wine between 0 and 1. For example, 0.8 equals 4 out of 5 stars.
         :param float number: The number of wine recommendations expected (between 1 and 100).
-        :return: InlineResponse20046
+        :return: InlineResponse20047
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -433,7 +433,7 @@ class WineApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20046',  # noqa: E501
+            response_type='InlineResponse20047',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501

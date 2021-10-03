@@ -23,13 +23,11 @@ class InlineObject6 {
      * Constructs a new <code>InlineObject6</code>.
      * @alias module:com.spoonacular.client/com.spoonacular.client.model/InlineObject6
      * @param username {String} The username.
-     * @param startDate {String} The start date in the format yyyy-mm-dd.
-     * @param endDate {String} The end date in the format yyyy-mm-dd.
      * @param hash {String} The private hash for the username.
      */
-    constructor(username, startDate, endDate, hash) { 
+    constructor(username, hash) { 
         
-        InlineObject6.initialize(this, username, startDate, endDate, hash);
+        InlineObject6.initialize(this, username, hash);
     }
 
     /**
@@ -37,10 +35,8 @@ class InlineObject6 {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, username, startDate, endDate, hash) { 
+    static initialize(obj, username, hash) { 
         obj['username'] = username;
-        obj['start-date'] = startDate;
-        obj['end-date'] = endDate;
         obj['hash'] = hash;
     }
 
@@ -58,12 +54,6 @@ class InlineObject6 {
             if (data.hasOwnProperty('username')) {
                 obj['username'] = ApiClient.convertToType(data['username'], 'String');
             }
-            if (data.hasOwnProperty('start-date')) {
-                obj['start-date'] = ApiClient.convertToType(data['start-date'], 'String');
-            }
-            if (data.hasOwnProperty('end-date')) {
-                obj['end-date'] = ApiClient.convertToType(data['end-date'], 'String');
-            }
             if (data.hasOwnProperty('hash')) {
                 obj['hash'] = ApiClient.convertToType(data['hash'], 'String');
             }
@@ -79,18 +69,6 @@ class InlineObject6 {
  * @member {String} username
  */
 InlineObject6.prototype['username'] = undefined;
-
-/**
- * The start date in the format yyyy-mm-dd.
- * @member {String} start-date
- */
-InlineObject6.prototype['start-date'] = undefined;
-
-/**
- * The end date in the format yyyy-mm-dd.
- * @member {String} end-date
- */
-InlineObject6.prototype['end-date'] = undefined;
 
 /**
  * The private hash for the username.

@@ -57,7 +57,8 @@ class InlineResponse20054 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'text' => 'string'
+        'videos' => '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20054Videos[]',
+        'total_results' => 'int'
     ];
 
     /**
@@ -66,7 +67,8 @@ class InlineResponse20054 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'text' => null
+        'videos' => null,
+        'total_results' => null
     ];
 
     /**
@@ -96,7 +98,8 @@ class InlineResponse20054 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'text' => 'text'
+        'videos' => 'videos',
+        'total_results' => 'totalResults'
     ];
 
     /**
@@ -105,7 +108,8 @@ class InlineResponse20054 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'text' => 'setText'
+        'videos' => 'setVideos',
+        'total_results' => 'setTotalResults'
     ];
 
     /**
@@ -114,7 +118,8 @@ class InlineResponse20054 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'text' => 'getText'
+        'videos' => 'getVideos',
+        'total_results' => 'getTotalResults'
     ];
 
     /**
@@ -177,7 +182,8 @@ class InlineResponse20054 implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['text'] = isset($data['text']) ? $data['text'] : null;
+        $this->container['videos'] = isset($data['videos']) ? $data['videos'] : null;
+        $this->container['total_results'] = isset($data['total_results']) ? $data['total_results'] : null;
     }
 
     /**
@@ -189,13 +195,12 @@ class InlineResponse20054 implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['text'] === null) {
-            $invalidProperties[] = "'text' can't be null";
+        if ($this->container['videos'] === null) {
+            $invalidProperties[] = "'videos' can't be null";
         }
-        if ((mb_strlen($this->container['text']) < 1)) {
-            $invalidProperties[] = "invalid value for 'text', the character length must be bigger than or equal to 1.";
+        if ($this->container['total_results'] === null) {
+            $invalidProperties[] = "'total_results' can't be null";
         }
-
         return $invalidProperties;
     }
 
@@ -212,30 +217,49 @@ class InlineResponse20054 implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets text
+     * Gets videos
      *
-     * @return string
+     * @return \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20054Videos[]
      */
-    public function getText()
+    public function getVideos()
     {
-        return $this->container['text'];
+        return $this->container['videos'];
     }
 
     /**
-     * Sets text
+     * Sets videos
      *
-     * @param string $text text
+     * @param \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20054Videos[] $videos videos
      *
      * @return $this
      */
-    public function setText($text)
+    public function setVideos($videos)
     {
+        $this->container['videos'] = $videos;
 
-        if ((mb_strlen($text) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $text when calling InlineResponse20054., must be bigger than or equal to 1.');
-        }
+        return $this;
+    }
 
-        $this->container['text'] = $text;
+    /**
+     * Gets total_results
+     *
+     * @return int
+     */
+    public function getTotalResults()
+    {
+        return $this->container['total_results'];
+    }
+
+    /**
+     * Sets total_results
+     *
+     * @param int $total_results total_results
+     *
+     * @return $this
+     */
+    public function setTotalResults($total_results)
+    {
+        $this->container['total_results'] = $total_results;
 
         return $this;
     }

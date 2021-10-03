@@ -37,7 +37,7 @@ describe 'WineApi' do
   # Find a dish that goes well with a given wine.
   # @param wine The type of wine that should be paired, e.g. \&quot;merlot\&quot;, \&quot;riesling\&quot;, or \&quot;malbec\&quot;.
   # @param [Hash] opts the optional parameters
-  # @return [InlineResponse20043]
+  # @return [InlineResponse20044]
   describe 'get_dish_pairing_for_wine test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -49,7 +49,7 @@ describe 'WineApi' do
   # Get a simple description of a certain wine, e.g. \&quot;malbec\&quot;, \&quot;riesling\&quot;, or \&quot;merlot\&quot;.
   # @param wine The name of the wine that should be paired, e.g. \&quot;merlot\&quot;, \&quot;riesling\&quot;, or \&quot;malbec\&quot;.
   # @param [Hash] opts the optional parameters
-  # @return [InlineResponse20045]
+  # @return [InlineResponse20046]
   describe 'get_wine_description test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -62,7 +62,7 @@ describe 'WineApi' do
   # @param food The food to get a pairing for. This can be a dish (\&quot;steak\&quot;), an ingredient (\&quot;salmon\&quot;), or a cuisine (\&quot;italian\&quot;).
   # @param [Hash] opts the optional parameters
   # @option opts [Float] :max_price The maximum price for the specific wine recommendation in USD.
-  # @return [InlineResponse20044]
+  # @return [InlineResponse20045]
   describe 'get_wine_pairing test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -77,7 +77,7 @@ describe 'WineApi' do
   # @option opts [Float] :max_price The maximum price for the specific wine recommendation in USD.
   # @option opts [Float] :min_rating The minimum rating of the recommended wine between 0 and 1. For example, 0.8 equals 4 out of 5 stars.
   # @option opts [Float] :number The number of wine recommendations expected (between 1 and 100).
-  # @return [InlineResponse20046]
+  # @return [InlineResponse20047]
   describe 'get_wine_recommendation test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

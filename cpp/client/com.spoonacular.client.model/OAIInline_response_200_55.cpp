@@ -38,11 +38,8 @@ OAIInline_response_200_55::~OAIInline_response_200_55() {
 void
 OAIInline_response_200_55::init() {
     
-    m_answer_text_isSet = false;
-    m_answer_text_isValid = false;
-    
-    m_media_isSet = false;
-    m_media_isValid = false;
+    m_text_isSet = false;
+    m_text_isValid = false;
     }
 
 void
@@ -56,11 +53,8 @@ OAIInline_response_200_55::fromJson(QString jsonString) {
 void
 OAIInline_response_200_55::fromJsonObject(QJsonObject json) {
     
-    m_answer_text_isValid = ::OpenAPI::fromJsonValue(answer_text, json[QString("answerText")]);
+    m_text_isValid = ::OpenAPI::fromJsonValue(text, json[QString("text")]);
     
-    
-    
-    m_media_isValid = ::OpenAPI::fromJsonValue(media, json[QString("media")]);
     
 }
 
@@ -75,45 +69,28 @@ OAIInline_response_200_55::asJson () const {
 QJsonObject
 OAIInline_response_200_55::asJsonObject() const {
     QJsonObject obj;
-	if(m_answer_text_isSet){
-        obj.insert(QString("answerText"), ::OpenAPI::toJsonValue(answer_text));
+	if(m_text_isSet){
+        obj.insert(QString("text"), ::OpenAPI::toJsonValue(text));
     }
-	
-    if(media.size() > 0){
-        obj.insert(QString("media"), ::OpenAPI::toJsonValue(media));
-    } 
     return obj;
 }
 
 
 QString
-OAIInline_response_200_55::getAnswerText() const {
-    return answer_text;
+OAIInline_response_200_55::getText() const {
+    return text;
 }
 void
-OAIInline_response_200_55::setAnswerText(const QString &answer_text) {
-    this->answer_text = answer_text;
-    this->m_answer_text_isSet = true;
-}
-
-
-QList<OAIObject>
-OAIInline_response_200_55::getMedia() const {
-    return media;
-}
-void
-OAIInline_response_200_55::setMedia(const QList<OAIObject> &media) {
-    this->media = media;
-    this->m_media_isSet = true;
+OAIInline_response_200_55::setText(const QString &text) {
+    this->text = text;
+    this->m_text_isSet = true;
 }
 
 bool
 OAIInline_response_200_55::isSet() const {
     bool isObjectUpdated = false;
     do{ 
-        if(m_answer_text_isSet){ isObjectUpdated = true; break;}
-    
-        if(media.size() > 0){ isObjectUpdated = true; break;}
+        if(m_text_isSet){ isObjectUpdated = true; break;}
     }while(false);
     return isObjectUpdated;
 }
@@ -121,7 +98,7 @@ OAIInline_response_200_55::isSet() const {
 bool
 OAIInline_response_200_55::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_answer_text_isValid && m_media_isValid && true;
+    return m_text_isValid && true;
 }
 
 }

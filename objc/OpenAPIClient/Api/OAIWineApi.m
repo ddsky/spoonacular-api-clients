@@ -1,10 +1,10 @@
 #import "OAIWineApi.h"
 #import "OAIQueryParamCollection.h"
 #import "OAIApiClient.h"
-#import "OAIInlineResponse20043.h"
 #import "OAIInlineResponse20044.h"
 #import "OAIInlineResponse20045.h"
 #import "OAIInlineResponse20046.h"
+#import "OAIInlineResponse20047.h"
 
 
 @interface OAIWineApi ()
@@ -57,10 +57,10 @@ NSInteger kOAIWineApiMissingParamErrorCode = 234513;
 /// Find a dish that goes well with a given wine.
 ///  @param wine The type of wine that should be paired, e.g. \"merlot\", \"riesling\", or \"malbec\". 
 ///
-///  @returns OAIInlineResponse20043*
+///  @returns OAIInlineResponse20044*
 ///
 -(NSURLSessionTask*) getDishPairingForWineWithWine: (NSString*) wine
-    completionHandler: (void (^)(OAIInlineResponse20043* output, NSError* error)) handler {
+    completionHandler: (void (^)(OAIInlineResponse20044* output, NSError* error)) handler {
     // verify the required parameter 'wine' is set
     if (wine == nil) {
         NSParameterAssert(wine);
@@ -112,10 +112,10 @@ NSInteger kOAIWineApiMissingParamErrorCode = 234513;
                               authSettings: authSettings
                         requestContentType: requestContentType
                        responseContentType: responseContentType
-                              responseType: @"OAIInlineResponse20043*"
+                              responseType: @"OAIInlineResponse20044*"
                            completionBlock: ^(id data, NSError *error) {
                                 if(handler) {
-                                    handler((OAIInlineResponse20043*)data, error);
+                                    handler((OAIInlineResponse20044*)data, error);
                                 }
                             }];
 }
@@ -125,10 +125,10 @@ NSInteger kOAIWineApiMissingParamErrorCode = 234513;
 /// Get a simple description of a certain wine, e.g. \"malbec\", \"riesling\", or \"merlot\".
 ///  @param wine The name of the wine that should be paired, e.g. \"merlot\", \"riesling\", or \"malbec\". 
 ///
-///  @returns OAIInlineResponse20045*
+///  @returns OAIInlineResponse20046*
 ///
 -(NSURLSessionTask*) getWineDescriptionWithWine: (NSString*) wine
-    completionHandler: (void (^)(OAIInlineResponse20045* output, NSError* error)) handler {
+    completionHandler: (void (^)(OAIInlineResponse20046* output, NSError* error)) handler {
     // verify the required parameter 'wine' is set
     if (wine == nil) {
         NSParameterAssert(wine);
@@ -180,10 +180,10 @@ NSInteger kOAIWineApiMissingParamErrorCode = 234513;
                               authSettings: authSettings
                         requestContentType: requestContentType
                        responseContentType: responseContentType
-                              responseType: @"OAIInlineResponse20045*"
+                              responseType: @"OAIInlineResponse20046*"
                            completionBlock: ^(id data, NSError *error) {
                                 if(handler) {
-                                    handler((OAIInlineResponse20045*)data, error);
+                                    handler((OAIInlineResponse20046*)data, error);
                                 }
                             }];
 }
@@ -195,11 +195,11 @@ NSInteger kOAIWineApiMissingParamErrorCode = 234513;
 ///
 ///  @param maxPrice The maximum price for the specific wine recommendation in USD. (optional)
 ///
-///  @returns OAIInlineResponse20044*
+///  @returns OAIInlineResponse20045*
 ///
 -(NSURLSessionTask*) getWinePairingWithFood: (NSString*) food
     maxPrice: (NSNumber*) maxPrice
-    completionHandler: (void (^)(OAIInlineResponse20044* output, NSError* error)) handler {
+    completionHandler: (void (^)(OAIInlineResponse20045* output, NSError* error)) handler {
     // verify the required parameter 'food' is set
     if (food == nil) {
         NSParameterAssert(food);
@@ -254,10 +254,10 @@ NSInteger kOAIWineApiMissingParamErrorCode = 234513;
                               authSettings: authSettings
                         requestContentType: requestContentType
                        responseContentType: responseContentType
-                              responseType: @"OAIInlineResponse20044*"
+                              responseType: @"OAIInlineResponse20045*"
                            completionBlock: ^(id data, NSError *error) {
                                 if(handler) {
-                                    handler((OAIInlineResponse20044*)data, error);
+                                    handler((OAIInlineResponse20045*)data, error);
                                 }
                             }];
 }
@@ -273,13 +273,13 @@ NSInteger kOAIWineApiMissingParamErrorCode = 234513;
 ///
 ///  @param number The number of wine recommendations expected (between 1 and 100). (optional, default to @10)
 ///
-///  @returns OAIInlineResponse20046*
+///  @returns OAIInlineResponse20047*
 ///
 -(NSURLSessionTask*) getWineRecommendationWithWine: (NSString*) wine
     maxPrice: (NSNumber*) maxPrice
     minRating: (NSNumber*) minRating
     number: (NSNumber*) number
-    completionHandler: (void (^)(OAIInlineResponse20046* output, NSError* error)) handler {
+    completionHandler: (void (^)(OAIInlineResponse20047* output, NSError* error)) handler {
     // verify the required parameter 'wine' is set
     if (wine == nil) {
         NSParameterAssert(wine);
@@ -340,10 +340,10 @@ NSInteger kOAIWineApiMissingParamErrorCode = 234513;
                               authSettings: authSettings
                         requestContentType: requestContentType
                        responseContentType: responseContentType
-                              responseType: @"OAIInlineResponse20046*"
+                              responseType: @"OAIInlineResponse20047*"
                            completionBlock: ^(id data, NSError *error) {
                                 if(handler) {
-                                    handler((OAIInlineResponse20046*)data, error);
+                                    handler((OAIInlineResponse20047*)data, error);
                                 }
                             }];
 }

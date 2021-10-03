@@ -142,9 +142,10 @@ public class MenuItemsApiTest {
         BigDecimal maxProtein = null;
         BigDecimal minFat = null;
         BigDecimal maxFat = null;
+        Boolean addMenuItemInformation = null;
         Integer offset = null;
         Integer number = null;
-        InlineResponse20035 response = api.searchMenuItems(query, minCalories, maxCalories, minCarbs, maxCarbs, minProtein, maxProtein, minFat, maxFat, offset, number);
+        InlineResponse20035 response = api.searchMenuItems(query, minCalories, maxCalories, minCarbs, maxCarbs, minProtein, maxProtein, minFat, maxFat, addMenuItemInformation, offset, number);
 
         // TODO: test validations
     }

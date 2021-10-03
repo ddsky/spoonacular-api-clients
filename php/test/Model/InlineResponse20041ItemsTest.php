@@ -86,44 +86,30 @@ class InlineResponse20041ItemsTest extends TestCase
     }
 
     /**
-     * Test attribute "name"
+     * Test attribute "slot"
      */
-    public function testPropertyName()
+    public function testPropertySlot()
     {
     }
 
     /**
-     * Test attribute "measures"
+     * Test attribute "position"
      */
-    public function testPropertyMeasures()
+    public function testPropertyPosition()
     {
     }
 
     /**
-     * Test attribute "pantry_item"
+     * Test attribute "type"
      */
-    public function testPropertyPantryItem()
+    public function testPropertyType()
     {
     }
 
     /**
-     * Test attribute "aisle"
+     * Test attribute "value"
      */
-    public function testPropertyAisle()
-    {
-    }
-
-    /**
-     * Test attribute "cost"
-     */
-    public function testPropertyCost()
-    {
-    }
-
-    /**
-     * Test attribute "ingredient_id"
-     */
-    public function testPropertyIngredientId()
+    public function testPropertyValue()
     {
     }
 }

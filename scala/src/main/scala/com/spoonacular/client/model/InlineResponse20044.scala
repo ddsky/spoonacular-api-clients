@@ -5,18 +5,15 @@ import io.finch.circe._
 import io.circe.generic.semiauto._
 import io.circe.java8.time._
 import spoonacular._
-import com.spoonacular.client.model.InlineResponse20044ProductMatches
 import scala.collection.immutable.Seq
 
 /**
  * 
- * @param pairedWines 
- * @param pairingText 
- * @param productMatches 
+ * @param pairings 
+ * @param text 
  */
-case class InlineResponse20044(pairedWines: Seq[String],
-                pairingText: String,
-                productMatches: Seq[InlineResponse20044ProductMatches]
+case class InlineResponse20044(pairings: Seq[String],
+                text: String
                 )
 
 object InlineResponse20044 {

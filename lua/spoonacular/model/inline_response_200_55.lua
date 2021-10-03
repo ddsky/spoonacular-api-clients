@@ -19,10 +19,9 @@ local function cast_inline_response_200_55(t)
 	return setmetatable(t, inline_response_200_55_mt)
 end
 
-local function new_inline_response_200_55(answer_text, media)
+local function new_inline_response_200_55(text)
 	return cast_inline_response_200_55({
-		["answerText"] = answer_text;
-		["media"] = media;
+		["text"] = text;
 	})
 end
 

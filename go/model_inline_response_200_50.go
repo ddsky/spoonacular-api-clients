@@ -11,5 +11,6 @@
 package spoonacular
 
 type InlineResponse20050 struct {
-	Annotations []map[string]interface{} `json:"annotations"`
+	Answer string `json:"answer"`
+	Image string `json:"image"`
 }

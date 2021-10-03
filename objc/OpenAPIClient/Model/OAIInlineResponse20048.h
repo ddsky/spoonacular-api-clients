@@ -14,15 +14,6 @@
 */
 
 
-#import "OAIInlineResponse20048Category.h"
-#import "OAIInlineResponse20048Nutrition.h"
-#import "OAIInlineResponse20048Recipes.h"
-@protocol OAIInlineResponse20048Category;
-@class OAIInlineResponse20048Category;
-@protocol OAIInlineResponse20048Nutrition;
-@class OAIInlineResponse20048Nutrition;
-@protocol OAIInlineResponse20048Recipes;
-@class OAIInlineResponse20048Recipes;
 
 
 
@@ -32,10 +23,8 @@
 @interface OAIInlineResponse20048 : OAIObject
 
 
-@property(nonatomic) OAIInlineResponse20048Nutrition* nutrition;
+@property(nonatomic) NSString* category;
 
-@property(nonatomic) OAIInlineResponse20048Category* category;
-
-@property(nonatomic) NSArray<OAIInlineResponse20048Recipes>* recipes;
+@property(nonatomic) NSNumber* probability;
 
 @end

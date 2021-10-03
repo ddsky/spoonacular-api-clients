@@ -6,9 +6,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Integer** |  | 
 **name** | **String** |  | 
-**days** | [**List&lt;InlineResponse20040Days&gt;**](InlineResponse20040Days.md) |  | 
+**items** | [**List&lt;InlineResponse20040Items&gt;**](InlineResponse20040Items.md) |  | 
+**publishAsPublic** | **Boolean** |  | 
 
 
 

@@ -16,8 +16,8 @@ Please update as you see appropriate
 describe("inline_response_200_40_items", function()
   local spoonacular_inline_response_200_40_items = require "spoonacular.model.inline_response_200_40_items"
 
-  -- unit tests for the property 'id'
-  describe("property id test", function()
+  -- unit tests for the property 'day'
+  describe("property day test", function()
     it("should work", function()
       -- TODO assertion here: http://olivinelabs.com/busted/#asserts
     end)

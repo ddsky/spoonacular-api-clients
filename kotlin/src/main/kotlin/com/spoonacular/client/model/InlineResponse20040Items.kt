@@ -16,15 +16,15 @@ import com.spoonacular.client.model.InlineResponse20040Value
 import com.squareup.moshi.Json
 /**
  * 
- * @param id 
+ * @param day 
  * @param slot 
  * @param position 
  * @param type 
  * @param value 
  */
 data class InlineResponse20040Items (
-    @Json(name = "id")
-    val id: kotlin.Int,
+    @Json(name = "day")
+    val day: kotlin.Int,
     @Json(name = "slot")
     val slot: kotlin.Int,
     @Json(name = "position")

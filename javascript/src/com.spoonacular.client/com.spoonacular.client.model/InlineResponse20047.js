@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import InlineResponse20047RecommendedWines from './InlineResponse20047RecommendedWines';
 
 /**
  * The InlineResponse20047 model module.
@@ -22,12 +23,12 @@ class InlineResponse20047 {
     /**
      * Constructs a new <code>InlineResponse20047</code>.
      * @alias module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20047
-     * @param category {String} 
-     * @param probability {Number} 
+     * @param recommendedWines {Array.<module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20047RecommendedWines>} 
+     * @param totalFound {Number} 
      */
-    constructor(category, probability) { 
+    constructor(recommendedWines, totalFound) { 
         
-        InlineResponse20047.initialize(this, category, probability);
+        InlineResponse20047.initialize(this, recommendedWines, totalFound);
     }
 
     /**
@@ -35,9 +36,9 @@ class InlineResponse20047 {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, category, probability) { 
-        obj['category'] = category;
-        obj['probability'] = probability;
+    static initialize(obj, recommendedWines, totalFound) { 
+        obj['recommendedWines'] = recommendedWines;
+        obj['totalFound'] = totalFound;
     }
 
     /**
@@ -51,11 +52,11 @@ class InlineResponse20047 {
         if (data) {
             obj = obj || new InlineResponse20047();
 
-            if (data.hasOwnProperty('category')) {
-                obj['category'] = ApiClient.convertToType(data['category'], 'String');
+            if (data.hasOwnProperty('recommendedWines')) {
+                obj['recommendedWines'] = ApiClient.convertToType(data['recommendedWines'], [InlineResponse20047RecommendedWines]);
             }
-            if (data.hasOwnProperty('probability')) {
-                obj['probability'] = ApiClient.convertToType(data['probability'], 'Number');
+            if (data.hasOwnProperty('totalFound')) {
+                obj['totalFound'] = ApiClient.convertToType(data['totalFound'], 'Number');
             }
         }
         return obj;
@@ -65,14 +66,14 @@ class InlineResponse20047 {
 }
 
 /**
- * @member {String} category
+ * @member {Array.<module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20047RecommendedWines>} recommendedWines
  */
-InlineResponse20047.prototype['category'] = undefined;
+InlineResponse20047.prototype['recommendedWines'] = undefined;
 
 /**
- * @member {Number} probability
+ * @member {Number} totalFound
  */
-InlineResponse20047.prototype['probability'] = undefined;
+InlineResponse20047.prototype['totalFound'] = undefined;
 
 
 

@@ -15,20 +15,11 @@ package com.spoonacular.client.model
 import com.squareup.moshi.Json
 /**
  * 
- * @param articles 
- * @param groceryProducts 
- * @param menuItems 
- * @param recipes 
+ * @param annotations 
  */
 data class InlineResponse20051 (
-    @Json(name = "Articles")
-    val articles: kotlin.Array<kotlin.Any>,
-    @Json(name = "Grocery Products")
-    val groceryProducts: kotlin.Array<kotlin.Any>,
-    @Json(name = "Menu Items")
-    val menuItems: kotlin.Array<kotlin.Any>,
-    @Json(name = "Recipes")
-    val recipes: kotlin.Array<kotlin.Any>
+    @Json(name = "annotations")
+    val annotations: kotlin.Array<kotlin.Any>
 ) {
 
 }

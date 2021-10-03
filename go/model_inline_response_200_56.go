@@ -11,6 +11,6 @@
 package spoonacular
 
 type InlineResponse20056 struct {
-	Suggests InlineResponse20056Suggests `json:"suggests"`
-	Words []map[string]interface{} `json:"words"`
+	AnswerText string `json:"answerText"`
+	Media []map[string]interface{} `json:"media"`
 }

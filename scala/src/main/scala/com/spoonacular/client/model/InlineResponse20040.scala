@@ -5,18 +5,18 @@ import io.finch.circe._
 import io.circe.generic.semiauto._
 import io.circe.java8.time._
 import spoonacular._
-import com.spoonacular.client.model.InlineResponse20040Days
+import com.spoonacular.client.model.InlineResponse20040Items
 import scala.collection.immutable.Seq
 
 /**
  * 
- * @param id 
  * @param name 
- * @param days 
+ * @param items 
+ * @param publishAsPublic 
  */
-case class InlineResponse20040(id: Int,
-                name: String,
-                days: Seq[InlineResponse20040Days]
+case class InlineResponse20040(name: String,
+                items: Seq[InlineResponse20040Items],
+                publishAsPublic: Boolean
                 )
 
 object InlineResponse20040 {

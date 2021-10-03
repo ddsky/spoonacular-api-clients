@@ -5,12 +5,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **Integer** |  | 
-**name** | **String** |  | 
-**measures** | [**InlineResponse20041Measures**](InlineResponse20041Measures.md) |  | [optional] 
-**pantry_item** | **Boolean** |  | 
-**aisle** | **String** |  | 
-**cost** | **Float** |  | 
-**ingredient_id** | **Integer** |  | 
+**slot** | **Integer** |  | 
+**position** | **Integer** |  | 
+**type** | **String** |  | 
+**value** | [**InlineResponse20041Value**](InlineResponse20041Value.md) |  | [optional] 
 
 ## Code Sample
 
@@ -18,12 +16,10 @@ Name | Type | Description | Notes
 require 'OpenapiClient'
 
 instance = OpenapiClient::InlineResponse20041Items.new(id: null,
-                                 name: null,
-                                 measures: null,
-                                 pantry_item: null,
-                                 aisle: null,
-                                 cost: null,
-                                 ingredient_id: null)
+                                 slot: null,
+                                 position: null,
+                                 type: null,
+                                 value: null)
 ```
 
 

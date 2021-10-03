@@ -7,7 +7,8 @@
 
 (def inline-response-200-50-data
   {
-   (ds/req :annotations) (s/coll-of any?)
+   (ds/req :answer) string?
+   (ds/req :image) string?
    })
 
 (def inline-response-200-50-spec

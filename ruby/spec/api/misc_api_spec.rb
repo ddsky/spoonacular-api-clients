@@ -37,7 +37,7 @@ describe 'MiscApi' do
   # Take any text and find all mentions of food contained within it. This task is also called Named Entity Recognition (NER). In this case, the entities are foods. Either dishes, such as pizza or cheeseburger, or ingredients, such as cucumber or almonds.
   # @param [Hash] opts the optional parameters
   # @option opts [String] :content_type The content type.
-  # @return [InlineResponse20050]
+  # @return [InlineResponse20051]
   describe 'detect_food_in_text test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -48,7 +48,7 @@ describe 'MiscApi' do
   # Random Food Joke
   # Get a random joke that is related to food. Caution: this is an endpoint for adults!
   # @param [Hash] opts the optional parameters
-  # @return [InlineResponse20054]
+  # @return [InlineResponse20055]
   describe 'get_a_random_food_joke test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -61,7 +61,7 @@ describe 'MiscApi' do
   # @param query A (partial) query from the user. The endpoint will return if it matches topics it can talk about.
   # @param [Hash] opts the optional parameters
   # @option opts [Float] :number The number of suggestions to return (between 1 and 25).
-  # @return [InlineResponse20056]
+  # @return [InlineResponse20057]
   describe 'get_conversation_suggests test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -72,7 +72,7 @@ describe 'MiscApi' do
   # Random Food Trivia
   # Returns random food trivia.
   # @param [Hash] opts the optional parameters
-  # @return [InlineResponse20054]
+  # @return [InlineResponse20055]
   describe 'get_random_food_trivia test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -84,7 +84,7 @@ describe 'MiscApi' do
   # Analyze a food image. The API tries to classify the image, guess the nutrition, and find a matching recipes.
   # @param image_url The URL of the image to be analyzed.
   # @param [Hash] opts the optional parameters
-  # @return [InlineResponse20048]
+  # @return [InlineResponse20049]
   describe 'image_analysis_by_url test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -96,7 +96,7 @@ describe 'MiscApi' do
   # Classify a food image.
   # @param image_url The URL of the image to be classified.
   # @param [Hash] opts the optional parameters
-  # @return [InlineResponse20047]
+  # @return [InlineResponse20048]
   describe 'image_classification_by_url test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -110,7 +110,7 @@ describe 'MiscApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :offset The number of results to skip (between 0 and 900).
   # @option opts [Integer] :number The maximum number of items to return (between 1 and 100). Defaults to 10.
-  # @return [InlineResponse20052]
+  # @return [InlineResponse20053]
   describe 'search_all_food test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -147,7 +147,7 @@ describe 'MiscApi' do
   # @option opts [Float] :max_length Maximum video length in seconds.
   # @option opts [Integer] :offset The number of results to skip (between 0 and 900).
   # @option opts [Integer] :number The maximum number of items to return (between 1 and 100). Defaults to 10.
-  # @return [InlineResponse20053]
+  # @return [InlineResponse20054]
   describe 'search_food_videos test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -159,7 +159,7 @@ describe 'MiscApi' do
   # Search spoonacular&#39;s site content. You&#39;ll be able to find everything that you could also find using the search suggestions on spoonacular.com. This is a suggest API so you can send partial strings as queries.
   # @param query The query to search for. You can also use partial queries such as \&quot;spagh\&quot; to already find spaghetti recipes, articles, grocery products, and other content.
   # @param [Hash] opts the optional parameters
-  # @return [InlineResponse20051]
+  # @return [InlineResponse20052]
   describe 'search_site_content test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -172,7 +172,7 @@ describe 'MiscApi' do
   # @param text The request / question / answer from the user to the chatbot.
   # @param [Hash] opts the optional parameters
   # @option opts [String] :context_id An arbitrary globally unique id for your conversation. The conversation can contain states so you should pass your context id if you want the bot to be able to remember the conversation.
-  # @return [InlineResponse20055]
+  # @return [InlineResponse20056]
   describe 'talk_to_chatbot test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

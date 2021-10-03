@@ -16,11 +16,11 @@
 
 %% @doc Detect Food in Text
 %% Take any text and find all mentions of food contained within it. This task is also called Named Entity Recognition (NER). In this case, the entities are foods. Either dishes, such as pizza or cheeseburger, or ingredients, such as cucumber or almonds.
--spec detect_food_in_text(ctx:ctx()) -> {ok, spoonacular_inline_response_200_50:spoonacular_inline_response_200_50(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+-spec detect_food_in_text(ctx:ctx()) -> {ok, spoonacular_inline_response_200_51:spoonacular_inline_response_200_51(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 detect_food_in_text(Ctx) ->
     detect_food_in_text(Ctx, #{}).
 
--spec detect_food_in_text(ctx:ctx(), maps:map()) -> {ok, spoonacular_inline_response_200_50:spoonacular_inline_response_200_50(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+-spec detect_food_in_text(ctx:ctx(), maps:map()) -> {ok, spoonacular_inline_response_200_51:spoonacular_inline_response_200_51(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 detect_food_in_text(Ctx, Optional) ->
     _OptionalParams = maps:get(params, Optional, #{}),
     Cfg = maps:get(cfg, Optional, application:get_env(kuberl, config, #{})),
@@ -37,11 +37,11 @@ detect_food_in_text(Ctx, Optional) ->
 
 %% @doc Random Food Joke
 %% Get a random joke that is related to food. Caution: this is an endpoint for adults!
--spec get_a_random_food_joke(ctx:ctx()) -> {ok, spoonacular_inline_response_200_54:spoonacular_inline_response_200_54(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+-spec get_a_random_food_joke(ctx:ctx()) -> {ok, spoonacular_inline_response_200_55:spoonacular_inline_response_200_55(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 get_a_random_food_joke(Ctx) ->
     get_a_random_food_joke(Ctx, #{}).
 
--spec get_a_random_food_joke(ctx:ctx(), maps:map()) -> {ok, spoonacular_inline_response_200_54:spoonacular_inline_response_200_54(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+-spec get_a_random_food_joke(ctx:ctx(), maps:map()) -> {ok, spoonacular_inline_response_200_55:spoonacular_inline_response_200_55(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 get_a_random_food_joke(Ctx, Optional) ->
     _OptionalParams = maps:get(params, Optional, #{}),
     Cfg = maps:get(cfg, Optional, application:get_env(kuberl, config, #{})),
@@ -58,11 +58,11 @@ get_a_random_food_joke(Ctx, Optional) ->
 
 %% @doc Conversation Suggests
 %% This endpoint returns suggestions for things the user can say or ask the chatbot.
--spec get_conversation_suggests(ctx:ctx(), binary()) -> {ok, spoonacular_inline_response_200_56:spoonacular_inline_response_200_56(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+-spec get_conversation_suggests(ctx:ctx(), binary()) -> {ok, spoonacular_inline_response_200_57:spoonacular_inline_response_200_57(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 get_conversation_suggests(Ctx, Query) ->
     get_conversation_suggests(Ctx, Query, #{}).
 
--spec get_conversation_suggests(ctx:ctx(), binary(), maps:map()) -> {ok, spoonacular_inline_response_200_56:spoonacular_inline_response_200_56(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+-spec get_conversation_suggests(ctx:ctx(), binary(), maps:map()) -> {ok, spoonacular_inline_response_200_57:spoonacular_inline_response_200_57(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 get_conversation_suggests(Ctx, Query, Optional) ->
     _OptionalParams = maps:get(params, Optional, #{}),
     Cfg = maps:get(cfg, Optional, application:get_env(kuberl, config, #{})),
@@ -79,11 +79,11 @@ get_conversation_suggests(Ctx, Query, Optional) ->
 
 %% @doc Random Food Trivia
 %% Returns random food trivia.
--spec get_random_food_trivia(ctx:ctx()) -> {ok, spoonacular_inline_response_200_54:spoonacular_inline_response_200_54(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+-spec get_random_food_trivia(ctx:ctx()) -> {ok, spoonacular_inline_response_200_55:spoonacular_inline_response_200_55(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 get_random_food_trivia(Ctx) ->
     get_random_food_trivia(Ctx, #{}).
 
--spec get_random_food_trivia(ctx:ctx(), maps:map()) -> {ok, spoonacular_inline_response_200_54:spoonacular_inline_response_200_54(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+-spec get_random_food_trivia(ctx:ctx(), maps:map()) -> {ok, spoonacular_inline_response_200_55:spoonacular_inline_response_200_55(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 get_random_food_trivia(Ctx, Optional) ->
     _OptionalParams = maps:get(params, Optional, #{}),
     Cfg = maps:get(cfg, Optional, application:get_env(kuberl, config, #{})),
@@ -100,11 +100,11 @@ get_random_food_trivia(Ctx, Optional) ->
 
 %% @doc Image Analysis by URL
 %% Analyze a food image. The API tries to classify the image, guess the nutrition, and find a matching recipes.
--spec image_analysis_by_url(ctx:ctx(), binary()) -> {ok, spoonacular_inline_response_200_48:spoonacular_inline_response_200_48(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+-spec image_analysis_by_url(ctx:ctx(), binary()) -> {ok, spoonacular_inline_response_200_49:spoonacular_inline_response_200_49(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 image_analysis_by_url(Ctx, ImageUrl) ->
     image_analysis_by_url(Ctx, ImageUrl, #{}).
 
--spec image_analysis_by_url(ctx:ctx(), binary(), maps:map()) -> {ok, spoonacular_inline_response_200_48:spoonacular_inline_response_200_48(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+-spec image_analysis_by_url(ctx:ctx(), binary(), maps:map()) -> {ok, spoonacular_inline_response_200_49:spoonacular_inline_response_200_49(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 image_analysis_by_url(Ctx, ImageUrl, Optional) ->
     _OptionalParams = maps:get(params, Optional, #{}),
     Cfg = maps:get(cfg, Optional, application:get_env(kuberl, config, #{})),
@@ -121,11 +121,11 @@ image_analysis_by_url(Ctx, ImageUrl, Optional) ->
 
 %% @doc Image Classification by URL
 %% Classify a food image.
--spec image_classification_by_url(ctx:ctx(), binary()) -> {ok, spoonacular_inline_response_200_47:spoonacular_inline_response_200_47(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+-spec image_classification_by_url(ctx:ctx(), binary()) -> {ok, spoonacular_inline_response_200_48:spoonacular_inline_response_200_48(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 image_classification_by_url(Ctx, ImageUrl) ->
     image_classification_by_url(Ctx, ImageUrl, #{}).
 
--spec image_classification_by_url(ctx:ctx(), binary(), maps:map()) -> {ok, spoonacular_inline_response_200_47:spoonacular_inline_response_200_47(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+-spec image_classification_by_url(ctx:ctx(), binary(), maps:map()) -> {ok, spoonacular_inline_response_200_48:spoonacular_inline_response_200_48(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 image_classification_by_url(Ctx, ImageUrl, Optional) ->
     _OptionalParams = maps:get(params, Optional, #{}),
     Cfg = maps:get(cfg, Optional, application:get_env(kuberl, config, #{})),
@@ -142,11 +142,11 @@ image_classification_by_url(Ctx, ImageUrl, Optional) ->
 
 %% @doc Search All Food
 %% Search all food content with one call. That includes recipes, grocery products, menu items, simple foods (ingredients), and food videos.
--spec search_all_food(ctx:ctx(), binary()) -> {ok, spoonacular_inline_response_200_52:spoonacular_inline_response_200_52(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+-spec search_all_food(ctx:ctx(), binary()) -> {ok, spoonacular_inline_response_200_53:spoonacular_inline_response_200_53(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 search_all_food(Ctx, Query) ->
     search_all_food(Ctx, Query, #{}).
 
--spec search_all_food(ctx:ctx(), binary(), maps:map()) -> {ok, spoonacular_inline_response_200_52:spoonacular_inline_response_200_52(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+-spec search_all_food(ctx:ctx(), binary(), maps:map()) -> {ok, spoonacular_inline_response_200_53:spoonacular_inline_response_200_53(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 search_all_food(Ctx, Query, Optional) ->
     _OptionalParams = maps:get(params, Optional, #{}),
     Cfg = maps:get(cfg, Optional, application:get_env(kuberl, config, #{})),
@@ -184,11 +184,11 @@ search_custom_foods(Ctx, Username, Hash, Optional) ->
 
 %% @doc Search Food Videos
 %% Find recipe and other food related videos.
--spec search_food_videos(ctx:ctx()) -> {ok, spoonacular_inline_response_200_53:spoonacular_inline_response_200_53(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+-spec search_food_videos(ctx:ctx()) -> {ok, spoonacular_inline_response_200_54:spoonacular_inline_response_200_54(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 search_food_videos(Ctx) ->
     search_food_videos(Ctx, #{}).
 
--spec search_food_videos(ctx:ctx(), maps:map()) -> {ok, spoonacular_inline_response_200_53:spoonacular_inline_response_200_53(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+-spec search_food_videos(ctx:ctx(), maps:map()) -> {ok, spoonacular_inline_response_200_54:spoonacular_inline_response_200_54(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 search_food_videos(Ctx, Optional) ->
     _OptionalParams = maps:get(params, Optional, #{}),
     Cfg = maps:get(cfg, Optional, application:get_env(kuberl, config, #{})),
@@ -205,11 +205,11 @@ search_food_videos(Ctx, Optional) ->
 
 %% @doc Search Site Content
 %% Search spoonacular's site content. You'll be able to find everything that you could also find using the search suggestions on spoonacular.com. This is a suggest API so you can send partial strings as queries.
--spec search_site_content(ctx:ctx(), binary()) -> {ok, spoonacular_inline_response_200_51:spoonacular_inline_response_200_51(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+-spec search_site_content(ctx:ctx(), binary()) -> {ok, spoonacular_inline_response_200_52:spoonacular_inline_response_200_52(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 search_site_content(Ctx, Query) ->
     search_site_content(Ctx, Query, #{}).
 
--spec search_site_content(ctx:ctx(), binary(), maps:map()) -> {ok, spoonacular_inline_response_200_51:spoonacular_inline_response_200_51(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+-spec search_site_content(ctx:ctx(), binary(), maps:map()) -> {ok, spoonacular_inline_response_200_52:spoonacular_inline_response_200_52(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 search_site_content(Ctx, Query, Optional) ->
     _OptionalParams = maps:get(params, Optional, #{}),
     Cfg = maps:get(cfg, Optional, application:get_env(kuberl, config, #{})),
@@ -226,11 +226,11 @@ search_site_content(Ctx, Query, Optional) ->
 
 %% @doc Talk to Chatbot
 %% This endpoint can be used to have a conversation about food with the spoonacular chatbot. Use the \"Get Conversation Suggests\" endpoint to show your user what he or she can say.
--spec talk_to_chatbot(ctx:ctx(), binary()) -> {ok, spoonacular_inline_response_200_55:spoonacular_inline_response_200_55(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+-spec talk_to_chatbot(ctx:ctx(), binary()) -> {ok, spoonacular_inline_response_200_56:spoonacular_inline_response_200_56(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 talk_to_chatbot(Ctx, Text) ->
     talk_to_chatbot(Ctx, Text, #{}).
 
--spec talk_to_chatbot(ctx:ctx(), binary(), maps:map()) -> {ok, spoonacular_inline_response_200_55:spoonacular_inline_response_200_55(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+-spec talk_to_chatbot(ctx:ctx(), binary(), maps:map()) -> {ok, spoonacular_inline_response_200_56:spoonacular_inline_response_200_56(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 talk_to_chatbot(Ctx, Text, Optional) ->
     _OptionalParams = maps:get(params, Optional, #{}),
     Cfg = maps:get(cfg, Optional, application:get_env(kuberl, config, #{})),

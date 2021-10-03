@@ -5,13 +5,13 @@
 -export_type([spoonacular_inline_response_200_43/0]).
 
 -type spoonacular_inline_response_200_43() ::
-    #{ 'pairings' := list(),
-       'text' := binary()
+    #{ 'username' := binary(),
+       'hash' := binary()
      }.
 
-encode(#{ 'pairings' := Pairings,
-          'text' := Text
+encode(#{ 'username' := Username,
+          'hash' := Hash
         }) ->
-    #{ 'pairings' => Pairings,
-       'text' => Text
+    #{ 'username' => Username,
+       'hash' => Hash
      }.

@@ -30,6 +30,7 @@ use Log::Any qw($log);
 use Date::Parse;
 use DateTime;
 
+use WWW::OpenAPIClient::Object::InlineResponse20047RecommendedWines;
 
 use base ("Class::Accessor", "Class::Data::Inheritable");
 
@@ -161,16 +162,16 @@ __PACKAGE__->class_documentation({description => '',
 }                                 );
 
 __PACKAGE__->method_documentation({
-    'category' => {
-        datatype => 'string',
-        base_name => 'category',
+    'recommended_wines' => {
+        datatype => 'ARRAY[InlineResponse20047RecommendedWines]',
+        base_name => 'recommendedWines',
         description => '',
         format => '',
         read_only => '',
             },
-    'probability' => {
-        datatype => 'double',
-        base_name => 'probability',
+    'total_found' => {
+        datatype => 'int',
+        base_name => 'totalFound',
         description => '',
         format => '',
         read_only => '',
@@ -178,13 +179,13 @@ __PACKAGE__->method_documentation({
 });
 
 __PACKAGE__->openapi_types( {
-    'category' => 'string',
-    'probability' => 'double'
+    'recommended_wines' => 'ARRAY[InlineResponse20047RecommendedWines]',
+    'total_found' => 'int'
 } );
 
 __PACKAGE__->attribute_map( {
-    'category' => 'category',
-    'probability' => 'probability'
+    'recommended_wines' => 'recommendedWines',
+    'total_found' => 'totalFound'
 } );
 
 __PACKAGE__->mk_accessors(keys %{__PACKAGE__->attribute_map});

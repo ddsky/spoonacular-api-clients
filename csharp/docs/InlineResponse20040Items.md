@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int?** |  | 
+**Day** | **int?** |  | 
 **Slot** | **int?** |  | 
 **Position** | **int?** |  | 
 **Type** | **string** |  | 

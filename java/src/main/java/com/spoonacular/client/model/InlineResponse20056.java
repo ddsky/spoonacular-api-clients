@@ -20,7 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.spoonacular.client.model.InlineResponse20056Suggests;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -30,55 +29,55 @@ import java.util.List;
 /**
  * InlineResponse20056
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-09-28T20:40:32.759+02:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-03T15:10:59.332+02:00[Europe/Berlin]")
 public class InlineResponse20056 {
-  public static final String SERIALIZED_NAME_SUGGESTS = "suggests";
-  @SerializedName(SERIALIZED_NAME_SUGGESTS)
-  private InlineResponse20056Suggests suggests = null;
+  public static final String SERIALIZED_NAME_ANSWER_TEXT = "answerText";
+  @SerializedName(SERIALIZED_NAME_ANSWER_TEXT)
+  private String answerText;
 
-  public static final String SERIALIZED_NAME_WORDS = "words";
-  @SerializedName(SERIALIZED_NAME_WORDS)
-  private List<Object> words = new ArrayList<>();
+  public static final String SERIALIZED_NAME_MEDIA = "media";
+  @SerializedName(SERIALIZED_NAME_MEDIA)
+  private List<Object> media = new ArrayList<>();
 
-  public InlineResponse20056 suggests(InlineResponse20056Suggests suggests) {
-    this.suggests = suggests;
+  public InlineResponse20056 answerText(String answerText) {
+    this.answerText = answerText;
     return this;
   }
 
    /**
-   * Get suggests
-   * @return suggests
+   * Get answerText
+   * @return answerText
   **/
   @ApiModelProperty(required = true, value = "")
-  public InlineResponse20056Suggests getSuggests() {
-    return suggests;
+  public String getAnswerText() {
+    return answerText;
   }
 
-  public void setSuggests(InlineResponse20056Suggests suggests) {
-    this.suggests = suggests;
+  public void setAnswerText(String answerText) {
+    this.answerText = answerText;
   }
 
-  public InlineResponse20056 words(List<Object> words) {
-    this.words = words;
+  public InlineResponse20056 media(List<Object> media) {
+    this.media = media;
     return this;
   }
 
-  public InlineResponse20056 addWordsItem(Object wordsItem) {
-    this.words.add(wordsItem);
+  public InlineResponse20056 addMediaItem(Object mediaItem) {
+    this.media.add(mediaItem);
     return this;
   }
 
    /**
-   * Get words
-   * @return words
+   * Get media
+   * @return media
   **/
   @ApiModelProperty(required = true, value = "")
-  public List<Object> getWords() {
-    return words;
+  public List<Object> getMedia() {
+    return media;
   }
 
-  public void setWords(List<Object> words) {
-    this.words = words;
+  public void setMedia(List<Object> media) {
+    this.media = media;
   }
 
 
@@ -91,13 +90,13 @@ public class InlineResponse20056 {
       return false;
     }
     InlineResponse20056 inlineResponse20056 = (InlineResponse20056) o;
-    return Objects.equals(this.suggests, inlineResponse20056.suggests) &&
-        Objects.equals(this.words, inlineResponse20056.words);
+    return Objects.equals(this.answerText, inlineResponse20056.answerText) &&
+        Objects.equals(this.media, inlineResponse20056.media);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(suggests, words);
+    return Objects.hash(answerText, media);
   }
 
 
@@ -105,8 +104,8 @@ public class InlineResponse20056 {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse20056 {\n");
-    sb.append("    suggests: ").append(toIndentedString(suggests)).append("\n");
-    sb.append("    words: ").append(toIndentedString(words)).append("\n");
+    sb.append("    answerText: ").append(toIndentedString(answerText)).append("\n");
+    sb.append("    media: ").append(toIndentedString(media)).append("\n");
     sb.append("}");
     return sb.toString();
   }

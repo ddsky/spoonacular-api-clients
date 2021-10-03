@@ -3,14 +3,15 @@ package com.spoonacular.client.model;
 import groovy.transform.Canonical
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.math.BigDecimal;
 
 @Canonical
 class InlineObject8 {
     /* The username. */
     String username
-    /* The shopping list item id. */
-    BigDecimal id
+    /* The start date in the format yyyy-mm-dd. */
+    String startDate
+    /* The end date in the format yyyy-mm-dd. */
+    String endDate
     /* The private hash for the username. */
     String hash
 }

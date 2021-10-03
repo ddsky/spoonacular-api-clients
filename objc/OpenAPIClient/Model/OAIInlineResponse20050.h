@@ -23,6 +23,8 @@
 @interface OAIInlineResponse20050 : OAIObject
 
 
-@property(nonatomic) NSArray<NSObject*>* annotations;
+@property(nonatomic) NSString* answer;
+
+@property(nonatomic) NSString* image;
 
 @end

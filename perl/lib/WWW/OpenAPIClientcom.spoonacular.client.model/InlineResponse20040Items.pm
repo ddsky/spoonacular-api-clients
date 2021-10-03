@@ -162,9 +162,9 @@ __PACKAGE__->class_documentation({description => '',
 }                                 );
 
 __PACKAGE__->method_documentation({
-    'id' => {
+    'day' => {
         datatype => 'int',
-        base_name => 'id',
+        base_name => 'day',
         description => '',
         format => '',
         read_only => '',
@@ -200,7 +200,7 @@ __PACKAGE__->method_documentation({
 });
 
 __PACKAGE__->openapi_types( {
-    'id' => 'int',
+    'day' => 'int',
     'slot' => 'int',
     'position' => 'int',
     'type' => 'string',
@@ -208,7 +208,7 @@ __PACKAGE__->openapi_types( {
 } );
 
 __PACKAGE__->attribute_map( {
-    'id' => 'id',
+    'day' => 'day',
     'slot' => 'slot',
     'position' => 'position',
     'type' => 'type',

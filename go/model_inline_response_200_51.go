@@ -11,8 +11,5 @@
 package spoonacular
 
 type InlineResponse20051 struct {
-	Articles []map[string]interface{} `json:"Articles"`
-	GroceryProducts []map[string]interface{} `json:"Grocery Products"`
-	MenuItems []map[string]interface{} `json:"Menu Items"`
-	Recipes []map[string]interface{} `json:"Recipes"`
+	Annotations []map[string]interface{} `json:"annotations"`
 }

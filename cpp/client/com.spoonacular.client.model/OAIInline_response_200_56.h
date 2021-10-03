@@ -22,9 +22,9 @@
 #include <QJsonObject>
 
 
-#include "com.spoonacular.client.model\OAIInline_response_200_56_suggests.h"
 #include "com.spoonacular.client.model\OAIObject.h"
 #include <QList>
+#include <QString>
 
 #include "OAIObject.h"
 #include "OAIEnum.h"
@@ -43,12 +43,12 @@ public:
     void fromJson(QString jsonString) override;
 
     
-    OAIInline_response_200_56_suggests getSuggests() const;
-    void setSuggests(const OAIInline_response_200_56_suggests &suggests);
+    QString getAnswerText() const;
+    void setAnswerText(const QString &answer_text);
 
     
-    QList<OAIObject> getWords() const;
-    void setWords(const QList<OAIObject> &words);
+    QList<OAIObject> getMedia() const;
+    void setMedia(const QList<OAIObject> &media);
 
     
     
@@ -58,13 +58,13 @@ public:
 private:
     void init();
     
-    OAIInline_response_200_56_suggests suggests;
-    bool m_suggests_isSet;
-    bool m_suggests_isValid;
+    QString answer_text;
+    bool m_answer_text_isSet;
+    bool m_answer_text_isValid;
     
-    QList<OAIObject> words;
-    bool m_words_isSet;
-    bool m_words_isValid;
+    QList<OAIObject> media;
+    bool m_media_isSet;
+    bool m_media_isValid;
     
     };
 

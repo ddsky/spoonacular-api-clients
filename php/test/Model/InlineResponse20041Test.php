@@ -79,30 +79,23 @@ class InlineResponse20041Test extends TestCase
     }
 
     /**
-     * Test attribute "aisles"
+     * Test attribute "id"
      */
-    public function testPropertyAisles()
+    public function testPropertyId()
     {
     }
 
     /**
-     * Test attribute "cost"
+     * Test attribute "name"
      */
-    public function testPropertyCost()
+    public function testPropertyName()
     {
     }
 
     /**
-     * Test attribute "start_date"
+     * Test attribute "days"
      */
-    public function testPropertyStartDate()
-    {
-    }
-
-    /**
-     * Test attribute "end_date"
-     */
-    public function testPropertyEndDate()
+    public function testPropertyDays()
     {
     }
 }

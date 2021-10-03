@@ -5,22 +5,19 @@
 -export_type([spoonacular_inline_response_200_52/0]).
 
 -type spoonacular_inline_response_200_52() ::
-    #{ 'query' := binary(),
-       'totalResults' := integer(),
-       'limit' := integer(),
-       'offset' := integer(),
-       'searchResults' := list()
+    #{ 'Articles' := list(),
+       'Grocery_Products' := list(),
+       'Menu_Items' := list(),
+       'Recipes' := list()
      }.
 
-encode(#{ 'query' := Query,
-          'totalResults' := TotalResults,
-          'limit' := Limit,
-          'offset' := Offset,
-          'searchResults' := SearchResults
+encode(#{ 'Articles' := Articles,
+          'Grocery_Products' := GroceryProducts,
+          'Menu_Items' := MenuItems,
+          'Recipes' := Recipes
         }) ->
-    #{ 'query' => Query,
-       'totalResults' => TotalResults,
-       'limit' => Limit,
-       'offset' => Offset,
-       'searchResults' => SearchResults
+    #{ 'Articles' => Articles,
+       'Grocery Products' => GroceryProducts,
+       'Menu Items' => MenuItems,
+       'Recipes' => Recipes
      }.

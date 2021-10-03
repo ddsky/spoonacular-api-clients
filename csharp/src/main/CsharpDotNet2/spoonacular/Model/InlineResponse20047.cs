@@ -13,18 +13,18 @@ namespace spoonacular.Model {
   [DataContract]
   public class InlineResponse20047 {
     /// <summary>
-    /// Gets or Sets Category
+    /// Gets or Sets RecommendedWines
     /// </summary>
-    [DataMember(Name="category", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "category")]
-    public string Category { get; set; }
+    [DataMember(Name="recommendedWines", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "recommendedWines")]
+    public List<InlineResponse20047RecommendedWines> RecommendedWines { get; set; }
 
     /// <summary>
-    /// Gets or Sets Probability
+    /// Gets or Sets TotalFound
     /// </summary>
-    [DataMember(Name="probability", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "probability")]
-    public decimal? Probability { get; set; }
+    [DataMember(Name="totalFound", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "totalFound")]
+    public int? TotalFound { get; set; }
 
 
     /// <summary>
@@ -34,8 +34,8 @@ namespace spoonacular.Model {
     public override string ToString()  {
       var sb = new StringBuilder();
       sb.Append("class InlineResponse20047 {\n");
-      sb.Append("  Category: ").Append(Category).Append("\n");
-      sb.Append("  Probability: ").Append(Probability).Append("\n");
+      sb.Append("  RecommendedWines: ").Append(RecommendedWines).Append("\n");
+      sb.Append("  TotalFound: ").Append(TotalFound).Append("\n");
       sb.Append("}\n");
       return sb.ToString();
     }

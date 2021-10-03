@@ -1,6 +1,7 @@
 package com.spoonacular.client.model;
 
-import java.math.BigDecimal;
+import com.spoonacular.client.model.InlineResponse20047RecommendedWines;
+import java.util.*;
 
 import io.swagger.annotations.*;
 import com.google.gson.annotations.SerializedName;
@@ -9,29 +10,29 @@ import com.google.gson.annotations.SerializedName;
 @ApiModel(description = "")
 public class InlineResponse20047  {
   
-  @SerializedName("category")
-  private String category = null;
-  @SerializedName("probability")
-  private BigDecimal probability = null;
+  @SerializedName("recommendedWines")
+  private List<InlineResponse20047RecommendedWines> recommendedWines = null;
+  @SerializedName("totalFound")
+  private Integer totalFound = null;
 
   /**
    **/
   @ApiModelProperty(required = true, value = "")
-  public String getCategory() {
-    return category;
+  public List<InlineResponse20047RecommendedWines> getRecommendedWines() {
+    return recommendedWines;
   }
-  public void setCategory(String category) {
-    this.category = category;
+  public void setRecommendedWines(List<InlineResponse20047RecommendedWines> recommendedWines) {
+    this.recommendedWines = recommendedWines;
   }
 
   /**
    **/
   @ApiModelProperty(required = true, value = "")
-  public BigDecimal getProbability() {
-    return probability;
+  public Integer getTotalFound() {
+    return totalFound;
   }
-  public void setProbability(BigDecimal probability) {
-    this.probability = probability;
+  public void setTotalFound(Integer totalFound) {
+    this.totalFound = totalFound;
   }
 
 
@@ -44,15 +45,15 @@ public class InlineResponse20047  {
       return false;
     }
     InlineResponse20047 inlineResponse20047 = (InlineResponse20047) o;
-    return (this.category == null ? inlineResponse20047.category == null : this.category.equals(inlineResponse20047.category)) &&
-        (this.probability == null ? inlineResponse20047.probability == null : this.probability.equals(inlineResponse20047.probability));
+    return (this.recommendedWines == null ? inlineResponse20047.recommendedWines == null : this.recommendedWines.equals(inlineResponse20047.recommendedWines)) &&
+        (this.totalFound == null ? inlineResponse20047.totalFound == null : this.totalFound.equals(inlineResponse20047.totalFound));
   }
 
   @Override
   public int hashCode() {
     int result = 17;
-    result = 31 * result + (this.category == null ? 0: this.category.hashCode());
-    result = 31 * result + (this.probability == null ? 0: this.probability.hashCode());
+    result = 31 * result + (this.recommendedWines == null ? 0: this.recommendedWines.hashCode());
+    result = 31 * result + (this.totalFound == null ? 0: this.totalFound.hashCode());
     return result;
   }
 
@@ -61,8 +62,8 @@ public class InlineResponse20047  {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse20047 {\n");
     
-    sb.append("  category: ").append(category).append("\n");
-    sb.append("  probability: ").append(probability).append("\n");
+    sb.append("  recommendedWines: ").append(recommendedWines).append("\n");
+    sb.append("  totalFound: ").append(totalFound).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

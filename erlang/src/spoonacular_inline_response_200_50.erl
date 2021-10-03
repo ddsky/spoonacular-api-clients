@@ -5,10 +5,13 @@
 -export_type([spoonacular_inline_response_200_50/0]).
 
 -type spoonacular_inline_response_200_50() ::
-    #{ 'annotations' := list()
+    #{ 'answer' := binary(),
+       'image' := binary()
      }.
 
-encode(#{ 'annotations' := Annotations
+encode(#{ 'answer' := Answer,
+          'image' := Image
         }) ->
-    #{ 'annotations' => Annotations
+    #{ 'answer' => Answer,
+       'image' => Image
      }.

@@ -1589,6 +1589,7 @@ class MenuItemsApi
      * @param  float $max_protein The maximum amount of protein in grams the menu item can have. (optional)
      * @param  float $min_fat The minimum amount of fat in grams the menu item must have. (optional)
      * @param  float $max_fat The maximum amount of fat in grams the menu item can have. (optional)
+     * @param  bool $add_menu_item_information If set to true, you get more information about the menu items returned. (optional)
      * @param  int $offset The number of results to skip (between 0 and 900). (optional)
      * @param  int $number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      *
@@ -1596,9 +1597,9 @@ class MenuItemsApi
      * @throws \InvalidArgumentException
      * @return \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20035
      */
-    public function searchMenuItems($query = null, $min_calories = null, $max_calories = null, $min_carbs = null, $max_carbs = null, $min_protein = null, $max_protein = null, $min_fat = null, $max_fat = null, $offset = null, $number = 10)
+    public function searchMenuItems($query = null, $min_calories = null, $max_calories = null, $min_carbs = null, $max_carbs = null, $min_protein = null, $max_protein = null, $min_fat = null, $max_fat = null, $add_menu_item_information = null, $offset = null, $number = 10)
     {
-        list($response) = $this->searchMenuItemsWithHttpInfo($query, $min_calories, $max_calories, $min_carbs, $max_carbs, $min_protein, $max_protein, $min_fat, $max_fat, $offset, $number);
+        list($response) = $this->searchMenuItemsWithHttpInfo($query, $min_calories, $max_calories, $min_carbs, $max_carbs, $min_protein, $max_protein, $min_fat, $max_fat, $add_menu_item_information, $offset, $number);
         return $response;
     }
 
@@ -1616,6 +1617,7 @@ class MenuItemsApi
      * @param  float $max_protein The maximum amount of protein in grams the menu item can have. (optional)
      * @param  float $min_fat The minimum amount of fat in grams the menu item must have. (optional)
      * @param  float $max_fat The maximum amount of fat in grams the menu item can have. (optional)
+     * @param  bool $add_menu_item_information If set to true, you get more information about the menu items returned. (optional)
      * @param  int $offset The number of results to skip (between 0 and 900). (optional)
      * @param  int $number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      *
@@ -1623,9 +1625,9 @@ class MenuItemsApi
      * @throws \InvalidArgumentException
      * @return array of \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20035, HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchMenuItemsWithHttpInfo($query = null, $min_calories = null, $max_calories = null, $min_carbs = null, $max_carbs = null, $min_protein = null, $max_protein = null, $min_fat = null, $max_fat = null, $offset = null, $number = 10)
+    public function searchMenuItemsWithHttpInfo($query = null, $min_calories = null, $max_calories = null, $min_carbs = null, $max_carbs = null, $min_protein = null, $max_protein = null, $min_fat = null, $max_fat = null, $add_menu_item_information = null, $offset = null, $number = 10)
     {
-        $request = $this->searchMenuItemsRequest($query, $min_calories, $max_calories, $min_carbs, $max_carbs, $min_protein, $max_protein, $min_fat, $max_fat, $offset, $number);
+        $request = $this->searchMenuItemsRequest($query, $min_calories, $max_calories, $min_carbs, $max_carbs, $min_protein, $max_protein, $min_fat, $max_fat, $add_menu_item_information, $offset, $number);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1714,15 +1716,16 @@ class MenuItemsApi
      * @param  float $max_protein The maximum amount of protein in grams the menu item can have. (optional)
      * @param  float $min_fat The minimum amount of fat in grams the menu item must have. (optional)
      * @param  float $max_fat The maximum amount of fat in grams the menu item can have. (optional)
+     * @param  bool $add_menu_item_information If set to true, you get more information about the menu items returned. (optional)
      * @param  int $offset The number of results to skip (between 0 and 900). (optional)
      * @param  int $number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchMenuItemsAsync($query = null, $min_calories = null, $max_calories = null, $min_carbs = null, $max_carbs = null, $min_protein = null, $max_protein = null, $min_fat = null, $max_fat = null, $offset = null, $number = 10)
+    public function searchMenuItemsAsync($query = null, $min_calories = null, $max_calories = null, $min_carbs = null, $max_carbs = null, $min_protein = null, $max_protein = null, $min_fat = null, $max_fat = null, $add_menu_item_information = null, $offset = null, $number = 10)
     {
-        return $this->searchMenuItemsAsyncWithHttpInfo($query, $min_calories, $max_calories, $min_carbs, $max_carbs, $min_protein, $max_protein, $min_fat, $max_fat, $offset, $number)
+        return $this->searchMenuItemsAsyncWithHttpInfo($query, $min_calories, $max_calories, $min_carbs, $max_carbs, $min_protein, $max_protein, $min_fat, $max_fat, $add_menu_item_information, $offset, $number)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1744,16 +1747,17 @@ class MenuItemsApi
      * @param  float $max_protein The maximum amount of protein in grams the menu item can have. (optional)
      * @param  float $min_fat The minimum amount of fat in grams the menu item must have. (optional)
      * @param  float $max_fat The maximum amount of fat in grams the menu item can have. (optional)
+     * @param  bool $add_menu_item_information If set to true, you get more information about the menu items returned. (optional)
      * @param  int $offset The number of results to skip (between 0 and 900). (optional)
      * @param  int $number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchMenuItemsAsyncWithHttpInfo($query = null, $min_calories = null, $max_calories = null, $min_carbs = null, $max_carbs = null, $min_protein = null, $max_protein = null, $min_fat = null, $max_fat = null, $offset = null, $number = 10)
+    public function searchMenuItemsAsyncWithHttpInfo($query = null, $min_calories = null, $max_calories = null, $min_carbs = null, $max_carbs = null, $min_protein = null, $max_protein = null, $min_fat = null, $max_fat = null, $add_menu_item_information = null, $offset = null, $number = 10)
     {
         $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20035';
-        $request = $this->searchMenuItemsRequest($query, $min_calories, $max_calories, $min_carbs, $max_carbs, $min_protein, $max_protein, $min_fat, $max_fat, $offset, $number);
+        $request = $this->searchMenuItemsRequest($query, $min_calories, $max_calories, $min_carbs, $max_carbs, $min_protein, $max_protein, $min_fat, $max_fat, $add_menu_item_information, $offset, $number);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1801,13 +1805,14 @@ class MenuItemsApi
      * @param  float $max_protein The maximum amount of protein in grams the menu item can have. (optional)
      * @param  float $min_fat The minimum amount of fat in grams the menu item must have. (optional)
      * @param  float $max_fat The maximum amount of fat in grams the menu item can have. (optional)
+     * @param  bool $add_menu_item_information If set to true, you get more information about the menu items returned. (optional)
      * @param  int $offset The number of results to skip (between 0 and 900). (optional)
      * @param  int $number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function searchMenuItemsRequest($query = null, $min_calories = null, $max_calories = null, $min_carbs = null, $max_carbs = null, $min_protein = null, $max_protein = null, $min_fat = null, $max_fat = null, $offset = null, $number = 10)
+    protected function searchMenuItemsRequest($query = null, $min_calories = null, $max_calories = null, $min_carbs = null, $max_carbs = null, $min_protein = null, $max_protein = null, $min_fat = null, $max_fat = null, $add_menu_item_information = null, $offset = null, $number = 10)
     {
         if ($offset !== null && $offset > 900) {
             throw new \InvalidArgumentException('invalid value for "$offset" when calling MenuItemsApi.searchMenuItems, must be smaller than or equal to 900.');
@@ -1866,6 +1871,10 @@ class MenuItemsApi
         // query params
         if ($max_fat !== null) {
             $queryParams['maxFat'] = ObjectSerializer::toQueryValue($max_fat);
+        }
+        // query params
+        if ($add_menu_item_information !== null) {
+            $queryParams['addMenuItemInformation'] = ObjectSerializer::toQueryValue($add_menu_item_information);
         }
         // query params
         if ($offset !== null) {

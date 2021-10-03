@@ -2,36 +2,27 @@ part of openapi.api;
 
 class InlineResponse20055 {
   
-  String answerText = null;
-  
-  List<Object> media = [];
+  String text = null;
   InlineResponse20055();
 
   @override
   String toString() {
-    return 'InlineResponse20055[answerText=$answerText, media=$media, ]';
+    return 'InlineResponse20055[text=$text, ]';
   }
 
   InlineResponse20055.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    if (json['answerText'] == null) {
-      answerText = null;
+    if (json['text'] == null) {
+      text = null;
     } else {
-          answerText = json['answerText'];
-    }
-    if (json['media'] == null) {
-      media = null;
-    } else {
-      media = Object.listFromJson(json['media']);
+          text = json['text'];
     }
   }
 
   Map<String, dynamic> toJson() {
     Map <String, dynamic> json = {};
-    if (answerText != null)
-      json['answerText'] = answerText;
-    if (media != null)
-      json['media'] = media;
+    if (text != null)
+      json['text'] = text;
     return json;
   }
 

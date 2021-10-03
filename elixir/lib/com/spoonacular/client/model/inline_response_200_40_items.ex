@@ -9,7 +9,7 @@ defmodule com.spoonacular.client.Model.InlineResponse20040Items do
 
   @derive [Poison.Encoder]
   defstruct [
-    :"id",
+    :"day",
     :"slot",
     :"position",
     :"type",
@@ -17,7 +17,7 @@ defmodule com.spoonacular.client.Model.InlineResponse20040Items do
   ]
 
   @type t :: %__MODULE__{
-    :"id" => integer(),
+    :"day" => integer(),
     :"slot" => integer(),
     :"position" => integer(),
     :"type" => String.t,

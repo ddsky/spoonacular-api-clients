@@ -15,21 +15,21 @@ namespace com.spoonacular
         /// Dish Pairing for Wine Find a dish that goes well with a given wine.
         /// </summary>
         /// <param name="wine">The type of wine that should be paired, e.g. \&quot;merlot\&quot;, \&quot;riesling\&quot;, or \&quot;malbec\&quot;.</param>
-        /// <returns>InlineResponse20043</returns>
-        InlineResponse20043 GetDishPairingForWine (string wine);
+        /// <returns>InlineResponse20044</returns>
+        InlineResponse20044 GetDishPairingForWine (string wine);
         /// <summary>
         /// Wine Description Get a simple description of a certain wine, e.g. \&quot;malbec\&quot;, \&quot;riesling\&quot;, or \&quot;merlot\&quot;.
         /// </summary>
         /// <param name="wine">The name of the wine that should be paired, e.g. \&quot;merlot\&quot;, \&quot;riesling\&quot;, or \&quot;malbec\&quot;.</param>
-        /// <returns>InlineResponse20045</returns>
-        InlineResponse20045 GetWineDescription (string wine);
+        /// <returns>InlineResponse20046</returns>
+        InlineResponse20046 GetWineDescription (string wine);
         /// <summary>
         /// Wine Pairing Find a wine that goes well with a food. Food can be a dish name (\&quot;steak\&quot;), an ingredient name (\&quot;salmon\&quot;), or a cuisine (\&quot;italian\&quot;).
         /// </summary>
         /// <param name="food">The food to get a pairing for. This can be a dish (\&quot;steak\&quot;), an ingredient (\&quot;salmon\&quot;), or a cuisine (\&quot;italian\&quot;).</param>
         /// <param name="maxPrice">The maximum price for the specific wine recommendation in USD.</param>
-        /// <returns>InlineResponse20044</returns>
-        InlineResponse20044 GetWinePairing (string food, decimal? maxPrice);
+        /// <returns>InlineResponse20045</returns>
+        InlineResponse20045 GetWinePairing (string food, decimal? maxPrice);
         /// <summary>
         /// Wine Recommendation Get a specific wine recommendation (concrete product) for a given wine type, e.g. \&quot;merlot\&quot;.
         /// </summary>
@@ -37,8 +37,8 @@ namespace com.spoonacular
         /// <param name="maxPrice">The maximum price for the specific wine recommendation in USD.</param>
         /// <param name="minRating">The minimum rating of the recommended wine between 0 and 1. For example, 0.8 equals 4 out of 5 stars.</param>
         /// <param name="number">The number of wine recommendations expected (between 1 and 100).</param>
-        /// <returns>InlineResponse20046</returns>
-        InlineResponse20046 GetWineRecommendation (string wine, decimal? maxPrice, decimal? minRating, decimal? number);
+        /// <returns>InlineResponse20047</returns>
+        InlineResponse20047 GetWineRecommendation (string wine, decimal? maxPrice, decimal? minRating, decimal? number);
     }
   
     /// <summary>
@@ -98,8 +98,8 @@ namespace com.spoonacular
         /// Dish Pairing for Wine Find a dish that goes well with a given wine.
         /// </summary>
         /// <param name="wine">The type of wine that should be paired, e.g. \&quot;merlot\&quot;, \&quot;riesling\&quot;, or \&quot;malbec\&quot;.</param> 
-        /// <returns>InlineResponse20043</returns>            
-        public InlineResponse20043 GetDishPairingForWine (string wine)
+        /// <returns>InlineResponse20044</returns>            
+        public InlineResponse20044 GetDishPairingForWine (string wine)
         {
             
             // verify the required parameter 'wine' is set
@@ -128,15 +128,15 @@ namespace com.spoonacular
             else if (((int)response.StatusCode) == 0)
                 throw new ApiException ((int)response.StatusCode, "Error calling GetDishPairingForWine: " + response.ErrorMessage, response.ErrorMessage);
     
-            return (InlineResponse20043) ApiClient.Deserialize(response.Content, typeof(InlineResponse20043), response.Headers);
+            return (InlineResponse20044) ApiClient.Deserialize(response.Content, typeof(InlineResponse20044), response.Headers);
         }
     
         /// <summary>
         /// Wine Description Get a simple description of a certain wine, e.g. \&quot;malbec\&quot;, \&quot;riesling\&quot;, or \&quot;merlot\&quot;.
         /// </summary>
         /// <param name="wine">The name of the wine that should be paired, e.g. \&quot;merlot\&quot;, \&quot;riesling\&quot;, or \&quot;malbec\&quot;.</param> 
-        /// <returns>InlineResponse20045</returns>            
-        public InlineResponse20045 GetWineDescription (string wine)
+        /// <returns>InlineResponse20046</returns>            
+        public InlineResponse20046 GetWineDescription (string wine)
         {
             
             // verify the required parameter 'wine' is set
@@ -165,7 +165,7 @@ namespace com.spoonacular
             else if (((int)response.StatusCode) == 0)
                 throw new ApiException ((int)response.StatusCode, "Error calling GetWineDescription: " + response.ErrorMessage, response.ErrorMessage);
     
-            return (InlineResponse20045) ApiClient.Deserialize(response.Content, typeof(InlineResponse20045), response.Headers);
+            return (InlineResponse20046) ApiClient.Deserialize(response.Content, typeof(InlineResponse20046), response.Headers);
         }
     
         /// <summary>
@@ -173,8 +173,8 @@ namespace com.spoonacular
         /// </summary>
         /// <param name="food">The food to get a pairing for. This can be a dish (\&quot;steak\&quot;), an ingredient (\&quot;salmon\&quot;), or a cuisine (\&quot;italian\&quot;).</param> 
         /// <param name="maxPrice">The maximum price for the specific wine recommendation in USD.</param> 
-        /// <returns>InlineResponse20044</returns>            
-        public InlineResponse20044 GetWinePairing (string food, decimal? maxPrice)
+        /// <returns>InlineResponse20045</returns>            
+        public InlineResponse20045 GetWinePairing (string food, decimal? maxPrice)
         {
             
             // verify the required parameter 'food' is set
@@ -204,7 +204,7 @@ namespace com.spoonacular
             else if (((int)response.StatusCode) == 0)
                 throw new ApiException ((int)response.StatusCode, "Error calling GetWinePairing: " + response.ErrorMessage, response.ErrorMessage);
     
-            return (InlineResponse20044) ApiClient.Deserialize(response.Content, typeof(InlineResponse20044), response.Headers);
+            return (InlineResponse20045) ApiClient.Deserialize(response.Content, typeof(InlineResponse20045), response.Headers);
         }
     
         /// <summary>
@@ -214,8 +214,8 @@ namespace com.spoonacular
         /// <param name="maxPrice">The maximum price for the specific wine recommendation in USD.</param> 
         /// <param name="minRating">The minimum rating of the recommended wine between 0 and 1. For example, 0.8 equals 4 out of 5 stars.</param> 
         /// <param name="number">The number of wine recommendations expected (between 1 and 100).</param> 
-        /// <returns>InlineResponse20046</returns>            
-        public InlineResponse20046 GetWineRecommendation (string wine, decimal? maxPrice, decimal? minRating, decimal? number)
+        /// <returns>InlineResponse20047</returns>            
+        public InlineResponse20047 GetWineRecommendation (string wine, decimal? maxPrice, decimal? minRating, decimal? number)
         {
             
             // verify the required parameter 'wine' is set
@@ -247,7 +247,7 @@ namespace com.spoonacular
             else if (((int)response.StatusCode) == 0)
                 throw new ApiException ((int)response.StatusCode, "Error calling GetWineRecommendation: " + response.ErrorMessage, response.ErrorMessage);
     
-            return (InlineResponse20046) ApiClient.Deserialize(response.Content, typeof(InlineResponse20046), response.Headers);
+            return (InlineResponse20047) ApiClient.Deserialize(response.Content, typeof(InlineResponse20047), response.Headers);
         }
     
     }

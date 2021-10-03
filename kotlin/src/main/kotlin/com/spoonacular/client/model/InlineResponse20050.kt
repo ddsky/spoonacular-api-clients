@@ -15,11 +15,14 @@ package com.spoonacular.client.model
 import com.squareup.moshi.Json
 /**
  * 
- * @param annotations 
+ * @param answer 
+ * @param image 
  */
 data class InlineResponse20050 (
-    @Json(name = "annotations")
-    val annotations: kotlin.Array<kotlin.Any>
+    @Json(name = "answer")
+    val answer: kotlin.String,
+    @Json(name = "image")
+    val image: kotlin.String
 ) {
 
 }

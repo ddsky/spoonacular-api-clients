@@ -32,28 +32,36 @@ class InlineResponse20040Value(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'id': 'float',
+        'id': 'int',
+        'servings': 'float',
         'title': 'str',
         'image_type': 'str'
     }
 
     attribute_map = {
         'id': 'id',
+        'servings': 'servings',
         'title': 'title',
         'image_type': 'imageType'
     }
 
-    def __init__(self, id=None, title=None, image_type=None):  # noqa: E501
+    def __init__(self, id=None, servings=None, title=None, image_type=None):  # noqa: E501
         """InlineResponse20040Value - a model defined in OpenAPI"""  # noqa: E501
 
         self._id = None
+        self._servings = None
         self._title = None
         self._image_type = None
         self.discriminator = None
 
-        self.id = id
-        self.title = title
-        self.image_type = image_type
+        if id is not None:
+            self.id = id
+        if servings is not None:
+            self.servings = servings
+        if title is not None:
+            self.title = title
+        if image_type is not None:
+            self.image_type = image_type
 
     @property
     def id(self):
@@ -61,7 +69,7 @@ class InlineResponse20040Value(object):
 
 
         :return: The id of this InlineResponse20040Value.  # noqa: E501
-        :rtype: float
+        :rtype: int
         """
         return self._id
 
@@ -71,12 +79,31 @@ class InlineResponse20040Value(object):
 
 
         :param id: The id of this InlineResponse20040Value.  # noqa: E501
-        :type: float
+        :type: int
         """
-        if id is None:
-            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
+
+    @property
+    def servings(self):
+        """Gets the servings of this InlineResponse20040Value.  # noqa: E501
+
+
+        :return: The servings of this InlineResponse20040Value.  # noqa: E501
+        :rtype: float
+        """
+        return self._servings
+
+    @servings.setter
+    def servings(self, servings):
+        """Sets the servings of this InlineResponse20040Value.
+
+
+        :param servings: The servings of this InlineResponse20040Value.  # noqa: E501
+        :type: float
+        """
+
+        self._servings = servings
 
     @property
     def title(self):
@@ -96,8 +123,6 @@ class InlineResponse20040Value(object):
         :param title: The title of this InlineResponse20040Value.  # noqa: E501
         :type: str
         """
-        if title is None:
-            raise ValueError("Invalid value for `title`, must not be `None`")  # noqa: E501
         if title is not None and len(title) < 1:
             raise ValueError("Invalid value for `title`, length must be greater than or equal to `1`")  # noqa: E501
 
@@ -121,8 +146,6 @@ class InlineResponse20040Value(object):
         :param image_type: The image_type of this InlineResponse20040Value.  # noqa: E501
         :type: str
         """
-        if image_type is None:
-            raise ValueError("Invalid value for `image_type`, must not be `None`")  # noqa: E501
         if image_type is not None and len(image_type) < 1:
             raise ValueError("Invalid value for `image_type`, length must be greater than or equal to `1`")  # noqa: E501
 

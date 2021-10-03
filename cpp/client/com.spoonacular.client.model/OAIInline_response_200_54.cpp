@@ -38,8 +38,11 @@ OAIInline_response_200_54::~OAIInline_response_200_54() {
 void
 OAIInline_response_200_54::init() {
     
-    m_text_isSet = false;
-    m_text_isValid = false;
+    m_videos_isSet = false;
+    m_videos_isValid = false;
+    
+    m_total_results_isSet = false;
+    m_total_results_isValid = false;
     }
 
 void
@@ -53,7 +56,10 @@ OAIInline_response_200_54::fromJson(QString jsonString) {
 void
 OAIInline_response_200_54::fromJsonObject(QJsonObject json) {
     
-    m_text_isValid = ::OpenAPI::fromJsonValue(text, json[QString("text")]);
+    
+    m_videos_isValid = ::OpenAPI::fromJsonValue(videos, json[QString("videos")]);
+    
+    m_total_results_isValid = ::OpenAPI::fromJsonValue(total_results, json[QString("totalResults")]);
     
     
 }
@@ -69,28 +75,45 @@ OAIInline_response_200_54::asJson () const {
 QJsonObject
 OAIInline_response_200_54::asJsonObject() const {
     QJsonObject obj;
-	if(m_text_isSet){
-        obj.insert(QString("text"), ::OpenAPI::toJsonValue(text));
+	
+    if(videos.size() > 0){
+        obj.insert(QString("videos"), ::OpenAPI::toJsonValue(videos));
+    } 
+	if(m_total_results_isSet){
+        obj.insert(QString("totalResults"), ::OpenAPI::toJsonValue(total_results));
     }
     return obj;
 }
 
 
-QString
-OAIInline_response_200_54::getText() const {
-    return text;
+QList<OAIInline_response_200_54_videos>
+OAIInline_response_200_54::getVideos() const {
+    return videos;
 }
 void
-OAIInline_response_200_54::setText(const QString &text) {
-    this->text = text;
-    this->m_text_isSet = true;
+OAIInline_response_200_54::setVideos(const QList<OAIInline_response_200_54_videos> &videos) {
+    this->videos = videos;
+    this->m_videos_isSet = true;
+}
+
+
+qint32
+OAIInline_response_200_54::getTotalResults() const {
+    return total_results;
+}
+void
+OAIInline_response_200_54::setTotalResults(const qint32 &total_results) {
+    this->total_results = total_results;
+    this->m_total_results_isSet = true;
 }
 
 bool
 OAIInline_response_200_54::isSet() const {
     bool isObjectUpdated = false;
     do{ 
-        if(m_text_isSet){ isObjectUpdated = true; break;}
+        if(videos.size() > 0){ isObjectUpdated = true; break;}
+    
+        if(m_total_results_isSet){ isObjectUpdated = true; break;}
     }while(false);
     return isObjectUpdated;
 }
@@ -98,7 +121,7 @@ OAIInline_response_200_54::isSet() const {
 bool
 OAIInline_response_200_54::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_text_isValid && true;
+    return m_videos_isValid && m_total_results_isValid && true;
 }
 
 }

@@ -524,6 +524,7 @@ Name | Type | Description  | Notes
     maxProtein: (NSNumber*) maxProtein
     minFat: (NSNumber*) minFat
     maxFat: (NSNumber*) maxFat
+    addProductInformation: (NSNumber*) addProductInformation
     offset: (NSNumber*) offset
     number: (NSNumber*) number
         completionHandler: (void (^)(OAIInlineResponse20027* output, NSError* error)) handler;
@@ -552,6 +553,7 @@ NSNumber* minProtein = 10; // The minimum amount of protein in grams the product
 NSNumber* maxProtein = 100; // The maximum amount of protein in grams the product can have. (optional)
 NSNumber* minFat = 1; // The minimum amount of fat in grams the product must have. (optional)
 NSNumber* maxFat = 100; // The maximum amount of fat in grams the product can have. (optional)
+NSNumber* addProductInformation = true; // If set to true, you get more information about the products returned. (optional)
 NSNumber* offset = @56; // The number of results to skip (between 0 and 900). (optional)
 NSNumber* number = 10; // The maximum number of items to return (between 1 and 100). Defaults to 10. (optional) (default to @10)
 
@@ -567,6 +569,7 @@ OAIProductsApi*apiInstance = [[OAIProductsApi alloc] init];
               maxProtein:maxProtein
               minFat:minFat
               maxFat:maxFat
+              addProductInformation:addProductInformation
               offset:offset
               number:number
           completionHandler: ^(OAIInlineResponse20027* output, NSError* error) {
@@ -592,6 +595,7 @@ Name | Type | Description  | Notes
  **maxProtein** | **NSNumber***| The maximum amount of protein in grams the product can have. | [optional] 
  **minFat** | **NSNumber***| The minimum amount of fat in grams the product must have. | [optional] 
  **maxFat** | **NSNumber***| The maximum amount of fat in grams the product can have. | [optional] 
+ **addProductInformation** | **NSNumber***| If set to true, you get more information about the products returned. | [optional] 
  **offset** | **NSNumber***| The number of results to skip (between 0 and 900). | [optional] 
  **number** | **NSNumber***| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to @10]
 

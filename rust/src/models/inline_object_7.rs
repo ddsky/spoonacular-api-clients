@@ -17,15 +17,19 @@ pub struct InlineObject7 {
     /// The username.
     #[serde(rename = "username")]
     pub username: String,
+    /// The shopping list item id.
+    #[serde(rename = "id")]
+    pub id: f32,
     /// The private hash for the username.
     #[serde(rename = "hash")]
     pub hash: String,
 }
 
 impl InlineObject7 {
-    pub fn new(username: String, hash: String) -> InlineObject7 {
+    pub fn new(username: String, id: f32, hash: String) -> InlineObject7 {
         InlineObject7 {
             username: username,
+            id: id,
             hash: hash,
         }
     }

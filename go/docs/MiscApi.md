@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 ## DetectFoodInText
 
-> InlineResponse20050 DetectFoodInText(ctx, optional)
+> InlineResponse20051 DetectFoodInText(ctx, optional)
 Detect Food in Text
 
 Take any text and find all mentions of food contained within it. This task is also called Named Entity Recognition (NER). In this case, the entities are foods. Either dishes, such as pizza or cheeseburger, or ingredients, such as cucumber or almonds.
@@ -44,7 +44,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20050**](inline_response_200_50.md)
+[**InlineResponse20051**](inline_response_200_51.md)
 
 ### Authorization
 
@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 
 ## GetARandomFoodJoke
 
-> InlineResponse20054 GetARandomFoodJoke(ctx, )
+> InlineResponse20055 GetARandomFoodJoke(ctx, )
 Random Food Joke
 
 Get a random joke that is related to food. Caution: this is an endpoint for adults!
@@ -73,7 +73,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse20054**](inline_response_200_54.md)
+[**InlineResponse20055**](inline_response_200_55.md)
 
 ### Authorization
 
@@ -91,7 +91,7 @@ This endpoint does not need any parameter.
 
 ## GetConversationSuggests
 
-> InlineResponse20056 GetConversationSuggests(ctx, query, optional)
+> InlineResponse20057 GetConversationSuggests(ctx, query, optional)
 Conversation Suggests
 
 This endpoint returns suggestions for things the user can say or ask the chatbot.
@@ -117,7 +117,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20056**](inline_response_200_56.md)
+[**InlineResponse20057**](inline_response_200_57.md)
 
 ### Authorization
 
@@ -135,7 +135,7 @@ Name | Type | Description  | Notes
 
 ## GetRandomFoodTrivia
 
-> InlineResponse20054 GetRandomFoodTrivia(ctx, )
+> InlineResponse20055 GetRandomFoodTrivia(ctx, )
 Random Food Trivia
 
 Returns random food trivia.
@@ -146,7 +146,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse20054**](inline_response_200_54.md)
+[**InlineResponse20055**](inline_response_200_55.md)
 
 ### Authorization
 
@@ -164,7 +164,7 @@ This endpoint does not need any parameter.
 
 ## ImageAnalysisByURL
 
-> InlineResponse20048 ImageAnalysisByURL(ctx, imageUrl)
+> InlineResponse20049 ImageAnalysisByURL(ctx, imageUrl)
 Image Analysis by URL
 
 Analyze a food image. The API tries to classify the image, guess the nutrition, and find a matching recipes.
@@ -176,6 +176,39 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **imageUrl** | **string**| The URL of the image to be analyzed. | 
+
+### Return type
+
+[**InlineResponse20049**](inline_response_200_49.md)
+
+### Authorization
+
+[apiKeyScheme](../README.md#apiKeyScheme)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ImageClassificationByURL
+
+> InlineResponse20048 ImageClassificationByURL(ctx, imageUrl)
+Image Classification by URL
+
+Classify a food image.
+
+### Required Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**imageUrl** | **string**| The URL of the image to be classified. | 
 
 ### Return type
 
@@ -195,42 +228,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ImageClassificationByURL
-
-> InlineResponse20047 ImageClassificationByURL(ctx, imageUrl)
-Image Classification by URL
-
-Classify a food image.
-
-### Required Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**imageUrl** | **string**| The URL of the image to be classified. | 
-
-### Return type
-
-[**InlineResponse20047**](inline_response_200_47.md)
-
-### Authorization
-
-[apiKeyScheme](../README.md#apiKeyScheme)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
 ## SearchAllFood
 
-> InlineResponse20052 SearchAllFood(ctx, query, optional)
+> InlineResponse20053 SearchAllFood(ctx, query, optional)
 Search All Food
 
 Search all food content with one call. That includes recipes, grocery products, menu items, simple foods (ingredients), and food videos.
@@ -257,7 +257,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20052**](inline_response_200_52.md)
+[**InlineResponse20053**](inline_response_200_53.md)
 
 ### Authorization
 
@@ -323,7 +323,7 @@ Name | Type | Description  | Notes
 
 ## SearchFoodVideos
 
-> InlineResponse20053 SearchFoodVideos(ctx, optional)
+> InlineResponse20054 SearchFoodVideos(ctx, optional)
 Search Food Videos
 
 Find recipe and other food related videos.
@@ -356,7 +356,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20053**](inline_response_200_53.md)
+[**InlineResponse20054**](inline_response_200_54.md)
 
 ### Authorization
 
@@ -374,7 +374,7 @@ Name | Type | Description  | Notes
 
 ## SearchSiteContent
 
-> InlineResponse20051 SearchSiteContent(ctx, query)
+> InlineResponse20052 SearchSiteContent(ctx, query)
 Search Site Content
 
 Search spoonacular's site content. You'll be able to find everything that you could also find using the search suggestions on spoonacular.com. This is a suggest API so you can send partial strings as queries.
@@ -389,7 +389,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20051**](inline_response_200_51.md)
+[**InlineResponse20052**](inline_response_200_52.md)
 
 ### Authorization
 
@@ -407,7 +407,7 @@ Name | Type | Description  | Notes
 
 ## TalkToChatbot
 
-> InlineResponse20055 TalkToChatbot(ctx, text, optional)
+> InlineResponse20056 TalkToChatbot(ctx, text, optional)
 Talk to Chatbot
 
 This endpoint can be used to have a conversation about food with the spoonacular chatbot. Use the \"Get Conversation Suggests\" endpoint to show your user what he or she can say.
@@ -433,7 +433,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20055**](inline_response_200_55.md)
+[**InlineResponse20056**](inline_response_200_56.md)
 
 ### Authorization
 

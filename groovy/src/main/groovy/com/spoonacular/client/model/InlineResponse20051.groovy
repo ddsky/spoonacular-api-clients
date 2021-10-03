@@ -9,11 +9,5 @@ import java.util.List;
 @Canonical
 class InlineResponse20051 {
     
-    List<Object> articles = new ArrayList<Object>()
-    
-    List<Object> groceryProducts = new ArrayList<Object>()
-    
-    List<Object> menuItems = new ArrayList<Object>()
-    
-    List<Object> recipes = new ArrayList<Object>()
+    List<Object> annotations = new ArrayList<Object>()
 }

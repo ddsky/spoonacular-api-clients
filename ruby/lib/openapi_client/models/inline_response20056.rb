@@ -14,23 +14,23 @@ require 'date'
 
 module OpenapiClient
   class InlineResponse20056
-    attr_accessor :suggests
+    attr_accessor :answer_text
 
-    attr_accessor :words
+    attr_accessor :media
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'suggests' => :'suggests',
-        :'words' => :'words'
+        :'answer_text' => :'answerText',
+        :'media' => :'media'
       }
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'suggests' => :'InlineResponse20056Suggests',
-        :'words' => :'Array<Object>'
+        :'answer_text' => :'String',
+        :'media' => :'Array<Object>'
       }
     end
 
@@ -49,13 +49,13 @@ module OpenapiClient
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'suggests')
-        self.suggests = attributes[:'suggests']
+      if attributes.key?(:'answer_text')
+        self.answer_text = attributes[:'answer_text']
       end
 
-      if attributes.key?(:'words')
-        if (value = attributes[:'words']).is_a?(Array)
-          self.words = value
+      if attributes.key?(:'media')
+        if (value = attributes[:'media']).is_a?(Array)
+          self.media = value
         end
       end
     end
@@ -64,12 +64,16 @@ module OpenapiClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @suggests.nil?
-        invalid_properties.push('invalid value for "suggests", suggests cannot be nil.')
+      if @answer_text.nil?
+        invalid_properties.push('invalid value for "answer_text", answer_text cannot be nil.')
       end
 
-      if @words.nil?
-        invalid_properties.push('invalid value for "words", words cannot be nil.')
+      if @answer_text.to_s.length < 1
+        invalid_properties.push('invalid value for "answer_text", the character length must be great than or equal to 1.')
+      end
+
+      if @media.nil?
+        invalid_properties.push('invalid value for "media", media cannot be nil.')
       end
 
       invalid_properties
@@ -78,9 +82,24 @@ module OpenapiClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @suggests.nil?
-      return false if @words.nil?
+      return false if @answer_text.nil?
+      return false if @answer_text.to_s.length < 1
+      return false if @media.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] answer_text Value to be assigned
+    def answer_text=(answer_text)
+      if answer_text.nil?
+        fail ArgumentError, 'answer_text cannot be nil'
+      end
+
+      if answer_text.to_s.length < 1
+        fail ArgumentError, 'invalid value for "answer_text", the character length must be great than or equal to 1.'
+      end
+
+      @answer_text = answer_text
     end
 
     # Checks equality by comparing each attribute.
@@ -88,8 +107,8 @@ module OpenapiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          suggests == o.suggests &&
-          words == o.words
+          answer_text == o.answer_text &&
+          media == o.media
     end
 
     # @see the `==` method
@@ -101,7 +120,7 @@ module OpenapiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [suggests, words].hash
+      [answer_text, media].hash
     end
 
     # Builds the object from hash

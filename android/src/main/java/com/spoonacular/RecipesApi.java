@@ -40,8 +40,8 @@ import com.spoonacular.client.model.InlineResponse20021;
 import com.spoonacular.client.model.InlineResponse20023;
 import com.spoonacular.client.model.InlineResponse2003;
 import com.spoonacular.client.model.InlineResponse2004;
-import com.spoonacular.client.model.InlineResponse20049;
 import com.spoonacular.client.model.InlineResponse2005;
+import com.spoonacular.client.model.InlineResponse20050;
 import com.spoonacular.client.model.InlineResponse2006;
 import com.spoonacular.client.model.InlineResponse2007;
 import com.spoonacular.client.model.InlineResponse2008;
@@ -1310,9 +1310,9 @@ public class RecipesApi {
    * Quick Answer
    * Answer a nutrition related natural language question.
    * @param q The nutrition related question.
-   * @return InlineResponse20049
+   * @return InlineResponse20050
    */
-  public InlineResponse20049  quickAnswer (String q) throws ApiException {
+  public InlineResponse20050  quickAnswer (String q) throws ApiException {
     Object localVarPostBody = null;
     // verify the required parameter 'q' is set
     if (q == null) {
@@ -1350,7 +1350,7 @@ public class RecipesApi {
     try {
       String localVarResponse = apiInvoker.invokeAPI(basePath, localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarContentType);
       if(localVarResponse != null){
-        return (InlineResponse20049) ApiInvoker.deserialize(localVarResponse, "", InlineResponse20049.class);
+        return (InlineResponse20050) ApiInvoker.deserialize(localVarResponse, "", InlineResponse20050.class);
       }
       else {
         return null;

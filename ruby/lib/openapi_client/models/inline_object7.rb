@@ -17,6 +17,9 @@ module OpenapiClient
     # The username.
     attr_accessor :username
 
+    # The shopping list item id.
+    attr_accessor :id
+
     # The private hash for the username.
     attr_accessor :hash
 
@@ -24,6 +27,7 @@ module OpenapiClient
     def self.attribute_map
       {
         :'username' => :'username',
+        :'id' => :'id',
         :'hash' => :'hash'
       }
     end
@@ -32,6 +36,7 @@ module OpenapiClient
     def self.openapi_types
       {
         :'username' => :'String',
+        :'id' => :'Float',
         :'hash' => :'String'
       }
     end
@@ -55,6 +60,10 @@ module OpenapiClient
         self.username = attributes[:'username']
       end
 
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
+      end
+
       if attributes.key?(:'hash')
         self.hash = attributes[:'hash']
       end
@@ -68,6 +77,10 @@ module OpenapiClient
         invalid_properties.push('invalid value for "username", username cannot be nil.')
       end
 
+      if @id.nil?
+        invalid_properties.push('invalid value for "id", id cannot be nil.')
+      end
+
       if @hash.nil?
         invalid_properties.push('invalid value for "hash", hash cannot be nil.')
       end
@@ -79,6 +92,7 @@ module OpenapiClient
     # @return true if the model is valid
     def valid?
       return false if @username.nil?
+      return false if @id.nil?
       return false if @hash.nil?
       true
     end
@@ -89,6 +103,7 @@ module OpenapiClient
       return true if self.equal?(o)
       self.class == o.class &&
           username == o.username &&
+          id == o.id &&
           hash == o.hash
     end
 
@@ -101,7 +116,7 @@ module OpenapiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [username, hash].hash
+      [username, id, hash].hash
     end
 
     # Builds the object from hash

@@ -479,7 +479,7 @@ Name | Type | Description  | Notes
 
 <a name="searchGroceryProducts"></a>
 # **searchGroceryProducts**
-> InlineResponse20027 searchGroceryProducts(query, minCalories, maxCalories, minCarbs, maxCarbs, minProtein, maxProtein, minFat, maxFat, offset, number)
+> InlineResponse20027 searchGroceryProducts(query, minCalories, maxCalories, minCarbs, maxCarbs, minProtein, maxProtein, minFat, maxFat, addProductInformation, offset, number)
 
 Search Grocery Products
 
@@ -512,10 +512,11 @@ BigDecimal minProtein = 10; // BigDecimal | The minimum amount of protein in gra
 BigDecimal maxProtein = 100; // BigDecimal | The maximum amount of protein in grams the product can have.
 BigDecimal minFat = 1; // BigDecimal | The minimum amount of fat in grams the product must have.
 BigDecimal maxFat = 100; // BigDecimal | The maximum amount of fat in grams the product can have.
+Boolean addProductInformation = true; // Boolean | If set to true, you get more information about the products returned.
 Integer offset = 56; // Integer | The number of results to skip (between 0 and 900).
 Integer number = 10; // Integer | The maximum number of items to return (between 1 and 100). Defaults to 10.
 try {
-    InlineResponse20027 result = apiInstance.searchGroceryProducts(query, minCalories, maxCalories, minCarbs, maxCarbs, minProtein, maxProtein, minFat, maxFat, offset, number);
+    InlineResponse20027 result = apiInstance.searchGroceryProducts(query, minCalories, maxCalories, minCarbs, maxCarbs, minProtein, maxProtein, minFat, maxFat, addProductInformation, offset, number);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ProductsApi#searchGroceryProducts");
@@ -536,6 +537,7 @@ Name | Type | Description  | Notes
  **maxProtein** | **BigDecimal**| The maximum amount of protein in grams the product can have. | [optional]
  **minFat** | **BigDecimal**| The minimum amount of fat in grams the product must have. | [optional]
  **maxFat** | **BigDecimal**| The maximum amount of fat in grams the product can have. | [optional]
+ **addProductInformation** | **Boolean**| If set to true, you get more information about the products returned. | [optional] [enum: false, true]
  **offset** | **Integer**| The number of results to skip (between 0 and 900). | [optional]
  **number** | **Integer**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
 

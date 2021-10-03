@@ -12,10 +12,8 @@ package spoonacular
 
 type InlineResponse20041Items struct {
 	Id int32 `json:"id"`
-	Name string `json:"name"`
-	Measures InlineResponse20041Measures `json:"measures,omitempty"`
-	PantryItem bool `json:"pantryItem"`
-	Aisle string `json:"aisle"`
-	Cost float32 `json:"cost"`
-	IngredientId int32 `json:"ingredientId"`
+	Slot int32 `json:"slot"`
+	Position int32 `json:"position"`
+	Type string `json:"type"`
+	Value InlineResponse20041Value `json:"value,omitempty"`
 }

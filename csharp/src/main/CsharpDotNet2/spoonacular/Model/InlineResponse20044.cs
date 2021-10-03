@@ -13,25 +13,18 @@ namespace spoonacular.Model {
   [DataContract]
   public class InlineResponse20044 {
     /// <summary>
-    /// Gets or Sets PairedWines
+    /// Gets or Sets Pairings
     /// </summary>
-    [DataMember(Name="pairedWines", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "pairedWines")]
-    public List<string> PairedWines { get; set; }
+    [DataMember(Name="pairings", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "pairings")]
+    public List<string> Pairings { get; set; }
 
     /// <summary>
-    /// Gets or Sets PairingText
+    /// Gets or Sets Text
     /// </summary>
-    [DataMember(Name="pairingText", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "pairingText")]
-    public string PairingText { get; set; }
-
-    /// <summary>
-    /// Gets or Sets ProductMatches
-    /// </summary>
-    [DataMember(Name="productMatches", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "productMatches")]
-    public List<InlineResponse20044ProductMatches> ProductMatches { get; set; }
+    [DataMember(Name="text", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "text")]
+    public string Text { get; set; }
 
 
     /// <summary>
@@ -41,9 +34,8 @@ namespace spoonacular.Model {
     public override string ToString()  {
       var sb = new StringBuilder();
       sb.Append("class InlineResponse20044 {\n");
-      sb.Append("  PairedWines: ").Append(PairedWines).Append("\n");
-      sb.Append("  PairingText: ").Append(PairingText).Append("\n");
-      sb.Append("  ProductMatches: ").Append(ProductMatches).Append("\n");
+      sb.Append("  Pairings: ").Append(Pairings).Append("\n");
+      sb.Append("  Text: ").Append(Text).Append("\n");
       sb.Append("}\n");
       return sb.ToString();
     }

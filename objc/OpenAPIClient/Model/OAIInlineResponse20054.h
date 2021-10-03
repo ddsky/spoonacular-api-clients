@@ -14,6 +14,9 @@
 */
 
 
+#import "OAIInlineResponse20054Videos.h"
+@protocol OAIInlineResponse20054Videos;
+@class OAIInlineResponse20054Videos;
 
 
 
@@ -23,6 +26,8 @@
 @interface OAIInlineResponse20054 : OAIObject
 
 
-@property(nonatomic) NSString* text;
+@property(nonatomic) NSArray<OAIInlineResponse20054Videos>* videos;
+
+@property(nonatomic) NSNumber* totalResults;
 
 @end

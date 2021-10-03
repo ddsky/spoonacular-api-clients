@@ -19,10 +19,10 @@ local function cast_inline_response_200_47(t)
 	return setmetatable(t, inline_response_200_47_mt)
 end
 
-local function new_inline_response_200_47(category, probability)
+local function new_inline_response_200_47(recommended_wines, total_found)
 	return cast_inline_response_200_47({
-		["category"] = category;
-		["probability"] = probability;
+		["recommendedWines"] = recommended_wines;
+		["totalFound"] = total_found;
 	})
 end
 

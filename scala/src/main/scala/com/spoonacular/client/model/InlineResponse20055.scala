@@ -5,15 +5,12 @@ import io.finch.circe._
 import io.circe.generic.semiauto._
 import io.circe.java8.time._
 import spoonacular._
-import scala.collection.immutable.Seq
 
 /**
  * 
- * @param answerText 
- * @param media 
+ * @param text 
  */
-case class InlineResponse20055(answerText: String,
-                media: Seq[Object]
+case class InlineResponse20055(text: String
                 )
 
 object InlineResponse20055 {

@@ -18,11 +18,10 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.spoonacular.client.model.InlineResponse20041Measures;
+import com.spoonacular.client.model.InlineResponse20041Value;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.math.BigDecimal;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -51,51 +50,35 @@ public class InlineResponse20041ItemsTest {
     }
 
     /**
-     * Test the property 'name'
+     * Test the property 'slot'
      */
     @Test
-    public void nameTest() {
-        // TODO: test name
+    public void slotTest() {
+        // TODO: test slot
     }
 
     /**
-     * Test the property 'measures'
+     * Test the property 'position'
      */
     @Test
-    public void measuresTest() {
-        // TODO: test measures
+    public void positionTest() {
+        // TODO: test position
     }
 
     /**
-     * Test the property 'pantryItem'
+     * Test the property 'type'
      */
     @Test
-    public void pantryItemTest() {
-        // TODO: test pantryItem
+    public void typeTest() {
+        // TODO: test type
     }
 
     /**
-     * Test the property 'aisle'
+     * Test the property 'value'
      */
     @Test
-    public void aisleTest() {
-        // TODO: test aisle
-    }
-
-    /**
-     * Test the property 'cost'
-     */
-    @Test
-    public void costTest() {
-        // TODO: test cost
-    }
-
-    /**
-     * Test the property 'ingredientId'
-     */
-    @Test
-    public void ingredientIdTest() {
-        // TODO: test ingredientId
+    public void valueTest() {
+        // TODO: test value
     }
 
 }

@@ -54,14 +54,26 @@
       //expect(instance).to.be.a(SpoonacularApi.InlineResponse20042);
     });
 
-    it('should have the property username (base name: "username")', function() {
-      // uncomment below and update the code to test the property username
+    it('should have the property aisles (base name: "aisles")', function() {
+      // uncomment below and update the code to test the property aisles
       //var instane = new SpoonacularApi.InlineResponse20042();
       //expect(instance).to.be();
     });
 
-    it('should have the property hash (base name: "hash")', function() {
-      // uncomment below and update the code to test the property hash
+    it('should have the property cost (base name: "cost")', function() {
+      // uncomment below and update the code to test the property cost
+      //var instane = new SpoonacularApi.InlineResponse20042();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property startDate (base name: "startDate")', function() {
+      // uncomment below and update the code to test the property startDate
+      //var instane = new SpoonacularApi.InlineResponse20042();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property endDate (base name: "endDate")', function() {
+      // uncomment below and update the code to test the property endDate
       //var instane = new SpoonacularApi.InlineResponse20042();
       //expect(instance).to.be();
     });

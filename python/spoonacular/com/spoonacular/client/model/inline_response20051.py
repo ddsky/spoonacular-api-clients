@@ -32,124 +32,43 @@ class InlineResponse20051(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'articles': 'list[object]',
-        'grocery_products': 'list[object]',
-        'menu_items': 'list[object]',
-        'recipes': 'list[object]'
+        'annotations': 'list[object]'
     }
 
     attribute_map = {
-        'articles': 'Articles',
-        'grocery_products': 'Grocery Products',
-        'menu_items': 'Menu Items',
-        'recipes': 'Recipes'
+        'annotations': 'annotations'
     }
 
-    def __init__(self, articles=None, grocery_products=None, menu_items=None, recipes=None):  # noqa: E501
+    def __init__(self, annotations=None):  # noqa: E501
         """InlineResponse20051 - a model defined in OpenAPI"""  # noqa: E501
 
-        self._articles = None
-        self._grocery_products = None
-        self._menu_items = None
-        self._recipes = None
+        self._annotations = None
         self.discriminator = None
 
-        self.articles = articles
-        self.grocery_products = grocery_products
-        self.menu_items = menu_items
-        self.recipes = recipes
+        self.annotations = annotations
 
     @property
-    def articles(self):
-        """Gets the articles of this InlineResponse20051.  # noqa: E501
+    def annotations(self):
+        """Gets the annotations of this InlineResponse20051.  # noqa: E501
 
 
-        :return: The articles of this InlineResponse20051.  # noqa: E501
+        :return: The annotations of this InlineResponse20051.  # noqa: E501
         :rtype: list[object]
         """
-        return self._articles
+        return self._annotations
 
-    @articles.setter
-    def articles(self, articles):
-        """Sets the articles of this InlineResponse20051.
+    @annotations.setter
+    def annotations(self, annotations):
+        """Sets the annotations of this InlineResponse20051.
 
 
-        :param articles: The articles of this InlineResponse20051.  # noqa: E501
+        :param annotations: The annotations of this InlineResponse20051.  # noqa: E501
         :type: list[object]
         """
-        if articles is None:
-            raise ValueError("Invalid value for `articles`, must not be `None`")  # noqa: E501
+        if annotations is None:
+            raise ValueError("Invalid value for `annotations`, must not be `None`")  # noqa: E501
 
-        self._articles = articles
-
-    @property
-    def grocery_products(self):
-        """Gets the grocery_products of this InlineResponse20051.  # noqa: E501
-
-
-        :return: The grocery_products of this InlineResponse20051.  # noqa: E501
-        :rtype: list[object]
-        """
-        return self._grocery_products
-
-    @grocery_products.setter
-    def grocery_products(self, grocery_products):
-        """Sets the grocery_products of this InlineResponse20051.
-
-
-        :param grocery_products: The grocery_products of this InlineResponse20051.  # noqa: E501
-        :type: list[object]
-        """
-        if grocery_products is None:
-            raise ValueError("Invalid value for `grocery_products`, must not be `None`")  # noqa: E501
-
-        self._grocery_products = grocery_products
-
-    @property
-    def menu_items(self):
-        """Gets the menu_items of this InlineResponse20051.  # noqa: E501
-
-
-        :return: The menu_items of this InlineResponse20051.  # noqa: E501
-        :rtype: list[object]
-        """
-        return self._menu_items
-
-    @menu_items.setter
-    def menu_items(self, menu_items):
-        """Sets the menu_items of this InlineResponse20051.
-
-
-        :param menu_items: The menu_items of this InlineResponse20051.  # noqa: E501
-        :type: list[object]
-        """
-        if menu_items is None:
-            raise ValueError("Invalid value for `menu_items`, must not be `None`")  # noqa: E501
-
-        self._menu_items = menu_items
-
-    @property
-    def recipes(self):
-        """Gets the recipes of this InlineResponse20051.  # noqa: E501
-
-
-        :return: The recipes of this InlineResponse20051.  # noqa: E501
-        :rtype: list[object]
-        """
-        return self._recipes
-
-    @recipes.setter
-    def recipes(self, recipes):
-        """Sets the recipes of this InlineResponse20051.
-
-
-        :param recipes: The recipes of this InlineResponse20051.  # noqa: E501
-        :type: list[object]
-        """
-        if recipes is None:
-            raise ValueError("Invalid value for `recipes`, must not be `None`")  # noqa: E501
-
-        self._recipes = recipes
+        self._annotations = annotations
 
     def to_dict(self):
         """Returns the model properties as a dict"""

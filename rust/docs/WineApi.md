@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 ## get_dish_pairing_for_wine
 
-> ::models::InlineResponse20043 get_dish_pairing_for_wine(ctx, wine)
+> ::models::InlineResponse20044 get_dish_pairing_for_wine(ctx, wine)
 Dish Pairing for Wine
 
 Find a dish that goes well with a given wine.
@@ -28,7 +28,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**::models::InlineResponse20043**](inline_response_200_43.md)
+[**::models::InlineResponse20044**](inline_response_200_44.md)
 
 ### Authorization
 
@@ -44,7 +44,7 @@ Name | Type | Description  | Notes
 
 ## get_wine_description
 
-> ::models::InlineResponse20045 get_wine_description(ctx, wine)
+> ::models::InlineResponse20046 get_wine_description(ctx, wine)
 Wine Description
 
 Get a simple description of a certain wine, e.g. \"malbec\", \"riesling\", or \"merlot\".
@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**::models::InlineResponse20045**](inline_response_200_45.md)
+[**::models::InlineResponse20046**](inline_response_200_46.md)
 
 ### Authorization
 
@@ -75,7 +75,7 @@ Name | Type | Description  | Notes
 
 ## get_wine_pairing
 
-> ::models::InlineResponse20044 get_wine_pairing(ctx, food, optional)
+> ::models::InlineResponse20045 get_wine_pairing(ctx, food, optional)
 Wine Pairing
 
 Find a wine that goes well with a food. Food can be a dish name (\"steak\"), an ingredient name (\"salmon\"), or a cuisine (\"italian\").
@@ -100,7 +100,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**::models::InlineResponse20044**](inline_response_200_44.md)
+[**::models::InlineResponse20045**](inline_response_200_45.md)
 
 ### Authorization
 
@@ -116,7 +116,7 @@ Name | Type | Description  | Notes
 
 ## get_wine_recommendation
 
-> ::models::InlineResponse20046 get_wine_recommendation(ctx, wine, optional)
+> ::models::InlineResponse20047 get_wine_recommendation(ctx, wine, optional)
 Wine Recommendation
 
 Get a specific wine recommendation (concrete product) for a given wine type, e.g. \"merlot\".
@@ -143,7 +143,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**::models::InlineResponse20046**](inline_response_200_46.md)
+[**::models::InlineResponse20047**](inline_response_200_47.md)
 
 ### Authorization
 

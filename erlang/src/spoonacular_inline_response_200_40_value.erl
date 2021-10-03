@@ -5,16 +5,19 @@
 -export_type([spoonacular_inline_response_200_40_value/0]).
 
 -type spoonacular_inline_response_200_40_value() ::
-    #{ 'id' := integer(),
-       'title' := binary(),
-       'imageType' := binary()
+    #{ 'id' => integer(),
+       'servings' => integer(),
+       'title' => binary(),
+       'imageType' => binary()
      }.
 
 encode(#{ 'id' := Id,
+          'servings' := Servings,
           'title' := Title,
           'imageType' := ImageType
         }) ->
     #{ 'id' => Id,
+       'servings' => Servings,
        'title' => Title,
        'imageType' => ImageType
      }.

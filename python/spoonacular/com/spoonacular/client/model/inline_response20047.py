@@ -32,72 +32,70 @@ class InlineResponse20047(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'category': 'str',
-        'probability': 'float'
+        'recommended_wines': 'list[InlineResponse20047RecommendedWines]',
+        'total_found': 'int'
     }
 
     attribute_map = {
-        'category': 'category',
-        'probability': 'probability'
+        'recommended_wines': 'recommendedWines',
+        'total_found': 'totalFound'
     }
 
-    def __init__(self, category=None, probability=None):  # noqa: E501
+    def __init__(self, recommended_wines=None, total_found=None):  # noqa: E501
         """InlineResponse20047 - a model defined in OpenAPI"""  # noqa: E501
 
-        self._category = None
-        self._probability = None
+        self._recommended_wines = None
+        self._total_found = None
         self.discriminator = None
 
-        self.category = category
-        self.probability = probability
+        self.recommended_wines = recommended_wines
+        self.total_found = total_found
 
     @property
-    def category(self):
-        """Gets the category of this InlineResponse20047.  # noqa: E501
+    def recommended_wines(self):
+        """Gets the recommended_wines of this InlineResponse20047.  # noqa: E501
 
 
-        :return: The category of this InlineResponse20047.  # noqa: E501
-        :rtype: str
+        :return: The recommended_wines of this InlineResponse20047.  # noqa: E501
+        :rtype: list[InlineResponse20047RecommendedWines]
         """
-        return self._category
+        return self._recommended_wines
 
-    @category.setter
-    def category(self, category):
-        """Sets the category of this InlineResponse20047.
+    @recommended_wines.setter
+    def recommended_wines(self, recommended_wines):
+        """Sets the recommended_wines of this InlineResponse20047.
 
 
-        :param category: The category of this InlineResponse20047.  # noqa: E501
-        :type: str
+        :param recommended_wines: The recommended_wines of this InlineResponse20047.  # noqa: E501
+        :type: list[InlineResponse20047RecommendedWines]
         """
-        if category is None:
-            raise ValueError("Invalid value for `category`, must not be `None`")  # noqa: E501
-        if category is not None and len(category) < 1:
-            raise ValueError("Invalid value for `category`, length must be greater than or equal to `1`")  # noqa: E501
+        if recommended_wines is None:
+            raise ValueError("Invalid value for `recommended_wines`, must not be `None`")  # noqa: E501
 
-        self._category = category
+        self._recommended_wines = recommended_wines
 
     @property
-    def probability(self):
-        """Gets the probability of this InlineResponse20047.  # noqa: E501
+    def total_found(self):
+        """Gets the total_found of this InlineResponse20047.  # noqa: E501
 
 
-        :return: The probability of this InlineResponse20047.  # noqa: E501
-        :rtype: float
+        :return: The total_found of this InlineResponse20047.  # noqa: E501
+        :rtype: int
         """
-        return self._probability
+        return self._total_found
 
-    @probability.setter
-    def probability(self, probability):
-        """Sets the probability of this InlineResponse20047.
+    @total_found.setter
+    def total_found(self, total_found):
+        """Sets the total_found of this InlineResponse20047.
 
 
-        :param probability: The probability of this InlineResponse20047.  # noqa: E501
-        :type: float
+        :param total_found: The total_found of this InlineResponse20047.  # noqa: E501
+        :type: int
         """
-        if probability is None:
-            raise ValueError("Invalid value for `probability`, must not be `None`")  # noqa: E501
+        if total_found is None:
+            raise ValueError("Invalid value for `total_found`, must not be `None`")  # noqa: E501
 
-        self._probability = probability
+        self._total_found = total_found
 
     def to_dict(self):
         """Returns the model properties as a dict"""

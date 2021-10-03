@@ -20,51 +20,25 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.spoonacular.client.model.InlineResponse20048Category;
-import com.spoonacular.client.model.InlineResponse20048Nutrition;
-import com.spoonacular.client.model.InlineResponse20048Recipes;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.math.BigDecimal;
 
 /**
  * InlineResponse20048
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-09-28T20:40:32.759+02:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-03T15:10:59.332+02:00[Europe/Berlin]")
 public class InlineResponse20048 {
-  public static final String SERIALIZED_NAME_NUTRITION = "nutrition";
-  @SerializedName(SERIALIZED_NAME_NUTRITION)
-  private InlineResponse20048Nutrition nutrition = null;
-
   public static final String SERIALIZED_NAME_CATEGORY = "category";
   @SerializedName(SERIALIZED_NAME_CATEGORY)
-  private InlineResponse20048Category category = null;
+  private String category;
 
-  public static final String SERIALIZED_NAME_RECIPES = "recipes";
-  @SerializedName(SERIALIZED_NAME_RECIPES)
-  private List<InlineResponse20048Recipes> recipes = new ArrayList<>();
+  public static final String SERIALIZED_NAME_PROBABILITY = "probability";
+  @SerializedName(SERIALIZED_NAME_PROBABILITY)
+  private BigDecimal probability;
 
-  public InlineResponse20048 nutrition(InlineResponse20048Nutrition nutrition) {
-    this.nutrition = nutrition;
-    return this;
-  }
-
-   /**
-   * Get nutrition
-   * @return nutrition
-  **/
-  @ApiModelProperty(required = true, value = "")
-  public InlineResponse20048Nutrition getNutrition() {
-    return nutrition;
-  }
-
-  public void setNutrition(InlineResponse20048Nutrition nutrition) {
-    this.nutrition = nutrition;
-  }
-
-  public InlineResponse20048 category(InlineResponse20048Category category) {
+  public InlineResponse20048 category(String category) {
     this.category = category;
     return this;
   }
@@ -74,35 +48,30 @@ public class InlineResponse20048 {
    * @return category
   **/
   @ApiModelProperty(required = true, value = "")
-  public InlineResponse20048Category getCategory() {
+  public String getCategory() {
     return category;
   }
 
-  public void setCategory(InlineResponse20048Category category) {
+  public void setCategory(String category) {
     this.category = category;
   }
 
-  public InlineResponse20048 recipes(List<InlineResponse20048Recipes> recipes) {
-    this.recipes = recipes;
-    return this;
-  }
-
-  public InlineResponse20048 addRecipesItem(InlineResponse20048Recipes recipesItem) {
-    this.recipes.add(recipesItem);
+  public InlineResponse20048 probability(BigDecimal probability) {
+    this.probability = probability;
     return this;
   }
 
    /**
-   * Get recipes
-   * @return recipes
+   * Get probability
+   * @return probability
   **/
   @ApiModelProperty(required = true, value = "")
-  public List<InlineResponse20048Recipes> getRecipes() {
-    return recipes;
+  public BigDecimal getProbability() {
+    return probability;
   }
 
-  public void setRecipes(List<InlineResponse20048Recipes> recipes) {
-    this.recipes = recipes;
+  public void setProbability(BigDecimal probability) {
+    this.probability = probability;
   }
 
 
@@ -115,14 +84,13 @@ public class InlineResponse20048 {
       return false;
     }
     InlineResponse20048 inlineResponse20048 = (InlineResponse20048) o;
-    return Objects.equals(this.nutrition, inlineResponse20048.nutrition) &&
-        Objects.equals(this.category, inlineResponse20048.category) &&
-        Objects.equals(this.recipes, inlineResponse20048.recipes);
+    return Objects.equals(this.category, inlineResponse20048.category) &&
+        Objects.equals(this.probability, inlineResponse20048.probability);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(nutrition, category, recipes);
+    return Objects.hash(category, probability);
   }
 
 
@@ -130,9 +98,8 @@ public class InlineResponse20048 {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse20048 {\n");
-    sb.append("    nutrition: ").append(toIndentedString(nutrition)).append("\n");
     sb.append("    category: ").append(toIndentedString(category)).append("\n");
-    sb.append("    recipes: ").append(toIndentedString(recipes)).append("\n");
+    sb.append("    probability: ").append(toIndentedString(probability)).append("\n");
     sb.append("}");
     return sb.toString();
   }

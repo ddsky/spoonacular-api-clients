@@ -3,15 +3,17 @@ part of openapi.api;
 class InlineObject8 {
   /* The username. */
   String username = null;
-  /* The shopping list item id. */
-  num id = null;
+  /* The start date in the format yyyy-mm-dd. */
+  String startDate = null;
+  /* The end date in the format yyyy-mm-dd. */
+  String endDate = null;
   /* The private hash for the username. */
   String hash = null;
   InlineObject8();
 
   @override
   String toString() {
-    return 'InlineObject8[username=$username, id=$id, hash=$hash, ]';
+    return 'InlineObject8[username=$username, startDate=$startDate, endDate=$endDate, hash=$hash, ]';
   }
 
   InlineObject8.fromJson(Map<String, dynamic> json) {
@@ -21,10 +23,15 @@ class InlineObject8 {
     } else {
           username = json['username'];
     }
-    if (json['id'] == null) {
-      id = null;
+    if (json['start-date'] == null) {
+      startDate = null;
     } else {
-          id = json['id'];
+          startDate = json['start-date'];
+    }
+    if (json['end-date'] == null) {
+      endDate = null;
+    } else {
+          endDate = json['end-date'];
     }
     if (json['hash'] == null) {
       hash = null;
@@ -37,8 +44,10 @@ class InlineObject8 {
     Map <String, dynamic> json = {};
     if (username != null)
       json['username'] = username;
-    if (id != null)
-      json['id'] = id;
+    if (startDate != null)
+      json['start-date'] = startDate;
+    if (endDate != null)
+      json['end-date'] = endDate;
     if (hash != null)
       json['hash'] = hash;
     return json;

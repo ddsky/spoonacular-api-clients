@@ -47,8 +47,8 @@ import com.spoonacular.client.model.InlineResponse20021;
 import com.spoonacular.client.model.InlineResponse20023;
 import com.spoonacular.client.model.InlineResponse2003;
 import com.spoonacular.client.model.InlineResponse2004;
-import com.spoonacular.client.model.InlineResponse20049;
 import com.spoonacular.client.model.InlineResponse2005;
+import com.spoonacular.client.model.InlineResponse20050;
 import com.spoonacular.client.model.InlineResponse2006;
 import com.spoonacular.client.model.InlineResponse2007;
 import com.spoonacular.client.model.InlineResponse2008;
@@ -2561,13 +2561,13 @@ public class RecipesApi {
      * Quick Answer
      * Answer a nutrition related natural language question.
      * @param q The nutrition related question. (required)
-     * @return InlineResponse20049
+     * @return InlineResponse20050
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Quick-Answer">Quick Answer Documentation</a>
      */
-    public InlineResponse20049 quickAnswer(String q) throws ApiException {
-        ApiResponse<InlineResponse20049> localVarResp = quickAnswerWithHttpInfo(q);
+    public InlineResponse20050 quickAnswer(String q) throws ApiException {
+        ApiResponse<InlineResponse20050> localVarResp = quickAnswerWithHttpInfo(q);
         return localVarResp.getData();
     }
 
@@ -2575,14 +2575,14 @@ public class RecipesApi {
      * Quick Answer
      * Answer a nutrition related natural language question.
      * @param q The nutrition related question. (required)
-     * @return ApiResponse&lt;InlineResponse20049&gt;
+     * @return ApiResponse&lt;InlineResponse20050&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Quick-Answer">Quick Answer Documentation</a>
      */
-    public ApiResponse<InlineResponse20049> quickAnswerWithHttpInfo(String q) throws ApiException {
+    public ApiResponse<InlineResponse20050> quickAnswerWithHttpInfo(String q) throws ApiException {
         okhttp3.Call localVarCall = quickAnswerValidateBeforeCall(q, null);
-        Type localVarReturnType = new TypeToken<InlineResponse20049>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20050>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -2596,10 +2596,10 @@ public class RecipesApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Quick-Answer">Quick Answer Documentation</a>
      */
-    public okhttp3.Call quickAnswerAsync(String q, final ApiCallback<InlineResponse20049> _callback) throws ApiException {
+    public okhttp3.Call quickAnswerAsync(String q, final ApiCallback<InlineResponse20050> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = quickAnswerValidateBeforeCall(q, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse20049>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20050>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

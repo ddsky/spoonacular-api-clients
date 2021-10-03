@@ -4,12 +4,14 @@ All URIs are relative to *https://api.spoonacular.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**add_meal_plan_template**](MealPlanningApi.md#add_meal_plan_template) | **POST** /mealplanner/{username}/templates | Add Meal Plan Template
 [**add_to_meal_plan**](MealPlanningApi.md#add_to_meal_plan) | **POST** /mealplanner/{username}/items | Add to Meal Plan
 [**add_to_shopping_list**](MealPlanningApi.md#add_to_shopping_list) | **POST** /mealplanner/{username}/shopping-list/items | Add to Shopping List
 [**clear_meal_plan_day**](MealPlanningApi.md#clear_meal_plan_day) | **DELETE** /mealplanner/{username}/day/{date} | Clear Meal Plan Day
 [**connect_user**](MealPlanningApi.md#connect_user) | **POST** /users/connect | Connect User
 [**delete_from_meal_plan**](MealPlanningApi.md#delete_from_meal_plan) | **DELETE** /mealplanner/{username}/items/{id} | Delete from Meal Plan
 [**delete_from_shopping_list**](MealPlanningApi.md#delete_from_shopping_list) | **DELETE** /mealplanner/{username}/shopping-list/items/{id} | Delete from Shopping List
+[**delete_meal_plan_template**](MealPlanningApi.md#delete_meal_plan_template) | **DELETE** /mealplanner/{username}/templates/{id} | Delete Meal Plan Template
 [**generate_meal_plan**](MealPlanningApi.md#generate_meal_plan) | **GET** /mealplanner/generate | Generate Meal Plan
 [**generate_shopping_list**](MealPlanningApi.md#generate_shopping_list) | **POST** /mealplanner/{username}/shopping-list/{start-date}/{end-date} | Generate Shopping List
 [**get_meal_plan_template**](MealPlanningApi.md#get_meal_plan_template) | **GET** /mealplanner/{username}/templates/{id} | Get Meal Plan Template
@@ -17,6 +19,65 @@ Method | HTTP request | Description
 [**get_meal_plan_week**](MealPlanningApi.md#get_meal_plan_week) | **GET** /mealplanner/{username}/week/{start-date} | Get Meal Plan Week
 [**get_shopping_list**](MealPlanningApi.md#get_shopping_list) | **GET** /mealplanner/{username}/shopping-list | Get Shopping List
 
+
+# **add_meal_plan_template**
+> InlineResponse20040 add_meal_plan_template(username, hash, inline_object6)
+
+Add Meal Plan Template
+
+Add a meal plan template for a user.
+
+### Example
+
+* Api Key Authentication (apiKeyScheme):
+```python
+from __future__ import print_function
+import time
+import spoonacular
+from spoonacular.rest import ApiException
+from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = spoonacular.MealPlanningApi(spoonacular.ApiClient(configuration))
+username = 'dsky' # str | The username.
+hash = '4b5v4398573406' # str | The private hash for the username.
+inline_object6 = spoonacular.InlineObject6() # InlineObject6 | 
+
+try:
+    # Add Meal Plan Template
+    api_response = api_instance.add_meal_plan_template(username, hash, inline_object6)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling MealPlanningApi->add_meal_plan_template: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **str**| The username. | 
+ **hash** | **str**| The private hash for the username. | 
+ **inline_object6** | [**InlineObject6**](InlineObject6.md)|  | 
+
+### Return type
+
+[**InlineResponse20040**](InlineResponse20040.md)
+
+### Authorization
+
+[apiKeyScheme](../README.md#apiKeyScheme)
+
+### HTTP request headers
+
+ - **Content-Type**: 
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **add_to_meal_plan**
 > object add_to_meal_plan(username, hash, inline_object4)
@@ -78,7 +139,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **add_to_shopping_list**
-> InlineResponse20041 add_to_shopping_list(username, hash, inline_object7)
+> InlineResponse20042 add_to_shopping_list(username, hash, inline_object9)
 
 Add to Shopping List
 
@@ -103,11 +164,11 @@ configuration.api_key['apiKey'] = 'YOUR_API_KEY'
 api_instance = spoonacular.MealPlanningApi(spoonacular.ApiClient(configuration))
 username = 'dsky' # str | The username.
 hash = 'hash_example' # str | The private hash for the username.
-inline_object7 = spoonacular.InlineObject7() # InlineObject7 | 
+inline_object9 = spoonacular.InlineObject9() # InlineObject9 | 
 
 try:
     # Add to Shopping List
-    api_response = api_instance.add_to_shopping_list(username, hash, inline_object7)
+    api_response = api_instance.add_to_shopping_list(username, hash, inline_object9)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling MealPlanningApi->add_to_shopping_list: %s\n" % e)
@@ -119,11 +180,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **username** | **str**| The username. | 
  **hash** | **str**| The private hash for the username. | 
- **inline_object7** | [**InlineObject7**](InlineObject7.md)|  | 
+ **inline_object9** | [**InlineObject9**](InlineObject9.md)|  | 
 
 ### Return type
 
-[**InlineResponse20041**](InlineResponse20041.md)
+[**InlineResponse20042**](InlineResponse20042.md)
 
 ### Authorization
 
@@ -198,7 +259,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **connect_user**
-> InlineResponse20042 connect_user(body)
+> InlineResponse20043 connect_user(body)
 
 Connect User
 
@@ -239,7 +300,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20042**](InlineResponse20042.md)
+[**InlineResponse20043**](InlineResponse20043.md)
 
 ### Authorization
 
@@ -314,7 +375,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_from_shopping_list**
-> object delete_from_shopping_list(username, id, hash, inline_object8)
+> object delete_from_shopping_list(username, id, hash, inline_object10)
 
 Delete from Shopping List
 
@@ -340,11 +401,11 @@ api_instance = spoonacular.MealPlanningApi(spoonacular.ApiClient(configuration))
 username = 'dsky' # str | The username.
 id = 1 # int | The item's id.
 hash = 'hash_example' # str | The private hash for the username.
-inline_object8 = spoonacular.InlineObject8() # InlineObject8 | 
+inline_object10 = spoonacular.InlineObject10() # InlineObject10 | 
 
 try:
     # Delete from Shopping List
-    api_response = api_instance.delete_from_shopping_list(username, id, hash, inline_object8)
+    api_response = api_instance.delete_from_shopping_list(username, id, hash, inline_object10)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling MealPlanningApi->delete_from_shopping_list: %s\n" % e)
@@ -357,7 +418,68 @@ Name | Type | Description  | Notes
  **username** | **str**| The username. | 
  **id** | **int**| The item&#39;s id. | 
  **hash** | **str**| The private hash for the username. | 
- **inline_object8** | [**InlineObject8**](InlineObject8.md)|  | 
+ **inline_object10** | [**InlineObject10**](InlineObject10.md)|  | 
+
+### Return type
+
+**object**
+
+### Authorization
+
+[apiKeyScheme](../README.md#apiKeyScheme)
+
+### HTTP request headers
+
+ - **Content-Type**: 
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **delete_meal_plan_template**
+> object delete_meal_plan_template(username, id, hash, inline_object7)
+
+Delete Meal Plan Template
+
+Delete a meal plan template for a user.
+
+### Example
+
+* Api Key Authentication (apiKeyScheme):
+```python
+from __future__ import print_function
+import time
+import spoonacular
+from spoonacular.rest import ApiException
+from pprint import pprint
+configuration = spoonacular.Configuration()
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = spoonacular.MealPlanningApi(spoonacular.ApiClient(configuration))
+username = 'dsky' # str | The username.
+id = 1 # int | The item's id.
+hash = '4b5v4398573406' # str | The private hash for the username.
+inline_object7 = spoonacular.InlineObject7() # InlineObject7 | 
+
+try:
+    # Delete Meal Plan Template
+    api_response = api_instance.delete_meal_plan_template(username, id, hash, inline_object7)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling MealPlanningApi->delete_meal_plan_template: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **str**| The username. | 
+ **id** | **int**| The item&#39;s id. | 
+ **hash** | **str**| The private hash for the username. | 
+ **inline_object7** | [**InlineObject7**](InlineObject7.md)|  | 
 
 ### Return type
 
@@ -436,7 +558,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **generate_shopping_list**
-> InlineResponse20041 generate_shopping_list(username, start_date, end_date, hash, inline_object6)
+> InlineResponse20042 generate_shopping_list(username, start_date, end_date, hash, inline_object8)
 
 Generate Shopping List
 
@@ -463,11 +585,11 @@ username = 'dsky' # str | The username.
 start_date = '2020-06-01' # str | The start date in the format yyyy-mm-dd.
 end_date = '2020-06-07' # str | The end date in the format yyyy-mm-dd.
 hash = 'hash_example' # str | The private hash for the username.
-inline_object6 = spoonacular.InlineObject6() # InlineObject6 | 
+inline_object8 = spoonacular.InlineObject8() # InlineObject8 | 
 
 try:
     # Generate Shopping List
-    api_response = api_instance.generate_shopping_list(username, start_date, end_date, hash, inline_object6)
+    api_response = api_instance.generate_shopping_list(username, start_date, end_date, hash, inline_object8)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling MealPlanningApi->generate_shopping_list: %s\n" % e)
@@ -481,11 +603,11 @@ Name | Type | Description  | Notes
  **start_date** | **str**| The start date in the format yyyy-mm-dd. | 
  **end_date** | **str**| The end date in the format yyyy-mm-dd. | 
  **hash** | **str**| The private hash for the username. | 
- **inline_object6** | [**InlineObject6**](InlineObject6.md)|  | 
+ **inline_object8** | [**InlineObject8**](InlineObject8.md)|  | 
 
 ### Return type
 
-[**InlineResponse20041**](InlineResponse20041.md)
+[**InlineResponse20042**](InlineResponse20042.md)
 
 ### Authorization
 
@@ -499,7 +621,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_meal_plan_template**
-> InlineResponse20040 get_meal_plan_template(username, id, hash)
+> InlineResponse20041 get_meal_plan_template(username, id, hash)
 
 Get Meal Plan Template
 
@@ -544,7 +666,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20040**](InlineResponse20040.md)
+[**InlineResponse20041**](InlineResponse20041.md)
 
 ### Authorization
 
@@ -674,7 +796,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_shopping_list**
-> InlineResponse20041 get_shopping_list(username, hash)
+> InlineResponse20042 get_shopping_list(username, hash)
 
 Get Shopping List
 
@@ -717,7 +839,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20041**](InlineResponse20041.md)
+[**InlineResponse20042**](InlineResponse20042.md)
 
 ### Authorization
 

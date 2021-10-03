@@ -4,18 +4,18 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Integer** |  | 
 **name** | **String** |  | 
-**days** | [**Array&lt;InlineResponse20040Days&gt;**](InlineResponse20040Days.md) |  | 
+**items** | [**Array&lt;InlineResponse20040Items&gt;**](InlineResponse20040Items.md) |  | 
+**publish_as_public** | **Boolean** |  | 
 
 ## Code Sample
 
 ```ruby
 require 'OpenapiClient'
 
-instance = OpenapiClient::InlineResponse20040.new(id: null,
-                                 name: null,
-                                 days: null)
+instance = OpenapiClient::InlineResponse20040.new(name: null,
+                                 items: null,
+                                 publish_as_public: null)
 ```
 
 

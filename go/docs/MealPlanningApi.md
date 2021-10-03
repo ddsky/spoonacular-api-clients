@@ -4,12 +4,14 @@ All URIs are relative to *https://api.spoonacular.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**AddMealPlanTemplate**](MealPlanningApi.md#AddMealPlanTemplate) | **Post** /mealplanner/{username}/templates | Add Meal Plan Template
 [**AddToMealPlan**](MealPlanningApi.md#AddToMealPlan) | **Post** /mealplanner/{username}/items | Add to Meal Plan
 [**AddToShoppingList**](MealPlanningApi.md#AddToShoppingList) | **Post** /mealplanner/{username}/shopping-list/items | Add to Shopping List
 [**ClearMealPlanDay**](MealPlanningApi.md#ClearMealPlanDay) | **Delete** /mealplanner/{username}/day/{date} | Clear Meal Plan Day
 [**ConnectUser**](MealPlanningApi.md#ConnectUser) | **Post** /users/connect | Connect User
 [**DeleteFromMealPlan**](MealPlanningApi.md#DeleteFromMealPlan) | **Delete** /mealplanner/{username}/items/{id} | Delete from Meal Plan
 [**DeleteFromShoppingList**](MealPlanningApi.md#DeleteFromShoppingList) | **Delete** /mealplanner/{username}/shopping-list/items/{id} | Delete from Shopping List
+[**DeleteMealPlanTemplate**](MealPlanningApi.md#DeleteMealPlanTemplate) | **Delete** /mealplanner/{username}/templates/{id} | Delete Meal Plan Template
 [**GenerateMealPlan**](MealPlanningApi.md#GenerateMealPlan) | **Get** /mealplanner/generate | Generate Meal Plan
 [**GenerateShoppingList**](MealPlanningApi.md#GenerateShoppingList) | **Post** /mealplanner/{username}/shopping-list/{start-date}/{end-date} | Generate Shopping List
 [**GetMealPlanTemplate**](MealPlanningApi.md#GetMealPlanTemplate) | **Get** /mealplanner/{username}/templates/{id} | Get Meal Plan Template
@@ -17,6 +19,41 @@ Method | HTTP request | Description
 [**GetMealPlanWeek**](MealPlanningApi.md#GetMealPlanWeek) | **Get** /mealplanner/{username}/week/{start-date} | Get Meal Plan Week
 [**GetShoppingList**](MealPlanningApi.md#GetShoppingList) | **Get** /mealplanner/{username}/shopping-list | Get Shopping List
 
+
+
+## AddMealPlanTemplate
+
+> InlineResponse20040 AddMealPlanTemplate(ctx, username, hash, inlineObject6)
+Add Meal Plan Template
+
+Add a meal plan template for a user.
+
+### Required Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**username** | **string**| The username. | 
+**hash** | **string**| The private hash for the username. | 
+**inlineObject6** | [**InlineObject6**](InlineObject6.md)|  | 
+
+### Return type
+
+[**InlineResponse20040**](inline_response_200_40.md)
+
+### Authorization
+
+[apiKeyScheme](../README.md#apiKeyScheme)
+
+### HTTP request headers
+
+- **Content-Type**: 
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## AddToMealPlan
@@ -56,7 +93,7 @@ Name | Type | Description  | Notes
 
 ## AddToShoppingList
 
-> InlineResponse20041 AddToShoppingList(ctx, username, hash, inlineObject7)
+> InlineResponse20042 AddToShoppingList(ctx, username, hash, inlineObject9)
 Add to Shopping List
 
 Add an item to the current shopping list of a user.
@@ -69,11 +106,11 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **username** | **string**| The username. | 
 **hash** | **string**| The private hash for the username. | 
-**inlineObject7** | [**InlineObject7**](InlineObject7.md)|  | 
+**inlineObject9** | [**InlineObject9**](InlineObject9.md)|  | 
 
 ### Return type
 
-[**InlineResponse20041**](inline_response_200_41.md)
+[**InlineResponse20042**](inline_response_200_42.md)
 
 ### Authorization
 
@@ -127,7 +164,7 @@ Name | Type | Description  | Notes
 
 ## ConnectUser
 
-> InlineResponse20042 ConnectUser(ctx, body)
+> InlineResponse20043 ConnectUser(ctx, body)
 Connect User
 
 In order to call user-specific endpoints, you need to connect your app's users to spoonacular users.
@@ -142,7 +179,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20042**](inline_response_200_42.md)
+[**InlineResponse20043**](inline_response_200_43.md)
 
 ### Authorization
 
@@ -196,7 +233,7 @@ Name | Type | Description  | Notes
 
 ## DeleteFromShoppingList
 
-> map[string]interface{} DeleteFromShoppingList(ctx, username, id, hash, inlineObject8)
+> map[string]interface{} DeleteFromShoppingList(ctx, username, id, hash, inlineObject10)
 Delete from Shopping List
 
 Delete an item from the current shopping list of the user.
@@ -210,7 +247,43 @@ Name | Type | Description  | Notes
 **username** | **string**| The username. | 
 **id** | **int32**| The item&#39;s id. | 
 **hash** | **string**| The private hash for the username. | 
-**inlineObject8** | [**InlineObject8**](InlineObject8.md)|  | 
+**inlineObject10** | [**InlineObject10**](InlineObject10.md)|  | 
+
+### Return type
+
+[**map[string]interface{}**](map[string]interface{}.md)
+
+### Authorization
+
+[apiKeyScheme](../README.md#apiKeyScheme)
+
+### HTTP request headers
+
+- **Content-Type**: 
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DeleteMealPlanTemplate
+
+> map[string]interface{} DeleteMealPlanTemplate(ctx, username, id, hash, inlineObject7)
+Delete Meal Plan Template
+
+Delete a meal plan template for a user.
+
+### Required Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**username** | **string**| The username. | 
+**id** | **int32**| The item&#39;s id. | 
+**hash** | **string**| The private hash for the username. | 
+**inlineObject7** | [**InlineObject7**](InlineObject7.md)|  | 
 
 ### Return type
 
@@ -277,7 +350,7 @@ Name | Type | Description  | Notes
 
 ## GenerateShoppingList
 
-> InlineResponse20041 GenerateShoppingList(ctx, username, startDate, endDate, hash, inlineObject6)
+> InlineResponse20042 GenerateShoppingList(ctx, username, startDate, endDate, hash, inlineObject8)
 Generate Shopping List
 
 Generate the shopping list for a user from the meal planner in a given time frame.
@@ -292,11 +365,11 @@ Name | Type | Description  | Notes
 **startDate** | **string**| The start date in the format yyyy-mm-dd. | 
 **endDate** | **string**| The end date in the format yyyy-mm-dd. | 
 **hash** | **string**| The private hash for the username. | 
-**inlineObject6** | [**InlineObject6**](InlineObject6.md)|  | 
+**inlineObject8** | [**InlineObject8**](InlineObject8.md)|  | 
 
 ### Return type
 
-[**InlineResponse20041**](inline_response_200_41.md)
+[**InlineResponse20042**](inline_response_200_42.md)
 
 ### Authorization
 
@@ -314,7 +387,7 @@ Name | Type | Description  | Notes
 
 ## GetMealPlanTemplate
 
-> InlineResponse20040 GetMealPlanTemplate(ctx, username, id, hash)
+> InlineResponse20041 GetMealPlanTemplate(ctx, username, id, hash)
 Get Meal Plan Template
 
 Get information about a meal plan template.
@@ -331,7 +404,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20040**](inline_response_200_40.md)
+[**InlineResponse20041**](inline_response_200_41.md)
 
 ### Authorization
 
@@ -418,7 +491,7 @@ Name | Type | Description  | Notes
 
 ## GetShoppingList
 
-> InlineResponse20041 GetShoppingList(ctx, username, hash)
+> InlineResponse20042 GetShoppingList(ctx, username, hash)
 Get Shopping List
 
 Get the current shopping list for the given user.
@@ -434,7 +507,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20041**](inline_response_200_41.md)
+[**InlineResponse20042**](inline_response_200_42.md)
 
 ### Authorization
 

@@ -4,9 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Float** |  | 
-**title** | **String** |  | 
-**image_type** | **String** |  | 
+**id** | **Integer** |  | [optional] 
+**servings** | **Float** |  | [optional] 
+**title** | **String** |  | [optional] 
+**image_type** | **String** |  | [optional] 
 
 ## Code Sample
 
@@ -14,6 +15,7 @@ Name | Type | Description | Notes
 require 'OpenapiClient'
 
 instance = OpenapiClient::InlineResponse20040Value.new(id: null,
+                                 servings: null,
                                  title: null,
                                  image_type: null)
 ```

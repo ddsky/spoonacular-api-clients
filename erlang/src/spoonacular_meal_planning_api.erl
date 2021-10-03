@@ -1,11 +1,13 @@
 -module(spoonacular_meal_planning_api).
 
--export([add_to_meal_plan/4, add_to_meal_plan/5,
+-export([add_meal_plan_template/4, add_meal_plan_template/5,
+         add_to_meal_plan/4, add_to_meal_plan/5,
          add_to_shopping_list/4, add_to_shopping_list/5,
          clear_meal_plan_day/5, clear_meal_plan_day/6,
          connect_user/2, connect_user/3,
          delete_from_meal_plan/5, delete_from_meal_plan/6,
          delete_from_shopping_list/5, delete_from_shopping_list/6,
+         delete_meal_plan_template/5, delete_meal_plan_template/6,
          generate_meal_plan/1, generate_meal_plan/2,
          generate_shopping_list/6, generate_shopping_list/7,
          get_meal_plan_template/4, get_meal_plan_template/5,
@@ -14,6 +16,27 @@
          get_shopping_list/3, get_shopping_list/4]).
 
 -define(BASE_URL, "").
+
+%% @doc Add Meal Plan Template
+%% Add a meal plan template for a user.
+-spec add_meal_plan_template(ctx:ctx(), binary(), binary(), spoonacular_inline_object_6:spoonacular_inline_object_6()) -> {ok, spoonacular_inline_response_200_40:spoonacular_inline_response_200_40(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+add_meal_plan_template(Ctx, Username, Hash, SpoonacularInlineObject6) ->
+    add_meal_plan_template(Ctx, Username, Hash, SpoonacularInlineObject6, #{}).
+
+-spec add_meal_plan_template(ctx:ctx(), binary(), binary(), spoonacular_inline_object_6:spoonacular_inline_object_6(), maps:map()) -> {ok, spoonacular_inline_response_200_40:spoonacular_inline_response_200_40(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+add_meal_plan_template(Ctx, Username, Hash, SpoonacularInlineObject6, Optional) ->
+    _OptionalParams = maps:get(params, Optional, #{}),
+    Cfg = maps:get(cfg, Optional, application:get_env(kuberl, config, #{})),
+
+    Method = post,
+    Path = ["/mealplanner/", Username, "/templates"],
+    QS = lists:flatten([{<<"hash">>, Hash}])++spoonacular_utils:optional_params([], _OptionalParams),
+    Headers = [],
+    Body1 = SpoonacularInlineObject6,
+    ContentTypeHeader = spoonacular_utils:select_header_content_type([<<"">>]),
+    Opts = maps:get(hackney_opts, Optional, []),
+
+    spoonacular_utils:request(Ctx, Method, [?BASE_URL, Path], QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
 
 %% @doc Add to Meal Plan
 %% Add an item to the user's meal plan.
@@ -38,12 +61,12 @@ add_to_meal_plan(Ctx, Username, Hash, SpoonacularInlineObject4, Optional) ->
 
 %% @doc Add to Shopping List
 %% Add an item to the current shopping list of a user.
--spec add_to_shopping_list(ctx:ctx(), binary(), binary(), spoonacular_inline_object_7:spoonacular_inline_object_7()) -> {ok, spoonacular_inline_response_200_41:spoonacular_inline_response_200_41(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
-add_to_shopping_list(Ctx, Username, Hash, SpoonacularInlineObject7) ->
-    add_to_shopping_list(Ctx, Username, Hash, SpoonacularInlineObject7, #{}).
+-spec add_to_shopping_list(ctx:ctx(), binary(), binary(), spoonacular_inline_object_9:spoonacular_inline_object_9()) -> {ok, spoonacular_inline_response_200_42:spoonacular_inline_response_200_42(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+add_to_shopping_list(Ctx, Username, Hash, SpoonacularInlineObject9) ->
+    add_to_shopping_list(Ctx, Username, Hash, SpoonacularInlineObject9, #{}).
 
--spec add_to_shopping_list(ctx:ctx(), binary(), binary(), spoonacular_inline_object_7:spoonacular_inline_object_7(), maps:map()) -> {ok, spoonacular_inline_response_200_41:spoonacular_inline_response_200_41(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
-add_to_shopping_list(Ctx, Username, Hash, SpoonacularInlineObject7, Optional) ->
+-spec add_to_shopping_list(ctx:ctx(), binary(), binary(), spoonacular_inline_object_9:spoonacular_inline_object_9(), maps:map()) -> {ok, spoonacular_inline_response_200_42:spoonacular_inline_response_200_42(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+add_to_shopping_list(Ctx, Username, Hash, SpoonacularInlineObject9, Optional) ->
     _OptionalParams = maps:get(params, Optional, #{}),
     Cfg = maps:get(cfg, Optional, application:get_env(kuberl, config, #{})),
 
@@ -51,7 +74,7 @@ add_to_shopping_list(Ctx, Username, Hash, SpoonacularInlineObject7, Optional) ->
     Path = ["/mealplanner/", Username, "/shopping-list/items"],
     QS = lists:flatten([{<<"hash">>, Hash}])++spoonacular_utils:optional_params([], _OptionalParams),
     Headers = [],
-    Body1 = SpoonacularInlineObject7,
+    Body1 = SpoonacularInlineObject9,
     ContentTypeHeader = spoonacular_utils:select_header_content_type([<<"">>, <<"application/json">>]),
     Opts = maps:get(hackney_opts, Optional, []),
 
@@ -80,11 +103,11 @@ clear_meal_plan_day(Ctx, Username, Date, Hash, SpoonacularInlineObject3, Optiona
 
 %% @doc Connect User
 %% In order to call user-specific endpoints, you need to connect your app's users to spoonacular users.
--spec connect_user(ctx:ctx(), maps:map()) -> {ok, spoonacular_inline_response_200_42:spoonacular_inline_response_200_42(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+-spec connect_user(ctx:ctx(), maps:map()) -> {ok, spoonacular_inline_response_200_43:spoonacular_inline_response_200_43(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 connect_user(Ctx, Body) ->
     connect_user(Ctx, Body, #{}).
 
--spec connect_user(ctx:ctx(), maps:map(), maps:map()) -> {ok, spoonacular_inline_response_200_42:spoonacular_inline_response_200_42(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+-spec connect_user(ctx:ctx(), maps:map(), maps:map()) -> {ok, spoonacular_inline_response_200_43:spoonacular_inline_response_200_43(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 connect_user(Ctx, Body, Optional) ->
     _OptionalParams = maps:get(params, Optional, #{}),
     Cfg = maps:get(cfg, Optional, application:get_env(kuberl, config, #{})),
@@ -122,12 +145,12 @@ delete_from_meal_plan(Ctx, Username, Id, Hash, SpoonacularInlineObject5, Optiona
 
 %% @doc Delete from Shopping List
 %% Delete an item from the current shopping list of the user.
--spec delete_from_shopping_list(ctx:ctx(), binary(), integer(), binary(), spoonacular_inline_object_8:spoonacular_inline_object_8()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
-delete_from_shopping_list(Ctx, Username, Id, Hash, SpoonacularInlineObject8) ->
-    delete_from_shopping_list(Ctx, Username, Id, Hash, SpoonacularInlineObject8, #{}).
+-spec delete_from_shopping_list(ctx:ctx(), binary(), integer(), binary(), spoonacular_inline_object_10:spoonacular_inline_object_10()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+delete_from_shopping_list(Ctx, Username, Id, Hash, SpoonacularInlineObject10) ->
+    delete_from_shopping_list(Ctx, Username, Id, Hash, SpoonacularInlineObject10, #{}).
 
--spec delete_from_shopping_list(ctx:ctx(), binary(), integer(), binary(), spoonacular_inline_object_8:spoonacular_inline_object_8(), maps:map()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
-delete_from_shopping_list(Ctx, Username, Id, Hash, SpoonacularInlineObject8, Optional) ->
+-spec delete_from_shopping_list(ctx:ctx(), binary(), integer(), binary(), spoonacular_inline_object_10:spoonacular_inline_object_10(), maps:map()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+delete_from_shopping_list(Ctx, Username, Id, Hash, SpoonacularInlineObject10, Optional) ->
     _OptionalParams = maps:get(params, Optional, #{}),
     Cfg = maps:get(cfg, Optional, application:get_env(kuberl, config, #{})),
 
@@ -135,7 +158,28 @@ delete_from_shopping_list(Ctx, Username, Id, Hash, SpoonacularInlineObject8, Opt
     Path = ["/mealplanner/", Username, "/shopping-list/items/", Id, ""],
     QS = lists:flatten([{<<"hash">>, Hash}])++spoonacular_utils:optional_params([], _OptionalParams),
     Headers = [],
-    Body1 = SpoonacularInlineObject8,
+    Body1 = SpoonacularInlineObject10,
+    ContentTypeHeader = spoonacular_utils:select_header_content_type([<<"">>]),
+    Opts = maps:get(hackney_opts, Optional, []),
+
+    spoonacular_utils:request(Ctx, Method, [?BASE_URL, Path], QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
+
+%% @doc Delete Meal Plan Template
+%% Delete a meal plan template for a user.
+-spec delete_meal_plan_template(ctx:ctx(), binary(), integer(), binary(), spoonacular_inline_object_7:spoonacular_inline_object_7()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+delete_meal_plan_template(Ctx, Username, Id, Hash, SpoonacularInlineObject7) ->
+    delete_meal_plan_template(Ctx, Username, Id, Hash, SpoonacularInlineObject7, #{}).
+
+-spec delete_meal_plan_template(ctx:ctx(), binary(), integer(), binary(), spoonacular_inline_object_7:spoonacular_inline_object_7(), maps:map()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+delete_meal_plan_template(Ctx, Username, Id, Hash, SpoonacularInlineObject7, Optional) ->
+    _OptionalParams = maps:get(params, Optional, #{}),
+    Cfg = maps:get(cfg, Optional, application:get_env(kuberl, config, #{})),
+
+    Method = delete,
+    Path = ["/mealplanner/", Username, "/templates/", Id, ""],
+    QS = lists:flatten([{<<"hash">>, Hash}])++spoonacular_utils:optional_params([], _OptionalParams),
+    Headers = [],
+    Body1 = SpoonacularInlineObject7,
     ContentTypeHeader = spoonacular_utils:select_header_content_type([<<"">>]),
     Opts = maps:get(hackney_opts, Optional, []),
 
@@ -164,12 +208,12 @@ generate_meal_plan(Ctx, Optional) ->
 
 %% @doc Generate Shopping List
 %% Generate the shopping list for a user from the meal planner in a given time frame.
--spec generate_shopping_list(ctx:ctx(), binary(), binary(), binary(), binary(), spoonacular_inline_object_6:spoonacular_inline_object_6()) -> {ok, spoonacular_inline_response_200_41:spoonacular_inline_response_200_41(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
-generate_shopping_list(Ctx, Username, StartDate, EndDate, Hash, SpoonacularInlineObject6) ->
-    generate_shopping_list(Ctx, Username, StartDate, EndDate, Hash, SpoonacularInlineObject6, #{}).
+-spec generate_shopping_list(ctx:ctx(), binary(), binary(), binary(), binary(), spoonacular_inline_object_8:spoonacular_inline_object_8()) -> {ok, spoonacular_inline_response_200_42:spoonacular_inline_response_200_42(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+generate_shopping_list(Ctx, Username, StartDate, EndDate, Hash, SpoonacularInlineObject8) ->
+    generate_shopping_list(Ctx, Username, StartDate, EndDate, Hash, SpoonacularInlineObject8, #{}).
 
--spec generate_shopping_list(ctx:ctx(), binary(), binary(), binary(), binary(), spoonacular_inline_object_6:spoonacular_inline_object_6(), maps:map()) -> {ok, spoonacular_inline_response_200_41:spoonacular_inline_response_200_41(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
-generate_shopping_list(Ctx, Username, StartDate, EndDate, Hash, SpoonacularInlineObject6, Optional) ->
+-spec generate_shopping_list(ctx:ctx(), binary(), binary(), binary(), binary(), spoonacular_inline_object_8:spoonacular_inline_object_8(), maps:map()) -> {ok, spoonacular_inline_response_200_42:spoonacular_inline_response_200_42(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+generate_shopping_list(Ctx, Username, StartDate, EndDate, Hash, SpoonacularInlineObject8, Optional) ->
     _OptionalParams = maps:get(params, Optional, #{}),
     Cfg = maps:get(cfg, Optional, application:get_env(kuberl, config, #{})),
 
@@ -177,7 +221,7 @@ generate_shopping_list(Ctx, Username, StartDate, EndDate, Hash, SpoonacularInlin
     Path = ["/mealplanner/", Username, "/shopping-list/", StartDate, "/", EndDate, ""],
     QS = lists:flatten([{<<"hash">>, Hash}])++spoonacular_utils:optional_params([], _OptionalParams),
     Headers = [],
-    Body1 = SpoonacularInlineObject6,
+    Body1 = SpoonacularInlineObject8,
     ContentTypeHeader = spoonacular_utils:select_header_content_type([<<"">>]),
     Opts = maps:get(hackney_opts, Optional, []),
 
@@ -185,11 +229,11 @@ generate_shopping_list(Ctx, Username, StartDate, EndDate, Hash, SpoonacularInlin
 
 %% @doc Get Meal Plan Template
 %% Get information about a meal plan template.
--spec get_meal_plan_template(ctx:ctx(), binary(), integer(), binary()) -> {ok, spoonacular_inline_response_200_40:spoonacular_inline_response_200_40(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+-spec get_meal_plan_template(ctx:ctx(), binary(), integer(), binary()) -> {ok, spoonacular_inline_response_200_41:spoonacular_inline_response_200_41(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 get_meal_plan_template(Ctx, Username, Id, Hash) ->
     get_meal_plan_template(Ctx, Username, Id, Hash, #{}).
 
--spec get_meal_plan_template(ctx:ctx(), binary(), integer(), binary(), maps:map()) -> {ok, spoonacular_inline_response_200_40:spoonacular_inline_response_200_40(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+-spec get_meal_plan_template(ctx:ctx(), binary(), integer(), binary(), maps:map()) -> {ok, spoonacular_inline_response_200_41:spoonacular_inline_response_200_41(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 get_meal_plan_template(Ctx, Username, Id, Hash, Optional) ->
     _OptionalParams = maps:get(params, Optional, #{}),
     Cfg = maps:get(cfg, Optional, application:get_env(kuberl, config, #{})),
@@ -248,11 +292,11 @@ get_meal_plan_week(Ctx, Username, StartDate, Hash, Optional) ->
 
 %% @doc Get Shopping List
 %% Get the current shopping list for the given user.
--spec get_shopping_list(ctx:ctx(), binary(), binary()) -> {ok, spoonacular_inline_response_200_41:spoonacular_inline_response_200_41(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+-spec get_shopping_list(ctx:ctx(), binary(), binary()) -> {ok, spoonacular_inline_response_200_42:spoonacular_inline_response_200_42(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 get_shopping_list(Ctx, Username, Hash) ->
     get_shopping_list(Ctx, Username, Hash, #{}).
 
--spec get_shopping_list(ctx:ctx(), binary(), binary(), maps:map()) -> {ok, spoonacular_inline_response_200_41:spoonacular_inline_response_200_41(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+-spec get_shopping_list(ctx:ctx(), binary(), binary(), maps:map()) -> {ok, spoonacular_inline_response_200_42:spoonacular_inline_response_200_42(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 get_shopping_list(Ctx, Username, Hash, Optional) ->
     _OptionalParams = maps:get(params, Optional, #{}),
     Cfg = maps:get(cfg, Optional, application:get_env(kuberl, config, #{})),

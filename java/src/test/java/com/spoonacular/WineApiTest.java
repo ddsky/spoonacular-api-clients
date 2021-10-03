@@ -15,10 +15,10 @@ package com.spoonacular;
 
 import com.spoonacular.client.ApiException;
 import java.math.BigDecimal;
-import com.spoonacular.client.model.InlineResponse20043;
 import com.spoonacular.client.model.InlineResponse20044;
 import com.spoonacular.client.model.InlineResponse20045;
 import com.spoonacular.client.model.InlineResponse20046;
+import com.spoonacular.client.model.InlineResponse20047;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -47,7 +47,7 @@ public class WineApiTest {
     @Test
     public void getDishPairingForWineTest() throws ApiException {
         String wine = null;
-        InlineResponse20043 response = api.getDishPairingForWine(wine);
+        InlineResponse20044 response = api.getDishPairingForWine(wine);
 
         // TODO: test validations
     }
@@ -63,7 +63,7 @@ public class WineApiTest {
     @Test
     public void getWineDescriptionTest() throws ApiException {
         String wine = null;
-        InlineResponse20045 response = api.getWineDescription(wine);
+        InlineResponse20046 response = api.getWineDescription(wine);
 
         // TODO: test validations
     }
@@ -80,7 +80,7 @@ public class WineApiTest {
     public void getWinePairingTest() throws ApiException {
         String food = null;
         BigDecimal maxPrice = null;
-        InlineResponse20044 response = api.getWinePairing(food, maxPrice);
+        InlineResponse20045 response = api.getWinePairing(food, maxPrice);
 
         // TODO: test validations
     }
@@ -99,7 +99,7 @@ public class WineApiTest {
         BigDecimal maxPrice = null;
         BigDecimal minRating = null;
         BigDecimal number = null;
-        InlineResponse20046 response = api.getWineRecommendation(wine, maxPrice, minRating, number);
+        InlineResponse20047 response = api.getWineRecommendation(wine, maxPrice, minRating, number);
 
         // TODO: test validations
     }

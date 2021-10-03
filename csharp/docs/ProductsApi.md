@@ -575,7 +575,7 @@ Name | Type | Description  | Notes
 
 <a name="searchgroceryproducts"></a>
 # **SearchGroceryProducts**
-> InlineResponse20027 SearchGroceryProducts (string query, decimal? minCalories, decimal? maxCalories, decimal? minCarbs, decimal? maxCarbs, decimal? minProtein, decimal? maxProtein, decimal? minFat, decimal? maxFat, int? offset, int? number)
+> InlineResponse20027 SearchGroceryProducts (string query, decimal? minCalories, decimal? maxCalories, decimal? minCarbs, decimal? maxCarbs, decimal? minProtein, decimal? maxProtein, decimal? minFat, decimal? maxFat, bool? addProductInformation, int? offset, int? number)
 
 Search Grocery Products
 
@@ -611,13 +611,14 @@ namespace Example
             var maxProtein = 100;  // decimal? | The maximum amount of protein in grams the product can have. (optional) 
             var minFat = 1;  // decimal? | The minimum amount of fat in grams the product must have. (optional) 
             var maxFat = 100;  // decimal? | The maximum amount of fat in grams the product can have. (optional) 
+            var addProductInformation = true;  // bool? | If set to true, you get more information about the products returned. (optional) 
             var offset = 56;  // int? | The number of results to skip (between 0 and 900). (optional) 
             var number = 10;  // int? | The maximum number of items to return (between 1 and 100). Defaults to 10. (optional)  (default to 10)
 
             try
             {
                 // Search Grocery Products
-                InlineResponse20027 result = apiInstance.SearchGroceryProducts(query, minCalories, maxCalories, minCarbs, maxCarbs, minProtein, maxProtein, minFat, maxFat, offset, number);
+                InlineResponse20027 result = apiInstance.SearchGroceryProducts(query, minCalories, maxCalories, minCarbs, maxCarbs, minProtein, maxProtein, minFat, maxFat, addProductInformation, offset, number);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -642,6 +643,7 @@ Name | Type | Description  | Notes
  **maxProtein** | **decimal?**| The maximum amount of protein in grams the product can have. | [optional] 
  **minFat** | **decimal?**| The minimum amount of fat in grams the product must have. | [optional] 
  **maxFat** | **decimal?**| The maximum amount of fat in grams the product can have. | [optional] 
+ **addProductInformation** | **bool?**| If set to true, you get more information about the products returned. | [optional] 
  **offset** | **int?**| The number of results to skip (between 0 and 900). | [optional] 
  **number** | **int?**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
 

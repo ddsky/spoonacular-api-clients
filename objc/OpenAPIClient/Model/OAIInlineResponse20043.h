@@ -23,8 +23,8 @@
 @interface OAIInlineResponse20043 : OAIObject
 
 
-@property(nonatomic) NSArray<NSString*>* pairings;
+@property(nonatomic) NSString* username;
 
-@property(nonatomic) NSString* text;
+@property(nonatomic) NSString* hash;
 
 @end

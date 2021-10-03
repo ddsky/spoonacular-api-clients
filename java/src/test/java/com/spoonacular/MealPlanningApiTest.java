@@ -15,18 +15,21 @@ package com.spoonacular;
 
 import com.spoonacular.client.ApiException;
 import java.math.BigDecimal;
+import com.spoonacular.client.model.InlineObject10;
 import com.spoonacular.client.model.InlineObject3;
 import com.spoonacular.client.model.InlineObject4;
 import com.spoonacular.client.model.InlineObject5;
 import com.spoonacular.client.model.InlineObject6;
 import com.spoonacular.client.model.InlineObject7;
 import com.spoonacular.client.model.InlineObject8;
+import com.spoonacular.client.model.InlineObject9;
 import com.spoonacular.client.model.InlineResponse20037;
 import com.spoonacular.client.model.InlineResponse20038;
 import com.spoonacular.client.model.InlineResponse20039;
 import com.spoonacular.client.model.InlineResponse20040;
 import com.spoonacular.client.model.InlineResponse20041;
 import com.spoonacular.client.model.InlineResponse20042;
+import com.spoonacular.client.model.InlineResponse20043;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -43,6 +46,24 @@ public class MealPlanningApiTest {
 
     private final MealPlanningApi api = new MealPlanningApi();
 
+    
+    /**
+     * Add Meal Plan Template
+     *
+     * Add a meal plan template for a user.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void addMealPlanTemplateTest() throws ApiException {
+        String username = null;
+        String hash = null;
+        InlineObject6 inlineObject6 = null;
+        InlineResponse20040 response = api.addMealPlanTemplate(username, hash, inlineObject6);
+
+        // TODO: test validations
+    }
     
     /**
      * Add to Meal Plan
@@ -74,8 +95,8 @@ public class MealPlanningApiTest {
     public void addToShoppingListTest() throws ApiException {
         String username = null;
         String hash = null;
-        InlineObject7 inlineObject7 = null;
-        InlineResponse20041 response = api.addToShoppingList(username, hash, inlineObject7);
+        InlineObject9 inlineObject9 = null;
+        InlineResponse20042 response = api.addToShoppingList(username, hash, inlineObject9);
 
         // TODO: test validations
     }
@@ -110,7 +131,7 @@ public class MealPlanningApiTest {
     @Test
     public void connectUserTest() throws ApiException {
         Object body = null;
-        InlineResponse20042 response = api.connectUser(body);
+        InlineResponse20043 response = api.connectUser(body);
 
         // TODO: test validations
     }
@@ -147,8 +168,27 @@ public class MealPlanningApiTest {
         String username = null;
         Integer id = null;
         String hash = null;
-        InlineObject8 inlineObject8 = null;
-        Object response = api.deleteFromShoppingList(username, id, hash, inlineObject8);
+        InlineObject10 inlineObject10 = null;
+        Object response = api.deleteFromShoppingList(username, id, hash, inlineObject10);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Delete Meal Plan Template
+     *
+     * Delete a meal plan template for a user.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteMealPlanTemplateTest() throws ApiException {
+        String username = null;
+        Integer id = null;
+        String hash = null;
+        InlineObject7 inlineObject7 = null;
+        Object response = api.deleteMealPlanTemplate(username, id, hash, inlineObject7);
 
         // TODO: test validations
     }
@@ -186,8 +226,8 @@ public class MealPlanningApiTest {
         String startDate = null;
         String endDate = null;
         String hash = null;
-        InlineObject6 inlineObject6 = null;
-        InlineResponse20041 response = api.generateShoppingList(username, startDate, endDate, hash, inlineObject6);
+        InlineObject8 inlineObject8 = null;
+        InlineResponse20042 response = api.generateShoppingList(username, startDate, endDate, hash, inlineObject8);
 
         // TODO: test validations
     }
@@ -205,7 +245,7 @@ public class MealPlanningApiTest {
         String username = null;
         Integer id = null;
         String hash = null;
-        InlineResponse20040 response = api.getMealPlanTemplate(username, id, hash);
+        InlineResponse20041 response = api.getMealPlanTemplate(username, id, hash);
 
         // TODO: test validations
     }
@@ -257,7 +297,7 @@ public class MealPlanningApiTest {
     public void getShoppingListTest() throws ApiException {
         String username = null;
         String hash = null;
-        InlineResponse20041 response = api.getShoppingList(username, hash);
+        InlineResponse20042 response = api.getShoppingList(username, hash);
 
         // TODO: test validations
     }

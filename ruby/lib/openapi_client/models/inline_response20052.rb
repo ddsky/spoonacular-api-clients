@@ -14,35 +14,31 @@ require 'date'
 
 module OpenapiClient
   class InlineResponse20052
-    attr_accessor :query
+    attr_accessor :articles
 
-    attr_accessor :total_results
+    attr_accessor :grocery_products
 
-    attr_accessor :limit
+    attr_accessor :menu_items
 
-    attr_accessor :offset
-
-    attr_accessor :search_results
+    attr_accessor :recipes
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'query' => :'query',
-        :'total_results' => :'totalResults',
-        :'limit' => :'limit',
-        :'offset' => :'offset',
-        :'search_results' => :'searchResults'
+        :'articles' => :'Articles',
+        :'grocery_products' => :'Grocery Products',
+        :'menu_items' => :'Menu Items',
+        :'recipes' => :'Recipes'
       }
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'query' => :'String',
-        :'total_results' => :'Integer',
-        :'limit' => :'Integer',
-        :'offset' => :'Integer',
-        :'search_results' => :'Array<InlineResponse20052SearchResults>'
+        :'articles' => :'Array<Object>',
+        :'grocery_products' => :'Array<Object>',
+        :'menu_items' => :'Array<Object>',
+        :'recipes' => :'Array<Object>'
       }
     end
 
@@ -61,25 +57,27 @@ module OpenapiClient
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'query')
-        self.query = attributes[:'query']
+      if attributes.key?(:'articles')
+        if (value = attributes[:'articles']).is_a?(Array)
+          self.articles = value
+        end
       end
 
-      if attributes.key?(:'total_results')
-        self.total_results = attributes[:'total_results']
+      if attributes.key?(:'grocery_products')
+        if (value = attributes[:'grocery_products']).is_a?(Array)
+          self.grocery_products = value
+        end
       end
 
-      if attributes.key?(:'limit')
-        self.limit = attributes[:'limit']
+      if attributes.key?(:'menu_items')
+        if (value = attributes[:'menu_items']).is_a?(Array)
+          self.menu_items = value
+        end
       end
 
-      if attributes.key?(:'offset')
-        self.offset = attributes[:'offset']
-      end
-
-      if attributes.key?(:'search_results')
-        if (value = attributes[:'search_results']).is_a?(Array)
-          self.search_results = value
+      if attributes.key?(:'recipes')
+        if (value = attributes[:'recipes']).is_a?(Array)
+          self.recipes = value
         end
       end
     end
@@ -88,28 +86,20 @@ module OpenapiClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @query.nil?
-        invalid_properties.push('invalid value for "query", query cannot be nil.')
+      if @articles.nil?
+        invalid_properties.push('invalid value for "articles", articles cannot be nil.')
       end
 
-      if @query.to_s.length < 1
-        invalid_properties.push('invalid value for "query", the character length must be great than or equal to 1.')
+      if @grocery_products.nil?
+        invalid_properties.push('invalid value for "grocery_products", grocery_products cannot be nil.')
       end
 
-      if @total_results.nil?
-        invalid_properties.push('invalid value for "total_results", total_results cannot be nil.')
+      if @menu_items.nil?
+        invalid_properties.push('invalid value for "menu_items", menu_items cannot be nil.')
       end
 
-      if @limit.nil?
-        invalid_properties.push('invalid value for "limit", limit cannot be nil.')
-      end
-
-      if @offset.nil?
-        invalid_properties.push('invalid value for "offset", offset cannot be nil.')
-      end
-
-      if @search_results.nil?
-        invalid_properties.push('invalid value for "search_results", search_results cannot be nil.')
+      if @recipes.nil?
+        invalid_properties.push('invalid value for "recipes", recipes cannot be nil.')
       end
 
       invalid_properties
@@ -118,27 +108,11 @@ module OpenapiClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @query.nil?
-      return false if @query.to_s.length < 1
-      return false if @total_results.nil?
-      return false if @limit.nil?
-      return false if @offset.nil?
-      return false if @search_results.nil?
+      return false if @articles.nil?
+      return false if @grocery_products.nil?
+      return false if @menu_items.nil?
+      return false if @recipes.nil?
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] query Value to be assigned
-    def query=(query)
-      if query.nil?
-        fail ArgumentError, 'query cannot be nil'
-      end
-
-      if query.to_s.length < 1
-        fail ArgumentError, 'invalid value for "query", the character length must be great than or equal to 1.'
-      end
-
-      @query = query
     end
 
     # Checks equality by comparing each attribute.
@@ -146,11 +120,10 @@ module OpenapiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          query == o.query &&
-          total_results == o.total_results &&
-          limit == o.limit &&
-          offset == o.offset &&
-          search_results == o.search_results
+          articles == o.articles &&
+          grocery_products == o.grocery_products &&
+          menu_items == o.menu_items &&
+          recipes == o.recipes
     end
 
     # @see the `==` method
@@ -162,7 +135,7 @@ module OpenapiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [query, total_results, limit, offset, search_results].hash
+      [articles, grocery_products, menu_items, recipes].hash
     end
 
     # Builds the object from hash

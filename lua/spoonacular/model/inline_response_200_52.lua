@@ -19,13 +19,12 @@ local function cast_inline_response_200_52(t)
 	return setmetatable(t, inline_response_200_52_mt)
 end
 
-local function new_inline_response_200_52(query, total_results, limit, offset, search_results)
+local function new_inline_response_200_52(articles, grocery_products, menu_items, recipes)
 	return cast_inline_response_200_52({
-		["query"] = query;
-		["totalResults"] = total_results;
-		["limit"] = limit;
-		["offset"] = offset;
-		["searchResults"] = search_results;
+		["Articles"] = articles;
+		["Grocery Products"] = grocery_products;
+		["Menu Items"] = menu_items;
+		["Recipes"] = recipes;
 	})
 end
 

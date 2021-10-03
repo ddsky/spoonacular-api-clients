@@ -23,12 +23,6 @@
 @interface OAIInlineResponse20051 : OAIObject
 
 
-@property(nonatomic) NSArray<NSObject*>* articles;
-
-@property(nonatomic) NSArray<NSObject*>* groceryProducts;
-
-@property(nonatomic) NSArray<NSObject*>* menuItems;
-
-@property(nonatomic) NSArray<NSObject*>* recipes;
+@property(nonatomic) NSArray<NSObject*>* annotations;
 
 @end

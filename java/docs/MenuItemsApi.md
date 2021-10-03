@@ -306,7 +306,7 @@ Name | Type | Description  | Notes
 
 <a name="searchMenuItems"></a>
 # **searchMenuItems**
-> InlineResponse20035 searchMenuItems(query, minCalories, maxCalories, minCarbs, maxCarbs, minProtein, maxProtein, minFat, maxFat, offset, number)
+> InlineResponse20035 searchMenuItems(query, minCalories, maxCalories, minCarbs, maxCarbs, minProtein, maxProtein, minFat, maxFat, addMenuItemInformation, offset, number)
 
 Search Menu Items
 
@@ -339,10 +339,11 @@ BigDecimal minProtein = 10; // BigDecimal | The minimum amount of protein in gra
 BigDecimal maxProtein = 100; // BigDecimal | The maximum amount of protein in grams the menu item can have.
 BigDecimal minFat = 1; // BigDecimal | The minimum amount of fat in grams the menu item must have.
 BigDecimal maxFat = 100; // BigDecimal | The maximum amount of fat in grams the menu item can have.
+Boolean addMenuItemInformation = true; // Boolean | If set to true, you get more information about the menu items returned.
 Integer offset = 56; // Integer | The number of results to skip (between 0 and 900).
 Integer number = 10; // Integer | The maximum number of items to return (between 1 and 100). Defaults to 10.
 try {
-    InlineResponse20035 result = apiInstance.searchMenuItems(query, minCalories, maxCalories, minCarbs, maxCarbs, minProtein, maxProtein, minFat, maxFat, offset, number);
+    InlineResponse20035 result = apiInstance.searchMenuItems(query, minCalories, maxCalories, minCarbs, maxCarbs, minProtein, maxProtein, minFat, maxFat, addMenuItemInformation, offset, number);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MenuItemsApi#searchMenuItems");
@@ -363,6 +364,7 @@ Name | Type | Description  | Notes
  **maxProtein** | **BigDecimal**| The maximum amount of protein in grams the menu item can have. | [optional]
  **minFat** | **BigDecimal**| The minimum amount of fat in grams the menu item must have. | [optional]
  **maxFat** | **BigDecimal**| The maximum amount of fat in grams the menu item can have. | [optional]
+ **addMenuItemInformation** | **Boolean**| If set to true, you get more information about the menu items returned. | [optional] [enum: false, true]
  **offset** | **Integer**| The number of results to skip (between 0 and 900). | [optional]
  **number** | **Integer**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
 

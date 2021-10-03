@@ -4,8 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Number** |  | 
-**title** | **String** |  | 
-**imageType** | **String** |  | 
+**id** | **Number** |  | [optional] 
+**servings** | **Number** |  | [optional] 
+**title** | **String** |  | [optional] 
+**imageType** | **String** |  | [optional] 
 
 

@@ -79,16 +79,16 @@ class InlineResponse20056Test extends TestCase
     }
 
     /**
-     * Test attribute "suggests"
+     * Test attribute "answer_text"
      */
-    public function testPropertySuggests()
+    public function testPropertyAnswerText()
     {
     }
 
     /**
-     * Test attribute "words"
+     * Test attribute "media"
      */
-    public function testPropertyWords()
+    public function testPropertyMedia()
     {
     }
 }

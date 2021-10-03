@@ -22,7 +22,9 @@
 #include <QJsonObject>
 
 
-#include <QString>
+#include "com.spoonacular.client.model\OAIInline_response_200_42_aisles.h"
+#include "com.spoonacular.client.model\OAINumber.h"
+#include <QList>
 
 #include "OAIObject.h"
 #include "OAIEnum.h"
@@ -41,12 +43,20 @@ public:
     void fromJson(QString jsonString) override;
 
     
-    QString getUsername() const;
-    void setUsername(const QString &username);
+    QList<OAIInline_response_200_42_aisles> getAisles() const;
+    void setAisles(const QList<OAIInline_response_200_42_aisles> &aisles);
 
     
-    QString getHash() const;
-    void setHash(const QString &hash);
+    OAINumber getCost() const;
+    void setCost(const OAINumber &cost);
+
+    
+    OAINumber getStartDate() const;
+    void setStartDate(const OAINumber &start_date);
+
+    
+    OAINumber getEndDate() const;
+    void setEndDate(const OAINumber &end_date);
 
     
     
@@ -56,13 +66,21 @@ public:
 private:
     void init();
     
-    QString username;
-    bool m_username_isSet;
-    bool m_username_isValid;
+    QList<OAIInline_response_200_42_aisles> aisles;
+    bool m_aisles_isSet;
+    bool m_aisles_isValid;
     
-    QString hash;
-    bool m_hash_isSet;
-    bool m_hash_isValid;
+    OAINumber cost;
+    bool m_cost_isSet;
+    bool m_cost_isValid;
+    
+    OAINumber start_date;
+    bool m_start_date_isSet;
+    bool m_start_date_isValid;
+    
+    OAINumber end_date;
+    bool m_end_date_isSet;
+    bool m_end_date_isValid;
     
     };
 

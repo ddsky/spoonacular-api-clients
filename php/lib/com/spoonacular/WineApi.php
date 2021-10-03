@@ -124,7 +124,7 @@ class WineApi
      *
      * @throws \com.spoonacular.client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20043
+     * @return \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20044
      */
     public function getDishPairingForWine($wine)
     {
@@ -141,7 +141,7 @@ class WineApi
      *
      * @throws \com.spoonacular.client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20043, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20044, HTTP status code, HTTP response headers (array of strings)
      */
     public function getDishPairingForWineWithHttpInfo($wine)
     {
@@ -178,20 +178,20 @@ class WineApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20043' === '\SplFileObject') {
+                    if ('\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20044' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20043', []),
+                        ObjectSerializer::deserialize($content, '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20044', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20043';
+            $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20044';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -210,7 +210,7 @@ class WineApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20043',
+                        '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20044',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -252,7 +252,7 @@ class WineApi
      */
     public function getDishPairingForWineAsyncWithHttpInfo($wine)
     {
-        $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20043';
+        $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20044';
         $request = $this->getDishPairingForWineRequest($wine);
 
         return $this->client
@@ -397,7 +397,7 @@ class WineApi
      *
      * @throws \com.spoonacular.client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20045
+     * @return \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20046
      */
     public function getWineDescription($wine)
     {
@@ -414,7 +414,7 @@ class WineApi
      *
      * @throws \com.spoonacular.client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20045, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20046, HTTP status code, HTTP response headers (array of strings)
      */
     public function getWineDescriptionWithHttpInfo($wine)
     {
@@ -451,20 +451,20 @@ class WineApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20045' === '\SplFileObject') {
+                    if ('\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20046' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20045', []),
+                        ObjectSerializer::deserialize($content, '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20046', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20045';
+            $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20046';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -483,7 +483,7 @@ class WineApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20045',
+                        '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20046',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -525,7 +525,7 @@ class WineApi
      */
     public function getWineDescriptionAsyncWithHttpInfo($wine)
     {
-        $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20045';
+        $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20046';
         $request = $this->getWineDescriptionRequest($wine);
 
         return $this->client
@@ -671,7 +671,7 @@ class WineApi
      *
      * @throws \com.spoonacular.client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20044
+     * @return \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20045
      */
     public function getWinePairing($food, $max_price = null)
     {
@@ -689,7 +689,7 @@ class WineApi
      *
      * @throws \com.spoonacular.client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20044, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20045, HTTP status code, HTTP response headers (array of strings)
      */
     public function getWinePairingWithHttpInfo($food, $max_price = null)
     {
@@ -726,20 +726,20 @@ class WineApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20044' === '\SplFileObject') {
+                    if ('\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20045' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20044', []),
+                        ObjectSerializer::deserialize($content, '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20045', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20044';
+            $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20045';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -758,7 +758,7 @@ class WineApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20044',
+                        '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20045',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -802,7 +802,7 @@ class WineApi
      */
     public function getWinePairingAsyncWithHttpInfo($food, $max_price = null)
     {
-        $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20044';
+        $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20045';
         $request = $this->getWinePairingRequest($food, $max_price);
 
         return $this->client
@@ -955,7 +955,7 @@ class WineApi
      *
      * @throws \com.spoonacular.client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20046
+     * @return \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20047
      */
     public function getWineRecommendation($wine, $max_price = null, $min_rating = null, $number = 10)
     {
@@ -975,7 +975,7 @@ class WineApi
      *
      * @throws \com.spoonacular.client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20046, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20047, HTTP status code, HTTP response headers (array of strings)
      */
     public function getWineRecommendationWithHttpInfo($wine, $max_price = null, $min_rating = null, $number = 10)
     {
@@ -1012,20 +1012,20 @@ class WineApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20046' === '\SplFileObject') {
+                    if ('\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20047' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20046', []),
+                        ObjectSerializer::deserialize($content, '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20047', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20046';
+            $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20047';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -1044,7 +1044,7 @@ class WineApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20046',
+                        '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20047',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1092,7 +1092,7 @@ class WineApi
      */
     public function getWineRecommendationAsyncWithHttpInfo($wine, $max_price = null, $min_rating = null, $number = 10)
     {
-        $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20046';
+        $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20047';
         $request = $this->getWineRecommendationRequest($wine, $max_price, $min_rating, $number);
 
         return $this->client

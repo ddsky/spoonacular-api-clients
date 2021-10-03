@@ -11,19 +11,18 @@
 */
 package com.spoonacular.client.model
 
-import com.spoonacular.client.model.InlineResponse20056Suggests
 
 import com.squareup.moshi.Json
 /**
  * 
- * @param suggests 
- * @param words 
+ * @param answerText 
+ * @param media 
  */
 data class InlineResponse20056 (
-    @Json(name = "suggests")
-    val suggests: InlineResponse20056Suggests,
-    @Json(name = "words")
-    val words: kotlin.Array<kotlin.Any>
+    @Json(name = "answerText")
+    val answerText: kotlin.String,
+    @Json(name = "media")
+    val media: kotlin.Array<kotlin.Any>
 ) {
 
 }

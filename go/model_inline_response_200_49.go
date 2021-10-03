@@ -11,6 +11,7 @@
 package spoonacular
 
 type InlineResponse20049 struct {
-	Answer string `json:"answer"`
-	Image string `json:"image"`
+	Nutrition InlineResponse20049Nutrition `json:"nutrition"`
+	Category InlineResponse20049Category `json:"category"`
+	Recipes []InlineResponse20049Recipes `json:"recipes"`
 }

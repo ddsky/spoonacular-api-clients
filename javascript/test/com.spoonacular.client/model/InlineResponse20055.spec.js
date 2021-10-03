@@ -54,14 +54,8 @@
       //expect(instance).to.be.a(SpoonacularApi.InlineResponse20055);
     });
 
-    it('should have the property answerText (base name: "answerText")', function() {
-      // uncomment below and update the code to test the property answerText
-      //var instane = new SpoonacularApi.InlineResponse20055();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property media (base name: "media")', function() {
-      // uncomment below and update the code to test the property media
+    it('should have the property text (base name: "text")', function() {
+      // uncomment below and update the code to test the property text
       //var instane = new SpoonacularApi.InlineResponse20055();
       //expect(instance).to.be();
     });

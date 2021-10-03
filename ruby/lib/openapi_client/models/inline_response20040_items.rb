@@ -14,7 +14,7 @@ require 'date'
 
 module OpenapiClient
   class InlineResponse20040Items
-    attr_accessor :id
+    attr_accessor :day
 
     attr_accessor :slot
 
@@ -27,7 +27,7 @@ module OpenapiClient
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'id' => :'id',
+        :'day' => :'day',
         :'slot' => :'slot',
         :'position' => :'position',
         :'type' => :'type',
@@ -38,7 +38,7 @@ module OpenapiClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'id' => :'Integer',
+        :'day' => :'Integer',
         :'slot' => :'Integer',
         :'position' => :'Integer',
         :'type' => :'String',
@@ -61,8 +61,8 @@ module OpenapiClient
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
+      if attributes.key?(:'day')
+        self.day = attributes[:'day']
       end
 
       if attributes.key?(:'slot')
@@ -86,8 +86,8 @@ module OpenapiClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @id.nil?
-        invalid_properties.push('invalid value for "id", id cannot be nil.')
+      if @day.nil?
+        invalid_properties.push('invalid value for "day", day cannot be nil.')
       end
 
       if @slot.nil?
@@ -112,7 +112,7 @@ module OpenapiClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @id.nil?
+      return false if @day.nil?
       return false if @slot.nil?
       return false if @position.nil?
       return false if @type.nil?
@@ -139,7 +139,7 @@ module OpenapiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          id == o.id &&
+          day == o.day &&
           slot == o.slot &&
           position == o.position &&
           type == o.type &&
@@ -155,7 +155,7 @@ module OpenapiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, slot, position, type, value].hash
+      [day, slot, position, type, value].hash
     end
 
     # Builds the object from hash

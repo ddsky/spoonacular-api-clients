@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 ## detect_food_in_text
 
-> ::models::InlineResponse20050 detect_food_in_text(ctx, optional)
+> ::models::InlineResponse20051 detect_food_in_text(ctx, optional)
 Detect Food in Text
 
 Take any text and find all mentions of food contained within it. This task is also called Named Entity Recognition (NER). In this case, the entities are foods. Either dishes, such as pizza or cheeseburger, or ingredients, such as cucumber or almonds.
@@ -43,7 +43,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**::models::InlineResponse20050**](inline_response_200_50.md)
+[**::models::InlineResponse20051**](inline_response_200_51.md)
 
 ### Authorization
 
@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 
 ## get_a_random_food_joke
 
-> ::models::InlineResponse20054 get_a_random_food_joke(ctx, )
+> ::models::InlineResponse20055 get_a_random_food_joke(ctx, )
 Random Food Joke
 
 Get a random joke that is related to food. Caution: this is an endpoint for adults!
@@ -70,7 +70,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**::models::InlineResponse20054**](inline_response_200_54.md)
+[**::models::InlineResponse20055**](inline_response_200_55.md)
 
 ### Authorization
 
@@ -86,7 +86,7 @@ This endpoint does not need any parameter.
 
 ## get_conversation_suggests
 
-> ::models::InlineResponse20056 get_conversation_suggests(ctx, query, optional)
+> ::models::InlineResponse20057 get_conversation_suggests(ctx, query, optional)
 Conversation Suggests
 
 This endpoint returns suggestions for things the user can say or ask the chatbot.
@@ -111,7 +111,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**::models::InlineResponse20056**](inline_response_200_56.md)
+[**::models::InlineResponse20057**](inline_response_200_57.md)
 
 ### Authorization
 
@@ -127,7 +127,7 @@ Name | Type | Description  | Notes
 
 ## get_random_food_trivia
 
-> ::models::InlineResponse20054 get_random_food_trivia(ctx, )
+> ::models::InlineResponse20055 get_random_food_trivia(ctx, )
 Random Food Trivia
 
 Returns random food trivia.
@@ -138,7 +138,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**::models::InlineResponse20054**](inline_response_200_54.md)
+[**::models::InlineResponse20055**](inline_response_200_55.md)
 
 ### Authorization
 
@@ -154,7 +154,7 @@ This endpoint does not need any parameter.
 
 ## image_analysis_by_url
 
-> ::models::InlineResponse20048 image_analysis_by_url(ctx, image_url)
+> ::models::InlineResponse20049 image_analysis_by_url(ctx, image_url)
 Image Analysis by URL
 
 Analyze a food image. The API tries to classify the image, guess the nutrition, and find a matching recipes.
@@ -166,6 +166,37 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **image_url** | **String**| The URL of the image to be analyzed. | 
+
+### Return type
+
+[**::models::InlineResponse20049**](inline_response_200_49.md)
+
+### Authorization
+
+[apiKeyScheme](../README.md#apiKeyScheme)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## image_classification_by_url
+
+> ::models::InlineResponse20048 image_classification_by_url(ctx, image_url)
+Image Classification by URL
+
+Classify a food image.
+
+### Required Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **image_url** | **String**| The URL of the image to be classified. | 
 
 ### Return type
 
@@ -183,40 +214,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-## image_classification_by_url
-
-> ::models::InlineResponse20047 image_classification_by_url(ctx, image_url)
-Image Classification by URL
-
-Classify a food image.
-
-### Required Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
-  **image_url** | **String**| The URL of the image to be classified. | 
-
-### Return type
-
-[**::models::InlineResponse20047**](inline_response_200_47.md)
-
-### Authorization
-
-[apiKeyScheme](../README.md#apiKeyScheme)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-
 ## search_all_food
 
-> ::models::InlineResponse20052 search_all_food(ctx, query, optional)
+> ::models::InlineResponse20053 search_all_food(ctx, query, optional)
 Search All Food
 
 Search all food content with one call. That includes recipes, grocery products, menu items, simple foods (ingredients), and food videos.
@@ -242,7 +242,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**::models::InlineResponse20052**](inline_response_200_52.md)
+[**::models::InlineResponse20053**](inline_response_200_53.md)
 
 ### Authorization
 
@@ -303,7 +303,7 @@ Name | Type | Description  | Notes
 
 ## search_food_videos
 
-> ::models::InlineResponse20053 search_food_videos(ctx, optional)
+> ::models::InlineResponse20054 search_food_videos(ctx, optional)
 Search Food Videos
 
 Find recipe and other food related videos.
@@ -335,7 +335,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**::models::InlineResponse20053**](inline_response_200_53.md)
+[**::models::InlineResponse20054**](inline_response_200_54.md)
 
 ### Authorization
 
@@ -351,7 +351,7 @@ Name | Type | Description  | Notes
 
 ## search_site_content
 
-> ::models::InlineResponse20051 search_site_content(ctx, query)
+> ::models::InlineResponse20052 search_site_content(ctx, query)
 Search Site Content
 
 Search spoonacular's site content. You'll be able to find everything that you could also find using the search suggestions on spoonacular.com. This is a suggest API so you can send partial strings as queries.
@@ -366,7 +366,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**::models::InlineResponse20051**](inline_response_200_51.md)
+[**::models::InlineResponse20052**](inline_response_200_52.md)
 
 ### Authorization
 
@@ -382,7 +382,7 @@ Name | Type | Description  | Notes
 
 ## talk_to_chatbot
 
-> ::models::InlineResponse20055 talk_to_chatbot(ctx, text, optional)
+> ::models::InlineResponse20056 talk_to_chatbot(ctx, text, optional)
 Talk to Chatbot
 
 This endpoint can be used to have a conversation about food with the spoonacular chatbot. Use the \"Get Conversation Suggests\" endpoint to show your user what he or she can say.
@@ -407,7 +407,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**::models::InlineResponse20055**](inline_response_200_55.md)
+[**::models::InlineResponse20056**](inline_response_200_56.md)
 
 ### Authorization
 

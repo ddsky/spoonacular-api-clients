@@ -3,15 +3,15 @@ package com.spoonacular;
 import com.spoonacular.client.ApiUtils
 import java.math.BigDecimal
 import com.spoonacular.client.model.InlineResponse20029
-import com.spoonacular.client.model.InlineResponse20047
 import com.spoonacular.client.model.InlineResponse20048
-import com.spoonacular.client.model.InlineResponse20050
+import com.spoonacular.client.model.InlineResponse20049
 import com.spoonacular.client.model.InlineResponse20051
 import com.spoonacular.client.model.InlineResponse20052
 import com.spoonacular.client.model.InlineResponse20053
 import com.spoonacular.client.model.InlineResponse20054
 import com.spoonacular.client.model.InlineResponse20055
 import com.spoonacular.client.model.InlineResponse20056
+import com.spoonacular.client.model.InlineResponse20057
 
 class MiscApi {
     String basePath = "https://api.spoonacular.com"
@@ -37,7 +37,7 @@ class MiscApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "POST", "",
-                    InlineResponse20050.class )
+                    InlineResponse20051.class )
 
     }
 
@@ -57,7 +57,7 @@ class MiscApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "GET", "",
-                    InlineResponse20054.class )
+                    InlineResponse20055.class )
 
     }
 
@@ -87,7 +87,7 @@ class MiscApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "GET", "",
-                    InlineResponse20056.class )
+                    InlineResponse20057.class )
 
     }
 
@@ -107,7 +107,7 @@ class MiscApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "GET", "",
-                    InlineResponse20054.class )
+                    InlineResponse20055.class )
 
     }
 
@@ -134,7 +134,7 @@ class MiscApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "GET", "",
-                    InlineResponse20048.class )
+                    InlineResponse20049.class )
 
     }
 
@@ -161,7 +161,7 @@ class MiscApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "GET", "",
-                    InlineResponse20047.class )
+                    InlineResponse20048.class )
 
     }
 
@@ -194,7 +194,7 @@ class MiscApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "GET", "",
-                    InlineResponse20052.class )
+                    InlineResponse20053.class )
 
     }
 
@@ -287,7 +287,7 @@ class MiscApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "GET", "",
-                    InlineResponse20053.class )
+                    InlineResponse20054.class )
 
     }
 
@@ -314,7 +314,7 @@ class MiscApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "GET", "",
-                    InlineResponse20051.class )
+                    InlineResponse20052.class )
 
     }
 
@@ -344,7 +344,7 @@ class MiscApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "GET", "",
-                    InlineResponse20055.class )
+                    InlineResponse20056.class )
 
     }
 

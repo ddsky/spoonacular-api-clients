@@ -18,9 +18,14 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.spoonacular.client.model.InlineResponse20049Category;
+import com.spoonacular.client.model.InlineResponse20049Nutrition;
+import com.spoonacular.client.model.InlineResponse20049Recipes;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -41,19 +46,27 @@ public class InlineResponse20049Test {
     }
 
     /**
-     * Test the property 'answer'
+     * Test the property 'nutrition'
      */
     @Test
-    public void answerTest() {
-        // TODO: test answer
+    public void nutritionTest() {
+        // TODO: test nutrition
     }
 
     /**
-     * Test the property 'image'
+     * Test the property 'category'
      */
     @Test
-    public void imageTest() {
-        // TODO: test image
+    public void categoryTest() {
+        // TODO: test category
+    }
+
+    /**
+     * Test the property 'recipes'
+     */
+    @Test
+    public void recipesTest() {
+        // TODO: test recipes
     }
 
 }

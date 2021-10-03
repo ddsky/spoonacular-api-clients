@@ -11,6 +11,8 @@
 package spoonacular
 
 type InlineResponse20042 struct {
-	Username string `json:"username"`
-	Hash string `json:"hash"`
+	Aisles []InlineResponse20042Aisles `json:"aisles"`
+	Cost float32 `json:"cost"`
+	StartDate float32 `json:"startDate"`
+	EndDate float32 `json:"endDate"`
 }

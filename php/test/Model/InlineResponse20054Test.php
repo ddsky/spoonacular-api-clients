@@ -79,9 +79,16 @@ class InlineResponse20054Test extends TestCase
     }
 
     /**
-     * Test attribute "text"
+     * Test attribute "videos"
      */
-    public function testPropertyText()
+    public function testPropertyVideos()
+    {
+    }
+
+    /**
+     * Test attribute "total_results"
+     */
+    public function testPropertyTotalResults()
     {
     }
 }

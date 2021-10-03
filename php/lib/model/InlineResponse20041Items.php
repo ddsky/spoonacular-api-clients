@@ -58,12 +58,10 @@ class InlineResponse20041Items implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'id' => 'int',
-        'name' => 'string',
-        'measures' => '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20041Measures',
-        'pantry_item' => 'bool',
-        'aisle' => 'string',
-        'cost' => 'float',
-        'ingredient_id' => 'int'
+        'slot' => 'int',
+        'position' => 'int',
+        'type' => 'string',
+        'value' => '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20041Value'
     ];
 
     /**
@@ -73,12 +71,10 @@ class InlineResponse20041Items implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'id' => null,
-        'name' => null,
-        'measures' => null,
-        'pantry_item' => null,
-        'aisle' => null,
-        'cost' => null,
-        'ingredient_id' => null
+        'slot' => null,
+        'position' => null,
+        'type' => null,
+        'value' => null
     ];
 
     /**
@@ -109,12 +105,10 @@ class InlineResponse20041Items implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'id' => 'id',
-        'name' => 'name',
-        'measures' => 'measures',
-        'pantry_item' => 'pantryItem',
-        'aisle' => 'aisle',
-        'cost' => 'cost',
-        'ingredient_id' => 'ingredientId'
+        'slot' => 'slot',
+        'position' => 'position',
+        'type' => 'type',
+        'value' => 'value'
     ];
 
     /**
@@ -124,12 +118,10 @@ class InlineResponse20041Items implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'id' => 'setId',
-        'name' => 'setName',
-        'measures' => 'setMeasures',
-        'pantry_item' => 'setPantryItem',
-        'aisle' => 'setAisle',
-        'cost' => 'setCost',
-        'ingredient_id' => 'setIngredientId'
+        'slot' => 'setSlot',
+        'position' => 'setPosition',
+        'type' => 'setType',
+        'value' => 'setValue'
     ];
 
     /**
@@ -139,12 +131,10 @@ class InlineResponse20041Items implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'id' => 'getId',
-        'name' => 'getName',
-        'measures' => 'getMeasures',
-        'pantry_item' => 'getPantryItem',
-        'aisle' => 'getAisle',
-        'cost' => 'getCost',
-        'ingredient_id' => 'getIngredientId'
+        'slot' => 'getSlot',
+        'position' => 'getPosition',
+        'type' => 'getType',
+        'value' => 'getValue'
     ];
 
     /**
@@ -208,12 +198,10 @@ class InlineResponse20041Items implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['measures'] = isset($data['measures']) ? $data['measures'] : null;
-        $this->container['pantry_item'] = isset($data['pantry_item']) ? $data['pantry_item'] : null;
-        $this->container['aisle'] = isset($data['aisle']) ? $data['aisle'] : null;
-        $this->container['cost'] = isset($data['cost']) ? $data['cost'] : null;
-        $this->container['ingredient_id'] = isset($data['ingredient_id']) ? $data['ingredient_id'] : null;
+        $this->container['slot'] = isset($data['slot']) ? $data['slot'] : null;
+        $this->container['position'] = isset($data['position']) ? $data['position'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
     }
 
     /**
@@ -228,29 +216,19 @@ class InlineResponse20041Items implements ModelInterface, ArrayAccess
         if ($this->container['id'] === null) {
             $invalidProperties[] = "'id' can't be null";
         }
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
+        if ($this->container['slot'] === null) {
+            $invalidProperties[] = "'slot' can't be null";
         }
-        if ((mb_strlen($this->container['name']) < 1)) {
-            $invalidProperties[] = "invalid value for 'name', the character length must be bigger than or equal to 1.";
+        if ($this->container['position'] === null) {
+            $invalidProperties[] = "'position' can't be null";
         }
-
-        if ($this->container['pantry_item'] === null) {
-            $invalidProperties[] = "'pantry_item' can't be null";
+        if ($this->container['type'] === null) {
+            $invalidProperties[] = "'type' can't be null";
         }
-        if ($this->container['aisle'] === null) {
-            $invalidProperties[] = "'aisle' can't be null";
-        }
-        if ((mb_strlen($this->container['aisle']) < 1)) {
-            $invalidProperties[] = "invalid value for 'aisle', the character length must be bigger than or equal to 1.";
+        if ((mb_strlen($this->container['type']) < 1)) {
+            $invalidProperties[] = "invalid value for 'type', the character length must be bigger than or equal to 1.";
         }
 
-        if ($this->container['cost'] === null) {
-            $invalidProperties[] = "'cost' can't be null";
-        }
-        if ($this->container['ingredient_id'] === null) {
-            $invalidProperties[] = "'ingredient_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -291,155 +269,102 @@ class InlineResponse20041Items implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string $name name
-     *
-     * @return $this
-     */
-    public function setName($name)
-    {
-
-        if ((mb_strlen($name) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $name when calling InlineResponse20041Items., must be bigger than or equal to 1.');
-        }
-
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets measures
-     *
-     * @return \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20041Measures|null
-     */
-    public function getMeasures()
-    {
-        return $this->container['measures'];
-    }
-
-    /**
-     * Sets measures
-     *
-     * @param \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20041Measures|null $measures measures
-     *
-     * @return $this
-     */
-    public function setMeasures($measures)
-    {
-        $this->container['measures'] = $measures;
-
-        return $this;
-    }
-
-    /**
-     * Gets pantry_item
-     *
-     * @return bool
-     */
-    public function getPantryItem()
-    {
-        return $this->container['pantry_item'];
-    }
-
-    /**
-     * Sets pantry_item
-     *
-     * @param bool $pantry_item pantry_item
-     *
-     * @return $this
-     */
-    public function setPantryItem($pantry_item)
-    {
-        $this->container['pantry_item'] = $pantry_item;
-
-        return $this;
-    }
-
-    /**
-     * Gets aisle
-     *
-     * @return string
-     */
-    public function getAisle()
-    {
-        return $this->container['aisle'];
-    }
-
-    /**
-     * Sets aisle
-     *
-     * @param string $aisle aisle
-     *
-     * @return $this
-     */
-    public function setAisle($aisle)
-    {
-
-        if ((mb_strlen($aisle) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $aisle when calling InlineResponse20041Items., must be bigger than or equal to 1.');
-        }
-
-        $this->container['aisle'] = $aisle;
-
-        return $this;
-    }
-
-    /**
-     * Gets cost
-     *
-     * @return float
-     */
-    public function getCost()
-    {
-        return $this->container['cost'];
-    }
-
-    /**
-     * Sets cost
-     *
-     * @param float $cost cost
-     *
-     * @return $this
-     */
-    public function setCost($cost)
-    {
-        $this->container['cost'] = $cost;
-
-        return $this;
-    }
-
-    /**
-     * Gets ingredient_id
+     * Gets slot
      *
      * @return int
      */
-    public function getIngredientId()
+    public function getSlot()
     {
-        return $this->container['ingredient_id'];
+        return $this->container['slot'];
     }
 
     /**
-     * Sets ingredient_id
+     * Sets slot
      *
-     * @param int $ingredient_id ingredient_id
+     * @param int $slot slot
      *
      * @return $this
      */
-    public function setIngredientId($ingredient_id)
+    public function setSlot($slot)
     {
-        $this->container['ingredient_id'] = $ingredient_id;
+        $this->container['slot'] = $slot;
+
+        return $this;
+    }
+
+    /**
+     * Gets position
+     *
+     * @return int
+     */
+    public function getPosition()
+    {
+        return $this->container['position'];
+    }
+
+    /**
+     * Sets position
+     *
+     * @param int $position position
+     *
+     * @return $this
+     */
+    public function setPosition($position)
+    {
+        $this->container['position'] = $position;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string $type type
+     *
+     * @return $this
+     */
+    public function setType($type)
+    {
+
+        if ((mb_strlen($type) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $type when calling InlineResponse20041Items., must be bigger than or equal to 1.');
+        }
+
+        $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets value
+     *
+     * @return \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20041Value|null
+     */
+    public function getValue()
+    {
+        return $this->container['value'];
+    }
+
+    /**
+     * Sets value
+     *
+     * @param \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20041Value|null $value value
+     *
+     * @return $this
+     */
+    public function setValue($value)
+    {
+        $this->container['value'] = $value;
 
         return $this;
     }

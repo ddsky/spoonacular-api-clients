@@ -20,7 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.spoonacular.client.model.InlineResponse20052SearchResults;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -30,121 +29,114 @@ import java.util.List;
 /**
  * InlineResponse20052
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-09-28T20:40:32.759+02:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-03T15:10:59.332+02:00[Europe/Berlin]")
 public class InlineResponse20052 {
-  public static final String SERIALIZED_NAME_QUERY = "query";
-  @SerializedName(SERIALIZED_NAME_QUERY)
-  private String query;
+  public static final String SERIALIZED_NAME_ARTICLES = "Articles";
+  @SerializedName(SERIALIZED_NAME_ARTICLES)
+  private List<Object> articles = new ArrayList<>();
 
-  public static final String SERIALIZED_NAME_TOTAL_RESULTS = "totalResults";
-  @SerializedName(SERIALIZED_NAME_TOTAL_RESULTS)
-  private Integer totalResults;
+  public static final String SERIALIZED_NAME_GROCERY_PRODUCTS = "Grocery Products";
+  @SerializedName(SERIALIZED_NAME_GROCERY_PRODUCTS)
+  private List<Object> groceryProducts = new ArrayList<>();
 
-  public static final String SERIALIZED_NAME_LIMIT = "limit";
-  @SerializedName(SERIALIZED_NAME_LIMIT)
-  private Integer limit;
+  public static final String SERIALIZED_NAME_MENU_ITEMS = "Menu Items";
+  @SerializedName(SERIALIZED_NAME_MENU_ITEMS)
+  private List<Object> menuItems = new ArrayList<>();
 
-  public static final String SERIALIZED_NAME_OFFSET = "offset";
-  @SerializedName(SERIALIZED_NAME_OFFSET)
-  private Integer offset;
+  public static final String SERIALIZED_NAME_RECIPES = "Recipes";
+  @SerializedName(SERIALIZED_NAME_RECIPES)
+  private List<Object> recipes = new ArrayList<>();
 
-  public static final String SERIALIZED_NAME_SEARCH_RESULTS = "searchResults";
-  @SerializedName(SERIALIZED_NAME_SEARCH_RESULTS)
-  private List<InlineResponse20052SearchResults> searchResults = new ArrayList<>();
+  public InlineResponse20052 articles(List<Object> articles) {
+    this.articles = articles;
+    return this;
+  }
 
-  public InlineResponse20052 query(String query) {
-    this.query = query;
+  public InlineResponse20052 addArticlesItem(Object articlesItem) {
+    this.articles.add(articlesItem);
     return this;
   }
 
    /**
-   * Get query
-   * @return query
+   * Get articles
+   * @return articles
   **/
   @ApiModelProperty(required = true, value = "")
-  public String getQuery() {
-    return query;
+  public List<Object> getArticles() {
+    return articles;
   }
 
-  public void setQuery(String query) {
-    this.query = query;
+  public void setArticles(List<Object> articles) {
+    this.articles = articles;
   }
 
-  public InlineResponse20052 totalResults(Integer totalResults) {
-    this.totalResults = totalResults;
+  public InlineResponse20052 groceryProducts(List<Object> groceryProducts) {
+    this.groceryProducts = groceryProducts;
+    return this;
+  }
+
+  public InlineResponse20052 addGroceryProductsItem(Object groceryProductsItem) {
+    this.groceryProducts.add(groceryProductsItem);
     return this;
   }
 
    /**
-   * Get totalResults
-   * @return totalResults
+   * Get groceryProducts
+   * @return groceryProducts
   **/
   @ApiModelProperty(required = true, value = "")
-  public Integer getTotalResults() {
-    return totalResults;
+  public List<Object> getGroceryProducts() {
+    return groceryProducts;
   }
 
-  public void setTotalResults(Integer totalResults) {
-    this.totalResults = totalResults;
+  public void setGroceryProducts(List<Object> groceryProducts) {
+    this.groceryProducts = groceryProducts;
   }
 
-  public InlineResponse20052 limit(Integer limit) {
-    this.limit = limit;
+  public InlineResponse20052 menuItems(List<Object> menuItems) {
+    this.menuItems = menuItems;
+    return this;
+  }
+
+  public InlineResponse20052 addMenuItemsItem(Object menuItemsItem) {
+    this.menuItems.add(menuItemsItem);
     return this;
   }
 
    /**
-   * Get limit
-   * @return limit
+   * Get menuItems
+   * @return menuItems
   **/
   @ApiModelProperty(required = true, value = "")
-  public Integer getLimit() {
-    return limit;
+  public List<Object> getMenuItems() {
+    return menuItems;
   }
 
-  public void setLimit(Integer limit) {
-    this.limit = limit;
+  public void setMenuItems(List<Object> menuItems) {
+    this.menuItems = menuItems;
   }
 
-  public InlineResponse20052 offset(Integer offset) {
-    this.offset = offset;
+  public InlineResponse20052 recipes(List<Object> recipes) {
+    this.recipes = recipes;
+    return this;
+  }
+
+  public InlineResponse20052 addRecipesItem(Object recipesItem) {
+    this.recipes.add(recipesItem);
     return this;
   }
 
    /**
-   * Get offset
-   * @return offset
+   * Get recipes
+   * @return recipes
   **/
   @ApiModelProperty(required = true, value = "")
-  public Integer getOffset() {
-    return offset;
+  public List<Object> getRecipes() {
+    return recipes;
   }
 
-  public void setOffset(Integer offset) {
-    this.offset = offset;
-  }
-
-  public InlineResponse20052 searchResults(List<InlineResponse20052SearchResults> searchResults) {
-    this.searchResults = searchResults;
-    return this;
-  }
-
-  public InlineResponse20052 addSearchResultsItem(InlineResponse20052SearchResults searchResultsItem) {
-    this.searchResults.add(searchResultsItem);
-    return this;
-  }
-
-   /**
-   * Get searchResults
-   * @return searchResults
-  **/
-  @ApiModelProperty(required = true, value = "")
-  public List<InlineResponse20052SearchResults> getSearchResults() {
-    return searchResults;
-  }
-
-  public void setSearchResults(List<InlineResponse20052SearchResults> searchResults) {
-    this.searchResults = searchResults;
+  public void setRecipes(List<Object> recipes) {
+    this.recipes = recipes;
   }
 
 
@@ -157,16 +149,15 @@ public class InlineResponse20052 {
       return false;
     }
     InlineResponse20052 inlineResponse20052 = (InlineResponse20052) o;
-    return Objects.equals(this.query, inlineResponse20052.query) &&
-        Objects.equals(this.totalResults, inlineResponse20052.totalResults) &&
-        Objects.equals(this.limit, inlineResponse20052.limit) &&
-        Objects.equals(this.offset, inlineResponse20052.offset) &&
-        Objects.equals(this.searchResults, inlineResponse20052.searchResults);
+    return Objects.equals(this.articles, inlineResponse20052.articles) &&
+        Objects.equals(this.groceryProducts, inlineResponse20052.groceryProducts) &&
+        Objects.equals(this.menuItems, inlineResponse20052.menuItems) &&
+        Objects.equals(this.recipes, inlineResponse20052.recipes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(query, totalResults, limit, offset, searchResults);
+    return Objects.hash(articles, groceryProducts, menuItems, recipes);
   }
 
 
@@ -174,11 +165,10 @@ public class InlineResponse20052 {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse20052 {\n");
-    sb.append("    query: ").append(toIndentedString(query)).append("\n");
-    sb.append("    totalResults: ").append(toIndentedString(totalResults)).append("\n");
-    sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
-    sb.append("    offset: ").append(toIndentedString(offset)).append("\n");
-    sb.append("    searchResults: ").append(toIndentedString(searchResults)).append("\n");
+    sb.append("    articles: ").append(toIndentedString(articles)).append("\n");
+    sb.append("    groceryProducts: ").append(toIndentedString(groceryProducts)).append("\n");
+    sb.append("    menuItems: ").append(toIndentedString(menuItems)).append("\n");
+    sb.append("    recipes: ").append(toIndentedString(recipes)).append("\n");
     sb.append("}");
     return sb.toString();
   }

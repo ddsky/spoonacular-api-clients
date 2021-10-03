@@ -60,18 +60,6 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property startDate (base name: "start-date")', function() {
-      // uncomment below and update the code to test the property startDate
-      //var instane = new SpoonacularApi.InlineObject6();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property endDate (base name: "end-date")', function() {
-      // uncomment below and update the code to test the property endDate
-      //var instane = new SpoonacularApi.InlineObject6();
-      //expect(instance).to.be();
-    });
-
     it('should have the property hash (base name: "hash")', function() {
       // uncomment below and update the code to test the property hash
       //var instane = new SpoonacularApi.InlineObject6();

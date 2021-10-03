@@ -30,9 +30,6 @@ use Log::Any qw($log);
 use Date::Parse;
 use DateTime;
 
-use WWW::OpenAPIClient::Object::InlineResponse20048Category;
-use WWW::OpenAPIClient::Object::InlineResponse20048Nutrition;
-use WWW::OpenAPIClient::Object::InlineResponse20048Recipes;
 
 use base ("Class::Accessor", "Class::Data::Inheritable");
 
@@ -164,23 +161,16 @@ __PACKAGE__->class_documentation({description => '',
 }                                 );
 
 __PACKAGE__->method_documentation({
-    'nutrition' => {
-        datatype => 'InlineResponse20048Nutrition',
-        base_name => 'nutrition',
-        description => '',
-        format => '',
-        read_only => '',
-            },
     'category' => {
-        datatype => 'InlineResponse20048Category',
+        datatype => 'string',
         base_name => 'category',
         description => '',
         format => '',
         read_only => '',
             },
-    'recipes' => {
-        datatype => 'ARRAY[InlineResponse20048Recipes]',
-        base_name => 'recipes',
+    'probability' => {
+        datatype => 'double',
+        base_name => 'probability',
         description => '',
         format => '',
         read_only => '',
@@ -188,15 +178,13 @@ __PACKAGE__->method_documentation({
 });
 
 __PACKAGE__->openapi_types( {
-    'nutrition' => 'InlineResponse20048Nutrition',
-    'category' => 'InlineResponse20048Category',
-    'recipes' => 'ARRAY[InlineResponse20048Recipes]'
+    'category' => 'string',
+    'probability' => 'double'
 } );
 
 __PACKAGE__->attribute_map( {
-    'nutrition' => 'nutrition',
     'category' => 'category',
-    'recipes' => 'recipes'
+    'probability' => 'probability'
 } );
 
 __PACKAGE__->mk_accessors(keys %{__PACKAGE__->attribute_map});

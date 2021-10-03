@@ -16,29 +16,8 @@ Please update as you see appropriate
 describe("inline_response_200_51", function()
   local spoonacular_inline_response_200_51 = require "spoonacular.model.inline_response_200_51"
 
-  -- unit tests for the property 'articles'
-  describe("property articles test", function()
-    it("should work", function()
-      -- TODO assertion here: http://olivinelabs.com/busted/#asserts
-    end)
-  end)
-
-  -- unit tests for the property 'grocery_products'
-  describe("property grocery_products test", function()
-    it("should work", function()
-      -- TODO assertion here: http://olivinelabs.com/busted/#asserts
-    end)
-  end)
-
-  -- unit tests for the property 'menu_items'
-  describe("property menu_items test", function()
-    it("should work", function()
-      -- TODO assertion here: http://olivinelabs.com/busted/#asserts
-    end)
-  end)
-
-  -- unit tests for the property 'recipes'
-  describe("property recipes test", function()
+  -- unit tests for the property 'annotations'
+  describe("property annotations test", function()
     it("should work", function()
       -- TODO assertion here: http://olivinelabs.com/busted/#asserts
     end)

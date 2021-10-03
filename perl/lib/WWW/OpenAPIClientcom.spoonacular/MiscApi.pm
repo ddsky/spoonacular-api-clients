@@ -65,10 +65,10 @@ sub new {
     __PACKAGE__->method_documentation->{ 'detect_food_in_text' } = { 
         summary => 'Detect Food in Text',
         params => $params,
-        returns => 'InlineResponse20050',
+        returns => 'InlineResponse20051',
         };
 }
-# @return InlineResponse20050
+# @return InlineResponse20051
 #
 sub detect_food_in_text {
     my ($self, %args) = @_;
@@ -104,7 +104,7 @@ sub detect_food_in_text {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('InlineResponse20050', $response);
+    my $_response_object = $self->{api_client}->deserialize('InlineResponse20051', $response);
     return $_response_object;
 }
 
@@ -119,10 +119,10 @@ sub detect_food_in_text {
     __PACKAGE__->method_documentation->{ 'get_a_random_food_joke' } = { 
         summary => 'Random Food Joke',
         params => $params,
-        returns => 'InlineResponse20054',
+        returns => 'InlineResponse20055',
         };
 }
-# @return InlineResponse20054
+# @return InlineResponse20055
 #
 sub get_a_random_food_joke {
     my ($self, %args) = @_;
@@ -153,7 +153,7 @@ sub get_a_random_food_joke {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('InlineResponse20054', $response);
+    my $_response_object = $self->{api_client}->deserialize('InlineResponse20055', $response);
     return $_response_object;
 }
 
@@ -180,10 +180,10 @@ sub get_a_random_food_joke {
     __PACKAGE__->method_documentation->{ 'get_conversation_suggests' } = { 
         summary => 'Conversation Suggests',
         params => $params,
-        returns => 'InlineResponse20056',
+        returns => 'InlineResponse20057',
         };
 }
-# @return InlineResponse20056
+# @return InlineResponse20057
 #
 sub get_conversation_suggests {
     my ($self, %args) = @_;
@@ -229,7 +229,7 @@ sub get_conversation_suggests {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('InlineResponse20056', $response);
+    my $_response_object = $self->{api_client}->deserialize('InlineResponse20057', $response);
     return $_response_object;
 }
 
@@ -244,10 +244,10 @@ sub get_conversation_suggests {
     __PACKAGE__->method_documentation->{ 'get_random_food_trivia' } = { 
         summary => 'Random Food Trivia',
         params => $params,
-        returns => 'InlineResponse20054',
+        returns => 'InlineResponse20055',
         };
 }
-# @return InlineResponse20054
+# @return InlineResponse20055
 #
 sub get_random_food_trivia {
     my ($self, %args) = @_;
@@ -278,7 +278,7 @@ sub get_random_food_trivia {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('InlineResponse20054', $response);
+    my $_response_object = $self->{api_client}->deserialize('InlineResponse20055', $response);
     return $_response_object;
 }
 
@@ -299,10 +299,10 @@ sub get_random_food_trivia {
     __PACKAGE__->method_documentation->{ 'image_analysis_by_url' } = { 
         summary => 'Image Analysis by URL',
         params => $params,
-        returns => 'InlineResponse20048',
+        returns => 'InlineResponse20049',
         };
 }
-# @return InlineResponse20048
+# @return InlineResponse20049
 #
 sub image_analysis_by_url {
     my ($self, %args) = @_;
@@ -343,7 +343,7 @@ sub image_analysis_by_url {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('InlineResponse20048', $response);
+    my $_response_object = $self->{api_client}->deserialize('InlineResponse20049', $response);
     return $_response_object;
 }
 
@@ -364,10 +364,10 @@ sub image_analysis_by_url {
     __PACKAGE__->method_documentation->{ 'image_classification_by_url' } = { 
         summary => 'Image Classification by URL',
         params => $params,
-        returns => 'InlineResponse20047',
+        returns => 'InlineResponse20048',
         };
 }
-# @return InlineResponse20047
+# @return InlineResponse20048
 #
 sub image_classification_by_url {
     my ($self, %args) = @_;
@@ -408,7 +408,7 @@ sub image_classification_by_url {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('InlineResponse20047', $response);
+    my $_response_object = $self->{api_client}->deserialize('InlineResponse20048', $response);
     return $_response_object;
 }
 
@@ -441,10 +441,10 @@ sub image_classification_by_url {
     __PACKAGE__->method_documentation->{ 'search_all_food' } = { 
         summary => 'Search All Food',
         params => $params,
-        returns => 'InlineResponse20052',
+        returns => 'InlineResponse20053',
         };
 }
-# @return InlineResponse20052
+# @return InlineResponse20053
 #
 sub search_all_food {
     my ($self, %args) = @_;
@@ -495,7 +495,7 @@ sub search_all_food {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('InlineResponse20052', $response);
+    my $_response_object = $self->{api_client}->deserialize('InlineResponse20053', $response);
     return $_response_object;
 }
 
@@ -684,10 +684,10 @@ sub search_custom_foods {
     __PACKAGE__->method_documentation->{ 'search_food_videos' } = { 
         summary => 'Search Food Videos',
         params => $params,
-        returns => 'InlineResponse20053',
+        returns => 'InlineResponse20054',
         };
 }
-# @return InlineResponse20053
+# @return InlineResponse20054
 #
 sub search_food_videos {
     my ($self, %args) = @_;
@@ -768,7 +768,7 @@ sub search_food_videos {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('InlineResponse20053', $response);
+    my $_response_object = $self->{api_client}->deserialize('InlineResponse20054', $response);
     return $_response_object;
 }
 
@@ -789,10 +789,10 @@ sub search_food_videos {
     __PACKAGE__->method_documentation->{ 'search_site_content' } = { 
         summary => 'Search Site Content',
         params => $params,
-        returns => 'InlineResponse20051',
+        returns => 'InlineResponse20052',
         };
 }
-# @return InlineResponse20051
+# @return InlineResponse20052
 #
 sub search_site_content {
     my ($self, %args) = @_;
@@ -833,7 +833,7 @@ sub search_site_content {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('InlineResponse20051', $response);
+    my $_response_object = $self->{api_client}->deserialize('InlineResponse20052', $response);
     return $_response_object;
 }
 
@@ -860,10 +860,10 @@ sub search_site_content {
     __PACKAGE__->method_documentation->{ 'talk_to_chatbot' } = { 
         summary => 'Talk to Chatbot',
         params => $params,
-        returns => 'InlineResponse20055',
+        returns => 'InlineResponse20056',
         };
 }
-# @return InlineResponse20055
+# @return InlineResponse20056
 #
 sub talk_to_chatbot {
     my ($self, %args) = @_;
@@ -909,7 +909,7 @@ sub talk_to_chatbot {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('InlineResponse20055', $response);
+    my $_response_object = $self->{api_client}->deserialize('InlineResponse20056', $response);
     return $_response_object;
 }
 

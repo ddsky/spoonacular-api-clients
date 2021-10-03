@@ -6,8 +6,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**pairings** | **List&lt;String&gt;** |  | 
-**text** | **String** |  | 
+**username** | **String** |  | 
+**hash** | **String** |  | 
 
 
 

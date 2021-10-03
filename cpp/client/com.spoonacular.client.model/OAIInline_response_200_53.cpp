@@ -38,11 +38,20 @@ OAIInline_response_200_53::~OAIInline_response_200_53() {
 void
 OAIInline_response_200_53::init() {
     
-    m_videos_isSet = false;
-    m_videos_isValid = false;
+    m_query_isSet = false;
+    m_query_isValid = false;
     
     m_total_results_isSet = false;
     m_total_results_isValid = false;
+    
+    m_limit_isSet = false;
+    m_limit_isValid = false;
+    
+    m_offset_isSet = false;
+    m_offset_isValid = false;
+    
+    m_search_results_isSet = false;
+    m_search_results_isValid = false;
     }
 
 void
@@ -56,11 +65,20 @@ OAIInline_response_200_53::fromJson(QString jsonString) {
 void
 OAIInline_response_200_53::fromJsonObject(QJsonObject json) {
     
+    m_query_isValid = ::OpenAPI::fromJsonValue(query, json[QString("query")]);
     
-    m_videos_isValid = ::OpenAPI::fromJsonValue(videos, json[QString("videos")]);
     
     m_total_results_isValid = ::OpenAPI::fromJsonValue(total_results, json[QString("totalResults")]);
     
+    
+    m_limit_isValid = ::OpenAPI::fromJsonValue(limit, json[QString("limit")]);
+    
+    
+    m_offset_isValid = ::OpenAPI::fromJsonValue(offset, json[QString("offset")]);
+    
+    
+    
+    m_search_results_isValid = ::OpenAPI::fromJsonValue(search_results, json[QString("searchResults")]);
     
 }
 
@@ -75,25 +93,34 @@ OAIInline_response_200_53::asJson () const {
 QJsonObject
 OAIInline_response_200_53::asJsonObject() const {
     QJsonObject obj;
-	
-    if(videos.size() > 0){
-        obj.insert(QString("videos"), ::OpenAPI::toJsonValue(videos));
-    } 
+	if(m_query_isSet){
+        obj.insert(QString("query"), ::OpenAPI::toJsonValue(query));
+    }
 	if(m_total_results_isSet){
         obj.insert(QString("totalResults"), ::OpenAPI::toJsonValue(total_results));
     }
+	if(m_limit_isSet){
+        obj.insert(QString("limit"), ::OpenAPI::toJsonValue(limit));
+    }
+	if(m_offset_isSet){
+        obj.insert(QString("offset"), ::OpenAPI::toJsonValue(offset));
+    }
+	
+    if(search_results.size() > 0){
+        obj.insert(QString("searchResults"), ::OpenAPI::toJsonValue(search_results));
+    } 
     return obj;
 }
 
 
-QList<OAIInline_response_200_53_videos>
-OAIInline_response_200_53::getVideos() const {
-    return videos;
+QString
+OAIInline_response_200_53::getQuery() const {
+    return query;
 }
 void
-OAIInline_response_200_53::setVideos(const QList<OAIInline_response_200_53_videos> &videos) {
-    this->videos = videos;
-    this->m_videos_isSet = true;
+OAIInline_response_200_53::setQuery(const QString &query) {
+    this->query = query;
+    this->m_query_isSet = true;
 }
 
 
@@ -107,13 +134,52 @@ OAIInline_response_200_53::setTotalResults(const qint32 &total_results) {
     this->m_total_results_isSet = true;
 }
 
+
+qint32
+OAIInline_response_200_53::getLimit() const {
+    return limit;
+}
+void
+OAIInline_response_200_53::setLimit(const qint32 &limit) {
+    this->limit = limit;
+    this->m_limit_isSet = true;
+}
+
+
+qint32
+OAIInline_response_200_53::getOffset() const {
+    return offset;
+}
+void
+OAIInline_response_200_53::setOffset(const qint32 &offset) {
+    this->offset = offset;
+    this->m_offset_isSet = true;
+}
+
+
+QList<OAIInline_response_200_53_searchResults>
+OAIInline_response_200_53::getSearchResults() const {
+    return search_results;
+}
+void
+OAIInline_response_200_53::setSearchResults(const QList<OAIInline_response_200_53_searchResults> &search_results) {
+    this->search_results = search_results;
+    this->m_search_results_isSet = true;
+}
+
 bool
 OAIInline_response_200_53::isSet() const {
     bool isObjectUpdated = false;
     do{ 
-        if(videos.size() > 0){ isObjectUpdated = true; break;}
+        if(m_query_isSet){ isObjectUpdated = true; break;}
     
         if(m_total_results_isSet){ isObjectUpdated = true; break;}
+    
+        if(m_limit_isSet){ isObjectUpdated = true; break;}
+    
+        if(m_offset_isSet){ isObjectUpdated = true; break;}
+    
+        if(search_results.size() > 0){ isObjectUpdated = true; break;}
     }while(false);
     return isObjectUpdated;
 }
@@ -121,7 +187,7 @@ OAIInline_response_200_53::isSet() const {
 bool
 OAIInline_response_200_53::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_videos_isValid && m_total_results_isValid && true;
+    return m_query_isValid && m_total_results_isValid && m_limit_isValid && m_offset_isValid && m_search_results_isValid && true;
 }
 
 }

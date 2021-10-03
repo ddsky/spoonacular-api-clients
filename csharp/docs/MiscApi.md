@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 <a name="detectfoodintext"></a>
 # **DetectFoodInText**
-> InlineResponse20050 DetectFoodInText (string contentType)
+> InlineResponse20051 DetectFoodInText (string contentType)
 
 Detect Food in Text
 
@@ -51,7 +51,7 @@ namespace Example
             try
             {
                 // Detect Food in Text
-                InlineResponse20050 result = apiInstance.DetectFoodInText(contentType);
+                InlineResponse20051 result = apiInstance.DetectFoodInText(contentType);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -71,7 +71,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20050**](InlineResponse20050.md)
+[**InlineResponse20051**](InlineResponse20051.md)
 
 ### Authorization
 
@@ -86,7 +86,7 @@ Name | Type | Description  | Notes
 
 <a name="getarandomfoodjoke"></a>
 # **GetARandomFoodJoke**
-> InlineResponse20054 GetARandomFoodJoke ()
+> InlineResponse20055 GetARandomFoodJoke ()
 
 Random Food Joke
 
@@ -117,7 +117,7 @@ namespace Example
             try
             {
                 // Random Food Joke
-                InlineResponse20054 result = apiInstance.GetARandomFoodJoke();
+                InlineResponse20055 result = apiInstance.GetARandomFoodJoke();
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -134,7 +134,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse20054**](InlineResponse20054.md)
+[**InlineResponse20055**](InlineResponse20055.md)
 
 ### Authorization
 
@@ -149,7 +149,7 @@ This endpoint does not need any parameter.
 
 <a name="getconversationsuggests"></a>
 # **GetConversationSuggests**
-> InlineResponse20056 GetConversationSuggests (string query, decimal? number)
+> InlineResponse20057 GetConversationSuggests (string query, decimal? number)
 
 Conversation Suggests
 
@@ -182,7 +182,7 @@ namespace Example
             try
             {
                 // Conversation Suggests
-                InlineResponse20056 result = apiInstance.GetConversationSuggests(query, number);
+                InlineResponse20057 result = apiInstance.GetConversationSuggests(query, number);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -203,7 +203,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20056**](InlineResponse20056.md)
+[**InlineResponse20057**](InlineResponse20057.md)
 
 ### Authorization
 
@@ -218,7 +218,7 @@ Name | Type | Description  | Notes
 
 <a name="getrandomfoodtrivia"></a>
 # **GetRandomFoodTrivia**
-> InlineResponse20054 GetRandomFoodTrivia ()
+> InlineResponse20055 GetRandomFoodTrivia ()
 
 Random Food Trivia
 
@@ -249,7 +249,7 @@ namespace Example
             try
             {
                 // Random Food Trivia
-                InlineResponse20054 result = apiInstance.GetRandomFoodTrivia();
+                InlineResponse20055 result = apiInstance.GetRandomFoodTrivia();
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -266,7 +266,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse20054**](InlineResponse20054.md)
+[**InlineResponse20055**](InlineResponse20055.md)
 
 ### Authorization
 
@@ -281,7 +281,7 @@ This endpoint does not need any parameter.
 
 <a name="imageanalysisbyurl"></a>
 # **ImageAnalysisByURL**
-> InlineResponse20048 ImageAnalysisByURL (string imageUrl)
+> InlineResponse20049 ImageAnalysisByURL (string imageUrl)
 
 Image Analysis by URL
 
@@ -313,7 +313,7 @@ namespace Example
             try
             {
                 // Image Analysis by URL
-                InlineResponse20048 result = apiInstance.ImageAnalysisByURL(imageUrl);
+                InlineResponse20049 result = apiInstance.ImageAnalysisByURL(imageUrl);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -333,7 +333,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20048**](InlineResponse20048.md)
+[**InlineResponse20049**](InlineResponse20049.md)
 
 ### Authorization
 
@@ -348,7 +348,7 @@ Name | Type | Description  | Notes
 
 <a name="imageclassificationbyurl"></a>
 # **ImageClassificationByURL**
-> InlineResponse20047 ImageClassificationByURL (string imageUrl)
+> InlineResponse20048 ImageClassificationByURL (string imageUrl)
 
 Image Classification by URL
 
@@ -380,7 +380,7 @@ namespace Example
             try
             {
                 // Image Classification by URL
-                InlineResponse20047 result = apiInstance.ImageClassificationByURL(imageUrl);
+                InlineResponse20048 result = apiInstance.ImageClassificationByURL(imageUrl);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -400,7 +400,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20047**](InlineResponse20047.md)
+[**InlineResponse20048**](InlineResponse20048.md)
 
 ### Authorization
 
@@ -415,7 +415,7 @@ Name | Type | Description  | Notes
 
 <a name="searchallfood"></a>
 # **SearchAllFood**
-> InlineResponse20052 SearchAllFood (string query, int? offset, int? number)
+> InlineResponse20053 SearchAllFood (string query, int? offset, int? number)
 
 Search All Food
 
@@ -449,7 +449,7 @@ namespace Example
             try
             {
                 // Search All Food
-                InlineResponse20052 result = apiInstance.SearchAllFood(query, offset, number);
+                InlineResponse20053 result = apiInstance.SearchAllFood(query, offset, number);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -471,7 +471,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20052**](InlineResponse20052.md)
+[**InlineResponse20053**](InlineResponse20053.md)
 
 ### Authorization
 
@@ -561,7 +561,7 @@ Name | Type | Description  | Notes
 
 <a name="searchfoodvideos"></a>
 # **SearchFoodVideos**
-> InlineResponse20053 SearchFoodVideos (string query, string type, string cuisine, string diet, string includeIngredients, string excludeIngredients, decimal? minLength, decimal? maxLength, int? offset, int? number)
+> InlineResponse20054 SearchFoodVideos (string query, string type, string cuisine, string diet, string includeIngredients, string excludeIngredients, decimal? minLength, decimal? maxLength, int? offset, int? number)
 
 Search Food Videos
 
@@ -602,7 +602,7 @@ namespace Example
             try
             {
                 // Search Food Videos
-                InlineResponse20053 result = apiInstance.SearchFoodVideos(query, type, cuisine, diet, includeIngredients, excludeIngredients, minLength, maxLength, offset, number);
+                InlineResponse20054 result = apiInstance.SearchFoodVideos(query, type, cuisine, diet, includeIngredients, excludeIngredients, minLength, maxLength, offset, number);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -631,7 +631,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20053**](InlineResponse20053.md)
+[**InlineResponse20054**](InlineResponse20054.md)
 
 ### Authorization
 
@@ -646,7 +646,7 @@ Name | Type | Description  | Notes
 
 <a name="searchsitecontent"></a>
 # **SearchSiteContent**
-> InlineResponse20051 SearchSiteContent (string query)
+> InlineResponse20052 SearchSiteContent (string query)
 
 Search Site Content
 
@@ -678,7 +678,7 @@ namespace Example
             try
             {
                 // Search Site Content
-                InlineResponse20051 result = apiInstance.SearchSiteContent(query);
+                InlineResponse20052 result = apiInstance.SearchSiteContent(query);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -698,7 +698,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20051**](InlineResponse20051.md)
+[**InlineResponse20052**](InlineResponse20052.md)
 
 ### Authorization
 
@@ -713,7 +713,7 @@ Name | Type | Description  | Notes
 
 <a name="talktochatbot"></a>
 # **TalkToChatbot**
-> InlineResponse20055 TalkToChatbot (string text, string contextId)
+> InlineResponse20056 TalkToChatbot (string text, string contextId)
 
 Talk to Chatbot
 
@@ -746,7 +746,7 @@ namespace Example
             try
             {
                 // Talk to Chatbot
-                InlineResponse20055 result = apiInstance.TalkToChatbot(text, contextId);
+                InlineResponse20056 result = apiInstance.TalkToChatbot(text, contextId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -767,7 +767,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20055**](InlineResponse20055.md)
+[**InlineResponse20056**](InlineResponse20056.md)
 
 ### Authorization
 

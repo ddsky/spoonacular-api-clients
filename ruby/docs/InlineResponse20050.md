@@ -4,14 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**annotations** | **Array&lt;Object&gt;** |  | 
+**answer** | **String** |  | 
+**image** | **String** |  | 
 
 ## Code Sample
 
 ```ruby
 require 'OpenapiClient'
 
-instance = OpenapiClient::InlineResponse20050.new(annotations: null)
+instance = OpenapiClient::InlineResponse20050.new(answer: null,
+                                 image: null)
 ```
 
 

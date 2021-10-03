@@ -2,36 +2,27 @@ part of openapi.api;
 
 class InlineResponse20046 {
   
-  List<InlineResponse20046RecommendedWines> recommendedWines = [];
-  
-  int totalFound = null;
+  String wineDescription = null;
   InlineResponse20046();
 
   @override
   String toString() {
-    return 'InlineResponse20046[recommendedWines=$recommendedWines, totalFound=$totalFound, ]';
+    return 'InlineResponse20046[wineDescription=$wineDescription, ]';
   }
 
   InlineResponse20046.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    if (json['recommendedWines'] == null) {
-      recommendedWines = null;
+    if (json['wineDescription'] == null) {
+      wineDescription = null;
     } else {
-      recommendedWines = InlineResponse20046RecommendedWines.listFromJson(json['recommendedWines']);
-    }
-    if (json['totalFound'] == null) {
-      totalFound = null;
-    } else {
-          totalFound = json['totalFound'];
+          wineDescription = json['wineDescription'];
     }
   }
 
   Map<String, dynamic> toJson() {
     Map <String, dynamic> json = {};
-    if (recommendedWines != null)
-      json['recommendedWines'] = recommendedWines;
-    if (totalFound != null)
-      json['totalFound'] = totalFound;
+    if (wineDescription != null)
+      json['wineDescription'] = wineDescription;
     return json;
   }
 

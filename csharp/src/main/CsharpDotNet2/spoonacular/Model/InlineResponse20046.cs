@@ -13,18 +13,11 @@ namespace spoonacular.Model {
   [DataContract]
   public class InlineResponse20046 {
     /// <summary>
-    /// Gets or Sets RecommendedWines
+    /// Gets or Sets WineDescription
     /// </summary>
-    [DataMember(Name="recommendedWines", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "recommendedWines")]
-    public List<InlineResponse20046RecommendedWines> RecommendedWines { get; set; }
-
-    /// <summary>
-    /// Gets or Sets TotalFound
-    /// </summary>
-    [DataMember(Name="totalFound", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "totalFound")]
-    public int? TotalFound { get; set; }
+    [DataMember(Name="wineDescription", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "wineDescription")]
+    public string WineDescription { get; set; }
 
 
     /// <summary>
@@ -34,8 +27,7 @@ namespace spoonacular.Model {
     public override string ToString()  {
       var sb = new StringBuilder();
       sb.Append("class InlineResponse20046 {\n");
-      sb.Append("  RecommendedWines: ").Append(RecommendedWines).Append("\n");
-      sb.Append("  TotalFound: ").Append(TotalFound).Append("\n");
+      sb.Append("  WineDescription: ").Append(WineDescription).Append("\n");
       sb.Append("}\n");
       return sb.ToString();
     }

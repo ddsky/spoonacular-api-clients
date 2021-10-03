@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import InlineResponse20042Aisles from './InlineResponse20042Aisles';
 
 /**
  * The InlineResponse20042 model module.
@@ -22,12 +23,14 @@ class InlineResponse20042 {
     /**
      * Constructs a new <code>InlineResponse20042</code>.
      * @alias module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20042
-     * @param username {String} 
-     * @param hash {String} 
+     * @param aisles {Array.<module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20042Aisles>} 
+     * @param cost {Number} 
+     * @param startDate {Number} 
+     * @param endDate {Number} 
      */
-    constructor(username, hash) { 
+    constructor(aisles, cost, startDate, endDate) { 
         
-        InlineResponse20042.initialize(this, username, hash);
+        InlineResponse20042.initialize(this, aisles, cost, startDate, endDate);
     }
 
     /**
@@ -35,9 +38,11 @@ class InlineResponse20042 {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, username, hash) { 
-        obj['username'] = username;
-        obj['hash'] = hash;
+    static initialize(obj, aisles, cost, startDate, endDate) { 
+        obj['aisles'] = aisles;
+        obj['cost'] = cost;
+        obj['startDate'] = startDate;
+        obj['endDate'] = endDate;
     }
 
     /**
@@ -51,11 +56,17 @@ class InlineResponse20042 {
         if (data) {
             obj = obj || new InlineResponse20042();
 
-            if (data.hasOwnProperty('username')) {
-                obj['username'] = ApiClient.convertToType(data['username'], 'String');
+            if (data.hasOwnProperty('aisles')) {
+                obj['aisles'] = ApiClient.convertToType(data['aisles'], [InlineResponse20042Aisles]);
             }
-            if (data.hasOwnProperty('hash')) {
-                obj['hash'] = ApiClient.convertToType(data['hash'], 'String');
+            if (data.hasOwnProperty('cost')) {
+                obj['cost'] = ApiClient.convertToType(data['cost'], 'Number');
+            }
+            if (data.hasOwnProperty('startDate')) {
+                obj['startDate'] = ApiClient.convertToType(data['startDate'], 'Number');
+            }
+            if (data.hasOwnProperty('endDate')) {
+                obj['endDate'] = ApiClient.convertToType(data['endDate'], 'Number');
             }
         }
         return obj;
@@ -65,14 +76,24 @@ class InlineResponse20042 {
 }
 
 /**
- * @member {String} username
+ * @member {Array.<module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20042Aisles>} aisles
  */
-InlineResponse20042.prototype['username'] = undefined;
+InlineResponse20042.prototype['aisles'] = undefined;
 
 /**
- * @member {String} hash
+ * @member {Number} cost
  */
-InlineResponse20042.prototype['hash'] = undefined;
+InlineResponse20042.prototype['cost'] = undefined;
+
+/**
+ * @member {Number} startDate
+ */
+InlineResponse20042.prototype['startDate'] = undefined;
+
+/**
+ * @member {Number} endDate
+ */
+InlineResponse20042.prototype['endDate'] = undefined;
 
 
 

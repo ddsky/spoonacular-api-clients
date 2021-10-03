@@ -13,18 +13,21 @@
 
 
 import ApiClient from "../ApiClient";
+import InlineObject10 from '../com.spoonacular.client.model/InlineObject10';
 import InlineObject3 from '../com.spoonacular.client.model/InlineObject3';
 import InlineObject4 from '../com.spoonacular.client.model/InlineObject4';
 import InlineObject5 from '../com.spoonacular.client.model/InlineObject5';
 import InlineObject6 from '../com.spoonacular.client.model/InlineObject6';
 import InlineObject7 from '../com.spoonacular.client.model/InlineObject7';
 import InlineObject8 from '../com.spoonacular.client.model/InlineObject8';
+import InlineObject9 from '../com.spoonacular.client.model/InlineObject9';
 import InlineResponse20037 from '../com.spoonacular.client.model/InlineResponse20037';
 import InlineResponse20038 from '../com.spoonacular.client.model/InlineResponse20038';
 import InlineResponse20039 from '../com.spoonacular.client.model/InlineResponse20039';
 import InlineResponse20040 from '../com.spoonacular.client.model/InlineResponse20040';
 import InlineResponse20041 from '../com.spoonacular.client.model/InlineResponse20041';
 import InlineResponse20042 from '../com.spoonacular.client.model/InlineResponse20042';
+import InlineResponse20043 from '../com.spoonacular.client.model/InlineResponse20043';
 
 /**
 * MealPlanning service.
@@ -44,6 +47,60 @@ export default class MealPlanningApi {
         this.apiClient = apiClient || ApiClient.instance;
     }
 
+
+    /**
+     * Callback function to receive the result of the addMealPlanTemplate operation.
+     * @callback module:com.spoonacular.client/com.spoonacular/MealPlanningApi~addMealPlanTemplateCallback
+     * @param {String} error Error message, if any.
+     * @param {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20040} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Add Meal Plan Template
+     * Add a meal plan template for a user.
+     * @param {String} username The username.
+     * @param {String} hash The private hash for the username.
+     * @param {module:com.spoonacular.client/com.spoonacular.client.model/InlineObject6} inlineObject6 
+     * @param {module:com.spoonacular.client/com.spoonacular/MealPlanningApi~addMealPlanTemplateCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20040}
+     */
+    addMealPlanTemplate(username, hash, inlineObject6, callback) {
+      let postBody = inlineObject6;
+      // verify the required parameter 'username' is set
+      if (username === undefined || username === null) {
+        throw new Error("Missing the required parameter 'username' when calling addMealPlanTemplate");
+      }
+      // verify the required parameter 'hash' is set
+      if (hash === undefined || hash === null) {
+        throw new Error("Missing the required parameter 'hash' when calling addMealPlanTemplate");
+      }
+      // verify the required parameter 'inlineObject6' is set
+      if (inlineObject6 === undefined || inlineObject6 === null) {
+        throw new Error("Missing the required parameter 'inlineObject6' when calling addMealPlanTemplate");
+      }
+
+      let pathParams = {
+        'username': username
+      };
+      let queryParams = {
+        'hash': hash
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['apiKeyScheme'];
+      let contentTypes = [''];
+      let accepts = ['application/json'];
+      let returnType = InlineResponse20040;
+      return this.apiClient.callApi(
+        '/mealplanner/{username}/templates', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
 
     /**
      * Callback function to receive the result of the addToMealPlan operation.
@@ -103,7 +160,7 @@ export default class MealPlanningApi {
      * Callback function to receive the result of the addToShoppingList operation.
      * @callback module:com.spoonacular.client/com.spoonacular/MealPlanningApi~addToShoppingListCallback
      * @param {String} error Error message, if any.
-     * @param {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20041} data The data returned by the service call.
+     * @param {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20042} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -112,12 +169,12 @@ export default class MealPlanningApi {
      * Add an item to the current shopping list of a user.
      * @param {String} username The username.
      * @param {String} hash The private hash for the username.
-     * @param {module:com.spoonacular.client/com.spoonacular.client.model/InlineObject7} inlineObject7 
+     * @param {module:com.spoonacular.client/com.spoonacular.client.model/InlineObject9} inlineObject9 
      * @param {module:com.spoonacular.client/com.spoonacular/MealPlanningApi~addToShoppingListCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20041}
+     * data is of type: {@link module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20042}
      */
-    addToShoppingList(username, hash, inlineObject7, callback) {
-      let postBody = inlineObject7;
+    addToShoppingList(username, hash, inlineObject9, callback) {
+      let postBody = inlineObject9;
       // verify the required parameter 'username' is set
       if (username === undefined || username === null) {
         throw new Error("Missing the required parameter 'username' when calling addToShoppingList");
@@ -126,9 +183,9 @@ export default class MealPlanningApi {
       if (hash === undefined || hash === null) {
         throw new Error("Missing the required parameter 'hash' when calling addToShoppingList");
       }
-      // verify the required parameter 'inlineObject7' is set
-      if (inlineObject7 === undefined || inlineObject7 === null) {
-        throw new Error("Missing the required parameter 'inlineObject7' when calling addToShoppingList");
+      // verify the required parameter 'inlineObject9' is set
+      if (inlineObject9 === undefined || inlineObject9 === null) {
+        throw new Error("Missing the required parameter 'inlineObject9' when calling addToShoppingList");
       }
 
       let pathParams = {
@@ -145,7 +202,7 @@ export default class MealPlanningApi {
       let authNames = ['apiKeyScheme'];
       let contentTypes = ['', 'application/json'];
       let accepts = ['application/json'];
-      let returnType = InlineResponse20041;
+      let returnType = InlineResponse20042;
       return this.apiClient.callApi(
         '/mealplanner/{username}/shopping-list/items', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -217,7 +274,7 @@ export default class MealPlanningApi {
      * Callback function to receive the result of the connectUser operation.
      * @callback module:com.spoonacular.client/com.spoonacular/MealPlanningApi~connectUserCallback
      * @param {String} error Error message, if any.
-     * @param {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20042} data The data returned by the service call.
+     * @param {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20043} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -226,7 +283,7 @@ export default class MealPlanningApi {
      * In order to call user-specific endpoints, you need to connect your app's users to spoonacular users.
      * @param {Object} body 
      * @param {module:com.spoonacular.client/com.spoonacular/MealPlanningApi~connectUserCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20042}
+     * data is of type: {@link module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20043}
      */
     connectUser(body, callback) {
       let postBody = body;
@@ -247,7 +304,7 @@ export default class MealPlanningApi {
       let authNames = ['apiKeyScheme'];
       let contentTypes = ['', 'application/json'];
       let accepts = ['application/json'];
-      let returnType = InlineResponse20042;
+      let returnType = InlineResponse20043;
       return this.apiClient.callApi(
         '/users/connect', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -329,12 +386,12 @@ export default class MealPlanningApi {
      * @param {String} username The username.
      * @param {Number} id The item's id.
      * @param {String} hash The private hash for the username.
-     * @param {module:com.spoonacular.client/com.spoonacular.client.model/InlineObject8} inlineObject8 
+     * @param {module:com.spoonacular.client/com.spoonacular.client.model/InlineObject10} inlineObject10 
      * @param {module:com.spoonacular.client/com.spoonacular/MealPlanningApi~deleteFromShoppingListCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Object}
      */
-    deleteFromShoppingList(username, id, hash, inlineObject8, callback) {
-      let postBody = inlineObject8;
+    deleteFromShoppingList(username, id, hash, inlineObject10, callback) {
+      let postBody = inlineObject10;
       // verify the required parameter 'username' is set
       if (username === undefined || username === null) {
         throw new Error("Missing the required parameter 'username' when calling deleteFromShoppingList");
@@ -347,9 +404,9 @@ export default class MealPlanningApi {
       if (hash === undefined || hash === null) {
         throw new Error("Missing the required parameter 'hash' when calling deleteFromShoppingList");
       }
-      // verify the required parameter 'inlineObject8' is set
-      if (inlineObject8 === undefined || inlineObject8 === null) {
-        throw new Error("Missing the required parameter 'inlineObject8' when calling deleteFromShoppingList");
+      // verify the required parameter 'inlineObject10' is set
+      if (inlineObject10 === undefined || inlineObject10 === null) {
+        throw new Error("Missing the required parameter 'inlineObject10' when calling deleteFromShoppingList");
       }
 
       let pathParams = {
@@ -370,6 +427,66 @@ export default class MealPlanningApi {
       let returnType = Object;
       return this.apiClient.callApi(
         '/mealplanner/{username}/shopping-list/items/{id}', 'DELETE',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the deleteMealPlanTemplate operation.
+     * @callback module:com.spoonacular.client/com.spoonacular/MealPlanningApi~deleteMealPlanTemplateCallback
+     * @param {String} error Error message, if any.
+     * @param {Object} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Delete Meal Plan Template
+     * Delete a meal plan template for a user.
+     * @param {String} username The username.
+     * @param {Number} id The item's id.
+     * @param {String} hash The private hash for the username.
+     * @param {module:com.spoonacular.client/com.spoonacular.client.model/InlineObject7} inlineObject7 
+     * @param {module:com.spoonacular.client/com.spoonacular/MealPlanningApi~deleteMealPlanTemplateCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Object}
+     */
+    deleteMealPlanTemplate(username, id, hash, inlineObject7, callback) {
+      let postBody = inlineObject7;
+      // verify the required parameter 'username' is set
+      if (username === undefined || username === null) {
+        throw new Error("Missing the required parameter 'username' when calling deleteMealPlanTemplate");
+      }
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling deleteMealPlanTemplate");
+      }
+      // verify the required parameter 'hash' is set
+      if (hash === undefined || hash === null) {
+        throw new Error("Missing the required parameter 'hash' when calling deleteMealPlanTemplate");
+      }
+      // verify the required parameter 'inlineObject7' is set
+      if (inlineObject7 === undefined || inlineObject7 === null) {
+        throw new Error("Missing the required parameter 'inlineObject7' when calling deleteMealPlanTemplate");
+      }
+
+      let pathParams = {
+        'username': username,
+        'id': id
+      };
+      let queryParams = {
+        'hash': hash
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['apiKeyScheme'];
+      let contentTypes = [''];
+      let accepts = ['application/json'];
+      let returnType = Object;
+      return this.apiClient.callApi(
+        '/mealplanner/{username}/templates/{id}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -426,7 +543,7 @@ export default class MealPlanningApi {
      * Callback function to receive the result of the generateShoppingList operation.
      * @callback module:com.spoonacular.client/com.spoonacular/MealPlanningApi~generateShoppingListCallback
      * @param {String} error Error message, if any.
-     * @param {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20041} data The data returned by the service call.
+     * @param {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20042} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -437,12 +554,12 @@ export default class MealPlanningApi {
      * @param {String} startDate The start date in the format yyyy-mm-dd.
      * @param {String} endDate The end date in the format yyyy-mm-dd.
      * @param {String} hash The private hash for the username.
-     * @param {module:com.spoonacular.client/com.spoonacular.client.model/InlineObject6} inlineObject6 
+     * @param {module:com.spoonacular.client/com.spoonacular.client.model/InlineObject8} inlineObject8 
      * @param {module:com.spoonacular.client/com.spoonacular/MealPlanningApi~generateShoppingListCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20041}
+     * data is of type: {@link module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20042}
      */
-    generateShoppingList(username, startDate, endDate, hash, inlineObject6, callback) {
-      let postBody = inlineObject6;
+    generateShoppingList(username, startDate, endDate, hash, inlineObject8, callback) {
+      let postBody = inlineObject8;
       // verify the required parameter 'username' is set
       if (username === undefined || username === null) {
         throw new Error("Missing the required parameter 'username' when calling generateShoppingList");
@@ -459,9 +576,9 @@ export default class MealPlanningApi {
       if (hash === undefined || hash === null) {
         throw new Error("Missing the required parameter 'hash' when calling generateShoppingList");
       }
-      // verify the required parameter 'inlineObject6' is set
-      if (inlineObject6 === undefined || inlineObject6 === null) {
-        throw new Error("Missing the required parameter 'inlineObject6' when calling generateShoppingList");
+      // verify the required parameter 'inlineObject8' is set
+      if (inlineObject8 === undefined || inlineObject8 === null) {
+        throw new Error("Missing the required parameter 'inlineObject8' when calling generateShoppingList");
       }
 
       let pathParams = {
@@ -480,7 +597,7 @@ export default class MealPlanningApi {
       let authNames = ['apiKeyScheme'];
       let contentTypes = [''];
       let accepts = ['application/json'];
-      let returnType = InlineResponse20041;
+      let returnType = InlineResponse20042;
       return this.apiClient.callApi(
         '/mealplanner/{username}/shopping-list/{start-date}/{end-date}', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -492,7 +609,7 @@ export default class MealPlanningApi {
      * Callback function to receive the result of the getMealPlanTemplate operation.
      * @callback module:com.spoonacular.client/com.spoonacular/MealPlanningApi~getMealPlanTemplateCallback
      * @param {String} error Error message, if any.
-     * @param {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20040} data The data returned by the service call.
+     * @param {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20041} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -503,7 +620,7 @@ export default class MealPlanningApi {
      * @param {Number} id The item's id.
      * @param {String} hash The private hash for the username.
      * @param {module:com.spoonacular.client/com.spoonacular/MealPlanningApi~getMealPlanTemplateCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20040}
+     * data is of type: {@link module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20041}
      */
     getMealPlanTemplate(username, id, hash, callback) {
       let postBody = null;
@@ -535,7 +652,7 @@ export default class MealPlanningApi {
       let authNames = ['apiKeyScheme'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineResponse20040;
+      let returnType = InlineResponse20041;
       return this.apiClient.callApi(
         '/mealplanner/{username}/templates/{id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -651,7 +768,7 @@ export default class MealPlanningApi {
      * Callback function to receive the result of the getShoppingList operation.
      * @callback module:com.spoonacular.client/com.spoonacular/MealPlanningApi~getShoppingListCallback
      * @param {String} error Error message, if any.
-     * @param {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20041} data The data returned by the service call.
+     * @param {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20042} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -661,7 +778,7 @@ export default class MealPlanningApi {
      * @param {String} username The username.
      * @param {String} hash The private hash for the username.
      * @param {module:com.spoonacular.client/com.spoonacular/MealPlanningApi~getShoppingListCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20041}
+     * data is of type: {@link module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20042}
      */
     getShoppingList(username, hash, callback) {
       let postBody = null;
@@ -688,7 +805,7 @@ export default class MealPlanningApi {
       let authNames = ['apiKeyScheme'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineResponse20041;
+      let returnType = InlineResponse20042;
       return this.apiClient.callApi(
         '/mealplanner/{username}/shopping-list', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,

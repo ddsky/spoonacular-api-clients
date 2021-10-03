@@ -15,14 +15,14 @@ package com.spoonacular.client.model
 import com.squareup.moshi.Json
 /**
  * 
- * @param pairings 
- * @param text 
+ * @param username 
+ * @param hash 
  */
 data class InlineResponse20043 (
-    @Json(name = "pairings")
-    val pairings: kotlin.Array<kotlin.String>,
-    @Json(name = "text")
-    val text: kotlin.String
+    @Json(name = "username")
+    val username: kotlin.String,
+    @Json(name = "hash")
+    val hash: kotlin.String
 ) {
 
 }

@@ -15,10 +15,10 @@
 
 #include "OAIHttpRequest.h"
 
-#include "com.spoonacular.client.model\OAIInline_response_200_43.h"
 #include "com.spoonacular.client.model\OAIInline_response_200_44.h"
 #include "com.spoonacular.client.model\OAIInline_response_200_45.h"
 #include "com.spoonacular.client.model\OAIInline_response_200_46.h"
+#include "com.spoonacular.client.model\OAIInline_response_200_47.h"
 #include "com.spoonacular.client.model\OAINumber.h"
 #include <QString>
 
@@ -50,20 +50,20 @@ private:
     void getWineRecommendationCallback (OAIHttpRequestWorker * worker);
     
 signals:
-    void getDishPairingForWineSignal(OAIInline_response_200_43 summary);
-    void getWineDescriptionSignal(OAIInline_response_200_45 summary);
-    void getWinePairingSignal(OAIInline_response_200_44 summary);
-    void getWineRecommendationSignal(OAIInline_response_200_46 summary);
+    void getDishPairingForWineSignal(OAIInline_response_200_44 summary);
+    void getWineDescriptionSignal(OAIInline_response_200_46 summary);
+    void getWinePairingSignal(OAIInline_response_200_45 summary);
+    void getWineRecommendationSignal(OAIInline_response_200_47 summary);
     
-    void getDishPairingForWineSignalFull(OAIHttpRequestWorker* worker, OAIInline_response_200_43 summary);
-    void getWineDescriptionSignalFull(OAIHttpRequestWorker* worker, OAIInline_response_200_45 summary);
-    void getWinePairingSignalFull(OAIHttpRequestWorker* worker, OAIInline_response_200_44 summary);
-    void getWineRecommendationSignalFull(OAIHttpRequestWorker* worker, OAIInline_response_200_46 summary);
+    void getDishPairingForWineSignalFull(OAIHttpRequestWorker* worker, OAIInline_response_200_44 summary);
+    void getWineDescriptionSignalFull(OAIHttpRequestWorker* worker, OAIInline_response_200_46 summary);
+    void getWinePairingSignalFull(OAIHttpRequestWorker* worker, OAIInline_response_200_45 summary);
+    void getWineRecommendationSignalFull(OAIHttpRequestWorker* worker, OAIInline_response_200_47 summary);
     
-    void getDishPairingForWineSignalE(OAIInline_response_200_43 summary, QNetworkReply::NetworkError error_type, QString& error_str);
-    void getWineDescriptionSignalE(OAIInline_response_200_45 summary, QNetworkReply::NetworkError error_type, QString& error_str);
-    void getWinePairingSignalE(OAIInline_response_200_44 summary, QNetworkReply::NetworkError error_type, QString& error_str);
-    void getWineRecommendationSignalE(OAIInline_response_200_46 summary, QNetworkReply::NetworkError error_type, QString& error_str);
+    void getDishPairingForWineSignalE(OAIInline_response_200_44 summary, QNetworkReply::NetworkError error_type, QString& error_str);
+    void getWineDescriptionSignalE(OAIInline_response_200_46 summary, QNetworkReply::NetworkError error_type, QString& error_str);
+    void getWinePairingSignalE(OAIInline_response_200_45 summary, QNetworkReply::NetworkError error_type, QString& error_str);
+    void getWineRecommendationSignalE(OAIInline_response_200_47 summary, QNetworkReply::NetworkError error_type, QString& error_str);
     
     void getDishPairingForWineSignalEFull(OAIHttpRequestWorker* worker, QNetworkReply::NetworkError error_type, QString& error_str);
     void getWineDescriptionSignalEFull(OAIHttpRequestWorker* worker, QNetworkReply::NetworkError error_type, QString& error_str);

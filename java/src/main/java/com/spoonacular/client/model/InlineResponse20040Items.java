@@ -28,11 +28,11 @@ import java.io.IOException;
 /**
  * InlineResponse20040Items
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-09-28T20:40:32.759+02:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-03T15:10:59.332+02:00[Europe/Berlin]")
 public class InlineResponse20040Items {
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
-  private Integer id;
+  public static final String SERIALIZED_NAME_DAY = "day";
+  @SerializedName(SERIALIZED_NAME_DAY)
+  private Integer day;
 
   public static final String SERIALIZED_NAME_SLOT = "slot";
   @SerializedName(SERIALIZED_NAME_SLOT)
@@ -50,22 +50,22 @@ public class InlineResponse20040Items {
   @SerializedName(SERIALIZED_NAME_VALUE)
   private InlineResponse20040Value value = null;
 
-  public InlineResponse20040Items id(Integer id) {
-    this.id = id;
+  public InlineResponse20040Items day(Integer day) {
+    this.day = day;
     return this;
   }
 
    /**
-   * Get id
-   * @return id
+   * Get day
+   * @return day
   **/
   @ApiModelProperty(required = true, value = "")
-  public Integer getId() {
-    return id;
+  public Integer getDay() {
+    return day;
   }
 
-  public void setId(Integer id) {
-    this.id = id;
+  public void setDay(Integer day) {
+    this.day = day;
   }
 
   public InlineResponse20040Items slot(Integer slot) {
@@ -150,7 +150,7 @@ public class InlineResponse20040Items {
       return false;
     }
     InlineResponse20040Items inlineResponse20040Items = (InlineResponse20040Items) o;
-    return Objects.equals(this.id, inlineResponse20040Items.id) &&
+    return Objects.equals(this.day, inlineResponse20040Items.day) &&
         Objects.equals(this.slot, inlineResponse20040Items.slot) &&
         Objects.equals(this.position, inlineResponse20040Items.position) &&
         Objects.equals(this.type, inlineResponse20040Items.type) &&
@@ -159,7 +159,7 @@ public class InlineResponse20040Items {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, slot, position, type, value);
+    return Objects.hash(day, slot, position, type, value);
   }
 
 
@@ -167,7 +167,7 @@ public class InlineResponse20040Items {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse20040Items {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    day: ").append(toIndentedString(day)).append("\n");
     sb.append("    slot: ").append(toIndentedString(slot)).append("\n");
     sb.append("    position: ").append(toIndentedString(position)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");

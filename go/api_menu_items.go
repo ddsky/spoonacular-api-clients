@@ -596,6 +596,7 @@ Search over 115,000 menu items from over 800 fast food and chain restaurants. Fo
  * @param "MaxProtein" (optional.Float32) -  The maximum amount of protein in grams the menu item can have.
  * @param "MinFat" (optional.Float32) -  The minimum amount of fat in grams the menu item must have.
  * @param "MaxFat" (optional.Float32) -  The maximum amount of fat in grams the menu item can have.
+ * @param "AddMenuItemInformation" (optional.Bool) -  If set to true, you get more information about the menu items returned.
  * @param "Offset" (optional.Int32) -  The number of results to skip (between 0 and 900).
  * @param "Number" (optional.Int32) -  The maximum number of items to return (between 1 and 100). Defaults to 10.
 @return InlineResponse20035
@@ -611,6 +612,7 @@ type SearchMenuItemsOpts struct {
 	MaxProtein optional.Float32
 	MinFat optional.Float32
 	MaxFat optional.Float32
+	AddMenuItemInformation optional.Bool
 	Offset optional.Int32
 	Number optional.Int32
 }
@@ -658,6 +660,9 @@ func (a *MenuItemsApiService) SearchMenuItems(ctx context.Context, localVarOptio
 	}
 	if localVarOptionals != nil && localVarOptionals.MaxFat.IsSet() {
 		localVarQueryParams.Add("maxFat", parameterToString(localVarOptionals.MaxFat.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.AddMenuItemInformation.IsSet() {
+		localVarQueryParams.Add("addMenuItemInformation", parameterToString(localVarOptionals.AddMenuItemInformation.Value(), ""))
 	}
 	if localVarOptionals != nil && localVarOptionals.Offset.IsSet() {
 		localVarQueryParams.Add("offset", parameterToString(localVarOptionals.Offset.Value(), ""))

@@ -714,7 +714,7 @@ instance Produces PriceBreakdownByIDImage MimeImagePng
 -- 
 quickAnswer 
   :: Q -- ^ "q" -  The nutrition related question.
-  -> SpoonacularRequest QuickAnswer MimeNoContent InlineResponse20049 MimeJSON
+  -> SpoonacularRequest QuickAnswer MimeNoContent InlineResponse20050 MimeJSON
 quickAnswer (Q q) =
   _mkRequest "GET" ["/recipes/quickAnswer"]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)

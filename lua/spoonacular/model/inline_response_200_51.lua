@@ -19,12 +19,9 @@ local function cast_inline_response_200_51(t)
 	return setmetatable(t, inline_response_200_51_mt)
 end
 
-local function new_inline_response_200_51(articles, grocery_products, menu_items, recipes)
+local function new_inline_response_200_51(annotations)
 	return cast_inline_response_200_51({
-		["Articles"] = articles;
-		["Grocery Products"] = grocery_products;
-		["Menu Items"] = menu_items;
-		["Recipes"] = recipes;
+		["annotations"] = annotations;
 	})
 end
 

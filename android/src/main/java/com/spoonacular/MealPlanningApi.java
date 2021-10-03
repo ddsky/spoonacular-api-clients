@@ -21,18 +21,21 @@ import com.spoonacular.client.model.*;
 import java.util.*;
 
 import java.math.BigDecimal;
+import com.spoonacular.client.model.InlineObject10;
 import com.spoonacular.client.model.InlineObject3;
 import com.spoonacular.client.model.InlineObject4;
 import com.spoonacular.client.model.InlineObject5;
 import com.spoonacular.client.model.InlineObject6;
 import com.spoonacular.client.model.InlineObject7;
 import com.spoonacular.client.model.InlineObject8;
+import com.spoonacular.client.model.InlineObject9;
 import com.spoonacular.client.model.InlineResponse20037;
 import com.spoonacular.client.model.InlineResponse20038;
 import com.spoonacular.client.model.InlineResponse20039;
 import com.spoonacular.client.model.InlineResponse20040;
 import com.spoonacular.client.model.InlineResponse20041;
 import com.spoonacular.client.model.InlineResponse20042;
+import com.spoonacular.client.model.InlineResponse20043;
 
 import org.apache.http.entity.mime.MultipartEntityBuilder;
 
@@ -60,6 +63,69 @@ public class MealPlanningApi {
     return basePath;
   }
 
+  /**
+   * Add Meal Plan Template
+   * Add a meal plan template for a user.
+   * @param username The username.
+   * @param hash The private hash for the username.
+   * @param inlineObject6 
+   * @return InlineResponse20040
+   */
+  public InlineResponse20040  addMealPlanTemplate (String username, String hash, InlineObject6 inlineObject6) throws ApiException {
+    Object localVarPostBody = inlineObject6;
+    // verify the required parameter 'username' is set
+    if (username == null) {
+       throw new ApiException(400, "Missing the required parameter 'username' when calling addMealPlanTemplate");
+    }
+    // verify the required parameter 'hash' is set
+    if (hash == null) {
+       throw new ApiException(400, "Missing the required parameter 'hash' when calling addMealPlanTemplate");
+    }
+    // verify the required parameter 'inlineObject6' is set
+    if (inlineObject6 == null) {
+       throw new ApiException(400, "Missing the required parameter 'inlineObject6' when calling addMealPlanTemplate");
+    }
+
+    // create path and map variables
+    String localVarPath = "/mealplanner/{username}/templates".replaceAll("\\{format\\}","json").replaceAll("\\{" + "username" + "\\}", apiInvoker.escapeString(username.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> localVarFormParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "hash", hash));
+
+
+    String[] localVarContentTypes = {
+      ""
+    };
+    String localVarContentType = localVarContentTypes.length > 0 ? localVarContentTypes[0] : "application/json";
+
+    if (localVarContentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      
+
+      localVarPostBody = localVarBuilder.build();
+    } else {
+      // normal form params
+          }
+
+    try {
+      String localVarResponse = apiInvoker.invokeAPI(basePath, localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarContentType);
+      if(localVarResponse != null){
+        return (InlineResponse20040) ApiInvoker.deserialize(localVarResponse, "", InlineResponse20040.class);
+      }
+      else {
+        return null;
+      }
+    } catch (ApiException ex) {
+      throw ex;
+    }
+  }
   /**
    * Add to Meal Plan
    * Add an item to the user&#39;s meal plan.
@@ -128,11 +194,11 @@ public class MealPlanningApi {
    * Add an item to the current shopping list of a user.
    * @param username The username.
    * @param hash The private hash for the username.
-   * @param inlineObject7 
-   * @return InlineResponse20041
+   * @param inlineObject9 
+   * @return InlineResponse20042
    */
-  public InlineResponse20041  addToShoppingList (String username, String hash, InlineObject7 inlineObject7) throws ApiException {
-    Object localVarPostBody = inlineObject7;
+  public InlineResponse20042  addToShoppingList (String username, String hash, InlineObject9 inlineObject9) throws ApiException {
+    Object localVarPostBody = inlineObject9;
     // verify the required parameter 'username' is set
     if (username == null) {
        throw new ApiException(400, "Missing the required parameter 'username' when calling addToShoppingList");
@@ -141,9 +207,9 @@ public class MealPlanningApi {
     if (hash == null) {
        throw new ApiException(400, "Missing the required parameter 'hash' when calling addToShoppingList");
     }
-    // verify the required parameter 'inlineObject7' is set
-    if (inlineObject7 == null) {
-       throw new ApiException(400, "Missing the required parameter 'inlineObject7' when calling addToShoppingList");
+    // verify the required parameter 'inlineObject9' is set
+    if (inlineObject9 == null) {
+       throw new ApiException(400, "Missing the required parameter 'inlineObject9' when calling addToShoppingList");
     }
 
     // create path and map variables
@@ -177,7 +243,7 @@ public class MealPlanningApi {
     try {
       String localVarResponse = apiInvoker.invokeAPI(basePath, localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarContentType);
       if(localVarResponse != null){
-        return (InlineResponse20041) ApiInvoker.deserialize(localVarResponse, "", InlineResponse20041.class);
+        return (InlineResponse20042) ApiInvoker.deserialize(localVarResponse, "", InlineResponse20042.class);
       }
       else {
         return null;
@@ -258,9 +324,9 @@ public class MealPlanningApi {
    * Connect User
    * In order to call user-specific endpoints, you need to connect your app&#39;s users to spoonacular users.
    * @param body 
-   * @return InlineResponse20042
+   * @return InlineResponse20043
    */
-  public InlineResponse20042  connectUser (Object body) throws ApiException {
+  public InlineResponse20043  connectUser (Object body) throws ApiException {
     Object localVarPostBody = body;
     // verify the required parameter 'body' is set
     if (body == null) {
@@ -297,7 +363,7 @@ public class MealPlanningApi {
     try {
       String localVarResponse = apiInvoker.invokeAPI(basePath, localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarContentType);
       if(localVarResponse != null){
-        return (InlineResponse20042) ApiInvoker.deserialize(localVarResponse, "", InlineResponse20042.class);
+        return (InlineResponse20043) ApiInvoker.deserialize(localVarResponse, "", InlineResponse20043.class);
       }
       else {
         return null;
@@ -380,11 +446,11 @@ public class MealPlanningApi {
    * @param username The username.
    * @param id The item&#39;s id.
    * @param hash The private hash for the username.
-   * @param inlineObject8 
+   * @param inlineObject10 
    * @return Object
    */
-  public Object  deleteFromShoppingList (String username, Integer id, String hash, InlineObject8 inlineObject8) throws ApiException {
-    Object localVarPostBody = inlineObject8;
+  public Object  deleteFromShoppingList (String username, Integer id, String hash, InlineObject10 inlineObject10) throws ApiException {
+    Object localVarPostBody = inlineObject10;
     // verify the required parameter 'username' is set
     if (username == null) {
        throw new ApiException(400, "Missing the required parameter 'username' when calling deleteFromShoppingList");
@@ -397,13 +463,81 @@ public class MealPlanningApi {
     if (hash == null) {
        throw new ApiException(400, "Missing the required parameter 'hash' when calling deleteFromShoppingList");
     }
-    // verify the required parameter 'inlineObject8' is set
-    if (inlineObject8 == null) {
-       throw new ApiException(400, "Missing the required parameter 'inlineObject8' when calling deleteFromShoppingList");
+    // verify the required parameter 'inlineObject10' is set
+    if (inlineObject10 == null) {
+       throw new ApiException(400, "Missing the required parameter 'inlineObject10' when calling deleteFromShoppingList");
     }
 
     // create path and map variables
     String localVarPath = "/mealplanner/{username}/shopping-list/items/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "username" + "\\}", apiInvoker.escapeString(username.toString())).replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> localVarFormParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "hash", hash));
+
+
+    String[] localVarContentTypes = {
+      ""
+    };
+    String localVarContentType = localVarContentTypes.length > 0 ? localVarContentTypes[0] : "application/json";
+
+    if (localVarContentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      
+
+      localVarPostBody = localVarBuilder.build();
+    } else {
+      // normal form params
+          }
+
+    try {
+      String localVarResponse = apiInvoker.invokeAPI(basePath, localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarContentType);
+      if(localVarResponse != null){
+        return (Object) ApiInvoker.deserialize(localVarResponse, "", Object.class);
+      }
+      else {
+        return null;
+      }
+    } catch (ApiException ex) {
+      throw ex;
+    }
+  }
+  /**
+   * Delete Meal Plan Template
+   * Delete a meal plan template for a user.
+   * @param username The username.
+   * @param id The item&#39;s id.
+   * @param hash The private hash for the username.
+   * @param inlineObject7 
+   * @return Object
+   */
+  public Object  deleteMealPlanTemplate (String username, Integer id, String hash, InlineObject7 inlineObject7) throws ApiException {
+    Object localVarPostBody = inlineObject7;
+    // verify the required parameter 'username' is set
+    if (username == null) {
+       throw new ApiException(400, "Missing the required parameter 'username' when calling deleteMealPlanTemplate");
+    }
+    // verify the required parameter 'id' is set
+    if (id == null) {
+       throw new ApiException(400, "Missing the required parameter 'id' when calling deleteMealPlanTemplate");
+    }
+    // verify the required parameter 'hash' is set
+    if (hash == null) {
+       throw new ApiException(400, "Missing the required parameter 'hash' when calling deleteMealPlanTemplate");
+    }
+    // verify the required parameter 'inlineObject7' is set
+    if (inlineObject7 == null) {
+       throw new ApiException(400, "Missing the required parameter 'inlineObject7' when calling deleteMealPlanTemplate");
+    }
+
+    // create path and map variables
+    String localVarPath = "/mealplanner/{username}/templates/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "username" + "\\}", apiInvoker.escapeString(username.toString())).replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
 
     // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -504,11 +638,11 @@ public class MealPlanningApi {
    * @param startDate The start date in the format yyyy-mm-dd.
    * @param endDate The end date in the format yyyy-mm-dd.
    * @param hash The private hash for the username.
-   * @param inlineObject6 
-   * @return InlineResponse20041
+   * @param inlineObject8 
+   * @return InlineResponse20042
    */
-  public InlineResponse20041  generateShoppingList (String username, String startDate, String endDate, String hash, InlineObject6 inlineObject6) throws ApiException {
-    Object localVarPostBody = inlineObject6;
+  public InlineResponse20042  generateShoppingList (String username, String startDate, String endDate, String hash, InlineObject8 inlineObject8) throws ApiException {
+    Object localVarPostBody = inlineObject8;
     // verify the required parameter 'username' is set
     if (username == null) {
        throw new ApiException(400, "Missing the required parameter 'username' when calling generateShoppingList");
@@ -525,9 +659,9 @@ public class MealPlanningApi {
     if (hash == null) {
        throw new ApiException(400, "Missing the required parameter 'hash' when calling generateShoppingList");
     }
-    // verify the required parameter 'inlineObject6' is set
-    if (inlineObject6 == null) {
-       throw new ApiException(400, "Missing the required parameter 'inlineObject6' when calling generateShoppingList");
+    // verify the required parameter 'inlineObject8' is set
+    if (inlineObject8 == null) {
+       throw new ApiException(400, "Missing the required parameter 'inlineObject8' when calling generateShoppingList");
     }
 
     // create path and map variables
@@ -561,7 +695,7 @@ public class MealPlanningApi {
     try {
       String localVarResponse = apiInvoker.invokeAPI(basePath, localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarContentType);
       if(localVarResponse != null){
-        return (InlineResponse20041) ApiInvoker.deserialize(localVarResponse, "", InlineResponse20041.class);
+        return (InlineResponse20042) ApiInvoker.deserialize(localVarResponse, "", InlineResponse20042.class);
       }
       else {
         return null;
@@ -576,9 +710,9 @@ public class MealPlanningApi {
    * @param username The username.
    * @param id The item&#39;s id.
    * @param hash The private hash for the username.
-   * @return InlineResponse20040
+   * @return InlineResponse20041
    */
-  public InlineResponse20040  getMealPlanTemplate (String username, Integer id, String hash) throws ApiException {
+  public InlineResponse20041  getMealPlanTemplate (String username, Integer id, String hash) throws ApiException {
     Object localVarPostBody = null;
     // verify the required parameter 'username' is set
     if (username == null) {
@@ -624,7 +758,7 @@ public class MealPlanningApi {
     try {
       String localVarResponse = apiInvoker.invokeAPI(basePath, localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarContentType);
       if(localVarResponse != null){
-        return (InlineResponse20040) ApiInvoker.deserialize(localVarResponse, "", InlineResponse20040.class);
+        return (InlineResponse20041) ApiInvoker.deserialize(localVarResponse, "", InlineResponse20041.class);
       }
       else {
         return null;
@@ -759,9 +893,9 @@ public class MealPlanningApi {
    * Get the current shopping list for the given user.
    * @param username The username.
    * @param hash The private hash for the username.
-   * @return InlineResponse20041
+   * @return InlineResponse20042
    */
-  public InlineResponse20041  getShoppingList (String username, String hash) throws ApiException {
+  public InlineResponse20042  getShoppingList (String username, String hash) throws ApiException {
     Object localVarPostBody = null;
     // verify the required parameter 'username' is set
     if (username == null) {
@@ -803,7 +937,7 @@ public class MealPlanningApi {
     try {
       String localVarResponse = apiInvoker.invokeAPI(basePath, localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarContentType);
       if(localVarResponse != null){
-        return (InlineResponse20041) ApiInvoker.deserialize(localVarResponse, "", InlineResponse20041.class);
+        return (InlineResponse20042) ApiInvoker.deserialize(localVarResponse, "", InlineResponse20042.class);
       }
       else {
         return null;

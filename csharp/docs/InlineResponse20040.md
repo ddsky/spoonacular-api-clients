@@ -3,9 +3,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int?** |  | 
 **Name** | **string** |  | 
-**Days** | [**List<InlineResponse20040Days>**](InlineResponse20040Days.md) |  | 
+**Items** | [**List<InlineResponse20040Items>**](InlineResponse20040Items.md) |  | 
+**PublishAsPublic** | **bool?** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

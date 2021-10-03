@@ -1172,7 +1172,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **quickAnswer**
-> InlineResponse20049 quickAnswer(q)
+> InlineResponse20050 quickAnswer(q)
 
 Quick Answer
 
@@ -1205,7 +1205,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20049**](InlineResponse20049.md)
+[**InlineResponse20050**](InlineResponse20050.md)
 
 ### Authorization
 

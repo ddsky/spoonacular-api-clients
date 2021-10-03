@@ -13,7 +13,7 @@ Method | HTTP request | Description
 # **getDishPairingForWine**
 ```objc
 -(NSURLSessionTask*) getDishPairingForWineWithWine: (NSString*) wine
-        completionHandler: (void (^)(OAIInlineResponse20043* output, NSError* error)) handler;
+        completionHandler: (void (^)(OAIInlineResponse20044* output, NSError* error)) handler;
 ```
 
 Dish Pairing for Wine
@@ -36,7 +36,7 @@ OAIWineApi*apiInstance = [[OAIWineApi alloc] init];
 
 // Dish Pairing for Wine
 [apiInstance getDishPairingForWineWithWine:wine
-          completionHandler: ^(OAIInlineResponse20043* output, NSError* error) {
+          completionHandler: ^(OAIInlineResponse20044* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -54,7 +54,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OAIInlineResponse20043***](OAIInlineResponse20043.md)
+[**OAIInlineResponse20044***](OAIInlineResponse20044.md)
 
 ### Authorization
 
@@ -70,7 +70,7 @@ Name | Type | Description  | Notes
 # **getWineDescription**
 ```objc
 -(NSURLSessionTask*) getWineDescriptionWithWine: (NSString*) wine
-        completionHandler: (void (^)(OAIInlineResponse20045* output, NSError* error)) handler;
+        completionHandler: (void (^)(OAIInlineResponse20046* output, NSError* error)) handler;
 ```
 
 Wine Description
@@ -93,7 +93,7 @@ OAIWineApi*apiInstance = [[OAIWineApi alloc] init];
 
 // Wine Description
 [apiInstance getWineDescriptionWithWine:wine
-          completionHandler: ^(OAIInlineResponse20045* output, NSError* error) {
+          completionHandler: ^(OAIInlineResponse20046* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -111,7 +111,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OAIInlineResponse20045***](OAIInlineResponse20045.md)
+[**OAIInlineResponse20046***](OAIInlineResponse20046.md)
 
 ### Authorization
 
@@ -128,7 +128,7 @@ Name | Type | Description  | Notes
 ```objc
 -(NSURLSessionTask*) getWinePairingWithFood: (NSString*) food
     maxPrice: (NSNumber*) maxPrice
-        completionHandler: (void (^)(OAIInlineResponse20044* output, NSError* error)) handler;
+        completionHandler: (void (^)(OAIInlineResponse20045* output, NSError* error)) handler;
 ```
 
 Wine Pairing
@@ -153,7 +153,7 @@ OAIWineApi*apiInstance = [[OAIWineApi alloc] init];
 // Wine Pairing
 [apiInstance getWinePairingWithFood:food
               maxPrice:maxPrice
-          completionHandler: ^(OAIInlineResponse20044* output, NSError* error) {
+          completionHandler: ^(OAIInlineResponse20045* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -172,7 +172,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OAIInlineResponse20044***](OAIInlineResponse20044.md)
+[**OAIInlineResponse20045***](OAIInlineResponse20045.md)
 
 ### Authorization
 
@@ -191,7 +191,7 @@ Name | Type | Description  | Notes
     maxPrice: (NSNumber*) maxPrice
     minRating: (NSNumber*) minRating
     number: (NSNumber*) number
-        completionHandler: (void (^)(OAIInlineResponse20046* output, NSError* error)) handler;
+        completionHandler: (void (^)(OAIInlineResponse20047* output, NSError* error)) handler;
 ```
 
 Wine Recommendation
@@ -220,7 +220,7 @@ OAIWineApi*apiInstance = [[OAIWineApi alloc] init];
               maxPrice:maxPrice
               minRating:minRating
               number:number
-          completionHandler: ^(OAIInlineResponse20046* output, NSError* error) {
+          completionHandler: ^(OAIInlineResponse20047* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -241,7 +241,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OAIInlineResponse20046***](OAIInlineResponse20046.md)
+[**OAIInlineResponse20047***](OAIInlineResponse20047.md)
 
 ### Authorization
 

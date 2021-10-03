@@ -14,23 +14,35 @@ require 'date'
 
 module OpenapiClient
   class InlineResponse20053
-    attr_accessor :videos
+    attr_accessor :query
 
     attr_accessor :total_results
+
+    attr_accessor :limit
+
+    attr_accessor :offset
+
+    attr_accessor :search_results
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'videos' => :'videos',
-        :'total_results' => :'totalResults'
+        :'query' => :'query',
+        :'total_results' => :'totalResults',
+        :'limit' => :'limit',
+        :'offset' => :'offset',
+        :'search_results' => :'searchResults'
       }
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'videos' => :'Array<InlineResponse20053Videos>',
-        :'total_results' => :'Integer'
+        :'query' => :'String',
+        :'total_results' => :'Integer',
+        :'limit' => :'Integer',
+        :'offset' => :'Integer',
+        :'search_results' => :'Array<InlineResponse20053SearchResults>'
       }
     end
 
@@ -49,14 +61,26 @@ module OpenapiClient
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'videos')
-        if (value = attributes[:'videos']).is_a?(Array)
-          self.videos = value
-        end
+      if attributes.key?(:'query')
+        self.query = attributes[:'query']
       end
 
       if attributes.key?(:'total_results')
         self.total_results = attributes[:'total_results']
+      end
+
+      if attributes.key?(:'limit')
+        self.limit = attributes[:'limit']
+      end
+
+      if attributes.key?(:'offset')
+        self.offset = attributes[:'offset']
+      end
+
+      if attributes.key?(:'search_results')
+        if (value = attributes[:'search_results']).is_a?(Array)
+          self.search_results = value
+        end
       end
     end
 
@@ -64,12 +88,28 @@ module OpenapiClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @videos.nil?
-        invalid_properties.push('invalid value for "videos", videos cannot be nil.')
+      if @query.nil?
+        invalid_properties.push('invalid value for "query", query cannot be nil.')
+      end
+
+      if @query.to_s.length < 1
+        invalid_properties.push('invalid value for "query", the character length must be great than or equal to 1.')
       end
 
       if @total_results.nil?
         invalid_properties.push('invalid value for "total_results", total_results cannot be nil.')
+      end
+
+      if @limit.nil?
+        invalid_properties.push('invalid value for "limit", limit cannot be nil.')
+      end
+
+      if @offset.nil?
+        invalid_properties.push('invalid value for "offset", offset cannot be nil.')
+      end
+
+      if @search_results.nil?
+        invalid_properties.push('invalid value for "search_results", search_results cannot be nil.')
       end
 
       invalid_properties
@@ -78,9 +118,27 @@ module OpenapiClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @videos.nil?
+      return false if @query.nil?
+      return false if @query.to_s.length < 1
       return false if @total_results.nil?
+      return false if @limit.nil?
+      return false if @offset.nil?
+      return false if @search_results.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] query Value to be assigned
+    def query=(query)
+      if query.nil?
+        fail ArgumentError, 'query cannot be nil'
+      end
+
+      if query.to_s.length < 1
+        fail ArgumentError, 'invalid value for "query", the character length must be great than or equal to 1.'
+      end
+
+      @query = query
     end
 
     # Checks equality by comparing each attribute.
@@ -88,8 +146,11 @@ module OpenapiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          videos == o.videos &&
-          total_results == o.total_results
+          query == o.query &&
+          total_results == o.total_results &&
+          limit == o.limit &&
+          offset == o.offset &&
+          search_results == o.search_results
     end
 
     # @see the `==` method
@@ -101,7 +162,7 @@ module OpenapiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [videos, total_results].hash
+      [query, total_results, limit, offset, search_results].hash
     end
 
     # Builds the object from hash

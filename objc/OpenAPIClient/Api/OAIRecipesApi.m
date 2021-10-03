@@ -20,8 +20,8 @@
 #import "OAIInlineResponse20023.h"
 #import "OAIInlineResponse2003.h"
 #import "OAIInlineResponse2004.h"
-#import "OAIInlineResponse20049.h"
 #import "OAIInlineResponse2005.h"
+#import "OAIInlineResponse20050.h"
 #import "OAIInlineResponse2006.h"
 #import "OAIInlineResponse2007.h"
 #import "OAIInlineResponse2008.h"
@@ -1721,10 +1721,10 @@ NSInteger kOAIRecipesApiMissingParamErrorCode = 234513;
 /// Answer a nutrition related natural language question.
 ///  @param q The nutrition related question. 
 ///
-///  @returns OAIInlineResponse20049*
+///  @returns OAIInlineResponse20050*
 ///
 -(NSURLSessionTask*) quickAnswerWithQ: (NSString*) q
-    completionHandler: (void (^)(OAIInlineResponse20049* output, NSError* error)) handler {
+    completionHandler: (void (^)(OAIInlineResponse20050* output, NSError* error)) handler {
     // verify the required parameter 'q' is set
     if (q == nil) {
         NSParameterAssert(q);
@@ -1776,10 +1776,10 @@ NSInteger kOAIRecipesApiMissingParamErrorCode = 234513;
                               authSettings: authSettings
                         requestContentType: requestContentType
                        responseContentType: responseContentType
-                              responseType: @"OAIInlineResponse20049*"
+                              responseType: @"OAIInlineResponse20050*"
                            completionBlock: ^(id data, NSError *error) {
                                 if(handler) {
-                                    handler((OAIInlineResponse20049*)data, error);
+                                    handler((OAIInlineResponse20050*)data, error);
                                 }
                             }];
 }

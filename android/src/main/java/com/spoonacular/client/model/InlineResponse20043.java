@@ -1,6 +1,5 @@
 package com.spoonacular.client.model;
 
-import java.util.*;
 
 import io.swagger.annotations.*;
 import com.google.gson.annotations.SerializedName;
@@ -9,29 +8,29 @@ import com.google.gson.annotations.SerializedName;
 @ApiModel(description = "")
 public class InlineResponse20043  {
   
-  @SerializedName("pairings")
-  private List<String> pairings = null;
-  @SerializedName("text")
-  private String text = null;
+  @SerializedName("username")
+  private String username = null;
+  @SerializedName("hash")
+  private String hash = null;
 
   /**
    **/
   @ApiModelProperty(required = true, value = "")
-  public List<String> getPairings() {
-    return pairings;
+  public String getUsername() {
+    return username;
   }
-  public void setPairings(List<String> pairings) {
-    this.pairings = pairings;
+  public void setUsername(String username) {
+    this.username = username;
   }
 
   /**
    **/
   @ApiModelProperty(required = true, value = "")
-  public String getText() {
-    return text;
+  public String getHash() {
+    return hash;
   }
-  public void setText(String text) {
-    this.text = text;
+  public void setHash(String hash) {
+    this.hash = hash;
   }
 
 
@@ -44,15 +43,15 @@ public class InlineResponse20043  {
       return false;
     }
     InlineResponse20043 inlineResponse20043 = (InlineResponse20043) o;
-    return (this.pairings == null ? inlineResponse20043.pairings == null : this.pairings.equals(inlineResponse20043.pairings)) &&
-        (this.text == null ? inlineResponse20043.text == null : this.text.equals(inlineResponse20043.text));
+    return (this.username == null ? inlineResponse20043.username == null : this.username.equals(inlineResponse20043.username)) &&
+        (this.hash == null ? inlineResponse20043.hash == null : this.hash.equals(inlineResponse20043.hash));
   }
 
   @Override
   public int hashCode() {
     int result = 17;
-    result = 31 * result + (this.pairings == null ? 0: this.pairings.hashCode());
-    result = 31 * result + (this.text == null ? 0: this.text.hashCode());
+    result = 31 * result + (this.username == null ? 0: this.username.hashCode());
+    result = 31 * result + (this.hash == null ? 0: this.hash.hashCode());
     return result;
   }
 
@@ -61,8 +60,8 @@ public class InlineResponse20043  {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse20043 {\n");
     
-    sb.append("  pairings: ").append(pairings).append("\n");
-    sb.append("  text: ").append(text).append("\n");
+    sb.append("  username: ").append(username).append("\n");
+    sb.append("  hash: ").append(hash).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

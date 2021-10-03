@@ -38,11 +38,11 @@ OAIInline_response_200_47::~OAIInline_response_200_47() {
 void
 OAIInline_response_200_47::init() {
     
-    m_category_isSet = false;
-    m_category_isValid = false;
+    m_recommended_wines_isSet = false;
+    m_recommended_wines_isValid = false;
     
-    m_probability_isSet = false;
-    m_probability_isValid = false;
+    m_total_found_isSet = false;
+    m_total_found_isValid = false;
     }
 
 void
@@ -56,10 +56,10 @@ OAIInline_response_200_47::fromJson(QString jsonString) {
 void
 OAIInline_response_200_47::fromJsonObject(QJsonObject json) {
     
-    m_category_isValid = ::OpenAPI::fromJsonValue(category, json[QString("category")]);
     
+    m_recommended_wines_isValid = ::OpenAPI::fromJsonValue(recommended_wines, json[QString("recommendedWines")]);
     
-    m_probability_isValid = ::OpenAPI::fromJsonValue(probability, json[QString("probability")]);
+    m_total_found_isValid = ::OpenAPI::fromJsonValue(total_found, json[QString("totalFound")]);
     
     
 }
@@ -75,44 +75,45 @@ OAIInline_response_200_47::asJson () const {
 QJsonObject
 OAIInline_response_200_47::asJsonObject() const {
     QJsonObject obj;
-	if(m_category_isSet){
-        obj.insert(QString("category"), ::OpenAPI::toJsonValue(category));
-    }
-	if(probability.isSet()){
-        obj.insert(QString("probability"), ::OpenAPI::toJsonValue(probability));
+	
+    if(recommended_wines.size() > 0){
+        obj.insert(QString("recommendedWines"), ::OpenAPI::toJsonValue(recommended_wines));
+    } 
+	if(m_total_found_isSet){
+        obj.insert(QString("totalFound"), ::OpenAPI::toJsonValue(total_found));
     }
     return obj;
 }
 
 
-QString
-OAIInline_response_200_47::getCategory() const {
-    return category;
+QList<OAIInline_response_200_47_recommendedWines>
+OAIInline_response_200_47::getRecommendedWines() const {
+    return recommended_wines;
 }
 void
-OAIInline_response_200_47::setCategory(const QString &category) {
-    this->category = category;
-    this->m_category_isSet = true;
+OAIInline_response_200_47::setRecommendedWines(const QList<OAIInline_response_200_47_recommendedWines> &recommended_wines) {
+    this->recommended_wines = recommended_wines;
+    this->m_recommended_wines_isSet = true;
 }
 
 
-OAINumber
-OAIInline_response_200_47::getProbability() const {
-    return probability;
+qint32
+OAIInline_response_200_47::getTotalFound() const {
+    return total_found;
 }
 void
-OAIInline_response_200_47::setProbability(const OAINumber &probability) {
-    this->probability = probability;
-    this->m_probability_isSet = true;
+OAIInline_response_200_47::setTotalFound(const qint32 &total_found) {
+    this->total_found = total_found;
+    this->m_total_found_isSet = true;
 }
 
 bool
 OAIInline_response_200_47::isSet() const {
     bool isObjectUpdated = false;
     do{ 
-        if(m_category_isSet){ isObjectUpdated = true; break;}
+        if(recommended_wines.size() > 0){ isObjectUpdated = true; break;}
     
-        if(probability.isSet()){ isObjectUpdated = true; break;}
+        if(m_total_found_isSet){ isObjectUpdated = true; break;}
     }while(false);
     return isObjectUpdated;
 }
@@ -120,7 +121,7 @@ OAIInline_response_200_47::isSet() const {
 bool
 OAIInline_response_200_47::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_category_isValid && m_probability_isValid && true;
+    return m_recommended_wines_isValid && m_total_found_isValid && true;
 }
 
 }

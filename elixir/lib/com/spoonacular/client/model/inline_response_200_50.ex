@@ -9,11 +9,13 @@ defmodule com.spoonacular.client.Model.InlineResponse20050 do
 
   @derive [Poison.Encoder]
   defstruct [
-    :"annotations"
+    :"answer",
+    :"image"
   ]
 
   @type t :: %__MODULE__{
-    :"annotations" => [Map]
+    :"answer" => String.t,
+    :"image" => String.t
   }
 end
 

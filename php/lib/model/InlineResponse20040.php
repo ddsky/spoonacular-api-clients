@@ -57,9 +57,9 @@ class InlineResponse20040 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'int',
         'name' => 'string',
-        'days' => '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20040Days[]'
+        'items' => '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20040Items[]',
+        'publish_as_public' => 'bool'
     ];
 
     /**
@@ -68,9 +68,9 @@ class InlineResponse20040 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => null,
         'name' => null,
-        'days' => null
+        'items' => null,
+        'publish_as_public' => null
     ];
 
     /**
@@ -100,9 +100,9 @@ class InlineResponse20040 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
         'name' => 'name',
-        'days' => 'days'
+        'items' => 'items',
+        'publish_as_public' => 'publishAsPublic'
     ];
 
     /**
@@ -111,9 +111,9 @@ class InlineResponse20040 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
         'name' => 'setName',
-        'days' => 'setDays'
+        'items' => 'setItems',
+        'publish_as_public' => 'setPublishAsPublic'
     ];
 
     /**
@@ -122,9 +122,9 @@ class InlineResponse20040 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
         'name' => 'getName',
-        'days' => 'getDays'
+        'items' => 'getItems',
+        'publish_as_public' => 'getPublishAsPublic'
     ];
 
     /**
@@ -187,9 +187,9 @@ class InlineResponse20040 implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['days'] = isset($data['days']) ? $data['days'] : null;
+        $this->container['items'] = isset($data['items']) ? $data['items'] : null;
+        $this->container['publish_as_public'] = isset($data['publish_as_public']) ? $data['publish_as_public'] : null;
     }
 
     /**
@@ -201,9 +201,6 @@ class InlineResponse20040 implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
         }
@@ -211,8 +208,11 @@ class InlineResponse20040 implements ModelInterface, ArrayAccess
             $invalidProperties[] = "invalid value for 'name', the character length must be bigger than or equal to 1.";
         }
 
-        if ($this->container['days'] === null) {
-            $invalidProperties[] = "'days' can't be null";
+        if ($this->container['items'] === null) {
+            $invalidProperties[] = "'items' can't be null";
+        }
+        if ($this->container['publish_as_public'] === null) {
+            $invalidProperties[] = "'publish_as_public' can't be null";
         }
         return $invalidProperties;
     }
@@ -228,30 +228,6 @@ class InlineResponse20040 implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets id
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param int $id id
-     *
-     * @return $this
-     */
-    public function setId($id)
-    {
-        $this->container['id'] = $id;
-
-        return $this;
-    }
 
     /**
      * Gets name
@@ -283,25 +259,49 @@ class InlineResponse20040 implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets days
+     * Gets items
      *
-     * @return \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20040Days[]
+     * @return \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20040Items[]
      */
-    public function getDays()
+    public function getItems()
     {
-        return $this->container['days'];
+        return $this->container['items'];
     }
 
     /**
-     * Sets days
+     * Sets items
      *
-     * @param \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20040Days[] $days days
+     * @param \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20040Items[] $items items
      *
      * @return $this
      */
-    public function setDays($days)
+    public function setItems($items)
     {
-        $this->container['days'] = $days;
+        $this->container['items'] = $items;
+
+        return $this;
+    }
+
+    /**
+     * Gets publish_as_public
+     *
+     * @return bool
+     */
+    public function getPublishAsPublic()
+    {
+        return $this->container['publish_as_public'];
+    }
+
+    /**
+     * Sets publish_as_public
+     *
+     * @param bool $publish_as_public publish_as_public
+     *
+     * @return $this
+     */
+    public function setPublishAsPublic($publish_as_public)
+    {
+        $this->container['publish_as_public'] = $publish_as_public;
 
         return $this;
     }

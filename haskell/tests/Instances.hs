@@ -134,6 +134,16 @@ genInlineObject1 n =
     <*> arbitrary -- inlineObject1Upc :: Text
     <*> arbitrary -- inlineObject1PluCode :: Text
   
+instance Arbitrary InlineObject10 where
+  arbitrary = sized genInlineObject10
+
+genInlineObject10 :: Int -> Gen InlineObject10
+genInlineObject10 n =
+  InlineObject10
+    <$> arbitrary -- inlineObject10Username :: Text
+    <*> arbitrary -- inlineObject10Id :: Double
+    <*> arbitrary -- inlineObject10Hash :: Text
+  
 instance Arbitrary InlineObject2 where
   arbitrary = sized genInlineObject2
 
@@ -179,8 +189,6 @@ genInlineObject6 :: Int -> Gen InlineObject6
 genInlineObject6 n =
   InlineObject6
     <$> arbitrary -- inlineObject6Username :: Text
-    <*> arbitrary -- inlineObject6StartDate :: Text
-    <*> arbitrary -- inlineObject6EndDate :: Text
     <*> arbitrary -- inlineObject6Hash :: Text
   
 instance Arbitrary InlineObject7 where
@@ -190,6 +198,7 @@ genInlineObject7 :: Int -> Gen InlineObject7
 genInlineObject7 n =
   InlineObject7
     <$> arbitrary -- inlineObject7Username :: Text
+    <*> arbitrary -- inlineObject7Id :: Double
     <*> arbitrary -- inlineObject7Hash :: Text
   
 instance Arbitrary InlineObject8 where
@@ -199,8 +208,18 @@ genInlineObject8 :: Int -> Gen InlineObject8
 genInlineObject8 n =
   InlineObject8
     <$> arbitrary -- inlineObject8Username :: Text
-    <*> arbitrary -- inlineObject8Id :: Double
+    <*> arbitrary -- inlineObject8StartDate :: Text
+    <*> arbitrary -- inlineObject8EndDate :: Text
     <*> arbitrary -- inlineObject8Hash :: Text
+  
+instance Arbitrary InlineObject9 where
+  arbitrary = sized genInlineObject9
+
+genInlineObject9 :: Int -> Gen InlineObject9
+genInlineObject9 n =
+  InlineObject9
+    <$> arbitrary -- inlineObject9Username :: Text
+    <*> arbitrary -- inlineObject9Hash :: Text
   
 instance Arbitrary InlineResponse200 where
   arbitrary = sized genInlineResponse200
@@ -1085,22 +1104,9 @@ instance Arbitrary InlineResponse20040 where
 genInlineResponse20040 :: Int -> Gen InlineResponse20040
 genInlineResponse20040 n =
   InlineResponse20040
-    <$> arbitrary -- inlineResponse20040Id :: Int
-    <*> arbitrary -- inlineResponse20040Name :: Text
-    <*> arbitraryReduced n -- inlineResponse20040Days :: [InlineResponse20040Days]
-  
-instance Arbitrary InlineResponse20040Days where
-  arbitrary = sized genInlineResponse20040Days
-
-genInlineResponse20040Days :: Int -> Gen InlineResponse20040Days
-genInlineResponse20040Days n =
-  InlineResponse20040Days
-    <$> arbitraryReducedMaybe n -- inlineResponse20040DaysNutritionSummary :: Maybe InlineResponse20038NutritionSummary
-    <*> arbitraryReducedMaybe n -- inlineResponse20040DaysNutritionSummaryBreakfast :: Maybe InlineResponse20038NutritionSummary
-    <*> arbitraryReducedMaybe n -- inlineResponse20040DaysNutritionSummaryLunch :: Maybe InlineResponse20038NutritionSummary
-    <*> arbitraryReducedMaybe n -- inlineResponse20040DaysNutritionSummaryDinner :: Maybe InlineResponse20038NutritionSummary
-    <*> arbitrary -- inlineResponse20040DaysDay :: Text
-    <*> arbitraryReducedMaybe n -- inlineResponse20040DaysItems :: Maybe [InlineResponse20040Items]
+    <$> arbitrary -- inlineResponse20040Name :: Text
+    <*> arbitraryReduced n -- inlineResponse20040Items :: [InlineResponse20040Items]
+    <*> arbitrary -- inlineResponse20040PublishAsPublic :: Bool
   
 instance Arbitrary InlineResponse20040Items where
   arbitrary = sized genInlineResponse20040Items
@@ -1108,7 +1114,7 @@ instance Arbitrary InlineResponse20040Items where
 genInlineResponse20040Items :: Int -> Gen InlineResponse20040Items
 genInlineResponse20040Items n =
   InlineResponse20040Items
-    <$> arbitrary -- inlineResponse20040ItemsId :: Int
+    <$> arbitrary -- inlineResponse20040ItemsDay :: Int
     <*> arbitrary -- inlineResponse20040ItemsSlot :: Int
     <*> arbitrary -- inlineResponse20040ItemsPosition :: Int
     <*> arbitrary -- inlineResponse20040ItemsType :: Text
@@ -1120,9 +1126,10 @@ instance Arbitrary InlineResponse20040Value where
 genInlineResponse20040Value :: Int -> Gen InlineResponse20040Value
 genInlineResponse20040Value n =
   InlineResponse20040Value
-    <$> arbitrary -- inlineResponse20040ValueId :: Double
-    <*> arbitrary -- inlineResponse20040ValueTitle :: Text
-    <*> arbitrary -- inlineResponse20040ValueImageType :: Text
+    <$> arbitraryReducedMaybe n -- inlineResponse20040ValueId :: Maybe Int
+    <*> arbitraryReducedMaybe n -- inlineResponse20040ValueServings :: Maybe Double
+    <*> arbitraryReducedMaybe n -- inlineResponse20040ValueTitle :: Maybe Text
+    <*> arbitraryReducedMaybe n -- inlineResponse20040ValueImageType :: Maybe Text
   
 instance Arbitrary InlineResponse20041 where
   arbitrary = sized genInlineResponse20041
@@ -1130,19 +1137,22 @@ instance Arbitrary InlineResponse20041 where
 genInlineResponse20041 :: Int -> Gen InlineResponse20041
 genInlineResponse20041 n =
   InlineResponse20041
-    <$> arbitraryReduced n -- inlineResponse20041Aisles :: [InlineResponse20041Aisles]
-    <*> arbitrary -- inlineResponse20041Cost :: Double
-    <*> arbitrary -- inlineResponse20041StartDate :: Double
-    <*> arbitrary -- inlineResponse20041EndDate :: Double
+    <$> arbitrary -- inlineResponse20041Id :: Int
+    <*> arbitrary -- inlineResponse20041Name :: Text
+    <*> arbitraryReduced n -- inlineResponse20041Days :: [InlineResponse20041Days]
   
-instance Arbitrary InlineResponse20041Aisles where
-  arbitrary = sized genInlineResponse20041Aisles
+instance Arbitrary InlineResponse20041Days where
+  arbitrary = sized genInlineResponse20041Days
 
-genInlineResponse20041Aisles :: Int -> Gen InlineResponse20041Aisles
-genInlineResponse20041Aisles n =
-  InlineResponse20041Aisles
-    <$> arbitrary -- inlineResponse20041AislesAisle :: Text
-    <*> arbitraryReducedMaybe n -- inlineResponse20041AislesItems :: Maybe [InlineResponse20041Items]
+genInlineResponse20041Days :: Int -> Gen InlineResponse20041Days
+genInlineResponse20041Days n =
+  InlineResponse20041Days
+    <$> arbitraryReducedMaybe n -- inlineResponse20041DaysNutritionSummary :: Maybe InlineResponse20038NutritionSummary
+    <*> arbitraryReducedMaybe n -- inlineResponse20041DaysNutritionSummaryBreakfast :: Maybe InlineResponse20038NutritionSummary
+    <*> arbitraryReducedMaybe n -- inlineResponse20041DaysNutritionSummaryLunch :: Maybe InlineResponse20038NutritionSummary
+    <*> arbitraryReducedMaybe n -- inlineResponse20041DaysNutritionSummaryDinner :: Maybe InlineResponse20038NutritionSummary
+    <*> arbitrary -- inlineResponse20041DaysDay :: Text
+    <*> arbitraryReducedMaybe n -- inlineResponse20041DaysItems :: Maybe [InlineResponse20041Items]
   
 instance Arbitrary InlineResponse20041Items where
   arbitrary = sized genInlineResponse20041Items
@@ -1151,22 +1161,20 @@ genInlineResponse20041Items :: Int -> Gen InlineResponse20041Items
 genInlineResponse20041Items n =
   InlineResponse20041Items
     <$> arbitrary -- inlineResponse20041ItemsId :: Int
-    <*> arbitrary -- inlineResponse20041ItemsName :: Text
-    <*> arbitraryReducedMaybe n -- inlineResponse20041ItemsMeasures :: Maybe InlineResponse20041Measures
-    <*> arbitrary -- inlineResponse20041ItemsPantryItem :: Bool
-    <*> arbitrary -- inlineResponse20041ItemsAisle :: Text
-    <*> arbitrary -- inlineResponse20041ItemsCost :: Double
-    <*> arbitrary -- inlineResponse20041ItemsIngredientId :: Int
+    <*> arbitrary -- inlineResponse20041ItemsSlot :: Int
+    <*> arbitrary -- inlineResponse20041ItemsPosition :: Int
+    <*> arbitrary -- inlineResponse20041ItemsType :: Text
+    <*> arbitraryReducedMaybe n -- inlineResponse20041ItemsValue :: Maybe InlineResponse20041Value
   
-instance Arbitrary InlineResponse20041Measures where
-  arbitrary = sized genInlineResponse20041Measures
+instance Arbitrary InlineResponse20041Value where
+  arbitrary = sized genInlineResponse20041Value
 
-genInlineResponse20041Measures :: Int -> Gen InlineResponse20041Measures
-genInlineResponse20041Measures n =
-  InlineResponse20041Measures
-    <$> arbitraryReduced n -- inlineResponse20041MeasuresOriginal :: RecipesParseIngredientsNutritionWeightPerServing
-    <*> arbitraryReduced n -- inlineResponse20041MeasuresMetric :: RecipesParseIngredientsNutritionWeightPerServing
-    <*> arbitraryReduced n -- inlineResponse20041MeasuresUs :: RecipesParseIngredientsNutritionWeightPerServing
+genInlineResponse20041Value :: Int -> Gen InlineResponse20041Value
+genInlineResponse20041Value n =
+  InlineResponse20041Value
+    <$> arbitrary -- inlineResponse20041ValueId :: Double
+    <*> arbitrary -- inlineResponse20041ValueTitle :: Text
+    <*> arbitrary -- inlineResponse20041ValueImageType :: Text
   
 instance Arbitrary InlineResponse20042 where
   arbitrary = sized genInlineResponse20042
@@ -1174,8 +1182,43 @@ instance Arbitrary InlineResponse20042 where
 genInlineResponse20042 :: Int -> Gen InlineResponse20042
 genInlineResponse20042 n =
   InlineResponse20042
-    <$> arbitrary -- inlineResponse20042Username :: Text
-    <*> arbitrary -- inlineResponse20042Hash :: Text
+    <$> arbitraryReduced n -- inlineResponse20042Aisles :: [InlineResponse20042Aisles]
+    <*> arbitrary -- inlineResponse20042Cost :: Double
+    <*> arbitrary -- inlineResponse20042StartDate :: Double
+    <*> arbitrary -- inlineResponse20042EndDate :: Double
+  
+instance Arbitrary InlineResponse20042Aisles where
+  arbitrary = sized genInlineResponse20042Aisles
+
+genInlineResponse20042Aisles :: Int -> Gen InlineResponse20042Aisles
+genInlineResponse20042Aisles n =
+  InlineResponse20042Aisles
+    <$> arbitrary -- inlineResponse20042AislesAisle :: Text
+    <*> arbitraryReducedMaybe n -- inlineResponse20042AislesItems :: Maybe [InlineResponse20042Items]
+  
+instance Arbitrary InlineResponse20042Items where
+  arbitrary = sized genInlineResponse20042Items
+
+genInlineResponse20042Items :: Int -> Gen InlineResponse20042Items
+genInlineResponse20042Items n =
+  InlineResponse20042Items
+    <$> arbitrary -- inlineResponse20042ItemsId :: Int
+    <*> arbitrary -- inlineResponse20042ItemsName :: Text
+    <*> arbitraryReducedMaybe n -- inlineResponse20042ItemsMeasures :: Maybe InlineResponse20042Measures
+    <*> arbitrary -- inlineResponse20042ItemsPantryItem :: Bool
+    <*> arbitrary -- inlineResponse20042ItemsAisle :: Text
+    <*> arbitrary -- inlineResponse20042ItemsCost :: Double
+    <*> arbitrary -- inlineResponse20042ItemsIngredientId :: Int
+  
+instance Arbitrary InlineResponse20042Measures where
+  arbitrary = sized genInlineResponse20042Measures
+
+genInlineResponse20042Measures :: Int -> Gen InlineResponse20042Measures
+genInlineResponse20042Measures n =
+  InlineResponse20042Measures
+    <$> arbitraryReduced n -- inlineResponse20042MeasuresOriginal :: RecipesParseIngredientsNutritionWeightPerServing
+    <*> arbitraryReduced n -- inlineResponse20042MeasuresMetric :: RecipesParseIngredientsNutritionWeightPerServing
+    <*> arbitraryReduced n -- inlineResponse20042MeasuresUs :: RecipesParseIngredientsNutritionWeightPerServing
   
 instance Arbitrary InlineResponse20043 where
   arbitrary = sized genInlineResponse20043
@@ -1183,8 +1226,8 @@ instance Arbitrary InlineResponse20043 where
 genInlineResponse20043 :: Int -> Gen InlineResponse20043
 genInlineResponse20043 n =
   InlineResponse20043
-    <$> arbitrary -- inlineResponse20043Pairings :: [Text]
-    <*> arbitrary -- inlineResponse20043Text :: Text
+    <$> arbitrary -- inlineResponse20043Username :: Text
+    <*> arbitrary -- inlineResponse20043Hash :: Text
   
 instance Arbitrary InlineResponse20044 where
   arbitrary = sized genInlineResponse20044
@@ -1192,25 +1235,8 @@ instance Arbitrary InlineResponse20044 where
 genInlineResponse20044 :: Int -> Gen InlineResponse20044
 genInlineResponse20044 n =
   InlineResponse20044
-    <$> arbitrary -- inlineResponse20044PairedWines :: [Text]
-    <*> arbitrary -- inlineResponse20044PairingText :: Text
-    <*> arbitraryReduced n -- inlineResponse20044ProductMatches :: [InlineResponse20044ProductMatches]
-  
-instance Arbitrary InlineResponse20044ProductMatches where
-  arbitrary = sized genInlineResponse20044ProductMatches
-
-genInlineResponse20044ProductMatches :: Int -> Gen InlineResponse20044ProductMatches
-genInlineResponse20044ProductMatches n =
-  InlineResponse20044ProductMatches
-    <$> arbitrary -- inlineResponse20044ProductMatchesId :: Int
-    <*> arbitrary -- inlineResponse20044ProductMatchesTitle :: Text
-    <*> arbitrary -- inlineResponse20044ProductMatchesAverageRating :: Double
-    <*> arbitraryReducedMaybeValue n -- inlineResponse20044ProductMatchesDescription :: Maybe A.Value
-    <*> arbitrary -- inlineResponse20044ProductMatchesImageUrl :: Text
-    <*> arbitrary -- inlineResponse20044ProductMatchesLink :: Text
-    <*> arbitrary -- inlineResponse20044ProductMatchesPrice :: Text
-    <*> arbitrary -- inlineResponse20044ProductMatchesRatingCount :: Int
-    <*> arbitrary -- inlineResponse20044ProductMatchesScore :: Double
+    <$> arbitrary -- inlineResponse20044Pairings :: [Text]
+    <*> arbitrary -- inlineResponse20044Text :: Text
   
 instance Arbitrary InlineResponse20045 where
   arbitrary = sized genInlineResponse20045
@@ -1218,7 +1244,25 @@ instance Arbitrary InlineResponse20045 where
 genInlineResponse20045 :: Int -> Gen InlineResponse20045
 genInlineResponse20045 n =
   InlineResponse20045
-    <$> arbitrary -- inlineResponse20045WineDescription :: Text
+    <$> arbitrary -- inlineResponse20045PairedWines :: [Text]
+    <*> arbitrary -- inlineResponse20045PairingText :: Text
+    <*> arbitraryReduced n -- inlineResponse20045ProductMatches :: [InlineResponse20045ProductMatches]
+  
+instance Arbitrary InlineResponse20045ProductMatches where
+  arbitrary = sized genInlineResponse20045ProductMatches
+
+genInlineResponse20045ProductMatches :: Int -> Gen InlineResponse20045ProductMatches
+genInlineResponse20045ProductMatches n =
+  InlineResponse20045ProductMatches
+    <$> arbitrary -- inlineResponse20045ProductMatchesId :: Int
+    <*> arbitrary -- inlineResponse20045ProductMatchesTitle :: Text
+    <*> arbitrary -- inlineResponse20045ProductMatchesAverageRating :: Double
+    <*> arbitraryReducedMaybeValue n -- inlineResponse20045ProductMatchesDescription :: Maybe A.Value
+    <*> arbitrary -- inlineResponse20045ProductMatchesImageUrl :: Text
+    <*> arbitrary -- inlineResponse20045ProductMatchesLink :: Text
+    <*> arbitrary -- inlineResponse20045ProductMatchesPrice :: Text
+    <*> arbitrary -- inlineResponse20045ProductMatchesRatingCount :: Int
+    <*> arbitrary -- inlineResponse20045ProductMatchesScore :: Double
   
 instance Arbitrary InlineResponse20046 where
   arbitrary = sized genInlineResponse20046
@@ -1226,24 +1270,7 @@ instance Arbitrary InlineResponse20046 where
 genInlineResponse20046 :: Int -> Gen InlineResponse20046
 genInlineResponse20046 n =
   InlineResponse20046
-    <$> arbitraryReduced n -- inlineResponse20046RecommendedWines :: [InlineResponse20046RecommendedWines]
-    <*> arbitrary -- inlineResponse20046TotalFound :: Int
-  
-instance Arbitrary InlineResponse20046RecommendedWines where
-  arbitrary = sized genInlineResponse20046RecommendedWines
-
-genInlineResponse20046RecommendedWines :: Int -> Gen InlineResponse20046RecommendedWines
-genInlineResponse20046RecommendedWines n =
-  InlineResponse20046RecommendedWines
-    <$> arbitrary -- inlineResponse20046RecommendedWinesId :: Int
-    <*> arbitrary -- inlineResponse20046RecommendedWinesTitle :: Text
-    <*> arbitrary -- inlineResponse20046RecommendedWinesAverageRating :: Double
-    <*> arbitrary -- inlineResponse20046RecommendedWinesDescription :: Text
-    <*> arbitrary -- inlineResponse20046RecommendedWinesImageUrl :: Text
-    <*> arbitrary -- inlineResponse20046RecommendedWinesLink :: Text
-    <*> arbitrary -- inlineResponse20046RecommendedWinesPrice :: Text
-    <*> arbitrary -- inlineResponse20046RecommendedWinesRatingCount :: Int
-    <*> arbitrary -- inlineResponse20046RecommendedWinesScore :: Double
+    <$> arbitrary -- inlineResponse20046WineDescription :: Text
   
 instance Arbitrary InlineResponse20047 where
   arbitrary = sized genInlineResponse20047
@@ -1251,8 +1278,24 @@ instance Arbitrary InlineResponse20047 where
 genInlineResponse20047 :: Int -> Gen InlineResponse20047
 genInlineResponse20047 n =
   InlineResponse20047
-    <$> arbitrary -- inlineResponse20047Category :: Text
-    <*> arbitrary -- inlineResponse20047Probability :: Double
+    <$> arbitraryReduced n -- inlineResponse20047RecommendedWines :: [InlineResponse20047RecommendedWines]
+    <*> arbitrary -- inlineResponse20047TotalFound :: Int
+  
+instance Arbitrary InlineResponse20047RecommendedWines where
+  arbitrary = sized genInlineResponse20047RecommendedWines
+
+genInlineResponse20047RecommendedWines :: Int -> Gen InlineResponse20047RecommendedWines
+genInlineResponse20047RecommendedWines n =
+  InlineResponse20047RecommendedWines
+    <$> arbitrary -- inlineResponse20047RecommendedWinesId :: Int
+    <*> arbitrary -- inlineResponse20047RecommendedWinesTitle :: Text
+    <*> arbitrary -- inlineResponse20047RecommendedWinesAverageRating :: Double
+    <*> arbitrary -- inlineResponse20047RecommendedWinesDescription :: Text
+    <*> arbitrary -- inlineResponse20047RecommendedWinesImageUrl :: Text
+    <*> arbitrary -- inlineResponse20047RecommendedWinesLink :: Text
+    <*> arbitrary -- inlineResponse20047RecommendedWinesPrice :: Text
+    <*> arbitrary -- inlineResponse20047RecommendedWinesRatingCount :: Int
+    <*> arbitrary -- inlineResponse20047RecommendedWinesScore :: Double
   
 instance Arbitrary InlineResponse20048 where
   arbitrary = sized genInlineResponse20048
@@ -1260,61 +1303,8 @@ instance Arbitrary InlineResponse20048 where
 genInlineResponse20048 :: Int -> Gen InlineResponse20048
 genInlineResponse20048 n =
   InlineResponse20048
-    <$> arbitraryReduced n -- inlineResponse20048Nutrition :: InlineResponse20048Nutrition
-    <*> arbitraryReduced n -- inlineResponse20048Category :: InlineResponse20048Category
-    <*> arbitraryReduced n -- inlineResponse20048Recipes :: [InlineResponse20048Recipes]
-  
-instance Arbitrary InlineResponse20048Category where
-  arbitrary = sized genInlineResponse20048Category
-
-genInlineResponse20048Category :: Int -> Gen InlineResponse20048Category
-genInlineResponse20048Category n =
-  InlineResponse20048Category
-    <$> arbitrary -- inlineResponse20048CategoryName :: Text
-    <*> arbitrary -- inlineResponse20048CategoryProbability :: Double
-  
-instance Arbitrary InlineResponse20048Nutrition where
-  arbitrary = sized genInlineResponse20048Nutrition
-
-genInlineResponse20048Nutrition :: Int -> Gen InlineResponse20048Nutrition
-genInlineResponse20048Nutrition n =
-  InlineResponse20048Nutrition
-    <$> arbitrary -- inlineResponse20048NutritionRecipesUsed :: Int
-    <*> arbitraryReduced n -- inlineResponse20048NutritionCalories :: InlineResponse20048NutritionCalories
-    <*> arbitraryReduced n -- inlineResponse20048NutritionFat :: InlineResponse20048NutritionCalories
-    <*> arbitraryReduced n -- inlineResponse20048NutritionProtein :: InlineResponse20048NutritionCalories
-    <*> arbitraryReduced n -- inlineResponse20048NutritionCarbs :: InlineResponse20048NutritionCalories
-  
-instance Arbitrary InlineResponse20048NutritionCalories where
-  arbitrary = sized genInlineResponse20048NutritionCalories
-
-genInlineResponse20048NutritionCalories :: Int -> Gen InlineResponse20048NutritionCalories
-genInlineResponse20048NutritionCalories n =
-  InlineResponse20048NutritionCalories
-    <$> arbitrary -- inlineResponse20048NutritionCaloriesValue :: Double
-    <*> arbitrary -- inlineResponse20048NutritionCaloriesUnit :: Text
-    <*> arbitraryReduced n -- inlineResponse20048NutritionCaloriesConfidenceRange95Percent :: InlineResponse20048NutritionCaloriesConfidenceRange95Percent
-    <*> arbitrary -- inlineResponse20048NutritionCaloriesStandardDeviation :: Double
-  
-instance Arbitrary InlineResponse20048NutritionCaloriesConfidenceRange95Percent where
-  arbitrary = sized genInlineResponse20048NutritionCaloriesConfidenceRange95Percent
-
-genInlineResponse20048NutritionCaloriesConfidenceRange95Percent :: Int -> Gen InlineResponse20048NutritionCaloriesConfidenceRange95Percent
-genInlineResponse20048NutritionCaloriesConfidenceRange95Percent n =
-  InlineResponse20048NutritionCaloriesConfidenceRange95Percent
-    <$> arbitrary -- inlineResponse20048NutritionCaloriesConfidenceRange95PercentMin :: Double
-    <*> arbitrary -- inlineResponse20048NutritionCaloriesConfidenceRange95PercentMax :: Double
-  
-instance Arbitrary InlineResponse20048Recipes where
-  arbitrary = sized genInlineResponse20048Recipes
-
-genInlineResponse20048Recipes :: Int -> Gen InlineResponse20048Recipes
-genInlineResponse20048Recipes n =
-  InlineResponse20048Recipes
-    <$> arbitrary -- inlineResponse20048RecipesId :: Int
-    <*> arbitrary -- inlineResponse20048RecipesTitle :: Text
-    <*> arbitrary -- inlineResponse20048RecipesImageType :: Text
-    <*> arbitrary -- inlineResponse20048RecipesUrl :: Text
+    <$> arbitrary -- inlineResponse20048Category :: Text
+    <*> arbitrary -- inlineResponse20048Probability :: Double
   
 instance Arbitrary InlineResponse20049 where
   arbitrary = sized genInlineResponse20049
@@ -1322,8 +1312,61 @@ instance Arbitrary InlineResponse20049 where
 genInlineResponse20049 :: Int -> Gen InlineResponse20049
 genInlineResponse20049 n =
   InlineResponse20049
-    <$> arbitrary -- inlineResponse20049Answer :: Text
-    <*> arbitrary -- inlineResponse20049Image :: Text
+    <$> arbitraryReduced n -- inlineResponse20049Nutrition :: InlineResponse20049Nutrition
+    <*> arbitraryReduced n -- inlineResponse20049Category :: InlineResponse20049Category
+    <*> arbitraryReduced n -- inlineResponse20049Recipes :: [InlineResponse20049Recipes]
+  
+instance Arbitrary InlineResponse20049Category where
+  arbitrary = sized genInlineResponse20049Category
+
+genInlineResponse20049Category :: Int -> Gen InlineResponse20049Category
+genInlineResponse20049Category n =
+  InlineResponse20049Category
+    <$> arbitrary -- inlineResponse20049CategoryName :: Text
+    <*> arbitrary -- inlineResponse20049CategoryProbability :: Double
+  
+instance Arbitrary InlineResponse20049Nutrition where
+  arbitrary = sized genInlineResponse20049Nutrition
+
+genInlineResponse20049Nutrition :: Int -> Gen InlineResponse20049Nutrition
+genInlineResponse20049Nutrition n =
+  InlineResponse20049Nutrition
+    <$> arbitrary -- inlineResponse20049NutritionRecipesUsed :: Int
+    <*> arbitraryReduced n -- inlineResponse20049NutritionCalories :: InlineResponse20049NutritionCalories
+    <*> arbitraryReduced n -- inlineResponse20049NutritionFat :: InlineResponse20049NutritionCalories
+    <*> arbitraryReduced n -- inlineResponse20049NutritionProtein :: InlineResponse20049NutritionCalories
+    <*> arbitraryReduced n -- inlineResponse20049NutritionCarbs :: InlineResponse20049NutritionCalories
+  
+instance Arbitrary InlineResponse20049NutritionCalories where
+  arbitrary = sized genInlineResponse20049NutritionCalories
+
+genInlineResponse20049NutritionCalories :: Int -> Gen InlineResponse20049NutritionCalories
+genInlineResponse20049NutritionCalories n =
+  InlineResponse20049NutritionCalories
+    <$> arbitrary -- inlineResponse20049NutritionCaloriesValue :: Double
+    <*> arbitrary -- inlineResponse20049NutritionCaloriesUnit :: Text
+    <*> arbitraryReduced n -- inlineResponse20049NutritionCaloriesConfidenceRange95Percent :: InlineResponse20049NutritionCaloriesConfidenceRange95Percent
+    <*> arbitrary -- inlineResponse20049NutritionCaloriesStandardDeviation :: Double
+  
+instance Arbitrary InlineResponse20049NutritionCaloriesConfidenceRange95Percent where
+  arbitrary = sized genInlineResponse20049NutritionCaloriesConfidenceRange95Percent
+
+genInlineResponse20049NutritionCaloriesConfidenceRange95Percent :: Int -> Gen InlineResponse20049NutritionCaloriesConfidenceRange95Percent
+genInlineResponse20049NutritionCaloriesConfidenceRange95Percent n =
+  InlineResponse20049NutritionCaloriesConfidenceRange95Percent
+    <$> arbitrary -- inlineResponse20049NutritionCaloriesConfidenceRange95PercentMin :: Double
+    <*> arbitrary -- inlineResponse20049NutritionCaloriesConfidenceRange95PercentMax :: Double
+  
+instance Arbitrary InlineResponse20049Recipes where
+  arbitrary = sized genInlineResponse20049Recipes
+
+genInlineResponse20049Recipes :: Int -> Gen InlineResponse20049Recipes
+genInlineResponse20049Recipes n =
+  InlineResponse20049Recipes
+    <$> arbitrary -- inlineResponse20049RecipesId :: Int
+    <*> arbitrary -- inlineResponse20049RecipesTitle :: Text
+    <*> arbitrary -- inlineResponse20049RecipesImageType :: Text
+    <*> arbitrary -- inlineResponse20049RecipesUrl :: Text
   
 instance Arbitrary InlineResponse2005 where
   arbitrary = sized genInlineResponse2005
@@ -1344,7 +1387,8 @@ instance Arbitrary InlineResponse20050 where
 genInlineResponse20050 :: Int -> Gen InlineResponse20050
 genInlineResponse20050 n =
   InlineResponse20050
-    <$> arbitraryReduced n -- inlineResponse20050Annotations :: [A.Value]
+    <$> arbitrary -- inlineResponse20050Answer :: Text
+    <*> arbitrary -- inlineResponse20050Image :: Text
   
 instance Arbitrary InlineResponse20051 where
   arbitrary = sized genInlineResponse20051
@@ -1352,10 +1396,7 @@ instance Arbitrary InlineResponse20051 where
 genInlineResponse20051 :: Int -> Gen InlineResponse20051
 genInlineResponse20051 n =
   InlineResponse20051
-    <$> arbitraryReduced n -- inlineResponse20051Articles :: [A.Value]
-    <*> arbitraryReduced n -- inlineResponse20051GroceryProducts :: [A.Value]
-    <*> arbitraryReduced n -- inlineResponse20051MenuItems :: [A.Value]
-    <*> arbitraryReduced n -- inlineResponse20051Recipes :: [A.Value]
+    <$> arbitraryReduced n -- inlineResponse20051Annotations :: [A.Value]
   
 instance Arbitrary InlineResponse20052 where
   arbitrary = sized genInlineResponse20052
@@ -1363,35 +1404,10 @@ instance Arbitrary InlineResponse20052 where
 genInlineResponse20052 :: Int -> Gen InlineResponse20052
 genInlineResponse20052 n =
   InlineResponse20052
-    <$> arbitrary -- inlineResponse20052Query :: Text
-    <*> arbitrary -- inlineResponse20052TotalResults :: Int
-    <*> arbitrary -- inlineResponse20052Limit :: Int
-    <*> arbitrary -- inlineResponse20052Offset :: Int
-    <*> arbitraryReduced n -- inlineResponse20052SearchResults :: [InlineResponse20052SearchResults]
-  
-instance Arbitrary InlineResponse20052Results where
-  arbitrary = sized genInlineResponse20052Results
-
-genInlineResponse20052Results :: Int -> Gen InlineResponse20052Results
-genInlineResponse20052Results n =
-  InlineResponse20052Results
-    <$> arbitrary -- inlineResponse20052ResultsId :: Text
-    <*> arbitrary -- inlineResponse20052ResultsName :: Text
-    <*> arbitrary -- inlineResponse20052ResultsImage :: Text
-    <*> arbitrary -- inlineResponse20052ResultsLink :: Text
-    <*> arbitrary -- inlineResponse20052ResultsType :: Text
-    <*> arbitrary -- inlineResponse20052ResultsRelevance :: Double
-    <*> arbitrary -- inlineResponse20052ResultsContent :: Text
-  
-instance Arbitrary InlineResponse20052SearchResults where
-  arbitrary = sized genInlineResponse20052SearchResults
-
-genInlineResponse20052SearchResults :: Int -> Gen InlineResponse20052SearchResults
-genInlineResponse20052SearchResults n =
-  InlineResponse20052SearchResults
-    <$> arbitrary -- inlineResponse20052SearchResultsName :: Text
-    <*> arbitrary -- inlineResponse20052SearchResultsTotalResults :: Int
-    <*> arbitraryReducedMaybe n -- inlineResponse20052SearchResultsResults :: Maybe [InlineResponse20052Results]
+    <$> arbitraryReduced n -- inlineResponse20052Articles :: [A.Value]
+    <*> arbitraryReduced n -- inlineResponse20052GroceryProducts :: [A.Value]
+    <*> arbitraryReduced n -- inlineResponse20052MenuItems :: [A.Value]
+    <*> arbitraryReduced n -- inlineResponse20052Recipes :: [A.Value]
   
 instance Arbitrary InlineResponse20053 where
   arbitrary = sized genInlineResponse20053
@@ -1399,22 +1415,35 @@ instance Arbitrary InlineResponse20053 where
 genInlineResponse20053 :: Int -> Gen InlineResponse20053
 genInlineResponse20053 n =
   InlineResponse20053
-    <$> arbitraryReduced n -- inlineResponse20053Videos :: [InlineResponse20053Videos]
+    <$> arbitrary -- inlineResponse20053Query :: Text
     <*> arbitrary -- inlineResponse20053TotalResults :: Int
+    <*> arbitrary -- inlineResponse20053Limit :: Int
+    <*> arbitrary -- inlineResponse20053Offset :: Int
+    <*> arbitraryReduced n -- inlineResponse20053SearchResults :: [InlineResponse20053SearchResults]
   
-instance Arbitrary InlineResponse20053Videos where
-  arbitrary = sized genInlineResponse20053Videos
+instance Arbitrary InlineResponse20053Results where
+  arbitrary = sized genInlineResponse20053Results
 
-genInlineResponse20053Videos :: Int -> Gen InlineResponse20053Videos
-genInlineResponse20053Videos n =
-  InlineResponse20053Videos
-    <$> arbitrary -- inlineResponse20053VideosTitle :: Text
-    <*> arbitrary -- inlineResponse20053VideosLength :: Int
-    <*> arbitrary -- inlineResponse20053VideosRating :: Double
-    <*> arbitrary -- inlineResponse20053VideosShortTitle :: Text
-    <*> arbitrary -- inlineResponse20053VideosThumbnail :: Text
-    <*> arbitrary -- inlineResponse20053VideosViews :: Int
-    <*> arbitrary -- inlineResponse20053VideosYouTubeId :: Text
+genInlineResponse20053Results :: Int -> Gen InlineResponse20053Results
+genInlineResponse20053Results n =
+  InlineResponse20053Results
+    <$> arbitrary -- inlineResponse20053ResultsId :: Text
+    <*> arbitrary -- inlineResponse20053ResultsName :: Text
+    <*> arbitrary -- inlineResponse20053ResultsImage :: Text
+    <*> arbitrary -- inlineResponse20053ResultsLink :: Text
+    <*> arbitrary -- inlineResponse20053ResultsType :: Text
+    <*> arbitrary -- inlineResponse20053ResultsRelevance :: Double
+    <*> arbitrary -- inlineResponse20053ResultsContent :: Text
+  
+instance Arbitrary InlineResponse20053SearchResults where
+  arbitrary = sized genInlineResponse20053SearchResults
+
+genInlineResponse20053SearchResults :: Int -> Gen InlineResponse20053SearchResults
+genInlineResponse20053SearchResults n =
+  InlineResponse20053SearchResults
+    <$> arbitrary -- inlineResponse20053SearchResultsName :: Text
+    <*> arbitrary -- inlineResponse20053SearchResultsTotalResults :: Int
+    <*> arbitraryReducedMaybe n -- inlineResponse20053SearchResultsResults :: Maybe [InlineResponse20053Results]
   
 instance Arbitrary InlineResponse20054 where
   arbitrary = sized genInlineResponse20054
@@ -1422,7 +1451,22 @@ instance Arbitrary InlineResponse20054 where
 genInlineResponse20054 :: Int -> Gen InlineResponse20054
 genInlineResponse20054 n =
   InlineResponse20054
-    <$> arbitrary -- inlineResponse20054Text :: Text
+    <$> arbitraryReduced n -- inlineResponse20054Videos :: [InlineResponse20054Videos]
+    <*> arbitrary -- inlineResponse20054TotalResults :: Int
+  
+instance Arbitrary InlineResponse20054Videos where
+  arbitrary = sized genInlineResponse20054Videos
+
+genInlineResponse20054Videos :: Int -> Gen InlineResponse20054Videos
+genInlineResponse20054Videos n =
+  InlineResponse20054Videos
+    <$> arbitrary -- inlineResponse20054VideosTitle :: Text
+    <*> arbitrary -- inlineResponse20054VideosLength :: Int
+    <*> arbitrary -- inlineResponse20054VideosRating :: Double
+    <*> arbitrary -- inlineResponse20054VideosShortTitle :: Text
+    <*> arbitrary -- inlineResponse20054VideosThumbnail :: Text
+    <*> arbitrary -- inlineResponse20054VideosViews :: Int
+    <*> arbitrary -- inlineResponse20054VideosYouTubeId :: Text
   
 instance Arbitrary InlineResponse20055 where
   arbitrary = sized genInlineResponse20055
@@ -1430,8 +1474,7 @@ instance Arbitrary InlineResponse20055 where
 genInlineResponse20055 :: Int -> Gen InlineResponse20055
 genInlineResponse20055 n =
   InlineResponse20055
-    <$> arbitrary -- inlineResponse20055AnswerText :: Text
-    <*> arbitraryReduced n -- inlineResponse20055Media :: [A.Value]
+    <$> arbitrary -- inlineResponse20055Text :: Text
   
 instance Arbitrary InlineResponse20056 where
   arbitrary = sized genInlineResponse20056
@@ -1439,16 +1482,25 @@ instance Arbitrary InlineResponse20056 where
 genInlineResponse20056 :: Int -> Gen InlineResponse20056
 genInlineResponse20056 n =
   InlineResponse20056
-    <$> arbitraryReduced n -- inlineResponse20056Suggests :: InlineResponse20056Suggests
-    <*> arbitraryReduced n -- inlineResponse20056Words :: [A.Value]
+    <$> arbitrary -- inlineResponse20056AnswerText :: Text
+    <*> arbitraryReduced n -- inlineResponse20056Media :: [A.Value]
   
-instance Arbitrary InlineResponse20056Suggests where
-  arbitrary = sized genInlineResponse20056Suggests
+instance Arbitrary InlineResponse20057 where
+  arbitrary = sized genInlineResponse20057
 
-genInlineResponse20056Suggests :: Int -> Gen InlineResponse20056Suggests
-genInlineResponse20056Suggests n =
-  InlineResponse20056Suggests
-    <$> arbitraryReduced n -- inlineResponse20056Suggests :: [A.Value]
+genInlineResponse20057 :: Int -> Gen InlineResponse20057
+genInlineResponse20057 n =
+  InlineResponse20057
+    <$> arbitraryReduced n -- inlineResponse20057Suggests :: InlineResponse20057Suggests
+    <*> arbitraryReduced n -- inlineResponse20057Words :: [A.Value]
+  
+instance Arbitrary InlineResponse20057Suggests where
+  arbitrary = sized genInlineResponse20057Suggests
+
+genInlineResponse20057Suggests :: Int -> Gen InlineResponse20057Suggests
+genInlineResponse20057Suggests n =
+  InlineResponse20057Suggests
+    <$> arbitraryReduced n -- inlineResponse20057Suggests :: [A.Value]
   
 instance Arbitrary InlineResponse2006 where
   arbitrary = sized genInlineResponse2006

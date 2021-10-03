@@ -116,9 +116,10 @@ isa_ok($api, 'WWW::OpenAPIClient::ProductsApi');
     my $max_protein = undef; # replace NULL with a proper value
     my $min_fat = undef; # replace NULL with a proper value
     my $max_fat = undef; # replace NULL with a proper value
+    my $add_product_information = undef; # replace NULL with a proper value
     my $offset = undef; # replace NULL with a proper value
     my $number = undef; # replace NULL with a proper value
-    my $result = $api->search_grocery_products(query => $query, min_calories => $min_calories, max_calories => $max_calories, min_carbs => $min_carbs, max_carbs => $max_carbs, min_protein => $min_protein, max_protein => $max_protein, min_fat => $min_fat, max_fat => $max_fat, offset => $offset, number => $number);
+    my $result = $api->search_grocery_products(query => $query, min_calories => $min_calories, max_calories => $max_calories, min_carbs => $min_carbs, max_carbs => $max_carbs, min_protein => $min_protein, max_protein => $max_protein, min_fat => $min_fat, max_fat => $max_fat, add_product_information => $add_product_information, offset => $offset, number => $number);
 }
 
 #

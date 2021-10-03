@@ -13,11 +13,11 @@ namespace spoonacular.Model {
   [DataContract]
   public class InlineResponse20040Items {
     /// <summary>
-    /// Gets or Sets Id
+    /// Gets or Sets Day
     /// </summary>
-    [DataMember(Name="id", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "id")]
-    public int? Id { get; set; }
+    [DataMember(Name="day", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "day")]
+    public int? Day { get; set; }
 
     /// <summary>
     /// Gets or Sets Slot
@@ -55,7 +55,7 @@ namespace spoonacular.Model {
     public override string ToString()  {
       var sb = new StringBuilder();
       sb.Append("class InlineResponse20040Items {\n");
-      sb.Append("  Id: ").Append(Id).Append("\n");
+      sb.Append("  Day: ").Append(Day).Append("\n");
       sb.Append("  Slot: ").Append(Slot).Append("\n");
       sb.Append("  Position: ").Append(Position).Append("\n");
       sb.Append("  Type: ").Append(Type).Append("\n");

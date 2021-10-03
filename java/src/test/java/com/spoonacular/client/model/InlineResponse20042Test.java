@@ -18,9 +18,13 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.spoonacular.client.model.InlineResponse20042Aisles;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -41,19 +45,35 @@ public class InlineResponse20042Test {
     }
 
     /**
-     * Test the property 'username'
+     * Test the property 'aisles'
      */
     @Test
-    public void usernameTest() {
-        // TODO: test username
+    public void aislesTest() {
+        // TODO: test aisles
     }
 
     /**
-     * Test the property 'hash'
+     * Test the property 'cost'
      */
     @Test
-    public void hashTest() {
-        // TODO: test hash
+    public void costTest() {
+        // TODO: test cost
+    }
+
+    /**
+     * Test the property 'startDate'
+     */
+    @Test
+    public void startDateTest() {
+        // TODO: test startDate
+    }
+
+    /**
+     * Test the property 'endDate'
+     */
+    @Test
+    public void endDateTest() {
+        // TODO: test endDate
     }
 
 }

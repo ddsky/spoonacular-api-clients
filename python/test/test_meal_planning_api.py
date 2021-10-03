@@ -29,6 +29,13 @@ class TestMealPlanningApi(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def test_add_meal_plan_template(self):
+        """Test case for add_meal_plan_template
+
+        Add Meal Plan Template  # noqa: E501
+        """
+        pass
+
     def test_add_to_meal_plan(self):
         """Test case for add_to_meal_plan
 
@@ -68,6 +75,13 @@ class TestMealPlanningApi(unittest.TestCase):
         """Test case for delete_from_shopping_list
 
         Delete from Shopping List  # noqa: E501
+        """
+        pass
+
+    def test_delete_meal_plan_template(self):
+        """Test case for delete_meal_plan_template
+
+        Delete Meal Plan Template  # noqa: E501
         """
         pass
 

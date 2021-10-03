@@ -285,7 +285,7 @@ class MenuItemsApi {
   /// Search Menu Items
   ///
   /// Search over 115,000 menu items from over 800 fast food and chain restaurants. For example, McDonald&#39;s Big Mac or Starbucks Mocha.
-  Future<InlineResponse20035> searchMenuItems({ String query, num minCalories, num maxCalories, num minCarbs, num maxCarbs, num minProtein, num maxProtein, num minFat, num maxFat, int offset, int number }) async {
+  Future<InlineResponse20035> searchMenuItems({ String query, num minCalories, num maxCalories, num minCarbs, num maxCarbs, num minProtein, num maxProtein, num minFat, num maxFat, bool addMenuItemInformation, int offset, int number }) async {
     Object postBody;
 
     // verify required params are set
@@ -323,6 +323,9 @@ class MenuItemsApi {
     }
     if(maxFat != null) {
       queryParams.addAll(_convertParametersForCollectionFormat("", "maxFat", maxFat));
+    }
+    if(addMenuItemInformation != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "addMenuItemInformation", addMenuItemInformation));
     }
     if(offset != null) {
       queryParams.addAll(_convertParametersForCollectionFormat("", "offset", offset));

@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**annotations** | **[Object]** |  | 
+**answer** | **String** |  | 
+**image** | **String** |  | 
 
 

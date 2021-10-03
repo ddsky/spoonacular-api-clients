@@ -38,11 +38,11 @@ OAIInline_response_200_43::~OAIInline_response_200_43() {
 void
 OAIInline_response_200_43::init() {
     
-    m_pairings_isSet = false;
-    m_pairings_isValid = false;
+    m_username_isSet = false;
+    m_username_isValid = false;
     
-    m_text_isSet = false;
-    m_text_isValid = false;
+    m_hash_isSet = false;
+    m_hash_isValid = false;
     }
 
 void
@@ -56,10 +56,10 @@ OAIInline_response_200_43::fromJson(QString jsonString) {
 void
 OAIInline_response_200_43::fromJsonObject(QJsonObject json) {
     
+    m_username_isValid = ::OpenAPI::fromJsonValue(username, json[QString("username")]);
     
-    m_pairings_isValid = ::OpenAPI::fromJsonValue(pairings, json[QString("pairings")]);
     
-    m_text_isValid = ::OpenAPI::fromJsonValue(text, json[QString("text")]);
+    m_hash_isValid = ::OpenAPI::fromJsonValue(hash, json[QString("hash")]);
     
     
 }
@@ -75,45 +75,44 @@ OAIInline_response_200_43::asJson () const {
 QJsonObject
 OAIInline_response_200_43::asJsonObject() const {
     QJsonObject obj;
-	
-    if(pairings.size() > 0){
-        obj.insert(QString("pairings"), ::OpenAPI::toJsonValue(pairings));
-    } 
-	if(m_text_isSet){
-        obj.insert(QString("text"), ::OpenAPI::toJsonValue(text));
+	if(m_username_isSet){
+        obj.insert(QString("username"), ::OpenAPI::toJsonValue(username));
+    }
+	if(m_hash_isSet){
+        obj.insert(QString("hash"), ::OpenAPI::toJsonValue(hash));
     }
     return obj;
 }
 
 
-QList<QString>
-OAIInline_response_200_43::getPairings() const {
-    return pairings;
+QString
+OAIInline_response_200_43::getUsername() const {
+    return username;
 }
 void
-OAIInline_response_200_43::setPairings(const QList<QString> &pairings) {
-    this->pairings = pairings;
-    this->m_pairings_isSet = true;
+OAIInline_response_200_43::setUsername(const QString &username) {
+    this->username = username;
+    this->m_username_isSet = true;
 }
 
 
 QString
-OAIInline_response_200_43::getText() const {
-    return text;
+OAIInline_response_200_43::getHash() const {
+    return hash;
 }
 void
-OAIInline_response_200_43::setText(const QString &text) {
-    this->text = text;
-    this->m_text_isSet = true;
+OAIInline_response_200_43::setHash(const QString &hash) {
+    this->hash = hash;
+    this->m_hash_isSet = true;
 }
 
 bool
 OAIInline_response_200_43::isSet() const {
     bool isObjectUpdated = false;
     do{ 
-        if(pairings.size() > 0){ isObjectUpdated = true; break;}
+        if(m_username_isSet){ isObjectUpdated = true; break;}
     
-        if(m_text_isSet){ isObjectUpdated = true; break;}
+        if(m_hash_isSet){ isObjectUpdated = true; break;}
     }while(false);
     return isObjectUpdated;
 }
@@ -121,7 +120,7 @@ OAIInline_response_200_43::isSet() const {
 bool
 OAIInline_response_200_43::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_pairings_isValid && m_text_isValid && true;
+    return m_username_isValid && m_hash_isValid && true;
 }
 
 }

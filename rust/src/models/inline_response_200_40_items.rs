@@ -14,8 +14,8 @@ use serde_json::Value;
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct InlineResponse20040Items {
-    #[serde(rename = "id")]
-    pub id: i32,
+    #[serde(rename = "day")]
+    pub day: i32,
     #[serde(rename = "slot")]
     pub slot: i32,
     #[serde(rename = "position")]
@@ -27,9 +27,9 @@ pub struct InlineResponse20040Items {
 }
 
 impl InlineResponse20040Items {
-    pub fn new(id: i32, slot: i32, position: i32, _type: String) -> InlineResponse20040Items {
+    pub fn new(day: i32, slot: i32, position: i32, _type: String) -> InlineResponse20040Items {
         InlineResponse20040Items {
-            id: id,
+            day: day,
             slot: slot,
             position: position,
             _type: _type,

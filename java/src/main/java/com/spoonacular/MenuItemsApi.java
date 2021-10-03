@@ -625,6 +625,7 @@ public class MenuItemsApi {
      * @param maxProtein The maximum amount of protein in grams the menu item can have. (optional)
      * @param minFat The minimum amount of fat in grams the menu item must have. (optional)
      * @param maxFat The maximum amount of fat in grams the menu item can have. (optional)
+     * @param addMenuItemInformation If set to true, you get more information about the menu items returned. (optional)
      * @param offset The number of results to skip (between 0 and 900). (optional)
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @param _callback Callback for upload/download progress
@@ -633,7 +634,7 @@ public class MenuItemsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Search-Menu-Items">Search Menu Items Documentation</a>
      */
-    public okhttp3.Call searchMenuItemsCall(String query, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minFat, BigDecimal maxFat, Integer offset, Integer number, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchMenuItemsCall(String query, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minFat, BigDecimal maxFat, Boolean addMenuItemInformation, Integer offset, Integer number, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = new Object();
 
         // create path and map variables
@@ -677,6 +678,10 @@ public class MenuItemsApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxFat", maxFat));
         }
 
+        if (addMenuItemInformation != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("addMenuItemInformation", addMenuItemInformation));
+        }
+
         if (offset != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("offset", offset));
         }
@@ -706,10 +711,10 @@ public class MenuItemsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchMenuItemsValidateBeforeCall(String query, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minFat, BigDecimal maxFat, Integer offset, Integer number, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call searchMenuItemsValidateBeforeCall(String query, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minFat, BigDecimal maxFat, Boolean addMenuItemInformation, Integer offset, Integer number, final ApiCallback _callback) throws ApiException {
         
 
-        okhttp3.Call localVarCall = searchMenuItemsCall(query, minCalories, maxCalories, minCarbs, maxCarbs, minProtein, maxProtein, minFat, maxFat, offset, number, _callback);
+        okhttp3.Call localVarCall = searchMenuItemsCall(query, minCalories, maxCalories, minCarbs, maxCarbs, minProtein, maxProtein, minFat, maxFat, addMenuItemInformation, offset, number, _callback);
         return localVarCall;
 
     }
@@ -726,6 +731,7 @@ public class MenuItemsApi {
      * @param maxProtein The maximum amount of protein in grams the menu item can have. (optional)
      * @param minFat The minimum amount of fat in grams the menu item must have. (optional)
      * @param maxFat The maximum amount of fat in grams the menu item can have. (optional)
+     * @param addMenuItemInformation If set to true, you get more information about the menu items returned. (optional)
      * @param offset The number of results to skip (between 0 and 900). (optional)
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @return InlineResponse20035
@@ -733,8 +739,8 @@ public class MenuItemsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Search-Menu-Items">Search Menu Items Documentation</a>
      */
-    public InlineResponse20035 searchMenuItems(String query, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minFat, BigDecimal maxFat, Integer offset, Integer number) throws ApiException {
-        ApiResponse<InlineResponse20035> localVarResp = searchMenuItemsWithHttpInfo(query, minCalories, maxCalories, minCarbs, maxCarbs, minProtein, maxProtein, minFat, maxFat, offset, number);
+    public InlineResponse20035 searchMenuItems(String query, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minFat, BigDecimal maxFat, Boolean addMenuItemInformation, Integer offset, Integer number) throws ApiException {
+        ApiResponse<InlineResponse20035> localVarResp = searchMenuItemsWithHttpInfo(query, minCalories, maxCalories, minCarbs, maxCarbs, minProtein, maxProtein, minFat, maxFat, addMenuItemInformation, offset, number);
         return localVarResp.getData();
     }
 
@@ -750,6 +756,7 @@ public class MenuItemsApi {
      * @param maxProtein The maximum amount of protein in grams the menu item can have. (optional)
      * @param minFat The minimum amount of fat in grams the menu item must have. (optional)
      * @param maxFat The maximum amount of fat in grams the menu item can have. (optional)
+     * @param addMenuItemInformation If set to true, you get more information about the menu items returned. (optional)
      * @param offset The number of results to skip (between 0 and 900). (optional)
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @return ApiResponse&lt;InlineResponse20035&gt;
@@ -757,8 +764,8 @@ public class MenuItemsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Search-Menu-Items">Search Menu Items Documentation</a>
      */
-    public ApiResponse<InlineResponse20035> searchMenuItemsWithHttpInfo(String query, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minFat, BigDecimal maxFat, Integer offset, Integer number) throws ApiException {
-        okhttp3.Call localVarCall = searchMenuItemsValidateBeforeCall(query, minCalories, maxCalories, minCarbs, maxCarbs, minProtein, maxProtein, minFat, maxFat, offset, number, null);
+    public ApiResponse<InlineResponse20035> searchMenuItemsWithHttpInfo(String query, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minFat, BigDecimal maxFat, Boolean addMenuItemInformation, Integer offset, Integer number) throws ApiException {
+        okhttp3.Call localVarCall = searchMenuItemsValidateBeforeCall(query, minCalories, maxCalories, minCarbs, maxCarbs, minProtein, maxProtein, minFat, maxFat, addMenuItemInformation, offset, number, null);
         Type localVarReturnType = new TypeToken<InlineResponse20035>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -775,6 +782,7 @@ public class MenuItemsApi {
      * @param maxProtein The maximum amount of protein in grams the menu item can have. (optional)
      * @param minFat The minimum amount of fat in grams the menu item must have. (optional)
      * @param maxFat The maximum amount of fat in grams the menu item can have. (optional)
+     * @param addMenuItemInformation If set to true, you get more information about the menu items returned. (optional)
      * @param offset The number of results to skip (between 0 and 900). (optional)
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @param _callback The callback to be executed when the API call finishes
@@ -783,9 +791,9 @@ public class MenuItemsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Search-Menu-Items">Search Menu Items Documentation</a>
      */
-    public okhttp3.Call searchMenuItemsAsync(String query, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minFat, BigDecimal maxFat, Integer offset, Integer number, final ApiCallback<InlineResponse20035> _callback) throws ApiException {
+    public okhttp3.Call searchMenuItemsAsync(String query, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minFat, BigDecimal maxFat, Boolean addMenuItemInformation, Integer offset, Integer number, final ApiCallback<InlineResponse20035> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchMenuItemsValidateBeforeCall(query, minCalories, maxCalories, minCarbs, maxCarbs, minProtein, maxProtein, minFat, maxFat, offset, number, _callback);
+        okhttp3.Call localVarCall = searchMenuItemsValidateBeforeCall(query, minCalories, maxCalories, minCarbs, maxCarbs, minProtein, maxProtein, minFat, maxFat, addMenuItemInformation, offset, number, _callback);
         Type localVarReturnType = new TypeToken<InlineResponse20035>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

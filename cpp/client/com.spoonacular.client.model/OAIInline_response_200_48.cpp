@@ -38,14 +38,11 @@ OAIInline_response_200_48::~OAIInline_response_200_48() {
 void
 OAIInline_response_200_48::init() {
     
-    m_nutrition_isSet = false;
-    m_nutrition_isValid = false;
-    
     m_category_isSet = false;
     m_category_isValid = false;
     
-    m_recipes_isSet = false;
-    m_recipes_isValid = false;
+    m_probability_isSet = false;
+    m_probability_isValid = false;
     }
 
 void
@@ -59,14 +56,11 @@ OAIInline_response_200_48::fromJson(QString jsonString) {
 void
 OAIInline_response_200_48::fromJsonObject(QJsonObject json) {
     
-    m_nutrition_isValid = ::OpenAPI::fromJsonValue(nutrition, json[QString("nutrition")]);
-    
-    
     m_category_isValid = ::OpenAPI::fromJsonValue(category, json[QString("category")]);
     
     
+    m_probability_isValid = ::OpenAPI::fromJsonValue(probability, json[QString("probability")]);
     
-    m_recipes_isValid = ::OpenAPI::fromJsonValue(recipes, json[QString("recipes")]);
     
 }
 
@@ -81,61 +75,44 @@ OAIInline_response_200_48::asJson () const {
 QJsonObject
 OAIInline_response_200_48::asJsonObject() const {
     QJsonObject obj;
-	if(nutrition.isSet()){
-        obj.insert(QString("nutrition"), ::OpenAPI::toJsonValue(nutrition));
-    }
-	if(category.isSet()){
+	if(m_category_isSet){
         obj.insert(QString("category"), ::OpenAPI::toJsonValue(category));
     }
-	
-    if(recipes.size() > 0){
-        obj.insert(QString("recipes"), ::OpenAPI::toJsonValue(recipes));
-    } 
+	if(probability.isSet()){
+        obj.insert(QString("probability"), ::OpenAPI::toJsonValue(probability));
+    }
     return obj;
 }
 
 
-OAIInline_response_200_48_nutrition
-OAIInline_response_200_48::getNutrition() const {
-    return nutrition;
-}
-void
-OAIInline_response_200_48::setNutrition(const OAIInline_response_200_48_nutrition &nutrition) {
-    this->nutrition = nutrition;
-    this->m_nutrition_isSet = true;
-}
-
-
-OAIInline_response_200_48_category
+QString
 OAIInline_response_200_48::getCategory() const {
     return category;
 }
 void
-OAIInline_response_200_48::setCategory(const OAIInline_response_200_48_category &category) {
+OAIInline_response_200_48::setCategory(const QString &category) {
     this->category = category;
     this->m_category_isSet = true;
 }
 
 
-QList<OAIInline_response_200_48_recipes>
-OAIInline_response_200_48::getRecipes() const {
-    return recipes;
+OAINumber
+OAIInline_response_200_48::getProbability() const {
+    return probability;
 }
 void
-OAIInline_response_200_48::setRecipes(const QList<OAIInline_response_200_48_recipes> &recipes) {
-    this->recipes = recipes;
-    this->m_recipes_isSet = true;
+OAIInline_response_200_48::setProbability(const OAINumber &probability) {
+    this->probability = probability;
+    this->m_probability_isSet = true;
 }
 
 bool
 OAIInline_response_200_48::isSet() const {
     bool isObjectUpdated = false;
     do{ 
-        if(nutrition.isSet()){ isObjectUpdated = true; break;}
+        if(m_category_isSet){ isObjectUpdated = true; break;}
     
-        if(category.isSet()){ isObjectUpdated = true; break;}
-    
-        if(recipes.size() > 0){ isObjectUpdated = true; break;}
+        if(probability.isSet()){ isObjectUpdated = true; break;}
     }while(false);
     return isObjectUpdated;
 }
@@ -143,7 +120,7 @@ OAIInline_response_200_48::isSet() const {
 bool
 OAIInline_response_200_48::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_nutrition_isValid && m_category_isValid && m_recipes_isValid && true;
+    return m_category_isValid && m_probability_isValid && true;
 }
 
 }

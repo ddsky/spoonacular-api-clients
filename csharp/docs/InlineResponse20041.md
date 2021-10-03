@@ -3,10 +3,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Aisles** | [**List<InlineResponse20041Aisles>**](InlineResponse20041Aisles.md) |  | 
-**Cost** | **decimal?** |  | 
-**StartDate** | **decimal?** |  | 
-**EndDate** | **decimal?** |  | 
+**Id** | **int?** |  | 
+**Name** | **string** |  | 
+**Days** | [**List<InlineResponse20041Days>**](InlineResponse20041Days.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

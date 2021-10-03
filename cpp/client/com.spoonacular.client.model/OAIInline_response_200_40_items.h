@@ -42,8 +42,8 @@ public:
     void fromJson(QString jsonString) override;
 
     
-    qint32 getId() const;
-    void setId(const qint32 &id);
+    qint32 getDay() const;
+    void setDay(const qint32 &day);
 
     
     qint32 getSlot() const;
@@ -69,9 +69,9 @@ public:
 private:
     void init();
     
-    qint32 id;
-    bool m_id_isSet;
-    bool m_id_isValid;
+    qint32 day;
+    bool m_day_isSet;
+    bool m_day_isValid;
     
     qint32 slot;
     bool m_slot_isSet;

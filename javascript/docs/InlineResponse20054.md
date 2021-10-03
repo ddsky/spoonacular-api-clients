@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**text** | **String** |  | 
+**videos** | [**[InlineResponse20054Videos]**](InlineResponse20054Videos.md) |  | 
+**totalResults** | **Number** |  | 
 
 

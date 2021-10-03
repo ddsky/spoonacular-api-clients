@@ -9,11 +9,11 @@
 
 %% @doc Dish Pairing for Wine
 %% Find a dish that goes well with a given wine.
--spec get_dish_pairing_for_wine(ctx:ctx(), binary()) -> {ok, spoonacular_inline_response_200_43:spoonacular_inline_response_200_43(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+-spec get_dish_pairing_for_wine(ctx:ctx(), binary()) -> {ok, spoonacular_inline_response_200_44:spoonacular_inline_response_200_44(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 get_dish_pairing_for_wine(Ctx, Wine) ->
     get_dish_pairing_for_wine(Ctx, Wine, #{}).
 
--spec get_dish_pairing_for_wine(ctx:ctx(), binary(), maps:map()) -> {ok, spoonacular_inline_response_200_43:spoonacular_inline_response_200_43(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+-spec get_dish_pairing_for_wine(ctx:ctx(), binary(), maps:map()) -> {ok, spoonacular_inline_response_200_44:spoonacular_inline_response_200_44(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 get_dish_pairing_for_wine(Ctx, Wine, Optional) ->
     _OptionalParams = maps:get(params, Optional, #{}),
     Cfg = maps:get(cfg, Optional, application:get_env(kuberl, config, #{})),
@@ -30,11 +30,11 @@ get_dish_pairing_for_wine(Ctx, Wine, Optional) ->
 
 %% @doc Wine Description
 %% Get a simple description of a certain wine, e.g. \"malbec\", \"riesling\", or \"merlot\".
--spec get_wine_description(ctx:ctx(), binary()) -> {ok, spoonacular_inline_response_200_45:spoonacular_inline_response_200_45(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+-spec get_wine_description(ctx:ctx(), binary()) -> {ok, spoonacular_inline_response_200_46:spoonacular_inline_response_200_46(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 get_wine_description(Ctx, Wine) ->
     get_wine_description(Ctx, Wine, #{}).
 
--spec get_wine_description(ctx:ctx(), binary(), maps:map()) -> {ok, spoonacular_inline_response_200_45:spoonacular_inline_response_200_45(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+-spec get_wine_description(ctx:ctx(), binary(), maps:map()) -> {ok, spoonacular_inline_response_200_46:spoonacular_inline_response_200_46(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 get_wine_description(Ctx, Wine, Optional) ->
     _OptionalParams = maps:get(params, Optional, #{}),
     Cfg = maps:get(cfg, Optional, application:get_env(kuberl, config, #{})),
@@ -51,11 +51,11 @@ get_wine_description(Ctx, Wine, Optional) ->
 
 %% @doc Wine Pairing
 %% Find a wine that goes well with a food. Food can be a dish name (\"steak\"), an ingredient name (\"salmon\"), or a cuisine (\"italian\").
--spec get_wine_pairing(ctx:ctx(), binary()) -> {ok, spoonacular_inline_response_200_44:spoonacular_inline_response_200_44(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+-spec get_wine_pairing(ctx:ctx(), binary()) -> {ok, spoonacular_inline_response_200_45:spoonacular_inline_response_200_45(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 get_wine_pairing(Ctx, Food) ->
     get_wine_pairing(Ctx, Food, #{}).
 
--spec get_wine_pairing(ctx:ctx(), binary(), maps:map()) -> {ok, spoonacular_inline_response_200_44:spoonacular_inline_response_200_44(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+-spec get_wine_pairing(ctx:ctx(), binary(), maps:map()) -> {ok, spoonacular_inline_response_200_45:spoonacular_inline_response_200_45(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 get_wine_pairing(Ctx, Food, Optional) ->
     _OptionalParams = maps:get(params, Optional, #{}),
     Cfg = maps:get(cfg, Optional, application:get_env(kuberl, config, #{})),
@@ -72,11 +72,11 @@ get_wine_pairing(Ctx, Food, Optional) ->
 
 %% @doc Wine Recommendation
 %% Get a specific wine recommendation (concrete product) for a given wine type, e.g. \"merlot\".
--spec get_wine_recommendation(ctx:ctx(), binary()) -> {ok, spoonacular_inline_response_200_46:spoonacular_inline_response_200_46(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+-spec get_wine_recommendation(ctx:ctx(), binary()) -> {ok, spoonacular_inline_response_200_47:spoonacular_inline_response_200_47(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 get_wine_recommendation(Ctx, Wine) ->
     get_wine_recommendation(Ctx, Wine, #{}).
 
--spec get_wine_recommendation(ctx:ctx(), binary(), maps:map()) -> {ok, spoonacular_inline_response_200_46:spoonacular_inline_response_200_46(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+-spec get_wine_recommendation(ctx:ctx(), binary(), maps:map()) -> {ok, spoonacular_inline_response_200_47:spoonacular_inline_response_200_47(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 get_wine_recommendation(Ctx, Wine, Optional) ->
     _OptionalParams = maps:get(params, Optional, #{}),
     Cfg = maps:get(cfg, Optional, application:get_env(kuberl, config, #{})),

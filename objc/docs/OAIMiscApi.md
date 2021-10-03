@@ -20,7 +20,7 @@ Method | HTTP request | Description
 # **detectFoodInText**
 ```objc
 -(NSURLSessionTask*) detectFoodInTextWithContentType: (NSString*) contentType
-        completionHandler: (void (^)(OAIInlineResponse20050* output, NSError* error)) handler;
+        completionHandler: (void (^)(OAIInlineResponse20051* output, NSError* error)) handler;
 ```
 
 Detect Food in Text
@@ -43,7 +43,7 @@ OAIMiscApi*apiInstance = [[OAIMiscApi alloc] init];
 
 // Detect Food in Text
 [apiInstance detectFoodInTextWithContentType:contentType
-          completionHandler: ^(OAIInlineResponse20050* output, NSError* error) {
+          completionHandler: ^(OAIInlineResponse20051* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -61,7 +61,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OAIInlineResponse20050***](OAIInlineResponse20050.md)
+[**OAIInlineResponse20051***](OAIInlineResponse20051.md)
 
 ### Authorization
 
@@ -77,7 +77,7 @@ Name | Type | Description  | Notes
 # **getARandomFoodJoke**
 ```objc
 -(NSURLSessionTask*) getARandomFoodJokeWithCompletionHandler: 
-        (void (^)(OAIInlineResponse20054* output, NSError* error)) handler;
+        (void (^)(OAIInlineResponse20055* output, NSError* error)) handler;
 ```
 
 Random Food Joke
@@ -99,7 +99,7 @@ OAIMiscApi*apiInstance = [[OAIMiscApi alloc] init];
 
 // Random Food Joke
 [apiInstance getARandomFoodJokeWithCompletionHandler: 
-          ^(OAIInlineResponse20054* output, NSError* error) {
+          ^(OAIInlineResponse20055* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -114,7 +114,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**OAIInlineResponse20054***](OAIInlineResponse20054.md)
+[**OAIInlineResponse20055***](OAIInlineResponse20055.md)
 
 ### Authorization
 
@@ -131,7 +131,7 @@ This endpoint does not need any parameter.
 ```objc
 -(NSURLSessionTask*) getConversationSuggestsWithQuery: (NSString*) query
     number: (NSNumber*) number
-        completionHandler: (void (^)(OAIInlineResponse20056* output, NSError* error)) handler;
+        completionHandler: (void (^)(OAIInlineResponse20057* output, NSError* error)) handler;
 ```
 
 Conversation Suggests
@@ -156,7 +156,7 @@ OAIMiscApi*apiInstance = [[OAIMiscApi alloc] init];
 // Conversation Suggests
 [apiInstance getConversationSuggestsWithQuery:query
               number:number
-          completionHandler: ^(OAIInlineResponse20056* output, NSError* error) {
+          completionHandler: ^(OAIInlineResponse20057* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -175,7 +175,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OAIInlineResponse20056***](OAIInlineResponse20056.md)
+[**OAIInlineResponse20057***](OAIInlineResponse20057.md)
 
 ### Authorization
 
@@ -191,7 +191,7 @@ Name | Type | Description  | Notes
 # **getRandomFoodTrivia**
 ```objc
 -(NSURLSessionTask*) getRandomFoodTriviaWithCompletionHandler: 
-        (void (^)(OAIInlineResponse20054* output, NSError* error)) handler;
+        (void (^)(OAIInlineResponse20055* output, NSError* error)) handler;
 ```
 
 Random Food Trivia
@@ -213,7 +213,7 @@ OAIMiscApi*apiInstance = [[OAIMiscApi alloc] init];
 
 // Random Food Trivia
 [apiInstance getRandomFoodTriviaWithCompletionHandler: 
-          ^(OAIInlineResponse20054* output, NSError* error) {
+          ^(OAIInlineResponse20055* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -228,7 +228,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**OAIInlineResponse20054***](OAIInlineResponse20054.md)
+[**OAIInlineResponse20055***](OAIInlineResponse20055.md)
 
 ### Authorization
 
@@ -244,7 +244,7 @@ This endpoint does not need any parameter.
 # **imageAnalysisByURL**
 ```objc
 -(NSURLSessionTask*) imageAnalysisByURLWithImageUrl: (NSString*) imageUrl
-        completionHandler: (void (^)(OAIInlineResponse20048* output, NSError* error)) handler;
+        completionHandler: (void (^)(OAIInlineResponse20049* output, NSError* error)) handler;
 ```
 
 Image Analysis by URL
@@ -267,7 +267,7 @@ OAIMiscApi*apiInstance = [[OAIMiscApi alloc] init];
 
 // Image Analysis by URL
 [apiInstance imageAnalysisByURLWithImageUrl:imageUrl
-          completionHandler: ^(OAIInlineResponse20048* output, NSError* error) {
+          completionHandler: ^(OAIInlineResponse20049* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -285,7 +285,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OAIInlineResponse20048***](OAIInlineResponse20048.md)
+[**OAIInlineResponse20049***](OAIInlineResponse20049.md)
 
 ### Authorization
 
@@ -301,7 +301,7 @@ Name | Type | Description  | Notes
 # **imageClassificationByURL**
 ```objc
 -(NSURLSessionTask*) imageClassificationByURLWithImageUrl: (NSString*) imageUrl
-        completionHandler: (void (^)(OAIInlineResponse20047* output, NSError* error)) handler;
+        completionHandler: (void (^)(OAIInlineResponse20048* output, NSError* error)) handler;
 ```
 
 Image Classification by URL
@@ -324,7 +324,7 @@ OAIMiscApi*apiInstance = [[OAIMiscApi alloc] init];
 
 // Image Classification by URL
 [apiInstance imageClassificationByURLWithImageUrl:imageUrl
-          completionHandler: ^(OAIInlineResponse20047* output, NSError* error) {
+          completionHandler: ^(OAIInlineResponse20048* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -342,7 +342,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OAIInlineResponse20047***](OAIInlineResponse20047.md)
+[**OAIInlineResponse20048***](OAIInlineResponse20048.md)
 
 ### Authorization
 
@@ -360,7 +360,7 @@ Name | Type | Description  | Notes
 -(NSURLSessionTask*) searchAllFoodWithQuery: (NSString*) query
     offset: (NSNumber*) offset
     number: (NSNumber*) number
-        completionHandler: (void (^)(OAIInlineResponse20052* output, NSError* error)) handler;
+        completionHandler: (void (^)(OAIInlineResponse20053* output, NSError* error)) handler;
 ```
 
 Search All Food
@@ -387,7 +387,7 @@ OAIMiscApi*apiInstance = [[OAIMiscApi alloc] init];
 [apiInstance searchAllFoodWithQuery:query
               offset:offset
               number:number
-          completionHandler: ^(OAIInlineResponse20052* output, NSError* error) {
+          completionHandler: ^(OAIInlineResponse20053* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -407,7 +407,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OAIInlineResponse20052***](OAIInlineResponse20052.md)
+[**OAIInlineResponse20053***](OAIInlineResponse20053.md)
 
 ### Authorization
 
@@ -505,7 +505,7 @@ Name | Type | Description  | Notes
     maxLength: (NSNumber*) maxLength
     offset: (NSNumber*) offset
     number: (NSNumber*) number
-        completionHandler: (void (^)(OAIInlineResponse20053* output, NSError* error)) handler;
+        completionHandler: (void (^)(OAIInlineResponse20054* output, NSError* error)) handler;
 ```
 
 Search Food Videos
@@ -546,7 +546,7 @@ OAIMiscApi*apiInstance = [[OAIMiscApi alloc] init];
               maxLength:maxLength
               offset:offset
               number:number
-          completionHandler: ^(OAIInlineResponse20053* output, NSError* error) {
+          completionHandler: ^(OAIInlineResponse20054* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -573,7 +573,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OAIInlineResponse20053***](OAIInlineResponse20053.md)
+[**OAIInlineResponse20054***](OAIInlineResponse20054.md)
 
 ### Authorization
 
@@ -589,7 +589,7 @@ Name | Type | Description  | Notes
 # **searchSiteContent**
 ```objc
 -(NSURLSessionTask*) searchSiteContentWithQuery: (NSString*) query
-        completionHandler: (void (^)(OAIInlineResponse20051* output, NSError* error)) handler;
+        completionHandler: (void (^)(OAIInlineResponse20052* output, NSError* error)) handler;
 ```
 
 Search Site Content
@@ -612,7 +612,7 @@ OAIMiscApi*apiInstance = [[OAIMiscApi alloc] init];
 
 // Search Site Content
 [apiInstance searchSiteContentWithQuery:query
-          completionHandler: ^(OAIInlineResponse20051* output, NSError* error) {
+          completionHandler: ^(OAIInlineResponse20052* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -630,7 +630,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OAIInlineResponse20051***](OAIInlineResponse20051.md)
+[**OAIInlineResponse20052***](OAIInlineResponse20052.md)
 
 ### Authorization
 
@@ -647,7 +647,7 @@ Name | Type | Description  | Notes
 ```objc
 -(NSURLSessionTask*) talkToChatbotWithText: (NSString*) text
     contextId: (NSString*) contextId
-        completionHandler: (void (^)(OAIInlineResponse20055* output, NSError* error)) handler;
+        completionHandler: (void (^)(OAIInlineResponse20056* output, NSError* error)) handler;
 ```
 
 Talk to Chatbot
@@ -672,7 +672,7 @@ OAIMiscApi*apiInstance = [[OAIMiscApi alloc] init];
 // Talk to Chatbot
 [apiInstance talkToChatbotWithText:text
               contextId:contextId
-          completionHandler: ^(OAIInlineResponse20055* output, NSError* error) {
+          completionHandler: ^(OAIInlineResponse20056* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -691,7 +691,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OAIInlineResponse20055***](OAIInlineResponse20055.md)
+[**OAIInlineResponse20056***](OAIInlineResponse20056.md)
 
 ### Authorization
 

@@ -11,7 +11,7 @@
 package spoonacular
 
 type InlineResponse20040 struct {
-	Id int32 `json:"id"`
 	Name string `json:"name"`
-	Days []InlineResponse20040Days `json:"days"`
+	Items []InlineResponse20040Items `json:"items"`
+	PublishAsPublic bool `json:"publishAsPublic"`
 }

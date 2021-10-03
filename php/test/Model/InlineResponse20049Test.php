@@ -79,16 +79,23 @@ class InlineResponse20049Test extends TestCase
     }
 
     /**
-     * Test attribute "answer"
+     * Test attribute "nutrition"
      */
-    public function testPropertyAnswer()
+    public function testPropertyNutrition()
     {
     }
 
     /**
-     * Test attribute "image"
+     * Test attribute "category"
      */
-    public function testPropertyImage()
+    public function testPropertyCategory()
+    {
+    }
+
+    /**
+     * Test attribute "recipes"
+     */
+    public function testPropertyRecipes()
     {
     }
 }

@@ -10,7 +10,9 @@ import com.google.gson.annotations.SerializedName;
 public class InlineResponse20040Value  {
   
   @SerializedName("id")
-  private BigDecimal id = null;
+  private Integer id = null;
+  @SerializedName("servings")
+  private BigDecimal servings = null;
   @SerializedName("title")
   private String title = null;
   @SerializedName("imageType")
@@ -18,17 +20,27 @@ public class InlineResponse20040Value  {
 
   /**
    **/
-  @ApiModelProperty(required = true, value = "")
-  public BigDecimal getId() {
+  @ApiModelProperty(value = "")
+  public Integer getId() {
     return id;
   }
-  public void setId(BigDecimal id) {
+  public void setId(Integer id) {
     this.id = id;
   }
 
   /**
    **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
+  public BigDecimal getServings() {
+    return servings;
+  }
+  public void setServings(BigDecimal servings) {
+    this.servings = servings;
+  }
+
+  /**
+   **/
+  @ApiModelProperty(value = "")
   public String getTitle() {
     return title;
   }
@@ -38,7 +50,7 @@ public class InlineResponse20040Value  {
 
   /**
    **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
   public String getImageType() {
     return imageType;
   }
@@ -57,6 +69,7 @@ public class InlineResponse20040Value  {
     }
     InlineResponse20040Value inlineResponse20040Value = (InlineResponse20040Value) o;
     return (this.id == null ? inlineResponse20040Value.id == null : this.id.equals(inlineResponse20040Value.id)) &&
+        (this.servings == null ? inlineResponse20040Value.servings == null : this.servings.equals(inlineResponse20040Value.servings)) &&
         (this.title == null ? inlineResponse20040Value.title == null : this.title.equals(inlineResponse20040Value.title)) &&
         (this.imageType == null ? inlineResponse20040Value.imageType == null : this.imageType.equals(inlineResponse20040Value.imageType));
   }
@@ -65,6 +78,7 @@ public class InlineResponse20040Value  {
   public int hashCode() {
     int result = 17;
     result = 31 * result + (this.id == null ? 0: this.id.hashCode());
+    result = 31 * result + (this.servings == null ? 0: this.servings.hashCode());
     result = 31 * result + (this.title == null ? 0: this.title.hashCode());
     result = 31 * result + (this.imageType == null ? 0: this.imageType.hashCode());
     return result;
@@ -76,6 +90,7 @@ public class InlineResponse20040Value  {
     sb.append("class InlineResponse20040Value {\n");
     
     sb.append("  id: ").append(id).append("\n");
+    sb.append("  servings: ").append(servings).append("\n");
     sb.append("  title: ").append(title).append("\n");
     sb.append("  imageType: ").append(imageType).append("\n");
     sb.append("}\n");

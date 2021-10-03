@@ -54,14 +54,14 @@
       //expect(instance).to.be.a(SpoonacularApi.InlineResponse20056);
     });
 
-    it('should have the property suggests (base name: "suggests")', function() {
-      // uncomment below and update the code to test the property suggests
+    it('should have the property answerText (base name: "answerText")', function() {
+      // uncomment below and update the code to test the property answerText
       //var instane = new SpoonacularApi.InlineResponse20056();
       //expect(instance).to.be();
     });
 
-    it('should have the property words (base name: "words")', function() {
-      // uncomment below and update the code to test the property words
+    it('should have the property media (base name: "media")', function() {
+      // uncomment below and update the code to test the property media
       //var instane = new SpoonacularApi.InlineResponse20056();
       //expect(instance).to.be();
     });

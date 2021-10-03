@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 <a name="detectFoodInText"></a>
 # **detectFoodInText**
-> InlineResponse20050 detectFoodInText(contentMinusType)
+> InlineResponse20051 detectFoodInText(contentMinusType)
 
 Detect Food in Text
 
@@ -34,7 +34,7 @@ Take any text and find all mentions of food contained within it. This task is al
 val apiInstance = MiscApi()
 val contentMinusType : kotlin.String = application/json // kotlin.String | The content type.
 try {
-    val result : InlineResponse20050 = apiInstance.detectFoodInText(contentMinusType)
+    val result : InlineResponse20051 = apiInstance.detectFoodInText(contentMinusType)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling MiscApi#detectFoodInText")
@@ -53,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20050**](InlineResponse20050.md)
+[**InlineResponse20051**](InlineResponse20051.md)
 
 ### Authorization
 
@@ -66,7 +66,7 @@ Name | Type | Description  | Notes
 
 <a name="getARandomFoodJoke"></a>
 # **getARandomFoodJoke**
-> InlineResponse20054 getARandomFoodJoke()
+> InlineResponse20055 getARandomFoodJoke()
 
 Random Food Joke
 
@@ -80,7 +80,7 @@ Get a random joke that is related to food. Caution: this is an endpoint for adul
 
 val apiInstance = MiscApi()
 try {
-    val result : InlineResponse20054 = apiInstance.getARandomFoodJoke()
+    val result : InlineResponse20055 = apiInstance.getARandomFoodJoke()
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling MiscApi#getARandomFoodJoke")
@@ -96,7 +96,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse20054**](InlineResponse20054.md)
+[**InlineResponse20055**](InlineResponse20055.md)
 
 ### Authorization
 
@@ -109,7 +109,7 @@ This endpoint does not need any parameter.
 
 <a name="getConversationSuggests"></a>
 # **getConversationSuggests**
-> InlineResponse20056 getConversationSuggests(query, number)
+> InlineResponse20057 getConversationSuggests(query, number)
 
 Conversation Suggests
 
@@ -125,7 +125,7 @@ val apiInstance = MiscApi()
 val query : kotlin.String = tell // kotlin.String | A (partial) query from the user. The endpoint will return if it matches topics it can talk about.
 val number : java.math.BigDecimal = 5 // java.math.BigDecimal | The number of suggestions to return (between 1 and 25).
 try {
-    val result : InlineResponse20056 = apiInstance.getConversationSuggests(query, number)
+    val result : InlineResponse20057 = apiInstance.getConversationSuggests(query, number)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling MiscApi#getConversationSuggests")
@@ -145,7 +145,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20056**](InlineResponse20056.md)
+[**InlineResponse20057**](InlineResponse20057.md)
 
 ### Authorization
 
@@ -158,7 +158,7 @@ Name | Type | Description  | Notes
 
 <a name="getRandomFoodTrivia"></a>
 # **getRandomFoodTrivia**
-> InlineResponse20054 getRandomFoodTrivia()
+> InlineResponse20055 getRandomFoodTrivia()
 
 Random Food Trivia
 
@@ -172,7 +172,7 @@ Returns random food trivia.
 
 val apiInstance = MiscApi()
 try {
-    val result : InlineResponse20054 = apiInstance.getRandomFoodTrivia()
+    val result : InlineResponse20055 = apiInstance.getRandomFoodTrivia()
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling MiscApi#getRandomFoodTrivia")
@@ -188,7 +188,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse20054**](InlineResponse20054.md)
+[**InlineResponse20055**](InlineResponse20055.md)
 
 ### Authorization
 
@@ -201,7 +201,7 @@ This endpoint does not need any parameter.
 
 <a name="imageAnalysisByURL"></a>
 # **imageAnalysisByURL**
-> InlineResponse20048 imageAnalysisByURL(imageUrl)
+> InlineResponse20049 imageAnalysisByURL(imageUrl)
 
 Image Analysis by URL
 
@@ -216,7 +216,7 @@ Analyze a food image. The API tries to classify the image, guess the nutrition, 
 val apiInstance = MiscApi()
 val imageUrl : kotlin.String = https://spoonacular.com/recipeImages/635350-240x150.jpg // kotlin.String | The URL of the image to be analyzed.
 try {
-    val result : InlineResponse20048 = apiInstance.imageAnalysisByURL(imageUrl)
+    val result : InlineResponse20049 = apiInstance.imageAnalysisByURL(imageUrl)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling MiscApi#imageAnalysisByURL")
@@ -235,7 +235,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20048**](InlineResponse20048.md)
+[**InlineResponse20049**](InlineResponse20049.md)
 
 ### Authorization
 
@@ -248,7 +248,7 @@ Name | Type | Description  | Notes
 
 <a name="imageClassificationByURL"></a>
 # **imageClassificationByURL**
-> InlineResponse20047 imageClassificationByURL(imageUrl)
+> InlineResponse20048 imageClassificationByURL(imageUrl)
 
 Image Classification by URL
 
@@ -263,7 +263,7 @@ Classify a food image.
 val apiInstance = MiscApi()
 val imageUrl : kotlin.String = https://spoonacular.com/recipeImages/635350-240x150.jpg // kotlin.String | The URL of the image to be classified.
 try {
-    val result : InlineResponse20047 = apiInstance.imageClassificationByURL(imageUrl)
+    val result : InlineResponse20048 = apiInstance.imageClassificationByURL(imageUrl)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling MiscApi#imageClassificationByURL")
@@ -282,7 +282,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20047**](InlineResponse20047.md)
+[**InlineResponse20048**](InlineResponse20048.md)
 
 ### Authorization
 
@@ -295,7 +295,7 @@ Name | Type | Description  | Notes
 
 <a name="searchAllFood"></a>
 # **searchAllFood**
-> InlineResponse20052 searchAllFood(query, offset, number)
+> InlineResponse20053 searchAllFood(query, offset, number)
 
 Search All Food
 
@@ -312,7 +312,7 @@ val query : kotlin.String = apple // kotlin.String | The search query.
 val offset : kotlin.Int = 56 // kotlin.Int | The number of results to skip (between 0 and 900).
 val number : kotlin.Int = 10 // kotlin.Int | The maximum number of items to return (between 1 and 100). Defaults to 10.
 try {
-    val result : InlineResponse20052 = apiInstance.searchAllFood(query, offset, number)
+    val result : InlineResponse20053 = apiInstance.searchAllFood(query, offset, number)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling MiscApi#searchAllFood")
@@ -333,7 +333,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20052**](InlineResponse20052.md)
+[**InlineResponse20053**](InlineResponse20053.md)
 
 ### Authorization
 
@@ -401,7 +401,7 @@ Name | Type | Description  | Notes
 
 <a name="searchFoodVideos"></a>
 # **searchFoodVideos**
-> InlineResponse20053 searchFoodVideos(query, type, cuisine, diet, includeIngredients, excludeIngredients, minLength, maxLength, offset, number)
+> InlineResponse20054 searchFoodVideos(query, type, cuisine, diet, includeIngredients, excludeIngredients, minLength, maxLength, offset, number)
 
 Search Food Videos
 
@@ -425,7 +425,7 @@ val maxLength : java.math.BigDecimal = 999 // java.math.BigDecimal | Maximum vid
 val offset : kotlin.Int = 56 // kotlin.Int | The number of results to skip (between 0 and 900).
 val number : kotlin.Int = 10 // kotlin.Int | The maximum number of items to return (between 1 and 100). Defaults to 10.
 try {
-    val result : InlineResponse20053 = apiInstance.searchFoodVideos(query, type, cuisine, diet, includeIngredients, excludeIngredients, minLength, maxLength, offset, number)
+    val result : InlineResponse20054 = apiInstance.searchFoodVideos(query, type, cuisine, diet, includeIngredients, excludeIngredients, minLength, maxLength, offset, number)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling MiscApi#searchFoodVideos")
@@ -453,7 +453,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20053**](InlineResponse20053.md)
+[**InlineResponse20054**](InlineResponse20054.md)
 
 ### Authorization
 
@@ -466,7 +466,7 @@ Name | Type | Description  | Notes
 
 <a name="searchSiteContent"></a>
 # **searchSiteContent**
-> InlineResponse20051 searchSiteContent(query)
+> InlineResponse20052 searchSiteContent(query)
 
 Search Site Content
 
@@ -481,7 +481,7 @@ Search spoonacular&#39;s site content. You&#39;ll be able to find everything tha
 val apiInstance = MiscApi()
 val query : kotlin.String = past // kotlin.String | The query to search for. You can also use partial queries such as \"spagh\" to already find spaghetti recipes, articles, grocery products, and other content.
 try {
-    val result : InlineResponse20051 = apiInstance.searchSiteContent(query)
+    val result : InlineResponse20052 = apiInstance.searchSiteContent(query)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling MiscApi#searchSiteContent")
@@ -500,7 +500,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20051**](InlineResponse20051.md)
+[**InlineResponse20052**](InlineResponse20052.md)
 
 ### Authorization
 
@@ -513,7 +513,7 @@ Name | Type | Description  | Notes
 
 <a name="talkToChatbot"></a>
 # **talkToChatbot**
-> InlineResponse20055 talkToChatbot(text, contextId)
+> InlineResponse20056 talkToChatbot(text, contextId)
 
 Talk to Chatbot
 
@@ -529,7 +529,7 @@ val apiInstance = MiscApi()
 val text : kotlin.String = donut recipes // kotlin.String | The request / question / answer from the user to the chatbot.
 val contextId : kotlin.String = 342938 // kotlin.String | An arbitrary globally unique id for your conversation. The conversation can contain states so you should pass your context id if you want the bot to be able to remember the conversation.
 try {
-    val result : InlineResponse20055 = apiInstance.talkToChatbot(text, contextId)
+    val result : InlineResponse20056 = apiInstance.talkToChatbot(text, contextId)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling MiscApi#talkToChatbot")
@@ -549,7 +549,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20055**](InlineResponse20055.md)
+[**InlineResponse20056**](InlineResponse20056.md)
 
 ### Authorization
 

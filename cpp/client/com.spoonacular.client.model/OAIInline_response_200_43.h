@@ -22,7 +22,6 @@
 #include <QJsonObject>
 
 
-#include <QList>
 #include <QString>
 
 #include "OAIObject.h"
@@ -42,12 +41,12 @@ public:
     void fromJson(QString jsonString) override;
 
     
-    QList<QString> getPairings() const;
-    void setPairings(const QList<QString> &pairings);
+    QString getUsername() const;
+    void setUsername(const QString &username);
 
     
-    QString getText() const;
-    void setText(const QString &text);
+    QString getHash() const;
+    void setHash(const QString &hash);
 
     
     
@@ -57,13 +56,13 @@ public:
 private:
     void init();
     
-    QList<QString> pairings;
-    bool m_pairings_isSet;
-    bool m_pairings_isValid;
+    QString username;
+    bool m_username_isSet;
+    bool m_username_isValid;
     
-    QString text;
-    bool m_text_isSet;
-    bool m_text_isValid;
+    QString hash;
+    bool m_hash_isSet;
+    bool m_hash_isValid;
     
     };
 

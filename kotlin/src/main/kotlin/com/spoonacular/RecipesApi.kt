@@ -30,8 +30,8 @@ import com.spoonacular.client.model.InlineResponse20021
 import com.spoonacular.client.model.InlineResponse20023
 import com.spoonacular.client.model.InlineResponse2003
 import com.spoonacular.client.model.InlineResponse2004
-import com.spoonacular.client.model.InlineResponse20049
 import com.spoonacular.client.model.InlineResponse2005
+import com.spoonacular.client.model.InlineResponse20050
 import com.spoonacular.client.model.InlineResponse2006
 import com.spoonacular.client.model.InlineResponse2007
 import com.spoonacular.client.model.InlineResponse2008
@@ -787,10 +787,10 @@ class RecipesApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiC
     * Quick Answer
     * Answer a nutrition related natural language question.
     * @param q The nutrition related question. 
-    * @return InlineResponse20049
+    * @return InlineResponse20050
     */
     @Suppress("UNCHECKED_CAST")
-    fun quickAnswer(q: kotlin.String) : InlineResponse20049 {
+    fun quickAnswer(q: kotlin.String) : InlineResponse20050 {
         val localVariableBody: kotlin.Any? = null
         val localVariableQuery: MultiValueMap = mapOf("q" to listOf("$q"))
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
@@ -800,13 +800,13 @@ class RecipesApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiC
             query = localVariableQuery,
             headers = localVariableHeaders
         )
-        val response = request<InlineResponse20049>(
+        val response = request<InlineResponse20050>(
             localVariableConfig,
             localVariableBody
         )
 
         return when (response.responseType) {
-            ResponseType.Success -> (response as Success<*>).data as InlineResponse20049
+            ResponseType.Success -> (response as Success<*>).data as InlineResponse20050
             ResponseType.Informational -> TODO()
             ResponseType.Redirection -> TODO()
             ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")

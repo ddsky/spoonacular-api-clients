@@ -57,8 +57,7 @@ class InlineResponse20046 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'recommended_wines' => '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20046RecommendedWines[]',
-        'total_found' => 'int'
+        'wine_description' => 'string'
     ];
 
     /**
@@ -67,8 +66,7 @@ class InlineResponse20046 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'recommended_wines' => null,
-        'total_found' => null
+        'wine_description' => null
     ];
 
     /**
@@ -98,8 +96,7 @@ class InlineResponse20046 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'recommended_wines' => 'recommendedWines',
-        'total_found' => 'totalFound'
+        'wine_description' => 'wineDescription'
     ];
 
     /**
@@ -108,8 +105,7 @@ class InlineResponse20046 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'recommended_wines' => 'setRecommendedWines',
-        'total_found' => 'setTotalFound'
+        'wine_description' => 'setWineDescription'
     ];
 
     /**
@@ -118,8 +114,7 @@ class InlineResponse20046 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'recommended_wines' => 'getRecommendedWines',
-        'total_found' => 'getTotalFound'
+        'wine_description' => 'getWineDescription'
     ];
 
     /**
@@ -182,8 +177,7 @@ class InlineResponse20046 implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['recommended_wines'] = isset($data['recommended_wines']) ? $data['recommended_wines'] : null;
-        $this->container['total_found'] = isset($data['total_found']) ? $data['total_found'] : null;
+        $this->container['wine_description'] = isset($data['wine_description']) ? $data['wine_description'] : null;
     }
 
     /**
@@ -195,12 +189,13 @@ class InlineResponse20046 implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['recommended_wines'] === null) {
-            $invalidProperties[] = "'recommended_wines' can't be null";
+        if ($this->container['wine_description'] === null) {
+            $invalidProperties[] = "'wine_description' can't be null";
         }
-        if ($this->container['total_found'] === null) {
-            $invalidProperties[] = "'total_found' can't be null";
+        if ((mb_strlen($this->container['wine_description']) < 1)) {
+            $invalidProperties[] = "invalid value for 'wine_description', the character length must be bigger than or equal to 1.";
         }
+
         return $invalidProperties;
     }
 
@@ -217,49 +212,30 @@ class InlineResponse20046 implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets recommended_wines
+     * Gets wine_description
      *
-     * @return \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20046RecommendedWines[]
+     * @return string
      */
-    public function getRecommendedWines()
+    public function getWineDescription()
     {
-        return $this->container['recommended_wines'];
+        return $this->container['wine_description'];
     }
 
     /**
-     * Sets recommended_wines
+     * Sets wine_description
      *
-     * @param \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20046RecommendedWines[] $recommended_wines recommended_wines
+     * @param string $wine_description wine_description
      *
      * @return $this
      */
-    public function setRecommendedWines($recommended_wines)
+    public function setWineDescription($wine_description)
     {
-        $this->container['recommended_wines'] = $recommended_wines;
 
-        return $this;
-    }
+        if ((mb_strlen($wine_description) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $wine_description when calling InlineResponse20046., must be bigger than or equal to 1.');
+        }
 
-    /**
-     * Gets total_found
-     *
-     * @return int
-     */
-    public function getTotalFound()
-    {
-        return $this->container['total_found'];
-    }
-
-    /**
-     * Sets total_found
-     *
-     * @param int $total_found total_found
-     *
-     * @return $this
-     */
-    public function setTotalFound($total_found)
-    {
-        $this->container['total_found'] = $total_found;
+        $this->container['wine_description'] = $wine_description;
 
         return $this;
     }

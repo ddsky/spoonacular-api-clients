@@ -54,8 +54,8 @@
       //expect(instance).to.be.a(SpoonacularApi.InlineResponse20040Items);
     });
 
-    it('should have the property id (base name: "id")', function() {
-      // uncomment below and update the code to test the property id
+    it('should have the property day (base name: "day")', function() {
+      // uncomment below and update the code to test the property day
       //var instane = new SpoonacularApi.InlineResponse20040Items();
       //expect(instance).to.be();
     });

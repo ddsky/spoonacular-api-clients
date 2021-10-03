@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 <a name="getdishpairingforwine"></a>
 # **GetDishPairingForWine**
-> InlineResponse20043 GetDishPairingForWine (string wine)
+> InlineResponse20044 GetDishPairingForWine (string wine)
 
 Dish Pairing for Wine
 
@@ -44,7 +44,7 @@ namespace Example
             try
             {
                 // Dish Pairing for Wine
-                InlineResponse20043 result = apiInstance.GetDishPairingForWine(wine);
+                InlineResponse20044 result = apiInstance.GetDishPairingForWine(wine);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -64,7 +64,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20043**](InlineResponse20043.md)
+[**InlineResponse20044**](InlineResponse20044.md)
 
 ### Authorization
 
@@ -79,7 +79,7 @@ Name | Type | Description  | Notes
 
 <a name="getwinedescription"></a>
 # **GetWineDescription**
-> InlineResponse20045 GetWineDescription (string wine)
+> InlineResponse20046 GetWineDescription (string wine)
 
 Wine Description
 
@@ -111,7 +111,7 @@ namespace Example
             try
             {
                 // Wine Description
-                InlineResponse20045 result = apiInstance.GetWineDescription(wine);
+                InlineResponse20046 result = apiInstance.GetWineDescription(wine);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -131,7 +131,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20045**](InlineResponse20045.md)
+[**InlineResponse20046**](InlineResponse20046.md)
 
 ### Authorization
 
@@ -146,7 +146,7 @@ Name | Type | Description  | Notes
 
 <a name="getwinepairing"></a>
 # **GetWinePairing**
-> InlineResponse20044 GetWinePairing (string food, decimal? maxPrice)
+> InlineResponse20045 GetWinePairing (string food, decimal? maxPrice)
 
 Wine Pairing
 
@@ -179,7 +179,7 @@ namespace Example
             try
             {
                 // Wine Pairing
-                InlineResponse20044 result = apiInstance.GetWinePairing(food, maxPrice);
+                InlineResponse20045 result = apiInstance.GetWinePairing(food, maxPrice);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -200,7 +200,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20044**](InlineResponse20044.md)
+[**InlineResponse20045**](InlineResponse20045.md)
 
 ### Authorization
 
@@ -215,7 +215,7 @@ Name | Type | Description  | Notes
 
 <a name="getwinerecommendation"></a>
 # **GetWineRecommendation**
-> InlineResponse20046 GetWineRecommendation (string wine, decimal? maxPrice, decimal? minRating, decimal? number)
+> InlineResponse20047 GetWineRecommendation (string wine, decimal? maxPrice, decimal? minRating, decimal? number)
 
 Wine Recommendation
 
@@ -250,7 +250,7 @@ namespace Example
             try
             {
                 // Wine Recommendation
-                InlineResponse20046 result = apiInstance.GetWineRecommendation(wine, maxPrice, minRating, number);
+                InlineResponse20047 result = apiInstance.GetWineRecommendation(wine, maxPrice, minRating, number);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -273,7 +273,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20046**](InlineResponse20046.md)
+[**InlineResponse20047**](InlineResponse20047.md)
 
 ### Authorization
 

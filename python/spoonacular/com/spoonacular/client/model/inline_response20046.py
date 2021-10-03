@@ -32,70 +32,45 @@ class InlineResponse20046(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'recommended_wines': 'list[InlineResponse20046RecommendedWines]',
-        'total_found': 'int'
+        'wine_description': 'str'
     }
 
     attribute_map = {
-        'recommended_wines': 'recommendedWines',
-        'total_found': 'totalFound'
+        'wine_description': 'wineDescription'
     }
 
-    def __init__(self, recommended_wines=None, total_found=None):  # noqa: E501
+    def __init__(self, wine_description=None):  # noqa: E501
         """InlineResponse20046 - a model defined in OpenAPI"""  # noqa: E501
 
-        self._recommended_wines = None
-        self._total_found = None
+        self._wine_description = None
         self.discriminator = None
 
-        self.recommended_wines = recommended_wines
-        self.total_found = total_found
+        self.wine_description = wine_description
 
     @property
-    def recommended_wines(self):
-        """Gets the recommended_wines of this InlineResponse20046.  # noqa: E501
+    def wine_description(self):
+        """Gets the wine_description of this InlineResponse20046.  # noqa: E501
 
 
-        :return: The recommended_wines of this InlineResponse20046.  # noqa: E501
-        :rtype: list[InlineResponse20046RecommendedWines]
+        :return: The wine_description of this InlineResponse20046.  # noqa: E501
+        :rtype: str
         """
-        return self._recommended_wines
+        return self._wine_description
 
-    @recommended_wines.setter
-    def recommended_wines(self, recommended_wines):
-        """Sets the recommended_wines of this InlineResponse20046.
+    @wine_description.setter
+    def wine_description(self, wine_description):
+        """Sets the wine_description of this InlineResponse20046.
 
 
-        :param recommended_wines: The recommended_wines of this InlineResponse20046.  # noqa: E501
-        :type: list[InlineResponse20046RecommendedWines]
+        :param wine_description: The wine_description of this InlineResponse20046.  # noqa: E501
+        :type: str
         """
-        if recommended_wines is None:
-            raise ValueError("Invalid value for `recommended_wines`, must not be `None`")  # noqa: E501
+        if wine_description is None:
+            raise ValueError("Invalid value for `wine_description`, must not be `None`")  # noqa: E501
+        if wine_description is not None and len(wine_description) < 1:
+            raise ValueError("Invalid value for `wine_description`, length must be greater than or equal to `1`")  # noqa: E501
 
-        self._recommended_wines = recommended_wines
-
-    @property
-    def total_found(self):
-        """Gets the total_found of this InlineResponse20046.  # noqa: E501
-
-
-        :return: The total_found of this InlineResponse20046.  # noqa: E501
-        :rtype: int
-        """
-        return self._total_found
-
-    @total_found.setter
-    def total_found(self, total_found):
-        """Sets the total_found of this InlineResponse20046.
-
-
-        :param total_found: The total_found of this InlineResponse20046.  # noqa: E501
-        :type: int
-        """
-        if total_found is None:
-            raise ValueError("Invalid value for `total_found`, must not be `None`")  # noqa: E501
-
-        self._total_found = total_found
+        self._wine_description = wine_description
 
     def to_dict(self):
         """Returns the model properties as a dict"""

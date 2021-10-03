@@ -13,6 +13,8 @@ package spoonacular
 type InlineObject7 struct {
 	// The username.
 	Username string `json:"username"`
+	// The shopping list item id.
+	Id float32 `json:"id"`
 	// The private hash for the username.
 	Hash string `json:"hash"`
 }

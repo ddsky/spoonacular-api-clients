@@ -86,6 +86,13 @@ class InlineResponse20040ValueTest extends TestCase
     }
 
     /**
+     * Test attribute "servings"
+     */
+    public function testPropertyServings()
+    {
+    }
+
+    /**
      * Test attribute "title"
      */
     public function testPropertyTitle()

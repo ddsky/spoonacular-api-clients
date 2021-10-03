@@ -17,15 +17,15 @@ local basexx = require "basexx"
 
 -- model import
 local spoonacular_inline_response_200_29 = require "spoonacular.model.inline_response_200_29"
-local spoonacular_inline_response_200_47 = require "spoonacular.model.inline_response_200_47"
 local spoonacular_inline_response_200_48 = require "spoonacular.model.inline_response_200_48"
-local spoonacular_inline_response_200_50 = require "spoonacular.model.inline_response_200_50"
+local spoonacular_inline_response_200_49 = require "spoonacular.model.inline_response_200_49"
 local spoonacular_inline_response_200_51 = require "spoonacular.model.inline_response_200_51"
 local spoonacular_inline_response_200_52 = require "spoonacular.model.inline_response_200_52"
 local spoonacular_inline_response_200_53 = require "spoonacular.model.inline_response_200_53"
 local spoonacular_inline_response_200_54 = require "spoonacular.model.inline_response_200_54"
 local spoonacular_inline_response_200_55 = require "spoonacular.model.inline_response_200_55"
 local spoonacular_inline_response_200_56 = require "spoonacular.model.inline_response_200_56"
+local spoonacular_inline_response_200_57 = require "spoonacular.model.inline_response_200_57"
 
 local misc_api = {}
 local misc_api_mt = {
@@ -95,7 +95,7 @@ function misc_api:detect_food_in_text(content_type)
 		if result == nil then
 			return nil, err3
 		end
-		return spoonacular_inline_response_200_50.cast(result), headers
+		return spoonacular_inline_response_200_51.cast(result), headers
 	else
 		local body, err, errno2 = stream:get_body_as_string()
 		if not body then
@@ -142,7 +142,7 @@ function misc_api:get_a_random_food_joke()
 		if result == nil then
 			return nil, err3
 		end
-		return spoonacular_inline_response_200_54.cast(result), headers
+		return spoonacular_inline_response_200_55.cast(result), headers
 	else
 		local body, err, errno2 = stream:get_body_as_string()
 		if not body then
@@ -189,7 +189,7 @@ function misc_api:get_conversation_suggests(query, Number_)
 		if result == nil then
 			return nil, err3
 		end
-		return spoonacular_inline_response_200_56.cast(result), headers
+		return spoonacular_inline_response_200_57.cast(result), headers
 	else
 		local body, err, errno2 = stream:get_body_as_string()
 		if not body then
@@ -236,7 +236,7 @@ function misc_api:get_random_food_trivia()
 		if result == nil then
 			return nil, err3
 		end
-		return spoonacular_inline_response_200_54.cast(result), headers
+		return spoonacular_inline_response_200_55.cast(result), headers
 	else
 		local body, err, errno2 = stream:get_body_as_string()
 		if not body then
@@ -283,7 +283,7 @@ function misc_api:image_analysis_by_url(image_url)
 		if result == nil then
 			return nil, err3
 		end
-		return spoonacular_inline_response_200_48.cast(result), headers
+		return spoonacular_inline_response_200_49.cast(result), headers
 	else
 		local body, err, errno2 = stream:get_body_as_string()
 		if not body then
@@ -330,7 +330,7 @@ function misc_api:image_classification_by_url(image_url)
 		if result == nil then
 			return nil, err3
 		end
-		return spoonacular_inline_response_200_47.cast(result), headers
+		return spoonacular_inline_response_200_48.cast(result), headers
 	else
 		local body, err, errno2 = stream:get_body_as_string()
 		if not body then
@@ -377,7 +377,7 @@ function misc_api:search_all_food(query, offset, Number_)
 		if result == nil then
 			return nil, err3
 		end
-		return spoonacular_inline_response_200_52.cast(result), headers
+		return spoonacular_inline_response_200_53.cast(result), headers
 	else
 		local body, err, errno2 = stream:get_body_as_string()
 		if not body then
@@ -471,7 +471,7 @@ function misc_api:search_food_videos(query, type, cuisine, diet, include_ingredi
 		if result == nil then
 			return nil, err3
 		end
-		return spoonacular_inline_response_200_53.cast(result), headers
+		return spoonacular_inline_response_200_54.cast(result), headers
 	else
 		local body, err, errno2 = stream:get_body_as_string()
 		if not body then
@@ -518,7 +518,7 @@ function misc_api:search_site_content(query)
 		if result == nil then
 			return nil, err3
 		end
-		return spoonacular_inline_response_200_51.cast(result), headers
+		return spoonacular_inline_response_200_52.cast(result), headers
 	else
 		local body, err, errno2 = stream:get_body_as_string()
 		if not body then
@@ -565,7 +565,7 @@ function misc_api:talk_to_chatbot(text, context_id)
 		if result == nil then
 			return nil, err3
 		end
-		return spoonacular_inline_response_200_55.cast(result), headers
+		return spoonacular_inline_response_200_56.cast(result), headers
 	else
 		local body, err, errno2 = stream:get_body_as_string()
 		if not body then

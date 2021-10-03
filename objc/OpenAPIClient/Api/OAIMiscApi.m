@@ -2,15 +2,15 @@
 #import "OAIQueryParamCollection.h"
 #import "OAIApiClient.h"
 #import "OAIInlineResponse20029.h"
-#import "OAIInlineResponse20047.h"
 #import "OAIInlineResponse20048.h"
-#import "OAIInlineResponse20050.h"
+#import "OAIInlineResponse20049.h"
 #import "OAIInlineResponse20051.h"
 #import "OAIInlineResponse20052.h"
 #import "OAIInlineResponse20053.h"
 #import "OAIInlineResponse20054.h"
 #import "OAIInlineResponse20055.h"
 #import "OAIInlineResponse20056.h"
+#import "OAIInlineResponse20057.h"
 
 
 @interface OAIMiscApi ()
@@ -63,10 +63,10 @@ NSInteger kOAIMiscApiMissingParamErrorCode = 234513;
 /// Take any text and find all mentions of food contained within it. This task is also called Named Entity Recognition (NER). In this case, the entities are foods. Either dishes, such as pizza or cheeseburger, or ingredients, such as cucumber or almonds.
 ///  @param contentType The content type. (optional)
 ///
-///  @returns OAIInlineResponse20050*
+///  @returns OAIInlineResponse20051*
 ///
 -(NSURLSessionTask*) detectFoodInTextWithContentType: (NSString*) contentType
-    completionHandler: (void (^)(OAIInlineResponse20050* output, NSError* error)) handler {
+    completionHandler: (void (^)(OAIInlineResponse20051* output, NSError* error)) handler {
     NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/food/detect"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
@@ -107,10 +107,10 @@ NSInteger kOAIMiscApiMissingParamErrorCode = 234513;
                               authSettings: authSettings
                         requestContentType: requestContentType
                        responseContentType: responseContentType
-                              responseType: @"OAIInlineResponse20050*"
+                              responseType: @"OAIInlineResponse20051*"
                            completionBlock: ^(id data, NSError *error) {
                                 if(handler) {
-                                    handler((OAIInlineResponse20050*)data, error);
+                                    handler((OAIInlineResponse20051*)data, error);
                                 }
                             }];
 }
@@ -118,10 +118,10 @@ NSInteger kOAIMiscApiMissingParamErrorCode = 234513;
 ///
 /// Random Food Joke
 /// Get a random joke that is related to food. Caution: this is an endpoint for adults!
-///  @returns OAIInlineResponse20054*
+///  @returns OAIInlineResponse20055*
 ///
 -(NSURLSessionTask*) getARandomFoodJokeWithCompletionHandler: 
-    (void (^)(OAIInlineResponse20054* output, NSError* error)) handler {
+    (void (^)(OAIInlineResponse20055* output, NSError* error)) handler {
     NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/food/jokes/random"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
@@ -159,10 +159,10 @@ NSInteger kOAIMiscApiMissingParamErrorCode = 234513;
                               authSettings: authSettings
                         requestContentType: requestContentType
                        responseContentType: responseContentType
-                              responseType: @"OAIInlineResponse20054*"
+                              responseType: @"OAIInlineResponse20055*"
                            completionBlock: ^(id data, NSError *error) {
                                 if(handler) {
-                                    handler((OAIInlineResponse20054*)data, error);
+                                    handler((OAIInlineResponse20055*)data, error);
                                 }
                             }];
 }
@@ -174,11 +174,11 @@ NSInteger kOAIMiscApiMissingParamErrorCode = 234513;
 ///
 ///  @param number The number of suggestions to return (between 1 and 25). (optional)
 ///
-///  @returns OAIInlineResponse20056*
+///  @returns OAIInlineResponse20057*
 ///
 -(NSURLSessionTask*) getConversationSuggestsWithQuery: (NSString*) query
     number: (NSNumber*) number
-    completionHandler: (void (^)(OAIInlineResponse20056* output, NSError* error)) handler {
+    completionHandler: (void (^)(OAIInlineResponse20057* output, NSError* error)) handler {
     // verify the required parameter 'query' is set
     if (query == nil) {
         NSParameterAssert(query);
@@ -233,10 +233,10 @@ NSInteger kOAIMiscApiMissingParamErrorCode = 234513;
                               authSettings: authSettings
                         requestContentType: requestContentType
                        responseContentType: responseContentType
-                              responseType: @"OAIInlineResponse20056*"
+                              responseType: @"OAIInlineResponse20057*"
                            completionBlock: ^(id data, NSError *error) {
                                 if(handler) {
-                                    handler((OAIInlineResponse20056*)data, error);
+                                    handler((OAIInlineResponse20057*)data, error);
                                 }
                             }];
 }
@@ -244,10 +244,10 @@ NSInteger kOAIMiscApiMissingParamErrorCode = 234513;
 ///
 /// Random Food Trivia
 /// Returns random food trivia.
-///  @returns OAIInlineResponse20054*
+///  @returns OAIInlineResponse20055*
 ///
 -(NSURLSessionTask*) getRandomFoodTriviaWithCompletionHandler: 
-    (void (^)(OAIInlineResponse20054* output, NSError* error)) handler {
+    (void (^)(OAIInlineResponse20055* output, NSError* error)) handler {
     NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/food/trivia/random"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
@@ -285,10 +285,10 @@ NSInteger kOAIMiscApiMissingParamErrorCode = 234513;
                               authSettings: authSettings
                         requestContentType: requestContentType
                        responseContentType: responseContentType
-                              responseType: @"OAIInlineResponse20054*"
+                              responseType: @"OAIInlineResponse20055*"
                            completionBlock: ^(id data, NSError *error) {
                                 if(handler) {
-                                    handler((OAIInlineResponse20054*)data, error);
+                                    handler((OAIInlineResponse20055*)data, error);
                                 }
                             }];
 }
@@ -298,10 +298,10 @@ NSInteger kOAIMiscApiMissingParamErrorCode = 234513;
 /// Analyze a food image. The API tries to classify the image, guess the nutrition, and find a matching recipes.
 ///  @param imageUrl The URL of the image to be analyzed. 
 ///
-///  @returns OAIInlineResponse20048*
+///  @returns OAIInlineResponse20049*
 ///
 -(NSURLSessionTask*) imageAnalysisByURLWithImageUrl: (NSString*) imageUrl
-    completionHandler: (void (^)(OAIInlineResponse20048* output, NSError* error)) handler {
+    completionHandler: (void (^)(OAIInlineResponse20049* output, NSError* error)) handler {
     // verify the required parameter 'imageUrl' is set
     if (imageUrl == nil) {
         NSParameterAssert(imageUrl);
@@ -353,10 +353,10 @@ NSInteger kOAIMiscApiMissingParamErrorCode = 234513;
                               authSettings: authSettings
                         requestContentType: requestContentType
                        responseContentType: responseContentType
-                              responseType: @"OAIInlineResponse20048*"
+                              responseType: @"OAIInlineResponse20049*"
                            completionBlock: ^(id data, NSError *error) {
                                 if(handler) {
-                                    handler((OAIInlineResponse20048*)data, error);
+                                    handler((OAIInlineResponse20049*)data, error);
                                 }
                             }];
 }
@@ -366,10 +366,10 @@ NSInteger kOAIMiscApiMissingParamErrorCode = 234513;
 /// Classify a food image.
 ///  @param imageUrl The URL of the image to be classified. 
 ///
-///  @returns OAIInlineResponse20047*
+///  @returns OAIInlineResponse20048*
 ///
 -(NSURLSessionTask*) imageClassificationByURLWithImageUrl: (NSString*) imageUrl
-    completionHandler: (void (^)(OAIInlineResponse20047* output, NSError* error)) handler {
+    completionHandler: (void (^)(OAIInlineResponse20048* output, NSError* error)) handler {
     // verify the required parameter 'imageUrl' is set
     if (imageUrl == nil) {
         NSParameterAssert(imageUrl);
@@ -421,10 +421,10 @@ NSInteger kOAIMiscApiMissingParamErrorCode = 234513;
                               authSettings: authSettings
                         requestContentType: requestContentType
                        responseContentType: responseContentType
-                              responseType: @"OAIInlineResponse20047*"
+                              responseType: @"OAIInlineResponse20048*"
                            completionBlock: ^(id data, NSError *error) {
                                 if(handler) {
-                                    handler((OAIInlineResponse20047*)data, error);
+                                    handler((OAIInlineResponse20048*)data, error);
                                 }
                             }];
 }
@@ -438,12 +438,12 @@ NSInteger kOAIMiscApiMissingParamErrorCode = 234513;
 ///
 ///  @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to @10)
 ///
-///  @returns OAIInlineResponse20052*
+///  @returns OAIInlineResponse20053*
 ///
 -(NSURLSessionTask*) searchAllFoodWithQuery: (NSString*) query
     offset: (NSNumber*) offset
     number: (NSNumber*) number
-    completionHandler: (void (^)(OAIInlineResponse20052* output, NSError* error)) handler {
+    completionHandler: (void (^)(OAIInlineResponse20053* output, NSError* error)) handler {
     // verify the required parameter 'query' is set
     if (query == nil) {
         NSParameterAssert(query);
@@ -501,10 +501,10 @@ NSInteger kOAIMiscApiMissingParamErrorCode = 234513;
                               authSettings: authSettings
                         requestContentType: requestContentType
                        responseContentType: responseContentType
-                              responseType: @"OAIInlineResponse20052*"
+                              responseType: @"OAIInlineResponse20053*"
                            completionBlock: ^(id data, NSError *error) {
                                 if(handler) {
-                                    handler((OAIInlineResponse20052*)data, error);
+                                    handler((OAIInlineResponse20053*)data, error);
                                 }
                             }];
 }
@@ -635,7 +635,7 @@ NSInteger kOAIMiscApiMissingParamErrorCode = 234513;
 ///
 ///  @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to @10)
 ///
-///  @returns OAIInlineResponse20053*
+///  @returns OAIInlineResponse20054*
 ///
 -(NSURLSessionTask*) searchFoodVideosWithQuery: (NSString*) query
     type: (NSString*) type
@@ -647,7 +647,7 @@ NSInteger kOAIMiscApiMissingParamErrorCode = 234513;
     maxLength: (NSNumber*) maxLength
     offset: (NSNumber*) offset
     number: (NSNumber*) number
-    completionHandler: (void (^)(OAIInlineResponse20053* output, NSError* error)) handler {
+    completionHandler: (void (^)(OAIInlineResponse20054* output, NSError* error)) handler {
     NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/food/videos/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
@@ -715,10 +715,10 @@ NSInteger kOAIMiscApiMissingParamErrorCode = 234513;
                               authSettings: authSettings
                         requestContentType: requestContentType
                        responseContentType: responseContentType
-                              responseType: @"OAIInlineResponse20053*"
+                              responseType: @"OAIInlineResponse20054*"
                            completionBlock: ^(id data, NSError *error) {
                                 if(handler) {
-                                    handler((OAIInlineResponse20053*)data, error);
+                                    handler((OAIInlineResponse20054*)data, error);
                                 }
                             }];
 }
@@ -728,10 +728,10 @@ NSInteger kOAIMiscApiMissingParamErrorCode = 234513;
 /// Search spoonacular's site content. You'll be able to find everything that you could also find using the search suggestions on spoonacular.com. This is a suggest API so you can send partial strings as queries.
 ///  @param query The query to search for. You can also use partial queries such as \"spagh\" to already find spaghetti recipes, articles, grocery products, and other content. 
 ///
-///  @returns OAIInlineResponse20051*
+///  @returns OAIInlineResponse20052*
 ///
 -(NSURLSessionTask*) searchSiteContentWithQuery: (NSString*) query
-    completionHandler: (void (^)(OAIInlineResponse20051* output, NSError* error)) handler {
+    completionHandler: (void (^)(OAIInlineResponse20052* output, NSError* error)) handler {
     // verify the required parameter 'query' is set
     if (query == nil) {
         NSParameterAssert(query);
@@ -783,10 +783,10 @@ NSInteger kOAIMiscApiMissingParamErrorCode = 234513;
                               authSettings: authSettings
                         requestContentType: requestContentType
                        responseContentType: responseContentType
-                              responseType: @"OAIInlineResponse20051*"
+                              responseType: @"OAIInlineResponse20052*"
                            completionBlock: ^(id data, NSError *error) {
                                 if(handler) {
-                                    handler((OAIInlineResponse20051*)data, error);
+                                    handler((OAIInlineResponse20052*)data, error);
                                 }
                             }];
 }
@@ -798,11 +798,11 @@ NSInteger kOAIMiscApiMissingParamErrorCode = 234513;
 ///
 ///  @param contextId An arbitrary globally unique id for your conversation. The conversation can contain states so you should pass your context id if you want the bot to be able to remember the conversation. (optional)
 ///
-///  @returns OAIInlineResponse20055*
+///  @returns OAIInlineResponse20056*
 ///
 -(NSURLSessionTask*) talkToChatbotWithText: (NSString*) text
     contextId: (NSString*) contextId
-    completionHandler: (void (^)(OAIInlineResponse20055* output, NSError* error)) handler {
+    completionHandler: (void (^)(OAIInlineResponse20056* output, NSError* error)) handler {
     // verify the required parameter 'text' is set
     if (text == nil) {
         NSParameterAssert(text);
@@ -857,10 +857,10 @@ NSInteger kOAIMiscApiMissingParamErrorCode = 234513;
                               authSettings: authSettings
                         requestContentType: requestContentType
                        responseContentType: responseContentType
-                              responseType: @"OAIInlineResponse20055*"
+                              responseType: @"OAIInlineResponse20056*"
                            completionBlock: ^(id data, NSError *error) {
                                 if(handler) {
-                                    handler((OAIInlineResponse20055*)data, error);
+                                    handler((OAIInlineResponse20056*)data, error);
                                 }
                             }];
 }

@@ -34,8 +34,8 @@ import com.spoonacular.client.model.InlineResponse20021;
 import com.spoonacular.client.model.InlineResponse20023;
 import com.spoonacular.client.model.InlineResponse2003;
 import com.spoonacular.client.model.InlineResponse2004;
-import com.spoonacular.client.model.InlineResponse20049;
 import com.spoonacular.client.model.InlineResponse2005;
+import com.spoonacular.client.model.InlineResponse20050;
 import com.spoonacular.client.model.InlineResponse2006;
 import com.spoonacular.client.model.InlineResponse2007;
 import com.spoonacular.client.model.InlineResponse2008;
@@ -455,7 +455,7 @@ public class RecipesApiTest {
     @Test
     public void quickAnswerTest() throws ApiException {
         String q = null;
-        InlineResponse20049 response = api.quickAnswer(q);
+        InlineResponse20050 response = api.quickAnswer(q);
 
         // TODO: test validations
     }

@@ -25,6 +25,8 @@
 
 @property(nonatomic) NSNumber* _id;
 
+@property(nonatomic) NSNumber* servings;
+
 @property(nonatomic) NSString* title;
 
 @property(nonatomic) NSString* imageType;

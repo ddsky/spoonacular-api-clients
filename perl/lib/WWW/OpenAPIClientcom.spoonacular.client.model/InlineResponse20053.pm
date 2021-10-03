@@ -30,7 +30,7 @@ use Log::Any qw($log);
 use Date::Parse;
 use DateTime;
 
-use WWW::OpenAPIClient::Object::InlineResponse20053Videos;
+use WWW::OpenAPIClient::Object::InlineResponse20053SearchResults;
 
 use base ("Class::Accessor", "Class::Data::Inheritable");
 
@@ -162,9 +162,9 @@ __PACKAGE__->class_documentation({description => '',
 }                                 );
 
 __PACKAGE__->method_documentation({
-    'videos' => {
-        datatype => 'ARRAY[InlineResponse20053Videos]',
-        base_name => 'videos',
+    'query' => {
+        datatype => 'string',
+        base_name => 'query',
         description => '',
         format => '',
         read_only => '',
@@ -176,16 +176,43 @@ __PACKAGE__->method_documentation({
         format => '',
         read_only => '',
             },
+    'limit' => {
+        datatype => 'int',
+        base_name => 'limit',
+        description => '',
+        format => '',
+        read_only => '',
+            },
+    'offset' => {
+        datatype => 'int',
+        base_name => 'offset',
+        description => '',
+        format => '',
+        read_only => '',
+            },
+    'search_results' => {
+        datatype => 'ARRAY[InlineResponse20053SearchResults]',
+        base_name => 'searchResults',
+        description => '',
+        format => '',
+        read_only => '',
+            },
 });
 
 __PACKAGE__->openapi_types( {
-    'videos' => 'ARRAY[InlineResponse20053Videos]',
-    'total_results' => 'int'
+    'query' => 'string',
+    'total_results' => 'int',
+    'limit' => 'int',
+    'offset' => 'int',
+    'search_results' => 'ARRAY[InlineResponse20053SearchResults]'
 } );
 
 __PACKAGE__->attribute_map( {
-    'videos' => 'videos',
-    'total_results' => 'totalResults'
+    'query' => 'query',
+    'total_results' => 'totalResults',
+    'limit' => 'limit',
+    'offset' => 'offset',
+    'search_results' => 'searchResults'
 } );
 
 __PACKAGE__->mk_accessors(keys %{__PACKAGE__->attribute_map});

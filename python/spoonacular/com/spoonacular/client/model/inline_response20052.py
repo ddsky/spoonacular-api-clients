@@ -32,153 +32,124 @@ class InlineResponse20052(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'query': 'str',
-        'total_results': 'int',
-        'limit': 'int',
-        'offset': 'int',
-        'search_results': 'list[InlineResponse20052SearchResults]'
+        'articles': 'list[object]',
+        'grocery_products': 'list[object]',
+        'menu_items': 'list[object]',
+        'recipes': 'list[object]'
     }
 
     attribute_map = {
-        'query': 'query',
-        'total_results': 'totalResults',
-        'limit': 'limit',
-        'offset': 'offset',
-        'search_results': 'searchResults'
+        'articles': 'Articles',
+        'grocery_products': 'Grocery Products',
+        'menu_items': 'Menu Items',
+        'recipes': 'Recipes'
     }
 
-    def __init__(self, query=None, total_results=None, limit=None, offset=None, search_results=None):  # noqa: E501
+    def __init__(self, articles=None, grocery_products=None, menu_items=None, recipes=None):  # noqa: E501
         """InlineResponse20052 - a model defined in OpenAPI"""  # noqa: E501
 
-        self._query = None
-        self._total_results = None
-        self._limit = None
-        self._offset = None
-        self._search_results = None
+        self._articles = None
+        self._grocery_products = None
+        self._menu_items = None
+        self._recipes = None
         self.discriminator = None
 
-        self.query = query
-        self.total_results = total_results
-        self.limit = limit
-        self.offset = offset
-        self.search_results = search_results
+        self.articles = articles
+        self.grocery_products = grocery_products
+        self.menu_items = menu_items
+        self.recipes = recipes
 
     @property
-    def query(self):
-        """Gets the query of this InlineResponse20052.  # noqa: E501
+    def articles(self):
+        """Gets the articles of this InlineResponse20052.  # noqa: E501
 
 
-        :return: The query of this InlineResponse20052.  # noqa: E501
-        :rtype: str
+        :return: The articles of this InlineResponse20052.  # noqa: E501
+        :rtype: list[object]
         """
-        return self._query
+        return self._articles
 
-    @query.setter
-    def query(self, query):
-        """Sets the query of this InlineResponse20052.
+    @articles.setter
+    def articles(self, articles):
+        """Sets the articles of this InlineResponse20052.
 
 
-        :param query: The query of this InlineResponse20052.  # noqa: E501
-        :type: str
+        :param articles: The articles of this InlineResponse20052.  # noqa: E501
+        :type: list[object]
         """
-        if query is None:
-            raise ValueError("Invalid value for `query`, must not be `None`")  # noqa: E501
-        if query is not None and len(query) < 1:
-            raise ValueError("Invalid value for `query`, length must be greater than or equal to `1`")  # noqa: E501
+        if articles is None:
+            raise ValueError("Invalid value for `articles`, must not be `None`")  # noqa: E501
 
-        self._query = query
+        self._articles = articles
 
     @property
-    def total_results(self):
-        """Gets the total_results of this InlineResponse20052.  # noqa: E501
+    def grocery_products(self):
+        """Gets the grocery_products of this InlineResponse20052.  # noqa: E501
 
 
-        :return: The total_results of this InlineResponse20052.  # noqa: E501
-        :rtype: int
+        :return: The grocery_products of this InlineResponse20052.  # noqa: E501
+        :rtype: list[object]
         """
-        return self._total_results
+        return self._grocery_products
 
-    @total_results.setter
-    def total_results(self, total_results):
-        """Sets the total_results of this InlineResponse20052.
+    @grocery_products.setter
+    def grocery_products(self, grocery_products):
+        """Sets the grocery_products of this InlineResponse20052.
 
 
-        :param total_results: The total_results of this InlineResponse20052.  # noqa: E501
-        :type: int
+        :param grocery_products: The grocery_products of this InlineResponse20052.  # noqa: E501
+        :type: list[object]
         """
-        if total_results is None:
-            raise ValueError("Invalid value for `total_results`, must not be `None`")  # noqa: E501
+        if grocery_products is None:
+            raise ValueError("Invalid value for `grocery_products`, must not be `None`")  # noqa: E501
 
-        self._total_results = total_results
+        self._grocery_products = grocery_products
 
     @property
-    def limit(self):
-        """Gets the limit of this InlineResponse20052.  # noqa: E501
+    def menu_items(self):
+        """Gets the menu_items of this InlineResponse20052.  # noqa: E501
 
 
-        :return: The limit of this InlineResponse20052.  # noqa: E501
-        :rtype: int
+        :return: The menu_items of this InlineResponse20052.  # noqa: E501
+        :rtype: list[object]
         """
-        return self._limit
+        return self._menu_items
 
-    @limit.setter
-    def limit(self, limit):
-        """Sets the limit of this InlineResponse20052.
+    @menu_items.setter
+    def menu_items(self, menu_items):
+        """Sets the menu_items of this InlineResponse20052.
 
 
-        :param limit: The limit of this InlineResponse20052.  # noqa: E501
-        :type: int
+        :param menu_items: The menu_items of this InlineResponse20052.  # noqa: E501
+        :type: list[object]
         """
-        if limit is None:
-            raise ValueError("Invalid value for `limit`, must not be `None`")  # noqa: E501
+        if menu_items is None:
+            raise ValueError("Invalid value for `menu_items`, must not be `None`")  # noqa: E501
 
-        self._limit = limit
+        self._menu_items = menu_items
 
     @property
-    def offset(self):
-        """Gets the offset of this InlineResponse20052.  # noqa: E501
+    def recipes(self):
+        """Gets the recipes of this InlineResponse20052.  # noqa: E501
 
 
-        :return: The offset of this InlineResponse20052.  # noqa: E501
-        :rtype: int
+        :return: The recipes of this InlineResponse20052.  # noqa: E501
+        :rtype: list[object]
         """
-        return self._offset
+        return self._recipes
 
-    @offset.setter
-    def offset(self, offset):
-        """Sets the offset of this InlineResponse20052.
+    @recipes.setter
+    def recipes(self, recipes):
+        """Sets the recipes of this InlineResponse20052.
 
 
-        :param offset: The offset of this InlineResponse20052.  # noqa: E501
-        :type: int
+        :param recipes: The recipes of this InlineResponse20052.  # noqa: E501
+        :type: list[object]
         """
-        if offset is None:
-            raise ValueError("Invalid value for `offset`, must not be `None`")  # noqa: E501
+        if recipes is None:
+            raise ValueError("Invalid value for `recipes`, must not be `None`")  # noqa: E501
 
-        self._offset = offset
-
-    @property
-    def search_results(self):
-        """Gets the search_results of this InlineResponse20052.  # noqa: E501
-
-
-        :return: The search_results of this InlineResponse20052.  # noqa: E501
-        :rtype: list[InlineResponse20052SearchResults]
-        """
-        return self._search_results
-
-    @search_results.setter
-    def search_results(self, search_results):
-        """Sets the search_results of this InlineResponse20052.
-
-
-        :param search_results: The search_results of this InlineResponse20052.  # noqa: E501
-        :type: list[InlineResponse20052SearchResults]
-        """
-        if search_results is None:
-            raise ValueError("Invalid value for `search_results`, must not be `None`")  # noqa: E501
-
-        self._search_results = search_results
+        self._recipes = recipes
 
     def to_dict(self):
         """Returns the model properties as a dict"""

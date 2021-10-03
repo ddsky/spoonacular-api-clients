@@ -5,10 +5,13 @@
 -export_type([spoonacular_inline_response_200_54/0]).
 
 -type spoonacular_inline_response_200_54() ::
-    #{ 'text' := binary()
+    #{ 'videos' := list(),
+       'totalResults' := integer()
      }.
 
-encode(#{ 'text' := Text
+encode(#{ 'videos' := Videos,
+          'totalResults' := TotalResults
         }) ->
-    #{ 'text' => Text
+    #{ 'videos' => Videos,
+       'totalResults' => TotalResults
      }.

@@ -46,6 +46,10 @@ public class JsonUtil {
       return new TypeToken<List<InlineObject1>>(){}.getType();
     }
     
+    if ("InlineObject10".equalsIgnoreCase(className)) {
+      return new TypeToken<List<InlineObject10>>(){}.getType();
+    }
+    
     if ("InlineObject2".equalsIgnoreCase(className)) {
       return new TypeToken<List<InlineObject2>>(){}.getType();
     }
@@ -72,6 +76,10 @@ public class JsonUtil {
     
     if ("InlineObject8".equalsIgnoreCase(className)) {
       return new TypeToken<List<InlineObject8>>(){}.getType();
+    }
+    
+    if ("InlineObject9".equalsIgnoreCase(className)) {
+      return new TypeToken<List<InlineObject9>>(){}.getType();
     }
     
     if ("InlineResponse200".equalsIgnoreCase(className)) {
@@ -358,10 +366,6 @@ public class JsonUtil {
       return new TypeToken<List<InlineResponse20040>>(){}.getType();
     }
     
-    if ("InlineResponse20040Days".equalsIgnoreCase(className)) {
-      return new TypeToken<List<InlineResponse20040Days>>(){}.getType();
-    }
-    
     if ("InlineResponse20040Items".equalsIgnoreCase(className)) {
       return new TypeToken<List<InlineResponse20040Items>>(){}.getType();
     }
@@ -374,20 +378,32 @@ public class JsonUtil {
       return new TypeToken<List<InlineResponse20041>>(){}.getType();
     }
     
-    if ("InlineResponse20041Aisles".equalsIgnoreCase(className)) {
-      return new TypeToken<List<InlineResponse20041Aisles>>(){}.getType();
+    if ("InlineResponse20041Days".equalsIgnoreCase(className)) {
+      return new TypeToken<List<InlineResponse20041Days>>(){}.getType();
     }
     
     if ("InlineResponse20041Items".equalsIgnoreCase(className)) {
       return new TypeToken<List<InlineResponse20041Items>>(){}.getType();
     }
     
-    if ("InlineResponse20041Measures".equalsIgnoreCase(className)) {
-      return new TypeToken<List<InlineResponse20041Measures>>(){}.getType();
+    if ("InlineResponse20041Value".equalsIgnoreCase(className)) {
+      return new TypeToken<List<InlineResponse20041Value>>(){}.getType();
     }
     
     if ("InlineResponse20042".equalsIgnoreCase(className)) {
       return new TypeToken<List<InlineResponse20042>>(){}.getType();
+    }
+    
+    if ("InlineResponse20042Aisles".equalsIgnoreCase(className)) {
+      return new TypeToken<List<InlineResponse20042Aisles>>(){}.getType();
+    }
+    
+    if ("InlineResponse20042Items".equalsIgnoreCase(className)) {
+      return new TypeToken<List<InlineResponse20042Items>>(){}.getType();
+    }
+    
+    if ("InlineResponse20042Measures".equalsIgnoreCase(className)) {
+      return new TypeToken<List<InlineResponse20042Measures>>(){}.getType();
     }
     
     if ("InlineResponse20043".equalsIgnoreCase(className)) {
@@ -398,52 +414,52 @@ public class JsonUtil {
       return new TypeToken<List<InlineResponse20044>>(){}.getType();
     }
     
-    if ("InlineResponse20044ProductMatches".equalsIgnoreCase(className)) {
-      return new TypeToken<List<InlineResponse20044ProductMatches>>(){}.getType();
-    }
-    
     if ("InlineResponse20045".equalsIgnoreCase(className)) {
       return new TypeToken<List<InlineResponse20045>>(){}.getType();
+    }
+    
+    if ("InlineResponse20045ProductMatches".equalsIgnoreCase(className)) {
+      return new TypeToken<List<InlineResponse20045ProductMatches>>(){}.getType();
     }
     
     if ("InlineResponse20046".equalsIgnoreCase(className)) {
       return new TypeToken<List<InlineResponse20046>>(){}.getType();
     }
     
-    if ("InlineResponse20046RecommendedWines".equalsIgnoreCase(className)) {
-      return new TypeToken<List<InlineResponse20046RecommendedWines>>(){}.getType();
-    }
-    
     if ("InlineResponse20047".equalsIgnoreCase(className)) {
       return new TypeToken<List<InlineResponse20047>>(){}.getType();
+    }
+    
+    if ("InlineResponse20047RecommendedWines".equalsIgnoreCase(className)) {
+      return new TypeToken<List<InlineResponse20047RecommendedWines>>(){}.getType();
     }
     
     if ("InlineResponse20048".equalsIgnoreCase(className)) {
       return new TypeToken<List<InlineResponse20048>>(){}.getType();
     }
     
-    if ("InlineResponse20048Category".equalsIgnoreCase(className)) {
-      return new TypeToken<List<InlineResponse20048Category>>(){}.getType();
-    }
-    
-    if ("InlineResponse20048Nutrition".equalsIgnoreCase(className)) {
-      return new TypeToken<List<InlineResponse20048Nutrition>>(){}.getType();
-    }
-    
-    if ("InlineResponse20048NutritionCalories".equalsIgnoreCase(className)) {
-      return new TypeToken<List<InlineResponse20048NutritionCalories>>(){}.getType();
-    }
-    
-    if ("InlineResponse20048NutritionCaloriesConfidenceRange95Percent".equalsIgnoreCase(className)) {
-      return new TypeToken<List<InlineResponse20048NutritionCaloriesConfidenceRange95Percent>>(){}.getType();
-    }
-    
-    if ("InlineResponse20048Recipes".equalsIgnoreCase(className)) {
-      return new TypeToken<List<InlineResponse20048Recipes>>(){}.getType();
-    }
-    
     if ("InlineResponse20049".equalsIgnoreCase(className)) {
       return new TypeToken<List<InlineResponse20049>>(){}.getType();
+    }
+    
+    if ("InlineResponse20049Category".equalsIgnoreCase(className)) {
+      return new TypeToken<List<InlineResponse20049Category>>(){}.getType();
+    }
+    
+    if ("InlineResponse20049Nutrition".equalsIgnoreCase(className)) {
+      return new TypeToken<List<InlineResponse20049Nutrition>>(){}.getType();
+    }
+    
+    if ("InlineResponse20049NutritionCalories".equalsIgnoreCase(className)) {
+      return new TypeToken<List<InlineResponse20049NutritionCalories>>(){}.getType();
+    }
+    
+    if ("InlineResponse20049NutritionCaloriesConfidenceRange95Percent".equalsIgnoreCase(className)) {
+      return new TypeToken<List<InlineResponse20049NutritionCaloriesConfidenceRange95Percent>>(){}.getType();
+    }
+    
+    if ("InlineResponse20049Recipes".equalsIgnoreCase(className)) {
+      return new TypeToken<List<InlineResponse20049Recipes>>(){}.getType();
     }
     
     if ("InlineResponse2005".equalsIgnoreCase(className)) {
@@ -462,24 +478,24 @@ public class JsonUtil {
       return new TypeToken<List<InlineResponse20052>>(){}.getType();
     }
     
-    if ("InlineResponse20052Results".equalsIgnoreCase(className)) {
-      return new TypeToken<List<InlineResponse20052Results>>(){}.getType();
-    }
-    
-    if ("InlineResponse20052SearchResults".equalsIgnoreCase(className)) {
-      return new TypeToken<List<InlineResponse20052SearchResults>>(){}.getType();
-    }
-    
     if ("InlineResponse20053".equalsIgnoreCase(className)) {
       return new TypeToken<List<InlineResponse20053>>(){}.getType();
     }
     
-    if ("InlineResponse20053Videos".equalsIgnoreCase(className)) {
-      return new TypeToken<List<InlineResponse20053Videos>>(){}.getType();
+    if ("InlineResponse20053Results".equalsIgnoreCase(className)) {
+      return new TypeToken<List<InlineResponse20053Results>>(){}.getType();
+    }
+    
+    if ("InlineResponse20053SearchResults".equalsIgnoreCase(className)) {
+      return new TypeToken<List<InlineResponse20053SearchResults>>(){}.getType();
     }
     
     if ("InlineResponse20054".equalsIgnoreCase(className)) {
       return new TypeToken<List<InlineResponse20054>>(){}.getType();
+    }
+    
+    if ("InlineResponse20054Videos".equalsIgnoreCase(className)) {
+      return new TypeToken<List<InlineResponse20054Videos>>(){}.getType();
     }
     
     if ("InlineResponse20055".equalsIgnoreCase(className)) {
@@ -490,8 +506,12 @@ public class JsonUtil {
       return new TypeToken<List<InlineResponse20056>>(){}.getType();
     }
     
-    if ("InlineResponse20056Suggests".equalsIgnoreCase(className)) {
-      return new TypeToken<List<InlineResponse20056Suggests>>(){}.getType();
+    if ("InlineResponse20057".equalsIgnoreCase(className)) {
+      return new TypeToken<List<InlineResponse20057>>(){}.getType();
+    }
+    
+    if ("InlineResponse20057Suggests".equalsIgnoreCase(className)) {
+      return new TypeToken<List<InlineResponse20057Suggests>>(){}.getType();
     }
     
     if ("InlineResponse2006".equalsIgnoreCase(className)) {
@@ -564,6 +584,10 @@ public class JsonUtil {
       return new TypeToken<InlineObject1>(){}.getType();
     }
     
+    if ("InlineObject10".equalsIgnoreCase(className)) {
+      return new TypeToken<InlineObject10>(){}.getType();
+    }
+    
     if ("InlineObject2".equalsIgnoreCase(className)) {
       return new TypeToken<InlineObject2>(){}.getType();
     }
@@ -590,6 +614,10 @@ public class JsonUtil {
     
     if ("InlineObject8".equalsIgnoreCase(className)) {
       return new TypeToken<InlineObject8>(){}.getType();
+    }
+    
+    if ("InlineObject9".equalsIgnoreCase(className)) {
+      return new TypeToken<InlineObject9>(){}.getType();
     }
     
     if ("InlineResponse200".equalsIgnoreCase(className)) {
@@ -876,10 +904,6 @@ public class JsonUtil {
       return new TypeToken<InlineResponse20040>(){}.getType();
     }
     
-    if ("InlineResponse20040Days".equalsIgnoreCase(className)) {
-      return new TypeToken<InlineResponse20040Days>(){}.getType();
-    }
-    
     if ("InlineResponse20040Items".equalsIgnoreCase(className)) {
       return new TypeToken<InlineResponse20040Items>(){}.getType();
     }
@@ -892,20 +916,32 @@ public class JsonUtil {
       return new TypeToken<InlineResponse20041>(){}.getType();
     }
     
-    if ("InlineResponse20041Aisles".equalsIgnoreCase(className)) {
-      return new TypeToken<InlineResponse20041Aisles>(){}.getType();
+    if ("InlineResponse20041Days".equalsIgnoreCase(className)) {
+      return new TypeToken<InlineResponse20041Days>(){}.getType();
     }
     
     if ("InlineResponse20041Items".equalsIgnoreCase(className)) {
       return new TypeToken<InlineResponse20041Items>(){}.getType();
     }
     
-    if ("InlineResponse20041Measures".equalsIgnoreCase(className)) {
-      return new TypeToken<InlineResponse20041Measures>(){}.getType();
+    if ("InlineResponse20041Value".equalsIgnoreCase(className)) {
+      return new TypeToken<InlineResponse20041Value>(){}.getType();
     }
     
     if ("InlineResponse20042".equalsIgnoreCase(className)) {
       return new TypeToken<InlineResponse20042>(){}.getType();
+    }
+    
+    if ("InlineResponse20042Aisles".equalsIgnoreCase(className)) {
+      return new TypeToken<InlineResponse20042Aisles>(){}.getType();
+    }
+    
+    if ("InlineResponse20042Items".equalsIgnoreCase(className)) {
+      return new TypeToken<InlineResponse20042Items>(){}.getType();
+    }
+    
+    if ("InlineResponse20042Measures".equalsIgnoreCase(className)) {
+      return new TypeToken<InlineResponse20042Measures>(){}.getType();
     }
     
     if ("InlineResponse20043".equalsIgnoreCase(className)) {
@@ -916,52 +952,52 @@ public class JsonUtil {
       return new TypeToken<InlineResponse20044>(){}.getType();
     }
     
-    if ("InlineResponse20044ProductMatches".equalsIgnoreCase(className)) {
-      return new TypeToken<InlineResponse20044ProductMatches>(){}.getType();
-    }
-    
     if ("InlineResponse20045".equalsIgnoreCase(className)) {
       return new TypeToken<InlineResponse20045>(){}.getType();
+    }
+    
+    if ("InlineResponse20045ProductMatches".equalsIgnoreCase(className)) {
+      return new TypeToken<InlineResponse20045ProductMatches>(){}.getType();
     }
     
     if ("InlineResponse20046".equalsIgnoreCase(className)) {
       return new TypeToken<InlineResponse20046>(){}.getType();
     }
     
-    if ("InlineResponse20046RecommendedWines".equalsIgnoreCase(className)) {
-      return new TypeToken<InlineResponse20046RecommendedWines>(){}.getType();
-    }
-    
     if ("InlineResponse20047".equalsIgnoreCase(className)) {
       return new TypeToken<InlineResponse20047>(){}.getType();
+    }
+    
+    if ("InlineResponse20047RecommendedWines".equalsIgnoreCase(className)) {
+      return new TypeToken<InlineResponse20047RecommendedWines>(){}.getType();
     }
     
     if ("InlineResponse20048".equalsIgnoreCase(className)) {
       return new TypeToken<InlineResponse20048>(){}.getType();
     }
     
-    if ("InlineResponse20048Category".equalsIgnoreCase(className)) {
-      return new TypeToken<InlineResponse20048Category>(){}.getType();
-    }
-    
-    if ("InlineResponse20048Nutrition".equalsIgnoreCase(className)) {
-      return new TypeToken<InlineResponse20048Nutrition>(){}.getType();
-    }
-    
-    if ("InlineResponse20048NutritionCalories".equalsIgnoreCase(className)) {
-      return new TypeToken<InlineResponse20048NutritionCalories>(){}.getType();
-    }
-    
-    if ("InlineResponse20048NutritionCaloriesConfidenceRange95Percent".equalsIgnoreCase(className)) {
-      return new TypeToken<InlineResponse20048NutritionCaloriesConfidenceRange95Percent>(){}.getType();
-    }
-    
-    if ("InlineResponse20048Recipes".equalsIgnoreCase(className)) {
-      return new TypeToken<InlineResponse20048Recipes>(){}.getType();
-    }
-    
     if ("InlineResponse20049".equalsIgnoreCase(className)) {
       return new TypeToken<InlineResponse20049>(){}.getType();
+    }
+    
+    if ("InlineResponse20049Category".equalsIgnoreCase(className)) {
+      return new TypeToken<InlineResponse20049Category>(){}.getType();
+    }
+    
+    if ("InlineResponse20049Nutrition".equalsIgnoreCase(className)) {
+      return new TypeToken<InlineResponse20049Nutrition>(){}.getType();
+    }
+    
+    if ("InlineResponse20049NutritionCalories".equalsIgnoreCase(className)) {
+      return new TypeToken<InlineResponse20049NutritionCalories>(){}.getType();
+    }
+    
+    if ("InlineResponse20049NutritionCaloriesConfidenceRange95Percent".equalsIgnoreCase(className)) {
+      return new TypeToken<InlineResponse20049NutritionCaloriesConfidenceRange95Percent>(){}.getType();
+    }
+    
+    if ("InlineResponse20049Recipes".equalsIgnoreCase(className)) {
+      return new TypeToken<InlineResponse20049Recipes>(){}.getType();
     }
     
     if ("InlineResponse2005".equalsIgnoreCase(className)) {
@@ -980,24 +1016,24 @@ public class JsonUtil {
       return new TypeToken<InlineResponse20052>(){}.getType();
     }
     
-    if ("InlineResponse20052Results".equalsIgnoreCase(className)) {
-      return new TypeToken<InlineResponse20052Results>(){}.getType();
-    }
-    
-    if ("InlineResponse20052SearchResults".equalsIgnoreCase(className)) {
-      return new TypeToken<InlineResponse20052SearchResults>(){}.getType();
-    }
-    
     if ("InlineResponse20053".equalsIgnoreCase(className)) {
       return new TypeToken<InlineResponse20053>(){}.getType();
     }
     
-    if ("InlineResponse20053Videos".equalsIgnoreCase(className)) {
-      return new TypeToken<InlineResponse20053Videos>(){}.getType();
+    if ("InlineResponse20053Results".equalsIgnoreCase(className)) {
+      return new TypeToken<InlineResponse20053Results>(){}.getType();
+    }
+    
+    if ("InlineResponse20053SearchResults".equalsIgnoreCase(className)) {
+      return new TypeToken<InlineResponse20053SearchResults>(){}.getType();
     }
     
     if ("InlineResponse20054".equalsIgnoreCase(className)) {
       return new TypeToken<InlineResponse20054>(){}.getType();
+    }
+    
+    if ("InlineResponse20054Videos".equalsIgnoreCase(className)) {
+      return new TypeToken<InlineResponse20054Videos>(){}.getType();
     }
     
     if ("InlineResponse20055".equalsIgnoreCase(className)) {
@@ -1008,8 +1044,12 @@ public class JsonUtil {
       return new TypeToken<InlineResponse20056>(){}.getType();
     }
     
-    if ("InlineResponse20056Suggests".equalsIgnoreCase(className)) {
-      return new TypeToken<InlineResponse20056Suggests>(){}.getType();
+    if ("InlineResponse20057".equalsIgnoreCase(className)) {
+      return new TypeToken<InlineResponse20057>(){}.getType();
+    }
+    
+    if ("InlineResponse20057Suggests".equalsIgnoreCase(className)) {
+      return new TypeToken<InlineResponse20057Suggests>(){}.getType();
     }
     
     if ("InlineResponse2006".equalsIgnoreCase(className)) {

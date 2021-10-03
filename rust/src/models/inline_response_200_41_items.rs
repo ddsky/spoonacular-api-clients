@@ -16,30 +16,24 @@ use serde_json::Value;
 pub struct InlineResponse20041Items {
     #[serde(rename = "id")]
     pub id: i32,
-    #[serde(rename = "name")]
-    pub name: String,
-    #[serde(rename = "measures")]
-    pub measures: Option<::models::InlineResponse20041Measures>,
-    #[serde(rename = "pantryItem")]
-    pub pantry_item: bool,
-    #[serde(rename = "aisle")]
-    pub aisle: String,
-    #[serde(rename = "cost")]
-    pub cost: f32,
-    #[serde(rename = "ingredientId")]
-    pub ingredient_id: i32,
+    #[serde(rename = "slot")]
+    pub slot: i32,
+    #[serde(rename = "position")]
+    pub position: i32,
+    #[serde(rename = "type")]
+    pub _type: String,
+    #[serde(rename = "value")]
+    pub value: Option<::models::InlineResponse20041Value>,
 }
 
 impl InlineResponse20041Items {
-    pub fn new(id: i32, name: String, pantry_item: bool, aisle: String, cost: f32, ingredient_id: i32) -> InlineResponse20041Items {
+    pub fn new(id: i32, slot: i32, position: i32, _type: String) -> InlineResponse20041Items {
         InlineResponse20041Items {
             id: id,
-            name: name,
-            measures: None,
-            pantry_item: pantry_item,
-            aisle: aisle,
-            cost: cost,
-            ingredient_id: ingredient_id,
+            slot: slot,
+            position: position,
+            _type: _type,
+            value: None,
         }
     }
 }

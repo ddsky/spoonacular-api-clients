@@ -11,18 +11,24 @@
 */
 package com.spoonacular.client.model
 
+import com.spoonacular.client.model.InlineResponse20049Category
+import com.spoonacular.client.model.InlineResponse20049Nutrition
+import com.spoonacular.client.model.InlineResponse20049Recipes
 
 import com.squareup.moshi.Json
 /**
  * 
- * @param answer 
- * @param image 
+ * @param nutrition 
+ * @param category 
+ * @param recipes 
  */
 data class InlineResponse20049 (
-    @Json(name = "answer")
-    val answer: kotlin.String,
-    @Json(name = "image")
-    val image: kotlin.String
+    @Json(name = "nutrition")
+    val nutrition: InlineResponse20049Nutrition,
+    @Json(name = "category")
+    val category: InlineResponse20049Category,
+    @Json(name = "recipes")
+    val recipes: kotlin.Array<InlineResponse20049Recipes>
 ) {
 
 }

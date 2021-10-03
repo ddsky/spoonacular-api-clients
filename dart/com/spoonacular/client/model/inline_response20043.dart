@@ -2,36 +2,36 @@ part of openapi.api;
 
 class InlineResponse20043 {
   
-  List<String> pairings = [];
+  String username = null;
   
-  String text = null;
+  String hash = null;
   InlineResponse20043();
 
   @override
   String toString() {
-    return 'InlineResponse20043[pairings=$pairings, text=$text, ]';
+    return 'InlineResponse20043[username=$username, hash=$hash, ]';
   }
 
   InlineResponse20043.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    if (json['pairings'] == null) {
-      pairings = null;
+    if (json['username'] == null) {
+      username = null;
     } else {
-      pairings = (json['pairings'] as List).cast<String>();
+          username = json['username'];
     }
-    if (json['text'] == null) {
-      text = null;
+    if (json['hash'] == null) {
+      hash = null;
     } else {
-          text = json['text'];
+          hash = json['hash'];
     }
   }
 
   Map<String, dynamic> toJson() {
     Map <String, dynamic> json = {};
-    if (pairings != null)
-      json['pairings'] = pairings;
-    if (text != null)
-      json['text'] = text;
+    if (username != null)
+      json['username'] = username;
+    if (hash != null)
+      json['hash'] = hash;
     return json;
   }
 

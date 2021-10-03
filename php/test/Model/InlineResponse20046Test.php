@@ -79,16 +79,9 @@ class InlineResponse20046Test extends TestCase
     }
 
     /**
-     * Test attribute "recommended_wines"
+     * Test attribute "wine_description"
      */
-    public function testPropertyRecommendedWines()
-    {
-    }
-
-    /**
-     * Test attribute "total_found"
-     */
-    public function testPropertyTotalFound()
+    public function testPropertyWineDescription()
     {
     }
 }

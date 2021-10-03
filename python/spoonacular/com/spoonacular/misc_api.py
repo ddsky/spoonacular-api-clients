@@ -48,7 +48,7 @@ class MiscApi(object):
 
         :param async_req bool
         :param str content_type: The content type.
-        :return: InlineResponse20050
+        :return: InlineResponse20051
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -70,7 +70,7 @@ class MiscApi(object):
 
         :param async_req bool
         :param str content_type: The content type.
-        :return: InlineResponse20050
+        :return: InlineResponse20051
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -125,7 +125,7 @@ class MiscApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20050',  # noqa: E501
+            response_type='InlineResponse20051',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -143,7 +143,7 @@ class MiscApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :return: InlineResponse20054
+        :return: InlineResponse20055
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -164,7 +164,7 @@ class MiscApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :return: InlineResponse20054
+        :return: InlineResponse20055
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -213,7 +213,7 @@ class MiscApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20054',  # noqa: E501
+            response_type='InlineResponse20055',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -233,7 +233,7 @@ class MiscApi(object):
         :param async_req bool
         :param str query: A (partial) query from the user. The endpoint will return if it matches topics it can talk about. (required)
         :param float number: The number of suggestions to return (between 1 and 25).
-        :return: InlineResponse20056
+        :return: InlineResponse20057
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -256,7 +256,7 @@ class MiscApi(object):
         :param async_req bool
         :param str query: A (partial) query from the user. The endpoint will return if it matches topics it can talk about. (required)
         :param float number: The number of suggestions to return (between 1 and 25).
-        :return: InlineResponse20056
+        :return: InlineResponse20057
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -313,7 +313,7 @@ class MiscApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20056',  # noqa: E501
+            response_type='InlineResponse20057',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -331,7 +331,7 @@ class MiscApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :return: InlineResponse20054
+        :return: InlineResponse20055
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -352,7 +352,7 @@ class MiscApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :return: InlineResponse20054
+        :return: InlineResponse20055
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -401,7 +401,7 @@ class MiscApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20054',  # noqa: E501
+            response_type='InlineResponse20055',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -420,7 +420,7 @@ class MiscApi(object):
 
         :param async_req bool
         :param str image_url: The URL of the image to be analyzed. (required)
-        :return: InlineResponse20048
+        :return: InlineResponse20049
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -442,7 +442,7 @@ class MiscApi(object):
 
         :param async_req bool
         :param str image_url: The URL of the image to be analyzed. (required)
-        :return: InlineResponse20048
+        :return: InlineResponse20049
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -497,7 +497,7 @@ class MiscApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20048',  # noqa: E501
+            response_type='InlineResponse20049',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -516,7 +516,7 @@ class MiscApi(object):
 
         :param async_req bool
         :param str image_url: The URL of the image to be classified. (required)
-        :return: InlineResponse20047
+        :return: InlineResponse20048
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -538,7 +538,7 @@ class MiscApi(object):
 
         :param async_req bool
         :param str image_url: The URL of the image to be classified. (required)
-        :return: InlineResponse20047
+        :return: InlineResponse20048
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -593,7 +593,7 @@ class MiscApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20047',  # noqa: E501
+            response_type='InlineResponse20048',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -614,7 +614,7 @@ class MiscApi(object):
         :param str query: The search query. (required)
         :param int offset: The number of results to skip (between 0 and 900).
         :param int number: The maximum number of items to return (between 1 and 100). Defaults to 10.
-        :return: InlineResponse20052
+        :return: InlineResponse20053
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -638,7 +638,7 @@ class MiscApi(object):
         :param str query: The search query. (required)
         :param int offset: The number of results to skip (between 0 and 900).
         :param int number: The maximum number of items to return (between 1 and 100). Defaults to 10.
-        :return: InlineResponse20052
+        :return: InlineResponse20053
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -705,7 +705,7 @@ class MiscApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20052',  # noqa: E501
+            response_type='InlineResponse20053',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -857,7 +857,7 @@ class MiscApi(object):
         :param float max_length: Maximum video length in seconds.
         :param int offset: The number of results to skip (between 0 and 900).
         :param int number: The maximum number of items to return (between 1 and 100). Defaults to 10.
-        :return: InlineResponse20053
+        :return: InlineResponse20054
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -888,7 +888,7 @@ class MiscApi(object):
         :param float max_length: Maximum video length in seconds.
         :param int offset: The number of results to skip (between 0 and 900).
         :param int number: The maximum number of items to return (between 1 and 100). Defaults to 10.
-        :return: InlineResponse20053
+        :return: InlineResponse20054
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -965,7 +965,7 @@ class MiscApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20053',  # noqa: E501
+            response_type='InlineResponse20054',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -984,7 +984,7 @@ class MiscApi(object):
 
         :param async_req bool
         :param str query: The query to search for. You can also use partial queries such as \"spagh\" to already find spaghetti recipes, articles, grocery products, and other content. (required)
-        :return: InlineResponse20051
+        :return: InlineResponse20052
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1006,7 +1006,7 @@ class MiscApi(object):
 
         :param async_req bool
         :param str query: The query to search for. You can also use partial queries such as \"spagh\" to already find spaghetti recipes, articles, grocery products, and other content. (required)
-        :return: InlineResponse20051
+        :return: InlineResponse20052
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1061,7 +1061,7 @@ class MiscApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20051',  # noqa: E501
+            response_type='InlineResponse20052',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1081,7 +1081,7 @@ class MiscApi(object):
         :param async_req bool
         :param str text: The request / question / answer from the user to the chatbot. (required)
         :param str context_id: An arbitrary globally unique id for your conversation. The conversation can contain states so you should pass your context id if you want the bot to be able to remember the conversation.
-        :return: InlineResponse20055
+        :return: InlineResponse20056
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1104,7 +1104,7 @@ class MiscApi(object):
         :param async_req bool
         :param str text: The request / question / answer from the user to the chatbot. (required)
         :param str context_id: An arbitrary globally unique id for your conversation. The conversation can contain states so you should pass your context id if you want the bot to be able to remember the conversation.
-        :return: InlineResponse20055
+        :return: InlineResponse20056
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1161,7 +1161,7 @@ class MiscApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20055',  # noqa: E501
+            response_type='InlineResponse20056',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501

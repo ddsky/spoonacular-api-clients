@@ -162,8 +162,15 @@ __PACKAGE__->class_documentation({description => '',
 
 __PACKAGE__->method_documentation({
     'id' => {
-        datatype => 'double',
+        datatype => 'int',
         base_name => 'id',
+        description => '',
+        format => '',
+        read_only => '',
+            },
+    'servings' => {
+        datatype => 'double',
+        base_name => 'servings',
         description => '',
         format => '',
         read_only => '',
@@ -185,13 +192,15 @@ __PACKAGE__->method_documentation({
 });
 
 __PACKAGE__->openapi_types( {
-    'id' => 'double',
+    'id' => 'int',
+    'servings' => 'double',
     'title' => 'string',
     'image_type' => 'string'
 } );
 
 __PACKAGE__->attribute_map( {
     'id' => 'id',
+    'servings' => 'servings',
     'title' => 'title',
     'image_type' => 'imageType'
 } );

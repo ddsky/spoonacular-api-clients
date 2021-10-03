@@ -13,10 +13,10 @@
 
 
 import ApiClient from "../ApiClient";
-import InlineResponse20043 from '../com.spoonacular.client.model/InlineResponse20043';
 import InlineResponse20044 from '../com.spoonacular.client.model/InlineResponse20044';
 import InlineResponse20045 from '../com.spoonacular.client.model/InlineResponse20045';
 import InlineResponse20046 from '../com.spoonacular.client.model/InlineResponse20046';
+import InlineResponse20047 from '../com.spoonacular.client.model/InlineResponse20047';
 
 /**
 * Wine service.
@@ -41,7 +41,7 @@ export default class WineApi {
      * Callback function to receive the result of the getDishPairingForWine operation.
      * @callback module:com.spoonacular.client/com.spoonacular/WineApi~getDishPairingForWineCallback
      * @param {String} error Error message, if any.
-     * @param {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20043} data The data returned by the service call.
+     * @param {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20044} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -50,7 +50,7 @@ export default class WineApi {
      * Find a dish that goes well with a given wine.
      * @param {String} wine The type of wine that should be paired, e.g. \"merlot\", \"riesling\", or \"malbec\".
      * @param {module:com.spoonacular.client/com.spoonacular/WineApi~getDishPairingForWineCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20043}
+     * data is of type: {@link module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20044}
      */
     getDishPairingForWine(wine, callback) {
       let postBody = null;
@@ -72,7 +72,7 @@ export default class WineApi {
       let authNames = ['apiKeyScheme'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineResponse20043;
+      let returnType = InlineResponse20044;
       return this.apiClient.callApi(
         '/food/wine/dishes', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -84,7 +84,7 @@ export default class WineApi {
      * Callback function to receive the result of the getWineDescription operation.
      * @callback module:com.spoonacular.client/com.spoonacular/WineApi~getWineDescriptionCallback
      * @param {String} error Error message, if any.
-     * @param {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20045} data The data returned by the service call.
+     * @param {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20046} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -93,7 +93,7 @@ export default class WineApi {
      * Get a simple description of a certain wine, e.g. \"malbec\", \"riesling\", or \"merlot\".
      * @param {String} wine The name of the wine that should be paired, e.g. \"merlot\", \"riesling\", or \"malbec\".
      * @param {module:com.spoonacular.client/com.spoonacular/WineApi~getWineDescriptionCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20045}
+     * data is of type: {@link module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20046}
      */
     getWineDescription(wine, callback) {
       let postBody = null;
@@ -115,7 +115,7 @@ export default class WineApi {
       let authNames = ['apiKeyScheme'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineResponse20045;
+      let returnType = InlineResponse20046;
       return this.apiClient.callApi(
         '/food/wine/description', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -127,7 +127,7 @@ export default class WineApi {
      * Callback function to receive the result of the getWinePairing operation.
      * @callback module:com.spoonacular.client/com.spoonacular/WineApi~getWinePairingCallback
      * @param {String} error Error message, if any.
-     * @param {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20044} data The data returned by the service call.
+     * @param {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20045} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -138,7 +138,7 @@ export default class WineApi {
      * @param {Object} opts Optional parameters
      * @param {Number} opts.maxPrice The maximum price for the specific wine recommendation in USD.
      * @param {module:com.spoonacular.client/com.spoonacular/WineApi~getWinePairingCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20044}
+     * data is of type: {@link module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20045}
      */
     getWinePairing(food, opts, callback) {
       opts = opts || {};
@@ -162,7 +162,7 @@ export default class WineApi {
       let authNames = ['apiKeyScheme'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineResponse20044;
+      let returnType = InlineResponse20045;
       return this.apiClient.callApi(
         '/food/wine/pairing', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -174,7 +174,7 @@ export default class WineApi {
      * Callback function to receive the result of the getWineRecommendation operation.
      * @callback module:com.spoonacular.client/com.spoonacular/WineApi~getWineRecommendationCallback
      * @param {String} error Error message, if any.
-     * @param {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20046} data The data returned by the service call.
+     * @param {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20047} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -187,7 +187,7 @@ export default class WineApi {
      * @param {Number} opts.minRating The minimum rating of the recommended wine between 0 and 1. For example, 0.8 equals 4 out of 5 stars.
      * @param {Number} opts._number The number of wine recommendations expected (between 1 and 100). (default to 10)
      * @param {module:com.spoonacular.client/com.spoonacular/WineApi~getWineRecommendationCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20046}
+     * data is of type: {@link module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20047}
      */
     getWineRecommendation(wine, opts, callback) {
       opts = opts || {};
@@ -213,7 +213,7 @@ export default class WineApi {
       let authNames = ['apiKeyScheme'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineResponse20046;
+      let returnType = InlineResponse20047;
       return this.apiClient.callApi(
         '/food/wine/recommendation', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,

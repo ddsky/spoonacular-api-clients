@@ -1,5 +1,7 @@
 package com.spoonacular.client.model;
 
+import com.spoonacular.client.model.InlineResponse20045ProductMatches;
+import java.util.*;
 
 import io.swagger.annotations.*;
 import com.google.gson.annotations.SerializedName;
@@ -8,17 +10,41 @@ import com.google.gson.annotations.SerializedName;
 @ApiModel(description = "")
 public class InlineResponse20045  {
   
-  @SerializedName("wineDescription")
-  private String wineDescription = null;
+  @SerializedName("pairedWines")
+  private List<String> pairedWines = null;
+  @SerializedName("pairingText")
+  private String pairingText = null;
+  @SerializedName("productMatches")
+  private List<InlineResponse20045ProductMatches> productMatches = null;
 
   /**
    **/
   @ApiModelProperty(required = true, value = "")
-  public String getWineDescription() {
-    return wineDescription;
+  public List<String> getPairedWines() {
+    return pairedWines;
   }
-  public void setWineDescription(String wineDescription) {
-    this.wineDescription = wineDescription;
+  public void setPairedWines(List<String> pairedWines) {
+    this.pairedWines = pairedWines;
+  }
+
+  /**
+   **/
+  @ApiModelProperty(required = true, value = "")
+  public String getPairingText() {
+    return pairingText;
+  }
+  public void setPairingText(String pairingText) {
+    this.pairingText = pairingText;
+  }
+
+  /**
+   **/
+  @ApiModelProperty(required = true, value = "")
+  public List<InlineResponse20045ProductMatches> getProductMatches() {
+    return productMatches;
+  }
+  public void setProductMatches(List<InlineResponse20045ProductMatches> productMatches) {
+    this.productMatches = productMatches;
   }
 
 
@@ -31,13 +57,17 @@ public class InlineResponse20045  {
       return false;
     }
     InlineResponse20045 inlineResponse20045 = (InlineResponse20045) o;
-    return (this.wineDescription == null ? inlineResponse20045.wineDescription == null : this.wineDescription.equals(inlineResponse20045.wineDescription));
+    return (this.pairedWines == null ? inlineResponse20045.pairedWines == null : this.pairedWines.equals(inlineResponse20045.pairedWines)) &&
+        (this.pairingText == null ? inlineResponse20045.pairingText == null : this.pairingText.equals(inlineResponse20045.pairingText)) &&
+        (this.productMatches == null ? inlineResponse20045.productMatches == null : this.productMatches.equals(inlineResponse20045.productMatches));
   }
 
   @Override
   public int hashCode() {
     int result = 17;
-    result = 31 * result + (this.wineDescription == null ? 0: this.wineDescription.hashCode());
+    result = 31 * result + (this.pairedWines == null ? 0: this.pairedWines.hashCode());
+    result = 31 * result + (this.pairingText == null ? 0: this.pairingText.hashCode());
+    result = 31 * result + (this.productMatches == null ? 0: this.productMatches.hashCode());
     return result;
   }
 
@@ -46,7 +76,9 @@ public class InlineResponse20045  {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse20045 {\n");
     
-    sb.append("  wineDescription: ").append(wineDescription).append("\n");
+    sb.append("  pairedWines: ").append(pairedWines).append("\n");
+    sb.append("  pairingText: ").append(pairingText).append("\n");
+    sb.append("  productMatches: ").append(productMatches).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

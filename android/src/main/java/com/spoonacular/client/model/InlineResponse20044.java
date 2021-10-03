@@ -1,6 +1,5 @@
 package com.spoonacular.client.model;
 
-import com.spoonacular.client.model.InlineResponse20044ProductMatches;
 import java.util.*;
 
 import io.swagger.annotations.*;
@@ -10,41 +9,29 @@ import com.google.gson.annotations.SerializedName;
 @ApiModel(description = "")
 public class InlineResponse20044  {
   
-  @SerializedName("pairedWines")
-  private List<String> pairedWines = null;
-  @SerializedName("pairingText")
-  private String pairingText = null;
-  @SerializedName("productMatches")
-  private List<InlineResponse20044ProductMatches> productMatches = null;
+  @SerializedName("pairings")
+  private List<String> pairings = null;
+  @SerializedName("text")
+  private String text = null;
 
   /**
    **/
   @ApiModelProperty(required = true, value = "")
-  public List<String> getPairedWines() {
-    return pairedWines;
+  public List<String> getPairings() {
+    return pairings;
   }
-  public void setPairedWines(List<String> pairedWines) {
-    this.pairedWines = pairedWines;
-  }
-
-  /**
-   **/
-  @ApiModelProperty(required = true, value = "")
-  public String getPairingText() {
-    return pairingText;
-  }
-  public void setPairingText(String pairingText) {
-    this.pairingText = pairingText;
+  public void setPairings(List<String> pairings) {
+    this.pairings = pairings;
   }
 
   /**
    **/
   @ApiModelProperty(required = true, value = "")
-  public List<InlineResponse20044ProductMatches> getProductMatches() {
-    return productMatches;
+  public String getText() {
+    return text;
   }
-  public void setProductMatches(List<InlineResponse20044ProductMatches> productMatches) {
-    this.productMatches = productMatches;
+  public void setText(String text) {
+    this.text = text;
   }
 
 
@@ -57,17 +44,15 @@ public class InlineResponse20044  {
       return false;
     }
     InlineResponse20044 inlineResponse20044 = (InlineResponse20044) o;
-    return (this.pairedWines == null ? inlineResponse20044.pairedWines == null : this.pairedWines.equals(inlineResponse20044.pairedWines)) &&
-        (this.pairingText == null ? inlineResponse20044.pairingText == null : this.pairingText.equals(inlineResponse20044.pairingText)) &&
-        (this.productMatches == null ? inlineResponse20044.productMatches == null : this.productMatches.equals(inlineResponse20044.productMatches));
+    return (this.pairings == null ? inlineResponse20044.pairings == null : this.pairings.equals(inlineResponse20044.pairings)) &&
+        (this.text == null ? inlineResponse20044.text == null : this.text.equals(inlineResponse20044.text));
   }
 
   @Override
   public int hashCode() {
     int result = 17;
-    result = 31 * result + (this.pairedWines == null ? 0: this.pairedWines.hashCode());
-    result = 31 * result + (this.pairingText == null ? 0: this.pairingText.hashCode());
-    result = 31 * result + (this.productMatches == null ? 0: this.productMatches.hashCode());
+    result = 31 * result + (this.pairings == null ? 0: this.pairings.hashCode());
+    result = 31 * result + (this.text == null ? 0: this.text.hashCode());
     return result;
   }
 
@@ -76,9 +61,8 @@ public class InlineResponse20044  {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse20044 {\n");
     
-    sb.append("  pairedWines: ").append(pairedWines).append("\n");
-    sb.append("  pairingText: ").append(pairingText).append("\n");
-    sb.append("  productMatches: ").append(productMatches).append("\n");
+    sb.append("  pairings: ").append(pairings).append("\n");
+    sb.append("  text: ").append(text).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

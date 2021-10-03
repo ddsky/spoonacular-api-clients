@@ -54,14 +54,8 @@
       //expect(instance).to.be.a(SpoonacularApi.InlineResponse20046);
     });
 
-    it('should have the property recommendedWines (base name: "recommendedWines")', function() {
-      // uncomment below and update the code to test the property recommendedWines
-      //var instane = new SpoonacularApi.InlineResponse20046();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property totalFound (base name: "totalFound")', function() {
-      // uncomment below and update the code to test the property totalFound
+    it('should have the property wineDescription (base name: "wineDescription")', function() {
+      // uncomment below and update the code to test the property wineDescription
       //var instane = new SpoonacularApi.InlineResponse20046();
       //expect(instance).to.be();
     });

@@ -14,23 +14,19 @@ require 'date'
 
 module OpenapiClient
   class InlineResponse20046
-    attr_accessor :recommended_wines
-
-    attr_accessor :total_found
+    attr_accessor :wine_description
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'recommended_wines' => :'recommendedWines',
-        :'total_found' => :'totalFound'
+        :'wine_description' => :'wineDescription'
       }
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'recommended_wines' => :'Array<InlineResponse20046RecommendedWines>',
-        :'total_found' => :'Integer'
+        :'wine_description' => :'String'
       }
     end
 
@@ -49,14 +45,8 @@ module OpenapiClient
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'recommended_wines')
-        if (value = attributes[:'recommended_wines']).is_a?(Array)
-          self.recommended_wines = value
-        end
-      end
-
-      if attributes.key?(:'total_found')
-        self.total_found = attributes[:'total_found']
+      if attributes.key?(:'wine_description')
+        self.wine_description = attributes[:'wine_description']
       end
     end
 
@@ -64,12 +54,12 @@ module OpenapiClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @recommended_wines.nil?
-        invalid_properties.push('invalid value for "recommended_wines", recommended_wines cannot be nil.')
+      if @wine_description.nil?
+        invalid_properties.push('invalid value for "wine_description", wine_description cannot be nil.')
       end
 
-      if @total_found.nil?
-        invalid_properties.push('invalid value for "total_found", total_found cannot be nil.')
+      if @wine_description.to_s.length < 1
+        invalid_properties.push('invalid value for "wine_description", the character length must be great than or equal to 1.')
       end
 
       invalid_properties
@@ -78,9 +68,23 @@ module OpenapiClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @recommended_wines.nil?
-      return false if @total_found.nil?
+      return false if @wine_description.nil?
+      return false if @wine_description.to_s.length < 1
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] wine_description Value to be assigned
+    def wine_description=(wine_description)
+      if wine_description.nil?
+        fail ArgumentError, 'wine_description cannot be nil'
+      end
+
+      if wine_description.to_s.length < 1
+        fail ArgumentError, 'invalid value for "wine_description", the character length must be great than or equal to 1.'
+      end
+
+      @wine_description = wine_description
     end
 
     # Checks equality by comparing each attribute.
@@ -88,8 +92,7 @@ module OpenapiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          recommended_wines == o.recommended_wines &&
-          total_found == o.total_found
+          wine_description == o.wine_description
     end
 
     # @see the `==` method
@@ -101,7 +104,7 @@ module OpenapiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [recommended_wines, total_found].hash
+      [wine_description].hash
     end
 
     # Builds the object from hash

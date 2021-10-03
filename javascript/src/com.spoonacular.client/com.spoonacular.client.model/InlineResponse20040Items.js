@@ -23,14 +23,14 @@ class InlineResponse20040Items {
     /**
      * Constructs a new <code>InlineResponse20040Items</code>.
      * @alias module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20040Items
-     * @param id {Number} 
+     * @param day {Number} 
      * @param slot {Number} 
      * @param position {Number} 
      * @param type {String} 
      */
-    constructor(id, slot, position, type) { 
+    constructor(day, slot, position, type) { 
         
-        InlineResponse20040Items.initialize(this, id, slot, position, type);
+        InlineResponse20040Items.initialize(this, day, slot, position, type);
     }
 
     /**
@@ -38,8 +38,8 @@ class InlineResponse20040Items {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, id, slot, position, type) { 
-        obj['id'] = id;
+    static initialize(obj, day, slot, position, type) { 
+        obj['day'] = day;
         obj['slot'] = slot;
         obj['position'] = position;
         obj['type'] = type;
@@ -56,8 +56,8 @@ class InlineResponse20040Items {
         if (data) {
             obj = obj || new InlineResponse20040Items();
 
-            if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'Number');
+            if (data.hasOwnProperty('day')) {
+                obj['day'] = ApiClient.convertToType(data['day'], 'Number');
             }
             if (data.hasOwnProperty('slot')) {
                 obj['slot'] = ApiClient.convertToType(data['slot'], 'Number');
@@ -79,9 +79,9 @@ class InlineResponse20040Items {
 }
 
 /**
- * @member {Number} id
+ * @member {Number} day
  */
-InlineResponse20040Items.prototype['id'] = undefined;
+InlineResponse20040Items.prototype['day'] = undefined;
 
 /**
  * @member {Number} slot

@@ -70,7 +70,7 @@ import qualified Prelude as P
 -- 
 getDishPairingForWine 
   :: Wine -- ^ "wine" -  The type of wine that should be paired, e.g. \"merlot\", \"riesling\", or \"malbec\".
-  -> SpoonacularRequest GetDishPairingForWine MimeNoContent InlineResponse20043 MimeJSON
+  -> SpoonacularRequest GetDishPairingForWine MimeNoContent InlineResponse20044 MimeJSON
 getDishPairingForWine (Wine wine) =
   _mkRequest "GET" ["/food/wine/dishes"]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
@@ -93,7 +93,7 @@ instance Produces GetDishPairingForWine MimeJSON
 -- 
 getWineDescription 
   :: Wine -- ^ "wine" -  The name of the wine that should be paired, e.g. \"merlot\", \"riesling\", or \"malbec\".
-  -> SpoonacularRequest GetWineDescription MimeNoContent InlineResponse20045 MimeJSON
+  -> SpoonacularRequest GetWineDescription MimeNoContent InlineResponse20046 MimeJSON
 getWineDescription (Wine wine) =
   _mkRequest "GET" ["/food/wine/description"]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
@@ -116,7 +116,7 @@ instance Produces GetWineDescription MimeJSON
 -- 
 getWinePairing 
   :: Food -- ^ "food" -  The food to get a pairing for. This can be a dish (\"steak\"), an ingredient (\"salmon\"), or a cuisine (\"italian\").
-  -> SpoonacularRequest GetWinePairing MimeNoContent InlineResponse20044 MimeJSON
+  -> SpoonacularRequest GetWinePairing MimeNoContent InlineResponse20045 MimeJSON
 getWinePairing (Food food) =
   _mkRequest "GET" ["/food/wine/pairing"]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
@@ -144,7 +144,7 @@ instance Produces GetWinePairing MimeJSON
 -- 
 getWineRecommendation 
   :: Wine -- ^ "wine" -  The type of wine to get a specific product recommendation for.
-  -> SpoonacularRequest GetWineRecommendation MimeNoContent InlineResponse20046 MimeJSON
+  -> SpoonacularRequest GetWineRecommendation MimeNoContent InlineResponse20047 MimeJSON
 getWineRecommendation (Wine wine) =
   _mkRequest "GET" ["/food/wine/recommendation"]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)

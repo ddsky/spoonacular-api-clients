@@ -5,10 +5,16 @@
 -export_type([spoonacular_inline_response_200_45/0]).
 
 -type spoonacular_inline_response_200_45() ::
-    #{ 'wineDescription' := binary()
+    #{ 'pairedWines' := list(),
+       'pairingText' := binary(),
+       'productMatches' := list()
      }.
 
-encode(#{ 'wineDescription' := WineDescription
+encode(#{ 'pairedWines' := PairedWines,
+          'pairingText' := PairingText,
+          'productMatches' := ProductMatches
         }) ->
-    #{ 'wineDescription' => WineDescription
+    #{ 'pairedWines' => PairedWines,
+       'pairingText' => PairingText,
+       'productMatches' => ProductMatches
      }.

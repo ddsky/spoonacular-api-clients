@@ -14,9 +14,9 @@
 */
 
 
-#import "OAIInlineResponse20053Videos.h"
-@protocol OAIInlineResponse20053Videos;
-@class OAIInlineResponse20053Videos;
+#import "OAIInlineResponse20053SearchResults.h"
+@protocol OAIInlineResponse20053SearchResults;
+@class OAIInlineResponse20053SearchResults;
 
 
 
@@ -26,8 +26,14 @@
 @interface OAIInlineResponse20053 : OAIObject
 
 
-@property(nonatomic) NSArray<OAIInlineResponse20053Videos>* videos;
+@property(nonatomic) NSString* query;
 
 @property(nonatomic) NSNumber* totalResults;
+
+@property(nonatomic) NSNumber* limit;
+
+@property(nonatomic) NSNumber* offset;
+
+@property(nonatomic) NSArray<OAIInlineResponse20053SearchResults>* searchResults;
 
 @end

@@ -9,53 +9,17 @@ import com.google.gson.annotations.SerializedName;
 @ApiModel(description = "")
 public class InlineResponse20051  {
   
-  @SerializedName("Articles")
-  private List<Object> articles = null;
-  @SerializedName("Grocery Products")
-  private List<Object> groceryProducts = null;
-  @SerializedName("Menu Items")
-  private List<Object> menuItems = null;
-  @SerializedName("Recipes")
-  private List<Object> recipes = null;
+  @SerializedName("annotations")
+  private List<Object> annotations = null;
 
   /**
    **/
   @ApiModelProperty(required = true, value = "")
-  public List<Object> getArticles() {
-    return articles;
+  public List<Object> getAnnotations() {
+    return annotations;
   }
-  public void setArticles(List<Object> articles) {
-    this.articles = articles;
-  }
-
-  /**
-   **/
-  @ApiModelProperty(required = true, value = "")
-  public List<Object> getGroceryProducts() {
-    return groceryProducts;
-  }
-  public void setGroceryProducts(List<Object> groceryProducts) {
-    this.groceryProducts = groceryProducts;
-  }
-
-  /**
-   **/
-  @ApiModelProperty(required = true, value = "")
-  public List<Object> getMenuItems() {
-    return menuItems;
-  }
-  public void setMenuItems(List<Object> menuItems) {
-    this.menuItems = menuItems;
-  }
-
-  /**
-   **/
-  @ApiModelProperty(required = true, value = "")
-  public List<Object> getRecipes() {
-    return recipes;
-  }
-  public void setRecipes(List<Object> recipes) {
-    this.recipes = recipes;
+  public void setAnnotations(List<Object> annotations) {
+    this.annotations = annotations;
   }
 
 
@@ -68,19 +32,13 @@ public class InlineResponse20051  {
       return false;
     }
     InlineResponse20051 inlineResponse20051 = (InlineResponse20051) o;
-    return (this.articles == null ? inlineResponse20051.articles == null : this.articles.equals(inlineResponse20051.articles)) &&
-        (this.groceryProducts == null ? inlineResponse20051.groceryProducts == null : this.groceryProducts.equals(inlineResponse20051.groceryProducts)) &&
-        (this.menuItems == null ? inlineResponse20051.menuItems == null : this.menuItems.equals(inlineResponse20051.menuItems)) &&
-        (this.recipes == null ? inlineResponse20051.recipes == null : this.recipes.equals(inlineResponse20051.recipes));
+    return (this.annotations == null ? inlineResponse20051.annotations == null : this.annotations.equals(inlineResponse20051.annotations));
   }
 
   @Override
   public int hashCode() {
     int result = 17;
-    result = 31 * result + (this.articles == null ? 0: this.articles.hashCode());
-    result = 31 * result + (this.groceryProducts == null ? 0: this.groceryProducts.hashCode());
-    result = 31 * result + (this.menuItems == null ? 0: this.menuItems.hashCode());
-    result = 31 * result + (this.recipes == null ? 0: this.recipes.hashCode());
+    result = 31 * result + (this.annotations == null ? 0: this.annotations.hashCode());
     return result;
   }
 
@@ -89,10 +47,7 @@ public class InlineResponse20051  {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse20051 {\n");
     
-    sb.append("  articles: ").append(articles).append("\n");
-    sb.append("  groceryProducts: ").append(groceryProducts).append("\n");
-    sb.append("  menuItems: ").append(menuItems).append("\n");
-    sb.append("  recipes: ").append(recipes).append("\n");
+    sb.append("  annotations: ").append(annotations).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

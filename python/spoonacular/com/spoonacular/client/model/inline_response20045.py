@@ -32,45 +32,99 @@ class InlineResponse20045(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'wine_description': 'str'
+        'paired_wines': 'list[str]',
+        'pairing_text': 'str',
+        'product_matches': 'list[InlineResponse20045ProductMatches]'
     }
 
     attribute_map = {
-        'wine_description': 'wineDescription'
+        'paired_wines': 'pairedWines',
+        'pairing_text': 'pairingText',
+        'product_matches': 'productMatches'
     }
 
-    def __init__(self, wine_description=None):  # noqa: E501
+    def __init__(self, paired_wines=None, pairing_text=None, product_matches=None):  # noqa: E501
         """InlineResponse20045 - a model defined in OpenAPI"""  # noqa: E501
 
-        self._wine_description = None
+        self._paired_wines = None
+        self._pairing_text = None
+        self._product_matches = None
         self.discriminator = None
 
-        self.wine_description = wine_description
+        self.paired_wines = paired_wines
+        self.pairing_text = pairing_text
+        self.product_matches = product_matches
 
     @property
-    def wine_description(self):
-        """Gets the wine_description of this InlineResponse20045.  # noqa: E501
+    def paired_wines(self):
+        """Gets the paired_wines of this InlineResponse20045.  # noqa: E501
 
 
-        :return: The wine_description of this InlineResponse20045.  # noqa: E501
+        :return: The paired_wines of this InlineResponse20045.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._paired_wines
+
+    @paired_wines.setter
+    def paired_wines(self, paired_wines):
+        """Sets the paired_wines of this InlineResponse20045.
+
+
+        :param paired_wines: The paired_wines of this InlineResponse20045.  # noqa: E501
+        :type: list[str]
+        """
+        if paired_wines is None:
+            raise ValueError("Invalid value for `paired_wines`, must not be `None`")  # noqa: E501
+
+        self._paired_wines = paired_wines
+
+    @property
+    def pairing_text(self):
+        """Gets the pairing_text of this InlineResponse20045.  # noqa: E501
+
+
+        :return: The pairing_text of this InlineResponse20045.  # noqa: E501
         :rtype: str
         """
-        return self._wine_description
+        return self._pairing_text
 
-    @wine_description.setter
-    def wine_description(self, wine_description):
-        """Sets the wine_description of this InlineResponse20045.
+    @pairing_text.setter
+    def pairing_text(self, pairing_text):
+        """Sets the pairing_text of this InlineResponse20045.
 
 
-        :param wine_description: The wine_description of this InlineResponse20045.  # noqa: E501
+        :param pairing_text: The pairing_text of this InlineResponse20045.  # noqa: E501
         :type: str
         """
-        if wine_description is None:
-            raise ValueError("Invalid value for `wine_description`, must not be `None`")  # noqa: E501
-        if wine_description is not None and len(wine_description) < 1:
-            raise ValueError("Invalid value for `wine_description`, length must be greater than or equal to `1`")  # noqa: E501
+        if pairing_text is None:
+            raise ValueError("Invalid value for `pairing_text`, must not be `None`")  # noqa: E501
+        if pairing_text is not None and len(pairing_text) < 1:
+            raise ValueError("Invalid value for `pairing_text`, length must be greater than or equal to `1`")  # noqa: E501
 
-        self._wine_description = wine_description
+        self._pairing_text = pairing_text
+
+    @property
+    def product_matches(self):
+        """Gets the product_matches of this InlineResponse20045.  # noqa: E501
+
+
+        :return: The product_matches of this InlineResponse20045.  # noqa: E501
+        :rtype: list[InlineResponse20045ProductMatches]
+        """
+        return self._product_matches
+
+    @product_matches.setter
+    def product_matches(self, product_matches):
+        """Sets the product_matches of this InlineResponse20045.
+
+
+        :param product_matches: The product_matches of this InlineResponse20045.  # noqa: E501
+        :type: list[InlineResponse20045ProductMatches]
+        """
+        if product_matches is None:
+            raise ValueError("Invalid value for `product_matches`, must not be `None`")  # noqa: E501
+
+        self._product_matches = product_matches
 
     def to_dict(self):
         """Returns the model properties as a dict"""

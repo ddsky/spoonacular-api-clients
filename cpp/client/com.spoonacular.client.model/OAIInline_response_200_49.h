@@ -22,7 +22,10 @@
 #include <QJsonObject>
 
 
-#include <QString>
+#include "com.spoonacular.client.model\OAIInline_response_200_49_category.h"
+#include "com.spoonacular.client.model\OAIInline_response_200_49_nutrition.h"
+#include "com.spoonacular.client.model\OAIInline_response_200_49_recipes.h"
+#include <QList>
 
 #include "OAIObject.h"
 #include "OAIEnum.h"
@@ -41,12 +44,16 @@ public:
     void fromJson(QString jsonString) override;
 
     
-    QString getAnswer() const;
-    void setAnswer(const QString &answer);
+    OAIInline_response_200_49_nutrition getNutrition() const;
+    void setNutrition(const OAIInline_response_200_49_nutrition &nutrition);
 
     
-    QString getImage() const;
-    void setImage(const QString &image);
+    OAIInline_response_200_49_category getCategory() const;
+    void setCategory(const OAIInline_response_200_49_category &category);
+
+    
+    QList<OAIInline_response_200_49_recipes> getRecipes() const;
+    void setRecipes(const QList<OAIInline_response_200_49_recipes> &recipes);
 
     
     
@@ -56,13 +63,17 @@ public:
 private:
     void init();
     
-    QString answer;
-    bool m_answer_isSet;
-    bool m_answer_isValid;
+    OAIInline_response_200_49_nutrition nutrition;
+    bool m_nutrition_isSet;
+    bool m_nutrition_isValid;
     
-    QString image;
-    bool m_image_isSet;
-    bool m_image_isValid;
+    OAIInline_response_200_49_category category;
+    bool m_category_isSet;
+    bool m_category_isValid;
+    
+    QList<OAIInline_response_200_49_recipes> recipes;
+    bool m_recipes_isSet;
+    bool m_recipes_isValid;
     
     };
 

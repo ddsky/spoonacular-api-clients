@@ -57,9 +57,8 @@ class InlineResponse20044 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'paired_wines' => 'string[]',
-        'pairing_text' => 'string',
-        'product_matches' => '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20044ProductMatches[]'
+        'pairings' => 'string[]',
+        'text' => 'string'
     ];
 
     /**
@@ -68,9 +67,8 @@ class InlineResponse20044 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'paired_wines' => null,
-        'pairing_text' => null,
-        'product_matches' => null
+        'pairings' => null,
+        'text' => null
     ];
 
     /**
@@ -100,9 +98,8 @@ class InlineResponse20044 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'paired_wines' => 'pairedWines',
-        'pairing_text' => 'pairingText',
-        'product_matches' => 'productMatches'
+        'pairings' => 'pairings',
+        'text' => 'text'
     ];
 
     /**
@@ -111,9 +108,8 @@ class InlineResponse20044 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'paired_wines' => 'setPairedWines',
-        'pairing_text' => 'setPairingText',
-        'product_matches' => 'setProductMatches'
+        'pairings' => 'setPairings',
+        'text' => 'setText'
     ];
 
     /**
@@ -122,9 +118,8 @@ class InlineResponse20044 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'paired_wines' => 'getPairedWines',
-        'pairing_text' => 'getPairingText',
-        'product_matches' => 'getProductMatches'
+        'pairings' => 'getPairings',
+        'text' => 'getText'
     ];
 
     /**
@@ -187,9 +182,8 @@ class InlineResponse20044 implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['paired_wines'] = isset($data['paired_wines']) ? $data['paired_wines'] : null;
-        $this->container['pairing_text'] = isset($data['pairing_text']) ? $data['pairing_text'] : null;
-        $this->container['product_matches'] = isset($data['product_matches']) ? $data['product_matches'] : null;
+        $this->container['pairings'] = isset($data['pairings']) ? $data['pairings'] : null;
+        $this->container['text'] = isset($data['text']) ? $data['text'] : null;
     }
 
     /**
@@ -201,19 +195,16 @@ class InlineResponse20044 implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['paired_wines'] === null) {
-            $invalidProperties[] = "'paired_wines' can't be null";
+        if ($this->container['pairings'] === null) {
+            $invalidProperties[] = "'pairings' can't be null";
         }
-        if ($this->container['pairing_text'] === null) {
-            $invalidProperties[] = "'pairing_text' can't be null";
+        if ($this->container['text'] === null) {
+            $invalidProperties[] = "'text' can't be null";
         }
-        if ((mb_strlen($this->container['pairing_text']) < 1)) {
-            $invalidProperties[] = "invalid value for 'pairing_text', the character length must be bigger than or equal to 1.";
+        if ((mb_strlen($this->container['text']) < 1)) {
+            $invalidProperties[] = "invalid value for 'text', the character length must be bigger than or equal to 1.";
         }
 
-        if ($this->container['product_matches'] === null) {
-            $invalidProperties[] = "'product_matches' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -230,78 +221,54 @@ class InlineResponse20044 implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets paired_wines
+     * Gets pairings
      *
      * @return string[]
      */
-    public function getPairedWines()
+    public function getPairings()
     {
-        return $this->container['paired_wines'];
+        return $this->container['pairings'];
     }
 
     /**
-     * Sets paired_wines
+     * Sets pairings
      *
-     * @param string[] $paired_wines paired_wines
+     * @param string[] $pairings pairings
      *
      * @return $this
      */
-    public function setPairedWines($paired_wines)
+    public function setPairings($pairings)
     {
-        $this->container['paired_wines'] = $paired_wines;
+        $this->container['pairings'] = $pairings;
 
         return $this;
     }
 
     /**
-     * Gets pairing_text
+     * Gets text
      *
      * @return string
      */
-    public function getPairingText()
+    public function getText()
     {
-        return $this->container['pairing_text'];
+        return $this->container['text'];
     }
 
     /**
-     * Sets pairing_text
+     * Sets text
      *
-     * @param string $pairing_text pairing_text
+     * @param string $text text
      *
      * @return $this
      */
-    public function setPairingText($pairing_text)
+    public function setText($text)
     {
 
-        if ((mb_strlen($pairing_text) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $pairing_text when calling InlineResponse20044., must be bigger than or equal to 1.');
+        if ((mb_strlen($text) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $text when calling InlineResponse20044., must be bigger than or equal to 1.');
         }
 
-        $this->container['pairing_text'] = $pairing_text;
-
-        return $this;
-    }
-
-    /**
-     * Gets product_matches
-     *
-     * @return \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20044ProductMatches[]
-     */
-    public function getProductMatches()
-    {
-        return $this->container['product_matches'];
-    }
-
-    /**
-     * Sets product_matches
-     *
-     * @param \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20044ProductMatches[] $product_matches product_matches
-     *
-     * @return $this
-     */
-    public function setProductMatches($product_matches)
-    {
-        $this->container['product_matches'] = $product_matches;
+        $this->container['text'] = $text;
 
         return $this;
     }

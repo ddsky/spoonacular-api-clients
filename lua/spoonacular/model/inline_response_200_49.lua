@@ -19,10 +19,11 @@ local function cast_inline_response_200_49(t)
 	return setmetatable(t, inline_response_200_49_mt)
 end
 
-local function new_inline_response_200_49(answer, image)
+local function new_inline_response_200_49(nutrition, category, recipes)
 	return cast_inline_response_200_49({
-		["answer"] = answer;
-		["image"] = image;
+		["nutrition"] = nutrition;
+		["category"] = category;
+		["recipes"] = recipes;
 	})
 end
 

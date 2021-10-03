@@ -5,11 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **Number** |  | 
-**name** | **String** |  | 
-**measures** | [**InlineResponse20041Measures**](InlineResponse20041Measures.md) |  | [optional] 
-**pantryItem** | **Boolean** |  | 
-**aisle** | **String** |  | 
-**cost** | **Number** |  | 
-**ingredientId** | **Number** |  | 
+**slot** | **Number** |  | 
+**position** | **Number** |  | 
+**type** | **String** |  | 
+**value** | [**InlineResponse20041Value**](InlineResponse20041Value.md) |  | [optional] 
 
 

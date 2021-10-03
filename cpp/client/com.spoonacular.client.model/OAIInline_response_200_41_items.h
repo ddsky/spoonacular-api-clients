@@ -22,8 +22,7 @@
 #include <QJsonObject>
 
 
-#include "com.spoonacular.client.model\OAIInline_response_200_41_measures.h"
-#include "com.spoonacular.client.model\OAINumber.h"
+#include "com.spoonacular.client.model\OAIInline_response_200_41_value.h"
 #include <QString>
 
 #include "OAIObject.h"
@@ -47,28 +46,20 @@ public:
     void setId(const qint32 &id);
 
     
-    QString getName() const;
-    void setName(const QString &name);
+    qint32 getSlot() const;
+    void setSlot(const qint32 &slot);
 
     
-    OAIInline_response_200_41_measures getMeasures() const;
-    void setMeasures(const OAIInline_response_200_41_measures &measures);
+    qint32 getPosition() const;
+    void setPosition(const qint32 &position);
 
     
-    bool isPantryItem() const;
-    void setPantryItem(const bool &pantry_item);
+    QString getType() const;
+    void setType(const QString &type);
 
     
-    QString getAisle() const;
-    void setAisle(const QString &aisle);
-
-    
-    OAINumber getCost() const;
-    void setCost(const OAINumber &cost);
-
-    
-    qint32 getIngredientId() const;
-    void setIngredientId(const qint32 &ingredient_id);
+    OAIInline_response_200_41_value getValue() const;
+    void setValue(const OAIInline_response_200_41_value &value);
 
     
     
@@ -82,29 +73,21 @@ private:
     bool m_id_isSet;
     bool m_id_isValid;
     
-    QString name;
-    bool m_name_isSet;
-    bool m_name_isValid;
+    qint32 slot;
+    bool m_slot_isSet;
+    bool m_slot_isValid;
     
-    OAIInline_response_200_41_measures measures;
-    bool m_measures_isSet;
-    bool m_measures_isValid;
+    qint32 position;
+    bool m_position_isSet;
+    bool m_position_isValid;
     
-    bool pantry_item;
-    bool m_pantry_item_isSet;
-    bool m_pantry_item_isValid;
+    QString type;
+    bool m_type_isSet;
+    bool m_type_isValid;
     
-    QString aisle;
-    bool m_aisle_isSet;
-    bool m_aisle_isValid;
-    
-    OAINumber cost;
-    bool m_cost_isSet;
-    bool m_cost_isValid;
-    
-    qint32 ingredient_id;
-    bool m_ingredient_id_isSet;
-    bool m_ingredient_id_isValid;
+    OAIInline_response_200_41_value value;
+    bool m_value_isSet;
+    bool m_value_isValid;
     
     };
 

@@ -38,11 +38,11 @@ OAIInline_response_200_56::~OAIInline_response_200_56() {
 void
 OAIInline_response_200_56::init() {
     
-    m_suggests_isSet = false;
-    m_suggests_isValid = false;
+    m_answer_text_isSet = false;
+    m_answer_text_isValid = false;
     
-    m_words_isSet = false;
-    m_words_isValid = false;
+    m_media_isSet = false;
+    m_media_isValid = false;
     }
 
 void
@@ -56,11 +56,11 @@ OAIInline_response_200_56::fromJson(QString jsonString) {
 void
 OAIInline_response_200_56::fromJsonObject(QJsonObject json) {
     
-    m_suggests_isValid = ::OpenAPI::fromJsonValue(suggests, json[QString("suggests")]);
+    m_answer_text_isValid = ::OpenAPI::fromJsonValue(answer_text, json[QString("answerText")]);
     
     
     
-    m_words_isValid = ::OpenAPI::fromJsonValue(words, json[QString("words")]);
+    m_media_isValid = ::OpenAPI::fromJsonValue(media, json[QString("media")]);
     
 }
 
@@ -75,45 +75,45 @@ OAIInline_response_200_56::asJson () const {
 QJsonObject
 OAIInline_response_200_56::asJsonObject() const {
     QJsonObject obj;
-	if(suggests.isSet()){
-        obj.insert(QString("suggests"), ::OpenAPI::toJsonValue(suggests));
+	if(m_answer_text_isSet){
+        obj.insert(QString("answerText"), ::OpenAPI::toJsonValue(answer_text));
     }
 	
-    if(words.size() > 0){
-        obj.insert(QString("words"), ::OpenAPI::toJsonValue(words));
+    if(media.size() > 0){
+        obj.insert(QString("media"), ::OpenAPI::toJsonValue(media));
     } 
     return obj;
 }
 
 
-OAIInline_response_200_56_suggests
-OAIInline_response_200_56::getSuggests() const {
-    return suggests;
+QString
+OAIInline_response_200_56::getAnswerText() const {
+    return answer_text;
 }
 void
-OAIInline_response_200_56::setSuggests(const OAIInline_response_200_56_suggests &suggests) {
-    this->suggests = suggests;
-    this->m_suggests_isSet = true;
+OAIInline_response_200_56::setAnswerText(const QString &answer_text) {
+    this->answer_text = answer_text;
+    this->m_answer_text_isSet = true;
 }
 
 
 QList<OAIObject>
-OAIInline_response_200_56::getWords() const {
-    return words;
+OAIInline_response_200_56::getMedia() const {
+    return media;
 }
 void
-OAIInline_response_200_56::setWords(const QList<OAIObject> &words) {
-    this->words = words;
-    this->m_words_isSet = true;
+OAIInline_response_200_56::setMedia(const QList<OAIObject> &media) {
+    this->media = media;
+    this->m_media_isSet = true;
 }
 
 bool
 OAIInline_response_200_56::isSet() const {
     bool isObjectUpdated = false;
     do{ 
-        if(suggests.isSet()){ isObjectUpdated = true; break;}
+        if(m_answer_text_isSet){ isObjectUpdated = true; break;}
     
-        if(words.size() > 0){ isObjectUpdated = true; break;}
+        if(media.size() > 0){ isObjectUpdated = true; break;}
     }while(false);
     return isObjectUpdated;
 }
@@ -121,7 +121,7 @@ OAIInline_response_200_56::isSet() const {
 bool
 OAIInline_response_200_56::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_suggests_isValid && m_words_isValid && true;
+    return m_answer_text_isValid && m_media_isValid && true;
 }
 
 }

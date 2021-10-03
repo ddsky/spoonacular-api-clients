@@ -30,7 +30,7 @@ use Log::Any qw($log);
 use Date::Parse;
 use DateTime;
 
-use WWW::OpenAPIClient::Object::InlineResponse20041Aisles;
+use WWW::OpenAPIClient::Object::InlineResponse20041Days;
 
 use base ("Class::Accessor", "Class::Data::Inheritable");
 
@@ -162,30 +162,23 @@ __PACKAGE__->class_documentation({description => '',
 }                                 );
 
 __PACKAGE__->method_documentation({
-    'aisles' => {
-        datatype => 'ARRAY[InlineResponse20041Aisles]',
-        base_name => 'aisles',
+    'id' => {
+        datatype => 'int',
+        base_name => 'id',
         description => '',
         format => '',
         read_only => '',
             },
-    'cost' => {
-        datatype => 'double',
-        base_name => 'cost',
+    'name' => {
+        datatype => 'string',
+        base_name => 'name',
         description => '',
         format => '',
         read_only => '',
             },
-    'start_date' => {
-        datatype => 'double',
-        base_name => 'startDate',
-        description => '',
-        format => '',
-        read_only => '',
-            },
-    'end_date' => {
-        datatype => 'double',
-        base_name => 'endDate',
+    'days' => {
+        datatype => 'ARRAY[InlineResponse20041Days]',
+        base_name => 'days',
         description => '',
         format => '',
         read_only => '',
@@ -193,17 +186,15 @@ __PACKAGE__->method_documentation({
 });
 
 __PACKAGE__->openapi_types( {
-    'aisles' => 'ARRAY[InlineResponse20041Aisles]',
-    'cost' => 'double',
-    'start_date' => 'double',
-    'end_date' => 'double'
+    'id' => 'int',
+    'name' => 'string',
+    'days' => 'ARRAY[InlineResponse20041Days]'
 } );
 
 __PACKAGE__->attribute_map( {
-    'aisles' => 'aisles',
-    'cost' => 'cost',
-    'start_date' => 'startDate',
-    'end_date' => 'endDate'
+    'id' => 'id',
+    'name' => 'name',
+    'days' => 'days'
 } );
 
 __PACKAGE__->mk_accessors(keys %{__PACKAGE__->attribute_map});

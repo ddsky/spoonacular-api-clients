@@ -938,6 +938,7 @@ public class ProductsApi {
      * @param maxProtein The maximum amount of protein in grams the product can have. (optional)
      * @param minFat The minimum amount of fat in grams the product must have. (optional)
      * @param maxFat The maximum amount of fat in grams the product can have. (optional)
+     * @param addProductInformation If set to true, you get more information about the products returned. (optional)
      * @param offset The number of results to skip (between 0 and 900). (optional)
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @param _callback Callback for upload/download progress
@@ -946,7 +947,7 @@ public class ProductsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Search-Grocery-Products">Search Grocery Products Documentation</a>
      */
-    public okhttp3.Call searchGroceryProductsCall(String query, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minFat, BigDecimal maxFat, Integer offset, Integer number, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchGroceryProductsCall(String query, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minFat, BigDecimal maxFat, Boolean addProductInformation, Integer offset, Integer number, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = new Object();
 
         // create path and map variables
@@ -990,6 +991,10 @@ public class ProductsApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxFat", maxFat));
         }
 
+        if (addProductInformation != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("addProductInformation", addProductInformation));
+        }
+
         if (offset != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("offset", offset));
         }
@@ -1019,10 +1024,10 @@ public class ProductsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchGroceryProductsValidateBeforeCall(String query, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minFat, BigDecimal maxFat, Integer offset, Integer number, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call searchGroceryProductsValidateBeforeCall(String query, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minFat, BigDecimal maxFat, Boolean addProductInformation, Integer offset, Integer number, final ApiCallback _callback) throws ApiException {
         
 
-        okhttp3.Call localVarCall = searchGroceryProductsCall(query, minCalories, maxCalories, minCarbs, maxCarbs, minProtein, maxProtein, minFat, maxFat, offset, number, _callback);
+        okhttp3.Call localVarCall = searchGroceryProductsCall(query, minCalories, maxCalories, minCarbs, maxCarbs, minProtein, maxProtein, minFat, maxFat, addProductInformation, offset, number, _callback);
         return localVarCall;
 
     }
@@ -1039,6 +1044,7 @@ public class ProductsApi {
      * @param maxProtein The maximum amount of protein in grams the product can have. (optional)
      * @param minFat The minimum amount of fat in grams the product must have. (optional)
      * @param maxFat The maximum amount of fat in grams the product can have. (optional)
+     * @param addProductInformation If set to true, you get more information about the products returned. (optional)
      * @param offset The number of results to skip (between 0 and 900). (optional)
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @return InlineResponse20027
@@ -1046,8 +1052,8 @@ public class ProductsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Search-Grocery-Products">Search Grocery Products Documentation</a>
      */
-    public InlineResponse20027 searchGroceryProducts(String query, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minFat, BigDecimal maxFat, Integer offset, Integer number) throws ApiException {
-        ApiResponse<InlineResponse20027> localVarResp = searchGroceryProductsWithHttpInfo(query, minCalories, maxCalories, minCarbs, maxCarbs, minProtein, maxProtein, minFat, maxFat, offset, number);
+    public InlineResponse20027 searchGroceryProducts(String query, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minFat, BigDecimal maxFat, Boolean addProductInformation, Integer offset, Integer number) throws ApiException {
+        ApiResponse<InlineResponse20027> localVarResp = searchGroceryProductsWithHttpInfo(query, minCalories, maxCalories, minCarbs, maxCarbs, minProtein, maxProtein, minFat, maxFat, addProductInformation, offset, number);
         return localVarResp.getData();
     }
 
@@ -1063,6 +1069,7 @@ public class ProductsApi {
      * @param maxProtein The maximum amount of protein in grams the product can have. (optional)
      * @param minFat The minimum amount of fat in grams the product must have. (optional)
      * @param maxFat The maximum amount of fat in grams the product can have. (optional)
+     * @param addProductInformation If set to true, you get more information about the products returned. (optional)
      * @param offset The number of results to skip (between 0 and 900). (optional)
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @return ApiResponse&lt;InlineResponse20027&gt;
@@ -1070,8 +1077,8 @@ public class ProductsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Search-Grocery-Products">Search Grocery Products Documentation</a>
      */
-    public ApiResponse<InlineResponse20027> searchGroceryProductsWithHttpInfo(String query, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minFat, BigDecimal maxFat, Integer offset, Integer number) throws ApiException {
-        okhttp3.Call localVarCall = searchGroceryProductsValidateBeforeCall(query, minCalories, maxCalories, minCarbs, maxCarbs, minProtein, maxProtein, minFat, maxFat, offset, number, null);
+    public ApiResponse<InlineResponse20027> searchGroceryProductsWithHttpInfo(String query, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minFat, BigDecimal maxFat, Boolean addProductInformation, Integer offset, Integer number) throws ApiException {
+        okhttp3.Call localVarCall = searchGroceryProductsValidateBeforeCall(query, minCalories, maxCalories, minCarbs, maxCarbs, minProtein, maxProtein, minFat, maxFat, addProductInformation, offset, number, null);
         Type localVarReturnType = new TypeToken<InlineResponse20027>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1088,6 +1095,7 @@ public class ProductsApi {
      * @param maxProtein The maximum amount of protein in grams the product can have. (optional)
      * @param minFat The minimum amount of fat in grams the product must have. (optional)
      * @param maxFat The maximum amount of fat in grams the product can have. (optional)
+     * @param addProductInformation If set to true, you get more information about the products returned. (optional)
      * @param offset The number of results to skip (between 0 and 900). (optional)
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @param _callback The callback to be executed when the API call finishes
@@ -1096,9 +1104,9 @@ public class ProductsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Search-Grocery-Products">Search Grocery Products Documentation</a>
      */
-    public okhttp3.Call searchGroceryProductsAsync(String query, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minFat, BigDecimal maxFat, Integer offset, Integer number, final ApiCallback<InlineResponse20027> _callback) throws ApiException {
+    public okhttp3.Call searchGroceryProductsAsync(String query, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minFat, BigDecimal maxFat, Boolean addProductInformation, Integer offset, Integer number, final ApiCallback<InlineResponse20027> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchGroceryProductsValidateBeforeCall(query, minCalories, maxCalories, minCarbs, maxCarbs, minProtein, maxProtein, minFat, maxFat, offset, number, _callback);
+        okhttp3.Call localVarCall = searchGroceryProductsValidateBeforeCall(query, minCalories, maxCalories, minCarbs, maxCarbs, minProtein, maxProtein, minFat, maxFat, addProductInformation, offset, number, _callback);
         Type localVarReturnType = new TypeToken<InlineResponse20027>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

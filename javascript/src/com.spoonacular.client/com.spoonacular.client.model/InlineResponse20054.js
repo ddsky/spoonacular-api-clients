@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import InlineResponse20054Videos from './InlineResponse20054Videos';
 
 /**
  * The InlineResponse20054 model module.
@@ -22,11 +23,12 @@ class InlineResponse20054 {
     /**
      * Constructs a new <code>InlineResponse20054</code>.
      * @alias module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20054
-     * @param text {String} 
+     * @param videos {Array.<module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20054Videos>} 
+     * @param totalResults {Number} 
      */
-    constructor(text) { 
+    constructor(videos, totalResults) { 
         
-        InlineResponse20054.initialize(this, text);
+        InlineResponse20054.initialize(this, videos, totalResults);
     }
 
     /**
@@ -34,8 +36,9 @@ class InlineResponse20054 {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, text) { 
-        obj['text'] = text;
+    static initialize(obj, videos, totalResults) { 
+        obj['videos'] = videos;
+        obj['totalResults'] = totalResults;
     }
 
     /**
@@ -49,8 +52,11 @@ class InlineResponse20054 {
         if (data) {
             obj = obj || new InlineResponse20054();
 
-            if (data.hasOwnProperty('text')) {
-                obj['text'] = ApiClient.convertToType(data['text'], 'String');
+            if (data.hasOwnProperty('videos')) {
+                obj['videos'] = ApiClient.convertToType(data['videos'], [InlineResponse20054Videos]);
+            }
+            if (data.hasOwnProperty('totalResults')) {
+                obj['totalResults'] = ApiClient.convertToType(data['totalResults'], 'Number');
             }
         }
         return obj;
@@ -60,9 +66,14 @@ class InlineResponse20054 {
 }
 
 /**
- * @member {String} text
+ * @member {Array.<module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20054Videos>} videos
  */
-InlineResponse20054.prototype['text'] = undefined;
+InlineResponse20054.prototype['videos'] = undefined;
+
+/**
+ * @member {Number} totalResults
+ */
+InlineResponse20054.prototype['totalResults'] = undefined;
 
 
 

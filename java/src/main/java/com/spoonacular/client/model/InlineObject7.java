@@ -23,15 +23,20 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.math.BigDecimal;
 
 /**
  * InlineObject7
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-09-28T20:40:32.759+02:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-03T15:10:59.332+02:00[Europe/Berlin]")
 public class InlineObject7 {
   public static final String SERIALIZED_NAME_USERNAME = "username";
   @SerializedName(SERIALIZED_NAME_USERNAME)
   private String username;
+
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  private BigDecimal id;
 
   public static final String SERIALIZED_NAME_HASH = "hash";
   @SerializedName(SERIALIZED_NAME_HASH)
@@ -53,6 +58,24 @@ public class InlineObject7 {
 
   public void setUsername(String username) {
     this.username = username;
+  }
+
+  public InlineObject7 id(BigDecimal id) {
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * The shopping list item id.
+   * @return id
+  **/
+  @ApiModelProperty(example = "15678", required = true, value = "The shopping list item id.")
+  public BigDecimal getId() {
+    return id;
+  }
+
+  public void setId(BigDecimal id) {
+    this.id = id;
   }
 
   public InlineObject7 hash(String hash) {
@@ -84,12 +107,13 @@ public class InlineObject7 {
     }
     InlineObject7 inlineObject7 = (InlineObject7) o;
     return Objects.equals(this.username, inlineObject7.username) &&
+        Objects.equals(this.id, inlineObject7.id) &&
         Objects.equals(this.hash, inlineObject7.hash);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(username, hash);
+    return Objects.hash(username, id, hash);
   }
 
 
@@ -98,6 +122,7 @@ public class InlineObject7 {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineObject7 {\n");
     sb.append("    username: ").append(toIndentedString(username)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    hash: ").append(toIndentedString(hash)).append("\n");
     sb.append("}");
     return sb.toString();

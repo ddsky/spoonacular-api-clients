@@ -57,8 +57,11 @@ class InlineResponse20053 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'videos' => '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20053Videos[]',
-        'total_results' => 'int'
+        'query' => 'string',
+        'total_results' => 'int',
+        'limit' => 'int',
+        'offset' => 'int',
+        'search_results' => '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20053SearchResults[]'
     ];
 
     /**
@@ -67,8 +70,11 @@ class InlineResponse20053 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'videos' => null,
-        'total_results' => null
+        'query' => null,
+        'total_results' => null,
+        'limit' => null,
+        'offset' => null,
+        'search_results' => null
     ];
 
     /**
@@ -98,8 +104,11 @@ class InlineResponse20053 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'videos' => 'videos',
-        'total_results' => 'totalResults'
+        'query' => 'query',
+        'total_results' => 'totalResults',
+        'limit' => 'limit',
+        'offset' => 'offset',
+        'search_results' => 'searchResults'
     ];
 
     /**
@@ -108,8 +117,11 @@ class InlineResponse20053 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'videos' => 'setVideos',
-        'total_results' => 'setTotalResults'
+        'query' => 'setQuery',
+        'total_results' => 'setTotalResults',
+        'limit' => 'setLimit',
+        'offset' => 'setOffset',
+        'search_results' => 'setSearchResults'
     ];
 
     /**
@@ -118,8 +130,11 @@ class InlineResponse20053 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'videos' => 'getVideos',
-        'total_results' => 'getTotalResults'
+        'query' => 'getQuery',
+        'total_results' => 'getTotalResults',
+        'limit' => 'getLimit',
+        'offset' => 'getOffset',
+        'search_results' => 'getSearchResults'
     ];
 
     /**
@@ -182,8 +197,11 @@ class InlineResponse20053 implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['videos'] = isset($data['videos']) ? $data['videos'] : null;
+        $this->container['query'] = isset($data['query']) ? $data['query'] : null;
         $this->container['total_results'] = isset($data['total_results']) ? $data['total_results'] : null;
+        $this->container['limit'] = isset($data['limit']) ? $data['limit'] : null;
+        $this->container['offset'] = isset($data['offset']) ? $data['offset'] : null;
+        $this->container['search_results'] = isset($data['search_results']) ? $data['search_results'] : null;
     }
 
     /**
@@ -195,11 +213,24 @@ class InlineResponse20053 implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['videos'] === null) {
-            $invalidProperties[] = "'videos' can't be null";
+        if ($this->container['query'] === null) {
+            $invalidProperties[] = "'query' can't be null";
         }
+        if ((mb_strlen($this->container['query']) < 1)) {
+            $invalidProperties[] = "invalid value for 'query', the character length must be bigger than or equal to 1.";
+        }
+
         if ($this->container['total_results'] === null) {
             $invalidProperties[] = "'total_results' can't be null";
+        }
+        if ($this->container['limit'] === null) {
+            $invalidProperties[] = "'limit' can't be null";
+        }
+        if ($this->container['offset'] === null) {
+            $invalidProperties[] = "'offset' can't be null";
+        }
+        if ($this->container['search_results'] === null) {
+            $invalidProperties[] = "'search_results' can't be null";
         }
         return $invalidProperties;
     }
@@ -217,25 +248,30 @@ class InlineResponse20053 implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets videos
+     * Gets query
      *
-     * @return \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20053Videos[]
+     * @return string
      */
-    public function getVideos()
+    public function getQuery()
     {
-        return $this->container['videos'];
+        return $this->container['query'];
     }
 
     /**
-     * Sets videos
+     * Sets query
      *
-     * @param \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20053Videos[] $videos videos
+     * @param string $query query
      *
      * @return $this
      */
-    public function setVideos($videos)
+    public function setQuery($query)
     {
-        $this->container['videos'] = $videos;
+
+        if ((mb_strlen($query) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $query when calling InlineResponse20053., must be bigger than or equal to 1.');
+        }
+
+        $this->container['query'] = $query;
 
         return $this;
     }
@@ -260,6 +296,78 @@ class InlineResponse20053 implements ModelInterface, ArrayAccess
     public function setTotalResults($total_results)
     {
         $this->container['total_results'] = $total_results;
+
+        return $this;
+    }
+
+    /**
+     * Gets limit
+     *
+     * @return int
+     */
+    public function getLimit()
+    {
+        return $this->container['limit'];
+    }
+
+    /**
+     * Sets limit
+     *
+     * @param int $limit limit
+     *
+     * @return $this
+     */
+    public function setLimit($limit)
+    {
+        $this->container['limit'] = $limit;
+
+        return $this;
+    }
+
+    /**
+     * Gets offset
+     *
+     * @return int
+     */
+    public function getOffset()
+    {
+        return $this->container['offset'];
+    }
+
+    /**
+     * Sets offset
+     *
+     * @param int $offset offset
+     *
+     * @return $this
+     */
+    public function setOffset($offset)
+    {
+        $this->container['offset'] = $offset;
+
+        return $this;
+    }
+
+    /**
+     * Gets search_results
+     *
+     * @return \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20053SearchResults[]
+     */
+    public function getSearchResults()
+    {
+        return $this->container['search_results'];
+    }
+
+    /**
+     * Sets search_results
+     *
+     * @param \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20053SearchResults[] $search_results search_results
+     *
+     * @return $this
+     */
+    public function setSearchResults($search_results)
+    {
+        $this->container['search_results'] = $search_results;
 
         return $this;
     }

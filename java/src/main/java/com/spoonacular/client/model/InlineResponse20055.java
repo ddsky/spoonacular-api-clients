@@ -23,61 +23,32 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * InlineResponse20055
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-09-28T20:40:32.759+02:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-03T15:10:59.332+02:00[Europe/Berlin]")
 public class InlineResponse20055 {
-  public static final String SERIALIZED_NAME_ANSWER_TEXT = "answerText";
-  @SerializedName(SERIALIZED_NAME_ANSWER_TEXT)
-  private String answerText;
+  public static final String SERIALIZED_NAME_TEXT = "text";
+  @SerializedName(SERIALIZED_NAME_TEXT)
+  private String text;
 
-  public static final String SERIALIZED_NAME_MEDIA = "media";
-  @SerializedName(SERIALIZED_NAME_MEDIA)
-  private List<Object> media = new ArrayList<>();
-
-  public InlineResponse20055 answerText(String answerText) {
-    this.answerText = answerText;
+  public InlineResponse20055 text(String text) {
+    this.text = text;
     return this;
   }
 
    /**
-   * Get answerText
-   * @return answerText
+   * Get text
+   * @return text
   **/
   @ApiModelProperty(required = true, value = "")
-  public String getAnswerText() {
-    return answerText;
+  public String getText() {
+    return text;
   }
 
-  public void setAnswerText(String answerText) {
-    this.answerText = answerText;
-  }
-
-  public InlineResponse20055 media(List<Object> media) {
-    this.media = media;
-    return this;
-  }
-
-  public InlineResponse20055 addMediaItem(Object mediaItem) {
-    this.media.add(mediaItem);
-    return this;
-  }
-
-   /**
-   * Get media
-   * @return media
-  **/
-  @ApiModelProperty(required = true, value = "")
-  public List<Object> getMedia() {
-    return media;
-  }
-
-  public void setMedia(List<Object> media) {
-    this.media = media;
+  public void setText(String text) {
+    this.text = text;
   }
 
 
@@ -90,13 +61,12 @@ public class InlineResponse20055 {
       return false;
     }
     InlineResponse20055 inlineResponse20055 = (InlineResponse20055) o;
-    return Objects.equals(this.answerText, inlineResponse20055.answerText) &&
-        Objects.equals(this.media, inlineResponse20055.media);
+    return Objects.equals(this.text, inlineResponse20055.text);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(answerText, media);
+    return Objects.hash(text);
   }
 
 
@@ -104,8 +74,7 @@ public class InlineResponse20055 {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse20055 {\n");
-    sb.append("    answerText: ").append(toIndentedString(answerText)).append("\n");
-    sb.append("    media: ").append(toIndentedString(media)).append("\n");
+    sb.append("    text: ").append(toIndentedString(text)).append("\n");
     sb.append("}");
     return sb.toString();
   }

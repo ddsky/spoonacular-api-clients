@@ -6620,7 +6620,7 @@ class RecipesApi
      *
      * @throws \com.spoonacular.client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20049
+     * @return \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20050
      */
     public function quickAnswer($q)
     {
@@ -6637,7 +6637,7 @@ class RecipesApi
      *
      * @throws \com.spoonacular.client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20049, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20050, HTTP status code, HTTP response headers (array of strings)
      */
     public function quickAnswerWithHttpInfo($q)
     {
@@ -6674,20 +6674,20 @@ class RecipesApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20049' === '\SplFileObject') {
+                    if ('\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20050' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20049', []),
+                        ObjectSerializer::deserialize($content, '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20050', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20049';
+            $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20050';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -6706,7 +6706,7 @@ class RecipesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20049',
+                        '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20050',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6748,7 +6748,7 @@ class RecipesApi
      */
     public function quickAnswerAsyncWithHttpInfo($q)
     {
-        $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20049';
+        $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20050';
         $request = $this->quickAnswerRequest($q);
 
         return $this->client

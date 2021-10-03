@@ -4,16 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**suggests** | [**InlineResponse20056Suggests**](InlineResponse20056Suggests.md) |  | 
-**words** | **Array&lt;Object&gt;** |  | 
+**answer_text** | **String** |  | 
+**media** | **Array&lt;Object&gt;** |  | 
 
 ## Code Sample
 
 ```ruby
 require 'OpenapiClient'
 
-instance = OpenapiClient::InlineResponse20056.new(suggests: null,
-                                 words: null)
+instance = OpenapiClient::InlineResponse20056.new(answer_text: null,
+                                 media: null)
 ```
 
 

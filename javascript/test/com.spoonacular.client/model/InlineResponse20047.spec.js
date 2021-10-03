@@ -54,14 +54,14 @@
       //expect(instance).to.be.a(SpoonacularApi.InlineResponse20047);
     });
 
-    it('should have the property category (base name: "category")', function() {
-      // uncomment below and update the code to test the property category
+    it('should have the property recommendedWines (base name: "recommendedWines")', function() {
+      // uncomment below and update the code to test the property recommendedWines
       //var instane = new SpoonacularApi.InlineResponse20047();
       //expect(instance).to.be();
     });
 
-    it('should have the property probability (base name: "probability")', function() {
-      // uncomment below and update the code to test the property probability
+    it('should have the property totalFound (base name: "totalFound")', function() {
+      // uncomment below and update the code to test the property totalFound
       //var instane = new SpoonacularApi.InlineResponse20047();
       //expect(instance).to.be();
     });

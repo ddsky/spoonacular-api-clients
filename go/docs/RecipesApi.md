@@ -962,7 +962,7 @@ Name | Type | Description  | Notes
 
 ## QuickAnswer
 
-> InlineResponse20049 QuickAnswer(ctx, q)
+> InlineResponse20050 QuickAnswer(ctx, q)
 Quick Answer
 
 Answer a nutrition related natural language question.
@@ -977,7 +977,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20049**](inline_response_200_49.md)
+[**InlineResponse20050**](inline_response_200_50.md)
 
 ### Authorization
 

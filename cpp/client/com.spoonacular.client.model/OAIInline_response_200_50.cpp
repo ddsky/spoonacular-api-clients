@@ -38,8 +38,11 @@ OAIInline_response_200_50::~OAIInline_response_200_50() {
 void
 OAIInline_response_200_50::init() {
     
-    m_annotations_isSet = false;
-    m_annotations_isValid = false;
+    m_answer_isSet = false;
+    m_answer_isValid = false;
+    
+    m_image_isSet = false;
+    m_image_isValid = false;
     }
 
 void
@@ -53,8 +56,11 @@ OAIInline_response_200_50::fromJson(QString jsonString) {
 void
 OAIInline_response_200_50::fromJsonObject(QJsonObject json) {
     
+    m_answer_isValid = ::OpenAPI::fromJsonValue(answer, json[QString("answer")]);
     
-    m_annotations_isValid = ::OpenAPI::fromJsonValue(annotations, json[QString("annotations")]);
+    
+    m_image_isValid = ::OpenAPI::fromJsonValue(image, json[QString("image")]);
+    
     
 }
 
@@ -69,29 +75,44 @@ OAIInline_response_200_50::asJson () const {
 QJsonObject
 OAIInline_response_200_50::asJsonObject() const {
     QJsonObject obj;
-	
-    if(annotations.size() > 0){
-        obj.insert(QString("annotations"), ::OpenAPI::toJsonValue(annotations));
-    } 
+	if(m_answer_isSet){
+        obj.insert(QString("answer"), ::OpenAPI::toJsonValue(answer));
+    }
+	if(m_image_isSet){
+        obj.insert(QString("image"), ::OpenAPI::toJsonValue(image));
+    }
     return obj;
 }
 
 
-QList<OAIObject>
-OAIInline_response_200_50::getAnnotations() const {
-    return annotations;
+QString
+OAIInline_response_200_50::getAnswer() const {
+    return answer;
 }
 void
-OAIInline_response_200_50::setAnnotations(const QList<OAIObject> &annotations) {
-    this->annotations = annotations;
-    this->m_annotations_isSet = true;
+OAIInline_response_200_50::setAnswer(const QString &answer) {
+    this->answer = answer;
+    this->m_answer_isSet = true;
+}
+
+
+QString
+OAIInline_response_200_50::getImage() const {
+    return image;
+}
+void
+OAIInline_response_200_50::setImage(const QString &image) {
+    this->image = image;
+    this->m_image_isSet = true;
 }
 
 bool
 OAIInline_response_200_50::isSet() const {
     bool isObjectUpdated = false;
     do{ 
-        if(annotations.size() > 0){ isObjectUpdated = true; break;}
+        if(m_answer_isSet){ isObjectUpdated = true; break;}
+    
+        if(m_image_isSet){ isObjectUpdated = true; break;}
     }while(false);
     return isObjectUpdated;
 }
@@ -99,7 +120,7 @@ OAIInline_response_200_50::isSet() const {
 bool
 OAIInline_response_200_50::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_annotations_isValid && true;
+    return m_answer_isValid && m_image_isValid && true;
 }
 
 }

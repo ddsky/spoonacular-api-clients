@@ -131,8 +131,8 @@ instance Produces ClassifyGroceryProduct MimeJSON
 -- AuthMethod: 'AuthApiKeyApiKeyScheme'
 -- 
 classifyGroceryProductBulk 
-  :: (Consumes ClassifyGroceryProductBulk MimeJSON, MimeRender MimeJSON InlineObject9)
-  => InlineObject9 -- ^ "inlineObject"
+  :: (Consumes ClassifyGroceryProductBulk MimeJSON, MimeRender MimeJSON InlineObject11)
+  => InlineObject11 -- ^ "inlineObject"
   -> SpoonacularRequest ClassifyGroceryProductBulk MimeJSON [InlineResponse20033] MimeJSON
 classifyGroceryProductBulk inlineObject =
   _mkRequest "POST" ["/food/products/classifyBatch"]
@@ -140,7 +140,7 @@ classifyGroceryProductBulk inlineObject =
     `setBodyParam` inlineObject
 
 data ClassifyGroceryProductBulk 
-instance HasBodyParam ClassifyGroceryProductBulk InlineObject9 
+instance HasBodyParam ClassifyGroceryProductBulk InlineObject11 
 
 -- | /Optional Param/ "locale" - The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).
 instance HasOptionalParam ClassifyGroceryProductBulk LocaleText where
@@ -361,6 +361,11 @@ instance HasOptionalParam SearchGroceryProducts MinFat where
 instance HasOptionalParam SearchGroceryProducts MaxFat where
   applyOptionalParam req (MaxFat xs) =
     req `setQuery` toQuery ("maxFat", Just xs)
+
+-- | /Optional Param/ "addProductInformation" - If set to true, you get more information about the products returned.
+instance HasOptionalParam SearchGroceryProducts AddProductInformation where
+  applyOptionalParam req (AddProductInformation xs) =
+    req `setQuery` toQuery ("addProductInformation", Just xs)
 
 -- | /Optional Param/ "offset" - The number of results to skip (between 0 and 900).
 instance HasOptionalParam SearchGroceryProducts Offset where

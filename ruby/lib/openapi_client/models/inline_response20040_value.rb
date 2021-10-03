@@ -16,6 +16,8 @@ module OpenapiClient
   class InlineResponse20040Value
     attr_accessor :id
 
+    attr_accessor :servings
+
     attr_accessor :title
 
     attr_accessor :image_type
@@ -24,6 +26,7 @@ module OpenapiClient
     def self.attribute_map
       {
         :'id' => :'id',
+        :'servings' => :'servings',
         :'title' => :'title',
         :'image_type' => :'imageType'
       }
@@ -32,7 +35,8 @@ module OpenapiClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'id' => :'Float',
+        :'id' => :'Integer',
+        :'servings' => :'Float',
         :'title' => :'String',
         :'image_type' => :'String'
       }
@@ -57,6 +61,10 @@ module OpenapiClient
         self.id = attributes[:'id']
       end
 
+      if attributes.key?(:'servings')
+        self.servings = attributes[:'servings']
+      end
+
       if attributes.key?(:'title')
         self.title = attributes[:'title']
       end
@@ -70,23 +78,11 @@ module OpenapiClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @id.nil?
-        invalid_properties.push('invalid value for "id", id cannot be nil.')
-      end
-
-      if @title.nil?
-        invalid_properties.push('invalid value for "title", title cannot be nil.')
-      end
-
-      if @title.to_s.length < 1
+      if !@title.nil? && @title.to_s.length < 1
         invalid_properties.push('invalid value for "title", the character length must be great than or equal to 1.')
       end
 
-      if @image_type.nil?
-        invalid_properties.push('invalid value for "image_type", image_type cannot be nil.')
-      end
-
-      if @image_type.to_s.length < 1
+      if !@image_type.nil? && @image_type.to_s.length < 1
         invalid_properties.push('invalid value for "image_type", the character length must be great than or equal to 1.')
       end
 
@@ -96,22 +92,15 @@ module OpenapiClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @id.nil?
-      return false if @title.nil?
-      return false if @title.to_s.length < 1
-      return false if @image_type.nil?
-      return false if @image_type.to_s.length < 1
+      return false if !@title.nil? && @title.to_s.length < 1
+      return false if !@image_type.nil? && @image_type.to_s.length < 1
       true
     end
 
     # Custom attribute writer method with validation
     # @param [Object] title Value to be assigned
     def title=(title)
-      if title.nil?
-        fail ArgumentError, 'title cannot be nil'
-      end
-
-      if title.to_s.length < 1
+      if !title.nil? && title.to_s.length < 1
         fail ArgumentError, 'invalid value for "title", the character length must be great than or equal to 1.'
       end
 
@@ -121,11 +110,7 @@ module OpenapiClient
     # Custom attribute writer method with validation
     # @param [Object] image_type Value to be assigned
     def image_type=(image_type)
-      if image_type.nil?
-        fail ArgumentError, 'image_type cannot be nil'
-      end
-
-      if image_type.to_s.length < 1
+      if !image_type.nil? && image_type.to_s.length < 1
         fail ArgumentError, 'invalid value for "image_type", the character length must be great than or equal to 1.'
       end
 
@@ -138,6 +123,7 @@ module OpenapiClient
       return true if self.equal?(o)
       self.class == o.class &&
           id == o.id &&
+          servings == o.servings &&
           title == o.title &&
           image_type == o.image_type
     end
@@ -151,7 +137,7 @@ module OpenapiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, title, image_type].hash
+      [id, servings, title, image_type].hash
     end
 
     # Builds the object from hash

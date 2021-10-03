@@ -3,8 +3,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Videos** | [**List<InlineResponse20053Videos>**](InlineResponse20053Videos.md) |  | 
+**Query** | **string** |  | 
 **TotalResults** | **int?** |  | 
+**Limit** | **int?** |  | 
+**Offset** | **int?** |  | 
+**SearchResults** | [**List<InlineResponse20053SearchResults>**](InlineResponse20053SearchResults.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

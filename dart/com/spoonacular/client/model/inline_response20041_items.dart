@@ -4,22 +4,18 @@ class InlineResponse20041Items {
   
   int id = null;
   
-  String name = null;
+  int slot = null;
   
-  InlineResponse20041Measures measures = null;
+  int position = null;
   
-  bool pantryItem = null;
+  String type = null;
   
-  String aisle = null;
-  
-  num cost = null;
-  
-  int ingredientId = null;
+  InlineResponse20041Value value = null;
   InlineResponse20041Items();
 
   @override
   String toString() {
-    return 'InlineResponse20041Items[id=$id, name=$name, measures=$measures, pantryItem=$pantryItem, aisle=$aisle, cost=$cost, ingredientId=$ingredientId, ]';
+    return 'InlineResponse20041Items[id=$id, slot=$slot, position=$position, type=$type, value=$value, ]';
   }
 
   InlineResponse20041Items.fromJson(Map<String, dynamic> json) {
@@ -29,35 +25,25 @@ class InlineResponse20041Items {
     } else {
           id = json['id'];
     }
-    if (json['name'] == null) {
-      name = null;
+    if (json['slot'] == null) {
+      slot = null;
     } else {
-          name = json['name'];
+          slot = json['slot'];
     }
-    if (json['measures'] == null) {
-      measures = null;
+    if (json['position'] == null) {
+      position = null;
     } else {
-      measures = new InlineResponse20041Measures.fromJson(json['measures']);
+          position = json['position'];
     }
-    if (json['pantryItem'] == null) {
-      pantryItem = null;
+    if (json['type'] == null) {
+      type = null;
     } else {
-          pantryItem = json['pantryItem'];
+          type = json['type'];
     }
-    if (json['aisle'] == null) {
-      aisle = null;
+    if (json['value'] == null) {
+      value = null;
     } else {
-          aisle = json['aisle'];
-    }
-    if (json['cost'] == null) {
-      cost = null;
-    } else {
-          cost = json['cost'];
-    }
-    if (json['ingredientId'] == null) {
-      ingredientId = null;
-    } else {
-          ingredientId = json['ingredientId'];
+      value = new InlineResponse20041Value.fromJson(json['value']);
     }
   }
 
@@ -65,18 +51,14 @@ class InlineResponse20041Items {
     Map <String, dynamic> json = {};
     if (id != null)
       json['id'] = id;
-    if (name != null)
-      json['name'] = name;
-    if (measures != null)
-      json['measures'] = measures;
-    if (pantryItem != null)
-      json['pantryItem'] = pantryItem;
-    if (aisle != null)
-      json['aisle'] = aisle;
-    if (cost != null)
-      json['cost'] = cost;
-    if (ingredientId != null)
-      json['ingredientId'] = ingredientId;
+    if (slot != null)
+      json['slot'] = slot;
+    if (position != null)
+      json['position'] = position;
+    if (type != null)
+      json['type'] = type;
+    if (value != null)
+      json['value'] = value;
     return json;
   }
 

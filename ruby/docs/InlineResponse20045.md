@@ -4,14 +4,18 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**wine_description** | **String** |  | 
+**paired_wines** | **Array&lt;String&gt;** |  | 
+**pairing_text** | **String** |  | 
+**product_matches** | [**Array&lt;InlineResponse20045ProductMatches&gt;**](InlineResponse20045ProductMatches.md) |  | 
 
 ## Code Sample
 
 ```ruby
 require 'OpenapiClient'
 
-instance = OpenapiClient::InlineResponse20045.new(wine_description: null)
+instance = OpenapiClient::InlineResponse20045.new(paired_wines: null,
+                                 pairing_text: null,
+                                 product_matches: null)
 ```
 
 

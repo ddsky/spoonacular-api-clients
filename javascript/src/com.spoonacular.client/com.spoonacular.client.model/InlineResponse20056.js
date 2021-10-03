@@ -12,7 +12,6 @@
  */
 
 import ApiClient from '../ApiClient';
-import InlineResponse20056Suggests from './InlineResponse20056Suggests';
 
 /**
  * The InlineResponse20056 model module.
@@ -23,12 +22,12 @@ class InlineResponse20056 {
     /**
      * Constructs a new <code>InlineResponse20056</code>.
      * @alias module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20056
-     * @param suggests {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20056Suggests} 
-     * @param words {Array.<Object>} 
+     * @param answerText {String} 
+     * @param media {Array.<Object>} 
      */
-    constructor(suggests, words) { 
+    constructor(answerText, media) { 
         
-        InlineResponse20056.initialize(this, suggests, words);
+        InlineResponse20056.initialize(this, answerText, media);
     }
 
     /**
@@ -36,9 +35,9 @@ class InlineResponse20056 {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, suggests, words) { 
-        obj['suggests'] = suggests;
-        obj['words'] = words;
+    static initialize(obj, answerText, media) { 
+        obj['answerText'] = answerText;
+        obj['media'] = media;
     }
 
     /**
@@ -52,11 +51,11 @@ class InlineResponse20056 {
         if (data) {
             obj = obj || new InlineResponse20056();
 
-            if (data.hasOwnProperty('suggests')) {
-                obj['suggests'] = InlineResponse20056Suggests.constructFromObject(data['suggests']);
+            if (data.hasOwnProperty('answerText')) {
+                obj['answerText'] = ApiClient.convertToType(data['answerText'], 'String');
             }
-            if (data.hasOwnProperty('words')) {
-                obj['words'] = ApiClient.convertToType(data['words'], [Object]);
+            if (data.hasOwnProperty('media')) {
+                obj['media'] = ApiClient.convertToType(data['media'], [Object]);
             }
         }
         return obj;
@@ -66,14 +65,14 @@ class InlineResponse20056 {
 }
 
 /**
- * @member {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20056Suggests} suggests
+ * @member {String} answerText
  */
-InlineResponse20056.prototype['suggests'] = undefined;
+InlineResponse20056.prototype['answerText'] = undefined;
 
 /**
- * @member {Array.<Object>} words
+ * @member {Array.<Object>} media
  */
-InlineResponse20056.prototype['words'] = undefined;
+InlineResponse20056.prototype['media'] = undefined;
 
 
 

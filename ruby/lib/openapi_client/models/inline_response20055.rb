@@ -14,23 +14,19 @@ require 'date'
 
 module OpenapiClient
   class InlineResponse20055
-    attr_accessor :answer_text
-
-    attr_accessor :media
+    attr_accessor :text
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'answer_text' => :'answerText',
-        :'media' => :'media'
+        :'text' => :'text'
       }
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'answer_text' => :'String',
-        :'media' => :'Array<Object>'
+        :'text' => :'String'
       }
     end
 
@@ -49,14 +45,8 @@ module OpenapiClient
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'answer_text')
-        self.answer_text = attributes[:'answer_text']
-      end
-
-      if attributes.key?(:'media')
-        if (value = attributes[:'media']).is_a?(Array)
-          self.media = value
-        end
+      if attributes.key?(:'text')
+        self.text = attributes[:'text']
       end
     end
 
@@ -64,16 +54,12 @@ module OpenapiClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @answer_text.nil?
-        invalid_properties.push('invalid value for "answer_text", answer_text cannot be nil.')
+      if @text.nil?
+        invalid_properties.push('invalid value for "text", text cannot be nil.')
       end
 
-      if @answer_text.to_s.length < 1
-        invalid_properties.push('invalid value for "answer_text", the character length must be great than or equal to 1.')
-      end
-
-      if @media.nil?
-        invalid_properties.push('invalid value for "media", media cannot be nil.')
+      if @text.to_s.length < 1
+        invalid_properties.push('invalid value for "text", the character length must be great than or equal to 1.')
       end
 
       invalid_properties
@@ -82,24 +68,23 @@ module OpenapiClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @answer_text.nil?
-      return false if @answer_text.to_s.length < 1
-      return false if @media.nil?
+      return false if @text.nil?
+      return false if @text.to_s.length < 1
       true
     end
 
     # Custom attribute writer method with validation
-    # @param [Object] answer_text Value to be assigned
-    def answer_text=(answer_text)
-      if answer_text.nil?
-        fail ArgumentError, 'answer_text cannot be nil'
+    # @param [Object] text Value to be assigned
+    def text=(text)
+      if text.nil?
+        fail ArgumentError, 'text cannot be nil'
       end
 
-      if answer_text.to_s.length < 1
-        fail ArgumentError, 'invalid value for "answer_text", the character length must be great than or equal to 1.'
+      if text.to_s.length < 1
+        fail ArgumentError, 'invalid value for "text", the character length must be great than or equal to 1.'
       end
 
-      @answer_text = answer_text
+      @text = text
     end
 
     # Checks equality by comparing each attribute.
@@ -107,8 +92,7 @@ module OpenapiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          answer_text == o.answer_text &&
-          media == o.media
+          text == o.text
     end
 
     # @see the `==` method
@@ -120,7 +104,7 @@ module OpenapiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [answer_text, media].hash
+      [text].hash
     end
 
     # Builds the object from hash

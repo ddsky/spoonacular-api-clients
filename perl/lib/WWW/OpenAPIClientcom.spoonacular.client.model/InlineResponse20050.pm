@@ -161,9 +161,16 @@ __PACKAGE__->class_documentation({description => '',
 }                                 );
 
 __PACKAGE__->method_documentation({
-    'annotations' => {
-        datatype => 'ARRAY[object]',
-        base_name => 'annotations',
+    'answer' => {
+        datatype => 'string',
+        base_name => 'answer',
+        description => '',
+        format => '',
+        read_only => '',
+            },
+    'image' => {
+        datatype => 'string',
+        base_name => 'image',
         description => '',
         format => '',
         read_only => '',
@@ -171,11 +178,13 @@ __PACKAGE__->method_documentation({
 });
 
 __PACKAGE__->openapi_types( {
-    'annotations' => 'ARRAY[object]'
+    'answer' => 'string',
+    'image' => 'string'
 } );
 
 __PACKAGE__->attribute_map( {
-    'annotations' => 'annotations'
+    'answer' => 'answer',
+    'image' => 'image'
 } );
 
 __PACKAGE__->mk_accessors(keys %{__PACKAGE__->attribute_map});

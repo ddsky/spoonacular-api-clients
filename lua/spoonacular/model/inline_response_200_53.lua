@@ -19,10 +19,13 @@ local function cast_inline_response_200_53(t)
 	return setmetatable(t, inline_response_200_53_mt)
 end
 
-local function new_inline_response_200_53(videos, total_results)
+local function new_inline_response_200_53(query, total_results, limit, offset, search_results)
 	return cast_inline_response_200_53({
-		["videos"] = videos;
+		["query"] = query;
 		["totalResults"] = total_results;
+		["limit"] = limit;
+		["offset"] = offset;
+		["searchResults"] = search_results;
 	})
 end
 

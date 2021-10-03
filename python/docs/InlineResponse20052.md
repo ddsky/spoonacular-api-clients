@@ -3,11 +3,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**query** | **str** |  | 
-**total_results** | **int** |  | 
-**limit** | **int** |  | 
-**offset** | **int** |  | 
-**search_results** | [**list[InlineResponse20052SearchResults]**](InlineResponse20052SearchResults.md) |  | 
+**articles** | **list[object]** |  | 
+**grocery_products** | **list[object]** |  | 
+**menu_items** | **list[object]** |  | 
+**recipes** | **list[object]** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

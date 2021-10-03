@@ -43,7 +43,7 @@ public:
     void menuItemNutritionByIDImage(const OAINumber& id);
     void menuItemNutritionLabelImage(const OAINumber& id, const bool& show_optional_nutrients, const bool& show_zero_values, const bool& show_ingredients);
     void menuItemNutritionLabelWidget(const OAINumber& id, const bool& default_css, const bool& show_optional_nutrients, const bool& show_zero_values, const bool& show_ingredients);
-    void searchMenuItems(const QString& query, const OAINumber& min_calories, const OAINumber& max_calories, const OAINumber& min_carbs, const OAINumber& max_carbs, const OAINumber& min_protein, const OAINumber& max_protein, const OAINumber& min_fat, const OAINumber& max_fat, const qint32& offset, const qint32& number);
+    void searchMenuItems(const QString& query, const OAINumber& min_calories, const OAINumber& max_calories, const OAINumber& min_carbs, const OAINumber& max_carbs, const OAINumber& min_protein, const OAINumber& max_protein, const OAINumber& min_fat, const OAINumber& max_fat, const bool& add_menu_item_information, const qint32& offset, const qint32& number);
     void visualizeMenuItemNutritionByID(const qint32& id, const bool& default_css, const QString& accept);
     
 private:

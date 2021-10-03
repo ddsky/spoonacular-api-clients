@@ -19,15 +19,13 @@ local function cast_inline_response_200_41_items(t)
 	return setmetatable(t, inline_response_200_41_items_mt)
 end
 
-local function new_inline_response_200_41_items(id, name, measures, pantry_item, aisle, cost, ingredient_id)
+local function new_inline_response_200_41_items(id, slot, position, type, value)
 	return cast_inline_response_200_41_items({
 		["id"] = id;
-		["name"] = name;
-		["measures"] = measures;
-		["pantryItem"] = pantry_item;
-		["aisle"] = aisle;
-		["cost"] = cost;
-		["ingredientId"] = ingredient_id;
+		["slot"] = slot;
+		["position"] = position;
+		["type"] = type;
+		["value"] = value;
 	})
 end
 

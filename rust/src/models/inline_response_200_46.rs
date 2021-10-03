@@ -14,17 +14,14 @@ use serde_json::Value;
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct InlineResponse20046 {
-    #[serde(rename = "recommendedWines")]
-    pub recommended_wines: Vec<::models::InlineResponse20046RecommendedWines>,
-    #[serde(rename = "totalFound")]
-    pub total_found: i32,
+    #[serde(rename = "wineDescription")]
+    pub wine_description: String,
 }
 
 impl InlineResponse20046 {
-    pub fn new(recommended_wines: Vec<::models::InlineResponse20046RecommendedWines>, total_found: i32) -> InlineResponse20046 {
+    pub fn new(wine_description: String) -> InlineResponse20046 {
         InlineResponse20046 {
-            recommended_wines: recommended_wines,
-            total_found: total_found,
+            wine_description: wine_description,
         }
     }
 }

@@ -86,20 +86,6 @@ class InlineObject6Test extends TestCase
     }
 
     /**
-     * Test attribute "start_date"
-     */
-    public function testPropertyStartDate()
-    {
-    }
-
-    /**
-     * Test attribute "end_date"
-     */
-    public function testPropertyEndDate()
-    {
-    }
-
-    /**
      * Test attribute "hash"
      */
     public function testPropertyHash()

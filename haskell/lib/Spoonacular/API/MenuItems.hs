@@ -272,6 +272,11 @@ instance HasOptionalParam SearchMenuItems MaxFat where
   applyOptionalParam req (MaxFat xs) =
     req `setQuery` toQuery ("maxFat", Just xs)
 
+-- | /Optional Param/ "addMenuItemInformation" - If set to true, you get more information about the menu items returned.
+instance HasOptionalParam SearchMenuItems AddMenuItemInformation where
+  applyOptionalParam req (AddMenuItemInformation xs) =
+    req `setQuery` toQuery ("addMenuItemInformation", Just xs)
+
 -- | /Optional Param/ "offset" - The number of results to skip (between 0 and 900).
 instance HasOptionalParam SearchMenuItems Offset where
   applyOptionalParam req (Offset xs) =

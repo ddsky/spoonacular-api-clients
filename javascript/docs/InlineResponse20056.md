@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**suggests** | [**InlineResponse20056Suggests**](InlineResponse20056Suggests.md) |  | 
-**words** | **[Object]** |  | 
+**answerText** | **String** |  | 
+**media** | **[Object]** |  | 
 
 

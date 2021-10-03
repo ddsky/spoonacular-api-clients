@@ -4,10 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**query** | **String** |  | 
-**totalResults** | **Number** |  | 
-**limit** | **Number** |  | 
-**offset** | **Number** |  | 
-**searchResults** | [**[InlineResponse20052SearchResults]**](InlineResponse20052SearchResults.md) |  | 
+**articles** | **[Object]** |  | 
+**groceryProducts** | **[Object]** |  | 
+**menuItems** | **[Object]** |  | 
+**recipes** | **[Object]** |  | 
 
 

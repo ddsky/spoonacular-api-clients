@@ -321,6 +321,7 @@ let opts = {
   'maxProtein': 100, // Number | The maximum amount of protein in grams the menu item can have.
   'minFat': 1, // Number | The minimum amount of fat in grams the menu item must have.
   'maxFat': 100, // Number | The maximum amount of fat in grams the menu item can have.
+  'addMenuItemInformation': true, // Boolean | If set to true, you get more information about the menu items returned.
   'offset': 56, // Number | The number of results to skip (between 0 and 900).
   '_number': 10 // Number | The maximum number of items to return (between 1 and 100). Defaults to 10.
 };
@@ -347,6 +348,7 @@ Name | Type | Description  | Notes
  **maxProtein** | **Number**| The maximum amount of protein in grams the menu item can have. | [optional] 
  **minFat** | **Number**| The minimum amount of fat in grams the menu item must have. | [optional] 
  **maxFat** | **Number**| The maximum amount of fat in grams the menu item can have. | [optional] 
+ **addMenuItemInformation** | **Boolean**| If set to true, you get more information about the menu items returned. | [optional] 
  **offset** | **Number**| The number of results to skip (between 0 and 900). | [optional] 
  **_number** | **Number**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
 

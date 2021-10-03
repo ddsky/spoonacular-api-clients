@@ -11,25 +11,22 @@
 */
 package com.spoonacular.client.model
 
-import com.spoonacular.client.model.InlineResponse20041Aisles
+import com.spoonacular.client.model.InlineResponse20041Days
 
 import com.squareup.moshi.Json
 /**
  * 
- * @param aisles 
- * @param cost 
- * @param startDate 
- * @param endDate 
+ * @param id 
+ * @param name 
+ * @param days 
  */
 data class InlineResponse20041 (
-    @Json(name = "aisles")
-    val aisles: kotlin.Array<InlineResponse20041Aisles>,
-    @Json(name = "cost")
-    val cost: java.math.BigDecimal,
-    @Json(name = "startDate")
-    val startDate: java.math.BigDecimal,
-    @Json(name = "endDate")
-    val endDate: java.math.BigDecimal
+    @Json(name = "id")
+    val id: kotlin.Int,
+    @Json(name = "name")
+    val name: kotlin.String,
+    @Json(name = "days")
+    val days: kotlin.Array<InlineResponse20041Days>
 ) {
 
 }

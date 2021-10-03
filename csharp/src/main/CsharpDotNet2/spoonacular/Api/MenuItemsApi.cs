@@ -61,10 +61,11 @@ namespace com.spoonacular
         /// <param name="maxProtein">The maximum amount of protein in grams the menu item can have.</param>
         /// <param name="minFat">The minimum amount of fat in grams the menu item must have.</param>
         /// <param name="maxFat">The maximum amount of fat in grams the menu item can have.</param>
+        /// <param name="addMenuItemInformation">If set to true, you get more information about the menu items returned.</param>
         /// <param name="offset">The number of results to skip (between 0 and 900).</param>
         /// <param name="number">The maximum number of items to return (between 1 and 100). Defaults to 10.</param>
         /// <returns>InlineResponse20035</returns>
-        InlineResponse20035 SearchMenuItems (string query, decimal? minCalories, decimal? maxCalories, decimal? minCarbs, decimal? maxCarbs, decimal? minProtein, decimal? maxProtein, decimal? minFat, decimal? maxFat, int? offset, int? number);
+        InlineResponse20035 SearchMenuItems (string query, decimal? minCalories, decimal? maxCalories, decimal? minCarbs, decimal? maxCarbs, decimal? minProtein, decimal? maxProtein, decimal? minFat, decimal? maxFat, bool? addMenuItemInformation, int? offset, int? number);
         /// <summary>
         /// Menu Item Nutrition by ID Widget Visualize a menu item&#39;s nutritional information as HTML including CSS.
         /// </summary>
@@ -341,10 +342,11 @@ namespace com.spoonacular
         /// <param name="maxProtein">The maximum amount of protein in grams the menu item can have.</param> 
         /// <param name="minFat">The minimum amount of fat in grams the menu item must have.</param> 
         /// <param name="maxFat">The maximum amount of fat in grams the menu item can have.</param> 
+        /// <param name="addMenuItemInformation">If set to true, you get more information about the menu items returned.</param> 
         /// <param name="offset">The number of results to skip (between 0 and 900).</param> 
         /// <param name="number">The maximum number of items to return (between 1 and 100). Defaults to 10.</param> 
         /// <returns>InlineResponse20035</returns>            
-        public InlineResponse20035 SearchMenuItems (string query, decimal? minCalories, decimal? maxCalories, decimal? minCarbs, decimal? maxCarbs, decimal? minProtein, decimal? maxProtein, decimal? minFat, decimal? maxFat, int? offset, int? number)
+        public InlineResponse20035 SearchMenuItems (string query, decimal? minCalories, decimal? maxCalories, decimal? minCarbs, decimal? maxCarbs, decimal? minProtein, decimal? maxProtein, decimal? minFat, decimal? maxFat, bool? addMenuItemInformation, int? offset, int? number)
         {
             
     
@@ -366,6 +368,7 @@ namespace com.spoonacular
  if (maxProtein != null) queryParams.Add("maxProtein", ApiClient.ParameterToString(maxProtein)); // query parameter
  if (minFat != null) queryParams.Add("minFat", ApiClient.ParameterToString(minFat)); // query parameter
  if (maxFat != null) queryParams.Add("maxFat", ApiClient.ParameterToString(maxFat)); // query parameter
+ if (addMenuItemInformation != null) queryParams.Add("addMenuItemInformation", ApiClient.ParameterToString(addMenuItemInformation)); // query parameter
  if (offset != null) queryParams.Add("offset", ApiClient.ParameterToString(offset)); // query parameter
  if (number != null) queryParams.Add("number", ApiClient.ParameterToString(number)); // query parameter
                                         

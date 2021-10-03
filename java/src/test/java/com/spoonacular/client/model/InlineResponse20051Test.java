@@ -43,35 +43,11 @@ public class InlineResponse20051Test {
     }
 
     /**
-     * Test the property 'articles'
+     * Test the property 'annotations'
      */
     @Test
-    public void articlesTest() {
-        // TODO: test articles
-    }
-
-    /**
-     * Test the property 'groceryProducts'
-     */
-    @Test
-    public void groceryProductsTest() {
-        // TODO: test groceryProducts
-    }
-
-    /**
-     * Test the property 'menuItems'
-     */
-    @Test
-    public void menuItemsTest() {
-        // TODO: test menuItems
-    }
-
-    /**
-     * Test the property 'recipes'
-     */
-    @Test
-    public void recipesTest() {
-        // TODO: test recipes
+    public void annotationsTest() {
+        // TODO: test annotations
     }
 
 }

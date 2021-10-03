@@ -4,7 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**username** | **String** |  | 
-**hash** | **String** |  | 
+**aisles** | [**[InlineResponse20042Aisles]**](InlineResponse20042Aisles.md) |  | 
+**cost** | **Number** |  | 
+**startDate** | **Number** |  | 
+**endDate** | **Number** |  | 
 
 

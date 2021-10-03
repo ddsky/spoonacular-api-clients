@@ -9,8 +9,8 @@ import com.google.gson.annotations.SerializedName;
 @ApiModel(description = "")
 public class InlineResponse20040Items  {
   
-  @SerializedName("id")
-  private Integer id = null;
+  @SerializedName("day")
+  private Integer day = null;
   @SerializedName("slot")
   private Integer slot = null;
   @SerializedName("position")
@@ -23,11 +23,11 @@ public class InlineResponse20040Items  {
   /**
    **/
   @ApiModelProperty(required = true, value = "")
-  public Integer getId() {
-    return id;
+  public Integer getDay() {
+    return day;
   }
-  public void setId(Integer id) {
-    this.id = id;
+  public void setDay(Integer day) {
+    this.day = day;
   }
 
   /**
@@ -80,7 +80,7 @@ public class InlineResponse20040Items  {
       return false;
     }
     InlineResponse20040Items inlineResponse20040Items = (InlineResponse20040Items) o;
-    return (this.id == null ? inlineResponse20040Items.id == null : this.id.equals(inlineResponse20040Items.id)) &&
+    return (this.day == null ? inlineResponse20040Items.day == null : this.day.equals(inlineResponse20040Items.day)) &&
         (this.slot == null ? inlineResponse20040Items.slot == null : this.slot.equals(inlineResponse20040Items.slot)) &&
         (this.position == null ? inlineResponse20040Items.position == null : this.position.equals(inlineResponse20040Items.position)) &&
         (this.type == null ? inlineResponse20040Items.type == null : this.type.equals(inlineResponse20040Items.type)) &&
@@ -90,7 +90,7 @@ public class InlineResponse20040Items  {
   @Override
   public int hashCode() {
     int result = 17;
-    result = 31 * result + (this.id == null ? 0: this.id.hashCode());
+    result = 31 * result + (this.day == null ? 0: this.day.hashCode());
     result = 31 * result + (this.slot == null ? 0: this.slot.hashCode());
     result = 31 * result + (this.position == null ? 0: this.position.hashCode());
     result = 31 * result + (this.type == null ? 0: this.type.hashCode());
@@ -103,7 +103,7 @@ public class InlineResponse20040Items  {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse20040Items {\n");
     
-    sb.append("  id: ").append(id).append("\n");
+    sb.append("  day: ").append(day).append("\n");
     sb.append("  slot: ").append(slot).append("\n");
     sb.append("  position: ").append(position).append("\n");
     sb.append("  type: ").append(type).append("\n");

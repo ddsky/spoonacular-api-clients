@@ -2,36 +2,63 @@ part of openapi.api;
 
 class InlineResponse20053 {
   
-  List<InlineResponse20053Videos> videos = [];
+  String query = null;
   
   int totalResults = null;
+  
+  int limit = null;
+  
+  int offset = null;
+  
+  List<InlineResponse20053SearchResults> searchResults = [];
   InlineResponse20053();
 
   @override
   String toString() {
-    return 'InlineResponse20053[videos=$videos, totalResults=$totalResults, ]';
+    return 'InlineResponse20053[query=$query, totalResults=$totalResults, limit=$limit, offset=$offset, searchResults=$searchResults, ]';
   }
 
   InlineResponse20053.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    if (json['videos'] == null) {
-      videos = null;
+    if (json['query'] == null) {
+      query = null;
     } else {
-      videos = InlineResponse20053Videos.listFromJson(json['videos']);
+          query = json['query'];
     }
     if (json['totalResults'] == null) {
       totalResults = null;
     } else {
           totalResults = json['totalResults'];
     }
+    if (json['limit'] == null) {
+      limit = null;
+    } else {
+          limit = json['limit'];
+    }
+    if (json['offset'] == null) {
+      offset = null;
+    } else {
+          offset = json['offset'];
+    }
+    if (json['searchResults'] == null) {
+      searchResults = null;
+    } else {
+      searchResults = InlineResponse20053SearchResults.listFromJson(json['searchResults']);
+    }
   }
 
   Map<String, dynamic> toJson() {
     Map <String, dynamic> json = {};
-    if (videos != null)
-      json['videos'] = videos;
+    if (query != null)
+      json['query'] = query;
     if (totalResults != null)
       json['totalResults'] = totalResults;
+    if (limit != null)
+      json['limit'] = limit;
+    if (offset != null)
+      json['offset'] = offset;
+    if (searchResults != null)
+      json['searchResults'] = searchResults;
     return json;
   }
 

@@ -19,9 +19,10 @@ local function cast_inline_response_200_50(t)
 	return setmetatable(t, inline_response_200_50_mt)
 end
 
-local function new_inline_response_200_50(annotations)
+local function new_inline_response_200_50(answer, image)
 	return cast_inline_response_200_50({
-		["annotations"] = annotations;
+		["answer"] = answer;
+		["image"] = image;
 	})
 end
 

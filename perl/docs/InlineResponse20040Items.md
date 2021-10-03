@@ -8,7 +8,7 @@ use WWW::OpenAPIClient::Object::InlineResponse20040Items;
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** |  | 
+**day** | **int** |  | 
 **slot** | **int** |  | 
 **position** | **int** |  | 
 **type** | **string** |  | 

@@ -11,15 +11,22 @@
 */
 package com.spoonacular.client.model
 
+import com.spoonacular.client.model.InlineResponse20045ProductMatches
 
 import com.squareup.moshi.Json
 /**
  * 
- * @param wineDescription 
+ * @param pairedWines 
+ * @param pairingText 
+ * @param productMatches 
  */
 data class InlineResponse20045 (
-    @Json(name = "wineDescription")
-    val wineDescription: kotlin.String
+    @Json(name = "pairedWines")
+    val pairedWines: kotlin.Array<kotlin.String>,
+    @Json(name = "pairingText")
+    val pairingText: kotlin.String,
+    @Json(name = "productMatches")
+    val productMatches: kotlin.Array<InlineResponse20045ProductMatches>
 ) {
 
 }

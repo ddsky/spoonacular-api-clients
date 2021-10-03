@@ -14,9 +14,9 @@
 */
 
 
-#import "OAIInlineResponse20041Measures.h"
-@protocol OAIInlineResponse20041Measures;
-@class OAIInlineResponse20041Measures;
+#import "OAIInlineResponse20041Value.h"
+@protocol OAIInlineResponse20041Value;
+@class OAIInlineResponse20041Value;
 
 
 
@@ -28,16 +28,12 @@
 
 @property(nonatomic) NSNumber* _id;
 
-@property(nonatomic) NSString* name;
+@property(nonatomic) NSNumber* slot;
 
-@property(nonatomic) OAIInlineResponse20041Measures* measures;
+@property(nonatomic) NSNumber* position;
 
-@property(nonatomic) NSNumber* pantryItem;
+@property(nonatomic) NSString* type;
 
-@property(nonatomic) NSString* aisle;
-
-@property(nonatomic) NSNumber* cost;
-
-@property(nonatomic) NSNumber* ingredientId;
+@property(nonatomic) OAIInlineResponse20041Value* value;
 
 @end

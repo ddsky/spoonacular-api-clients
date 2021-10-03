@@ -41,6 +41,9 @@ OAIInline_response_200_40_value::init() {
     m_id_isSet = false;
     m_id_isValid = false;
     
+    m_servings_isSet = false;
+    m_servings_isValid = false;
+    
     m_title_isSet = false;
     m_title_isValid = false;
     
@@ -62,6 +65,9 @@ OAIInline_response_200_40_value::fromJsonObject(QJsonObject json) {
     m_id_isValid = ::OpenAPI::fromJsonValue(id, json[QString("id")]);
     
     
+    m_servings_isValid = ::OpenAPI::fromJsonValue(servings, json[QString("servings")]);
+    
+    
     m_title_isValid = ::OpenAPI::fromJsonValue(title, json[QString("title")]);
     
     
@@ -81,8 +87,11 @@ OAIInline_response_200_40_value::asJson () const {
 QJsonObject
 OAIInline_response_200_40_value::asJsonObject() const {
     QJsonObject obj;
-	if(id.isSet()){
+	if(m_id_isSet){
         obj.insert(QString("id"), ::OpenAPI::toJsonValue(id));
+    }
+	if(servings.isSet()){
+        obj.insert(QString("servings"), ::OpenAPI::toJsonValue(servings));
     }
 	if(m_title_isSet){
         obj.insert(QString("title"), ::OpenAPI::toJsonValue(title));
@@ -94,14 +103,25 @@ OAIInline_response_200_40_value::asJsonObject() const {
 }
 
 
-OAINumber
+qint32
 OAIInline_response_200_40_value::getId() const {
     return id;
 }
 void
-OAIInline_response_200_40_value::setId(const OAINumber &id) {
+OAIInline_response_200_40_value::setId(const qint32 &id) {
     this->id = id;
     this->m_id_isSet = true;
+}
+
+
+OAINumber
+OAIInline_response_200_40_value::getServings() const {
+    return servings;
+}
+void
+OAIInline_response_200_40_value::setServings(const OAINumber &servings) {
+    this->servings = servings;
+    this->m_servings_isSet = true;
 }
 
 
@@ -130,7 +150,9 @@ bool
 OAIInline_response_200_40_value::isSet() const {
     bool isObjectUpdated = false;
     do{ 
-        if(id.isSet()){ isObjectUpdated = true; break;}
+        if(m_id_isSet){ isObjectUpdated = true; break;}
+    
+        if(servings.isSet()){ isObjectUpdated = true; break;}
     
         if(m_title_isSet){ isObjectUpdated = true; break;}
     
@@ -142,7 +164,7 @@ OAIInline_response_200_40_value::isSet() const {
 bool
 OAIInline_response_200_40_value::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_id_isValid && m_title_isValid && m_image_type_isValid && true;
+    return true;
 }
 
 }

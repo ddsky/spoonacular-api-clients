@@ -54,14 +54,32 @@
       //expect(instance).to.be.a(SpoonacularApi.InlineResponse20053);
     });
 
-    it('should have the property videos (base name: "videos")', function() {
-      // uncomment below and update the code to test the property videos
+    it('should have the property query (base name: "query")', function() {
+      // uncomment below and update the code to test the property query
       //var instane = new SpoonacularApi.InlineResponse20053();
       //expect(instance).to.be();
     });
 
     it('should have the property totalResults (base name: "totalResults")', function() {
       // uncomment below and update the code to test the property totalResults
+      //var instane = new SpoonacularApi.InlineResponse20053();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property limit (base name: "limit")', function() {
+      // uncomment below and update the code to test the property limit
+      //var instane = new SpoonacularApi.InlineResponse20053();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property offset (base name: "offset")', function() {
+      // uncomment below and update the code to test the property offset
+      //var instane = new SpoonacularApi.InlineResponse20053();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property searchResults (base name: "searchResults")', function() {
+      // uncomment below and update the code to test the property searchResults
       //var instane = new SpoonacularApi.InlineResponse20053();
       //expect(instance).to.be();
     });

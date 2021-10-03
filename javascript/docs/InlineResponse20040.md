@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Number** |  | 
 **name** | **String** |  | 
-**days** | [**[InlineResponse20040Days]**](InlineResponse20040Days.md) |  | 
+**items** | [**[InlineResponse20040Items]**](InlineResponse20040Items.md) |  | 
+**publishAsPublic** | **Boolean** |  | 
 
 

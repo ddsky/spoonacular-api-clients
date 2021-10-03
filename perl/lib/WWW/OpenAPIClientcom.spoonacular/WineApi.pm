@@ -65,10 +65,10 @@ sub new {
     __PACKAGE__->method_documentation->{ 'get_dish_pairing_for_wine' } = { 
         summary => 'Dish Pairing for Wine',
         params => $params,
-        returns => 'InlineResponse20043',
+        returns => 'InlineResponse20044',
         };
 }
-# @return InlineResponse20043
+# @return InlineResponse20044
 #
 sub get_dish_pairing_for_wine {
     my ($self, %args) = @_;
@@ -109,7 +109,7 @@ sub get_dish_pairing_for_wine {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('InlineResponse20043', $response);
+    my $_response_object = $self->{api_client}->deserialize('InlineResponse20044', $response);
     return $_response_object;
 }
 
@@ -130,10 +130,10 @@ sub get_dish_pairing_for_wine {
     __PACKAGE__->method_documentation->{ 'get_wine_description' } = { 
         summary => 'Wine Description',
         params => $params,
-        returns => 'InlineResponse20045',
+        returns => 'InlineResponse20046',
         };
 }
-# @return InlineResponse20045
+# @return InlineResponse20046
 #
 sub get_wine_description {
     my ($self, %args) = @_;
@@ -174,7 +174,7 @@ sub get_wine_description {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('InlineResponse20045', $response);
+    my $_response_object = $self->{api_client}->deserialize('InlineResponse20046', $response);
     return $_response_object;
 }
 
@@ -201,10 +201,10 @@ sub get_wine_description {
     __PACKAGE__->method_documentation->{ 'get_wine_pairing' } = { 
         summary => 'Wine Pairing',
         params => $params,
-        returns => 'InlineResponse20044',
+        returns => 'InlineResponse20045',
         };
 }
-# @return InlineResponse20044
+# @return InlineResponse20045
 #
 sub get_wine_pairing {
     my ($self, %args) = @_;
@@ -250,7 +250,7 @@ sub get_wine_pairing {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('InlineResponse20044', $response);
+    my $_response_object = $self->{api_client}->deserialize('InlineResponse20045', $response);
     return $_response_object;
 }
 
@@ -289,10 +289,10 @@ sub get_wine_pairing {
     __PACKAGE__->method_documentation->{ 'get_wine_recommendation' } = { 
         summary => 'Wine Recommendation',
         params => $params,
-        returns => 'InlineResponse20046',
+        returns => 'InlineResponse20047',
         };
 }
-# @return InlineResponse20046
+# @return InlineResponse20047
 #
 sub get_wine_recommendation {
     my ($self, %args) = @_;
@@ -348,7 +348,7 @@ sub get_wine_recommendation {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('InlineResponse20046', $response);
+    my $_response_object = $self->{api_client}->deserialize('InlineResponse20047', $response);
     return $_response_object;
 }
 

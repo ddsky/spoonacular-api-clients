@@ -31,15 +31,15 @@ impl<C: hyper::client::Connect> WineApiClient<C> {
 }
 
 pub trait WineApi {
-    fn get_dish_pairing_for_wine(&self, wine: &str) -> Box<Future<Item = ::models::InlineResponse20043, Error = Error<serde_json::Value>>>;
-    fn get_wine_description(&self, wine: &str) -> Box<Future<Item = ::models::InlineResponse20045, Error = Error<serde_json::Value>>>;
-    fn get_wine_pairing(&self, food: &str, max_price: f32) -> Box<Future<Item = ::models::InlineResponse20044, Error = Error<serde_json::Value>>>;
-    fn get_wine_recommendation(&self, wine: &str, max_price: f32, min_rating: f32, number: f32) -> Box<Future<Item = ::models::InlineResponse20046, Error = Error<serde_json::Value>>>;
+    fn get_dish_pairing_for_wine(&self, wine: &str) -> Box<Future<Item = ::models::InlineResponse20044, Error = Error<serde_json::Value>>>;
+    fn get_wine_description(&self, wine: &str) -> Box<Future<Item = ::models::InlineResponse20046, Error = Error<serde_json::Value>>>;
+    fn get_wine_pairing(&self, food: &str, max_price: f32) -> Box<Future<Item = ::models::InlineResponse20045, Error = Error<serde_json::Value>>>;
+    fn get_wine_recommendation(&self, wine: &str, max_price: f32, min_rating: f32, number: f32) -> Box<Future<Item = ::models::InlineResponse20047, Error = Error<serde_json::Value>>>;
 }
 
 
 impl<C: hyper::client::Connect>WineApi for WineApiClient<C> {
-    fn get_dish_pairing_for_wine(&self, wine: &str) -> Box<Future<Item = ::models::InlineResponse20043, Error = Error<serde_json::Value>>> {
+    fn get_dish_pairing_for_wine(&self, wine: &str) -> Box<Future<Item = ::models::InlineResponse20044, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/food/wine/dishes".to_string())
             .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
                 in_header: false,
@@ -50,7 +50,7 @@ impl<C: hyper::client::Connect>WineApi for WineApiClient<C> {
             .execute(self.configuration.borrow())
     }
 
-    fn get_wine_description(&self, wine: &str) -> Box<Future<Item = ::models::InlineResponse20045, Error = Error<serde_json::Value>>> {
+    fn get_wine_description(&self, wine: &str) -> Box<Future<Item = ::models::InlineResponse20046, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/food/wine/description".to_string())
             .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
                 in_header: false,
@@ -61,7 +61,7 @@ impl<C: hyper::client::Connect>WineApi for WineApiClient<C> {
             .execute(self.configuration.borrow())
     }
 
-    fn get_wine_pairing(&self, food: &str, max_price: f32) -> Box<Future<Item = ::models::InlineResponse20044, Error = Error<serde_json::Value>>> {
+    fn get_wine_pairing(&self, food: &str, max_price: f32) -> Box<Future<Item = ::models::InlineResponse20045, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/food/wine/pairing".to_string())
             .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
                 in_header: false,
@@ -73,7 +73,7 @@ impl<C: hyper::client::Connect>WineApi for WineApiClient<C> {
             .execute(self.configuration.borrow())
     }
 
-    fn get_wine_recommendation(&self, wine: &str, max_price: f32, min_rating: f32, number: f32) -> Box<Future<Item = ::models::InlineResponse20046, Error = Error<serde_json::Value>>> {
+    fn get_wine_recommendation(&self, wine: &str, max_price: f32, min_rating: f32, number: f32) -> Box<Future<Item = ::models::InlineResponse20047, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/food/wine/recommendation".to_string())
             .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
                 in_header: false,

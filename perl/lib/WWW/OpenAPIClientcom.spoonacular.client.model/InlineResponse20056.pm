@@ -30,7 +30,6 @@ use Log::Any qw($log);
 use Date::Parse;
 use DateTime;
 
-use WWW::OpenAPIClient::Object::InlineResponse20056Suggests;
 
 use base ("Class::Accessor", "Class::Data::Inheritable");
 
@@ -162,16 +161,16 @@ __PACKAGE__->class_documentation({description => '',
 }                                 );
 
 __PACKAGE__->method_documentation({
-    'suggests' => {
-        datatype => 'InlineResponse20056Suggests',
-        base_name => 'suggests',
+    'answer_text' => {
+        datatype => 'string',
+        base_name => 'answerText',
         description => '',
         format => '',
         read_only => '',
             },
-    'words' => {
+    'media' => {
         datatype => 'ARRAY[object]',
-        base_name => 'words',
+        base_name => 'media',
         description => '',
         format => '',
         read_only => '',
@@ -179,13 +178,13 @@ __PACKAGE__->method_documentation({
 });
 
 __PACKAGE__->openapi_types( {
-    'suggests' => 'InlineResponse20056Suggests',
-    'words' => 'ARRAY[object]'
+    'answer_text' => 'string',
+    'media' => 'ARRAY[object]'
 } );
 
 __PACKAGE__->attribute_map( {
-    'suggests' => 'suggests',
-    'words' => 'words'
+    'answer_text' => 'answerText',
+    'media' => 'media'
 } );
 
 __PACKAGE__->mk_accessors(keys %{__PACKAGE__->attribute_map});

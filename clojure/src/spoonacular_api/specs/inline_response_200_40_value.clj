@@ -7,9 +7,10 @@
 
 (def inline-response-200-40-value-data
   {
-   (ds/req :id) float?
-   (ds/req :title) string?
-   (ds/req :imageType) string?
+   (ds/opt :id) int?
+   (ds/opt :servings) float?
+   (ds/opt :title) string?
+   (ds/opt :imageType) string?
    })
 
 (def inline-response-200-40-value-spec

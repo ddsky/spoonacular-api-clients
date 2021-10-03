@@ -1,9 +1,6 @@
 package com.spoonacular.client.model;
 
-import com.spoonacular.client.model.InlineResponse20048Category;
-import com.spoonacular.client.model.InlineResponse20048Nutrition;
-import com.spoonacular.client.model.InlineResponse20048Recipes;
-import java.util.*;
+import java.math.BigDecimal;
 
 import io.swagger.annotations.*;
 import com.google.gson.annotations.SerializedName;
@@ -12,41 +9,29 @@ import com.google.gson.annotations.SerializedName;
 @ApiModel(description = "")
 public class InlineResponse20048  {
   
-  @SerializedName("nutrition")
-  private InlineResponse20048Nutrition nutrition = null;
   @SerializedName("category")
-  private InlineResponse20048Category category = null;
-  @SerializedName("recipes")
-  private List<InlineResponse20048Recipes> recipes = null;
+  private String category = null;
+  @SerializedName("probability")
+  private BigDecimal probability = null;
 
   /**
    **/
   @ApiModelProperty(required = true, value = "")
-  public InlineResponse20048Nutrition getNutrition() {
-    return nutrition;
-  }
-  public void setNutrition(InlineResponse20048Nutrition nutrition) {
-    this.nutrition = nutrition;
-  }
-
-  /**
-   **/
-  @ApiModelProperty(required = true, value = "")
-  public InlineResponse20048Category getCategory() {
+  public String getCategory() {
     return category;
   }
-  public void setCategory(InlineResponse20048Category category) {
+  public void setCategory(String category) {
     this.category = category;
   }
 
   /**
    **/
   @ApiModelProperty(required = true, value = "")
-  public List<InlineResponse20048Recipes> getRecipes() {
-    return recipes;
+  public BigDecimal getProbability() {
+    return probability;
   }
-  public void setRecipes(List<InlineResponse20048Recipes> recipes) {
-    this.recipes = recipes;
+  public void setProbability(BigDecimal probability) {
+    this.probability = probability;
   }
 
 
@@ -59,17 +44,15 @@ public class InlineResponse20048  {
       return false;
     }
     InlineResponse20048 inlineResponse20048 = (InlineResponse20048) o;
-    return (this.nutrition == null ? inlineResponse20048.nutrition == null : this.nutrition.equals(inlineResponse20048.nutrition)) &&
-        (this.category == null ? inlineResponse20048.category == null : this.category.equals(inlineResponse20048.category)) &&
-        (this.recipes == null ? inlineResponse20048.recipes == null : this.recipes.equals(inlineResponse20048.recipes));
+    return (this.category == null ? inlineResponse20048.category == null : this.category.equals(inlineResponse20048.category)) &&
+        (this.probability == null ? inlineResponse20048.probability == null : this.probability.equals(inlineResponse20048.probability));
   }
 
   @Override
   public int hashCode() {
     int result = 17;
-    result = 31 * result + (this.nutrition == null ? 0: this.nutrition.hashCode());
     result = 31 * result + (this.category == null ? 0: this.category.hashCode());
-    result = 31 * result + (this.recipes == null ? 0: this.recipes.hashCode());
+    result = 31 * result + (this.probability == null ? 0: this.probability.hashCode());
     return result;
   }
 
@@ -78,9 +61,8 @@ public class InlineResponse20048  {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse20048 {\n");
     
-    sb.append("  nutrition: ").append(nutrition).append("\n");
     sb.append("  category: ").append(category).append("\n");
-    sb.append("  recipes: ").append(recipes).append("\n");
+    sb.append("  probability: ").append(probability).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

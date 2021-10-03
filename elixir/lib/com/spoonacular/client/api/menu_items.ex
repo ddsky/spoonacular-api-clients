@@ -199,6 +199,7 @@ defmodule com.spoonacular.client.Api.MenuItems do
     - :max_protein (float()): The maximum amount of protein in grams the menu item can have.
     - :min_fat (float()): The minimum amount of fat in grams the menu item must have.
     - :max_fat (float()): The maximum amount of fat in grams the menu item can have.
+    - :add_menu_item_information (boolean()): If set to true, you get more information about the menu items returned.
     - :offset (integer()): The number of results to skip (between 0 and 900).
     - :number (integer()): The maximum number of items to return (between 1 and 100). Defaults to 10.
   ## Returns
@@ -218,6 +219,7 @@ defmodule com.spoonacular.client.Api.MenuItems do
       :"maxProtein" => :query,
       :"minFat" => :query,
       :"maxFat" => :query,
+      :"addMenuItemInformation" => :query,
       :"offset" => :query,
       :"number" => :query
     }

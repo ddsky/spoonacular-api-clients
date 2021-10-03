@@ -54,20 +54,20 @@
       //expect(instance).to.be.a(SpoonacularApi.InlineResponse20040);
     });
 
-    it('should have the property id (base name: "id")', function() {
-      // uncomment below and update the code to test the property id
-      //var instane = new SpoonacularApi.InlineResponse20040();
-      //expect(instance).to.be();
-    });
-
     it('should have the property name (base name: "name")', function() {
       // uncomment below and update the code to test the property name
       //var instane = new SpoonacularApi.InlineResponse20040();
       //expect(instance).to.be();
     });
 
-    it('should have the property days (base name: "days")', function() {
-      // uncomment below and update the code to test the property days
+    it('should have the property items (base name: "items")', function() {
+      // uncomment below and update the code to test the property items
+      //var instane = new SpoonacularApi.InlineResponse20040();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property publishAsPublic (base name: "publishAsPublic")', function() {
+      // uncomment below and update the code to test the property publishAsPublic
       //var instane = new SpoonacularApi.InlineResponse20040();
       //expect(instance).to.be();
     });

@@ -18,7 +18,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.spoonacular.client.model.InlineResponse20040Days;
+import com.spoonacular.client.model.InlineResponse20040Items;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -44,14 +44,6 @@ public class InlineResponse20040Test {
     }
 
     /**
-     * Test the property 'id'
-     */
-    @Test
-    public void idTest() {
-        // TODO: test id
-    }
-
-    /**
      * Test the property 'name'
      */
     @Test
@@ -60,11 +52,19 @@ public class InlineResponse20040Test {
     }
 
     /**
-     * Test the property 'days'
+     * Test the property 'items'
      */
     @Test
-    public void daysTest() {
-        // TODO: test days
+    public void itemsTest() {
+        // TODO: test items
+    }
+
+    /**
+     * Test the property 'publishAsPublic'
+     */
+    @Test
+    public void publishAsPublicTest() {
+        // TODO: test publishAsPublic
     }
 
 }

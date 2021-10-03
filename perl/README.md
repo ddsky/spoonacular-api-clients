@@ -237,6 +237,7 @@ To load the models:
 use WWW::OpenAPIClient::Object::FoodIngredientsMapProducts;
 use WWW::OpenAPIClient::Object::InlineObject;
 use WWW::OpenAPIClient::Object::InlineObject1;
+use WWW::OpenAPIClient::Object::InlineObject10;
 use WWW::OpenAPIClient::Object::InlineObject2;
 use WWW::OpenAPIClient::Object::InlineObject3;
 use WWW::OpenAPIClient::Object::InlineObject4;
@@ -244,6 +245,7 @@ use WWW::OpenAPIClient::Object::InlineObject5;
 use WWW::OpenAPIClient::Object::InlineObject6;
 use WWW::OpenAPIClient::Object::InlineObject7;
 use WWW::OpenAPIClient::Object::InlineObject8;
+use WWW::OpenAPIClient::Object::InlineObject9;
 use WWW::OpenAPIClient::Object::InlineResponse200;
 use WWW::OpenAPIClient::Object::InlineResponse2001;
 use WWW::OpenAPIClient::Object::InlineResponse20010;
@@ -315,40 +317,43 @@ use WWW::OpenAPIClient::Object::InlineResponse2003WinePairing;
 use WWW::OpenAPIClient::Object::InlineResponse2003WinePairingProductMatches;
 use WWW::OpenAPIClient::Object::InlineResponse2004;
 use WWW::OpenAPIClient::Object::InlineResponse20040;
-use WWW::OpenAPIClient::Object::InlineResponse20040Days;
 use WWW::OpenAPIClient::Object::InlineResponse20040Items;
 use WWW::OpenAPIClient::Object::InlineResponse20040Value;
 use WWW::OpenAPIClient::Object::InlineResponse20041;
-use WWW::OpenAPIClient::Object::InlineResponse20041Aisles;
+use WWW::OpenAPIClient::Object::InlineResponse20041Days;
 use WWW::OpenAPIClient::Object::InlineResponse20041Items;
-use WWW::OpenAPIClient::Object::InlineResponse20041Measures;
+use WWW::OpenAPIClient::Object::InlineResponse20041Value;
 use WWW::OpenAPIClient::Object::InlineResponse20042;
+use WWW::OpenAPIClient::Object::InlineResponse20042Aisles;
+use WWW::OpenAPIClient::Object::InlineResponse20042Items;
+use WWW::OpenAPIClient::Object::InlineResponse20042Measures;
 use WWW::OpenAPIClient::Object::InlineResponse20043;
 use WWW::OpenAPIClient::Object::InlineResponse20044;
-use WWW::OpenAPIClient::Object::InlineResponse20044ProductMatches;
 use WWW::OpenAPIClient::Object::InlineResponse20045;
+use WWW::OpenAPIClient::Object::InlineResponse20045ProductMatches;
 use WWW::OpenAPIClient::Object::InlineResponse20046;
-use WWW::OpenAPIClient::Object::InlineResponse20046RecommendedWines;
 use WWW::OpenAPIClient::Object::InlineResponse20047;
+use WWW::OpenAPIClient::Object::InlineResponse20047RecommendedWines;
 use WWW::OpenAPIClient::Object::InlineResponse20048;
-use WWW::OpenAPIClient::Object::InlineResponse20048Category;
-use WWW::OpenAPIClient::Object::InlineResponse20048Nutrition;
-use WWW::OpenAPIClient::Object::InlineResponse20048NutritionCalories;
-use WWW::OpenAPIClient::Object::InlineResponse20048NutritionCaloriesConfidenceRange95Percent;
-use WWW::OpenAPIClient::Object::InlineResponse20048Recipes;
 use WWW::OpenAPIClient::Object::InlineResponse20049;
+use WWW::OpenAPIClient::Object::InlineResponse20049Category;
+use WWW::OpenAPIClient::Object::InlineResponse20049Nutrition;
+use WWW::OpenAPIClient::Object::InlineResponse20049NutritionCalories;
+use WWW::OpenAPIClient::Object::InlineResponse20049NutritionCaloriesConfidenceRange95Percent;
+use WWW::OpenAPIClient::Object::InlineResponse20049Recipes;
 use WWW::OpenAPIClient::Object::InlineResponse2005;
 use WWW::OpenAPIClient::Object::InlineResponse20050;
 use WWW::OpenAPIClient::Object::InlineResponse20051;
 use WWW::OpenAPIClient::Object::InlineResponse20052;
-use WWW::OpenAPIClient::Object::InlineResponse20052Results;
-use WWW::OpenAPIClient::Object::InlineResponse20052SearchResults;
 use WWW::OpenAPIClient::Object::InlineResponse20053;
-use WWW::OpenAPIClient::Object::InlineResponse20053Videos;
+use WWW::OpenAPIClient::Object::InlineResponse20053Results;
+use WWW::OpenAPIClient::Object::InlineResponse20053SearchResults;
 use WWW::OpenAPIClient::Object::InlineResponse20054;
+use WWW::OpenAPIClient::Object::InlineResponse20054Videos;
 use WWW::OpenAPIClient::Object::InlineResponse20055;
 use WWW::OpenAPIClient::Object::InlineResponse20056;
-use WWW::OpenAPIClient::Object::InlineResponse20056Suggests;
+use WWW::OpenAPIClient::Object::InlineResponse20057;
+use WWW::OpenAPIClient::Object::InlineResponse20057Suggests;
 use WWW::OpenAPIClient::Object::InlineResponse2006;
 use WWW::OpenAPIClient::Object::InlineResponse2006Recipes;
 use WWW::OpenAPIClient::Object::InlineResponse2007;
@@ -385,6 +390,7 @@ use WWW::OpenAPIClient::WineApi;
 use WWW::OpenAPIClient::Object::FoodIngredientsMapProducts;
 use WWW::OpenAPIClient::Object::InlineObject;
 use WWW::OpenAPIClient::Object::InlineObject1;
+use WWW::OpenAPIClient::Object::InlineObject10;
 use WWW::OpenAPIClient::Object::InlineObject2;
 use WWW::OpenAPIClient::Object::InlineObject3;
 use WWW::OpenAPIClient::Object::InlineObject4;
@@ -392,6 +398,7 @@ use WWW::OpenAPIClient::Object::InlineObject5;
 use WWW::OpenAPIClient::Object::InlineObject6;
 use WWW::OpenAPIClient::Object::InlineObject7;
 use WWW::OpenAPIClient::Object::InlineObject8;
+use WWW::OpenAPIClient::Object::InlineObject9;
 use WWW::OpenAPIClient::Object::InlineResponse200;
 use WWW::OpenAPIClient::Object::InlineResponse2001;
 use WWW::OpenAPIClient::Object::InlineResponse20010;
@@ -463,40 +470,43 @@ use WWW::OpenAPIClient::Object::InlineResponse2003WinePairing;
 use WWW::OpenAPIClient::Object::InlineResponse2003WinePairingProductMatches;
 use WWW::OpenAPIClient::Object::InlineResponse2004;
 use WWW::OpenAPIClient::Object::InlineResponse20040;
-use WWW::OpenAPIClient::Object::InlineResponse20040Days;
 use WWW::OpenAPIClient::Object::InlineResponse20040Items;
 use WWW::OpenAPIClient::Object::InlineResponse20040Value;
 use WWW::OpenAPIClient::Object::InlineResponse20041;
-use WWW::OpenAPIClient::Object::InlineResponse20041Aisles;
+use WWW::OpenAPIClient::Object::InlineResponse20041Days;
 use WWW::OpenAPIClient::Object::InlineResponse20041Items;
-use WWW::OpenAPIClient::Object::InlineResponse20041Measures;
+use WWW::OpenAPIClient::Object::InlineResponse20041Value;
 use WWW::OpenAPIClient::Object::InlineResponse20042;
+use WWW::OpenAPIClient::Object::InlineResponse20042Aisles;
+use WWW::OpenAPIClient::Object::InlineResponse20042Items;
+use WWW::OpenAPIClient::Object::InlineResponse20042Measures;
 use WWW::OpenAPIClient::Object::InlineResponse20043;
 use WWW::OpenAPIClient::Object::InlineResponse20044;
-use WWW::OpenAPIClient::Object::InlineResponse20044ProductMatches;
 use WWW::OpenAPIClient::Object::InlineResponse20045;
+use WWW::OpenAPIClient::Object::InlineResponse20045ProductMatches;
 use WWW::OpenAPIClient::Object::InlineResponse20046;
-use WWW::OpenAPIClient::Object::InlineResponse20046RecommendedWines;
 use WWW::OpenAPIClient::Object::InlineResponse20047;
+use WWW::OpenAPIClient::Object::InlineResponse20047RecommendedWines;
 use WWW::OpenAPIClient::Object::InlineResponse20048;
-use WWW::OpenAPIClient::Object::InlineResponse20048Category;
-use WWW::OpenAPIClient::Object::InlineResponse20048Nutrition;
-use WWW::OpenAPIClient::Object::InlineResponse20048NutritionCalories;
-use WWW::OpenAPIClient::Object::InlineResponse20048NutritionCaloriesConfidenceRange95Percent;
-use WWW::OpenAPIClient::Object::InlineResponse20048Recipes;
 use WWW::OpenAPIClient::Object::InlineResponse20049;
+use WWW::OpenAPIClient::Object::InlineResponse20049Category;
+use WWW::OpenAPIClient::Object::InlineResponse20049Nutrition;
+use WWW::OpenAPIClient::Object::InlineResponse20049NutritionCalories;
+use WWW::OpenAPIClient::Object::InlineResponse20049NutritionCaloriesConfidenceRange95Percent;
+use WWW::OpenAPIClient::Object::InlineResponse20049Recipes;
 use WWW::OpenAPIClient::Object::InlineResponse2005;
 use WWW::OpenAPIClient::Object::InlineResponse20050;
 use WWW::OpenAPIClient::Object::InlineResponse20051;
 use WWW::OpenAPIClient::Object::InlineResponse20052;
-use WWW::OpenAPIClient::Object::InlineResponse20052Results;
-use WWW::OpenAPIClient::Object::InlineResponse20052SearchResults;
 use WWW::OpenAPIClient::Object::InlineResponse20053;
-use WWW::OpenAPIClient::Object::InlineResponse20053Videos;
+use WWW::OpenAPIClient::Object::InlineResponse20053Results;
+use WWW::OpenAPIClient::Object::InlineResponse20053SearchResults;
 use WWW::OpenAPIClient::Object::InlineResponse20054;
+use WWW::OpenAPIClient::Object::InlineResponse20054Videos;
 use WWW::OpenAPIClient::Object::InlineResponse20055;
 use WWW::OpenAPIClient::Object::InlineResponse20056;
-use WWW::OpenAPIClient::Object::InlineResponse20056Suggests;
+use WWW::OpenAPIClient::Object::InlineResponse20057;
+use WWW::OpenAPIClient::Object::InlineResponse20057Suggests;
 use WWW::OpenAPIClient::Object::InlineResponse2006;
 use WWW::OpenAPIClient::Object::InlineResponse2006Recipes;
 use WWW::OpenAPIClient::Object::InlineResponse2007;
@@ -553,12 +563,14 @@ Class | Method | HTTP request | Description
 *IngredientsApi* | [**ingredients_by_id_image**](docs/IngredientsApi.md#ingredients_by_id_image) | **GET** /recipes/{id}/ingredientWidget.png | Ingredients by ID Image
 *IngredientsApi* | [**map_ingredients_to_grocery_products**](docs/IngredientsApi.md#map_ingredients_to_grocery_products) | **POST** /food/ingredients/map | Map Ingredients to Grocery Products
 *IngredientsApi* | [**visualize_ingredients**](docs/IngredientsApi.md#visualize_ingredients) | **POST** /recipes/visualizeIngredients | Ingredients Widget
+*MealPlanningApi* | [**add_meal_plan_template**](docs/MealPlanningApi.md#add_meal_plan_template) | **POST** /mealplanner/{username}/templates | Add Meal Plan Template
 *MealPlanningApi* | [**add_to_meal_plan**](docs/MealPlanningApi.md#add_to_meal_plan) | **POST** /mealplanner/{username}/items | Add to Meal Plan
 *MealPlanningApi* | [**add_to_shopping_list**](docs/MealPlanningApi.md#add_to_shopping_list) | **POST** /mealplanner/{username}/shopping-list/items | Add to Shopping List
 *MealPlanningApi* | [**clear_meal_plan_day**](docs/MealPlanningApi.md#clear_meal_plan_day) | **DELETE** /mealplanner/{username}/day/{date} | Clear Meal Plan Day
 *MealPlanningApi* | [**connect_user**](docs/MealPlanningApi.md#connect_user) | **POST** /users/connect | Connect User
 *MealPlanningApi* | [**delete_from_meal_plan**](docs/MealPlanningApi.md#delete_from_meal_plan) | **DELETE** /mealplanner/{username}/items/{id} | Delete from Meal Plan
 *MealPlanningApi* | [**delete_from_shopping_list**](docs/MealPlanningApi.md#delete_from_shopping_list) | **DELETE** /mealplanner/{username}/shopping-list/items/{id} | Delete from Shopping List
+*MealPlanningApi* | [**delete_meal_plan_template**](docs/MealPlanningApi.md#delete_meal_plan_template) | **DELETE** /mealplanner/{username}/templates/{id} | Delete Meal Plan Template
 *MealPlanningApi* | [**generate_meal_plan**](docs/MealPlanningApi.md#generate_meal_plan) | **GET** /mealplanner/generate | Generate Meal Plan
 *MealPlanningApi* | [**generate_shopping_list**](docs/MealPlanningApi.md#generate_shopping_list) | **POST** /mealplanner/{username}/shopping-list/{start-date}/{end-date} | Generate Shopping List
 *MealPlanningApi* | [**get_meal_plan_template**](docs/MealPlanningApi.md#get_meal_plan_template) | **GET** /mealplanner/{username}/templates/{id} | Get Meal Plan Template
@@ -645,6 +657,7 @@ Class | Method | HTTP request | Description
  - [WWW::OpenAPIClient::Object::FoodIngredientsMapProducts](docs/FoodIngredientsMapProducts.md)
  - [WWW::OpenAPIClient::Object::InlineObject](docs/InlineObject.md)
  - [WWW::OpenAPIClient::Object::InlineObject1](docs/InlineObject1.md)
+ - [WWW::OpenAPIClient::Object::InlineObject10](docs/InlineObject10.md)
  - [WWW::OpenAPIClient::Object::InlineObject2](docs/InlineObject2.md)
  - [WWW::OpenAPIClient::Object::InlineObject3](docs/InlineObject3.md)
  - [WWW::OpenAPIClient::Object::InlineObject4](docs/InlineObject4.md)
@@ -652,6 +665,7 @@ Class | Method | HTTP request | Description
  - [WWW::OpenAPIClient::Object::InlineObject6](docs/InlineObject6.md)
  - [WWW::OpenAPIClient::Object::InlineObject7](docs/InlineObject7.md)
  - [WWW::OpenAPIClient::Object::InlineObject8](docs/InlineObject8.md)
+ - [WWW::OpenAPIClient::Object::InlineObject9](docs/InlineObject9.md)
  - [WWW::OpenAPIClient::Object::InlineResponse200](docs/InlineResponse200.md)
  - [WWW::OpenAPIClient::Object::InlineResponse2001](docs/InlineResponse2001.md)
  - [WWW::OpenAPIClient::Object::InlineResponse20010](docs/InlineResponse20010.md)
@@ -723,40 +737,43 @@ Class | Method | HTTP request | Description
  - [WWW::OpenAPIClient::Object::InlineResponse2003WinePairingProductMatches](docs/InlineResponse2003WinePairingProductMatches.md)
  - [WWW::OpenAPIClient::Object::InlineResponse2004](docs/InlineResponse2004.md)
  - [WWW::OpenAPIClient::Object::InlineResponse20040](docs/InlineResponse20040.md)
- - [WWW::OpenAPIClient::Object::InlineResponse20040Days](docs/InlineResponse20040Days.md)
  - [WWW::OpenAPIClient::Object::InlineResponse20040Items](docs/InlineResponse20040Items.md)
  - [WWW::OpenAPIClient::Object::InlineResponse20040Value](docs/InlineResponse20040Value.md)
  - [WWW::OpenAPIClient::Object::InlineResponse20041](docs/InlineResponse20041.md)
- - [WWW::OpenAPIClient::Object::InlineResponse20041Aisles](docs/InlineResponse20041Aisles.md)
+ - [WWW::OpenAPIClient::Object::InlineResponse20041Days](docs/InlineResponse20041Days.md)
  - [WWW::OpenAPIClient::Object::InlineResponse20041Items](docs/InlineResponse20041Items.md)
- - [WWW::OpenAPIClient::Object::InlineResponse20041Measures](docs/InlineResponse20041Measures.md)
+ - [WWW::OpenAPIClient::Object::InlineResponse20041Value](docs/InlineResponse20041Value.md)
  - [WWW::OpenAPIClient::Object::InlineResponse20042](docs/InlineResponse20042.md)
+ - [WWW::OpenAPIClient::Object::InlineResponse20042Aisles](docs/InlineResponse20042Aisles.md)
+ - [WWW::OpenAPIClient::Object::InlineResponse20042Items](docs/InlineResponse20042Items.md)
+ - [WWW::OpenAPIClient::Object::InlineResponse20042Measures](docs/InlineResponse20042Measures.md)
  - [WWW::OpenAPIClient::Object::InlineResponse20043](docs/InlineResponse20043.md)
  - [WWW::OpenAPIClient::Object::InlineResponse20044](docs/InlineResponse20044.md)
- - [WWW::OpenAPIClient::Object::InlineResponse20044ProductMatches](docs/InlineResponse20044ProductMatches.md)
  - [WWW::OpenAPIClient::Object::InlineResponse20045](docs/InlineResponse20045.md)
+ - [WWW::OpenAPIClient::Object::InlineResponse20045ProductMatches](docs/InlineResponse20045ProductMatches.md)
  - [WWW::OpenAPIClient::Object::InlineResponse20046](docs/InlineResponse20046.md)
- - [WWW::OpenAPIClient::Object::InlineResponse20046RecommendedWines](docs/InlineResponse20046RecommendedWines.md)
  - [WWW::OpenAPIClient::Object::InlineResponse20047](docs/InlineResponse20047.md)
+ - [WWW::OpenAPIClient::Object::InlineResponse20047RecommendedWines](docs/InlineResponse20047RecommendedWines.md)
  - [WWW::OpenAPIClient::Object::InlineResponse20048](docs/InlineResponse20048.md)
- - [WWW::OpenAPIClient::Object::InlineResponse20048Category](docs/InlineResponse20048Category.md)
- - [WWW::OpenAPIClient::Object::InlineResponse20048Nutrition](docs/InlineResponse20048Nutrition.md)
- - [WWW::OpenAPIClient::Object::InlineResponse20048NutritionCalories](docs/InlineResponse20048NutritionCalories.md)
- - [WWW::OpenAPIClient::Object::InlineResponse20048NutritionCaloriesConfidenceRange95Percent](docs/InlineResponse20048NutritionCaloriesConfidenceRange95Percent.md)
- - [WWW::OpenAPIClient::Object::InlineResponse20048Recipes](docs/InlineResponse20048Recipes.md)
  - [WWW::OpenAPIClient::Object::InlineResponse20049](docs/InlineResponse20049.md)
+ - [WWW::OpenAPIClient::Object::InlineResponse20049Category](docs/InlineResponse20049Category.md)
+ - [WWW::OpenAPIClient::Object::InlineResponse20049Nutrition](docs/InlineResponse20049Nutrition.md)
+ - [WWW::OpenAPIClient::Object::InlineResponse20049NutritionCalories](docs/InlineResponse20049NutritionCalories.md)
+ - [WWW::OpenAPIClient::Object::InlineResponse20049NutritionCaloriesConfidenceRange95Percent](docs/InlineResponse20049NutritionCaloriesConfidenceRange95Percent.md)
+ - [WWW::OpenAPIClient::Object::InlineResponse20049Recipes](docs/InlineResponse20049Recipes.md)
  - [WWW::OpenAPIClient::Object::InlineResponse2005](docs/InlineResponse2005.md)
  - [WWW::OpenAPIClient::Object::InlineResponse20050](docs/InlineResponse20050.md)
  - [WWW::OpenAPIClient::Object::InlineResponse20051](docs/InlineResponse20051.md)
  - [WWW::OpenAPIClient::Object::InlineResponse20052](docs/InlineResponse20052.md)
- - [WWW::OpenAPIClient::Object::InlineResponse20052Results](docs/InlineResponse20052Results.md)
- - [WWW::OpenAPIClient::Object::InlineResponse20052SearchResults](docs/InlineResponse20052SearchResults.md)
  - [WWW::OpenAPIClient::Object::InlineResponse20053](docs/InlineResponse20053.md)
- - [WWW::OpenAPIClient::Object::InlineResponse20053Videos](docs/InlineResponse20053Videos.md)
+ - [WWW::OpenAPIClient::Object::InlineResponse20053Results](docs/InlineResponse20053Results.md)
+ - [WWW::OpenAPIClient::Object::InlineResponse20053SearchResults](docs/InlineResponse20053SearchResults.md)
  - [WWW::OpenAPIClient::Object::InlineResponse20054](docs/InlineResponse20054.md)
+ - [WWW::OpenAPIClient::Object::InlineResponse20054Videos](docs/InlineResponse20054Videos.md)
  - [WWW::OpenAPIClient::Object::InlineResponse20055](docs/InlineResponse20055.md)
  - [WWW::OpenAPIClient::Object::InlineResponse20056](docs/InlineResponse20056.md)
- - [WWW::OpenAPIClient::Object::InlineResponse20056Suggests](docs/InlineResponse20056Suggests.md)
+ - [WWW::OpenAPIClient::Object::InlineResponse20057](docs/InlineResponse20057.md)
+ - [WWW::OpenAPIClient::Object::InlineResponse20057Suggests](docs/InlineResponse20057Suggests.md)
  - [WWW::OpenAPIClient::Object::InlineResponse2006](docs/InlineResponse2006.md)
  - [WWW::OpenAPIClient::Object::InlineResponse2006Recipes](docs/InlineResponse2006Recipes.md)
  - [WWW::OpenAPIClient::Object::InlineResponse2007](docs/InlineResponse2007.md)

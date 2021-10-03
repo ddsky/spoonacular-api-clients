@@ -28,11 +28,15 @@ import java.math.BigDecimal;
 /**
  * InlineResponse20040Value
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-09-28T20:40:32.759+02:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-03T15:10:59.332+02:00[Europe/Berlin]")
 public class InlineResponse20040Value {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  private BigDecimal id;
+  private Integer id;
+
+  public static final String SERIALIZED_NAME_SERVINGS = "servings";
+  @SerializedName(SERIALIZED_NAME_SERVINGS)
+  private BigDecimal servings;
 
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)
@@ -42,7 +46,7 @@ public class InlineResponse20040Value {
   @SerializedName(SERIALIZED_NAME_IMAGE_TYPE)
   private String imageType;
 
-  public InlineResponse20040Value id(BigDecimal id) {
+  public InlineResponse20040Value id(Integer id) {
     this.id = id;
     return this;
   }
@@ -51,13 +55,31 @@ public class InlineResponse20040Value {
    * Get id
    * @return id
   **/
-  @ApiModelProperty(required = true, value = "")
-  public BigDecimal getId() {
+  @ApiModelProperty(value = "")
+  public Integer getId() {
     return id;
   }
 
-  public void setId(BigDecimal id) {
+  public void setId(Integer id) {
     this.id = id;
+  }
+
+  public InlineResponse20040Value servings(BigDecimal servings) {
+    this.servings = servings;
+    return this;
+  }
+
+   /**
+   * Get servings
+   * @return servings
+  **/
+  @ApiModelProperty(value = "")
+  public BigDecimal getServings() {
+    return servings;
+  }
+
+  public void setServings(BigDecimal servings) {
+    this.servings = servings;
   }
 
   public InlineResponse20040Value title(String title) {
@@ -69,7 +91,7 @@ public class InlineResponse20040Value {
    * Get title
    * @return title
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
   public String getTitle() {
     return title;
   }
@@ -87,7 +109,7 @@ public class InlineResponse20040Value {
    * Get imageType
    * @return imageType
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
   public String getImageType() {
     return imageType;
   }
@@ -107,13 +129,14 @@ public class InlineResponse20040Value {
     }
     InlineResponse20040Value inlineResponse20040Value = (InlineResponse20040Value) o;
     return Objects.equals(this.id, inlineResponse20040Value.id) &&
+        Objects.equals(this.servings, inlineResponse20040Value.servings) &&
         Objects.equals(this.title, inlineResponse20040Value.title) &&
         Objects.equals(this.imageType, inlineResponse20040Value.imageType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, title, imageType);
+    return Objects.hash(id, servings, title, imageType);
   }
 
 
@@ -122,6 +145,7 @@ public class InlineResponse20040Value {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse20040Value {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    servings: ").append(toIndentedString(servings)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    imageType: ").append(toIndentedString(imageType)).append("\n");
     sb.append("}");

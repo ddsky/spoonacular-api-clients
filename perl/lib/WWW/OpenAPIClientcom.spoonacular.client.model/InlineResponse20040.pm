@@ -30,7 +30,7 @@ use Log::Any qw($log);
 use Date::Parse;
 use DateTime;
 
-use WWW::OpenAPIClient::Object::InlineResponse20040Days;
+use WWW::OpenAPIClient::Object::InlineResponse20040Items;
 
 use base ("Class::Accessor", "Class::Data::Inheritable");
 
@@ -162,13 +162,6 @@ __PACKAGE__->class_documentation({description => '',
 }                                 );
 
 __PACKAGE__->method_documentation({
-    'id' => {
-        datatype => 'int',
-        base_name => 'id',
-        description => '',
-        format => '',
-        read_only => '',
-            },
     'name' => {
         datatype => 'string',
         base_name => 'name',
@@ -176,9 +169,16 @@ __PACKAGE__->method_documentation({
         format => '',
         read_only => '',
             },
-    'days' => {
-        datatype => 'ARRAY[InlineResponse20040Days]',
-        base_name => 'days',
+    'items' => {
+        datatype => 'ARRAY[InlineResponse20040Items]',
+        base_name => 'items',
+        description => '',
+        format => '',
+        read_only => '',
+            },
+    'publish_as_public' => {
+        datatype => 'boolean',
+        base_name => 'publishAsPublic',
         description => '',
         format => '',
         read_only => '',
@@ -186,15 +186,15 @@ __PACKAGE__->method_documentation({
 });
 
 __PACKAGE__->openapi_types( {
-    'id' => 'int',
     'name' => 'string',
-    'days' => 'ARRAY[InlineResponse20040Days]'
+    'items' => 'ARRAY[InlineResponse20040Items]',
+    'publish_as_public' => 'boolean'
 } );
 
 __PACKAGE__->attribute_map( {
-    'id' => 'id',
     'name' => 'name',
-    'days' => 'days'
+    'items' => 'items',
+    'publish_as_public' => 'publishAsPublic'
 } );
 
 __PACKAGE__->mk_accessors(keys %{__PACKAGE__->attribute_map});

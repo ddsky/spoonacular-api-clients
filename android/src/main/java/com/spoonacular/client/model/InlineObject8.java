@@ -1,6 +1,5 @@
 package com.spoonacular.client.model;
 
-import java.math.BigDecimal;
 
 import io.swagger.annotations.*;
 import com.google.gson.annotations.SerializedName;
@@ -11,8 +10,10 @@ public class InlineObject8  {
   
   @SerializedName("username")
   private String username = null;
-  @SerializedName("id")
-  private BigDecimal id = null;
+  @SerializedName("start-date")
+  private String startDate = null;
+  @SerializedName("end-date")
+  private String endDate = null;
   @SerializedName("hash")
   private String hash = null;
 
@@ -28,14 +29,25 @@ public class InlineObject8  {
   }
 
   /**
-   * The shopping list item id.
+   * The start date in the format yyyy-mm-dd.
    **/
-  @ApiModelProperty(required = true, value = "The shopping list item id.")
-  public BigDecimal getId() {
-    return id;
+  @ApiModelProperty(required = true, value = "The start date in the format yyyy-mm-dd.")
+  public String getStartDate() {
+    return startDate;
   }
-  public void setId(BigDecimal id) {
-    this.id = id;
+  public void setStartDate(String startDate) {
+    this.startDate = startDate;
+  }
+
+  /**
+   * The end date in the format yyyy-mm-dd.
+   **/
+  @ApiModelProperty(required = true, value = "The end date in the format yyyy-mm-dd.")
+  public String getEndDate() {
+    return endDate;
+  }
+  public void setEndDate(String endDate) {
+    this.endDate = endDate;
   }
 
   /**
@@ -60,7 +72,8 @@ public class InlineObject8  {
     }
     InlineObject8 inlineObject8 = (InlineObject8) o;
     return (this.username == null ? inlineObject8.username == null : this.username.equals(inlineObject8.username)) &&
-        (this.id == null ? inlineObject8.id == null : this.id.equals(inlineObject8.id)) &&
+        (this.startDate == null ? inlineObject8.startDate == null : this.startDate.equals(inlineObject8.startDate)) &&
+        (this.endDate == null ? inlineObject8.endDate == null : this.endDate.equals(inlineObject8.endDate)) &&
         (this.hash == null ? inlineObject8.hash == null : this.hash.equals(inlineObject8.hash));
   }
 
@@ -68,7 +81,8 @@ public class InlineObject8  {
   public int hashCode() {
     int result = 17;
     result = 31 * result + (this.username == null ? 0: this.username.hashCode());
-    result = 31 * result + (this.id == null ? 0: this.id.hashCode());
+    result = 31 * result + (this.startDate == null ? 0: this.startDate.hashCode());
+    result = 31 * result + (this.endDate == null ? 0: this.endDate.hashCode());
     result = 31 * result + (this.hash == null ? 0: this.hash.hashCode());
     return result;
   }
@@ -79,7 +93,8 @@ public class InlineObject8  {
     sb.append("class InlineObject8 {\n");
     
     sb.append("  username: ").append(username).append("\n");
-    sb.append("  id: ").append(id).append("\n");
+    sb.append("  startDate: ").append(startDate).append("\n");
+    sb.append("  endDate: ").append(endDate).append("\n");
     sb.append("  hash: ").append(hash).append("\n");
     sb.append("}\n");
     return sb.toString();

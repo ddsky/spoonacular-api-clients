@@ -14,27 +14,23 @@ require 'date'
 
 module OpenapiClient
   class InlineResponse20044
-    attr_accessor :paired_wines
+    attr_accessor :pairings
 
-    attr_accessor :pairing_text
-
-    attr_accessor :product_matches
+    attr_accessor :text
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'paired_wines' => :'pairedWines',
-        :'pairing_text' => :'pairingText',
-        :'product_matches' => :'productMatches'
+        :'pairings' => :'pairings',
+        :'text' => :'text'
       }
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'paired_wines' => :'Array<String>',
-        :'pairing_text' => :'String',
-        :'product_matches' => :'Array<InlineResponse20044ProductMatches>'
+        :'pairings' => :'Array<String>',
+        :'text' => :'String'
       }
     end
 
@@ -53,20 +49,14 @@ module OpenapiClient
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'paired_wines')
-        if (value = attributes[:'paired_wines']).is_a?(Array)
-          self.paired_wines = value
+      if attributes.key?(:'pairings')
+        if (value = attributes[:'pairings']).is_a?(Array)
+          self.pairings = value
         end
       end
 
-      if attributes.key?(:'pairing_text')
-        self.pairing_text = attributes[:'pairing_text']
-      end
-
-      if attributes.key?(:'product_matches')
-        if (value = attributes[:'product_matches']).is_a?(Array)
-          self.product_matches = value
-        end
+      if attributes.key?(:'text')
+        self.text = attributes[:'text']
       end
     end
 
@@ -74,20 +64,16 @@ module OpenapiClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @paired_wines.nil?
-        invalid_properties.push('invalid value for "paired_wines", paired_wines cannot be nil.')
+      if @pairings.nil?
+        invalid_properties.push('invalid value for "pairings", pairings cannot be nil.')
       end
 
-      if @pairing_text.nil?
-        invalid_properties.push('invalid value for "pairing_text", pairing_text cannot be nil.')
+      if @text.nil?
+        invalid_properties.push('invalid value for "text", text cannot be nil.')
       end
 
-      if @pairing_text.to_s.length < 1
-        invalid_properties.push('invalid value for "pairing_text", the character length must be great than or equal to 1.')
-      end
-
-      if @product_matches.nil?
-        invalid_properties.push('invalid value for "product_matches", product_matches cannot be nil.')
+      if @text.to_s.length < 1
+        invalid_properties.push('invalid value for "text", the character length must be great than or equal to 1.')
       end
 
       invalid_properties
@@ -96,25 +82,24 @@ module OpenapiClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @paired_wines.nil?
-      return false if @pairing_text.nil?
-      return false if @pairing_text.to_s.length < 1
-      return false if @product_matches.nil?
+      return false if @pairings.nil?
+      return false if @text.nil?
+      return false if @text.to_s.length < 1
       true
     end
 
     # Custom attribute writer method with validation
-    # @param [Object] pairing_text Value to be assigned
-    def pairing_text=(pairing_text)
-      if pairing_text.nil?
-        fail ArgumentError, 'pairing_text cannot be nil'
+    # @param [Object] text Value to be assigned
+    def text=(text)
+      if text.nil?
+        fail ArgumentError, 'text cannot be nil'
       end
 
-      if pairing_text.to_s.length < 1
-        fail ArgumentError, 'invalid value for "pairing_text", the character length must be great than or equal to 1.'
+      if text.to_s.length < 1
+        fail ArgumentError, 'invalid value for "text", the character length must be great than or equal to 1.'
       end
 
-      @pairing_text = pairing_text
+      @text = text
     end
 
     # Checks equality by comparing each attribute.
@@ -122,9 +107,8 @@ module OpenapiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          paired_wines == o.paired_wines &&
-          pairing_text == o.pairing_text &&
-          product_matches == o.product_matches
+          pairings == o.pairings &&
+          text == o.text
     end
 
     # @see the `==` method
@@ -136,7 +120,7 @@ module OpenapiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [paired_wines, pairing_text, product_matches].hash
+      [pairings, text].hash
     end
 
     # Builds the object from hash

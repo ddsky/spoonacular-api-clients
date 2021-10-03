@@ -21,8 +21,6 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -43,11 +41,19 @@ public class InlineResponse20050Test {
     }
 
     /**
-     * Test the property 'annotations'
+     * Test the property 'answer'
      */
     @Test
-    public void annotationsTest() {
-        // TODO: test annotations
+    public void answerTest() {
+        // TODO: test answer
+    }
+
+    /**
+     * Test the property 'image'
+     */
+    @Test
+    public void imageTest() {
+        // TODO: test image
     }
 
 }

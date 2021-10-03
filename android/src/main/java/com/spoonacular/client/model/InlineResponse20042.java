@@ -1,5 +1,8 @@
 package com.spoonacular.client.model;
 
+import com.spoonacular.client.model.InlineResponse20042Aisles;
+import java.math.BigDecimal;
+import java.util.*;
 
 import io.swagger.annotations.*;
 import com.google.gson.annotations.SerializedName;
@@ -8,29 +11,53 @@ import com.google.gson.annotations.SerializedName;
 @ApiModel(description = "")
 public class InlineResponse20042  {
   
-  @SerializedName("username")
-  private String username = null;
-  @SerializedName("hash")
-  private String hash = null;
+  @SerializedName("aisles")
+  private List<InlineResponse20042Aisles> aisles = null;
+  @SerializedName("cost")
+  private BigDecimal cost = null;
+  @SerializedName("startDate")
+  private BigDecimal startDate = null;
+  @SerializedName("endDate")
+  private BigDecimal endDate = null;
 
   /**
    **/
   @ApiModelProperty(required = true, value = "")
-  public String getUsername() {
-    return username;
+  public List<InlineResponse20042Aisles> getAisles() {
+    return aisles;
   }
-  public void setUsername(String username) {
-    this.username = username;
+  public void setAisles(List<InlineResponse20042Aisles> aisles) {
+    this.aisles = aisles;
   }
 
   /**
    **/
   @ApiModelProperty(required = true, value = "")
-  public String getHash() {
-    return hash;
+  public BigDecimal getCost() {
+    return cost;
   }
-  public void setHash(String hash) {
-    this.hash = hash;
+  public void setCost(BigDecimal cost) {
+    this.cost = cost;
+  }
+
+  /**
+   **/
+  @ApiModelProperty(required = true, value = "")
+  public BigDecimal getStartDate() {
+    return startDate;
+  }
+  public void setStartDate(BigDecimal startDate) {
+    this.startDate = startDate;
+  }
+
+  /**
+   **/
+  @ApiModelProperty(required = true, value = "")
+  public BigDecimal getEndDate() {
+    return endDate;
+  }
+  public void setEndDate(BigDecimal endDate) {
+    this.endDate = endDate;
   }
 
 
@@ -43,15 +70,19 @@ public class InlineResponse20042  {
       return false;
     }
     InlineResponse20042 inlineResponse20042 = (InlineResponse20042) o;
-    return (this.username == null ? inlineResponse20042.username == null : this.username.equals(inlineResponse20042.username)) &&
-        (this.hash == null ? inlineResponse20042.hash == null : this.hash.equals(inlineResponse20042.hash));
+    return (this.aisles == null ? inlineResponse20042.aisles == null : this.aisles.equals(inlineResponse20042.aisles)) &&
+        (this.cost == null ? inlineResponse20042.cost == null : this.cost.equals(inlineResponse20042.cost)) &&
+        (this.startDate == null ? inlineResponse20042.startDate == null : this.startDate.equals(inlineResponse20042.startDate)) &&
+        (this.endDate == null ? inlineResponse20042.endDate == null : this.endDate.equals(inlineResponse20042.endDate));
   }
 
   @Override
   public int hashCode() {
     int result = 17;
-    result = 31 * result + (this.username == null ? 0: this.username.hashCode());
-    result = 31 * result + (this.hash == null ? 0: this.hash.hashCode());
+    result = 31 * result + (this.aisles == null ? 0: this.aisles.hashCode());
+    result = 31 * result + (this.cost == null ? 0: this.cost.hashCode());
+    result = 31 * result + (this.startDate == null ? 0: this.startDate.hashCode());
+    result = 31 * result + (this.endDate == null ? 0: this.endDate.hashCode());
     return result;
   }
 
@@ -60,8 +91,10 @@ public class InlineResponse20042  {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse20042 {\n");
     
-    sb.append("  username: ").append(username).append("\n");
-    sb.append("  hash: ").append(hash).append("\n");
+    sb.append("  aisles: ").append(aisles).append("\n");
+    sb.append("  cost: ").append(cost).append("\n");
+    sb.append("  startDate: ").append(startDate).append("\n");
+    sb.append("  endDate: ").append(endDate).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

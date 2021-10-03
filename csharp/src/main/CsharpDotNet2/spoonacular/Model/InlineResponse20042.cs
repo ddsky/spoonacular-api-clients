@@ -13,18 +13,32 @@ namespace spoonacular.Model {
   [DataContract]
   public class InlineResponse20042 {
     /// <summary>
-    /// Gets or Sets Username
+    /// Gets or Sets Aisles
     /// </summary>
-    [DataMember(Name="username", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "username")]
-    public string Username { get; set; }
+    [DataMember(Name="aisles", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "aisles")]
+    public List<InlineResponse20042Aisles> Aisles { get; set; }
 
     /// <summary>
-    /// Gets or Sets Hash
+    /// Gets or Sets Cost
     /// </summary>
-    [DataMember(Name="hash", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "hash")]
-    public string Hash { get; set; }
+    [DataMember(Name="cost", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "cost")]
+    public decimal? Cost { get; set; }
+
+    /// <summary>
+    /// Gets or Sets StartDate
+    /// </summary>
+    [DataMember(Name="startDate", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "startDate")]
+    public decimal? StartDate { get; set; }
+
+    /// <summary>
+    /// Gets or Sets EndDate
+    /// </summary>
+    [DataMember(Name="endDate", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "endDate")]
+    public decimal? EndDate { get; set; }
 
 
     /// <summary>
@@ -34,8 +48,10 @@ namespace spoonacular.Model {
     public override string ToString()  {
       var sb = new StringBuilder();
       sb.Append("class InlineResponse20042 {\n");
-      sb.Append("  Username: ").Append(Username).Append("\n");
-      sb.Append("  Hash: ").Append(Hash).Append("\n");
+      sb.Append("  Aisles: ").Append(Aisles).Append("\n");
+      sb.Append("  Cost: ").Append(Cost).Append("\n");
+      sb.Append("  StartDate: ").Append(StartDate).Append("\n");
+      sb.Append("  EndDate: ").Append(EndDate).Append("\n");
       sb.Append("}\n");
       return sb.ToString();
     }

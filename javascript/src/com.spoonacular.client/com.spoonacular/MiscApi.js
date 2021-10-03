@@ -14,15 +14,15 @@
 
 import ApiClient from "../ApiClient";
 import InlineResponse20029 from '../com.spoonacular.client.model/InlineResponse20029';
-import InlineResponse20047 from '../com.spoonacular.client.model/InlineResponse20047';
 import InlineResponse20048 from '../com.spoonacular.client.model/InlineResponse20048';
-import InlineResponse20050 from '../com.spoonacular.client.model/InlineResponse20050';
+import InlineResponse20049 from '../com.spoonacular.client.model/InlineResponse20049';
 import InlineResponse20051 from '../com.spoonacular.client.model/InlineResponse20051';
 import InlineResponse20052 from '../com.spoonacular.client.model/InlineResponse20052';
 import InlineResponse20053 from '../com.spoonacular.client.model/InlineResponse20053';
 import InlineResponse20054 from '../com.spoonacular.client.model/InlineResponse20054';
 import InlineResponse20055 from '../com.spoonacular.client.model/InlineResponse20055';
 import InlineResponse20056 from '../com.spoonacular.client.model/InlineResponse20056';
+import InlineResponse20057 from '../com.spoonacular.client.model/InlineResponse20057';
 
 /**
 * Misc service.
@@ -47,7 +47,7 @@ export default class MiscApi {
      * Callback function to receive the result of the detectFoodInText operation.
      * @callback module:com.spoonacular.client/com.spoonacular/MiscApi~detectFoodInTextCallback
      * @param {String} error Error message, if any.
-     * @param {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20050} data The data returned by the service call.
+     * @param {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20051} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -57,7 +57,7 @@ export default class MiscApi {
      * @param {Object} opts Optional parameters
      * @param {module:com.spoonacular.client/com.spoonacular.client.model/String} opts.contentType The content type.
      * @param {module:com.spoonacular.client/com.spoonacular/MiscApi~detectFoodInTextCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20050}
+     * data is of type: {@link module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20051}
      */
     detectFoodInText(opts, callback) {
       opts = opts || {};
@@ -76,7 +76,7 @@ export default class MiscApi {
       let authNames = ['apiKeyScheme'];
       let contentTypes = ['application/x-www-form-urlencoded'];
       let accepts = ['application/json'];
-      let returnType = InlineResponse20050;
+      let returnType = InlineResponse20051;
       return this.apiClient.callApi(
         '/food/detect', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -88,7 +88,7 @@ export default class MiscApi {
      * Callback function to receive the result of the getARandomFoodJoke operation.
      * @callback module:com.spoonacular.client/com.spoonacular/MiscApi~getARandomFoodJokeCallback
      * @param {String} error Error message, if any.
-     * @param {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20054} data The data returned by the service call.
+     * @param {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20055} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -96,7 +96,7 @@ export default class MiscApi {
      * Random Food Joke
      * Get a random joke that is related to food. Caution: this is an endpoint for adults!
      * @param {module:com.spoonacular.client/com.spoonacular/MiscApi~getARandomFoodJokeCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20054}
+     * data is of type: {@link module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20055}
      */
     getARandomFoodJoke(callback) {
       let postBody = null;
@@ -113,7 +113,7 @@ export default class MiscApi {
       let authNames = ['apiKeyScheme'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineResponse20054;
+      let returnType = InlineResponse20055;
       return this.apiClient.callApi(
         '/food/jokes/random', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -125,7 +125,7 @@ export default class MiscApi {
      * Callback function to receive the result of the getConversationSuggests operation.
      * @callback module:com.spoonacular.client/com.spoonacular/MiscApi~getConversationSuggestsCallback
      * @param {String} error Error message, if any.
-     * @param {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20056} data The data returned by the service call.
+     * @param {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20057} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -136,7 +136,7 @@ export default class MiscApi {
      * @param {Object} opts Optional parameters
      * @param {Number} opts._number The number of suggestions to return (between 1 and 25).
      * @param {module:com.spoonacular.client/com.spoonacular/MiscApi~getConversationSuggestsCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20056}
+     * data is of type: {@link module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20057}
      */
     getConversationSuggests(query, opts, callback) {
       opts = opts || {};
@@ -160,7 +160,7 @@ export default class MiscApi {
       let authNames = ['apiKeyScheme'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineResponse20056;
+      let returnType = InlineResponse20057;
       return this.apiClient.callApi(
         '/food/converse/suggest', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -172,7 +172,7 @@ export default class MiscApi {
      * Callback function to receive the result of the getRandomFoodTrivia operation.
      * @callback module:com.spoonacular.client/com.spoonacular/MiscApi~getRandomFoodTriviaCallback
      * @param {String} error Error message, if any.
-     * @param {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20054} data The data returned by the service call.
+     * @param {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20055} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -180,7 +180,7 @@ export default class MiscApi {
      * Random Food Trivia
      * Returns random food trivia.
      * @param {module:com.spoonacular.client/com.spoonacular/MiscApi~getRandomFoodTriviaCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20054}
+     * data is of type: {@link module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20055}
      */
     getRandomFoodTrivia(callback) {
       let postBody = null;
@@ -197,7 +197,7 @@ export default class MiscApi {
       let authNames = ['apiKeyScheme'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineResponse20054;
+      let returnType = InlineResponse20055;
       return this.apiClient.callApi(
         '/food/trivia/random', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -209,7 +209,7 @@ export default class MiscApi {
      * Callback function to receive the result of the imageAnalysisByURL operation.
      * @callback module:com.spoonacular.client/com.spoonacular/MiscApi~imageAnalysisByURLCallback
      * @param {String} error Error message, if any.
-     * @param {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20048} data The data returned by the service call.
+     * @param {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20049} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -218,7 +218,7 @@ export default class MiscApi {
      * Analyze a food image. The API tries to classify the image, guess the nutrition, and find a matching recipes.
      * @param {String} imageUrl The URL of the image to be analyzed.
      * @param {module:com.spoonacular.client/com.spoonacular/MiscApi~imageAnalysisByURLCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20048}
+     * data is of type: {@link module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20049}
      */
     imageAnalysisByURL(imageUrl, callback) {
       let postBody = null;
@@ -240,7 +240,7 @@ export default class MiscApi {
       let authNames = ['apiKeyScheme'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineResponse20048;
+      let returnType = InlineResponse20049;
       return this.apiClient.callApi(
         '/food/images/analyze', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -252,7 +252,7 @@ export default class MiscApi {
      * Callback function to receive the result of the imageClassificationByURL operation.
      * @callback module:com.spoonacular.client/com.spoonacular/MiscApi~imageClassificationByURLCallback
      * @param {String} error Error message, if any.
-     * @param {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20047} data The data returned by the service call.
+     * @param {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20048} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -261,7 +261,7 @@ export default class MiscApi {
      * Classify a food image.
      * @param {String} imageUrl The URL of the image to be classified.
      * @param {module:com.spoonacular.client/com.spoonacular/MiscApi~imageClassificationByURLCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20047}
+     * data is of type: {@link module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20048}
      */
     imageClassificationByURL(imageUrl, callback) {
       let postBody = null;
@@ -283,7 +283,7 @@ export default class MiscApi {
       let authNames = ['apiKeyScheme'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineResponse20047;
+      let returnType = InlineResponse20048;
       return this.apiClient.callApi(
         '/food/images/classify', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -295,7 +295,7 @@ export default class MiscApi {
      * Callback function to receive the result of the searchAllFood operation.
      * @callback module:com.spoonacular.client/com.spoonacular/MiscApi~searchAllFoodCallback
      * @param {String} error Error message, if any.
-     * @param {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20052} data The data returned by the service call.
+     * @param {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20053} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -307,7 +307,7 @@ export default class MiscApi {
      * @param {Number} opts.offset The number of results to skip (between 0 and 900).
      * @param {Number} opts._number The maximum number of items to return (between 1 and 100). Defaults to 10. (default to 10)
      * @param {module:com.spoonacular.client/com.spoonacular/MiscApi~searchAllFoodCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20052}
+     * data is of type: {@link module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20053}
      */
     searchAllFood(query, opts, callback) {
       opts = opts || {};
@@ -332,7 +332,7 @@ export default class MiscApi {
       let authNames = ['apiKeyScheme'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineResponse20052;
+      let returnType = InlineResponse20053;
       return this.apiClient.callApi(
         '/food/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -401,7 +401,7 @@ export default class MiscApi {
      * Callback function to receive the result of the searchFoodVideos operation.
      * @callback module:com.spoonacular.client/com.spoonacular/MiscApi~searchFoodVideosCallback
      * @param {String} error Error message, if any.
-     * @param {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20053} data The data returned by the service call.
+     * @param {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20054} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -420,7 +420,7 @@ export default class MiscApi {
      * @param {Number} opts.offset The number of results to skip (between 0 and 900).
      * @param {Number} opts._number The maximum number of items to return (between 1 and 100). Defaults to 10. (default to 10)
      * @param {module:com.spoonacular.client/com.spoonacular/MiscApi~searchFoodVideosCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20053}
+     * data is of type: {@link module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20054}
      */
     searchFoodVideos(opts, callback) {
       opts = opts || {};
@@ -448,7 +448,7 @@ export default class MiscApi {
       let authNames = ['apiKeyScheme'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineResponse20053;
+      let returnType = InlineResponse20054;
       return this.apiClient.callApi(
         '/food/videos/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -460,7 +460,7 @@ export default class MiscApi {
      * Callback function to receive the result of the searchSiteContent operation.
      * @callback module:com.spoonacular.client/com.spoonacular/MiscApi~searchSiteContentCallback
      * @param {String} error Error message, if any.
-     * @param {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20051} data The data returned by the service call.
+     * @param {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20052} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -469,7 +469,7 @@ export default class MiscApi {
      * Search spoonacular's site content. You'll be able to find everything that you could also find using the search suggestions on spoonacular.com. This is a suggest API so you can send partial strings as queries.
      * @param {String} query The query to search for. You can also use partial queries such as \"spagh\" to already find spaghetti recipes, articles, grocery products, and other content.
      * @param {module:com.spoonacular.client/com.spoonacular/MiscApi~searchSiteContentCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20051}
+     * data is of type: {@link module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20052}
      */
     searchSiteContent(query, callback) {
       let postBody = null;
@@ -491,7 +491,7 @@ export default class MiscApi {
       let authNames = ['apiKeyScheme'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineResponse20051;
+      let returnType = InlineResponse20052;
       return this.apiClient.callApi(
         '/food/site/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -503,7 +503,7 @@ export default class MiscApi {
      * Callback function to receive the result of the talkToChatbot operation.
      * @callback module:com.spoonacular.client/com.spoonacular/MiscApi~talkToChatbotCallback
      * @param {String} error Error message, if any.
-     * @param {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20055} data The data returned by the service call.
+     * @param {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20056} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -514,7 +514,7 @@ export default class MiscApi {
      * @param {Object} opts Optional parameters
      * @param {String} opts.contextId An arbitrary globally unique id for your conversation. The conversation can contain states so you should pass your context id if you want the bot to be able to remember the conversation.
      * @param {module:com.spoonacular.client/com.spoonacular/MiscApi~talkToChatbotCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20055}
+     * data is of type: {@link module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20056}
      */
     talkToChatbot(text, opts, callback) {
       opts = opts || {};
@@ -538,7 +538,7 @@ export default class MiscApi {
       let authNames = ['apiKeyScheme'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineResponse20055;
+      let returnType = InlineResponse20056;
       return this.apiClient.callApi(
         '/food/converse', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,

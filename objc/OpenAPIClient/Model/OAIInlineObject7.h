@@ -25,6 +25,9 @@
 /* The username. 
  */
 @property(nonatomic) NSString* username;
+/* The shopping list item id. 
+ */
+@property(nonatomic) NSNumber* _id;
 /* The private hash for the username. 
  */
 @property(nonatomic) NSString* hash;

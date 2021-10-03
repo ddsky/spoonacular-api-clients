@@ -8,9 +8,9 @@ import 'package:openapi/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** |  | [default to null]
 **name** | **String** |  | [default to null]
-**days** | [**List&lt;InlineResponse20040Days&gt;**](InlineResponse20040Days.md) |  | [default to []]
+**items** | [**List&lt;InlineResponse20040Items&gt;**](InlineResponse20040Items.md) |  | [default to []]
+**publishAsPublic** | **bool** |  | [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -6,8 +6,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**category** | **String** |  | 
-**probability** | [**BigDecimal**](BigDecimal.md) |  | 
+**recommendedWines** | [**List&lt;InlineResponse20047RecommendedWines&gt;**](InlineResponse20047RecommendedWines.md) |  | 
+**totalFound** | **Integer** |  | 
 
 
 

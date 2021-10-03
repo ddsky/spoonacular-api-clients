@@ -5,22 +5,19 @@ import io.finch.circe._
 import io.circe.generic.semiauto._
 import io.circe.java8.time._
 import spoonacular._
-import com.spoonacular.client.model.InlineResponse20052SearchResults
 import scala.collection.immutable.Seq
 
 /**
  * 
- * @param query 
- * @param totalResults 
- * @param limit 
- * @param offset 
- * @param searchResults 
+ * @param Articles 
+ * @param Grocery Products 
+ * @param Menu Items 
+ * @param Recipes 
  */
-case class InlineResponse20052(query: String,
-                totalResults: Int,
-                limit: Int,
-                offset: Int,
-                searchResults: Seq[InlineResponse20052SearchResults]
+case class InlineResponse20052(Articles: Seq[Object],
+                Grocery Products: Seq[Object],
+                Menu Items: Seq[Object],
+                Recipes: Seq[Object]
                 )
 
 object InlineResponse20052 {

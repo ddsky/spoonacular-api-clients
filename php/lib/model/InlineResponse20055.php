@@ -57,8 +57,7 @@ class InlineResponse20055 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'answer_text' => 'string',
-        'media' => 'object[]'
+        'text' => 'string'
     ];
 
     /**
@@ -67,8 +66,7 @@ class InlineResponse20055 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'answer_text' => null,
-        'media' => null
+        'text' => null
     ];
 
     /**
@@ -98,8 +96,7 @@ class InlineResponse20055 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'answer_text' => 'answerText',
-        'media' => 'media'
+        'text' => 'text'
     ];
 
     /**
@@ -108,8 +105,7 @@ class InlineResponse20055 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'answer_text' => 'setAnswerText',
-        'media' => 'setMedia'
+        'text' => 'setText'
     ];
 
     /**
@@ -118,8 +114,7 @@ class InlineResponse20055 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'answer_text' => 'getAnswerText',
-        'media' => 'getMedia'
+        'text' => 'getText'
     ];
 
     /**
@@ -182,8 +177,7 @@ class InlineResponse20055 implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['answer_text'] = isset($data['answer_text']) ? $data['answer_text'] : null;
-        $this->container['media'] = isset($data['media']) ? $data['media'] : null;
+        $this->container['text'] = isset($data['text']) ? $data['text'] : null;
     }
 
     /**
@@ -195,16 +189,13 @@ class InlineResponse20055 implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['answer_text'] === null) {
-            $invalidProperties[] = "'answer_text' can't be null";
+        if ($this->container['text'] === null) {
+            $invalidProperties[] = "'text' can't be null";
         }
-        if ((mb_strlen($this->container['answer_text']) < 1)) {
-            $invalidProperties[] = "invalid value for 'answer_text', the character length must be bigger than or equal to 1.";
+        if ((mb_strlen($this->container['text']) < 1)) {
+            $invalidProperties[] = "invalid value for 'text', the character length must be bigger than or equal to 1.";
         }
 
-        if ($this->container['media'] === null) {
-            $invalidProperties[] = "'media' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -221,54 +212,30 @@ class InlineResponse20055 implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets answer_text
+     * Gets text
      *
      * @return string
      */
-    public function getAnswerText()
+    public function getText()
     {
-        return $this->container['answer_text'];
+        return $this->container['text'];
     }
 
     /**
-     * Sets answer_text
+     * Sets text
      *
-     * @param string $answer_text answer_text
+     * @param string $text text
      *
      * @return $this
      */
-    public function setAnswerText($answer_text)
+    public function setText($text)
     {
 
-        if ((mb_strlen($answer_text) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $answer_text when calling InlineResponse20055., must be bigger than or equal to 1.');
+        if ((mb_strlen($text) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $text when calling InlineResponse20055., must be bigger than or equal to 1.');
         }
 
-        $this->container['answer_text'] = $answer_text;
-
-        return $this;
-    }
-
-    /**
-     * Gets media
-     *
-     * @return object[]
-     */
-    public function getMedia()
-    {
-        return $this->container['media'];
-    }
-
-    /**
-     * Sets media
-     *
-     * @param object[] $media media
-     *
-     * @return $this
-     */
-    public function setMedia($media)
-    {
-        $this->container['media'] = $media;
+        $this->container['text'] = $text;
 
         return $this;
     }

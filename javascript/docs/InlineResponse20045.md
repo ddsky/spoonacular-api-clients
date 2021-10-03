@@ -4,6 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**wineDescription** | **String** |  | 
+**pairedWines** | **[String]** |  | 
+**pairingText** | **String** |  | 
+**productMatches** | [**[InlineResponse20045ProductMatches]**](InlineResponse20045ProductMatches.md) |  | 
 
 

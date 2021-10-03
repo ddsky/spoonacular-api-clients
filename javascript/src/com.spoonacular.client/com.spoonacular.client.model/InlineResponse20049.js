@@ -12,6 +12,9 @@
  */
 
 import ApiClient from '../ApiClient';
+import InlineResponse20049Category from './InlineResponse20049Category';
+import InlineResponse20049Nutrition from './InlineResponse20049Nutrition';
+import InlineResponse20049Recipes from './InlineResponse20049Recipes';
 
 /**
  * The InlineResponse20049 model module.
@@ -22,12 +25,13 @@ class InlineResponse20049 {
     /**
      * Constructs a new <code>InlineResponse20049</code>.
      * @alias module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20049
-     * @param answer {String} 
-     * @param image {String} 
+     * @param nutrition {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20049Nutrition} 
+     * @param category {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20049Category} 
+     * @param recipes {Array.<module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20049Recipes>} 
      */
-    constructor(answer, image) { 
+    constructor(nutrition, category, recipes) { 
         
-        InlineResponse20049.initialize(this, answer, image);
+        InlineResponse20049.initialize(this, nutrition, category, recipes);
     }
 
     /**
@@ -35,9 +39,10 @@ class InlineResponse20049 {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, answer, image) { 
-        obj['answer'] = answer;
-        obj['image'] = image;
+    static initialize(obj, nutrition, category, recipes) { 
+        obj['nutrition'] = nutrition;
+        obj['category'] = category;
+        obj['recipes'] = recipes;
     }
 
     /**
@@ -51,11 +56,14 @@ class InlineResponse20049 {
         if (data) {
             obj = obj || new InlineResponse20049();
 
-            if (data.hasOwnProperty('answer')) {
-                obj['answer'] = ApiClient.convertToType(data['answer'], 'String');
+            if (data.hasOwnProperty('nutrition')) {
+                obj['nutrition'] = InlineResponse20049Nutrition.constructFromObject(data['nutrition']);
             }
-            if (data.hasOwnProperty('image')) {
-                obj['image'] = ApiClient.convertToType(data['image'], 'String');
+            if (data.hasOwnProperty('category')) {
+                obj['category'] = InlineResponse20049Category.constructFromObject(data['category']);
+            }
+            if (data.hasOwnProperty('recipes')) {
+                obj['recipes'] = ApiClient.convertToType(data['recipes'], [InlineResponse20049Recipes]);
             }
         }
         return obj;
@@ -65,14 +73,19 @@ class InlineResponse20049 {
 }
 
 /**
- * @member {String} answer
+ * @member {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20049Nutrition} nutrition
  */
-InlineResponse20049.prototype['answer'] = undefined;
+InlineResponse20049.prototype['nutrition'] = undefined;
 
 /**
- * @member {String} image
+ * @member {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20049Category} category
  */
-InlineResponse20049.prototype['image'] = undefined;
+InlineResponse20049.prototype['category'] = undefined;
+
+/**
+ * @member {Array.<module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20049Recipes>} recipes
+ */
+InlineResponse20049.prototype['recipes'] = undefined;
 
 
 

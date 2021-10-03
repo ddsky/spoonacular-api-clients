@@ -2,27 +2,36 @@ part of openapi.api;
 
 class InlineResponse20050 {
   
-  List<Object> annotations = [];
+  String answer = null;
+  
+  String image = null;
   InlineResponse20050();
 
   @override
   String toString() {
-    return 'InlineResponse20050[annotations=$annotations, ]';
+    return 'InlineResponse20050[answer=$answer, image=$image, ]';
   }
 
   InlineResponse20050.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    if (json['annotations'] == null) {
-      annotations = null;
+    if (json['answer'] == null) {
+      answer = null;
     } else {
-      annotations = Object.listFromJson(json['annotations']);
+          answer = json['answer'];
+    }
+    if (json['image'] == null) {
+      image = null;
+    } else {
+          image = json['image'];
     }
   }
 
   Map<String, dynamic> toJson() {
     Map <String, dynamic> json = {};
-    if (annotations != null)
-      json['annotations'] = annotations;
+    if (answer != null)
+      json['answer'] = answer;
+    if (image != null)
+      json['image'] = image;
     return json;
   }
 

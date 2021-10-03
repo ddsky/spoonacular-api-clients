@@ -9,13 +9,13 @@ import com.spoonacular.client.model.InlineResponse20040Value
 
 /**
  * 
- * @param id 
+ * @param day 
  * @param slot 
  * @param position 
  * @param _type 
  * @param value 
  */
-case class InlineResponse20040Items(id: Int,
+case class InlineResponse20040Items(day: Int,
                 slot: Int,
                 position: Int,
                 _type: String,

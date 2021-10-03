@@ -4,7 +4,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**text** | **kotlin.String** |  | 
+**videos** | [**kotlin.Array&lt;InlineResponse20054Videos&gt;**](InlineResponse20054Videos.md) |  | 
+**totalResults** | **kotlin.Int** |  | 
 
 
 

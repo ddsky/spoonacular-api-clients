@@ -79,16 +79,9 @@ class InlineResponse20055Test extends TestCase
     }
 
     /**
-     * Test attribute "answer_text"
+     * Test attribute "text"
      */
-    public function testPropertyAnswerText()
-    {
-    }
-
-    /**
-     * Test attribute "media"
-     */
-    public function testPropertyMedia()
+    public function testPropertyText()
     {
     }
 }

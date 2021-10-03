@@ -38,17 +38,8 @@ OAIInline_response_200_51::~OAIInline_response_200_51() {
 void
 OAIInline_response_200_51::init() {
     
-    m_articles_isSet = false;
-    m_articles_isValid = false;
-    
-    m_grocery_products_isSet = false;
-    m_grocery_products_isValid = false;
-    
-    m_menu_items_isSet = false;
-    m_menu_items_isValid = false;
-    
-    m_recipes_isSet = false;
-    m_recipes_isValid = false;
+    m_annotations_isSet = false;
+    m_annotations_isValid = false;
     }
 
 void
@@ -63,16 +54,7 @@ void
 OAIInline_response_200_51::fromJsonObject(QJsonObject json) {
     
     
-    m_articles_isValid = ::OpenAPI::fromJsonValue(articles, json[QString("Articles")]);
-    
-    
-    m_grocery_products_isValid = ::OpenAPI::fromJsonValue(grocery_products, json[QString("Grocery Products")]);
-    
-    
-    m_menu_items_isValid = ::OpenAPI::fromJsonValue(menu_items, json[QString("Menu Items")]);
-    
-    
-    m_recipes_isValid = ::OpenAPI::fromJsonValue(recipes, json[QString("Recipes")]);
+    m_annotations_isValid = ::OpenAPI::fromJsonValue(annotations, json[QString("annotations")]);
     
 }
 
@@ -88,79 +70,28 @@ QJsonObject
 OAIInline_response_200_51::asJsonObject() const {
     QJsonObject obj;
 	
-    if(articles.size() > 0){
-        obj.insert(QString("Articles"), ::OpenAPI::toJsonValue(articles));
-    } 
-	
-    if(grocery_products.size() > 0){
-        obj.insert(QString("Grocery Products"), ::OpenAPI::toJsonValue(grocery_products));
-    } 
-	
-    if(menu_items.size() > 0){
-        obj.insert(QString("Menu Items"), ::OpenAPI::toJsonValue(menu_items));
-    } 
-	
-    if(recipes.size() > 0){
-        obj.insert(QString("Recipes"), ::OpenAPI::toJsonValue(recipes));
+    if(annotations.size() > 0){
+        obj.insert(QString("annotations"), ::OpenAPI::toJsonValue(annotations));
     } 
     return obj;
 }
 
 
 QList<OAIObject>
-OAIInline_response_200_51::getArticles() const {
-    return articles;
+OAIInline_response_200_51::getAnnotations() const {
+    return annotations;
 }
 void
-OAIInline_response_200_51::setArticles(const QList<OAIObject> &articles) {
-    this->articles = articles;
-    this->m_articles_isSet = true;
-}
-
-
-QList<OAIObject>
-OAIInline_response_200_51::getGroceryProducts() const {
-    return grocery_products;
-}
-void
-OAIInline_response_200_51::setGroceryProducts(const QList<OAIObject> &grocery_products) {
-    this->grocery_products = grocery_products;
-    this->m_grocery_products_isSet = true;
-}
-
-
-QList<OAIObject>
-OAIInline_response_200_51::getMenuItems() const {
-    return menu_items;
-}
-void
-OAIInline_response_200_51::setMenuItems(const QList<OAIObject> &menu_items) {
-    this->menu_items = menu_items;
-    this->m_menu_items_isSet = true;
-}
-
-
-QList<OAIObject>
-OAIInline_response_200_51::getRecipes() const {
-    return recipes;
-}
-void
-OAIInline_response_200_51::setRecipes(const QList<OAIObject> &recipes) {
-    this->recipes = recipes;
-    this->m_recipes_isSet = true;
+OAIInline_response_200_51::setAnnotations(const QList<OAIObject> &annotations) {
+    this->annotations = annotations;
+    this->m_annotations_isSet = true;
 }
 
 bool
 OAIInline_response_200_51::isSet() const {
     bool isObjectUpdated = false;
     do{ 
-        if(articles.size() > 0){ isObjectUpdated = true; break;}
-    
-        if(grocery_products.size() > 0){ isObjectUpdated = true; break;}
-    
-        if(menu_items.size() > 0){ isObjectUpdated = true; break;}
-    
-        if(recipes.size() > 0){ isObjectUpdated = true; break;}
+        if(annotations.size() > 0){ isObjectUpdated = true; break;}
     }while(false);
     return isObjectUpdated;
 }
@@ -168,7 +99,7 @@ OAIInline_response_200_51::isSet() const {
 bool
 OAIInline_response_200_51::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_articles_isValid && m_grocery_products_isValid && m_menu_items_isValid && m_recipes_isValid && true;
+    return m_annotations_isValid && true;
 }
 
 }

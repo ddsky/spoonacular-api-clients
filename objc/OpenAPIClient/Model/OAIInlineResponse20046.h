@@ -14,9 +14,6 @@
 */
 
 
-#import "OAIInlineResponse20046RecommendedWines.h"
-@protocol OAIInlineResponse20046RecommendedWines;
-@class OAIInlineResponse20046RecommendedWines;
 
 
 
@@ -26,8 +23,6 @@
 @interface OAIInlineResponse20046 : OAIObject
 
 
-@property(nonatomic) NSArray<OAIInlineResponse20046RecommendedWines>* recommendedWines;
-
-@property(nonatomic) NSNumber* totalFound;
+@property(nonatomic) NSString* wineDescription;
 
 @end

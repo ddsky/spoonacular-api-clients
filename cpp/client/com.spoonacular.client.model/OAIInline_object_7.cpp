@@ -41,6 +41,9 @@ OAIInline_object_7::init() {
     m_username_isSet = false;
     m_username_isValid = false;
     
+    m_id_isSet = false;
+    m_id_isValid = false;
+    
     m_hash_isSet = false;
     m_hash_isValid = false;
     }
@@ -57,6 +60,9 @@ void
 OAIInline_object_7::fromJsonObject(QJsonObject json) {
     
     m_username_isValid = ::OpenAPI::fromJsonValue(username, json[QString("username")]);
+    
+    
+    m_id_isValid = ::OpenAPI::fromJsonValue(id, json[QString("id")]);
     
     
     m_hash_isValid = ::OpenAPI::fromJsonValue(hash, json[QString("hash")]);
@@ -78,6 +84,9 @@ OAIInline_object_7::asJsonObject() const {
 	if(m_username_isSet){
         obj.insert(QString("username"), ::OpenAPI::toJsonValue(username));
     }
+	if(id.isSet()){
+        obj.insert(QString("id"), ::OpenAPI::toJsonValue(id));
+    }
 	if(m_hash_isSet){
         obj.insert(QString("hash"), ::OpenAPI::toJsonValue(hash));
     }
@@ -93,6 +102,17 @@ void
 OAIInline_object_7::setUsername(const QString &username) {
     this->username = username;
     this->m_username_isSet = true;
+}
+
+
+OAINumber
+OAIInline_object_7::getId() const {
+    return id;
+}
+void
+OAIInline_object_7::setId(const OAINumber &id) {
+    this->id = id;
+    this->m_id_isSet = true;
 }
 
 
@@ -112,6 +132,8 @@ OAIInline_object_7::isSet() const {
     do{ 
         if(m_username_isSet){ isObjectUpdated = true; break;}
     
+        if(id.isSet()){ isObjectUpdated = true; break;}
+    
         if(m_hash_isSet){ isObjectUpdated = true; break;}
     }while(false);
     return isObjectUpdated;
@@ -120,7 +142,7 @@ OAIInline_object_7::isSet() const {
 bool
 OAIInline_object_7::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_username_isValid && m_hash_isValid && true;
+    return m_username_isValid && m_id_isValid && m_hash_isValid && true;
 }
 
 }

@@ -30,6 +30,7 @@ use Log::Any qw($log);
 use Date::Parse;
 use DateTime;
 
+use WWW::OpenAPIClient::Object::InlineResponse20054Videos;
 
 use base ("Class::Accessor", "Class::Data::Inheritable");
 
@@ -161,9 +162,16 @@ __PACKAGE__->class_documentation({description => '',
 }                                 );
 
 __PACKAGE__->method_documentation({
-    'text' => {
-        datatype => 'string',
-        base_name => 'text',
+    'videos' => {
+        datatype => 'ARRAY[InlineResponse20054Videos]',
+        base_name => 'videos',
+        description => '',
+        format => '',
+        read_only => '',
+            },
+    'total_results' => {
+        datatype => 'int',
+        base_name => 'totalResults',
         description => '',
         format => '',
         read_only => '',
@@ -171,11 +179,13 @@ __PACKAGE__->method_documentation({
 });
 
 __PACKAGE__->openapi_types( {
-    'text' => 'string'
+    'videos' => 'ARRAY[InlineResponse20054Videos]',
+    'total_results' => 'int'
 } );
 
 __PACKAGE__->attribute_map( {
-    'text' => 'text'
+    'videos' => 'videos',
+    'total_results' => 'totalResults'
 } );
 
 __PACKAGE__->mk_accessors(keys %{__PACKAGE__->attribute_map});

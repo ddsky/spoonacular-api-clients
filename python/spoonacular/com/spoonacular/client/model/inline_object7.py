@@ -33,22 +33,26 @@ class InlineObject7(object):
     """
     openapi_types = {
         'username': 'str',
+        'id': 'float',
         'hash': 'str'
     }
 
     attribute_map = {
         'username': 'username',
+        'id': 'id',
         'hash': 'hash'
     }
 
-    def __init__(self, username=None, hash=None):  # noqa: E501
+    def __init__(self, username=None, id=None, hash=None):  # noqa: E501
         """InlineObject7 - a model defined in OpenAPI"""  # noqa: E501
 
         self._username = None
+        self._id = None
         self._hash = None
         self.discriminator = None
 
         self.username = username
+        self.id = id
         self.hash = hash
 
     @property
@@ -75,6 +79,31 @@ class InlineObject7(object):
             raise ValueError("Invalid value for `username`, must not be `None`")  # noqa: E501
 
         self._username = username
+
+    @property
+    def id(self):
+        """Gets the id of this InlineObject7.  # noqa: E501
+
+        The shopping list item id.  # noqa: E501
+
+        :return: The id of this InlineObject7.  # noqa: E501
+        :rtype: float
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this InlineObject7.
+
+        The shopping list item id.  # noqa: E501
+
+        :param id: The id of this InlineObject7.  # noqa: E501
+        :type: float
+        """
+        if id is None:
+            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
+
+        self._id = id
 
     @property
     def hash(self):

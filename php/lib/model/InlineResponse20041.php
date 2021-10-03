@@ -57,10 +57,9 @@ class InlineResponse20041 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'aisles' => '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20041Aisles[]',
-        'cost' => 'float',
-        'start_date' => 'float',
-        'end_date' => 'float'
+        'id' => 'int',
+        'name' => 'string',
+        'days' => '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20041Days[]'
     ];
 
     /**
@@ -69,10 +68,9 @@ class InlineResponse20041 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'aisles' => null,
-        'cost' => null,
-        'start_date' => null,
-        'end_date' => null
+        'id' => null,
+        'name' => null,
+        'days' => null
     ];
 
     /**
@@ -102,10 +100,9 @@ class InlineResponse20041 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'aisles' => 'aisles',
-        'cost' => 'cost',
-        'start_date' => 'startDate',
-        'end_date' => 'endDate'
+        'id' => 'id',
+        'name' => 'name',
+        'days' => 'days'
     ];
 
     /**
@@ -114,10 +111,9 @@ class InlineResponse20041 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'aisles' => 'setAisles',
-        'cost' => 'setCost',
-        'start_date' => 'setStartDate',
-        'end_date' => 'setEndDate'
+        'id' => 'setId',
+        'name' => 'setName',
+        'days' => 'setDays'
     ];
 
     /**
@@ -126,10 +122,9 @@ class InlineResponse20041 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'aisles' => 'getAisles',
-        'cost' => 'getCost',
-        'start_date' => 'getStartDate',
-        'end_date' => 'getEndDate'
+        'id' => 'getId',
+        'name' => 'getName',
+        'days' => 'getDays'
     ];
 
     /**
@@ -192,10 +187,9 @@ class InlineResponse20041 implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['aisles'] = isset($data['aisles']) ? $data['aisles'] : null;
-        $this->container['cost'] = isset($data['cost']) ? $data['cost'] : null;
-        $this->container['start_date'] = isset($data['start_date']) ? $data['start_date'] : null;
-        $this->container['end_date'] = isset($data['end_date']) ? $data['end_date'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['days'] = isset($data['days']) ? $data['days'] : null;
     }
 
     /**
@@ -207,17 +201,18 @@ class InlineResponse20041 implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['aisles'] === null) {
-            $invalidProperties[] = "'aisles' can't be null";
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
         }
-        if ($this->container['cost'] === null) {
-            $invalidProperties[] = "'cost' can't be null";
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
         }
-        if ($this->container['start_date'] === null) {
-            $invalidProperties[] = "'start_date' can't be null";
+        if ((mb_strlen($this->container['name']) < 1)) {
+            $invalidProperties[] = "invalid value for 'name', the character length must be bigger than or equal to 1.";
         }
-        if ($this->container['end_date'] === null) {
-            $invalidProperties[] = "'end_date' can't be null";
+
+        if ($this->container['days'] === null) {
+            $invalidProperties[] = "'days' can't be null";
         }
         return $invalidProperties;
     }
@@ -235,97 +230,78 @@ class InlineResponse20041 implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets aisles
+     * Gets id
      *
-     * @return \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20041Aisles[]
+     * @return int
      */
-    public function getAisles()
+    public function getId()
     {
-        return $this->container['aisles'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets aisles
+     * Sets id
      *
-     * @param \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20041Aisles[] $aisles aisles
+     * @param int $id id
      *
      * @return $this
      */
-    public function setAisles($aisles)
+    public function setId($id)
     {
-        $this->container['aisles'] = $aisles;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets cost
+     * Gets name
      *
-     * @return float
+     * @return string
      */
-    public function getCost()
+    public function getName()
     {
-        return $this->container['cost'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets cost
+     * Sets name
      *
-     * @param float $cost cost
+     * @param string $name name
      *
      * @return $this
      */
-    public function setCost($cost)
+    public function setName($name)
     {
-        $this->container['cost'] = $cost;
+
+        if ((mb_strlen($name) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $name when calling InlineResponse20041., must be bigger than or equal to 1.');
+        }
+
+        $this->container['name'] = $name;
 
         return $this;
     }
 
     /**
-     * Gets start_date
+     * Gets days
      *
-     * @return float
+     * @return \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20041Days[]
      */
-    public function getStartDate()
+    public function getDays()
     {
-        return $this->container['start_date'];
+        return $this->container['days'];
     }
 
     /**
-     * Sets start_date
+     * Sets days
      *
-     * @param float $start_date start_date
+     * @param \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20041Days[] $days days
      *
      * @return $this
      */
-    public function setStartDate($start_date)
+    public function setDays($days)
     {
-        $this->container['start_date'] = $start_date;
-
-        return $this;
-    }
-
-    /**
-     * Gets end_date
-     *
-     * @return float
-     */
-    public function getEndDate()
-    {
-        return $this->container['end_date'];
-    }
-
-    /**
-     * Sets end_date
-     *
-     * @param float $end_date end_date
-     *
-     * @return $this
-     */
-    public function setEndDate($end_date)
-    {
-        $this->container['end_date'] = $end_date;
+        $this->container['days'] = $days;
 
         return $this;
     }

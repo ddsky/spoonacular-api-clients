@@ -15,6 +15,13 @@ Please update as you see appropriate
 ]]
 describe("meal_planning_api", function()
   local spoonacular_meal_planning_api = require "spoonacular.api.meal_planning_api"
+  -- unit tests for add_meal_plan_template
+  describe("add_meal_plan_template test", function()
+    it("should work", function()
+      -- TODO assertion here: http://olivinelabs.com/busted/#asserts
+    end)
+  end)
+
   -- unit tests for add_to_meal_plan
   describe("add_to_meal_plan test", function()
     it("should work", function()
@@ -52,6 +59,13 @@ describe("meal_planning_api", function()
 
   -- unit tests for delete_from_shopping_list
   describe("delete_from_shopping_list test", function()
+    it("should work", function()
+      -- TODO assertion here: http://olivinelabs.com/busted/#asserts
+    end)
+  end)
+
+  -- unit tests for delete_meal_plan_template
+  describe("delete_meal_plan_template test", function()
     it("should work", function()
       -- TODO assertion here: http://olivinelabs.com/busted/#asserts
     end)

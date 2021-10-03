@@ -79,37 +79,30 @@ class InlineResponse20052Test extends TestCase
     }
 
     /**
-     * Test attribute "query"
+     * Test attribute "articles"
      */
-    public function testPropertyQuery()
+    public function testPropertyArticles()
     {
     }
 
     /**
-     * Test attribute "total_results"
+     * Test attribute "grocery_products"
      */
-    public function testPropertyTotalResults()
+    public function testPropertyGroceryProducts()
     {
     }
 
     /**
-     * Test attribute "limit"
+     * Test attribute "menu_items"
      */
-    public function testPropertyLimit()
+    public function testPropertyMenuItems()
     {
     }
 
     /**
-     * Test attribute "offset"
+     * Test attribute "recipes"
      */
-    public function testPropertyOffset()
-    {
-    }
-
-    /**
-     * Test attribute "search_results"
-     */
-    public function testPropertySearchResults()
+    public function testPropertyRecipes()
     {
     }
 }

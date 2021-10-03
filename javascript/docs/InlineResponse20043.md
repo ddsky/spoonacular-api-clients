@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**pairings** | **[String]** |  | 
-**text** | **String** |  | 
+**username** | **String** |  | 
+**hash** | **String** |  | 
 
 

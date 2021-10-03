@@ -32,51 +32,28 @@ class InlineResponse20040(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'id': 'int',
         'name': 'str',
-        'days': 'list[InlineResponse20040Days]'
+        'items': 'list[InlineResponse20040Items]',
+        'publish_as_public': 'bool'
     }
 
     attribute_map = {
-        'id': 'id',
         'name': 'name',
-        'days': 'days'
+        'items': 'items',
+        'publish_as_public': 'publishAsPublic'
     }
 
-    def __init__(self, id=None, name=None, days=None):  # noqa: E501
+    def __init__(self, name=None, items=None, publish_as_public=None):  # noqa: E501
         """InlineResponse20040 - a model defined in OpenAPI"""  # noqa: E501
 
-        self._id = None
         self._name = None
-        self._days = None
+        self._items = None
+        self._publish_as_public = None
         self.discriminator = None
 
-        self.id = id
         self.name = name
-        self.days = days
-
-    @property
-    def id(self):
-        """Gets the id of this InlineResponse20040.  # noqa: E501
-
-
-        :return: The id of this InlineResponse20040.  # noqa: E501
-        :rtype: int
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """Sets the id of this InlineResponse20040.
-
-
-        :param id: The id of this InlineResponse20040.  # noqa: E501
-        :type: int
-        """
-        if id is None:
-            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
-
-        self._id = id
+        self.items = items
+        self.publish_as_public = publish_as_public
 
     @property
     def name(self):
@@ -104,27 +81,50 @@ class InlineResponse20040(object):
         self._name = name
 
     @property
-    def days(self):
-        """Gets the days of this InlineResponse20040.  # noqa: E501
+    def items(self):
+        """Gets the items of this InlineResponse20040.  # noqa: E501
 
 
-        :return: The days of this InlineResponse20040.  # noqa: E501
-        :rtype: list[InlineResponse20040Days]
+        :return: The items of this InlineResponse20040.  # noqa: E501
+        :rtype: list[InlineResponse20040Items]
         """
-        return self._days
+        return self._items
 
-    @days.setter
-    def days(self, days):
-        """Sets the days of this InlineResponse20040.
+    @items.setter
+    def items(self, items):
+        """Sets the items of this InlineResponse20040.
 
 
-        :param days: The days of this InlineResponse20040.  # noqa: E501
-        :type: list[InlineResponse20040Days]
+        :param items: The items of this InlineResponse20040.  # noqa: E501
+        :type: list[InlineResponse20040Items]
         """
-        if days is None:
-            raise ValueError("Invalid value for `days`, must not be `None`")  # noqa: E501
+        if items is None:
+            raise ValueError("Invalid value for `items`, must not be `None`")  # noqa: E501
 
-        self._days = days
+        self._items = items
+
+    @property
+    def publish_as_public(self):
+        """Gets the publish_as_public of this InlineResponse20040.  # noqa: E501
+
+
+        :return: The publish_as_public of this InlineResponse20040.  # noqa: E501
+        :rtype: bool
+        """
+        return self._publish_as_public
+
+    @publish_as_public.setter
+    def publish_as_public(self, publish_as_public):
+        """Sets the publish_as_public of this InlineResponse20040.
+
+
+        :param publish_as_public: The publish_as_public of this InlineResponse20040.  # noqa: E501
+        :type: bool
+        """
+        if publish_as_public is None:
+            raise ValueError("Invalid value for `publish_as_public`, must not be `None`")  # noqa: E501
+
+        self._publish_as_public = publish_as_public
 
     def to_dict(self):
         """Returns the model properties as a dict"""

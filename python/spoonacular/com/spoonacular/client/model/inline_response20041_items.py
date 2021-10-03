@@ -33,44 +33,36 @@ class InlineResponse20041Items(object):
     """
     openapi_types = {
         'id': 'int',
-        'name': 'str',
-        'measures': 'InlineResponse20041Measures',
-        'pantry_item': 'bool',
-        'aisle': 'str',
-        'cost': 'float',
-        'ingredient_id': 'int'
+        'slot': 'int',
+        'position': 'int',
+        'type': 'str',
+        'value': 'InlineResponse20041Value'
     }
 
     attribute_map = {
         'id': 'id',
-        'name': 'name',
-        'measures': 'measures',
-        'pantry_item': 'pantryItem',
-        'aisle': 'aisle',
-        'cost': 'cost',
-        'ingredient_id': 'ingredientId'
+        'slot': 'slot',
+        'position': 'position',
+        'type': 'type',
+        'value': 'value'
     }
 
-    def __init__(self, id=None, name=None, measures=None, pantry_item=None, aisle=None, cost=None, ingredient_id=None):  # noqa: E501
+    def __init__(self, id=None, slot=None, position=None, type=None, value=None):  # noqa: E501
         """InlineResponse20041Items - a model defined in OpenAPI"""  # noqa: E501
 
         self._id = None
-        self._name = None
-        self._measures = None
-        self._pantry_item = None
-        self._aisle = None
-        self._cost = None
-        self._ingredient_id = None
+        self._slot = None
+        self._position = None
+        self._type = None
+        self._value = None
         self.discriminator = None
 
         self.id = id
-        self.name = name
-        if measures is not None:
-            self.measures = measures
-        self.pantry_item = pantry_item
-        self.aisle = aisle
-        self.cost = cost
-        self.ingredient_id = ingredient_id
+        self.slot = slot
+        self.position = position
+        self.type = type
+        if value is not None:
+            self.value = value
 
     @property
     def id(self):
@@ -96,144 +88,96 @@ class InlineResponse20041Items(object):
         self._id = id
 
     @property
-    def name(self):
-        """Gets the name of this InlineResponse20041Items.  # noqa: E501
+    def slot(self):
+        """Gets the slot of this InlineResponse20041Items.  # noqa: E501
 
 
-        :return: The name of this InlineResponse20041Items.  # noqa: E501
-        :rtype: str
-        """
-        return self._name
-
-    @name.setter
-    def name(self, name):
-        """Sets the name of this InlineResponse20041Items.
-
-
-        :param name: The name of this InlineResponse20041Items.  # noqa: E501
-        :type: str
-        """
-        if name is None:
-            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
-        if name is not None and len(name) < 1:
-            raise ValueError("Invalid value for `name`, length must be greater than or equal to `1`")  # noqa: E501
-
-        self._name = name
-
-    @property
-    def measures(self):
-        """Gets the measures of this InlineResponse20041Items.  # noqa: E501
-
-
-        :return: The measures of this InlineResponse20041Items.  # noqa: E501
-        :rtype: InlineResponse20041Measures
-        """
-        return self._measures
-
-    @measures.setter
-    def measures(self, measures):
-        """Sets the measures of this InlineResponse20041Items.
-
-
-        :param measures: The measures of this InlineResponse20041Items.  # noqa: E501
-        :type: InlineResponse20041Measures
-        """
-
-        self._measures = measures
-
-    @property
-    def pantry_item(self):
-        """Gets the pantry_item of this InlineResponse20041Items.  # noqa: E501
-
-
-        :return: The pantry_item of this InlineResponse20041Items.  # noqa: E501
-        :rtype: bool
-        """
-        return self._pantry_item
-
-    @pantry_item.setter
-    def pantry_item(self, pantry_item):
-        """Sets the pantry_item of this InlineResponse20041Items.
-
-
-        :param pantry_item: The pantry_item of this InlineResponse20041Items.  # noqa: E501
-        :type: bool
-        """
-        if pantry_item is None:
-            raise ValueError("Invalid value for `pantry_item`, must not be `None`")  # noqa: E501
-
-        self._pantry_item = pantry_item
-
-    @property
-    def aisle(self):
-        """Gets the aisle of this InlineResponse20041Items.  # noqa: E501
-
-
-        :return: The aisle of this InlineResponse20041Items.  # noqa: E501
-        :rtype: str
-        """
-        return self._aisle
-
-    @aisle.setter
-    def aisle(self, aisle):
-        """Sets the aisle of this InlineResponse20041Items.
-
-
-        :param aisle: The aisle of this InlineResponse20041Items.  # noqa: E501
-        :type: str
-        """
-        if aisle is None:
-            raise ValueError("Invalid value for `aisle`, must not be `None`")  # noqa: E501
-        if aisle is not None and len(aisle) < 1:
-            raise ValueError("Invalid value for `aisle`, length must be greater than or equal to `1`")  # noqa: E501
-
-        self._aisle = aisle
-
-    @property
-    def cost(self):
-        """Gets the cost of this InlineResponse20041Items.  # noqa: E501
-
-
-        :return: The cost of this InlineResponse20041Items.  # noqa: E501
-        :rtype: float
-        """
-        return self._cost
-
-    @cost.setter
-    def cost(self, cost):
-        """Sets the cost of this InlineResponse20041Items.
-
-
-        :param cost: The cost of this InlineResponse20041Items.  # noqa: E501
-        :type: float
-        """
-        if cost is None:
-            raise ValueError("Invalid value for `cost`, must not be `None`")  # noqa: E501
-
-        self._cost = cost
-
-    @property
-    def ingredient_id(self):
-        """Gets the ingredient_id of this InlineResponse20041Items.  # noqa: E501
-
-
-        :return: The ingredient_id of this InlineResponse20041Items.  # noqa: E501
+        :return: The slot of this InlineResponse20041Items.  # noqa: E501
         :rtype: int
         """
-        return self._ingredient_id
+        return self._slot
 
-    @ingredient_id.setter
-    def ingredient_id(self, ingredient_id):
-        """Sets the ingredient_id of this InlineResponse20041Items.
+    @slot.setter
+    def slot(self, slot):
+        """Sets the slot of this InlineResponse20041Items.
 
 
-        :param ingredient_id: The ingredient_id of this InlineResponse20041Items.  # noqa: E501
+        :param slot: The slot of this InlineResponse20041Items.  # noqa: E501
         :type: int
         """
-        if ingredient_id is None:
-            raise ValueError("Invalid value for `ingredient_id`, must not be `None`")  # noqa: E501
+        if slot is None:
+            raise ValueError("Invalid value for `slot`, must not be `None`")  # noqa: E501
 
-        self._ingredient_id = ingredient_id
+        self._slot = slot
+
+    @property
+    def position(self):
+        """Gets the position of this InlineResponse20041Items.  # noqa: E501
+
+
+        :return: The position of this InlineResponse20041Items.  # noqa: E501
+        :rtype: int
+        """
+        return self._position
+
+    @position.setter
+    def position(self, position):
+        """Sets the position of this InlineResponse20041Items.
+
+
+        :param position: The position of this InlineResponse20041Items.  # noqa: E501
+        :type: int
+        """
+        if position is None:
+            raise ValueError("Invalid value for `position`, must not be `None`")  # noqa: E501
+
+        self._position = position
+
+    @property
+    def type(self):
+        """Gets the type of this InlineResponse20041Items.  # noqa: E501
+
+
+        :return: The type of this InlineResponse20041Items.  # noqa: E501
+        :rtype: str
+        """
+        return self._type
+
+    @type.setter
+    def type(self, type):
+        """Sets the type of this InlineResponse20041Items.
+
+
+        :param type: The type of this InlineResponse20041Items.  # noqa: E501
+        :type: str
+        """
+        if type is None:
+            raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
+        if type is not None and len(type) < 1:
+            raise ValueError("Invalid value for `type`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._type = type
+
+    @property
+    def value(self):
+        """Gets the value of this InlineResponse20041Items.  # noqa: E501
+
+
+        :return: The value of this InlineResponse20041Items.  # noqa: E501
+        :rtype: InlineResponse20041Value
+        """
+        return self._value
+
+    @value.setter
+    def value(self, value):
+        """Sets the value of this InlineResponse20041Items.
+
+
+        :param value: The value of this InlineResponse20041Items.  # noqa: E501
+        :type: InlineResponse20041Value
+        """
+
+        self._value = value
 
     def to_dict(self):
         """Returns the model properties as a dict"""

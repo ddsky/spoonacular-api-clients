@@ -13,39 +13,32 @@ namespace spoonacular.Model {
   [DataContract]
   public class InlineResponse20052 {
     /// <summary>
-    /// Gets or Sets Query
+    /// Gets or Sets Articles
     /// </summary>
-    [DataMember(Name="query", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "query")]
-    public string Query { get; set; }
+    [DataMember(Name="Articles", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "Articles")]
+    public List<Object> Articles { get; set; }
 
     /// <summary>
-    /// Gets or Sets TotalResults
+    /// Gets or Sets GroceryProducts
     /// </summary>
-    [DataMember(Name="totalResults", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "totalResults")]
-    public int? TotalResults { get; set; }
+    [DataMember(Name="Grocery Products", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "Grocery Products")]
+    public List<Object> GroceryProducts { get; set; }
 
     /// <summary>
-    /// Gets or Sets Limit
+    /// Gets or Sets MenuItems
     /// </summary>
-    [DataMember(Name="limit", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "limit")]
-    public int? Limit { get; set; }
+    [DataMember(Name="Menu Items", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "Menu Items")]
+    public List<Object> MenuItems { get; set; }
 
     /// <summary>
-    /// Gets or Sets Offset
+    /// Gets or Sets Recipes
     /// </summary>
-    [DataMember(Name="offset", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "offset")]
-    public int? Offset { get; set; }
-
-    /// <summary>
-    /// Gets or Sets SearchResults
-    /// </summary>
-    [DataMember(Name="searchResults", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "searchResults")]
-    public List<InlineResponse20052SearchResults> SearchResults { get; set; }
+    [DataMember(Name="Recipes", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "Recipes")]
+    public List<Object> Recipes { get; set; }
 
 
     /// <summary>
@@ -55,11 +48,10 @@ namespace spoonacular.Model {
     public override string ToString()  {
       var sb = new StringBuilder();
       sb.Append("class InlineResponse20052 {\n");
-      sb.Append("  Query: ").Append(Query).Append("\n");
-      sb.Append("  TotalResults: ").Append(TotalResults).Append("\n");
-      sb.Append("  Limit: ").Append(Limit).Append("\n");
-      sb.Append("  Offset: ").Append(Offset).Append("\n");
-      sb.Append("  SearchResults: ").Append(SearchResults).Append("\n");
+      sb.Append("  Articles: ").Append(Articles).Append("\n");
+      sb.Append("  GroceryProducts: ").Append(GroceryProducts).Append("\n");
+      sb.Append("  MenuItems: ").Append(MenuItems).Append("\n");
+      sb.Append("  Recipes: ").Append(Recipes).Append("\n");
       sb.Append("}\n");
       return sb.ToString();
     }

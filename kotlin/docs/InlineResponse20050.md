@@ -4,7 +4,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**annotations** | [**kotlin.Array&lt;kotlin.Any&gt;**](kotlin.Any.md) |  | 
+**answer** | **kotlin.String** |  | 
+**image** | **kotlin.String** |  | 
 
 
 

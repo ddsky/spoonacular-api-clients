@@ -918,6 +918,7 @@ Search packaged food products, such as frozen pizza or Greek yogurt.
  * @param "MaxProtein" (optional.Float32) -  The maximum amount of protein in grams the product can have.
  * @param "MinFat" (optional.Float32) -  The minimum amount of fat in grams the product must have.
  * @param "MaxFat" (optional.Float32) -  The maximum amount of fat in grams the product can have.
+ * @param "AddProductInformation" (optional.Bool) -  If set to true, you get more information about the products returned.
  * @param "Offset" (optional.Int32) -  The number of results to skip (between 0 and 900).
  * @param "Number" (optional.Int32) -  The maximum number of items to return (between 1 and 100). Defaults to 10.
 @return InlineResponse20027
@@ -933,6 +934,7 @@ type SearchGroceryProductsOpts struct {
 	MaxProtein optional.Float32
 	MinFat optional.Float32
 	MaxFat optional.Float32
+	AddProductInformation optional.Bool
 	Offset optional.Int32
 	Number optional.Int32
 }
@@ -980,6 +982,9 @@ func (a *ProductsApiService) SearchGroceryProducts(ctx context.Context, localVar
 	}
 	if localVarOptionals != nil && localVarOptionals.MaxFat.IsSet() {
 		localVarQueryParams.Add("maxFat", parameterToString(localVarOptionals.MaxFat.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.AddProductInformation.IsSet() {
+		localVarQueryParams.Add("addProductInformation", parameterToString(localVarOptionals.AddProductInformation.Value(), ""))
 	}
 	if localVarOptionals != nil && localVarOptionals.Offset.IsSet() {
 		localVarQueryParams.Add("offset", parameterToString(localVarOptionals.Offset.Value(), ""))

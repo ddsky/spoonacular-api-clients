@@ -19,10 +19,10 @@ local function cast_inline_response_200_43(t)
 	return setmetatable(t, inline_response_200_43_mt)
 end
 
-local function new_inline_response_200_43(pairings, text)
+local function new_inline_response_200_43(username, hash)
 	return cast_inline_response_200_43({
-		["pairings"] = pairings;
-		["text"] = text;
+		["username"] = username;
+		["hash"] = hash;
 	})
 end
 

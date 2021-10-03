@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 ## get_dish_pairing_for_wine
 
-> InlineResponse20043 get_dish_pairing_for_wine(wine)
+> InlineResponse20044 get_dish_pairing_for_wine(wine)
 
 Dish Pairing for Wine
 
@@ -53,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20043**](InlineResponse20043.md)
+[**InlineResponse20044**](InlineResponse20044.md)
 
 ### Authorization
 
@@ -67,7 +67,7 @@ Name | Type | Description  | Notes
 
 ## get_wine_description
 
-> InlineResponse20045 get_wine_description(wine)
+> InlineResponse20046 get_wine_description(wine)
 
 Wine Description
 
@@ -107,7 +107,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20045**](InlineResponse20045.md)
+[**InlineResponse20046**](InlineResponse20046.md)
 
 ### Authorization
 
@@ -121,7 +121,7 @@ Name | Type | Description  | Notes
 
 ## get_wine_pairing
 
-> InlineResponse20044 get_wine_pairing(food, opts)
+> InlineResponse20045 get_wine_pairing(food, opts)
 
 Wine Pairing
 
@@ -165,7 +165,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20044**](InlineResponse20044.md)
+[**InlineResponse20045**](InlineResponse20045.md)
 
 ### Authorization
 
@@ -179,7 +179,7 @@ Name | Type | Description  | Notes
 
 ## get_wine_recommendation
 
-> InlineResponse20046 get_wine_recommendation(wine, opts)
+> InlineResponse20047 get_wine_recommendation(wine, opts)
 
 Wine Recommendation
 
@@ -227,7 +227,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20046**](InlineResponse20046.md)
+[**InlineResponse20047**](InlineResponse20047.md)
 
 ### Authorization
 

@@ -441,7 +441,7 @@ class ProductsApi {
   /// Search Grocery Products
   ///
   /// Search packaged food products, such as frozen pizza or Greek yogurt.
-  Future<InlineResponse20027> searchGroceryProducts({ String query, num minCalories, num maxCalories, num minCarbs, num maxCarbs, num minProtein, num maxProtein, num minFat, num maxFat, int offset, int number }) async {
+  Future<InlineResponse20027> searchGroceryProducts({ String query, num minCalories, num maxCalories, num minCarbs, num maxCarbs, num minProtein, num maxProtein, num minFat, num maxFat, bool addProductInformation, int offset, int number }) async {
     Object postBody;
 
     // verify required params are set
@@ -479,6 +479,9 @@ class ProductsApi {
     }
     if(maxFat != null) {
       queryParams.addAll(_convertParametersForCollectionFormat("", "maxFat", maxFat));
+    }
+    if(addProductInformation != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "addProductInformation", addProductInformation));
     }
     if(offset != null) {
       queryParams.addAll(_convertParametersForCollectionFormat("", "offset", offset));

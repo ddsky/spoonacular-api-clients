@@ -21,8 +21,6 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -43,19 +41,19 @@ public class InlineResponse20043Test {
     }
 
     /**
-     * Test the property 'pairings'
+     * Test the property 'username'
      */
     @Test
-    public void pairingsTest() {
-        // TODO: test pairings
+    public void usernameTest() {
+        // TODO: test username
     }
 
     /**
-     * Test the property 'text'
+     * Test the property 'hash'
      */
     @Test
-    public void textTest() {
-        // TODO: test text
+    public void hashTest() {
+        // TODO: test hash
     }
 
 }

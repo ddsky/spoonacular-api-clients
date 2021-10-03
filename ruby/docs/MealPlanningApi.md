@@ -4,12 +4,14 @@ All URIs are relative to *https://api.spoonacular.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**add_meal_plan_template**](MealPlanningApi.md#add_meal_plan_template) | **POST** /mealplanner/{username}/templates | Add Meal Plan Template
 [**add_to_meal_plan**](MealPlanningApi.md#add_to_meal_plan) | **POST** /mealplanner/{username}/items | Add to Meal Plan
 [**add_to_shopping_list**](MealPlanningApi.md#add_to_shopping_list) | **POST** /mealplanner/{username}/shopping-list/items | Add to Shopping List
 [**clear_meal_plan_day**](MealPlanningApi.md#clear_meal_plan_day) | **DELETE** /mealplanner/{username}/day/{date} | Clear Meal Plan Day
 [**connect_user**](MealPlanningApi.md#connect_user) | **POST** /users/connect | Connect User
 [**delete_from_meal_plan**](MealPlanningApi.md#delete_from_meal_plan) | **DELETE** /mealplanner/{username}/items/{id} | Delete from Meal Plan
 [**delete_from_shopping_list**](MealPlanningApi.md#delete_from_shopping_list) | **DELETE** /mealplanner/{username}/shopping-list/items/{id} | Delete from Shopping List
+[**delete_meal_plan_template**](MealPlanningApi.md#delete_meal_plan_template) | **DELETE** /mealplanner/{username}/templates/{id} | Delete Meal Plan Template
 [**generate_meal_plan**](MealPlanningApi.md#generate_meal_plan) | **GET** /mealplanner/generate | Generate Meal Plan
 [**generate_shopping_list**](MealPlanningApi.md#generate_shopping_list) | **POST** /mealplanner/{username}/shopping-list/{start-date}/{end-date} | Generate Shopping List
 [**get_meal_plan_template**](MealPlanningApi.md#get_meal_plan_template) | **GET** /mealplanner/{username}/templates/{id} | Get Meal Plan Template
@@ -17,6 +19,64 @@ Method | HTTP request | Description
 [**get_meal_plan_week**](MealPlanningApi.md#get_meal_plan_week) | **GET** /mealplanner/{username}/week/{start-date} | Get Meal Plan Week
 [**get_shopping_list**](MealPlanningApi.md#get_shopping_list) | **GET** /mealplanner/{username}/shopping-list | Get Shopping List
 
+
+
+## add_meal_plan_template
+
+> InlineResponse20040 add_meal_plan_template(username, hash, inline_object6)
+
+Add Meal Plan Template
+
+Add a meal plan template for a user.
+
+### Example
+
+```ruby
+# load the gem
+require 'openapi_client'
+# setup authorization
+OpenapiClient.configure do |config|
+  # Configure API key authorization: apiKeyScheme
+  config.api_key['apiKey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['apiKey'] = 'Bearer'
+end
+
+api_instance = OpenapiClient::MealPlanningApi.new
+username = 'dsky' # String | The username.
+hash = '4b5v4398573406' # String | The private hash for the username.
+inline_object6 = OpenapiClient::InlineObject6.new # InlineObject6 | 
+
+begin
+  #Add Meal Plan Template
+  result = api_instance.add_meal_plan_template(username, hash, inline_object6)
+  p result
+rescue OpenapiClient::ApiError => e
+  puts "Exception when calling MealPlanningApi->add_meal_plan_template: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **String**| The username. | 
+ **hash** | **String**| The private hash for the username. | 
+ **inline_object6** | [**InlineObject6**](InlineObject6.md)|  | 
+
+### Return type
+
+[**InlineResponse20040**](InlineResponse20040.md)
+
+### Authorization
+
+[apiKeyScheme](../README.md#apiKeyScheme)
+
+### HTTP request headers
+
+- **Content-Type**: 
+- **Accept**: application/json
 
 
 ## add_to_meal_plan
@@ -79,7 +139,7 @@ Name | Type | Description  | Notes
 
 ## add_to_shopping_list
 
-> InlineResponse20041 add_to_shopping_list(username, hash, inline_object7)
+> InlineResponse20042 add_to_shopping_list(username, hash, inline_object9)
 
 Add to Shopping List
 
@@ -101,11 +161,11 @@ end
 api_instance = OpenapiClient::MealPlanningApi.new
 username = 'dsky' # String | The username.
 hash = 'hash_example' # String | The private hash for the username.
-inline_object7 = OpenapiClient::InlineObject7.new # InlineObject7 | 
+inline_object9 = OpenapiClient::InlineObject9.new # InlineObject9 | 
 
 begin
   #Add to Shopping List
-  result = api_instance.add_to_shopping_list(username, hash, inline_object7)
+  result = api_instance.add_to_shopping_list(username, hash, inline_object9)
   p result
 rescue OpenapiClient::ApiError => e
   puts "Exception when calling MealPlanningApi->add_to_shopping_list: #{e}"
@@ -119,11 +179,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **username** | **String**| The username. | 
  **hash** | **String**| The private hash for the username. | 
- **inline_object7** | [**InlineObject7**](InlineObject7.md)|  | 
+ **inline_object9** | [**InlineObject9**](InlineObject9.md)|  | 
 
 ### Return type
 
-[**InlineResponse20041**](InlineResponse20041.md)
+[**InlineResponse20042**](InlineResponse20042.md)
 
 ### Authorization
 
@@ -197,7 +257,7 @@ Name | Type | Description  | Notes
 
 ## connect_user
 
-> InlineResponse20042 connect_user(body)
+> InlineResponse20043 connect_user(body)
 
 Connect User
 
@@ -237,7 +297,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20042**](InlineResponse20042.md)
+[**InlineResponse20043**](InlineResponse20043.md)
 
 ### Authorization
 
@@ -311,7 +371,7 @@ Name | Type | Description  | Notes
 
 ## delete_from_shopping_list
 
-> Object delete_from_shopping_list(username, id, hash, inline_object8)
+> Object delete_from_shopping_list(username, id, hash, inline_object10)
 
 Delete from Shopping List
 
@@ -334,11 +394,11 @@ api_instance = OpenapiClient::MealPlanningApi.new
 username = 'dsky' # String | The username.
 id = 1 # Integer | The item's id.
 hash = 'hash_example' # String | The private hash for the username.
-inline_object8 = OpenapiClient::InlineObject8.new # InlineObject8 | 
+inline_object10 = OpenapiClient::InlineObject10.new # InlineObject10 | 
 
 begin
   #Delete from Shopping List
-  result = api_instance.delete_from_shopping_list(username, id, hash, inline_object8)
+  result = api_instance.delete_from_shopping_list(username, id, hash, inline_object10)
   p result
 rescue OpenapiClient::ApiError => e
   puts "Exception when calling MealPlanningApi->delete_from_shopping_list: #{e}"
@@ -353,7 +413,67 @@ Name | Type | Description  | Notes
  **username** | **String**| The username. | 
  **id** | **Integer**| The item&#39;s id. | 
  **hash** | **String**| The private hash for the username. | 
- **inline_object8** | [**InlineObject8**](InlineObject8.md)|  | 
+ **inline_object10** | [**InlineObject10**](InlineObject10.md)|  | 
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[apiKeyScheme](../README.md#apiKeyScheme)
+
+### HTTP request headers
+
+- **Content-Type**: 
+- **Accept**: application/json
+
+
+## delete_meal_plan_template
+
+> Object delete_meal_plan_template(username, id, hash, inline_object7)
+
+Delete Meal Plan Template
+
+Delete a meal plan template for a user.
+
+### Example
+
+```ruby
+# load the gem
+require 'openapi_client'
+# setup authorization
+OpenapiClient.configure do |config|
+  # Configure API key authorization: apiKeyScheme
+  config.api_key['apiKey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['apiKey'] = 'Bearer'
+end
+
+api_instance = OpenapiClient::MealPlanningApi.new
+username = 'dsky' # String | The username.
+id = 1 # Integer | The item's id.
+hash = '4b5v4398573406' # String | The private hash for the username.
+inline_object7 = OpenapiClient::InlineObject7.new # InlineObject7 | 
+
+begin
+  #Delete Meal Plan Template
+  result = api_instance.delete_meal_plan_template(username, id, hash, inline_object7)
+  p result
+rescue OpenapiClient::ApiError => e
+  puts "Exception when calling MealPlanningApi->delete_meal_plan_template: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **String**| The username. | 
+ **id** | **Integer**| The item&#39;s id. | 
+ **hash** | **String**| The private hash for the username. | 
+ **inline_object7** | [**InlineObject7**](InlineObject7.md)|  | 
 
 ### Return type
 
@@ -433,7 +553,7 @@ Name | Type | Description  | Notes
 
 ## generate_shopping_list
 
-> InlineResponse20041 generate_shopping_list(username, start_date, end_date, hash, inline_object6)
+> InlineResponse20042 generate_shopping_list(username, start_date, end_date, hash, inline_object8)
 
 Generate Shopping List
 
@@ -457,11 +577,11 @@ username = 'dsky' # String | The username.
 start_date = '2020-06-01' # String | The start date in the format yyyy-mm-dd.
 end_date = '2020-06-07' # String | The end date in the format yyyy-mm-dd.
 hash = 'hash_example' # String | The private hash for the username.
-inline_object6 = OpenapiClient::InlineObject6.new # InlineObject6 | 
+inline_object8 = OpenapiClient::InlineObject8.new # InlineObject8 | 
 
 begin
   #Generate Shopping List
-  result = api_instance.generate_shopping_list(username, start_date, end_date, hash, inline_object6)
+  result = api_instance.generate_shopping_list(username, start_date, end_date, hash, inline_object8)
   p result
 rescue OpenapiClient::ApiError => e
   puts "Exception when calling MealPlanningApi->generate_shopping_list: #{e}"
@@ -477,11 +597,11 @@ Name | Type | Description  | Notes
  **start_date** | **String**| The start date in the format yyyy-mm-dd. | 
  **end_date** | **String**| The end date in the format yyyy-mm-dd. | 
  **hash** | **String**| The private hash for the username. | 
- **inline_object6** | [**InlineObject6**](InlineObject6.md)|  | 
+ **inline_object8** | [**InlineObject8**](InlineObject8.md)|  | 
 
 ### Return type
 
-[**InlineResponse20041**](InlineResponse20041.md)
+[**InlineResponse20042**](InlineResponse20042.md)
 
 ### Authorization
 
@@ -495,7 +615,7 @@ Name | Type | Description  | Notes
 
 ## get_meal_plan_template
 
-> InlineResponse20040 get_meal_plan_template(username, id, hash)
+> InlineResponse20041 get_meal_plan_template(username, id, hash)
 
 Get Meal Plan Template
 
@@ -539,7 +659,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20040**](InlineResponse20040.md)
+[**InlineResponse20041**](InlineResponse20041.md)
 
 ### Authorization
 
@@ -667,7 +787,7 @@ Name | Type | Description  | Notes
 
 ## get_shopping_list
 
-> InlineResponse20041 get_shopping_list(username, hash)
+> InlineResponse20042 get_shopping_list(username, hash)
 
 Get Shopping List
 
@@ -709,7 +829,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20041**](InlineResponse20041.md)
+[**InlineResponse20042**](InlineResponse20042.md)
 
 ### Authorization
 

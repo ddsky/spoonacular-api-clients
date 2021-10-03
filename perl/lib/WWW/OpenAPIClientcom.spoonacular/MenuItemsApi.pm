@@ -483,6 +483,7 @@ sub menu_item_nutrition_label_widget {
 # @param double $max_protein The maximum amount of protein in grams the menu item can have. (optional)
 # @param double $min_fat The minimum amount of fat in grams the menu item must have. (optional)
 # @param double $max_fat The maximum amount of fat in grams the menu item can have. (optional)
+# @param boolean $add_menu_item_information If set to true, you get more information about the menu items returned. (optional)
 # @param int $offset The number of results to skip (between 0 and 900). (optional)
 # @param int $number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
 {
@@ -530,6 +531,11 @@ sub menu_item_nutrition_label_widget {
     'max_fat' => {
         data_type => 'double',
         description => 'The maximum amount of fat in grams the menu item can have.',
+        required => '0',
+    },
+    'add_menu_item_information' => {
+        data_type => 'boolean',
+        description => 'If set to true, you get more information about the menu items returned.',
         required => '0',
     },
     'offset' => {
@@ -612,6 +618,11 @@ sub search_menu_items {
     # query params
     if ( exists $args{'max_fat'}) {
         $query_params->{'maxFat'} = $self->{api_client}->to_query_value($args{'max_fat'});
+    }
+
+    # query params
+    if ( exists $args{'add_menu_item_information'}) {
+        $query_params->{'addMenuItemInformation'} = $self->{api_client}->to_query_value($args{'add_menu_item_information'});
     }
 
     # query params

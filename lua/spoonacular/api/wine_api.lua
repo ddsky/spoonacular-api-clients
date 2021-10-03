@@ -16,10 +16,10 @@ local dkjson = require "dkjson"
 local basexx = require "basexx"
 
 -- model import
-local spoonacular_inline_response_200_43 = require "spoonacular.model.inline_response_200_43"
 local spoonacular_inline_response_200_44 = require "spoonacular.model.inline_response_200_44"
 local spoonacular_inline_response_200_45 = require "spoonacular.model.inline_response_200_45"
 local spoonacular_inline_response_200_46 = require "spoonacular.model.inline_response_200_46"
+local spoonacular_inline_response_200_47 = require "spoonacular.model.inline_response_200_47"
 
 local wine_api = {}
 local wine_api_mt = {
@@ -82,7 +82,7 @@ function wine_api:get_dish_pairing_for_wine(wine)
 		if result == nil then
 			return nil, err3
 		end
-		return spoonacular_inline_response_200_43.cast(result), headers
+		return spoonacular_inline_response_200_44.cast(result), headers
 	else
 		local body, err, errno2 = stream:get_body_as_string()
 		if not body then
@@ -129,7 +129,7 @@ function wine_api:get_wine_description(wine)
 		if result == nil then
 			return nil, err3
 		end
-		return spoonacular_inline_response_200_45.cast(result), headers
+		return spoonacular_inline_response_200_46.cast(result), headers
 	else
 		local body, err, errno2 = stream:get_body_as_string()
 		if not body then
@@ -176,7 +176,7 @@ function wine_api:get_wine_pairing(food, max_price)
 		if result == nil then
 			return nil, err3
 		end
-		return spoonacular_inline_response_200_44.cast(result), headers
+		return spoonacular_inline_response_200_45.cast(result), headers
 	else
 		local body, err, errno2 = stream:get_body_as_string()
 		if not body then
@@ -223,7 +223,7 @@ function wine_api:get_wine_recommendation(wine, max_price, min_rating, Number_)
 		if result == nil then
 			return nil, err3
 		end
-		return spoonacular_inline_response_200_46.cast(result), headers
+		return spoonacular_inline_response_200_47.cast(result), headers
 	else
 		local body, err, errno2 = stream:get_body_as_string()
 		if not body then

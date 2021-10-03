@@ -5,21 +5,18 @@ import io.finch.circe._
 import io.circe.generic.semiauto._
 import io.circe.java8.time._
 import spoonacular._
-import com.spoonacular.client.model.InlineResponse20041Aisles
-import java.math.BigDecimal
+import com.spoonacular.client.model.InlineResponse20041Days
 import scala.collection.immutable.Seq
 
 /**
  * 
- * @param aisles 
- * @param cost 
- * @param startDate 
- * @param endDate 
+ * @param id 
+ * @param name 
+ * @param days 
  */
-case class InlineResponse20041(aisles: Seq[InlineResponse20041Aisles],
-                cost: BigDecimal,
-                startDate: BigDecimal,
-                endDate: BigDecimal
+case class InlineResponse20041(id: Int,
+                name: String,
+                days: Seq[InlineResponse20041Days]
                 )
 
 object InlineResponse20041 {

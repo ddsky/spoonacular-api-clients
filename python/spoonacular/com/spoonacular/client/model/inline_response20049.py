@@ -32,74 +32,97 @@ class InlineResponse20049(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'answer': 'str',
-        'image': 'str'
+        'nutrition': 'InlineResponse20049Nutrition',
+        'category': 'InlineResponse20049Category',
+        'recipes': 'list[InlineResponse20049Recipes]'
     }
 
     attribute_map = {
-        'answer': 'answer',
-        'image': 'image'
+        'nutrition': 'nutrition',
+        'category': 'category',
+        'recipes': 'recipes'
     }
 
-    def __init__(self, answer=None, image=None):  # noqa: E501
+    def __init__(self, nutrition=None, category=None, recipes=None):  # noqa: E501
         """InlineResponse20049 - a model defined in OpenAPI"""  # noqa: E501
 
-        self._answer = None
-        self._image = None
+        self._nutrition = None
+        self._category = None
+        self._recipes = None
         self.discriminator = None
 
-        self.answer = answer
-        self.image = image
+        self.nutrition = nutrition
+        self.category = category
+        self.recipes = recipes
 
     @property
-    def answer(self):
-        """Gets the answer of this InlineResponse20049.  # noqa: E501
+    def nutrition(self):
+        """Gets the nutrition of this InlineResponse20049.  # noqa: E501
 
 
-        :return: The answer of this InlineResponse20049.  # noqa: E501
-        :rtype: str
+        :return: The nutrition of this InlineResponse20049.  # noqa: E501
+        :rtype: InlineResponse20049Nutrition
         """
-        return self._answer
+        return self._nutrition
 
-    @answer.setter
-    def answer(self, answer):
-        """Sets the answer of this InlineResponse20049.
+    @nutrition.setter
+    def nutrition(self, nutrition):
+        """Sets the nutrition of this InlineResponse20049.
 
 
-        :param answer: The answer of this InlineResponse20049.  # noqa: E501
-        :type: str
+        :param nutrition: The nutrition of this InlineResponse20049.  # noqa: E501
+        :type: InlineResponse20049Nutrition
         """
-        if answer is None:
-            raise ValueError("Invalid value for `answer`, must not be `None`")  # noqa: E501
-        if answer is not None and len(answer) < 1:
-            raise ValueError("Invalid value for `answer`, length must be greater than or equal to `1`")  # noqa: E501
+        if nutrition is None:
+            raise ValueError("Invalid value for `nutrition`, must not be `None`")  # noqa: E501
 
-        self._answer = answer
+        self._nutrition = nutrition
 
     @property
-    def image(self):
-        """Gets the image of this InlineResponse20049.  # noqa: E501
+    def category(self):
+        """Gets the category of this InlineResponse20049.  # noqa: E501
 
 
-        :return: The image of this InlineResponse20049.  # noqa: E501
-        :rtype: str
+        :return: The category of this InlineResponse20049.  # noqa: E501
+        :rtype: InlineResponse20049Category
         """
-        return self._image
+        return self._category
 
-    @image.setter
-    def image(self, image):
-        """Sets the image of this InlineResponse20049.
+    @category.setter
+    def category(self, category):
+        """Sets the category of this InlineResponse20049.
 
 
-        :param image: The image of this InlineResponse20049.  # noqa: E501
-        :type: str
+        :param category: The category of this InlineResponse20049.  # noqa: E501
+        :type: InlineResponse20049Category
         """
-        if image is None:
-            raise ValueError("Invalid value for `image`, must not be `None`")  # noqa: E501
-        if image is not None and len(image) < 1:
-            raise ValueError("Invalid value for `image`, length must be greater than or equal to `1`")  # noqa: E501
+        if category is None:
+            raise ValueError("Invalid value for `category`, must not be `None`")  # noqa: E501
 
-        self._image = image
+        self._category = category
+
+    @property
+    def recipes(self):
+        """Gets the recipes of this InlineResponse20049.  # noqa: E501
+
+
+        :return: The recipes of this InlineResponse20049.  # noqa: E501
+        :rtype: list[InlineResponse20049Recipes]
+        """
+        return self._recipes
+
+    @recipes.setter
+    def recipes(self, recipes):
+        """Sets the recipes of this InlineResponse20049.
+
+
+        :param recipes: The recipes of this InlineResponse20049.  # noqa: E501
+        :type: list[InlineResponse20049Recipes]
+        """
+        if recipes is None:
+            raise ValueError("Invalid value for `recipes`, must not be `None`")  # noqa: E501
+
+        self._recipes = recipes
 
     def to_dict(self):
         """Returns the model properties as a dict"""

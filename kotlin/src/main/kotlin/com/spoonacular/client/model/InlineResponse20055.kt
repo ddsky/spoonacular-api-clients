@@ -15,14 +15,11 @@ package com.spoonacular.client.model
 import com.squareup.moshi.Json
 /**
  * 
- * @param answerText 
- * @param media 
+ * @param text 
  */
 data class InlineResponse20055 (
-    @Json(name = "answerText")
-    val answerText: kotlin.String,
-    @Json(name = "media")
-    val media: kotlin.Array<kotlin.Any>
+    @Json(name = "text")
+    val text: kotlin.String
 ) {
 
 }

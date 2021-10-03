@@ -5,12 +5,16 @@ import io.finch.circe._
 import io.circe.generic.semiauto._
 import io.circe.java8.time._
 import spoonacular._
+import com.spoonacular.client.model.InlineResponse20054Videos
+import scala.collection.immutable.Seq
 
 /**
  * 
- * @param text 
+ * @param videos 
+ * @param totalResults 
  */
-case class InlineResponse20054(text: String
+case class InlineResponse20054(videos: Seq[InlineResponse20054Videos],
+                totalResults: Int
                 )
 
 object InlineResponse20054 {

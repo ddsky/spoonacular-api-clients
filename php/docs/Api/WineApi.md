@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 ## getDishPairingForWine
 
-> \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20043 getDishPairingForWine($wine)
+> \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20044 getDishPairingForWine($wine)
 
 Dish Pairing for Wine
 
@@ -58,7 +58,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20043**](../Model/InlineResponse20043.md)
+[**\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20044**](../Model/InlineResponse20044.md)
 
 ### Authorization
 
@@ -76,7 +76,7 @@ Name | Type | Description  | Notes
 
 ## getWineDescription
 
-> \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20045 getWineDescription($wine)
+> \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20046 getWineDescription($wine)
 
 Wine Description
 
@@ -121,7 +121,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20045**](../Model/InlineResponse20045.md)
+[**\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20046**](../Model/InlineResponse20046.md)
 
 ### Authorization
 
@@ -139,7 +139,7 @@ Name | Type | Description  | Notes
 
 ## getWinePairing
 
-> \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20044 getWinePairing($food, $max_price)
+> \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20045 getWinePairing($food, $max_price)
 
 Wine Pairing
 
@@ -186,7 +186,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20044**](../Model/InlineResponse20044.md)
+[**\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20045**](../Model/InlineResponse20045.md)
 
 ### Authorization
 
@@ -204,7 +204,7 @@ Name | Type | Description  | Notes
 
 ## getWineRecommendation
 
-> \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20046 getWineRecommendation($wine, $max_price, $min_rating, $number)
+> \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20047 getWineRecommendation($wine, $max_price, $min_rating, $number)
 
 Wine Recommendation
 
@@ -255,7 +255,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20046**](../Model/InlineResponse20046.md)
+[**\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20047**](../Model/InlineResponse20047.md)
 
 ### Authorization
 

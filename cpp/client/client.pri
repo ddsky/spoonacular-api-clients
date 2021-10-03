@@ -5,6 +5,7 @@ HEADERS += \
     $${PWD}/OAIInlineObject.h \
     $${PWD}/OAIInline_object.h \
     $${PWD}/OAIInline_object_1.h \
+    $${PWD}/OAIInline_object_10.h \
     $${PWD}/OAIInline_object_2.h \
     $${PWD}/OAIInline_object_3.h \
     $${PWD}/OAIInline_object_4.h \
@@ -12,6 +13,7 @@ HEADERS += \
     $${PWD}/OAIInline_object_6.h \
     $${PWD}/OAIInline_object_7.h \
     $${PWD}/OAIInline_object_8.h \
+    $${PWD}/OAIInline_object_9.h \
     $${PWD}/OAIInline_response_200.h \
     $${PWD}/OAIInline_response_200_1.h \
     $${PWD}/OAIInline_response_200_10.h \
@@ -83,40 +85,43 @@ HEADERS += \
     $${PWD}/OAIInline_response_200_3_winePairing_productMatches.h \
     $${PWD}/OAIInline_response_200_4.h \
     $${PWD}/OAIInline_response_200_40.h \
-    $${PWD}/OAIInline_response_200_40_days.h \
     $${PWD}/OAIInline_response_200_40_items.h \
     $${PWD}/OAIInline_response_200_40_value.h \
     $${PWD}/OAIInline_response_200_41.h \
-    $${PWD}/OAIInline_response_200_41_aisles.h \
+    $${PWD}/OAIInline_response_200_41_days.h \
     $${PWD}/OAIInline_response_200_41_items.h \
-    $${PWD}/OAIInline_response_200_41_measures.h \
+    $${PWD}/OAIInline_response_200_41_value.h \
     $${PWD}/OAIInline_response_200_42.h \
+    $${PWD}/OAIInline_response_200_42_aisles.h \
+    $${PWD}/OAIInline_response_200_42_items.h \
+    $${PWD}/OAIInline_response_200_42_measures.h \
     $${PWD}/OAIInline_response_200_43.h \
     $${PWD}/OAIInline_response_200_44.h \
-    $${PWD}/OAIInline_response_200_44_productMatches.h \
     $${PWD}/OAIInline_response_200_45.h \
+    $${PWD}/OAIInline_response_200_45_productMatches.h \
     $${PWD}/OAIInline_response_200_46.h \
-    $${PWD}/OAIInline_response_200_46_recommendedWines.h \
     $${PWD}/OAIInline_response_200_47.h \
+    $${PWD}/OAIInline_response_200_47_recommendedWines.h \
     $${PWD}/OAIInline_response_200_48.h \
-    $${PWD}/OAIInline_response_200_48_category.h \
-    $${PWD}/OAIInline_response_200_48_nutrition.h \
-    $${PWD}/OAIInline_response_200_48_nutrition_calories.h \
-    $${PWD}/OAIInline_response_200_48_nutrition_calories_confidenceRange95Percent.h \
-    $${PWD}/OAIInline_response_200_48_recipes.h \
     $${PWD}/OAIInline_response_200_49.h \
+    $${PWD}/OAIInline_response_200_49_category.h \
+    $${PWD}/OAIInline_response_200_49_nutrition.h \
+    $${PWD}/OAIInline_response_200_49_nutrition_calories.h \
+    $${PWD}/OAIInline_response_200_49_nutrition_calories_confidenceRange95Percent.h \
+    $${PWD}/OAIInline_response_200_49_recipes.h \
     $${PWD}/OAIInline_response_200_5.h \
     $${PWD}/OAIInline_response_200_50.h \
     $${PWD}/OAIInline_response_200_51.h \
     $${PWD}/OAIInline_response_200_52.h \
-    $${PWD}/OAIInline_response_200_52_results.h \
-    $${PWD}/OAIInline_response_200_52_searchResults.h \
     $${PWD}/OAIInline_response_200_53.h \
-    $${PWD}/OAIInline_response_200_53_videos.h \
+    $${PWD}/OAIInline_response_200_53_results.h \
+    $${PWD}/OAIInline_response_200_53_searchResults.h \
     $${PWD}/OAIInline_response_200_54.h \
+    $${PWD}/OAIInline_response_200_54_videos.h \
     $${PWD}/OAIInline_response_200_55.h \
     $${PWD}/OAIInline_response_200_56.h \
-    $${PWD}/OAIInline_response_200_56_suggests.h \
+    $${PWD}/OAIInline_response_200_57.h \
+    $${PWD}/OAIInline_response_200_57_suggests.h \
     $${PWD}/OAIInline_response_200_6.h \
     $${PWD}/OAIInline_response_200_6_recipes.h \
     $${PWD}/OAIInline_response_200_7.h \
@@ -150,6 +155,7 @@ SOURCES += \
     $${PWD}/OAIInlineObject.cpp \
     $${PWD}/OAIInline_object.cpp \
     $${PWD}/OAIInline_object_1.cpp \
+    $${PWD}/OAIInline_object_10.cpp \
     $${PWD}/OAIInline_object_2.cpp \
     $${PWD}/OAIInline_object_3.cpp \
     $${PWD}/OAIInline_object_4.cpp \
@@ -157,6 +163,7 @@ SOURCES += \
     $${PWD}/OAIInline_object_6.cpp \
     $${PWD}/OAIInline_object_7.cpp \
     $${PWD}/OAIInline_object_8.cpp \
+    $${PWD}/OAIInline_object_9.cpp \
     $${PWD}/OAIInline_response_200.cpp \
     $${PWD}/OAIInline_response_200_1.cpp \
     $${PWD}/OAIInline_response_200_10.cpp \
@@ -228,40 +235,43 @@ SOURCES += \
     $${PWD}/OAIInline_response_200_3_winePairing_productMatches.cpp \
     $${PWD}/OAIInline_response_200_4.cpp \
     $${PWD}/OAIInline_response_200_40.cpp \
-    $${PWD}/OAIInline_response_200_40_days.cpp \
     $${PWD}/OAIInline_response_200_40_items.cpp \
     $${PWD}/OAIInline_response_200_40_value.cpp \
     $${PWD}/OAIInline_response_200_41.cpp \
-    $${PWD}/OAIInline_response_200_41_aisles.cpp \
+    $${PWD}/OAIInline_response_200_41_days.cpp \
     $${PWD}/OAIInline_response_200_41_items.cpp \
-    $${PWD}/OAIInline_response_200_41_measures.cpp \
+    $${PWD}/OAIInline_response_200_41_value.cpp \
     $${PWD}/OAIInline_response_200_42.cpp \
+    $${PWD}/OAIInline_response_200_42_aisles.cpp \
+    $${PWD}/OAIInline_response_200_42_items.cpp \
+    $${PWD}/OAIInline_response_200_42_measures.cpp \
     $${PWD}/OAIInline_response_200_43.cpp \
     $${PWD}/OAIInline_response_200_44.cpp \
-    $${PWD}/OAIInline_response_200_44_productMatches.cpp \
     $${PWD}/OAIInline_response_200_45.cpp \
+    $${PWD}/OAIInline_response_200_45_productMatches.cpp \
     $${PWD}/OAIInline_response_200_46.cpp \
-    $${PWD}/OAIInline_response_200_46_recommendedWines.cpp \
     $${PWD}/OAIInline_response_200_47.cpp \
+    $${PWD}/OAIInline_response_200_47_recommendedWines.cpp \
     $${PWD}/OAIInline_response_200_48.cpp \
-    $${PWD}/OAIInline_response_200_48_category.cpp \
-    $${PWD}/OAIInline_response_200_48_nutrition.cpp \
-    $${PWD}/OAIInline_response_200_48_nutrition_calories.cpp \
-    $${PWD}/OAIInline_response_200_48_nutrition_calories_confidenceRange95Percent.cpp \
-    $${PWD}/OAIInline_response_200_48_recipes.cpp \
     $${PWD}/OAIInline_response_200_49.cpp \
+    $${PWD}/OAIInline_response_200_49_category.cpp \
+    $${PWD}/OAIInline_response_200_49_nutrition.cpp \
+    $${PWD}/OAIInline_response_200_49_nutrition_calories.cpp \
+    $${PWD}/OAIInline_response_200_49_nutrition_calories_confidenceRange95Percent.cpp \
+    $${PWD}/OAIInline_response_200_49_recipes.cpp \
     $${PWD}/OAIInline_response_200_5.cpp \
     $${PWD}/OAIInline_response_200_50.cpp \
     $${PWD}/OAIInline_response_200_51.cpp \
     $${PWD}/OAIInline_response_200_52.cpp \
-    $${PWD}/OAIInline_response_200_52_results.cpp \
-    $${PWD}/OAIInline_response_200_52_searchResults.cpp \
     $${PWD}/OAIInline_response_200_53.cpp \
-    $${PWD}/OAIInline_response_200_53_videos.cpp \
+    $${PWD}/OAIInline_response_200_53_results.cpp \
+    $${PWD}/OAIInline_response_200_53_searchResults.cpp \
     $${PWD}/OAIInline_response_200_54.cpp \
+    $${PWD}/OAIInline_response_200_54_videos.cpp \
     $${PWD}/OAIInline_response_200_55.cpp \
     $${PWD}/OAIInline_response_200_56.cpp \
-    $${PWD}/OAIInline_response_200_56_suggests.cpp \
+    $${PWD}/OAIInline_response_200_57.cpp \
+    $${PWD}/OAIInline_response_200_57_suggests.cpp \
     $${PWD}/OAIInline_response_200_6.cpp \
     $${PWD}/OAIInline_response_200_6_recipes.cpp \
     $${PWD}/OAIInline_response_200_7.cpp \

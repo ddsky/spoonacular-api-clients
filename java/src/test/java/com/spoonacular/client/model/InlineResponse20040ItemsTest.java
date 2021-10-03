@@ -42,11 +42,11 @@ public class InlineResponse20040ItemsTest {
     }
 
     /**
-     * Test the property 'id'
+     * Test the property 'day'
      */
     @Test
-    public void idTest() {
-        // TODO: test id
+    public void dayTest() {
+        // TODO: test day
     }
 
     /**

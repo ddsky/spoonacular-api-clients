@@ -30,7 +30,6 @@ use Log::Any qw($log);
 use Date::Parse;
 use DateTime;
 
-use WWW::OpenAPIClient::Object::InlineResponse20052SearchResults;
 
 use base ("Class::Accessor", "Class::Data::Inheritable");
 
@@ -162,37 +161,30 @@ __PACKAGE__->class_documentation({description => '',
 }                                 );
 
 __PACKAGE__->method_documentation({
-    'query' => {
-        datatype => 'string',
-        base_name => 'query',
+    'articles' => {
+        datatype => 'ARRAY[object]',
+        base_name => 'Articles',
         description => '',
         format => '',
         read_only => '',
             },
-    'total_results' => {
-        datatype => 'int',
-        base_name => 'totalResults',
+    'grocery_products' => {
+        datatype => 'ARRAY[object]',
+        base_name => 'Grocery Products',
         description => '',
         format => '',
         read_only => '',
             },
-    'limit' => {
-        datatype => 'int',
-        base_name => 'limit',
+    'menu_items' => {
+        datatype => 'ARRAY[object]',
+        base_name => 'Menu Items',
         description => '',
         format => '',
         read_only => '',
             },
-    'offset' => {
-        datatype => 'int',
-        base_name => 'offset',
-        description => '',
-        format => '',
-        read_only => '',
-            },
-    'search_results' => {
-        datatype => 'ARRAY[InlineResponse20052SearchResults]',
-        base_name => 'searchResults',
+    'recipes' => {
+        datatype => 'ARRAY[object]',
+        base_name => 'Recipes',
         description => '',
         format => '',
         read_only => '',
@@ -200,19 +192,17 @@ __PACKAGE__->method_documentation({
 });
 
 __PACKAGE__->openapi_types( {
-    'query' => 'string',
-    'total_results' => 'int',
-    'limit' => 'int',
-    'offset' => 'int',
-    'search_results' => 'ARRAY[InlineResponse20052SearchResults]'
+    'articles' => 'ARRAY[object]',
+    'grocery_products' => 'ARRAY[object]',
+    'menu_items' => 'ARRAY[object]',
+    'recipes' => 'ARRAY[object]'
 } );
 
 __PACKAGE__->attribute_map( {
-    'query' => 'query',
-    'total_results' => 'totalResults',
-    'limit' => 'limit',
-    'offset' => 'offset',
-    'search_results' => 'searchResults'
+    'articles' => 'Articles',
+    'grocery_products' => 'Grocery Products',
+    'menu_items' => 'Menu Items',
+    'recipes' => 'Recipes'
 } );
 
 __PACKAGE__->mk_accessors(keys %{__PACKAGE__->attribute_map});

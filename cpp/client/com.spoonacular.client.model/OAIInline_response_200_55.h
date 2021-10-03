@@ -22,8 +22,6 @@
 #include <QJsonObject>
 
 
-#include "com.spoonacular.client.model\OAIObject.h"
-#include <QList>
 #include <QString>
 
 #include "OAIObject.h"
@@ -43,12 +41,8 @@ public:
     void fromJson(QString jsonString) override;
 
     
-    QString getAnswerText() const;
-    void setAnswerText(const QString &answer_text);
-
-    
-    QList<OAIObject> getMedia() const;
-    void setMedia(const QList<OAIObject> &media);
+    QString getText() const;
+    void setText(const QString &text);
 
     
     
@@ -58,13 +52,9 @@ public:
 private:
     void init();
     
-    QString answer_text;
-    bool m_answer_text_isSet;
-    bool m_answer_text_isValid;
-    
-    QList<OAIObject> media;
-    bool m_media_isSet;
-    bool m_media_isValid;
+    QString text;
+    bool m_text_isSet;
+    bool m_text_isValid;
     
     };
 

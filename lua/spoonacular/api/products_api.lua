@@ -443,13 +443,13 @@ function products_api:product_nutrition_label_widget(id, default_css, show_optio
 	end
 end
 
-function products_api:search_grocery_products(query, min_calories, max_calories, min_carbs, max_carbs, min_protein, max_protein, min_fat, max_fat, offset, Number_)
+function products_api:search_grocery_products(query, min_calories, max_calories, min_carbs, max_carbs, min_protein, max_protein, min_fat, max_fat, add_product_information, offset, Number_)
 	local req = http_request.new_from_uri({
 		scheme = self.default_scheme;
 		host = self.host;
 		port = self.port;
-		path = string.format("%s/food/products/search?query=%s&minCalories=%s&maxCalories=%s&minCarbs=%s&maxCarbs=%s&minProtein=%s&maxProtein=%s&minFat=%s&maxFat=%s&offset=%s&number=%s",
-			self.basePath, http_util.encodeURIComponent(query), http_util.encodeURIComponent(min_calories), http_util.encodeURIComponent(max_calories), http_util.encodeURIComponent(min_carbs), http_util.encodeURIComponent(max_carbs), http_util.encodeURIComponent(min_protein), http_util.encodeURIComponent(max_protein), http_util.encodeURIComponent(min_fat), http_util.encodeURIComponent(max_fat), http_util.encodeURIComponent(offset), http_util.encodeURIComponent(Number_));
+		path = string.format("%s/food/products/search?query=%s&minCalories=%s&maxCalories=%s&minCarbs=%s&maxCarbs=%s&minProtein=%s&maxProtein=%s&minFat=%s&maxFat=%s&addProductInformation=%s&offset=%s&number=%s",
+			self.basePath, http_util.encodeURIComponent(query), http_util.encodeURIComponent(min_calories), http_util.encodeURIComponent(max_calories), http_util.encodeURIComponent(min_carbs), http_util.encodeURIComponent(max_carbs), http_util.encodeURIComponent(min_protein), http_util.encodeURIComponent(max_protein), http_util.encodeURIComponent(min_fat), http_util.encodeURIComponent(max_fat), http_util.encodeURIComponent(add_product_information), http_util.encodeURIComponent(offset), http_util.encodeURIComponent(Number_));
 	})
 
 	-- set HTTP verb

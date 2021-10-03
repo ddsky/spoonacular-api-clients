@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **kotlin.Int** |  | 
+**day** | **kotlin.Int** |  | 
 **slot** | **kotlin.Int** |  | 
 **position** | **kotlin.Int** |  | 
 **type** | **kotlin.String** |  | 

@@ -16,15 +16,8 @@ Please update as you see appropriate
 describe("inline_response_200_46", function()
   local spoonacular_inline_response_200_46 = require "spoonacular.model.inline_response_200_46"
 
-  -- unit tests for the property 'recommended_wines'
-  describe("property recommended_wines test", function()
-    it("should work", function()
-      -- TODO assertion here: http://olivinelabs.com/busted/#asserts
-    end)
-  end)
-
-  -- unit tests for the property 'total_found'
-  describe("property total_found test", function()
+  -- unit tests for the property 'wine_description'
+  describe("property wine_description test", function()
     it("should work", function()
       -- TODO assertion here: http://olivinelabs.com/busted/#asserts
     end)

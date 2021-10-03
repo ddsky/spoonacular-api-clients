@@ -13,13 +13,6 @@ namespace spoonacular.Model {
   [DataContract]
   public class InlineResponse20040 {
     /// <summary>
-    /// Gets or Sets Id
-    /// </summary>
-    [DataMember(Name="id", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "id")]
-    public int? Id { get; set; }
-
-    /// <summary>
     /// Gets or Sets Name
     /// </summary>
     [DataMember(Name="name", EmitDefaultValue=false)]
@@ -27,11 +20,18 @@ namespace spoonacular.Model {
     public string Name { get; set; }
 
     /// <summary>
-    /// Gets or Sets Days
+    /// Gets or Sets Items
     /// </summary>
-    [DataMember(Name="days", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "days")]
-    public List<InlineResponse20040Days> Days { get; set; }
+    [DataMember(Name="items", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "items")]
+    public List<InlineResponse20040Items> Items { get; set; }
+
+    /// <summary>
+    /// Gets or Sets PublishAsPublic
+    /// </summary>
+    [DataMember(Name="publishAsPublic", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "publishAsPublic")]
+    public bool? PublishAsPublic { get; set; }
 
 
     /// <summary>
@@ -41,9 +41,9 @@ namespace spoonacular.Model {
     public override string ToString()  {
       var sb = new StringBuilder();
       sb.Append("class InlineResponse20040 {\n");
-      sb.Append("  Id: ").Append(Id).Append("\n");
       sb.Append("  Name: ").Append(Name).Append("\n");
-      sb.Append("  Days: ").Append(Days).Append("\n");
+      sb.Append("  Items: ").Append(Items).Append("\n");
+      sb.Append("  PublishAsPublic: ").Append(PublishAsPublic).Append("\n");
       sb.Append("}\n");
       return sb.ToString();
     }

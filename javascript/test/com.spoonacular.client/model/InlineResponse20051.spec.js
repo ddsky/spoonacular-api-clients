@@ -54,26 +54,8 @@
       //expect(instance).to.be.a(SpoonacularApi.InlineResponse20051);
     });
 
-    it('should have the property articles (base name: "Articles")', function() {
-      // uncomment below and update the code to test the property articles
-      //var instane = new SpoonacularApi.InlineResponse20051();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property groceryProducts (base name: "Grocery Products")', function() {
-      // uncomment below and update the code to test the property groceryProducts
-      //var instane = new SpoonacularApi.InlineResponse20051();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property menuItems (base name: "Menu Items")', function() {
-      // uncomment below and update the code to test the property menuItems
-      //var instane = new SpoonacularApi.InlineResponse20051();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property recipes (base name: "Recipes")', function() {
-      // uncomment below and update the code to test the property recipes
+    it('should have the property annotations (base name: "annotations")', function() {
+      // uncomment below and update the code to test the property annotations
       //var instane = new SpoonacularApi.InlineResponse20051();
       //expect(instance).to.be();
     });

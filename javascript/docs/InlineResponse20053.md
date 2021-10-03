@@ -4,7 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**videos** | [**[InlineResponse20053Videos]**](InlineResponse20053Videos.md) |  | 
+**query** | **String** |  | 
 **totalResults** | **Number** |  | 
+**limit** | **Number** |  | 
+**offset** | **Number** |  | 
+**searchResults** | [**[InlineResponse20053SearchResults]**](InlineResponse20053SearchResults.md) |  | 
 
 

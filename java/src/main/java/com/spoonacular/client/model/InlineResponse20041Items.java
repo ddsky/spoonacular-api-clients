@@ -20,44 +20,35 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.spoonacular.client.model.InlineResponse20041Measures;
+import com.spoonacular.client.model.InlineResponse20041Value;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.math.BigDecimal;
 
 /**
  * InlineResponse20041Items
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-09-28T20:40:32.759+02:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-03T15:10:59.332+02:00[Europe/Berlin]")
 public class InlineResponse20041Items {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private Integer id;
 
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
-  private String name;
+  public static final String SERIALIZED_NAME_SLOT = "slot";
+  @SerializedName(SERIALIZED_NAME_SLOT)
+  private Integer slot;
 
-  public static final String SERIALIZED_NAME_MEASURES = "measures";
-  @SerializedName(SERIALIZED_NAME_MEASURES)
-  private InlineResponse20041Measures measures = null;
+  public static final String SERIALIZED_NAME_POSITION = "position";
+  @SerializedName(SERIALIZED_NAME_POSITION)
+  private Integer position;
 
-  public static final String SERIALIZED_NAME_PANTRY_ITEM = "pantryItem";
-  @SerializedName(SERIALIZED_NAME_PANTRY_ITEM)
-  private Boolean pantryItem;
+  public static final String SERIALIZED_NAME_TYPE = "type";
+  @SerializedName(SERIALIZED_NAME_TYPE)
+  private String type;
 
-  public static final String SERIALIZED_NAME_AISLE = "aisle";
-  @SerializedName(SERIALIZED_NAME_AISLE)
-  private String aisle;
-
-  public static final String SERIALIZED_NAME_COST = "cost";
-  @SerializedName(SERIALIZED_NAME_COST)
-  private BigDecimal cost;
-
-  public static final String SERIALIZED_NAME_INGREDIENT_ID = "ingredientId";
-  @SerializedName(SERIALIZED_NAME_INGREDIENT_ID)
-  private Integer ingredientId;
+  public static final String SERIALIZED_NAME_VALUE = "value";
+  @SerializedName(SERIALIZED_NAME_VALUE)
+  private InlineResponse20041Value value = null;
 
   public InlineResponse20041Items id(Integer id) {
     this.id = id;
@@ -77,112 +68,76 @@ public class InlineResponse20041Items {
     this.id = id;
   }
 
-  public InlineResponse20041Items name(String name) {
-    this.name = name;
+  public InlineResponse20041Items slot(Integer slot) {
+    this.slot = slot;
     return this;
   }
 
    /**
-   * Get name
-   * @return name
+   * Get slot
+   * @return slot
   **/
   @ApiModelProperty(required = true, value = "")
-  public String getName() {
-    return name;
+  public Integer getSlot() {
+    return slot;
   }
 
-  public void setName(String name) {
-    this.name = name;
+  public void setSlot(Integer slot) {
+    this.slot = slot;
   }
 
-  public InlineResponse20041Items measures(InlineResponse20041Measures measures) {
-    this.measures = measures;
+  public InlineResponse20041Items position(Integer position) {
+    this.position = position;
     return this;
   }
 
    /**
-   * Get measures
-   * @return measures
+   * Get position
+   * @return position
+  **/
+  @ApiModelProperty(required = true, value = "")
+  public Integer getPosition() {
+    return position;
+  }
+
+  public void setPosition(Integer position) {
+    this.position = position;
+  }
+
+  public InlineResponse20041Items type(String type) {
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Get type
+   * @return type
+  **/
+  @ApiModelProperty(required = true, value = "")
+  public String getType() {
+    return type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public InlineResponse20041Items value(InlineResponse20041Value value) {
+    this.value = value;
+    return this;
+  }
+
+   /**
+   * Get value
+   * @return value
   **/
   @ApiModelProperty(value = "")
-  public InlineResponse20041Measures getMeasures() {
-    return measures;
+  public InlineResponse20041Value getValue() {
+    return value;
   }
 
-  public void setMeasures(InlineResponse20041Measures measures) {
-    this.measures = measures;
-  }
-
-  public InlineResponse20041Items pantryItem(Boolean pantryItem) {
-    this.pantryItem = pantryItem;
-    return this;
-  }
-
-   /**
-   * Get pantryItem
-   * @return pantryItem
-  **/
-  @ApiModelProperty(required = true, value = "")
-  public Boolean getPantryItem() {
-    return pantryItem;
-  }
-
-  public void setPantryItem(Boolean pantryItem) {
-    this.pantryItem = pantryItem;
-  }
-
-  public InlineResponse20041Items aisle(String aisle) {
-    this.aisle = aisle;
-    return this;
-  }
-
-   /**
-   * Get aisle
-   * @return aisle
-  **/
-  @ApiModelProperty(required = true, value = "")
-  public String getAisle() {
-    return aisle;
-  }
-
-  public void setAisle(String aisle) {
-    this.aisle = aisle;
-  }
-
-  public InlineResponse20041Items cost(BigDecimal cost) {
-    this.cost = cost;
-    return this;
-  }
-
-   /**
-   * Get cost
-   * @return cost
-  **/
-  @ApiModelProperty(required = true, value = "")
-  public BigDecimal getCost() {
-    return cost;
-  }
-
-  public void setCost(BigDecimal cost) {
-    this.cost = cost;
-  }
-
-  public InlineResponse20041Items ingredientId(Integer ingredientId) {
-    this.ingredientId = ingredientId;
-    return this;
-  }
-
-   /**
-   * Get ingredientId
-   * @return ingredientId
-  **/
-  @ApiModelProperty(required = true, value = "")
-  public Integer getIngredientId() {
-    return ingredientId;
-  }
-
-  public void setIngredientId(Integer ingredientId) {
-    this.ingredientId = ingredientId;
+  public void setValue(InlineResponse20041Value value) {
+    this.value = value;
   }
 
 
@@ -196,17 +151,15 @@ public class InlineResponse20041Items {
     }
     InlineResponse20041Items inlineResponse20041Items = (InlineResponse20041Items) o;
     return Objects.equals(this.id, inlineResponse20041Items.id) &&
-        Objects.equals(this.name, inlineResponse20041Items.name) &&
-        Objects.equals(this.measures, inlineResponse20041Items.measures) &&
-        Objects.equals(this.pantryItem, inlineResponse20041Items.pantryItem) &&
-        Objects.equals(this.aisle, inlineResponse20041Items.aisle) &&
-        Objects.equals(this.cost, inlineResponse20041Items.cost) &&
-        Objects.equals(this.ingredientId, inlineResponse20041Items.ingredientId);
+        Objects.equals(this.slot, inlineResponse20041Items.slot) &&
+        Objects.equals(this.position, inlineResponse20041Items.position) &&
+        Objects.equals(this.type, inlineResponse20041Items.type) &&
+        Objects.equals(this.value, inlineResponse20041Items.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, measures, pantryItem, aisle, cost, ingredientId);
+    return Objects.hash(id, slot, position, type, value);
   }
 
 
@@ -215,12 +168,10 @@ public class InlineResponse20041Items {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse20041Items {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    measures: ").append(toIndentedString(measures)).append("\n");
-    sb.append("    pantryItem: ").append(toIndentedString(pantryItem)).append("\n");
-    sb.append("    aisle: ").append(toIndentedString(aisle)).append("\n");
-    sb.append("    cost: ").append(toIndentedString(cost)).append("\n");
-    sb.append("    ingredientId: ").append(toIndentedString(ingredientId)).append("\n");
+    sb.append("    slot: ").append(toIndentedString(slot)).append("\n");
+    sb.append("    position: ").append(toIndentedString(position)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
     return sb.toString();
   }

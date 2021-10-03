@@ -3,8 +3,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Username** | **string** |  | 
-**Hash** | **string** |  | 
+**Aisles** | [**List<InlineResponse20042Aisles>**](InlineResponse20042Aisles.md) |  | 
+**Cost** | **decimal?** |  | 
+**StartDate** | **decimal?** |  | 
+**EndDate** | **decimal?** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

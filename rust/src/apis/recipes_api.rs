@@ -54,7 +54,7 @@ pub trait RecipesApi {
     fn ingredients_by_id_image(&self, id: f32, measure: &str) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>>;
     fn parse_ingredients(&self, content_type: &str, language: &str) -> Box<Future<Item = Vec<::models::InlineResponse20020>, Error = Error<serde_json::Value>>>;
     fn price_breakdown_by_id_image(&self, id: f32) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>>;
-    fn quick_answer(&self, q: &str) -> Box<Future<Item = ::models::InlineResponse20049, Error = Error<serde_json::Value>>>;
+    fn quick_answer(&self, q: &str) -> Box<Future<Item = ::models::InlineResponse20050, Error = Error<serde_json::Value>>>;
     fn recipe_nutrition_by_id_image(&self, id: f32) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>>;
     fn recipe_nutrition_label_image(&self, id: f32, show_optional_nutrients: bool, show_zero_values: bool, show_ingredients: bool) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>>;
     fn recipe_nutrition_label_widget(&self, id: f32, default_css: bool, show_optional_nutrients: bool, show_zero_values: bool, show_ingredients: bool) -> Box<Future<Item = String, Error = Error<serde_json::Value>>>;
@@ -348,7 +348,7 @@ impl<C: hyper::client::Connect>RecipesApi for RecipesApiClient<C> {
             .execute(self.configuration.borrow())
     }
 
-    fn quick_answer(&self, q: &str) -> Box<Future<Item = ::models::InlineResponse20049, Error = Error<serde_json::Value>>> {
+    fn quick_answer(&self, q: &str) -> Box<Future<Item = ::models::InlineResponse20050, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/recipes/quickAnswer".to_string())
             .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
                 in_header: false,

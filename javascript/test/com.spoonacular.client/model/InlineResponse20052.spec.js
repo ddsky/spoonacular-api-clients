@@ -54,32 +54,26 @@
       //expect(instance).to.be.a(SpoonacularApi.InlineResponse20052);
     });
 
-    it('should have the property query (base name: "query")', function() {
-      // uncomment below and update the code to test the property query
+    it('should have the property articles (base name: "Articles")', function() {
+      // uncomment below and update the code to test the property articles
       //var instane = new SpoonacularApi.InlineResponse20052();
       //expect(instance).to.be();
     });
 
-    it('should have the property totalResults (base name: "totalResults")', function() {
-      // uncomment below and update the code to test the property totalResults
+    it('should have the property groceryProducts (base name: "Grocery Products")', function() {
+      // uncomment below and update the code to test the property groceryProducts
       //var instane = new SpoonacularApi.InlineResponse20052();
       //expect(instance).to.be();
     });
 
-    it('should have the property limit (base name: "limit")', function() {
-      // uncomment below and update the code to test the property limit
+    it('should have the property menuItems (base name: "Menu Items")', function() {
+      // uncomment below and update the code to test the property menuItems
       //var instane = new SpoonacularApi.InlineResponse20052();
       //expect(instance).to.be();
     });
 
-    it('should have the property offset (base name: "offset")', function() {
-      // uncomment below and update the code to test the property offset
-      //var instane = new SpoonacularApi.InlineResponse20052();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property searchResults (base name: "searchResults")', function() {
-      // uncomment below and update the code to test the property searchResults
+    it('should have the property recipes (base name: "Recipes")', function() {
+      // uncomment below and update the code to test the property recipes
       //var instane = new SpoonacularApi.InlineResponse20052();
       //expect(instance).to.be();
     });

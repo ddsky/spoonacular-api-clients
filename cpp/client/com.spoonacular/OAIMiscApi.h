@@ -16,15 +16,15 @@
 #include "OAIHttpRequest.h"
 
 #include "com.spoonacular.client.model\OAIInline_response_200_29.h"
-#include "com.spoonacular.client.model\OAIInline_response_200_47.h"
 #include "com.spoonacular.client.model\OAIInline_response_200_48.h"
-#include "com.spoonacular.client.model\OAIInline_response_200_50.h"
+#include "com.spoonacular.client.model\OAIInline_response_200_49.h"
 #include "com.spoonacular.client.model\OAIInline_response_200_51.h"
 #include "com.spoonacular.client.model\OAIInline_response_200_52.h"
 #include "com.spoonacular.client.model\OAIInline_response_200_53.h"
 #include "com.spoonacular.client.model\OAIInline_response_200_54.h"
 #include "com.spoonacular.client.model\OAIInline_response_200_55.h"
 #include "com.spoonacular.client.model\OAIInline_response_200_56.h"
+#include "com.spoonacular.client.model\OAIInline_response_200_57.h"
 #include "com.spoonacular.client.model\OAINumber.h"
 #include <QString>
 
@@ -70,41 +70,41 @@ private:
     void talkToChatbotCallback (OAIHttpRequestWorker * worker);
     
 signals:
-    void detectFoodInTextSignal(OAIInline_response_200_50 summary);
-    void getARandomFoodJokeSignal(OAIInline_response_200_54 summary);
-    void getConversationSuggestsSignal(OAIInline_response_200_56 summary);
-    void getRandomFoodTriviaSignal(OAIInline_response_200_54 summary);
-    void imageAnalysisByURLSignal(OAIInline_response_200_48 summary);
-    void imageClassificationByURLSignal(OAIInline_response_200_47 summary);
-    void searchAllFoodSignal(OAIInline_response_200_52 summary);
+    void detectFoodInTextSignal(OAIInline_response_200_51 summary);
+    void getARandomFoodJokeSignal(OAIInline_response_200_55 summary);
+    void getConversationSuggestsSignal(OAIInline_response_200_57 summary);
+    void getRandomFoodTriviaSignal(OAIInline_response_200_55 summary);
+    void imageAnalysisByURLSignal(OAIInline_response_200_49 summary);
+    void imageClassificationByURLSignal(OAIInline_response_200_48 summary);
+    void searchAllFoodSignal(OAIInline_response_200_53 summary);
     void searchCustomFoodsSignal(OAIInline_response_200_29 summary);
-    void searchFoodVideosSignal(OAIInline_response_200_53 summary);
-    void searchSiteContentSignal(OAIInline_response_200_51 summary);
-    void talkToChatbotSignal(OAIInline_response_200_55 summary);
+    void searchFoodVideosSignal(OAIInline_response_200_54 summary);
+    void searchSiteContentSignal(OAIInline_response_200_52 summary);
+    void talkToChatbotSignal(OAIInline_response_200_56 summary);
     
-    void detectFoodInTextSignalFull(OAIHttpRequestWorker* worker, OAIInline_response_200_50 summary);
-    void getARandomFoodJokeSignalFull(OAIHttpRequestWorker* worker, OAIInline_response_200_54 summary);
-    void getConversationSuggestsSignalFull(OAIHttpRequestWorker* worker, OAIInline_response_200_56 summary);
-    void getRandomFoodTriviaSignalFull(OAIHttpRequestWorker* worker, OAIInline_response_200_54 summary);
-    void imageAnalysisByURLSignalFull(OAIHttpRequestWorker* worker, OAIInline_response_200_48 summary);
-    void imageClassificationByURLSignalFull(OAIHttpRequestWorker* worker, OAIInline_response_200_47 summary);
-    void searchAllFoodSignalFull(OAIHttpRequestWorker* worker, OAIInline_response_200_52 summary);
+    void detectFoodInTextSignalFull(OAIHttpRequestWorker* worker, OAIInline_response_200_51 summary);
+    void getARandomFoodJokeSignalFull(OAIHttpRequestWorker* worker, OAIInline_response_200_55 summary);
+    void getConversationSuggestsSignalFull(OAIHttpRequestWorker* worker, OAIInline_response_200_57 summary);
+    void getRandomFoodTriviaSignalFull(OAIHttpRequestWorker* worker, OAIInline_response_200_55 summary);
+    void imageAnalysisByURLSignalFull(OAIHttpRequestWorker* worker, OAIInline_response_200_49 summary);
+    void imageClassificationByURLSignalFull(OAIHttpRequestWorker* worker, OAIInline_response_200_48 summary);
+    void searchAllFoodSignalFull(OAIHttpRequestWorker* worker, OAIInline_response_200_53 summary);
     void searchCustomFoodsSignalFull(OAIHttpRequestWorker* worker, OAIInline_response_200_29 summary);
-    void searchFoodVideosSignalFull(OAIHttpRequestWorker* worker, OAIInline_response_200_53 summary);
-    void searchSiteContentSignalFull(OAIHttpRequestWorker* worker, OAIInline_response_200_51 summary);
-    void talkToChatbotSignalFull(OAIHttpRequestWorker* worker, OAIInline_response_200_55 summary);
+    void searchFoodVideosSignalFull(OAIHttpRequestWorker* worker, OAIInline_response_200_54 summary);
+    void searchSiteContentSignalFull(OAIHttpRequestWorker* worker, OAIInline_response_200_52 summary);
+    void talkToChatbotSignalFull(OAIHttpRequestWorker* worker, OAIInline_response_200_56 summary);
     
-    void detectFoodInTextSignalE(OAIInline_response_200_50 summary, QNetworkReply::NetworkError error_type, QString& error_str);
-    void getARandomFoodJokeSignalE(OAIInline_response_200_54 summary, QNetworkReply::NetworkError error_type, QString& error_str);
-    void getConversationSuggestsSignalE(OAIInline_response_200_56 summary, QNetworkReply::NetworkError error_type, QString& error_str);
-    void getRandomFoodTriviaSignalE(OAIInline_response_200_54 summary, QNetworkReply::NetworkError error_type, QString& error_str);
-    void imageAnalysisByURLSignalE(OAIInline_response_200_48 summary, QNetworkReply::NetworkError error_type, QString& error_str);
-    void imageClassificationByURLSignalE(OAIInline_response_200_47 summary, QNetworkReply::NetworkError error_type, QString& error_str);
-    void searchAllFoodSignalE(OAIInline_response_200_52 summary, QNetworkReply::NetworkError error_type, QString& error_str);
+    void detectFoodInTextSignalE(OAIInline_response_200_51 summary, QNetworkReply::NetworkError error_type, QString& error_str);
+    void getARandomFoodJokeSignalE(OAIInline_response_200_55 summary, QNetworkReply::NetworkError error_type, QString& error_str);
+    void getConversationSuggestsSignalE(OAIInline_response_200_57 summary, QNetworkReply::NetworkError error_type, QString& error_str);
+    void getRandomFoodTriviaSignalE(OAIInline_response_200_55 summary, QNetworkReply::NetworkError error_type, QString& error_str);
+    void imageAnalysisByURLSignalE(OAIInline_response_200_49 summary, QNetworkReply::NetworkError error_type, QString& error_str);
+    void imageClassificationByURLSignalE(OAIInline_response_200_48 summary, QNetworkReply::NetworkError error_type, QString& error_str);
+    void searchAllFoodSignalE(OAIInline_response_200_53 summary, QNetworkReply::NetworkError error_type, QString& error_str);
     void searchCustomFoodsSignalE(OAIInline_response_200_29 summary, QNetworkReply::NetworkError error_type, QString& error_str);
-    void searchFoodVideosSignalE(OAIInline_response_200_53 summary, QNetworkReply::NetworkError error_type, QString& error_str);
-    void searchSiteContentSignalE(OAIInline_response_200_51 summary, QNetworkReply::NetworkError error_type, QString& error_str);
-    void talkToChatbotSignalE(OAIInline_response_200_55 summary, QNetworkReply::NetworkError error_type, QString& error_str);
+    void searchFoodVideosSignalE(OAIInline_response_200_54 summary, QNetworkReply::NetworkError error_type, QString& error_str);
+    void searchSiteContentSignalE(OAIInline_response_200_52 summary, QNetworkReply::NetworkError error_type, QString& error_str);
+    void talkToChatbotSignalE(OAIInline_response_200_56 summary, QNetworkReply::NetworkError error_type, QString& error_str);
     
     void detectFoodInTextSignalEFull(OAIHttpRequestWorker* worker, QNetworkReply::NetworkError error_type, QString& error_str);
     void getARandomFoodJokeSignalEFull(OAIHttpRequestWorker* worker, QNetworkReply::NetworkError error_type, QString& error_str);

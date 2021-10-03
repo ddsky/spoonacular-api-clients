@@ -32,8 +32,8 @@ import InlineResponse20021 from '../com.spoonacular.client.model/InlineResponse2
 import InlineResponse20023 from '../com.spoonacular.client.model/InlineResponse20023';
 import InlineResponse2003 from '../com.spoonacular.client.model/InlineResponse2003';
 import InlineResponse2004 from '../com.spoonacular.client.model/InlineResponse2004';
-import InlineResponse20049 from '../com.spoonacular.client.model/InlineResponse20049';
 import InlineResponse2005 from '../com.spoonacular.client.model/InlineResponse2005';
+import InlineResponse20050 from '../com.spoonacular.client.model/InlineResponse20050';
 import InlineResponse2006 from '../com.spoonacular.client.model/InlineResponse2006';
 import InlineResponse2007 from '../com.spoonacular.client.model/InlineResponse2007';
 import InlineResponse2008 from '../com.spoonacular.client.model/InlineResponse2008';
@@ -1104,7 +1104,7 @@ export default class RecipesApi {
      * Callback function to receive the result of the quickAnswer operation.
      * @callback module:com.spoonacular.client/com.spoonacular/RecipesApi~quickAnswerCallback
      * @param {String} error Error message, if any.
-     * @param {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20049} data The data returned by the service call.
+     * @param {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20050} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -1113,7 +1113,7 @@ export default class RecipesApi {
      * Answer a nutrition related natural language question.
      * @param {String} q The nutrition related question.
      * @param {module:com.spoonacular.client/com.spoonacular/RecipesApi~quickAnswerCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20049}
+     * data is of type: {@link module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20050}
      */
     quickAnswer(q, callback) {
       let postBody = null;
@@ -1135,7 +1135,7 @@ export default class RecipesApi {
       let authNames = ['apiKeyScheme'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineResponse20049;
+      let returnType = InlineResponse20050;
       return this.apiClient.callApi(
         '/recipes/quickAnswer', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,

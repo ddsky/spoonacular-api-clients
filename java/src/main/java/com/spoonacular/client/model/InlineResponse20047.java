@@ -20,58 +20,65 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.spoonacular.client.model.InlineResponse20047RecommendedWines;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * InlineResponse20047
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-09-28T20:40:32.759+02:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-03T15:10:59.332+02:00[Europe/Berlin]")
 public class InlineResponse20047 {
-  public static final String SERIALIZED_NAME_CATEGORY = "category";
-  @SerializedName(SERIALIZED_NAME_CATEGORY)
-  private String category;
+  public static final String SERIALIZED_NAME_RECOMMENDED_WINES = "recommendedWines";
+  @SerializedName(SERIALIZED_NAME_RECOMMENDED_WINES)
+  private List<InlineResponse20047RecommendedWines> recommendedWines = new ArrayList<>();
 
-  public static final String SERIALIZED_NAME_PROBABILITY = "probability";
-  @SerializedName(SERIALIZED_NAME_PROBABILITY)
-  private BigDecimal probability;
+  public static final String SERIALIZED_NAME_TOTAL_FOUND = "totalFound";
+  @SerializedName(SERIALIZED_NAME_TOTAL_FOUND)
+  private Integer totalFound;
 
-  public InlineResponse20047 category(String category) {
-    this.category = category;
+  public InlineResponse20047 recommendedWines(List<InlineResponse20047RecommendedWines> recommendedWines) {
+    this.recommendedWines = recommendedWines;
+    return this;
+  }
+
+  public InlineResponse20047 addRecommendedWinesItem(InlineResponse20047RecommendedWines recommendedWinesItem) {
+    this.recommendedWines.add(recommendedWinesItem);
     return this;
   }
 
    /**
-   * Get category
-   * @return category
+   * Get recommendedWines
+   * @return recommendedWines
   **/
   @ApiModelProperty(required = true, value = "")
-  public String getCategory() {
-    return category;
+  public List<InlineResponse20047RecommendedWines> getRecommendedWines() {
+    return recommendedWines;
   }
 
-  public void setCategory(String category) {
-    this.category = category;
+  public void setRecommendedWines(List<InlineResponse20047RecommendedWines> recommendedWines) {
+    this.recommendedWines = recommendedWines;
   }
 
-  public InlineResponse20047 probability(BigDecimal probability) {
-    this.probability = probability;
+  public InlineResponse20047 totalFound(Integer totalFound) {
+    this.totalFound = totalFound;
     return this;
   }
 
    /**
-   * Get probability
-   * @return probability
+   * Get totalFound
+   * @return totalFound
   **/
   @ApiModelProperty(required = true, value = "")
-  public BigDecimal getProbability() {
-    return probability;
+  public Integer getTotalFound() {
+    return totalFound;
   }
 
-  public void setProbability(BigDecimal probability) {
-    this.probability = probability;
+  public void setTotalFound(Integer totalFound) {
+    this.totalFound = totalFound;
   }
 
 
@@ -84,13 +91,13 @@ public class InlineResponse20047 {
       return false;
     }
     InlineResponse20047 inlineResponse20047 = (InlineResponse20047) o;
-    return Objects.equals(this.category, inlineResponse20047.category) &&
-        Objects.equals(this.probability, inlineResponse20047.probability);
+    return Objects.equals(this.recommendedWines, inlineResponse20047.recommendedWines) &&
+        Objects.equals(this.totalFound, inlineResponse20047.totalFound);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(category, probability);
+    return Objects.hash(recommendedWines, totalFound);
   }
 
 
@@ -98,8 +105,8 @@ public class InlineResponse20047 {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse20047 {\n");
-    sb.append("    category: ").append(toIndentedString(category)).append("\n");
-    sb.append("    probability: ").append(toIndentedString(probability)).append("\n");
+    sb.append("    recommendedWines: ").append(toIndentedString(recommendedWines)).append("\n");
+    sb.append("    totalFound: ").append(toIndentedString(totalFound)).append("\n");
     sb.append("}");
     return sb.toString();
   }

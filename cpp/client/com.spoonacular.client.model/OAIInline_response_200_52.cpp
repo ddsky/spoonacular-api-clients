@@ -38,20 +38,17 @@ OAIInline_response_200_52::~OAIInline_response_200_52() {
 void
 OAIInline_response_200_52::init() {
     
-    m_query_isSet = false;
-    m_query_isValid = false;
+    m_articles_isSet = false;
+    m_articles_isValid = false;
     
-    m_total_results_isSet = false;
-    m_total_results_isValid = false;
+    m_grocery_products_isSet = false;
+    m_grocery_products_isValid = false;
     
-    m_limit_isSet = false;
-    m_limit_isValid = false;
+    m_menu_items_isSet = false;
+    m_menu_items_isValid = false;
     
-    m_offset_isSet = false;
-    m_offset_isValid = false;
-    
-    m_search_results_isSet = false;
-    m_search_results_isValid = false;
+    m_recipes_isSet = false;
+    m_recipes_isValid = false;
     }
 
 void
@@ -65,20 +62,17 @@ OAIInline_response_200_52::fromJson(QString jsonString) {
 void
 OAIInline_response_200_52::fromJsonObject(QJsonObject json) {
     
-    m_query_isValid = ::OpenAPI::fromJsonValue(query, json[QString("query")]);
+    
+    m_articles_isValid = ::OpenAPI::fromJsonValue(articles, json[QString("Articles")]);
     
     
-    m_total_results_isValid = ::OpenAPI::fromJsonValue(total_results, json[QString("totalResults")]);
+    m_grocery_products_isValid = ::OpenAPI::fromJsonValue(grocery_products, json[QString("Grocery Products")]);
     
     
-    m_limit_isValid = ::OpenAPI::fromJsonValue(limit, json[QString("limit")]);
+    m_menu_items_isValid = ::OpenAPI::fromJsonValue(menu_items, json[QString("Menu Items")]);
     
     
-    m_offset_isValid = ::OpenAPI::fromJsonValue(offset, json[QString("offset")]);
-    
-    
-    
-    m_search_results_isValid = ::OpenAPI::fromJsonValue(search_results, json[QString("searchResults")]);
+    m_recipes_isValid = ::OpenAPI::fromJsonValue(recipes, json[QString("Recipes")]);
     
 }
 
@@ -93,93 +87,80 @@ OAIInline_response_200_52::asJson () const {
 QJsonObject
 OAIInline_response_200_52::asJsonObject() const {
     QJsonObject obj;
-	if(m_query_isSet){
-        obj.insert(QString("query"), ::OpenAPI::toJsonValue(query));
-    }
-	if(m_total_results_isSet){
-        obj.insert(QString("totalResults"), ::OpenAPI::toJsonValue(total_results));
-    }
-	if(m_limit_isSet){
-        obj.insert(QString("limit"), ::OpenAPI::toJsonValue(limit));
-    }
-	if(m_offset_isSet){
-        obj.insert(QString("offset"), ::OpenAPI::toJsonValue(offset));
-    }
 	
-    if(search_results.size() > 0){
-        obj.insert(QString("searchResults"), ::OpenAPI::toJsonValue(search_results));
+    if(articles.size() > 0){
+        obj.insert(QString("Articles"), ::OpenAPI::toJsonValue(articles));
+    } 
+	
+    if(grocery_products.size() > 0){
+        obj.insert(QString("Grocery Products"), ::OpenAPI::toJsonValue(grocery_products));
+    } 
+	
+    if(menu_items.size() > 0){
+        obj.insert(QString("Menu Items"), ::OpenAPI::toJsonValue(menu_items));
+    } 
+	
+    if(recipes.size() > 0){
+        obj.insert(QString("Recipes"), ::OpenAPI::toJsonValue(recipes));
     } 
     return obj;
 }
 
 
-QString
-OAIInline_response_200_52::getQuery() const {
-    return query;
+QList<OAIObject>
+OAIInline_response_200_52::getArticles() const {
+    return articles;
 }
 void
-OAIInline_response_200_52::setQuery(const QString &query) {
-    this->query = query;
-    this->m_query_isSet = true;
+OAIInline_response_200_52::setArticles(const QList<OAIObject> &articles) {
+    this->articles = articles;
+    this->m_articles_isSet = true;
 }
 
 
-qint32
-OAIInline_response_200_52::getTotalResults() const {
-    return total_results;
-}
-void
-OAIInline_response_200_52::setTotalResults(const qint32 &total_results) {
-    this->total_results = total_results;
-    this->m_total_results_isSet = true;
-}
-
-
-qint32
-OAIInline_response_200_52::getLimit() const {
-    return limit;
+QList<OAIObject>
+OAIInline_response_200_52::getGroceryProducts() const {
+    return grocery_products;
 }
 void
-OAIInline_response_200_52::setLimit(const qint32 &limit) {
-    this->limit = limit;
-    this->m_limit_isSet = true;
+OAIInline_response_200_52::setGroceryProducts(const QList<OAIObject> &grocery_products) {
+    this->grocery_products = grocery_products;
+    this->m_grocery_products_isSet = true;
 }
 
 
-qint32
-OAIInline_response_200_52::getOffset() const {
-    return offset;
-}
-void
-OAIInline_response_200_52::setOffset(const qint32 &offset) {
-    this->offset = offset;
-    this->m_offset_isSet = true;
-}
-
-
-QList<OAIInline_response_200_52_searchResults>
-OAIInline_response_200_52::getSearchResults() const {
-    return search_results;
+QList<OAIObject>
+OAIInline_response_200_52::getMenuItems() const {
+    return menu_items;
 }
 void
-OAIInline_response_200_52::setSearchResults(const QList<OAIInline_response_200_52_searchResults> &search_results) {
-    this->search_results = search_results;
-    this->m_search_results_isSet = true;
+OAIInline_response_200_52::setMenuItems(const QList<OAIObject> &menu_items) {
+    this->menu_items = menu_items;
+    this->m_menu_items_isSet = true;
+}
+
+
+QList<OAIObject>
+OAIInline_response_200_52::getRecipes() const {
+    return recipes;
+}
+void
+OAIInline_response_200_52::setRecipes(const QList<OAIObject> &recipes) {
+    this->recipes = recipes;
+    this->m_recipes_isSet = true;
 }
 
 bool
 OAIInline_response_200_52::isSet() const {
     bool isObjectUpdated = false;
     do{ 
-        if(m_query_isSet){ isObjectUpdated = true; break;}
+        if(articles.size() > 0){ isObjectUpdated = true; break;}
     
-        if(m_total_results_isSet){ isObjectUpdated = true; break;}
+        if(grocery_products.size() > 0){ isObjectUpdated = true; break;}
     
-        if(m_limit_isSet){ isObjectUpdated = true; break;}
+        if(menu_items.size() > 0){ isObjectUpdated = true; break;}
     
-        if(m_offset_isSet){ isObjectUpdated = true; break;}
-    
-        if(search_results.size() > 0){ isObjectUpdated = true; break;}
+        if(recipes.size() > 0){ isObjectUpdated = true; break;}
     }while(false);
     return isObjectUpdated;
 }
@@ -187,7 +168,7 @@ OAIInline_response_200_52::isSet() const {
 bool
 OAIInline_response_200_52::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_query_isValid && m_total_results_isValid && m_limit_isValid && m_offset_isValid && m_search_results_isValid && true;
+    return m_articles_isValid && m_grocery_products_isValid && m_menu_items_isValid && m_recipes_isValid && true;
 }
 
 }

@@ -151,6 +151,7 @@ describe 'ProductsApi' do
   # @option opts [Float] :max_protein The maximum amount of protein in grams the product can have.
   # @option opts [Float] :min_fat The minimum amount of fat in grams the product must have.
   # @option opts [Float] :max_fat The maximum amount of fat in grams the product can have.
+  # @option opts [Boolean] :add_product_information If set to true, you get more information about the products returned.
   # @option opts [Integer] :offset The number of results to skip (between 0 and 900).
   # @option opts [Integer] :number The maximum number of items to return (between 1 and 100). Defaults to 10.
   # @return [InlineResponse20027]

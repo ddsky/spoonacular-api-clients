@@ -79,9 +79,23 @@ class InlineResponse20045Test extends TestCase
     }
 
     /**
-     * Test attribute "wine_description"
+     * Test attribute "paired_wines"
      */
-    public function testPropertyWineDescription()
+    public function testPropertyPairedWines()
+    {
+    }
+
+    /**
+     * Test attribute "pairing_text"
+     */
+    public function testPropertyPairingText()
+    {
+    }
+
+    /**
+     * Test attribute "product_matches"
+     */
+    public function testPropertyProductMatches()
     {
     }
 }

@@ -22,10 +22,8 @@
 #include <QJsonObject>
 
 
-#include "com.spoonacular.client.model\OAIInline_response_200_48_category.h"
-#include "com.spoonacular.client.model\OAIInline_response_200_48_nutrition.h"
-#include "com.spoonacular.client.model\OAIInline_response_200_48_recipes.h"
-#include <QList>
+#include "com.spoonacular.client.model\OAINumber.h"
+#include <QString>
 
 #include "OAIObject.h"
 #include "OAIEnum.h"
@@ -44,16 +42,12 @@ public:
     void fromJson(QString jsonString) override;
 
     
-    OAIInline_response_200_48_nutrition getNutrition() const;
-    void setNutrition(const OAIInline_response_200_48_nutrition &nutrition);
+    QString getCategory() const;
+    void setCategory(const QString &category);
 
     
-    OAIInline_response_200_48_category getCategory() const;
-    void setCategory(const OAIInline_response_200_48_category &category);
-
-    
-    QList<OAIInline_response_200_48_recipes> getRecipes() const;
-    void setRecipes(const QList<OAIInline_response_200_48_recipes> &recipes);
+    OAINumber getProbability() const;
+    void setProbability(const OAINumber &probability);
 
     
     
@@ -63,17 +57,13 @@ public:
 private:
     void init();
     
-    OAIInline_response_200_48_nutrition nutrition;
-    bool m_nutrition_isSet;
-    bool m_nutrition_isValid;
-    
-    OAIInline_response_200_48_category category;
+    QString category;
     bool m_category_isSet;
     bool m_category_isValid;
     
-    QList<OAIInline_response_200_48_recipes> recipes;
-    bool m_recipes_isSet;
-    bool m_recipes_isValid;
+    OAINumber probability;
+    bool m_probability_isSet;
+    bool m_probability_isValid;
     
     };
 

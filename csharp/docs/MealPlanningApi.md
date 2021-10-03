@@ -4,12 +4,14 @@ All URIs are relative to *https://api.spoonacular.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**AddMealPlanTemplate**](MealPlanningApi.md#addmealplantemplate) | **POST** /mealplanner/{username}/templates | Add Meal Plan Template
 [**AddToMealPlan**](MealPlanningApi.md#addtomealplan) | **POST** /mealplanner/{username}/items | Add to Meal Plan
 [**AddToShoppingList**](MealPlanningApi.md#addtoshoppinglist) | **POST** /mealplanner/{username}/shopping-list/items | Add to Shopping List
 [**ClearMealPlanDay**](MealPlanningApi.md#clearmealplanday) | **DELETE** /mealplanner/{username}/day/{date} | Clear Meal Plan Day
 [**ConnectUser**](MealPlanningApi.md#connectuser) | **POST** /users/connect | Connect User
 [**DeleteFromMealPlan**](MealPlanningApi.md#deletefrommealplan) | **DELETE** /mealplanner/{username}/items/{id} | Delete from Meal Plan
 [**DeleteFromShoppingList**](MealPlanningApi.md#deletefromshoppinglist) | **DELETE** /mealplanner/{username}/shopping-list/items/{id} | Delete from Shopping List
+[**DeleteMealPlanTemplate**](MealPlanningApi.md#deletemealplantemplate) | **DELETE** /mealplanner/{username}/templates/{id} | Delete Meal Plan Template
 [**GenerateMealPlan**](MealPlanningApi.md#generatemealplan) | **GET** /mealplanner/generate | Generate Meal Plan
 [**GenerateShoppingList**](MealPlanningApi.md#generateshoppinglist) | **POST** /mealplanner/{username}/shopping-list/{start-date}/{end-date} | Generate Shopping List
 [**GetMealPlanTemplate**](MealPlanningApi.md#getmealplantemplate) | **GET** /mealplanner/{username}/templates/{id} | Get Meal Plan Template
@@ -17,6 +19,77 @@ Method | HTTP request | Description
 [**GetMealPlanWeek**](MealPlanningApi.md#getmealplanweek) | **GET** /mealplanner/{username}/week/{start-date} | Get Meal Plan Week
 [**GetShoppingList**](MealPlanningApi.md#getshoppinglist) | **GET** /mealplanner/{username}/shopping-list | Get Shopping List
 
+
+<a name="addmealplantemplate"></a>
+# **AddMealPlanTemplate**
+> InlineResponse20040 AddMealPlanTemplate (string username, string hash, InlineObject6 inlineObject6)
+
+Add Meal Plan Template
+
+Add a meal plan template for a user.
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using com.spoonacular;
+using Org.OpenAPITools.Client;
+using com.spoonacular.client.model;
+
+namespace Example
+{
+    public class AddMealPlanTemplateExample
+    {
+        public void main()
+        {
+            
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
+            var apiInstance = new MealPlanningApi();
+            var username = dsky;  // string | The username.
+            var hash = 4b5v4398573406;  // string | The private hash for the username.
+            var inlineObject6 = new InlineObject6(); // InlineObject6 | 
+
+            try
+            {
+                // Add Meal Plan Template
+                InlineResponse20040 result = apiInstance.AddMealPlanTemplate(username, hash, inlineObject6);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling MealPlanningApi.AddMealPlanTemplate: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **string**| The username. | 
+ **hash** | **string**| The private hash for the username. | 
+ **inlineObject6** | [**InlineObject6**](InlineObject6.md)|  | 
+
+### Return type
+
+[**InlineResponse20040**](InlineResponse20040.md)
+
+### Authorization
+
+[apiKeyScheme](../README.md#apiKeyScheme)
+
+### HTTP request headers
+
+ - **Content-Type**: 
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="addtomealplan"></a>
 # **AddToMealPlan**
@@ -91,7 +164,7 @@ Name | Type | Description  | Notes
 
 <a name="addtoshoppinglist"></a>
 # **AddToShoppingList**
-> InlineResponse20041 AddToShoppingList (string username, string hash, InlineObject7 inlineObject7)
+> InlineResponse20042 AddToShoppingList (string username, string hash, InlineObject9 inlineObject9)
 
 Add to Shopping List
 
@@ -120,12 +193,12 @@ namespace Example
             var apiInstance = new MealPlanningApi();
             var username = dsky;  // string | The username.
             var hash = hash_example;  // string | The private hash for the username.
-            var inlineObject7 = new InlineObject7(); // InlineObject7 | 
+            var inlineObject9 = new InlineObject9(); // InlineObject9 | 
 
             try
             {
                 // Add to Shopping List
-                InlineResponse20041 result = apiInstance.AddToShoppingList(username, hash, inlineObject7);
+                InlineResponse20042 result = apiInstance.AddToShoppingList(username, hash, inlineObject9);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -143,11 +216,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **username** | **string**| The username. | 
  **hash** | **string**| The private hash for the username. | 
- **inlineObject7** | [**InlineObject7**](InlineObject7.md)|  | 
+ **inlineObject9** | [**InlineObject9**](InlineObject9.md)|  | 
 
 ### Return type
 
-[**InlineResponse20041**](InlineResponse20041.md)
+[**InlineResponse20042**](InlineResponse20042.md)
 
 ### Authorization
 
@@ -235,7 +308,7 @@ Name | Type | Description  | Notes
 
 <a name="connectuser"></a>
 # **ConnectUser**
-> InlineResponse20042 ConnectUser (Object body)
+> InlineResponse20043 ConnectUser (Object body)
 
 Connect User
 
@@ -267,7 +340,7 @@ namespace Example
             try
             {
                 // Connect User
-                InlineResponse20042 result = apiInstance.ConnectUser(body);
+                InlineResponse20043 result = apiInstance.ConnectUser(body);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -287,7 +360,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20042**](InlineResponse20042.md)
+[**InlineResponse20043**](InlineResponse20043.md)
 
 ### Authorization
 
@@ -375,7 +448,7 @@ Name | Type | Description  | Notes
 
 <a name="deletefromshoppinglist"></a>
 # **DeleteFromShoppingList**
-> Object DeleteFromShoppingList (string username, int? id, string hash, InlineObject8 inlineObject8)
+> Object DeleteFromShoppingList (string username, int? id, string hash, InlineObject10 inlineObject10)
 
 Delete from Shopping List
 
@@ -405,12 +478,12 @@ namespace Example
             var username = dsky;  // string | The username.
             var id = 1;  // int? | The item's id.
             var hash = hash_example;  // string | The private hash for the username.
-            var inlineObject8 = new InlineObject8(); // InlineObject8 | 
+            var inlineObject10 = new InlineObject10(); // InlineObject10 | 
 
             try
             {
                 // Delete from Shopping List
-                Object result = apiInstance.DeleteFromShoppingList(username, id, hash, inlineObject8);
+                Object result = apiInstance.DeleteFromShoppingList(username, id, hash, inlineObject10);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -429,7 +502,80 @@ Name | Type | Description  | Notes
  **username** | **string**| The username. | 
  **id** | **int?**| The item&#39;s id. | 
  **hash** | **string**| The private hash for the username. | 
- **inlineObject8** | [**InlineObject8**](InlineObject8.md)|  | 
+ **inlineObject10** | [**InlineObject10**](InlineObject10.md)|  | 
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[apiKeyScheme](../README.md#apiKeyScheme)
+
+### HTTP request headers
+
+ - **Content-Type**: 
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="deletemealplantemplate"></a>
+# **DeleteMealPlanTemplate**
+> Object DeleteMealPlanTemplate (string username, int? id, string hash, InlineObject7 inlineObject7)
+
+Delete Meal Plan Template
+
+Delete a meal plan template for a user.
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using com.spoonacular;
+using Org.OpenAPITools.Client;
+using com.spoonacular.client.model;
+
+namespace Example
+{
+    public class DeleteMealPlanTemplateExample
+    {
+        public void main()
+        {
+            
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+
+            var apiInstance = new MealPlanningApi();
+            var username = dsky;  // string | The username.
+            var id = 1;  // int? | The item's id.
+            var hash = 4b5v4398573406;  // string | The private hash for the username.
+            var inlineObject7 = new InlineObject7(); // InlineObject7 | 
+
+            try
+            {
+                // Delete Meal Plan Template
+                Object result = apiInstance.DeleteMealPlanTemplate(username, id, hash, inlineObject7);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling MealPlanningApi.DeleteMealPlanTemplate: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **string**| The username. | 
+ **id** | **int?**| The item&#39;s id. | 
+ **hash** | **string**| The private hash for the username. | 
+ **inlineObject7** | [**InlineObject7**](InlineObject7.md)|  | 
 
 ### Return type
 
@@ -521,7 +667,7 @@ Name | Type | Description  | Notes
 
 <a name="generateshoppinglist"></a>
 # **GenerateShoppingList**
-> InlineResponse20041 GenerateShoppingList (string username, string startDate, string endDate, string hash, InlineObject6 inlineObject6)
+> InlineResponse20042 GenerateShoppingList (string username, string startDate, string endDate, string hash, InlineObject8 inlineObject8)
 
 Generate Shopping List
 
@@ -552,12 +698,12 @@ namespace Example
             var startDate = 2020-06-01;  // string | The start date in the format yyyy-mm-dd.
             var endDate = 2020-06-07;  // string | The end date in the format yyyy-mm-dd.
             var hash = hash_example;  // string | The private hash for the username.
-            var inlineObject6 = new InlineObject6(); // InlineObject6 | 
+            var inlineObject8 = new InlineObject8(); // InlineObject8 | 
 
             try
             {
                 // Generate Shopping List
-                InlineResponse20041 result = apiInstance.GenerateShoppingList(username, startDate, endDate, hash, inlineObject6);
+                InlineResponse20042 result = apiInstance.GenerateShoppingList(username, startDate, endDate, hash, inlineObject8);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -577,11 +723,11 @@ Name | Type | Description  | Notes
  **startDate** | **string**| The start date in the format yyyy-mm-dd. | 
  **endDate** | **string**| The end date in the format yyyy-mm-dd. | 
  **hash** | **string**| The private hash for the username. | 
- **inlineObject6** | [**InlineObject6**](InlineObject6.md)|  | 
+ **inlineObject8** | [**InlineObject8**](InlineObject8.md)|  | 
 
 ### Return type
 
-[**InlineResponse20041**](InlineResponse20041.md)
+[**InlineResponse20042**](InlineResponse20042.md)
 
 ### Authorization
 
@@ -596,7 +742,7 @@ Name | Type | Description  | Notes
 
 <a name="getmealplantemplate"></a>
 # **GetMealPlanTemplate**
-> InlineResponse20040 GetMealPlanTemplate (string username, int? id, string hash)
+> InlineResponse20041 GetMealPlanTemplate (string username, int? id, string hash)
 
 Get Meal Plan Template
 
@@ -630,7 +776,7 @@ namespace Example
             try
             {
                 // Get Meal Plan Template
-                InlineResponse20040 result = apiInstance.GetMealPlanTemplate(username, id, hash);
+                InlineResponse20041 result = apiInstance.GetMealPlanTemplate(username, id, hash);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -652,7 +798,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20040**](InlineResponse20040.md)
+[**InlineResponse20041**](InlineResponse20041.md)
 
 ### Authorization
 
@@ -807,7 +953,7 @@ Name | Type | Description  | Notes
 
 <a name="getshoppinglist"></a>
 # **GetShoppingList**
-> InlineResponse20041 GetShoppingList (string username, string hash)
+> InlineResponse20042 GetShoppingList (string username, string hash)
 
 Get Shopping List
 
@@ -840,7 +986,7 @@ namespace Example
             try
             {
                 // Get Shopping List
-                InlineResponse20041 result = apiInstance.GetShoppingList(username, hash);
+                InlineResponse20042 result = apiInstance.GetShoppingList(username, hash);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -861,7 +1007,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20041**](InlineResponse20041.md)
+[**InlineResponse20042**](InlineResponse20042.md)
 
 ### Authorization
 

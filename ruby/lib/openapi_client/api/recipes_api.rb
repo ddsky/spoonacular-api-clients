@@ -1571,7 +1571,7 @@ module OpenapiClient
     # Answer a nutrition related natural language question.
     # @param q [String] The nutrition related question.
     # @param [Hash] opts the optional parameters
-    # @return [InlineResponse20049]
+    # @return [InlineResponse20050]
     def quick_answer(q, opts = {})
       data, _status_code, _headers = quick_answer_with_http_info(q, opts)
       data
@@ -1581,7 +1581,7 @@ module OpenapiClient
     # Answer a nutrition related natural language question.
     # @param q [String] The nutrition related question.
     # @param [Hash] opts the optional parameters
-    # @return [Array<(InlineResponse20049, Integer, Hash)>] InlineResponse20049 data, response status code and response headers
+    # @return [Array<(InlineResponse20050, Integer, Hash)>] InlineResponse20050 data, response status code and response headers
     def quick_answer_with_http_info(q, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RecipesApi.quick_answer ...'
@@ -1609,7 +1609,7 @@ module OpenapiClient
       post_body = opts[:body] 
 
       # return_type
-      return_type = opts[:return_type] || 'InlineResponse20049' 
+      return_type = opts[:return_type] || 'InlineResponse20050' 
 
       # auth_names
       auth_names = opts[:auth_names] || ['apiKeyScheme']

@@ -4,11 +4,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**query** | **kotlin.String** |  | 
-**totalResults** | **kotlin.Int** |  | 
-**limit** | **kotlin.Int** |  | 
-**offset** | **kotlin.Int** |  | 
-**searchResults** | [**kotlin.Array&lt;InlineResponse20052SearchResults&gt;**](InlineResponse20052SearchResults.md) |  | 
+**articles** | [**kotlin.Array&lt;kotlin.Any&gt;**](kotlin.Any.md) |  | 
+**groceryProducts** | [**kotlin.Array&lt;kotlin.Any&gt;**](kotlin.Any.md) |  | 
+**menuItems** | [**kotlin.Array&lt;kotlin.Any&gt;**](kotlin.Any.md) |  | 
+**recipes** | [**kotlin.Array&lt;kotlin.Any&gt;**](kotlin.Any.md) |  | 
 
 
 

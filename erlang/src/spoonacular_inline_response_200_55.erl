@@ -5,13 +5,10 @@
 -export_type([spoonacular_inline_response_200_55/0]).
 
 -type spoonacular_inline_response_200_55() ::
-    #{ 'answerText' := binary(),
-       'media' := list()
+    #{ 'text' := binary()
      }.
 
-encode(#{ 'answerText' := AnswerText,
-          'media' := Media
+encode(#{ 'text' := Text
         }) ->
-    #{ 'answerText' => AnswerText,
-       'media' => Media
+    #{ 'text' => Text
      }.

@@ -14,31 +14,19 @@ require 'date'
 
 module OpenapiClient
   class InlineResponse20051
-    attr_accessor :articles
-
-    attr_accessor :grocery_products
-
-    attr_accessor :menu_items
-
-    attr_accessor :recipes
+    attr_accessor :annotations
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'articles' => :'Articles',
-        :'grocery_products' => :'Grocery Products',
-        :'menu_items' => :'Menu Items',
-        :'recipes' => :'Recipes'
+        :'annotations' => :'annotations'
       }
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'articles' => :'Array<Object>',
-        :'grocery_products' => :'Array<Object>',
-        :'menu_items' => :'Array<Object>',
-        :'recipes' => :'Array<Object>'
+        :'annotations' => :'Array<Object>'
       }
     end
 
@@ -57,27 +45,9 @@ module OpenapiClient
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'articles')
-        if (value = attributes[:'articles']).is_a?(Array)
-          self.articles = value
-        end
-      end
-
-      if attributes.key?(:'grocery_products')
-        if (value = attributes[:'grocery_products']).is_a?(Array)
-          self.grocery_products = value
-        end
-      end
-
-      if attributes.key?(:'menu_items')
-        if (value = attributes[:'menu_items']).is_a?(Array)
-          self.menu_items = value
-        end
-      end
-
-      if attributes.key?(:'recipes')
-        if (value = attributes[:'recipes']).is_a?(Array)
-          self.recipes = value
+      if attributes.key?(:'annotations')
+        if (value = attributes[:'annotations']).is_a?(Array)
+          self.annotations = value
         end
       end
     end
@@ -86,20 +56,8 @@ module OpenapiClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @articles.nil?
-        invalid_properties.push('invalid value for "articles", articles cannot be nil.')
-      end
-
-      if @grocery_products.nil?
-        invalid_properties.push('invalid value for "grocery_products", grocery_products cannot be nil.')
-      end
-
-      if @menu_items.nil?
-        invalid_properties.push('invalid value for "menu_items", menu_items cannot be nil.')
-      end
-
-      if @recipes.nil?
-        invalid_properties.push('invalid value for "recipes", recipes cannot be nil.')
+      if @annotations.nil?
+        invalid_properties.push('invalid value for "annotations", annotations cannot be nil.')
       end
 
       invalid_properties
@@ -108,10 +66,7 @@ module OpenapiClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @articles.nil?
-      return false if @grocery_products.nil?
-      return false if @menu_items.nil?
-      return false if @recipes.nil?
+      return false if @annotations.nil?
       true
     end
 
@@ -120,10 +75,7 @@ module OpenapiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          articles == o.articles &&
-          grocery_products == o.grocery_products &&
-          menu_items == o.menu_items &&
-          recipes == o.recipes
+          annotations == o.annotations
     end
 
     # @see the `==` method
@@ -135,7 +87,7 @@ module OpenapiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [articles, grocery_products, menu_items, recipes].hash
+      [annotations].hash
     end
 
     # Builds the object from hash

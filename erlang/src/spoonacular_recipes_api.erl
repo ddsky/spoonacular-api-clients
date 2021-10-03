@@ -529,11 +529,11 @@ price_breakdown_by_id_image(Ctx, Id, Optional) ->
 
 %% @doc Quick Answer
 %% Answer a nutrition related natural language question.
--spec quick_answer(ctx:ctx(), binary()) -> {ok, spoonacular_inline_response_200_49:spoonacular_inline_response_200_49(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+-spec quick_answer(ctx:ctx(), binary()) -> {ok, spoonacular_inline_response_200_50:spoonacular_inline_response_200_50(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 quick_answer(Ctx, Q) ->
     quick_answer(Ctx, Q, #{}).
 
--spec quick_answer(ctx:ctx(), binary(), maps:map()) -> {ok, spoonacular_inline_response_200_49:spoonacular_inline_response_200_49(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+-spec quick_answer(ctx:ctx(), binary(), maps:map()) -> {ok, spoonacular_inline_response_200_50:spoonacular_inline_response_200_50(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 quick_answer(Ctx, Q, Optional) ->
     _OptionalParams = maps:get(params, Optional, #{}),
     Cfg = maps:get(cfg, Optional, application:get_env(kuberl, config, #{})),

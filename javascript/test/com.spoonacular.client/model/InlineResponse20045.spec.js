@@ -54,8 +54,20 @@
       //expect(instance).to.be.a(SpoonacularApi.InlineResponse20045);
     });
 
-    it('should have the property wineDescription (base name: "wineDescription")', function() {
-      // uncomment below and update the code to test the property wineDescription
+    it('should have the property pairedWines (base name: "pairedWines")', function() {
+      // uncomment below and update the code to test the property pairedWines
+      //var instane = new SpoonacularApi.InlineResponse20045();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property pairingText (base name: "pairingText")', function() {
+      // uncomment below and update the code to test the property pairingText
+      //var instane = new SpoonacularApi.InlineResponse20045();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property productMatches (base name: "productMatches")', function() {
+      // uncomment below and update the code to test the property productMatches
       //var instane = new SpoonacularApi.InlineResponse20045();
       //expect(instance).to.be();
     });

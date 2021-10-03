@@ -30,7 +30,7 @@ use Log::Any qw($log);
 use Date::Parse;
 use DateTime;
 
-use WWW::OpenAPIClient::Object::InlineResponse20041Measures;
+use WWW::OpenAPIClient::Object::InlineResponse20041Value;
 
 use base ("Class::Accessor", "Class::Data::Inheritable");
 
@@ -169,44 +169,30 @@ __PACKAGE__->method_documentation({
         format => '',
         read_only => '',
             },
-    'name' => {
-        datatype => 'string',
-        base_name => 'name',
-        description => '',
-        format => '',
-        read_only => '',
-            },
-    'measures' => {
-        datatype => 'InlineResponse20041Measures',
-        base_name => 'measures',
-        description => '',
-        format => '',
-        read_only => '',
-            },
-    'pantry_item' => {
-        datatype => 'boolean',
-        base_name => 'pantryItem',
-        description => '',
-        format => '',
-        read_only => '',
-            },
-    'aisle' => {
-        datatype => 'string',
-        base_name => 'aisle',
-        description => '',
-        format => '',
-        read_only => '',
-            },
-    'cost' => {
-        datatype => 'double',
-        base_name => 'cost',
-        description => '',
-        format => '',
-        read_only => '',
-            },
-    'ingredient_id' => {
+    'slot' => {
         datatype => 'int',
-        base_name => 'ingredientId',
+        base_name => 'slot',
+        description => '',
+        format => '',
+        read_only => '',
+            },
+    'position' => {
+        datatype => 'int',
+        base_name => 'position',
+        description => '',
+        format => '',
+        read_only => '',
+            },
+    'type' => {
+        datatype => 'string',
+        base_name => 'type',
+        description => '',
+        format => '',
+        read_only => '',
+            },
+    'value' => {
+        datatype => 'InlineResponse20041Value',
+        base_name => 'value',
         description => '',
         format => '',
         read_only => '',
@@ -215,22 +201,18 @@ __PACKAGE__->method_documentation({
 
 __PACKAGE__->openapi_types( {
     'id' => 'int',
-    'name' => 'string',
-    'measures' => 'InlineResponse20041Measures',
-    'pantry_item' => 'boolean',
-    'aisle' => 'string',
-    'cost' => 'double',
-    'ingredient_id' => 'int'
+    'slot' => 'int',
+    'position' => 'int',
+    'type' => 'string',
+    'value' => 'InlineResponse20041Value'
 } );
 
 __PACKAGE__->attribute_map( {
     'id' => 'id',
-    'name' => 'name',
-    'measures' => 'measures',
-    'pantry_item' => 'pantryItem',
-    'aisle' => 'aisle',
-    'cost' => 'cost',
-    'ingredient_id' => 'ingredientId'
+    'slot' => 'slot',
+    'position' => 'position',
+    'type' => 'type',
+    'value' => 'value'
 } );
 
 __PACKAGE__->mk_accessors(keys %{__PACKAGE__->attribute_map});

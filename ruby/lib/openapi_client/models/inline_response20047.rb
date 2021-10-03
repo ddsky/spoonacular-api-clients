@@ -14,23 +14,23 @@ require 'date'
 
 module OpenapiClient
   class InlineResponse20047
-    attr_accessor :category
+    attr_accessor :recommended_wines
 
-    attr_accessor :probability
+    attr_accessor :total_found
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'category' => :'category',
-        :'probability' => :'probability'
+        :'recommended_wines' => :'recommendedWines',
+        :'total_found' => :'totalFound'
       }
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'category' => :'String',
-        :'probability' => :'Float'
+        :'recommended_wines' => :'Array<InlineResponse20047RecommendedWines>',
+        :'total_found' => :'Integer'
       }
     end
 
@@ -49,12 +49,14 @@ module OpenapiClient
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'category')
-        self.category = attributes[:'category']
+      if attributes.key?(:'recommended_wines')
+        if (value = attributes[:'recommended_wines']).is_a?(Array)
+          self.recommended_wines = value
+        end
       end
 
-      if attributes.key?(:'probability')
-        self.probability = attributes[:'probability']
+      if attributes.key?(:'total_found')
+        self.total_found = attributes[:'total_found']
       end
     end
 
@@ -62,16 +64,12 @@ module OpenapiClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @category.nil?
-        invalid_properties.push('invalid value for "category", category cannot be nil.')
+      if @recommended_wines.nil?
+        invalid_properties.push('invalid value for "recommended_wines", recommended_wines cannot be nil.')
       end
 
-      if @category.to_s.length < 1
-        invalid_properties.push('invalid value for "category", the character length must be great than or equal to 1.')
-      end
-
-      if @probability.nil?
-        invalid_properties.push('invalid value for "probability", probability cannot be nil.')
+      if @total_found.nil?
+        invalid_properties.push('invalid value for "total_found", total_found cannot be nil.')
       end
 
       invalid_properties
@@ -80,24 +78,9 @@ module OpenapiClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @category.nil?
-      return false if @category.to_s.length < 1
-      return false if @probability.nil?
+      return false if @recommended_wines.nil?
+      return false if @total_found.nil?
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] category Value to be assigned
-    def category=(category)
-      if category.nil?
-        fail ArgumentError, 'category cannot be nil'
-      end
-
-      if category.to_s.length < 1
-        fail ArgumentError, 'invalid value for "category", the character length must be great than or equal to 1.'
-      end
-
-      @category = category
     end
 
     # Checks equality by comparing each attribute.
@@ -105,8 +88,8 @@ module OpenapiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          category == o.category &&
-          probability == o.probability
+          recommended_wines == o.recommended_wines &&
+          total_found == o.total_found
     end
 
     # @see the `==` method
@@ -118,7 +101,7 @@ module OpenapiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [category, probability].hash
+      [recommended_wines, total_found].hash
     end
 
     # Builds the object from hash

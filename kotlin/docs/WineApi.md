@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 <a name="getDishPairingForWine"></a>
 # **getDishPairingForWine**
-> InlineResponse20043 getDishPairingForWine(wine)
+> InlineResponse20044 getDishPairingForWine(wine)
 
 Dish Pairing for Wine
 
@@ -27,7 +27,7 @@ Find a dish that goes well with a given wine.
 val apiInstance = WineApi()
 val wine : kotlin.String = malbec // kotlin.String | The type of wine that should be paired, e.g. \"merlot\", \"riesling\", or \"malbec\".
 try {
-    val result : InlineResponse20043 = apiInstance.getDishPairingForWine(wine)
+    val result : InlineResponse20044 = apiInstance.getDishPairingForWine(wine)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling WineApi#getDishPairingForWine")
@@ -46,7 +46,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20043**](InlineResponse20043.md)
+[**InlineResponse20044**](InlineResponse20044.md)
 
 ### Authorization
 
@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 
 <a name="getWineDescription"></a>
 # **getWineDescription**
-> InlineResponse20045 getWineDescription(wine)
+> InlineResponse20046 getWineDescription(wine)
 
 Wine Description
 
@@ -74,7 +74,7 @@ Get a simple description of a certain wine, e.g. \&quot;malbec\&quot;, \&quot;ri
 val apiInstance = WineApi()
 val wine : kotlin.String = merlot // kotlin.String | The name of the wine that should be paired, e.g. \"merlot\", \"riesling\", or \"malbec\".
 try {
-    val result : InlineResponse20045 = apiInstance.getWineDescription(wine)
+    val result : InlineResponse20046 = apiInstance.getWineDescription(wine)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling WineApi#getWineDescription")
@@ -93,7 +93,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20045**](InlineResponse20045.md)
+[**InlineResponse20046**](InlineResponse20046.md)
 
 ### Authorization
 
@@ -106,7 +106,7 @@ Name | Type | Description  | Notes
 
 <a name="getWinePairing"></a>
 # **getWinePairing**
-> InlineResponse20044 getWinePairing(food, maxPrice)
+> InlineResponse20045 getWinePairing(food, maxPrice)
 
 Wine Pairing
 
@@ -122,7 +122,7 @@ val apiInstance = WineApi()
 val food : kotlin.String = steak // kotlin.String | The food to get a pairing for. This can be a dish (\"steak\"), an ingredient (\"salmon\"), or a cuisine (\"italian\").
 val maxPrice : java.math.BigDecimal = 50 // java.math.BigDecimal | The maximum price for the specific wine recommendation in USD.
 try {
-    val result : InlineResponse20044 = apiInstance.getWinePairing(food, maxPrice)
+    val result : InlineResponse20045 = apiInstance.getWinePairing(food, maxPrice)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling WineApi#getWinePairing")
@@ -142,7 +142,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20044**](InlineResponse20044.md)
+[**InlineResponse20045**](InlineResponse20045.md)
 
 ### Authorization
 
@@ -155,7 +155,7 @@ Name | Type | Description  | Notes
 
 <a name="getWineRecommendation"></a>
 # **getWineRecommendation**
-> InlineResponse20046 getWineRecommendation(wine, maxPrice, minRating, number)
+> InlineResponse20047 getWineRecommendation(wine, maxPrice, minRating, number)
 
 Wine Recommendation
 
@@ -173,7 +173,7 @@ val maxPrice : java.math.BigDecimal = 50 // java.math.BigDecimal | The maximum p
 val minRating : java.math.BigDecimal = 0.7 // java.math.BigDecimal | The minimum rating of the recommended wine between 0 and 1. For example, 0.8 equals 4 out of 5 stars.
 val number : java.math.BigDecimal = 3 // java.math.BigDecimal | The number of wine recommendations expected (between 1 and 100).
 try {
-    val result : InlineResponse20046 = apiInstance.getWineRecommendation(wine, maxPrice, minRating, number)
+    val result : InlineResponse20047 = apiInstance.getWineRecommendation(wine, maxPrice, minRating, number)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling WineApi#getWineRecommendation")
@@ -195,7 +195,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20046**](InlineResponse20046.md)
+[**InlineResponse20047**](InlineResponse20047.md)
 
 ### Authorization
 

@@ -1537,7 +1537,7 @@ Name | Type | Description  | Notes
 
 ## quickAnswer
 
-> \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20049 quickAnswer($q)
+> \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20050 quickAnswer($q)
 
 Quick Answer
 
@@ -1582,7 +1582,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20049**](../Model/InlineResponse20049.md)
+[**\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20050**](../Model/InlineResponse20050.md)
 
 ### Authorization
 

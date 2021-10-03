@@ -23,20 +23,23 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.math.BigDecimal;
 
 /**
  * InlineObject8
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-09-28T20:40:32.759+02:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-03T15:10:59.332+02:00[Europe/Berlin]")
 public class InlineObject8 {
   public static final String SERIALIZED_NAME_USERNAME = "username";
   @SerializedName(SERIALIZED_NAME_USERNAME)
   private String username;
 
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
-  private BigDecimal id;
+  public static final String SERIALIZED_NAME_START_DATE = "start-date";
+  @SerializedName(SERIALIZED_NAME_START_DATE)
+  private String startDate;
+
+  public static final String SERIALIZED_NAME_END_DATE = "end-date";
+  @SerializedName(SERIALIZED_NAME_END_DATE)
+  private String endDate;
 
   public static final String SERIALIZED_NAME_HASH = "hash";
   @SerializedName(SERIALIZED_NAME_HASH)
@@ -60,22 +63,40 @@ public class InlineObject8 {
     this.username = username;
   }
 
-  public InlineObject8 id(BigDecimal id) {
-    this.id = id;
+  public InlineObject8 startDate(String startDate) {
+    this.startDate = startDate;
     return this;
   }
 
    /**
-   * The shopping list item id.
-   * @return id
+   * The start date in the format yyyy-mm-dd.
+   * @return startDate
   **/
-  @ApiModelProperty(example = "15678", required = true, value = "The shopping list item id.")
-  public BigDecimal getId() {
-    return id;
+  @ApiModelProperty(example = "2020-06-01", required = true, value = "The start date in the format yyyy-mm-dd.")
+  public String getStartDate() {
+    return startDate;
   }
 
-  public void setId(BigDecimal id) {
-    this.id = id;
+  public void setStartDate(String startDate) {
+    this.startDate = startDate;
+  }
+
+  public InlineObject8 endDate(String endDate) {
+    this.endDate = endDate;
+    return this;
+  }
+
+   /**
+   * The end date in the format yyyy-mm-dd.
+   * @return endDate
+  **/
+  @ApiModelProperty(example = "2020-06-07", required = true, value = "The end date in the format yyyy-mm-dd.")
+  public String getEndDate() {
+    return endDate;
+  }
+
+  public void setEndDate(String endDate) {
+    this.endDate = endDate;
   }
 
   public InlineObject8 hash(String hash) {
@@ -107,13 +128,14 @@ public class InlineObject8 {
     }
     InlineObject8 inlineObject8 = (InlineObject8) o;
     return Objects.equals(this.username, inlineObject8.username) &&
-        Objects.equals(this.id, inlineObject8.id) &&
+        Objects.equals(this.startDate, inlineObject8.startDate) &&
+        Objects.equals(this.endDate, inlineObject8.endDate) &&
         Objects.equals(this.hash, inlineObject8.hash);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(username, id, hash);
+    return Objects.hash(username, startDate, endDate, hash);
   }
 
 
@@ -122,7 +144,8 @@ public class InlineObject8 {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineObject8 {\n");
     sb.append("    username: ").append(toIndentedString(username)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    startDate: ").append(toIndentedString(startDate)).append("\n");
+    sb.append("    endDate: ").append(toIndentedString(endDate)).append("\n");
     sb.append("    hash: ").append(toIndentedString(hash)).append("\n");
     sb.append("}");
     return sb.toString();

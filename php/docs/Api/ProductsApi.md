@@ -544,7 +544,7 @@ Name | Type | Description  | Notes
 
 ## searchGroceryProducts
 
-> \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20027 searchGroceryProducts($query, $min_calories, $max_calories, $min_carbs, $max_carbs, $min_protein, $max_protein, $min_fat, $max_fat, $offset, $number)
+> \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20027 searchGroceryProducts($query, $min_calories, $max_calories, $min_carbs, $max_carbs, $min_protein, $max_protein, $min_fat, $max_fat, $add_product_information, $offset, $number)
 
 Search Grocery Products
 
@@ -578,11 +578,12 @@ $min_protein = 10; // float | The minimum amount of protein in grams the product
 $max_protein = 100; // float | The maximum amount of protein in grams the product can have.
 $min_fat = 1; // float | The minimum amount of fat in grams the product must have.
 $max_fat = 100; // float | The maximum amount of fat in grams the product can have.
+$add_product_information = true; // bool | If set to true, you get more information about the products returned.
 $offset = 56; // int | The number of results to skip (between 0 and 900).
 $number = 10; // int | The maximum number of items to return (between 1 and 100). Defaults to 10.
 
 try {
-    $result = $apiInstance->searchGroceryProducts($query, $min_calories, $max_calories, $min_carbs, $max_carbs, $min_protein, $max_protein, $min_fat, $max_fat, $offset, $number);
+    $result = $apiInstance->searchGroceryProducts($query, $min_calories, $max_calories, $min_carbs, $max_carbs, $min_protein, $max_protein, $min_fat, $max_fat, $add_product_information, $offset, $number);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ProductsApi->searchGroceryProducts: ', $e->getMessage(), PHP_EOL;
@@ -604,6 +605,7 @@ Name | Type | Description  | Notes
  **max_protein** | **float**| The maximum amount of protein in grams the product can have. | [optional]
  **min_fat** | **float**| The minimum amount of fat in grams the product must have. | [optional]
  **max_fat** | **float**| The maximum amount of fat in grams the product can have. | [optional]
+ **add_product_information** | **bool**| If set to true, you get more information about the products returned. | [optional]
  **offset** | **int**| The number of results to skip (between 0 and 900). | [optional]
  **number** | **int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
 

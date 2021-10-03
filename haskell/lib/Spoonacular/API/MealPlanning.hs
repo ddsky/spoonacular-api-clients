@@ -58,6 +58,38 @@ import qualified Prelude as P
 
 -- ** MealPlanning
 
+-- *** addMealPlanTemplate
+
+-- | @POST \/mealplanner\/{username}\/templates@
+-- 
+-- Add Meal Plan Template
+-- 
+-- Add a meal plan template for a user.
+-- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
+addMealPlanTemplate 
+  :: (Consumes AddMealPlanTemplate , MimeRender  InlineObject6)
+  => InlineObject6 -- ^ "inlineObject6"
+  -> Username -- ^ "username" -  The username.
+  -> Hash -- ^ "hash" -  The private hash for the username.
+  -> SpoonacularRequest AddMealPlanTemplate  InlineResponse20040 MimeJSON
+addMealPlanTemplate inlineObject6 (Username username) (Hash hash) =
+  _mkRequest "POST" ["/mealplanner/",toPath username,"/templates"]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
+    `setBodyParam` inlineObject6
+    `setQuery` toQuery ("hash", Just hash)
+
+data AddMealPlanTemplate 
+instance HasBodyParam AddMealPlanTemplate InlineObject6 
+
+-- | @@
+instance Consumes AddMealPlanTemplate 
+
+-- | @application/json@
+instance Produces AddMealPlanTemplate MimeJSON
+
+
 -- *** addToMealPlan
 
 -- | @POST \/mealplanner\/{username}\/items@
@@ -104,20 +136,20 @@ instance Produces AddToMealPlan MimeJSON
 -- AuthMethod: 'AuthApiKeyApiKeyScheme'
 -- 
 addToShoppingList 
-  :: (Consumes AddToShoppingList contentType, MimeRender contentType InlineObject7)
+  :: (Consumes AddToShoppingList contentType, MimeRender contentType InlineObject9)
   => ContentType contentType -- ^ request content-type ('MimeType')
-  -> InlineObject7 -- ^ "inlineObject7"
+  -> InlineObject9 -- ^ "inlineObject9"
   -> Username -- ^ "username" -  The username.
   -> Hash -- ^ "hash" -  The private hash for the username.
-  -> SpoonacularRequest AddToShoppingList contentType InlineResponse20041 MimeJSON
-addToShoppingList _ inlineObject7 (Username username) (Hash hash) =
+  -> SpoonacularRequest AddToShoppingList contentType InlineResponse20042 MimeJSON
+addToShoppingList _ inlineObject9 (Username username) (Hash hash) =
   _mkRequest "POST" ["/mealplanner/",toPath username,"/shopping-list/items"]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
-    `setBodyParam` inlineObject7
+    `setBodyParam` inlineObject9
     `setQuery` toQuery ("hash", Just hash)
 
 data AddToShoppingList 
-instance HasBodyParam AddToShoppingList InlineObject7 
+instance HasBodyParam AddToShoppingList InlineObject9 
 
 -- | @@
 instance Consumes AddToShoppingList 
@@ -175,7 +207,7 @@ connectUser
   :: (Consumes ConnectUser contentType, MimeRender contentType Body)
   => ContentType contentType -- ^ request content-type ('MimeType')
   -> Body -- ^ "body"
-  -> SpoonacularRequest ConnectUser contentType InlineResponse20042 MimeJSON
+  -> SpoonacularRequest ConnectUser contentType InlineResponse20043 MimeJSON
 connectUser _ body =
   _mkRequest "POST" ["/users/connect"]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
@@ -237,26 +269,59 @@ instance Produces DeleteFromMealPlan MimeJSON
 -- AuthMethod: 'AuthApiKeyApiKeyScheme'
 -- 
 deleteFromShoppingList 
-  :: (Consumes DeleteFromShoppingList , MimeRender  InlineObject8)
-  => InlineObject8 -- ^ "inlineObject8"
+  :: (Consumes DeleteFromShoppingList , MimeRender  InlineObject10)
+  => InlineObject10 -- ^ "inlineObject10"
   -> Username -- ^ "username" -  The username.
   -> Id -- ^ "id" -  The item's id.
   -> Hash -- ^ "hash" -  The private hash for the username.
   -> SpoonacularRequest DeleteFromShoppingList  A.Value MimeJSON
-deleteFromShoppingList inlineObject8 (Username username) (Id id) (Hash hash) =
+deleteFromShoppingList inlineObject10 (Username username) (Id id) (Hash hash) =
   _mkRequest "DELETE" ["/mealplanner/",toPath username,"/shopping-list/items/",toPath id]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
-    `setBodyParam` inlineObject8
+    `setBodyParam` inlineObject10
     `setQuery` toQuery ("hash", Just hash)
 
 data DeleteFromShoppingList 
-instance HasBodyParam DeleteFromShoppingList InlineObject8 
+instance HasBodyParam DeleteFromShoppingList InlineObject10 
 
 -- | @@
 instance Consumes DeleteFromShoppingList 
 
 -- | @application/json@
 instance Produces DeleteFromShoppingList MimeJSON
+
+
+-- *** deleteMealPlanTemplate
+
+-- | @DELETE \/mealplanner\/{username}\/templates\/{id}@
+-- 
+-- Delete Meal Plan Template
+-- 
+-- Delete a meal plan template for a user.
+-- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
+deleteMealPlanTemplate 
+  :: (Consumes DeleteMealPlanTemplate , MimeRender  InlineObject7)
+  => InlineObject7 -- ^ "inlineObject7"
+  -> Username -- ^ "username" -  The username.
+  -> Id -- ^ "id" -  The item's id.
+  -> Hash -- ^ "hash" -  The private hash for the username.
+  -> SpoonacularRequest DeleteMealPlanTemplate  A.Value MimeJSON
+deleteMealPlanTemplate inlineObject7 (Username username) (Id id) (Hash hash) =
+  _mkRequest "DELETE" ["/mealplanner/",toPath username,"/templates/",toPath id]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
+    `setBodyParam` inlineObject7
+    `setQuery` toQuery ("hash", Just hash)
+
+data DeleteMealPlanTemplate 
+instance HasBodyParam DeleteMealPlanTemplate InlineObject7 
+
+-- | @@
+instance Consumes DeleteMealPlanTemplate 
+
+-- | @application/json@
+instance Produces DeleteMealPlanTemplate MimeJSON
 
 
 -- *** generateMealPlan
@@ -311,21 +376,21 @@ instance Produces GenerateMealPlan MimeJSON
 -- AuthMethod: 'AuthApiKeyApiKeyScheme'
 -- 
 generateShoppingList 
-  :: (Consumes GenerateShoppingList , MimeRender  InlineObject6)
-  => InlineObject6 -- ^ "inlineObject6"
+  :: (Consumes GenerateShoppingList , MimeRender  InlineObject8)
+  => InlineObject8 -- ^ "inlineObject8"
   -> Username -- ^ "username" -  The username.
   -> StartDate -- ^ "startDate" -  The start date in the format yyyy-mm-dd.
   -> EndDate -- ^ "endDate" -  The end date in the format yyyy-mm-dd.
   -> Hash -- ^ "hash" -  The private hash for the username.
-  -> SpoonacularRequest GenerateShoppingList  InlineResponse20041 MimeJSON
-generateShoppingList inlineObject6 (Username username) (StartDate startDate) (EndDate endDate) (Hash hash) =
+  -> SpoonacularRequest GenerateShoppingList  InlineResponse20042 MimeJSON
+generateShoppingList inlineObject8 (Username username) (StartDate startDate) (EndDate endDate) (Hash hash) =
   _mkRequest "POST" ["/mealplanner/",toPath username,"/shopping-list/",toPath startDate,"/",toPath endDate]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
-    `setBodyParam` inlineObject6
+    `setBodyParam` inlineObject8
     `setQuery` toQuery ("hash", Just hash)
 
 data GenerateShoppingList 
-instance HasBodyParam GenerateShoppingList InlineObject6 
+instance HasBodyParam GenerateShoppingList InlineObject8 
 
 -- | @@
 instance Consumes GenerateShoppingList 
@@ -348,7 +413,7 @@ getMealPlanTemplate
   :: Username -- ^ "username" -  The username.
   -> Id -- ^ "id" -  The item's id.
   -> Hash -- ^ "hash" -  The private hash for the username.
-  -> SpoonacularRequest GetMealPlanTemplate MimeNoContent InlineResponse20040 MimeJSON
+  -> SpoonacularRequest GetMealPlanTemplate MimeNoContent InlineResponse20041 MimeJSON
 getMealPlanTemplate (Username username) (Id id) (Hash hash) =
   _mkRequest "GET" ["/mealplanner/",toPath username,"/templates/",toPath id]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
@@ -421,7 +486,7 @@ instance Produces GetMealPlanWeek MimeJSON
 getShoppingList 
   :: Username -- ^ "username" -  The username.
   -> Hash -- ^ "hash" -  The private hash for the username.
-  -> SpoonacularRequest GetShoppingList MimeNoContent InlineResponse20041 MimeJSON
+  -> SpoonacularRequest GetShoppingList MimeNoContent InlineResponse20042 MimeJSON
 getShoppingList (Username username) (Hash hash) =
   _mkRequest "GET" ["/mealplanner/",toPath username,"/shopping-list"]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)

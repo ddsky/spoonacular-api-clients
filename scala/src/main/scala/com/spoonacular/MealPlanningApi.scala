@@ -4,18 +4,21 @@ import java.io._
 import spoonacular._
 import com.spoonacular.client.model._
 import java.math.BigDecimal
+import com.spoonacular.client.model.InlineObject10
 import com.spoonacular.client.model.InlineObject3
 import com.spoonacular.client.model.InlineObject4
 import com.spoonacular.client.model.InlineObject5
 import com.spoonacular.client.model.InlineObject6
 import com.spoonacular.client.model.InlineObject7
 import com.spoonacular.client.model.InlineObject8
+import com.spoonacular.client.model.InlineObject9
 import com.spoonacular.client.model.InlineResponse20037
 import com.spoonacular.client.model.InlineResponse20038
 import com.spoonacular.client.model.InlineResponse20039
 import com.spoonacular.client.model.InlineResponse20040
 import com.spoonacular.client.model.InlineResponse20041
 import com.spoonacular.client.model.InlineResponse20042
+import com.spoonacular.client.model.InlineResponse20043
 import io.finch.circe._
 import io.circe.generic.semiauto._
 import com.twitter.concurrent.AsyncStream
@@ -35,12 +38,14 @@ object MealPlanningApi {
     * @return Bundled compilation of all service endpoints.
     */
     def endpoints(da: DataAccessor) =
+        addMealPlanTemplate(da) :+:
         addToMealPlan(da) :+:
         addToShoppingList(da) :+:
         clearMealPlanDay(da) :+:
         connectUser(da) :+:
         deleteFromMealPlan(da) :+:
         deleteFromShoppingList(da) :+:
+        deleteMealPlanTemplate(da) :+:
         generateMealPlan(da) :+:
         generateShoppingList(da) :+:
         getMealPlanTemplate(da) :+:
@@ -71,6 +76,20 @@ object MealPlanningApi {
 
         /**
         * 
+        * @return An endpoint representing a InlineResponse20040
+        */
+        private def addMealPlanTemplate(da: DataAccessor): Endpoint[InlineResponse20040] =
+        post("mealplanner" :: string :: "templates" :: param("hash") :: jsonBody[InlineObject6] :: param("apiKey")) { (username: String, hash: String, inlineObject6: InlineObject6, authParamapiKeyScheme: String) =>
+          da.MealPlanning_addMealPlanTemplate(username, hash, inlineObject6, authParamapiKeyScheme) match {
+            case Left(error) => checkError(error)
+            case Right(data) => Ok(data)
+          }
+        } handle {
+          case e: Exception => BadRequest(e)
+        }
+
+        /**
+        * 
         * @return An endpoint representing a Object
         */
         private def addToMealPlan(da: DataAccessor): Endpoint[Object] =
@@ -85,11 +104,11 @@ object MealPlanningApi {
 
         /**
         * 
-        * @return An endpoint representing a InlineResponse20041
+        * @return An endpoint representing a InlineResponse20042
         */
-        private def addToShoppingList(da: DataAccessor): Endpoint[InlineResponse20041] =
-        post("mealplanner" :: string :: "shopping-list" :: "items" :: param("hash") :: jsonBody[InlineObject7] :: param("apiKey")) { (username: String, hash: String, inlineObject7: InlineObject7, authParamapiKeyScheme: String) =>
-          da.MealPlanning_addToShoppingList(username, hash, inlineObject7, authParamapiKeyScheme) match {
+        private def addToShoppingList(da: DataAccessor): Endpoint[InlineResponse20042] =
+        post("mealplanner" :: string :: "shopping-list" :: "items" :: param("hash") :: jsonBody[InlineObject9] :: param("apiKey")) { (username: String, hash: String, inlineObject9: InlineObject9, authParamapiKeyScheme: String) =>
+          da.MealPlanning_addToShoppingList(username, hash, inlineObject9, authParamapiKeyScheme) match {
             case Left(error) => checkError(error)
             case Right(data) => Ok(data)
           }
@@ -113,9 +132,9 @@ object MealPlanningApi {
 
         /**
         * 
-        * @return An endpoint representing a InlineResponse20042
+        * @return An endpoint representing a InlineResponse20043
         */
-        private def connectUser(da: DataAccessor): Endpoint[InlineResponse20042] =
+        private def connectUser(da: DataAccessor): Endpoint[InlineResponse20043] =
         post("users" :: "connect" :: jsonBody[Object] :: param("apiKey")) { (body: Object, authParamapiKeyScheme: String) =>
           da.MealPlanning_connectUser(body, authParamapiKeyScheme) match {
             case Left(error) => checkError(error)
@@ -144,8 +163,22 @@ object MealPlanningApi {
         * @return An endpoint representing a Object
         */
         private def deleteFromShoppingList(da: DataAccessor): Endpoint[Object] =
-        delete("mealplanner" :: string :: "shopping-list" :: "items" :: int :: param("hash") :: jsonBody[InlineObject8] :: param("apiKey")) { (username: String, id: Int, hash: String, inlineObject8: InlineObject8, authParamapiKeyScheme: String) =>
-          da.MealPlanning_deleteFromShoppingList(username, id, hash, inlineObject8, authParamapiKeyScheme) match {
+        delete("mealplanner" :: string :: "shopping-list" :: "items" :: int :: param("hash") :: jsonBody[InlineObject10] :: param("apiKey")) { (username: String, id: Int, hash: String, inlineObject10: InlineObject10, authParamapiKeyScheme: String) =>
+          da.MealPlanning_deleteFromShoppingList(username, id, hash, inlineObject10, authParamapiKeyScheme) match {
+            case Left(error) => checkError(error)
+            case Right(data) => Ok(data)
+          }
+        } handle {
+          case e: Exception => BadRequest(e)
+        }
+
+        /**
+        * 
+        * @return An endpoint representing a Object
+        */
+        private def deleteMealPlanTemplate(da: DataAccessor): Endpoint[Object] =
+        delete("mealplanner" :: string :: "templates" :: int :: param("hash") :: jsonBody[InlineObject7] :: param("apiKey")) { (username: String, id: Int, hash: String, inlineObject7: InlineObject7, authParamapiKeyScheme: String) =>
+          da.MealPlanning_deleteMealPlanTemplate(username, id, hash, inlineObject7, authParamapiKeyScheme) match {
             case Left(error) => checkError(error)
             case Right(data) => Ok(data)
           }
@@ -169,11 +202,11 @@ object MealPlanningApi {
 
         /**
         * 
-        * @return An endpoint representing a InlineResponse20041
+        * @return An endpoint representing a InlineResponse20042
         */
-        private def generateShoppingList(da: DataAccessor): Endpoint[InlineResponse20041] =
-        post("mealplanner" :: string :: "shopping-list" :: string :: string :: param("hash") :: jsonBody[InlineObject6] :: param("apiKey")) { (username: String, startDate: String, endDate: String, hash: String, inlineObject6: InlineObject6, authParamapiKeyScheme: String) =>
-          da.MealPlanning_generateShoppingList(username, startDate, endDate, hash, inlineObject6, authParamapiKeyScheme) match {
+        private def generateShoppingList(da: DataAccessor): Endpoint[InlineResponse20042] =
+        post("mealplanner" :: string :: "shopping-list" :: string :: string :: param("hash") :: jsonBody[InlineObject8] :: param("apiKey")) { (username: String, startDate: String, endDate: String, hash: String, inlineObject8: InlineObject8, authParamapiKeyScheme: String) =>
+          da.MealPlanning_generateShoppingList(username, startDate, endDate, hash, inlineObject8, authParamapiKeyScheme) match {
             case Left(error) => checkError(error)
             case Right(data) => Ok(data)
           }
@@ -183,9 +216,9 @@ object MealPlanningApi {
 
         /**
         * 
-        * @return An endpoint representing a InlineResponse20040
+        * @return An endpoint representing a InlineResponse20041
         */
-        private def getMealPlanTemplate(da: DataAccessor): Endpoint[InlineResponse20040] =
+        private def getMealPlanTemplate(da: DataAccessor): Endpoint[InlineResponse20041] =
         get("mealplanner" :: string :: "templates" :: int :: param("hash") :: param("apiKey")) { (username: String, id: Int, hash: String, authParamapiKeyScheme: String) =>
           da.MealPlanning_getMealPlanTemplate(username, id, hash, authParamapiKeyScheme) match {
             case Left(error) => checkError(error)
@@ -225,9 +258,9 @@ object MealPlanningApi {
 
         /**
         * 
-        * @return An endpoint representing a InlineResponse20041
+        * @return An endpoint representing a InlineResponse20042
         */
-        private def getShoppingList(da: DataAccessor): Endpoint[InlineResponse20041] =
+        private def getShoppingList(da: DataAccessor): Endpoint[InlineResponse20042] =
         get("mealplanner" :: string :: "shopping-list" :: param("hash") :: param("apiKey")) { (username: String, hash: String, authParamapiKeyScheme: String) =>
           da.MealPlanning_getShoppingList(username, hash, authParamapiKeyScheme) match {
             case Left(error) => checkError(error)
