@@ -86,9 +86,16 @@ class InlineObject8Test extends TestCase
     }
 
     /**
-     * Test attribute "id"
+     * Test attribute "start_date"
      */
-    public function testPropertyId()
+    public function testPropertyStartDate()
+    {
+    }
+
+    /**
+     * Test attribute "end_date"
+     */
+    public function testPropertyEndDate()
     {
     }
 

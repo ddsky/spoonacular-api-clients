@@ -38,14 +38,14 @@ OAIInline_response_200_40::~OAIInline_response_200_40() {
 void
 OAIInline_response_200_40::init() {
     
-    m_id_isSet = false;
-    m_id_isValid = false;
-    
     m_name_isSet = false;
     m_name_isValid = false;
     
-    m_days_isSet = false;
-    m_days_isValid = false;
+    m_items_isSet = false;
+    m_items_isValid = false;
+    
+    m_publish_as_public_isSet = false;
+    m_publish_as_public_isValid = false;
     }
 
 void
@@ -59,14 +59,14 @@ OAIInline_response_200_40::fromJson(QString jsonString) {
 void
 OAIInline_response_200_40::fromJsonObject(QJsonObject json) {
     
-    m_id_isValid = ::OpenAPI::fromJsonValue(id, json[QString("id")]);
-    
-    
     m_name_isValid = ::OpenAPI::fromJsonValue(name, json[QString("name")]);
     
     
     
-    m_days_isValid = ::OpenAPI::fromJsonValue(days, json[QString("days")]);
+    m_items_isValid = ::OpenAPI::fromJsonValue(items, json[QString("items")]);
+    
+    m_publish_as_public_isValid = ::OpenAPI::fromJsonValue(publish_as_public, json[QString("publishAsPublic")]);
+    
     
 }
 
@@ -81,28 +81,17 @@ OAIInline_response_200_40::asJson () const {
 QJsonObject
 OAIInline_response_200_40::asJsonObject() const {
     QJsonObject obj;
-	if(m_id_isSet){
-        obj.insert(QString("id"), ::OpenAPI::toJsonValue(id));
-    }
 	if(m_name_isSet){
         obj.insert(QString("name"), ::OpenAPI::toJsonValue(name));
     }
 	
-    if(days.size() > 0){
-        obj.insert(QString("days"), ::OpenAPI::toJsonValue(days));
+    if(items.size() > 0){
+        obj.insert(QString("items"), ::OpenAPI::toJsonValue(items));
     } 
+	if(m_publish_as_public_isSet){
+        obj.insert(QString("publishAsPublic"), ::OpenAPI::toJsonValue(publish_as_public));
+    }
     return obj;
-}
-
-
-qint32
-OAIInline_response_200_40::getId() const {
-    return id;
-}
-void
-OAIInline_response_200_40::setId(const qint32 &id) {
-    this->id = id;
-    this->m_id_isSet = true;
 }
 
 
@@ -117,25 +106,36 @@ OAIInline_response_200_40::setName(const QString &name) {
 }
 
 
-QList<OAIInline_response_200_40_days>
-OAIInline_response_200_40::getDays() const {
-    return days;
+QList<OAIInline_response_200_40_items>
+OAIInline_response_200_40::getItems() const {
+    return items;
 }
 void
-OAIInline_response_200_40::setDays(const QList<OAIInline_response_200_40_days> &days) {
-    this->days = days;
-    this->m_days_isSet = true;
+OAIInline_response_200_40::setItems(const QList<OAIInline_response_200_40_items> &items) {
+    this->items = items;
+    this->m_items_isSet = true;
+}
+
+
+bool
+OAIInline_response_200_40::isPublishAsPublic() const {
+    return publish_as_public;
+}
+void
+OAIInline_response_200_40::setPublishAsPublic(const bool &publish_as_public) {
+    this->publish_as_public = publish_as_public;
+    this->m_publish_as_public_isSet = true;
 }
 
 bool
 OAIInline_response_200_40::isSet() const {
     bool isObjectUpdated = false;
     do{ 
-        if(m_id_isSet){ isObjectUpdated = true; break;}
-    
         if(m_name_isSet){ isObjectUpdated = true; break;}
     
-        if(days.size() > 0){ isObjectUpdated = true; break;}
+        if(items.size() > 0){ isObjectUpdated = true; break;}
+    
+        if(m_publish_as_public_isSet){ isObjectUpdated = true; break;}
     }while(false);
     return isObjectUpdated;
 }
@@ -143,7 +143,7 @@ OAIInline_response_200_40::isSet() const {
 bool
 OAIInline_response_200_40::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_id_isValid && m_name_isValid && m_days_isValid && true;
+    return m_name_isValid && m_items_isValid && m_publish_as_public_isValid && true;
 }
 
 }

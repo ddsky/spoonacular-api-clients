@@ -14,9 +14,6 @@
 */
 
 
-#import "OAIInlineResponse20052SearchResults.h"
-@protocol OAIInlineResponse20052SearchResults;
-@class OAIInlineResponse20052SearchResults;
 
 
 
@@ -26,14 +23,12 @@
 @interface OAIInlineResponse20052 : OAIObject
 
 
-@property(nonatomic) NSString* query;
+@property(nonatomic) NSArray<NSObject*>* articles;
 
-@property(nonatomic) NSNumber* totalResults;
+@property(nonatomic) NSArray<NSObject*>* groceryProducts;
 
-@property(nonatomic) NSNumber* limit;
+@property(nonatomic) NSArray<NSObject*>* menuItems;
 
-@property(nonatomic) NSNumber* offset;
-
-@property(nonatomic) NSArray<OAIInlineResponse20052SearchResults>* searchResults;
+@property(nonatomic) NSArray<NSObject*>* recipes;
 
 @end

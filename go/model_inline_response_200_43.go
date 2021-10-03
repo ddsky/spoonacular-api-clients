@@ -11,6 +11,6 @@
 package spoonacular
 
 type InlineResponse20043 struct {
-	Pairings []string `json:"pairings"`
-	Text string `json:"text"`
+	Username string `json:"username"`
+	Hash string `json:"hash"`
 }

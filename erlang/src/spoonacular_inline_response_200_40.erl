@@ -5,16 +5,16 @@
 -export_type([spoonacular_inline_response_200_40/0]).
 
 -type spoonacular_inline_response_200_40() ::
-    #{ 'id' := integer(),
-       'name' := binary(),
-       'days' := list()
+    #{ 'name' := binary(),
+       'items' := list(),
+       'publishAsPublic' := boolean()
      }.
 
-encode(#{ 'id' := Id,
-          'name' := Name,
-          'days' := Days
+encode(#{ 'name' := Name,
+          'items' := Items,
+          'publishAsPublic' := PublishAsPublic
         }) ->
-    #{ 'id' => Id,
-       'name' => Name,
-       'days' => Days
+    #{ 'name' => Name,
+       'items' => Items,
+       'publishAsPublic' => PublishAsPublic
      }.

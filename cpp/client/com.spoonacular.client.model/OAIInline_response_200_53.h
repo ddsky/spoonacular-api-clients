@@ -22,8 +22,9 @@
 #include <QJsonObject>
 
 
-#include "com.spoonacular.client.model\OAIInline_response_200_53_videos.h"
+#include "com.spoonacular.client.model\OAIInline_response_200_53_searchResults.h"
 #include <QList>
+#include <QString>
 
 #include "OAIObject.h"
 #include "OAIEnum.h"
@@ -42,12 +43,24 @@ public:
     void fromJson(QString jsonString) override;
 
     
-    QList<OAIInline_response_200_53_videos> getVideos() const;
-    void setVideos(const QList<OAIInline_response_200_53_videos> &videos);
+    QString getQuery() const;
+    void setQuery(const QString &query);
 
     
     qint32 getTotalResults() const;
     void setTotalResults(const qint32 &total_results);
+
+    
+    qint32 getLimit() const;
+    void setLimit(const qint32 &limit);
+
+    
+    qint32 getOffset() const;
+    void setOffset(const qint32 &offset);
+
+    
+    QList<OAIInline_response_200_53_searchResults> getSearchResults() const;
+    void setSearchResults(const QList<OAIInline_response_200_53_searchResults> &search_results);
 
     
     
@@ -57,13 +70,25 @@ public:
 private:
     void init();
     
-    QList<OAIInline_response_200_53_videos> videos;
-    bool m_videos_isSet;
-    bool m_videos_isValid;
+    QString query;
+    bool m_query_isSet;
+    bool m_query_isValid;
     
     qint32 total_results;
     bool m_total_results_isSet;
     bool m_total_results_isValid;
+    
+    qint32 limit;
+    bool m_limit_isSet;
+    bool m_limit_isValid;
+    
+    qint32 offset;
+    bool m_offset_isSet;
+    bool m_offset_isValid;
+    
+    QList<OAIInline_response_200_53_searchResults> search_results;
+    bool m_search_results_isSet;
+    bool m_search_results_isValid;
     
     };
 

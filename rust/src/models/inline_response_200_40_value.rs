@@ -15,19 +15,22 @@ use serde_json::Value;
 #[derive(Debug, Serialize, Deserialize)]
 pub struct InlineResponse20040Value {
     #[serde(rename = "id")]
-    pub id: f32,
+    pub id: Option<i32>,
+    #[serde(rename = "servings")]
+    pub servings: Option<f32>,
     #[serde(rename = "title")]
-    pub title: String,
+    pub title: Option<String>,
     #[serde(rename = "imageType")]
-    pub image_type: String,
+    pub image_type: Option<String>,
 }
 
 impl InlineResponse20040Value {
-    pub fn new(id: f32, title: String, image_type: String) -> InlineResponse20040Value {
+    pub fn new() -> InlineResponse20040Value {
         InlineResponse20040Value {
-            id: id,
-            title: title,
-            image_type: image_type,
+            id: None,
+            servings: None,
+            title: None,
+            image_type: None,
         }
     }
 }

@@ -27,19 +27,11 @@ import java.io.IOException;
 /**
  * InlineObject6
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-09-28T20:40:32.759+02:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-03T15:10:59.332+02:00[Europe/Berlin]")
 public class InlineObject6 {
   public static final String SERIALIZED_NAME_USERNAME = "username";
   @SerializedName(SERIALIZED_NAME_USERNAME)
   private String username;
-
-  public static final String SERIALIZED_NAME_START_DATE = "start-date";
-  @SerializedName(SERIALIZED_NAME_START_DATE)
-  private String startDate;
-
-  public static final String SERIALIZED_NAME_END_DATE = "end-date";
-  @SerializedName(SERIALIZED_NAME_END_DATE)
-  private String endDate;
 
   public static final String SERIALIZED_NAME_HASH = "hash";
   @SerializedName(SERIALIZED_NAME_HASH)
@@ -61,42 +53,6 @@ public class InlineObject6 {
 
   public void setUsername(String username) {
     this.username = username;
-  }
-
-  public InlineObject6 startDate(String startDate) {
-    this.startDate = startDate;
-    return this;
-  }
-
-   /**
-   * The start date in the format yyyy-mm-dd.
-   * @return startDate
-  **/
-  @ApiModelProperty(example = "2020-06-01", required = true, value = "The start date in the format yyyy-mm-dd.")
-  public String getStartDate() {
-    return startDate;
-  }
-
-  public void setStartDate(String startDate) {
-    this.startDate = startDate;
-  }
-
-  public InlineObject6 endDate(String endDate) {
-    this.endDate = endDate;
-    return this;
-  }
-
-   /**
-   * The end date in the format yyyy-mm-dd.
-   * @return endDate
-  **/
-  @ApiModelProperty(example = "2020-06-07", required = true, value = "The end date in the format yyyy-mm-dd.")
-  public String getEndDate() {
-    return endDate;
-  }
-
-  public void setEndDate(String endDate) {
-    this.endDate = endDate;
   }
 
   public InlineObject6 hash(String hash) {
@@ -128,14 +84,12 @@ public class InlineObject6 {
     }
     InlineObject6 inlineObject6 = (InlineObject6) o;
     return Objects.equals(this.username, inlineObject6.username) &&
-        Objects.equals(this.startDate, inlineObject6.startDate) &&
-        Objects.equals(this.endDate, inlineObject6.endDate) &&
         Objects.equals(this.hash, inlineObject6.hash);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(username, startDate, endDate, hash);
+    return Objects.hash(username, hash);
   }
 
 
@@ -144,8 +98,6 @@ public class InlineObject6 {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineObject6 {\n");
     sb.append("    username: ").append(toIndentedString(username)).append("\n");
-    sb.append("    startDate: ").append(toIndentedString(startDate)).append("\n");
-    sb.append("    endDate: ").append(toIndentedString(endDate)).append("\n");
     sb.append("    hash: ").append(toIndentedString(hash)).append("\n");
     sb.append("}");
     return sb.toString();

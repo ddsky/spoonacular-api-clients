@@ -16,13 +16,6 @@ Please update as you see appropriate
 describe("inline_response_200_40", function()
   local spoonacular_inline_response_200_40 = require "spoonacular.model.inline_response_200_40"
 
-  -- unit tests for the property 'id'
-  describe("property id test", function()
-    it("should work", function()
-      -- TODO assertion here: http://olivinelabs.com/busted/#asserts
-    end)
-  end)
-
   -- unit tests for the property 'name'
   describe("property name test", function()
     it("should work", function()
@@ -30,8 +23,15 @@ describe("inline_response_200_40", function()
     end)
   end)
 
-  -- unit tests for the property 'days'
-  describe("property days test", function()
+  -- unit tests for the property 'items'
+  describe("property items test", function()
+    it("should work", function()
+      -- TODO assertion here: http://olivinelabs.com/busted/#asserts
+    end)
+  end)
+
+  -- unit tests for the property 'publish_as_public'
+  describe("property publish_as_public test", function()
     it("should work", function()
       -- TODO assertion here: http://olivinelabs.com/busted/#asserts
     end)

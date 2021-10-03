@@ -19,10 +19,9 @@ local function cast_inline_response_200_46(t)
 	return setmetatable(t, inline_response_200_46_mt)
 end
 
-local function new_inline_response_200_46(recommended_wines, total_found)
+local function new_inline_response_200_46(wine_description)
 	return cast_inline_response_200_46({
-		["recommendedWines"] = recommended_wines;
-		["totalFound"] = total_found;
+		["wineDescription"] = wine_description;
 	})
 end
 

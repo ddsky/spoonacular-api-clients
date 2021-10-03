@@ -4,8 +4,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**suggests** | [**InlineResponse20056Suggests**](InlineResponse20056Suggests.md) |  | 
-**words** | [**kotlin.Array&lt;kotlin.Any&gt;**](kotlin.Any.md) |  | 
+**answerText** | **kotlin.String** |  | 
+**media** | [**kotlin.Array&lt;kotlin.Any&gt;**](kotlin.Any.md) |  | 
 
 
 

@@ -14,27 +14,23 @@ require 'date'
 
 module OpenapiClient
   class InlineResponse20048
-    attr_accessor :nutrition
-
     attr_accessor :category
 
-    attr_accessor :recipes
+    attr_accessor :probability
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'nutrition' => :'nutrition',
         :'category' => :'category',
-        :'recipes' => :'recipes'
+        :'probability' => :'probability'
       }
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'nutrition' => :'InlineResponse20048Nutrition',
-        :'category' => :'InlineResponse20048Category',
-        :'recipes' => :'Array<InlineResponse20048Recipes>'
+        :'category' => :'String',
+        :'probability' => :'Float'
       }
     end
 
@@ -53,18 +49,12 @@ module OpenapiClient
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'nutrition')
-        self.nutrition = attributes[:'nutrition']
-      end
-
       if attributes.key?(:'category')
         self.category = attributes[:'category']
       end
 
-      if attributes.key?(:'recipes')
-        if (value = attributes[:'recipes']).is_a?(Array)
-          self.recipes = value
-        end
+      if attributes.key?(:'probability')
+        self.probability = attributes[:'probability']
       end
     end
 
@@ -72,16 +62,16 @@ module OpenapiClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @nutrition.nil?
-        invalid_properties.push('invalid value for "nutrition", nutrition cannot be nil.')
-      end
-
       if @category.nil?
         invalid_properties.push('invalid value for "category", category cannot be nil.')
       end
 
-      if @recipes.nil?
-        invalid_properties.push('invalid value for "recipes", recipes cannot be nil.')
+      if @category.to_s.length < 1
+        invalid_properties.push('invalid value for "category", the character length must be great than or equal to 1.')
+      end
+
+      if @probability.nil?
+        invalid_properties.push('invalid value for "probability", probability cannot be nil.')
       end
 
       invalid_properties
@@ -90,10 +80,24 @@ module OpenapiClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @nutrition.nil?
       return false if @category.nil?
-      return false if @recipes.nil?
+      return false if @category.to_s.length < 1
+      return false if @probability.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] category Value to be assigned
+    def category=(category)
+      if category.nil?
+        fail ArgumentError, 'category cannot be nil'
+      end
+
+      if category.to_s.length < 1
+        fail ArgumentError, 'invalid value for "category", the character length must be great than or equal to 1.'
+      end
+
+      @category = category
     end
 
     # Checks equality by comparing each attribute.
@@ -101,9 +105,8 @@ module OpenapiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          nutrition == o.nutrition &&
           category == o.category &&
-          recipes == o.recipes
+          probability == o.probability
     end
 
     # @see the `==` method
@@ -115,7 +118,7 @@ module OpenapiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [nutrition, category, recipes].hash
+      [category, probability].hash
     end
 
     # Builds the object from hash

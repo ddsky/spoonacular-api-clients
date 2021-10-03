@@ -14,6 +14,9 @@
 */
 
 
+#import "OAIInlineResponse20045ProductMatches.h"
+@protocol OAIInlineResponse20045ProductMatches;
+@class OAIInlineResponse20045ProductMatches;
 
 
 
@@ -23,6 +26,10 @@
 @interface OAIInlineResponse20045 : OAIObject
 
 
-@property(nonatomic) NSString* wineDescription;
+@property(nonatomic) NSArray<NSString*>* pairedWines;
+
+@property(nonatomic) NSString* pairingText;
+
+@property(nonatomic) NSArray<OAIInlineResponse20045ProductMatches>* productMatches;
 
 @end

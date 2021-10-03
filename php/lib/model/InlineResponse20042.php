@@ -57,8 +57,10 @@ class InlineResponse20042 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'username' => 'string',
-        'hash' => 'string'
+        'aisles' => '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20042Aisles[]',
+        'cost' => 'float',
+        'start_date' => 'float',
+        'end_date' => 'float'
     ];
 
     /**
@@ -67,8 +69,10 @@ class InlineResponse20042 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'username' => null,
-        'hash' => null
+        'aisles' => null,
+        'cost' => null,
+        'start_date' => null,
+        'end_date' => null
     ];
 
     /**
@@ -98,8 +102,10 @@ class InlineResponse20042 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'username' => 'username',
-        'hash' => 'hash'
+        'aisles' => 'aisles',
+        'cost' => 'cost',
+        'start_date' => 'startDate',
+        'end_date' => 'endDate'
     ];
 
     /**
@@ -108,8 +114,10 @@ class InlineResponse20042 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'username' => 'setUsername',
-        'hash' => 'setHash'
+        'aisles' => 'setAisles',
+        'cost' => 'setCost',
+        'start_date' => 'setStartDate',
+        'end_date' => 'setEndDate'
     ];
 
     /**
@@ -118,8 +126,10 @@ class InlineResponse20042 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'username' => 'getUsername',
-        'hash' => 'getHash'
+        'aisles' => 'getAisles',
+        'cost' => 'getCost',
+        'start_date' => 'getStartDate',
+        'end_date' => 'getEndDate'
     ];
 
     /**
@@ -182,8 +192,10 @@ class InlineResponse20042 implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['username'] = isset($data['username']) ? $data['username'] : null;
-        $this->container['hash'] = isset($data['hash']) ? $data['hash'] : null;
+        $this->container['aisles'] = isset($data['aisles']) ? $data['aisles'] : null;
+        $this->container['cost'] = isset($data['cost']) ? $data['cost'] : null;
+        $this->container['start_date'] = isset($data['start_date']) ? $data['start_date'] : null;
+        $this->container['end_date'] = isset($data['end_date']) ? $data['end_date'] : null;
     }
 
     /**
@@ -195,20 +207,18 @@ class InlineResponse20042 implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['username'] === null) {
-            $invalidProperties[] = "'username' can't be null";
+        if ($this->container['aisles'] === null) {
+            $invalidProperties[] = "'aisles' can't be null";
         }
-        if ((mb_strlen($this->container['username']) < 1)) {
-            $invalidProperties[] = "invalid value for 'username', the character length must be bigger than or equal to 1.";
+        if ($this->container['cost'] === null) {
+            $invalidProperties[] = "'cost' can't be null";
         }
-
-        if ($this->container['hash'] === null) {
-            $invalidProperties[] = "'hash' can't be null";
+        if ($this->container['start_date'] === null) {
+            $invalidProperties[] = "'start_date' can't be null";
         }
-        if ((mb_strlen($this->container['hash']) < 1)) {
-            $invalidProperties[] = "invalid value for 'hash', the character length must be bigger than or equal to 1.";
+        if ($this->container['end_date'] === null) {
+            $invalidProperties[] = "'end_date' can't be null";
         }
-
         return $invalidProperties;
     }
 
@@ -225,59 +235,97 @@ class InlineResponse20042 implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets username
+     * Gets aisles
      *
-     * @return string
+     * @return \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20042Aisles[]
      */
-    public function getUsername()
+    public function getAisles()
     {
-        return $this->container['username'];
+        return $this->container['aisles'];
     }
 
     /**
-     * Sets username
+     * Sets aisles
      *
-     * @param string $username username
+     * @param \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20042Aisles[] $aisles aisles
      *
      * @return $this
      */
-    public function setUsername($username)
+    public function setAisles($aisles)
     {
-
-        if ((mb_strlen($username) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $username when calling InlineResponse20042., must be bigger than or equal to 1.');
-        }
-
-        $this->container['username'] = $username;
+        $this->container['aisles'] = $aisles;
 
         return $this;
     }
 
     /**
-     * Gets hash
+     * Gets cost
      *
-     * @return string
+     * @return float
      */
-    public function getHash()
+    public function getCost()
     {
-        return $this->container['hash'];
+        return $this->container['cost'];
     }
 
     /**
-     * Sets hash
+     * Sets cost
      *
-     * @param string $hash hash
+     * @param float $cost cost
      *
      * @return $this
      */
-    public function setHash($hash)
+    public function setCost($cost)
     {
+        $this->container['cost'] = $cost;
 
-        if ((mb_strlen($hash) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $hash when calling InlineResponse20042., must be bigger than or equal to 1.');
-        }
+        return $this;
+    }
 
-        $this->container['hash'] = $hash;
+    /**
+     * Gets start_date
+     *
+     * @return float
+     */
+    public function getStartDate()
+    {
+        return $this->container['start_date'];
+    }
+
+    /**
+     * Sets start_date
+     *
+     * @param float $start_date start_date
+     *
+     * @return $this
+     */
+    public function setStartDate($start_date)
+    {
+        $this->container['start_date'] = $start_date;
+
+        return $this;
+    }
+
+    /**
+     * Gets end_date
+     *
+     * @return float
+     */
+    public function getEndDate()
+    {
+        return $this->container['end_date'];
+    }
+
+    /**
+     * Sets end_date
+     *
+     * @param float $end_date end_date
+     *
+     * @return $this
+     */
+    public function setEndDate($end_date)
+    {
+        $this->container['end_date'] = $end_date;
 
         return $this;
     }

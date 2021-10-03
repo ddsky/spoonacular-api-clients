@@ -195,7 +195,7 @@ search_grocery_products(Ctx, Optional) ->
 
     Method = get,
     Path = ["/food/products/search"],
-    QS = lists:flatten([])++spoonacular_utils:optional_params(['query', 'minCalories', 'maxCalories', 'minCarbs', 'maxCarbs', 'minProtein', 'maxProtein', 'minFat', 'maxFat', 'offset', 'number'], _OptionalParams),
+    QS = lists:flatten([])++spoonacular_utils:optional_params(['query', 'minCalories', 'maxCalories', 'minCarbs', 'maxCarbs', 'minProtein', 'maxProtein', 'minFat', 'maxFat', 'addProductInformation', 'offset', 'number'], _OptionalParams),
     Headers = [],
     Body1 = [],
     ContentTypeHeader = spoonacular_utils:select_header_content_type([]),

@@ -20,7 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.spoonacular.client.model.InlineResponse20040Days;
+import com.spoonacular.client.model.InlineResponse20040Items;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -30,37 +30,19 @@ import java.util.List;
 /**
  * InlineResponse20040
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-09-28T20:40:32.759+02:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-03T15:10:59.332+02:00[Europe/Berlin]")
 public class InlineResponse20040 {
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
-  private Integer id;
-
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
-  public static final String SERIALIZED_NAME_DAYS = "days";
-  @SerializedName(SERIALIZED_NAME_DAYS)
-  private List<InlineResponse20040Days> days = new ArrayList<>();
+  public static final String SERIALIZED_NAME_ITEMS = "items";
+  @SerializedName(SERIALIZED_NAME_ITEMS)
+  private List<InlineResponse20040Items> items = new ArrayList<>();
 
-  public InlineResponse20040 id(Integer id) {
-    this.id = id;
-    return this;
-  }
-
-   /**
-   * Get id
-   * @return id
-  **/
-  @ApiModelProperty(required = true, value = "")
-  public Integer getId() {
-    return id;
-  }
-
-  public void setId(Integer id) {
-    this.id = id;
-  }
+  public static final String SERIALIZED_NAME_PUBLISH_AS_PUBLIC = "publishAsPublic";
+  @SerializedName(SERIALIZED_NAME_PUBLISH_AS_PUBLIC)
+  private Boolean publishAsPublic;
 
   public InlineResponse20040 name(String name) {
     this.name = name;
@@ -80,27 +62,45 @@ public class InlineResponse20040 {
     this.name = name;
   }
 
-  public InlineResponse20040 days(List<InlineResponse20040Days> days) {
-    this.days = days;
+  public InlineResponse20040 items(List<InlineResponse20040Items> items) {
+    this.items = items;
     return this;
   }
 
-  public InlineResponse20040 addDaysItem(InlineResponse20040Days daysItem) {
-    this.days.add(daysItem);
+  public InlineResponse20040 addItemsItem(InlineResponse20040Items itemsItem) {
+    this.items.add(itemsItem);
     return this;
   }
 
    /**
-   * Get days
-   * @return days
+   * Get items
+   * @return items
   **/
   @ApiModelProperty(required = true, value = "")
-  public List<InlineResponse20040Days> getDays() {
-    return days;
+  public List<InlineResponse20040Items> getItems() {
+    return items;
   }
 
-  public void setDays(List<InlineResponse20040Days> days) {
-    this.days = days;
+  public void setItems(List<InlineResponse20040Items> items) {
+    this.items = items;
+  }
+
+  public InlineResponse20040 publishAsPublic(Boolean publishAsPublic) {
+    this.publishAsPublic = publishAsPublic;
+    return this;
+  }
+
+   /**
+   * Get publishAsPublic
+   * @return publishAsPublic
+  **/
+  @ApiModelProperty(required = true, value = "")
+  public Boolean getPublishAsPublic() {
+    return publishAsPublic;
+  }
+
+  public void setPublishAsPublic(Boolean publishAsPublic) {
+    this.publishAsPublic = publishAsPublic;
   }
 
 
@@ -113,14 +113,14 @@ public class InlineResponse20040 {
       return false;
     }
     InlineResponse20040 inlineResponse20040 = (InlineResponse20040) o;
-    return Objects.equals(this.id, inlineResponse20040.id) &&
-        Objects.equals(this.name, inlineResponse20040.name) &&
-        Objects.equals(this.days, inlineResponse20040.days);
+    return Objects.equals(this.name, inlineResponse20040.name) &&
+        Objects.equals(this.items, inlineResponse20040.items) &&
+        Objects.equals(this.publishAsPublic, inlineResponse20040.publishAsPublic);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, days);
+    return Objects.hash(name, items, publishAsPublic);
   }
 
 
@@ -128,9 +128,9 @@ public class InlineResponse20040 {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse20040 {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    days: ").append(toIndentedString(days)).append("\n");
+    sb.append("    items: ").append(toIndentedString(items)).append("\n");
+    sb.append("    publishAsPublic: ").append(toIndentedString(publishAsPublic)).append("\n");
     sb.append("}");
     return sb.toString();
   }

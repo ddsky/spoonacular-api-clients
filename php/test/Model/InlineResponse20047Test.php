@@ -79,16 +79,16 @@ class InlineResponse20047Test extends TestCase
     }
 
     /**
-     * Test attribute "category"
+     * Test attribute "recommended_wines"
      */
-    public function testPropertyCategory()
+    public function testPropertyRecommendedWines()
     {
     }
 
     /**
-     * Test attribute "probability"
+     * Test attribute "total_found"
      */
-    public function testPropertyProbability()
+    public function testPropertyTotalFound()
     {
     }
 }

@@ -574,6 +574,7 @@ module OpenapiClient
     # @option opts [Float] :max_protein The maximum amount of protein in grams the product can have.
     # @option opts [Float] :min_fat The minimum amount of fat in grams the product must have.
     # @option opts [Float] :max_fat The maximum amount of fat in grams the product can have.
+    # @option opts [Boolean] :add_product_information If set to true, you get more information about the products returned.
     # @option opts [Integer] :offset The number of results to skip (between 0 and 900).
     # @option opts [Integer] :number The maximum number of items to return (between 1 and 100). Defaults to 10. (default to 10)
     # @return [InlineResponse20027]
@@ -594,12 +595,17 @@ module OpenapiClient
     # @option opts [Float] :max_protein The maximum amount of protein in grams the product can have.
     # @option opts [Float] :min_fat The minimum amount of fat in grams the product must have.
     # @option opts [Float] :max_fat The maximum amount of fat in grams the product can have.
+    # @option opts [Boolean] :add_product_information If set to true, you get more information about the products returned.
     # @option opts [Integer] :offset The number of results to skip (between 0 and 900).
     # @option opts [Integer] :number The maximum number of items to return (between 1 and 100). Defaults to 10.
     # @return [Array<(InlineResponse20027, Integer, Hash)>] InlineResponse20027 data, response status code and response headers
     def search_grocery_products_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ProductsApi.search_grocery_products ...'
+      end
+      allowable_values = ["false", "true"]
+      if @api_client.config.client_side_validation && opts[:'add_product_information'] && !allowable_values.include?(opts[:'add_product_information'])
+        fail ArgumentError, "invalid value for \"add_product_information\", must be one of #{allowable_values}"
       end
       if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] > 900
         fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling ProductsApi.search_grocery_products, must be smaller than or equal to 900.'
@@ -631,6 +637,7 @@ module OpenapiClient
       query_params[:'maxProtein'] = opts[:'max_protein'] if !opts[:'max_protein'].nil?
       query_params[:'minFat'] = opts[:'min_fat'] if !opts[:'min_fat'].nil?
       query_params[:'maxFat'] = opts[:'max_fat'] if !opts[:'max_fat'].nil?
+      query_params[:'addProductInformation'] = opts[:'add_product_information'] if !opts[:'add_product_information'].nil?
       query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
       query_params[:'number'] = opts[:'number'] if !opts[:'number'].nil?
 

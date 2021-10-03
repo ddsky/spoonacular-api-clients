@@ -32,47 +32,61 @@ class InlineResponse20053(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'videos': 'list[InlineResponse20053Videos]',
-        'total_results': 'int'
+        'query': 'str',
+        'total_results': 'int',
+        'limit': 'int',
+        'offset': 'int',
+        'search_results': 'list[InlineResponse20053SearchResults]'
     }
 
     attribute_map = {
-        'videos': 'videos',
-        'total_results': 'totalResults'
+        'query': 'query',
+        'total_results': 'totalResults',
+        'limit': 'limit',
+        'offset': 'offset',
+        'search_results': 'searchResults'
     }
 
-    def __init__(self, videos=None, total_results=None):  # noqa: E501
+    def __init__(self, query=None, total_results=None, limit=None, offset=None, search_results=None):  # noqa: E501
         """InlineResponse20053 - a model defined in OpenAPI"""  # noqa: E501
 
-        self._videos = None
+        self._query = None
         self._total_results = None
+        self._limit = None
+        self._offset = None
+        self._search_results = None
         self.discriminator = None
 
-        self.videos = videos
+        self.query = query
         self.total_results = total_results
+        self.limit = limit
+        self.offset = offset
+        self.search_results = search_results
 
     @property
-    def videos(self):
-        """Gets the videos of this InlineResponse20053.  # noqa: E501
+    def query(self):
+        """Gets the query of this InlineResponse20053.  # noqa: E501
 
 
-        :return: The videos of this InlineResponse20053.  # noqa: E501
-        :rtype: list[InlineResponse20053Videos]
+        :return: The query of this InlineResponse20053.  # noqa: E501
+        :rtype: str
         """
-        return self._videos
+        return self._query
 
-    @videos.setter
-    def videos(self, videos):
-        """Sets the videos of this InlineResponse20053.
+    @query.setter
+    def query(self, query):
+        """Sets the query of this InlineResponse20053.
 
 
-        :param videos: The videos of this InlineResponse20053.  # noqa: E501
-        :type: list[InlineResponse20053Videos]
+        :param query: The query of this InlineResponse20053.  # noqa: E501
+        :type: str
         """
-        if videos is None:
-            raise ValueError("Invalid value for `videos`, must not be `None`")  # noqa: E501
+        if query is None:
+            raise ValueError("Invalid value for `query`, must not be `None`")  # noqa: E501
+        if query is not None and len(query) < 1:
+            raise ValueError("Invalid value for `query`, length must be greater than or equal to `1`")  # noqa: E501
 
-        self._videos = videos
+        self._query = query
 
     @property
     def total_results(self):
@@ -96,6 +110,75 @@ class InlineResponse20053(object):
             raise ValueError("Invalid value for `total_results`, must not be `None`")  # noqa: E501
 
         self._total_results = total_results
+
+    @property
+    def limit(self):
+        """Gets the limit of this InlineResponse20053.  # noqa: E501
+
+
+        :return: The limit of this InlineResponse20053.  # noqa: E501
+        :rtype: int
+        """
+        return self._limit
+
+    @limit.setter
+    def limit(self, limit):
+        """Sets the limit of this InlineResponse20053.
+
+
+        :param limit: The limit of this InlineResponse20053.  # noqa: E501
+        :type: int
+        """
+        if limit is None:
+            raise ValueError("Invalid value for `limit`, must not be `None`")  # noqa: E501
+
+        self._limit = limit
+
+    @property
+    def offset(self):
+        """Gets the offset of this InlineResponse20053.  # noqa: E501
+
+
+        :return: The offset of this InlineResponse20053.  # noqa: E501
+        :rtype: int
+        """
+        return self._offset
+
+    @offset.setter
+    def offset(self, offset):
+        """Sets the offset of this InlineResponse20053.
+
+
+        :param offset: The offset of this InlineResponse20053.  # noqa: E501
+        :type: int
+        """
+        if offset is None:
+            raise ValueError("Invalid value for `offset`, must not be `None`")  # noqa: E501
+
+        self._offset = offset
+
+    @property
+    def search_results(self):
+        """Gets the search_results of this InlineResponse20053.  # noqa: E501
+
+
+        :return: The search_results of this InlineResponse20053.  # noqa: E501
+        :rtype: list[InlineResponse20053SearchResults]
+        """
+        return self._search_results
+
+    @search_results.setter
+    def search_results(self, search_results):
+        """Sets the search_results of this InlineResponse20053.
+
+
+        :param search_results: The search_results of this InlineResponse20053.  # noqa: E501
+        :type: list[InlineResponse20053SearchResults]
+        """
+        if search_results is None:
+            raise ValueError("Invalid value for `search_results`, must not be `None`")  # noqa: E501
+
+        self._search_results = search_results
 
     def to_dict(self):
         """Returns the model properties as a dict"""

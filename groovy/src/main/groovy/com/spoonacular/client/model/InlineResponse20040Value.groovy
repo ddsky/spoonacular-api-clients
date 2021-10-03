@@ -8,7 +8,9 @@ import java.math.BigDecimal;
 @Canonical
 class InlineResponse20040Value {
     
-    BigDecimal id
+    Integer id
+    
+    BigDecimal servings
     
     String title
     

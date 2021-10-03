@@ -58,8 +58,6 @@ class InlineObject6 implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'username' => 'string',
-        'start_date' => 'string',
-        'end_date' => 'string',
         'hash' => 'string'
     ];
 
@@ -70,8 +68,6 @@ class InlineObject6 implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'username' => null,
-        'start_date' => null,
-        'end_date' => null,
         'hash' => null
     ];
 
@@ -103,8 +99,6 @@ class InlineObject6 implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'username' => 'username',
-        'start_date' => 'start-date',
-        'end_date' => 'end-date',
         'hash' => 'hash'
     ];
 
@@ -115,8 +109,6 @@ class InlineObject6 implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'username' => 'setUsername',
-        'start_date' => 'setStartDate',
-        'end_date' => 'setEndDate',
         'hash' => 'setHash'
     ];
 
@@ -127,8 +119,6 @@ class InlineObject6 implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'username' => 'getUsername',
-        'start_date' => 'getStartDate',
-        'end_date' => 'getEndDate',
         'hash' => 'getHash'
     ];
 
@@ -193,8 +183,6 @@ class InlineObject6 implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['username'] = isset($data['username']) ? $data['username'] : null;
-        $this->container['start_date'] = isset($data['start_date']) ? $data['start_date'] : null;
-        $this->container['end_date'] = isset($data['end_date']) ? $data['end_date'] : null;
         $this->container['hash'] = isset($data['hash']) ? $data['hash'] : null;
     }
 
@@ -209,12 +197,6 @@ class InlineObject6 implements ModelInterface, ArrayAccess
 
         if ($this->container['username'] === null) {
             $invalidProperties[] = "'username' can't be null";
-        }
-        if ($this->container['start_date'] === null) {
-            $invalidProperties[] = "'start_date' can't be null";
-        }
-        if ($this->container['end_date'] === null) {
-            $invalidProperties[] = "'end_date' can't be null";
         }
         if ($this->container['hash'] === null) {
             $invalidProperties[] = "'hash' can't be null";
@@ -254,54 +236,6 @@ class InlineObject6 implements ModelInterface, ArrayAccess
     public function setUsername($username)
     {
         $this->container['username'] = $username;
-
-        return $this;
-    }
-
-    /**
-     * Gets start_date
-     *
-     * @return string
-     */
-    public function getStartDate()
-    {
-        return $this->container['start_date'];
-    }
-
-    /**
-     * Sets start_date
-     *
-     * @param string $start_date The start date in the format yyyy-mm-dd.
-     *
-     * @return $this
-     */
-    public function setStartDate($start_date)
-    {
-        $this->container['start_date'] = $start_date;
-
-        return $this;
-    }
-
-    /**
-     * Gets end_date
-     *
-     * @return string
-     */
-    public function getEndDate()
-    {
-        return $this->container['end_date'];
-    }
-
-    /**
-     * Sets end_date
-     *
-     * @param string $end_date The end date in the format yyyy-mm-dd.
-     *
-     * @return $this
-     */
-    public function setEndDate($end_date)
-    {
-        $this->container['end_date'] = $end_date;
 
         return $this;
     }

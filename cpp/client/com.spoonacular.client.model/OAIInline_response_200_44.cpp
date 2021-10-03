@@ -38,14 +38,11 @@ OAIInline_response_200_44::~OAIInline_response_200_44() {
 void
 OAIInline_response_200_44::init() {
     
-    m_paired_wines_isSet = false;
-    m_paired_wines_isValid = false;
+    m_pairings_isSet = false;
+    m_pairings_isValid = false;
     
-    m_pairing_text_isSet = false;
-    m_pairing_text_isValid = false;
-    
-    m_product_matches_isSet = false;
-    m_product_matches_isValid = false;
+    m_text_isSet = false;
+    m_text_isValid = false;
     }
 
 void
@@ -60,13 +57,10 @@ void
 OAIInline_response_200_44::fromJsonObject(QJsonObject json) {
     
     
-    m_paired_wines_isValid = ::OpenAPI::fromJsonValue(paired_wines, json[QString("pairedWines")]);
+    m_pairings_isValid = ::OpenAPI::fromJsonValue(pairings, json[QString("pairings")]);
     
-    m_pairing_text_isValid = ::OpenAPI::fromJsonValue(pairing_text, json[QString("pairingText")]);
+    m_text_isValid = ::OpenAPI::fromJsonValue(text, json[QString("text")]);
     
-    
-    
-    m_product_matches_isValid = ::OpenAPI::fromJsonValue(product_matches, json[QString("productMatches")]);
     
 }
 
@@ -82,61 +76,44 @@ QJsonObject
 OAIInline_response_200_44::asJsonObject() const {
     QJsonObject obj;
 	
-    if(paired_wines.size() > 0){
-        obj.insert(QString("pairedWines"), ::OpenAPI::toJsonValue(paired_wines));
+    if(pairings.size() > 0){
+        obj.insert(QString("pairings"), ::OpenAPI::toJsonValue(pairings));
     } 
-	if(m_pairing_text_isSet){
-        obj.insert(QString("pairingText"), ::OpenAPI::toJsonValue(pairing_text));
+	if(m_text_isSet){
+        obj.insert(QString("text"), ::OpenAPI::toJsonValue(text));
     }
-	
-    if(product_matches.size() > 0){
-        obj.insert(QString("productMatches"), ::OpenAPI::toJsonValue(product_matches));
-    } 
     return obj;
 }
 
 
 QList<QString>
-OAIInline_response_200_44::getPairedWines() const {
-    return paired_wines;
+OAIInline_response_200_44::getPairings() const {
+    return pairings;
 }
 void
-OAIInline_response_200_44::setPairedWines(const QList<QString> &paired_wines) {
-    this->paired_wines = paired_wines;
-    this->m_paired_wines_isSet = true;
+OAIInline_response_200_44::setPairings(const QList<QString> &pairings) {
+    this->pairings = pairings;
+    this->m_pairings_isSet = true;
 }
 
 
 QString
-OAIInline_response_200_44::getPairingText() const {
-    return pairing_text;
+OAIInline_response_200_44::getText() const {
+    return text;
 }
 void
-OAIInline_response_200_44::setPairingText(const QString &pairing_text) {
-    this->pairing_text = pairing_text;
-    this->m_pairing_text_isSet = true;
-}
-
-
-QList<OAIInline_response_200_44_productMatches>
-OAIInline_response_200_44::getProductMatches() const {
-    return product_matches;
-}
-void
-OAIInline_response_200_44::setProductMatches(const QList<OAIInline_response_200_44_productMatches> &product_matches) {
-    this->product_matches = product_matches;
-    this->m_product_matches_isSet = true;
+OAIInline_response_200_44::setText(const QString &text) {
+    this->text = text;
+    this->m_text_isSet = true;
 }
 
 bool
 OAIInline_response_200_44::isSet() const {
     bool isObjectUpdated = false;
     do{ 
-        if(paired_wines.size() > 0){ isObjectUpdated = true; break;}
+        if(pairings.size() > 0){ isObjectUpdated = true; break;}
     
-        if(m_pairing_text_isSet){ isObjectUpdated = true; break;}
-    
-        if(product_matches.size() > 0){ isObjectUpdated = true; break;}
+        if(m_text_isSet){ isObjectUpdated = true; break;}
     }while(false);
     return isObjectUpdated;
 }
@@ -144,7 +121,7 @@ OAIInline_response_200_44::isSet() const {
 bool
 OAIInline_response_200_44::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_paired_wines_isValid && m_pairing_text_isValid && m_product_matches_isValid && true;
+    return m_pairings_isValid && m_text_isValid && true;
 }
 
 }

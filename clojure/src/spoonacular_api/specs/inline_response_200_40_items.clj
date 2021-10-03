@@ -8,7 +8,7 @@
 
 (def inline-response-200-40-items-data
   {
-   (ds/req :id) int?
+   (ds/req :day) int?
    (ds/req :slot) int?
    (ds/req :position) int?
    (ds/req :type) string?

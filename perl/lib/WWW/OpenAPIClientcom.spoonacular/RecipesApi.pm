@@ -1776,10 +1776,10 @@ sub price_breakdown_by_id_image {
     __PACKAGE__->method_documentation->{ 'quick_answer' } = { 
         summary => 'Quick Answer',
         params => $params,
-        returns => 'InlineResponse20049',
+        returns => 'InlineResponse20050',
         };
 }
-# @return InlineResponse20049
+# @return InlineResponse20050
 #
 sub quick_answer {
     my ($self, %args) = @_;
@@ -1820,7 +1820,7 @@ sub quick_answer {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('InlineResponse20049', $response);
+    my $_response_object = $self->{api_client}->deserialize('InlineResponse20050', $response);
     return $_response_object;
 }
 

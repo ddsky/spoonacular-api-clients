@@ -23,8 +23,8 @@ import com.spoonacular.client.model.InlineResponse20021
 import com.spoonacular.client.model.InlineResponse20023
 import com.spoonacular.client.model.InlineResponse2003
 import com.spoonacular.client.model.InlineResponse2004
-import com.spoonacular.client.model.InlineResponse20049
 import com.spoonacular.client.model.InlineResponse2005
+import com.spoonacular.client.model.InlineResponse20050
 import com.spoonacular.client.model.InlineResponse2006
 import com.spoonacular.client.model.InlineResponse2007
 import com.spoonacular.client.model.InlineResponse2008
@@ -435,9 +435,9 @@ object RecipesApi {
 
         /**
         * 
-        * @return An endpoint representing a InlineResponse20049
+        * @return An endpoint representing a InlineResponse20050
         */
-        private def quickAnswer(da: DataAccessor): Endpoint[InlineResponse20049] =
+        private def quickAnswer(da: DataAccessor): Endpoint[InlineResponse20050] =
         get("recipes" :: "quickAnswer" :: param("q") :: param("apiKey")) { (q: String, authParamapiKeyScheme: String) =>
           da.Recipes_quickAnswer(q, authParamapiKeyScheme) match {
             case Left(error) => checkError(error)

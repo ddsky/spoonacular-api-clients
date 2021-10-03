@@ -29,7 +29,7 @@ import java.math.BigDecimal;
 /**
  * InlineResponse20021Calories
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-09-28T20:40:32.759+02:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-03T15:10:59.332+02:00[Europe/Berlin]")
 public class InlineResponse20021Calories {
   public static final String SERIALIZED_NAME_CONFIDENCE_RANGE95_PERCENT = "confidenceRange95Percent";
   @SerializedName(SERIALIZED_NAME_CONFIDENCE_RANGE95_PERCENT)

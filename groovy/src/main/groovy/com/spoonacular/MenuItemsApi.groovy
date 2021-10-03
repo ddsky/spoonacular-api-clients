@@ -158,7 +158,7 @@ class MenuItemsApi {
 
     }
 
-    def searchMenuItems ( String query, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minFat, BigDecimal maxFat, Integer offset, Integer number, Closure onSuccess, Closure onFailure)  {
+    def searchMenuItems ( String query, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minFat, BigDecimal maxFat, Boolean addMenuItemInformation, Integer offset, Integer number, Closure onSuccess, Closure onFailure)  {
         String resourcePath = "/food/menuItems/search"
 
         // params
@@ -194,6 +194,9 @@ class MenuItemsApi {
         }
         if (maxFat != null) {
             queryParams.put("maxFat", maxFat)
+        }
+        if (addMenuItemInformation != null) {
+            queryParams.put("addMenuItemInformation", addMenuItemInformation)
         }
         if (offset != null) {
             queryParams.put("offset", offset)

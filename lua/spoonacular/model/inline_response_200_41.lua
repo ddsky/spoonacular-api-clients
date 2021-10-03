@@ -19,12 +19,11 @@ local function cast_inline_response_200_41(t)
 	return setmetatable(t, inline_response_200_41_mt)
 end
 
-local function new_inline_response_200_41(aisles, cost, start_date, end_date)
+local function new_inline_response_200_41(id, name, days)
 	return cast_inline_response_200_41({
-		["aisles"] = aisles;
-		["cost"] = cost;
-		["startDate"] = start_date;
-		["endDate"] = end_date;
+		["id"] = id;
+		["name"] = name;
+		["days"] = days;
 	})
 end
 

@@ -514,7 +514,7 @@ OAIProductsApi::productNutritionLabelWidgetCallback(OAIHttpRequestWorker * worke
 }
 
 void
-OAIProductsApi::searchGroceryProducts(const QString& query, const OAINumber& min_calories, const OAINumber& max_calories, const OAINumber& min_carbs, const OAINumber& max_carbs, const OAINumber& min_protein, const OAINumber& max_protein, const OAINumber& min_fat, const OAINumber& max_fat, const qint32& offset, const qint32& number) {
+OAIProductsApi::searchGroceryProducts(const QString& query, const OAINumber& min_calories, const OAINumber& max_calories, const OAINumber& min_carbs, const OAINumber& max_carbs, const OAINumber& min_protein, const OAINumber& max_protein, const OAINumber& min_fat, const OAINumber& max_fat, const bool& add_product_information, const qint32& offset, const qint32& number) {
     QString fullPath;
     fullPath.append(this->host).append(this->basePath).append("/food/products/search");
     
@@ -589,6 +589,14 @@ OAIProductsApi::searchGroceryProducts(const QString& query, const OAINumber& min
     fullPath.append(QUrl::toPercentEncoding("maxFat"))
         .append("=")
         .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_fat)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("addProductInformation"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(add_product_information)));
     
     if (fullPath.indexOf("?") > 0)
       fullPath.append("&");

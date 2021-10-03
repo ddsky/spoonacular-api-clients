@@ -38,17 +38,14 @@ OAIInline_response_200_41::~OAIInline_response_200_41() {
 void
 OAIInline_response_200_41::init() {
     
-    m_aisles_isSet = false;
-    m_aisles_isValid = false;
+    m_id_isSet = false;
+    m_id_isValid = false;
     
-    m_cost_isSet = false;
-    m_cost_isValid = false;
+    m_name_isSet = false;
+    m_name_isValid = false;
     
-    m_start_date_isSet = false;
-    m_start_date_isValid = false;
-    
-    m_end_date_isSet = false;
-    m_end_date_isValid = false;
+    m_days_isSet = false;
+    m_days_isValid = false;
     }
 
 void
@@ -62,17 +59,14 @@ OAIInline_response_200_41::fromJson(QString jsonString) {
 void
 OAIInline_response_200_41::fromJsonObject(QJsonObject json) {
     
-    
-    m_aisles_isValid = ::OpenAPI::fromJsonValue(aisles, json[QString("aisles")]);
-    
-    m_cost_isValid = ::OpenAPI::fromJsonValue(cost, json[QString("cost")]);
+    m_id_isValid = ::OpenAPI::fromJsonValue(id, json[QString("id")]);
     
     
-    m_start_date_isValid = ::OpenAPI::fromJsonValue(start_date, json[QString("startDate")]);
+    m_name_isValid = ::OpenAPI::fromJsonValue(name, json[QString("name")]);
     
     
-    m_end_date_isValid = ::OpenAPI::fromJsonValue(end_date, json[QString("endDate")]);
     
+    m_days_isValid = ::OpenAPI::fromJsonValue(days, json[QString("days")]);
     
 }
 
@@ -87,77 +81,61 @@ OAIInline_response_200_41::asJson () const {
 QJsonObject
 OAIInline_response_200_41::asJsonObject() const {
     QJsonObject obj;
+	if(m_id_isSet){
+        obj.insert(QString("id"), ::OpenAPI::toJsonValue(id));
+    }
+	if(m_name_isSet){
+        obj.insert(QString("name"), ::OpenAPI::toJsonValue(name));
+    }
 	
-    if(aisles.size() > 0){
-        obj.insert(QString("aisles"), ::OpenAPI::toJsonValue(aisles));
+    if(days.size() > 0){
+        obj.insert(QString("days"), ::OpenAPI::toJsonValue(days));
     } 
-	if(cost.isSet()){
-        obj.insert(QString("cost"), ::OpenAPI::toJsonValue(cost));
-    }
-	if(start_date.isSet()){
-        obj.insert(QString("startDate"), ::OpenAPI::toJsonValue(start_date));
-    }
-	if(end_date.isSet()){
-        obj.insert(QString("endDate"), ::OpenAPI::toJsonValue(end_date));
-    }
     return obj;
 }
 
 
-QList<OAIInline_response_200_41_aisles>
-OAIInline_response_200_41::getAisles() const {
-    return aisles;
+qint32
+OAIInline_response_200_41::getId() const {
+    return id;
 }
 void
-OAIInline_response_200_41::setAisles(const QList<OAIInline_response_200_41_aisles> &aisles) {
-    this->aisles = aisles;
-    this->m_aisles_isSet = true;
+OAIInline_response_200_41::setId(const qint32 &id) {
+    this->id = id;
+    this->m_id_isSet = true;
 }
 
 
-OAINumber
-OAIInline_response_200_41::getCost() const {
-    return cost;
-}
-void
-OAIInline_response_200_41::setCost(const OAINumber &cost) {
-    this->cost = cost;
-    this->m_cost_isSet = true;
-}
-
-
-OAINumber
-OAIInline_response_200_41::getStartDate() const {
-    return start_date;
+QString
+OAIInline_response_200_41::getName() const {
+    return name;
 }
 void
-OAIInline_response_200_41::setStartDate(const OAINumber &start_date) {
-    this->start_date = start_date;
-    this->m_start_date_isSet = true;
+OAIInline_response_200_41::setName(const QString &name) {
+    this->name = name;
+    this->m_name_isSet = true;
 }
 
 
-OAINumber
-OAIInline_response_200_41::getEndDate() const {
-    return end_date;
+QList<OAIInline_response_200_41_days>
+OAIInline_response_200_41::getDays() const {
+    return days;
 }
 void
-OAIInline_response_200_41::setEndDate(const OAINumber &end_date) {
-    this->end_date = end_date;
-    this->m_end_date_isSet = true;
+OAIInline_response_200_41::setDays(const QList<OAIInline_response_200_41_days> &days) {
+    this->days = days;
+    this->m_days_isSet = true;
 }
 
 bool
 OAIInline_response_200_41::isSet() const {
     bool isObjectUpdated = false;
     do{ 
-        if(aisles.size() > 0){ isObjectUpdated = true; break;}
+        if(m_id_isSet){ isObjectUpdated = true; break;}
     
-        if(cost.isSet()){ isObjectUpdated = true; break;}
+        if(m_name_isSet){ isObjectUpdated = true; break;}
     
-        if(start_date.isSet()){ isObjectUpdated = true; break;}
-    
-        if(end_date.isSet()){ isObjectUpdated = true; break;}
+        if(days.size() > 0){ isObjectUpdated = true; break;}
     }while(false);
     return isObjectUpdated;
 }
@@ -165,7 +143,7 @@ OAIInline_response_200_41::isSet() const {
 bool
 OAIInline_response_200_41::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_aisles_isValid && m_cost_isValid && m_start_date_isValid && m_end_date_isValid && true;
+    return m_id_isValid && m_name_isValid && m_days_isValid && true;
 }
 
 }

@@ -19,11 +19,10 @@ local function cast_inline_response_200_44(t)
 	return setmetatable(t, inline_response_200_44_mt)
 end
 
-local function new_inline_response_200_44(paired_wines, pairing_text, product_matches)
+local function new_inline_response_200_44(pairings, text)
 	return cast_inline_response_200_44({
-		["pairedWines"] = paired_wines;
-		["pairingText"] = pairing_text;
-		["productMatches"] = product_matches;
+		["pairings"] = pairings;
+		["text"] = text;
 	})
 end
 

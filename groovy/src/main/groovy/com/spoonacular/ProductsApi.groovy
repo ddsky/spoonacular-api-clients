@@ -246,7 +246,7 @@ class ProductsApi {
 
     }
 
-    def searchGroceryProducts ( String query, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minFat, BigDecimal maxFat, Integer offset, Integer number, Closure onSuccess, Closure onFailure)  {
+    def searchGroceryProducts ( String query, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minFat, BigDecimal maxFat, Boolean addProductInformation, Integer offset, Integer number, Closure onSuccess, Closure onFailure)  {
         String resourcePath = "/food/products/search"
 
         // params
@@ -282,6 +282,9 @@ class ProductsApi {
         }
         if (maxFat != null) {
             queryParams.put("maxFat", maxFat)
+        }
+        if (addProductInformation != null) {
+            queryParams.put("addProductInformation", addProductInformation)
         }
         if (offset != null) {
             queryParams.put("offset", offset)

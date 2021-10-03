@@ -18,9 +18,12 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.spoonacular.client.model.InlineResponse20045ProductMatches;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -41,11 +44,27 @@ public class InlineResponse20045Test {
     }
 
     /**
-     * Test the property 'wineDescription'
+     * Test the property 'pairedWines'
      */
     @Test
-    public void wineDescriptionTest() {
-        // TODO: test wineDescription
+    public void pairedWinesTest() {
+        // TODO: test pairedWines
+    }
+
+    /**
+     * Test the property 'pairingText'
+     */
+    @Test
+    public void pairingTextTest() {
+        // TODO: test pairingText
+    }
+
+    /**
+     * Test the property 'productMatches'
+     */
+    @Test
+    public void productMatchesTest() {
+        // TODO: test productMatches
     }
 
 }

@@ -434,6 +434,7 @@ export default class ProductsApi {
      * @param {Number} opts.maxProtein The maximum amount of protein in grams the product can have.
      * @param {Number} opts.minFat The minimum amount of fat in grams the product must have.
      * @param {Number} opts.maxFat The maximum amount of fat in grams the product can have.
+     * @param {module:com.spoonacular.client/com.spoonacular.client.model/Boolean} opts.addProductInformation If set to true, you get more information about the products returned.
      * @param {Number} opts.offset The number of results to skip (between 0 and 900).
      * @param {Number} opts._number The maximum number of items to return (between 1 and 100). Defaults to 10. (default to 10)
      * @param {module:com.spoonacular.client/com.spoonacular/ProductsApi~searchGroceryProductsCallback} callback The callback function, accepting three arguments: error, data, response
@@ -455,6 +456,7 @@ export default class ProductsApi {
         'maxProtein': opts['maxProtein'],
         'minFat': opts['minFat'],
         'maxFat': opts['maxFat'],
+        'addProductInformation': opts['addProductInformation'],
         'offset': opts['offset'],
         'number': opts['_number']
       };

@@ -9,13 +9,13 @@ defmodule com.spoonacular.client.Model.InlineResponse20043 do
 
   @derive [Poison.Encoder]
   defstruct [
-    :"pairings",
-    :"text"
+    :"username",
+    :"hash"
   ]
 
   @type t :: %__MODULE__{
-    :"pairings" => [String.t],
-    :"text" => String.t
+    :"username" => String.t,
+    :"hash" => String.t
   }
 end
 

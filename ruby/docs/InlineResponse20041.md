@@ -4,20 +4,18 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**aisles** | [**Array&lt;InlineResponse20041Aisles&gt;**](InlineResponse20041Aisles.md) |  | 
-**cost** | **Float** |  | 
-**start_date** | **Float** |  | 
-**end_date** | **Float** |  | 
+**id** | **Integer** |  | 
+**name** | **String** |  | 
+**days** | [**Array&lt;InlineResponse20041Days&gt;**](InlineResponse20041Days.md) |  | 
 
 ## Code Sample
 
 ```ruby
 require 'OpenapiClient'
 
-instance = OpenapiClient::InlineResponse20041.new(aisles: null,
-                                 cost: null,
-                                 start_date: null,
-                                 end_date: null)
+instance = OpenapiClient::InlineResponse20041.new(id: null,
+                                 name: null,
+                                 days: null)
 ```
 
 

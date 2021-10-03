@@ -5,13 +5,13 @@
 -export_type([spoonacular_inline_response_200_47/0]).
 
 -type spoonacular_inline_response_200_47() ::
-    #{ 'category' := binary(),
-       'probability' := integer()
+    #{ 'recommendedWines' := list(),
+       'totalFound' := integer()
      }.
 
-encode(#{ 'category' := Category,
-          'probability' := Probability
+encode(#{ 'recommendedWines' := RecommendedWines,
+          'totalFound' := TotalFound
         }) ->
-    #{ 'category' => Category,
-       'probability' => Probability
+    #{ 'recommendedWines' => RecommendedWines,
+       'totalFound' => TotalFound
      }.

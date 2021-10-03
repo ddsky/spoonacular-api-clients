@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int32** |  | 
+**Day** | **int32** |  | 
 **Slot** | **int32** |  | 
 **Position** | **int32** |  | 
 **Type** | **string** |  | 

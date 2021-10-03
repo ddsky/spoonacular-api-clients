@@ -7,8 +7,7 @@
 
 (def inline-response-200-55-data
   {
-   (ds/req :answerText) string?
-   (ds/req :media) (s/coll-of any?)
+   (ds/req :text) string?
    })
 
 (def inline-response-200-55-spec

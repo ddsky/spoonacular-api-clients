@@ -13,10 +13,6 @@ package spoonacular
 type InlineObject6 struct {
 	// The username.
 	Username string `json:"username"`
-	// The start date in the format yyyy-mm-dd.
-	StartDate string `json:"start-date"`
-	// The end date in the format yyyy-mm-dd.
-	EndDate string `json:"end-date"`
 	// The private hash for the username.
 	Hash string `json:"hash"`
 }

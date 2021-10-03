@@ -14,14 +14,20 @@ use serde_json::Value;
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct InlineResponse20045 {
-    #[serde(rename = "wineDescription")]
-    pub wine_description: String,
+    #[serde(rename = "pairedWines")]
+    pub paired_wines: Vec<String>,
+    #[serde(rename = "pairingText")]
+    pub pairing_text: String,
+    #[serde(rename = "productMatches")]
+    pub product_matches: Vec<::models::InlineResponse20045ProductMatches>,
 }
 
 impl InlineResponse20045 {
-    pub fn new(wine_description: String) -> InlineResponse20045 {
+    pub fn new(paired_wines: Vec<String>, pairing_text: String, product_matches: Vec<::models::InlineResponse20045ProductMatches>) -> InlineResponse20045 {
         InlineResponse20045 {
-            wine_description: wine_description,
+            paired_wines: paired_wines,
+            pairing_text: pairing_text,
+            product_matches: product_matches,
         }
     }
 }

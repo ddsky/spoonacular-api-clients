@@ -34,8 +34,8 @@
 #include "com.spoonacular.client.model\OAIInline_response_200_23.h"
 #include "com.spoonacular.client.model\OAIInline_response_200_3.h"
 #include "com.spoonacular.client.model\OAIInline_response_200_4.h"
-#include "com.spoonacular.client.model\OAIInline_response_200_49.h"
 #include "com.spoonacular.client.model\OAIInline_response_200_5.h"
+#include "com.spoonacular.client.model\OAIInline_response_200_50.h"
 #include "com.spoonacular.client.model\OAIInline_response_200_6.h"
 #include "com.spoonacular.client.model\OAIInline_response_200_7.h"
 #include "com.spoonacular.client.model\OAIInline_response_200_8.h"
@@ -169,7 +169,7 @@ signals:
     void ingredientsByIDImageSignal(OAIObject summary);
     void parseIngredientsSignal(QList<OAIInline_response_200_20> summary);
     void priceBreakdownByIDImageSignal(OAIObject summary);
-    void quickAnswerSignal(OAIInline_response_200_49 summary);
+    void quickAnswerSignal(OAIInline_response_200_50 summary);
     void recipeNutritionByIDImageSignal(OAIObject summary);
     void recipeNutritionLabelImageSignal(OAIObject summary);
     void recipeNutritionLabelWidgetSignal(QString summary);
@@ -211,7 +211,7 @@ signals:
     void ingredientsByIDImageSignalFull(OAIHttpRequestWorker* worker, OAIObject summary);
     void parseIngredientsSignalFull(OAIHttpRequestWorker* worker, QList<OAIInline_response_200_20> summary);
     void priceBreakdownByIDImageSignalFull(OAIHttpRequestWorker* worker, OAIObject summary);
-    void quickAnswerSignalFull(OAIHttpRequestWorker* worker, OAIInline_response_200_49 summary);
+    void quickAnswerSignalFull(OAIHttpRequestWorker* worker, OAIInline_response_200_50 summary);
     void recipeNutritionByIDImageSignalFull(OAIHttpRequestWorker* worker, OAIObject summary);
     void recipeNutritionLabelImageSignalFull(OAIHttpRequestWorker* worker, OAIObject summary);
     void recipeNutritionLabelWidgetSignalFull(OAIHttpRequestWorker* worker, QString summary);
@@ -253,7 +253,7 @@ signals:
     void ingredientsByIDImageSignalE(OAIObject summary, QNetworkReply::NetworkError error_type, QString& error_str);
     void parseIngredientsSignalE(QList<OAIInline_response_200_20> summary, QNetworkReply::NetworkError error_type, QString& error_str);
     void priceBreakdownByIDImageSignalE(OAIObject summary, QNetworkReply::NetworkError error_type, QString& error_str);
-    void quickAnswerSignalE(OAIInline_response_200_49 summary, QNetworkReply::NetworkError error_type, QString& error_str);
+    void quickAnswerSignalE(OAIInline_response_200_50 summary, QNetworkReply::NetworkError error_type, QString& error_str);
     void recipeNutritionByIDImageSignalE(OAIObject summary, QNetworkReply::NetworkError error_type, QString& error_str);
     void recipeNutritionLabelImageSignalE(OAIObject summary, QNetworkReply::NetworkError error_type, QString& error_str);
     void recipeNutritionLabelWidgetSignalE(QString summary, QNetworkReply::NetworkError error_type, QString& error_str);

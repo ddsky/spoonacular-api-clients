@@ -57,8 +57,8 @@ class InlineResponse20056 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'suggests' => '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20056Suggests',
-        'words' => 'object[]'
+        'answer_text' => 'string',
+        'media' => 'object[]'
     ];
 
     /**
@@ -67,8 +67,8 @@ class InlineResponse20056 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'suggests' => null,
-        'words' => null
+        'answer_text' => null,
+        'media' => null
     ];
 
     /**
@@ -98,8 +98,8 @@ class InlineResponse20056 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'suggests' => 'suggests',
-        'words' => 'words'
+        'answer_text' => 'answerText',
+        'media' => 'media'
     ];
 
     /**
@@ -108,8 +108,8 @@ class InlineResponse20056 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'suggests' => 'setSuggests',
-        'words' => 'setWords'
+        'answer_text' => 'setAnswerText',
+        'media' => 'setMedia'
     ];
 
     /**
@@ -118,8 +118,8 @@ class InlineResponse20056 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'suggests' => 'getSuggests',
-        'words' => 'getWords'
+        'answer_text' => 'getAnswerText',
+        'media' => 'getMedia'
     ];
 
     /**
@@ -182,8 +182,8 @@ class InlineResponse20056 implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['suggests'] = isset($data['suggests']) ? $data['suggests'] : null;
-        $this->container['words'] = isset($data['words']) ? $data['words'] : null;
+        $this->container['answer_text'] = isset($data['answer_text']) ? $data['answer_text'] : null;
+        $this->container['media'] = isset($data['media']) ? $data['media'] : null;
     }
 
     /**
@@ -195,11 +195,15 @@ class InlineResponse20056 implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['suggests'] === null) {
-            $invalidProperties[] = "'suggests' can't be null";
+        if ($this->container['answer_text'] === null) {
+            $invalidProperties[] = "'answer_text' can't be null";
         }
-        if ($this->container['words'] === null) {
-            $invalidProperties[] = "'words' can't be null";
+        if ((mb_strlen($this->container['answer_text']) < 1)) {
+            $invalidProperties[] = "invalid value for 'answer_text', the character length must be bigger than or equal to 1.";
+        }
+
+        if ($this->container['media'] === null) {
+            $invalidProperties[] = "'media' can't be null";
         }
         return $invalidProperties;
     }
@@ -217,49 +221,54 @@ class InlineResponse20056 implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets suggests
+     * Gets answer_text
      *
-     * @return \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20056Suggests
+     * @return string
      */
-    public function getSuggests()
+    public function getAnswerText()
     {
-        return $this->container['suggests'];
+        return $this->container['answer_text'];
     }
 
     /**
-     * Sets suggests
+     * Sets answer_text
      *
-     * @param \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20056Suggests $suggests suggests
+     * @param string $answer_text answer_text
      *
      * @return $this
      */
-    public function setSuggests($suggests)
+    public function setAnswerText($answer_text)
     {
-        $this->container['suggests'] = $suggests;
+
+        if ((mb_strlen($answer_text) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $answer_text when calling InlineResponse20056., must be bigger than or equal to 1.');
+        }
+
+        $this->container['answer_text'] = $answer_text;
 
         return $this;
     }
 
     /**
-     * Gets words
+     * Gets media
      *
      * @return object[]
      */
-    public function getWords()
+    public function getMedia()
     {
-        return $this->container['words'];
+        return $this->container['media'];
     }
 
     /**
-     * Sets words
+     * Sets media
      *
-     * @param object[] $words words
+     * @param object[] $media media
      *
      * @return $this
      */
-    public function setWords($words)
+    public function setMedia($media)
     {
-        $this->container['words'] = $words;
+        $this->container['media'] = $media;
 
         return $this;
     }

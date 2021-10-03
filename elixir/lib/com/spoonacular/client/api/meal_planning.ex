@@ -12,6 +12,39 @@ defmodule com.spoonacular.client.Api.MealPlanning do
 
 
   @doc """
+  Add Meal Plan Template
+  Add a meal plan template for a user.
+
+  ## Parameters
+
+  - connection (com.spoonacular.client.Connection): Connection to server
+  - username (String.t): The username.
+  - hash (String.t): The private hash for the username.
+  - inline_object6 (InlineObject6): 
+  - opts (KeywordList): [optional] Optional parameters
+  ## Returns
+
+  {:ok, %com.spoonacular.client.Model.InlineResponse20040{}} on success
+  {:error, info} on failure
+  """
+  @spec add_meal_plan_template(Tesla.Env.client, String.t, String.t, com.spoonacular.client.Model.InlineObject6.t, keyword()) :: {:ok, com.spoonacular.client.Model.InlineResponse20040.t} | {:error, Tesla.Env.t}
+  def add_meal_plan_template(connection, username, hash, inline_object6, _opts \\ []) do
+    %{}
+    |> method(:post)
+    |> url("/mealplanner/#{username}/templates")
+    |> add_param(:query, :"hash", hash)
+    |> add_param(:body, :body, inline_object6)
+    |> Enum.into([])
+    |> (&Connection.request(connection, &1)).()
+    |> evaluate_response([
+      { 200, %com.spoonacular.client.Model.InlineResponse20040{}},
+      { 401, false},
+      { 403, false},
+      { 404, false}
+    ])
+  end
+
+  @doc """
   Add to Meal Plan
   Add an item to the user's meal plan.
 
@@ -53,24 +86,24 @@ defmodule com.spoonacular.client.Api.MealPlanning do
   - connection (com.spoonacular.client.Connection): Connection to server
   - username (String.t): The username.
   - hash (String.t): The private hash for the username.
-  - inline_object7 (InlineObject7): 
+  - inline_object9 (InlineObject9): 
   - opts (KeywordList): [optional] Optional parameters
   ## Returns
 
-  {:ok, %com.spoonacular.client.Model.InlineResponse20041{}} on success
+  {:ok, %com.spoonacular.client.Model.InlineResponse20042{}} on success
   {:error, info} on failure
   """
-  @spec add_to_shopping_list(Tesla.Env.client, String.t, String.t, com.spoonacular.client.Model.InlineObject7.t, keyword()) :: {:ok, com.spoonacular.client.Model.InlineResponse20041.t} | {:error, Tesla.Env.t}
-  def add_to_shopping_list(connection, username, hash, inline_object7, _opts \\ []) do
+  @spec add_to_shopping_list(Tesla.Env.client, String.t, String.t, com.spoonacular.client.Model.InlineObject9.t, keyword()) :: {:ok, com.spoonacular.client.Model.InlineResponse20042.t} | {:error, Tesla.Env.t}
+  def add_to_shopping_list(connection, username, hash, inline_object9, _opts \\ []) do
     %{}
     |> method(:post)
     |> url("/mealplanner/#{username}/shopping-list/items")
     |> add_param(:query, :"hash", hash)
-    |> add_param(:body, :body, inline_object7)
+    |> add_param(:body, :body, inline_object9)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
-      { 200, %com.spoonacular.client.Model.InlineResponse20041{}},
+      { 200, %com.spoonacular.client.Model.InlineResponse20042{}},
       { 401, false},
       { 403, false},
       { 404, false}
@@ -122,10 +155,10 @@ defmodule com.spoonacular.client.Api.MealPlanning do
   - opts (KeywordList): [optional] Optional parameters
   ## Returns
 
-  {:ok, %com.spoonacular.client.Model.InlineResponse20042{}} on success
+  {:ok, %com.spoonacular.client.Model.InlineResponse20043{}} on success
   {:error, info} on failure
   """
-  @spec connect_user(Tesla.Env.client, Map, keyword()) :: {:ok, com.spoonacular.client.Model.InlineResponse20042.t} | {:error, Tesla.Env.t}
+  @spec connect_user(Tesla.Env.client, Map, keyword()) :: {:ok, com.spoonacular.client.Model.InlineResponse20043.t} | {:error, Tesla.Env.t}
   def connect_user(connection, body, _opts \\ []) do
     %{}
     |> method(:post)
@@ -134,7 +167,7 @@ defmodule com.spoonacular.client.Api.MealPlanning do
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
-      { 200, %com.spoonacular.client.Model.InlineResponse20042{}},
+      { 200, %com.spoonacular.client.Model.InlineResponse20043{}},
       { 401, false},
       { 403, false},
       { 404, false}
@@ -185,20 +218,54 @@ defmodule com.spoonacular.client.Api.MealPlanning do
   - username (String.t): The username.
   - id (integer()): The item's id.
   - hash (String.t): The private hash for the username.
-  - inline_object8 (InlineObject8): 
+  - inline_object10 (InlineObject10): 
   - opts (KeywordList): [optional] Optional parameters
   ## Returns
 
   {:ok, %com.spoonacular.client.Model.Map{}} on success
   {:error, info} on failure
   """
-  @spec delete_from_shopping_list(Tesla.Env.client, String.t, integer(), String.t, com.spoonacular.client.Model.InlineObject8.t, keyword()) :: {:ok, Map.t} | {:error, Tesla.Env.t}
-  def delete_from_shopping_list(connection, username, id, hash, inline_object8, _opts \\ []) do
+  @spec delete_from_shopping_list(Tesla.Env.client, String.t, integer(), String.t, com.spoonacular.client.Model.InlineObject10.t, keyword()) :: {:ok, Map.t} | {:error, Tesla.Env.t}
+  def delete_from_shopping_list(connection, username, id, hash, inline_object10, _opts \\ []) do
     %{}
     |> method(:delete)
     |> url("/mealplanner/#{username}/shopping-list/items/#{id}")
     |> add_param(:query, :"hash", hash)
-    |> add_param(:body, :body, inline_object8)
+    |> add_param(:body, :body, inline_object10)
+    |> Enum.into([])
+    |> (&Connection.request(connection, &1)).()
+    |> evaluate_response([
+      { 200, false},
+      { 401, false},
+      { 403, false},
+      { 404, false}
+    ])
+  end
+
+  @doc """
+  Delete Meal Plan Template
+  Delete a meal plan template for a user.
+
+  ## Parameters
+
+  - connection (com.spoonacular.client.Connection): Connection to server
+  - username (String.t): The username.
+  - id (integer()): The item's id.
+  - hash (String.t): The private hash for the username.
+  - inline_object7 (InlineObject7): 
+  - opts (KeywordList): [optional] Optional parameters
+  ## Returns
+
+  {:ok, %com.spoonacular.client.Model.Map{}} on success
+  {:error, info} on failure
+  """
+  @spec delete_meal_plan_template(Tesla.Env.client, String.t, integer(), String.t, com.spoonacular.client.Model.InlineObject7.t, keyword()) :: {:ok, Map.t} | {:error, Tesla.Env.t}
+  def delete_meal_plan_template(connection, username, id, hash, inline_object7, _opts \\ []) do
+    %{}
+    |> method(:delete)
+    |> url("/mealplanner/#{username}/templates/#{id}")
+    |> add_param(:query, :"hash", hash)
+    |> add_param(:body, :body, inline_object7)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
@@ -259,24 +326,24 @@ defmodule com.spoonacular.client.Api.MealPlanning do
   - start_date (String.t): The start date in the format yyyy-mm-dd.
   - end_date (String.t): The end date in the format yyyy-mm-dd.
   - hash (String.t): The private hash for the username.
-  - inline_object6 (InlineObject6): 
+  - inline_object8 (InlineObject8): 
   - opts (KeywordList): [optional] Optional parameters
   ## Returns
 
-  {:ok, %com.spoonacular.client.Model.InlineResponse20041{}} on success
+  {:ok, %com.spoonacular.client.Model.InlineResponse20042{}} on success
   {:error, info} on failure
   """
-  @spec generate_shopping_list(Tesla.Env.client, String.t, String.t, String.t, String.t, com.spoonacular.client.Model.InlineObject6.t, keyword()) :: {:ok, com.spoonacular.client.Model.InlineResponse20041.t} | {:error, Tesla.Env.t}
-  def generate_shopping_list(connection, username, start_date, end_date, hash, inline_object6, _opts \\ []) do
+  @spec generate_shopping_list(Tesla.Env.client, String.t, String.t, String.t, String.t, com.spoonacular.client.Model.InlineObject8.t, keyword()) :: {:ok, com.spoonacular.client.Model.InlineResponse20042.t} | {:error, Tesla.Env.t}
+  def generate_shopping_list(connection, username, start_date, end_date, hash, inline_object8, _opts \\ []) do
     %{}
     |> method(:post)
     |> url("/mealplanner/#{username}/shopping-list/#{start_date}/#{end_date}")
     |> add_param(:query, :"hash", hash)
-    |> add_param(:body, :body, inline_object6)
+    |> add_param(:body, :body, inline_object8)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
-      { 200, %com.spoonacular.client.Model.InlineResponse20041{}},
+      { 200, %com.spoonacular.client.Model.InlineResponse20042{}},
       { 401, false},
       { 403, false},
       { 404, false}
@@ -296,10 +363,10 @@ defmodule com.spoonacular.client.Api.MealPlanning do
   - opts (KeywordList): [optional] Optional parameters
   ## Returns
 
-  {:ok, %com.spoonacular.client.Model.InlineResponse20040{}} on success
+  {:ok, %com.spoonacular.client.Model.InlineResponse20041{}} on success
   {:error, info} on failure
   """
-  @spec get_meal_plan_template(Tesla.Env.client, String.t, integer(), String.t, keyword()) :: {:ok, com.spoonacular.client.Model.InlineResponse20040.t} | {:error, Tesla.Env.t}
+  @spec get_meal_plan_template(Tesla.Env.client, String.t, integer(), String.t, keyword()) :: {:ok, com.spoonacular.client.Model.InlineResponse20041.t} | {:error, Tesla.Env.t}
   def get_meal_plan_template(connection, username, id, hash, _opts \\ []) do
     %{}
     |> method(:get)
@@ -308,7 +375,7 @@ defmodule com.spoonacular.client.Api.MealPlanning do
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
-      { 200, %com.spoonacular.client.Model.InlineResponse20040{}},
+      { 200, %com.spoonacular.client.Model.InlineResponse20041{}},
       { 401, false},
       { 403, false},
       { 404, false}
@@ -390,10 +457,10 @@ defmodule com.spoonacular.client.Api.MealPlanning do
   - opts (KeywordList): [optional] Optional parameters
   ## Returns
 
-  {:ok, %com.spoonacular.client.Model.InlineResponse20041{}} on success
+  {:ok, %com.spoonacular.client.Model.InlineResponse20042{}} on success
   {:error, info} on failure
   """
-  @spec get_shopping_list(Tesla.Env.client, String.t, String.t, keyword()) :: {:ok, com.spoonacular.client.Model.InlineResponse20041.t} | {:error, Tesla.Env.t}
+  @spec get_shopping_list(Tesla.Env.client, String.t, String.t, keyword()) :: {:ok, com.spoonacular.client.Model.InlineResponse20042.t} | {:error, Tesla.Env.t}
   def get_shopping_list(connection, username, hash, _opts \\ []) do
     %{}
     |> method(:get)
@@ -402,7 +469,7 @@ defmodule com.spoonacular.client.Api.MealPlanning do
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
-      { 200, %com.spoonacular.client.Model.InlineResponse20041{}},
+      { 200, %com.spoonacular.client.Model.InlineResponse20042{}},
       { 401, false},
       { 403, false},
       { 404, false}

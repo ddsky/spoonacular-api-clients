@@ -22,11 +22,12 @@ class InlineResponse20050 {
     /**
      * Constructs a new <code>InlineResponse20050</code>.
      * @alias module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20050
-     * @param annotations {Array.<Object>} 
+     * @param answer {String} 
+     * @param image {String} 
      */
-    constructor(annotations) { 
+    constructor(answer, image) { 
         
-        InlineResponse20050.initialize(this, annotations);
+        InlineResponse20050.initialize(this, answer, image);
     }
 
     /**
@@ -34,8 +35,9 @@ class InlineResponse20050 {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, annotations) { 
-        obj['annotations'] = annotations;
+    static initialize(obj, answer, image) { 
+        obj['answer'] = answer;
+        obj['image'] = image;
     }
 
     /**
@@ -49,8 +51,11 @@ class InlineResponse20050 {
         if (data) {
             obj = obj || new InlineResponse20050();
 
-            if (data.hasOwnProperty('annotations')) {
-                obj['annotations'] = ApiClient.convertToType(data['annotations'], [Object]);
+            if (data.hasOwnProperty('answer')) {
+                obj['answer'] = ApiClient.convertToType(data['answer'], 'String');
+            }
+            if (data.hasOwnProperty('image')) {
+                obj['image'] = ApiClient.convertToType(data['image'], 'String');
             }
         }
         return obj;
@@ -60,9 +65,14 @@ class InlineResponse20050 {
 }
 
 /**
- * @member {Array.<Object>} annotations
+ * @member {String} answer
  */
-InlineResponse20050.prototype['annotations'] = undefined;
+InlineResponse20050.prototype['answer'] = undefined;
+
+/**
+ * @member {String} image
+ */
+InlineResponse20050.prototype['image'] = undefined;
 
 
 

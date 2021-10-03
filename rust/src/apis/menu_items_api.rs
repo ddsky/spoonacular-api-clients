@@ -36,7 +36,7 @@ pub trait MenuItemsApi {
     fn menu_item_nutrition_by_id_image(&self, id: f32) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>>;
     fn menu_item_nutrition_label_image(&self, id: f32, show_optional_nutrients: bool, show_zero_values: bool, show_ingredients: bool) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>>;
     fn menu_item_nutrition_label_widget(&self, id: f32, default_css: bool, show_optional_nutrients: bool, show_zero_values: bool, show_ingredients: bool) -> Box<Future<Item = String, Error = Error<serde_json::Value>>>;
-    fn search_menu_items(&self, query: &str, min_calories: f32, max_calories: f32, min_carbs: f32, max_carbs: f32, min_protein: f32, max_protein: f32, min_fat: f32, max_fat: f32, offset: i32, number: i32) -> Box<Future<Item = ::models::InlineResponse20035, Error = Error<serde_json::Value>>>;
+    fn search_menu_items(&self, query: &str, min_calories: f32, max_calories: f32, min_carbs: f32, max_carbs: f32, min_protein: f32, max_protein: f32, min_fat: f32, max_fat: f32, add_menu_item_information: bool, offset: i32, number: i32) -> Box<Future<Item = ::models::InlineResponse20035, Error = Error<serde_json::Value>>>;
     fn visualize_menu_item_nutrition_by_id(&self, id: i32, default_css: bool, accept: &str) -> Box<Future<Item = String, Error = Error<serde_json::Value>>>;
 }
 
@@ -105,7 +105,7 @@ impl<C: hyper::client::Connect>MenuItemsApi for MenuItemsApiClient<C> {
             .execute(self.configuration.borrow())
     }
 
-    fn search_menu_items(&self, query: &str, min_calories: f32, max_calories: f32, min_carbs: f32, max_carbs: f32, min_protein: f32, max_protein: f32, min_fat: f32, max_fat: f32, offset: i32, number: i32) -> Box<Future<Item = ::models::InlineResponse20035, Error = Error<serde_json::Value>>> {
+    fn search_menu_items(&self, query: &str, min_calories: f32, max_calories: f32, min_carbs: f32, max_carbs: f32, min_protein: f32, max_protein: f32, min_fat: f32, max_fat: f32, add_menu_item_information: bool, offset: i32, number: i32) -> Box<Future<Item = ::models::InlineResponse20035, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/food/menuItems/search".to_string())
             .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
                 in_header: false,
@@ -121,6 +121,7 @@ impl<C: hyper::client::Connect>MenuItemsApi for MenuItemsApiClient<C> {
             .with_query_param("maxProtein".to_string(), max_protein.to_string())
             .with_query_param("minFat".to_string(), min_fat.to_string())
             .with_query_param("maxFat".to_string(), max_fat.to_string())
+            .with_query_param("addMenuItemInformation".to_string(), add_menu_item_information.to_string())
             .with_query_param("offset".to_string(), offset.to_string())
             .with_query_param("number".to_string(), number.to_string())
             .execute(self.configuration.borrow())

@@ -2,45 +2,45 @@ part of openapi.api;
 
 class InlineResponse20040 {
   
-  int id = null;
-  
   String name = null;
   
-  List<InlineResponse20040Days> days = [];
+  List<InlineResponse20040Items> items = [];
+  
+  bool publishAsPublic = null;
   InlineResponse20040();
 
   @override
   String toString() {
-    return 'InlineResponse20040[id=$id, name=$name, days=$days, ]';
+    return 'InlineResponse20040[name=$name, items=$items, publishAsPublic=$publishAsPublic, ]';
   }
 
   InlineResponse20040.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    if (json['id'] == null) {
-      id = null;
-    } else {
-          id = json['id'];
-    }
     if (json['name'] == null) {
       name = null;
     } else {
           name = json['name'];
     }
-    if (json['days'] == null) {
-      days = null;
+    if (json['items'] == null) {
+      items = null;
     } else {
-      days = InlineResponse20040Days.listFromJson(json['days']);
+      items = InlineResponse20040Items.listFromJson(json['items']);
+    }
+    if (json['publishAsPublic'] == null) {
+      publishAsPublic = null;
+    } else {
+          publishAsPublic = json['publishAsPublic'];
     }
   }
 
   Map<String, dynamic> toJson() {
     Map <String, dynamic> json = {};
-    if (id != null)
-      json['id'] = id;
     if (name != null)
       json['name'] = name;
-    if (days != null)
-      json['days'] = days;
+    if (items != null)
+      json['items'] = items;
+    if (publishAsPublic != null)
+      json['publishAsPublic'] = publishAsPublic;
     return json;
   }
 

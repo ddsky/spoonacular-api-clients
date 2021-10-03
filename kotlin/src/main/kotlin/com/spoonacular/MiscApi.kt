@@ -12,15 +12,15 @@
 package com.spoonacular
 
 import com.spoonacular.client.model.InlineResponse20029
-import com.spoonacular.client.model.InlineResponse20047
 import com.spoonacular.client.model.InlineResponse20048
-import com.spoonacular.client.model.InlineResponse20050
+import com.spoonacular.client.model.InlineResponse20049
 import com.spoonacular.client.model.InlineResponse20051
 import com.spoonacular.client.model.InlineResponse20052
 import com.spoonacular.client.model.InlineResponse20053
 import com.spoonacular.client.model.InlineResponse20054
 import com.spoonacular.client.model.InlineResponse20055
 import com.spoonacular.client.model.InlineResponse20056
+import com.spoonacular.client.model.InlineResponse20057
 
 import spoonacular.infrastructure.ApiClient
 import spoonacular.infrastructure.ClientException
@@ -40,10 +40,10 @@ class MiscApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiClie
     * Detect Food in Text
     * Take any text and find all mentions of food contained within it. This task is also called Named Entity Recognition (NER). In this case, the entities are foods. Either dishes, such as pizza or cheeseburger, or ingredients, such as cucumber or almonds.
     * @param contentMinusType The content type. (optional)
-    * @return InlineResponse20050
+    * @return InlineResponse20051
     */
     @Suppress("UNCHECKED_CAST")
-    fun detectFoodInText(contentMinusType: kotlin.String?) : InlineResponse20050 {
+    fun detectFoodInText(contentMinusType: kotlin.String?) : InlineResponse20051 {
         val localVariableBody: kotlin.Any? = null
         val localVariableQuery: MultiValueMap = mapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf("Content-Type" to contentMinusType.toString())
@@ -53,13 +53,13 @@ class MiscApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiClie
             query = localVariableQuery,
             headers = localVariableHeaders
         )
-        val response = request<InlineResponse20050>(
+        val response = request<InlineResponse20051>(
             localVariableConfig,
             localVariableBody
         )
 
         return when (response.responseType) {
-            ResponseType.Success -> (response as Success<*>).data as InlineResponse20050
+            ResponseType.Success -> (response as Success<*>).data as InlineResponse20051
             ResponseType.Informational -> TODO()
             ResponseType.Redirection -> TODO()
             ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
@@ -70,10 +70,10 @@ class MiscApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiClie
     /**
     * Random Food Joke
     * Get a random joke that is related to food. Caution: this is an endpoint for adults!
-    * @return InlineResponse20054
+    * @return InlineResponse20055
     */
     @Suppress("UNCHECKED_CAST")
-    fun getARandomFoodJoke() : InlineResponse20054 {
+    fun getARandomFoodJoke() : InlineResponse20055 {
         val localVariableBody: kotlin.Any? = null
         val localVariableQuery: MultiValueMap = mapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
@@ -83,13 +83,13 @@ class MiscApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiClie
             query = localVariableQuery,
             headers = localVariableHeaders
         )
-        val response = request<InlineResponse20054>(
+        val response = request<InlineResponse20055>(
             localVariableConfig,
             localVariableBody
         )
 
         return when (response.responseType) {
-            ResponseType.Success -> (response as Success<*>).data as InlineResponse20054
+            ResponseType.Success -> (response as Success<*>).data as InlineResponse20055
             ResponseType.Informational -> TODO()
             ResponseType.Redirection -> TODO()
             ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
@@ -102,10 +102,10 @@ class MiscApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiClie
     * This endpoint returns suggestions for things the user can say or ask the chatbot.
     * @param query A (partial) query from the user. The endpoint will return if it matches topics it can talk about. 
     * @param number The number of suggestions to return (between 1 and 25). (optional)
-    * @return InlineResponse20056
+    * @return InlineResponse20057
     */
     @Suppress("UNCHECKED_CAST")
-    fun getConversationSuggests(query: kotlin.String, number: java.math.BigDecimal?) : InlineResponse20056 {
+    fun getConversationSuggests(query: kotlin.String, number: java.math.BigDecimal?) : InlineResponse20057 {
         val localVariableBody: kotlin.Any? = null
         val localVariableQuery: MultiValueMap = mapOf("query" to listOf("$query"), "number" to listOf("$number"))
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
@@ -115,13 +115,13 @@ class MiscApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiClie
             query = localVariableQuery,
             headers = localVariableHeaders
         )
-        val response = request<InlineResponse20056>(
+        val response = request<InlineResponse20057>(
             localVariableConfig,
             localVariableBody
         )
 
         return when (response.responseType) {
-            ResponseType.Success -> (response as Success<*>).data as InlineResponse20056
+            ResponseType.Success -> (response as Success<*>).data as InlineResponse20057
             ResponseType.Informational -> TODO()
             ResponseType.Redirection -> TODO()
             ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
@@ -132,10 +132,10 @@ class MiscApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiClie
     /**
     * Random Food Trivia
     * Returns random food trivia.
-    * @return InlineResponse20054
+    * @return InlineResponse20055
     */
     @Suppress("UNCHECKED_CAST")
-    fun getRandomFoodTrivia() : InlineResponse20054 {
+    fun getRandomFoodTrivia() : InlineResponse20055 {
         val localVariableBody: kotlin.Any? = null
         val localVariableQuery: MultiValueMap = mapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
@@ -145,13 +145,13 @@ class MiscApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiClie
             query = localVariableQuery,
             headers = localVariableHeaders
         )
-        val response = request<InlineResponse20054>(
+        val response = request<InlineResponse20055>(
             localVariableConfig,
             localVariableBody
         )
 
         return when (response.responseType) {
-            ResponseType.Success -> (response as Success<*>).data as InlineResponse20054
+            ResponseType.Success -> (response as Success<*>).data as InlineResponse20055
             ResponseType.Informational -> TODO()
             ResponseType.Redirection -> TODO()
             ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
@@ -163,16 +163,47 @@ class MiscApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiClie
     * Image Analysis by URL
     * Analyze a food image. The API tries to classify the image, guess the nutrition, and find a matching recipes.
     * @param imageUrl The URL of the image to be analyzed. 
-    * @return InlineResponse20048
+    * @return InlineResponse20049
     */
     @Suppress("UNCHECKED_CAST")
-    fun imageAnalysisByURL(imageUrl: kotlin.String) : InlineResponse20048 {
+    fun imageAnalysisByURL(imageUrl: kotlin.String) : InlineResponse20049 {
         val localVariableBody: kotlin.Any? = null
         val localVariableQuery: MultiValueMap = mapOf("imageUrl" to listOf("$imageUrl"))
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         val localVariableConfig = RequestConfig(
             RequestMethod.GET,
             "/food/images/analyze",
+            query = localVariableQuery,
+            headers = localVariableHeaders
+        )
+        val response = request<InlineResponse20049>(
+            localVariableConfig,
+            localVariableBody
+        )
+
+        return when (response.responseType) {
+            ResponseType.Success -> (response as Success<*>).data as InlineResponse20049
+            ResponseType.Informational -> TODO()
+            ResponseType.Redirection -> TODO()
+            ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
+            ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
+        }
+    }
+
+    /**
+    * Image Classification by URL
+    * Classify a food image.
+    * @param imageUrl The URL of the image to be classified. 
+    * @return InlineResponse20048
+    */
+    @Suppress("UNCHECKED_CAST")
+    fun imageClassificationByURL(imageUrl: kotlin.String) : InlineResponse20048 {
+        val localVariableBody: kotlin.Any? = null
+        val localVariableQuery: MultiValueMap = mapOf("imageUrl" to listOf("$imageUrl"))
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        val localVariableConfig = RequestConfig(
+            RequestMethod.GET,
+            "/food/images/classify",
             query = localVariableQuery,
             headers = localVariableHeaders
         )
@@ -191,46 +222,15 @@ class MiscApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiClie
     }
 
     /**
-    * Image Classification by URL
-    * Classify a food image.
-    * @param imageUrl The URL of the image to be classified. 
-    * @return InlineResponse20047
-    */
-    @Suppress("UNCHECKED_CAST")
-    fun imageClassificationByURL(imageUrl: kotlin.String) : InlineResponse20047 {
-        val localVariableBody: kotlin.Any? = null
-        val localVariableQuery: MultiValueMap = mapOf("imageUrl" to listOf("$imageUrl"))
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        val localVariableConfig = RequestConfig(
-            RequestMethod.GET,
-            "/food/images/classify",
-            query = localVariableQuery,
-            headers = localVariableHeaders
-        )
-        val response = request<InlineResponse20047>(
-            localVariableConfig,
-            localVariableBody
-        )
-
-        return when (response.responseType) {
-            ResponseType.Success -> (response as Success<*>).data as InlineResponse20047
-            ResponseType.Informational -> TODO()
-            ResponseType.Redirection -> TODO()
-            ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
-            ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
-        }
-    }
-
-    /**
     * Search All Food
     * Search all food content with one call. That includes recipes, grocery products, menu items, simple foods (ingredients), and food videos.
     * @param query The search query. 
     * @param offset The number of results to skip (between 0 and 900). (optional)
     * @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
-    * @return InlineResponse20052
+    * @return InlineResponse20053
     */
     @Suppress("UNCHECKED_CAST")
-    fun searchAllFood(query: kotlin.String, offset: kotlin.Int?, number: kotlin.Int?) : InlineResponse20052 {
+    fun searchAllFood(query: kotlin.String, offset: kotlin.Int?, number: kotlin.Int?) : InlineResponse20053 {
         val localVariableBody: kotlin.Any? = null
         val localVariableQuery: MultiValueMap = mapOf("query" to listOf("$query"), "offset" to listOf("$offset"), "number" to listOf("$number"))
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
@@ -240,13 +240,13 @@ class MiscApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiClie
             query = localVariableQuery,
             headers = localVariableHeaders
         )
-        val response = request<InlineResponse20052>(
+        val response = request<InlineResponse20053>(
             localVariableConfig,
             localVariableBody
         )
 
         return when (response.responseType) {
-            ResponseType.Success -> (response as Success<*>).data as InlineResponse20052
+            ResponseType.Success -> (response as Success<*>).data as InlineResponse20053
             ResponseType.Informational -> TODO()
             ResponseType.Redirection -> TODO()
             ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
@@ -302,10 +302,10 @@ class MiscApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiClie
     * @param maxLength Maximum video length in seconds. (optional)
     * @param offset The number of results to skip (between 0 and 900). (optional)
     * @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
-    * @return InlineResponse20053
+    * @return InlineResponse20054
     */
     @Suppress("UNCHECKED_CAST")
-    fun searchFoodVideos(query: kotlin.String?, type: kotlin.String?, cuisine: kotlin.String?, diet: kotlin.String?, includeIngredients: kotlin.String?, excludeIngredients: kotlin.String?, minLength: java.math.BigDecimal?, maxLength: java.math.BigDecimal?, offset: kotlin.Int?, number: kotlin.Int?) : InlineResponse20053 {
+    fun searchFoodVideos(query: kotlin.String?, type: kotlin.String?, cuisine: kotlin.String?, diet: kotlin.String?, includeIngredients: kotlin.String?, excludeIngredients: kotlin.String?, minLength: java.math.BigDecimal?, maxLength: java.math.BigDecimal?, offset: kotlin.Int?, number: kotlin.Int?) : InlineResponse20054 {
         val localVariableBody: kotlin.Any? = null
         val localVariableQuery: MultiValueMap = mapOf("query" to listOf("$query"), "type" to listOf("$type"), "cuisine" to listOf("$cuisine"), "diet" to listOf("$diet"), "includeIngredients" to listOf("$includeIngredients"), "excludeIngredients" to listOf("$excludeIngredients"), "minLength" to listOf("$minLength"), "maxLength" to listOf("$maxLength"), "offset" to listOf("$offset"), "number" to listOf("$number"))
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
@@ -315,13 +315,13 @@ class MiscApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiClie
             query = localVariableQuery,
             headers = localVariableHeaders
         )
-        val response = request<InlineResponse20053>(
+        val response = request<InlineResponse20054>(
             localVariableConfig,
             localVariableBody
         )
 
         return when (response.responseType) {
-            ResponseType.Success -> (response as Success<*>).data as InlineResponse20053
+            ResponseType.Success -> (response as Success<*>).data as InlineResponse20054
             ResponseType.Informational -> TODO()
             ResponseType.Redirection -> TODO()
             ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
@@ -333,10 +333,10 @@ class MiscApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiClie
     * Search Site Content
     * Search spoonacular&#39;s site content. You&#39;ll be able to find everything that you could also find using the search suggestions on spoonacular.com. This is a suggest API so you can send partial strings as queries.
     * @param query The query to search for. You can also use partial queries such as \&quot;spagh\&quot; to already find spaghetti recipes, articles, grocery products, and other content. 
-    * @return InlineResponse20051
+    * @return InlineResponse20052
     */
     @Suppress("UNCHECKED_CAST")
-    fun searchSiteContent(query: kotlin.String) : InlineResponse20051 {
+    fun searchSiteContent(query: kotlin.String) : InlineResponse20052 {
         val localVariableBody: kotlin.Any? = null
         val localVariableQuery: MultiValueMap = mapOf("query" to listOf("$query"))
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
@@ -346,13 +346,13 @@ class MiscApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiClie
             query = localVariableQuery,
             headers = localVariableHeaders
         )
-        val response = request<InlineResponse20051>(
+        val response = request<InlineResponse20052>(
             localVariableConfig,
             localVariableBody
         )
 
         return when (response.responseType) {
-            ResponseType.Success -> (response as Success<*>).data as InlineResponse20051
+            ResponseType.Success -> (response as Success<*>).data as InlineResponse20052
             ResponseType.Informational -> TODO()
             ResponseType.Redirection -> TODO()
             ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
@@ -365,10 +365,10 @@ class MiscApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiClie
     * This endpoint can be used to have a conversation about food with the spoonacular chatbot. Use the \&quot;Get Conversation Suggests\&quot; endpoint to show your user what he or she can say.
     * @param text The request / question / answer from the user to the chatbot. 
     * @param contextId An arbitrary globally unique id for your conversation. The conversation can contain states so you should pass your context id if you want the bot to be able to remember the conversation. (optional)
-    * @return InlineResponse20055
+    * @return InlineResponse20056
     */
     @Suppress("UNCHECKED_CAST")
-    fun talkToChatbot(text: kotlin.String, contextId: kotlin.String?) : InlineResponse20055 {
+    fun talkToChatbot(text: kotlin.String, contextId: kotlin.String?) : InlineResponse20056 {
         val localVariableBody: kotlin.Any? = null
         val localVariableQuery: MultiValueMap = mapOf("text" to listOf("$text"), "contextId" to listOf("$contextId"))
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
@@ -378,13 +378,13 @@ class MiscApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiClie
             query = localVariableQuery,
             headers = localVariableHeaders
         )
-        val response = request<InlineResponse20055>(
+        val response = request<InlineResponse20056>(
             localVariableConfig,
             localVariableBody
         )
 
         return when (response.responseType) {
-            ResponseType.Success -> (response as Success<*>).data as InlineResponse20055
+            ResponseType.Success -> (response as Success<*>).data as InlineResponse20056
             ResponseType.Informational -> TODO()
             ResponseType.Redirection -> TODO()
             ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")

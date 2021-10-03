@@ -18,7 +18,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.spoonacular.client.model.InlineResponse20053Videos;
+import com.spoonacular.client.model.InlineResponse20053SearchResults;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -44,11 +44,11 @@ public class InlineResponse20053Test {
     }
 
     /**
-     * Test the property 'videos'
+     * Test the property 'query'
      */
     @Test
-    public void videosTest() {
-        // TODO: test videos
+    public void queryTest() {
+        // TODO: test query
     }
 
     /**
@@ -57,6 +57,30 @@ public class InlineResponse20053Test {
     @Test
     public void totalResultsTest() {
         // TODO: test totalResults
+    }
+
+    /**
+     * Test the property 'limit'
+     */
+    @Test
+    public void limitTest() {
+        // TODO: test limit
+    }
+
+    /**
+     * Test the property 'offset'
+     */
+    @Test
+    public void offsetTest() {
+        // TODO: test offset
+    }
+
+    /**
+     * Test the property 'searchResults'
+     */
+    @Test
+    public void searchResultsTest() {
+        // TODO: test searchResults
     }
 
 }

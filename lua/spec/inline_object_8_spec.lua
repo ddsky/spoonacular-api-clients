@@ -23,8 +23,15 @@ describe("inline_object_8", function()
     end)
   end)
 
-  -- unit tests for the property 'id'
-  describe("property id test", function()
+  -- unit tests for the property 'start_date'
+  describe("property start_date test", function()
+    it("should work", function()
+      -- TODO assertion here: http://olivinelabs.com/busted/#asserts
+    end)
+  end)
+
+  -- unit tests for the property 'end_date'
+  describe("property end_date test", function()
     it("should work", function()
       -- TODO assertion here: http://olivinelabs.com/busted/#asserts
     end)

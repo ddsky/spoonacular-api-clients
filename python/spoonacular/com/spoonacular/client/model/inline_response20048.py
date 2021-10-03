@@ -32,51 +32,24 @@ class InlineResponse20048(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'nutrition': 'InlineResponse20048Nutrition',
-        'category': 'InlineResponse20048Category',
-        'recipes': 'list[InlineResponse20048Recipes]'
+        'category': 'str',
+        'probability': 'float'
     }
 
     attribute_map = {
-        'nutrition': 'nutrition',
         'category': 'category',
-        'recipes': 'recipes'
+        'probability': 'probability'
     }
 
-    def __init__(self, nutrition=None, category=None, recipes=None):  # noqa: E501
+    def __init__(self, category=None, probability=None):  # noqa: E501
         """InlineResponse20048 - a model defined in OpenAPI"""  # noqa: E501
 
-        self._nutrition = None
         self._category = None
-        self._recipes = None
+        self._probability = None
         self.discriminator = None
 
-        self.nutrition = nutrition
         self.category = category
-        self.recipes = recipes
-
-    @property
-    def nutrition(self):
-        """Gets the nutrition of this InlineResponse20048.  # noqa: E501
-
-
-        :return: The nutrition of this InlineResponse20048.  # noqa: E501
-        :rtype: InlineResponse20048Nutrition
-        """
-        return self._nutrition
-
-    @nutrition.setter
-    def nutrition(self, nutrition):
-        """Sets the nutrition of this InlineResponse20048.
-
-
-        :param nutrition: The nutrition of this InlineResponse20048.  # noqa: E501
-        :type: InlineResponse20048Nutrition
-        """
-        if nutrition is None:
-            raise ValueError("Invalid value for `nutrition`, must not be `None`")  # noqa: E501
-
-        self._nutrition = nutrition
+        self.probability = probability
 
     @property
     def category(self):
@@ -84,7 +57,7 @@ class InlineResponse20048(object):
 
 
         :return: The category of this InlineResponse20048.  # noqa: E501
-        :rtype: InlineResponse20048Category
+        :rtype: str
         """
         return self._category
 
@@ -94,35 +67,37 @@ class InlineResponse20048(object):
 
 
         :param category: The category of this InlineResponse20048.  # noqa: E501
-        :type: InlineResponse20048Category
+        :type: str
         """
         if category is None:
             raise ValueError("Invalid value for `category`, must not be `None`")  # noqa: E501
+        if category is not None and len(category) < 1:
+            raise ValueError("Invalid value for `category`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._category = category
 
     @property
-    def recipes(self):
-        """Gets the recipes of this InlineResponse20048.  # noqa: E501
+    def probability(self):
+        """Gets the probability of this InlineResponse20048.  # noqa: E501
 
 
-        :return: The recipes of this InlineResponse20048.  # noqa: E501
-        :rtype: list[InlineResponse20048Recipes]
+        :return: The probability of this InlineResponse20048.  # noqa: E501
+        :rtype: float
         """
-        return self._recipes
+        return self._probability
 
-    @recipes.setter
-    def recipes(self, recipes):
-        """Sets the recipes of this InlineResponse20048.
+    @probability.setter
+    def probability(self, probability):
+        """Sets the probability of this InlineResponse20048.
 
 
-        :param recipes: The recipes of this InlineResponse20048.  # noqa: E501
-        :type: list[InlineResponse20048Recipes]
+        :param probability: The probability of this InlineResponse20048.  # noqa: E501
+        :type: float
         """
-        if recipes is None:
-            raise ValueError("Invalid value for `recipes`, must not be `None`")  # noqa: E501
+        if probability is None:
+            raise ValueError("Invalid value for `probability`, must not be `None`")  # noqa: E501
 
-        self._recipes = recipes
+        self._probability = probability
 
     def to_dict(self):
         """Returns the model properties as a dict"""

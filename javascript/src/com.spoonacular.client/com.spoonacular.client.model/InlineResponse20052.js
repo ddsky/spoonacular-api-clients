@@ -12,7 +12,6 @@
  */
 
 import ApiClient from '../ApiClient';
-import InlineResponse20052SearchResults from './InlineResponse20052SearchResults';
 
 /**
  * The InlineResponse20052 model module.
@@ -23,15 +22,14 @@ class InlineResponse20052 {
     /**
      * Constructs a new <code>InlineResponse20052</code>.
      * @alias module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20052
-     * @param query {String} 
-     * @param totalResults {Number} 
-     * @param limit {Number} 
-     * @param offset {Number} 
-     * @param searchResults {Array.<module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20052SearchResults>} 
+     * @param articles {Array.<Object>} 
+     * @param groceryProducts {Array.<Object>} 
+     * @param menuItems {Array.<Object>} 
+     * @param recipes {Array.<Object>} 
      */
-    constructor(query, totalResults, limit, offset, searchResults) { 
+    constructor(articles, groceryProducts, menuItems, recipes) { 
         
-        InlineResponse20052.initialize(this, query, totalResults, limit, offset, searchResults);
+        InlineResponse20052.initialize(this, articles, groceryProducts, menuItems, recipes);
     }
 
     /**
@@ -39,12 +37,11 @@ class InlineResponse20052 {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, query, totalResults, limit, offset, searchResults) { 
-        obj['query'] = query;
-        obj['totalResults'] = totalResults;
-        obj['limit'] = limit;
-        obj['offset'] = offset;
-        obj['searchResults'] = searchResults;
+    static initialize(obj, articles, groceryProducts, menuItems, recipes) { 
+        obj['Articles'] = articles;
+        obj['Grocery Products'] = groceryProducts;
+        obj['Menu Items'] = menuItems;
+        obj['Recipes'] = recipes;
     }
 
     /**
@@ -58,20 +55,17 @@ class InlineResponse20052 {
         if (data) {
             obj = obj || new InlineResponse20052();
 
-            if (data.hasOwnProperty('query')) {
-                obj['query'] = ApiClient.convertToType(data['query'], 'String');
+            if (data.hasOwnProperty('Articles')) {
+                obj['Articles'] = ApiClient.convertToType(data['Articles'], [Object]);
             }
-            if (data.hasOwnProperty('totalResults')) {
-                obj['totalResults'] = ApiClient.convertToType(data['totalResults'], 'Number');
+            if (data.hasOwnProperty('Grocery Products')) {
+                obj['Grocery Products'] = ApiClient.convertToType(data['Grocery Products'], [Object]);
             }
-            if (data.hasOwnProperty('limit')) {
-                obj['limit'] = ApiClient.convertToType(data['limit'], 'Number');
+            if (data.hasOwnProperty('Menu Items')) {
+                obj['Menu Items'] = ApiClient.convertToType(data['Menu Items'], [Object]);
             }
-            if (data.hasOwnProperty('offset')) {
-                obj['offset'] = ApiClient.convertToType(data['offset'], 'Number');
-            }
-            if (data.hasOwnProperty('searchResults')) {
-                obj['searchResults'] = ApiClient.convertToType(data['searchResults'], [InlineResponse20052SearchResults]);
+            if (data.hasOwnProperty('Recipes')) {
+                obj['Recipes'] = ApiClient.convertToType(data['Recipes'], [Object]);
             }
         }
         return obj;
@@ -81,29 +75,24 @@ class InlineResponse20052 {
 }
 
 /**
- * @member {String} query
+ * @member {Array.<Object>} Articles
  */
-InlineResponse20052.prototype['query'] = undefined;
+InlineResponse20052.prototype['Articles'] = undefined;
 
 /**
- * @member {Number} totalResults
+ * @member {Array.<Object>} Grocery Products
  */
-InlineResponse20052.prototype['totalResults'] = undefined;
+InlineResponse20052.prototype['Grocery Products'] = undefined;
 
 /**
- * @member {Number} limit
+ * @member {Array.<Object>} Menu Items
  */
-InlineResponse20052.prototype['limit'] = undefined;
+InlineResponse20052.prototype['Menu Items'] = undefined;
 
 /**
- * @member {Number} offset
+ * @member {Array.<Object>} Recipes
  */
-InlineResponse20052.prototype['offset'] = undefined;
-
-/**
- * @member {Array.<module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20052SearchResults>} searchResults
- */
-InlineResponse20052.prototype['searchResults'] = undefined;
+InlineResponse20052.prototype['Recipes'] = undefined;
 
 
 

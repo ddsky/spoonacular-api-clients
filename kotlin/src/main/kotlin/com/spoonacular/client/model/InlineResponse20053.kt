@@ -11,19 +11,28 @@
 */
 package com.spoonacular.client.model
 
-import com.spoonacular.client.model.InlineResponse20053Videos
+import com.spoonacular.client.model.InlineResponse20053SearchResults
 
 import com.squareup.moshi.Json
 /**
  * 
- * @param videos 
+ * @param query 
  * @param totalResults 
+ * @param limit 
+ * @param offset 
+ * @param searchResults 
  */
 data class InlineResponse20053 (
-    @Json(name = "videos")
-    val videos: kotlin.Array<InlineResponse20053Videos>,
+    @Json(name = "query")
+    val query: kotlin.String,
     @Json(name = "totalResults")
-    val totalResults: kotlin.Int
+    val totalResults: kotlin.Int,
+    @Json(name = "limit")
+    val limit: kotlin.Int,
+    @Json(name = "offset")
+    val offset: kotlin.Int,
+    @Json(name = "searchResults")
+    val searchResults: kotlin.Array<InlineResponse20053SearchResults>
 ) {
 
 }

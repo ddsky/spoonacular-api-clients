@@ -32,13 +32,7 @@ describe 'InlineResponse20046' do
       expect(@instance).to be_instance_of(OpenapiClient::InlineResponse20046)
     end
   end
-  describe 'test attribute "recommended_wines"' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
-  describe 'test attribute "total_found"' do
+  describe 'test attribute "wine_description"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

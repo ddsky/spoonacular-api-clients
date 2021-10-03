@@ -42,20 +42,8 @@ public:
     void fromJson(QString jsonString) override;
 
     
-    QList<OAIObject> getArticles() const;
-    void setArticles(const QList<OAIObject> &articles);
-
-    
-    QList<OAIObject> getGroceryProducts() const;
-    void setGroceryProducts(const QList<OAIObject> &grocery_products);
-
-    
-    QList<OAIObject> getMenuItems() const;
-    void setMenuItems(const QList<OAIObject> &menu_items);
-
-    
-    QList<OAIObject> getRecipes() const;
-    void setRecipes(const QList<OAIObject> &recipes);
+    QList<OAIObject> getAnnotations() const;
+    void setAnnotations(const QList<OAIObject> &annotations);
 
     
     
@@ -65,21 +53,9 @@ public:
 private:
     void init();
     
-    QList<OAIObject> articles;
-    bool m_articles_isSet;
-    bool m_articles_isValid;
-    
-    QList<OAIObject> grocery_products;
-    bool m_grocery_products_isSet;
-    bool m_grocery_products_isValid;
-    
-    QList<OAIObject> menu_items;
-    bool m_menu_items_isSet;
-    bool m_menu_items_isValid;
-    
-    QList<OAIObject> recipes;
-    bool m_recipes_isSet;
-    bool m_recipes_isValid;
+    QList<OAIObject> annotations;
+    bool m_annotations_isSet;
+    bool m_annotations_isValid;
     
     };
 

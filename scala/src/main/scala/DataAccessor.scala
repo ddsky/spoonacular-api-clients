@@ -70,15 +70,21 @@ trait DataAccessor {
 
         /**
         * 
+        * @return A InlineResponse20040
+        */
+        def MealPlanning_addMealPlanTemplate(username: String, hash: String, inlineObject6: InlineObject6, authParamapiKeyScheme: String): Either[CommonError,InlineResponse20040] = Left(TODO)
+
+        /**
+        * 
         * @return A Object
         */
         def MealPlanning_addToMealPlan(username: String, hash: String, inlineObject4: InlineObject4, authParamapiKeyScheme: String): Either[CommonError,Object] = Left(TODO)
 
         /**
         * 
-        * @return A InlineResponse20041
+        * @return A InlineResponse20042
         */
-        def MealPlanning_addToShoppingList(username: String, hash: String, inlineObject7: InlineObject7, authParamapiKeyScheme: String): Either[CommonError,InlineResponse20041] = Left(TODO)
+        def MealPlanning_addToShoppingList(username: String, hash: String, inlineObject9: InlineObject9, authParamapiKeyScheme: String): Either[CommonError,InlineResponse20042] = Left(TODO)
 
         /**
         * 
@@ -88,9 +94,9 @@ trait DataAccessor {
 
         /**
         * 
-        * @return A InlineResponse20042
+        * @return A InlineResponse20043
         */
-        def MealPlanning_connectUser(body: Object, authParamapiKeyScheme: String): Either[CommonError,InlineResponse20042] = Left(TODO)
+        def MealPlanning_connectUser(body: Object, authParamapiKeyScheme: String): Either[CommonError,InlineResponse20043] = Left(TODO)
 
         /**
         * 
@@ -102,7 +108,13 @@ trait DataAccessor {
         * 
         * @return A Object
         */
-        def MealPlanning_deleteFromShoppingList(username: String, id: Int, hash: String, inlineObject8: InlineObject8, authParamapiKeyScheme: String): Either[CommonError,Object] = Left(TODO)
+        def MealPlanning_deleteFromShoppingList(username: String, id: Int, hash: String, inlineObject10: InlineObject10, authParamapiKeyScheme: String): Either[CommonError,Object] = Left(TODO)
+
+        /**
+        * 
+        * @return A Object
+        */
+        def MealPlanning_deleteMealPlanTemplate(username: String, id: Int, hash: String, inlineObject7: InlineObject7, authParamapiKeyScheme: String): Either[CommonError,Object] = Left(TODO)
 
         /**
         * 
@@ -112,15 +124,15 @@ trait DataAccessor {
 
         /**
         * 
-        * @return A InlineResponse20041
+        * @return A InlineResponse20042
         */
-        def MealPlanning_generateShoppingList(username: String, startDate: String, endDate: String, hash: String, inlineObject6: InlineObject6, authParamapiKeyScheme: String): Either[CommonError,InlineResponse20041] = Left(TODO)
+        def MealPlanning_generateShoppingList(username: String, startDate: String, endDate: String, hash: String, inlineObject8: InlineObject8, authParamapiKeyScheme: String): Either[CommonError,InlineResponse20042] = Left(TODO)
 
         /**
         * 
-        * @return A InlineResponse20040
+        * @return A InlineResponse20041
         */
-        def MealPlanning_getMealPlanTemplate(username: String, id: Int, hash: String, authParamapiKeyScheme: String): Either[CommonError,InlineResponse20040] = Left(TODO)
+        def MealPlanning_getMealPlanTemplate(username: String, id: Int, hash: String, authParamapiKeyScheme: String): Either[CommonError,InlineResponse20041] = Left(TODO)
 
         /**
         * 
@@ -136,9 +148,9 @@ trait DataAccessor {
 
         /**
         * 
-        * @return A InlineResponse20041
+        * @return A InlineResponse20042
         */
-        def MealPlanning_getShoppingList(username: String, hash: String, authParamapiKeyScheme: String): Either[CommonError,InlineResponse20041] = Left(TODO)
+        def MealPlanning_getShoppingList(username: String, hash: String, authParamapiKeyScheme: String): Either[CommonError,InlineResponse20042] = Left(TODO)
 
         /**
         * 
@@ -174,7 +186,7 @@ trait DataAccessor {
         * 
         * @return A InlineResponse20035
         */
-        def MenuItems_searchMenuItems(query: Option[String], minCalories: Option[BigDecimal], maxCalories: Option[BigDecimal], minCarbs: Option[BigDecimal], maxCarbs: Option[BigDecimal], minProtein: Option[BigDecimal], maxProtein: Option[BigDecimal], minFat: Option[BigDecimal], maxFat: Option[BigDecimal], offset: Option[Int], number: Option[Int], authParamapiKeyScheme: String): Either[CommonError,InlineResponse20035] = Left(TODO)
+        def MenuItems_searchMenuItems(query: Option[String], minCalories: Option[BigDecimal], maxCalories: Option[BigDecimal], minCarbs: Option[BigDecimal], maxCarbs: Option[BigDecimal], minProtein: Option[BigDecimal], maxProtein: Option[BigDecimal], minFat: Option[BigDecimal], maxFat: Option[BigDecimal], addMenuItemInformation: Option[Boolean], offset: Option[Int], number: Option[Int], authParamapiKeyScheme: String): Either[CommonError,InlineResponse20035] = Left(TODO)
 
         /**
         * 
@@ -184,45 +196,45 @@ trait DataAccessor {
 
         /**
         * 
-        * @return A InlineResponse20050
+        * @return A InlineResponse20051
         */
-        def Misc_detectFoodInText(contentType: Option[String], authParamapiKeyScheme: String): Either[CommonError,InlineResponse20050] = Left(TODO)
+        def Misc_detectFoodInText(contentType: Option[String], authParamapiKeyScheme: String): Either[CommonError,InlineResponse20051] = Left(TODO)
 
         /**
         * 
-        * @return A InlineResponse20054
+        * @return A InlineResponse20055
         */
-        def Misc_getARandomFoodJoke(authParamapiKeyScheme: String): Either[CommonError,InlineResponse20054] = Left(TODO)
+        def Misc_getARandomFoodJoke(authParamapiKeyScheme: String): Either[CommonError,InlineResponse20055] = Left(TODO)
 
         /**
         * 
-        * @return A InlineResponse20056
+        * @return A InlineResponse20057
         */
-        def Misc_getConversationSuggests(query: String, number: Option[BigDecimal], authParamapiKeyScheme: String): Either[CommonError,InlineResponse20056] = Left(TODO)
+        def Misc_getConversationSuggests(query: String, number: Option[BigDecimal], authParamapiKeyScheme: String): Either[CommonError,InlineResponse20057] = Left(TODO)
 
         /**
         * 
-        * @return A InlineResponse20054
+        * @return A InlineResponse20055
         */
-        def Misc_getRandomFoodTrivia(authParamapiKeyScheme: String): Either[CommonError,InlineResponse20054] = Left(TODO)
+        def Misc_getRandomFoodTrivia(authParamapiKeyScheme: String): Either[CommonError,InlineResponse20055] = Left(TODO)
+
+        /**
+        * 
+        * @return A InlineResponse20049
+        */
+        def Misc_imageAnalysisByURL(imageUrl: String, authParamapiKeyScheme: String): Either[CommonError,InlineResponse20049] = Left(TODO)
 
         /**
         * 
         * @return A InlineResponse20048
         */
-        def Misc_imageAnalysisByURL(imageUrl: String, authParamapiKeyScheme: String): Either[CommonError,InlineResponse20048] = Left(TODO)
+        def Misc_imageClassificationByURL(imageUrl: String, authParamapiKeyScheme: String): Either[CommonError,InlineResponse20048] = Left(TODO)
 
         /**
         * 
-        * @return A InlineResponse20047
+        * @return A InlineResponse20053
         */
-        def Misc_imageClassificationByURL(imageUrl: String, authParamapiKeyScheme: String): Either[CommonError,InlineResponse20047] = Left(TODO)
-
-        /**
-        * 
-        * @return A InlineResponse20052
-        */
-        def Misc_searchAllFood(query: String, offset: Option[Int], number: Option[Int], authParamapiKeyScheme: String): Either[CommonError,InlineResponse20052] = Left(TODO)
+        def Misc_searchAllFood(query: String, offset: Option[Int], number: Option[Int], authParamapiKeyScheme: String): Either[CommonError,InlineResponse20053] = Left(TODO)
 
         /**
         * 
@@ -232,21 +244,21 @@ trait DataAccessor {
 
         /**
         * 
-        * @return A InlineResponse20053
+        * @return A InlineResponse20054
         */
-        def Misc_searchFoodVideos(query: Option[String], _type: Option[String], cuisine: Option[String], diet: Option[String], includeIngredients: Option[String], excludeIngredients: Option[String], minLength: Option[BigDecimal], maxLength: Option[BigDecimal], offset: Option[Int], number: Option[Int], authParamapiKeyScheme: String): Either[CommonError,InlineResponse20053] = Left(TODO)
+        def Misc_searchFoodVideos(query: Option[String], _type: Option[String], cuisine: Option[String], diet: Option[String], includeIngredients: Option[String], excludeIngredients: Option[String], minLength: Option[BigDecimal], maxLength: Option[BigDecimal], offset: Option[Int], number: Option[Int], authParamapiKeyScheme: String): Either[CommonError,InlineResponse20054] = Left(TODO)
 
         /**
         * 
-        * @return A InlineResponse20051
+        * @return A InlineResponse20052
         */
-        def Misc_searchSiteContent(query: String, authParamapiKeyScheme: String): Either[CommonError,InlineResponse20051] = Left(TODO)
+        def Misc_searchSiteContent(query: String, authParamapiKeyScheme: String): Either[CommonError,InlineResponse20052] = Left(TODO)
 
         /**
         * 
-        * @return A InlineResponse20055
+        * @return A InlineResponse20056
         */
-        def Misc_talkToChatbot(text: String, contextId: Option[String], authParamapiKeyScheme: String): Either[CommonError,InlineResponse20055] = Left(TODO)
+        def Misc_talkToChatbot(text: String, contextId: Option[String], authParamapiKeyScheme: String): Either[CommonError,InlineResponse20056] = Left(TODO)
 
         /**
         * 
@@ -300,7 +312,7 @@ trait DataAccessor {
         * 
         * @return A InlineResponse20027
         */
-        def Products_searchGroceryProducts(query: Option[String], minCalories: Option[BigDecimal], maxCalories: Option[BigDecimal], minCarbs: Option[BigDecimal], maxCarbs: Option[BigDecimal], minProtein: Option[BigDecimal], maxProtein: Option[BigDecimal], minFat: Option[BigDecimal], maxFat: Option[BigDecimal], offset: Option[Int], number: Option[Int], authParamapiKeyScheme: String): Either[CommonError,InlineResponse20027] = Left(TODO)
+        def Products_searchGroceryProducts(query: Option[String], minCalories: Option[BigDecimal], maxCalories: Option[BigDecimal], minCarbs: Option[BigDecimal], maxCarbs: Option[BigDecimal], minProtein: Option[BigDecimal], maxProtein: Option[BigDecimal], minFat: Option[BigDecimal], maxFat: Option[BigDecimal], addProductInformation: Option[Boolean], offset: Option[Int], number: Option[Int], authParamapiKeyScheme: String): Either[CommonError,InlineResponse20027] = Left(TODO)
 
         /**
         * 
@@ -454,9 +466,9 @@ trait DataAccessor {
 
         /**
         * 
-        * @return A InlineResponse20049
+        * @return A InlineResponse20050
         */
-        def Recipes_quickAnswer(q: String, authParamapiKeyScheme: String): Either[CommonError,InlineResponse20049] = Left(TODO)
+        def Recipes_quickAnswer(q: String, authParamapiKeyScheme: String): Either[CommonError,InlineResponse20050] = Left(TODO)
 
         /**
         * 
@@ -562,26 +574,26 @@ trait DataAccessor {
 
         /**
         * 
-        * @return A InlineResponse20043
-        */
-        def Wine_getDishPairingForWine(wine: String, authParamapiKeyScheme: String): Either[CommonError,InlineResponse20043] = Left(TODO)
-
-        /**
-        * 
-        * @return A InlineResponse20045
-        */
-        def Wine_getWineDescription(wine: String, authParamapiKeyScheme: String): Either[CommonError,InlineResponse20045] = Left(TODO)
-
-        /**
-        * 
         * @return A InlineResponse20044
         */
-        def Wine_getWinePairing(food: String, maxPrice: Option[BigDecimal], authParamapiKeyScheme: String): Either[CommonError,InlineResponse20044] = Left(TODO)
+        def Wine_getDishPairingForWine(wine: String, authParamapiKeyScheme: String): Either[CommonError,InlineResponse20044] = Left(TODO)
 
         /**
         * 
         * @return A InlineResponse20046
         */
-        def Wine_getWineRecommendation(wine: String, maxPrice: Option[BigDecimal], minRating: Option[BigDecimal], number: Option[BigDecimal], authParamapiKeyScheme: String): Either[CommonError,InlineResponse20046] = Left(TODO)
+        def Wine_getWineDescription(wine: String, authParamapiKeyScheme: String): Either[CommonError,InlineResponse20046] = Left(TODO)
+
+        /**
+        * 
+        * @return A InlineResponse20045
+        */
+        def Wine_getWinePairing(food: String, maxPrice: Option[BigDecimal], authParamapiKeyScheme: String): Either[CommonError,InlineResponse20045] = Left(TODO)
+
+        /**
+        * 
+        * @return A InlineResponse20047
+        */
+        def Wine_getWineRecommendation(wine: String, maxPrice: Option[BigDecimal], minRating: Option[BigDecimal], number: Option[BigDecimal], authParamapiKeyScheme: String): Either[CommonError,InlineResponse20047] = Left(TODO)
 
 }

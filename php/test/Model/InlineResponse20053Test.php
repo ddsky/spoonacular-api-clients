@@ -79,9 +79,9 @@ class InlineResponse20053Test extends TestCase
     }
 
     /**
-     * Test attribute "videos"
+     * Test attribute "query"
      */
-    public function testPropertyVideos()
+    public function testPropertyQuery()
     {
     }
 
@@ -89,6 +89,27 @@ class InlineResponse20053Test extends TestCase
      * Test attribute "total_results"
      */
     public function testPropertyTotalResults()
+    {
+    }
+
+    /**
+     * Test attribute "limit"
+     */
+    public function testPropertyLimit()
+    {
+    }
+
+    /**
+     * Test attribute "offset"
+     */
+    public function testPropertyOffset()
+    {
+    }
+
+    /**
+     * Test attribute "search_results"
+     */
+    public function testPropertySearchResults()
     {
     }
 }

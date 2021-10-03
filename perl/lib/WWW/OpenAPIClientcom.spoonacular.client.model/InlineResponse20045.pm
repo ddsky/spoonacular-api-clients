@@ -30,6 +30,7 @@ use Log::Any qw($log);
 use Date::Parse;
 use DateTime;
 
+use WWW::OpenAPIClient::Object::InlineResponse20045ProductMatches;
 
 use base ("Class::Accessor", "Class::Data::Inheritable");
 
@@ -161,9 +162,23 @@ __PACKAGE__->class_documentation({description => '',
 }                                 );
 
 __PACKAGE__->method_documentation({
-    'wine_description' => {
+    'paired_wines' => {
+        datatype => 'ARRAY[string]',
+        base_name => 'pairedWines',
+        description => '',
+        format => '',
+        read_only => '',
+            },
+    'pairing_text' => {
         datatype => 'string',
-        base_name => 'wineDescription',
+        base_name => 'pairingText',
+        description => '',
+        format => '',
+        read_only => '',
+            },
+    'product_matches' => {
+        datatype => 'ARRAY[InlineResponse20045ProductMatches]',
+        base_name => 'productMatches',
         description => '',
         format => '',
         read_only => '',
@@ -171,11 +186,15 @@ __PACKAGE__->method_documentation({
 });
 
 __PACKAGE__->openapi_types( {
-    'wine_description' => 'string'
+    'paired_wines' => 'ARRAY[string]',
+    'pairing_text' => 'string',
+    'product_matches' => 'ARRAY[InlineResponse20045ProductMatches]'
 } );
 
 __PACKAGE__->attribute_map( {
-    'wine_description' => 'wineDescription'
+    'paired_wines' => 'pairedWines',
+    'pairing_text' => 'pairingText',
+    'product_matches' => 'productMatches'
 } );
 
 __PACKAGE__->mk_accessors(keys %{__PACKAGE__->attribute_map});

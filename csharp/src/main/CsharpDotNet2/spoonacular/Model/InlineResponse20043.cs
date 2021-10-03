@@ -13,18 +13,18 @@ namespace spoonacular.Model {
   [DataContract]
   public class InlineResponse20043 {
     /// <summary>
-    /// Gets or Sets Pairings
+    /// Gets or Sets Username
     /// </summary>
-    [DataMember(Name="pairings", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "pairings")]
-    public List<string> Pairings { get; set; }
+    [DataMember(Name="username", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "username")]
+    public string Username { get; set; }
 
     /// <summary>
-    /// Gets or Sets Text
+    /// Gets or Sets Hash
     /// </summary>
-    [DataMember(Name="text", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "text")]
-    public string Text { get; set; }
+    [DataMember(Name="hash", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "hash")]
+    public string Hash { get; set; }
 
 
     /// <summary>
@@ -34,8 +34,8 @@ namespace spoonacular.Model {
     public override string ToString()  {
       var sb = new StringBuilder();
       sb.Append("class InlineResponse20043 {\n");
-      sb.Append("  Pairings: ").Append(Pairings).Append("\n");
-      sb.Append("  Text: ").Append(Text).Append("\n");
+      sb.Append("  Username: ").Append(Username).Append("\n");
+      sb.Append("  Hash: ").Append(Hash).Append("\n");
       sb.Append("}\n");
       return sb.ToString();
     }

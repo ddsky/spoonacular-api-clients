@@ -41,23 +41,17 @@ OAIInline_response_200_41_items::init() {
     m_id_isSet = false;
     m_id_isValid = false;
     
-    m_name_isSet = false;
-    m_name_isValid = false;
+    m_slot_isSet = false;
+    m_slot_isValid = false;
     
-    m_measures_isSet = false;
-    m_measures_isValid = false;
+    m_position_isSet = false;
+    m_position_isValid = false;
     
-    m_pantry_item_isSet = false;
-    m_pantry_item_isValid = false;
+    m_type_isSet = false;
+    m_type_isValid = false;
     
-    m_aisle_isSet = false;
-    m_aisle_isValid = false;
-    
-    m_cost_isSet = false;
-    m_cost_isValid = false;
-    
-    m_ingredient_id_isSet = false;
-    m_ingredient_id_isValid = false;
+    m_value_isSet = false;
+    m_value_isValid = false;
     }
 
 void
@@ -74,22 +68,16 @@ OAIInline_response_200_41_items::fromJsonObject(QJsonObject json) {
     m_id_isValid = ::OpenAPI::fromJsonValue(id, json[QString("id")]);
     
     
-    m_name_isValid = ::OpenAPI::fromJsonValue(name, json[QString("name")]);
+    m_slot_isValid = ::OpenAPI::fromJsonValue(slot, json[QString("slot")]);
     
     
-    m_measures_isValid = ::OpenAPI::fromJsonValue(measures, json[QString("measures")]);
+    m_position_isValid = ::OpenAPI::fromJsonValue(position, json[QString("position")]);
     
     
-    m_pantry_item_isValid = ::OpenAPI::fromJsonValue(pantry_item, json[QString("pantryItem")]);
+    m_type_isValid = ::OpenAPI::fromJsonValue(type, json[QString("type")]);
     
     
-    m_aisle_isValid = ::OpenAPI::fromJsonValue(aisle, json[QString("aisle")]);
-    
-    
-    m_cost_isValid = ::OpenAPI::fromJsonValue(cost, json[QString("cost")]);
-    
-    
-    m_ingredient_id_isValid = ::OpenAPI::fromJsonValue(ingredient_id, json[QString("ingredientId")]);
+    m_value_isValid = ::OpenAPI::fromJsonValue(value, json[QString("value")]);
     
     
 }
@@ -108,23 +96,17 @@ OAIInline_response_200_41_items::asJsonObject() const {
 	if(m_id_isSet){
         obj.insert(QString("id"), ::OpenAPI::toJsonValue(id));
     }
-	if(m_name_isSet){
-        obj.insert(QString("name"), ::OpenAPI::toJsonValue(name));
+	if(m_slot_isSet){
+        obj.insert(QString("slot"), ::OpenAPI::toJsonValue(slot));
     }
-	if(measures.isSet()){
-        obj.insert(QString("measures"), ::OpenAPI::toJsonValue(measures));
+	if(m_position_isSet){
+        obj.insert(QString("position"), ::OpenAPI::toJsonValue(position));
     }
-	if(m_pantry_item_isSet){
-        obj.insert(QString("pantryItem"), ::OpenAPI::toJsonValue(pantry_item));
+	if(m_type_isSet){
+        obj.insert(QString("type"), ::OpenAPI::toJsonValue(type));
     }
-	if(m_aisle_isSet){
-        obj.insert(QString("aisle"), ::OpenAPI::toJsonValue(aisle));
-    }
-	if(cost.isSet()){
-        obj.insert(QString("cost"), ::OpenAPI::toJsonValue(cost));
-    }
-	if(m_ingredient_id_isSet){
-        obj.insert(QString("ingredientId"), ::OpenAPI::toJsonValue(ingredient_id));
+	if(value.isSet()){
+        obj.insert(QString("value"), ::OpenAPI::toJsonValue(value));
     }
     return obj;
 }
@@ -141,69 +123,47 @@ OAIInline_response_200_41_items::setId(const qint32 &id) {
 }
 
 
-QString
-OAIInline_response_200_41_items::getName() const {
-    return name;
+qint32
+OAIInline_response_200_41_items::getSlot() const {
+    return slot;
 }
 void
-OAIInline_response_200_41_items::setName(const QString &name) {
-    this->name = name;
-    this->m_name_isSet = true;
-}
-
-
-OAIInline_response_200_41_measures
-OAIInline_response_200_41_items::getMeasures() const {
-    return measures;
-}
-void
-OAIInline_response_200_41_items::setMeasures(const OAIInline_response_200_41_measures &measures) {
-    this->measures = measures;
-    this->m_measures_isSet = true;
-}
-
-
-bool
-OAIInline_response_200_41_items::isPantryItem() const {
-    return pantry_item;
-}
-void
-OAIInline_response_200_41_items::setPantryItem(const bool &pantry_item) {
-    this->pantry_item = pantry_item;
-    this->m_pantry_item_isSet = true;
-}
-
-
-QString
-OAIInline_response_200_41_items::getAisle() const {
-    return aisle;
-}
-void
-OAIInline_response_200_41_items::setAisle(const QString &aisle) {
-    this->aisle = aisle;
-    this->m_aisle_isSet = true;
-}
-
-
-OAINumber
-OAIInline_response_200_41_items::getCost() const {
-    return cost;
-}
-void
-OAIInline_response_200_41_items::setCost(const OAINumber &cost) {
-    this->cost = cost;
-    this->m_cost_isSet = true;
+OAIInline_response_200_41_items::setSlot(const qint32 &slot) {
+    this->slot = slot;
+    this->m_slot_isSet = true;
 }
 
 
 qint32
-OAIInline_response_200_41_items::getIngredientId() const {
-    return ingredient_id;
+OAIInline_response_200_41_items::getPosition() const {
+    return position;
 }
 void
-OAIInline_response_200_41_items::setIngredientId(const qint32 &ingredient_id) {
-    this->ingredient_id = ingredient_id;
-    this->m_ingredient_id_isSet = true;
+OAIInline_response_200_41_items::setPosition(const qint32 &position) {
+    this->position = position;
+    this->m_position_isSet = true;
+}
+
+
+QString
+OAIInline_response_200_41_items::getType() const {
+    return type;
+}
+void
+OAIInline_response_200_41_items::setType(const QString &type) {
+    this->type = type;
+    this->m_type_isSet = true;
+}
+
+
+OAIInline_response_200_41_value
+OAIInline_response_200_41_items::getValue() const {
+    return value;
+}
+void
+OAIInline_response_200_41_items::setValue(const OAIInline_response_200_41_value &value) {
+    this->value = value;
+    this->m_value_isSet = true;
 }
 
 bool
@@ -212,17 +172,13 @@ OAIInline_response_200_41_items::isSet() const {
     do{ 
         if(m_id_isSet){ isObjectUpdated = true; break;}
     
-        if(m_name_isSet){ isObjectUpdated = true; break;}
+        if(m_slot_isSet){ isObjectUpdated = true; break;}
     
-        if(measures.isSet()){ isObjectUpdated = true; break;}
+        if(m_position_isSet){ isObjectUpdated = true; break;}
     
-        if(m_pantry_item_isSet){ isObjectUpdated = true; break;}
+        if(m_type_isSet){ isObjectUpdated = true; break;}
     
-        if(m_aisle_isSet){ isObjectUpdated = true; break;}
-    
-        if(cost.isSet()){ isObjectUpdated = true; break;}
-    
-        if(m_ingredient_id_isSet){ isObjectUpdated = true; break;}
+        if(value.isSet()){ isObjectUpdated = true; break;}
     }while(false);
     return isObjectUpdated;
 }
@@ -230,7 +186,7 @@ OAIInline_response_200_41_items::isSet() const {
 bool
 OAIInline_response_200_41_items::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_id_isValid && m_name_isValid && m_pantry_item_isValid && m_aisle_isValid && m_cost_isValid && m_ingredient_id_isValid && true;
+    return m_id_isValid && m_slot_isValid && m_position_isValid && m_type_isValid && true;
 }
 
 }

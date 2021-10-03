@@ -3,8 +3,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Category** | **string** |  | 
-**Probability** | **decimal?** |  | 
+**RecommendedWines** | [**List<InlineResponse20047RecommendedWines>**](InlineResponse20047RecommendedWines.md) |  | 
+**TotalFound** | **int?** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

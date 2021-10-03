@@ -70,6 +70,12 @@ import qualified Prelude as P
 -- ** AddChildren
 newtype AddChildren = AddChildren { unAddChildren :: Bool } deriving (P.Eq, P.Show)
 
+-- ** AddMenuItemInformation
+newtype AddMenuItemInformation = AddMenuItemInformation { unAddMenuItemInformation :: E'Normalize } deriving (P.Eq, P.Show)
+
+-- ** AddProductInformation
+newtype AddProductInformation = AddProductInformation { unAddProductInformation :: E'Normalize } deriving (P.Eq, P.Show)
+
 -- ** AddRecipeInformation
 newtype AddRecipeInformation = AddRecipeInformation { unAddRecipeInformation :: Bool } deriving (P.Eq, P.Show)
 
@@ -157,8 +163,8 @@ newtype IngredientName = IngredientName { unIngredientName :: Text } deriving (P
 -- ** Ingredients
 newtype Ingredients = Ingredients { unIngredients :: Text } deriving (P.Eq, P.Show)
 
--- ** InlineObject9
-newtype InlineObject9 = InlineObject9 { unInlineObject9 :: [InlineObject] } deriving (P.Eq, P.Show, A.ToJSON)
+-- ** InlineObject11
+newtype InlineObject11 = InlineObject11 { unInlineObject11 :: [InlineObject] } deriving (P.Eq, P.Show, A.ToJSON)
 
 -- ** InstructionsRequired
 newtype InstructionsRequired = InstructionsRequired { unInstructionsRequired :: Bool } deriving (P.Eq, P.Show)
@@ -670,6 +676,45 @@ mkInlineObject1 inlineObject1Title inlineObject1Upc inlineObject1PluCode =
   , inlineObject1PluCode
   }
 
+-- ** InlineObject10
+-- | InlineObject10
+data InlineObject10 = InlineObject10
+  { inlineObject10Username :: !(Text) -- ^ /Required/ "username" - The username.
+  , inlineObject10Id :: !(Double) -- ^ /Required/ "id" - The shopping list item id.
+  , inlineObject10Hash :: !(Text) -- ^ /Required/ "hash" - The private hash for the username.
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON InlineObject10
+instance A.FromJSON InlineObject10 where
+  parseJSON = A.withObject "InlineObject10" $ \o ->
+    InlineObject10
+      <$> (o .:  "username")
+      <*> (o .:  "id")
+      <*> (o .:  "hash")
+
+-- | ToJSON InlineObject10
+instance A.ToJSON InlineObject10 where
+  toJSON InlineObject10 {..} =
+   _omitNulls
+      [ "username" .= inlineObject10Username
+      , "id" .= inlineObject10Id
+      , "hash" .= inlineObject10Hash
+      ]
+
+
+-- | Construct a value of type 'InlineObject10' (by applying it's required fields, if any)
+mkInlineObject10
+  :: Text -- ^ 'inlineObject10Username': The username.
+  -> Double -- ^ 'inlineObject10Id': The shopping list item id.
+  -> Text -- ^ 'inlineObject10Hash': The private hash for the username.
+  -> InlineObject10
+mkInlineObject10 inlineObject10Username inlineObject10Id inlineObject10Hash =
+  InlineObject10
+  { inlineObject10Username
+  , inlineObject10Id
+  , inlineObject10Hash
+  }
+
 -- ** InlineObject2
 -- | InlineObject2
 data InlineObject2 = InlineObject2
@@ -820,8 +865,6 @@ mkInlineObject5 inlineObject5Username inlineObject5Id inlineObject5Hash =
 -- | InlineObject6
 data InlineObject6 = InlineObject6
   { inlineObject6Username :: !(Text) -- ^ /Required/ "username" - The username.
-  , inlineObject6StartDate :: !(Text) -- ^ /Required/ "start-date" - The start date in the format yyyy-mm-dd.
-  , inlineObject6EndDate :: !(Text) -- ^ /Required/ "end-date" - The end date in the format yyyy-mm-dd.
   , inlineObject6Hash :: !(Text) -- ^ /Required/ "hash" - The private hash for the username.
   } deriving (P.Show, P.Eq, P.Typeable)
 
@@ -830,8 +873,6 @@ instance A.FromJSON InlineObject6 where
   parseJSON = A.withObject "InlineObject6" $ \o ->
     InlineObject6
       <$> (o .:  "username")
-      <*> (o .:  "start-date")
-      <*> (o .:  "end-date")
       <*> (o .:  "hash")
 
 -- | ToJSON InlineObject6
@@ -839,8 +880,6 @@ instance A.ToJSON InlineObject6 where
   toJSON InlineObject6 {..} =
    _omitNulls
       [ "username" .= inlineObject6Username
-      , "start-date" .= inlineObject6StartDate
-      , "end-date" .= inlineObject6EndDate
       , "hash" .= inlineObject6Hash
       ]
 
@@ -848,15 +887,11 @@ instance A.ToJSON InlineObject6 where
 -- | Construct a value of type 'InlineObject6' (by applying it's required fields, if any)
 mkInlineObject6
   :: Text -- ^ 'inlineObject6Username': The username.
-  -> Text -- ^ 'inlineObject6StartDate': The start date in the format yyyy-mm-dd.
-  -> Text -- ^ 'inlineObject6EndDate': The end date in the format yyyy-mm-dd.
   -> Text -- ^ 'inlineObject6Hash': The private hash for the username.
   -> InlineObject6
-mkInlineObject6 inlineObject6Username inlineObject6StartDate inlineObject6EndDate inlineObject6Hash =
+mkInlineObject6 inlineObject6Username inlineObject6Hash =
   InlineObject6
   { inlineObject6Username
-  , inlineObject6StartDate
-  , inlineObject6EndDate
   , inlineObject6Hash
   }
 
@@ -864,6 +899,7 @@ mkInlineObject6 inlineObject6Username inlineObject6StartDate inlineObject6EndDat
 -- | InlineObject7
 data InlineObject7 = InlineObject7
   { inlineObject7Username :: !(Text) -- ^ /Required/ "username" - The username.
+  , inlineObject7Id :: !(Double) -- ^ /Required/ "id" - The shopping list item id.
   , inlineObject7Hash :: !(Text) -- ^ /Required/ "hash" - The private hash for the username.
   } deriving (P.Show, P.Eq, P.Typeable)
 
@@ -872,6 +908,7 @@ instance A.FromJSON InlineObject7 where
   parseJSON = A.withObject "InlineObject7" $ \o ->
     InlineObject7
       <$> (o .:  "username")
+      <*> (o .:  "id")
       <*> (o .:  "hash")
 
 -- | ToJSON InlineObject7
@@ -879,6 +916,7 @@ instance A.ToJSON InlineObject7 where
   toJSON InlineObject7 {..} =
    _omitNulls
       [ "username" .= inlineObject7Username
+      , "id" .= inlineObject7Id
       , "hash" .= inlineObject7Hash
       ]
 
@@ -886,11 +924,13 @@ instance A.ToJSON InlineObject7 where
 -- | Construct a value of type 'InlineObject7' (by applying it's required fields, if any)
 mkInlineObject7
   :: Text -- ^ 'inlineObject7Username': The username.
+  -> Double -- ^ 'inlineObject7Id': The shopping list item id.
   -> Text -- ^ 'inlineObject7Hash': The private hash for the username.
   -> InlineObject7
-mkInlineObject7 inlineObject7Username inlineObject7Hash =
+mkInlineObject7 inlineObject7Username inlineObject7Id inlineObject7Hash =
   InlineObject7
   { inlineObject7Username
+  , inlineObject7Id
   , inlineObject7Hash
   }
 
@@ -898,7 +938,8 @@ mkInlineObject7 inlineObject7Username inlineObject7Hash =
 -- | InlineObject8
 data InlineObject8 = InlineObject8
   { inlineObject8Username :: !(Text) -- ^ /Required/ "username" - The username.
-  , inlineObject8Id :: !(Double) -- ^ /Required/ "id" - The shopping list item id.
+  , inlineObject8StartDate :: !(Text) -- ^ /Required/ "start-date" - The start date in the format yyyy-mm-dd.
+  , inlineObject8EndDate :: !(Text) -- ^ /Required/ "end-date" - The end date in the format yyyy-mm-dd.
   , inlineObject8Hash :: !(Text) -- ^ /Required/ "hash" - The private hash for the username.
   } deriving (P.Show, P.Eq, P.Typeable)
 
@@ -907,7 +948,8 @@ instance A.FromJSON InlineObject8 where
   parseJSON = A.withObject "InlineObject8" $ \o ->
     InlineObject8
       <$> (o .:  "username")
-      <*> (o .:  "id")
+      <*> (o .:  "start-date")
+      <*> (o .:  "end-date")
       <*> (o .:  "hash")
 
 -- | ToJSON InlineObject8
@@ -915,7 +957,8 @@ instance A.ToJSON InlineObject8 where
   toJSON InlineObject8 {..} =
    _omitNulls
       [ "username" .= inlineObject8Username
-      , "id" .= inlineObject8Id
+      , "start-date" .= inlineObject8StartDate
+      , "end-date" .= inlineObject8EndDate
       , "hash" .= inlineObject8Hash
       ]
 
@@ -923,14 +966,50 @@ instance A.ToJSON InlineObject8 where
 -- | Construct a value of type 'InlineObject8' (by applying it's required fields, if any)
 mkInlineObject8
   :: Text -- ^ 'inlineObject8Username': The username.
-  -> Double -- ^ 'inlineObject8Id': The shopping list item id.
+  -> Text -- ^ 'inlineObject8StartDate': The start date in the format yyyy-mm-dd.
+  -> Text -- ^ 'inlineObject8EndDate': The end date in the format yyyy-mm-dd.
   -> Text -- ^ 'inlineObject8Hash': The private hash for the username.
   -> InlineObject8
-mkInlineObject8 inlineObject8Username inlineObject8Id inlineObject8Hash =
+mkInlineObject8 inlineObject8Username inlineObject8StartDate inlineObject8EndDate inlineObject8Hash =
   InlineObject8
   { inlineObject8Username
-  , inlineObject8Id
+  , inlineObject8StartDate
+  , inlineObject8EndDate
   , inlineObject8Hash
+  }
+
+-- ** InlineObject9
+-- | InlineObject9
+data InlineObject9 = InlineObject9
+  { inlineObject9Username :: !(Text) -- ^ /Required/ "username" - The username.
+  , inlineObject9Hash :: !(Text) -- ^ /Required/ "hash" - The private hash for the username.
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON InlineObject9
+instance A.FromJSON InlineObject9 where
+  parseJSON = A.withObject "InlineObject9" $ \o ->
+    InlineObject9
+      <$> (o .:  "username")
+      <*> (o .:  "hash")
+
+-- | ToJSON InlineObject9
+instance A.ToJSON InlineObject9 where
+  toJSON InlineObject9 {..} =
+   _omitNulls
+      [ "username" .= inlineObject9Username
+      , "hash" .= inlineObject9Hash
+      ]
+
+
+-- | Construct a value of type 'InlineObject9' (by applying it's required fields, if any)
+mkInlineObject9
+  :: Text -- ^ 'inlineObject9Username': The username.
+  -> Text -- ^ 'inlineObject9Hash': The private hash for the username.
+  -> InlineObject9
+mkInlineObject9 inlineObject9Username inlineObject9Hash =
+  InlineObject9
+  { inlineObject9Username
+  , inlineObject9Hash
   }
 
 -- ** InlineResponse200
@@ -4527,95 +4606,46 @@ mkInlineResponse2004 inlineResponse2004Id inlineResponse2004Title inlineResponse
 -- ** InlineResponse20040
 -- | InlineResponse20040
 data InlineResponse20040 = InlineResponse20040
-  { inlineResponse20040Id :: !(Int) -- ^ /Required/ "id"
-  , inlineResponse20040Name :: !(Text) -- ^ /Required/ "name"
-  , inlineResponse20040Days :: !([InlineResponse20040Days]) -- ^ /Required/ "days"
+  { inlineResponse20040Name :: !(Text) -- ^ /Required/ "name"
+  , inlineResponse20040Items :: !([InlineResponse20040Items]) -- ^ /Required/ "items"
+  , inlineResponse20040PublishAsPublic :: !(Bool) -- ^ /Required/ "publishAsPublic"
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON InlineResponse20040
 instance A.FromJSON InlineResponse20040 where
   parseJSON = A.withObject "InlineResponse20040" $ \o ->
     InlineResponse20040
-      <$> (o .:  "id")
-      <*> (o .:  "name")
-      <*> (o .:  "days")
+      <$> (o .:  "name")
+      <*> (o .:  "items")
+      <*> (o .:  "publishAsPublic")
 
 -- | ToJSON InlineResponse20040
 instance A.ToJSON InlineResponse20040 where
   toJSON InlineResponse20040 {..} =
    _omitNulls
-      [ "id" .= inlineResponse20040Id
-      , "name" .= inlineResponse20040Name
-      , "days" .= inlineResponse20040Days
+      [ "name" .= inlineResponse20040Name
+      , "items" .= inlineResponse20040Items
+      , "publishAsPublic" .= inlineResponse20040PublishAsPublic
       ]
 
 
 -- | Construct a value of type 'InlineResponse20040' (by applying it's required fields, if any)
 mkInlineResponse20040
-  :: Int -- ^ 'inlineResponse20040Id' 
-  -> Text -- ^ 'inlineResponse20040Name' 
-  -> [InlineResponse20040Days] -- ^ 'inlineResponse20040Days' 
+  :: Text -- ^ 'inlineResponse20040Name' 
+  -> [InlineResponse20040Items] -- ^ 'inlineResponse20040Items' 
+  -> Bool -- ^ 'inlineResponse20040PublishAsPublic' 
   -> InlineResponse20040
-mkInlineResponse20040 inlineResponse20040Id inlineResponse20040Name inlineResponse20040Days =
+mkInlineResponse20040 inlineResponse20040Name inlineResponse20040Items inlineResponse20040PublishAsPublic =
   InlineResponse20040
-  { inlineResponse20040Id
-  , inlineResponse20040Name
-  , inlineResponse20040Days
-  }
-
--- ** InlineResponse20040Days
--- | InlineResponse20040Days
-data InlineResponse20040Days = InlineResponse20040Days
-  { inlineResponse20040DaysNutritionSummary :: !(Maybe InlineResponse20038NutritionSummary) -- ^ "nutritionSummary"
-  , inlineResponse20040DaysNutritionSummaryBreakfast :: !(Maybe InlineResponse20038NutritionSummary) -- ^ "nutritionSummaryBreakfast"
-  , inlineResponse20040DaysNutritionSummaryLunch :: !(Maybe InlineResponse20038NutritionSummary) -- ^ "nutritionSummaryLunch"
-  , inlineResponse20040DaysNutritionSummaryDinner :: !(Maybe InlineResponse20038NutritionSummary) -- ^ "nutritionSummaryDinner"
-  , inlineResponse20040DaysDay :: !(Text) -- ^ /Required/ "day"
-  , inlineResponse20040DaysItems :: !(Maybe [InlineResponse20040Items]) -- ^ "items"
-  } deriving (P.Show, P.Eq, P.Typeable)
-
--- | FromJSON InlineResponse20040Days
-instance A.FromJSON InlineResponse20040Days where
-  parseJSON = A.withObject "InlineResponse20040Days" $ \o ->
-    InlineResponse20040Days
-      <$> (o .:? "nutritionSummary")
-      <*> (o .:? "nutritionSummaryBreakfast")
-      <*> (o .:? "nutritionSummaryLunch")
-      <*> (o .:? "nutritionSummaryDinner")
-      <*> (o .:  "day")
-      <*> (o .:? "items")
-
--- | ToJSON InlineResponse20040Days
-instance A.ToJSON InlineResponse20040Days where
-  toJSON InlineResponse20040Days {..} =
-   _omitNulls
-      [ "nutritionSummary" .= inlineResponse20040DaysNutritionSummary
-      , "nutritionSummaryBreakfast" .= inlineResponse20040DaysNutritionSummaryBreakfast
-      , "nutritionSummaryLunch" .= inlineResponse20040DaysNutritionSummaryLunch
-      , "nutritionSummaryDinner" .= inlineResponse20040DaysNutritionSummaryDinner
-      , "day" .= inlineResponse20040DaysDay
-      , "items" .= inlineResponse20040DaysItems
-      ]
-
-
--- | Construct a value of type 'InlineResponse20040Days' (by applying it's required fields, if any)
-mkInlineResponse20040Days
-  :: Text -- ^ 'inlineResponse20040DaysDay' 
-  -> InlineResponse20040Days
-mkInlineResponse20040Days inlineResponse20040DaysDay =
-  InlineResponse20040Days
-  { inlineResponse20040DaysNutritionSummary = Nothing
-  , inlineResponse20040DaysNutritionSummaryBreakfast = Nothing
-  , inlineResponse20040DaysNutritionSummaryLunch = Nothing
-  , inlineResponse20040DaysNutritionSummaryDinner = Nothing
-  , inlineResponse20040DaysDay
-  , inlineResponse20040DaysItems = Nothing
+  { inlineResponse20040Name
+  , inlineResponse20040Items
+  , inlineResponse20040PublishAsPublic
   }
 
 -- ** InlineResponse20040Items
 -- | InlineResponse20040Items
 data InlineResponse20040Items = InlineResponse20040Items
-  { inlineResponse20040ItemsId :: !(Int) -- ^ /Required/ "id"
+  { inlineResponse20040ItemsDay :: !(Int) -- ^ /Required/ "day"
   , inlineResponse20040ItemsSlot :: !(Int) -- ^ /Required/ "slot"
   , inlineResponse20040ItemsPosition :: !(Int) -- ^ /Required/ "position"
   , inlineResponse20040ItemsType :: !(Text) -- ^ /Required/ "type"
@@ -4626,7 +4656,7 @@ data InlineResponse20040Items = InlineResponse20040Items
 instance A.FromJSON InlineResponse20040Items where
   parseJSON = A.withObject "InlineResponse20040Items" $ \o ->
     InlineResponse20040Items
-      <$> (o .:  "id")
+      <$> (o .:  "day")
       <*> (o .:  "slot")
       <*> (o .:  "position")
       <*> (o .:  "type")
@@ -4636,7 +4666,7 @@ instance A.FromJSON InlineResponse20040Items where
 instance A.ToJSON InlineResponse20040Items where
   toJSON InlineResponse20040Items {..} =
    _omitNulls
-      [ "id" .= inlineResponse20040ItemsId
+      [ "day" .= inlineResponse20040ItemsDay
       , "slot" .= inlineResponse20040ItemsSlot
       , "position" .= inlineResponse20040ItemsPosition
       , "type" .= inlineResponse20040ItemsType
@@ -4646,14 +4676,14 @@ instance A.ToJSON InlineResponse20040Items where
 
 -- | Construct a value of type 'InlineResponse20040Items' (by applying it's required fields, if any)
 mkInlineResponse20040Items
-  :: Int -- ^ 'inlineResponse20040ItemsId' 
+  :: Int -- ^ 'inlineResponse20040ItemsDay' 
   -> Int -- ^ 'inlineResponse20040ItemsSlot' 
   -> Int -- ^ 'inlineResponse20040ItemsPosition' 
   -> Text -- ^ 'inlineResponse20040ItemsType' 
   -> InlineResponse20040Items
-mkInlineResponse20040Items inlineResponse20040ItemsId inlineResponse20040ItemsSlot inlineResponse20040ItemsPosition inlineResponse20040ItemsType =
+mkInlineResponse20040Items inlineResponse20040ItemsDay inlineResponse20040ItemsSlot inlineResponse20040ItemsPosition inlineResponse20040ItemsType =
   InlineResponse20040Items
-  { inlineResponse20040ItemsId
+  { inlineResponse20040ItemsDay
   , inlineResponse20040ItemsSlot
   , inlineResponse20040ItemsPosition
   , inlineResponse20040ItemsType
@@ -4663,24 +4693,27 @@ mkInlineResponse20040Items inlineResponse20040ItemsId inlineResponse20040ItemsSl
 -- ** InlineResponse20040Value
 -- | InlineResponse20040Value
 data InlineResponse20040Value = InlineResponse20040Value
-  { inlineResponse20040ValueId :: !(Double) -- ^ /Required/ "id"
-  , inlineResponse20040ValueTitle :: !(Text) -- ^ /Required/ "title"
-  , inlineResponse20040ValueImageType :: !(Text) -- ^ /Required/ "imageType"
+  { inlineResponse20040ValueId :: !(Maybe Int) -- ^ "id"
+  , inlineResponse20040ValueServings :: !(Maybe Double) -- ^ "servings"
+  , inlineResponse20040ValueTitle :: !(Maybe Text) -- ^ "title"
+  , inlineResponse20040ValueImageType :: !(Maybe Text) -- ^ "imageType"
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON InlineResponse20040Value
 instance A.FromJSON InlineResponse20040Value where
   parseJSON = A.withObject "InlineResponse20040Value" $ \o ->
     InlineResponse20040Value
-      <$> (o .:  "id")
-      <*> (o .:  "title")
-      <*> (o .:  "imageType")
+      <$> (o .:? "id")
+      <*> (o .:? "servings")
+      <*> (o .:? "title")
+      <*> (o .:? "imageType")
 
 -- | ToJSON InlineResponse20040Value
 instance A.ToJSON InlineResponse20040Value where
   toJSON InlineResponse20040Value {..} =
    _omitNulls
       [ "id" .= inlineResponse20040ValueId
+      , "servings" .= inlineResponse20040ValueServings
       , "title" .= inlineResponse20040ValueTitle
       , "imageType" .= inlineResponse20040ValueImageType
       ]
@@ -4688,110 +4721,283 @@ instance A.ToJSON InlineResponse20040Value where
 
 -- | Construct a value of type 'InlineResponse20040Value' (by applying it's required fields, if any)
 mkInlineResponse20040Value
-  :: Double -- ^ 'inlineResponse20040ValueId' 
-  -> Text -- ^ 'inlineResponse20040ValueTitle' 
-  -> Text -- ^ 'inlineResponse20040ValueImageType' 
-  -> InlineResponse20040Value
-mkInlineResponse20040Value inlineResponse20040ValueId inlineResponse20040ValueTitle inlineResponse20040ValueImageType =
+  :: InlineResponse20040Value
+mkInlineResponse20040Value =
   InlineResponse20040Value
-  { inlineResponse20040ValueId
-  , inlineResponse20040ValueTitle
-  , inlineResponse20040ValueImageType
+  { inlineResponse20040ValueId = Nothing
+  , inlineResponse20040ValueServings = Nothing
+  , inlineResponse20040ValueTitle = Nothing
+  , inlineResponse20040ValueImageType = Nothing
   }
 
 -- ** InlineResponse20041
 -- | InlineResponse20041
 data InlineResponse20041 = InlineResponse20041
-  { inlineResponse20041Aisles :: !([InlineResponse20041Aisles]) -- ^ /Required/ "aisles"
-  , inlineResponse20041Cost :: !(Double) -- ^ /Required/ "cost"
-  , inlineResponse20041StartDate :: !(Double) -- ^ /Required/ "startDate"
-  , inlineResponse20041EndDate :: !(Double) -- ^ /Required/ "endDate"
+  { inlineResponse20041Id :: !(Int) -- ^ /Required/ "id"
+  , inlineResponse20041Name :: !(Text) -- ^ /Required/ "name"
+  , inlineResponse20041Days :: !([InlineResponse20041Days]) -- ^ /Required/ "days"
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON InlineResponse20041
 instance A.FromJSON InlineResponse20041 where
   parseJSON = A.withObject "InlineResponse20041" $ \o ->
     InlineResponse20041
-      <$> (o .:  "aisles")
-      <*> (o .:  "cost")
-      <*> (o .:  "startDate")
-      <*> (o .:  "endDate")
+      <$> (o .:  "id")
+      <*> (o .:  "name")
+      <*> (o .:  "days")
 
 -- | ToJSON InlineResponse20041
 instance A.ToJSON InlineResponse20041 where
   toJSON InlineResponse20041 {..} =
    _omitNulls
-      [ "aisles" .= inlineResponse20041Aisles
-      , "cost" .= inlineResponse20041Cost
-      , "startDate" .= inlineResponse20041StartDate
-      , "endDate" .= inlineResponse20041EndDate
+      [ "id" .= inlineResponse20041Id
+      , "name" .= inlineResponse20041Name
+      , "days" .= inlineResponse20041Days
       ]
 
 
 -- | Construct a value of type 'InlineResponse20041' (by applying it's required fields, if any)
 mkInlineResponse20041
-  :: [InlineResponse20041Aisles] -- ^ 'inlineResponse20041Aisles' 
-  -> Double -- ^ 'inlineResponse20041Cost' 
-  -> Double -- ^ 'inlineResponse20041StartDate' 
-  -> Double -- ^ 'inlineResponse20041EndDate' 
+  :: Int -- ^ 'inlineResponse20041Id' 
+  -> Text -- ^ 'inlineResponse20041Name' 
+  -> [InlineResponse20041Days] -- ^ 'inlineResponse20041Days' 
   -> InlineResponse20041
-mkInlineResponse20041 inlineResponse20041Aisles inlineResponse20041Cost inlineResponse20041StartDate inlineResponse20041EndDate =
+mkInlineResponse20041 inlineResponse20041Id inlineResponse20041Name inlineResponse20041Days =
   InlineResponse20041
-  { inlineResponse20041Aisles
-  , inlineResponse20041Cost
-  , inlineResponse20041StartDate
-  , inlineResponse20041EndDate
+  { inlineResponse20041Id
+  , inlineResponse20041Name
+  , inlineResponse20041Days
   }
 
--- ** InlineResponse20041Aisles
--- | InlineResponse20041Aisles
-data InlineResponse20041Aisles = InlineResponse20041Aisles
-  { inlineResponse20041AislesAisle :: !(Text) -- ^ /Required/ "aisle"
-  , inlineResponse20041AislesItems :: !(Maybe [InlineResponse20041Items]) -- ^ "items"
+-- ** InlineResponse20041Days
+-- | InlineResponse20041Days
+data InlineResponse20041Days = InlineResponse20041Days
+  { inlineResponse20041DaysNutritionSummary :: !(Maybe InlineResponse20038NutritionSummary) -- ^ "nutritionSummary"
+  , inlineResponse20041DaysNutritionSummaryBreakfast :: !(Maybe InlineResponse20038NutritionSummary) -- ^ "nutritionSummaryBreakfast"
+  , inlineResponse20041DaysNutritionSummaryLunch :: !(Maybe InlineResponse20038NutritionSummary) -- ^ "nutritionSummaryLunch"
+  , inlineResponse20041DaysNutritionSummaryDinner :: !(Maybe InlineResponse20038NutritionSummary) -- ^ "nutritionSummaryDinner"
+  , inlineResponse20041DaysDay :: !(Text) -- ^ /Required/ "day"
+  , inlineResponse20041DaysItems :: !(Maybe [InlineResponse20041Items]) -- ^ "items"
   } deriving (P.Show, P.Eq, P.Typeable)
 
--- | FromJSON InlineResponse20041Aisles
-instance A.FromJSON InlineResponse20041Aisles where
-  parseJSON = A.withObject "InlineResponse20041Aisles" $ \o ->
-    InlineResponse20041Aisles
-      <$> (o .:  "aisle")
+-- | FromJSON InlineResponse20041Days
+instance A.FromJSON InlineResponse20041Days where
+  parseJSON = A.withObject "InlineResponse20041Days" $ \o ->
+    InlineResponse20041Days
+      <$> (o .:? "nutritionSummary")
+      <*> (o .:? "nutritionSummaryBreakfast")
+      <*> (o .:? "nutritionSummaryLunch")
+      <*> (o .:? "nutritionSummaryDinner")
+      <*> (o .:  "day")
       <*> (o .:? "items")
 
--- | ToJSON InlineResponse20041Aisles
-instance A.ToJSON InlineResponse20041Aisles where
-  toJSON InlineResponse20041Aisles {..} =
+-- | ToJSON InlineResponse20041Days
+instance A.ToJSON InlineResponse20041Days where
+  toJSON InlineResponse20041Days {..} =
    _omitNulls
-      [ "aisle" .= inlineResponse20041AislesAisle
-      , "items" .= inlineResponse20041AislesItems
+      [ "nutritionSummary" .= inlineResponse20041DaysNutritionSummary
+      , "nutritionSummaryBreakfast" .= inlineResponse20041DaysNutritionSummaryBreakfast
+      , "nutritionSummaryLunch" .= inlineResponse20041DaysNutritionSummaryLunch
+      , "nutritionSummaryDinner" .= inlineResponse20041DaysNutritionSummaryDinner
+      , "day" .= inlineResponse20041DaysDay
+      , "items" .= inlineResponse20041DaysItems
       ]
 
 
--- | Construct a value of type 'InlineResponse20041Aisles' (by applying it's required fields, if any)
-mkInlineResponse20041Aisles
-  :: Text -- ^ 'inlineResponse20041AislesAisle' 
-  -> InlineResponse20041Aisles
-mkInlineResponse20041Aisles inlineResponse20041AislesAisle =
-  InlineResponse20041Aisles
-  { inlineResponse20041AislesAisle
-  , inlineResponse20041AislesItems = Nothing
+-- | Construct a value of type 'InlineResponse20041Days' (by applying it's required fields, if any)
+mkInlineResponse20041Days
+  :: Text -- ^ 'inlineResponse20041DaysDay' 
+  -> InlineResponse20041Days
+mkInlineResponse20041Days inlineResponse20041DaysDay =
+  InlineResponse20041Days
+  { inlineResponse20041DaysNutritionSummary = Nothing
+  , inlineResponse20041DaysNutritionSummaryBreakfast = Nothing
+  , inlineResponse20041DaysNutritionSummaryLunch = Nothing
+  , inlineResponse20041DaysNutritionSummaryDinner = Nothing
+  , inlineResponse20041DaysDay
+  , inlineResponse20041DaysItems = Nothing
   }
 
 -- ** InlineResponse20041Items
 -- | InlineResponse20041Items
 data InlineResponse20041Items = InlineResponse20041Items
   { inlineResponse20041ItemsId :: !(Int) -- ^ /Required/ "id"
-  , inlineResponse20041ItemsName :: !(Text) -- ^ /Required/ "name"
-  , inlineResponse20041ItemsMeasures :: !(Maybe InlineResponse20041Measures) -- ^ "measures"
-  , inlineResponse20041ItemsPantryItem :: !(Bool) -- ^ /Required/ "pantryItem"
-  , inlineResponse20041ItemsAisle :: !(Text) -- ^ /Required/ "aisle"
-  , inlineResponse20041ItemsCost :: !(Double) -- ^ /Required/ "cost"
-  , inlineResponse20041ItemsIngredientId :: !(Int) -- ^ /Required/ "ingredientId"
+  , inlineResponse20041ItemsSlot :: !(Int) -- ^ /Required/ "slot"
+  , inlineResponse20041ItemsPosition :: !(Int) -- ^ /Required/ "position"
+  , inlineResponse20041ItemsType :: !(Text) -- ^ /Required/ "type"
+  , inlineResponse20041ItemsValue :: !(Maybe InlineResponse20041Value) -- ^ "value"
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON InlineResponse20041Items
 instance A.FromJSON InlineResponse20041Items where
   parseJSON = A.withObject "InlineResponse20041Items" $ \o ->
     InlineResponse20041Items
+      <$> (o .:  "id")
+      <*> (o .:  "slot")
+      <*> (o .:  "position")
+      <*> (o .:  "type")
+      <*> (o .:? "value")
+
+-- | ToJSON InlineResponse20041Items
+instance A.ToJSON InlineResponse20041Items where
+  toJSON InlineResponse20041Items {..} =
+   _omitNulls
+      [ "id" .= inlineResponse20041ItemsId
+      , "slot" .= inlineResponse20041ItemsSlot
+      , "position" .= inlineResponse20041ItemsPosition
+      , "type" .= inlineResponse20041ItemsType
+      , "value" .= inlineResponse20041ItemsValue
+      ]
+
+
+-- | Construct a value of type 'InlineResponse20041Items' (by applying it's required fields, if any)
+mkInlineResponse20041Items
+  :: Int -- ^ 'inlineResponse20041ItemsId' 
+  -> Int -- ^ 'inlineResponse20041ItemsSlot' 
+  -> Int -- ^ 'inlineResponse20041ItemsPosition' 
+  -> Text -- ^ 'inlineResponse20041ItemsType' 
+  -> InlineResponse20041Items
+mkInlineResponse20041Items inlineResponse20041ItemsId inlineResponse20041ItemsSlot inlineResponse20041ItemsPosition inlineResponse20041ItemsType =
+  InlineResponse20041Items
+  { inlineResponse20041ItemsId
+  , inlineResponse20041ItemsSlot
+  , inlineResponse20041ItemsPosition
+  , inlineResponse20041ItemsType
+  , inlineResponse20041ItemsValue = Nothing
+  }
+
+-- ** InlineResponse20041Value
+-- | InlineResponse20041Value
+data InlineResponse20041Value = InlineResponse20041Value
+  { inlineResponse20041ValueId :: !(Double) -- ^ /Required/ "id"
+  , inlineResponse20041ValueTitle :: !(Text) -- ^ /Required/ "title"
+  , inlineResponse20041ValueImageType :: !(Text) -- ^ /Required/ "imageType"
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON InlineResponse20041Value
+instance A.FromJSON InlineResponse20041Value where
+  parseJSON = A.withObject "InlineResponse20041Value" $ \o ->
+    InlineResponse20041Value
+      <$> (o .:  "id")
+      <*> (o .:  "title")
+      <*> (o .:  "imageType")
+
+-- | ToJSON InlineResponse20041Value
+instance A.ToJSON InlineResponse20041Value where
+  toJSON InlineResponse20041Value {..} =
+   _omitNulls
+      [ "id" .= inlineResponse20041ValueId
+      , "title" .= inlineResponse20041ValueTitle
+      , "imageType" .= inlineResponse20041ValueImageType
+      ]
+
+
+-- | Construct a value of type 'InlineResponse20041Value' (by applying it's required fields, if any)
+mkInlineResponse20041Value
+  :: Double -- ^ 'inlineResponse20041ValueId' 
+  -> Text -- ^ 'inlineResponse20041ValueTitle' 
+  -> Text -- ^ 'inlineResponse20041ValueImageType' 
+  -> InlineResponse20041Value
+mkInlineResponse20041Value inlineResponse20041ValueId inlineResponse20041ValueTitle inlineResponse20041ValueImageType =
+  InlineResponse20041Value
+  { inlineResponse20041ValueId
+  , inlineResponse20041ValueTitle
+  , inlineResponse20041ValueImageType
+  }
+
+-- ** InlineResponse20042
+-- | InlineResponse20042
+data InlineResponse20042 = InlineResponse20042
+  { inlineResponse20042Aisles :: !([InlineResponse20042Aisles]) -- ^ /Required/ "aisles"
+  , inlineResponse20042Cost :: !(Double) -- ^ /Required/ "cost"
+  , inlineResponse20042StartDate :: !(Double) -- ^ /Required/ "startDate"
+  , inlineResponse20042EndDate :: !(Double) -- ^ /Required/ "endDate"
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON InlineResponse20042
+instance A.FromJSON InlineResponse20042 where
+  parseJSON = A.withObject "InlineResponse20042" $ \o ->
+    InlineResponse20042
+      <$> (o .:  "aisles")
+      <*> (o .:  "cost")
+      <*> (o .:  "startDate")
+      <*> (o .:  "endDate")
+
+-- | ToJSON InlineResponse20042
+instance A.ToJSON InlineResponse20042 where
+  toJSON InlineResponse20042 {..} =
+   _omitNulls
+      [ "aisles" .= inlineResponse20042Aisles
+      , "cost" .= inlineResponse20042Cost
+      , "startDate" .= inlineResponse20042StartDate
+      , "endDate" .= inlineResponse20042EndDate
+      ]
+
+
+-- | Construct a value of type 'InlineResponse20042' (by applying it's required fields, if any)
+mkInlineResponse20042
+  :: [InlineResponse20042Aisles] -- ^ 'inlineResponse20042Aisles' 
+  -> Double -- ^ 'inlineResponse20042Cost' 
+  -> Double -- ^ 'inlineResponse20042StartDate' 
+  -> Double -- ^ 'inlineResponse20042EndDate' 
+  -> InlineResponse20042
+mkInlineResponse20042 inlineResponse20042Aisles inlineResponse20042Cost inlineResponse20042StartDate inlineResponse20042EndDate =
+  InlineResponse20042
+  { inlineResponse20042Aisles
+  , inlineResponse20042Cost
+  , inlineResponse20042StartDate
+  , inlineResponse20042EndDate
+  }
+
+-- ** InlineResponse20042Aisles
+-- | InlineResponse20042Aisles
+data InlineResponse20042Aisles = InlineResponse20042Aisles
+  { inlineResponse20042AislesAisle :: !(Text) -- ^ /Required/ "aisle"
+  , inlineResponse20042AislesItems :: !(Maybe [InlineResponse20042Items]) -- ^ "items"
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON InlineResponse20042Aisles
+instance A.FromJSON InlineResponse20042Aisles where
+  parseJSON = A.withObject "InlineResponse20042Aisles" $ \o ->
+    InlineResponse20042Aisles
+      <$> (o .:  "aisle")
+      <*> (o .:? "items")
+
+-- | ToJSON InlineResponse20042Aisles
+instance A.ToJSON InlineResponse20042Aisles where
+  toJSON InlineResponse20042Aisles {..} =
+   _omitNulls
+      [ "aisle" .= inlineResponse20042AislesAisle
+      , "items" .= inlineResponse20042AislesItems
+      ]
+
+
+-- | Construct a value of type 'InlineResponse20042Aisles' (by applying it's required fields, if any)
+mkInlineResponse20042Aisles
+  :: Text -- ^ 'inlineResponse20042AislesAisle' 
+  -> InlineResponse20042Aisles
+mkInlineResponse20042Aisles inlineResponse20042AislesAisle =
+  InlineResponse20042Aisles
+  { inlineResponse20042AislesAisle
+  , inlineResponse20042AislesItems = Nothing
+  }
+
+-- ** InlineResponse20042Items
+-- | InlineResponse20042Items
+data InlineResponse20042Items = InlineResponse20042Items
+  { inlineResponse20042ItemsId :: !(Int) -- ^ /Required/ "id"
+  , inlineResponse20042ItemsName :: !(Text) -- ^ /Required/ "name"
+  , inlineResponse20042ItemsMeasures :: !(Maybe InlineResponse20042Measures) -- ^ "measures"
+  , inlineResponse20042ItemsPantryItem :: !(Bool) -- ^ /Required/ "pantryItem"
+  , inlineResponse20042ItemsAisle :: !(Text) -- ^ /Required/ "aisle"
+  , inlineResponse20042ItemsCost :: !(Double) -- ^ /Required/ "cost"
+  , inlineResponse20042ItemsIngredientId :: !(Int) -- ^ /Required/ "ingredientId"
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON InlineResponse20042Items
+instance A.FromJSON InlineResponse20042Items where
+  parseJSON = A.withObject "InlineResponse20042Items" $ \o ->
+    InlineResponse20042Items
       <$> (o .:  "id")
       <*> (o .:  "name")
       <*> (o .:? "measures")
@@ -4800,204 +5006,204 @@ instance A.FromJSON InlineResponse20041Items where
       <*> (o .:  "cost")
       <*> (o .:  "ingredientId")
 
--- | ToJSON InlineResponse20041Items
-instance A.ToJSON InlineResponse20041Items where
-  toJSON InlineResponse20041Items {..} =
+-- | ToJSON InlineResponse20042Items
+instance A.ToJSON InlineResponse20042Items where
+  toJSON InlineResponse20042Items {..} =
    _omitNulls
-      [ "id" .= inlineResponse20041ItemsId
-      , "name" .= inlineResponse20041ItemsName
-      , "measures" .= inlineResponse20041ItemsMeasures
-      , "pantryItem" .= inlineResponse20041ItemsPantryItem
-      , "aisle" .= inlineResponse20041ItemsAisle
-      , "cost" .= inlineResponse20041ItemsCost
-      , "ingredientId" .= inlineResponse20041ItemsIngredientId
+      [ "id" .= inlineResponse20042ItemsId
+      , "name" .= inlineResponse20042ItemsName
+      , "measures" .= inlineResponse20042ItemsMeasures
+      , "pantryItem" .= inlineResponse20042ItemsPantryItem
+      , "aisle" .= inlineResponse20042ItemsAisle
+      , "cost" .= inlineResponse20042ItemsCost
+      , "ingredientId" .= inlineResponse20042ItemsIngredientId
       ]
 
 
--- | Construct a value of type 'InlineResponse20041Items' (by applying it's required fields, if any)
-mkInlineResponse20041Items
-  :: Int -- ^ 'inlineResponse20041ItemsId' 
-  -> Text -- ^ 'inlineResponse20041ItemsName' 
-  -> Bool -- ^ 'inlineResponse20041ItemsPantryItem' 
-  -> Text -- ^ 'inlineResponse20041ItemsAisle' 
-  -> Double -- ^ 'inlineResponse20041ItemsCost' 
-  -> Int -- ^ 'inlineResponse20041ItemsIngredientId' 
-  -> InlineResponse20041Items
-mkInlineResponse20041Items inlineResponse20041ItemsId inlineResponse20041ItemsName inlineResponse20041ItemsPantryItem inlineResponse20041ItemsAisle inlineResponse20041ItemsCost inlineResponse20041ItemsIngredientId =
-  InlineResponse20041Items
-  { inlineResponse20041ItemsId
-  , inlineResponse20041ItemsName
-  , inlineResponse20041ItemsMeasures = Nothing
-  , inlineResponse20041ItemsPantryItem
-  , inlineResponse20041ItemsAisle
-  , inlineResponse20041ItemsCost
-  , inlineResponse20041ItemsIngredientId
+-- | Construct a value of type 'InlineResponse20042Items' (by applying it's required fields, if any)
+mkInlineResponse20042Items
+  :: Int -- ^ 'inlineResponse20042ItemsId' 
+  -> Text -- ^ 'inlineResponse20042ItemsName' 
+  -> Bool -- ^ 'inlineResponse20042ItemsPantryItem' 
+  -> Text -- ^ 'inlineResponse20042ItemsAisle' 
+  -> Double -- ^ 'inlineResponse20042ItemsCost' 
+  -> Int -- ^ 'inlineResponse20042ItemsIngredientId' 
+  -> InlineResponse20042Items
+mkInlineResponse20042Items inlineResponse20042ItemsId inlineResponse20042ItemsName inlineResponse20042ItemsPantryItem inlineResponse20042ItemsAisle inlineResponse20042ItemsCost inlineResponse20042ItemsIngredientId =
+  InlineResponse20042Items
+  { inlineResponse20042ItemsId
+  , inlineResponse20042ItemsName
+  , inlineResponse20042ItemsMeasures = Nothing
+  , inlineResponse20042ItemsPantryItem
+  , inlineResponse20042ItemsAisle
+  , inlineResponse20042ItemsCost
+  , inlineResponse20042ItemsIngredientId
   }
 
--- ** InlineResponse20041Measures
--- | InlineResponse20041Measures
-data InlineResponse20041Measures = InlineResponse20041Measures
-  { inlineResponse20041MeasuresOriginal :: !(RecipesParseIngredientsNutritionWeightPerServing) -- ^ /Required/ "original"
-  , inlineResponse20041MeasuresMetric :: !(RecipesParseIngredientsNutritionWeightPerServing) -- ^ /Required/ "metric"
-  , inlineResponse20041MeasuresUs :: !(RecipesParseIngredientsNutritionWeightPerServing) -- ^ /Required/ "us"
+-- ** InlineResponse20042Measures
+-- | InlineResponse20042Measures
+data InlineResponse20042Measures = InlineResponse20042Measures
+  { inlineResponse20042MeasuresOriginal :: !(RecipesParseIngredientsNutritionWeightPerServing) -- ^ /Required/ "original"
+  , inlineResponse20042MeasuresMetric :: !(RecipesParseIngredientsNutritionWeightPerServing) -- ^ /Required/ "metric"
+  , inlineResponse20042MeasuresUs :: !(RecipesParseIngredientsNutritionWeightPerServing) -- ^ /Required/ "us"
   } deriving (P.Show, P.Eq, P.Typeable)
 
--- | FromJSON InlineResponse20041Measures
-instance A.FromJSON InlineResponse20041Measures where
-  parseJSON = A.withObject "InlineResponse20041Measures" $ \o ->
-    InlineResponse20041Measures
+-- | FromJSON InlineResponse20042Measures
+instance A.FromJSON InlineResponse20042Measures where
+  parseJSON = A.withObject "InlineResponse20042Measures" $ \o ->
+    InlineResponse20042Measures
       <$> (o .:  "original")
       <*> (o .:  "metric")
       <*> (o .:  "us")
 
--- | ToJSON InlineResponse20041Measures
-instance A.ToJSON InlineResponse20041Measures where
-  toJSON InlineResponse20041Measures {..} =
+-- | ToJSON InlineResponse20042Measures
+instance A.ToJSON InlineResponse20042Measures where
+  toJSON InlineResponse20042Measures {..} =
    _omitNulls
-      [ "original" .= inlineResponse20041MeasuresOriginal
-      , "metric" .= inlineResponse20041MeasuresMetric
-      , "us" .= inlineResponse20041MeasuresUs
+      [ "original" .= inlineResponse20042MeasuresOriginal
+      , "metric" .= inlineResponse20042MeasuresMetric
+      , "us" .= inlineResponse20042MeasuresUs
       ]
 
 
--- | Construct a value of type 'InlineResponse20041Measures' (by applying it's required fields, if any)
-mkInlineResponse20041Measures
-  :: RecipesParseIngredientsNutritionWeightPerServing -- ^ 'inlineResponse20041MeasuresOriginal' 
-  -> RecipesParseIngredientsNutritionWeightPerServing -- ^ 'inlineResponse20041MeasuresMetric' 
-  -> RecipesParseIngredientsNutritionWeightPerServing -- ^ 'inlineResponse20041MeasuresUs' 
-  -> InlineResponse20041Measures
-mkInlineResponse20041Measures inlineResponse20041MeasuresOriginal inlineResponse20041MeasuresMetric inlineResponse20041MeasuresUs =
-  InlineResponse20041Measures
-  { inlineResponse20041MeasuresOriginal
-  , inlineResponse20041MeasuresMetric
-  , inlineResponse20041MeasuresUs
-  }
-
--- ** InlineResponse20042
--- | InlineResponse20042
-data InlineResponse20042 = InlineResponse20042
-  { inlineResponse20042Username :: !(Text) -- ^ /Required/ "username"
-  , inlineResponse20042Hash :: !(Text) -- ^ /Required/ "hash"
-  } deriving (P.Show, P.Eq, P.Typeable)
-
--- | FromJSON InlineResponse20042
-instance A.FromJSON InlineResponse20042 where
-  parseJSON = A.withObject "InlineResponse20042" $ \o ->
-    InlineResponse20042
-      <$> (o .:  "username")
-      <*> (o .:  "hash")
-
--- | ToJSON InlineResponse20042
-instance A.ToJSON InlineResponse20042 where
-  toJSON InlineResponse20042 {..} =
-   _omitNulls
-      [ "username" .= inlineResponse20042Username
-      , "hash" .= inlineResponse20042Hash
-      ]
-
-
--- | Construct a value of type 'InlineResponse20042' (by applying it's required fields, if any)
-mkInlineResponse20042
-  :: Text -- ^ 'inlineResponse20042Username' 
-  -> Text -- ^ 'inlineResponse20042Hash' 
-  -> InlineResponse20042
-mkInlineResponse20042 inlineResponse20042Username inlineResponse20042Hash =
-  InlineResponse20042
-  { inlineResponse20042Username
-  , inlineResponse20042Hash
+-- | Construct a value of type 'InlineResponse20042Measures' (by applying it's required fields, if any)
+mkInlineResponse20042Measures
+  :: RecipesParseIngredientsNutritionWeightPerServing -- ^ 'inlineResponse20042MeasuresOriginal' 
+  -> RecipesParseIngredientsNutritionWeightPerServing -- ^ 'inlineResponse20042MeasuresMetric' 
+  -> RecipesParseIngredientsNutritionWeightPerServing -- ^ 'inlineResponse20042MeasuresUs' 
+  -> InlineResponse20042Measures
+mkInlineResponse20042Measures inlineResponse20042MeasuresOriginal inlineResponse20042MeasuresMetric inlineResponse20042MeasuresUs =
+  InlineResponse20042Measures
+  { inlineResponse20042MeasuresOriginal
+  , inlineResponse20042MeasuresMetric
+  , inlineResponse20042MeasuresUs
   }
 
 -- ** InlineResponse20043
 -- | InlineResponse20043
 data InlineResponse20043 = InlineResponse20043
-  { inlineResponse20043Pairings :: !([Text]) -- ^ /Required/ "pairings"
-  , inlineResponse20043Text :: !(Text) -- ^ /Required/ "text"
+  { inlineResponse20043Username :: !(Text) -- ^ /Required/ "username"
+  , inlineResponse20043Hash :: !(Text) -- ^ /Required/ "hash"
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON InlineResponse20043
 instance A.FromJSON InlineResponse20043 where
   parseJSON = A.withObject "InlineResponse20043" $ \o ->
     InlineResponse20043
-      <$> (o .:  "pairings")
-      <*> (o .:  "text")
+      <$> (o .:  "username")
+      <*> (o .:  "hash")
 
 -- | ToJSON InlineResponse20043
 instance A.ToJSON InlineResponse20043 where
   toJSON InlineResponse20043 {..} =
    _omitNulls
-      [ "pairings" .= inlineResponse20043Pairings
-      , "text" .= inlineResponse20043Text
+      [ "username" .= inlineResponse20043Username
+      , "hash" .= inlineResponse20043Hash
       ]
 
 
 -- | Construct a value of type 'InlineResponse20043' (by applying it's required fields, if any)
 mkInlineResponse20043
-  :: [Text] -- ^ 'inlineResponse20043Pairings' 
-  -> Text -- ^ 'inlineResponse20043Text' 
+  :: Text -- ^ 'inlineResponse20043Username' 
+  -> Text -- ^ 'inlineResponse20043Hash' 
   -> InlineResponse20043
-mkInlineResponse20043 inlineResponse20043Pairings inlineResponse20043Text =
+mkInlineResponse20043 inlineResponse20043Username inlineResponse20043Hash =
   InlineResponse20043
-  { inlineResponse20043Pairings
-  , inlineResponse20043Text
+  { inlineResponse20043Username
+  , inlineResponse20043Hash
   }
 
 -- ** InlineResponse20044
 -- | InlineResponse20044
 data InlineResponse20044 = InlineResponse20044
-  { inlineResponse20044PairedWines :: !([Text]) -- ^ /Required/ "pairedWines"
-  , inlineResponse20044PairingText :: !(Text) -- ^ /Required/ "pairingText"
-  , inlineResponse20044ProductMatches :: !([InlineResponse20044ProductMatches]) -- ^ /Required/ "productMatches"
+  { inlineResponse20044Pairings :: !([Text]) -- ^ /Required/ "pairings"
+  , inlineResponse20044Text :: !(Text) -- ^ /Required/ "text"
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON InlineResponse20044
 instance A.FromJSON InlineResponse20044 where
   parseJSON = A.withObject "InlineResponse20044" $ \o ->
     InlineResponse20044
-      <$> (o .:  "pairedWines")
-      <*> (o .:  "pairingText")
-      <*> (o .:  "productMatches")
+      <$> (o .:  "pairings")
+      <*> (o .:  "text")
 
 -- | ToJSON InlineResponse20044
 instance A.ToJSON InlineResponse20044 where
   toJSON InlineResponse20044 {..} =
    _omitNulls
-      [ "pairedWines" .= inlineResponse20044PairedWines
-      , "pairingText" .= inlineResponse20044PairingText
-      , "productMatches" .= inlineResponse20044ProductMatches
+      [ "pairings" .= inlineResponse20044Pairings
+      , "text" .= inlineResponse20044Text
       ]
 
 
 -- | Construct a value of type 'InlineResponse20044' (by applying it's required fields, if any)
 mkInlineResponse20044
-  :: [Text] -- ^ 'inlineResponse20044PairedWines' 
-  -> Text -- ^ 'inlineResponse20044PairingText' 
-  -> [InlineResponse20044ProductMatches] -- ^ 'inlineResponse20044ProductMatches' 
+  :: [Text] -- ^ 'inlineResponse20044Pairings' 
+  -> Text -- ^ 'inlineResponse20044Text' 
   -> InlineResponse20044
-mkInlineResponse20044 inlineResponse20044PairedWines inlineResponse20044PairingText inlineResponse20044ProductMatches =
+mkInlineResponse20044 inlineResponse20044Pairings inlineResponse20044Text =
   InlineResponse20044
-  { inlineResponse20044PairedWines
-  , inlineResponse20044PairingText
-  , inlineResponse20044ProductMatches
+  { inlineResponse20044Pairings
+  , inlineResponse20044Text
   }
 
--- ** InlineResponse20044ProductMatches
--- | InlineResponse20044ProductMatches
-data InlineResponse20044ProductMatches = InlineResponse20044ProductMatches
-  { inlineResponse20044ProductMatchesId :: !(Int) -- ^ /Required/ "id"
-  , inlineResponse20044ProductMatchesTitle :: !(Text) -- ^ /Required/ "title"
-  , inlineResponse20044ProductMatchesAverageRating :: !(Double) -- ^ /Required/ "averageRating"
-  , inlineResponse20044ProductMatchesDescription :: !(Maybe A.Value) -- ^ "description"
-  , inlineResponse20044ProductMatchesImageUrl :: !(Text) -- ^ /Required/ "imageUrl"
-  , inlineResponse20044ProductMatchesLink :: !(Text) -- ^ /Required/ "link"
-  , inlineResponse20044ProductMatchesPrice :: !(Text) -- ^ /Required/ "price"
-  , inlineResponse20044ProductMatchesRatingCount :: !(Int) -- ^ /Required/ "ratingCount"
-  , inlineResponse20044ProductMatchesScore :: !(Double) -- ^ /Required/ "score"
+-- ** InlineResponse20045
+-- | InlineResponse20045
+data InlineResponse20045 = InlineResponse20045
+  { inlineResponse20045PairedWines :: !([Text]) -- ^ /Required/ "pairedWines"
+  , inlineResponse20045PairingText :: !(Text) -- ^ /Required/ "pairingText"
+  , inlineResponse20045ProductMatches :: !([InlineResponse20045ProductMatches]) -- ^ /Required/ "productMatches"
   } deriving (P.Show, P.Eq, P.Typeable)
 
--- | FromJSON InlineResponse20044ProductMatches
-instance A.FromJSON InlineResponse20044ProductMatches where
-  parseJSON = A.withObject "InlineResponse20044ProductMatches" $ \o ->
-    InlineResponse20044ProductMatches
+-- | FromJSON InlineResponse20045
+instance A.FromJSON InlineResponse20045 where
+  parseJSON = A.withObject "InlineResponse20045" $ \o ->
+    InlineResponse20045
+      <$> (o .:  "pairedWines")
+      <*> (o .:  "pairingText")
+      <*> (o .:  "productMatches")
+
+-- | ToJSON InlineResponse20045
+instance A.ToJSON InlineResponse20045 where
+  toJSON InlineResponse20045 {..} =
+   _omitNulls
+      [ "pairedWines" .= inlineResponse20045PairedWines
+      , "pairingText" .= inlineResponse20045PairingText
+      , "productMatches" .= inlineResponse20045ProductMatches
+      ]
+
+
+-- | Construct a value of type 'InlineResponse20045' (by applying it's required fields, if any)
+mkInlineResponse20045
+  :: [Text] -- ^ 'inlineResponse20045PairedWines' 
+  -> Text -- ^ 'inlineResponse20045PairingText' 
+  -> [InlineResponse20045ProductMatches] -- ^ 'inlineResponse20045ProductMatches' 
+  -> InlineResponse20045
+mkInlineResponse20045 inlineResponse20045PairedWines inlineResponse20045PairingText inlineResponse20045ProductMatches =
+  InlineResponse20045
+  { inlineResponse20045PairedWines
+  , inlineResponse20045PairingText
+  , inlineResponse20045ProductMatches
+  }
+
+-- ** InlineResponse20045ProductMatches
+-- | InlineResponse20045ProductMatches
+data InlineResponse20045ProductMatches = InlineResponse20045ProductMatches
+  { inlineResponse20045ProductMatchesId :: !(Int) -- ^ /Required/ "id"
+  , inlineResponse20045ProductMatchesTitle :: !(Text) -- ^ /Required/ "title"
+  , inlineResponse20045ProductMatchesAverageRating :: !(Double) -- ^ /Required/ "averageRating"
+  , inlineResponse20045ProductMatchesDescription :: !(Maybe A.Value) -- ^ "description"
+  , inlineResponse20045ProductMatchesImageUrl :: !(Text) -- ^ /Required/ "imageUrl"
+  , inlineResponse20045ProductMatchesLink :: !(Text) -- ^ /Required/ "link"
+  , inlineResponse20045ProductMatchesPrice :: !(Text) -- ^ /Required/ "price"
+  , inlineResponse20045ProductMatchesRatingCount :: !(Int) -- ^ /Required/ "ratingCount"
+  , inlineResponse20045ProductMatchesScore :: !(Double) -- ^ /Required/ "score"
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON InlineResponse20045ProductMatches
+instance A.FromJSON InlineResponse20045ProductMatches where
+  parseJSON = A.withObject "InlineResponse20045ProductMatches" $ \o ->
+    InlineResponse20045ProductMatches
       <$> (o .:  "id")
       <*> (o .:  "title")
       <*> (o .:  "averageRating")
@@ -5008,127 +5214,127 @@ instance A.FromJSON InlineResponse20044ProductMatches where
       <*> (o .:  "ratingCount")
       <*> (o .:  "score")
 
--- | ToJSON InlineResponse20044ProductMatches
-instance A.ToJSON InlineResponse20044ProductMatches where
-  toJSON InlineResponse20044ProductMatches {..} =
+-- | ToJSON InlineResponse20045ProductMatches
+instance A.ToJSON InlineResponse20045ProductMatches where
+  toJSON InlineResponse20045ProductMatches {..} =
    _omitNulls
-      [ "id" .= inlineResponse20044ProductMatchesId
-      , "title" .= inlineResponse20044ProductMatchesTitle
-      , "averageRating" .= inlineResponse20044ProductMatchesAverageRating
-      , "description" .= inlineResponse20044ProductMatchesDescription
-      , "imageUrl" .= inlineResponse20044ProductMatchesImageUrl
-      , "link" .= inlineResponse20044ProductMatchesLink
-      , "price" .= inlineResponse20044ProductMatchesPrice
-      , "ratingCount" .= inlineResponse20044ProductMatchesRatingCount
-      , "score" .= inlineResponse20044ProductMatchesScore
+      [ "id" .= inlineResponse20045ProductMatchesId
+      , "title" .= inlineResponse20045ProductMatchesTitle
+      , "averageRating" .= inlineResponse20045ProductMatchesAverageRating
+      , "description" .= inlineResponse20045ProductMatchesDescription
+      , "imageUrl" .= inlineResponse20045ProductMatchesImageUrl
+      , "link" .= inlineResponse20045ProductMatchesLink
+      , "price" .= inlineResponse20045ProductMatchesPrice
+      , "ratingCount" .= inlineResponse20045ProductMatchesRatingCount
+      , "score" .= inlineResponse20045ProductMatchesScore
       ]
 
 
--- | Construct a value of type 'InlineResponse20044ProductMatches' (by applying it's required fields, if any)
-mkInlineResponse20044ProductMatches
-  :: Int -- ^ 'inlineResponse20044ProductMatchesId' 
-  -> Text -- ^ 'inlineResponse20044ProductMatchesTitle' 
-  -> Double -- ^ 'inlineResponse20044ProductMatchesAverageRating' 
-  -> Text -- ^ 'inlineResponse20044ProductMatchesImageUrl' 
-  -> Text -- ^ 'inlineResponse20044ProductMatchesLink' 
-  -> Text -- ^ 'inlineResponse20044ProductMatchesPrice' 
-  -> Int -- ^ 'inlineResponse20044ProductMatchesRatingCount' 
-  -> Double -- ^ 'inlineResponse20044ProductMatchesScore' 
-  -> InlineResponse20044ProductMatches
-mkInlineResponse20044ProductMatches inlineResponse20044ProductMatchesId inlineResponse20044ProductMatchesTitle inlineResponse20044ProductMatchesAverageRating inlineResponse20044ProductMatchesImageUrl inlineResponse20044ProductMatchesLink inlineResponse20044ProductMatchesPrice inlineResponse20044ProductMatchesRatingCount inlineResponse20044ProductMatchesScore =
-  InlineResponse20044ProductMatches
-  { inlineResponse20044ProductMatchesId
-  , inlineResponse20044ProductMatchesTitle
-  , inlineResponse20044ProductMatchesAverageRating
-  , inlineResponse20044ProductMatchesDescription = Nothing
-  , inlineResponse20044ProductMatchesImageUrl
-  , inlineResponse20044ProductMatchesLink
-  , inlineResponse20044ProductMatchesPrice
-  , inlineResponse20044ProductMatchesRatingCount
-  , inlineResponse20044ProductMatchesScore
-  }
-
--- ** InlineResponse20045
--- | InlineResponse20045
-data InlineResponse20045 = InlineResponse20045
-  { inlineResponse20045WineDescription :: !(Text) -- ^ /Required/ "wineDescription"
-  } deriving (P.Show, P.Eq, P.Typeable)
-
--- | FromJSON InlineResponse20045
-instance A.FromJSON InlineResponse20045 where
-  parseJSON = A.withObject "InlineResponse20045" $ \o ->
-    InlineResponse20045
-      <$> (o .:  "wineDescription")
-
--- | ToJSON InlineResponse20045
-instance A.ToJSON InlineResponse20045 where
-  toJSON InlineResponse20045 {..} =
-   _omitNulls
-      [ "wineDescription" .= inlineResponse20045WineDescription
-      ]
-
-
--- | Construct a value of type 'InlineResponse20045' (by applying it's required fields, if any)
-mkInlineResponse20045
-  :: Text -- ^ 'inlineResponse20045WineDescription' 
-  -> InlineResponse20045
-mkInlineResponse20045 inlineResponse20045WineDescription =
-  InlineResponse20045
-  { inlineResponse20045WineDescription
+-- | Construct a value of type 'InlineResponse20045ProductMatches' (by applying it's required fields, if any)
+mkInlineResponse20045ProductMatches
+  :: Int -- ^ 'inlineResponse20045ProductMatchesId' 
+  -> Text -- ^ 'inlineResponse20045ProductMatchesTitle' 
+  -> Double -- ^ 'inlineResponse20045ProductMatchesAverageRating' 
+  -> Text -- ^ 'inlineResponse20045ProductMatchesImageUrl' 
+  -> Text -- ^ 'inlineResponse20045ProductMatchesLink' 
+  -> Text -- ^ 'inlineResponse20045ProductMatchesPrice' 
+  -> Int -- ^ 'inlineResponse20045ProductMatchesRatingCount' 
+  -> Double -- ^ 'inlineResponse20045ProductMatchesScore' 
+  -> InlineResponse20045ProductMatches
+mkInlineResponse20045ProductMatches inlineResponse20045ProductMatchesId inlineResponse20045ProductMatchesTitle inlineResponse20045ProductMatchesAverageRating inlineResponse20045ProductMatchesImageUrl inlineResponse20045ProductMatchesLink inlineResponse20045ProductMatchesPrice inlineResponse20045ProductMatchesRatingCount inlineResponse20045ProductMatchesScore =
+  InlineResponse20045ProductMatches
+  { inlineResponse20045ProductMatchesId
+  , inlineResponse20045ProductMatchesTitle
+  , inlineResponse20045ProductMatchesAverageRating
+  , inlineResponse20045ProductMatchesDescription = Nothing
+  , inlineResponse20045ProductMatchesImageUrl
+  , inlineResponse20045ProductMatchesLink
+  , inlineResponse20045ProductMatchesPrice
+  , inlineResponse20045ProductMatchesRatingCount
+  , inlineResponse20045ProductMatchesScore
   }
 
 -- ** InlineResponse20046
 -- | InlineResponse20046
 data InlineResponse20046 = InlineResponse20046
-  { inlineResponse20046RecommendedWines :: !([InlineResponse20046RecommendedWines]) -- ^ /Required/ "recommendedWines"
-  , inlineResponse20046TotalFound :: !(Int) -- ^ /Required/ "totalFound"
+  { inlineResponse20046WineDescription :: !(Text) -- ^ /Required/ "wineDescription"
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON InlineResponse20046
 instance A.FromJSON InlineResponse20046 where
   parseJSON = A.withObject "InlineResponse20046" $ \o ->
     InlineResponse20046
-      <$> (o .:  "recommendedWines")
-      <*> (o .:  "totalFound")
+      <$> (o .:  "wineDescription")
 
 -- | ToJSON InlineResponse20046
 instance A.ToJSON InlineResponse20046 where
   toJSON InlineResponse20046 {..} =
    _omitNulls
-      [ "recommendedWines" .= inlineResponse20046RecommendedWines
-      , "totalFound" .= inlineResponse20046TotalFound
+      [ "wineDescription" .= inlineResponse20046WineDescription
       ]
 
 
 -- | Construct a value of type 'InlineResponse20046' (by applying it's required fields, if any)
 mkInlineResponse20046
-  :: [InlineResponse20046RecommendedWines] -- ^ 'inlineResponse20046RecommendedWines' 
-  -> Int -- ^ 'inlineResponse20046TotalFound' 
+  :: Text -- ^ 'inlineResponse20046WineDescription' 
   -> InlineResponse20046
-mkInlineResponse20046 inlineResponse20046RecommendedWines inlineResponse20046TotalFound =
+mkInlineResponse20046 inlineResponse20046WineDescription =
   InlineResponse20046
-  { inlineResponse20046RecommendedWines
-  , inlineResponse20046TotalFound
+  { inlineResponse20046WineDescription
   }
 
--- ** InlineResponse20046RecommendedWines
--- | InlineResponse20046RecommendedWines
-data InlineResponse20046RecommendedWines = InlineResponse20046RecommendedWines
-  { inlineResponse20046RecommendedWinesId :: !(Int) -- ^ /Required/ "id"
-  , inlineResponse20046RecommendedWinesTitle :: !(Text) -- ^ /Required/ "title"
-  , inlineResponse20046RecommendedWinesAverageRating :: !(Double) -- ^ /Required/ "averageRating"
-  , inlineResponse20046RecommendedWinesDescription :: !(Text) -- ^ /Required/ "description"
-  , inlineResponse20046RecommendedWinesImageUrl :: !(Text) -- ^ /Required/ "imageUrl"
-  , inlineResponse20046RecommendedWinesLink :: !(Text) -- ^ /Required/ "link"
-  , inlineResponse20046RecommendedWinesPrice :: !(Text) -- ^ /Required/ "price"
-  , inlineResponse20046RecommendedWinesRatingCount :: !(Int) -- ^ /Required/ "ratingCount"
-  , inlineResponse20046RecommendedWinesScore :: !(Double) -- ^ /Required/ "score"
+-- ** InlineResponse20047
+-- | InlineResponse20047
+data InlineResponse20047 = InlineResponse20047
+  { inlineResponse20047RecommendedWines :: !([InlineResponse20047RecommendedWines]) -- ^ /Required/ "recommendedWines"
+  , inlineResponse20047TotalFound :: !(Int) -- ^ /Required/ "totalFound"
   } deriving (P.Show, P.Eq, P.Typeable)
 
--- | FromJSON InlineResponse20046RecommendedWines
-instance A.FromJSON InlineResponse20046RecommendedWines where
-  parseJSON = A.withObject "InlineResponse20046RecommendedWines" $ \o ->
-    InlineResponse20046RecommendedWines
+-- | FromJSON InlineResponse20047
+instance A.FromJSON InlineResponse20047 where
+  parseJSON = A.withObject "InlineResponse20047" $ \o ->
+    InlineResponse20047
+      <$> (o .:  "recommendedWines")
+      <*> (o .:  "totalFound")
+
+-- | ToJSON InlineResponse20047
+instance A.ToJSON InlineResponse20047 where
+  toJSON InlineResponse20047 {..} =
+   _omitNulls
+      [ "recommendedWines" .= inlineResponse20047RecommendedWines
+      , "totalFound" .= inlineResponse20047TotalFound
+      ]
+
+
+-- | Construct a value of type 'InlineResponse20047' (by applying it's required fields, if any)
+mkInlineResponse20047
+  :: [InlineResponse20047RecommendedWines] -- ^ 'inlineResponse20047RecommendedWines' 
+  -> Int -- ^ 'inlineResponse20047TotalFound' 
+  -> InlineResponse20047
+mkInlineResponse20047 inlineResponse20047RecommendedWines inlineResponse20047TotalFound =
+  InlineResponse20047
+  { inlineResponse20047RecommendedWines
+  , inlineResponse20047TotalFound
+  }
+
+-- ** InlineResponse20047RecommendedWines
+-- | InlineResponse20047RecommendedWines
+data InlineResponse20047RecommendedWines = InlineResponse20047RecommendedWines
+  { inlineResponse20047RecommendedWinesId :: !(Int) -- ^ /Required/ "id"
+  , inlineResponse20047RecommendedWinesTitle :: !(Text) -- ^ /Required/ "title"
+  , inlineResponse20047RecommendedWinesAverageRating :: !(Double) -- ^ /Required/ "averageRating"
+  , inlineResponse20047RecommendedWinesDescription :: !(Text) -- ^ /Required/ "description"
+  , inlineResponse20047RecommendedWinesImageUrl :: !(Text) -- ^ /Required/ "imageUrl"
+  , inlineResponse20047RecommendedWinesLink :: !(Text) -- ^ /Required/ "link"
+  , inlineResponse20047RecommendedWinesPrice :: !(Text) -- ^ /Required/ "price"
+  , inlineResponse20047RecommendedWinesRatingCount :: !(Int) -- ^ /Required/ "ratingCount"
+  , inlineResponse20047RecommendedWinesScore :: !(Double) -- ^ /Required/ "score"
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON InlineResponse20047RecommendedWines
+instance A.FromJSON InlineResponse20047RecommendedWines where
+  parseJSON = A.withObject "InlineResponse20047RecommendedWines" $ \o ->
+    InlineResponse20047RecommendedWines
       <$> (o .:  "id")
       <*> (o .:  "title")
       <*> (o .:  "averageRating")
@@ -5139,357 +5345,323 @@ instance A.FromJSON InlineResponse20046RecommendedWines where
       <*> (o .:  "ratingCount")
       <*> (o .:  "score")
 
--- | ToJSON InlineResponse20046RecommendedWines
-instance A.ToJSON InlineResponse20046RecommendedWines where
-  toJSON InlineResponse20046RecommendedWines {..} =
+-- | ToJSON InlineResponse20047RecommendedWines
+instance A.ToJSON InlineResponse20047RecommendedWines where
+  toJSON InlineResponse20047RecommendedWines {..} =
    _omitNulls
-      [ "id" .= inlineResponse20046RecommendedWinesId
-      , "title" .= inlineResponse20046RecommendedWinesTitle
-      , "averageRating" .= inlineResponse20046RecommendedWinesAverageRating
-      , "description" .= inlineResponse20046RecommendedWinesDescription
-      , "imageUrl" .= inlineResponse20046RecommendedWinesImageUrl
-      , "link" .= inlineResponse20046RecommendedWinesLink
-      , "price" .= inlineResponse20046RecommendedWinesPrice
-      , "ratingCount" .= inlineResponse20046RecommendedWinesRatingCount
-      , "score" .= inlineResponse20046RecommendedWinesScore
+      [ "id" .= inlineResponse20047RecommendedWinesId
+      , "title" .= inlineResponse20047RecommendedWinesTitle
+      , "averageRating" .= inlineResponse20047RecommendedWinesAverageRating
+      , "description" .= inlineResponse20047RecommendedWinesDescription
+      , "imageUrl" .= inlineResponse20047RecommendedWinesImageUrl
+      , "link" .= inlineResponse20047RecommendedWinesLink
+      , "price" .= inlineResponse20047RecommendedWinesPrice
+      , "ratingCount" .= inlineResponse20047RecommendedWinesRatingCount
+      , "score" .= inlineResponse20047RecommendedWinesScore
       ]
 
 
--- | Construct a value of type 'InlineResponse20046RecommendedWines' (by applying it's required fields, if any)
-mkInlineResponse20046RecommendedWines
-  :: Int -- ^ 'inlineResponse20046RecommendedWinesId' 
-  -> Text -- ^ 'inlineResponse20046RecommendedWinesTitle' 
-  -> Double -- ^ 'inlineResponse20046RecommendedWinesAverageRating' 
-  -> Text -- ^ 'inlineResponse20046RecommendedWinesDescription' 
-  -> Text -- ^ 'inlineResponse20046RecommendedWinesImageUrl' 
-  -> Text -- ^ 'inlineResponse20046RecommendedWinesLink' 
-  -> Text -- ^ 'inlineResponse20046RecommendedWinesPrice' 
-  -> Int -- ^ 'inlineResponse20046RecommendedWinesRatingCount' 
-  -> Double -- ^ 'inlineResponse20046RecommendedWinesScore' 
-  -> InlineResponse20046RecommendedWines
-mkInlineResponse20046RecommendedWines inlineResponse20046RecommendedWinesId inlineResponse20046RecommendedWinesTitle inlineResponse20046RecommendedWinesAverageRating inlineResponse20046RecommendedWinesDescription inlineResponse20046RecommendedWinesImageUrl inlineResponse20046RecommendedWinesLink inlineResponse20046RecommendedWinesPrice inlineResponse20046RecommendedWinesRatingCount inlineResponse20046RecommendedWinesScore =
-  InlineResponse20046RecommendedWines
-  { inlineResponse20046RecommendedWinesId
-  , inlineResponse20046RecommendedWinesTitle
-  , inlineResponse20046RecommendedWinesAverageRating
-  , inlineResponse20046RecommendedWinesDescription
-  , inlineResponse20046RecommendedWinesImageUrl
-  , inlineResponse20046RecommendedWinesLink
-  , inlineResponse20046RecommendedWinesPrice
-  , inlineResponse20046RecommendedWinesRatingCount
-  , inlineResponse20046RecommendedWinesScore
-  }
-
--- ** InlineResponse20047
--- | InlineResponse20047
-data InlineResponse20047 = InlineResponse20047
-  { inlineResponse20047Category :: !(Text) -- ^ /Required/ "category"
-  , inlineResponse20047Probability :: !(Double) -- ^ /Required/ "probability"
-  } deriving (P.Show, P.Eq, P.Typeable)
-
--- | FromJSON InlineResponse20047
-instance A.FromJSON InlineResponse20047 where
-  parseJSON = A.withObject "InlineResponse20047" $ \o ->
-    InlineResponse20047
-      <$> (o .:  "category")
-      <*> (o .:  "probability")
-
--- | ToJSON InlineResponse20047
-instance A.ToJSON InlineResponse20047 where
-  toJSON InlineResponse20047 {..} =
-   _omitNulls
-      [ "category" .= inlineResponse20047Category
-      , "probability" .= inlineResponse20047Probability
-      ]
-
-
--- | Construct a value of type 'InlineResponse20047' (by applying it's required fields, if any)
-mkInlineResponse20047
-  :: Text -- ^ 'inlineResponse20047Category' 
-  -> Double -- ^ 'inlineResponse20047Probability' 
-  -> InlineResponse20047
-mkInlineResponse20047 inlineResponse20047Category inlineResponse20047Probability =
-  InlineResponse20047
-  { inlineResponse20047Category
-  , inlineResponse20047Probability
+-- | Construct a value of type 'InlineResponse20047RecommendedWines' (by applying it's required fields, if any)
+mkInlineResponse20047RecommendedWines
+  :: Int -- ^ 'inlineResponse20047RecommendedWinesId' 
+  -> Text -- ^ 'inlineResponse20047RecommendedWinesTitle' 
+  -> Double -- ^ 'inlineResponse20047RecommendedWinesAverageRating' 
+  -> Text -- ^ 'inlineResponse20047RecommendedWinesDescription' 
+  -> Text -- ^ 'inlineResponse20047RecommendedWinesImageUrl' 
+  -> Text -- ^ 'inlineResponse20047RecommendedWinesLink' 
+  -> Text -- ^ 'inlineResponse20047RecommendedWinesPrice' 
+  -> Int -- ^ 'inlineResponse20047RecommendedWinesRatingCount' 
+  -> Double -- ^ 'inlineResponse20047RecommendedWinesScore' 
+  -> InlineResponse20047RecommendedWines
+mkInlineResponse20047RecommendedWines inlineResponse20047RecommendedWinesId inlineResponse20047RecommendedWinesTitle inlineResponse20047RecommendedWinesAverageRating inlineResponse20047RecommendedWinesDescription inlineResponse20047RecommendedWinesImageUrl inlineResponse20047RecommendedWinesLink inlineResponse20047RecommendedWinesPrice inlineResponse20047RecommendedWinesRatingCount inlineResponse20047RecommendedWinesScore =
+  InlineResponse20047RecommendedWines
+  { inlineResponse20047RecommendedWinesId
+  , inlineResponse20047RecommendedWinesTitle
+  , inlineResponse20047RecommendedWinesAverageRating
+  , inlineResponse20047RecommendedWinesDescription
+  , inlineResponse20047RecommendedWinesImageUrl
+  , inlineResponse20047RecommendedWinesLink
+  , inlineResponse20047RecommendedWinesPrice
+  , inlineResponse20047RecommendedWinesRatingCount
+  , inlineResponse20047RecommendedWinesScore
   }
 
 -- ** InlineResponse20048
 -- | InlineResponse20048
 data InlineResponse20048 = InlineResponse20048
-  { inlineResponse20048Nutrition :: !(InlineResponse20048Nutrition) -- ^ /Required/ "nutrition"
-  , inlineResponse20048Category :: !(InlineResponse20048Category) -- ^ /Required/ "category"
-  , inlineResponse20048Recipes :: !([InlineResponse20048Recipes]) -- ^ /Required/ "recipes"
+  { inlineResponse20048Category :: !(Text) -- ^ /Required/ "category"
+  , inlineResponse20048Probability :: !(Double) -- ^ /Required/ "probability"
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON InlineResponse20048
 instance A.FromJSON InlineResponse20048 where
   parseJSON = A.withObject "InlineResponse20048" $ \o ->
     InlineResponse20048
-      <$> (o .:  "nutrition")
-      <*> (o .:  "category")
-      <*> (o .:  "recipes")
+      <$> (o .:  "category")
+      <*> (o .:  "probability")
 
 -- | ToJSON InlineResponse20048
 instance A.ToJSON InlineResponse20048 where
   toJSON InlineResponse20048 {..} =
    _omitNulls
-      [ "nutrition" .= inlineResponse20048Nutrition
-      , "category" .= inlineResponse20048Category
-      , "recipes" .= inlineResponse20048Recipes
+      [ "category" .= inlineResponse20048Category
+      , "probability" .= inlineResponse20048Probability
       ]
 
 
 -- | Construct a value of type 'InlineResponse20048' (by applying it's required fields, if any)
 mkInlineResponse20048
-  :: InlineResponse20048Nutrition -- ^ 'inlineResponse20048Nutrition' 
-  -> InlineResponse20048Category -- ^ 'inlineResponse20048Category' 
-  -> [InlineResponse20048Recipes] -- ^ 'inlineResponse20048Recipes' 
+  :: Text -- ^ 'inlineResponse20048Category' 
+  -> Double -- ^ 'inlineResponse20048Probability' 
   -> InlineResponse20048
-mkInlineResponse20048 inlineResponse20048Nutrition inlineResponse20048Category inlineResponse20048Recipes =
+mkInlineResponse20048 inlineResponse20048Category inlineResponse20048Probability =
   InlineResponse20048
-  { inlineResponse20048Nutrition
-  , inlineResponse20048Category
-  , inlineResponse20048Recipes
-  }
-
--- ** InlineResponse20048Category
--- | InlineResponse20048Category
-data InlineResponse20048Category = InlineResponse20048Category
-  { inlineResponse20048CategoryName :: !(Text) -- ^ /Required/ "name"
-  , inlineResponse20048CategoryProbability :: !(Double) -- ^ /Required/ "probability"
-  } deriving (P.Show, P.Eq, P.Typeable)
-
--- | FromJSON InlineResponse20048Category
-instance A.FromJSON InlineResponse20048Category where
-  parseJSON = A.withObject "InlineResponse20048Category" $ \o ->
-    InlineResponse20048Category
-      <$> (o .:  "name")
-      <*> (o .:  "probability")
-
--- | ToJSON InlineResponse20048Category
-instance A.ToJSON InlineResponse20048Category where
-  toJSON InlineResponse20048Category {..} =
-   _omitNulls
-      [ "name" .= inlineResponse20048CategoryName
-      , "probability" .= inlineResponse20048CategoryProbability
-      ]
-
-
--- | Construct a value of type 'InlineResponse20048Category' (by applying it's required fields, if any)
-mkInlineResponse20048Category
-  :: Text -- ^ 'inlineResponse20048CategoryName' 
-  -> Double -- ^ 'inlineResponse20048CategoryProbability' 
-  -> InlineResponse20048Category
-mkInlineResponse20048Category inlineResponse20048CategoryName inlineResponse20048CategoryProbability =
-  InlineResponse20048Category
-  { inlineResponse20048CategoryName
-  , inlineResponse20048CategoryProbability
-  }
-
--- ** InlineResponse20048Nutrition
--- | InlineResponse20048Nutrition
-data InlineResponse20048Nutrition = InlineResponse20048Nutrition
-  { inlineResponse20048NutritionRecipesUsed :: !(Int) -- ^ /Required/ "recipesUsed"
-  , inlineResponse20048NutritionCalories :: !(InlineResponse20048NutritionCalories) -- ^ /Required/ "calories"
-  , inlineResponse20048NutritionFat :: !(InlineResponse20048NutritionCalories) -- ^ /Required/ "fat"
-  , inlineResponse20048NutritionProtein :: !(InlineResponse20048NutritionCalories) -- ^ /Required/ "protein"
-  , inlineResponse20048NutritionCarbs :: !(InlineResponse20048NutritionCalories) -- ^ /Required/ "carbs"
-  } deriving (P.Show, P.Eq, P.Typeable)
-
--- | FromJSON InlineResponse20048Nutrition
-instance A.FromJSON InlineResponse20048Nutrition where
-  parseJSON = A.withObject "InlineResponse20048Nutrition" $ \o ->
-    InlineResponse20048Nutrition
-      <$> (o .:  "recipesUsed")
-      <*> (o .:  "calories")
-      <*> (o .:  "fat")
-      <*> (o .:  "protein")
-      <*> (o .:  "carbs")
-
--- | ToJSON InlineResponse20048Nutrition
-instance A.ToJSON InlineResponse20048Nutrition where
-  toJSON InlineResponse20048Nutrition {..} =
-   _omitNulls
-      [ "recipesUsed" .= inlineResponse20048NutritionRecipesUsed
-      , "calories" .= inlineResponse20048NutritionCalories
-      , "fat" .= inlineResponse20048NutritionFat
-      , "protein" .= inlineResponse20048NutritionProtein
-      , "carbs" .= inlineResponse20048NutritionCarbs
-      ]
-
-
--- | Construct a value of type 'InlineResponse20048Nutrition' (by applying it's required fields, if any)
-mkInlineResponse20048Nutrition
-  :: Int -- ^ 'inlineResponse20048NutritionRecipesUsed' 
-  -> InlineResponse20048NutritionCalories -- ^ 'inlineResponse20048NutritionCalories' 
-  -> InlineResponse20048NutritionCalories -- ^ 'inlineResponse20048NutritionFat' 
-  -> InlineResponse20048NutritionCalories -- ^ 'inlineResponse20048NutritionProtein' 
-  -> InlineResponse20048NutritionCalories -- ^ 'inlineResponse20048NutritionCarbs' 
-  -> InlineResponse20048Nutrition
-mkInlineResponse20048Nutrition inlineResponse20048NutritionRecipesUsed inlineResponse20048NutritionCalories inlineResponse20048NutritionFat inlineResponse20048NutritionProtein inlineResponse20048NutritionCarbs =
-  InlineResponse20048Nutrition
-  { inlineResponse20048NutritionRecipesUsed
-  , inlineResponse20048NutritionCalories
-  , inlineResponse20048NutritionFat
-  , inlineResponse20048NutritionProtein
-  , inlineResponse20048NutritionCarbs
-  }
-
--- ** InlineResponse20048NutritionCalories
--- | InlineResponse20048NutritionCalories
-data InlineResponse20048NutritionCalories = InlineResponse20048NutritionCalories
-  { inlineResponse20048NutritionCaloriesValue :: !(Double) -- ^ /Required/ "value"
-  , inlineResponse20048NutritionCaloriesUnit :: !(Text) -- ^ /Required/ "unit"
-  , inlineResponse20048NutritionCaloriesConfidenceRange95Percent :: !(InlineResponse20048NutritionCaloriesConfidenceRange95Percent) -- ^ /Required/ "confidenceRange95Percent"
-  , inlineResponse20048NutritionCaloriesStandardDeviation :: !(Double) -- ^ /Required/ "standardDeviation"
-  } deriving (P.Show, P.Eq, P.Typeable)
-
--- | FromJSON InlineResponse20048NutritionCalories
-instance A.FromJSON InlineResponse20048NutritionCalories where
-  parseJSON = A.withObject "InlineResponse20048NutritionCalories" $ \o ->
-    InlineResponse20048NutritionCalories
-      <$> (o .:  "value")
-      <*> (o .:  "unit")
-      <*> (o .:  "confidenceRange95Percent")
-      <*> (o .:  "standardDeviation")
-
--- | ToJSON InlineResponse20048NutritionCalories
-instance A.ToJSON InlineResponse20048NutritionCalories where
-  toJSON InlineResponse20048NutritionCalories {..} =
-   _omitNulls
-      [ "value" .= inlineResponse20048NutritionCaloriesValue
-      , "unit" .= inlineResponse20048NutritionCaloriesUnit
-      , "confidenceRange95Percent" .= inlineResponse20048NutritionCaloriesConfidenceRange95Percent
-      , "standardDeviation" .= inlineResponse20048NutritionCaloriesStandardDeviation
-      ]
-
-
--- | Construct a value of type 'InlineResponse20048NutritionCalories' (by applying it's required fields, if any)
-mkInlineResponse20048NutritionCalories
-  :: Double -- ^ 'inlineResponse20048NutritionCaloriesValue' 
-  -> Text -- ^ 'inlineResponse20048NutritionCaloriesUnit' 
-  -> InlineResponse20048NutritionCaloriesConfidenceRange95Percent -- ^ 'inlineResponse20048NutritionCaloriesConfidenceRange95Percent' 
-  -> Double -- ^ 'inlineResponse20048NutritionCaloriesStandardDeviation' 
-  -> InlineResponse20048NutritionCalories
-mkInlineResponse20048NutritionCalories inlineResponse20048NutritionCaloriesValue inlineResponse20048NutritionCaloriesUnit inlineResponse20048NutritionCaloriesConfidenceRange95Percent inlineResponse20048NutritionCaloriesStandardDeviation =
-  InlineResponse20048NutritionCalories
-  { inlineResponse20048NutritionCaloriesValue
-  , inlineResponse20048NutritionCaloriesUnit
-  , inlineResponse20048NutritionCaloriesConfidenceRange95Percent
-  , inlineResponse20048NutritionCaloriesStandardDeviation
-  }
-
--- ** InlineResponse20048NutritionCaloriesConfidenceRange95Percent
--- | InlineResponse20048NutritionCaloriesConfidenceRange95Percent
-data InlineResponse20048NutritionCaloriesConfidenceRange95Percent = InlineResponse20048NutritionCaloriesConfidenceRange95Percent
-  { inlineResponse20048NutritionCaloriesConfidenceRange95PercentMin :: !(Double) -- ^ /Required/ "min"
-  , inlineResponse20048NutritionCaloriesConfidenceRange95PercentMax :: !(Double) -- ^ /Required/ "max"
-  } deriving (P.Show, P.Eq, P.Typeable)
-
--- | FromJSON InlineResponse20048NutritionCaloriesConfidenceRange95Percent
-instance A.FromJSON InlineResponse20048NutritionCaloriesConfidenceRange95Percent where
-  parseJSON = A.withObject "InlineResponse20048NutritionCaloriesConfidenceRange95Percent" $ \o ->
-    InlineResponse20048NutritionCaloriesConfidenceRange95Percent
-      <$> (o .:  "min")
-      <*> (o .:  "max")
-
--- | ToJSON InlineResponse20048NutritionCaloriesConfidenceRange95Percent
-instance A.ToJSON InlineResponse20048NutritionCaloriesConfidenceRange95Percent where
-  toJSON InlineResponse20048NutritionCaloriesConfidenceRange95Percent {..} =
-   _omitNulls
-      [ "min" .= inlineResponse20048NutritionCaloriesConfidenceRange95PercentMin
-      , "max" .= inlineResponse20048NutritionCaloriesConfidenceRange95PercentMax
-      ]
-
-
--- | Construct a value of type 'InlineResponse20048NutritionCaloriesConfidenceRange95Percent' (by applying it's required fields, if any)
-mkInlineResponse20048NutritionCaloriesConfidenceRange95Percent
-  :: Double -- ^ 'inlineResponse20048NutritionCaloriesConfidenceRange95PercentMin' 
-  -> Double -- ^ 'inlineResponse20048NutritionCaloriesConfidenceRange95PercentMax' 
-  -> InlineResponse20048NutritionCaloriesConfidenceRange95Percent
-mkInlineResponse20048NutritionCaloriesConfidenceRange95Percent inlineResponse20048NutritionCaloriesConfidenceRange95PercentMin inlineResponse20048NutritionCaloriesConfidenceRange95PercentMax =
-  InlineResponse20048NutritionCaloriesConfidenceRange95Percent
-  { inlineResponse20048NutritionCaloriesConfidenceRange95PercentMin
-  , inlineResponse20048NutritionCaloriesConfidenceRange95PercentMax
-  }
-
--- ** InlineResponse20048Recipes
--- | InlineResponse20048Recipes
-data InlineResponse20048Recipes = InlineResponse20048Recipes
-  { inlineResponse20048RecipesId :: !(Int) -- ^ /Required/ "id"
-  , inlineResponse20048RecipesTitle :: !(Text) -- ^ /Required/ "title"
-  , inlineResponse20048RecipesImageType :: !(Text) -- ^ /Required/ "imageType"
-  , inlineResponse20048RecipesUrl :: !(Text) -- ^ /Required/ "url"
-  } deriving (P.Show, P.Eq, P.Typeable)
-
--- | FromJSON InlineResponse20048Recipes
-instance A.FromJSON InlineResponse20048Recipes where
-  parseJSON = A.withObject "InlineResponse20048Recipes" $ \o ->
-    InlineResponse20048Recipes
-      <$> (o .:  "id")
-      <*> (o .:  "title")
-      <*> (o .:  "imageType")
-      <*> (o .:  "url")
-
--- | ToJSON InlineResponse20048Recipes
-instance A.ToJSON InlineResponse20048Recipes where
-  toJSON InlineResponse20048Recipes {..} =
-   _omitNulls
-      [ "id" .= inlineResponse20048RecipesId
-      , "title" .= inlineResponse20048RecipesTitle
-      , "imageType" .= inlineResponse20048RecipesImageType
-      , "url" .= inlineResponse20048RecipesUrl
-      ]
-
-
--- | Construct a value of type 'InlineResponse20048Recipes' (by applying it's required fields, if any)
-mkInlineResponse20048Recipes
-  :: Int -- ^ 'inlineResponse20048RecipesId' 
-  -> Text -- ^ 'inlineResponse20048RecipesTitle' 
-  -> Text -- ^ 'inlineResponse20048RecipesImageType' 
-  -> Text -- ^ 'inlineResponse20048RecipesUrl' 
-  -> InlineResponse20048Recipes
-mkInlineResponse20048Recipes inlineResponse20048RecipesId inlineResponse20048RecipesTitle inlineResponse20048RecipesImageType inlineResponse20048RecipesUrl =
-  InlineResponse20048Recipes
-  { inlineResponse20048RecipesId
-  , inlineResponse20048RecipesTitle
-  , inlineResponse20048RecipesImageType
-  , inlineResponse20048RecipesUrl
+  { inlineResponse20048Category
+  , inlineResponse20048Probability
   }
 
 -- ** InlineResponse20049
 -- | InlineResponse20049
 data InlineResponse20049 = InlineResponse20049
-  { inlineResponse20049Answer :: !(Text) -- ^ /Required/ "answer"
-  , inlineResponse20049Image :: !(Text) -- ^ /Required/ "image"
+  { inlineResponse20049Nutrition :: !(InlineResponse20049Nutrition) -- ^ /Required/ "nutrition"
+  , inlineResponse20049Category :: !(InlineResponse20049Category) -- ^ /Required/ "category"
+  , inlineResponse20049Recipes :: !([InlineResponse20049Recipes]) -- ^ /Required/ "recipes"
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON InlineResponse20049
 instance A.FromJSON InlineResponse20049 where
   parseJSON = A.withObject "InlineResponse20049" $ \o ->
     InlineResponse20049
-      <$> (o .:  "answer")
-      <*> (o .:  "image")
+      <$> (o .:  "nutrition")
+      <*> (o .:  "category")
+      <*> (o .:  "recipes")
 
 -- | ToJSON InlineResponse20049
 instance A.ToJSON InlineResponse20049 where
   toJSON InlineResponse20049 {..} =
    _omitNulls
-      [ "answer" .= inlineResponse20049Answer
-      , "image" .= inlineResponse20049Image
+      [ "nutrition" .= inlineResponse20049Nutrition
+      , "category" .= inlineResponse20049Category
+      , "recipes" .= inlineResponse20049Recipes
       ]
 
 
 -- | Construct a value of type 'InlineResponse20049' (by applying it's required fields, if any)
 mkInlineResponse20049
-  :: Text -- ^ 'inlineResponse20049Answer' 
-  -> Text -- ^ 'inlineResponse20049Image' 
+  :: InlineResponse20049Nutrition -- ^ 'inlineResponse20049Nutrition' 
+  -> InlineResponse20049Category -- ^ 'inlineResponse20049Category' 
+  -> [InlineResponse20049Recipes] -- ^ 'inlineResponse20049Recipes' 
   -> InlineResponse20049
-mkInlineResponse20049 inlineResponse20049Answer inlineResponse20049Image =
+mkInlineResponse20049 inlineResponse20049Nutrition inlineResponse20049Category inlineResponse20049Recipes =
   InlineResponse20049
-  { inlineResponse20049Answer
-  , inlineResponse20049Image
+  { inlineResponse20049Nutrition
+  , inlineResponse20049Category
+  , inlineResponse20049Recipes
+  }
+
+-- ** InlineResponse20049Category
+-- | InlineResponse20049Category
+data InlineResponse20049Category = InlineResponse20049Category
+  { inlineResponse20049CategoryName :: !(Text) -- ^ /Required/ "name"
+  , inlineResponse20049CategoryProbability :: !(Double) -- ^ /Required/ "probability"
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON InlineResponse20049Category
+instance A.FromJSON InlineResponse20049Category where
+  parseJSON = A.withObject "InlineResponse20049Category" $ \o ->
+    InlineResponse20049Category
+      <$> (o .:  "name")
+      <*> (o .:  "probability")
+
+-- | ToJSON InlineResponse20049Category
+instance A.ToJSON InlineResponse20049Category where
+  toJSON InlineResponse20049Category {..} =
+   _omitNulls
+      [ "name" .= inlineResponse20049CategoryName
+      , "probability" .= inlineResponse20049CategoryProbability
+      ]
+
+
+-- | Construct a value of type 'InlineResponse20049Category' (by applying it's required fields, if any)
+mkInlineResponse20049Category
+  :: Text -- ^ 'inlineResponse20049CategoryName' 
+  -> Double -- ^ 'inlineResponse20049CategoryProbability' 
+  -> InlineResponse20049Category
+mkInlineResponse20049Category inlineResponse20049CategoryName inlineResponse20049CategoryProbability =
+  InlineResponse20049Category
+  { inlineResponse20049CategoryName
+  , inlineResponse20049CategoryProbability
+  }
+
+-- ** InlineResponse20049Nutrition
+-- | InlineResponse20049Nutrition
+data InlineResponse20049Nutrition = InlineResponse20049Nutrition
+  { inlineResponse20049NutritionRecipesUsed :: !(Int) -- ^ /Required/ "recipesUsed"
+  , inlineResponse20049NutritionCalories :: !(InlineResponse20049NutritionCalories) -- ^ /Required/ "calories"
+  , inlineResponse20049NutritionFat :: !(InlineResponse20049NutritionCalories) -- ^ /Required/ "fat"
+  , inlineResponse20049NutritionProtein :: !(InlineResponse20049NutritionCalories) -- ^ /Required/ "protein"
+  , inlineResponse20049NutritionCarbs :: !(InlineResponse20049NutritionCalories) -- ^ /Required/ "carbs"
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON InlineResponse20049Nutrition
+instance A.FromJSON InlineResponse20049Nutrition where
+  parseJSON = A.withObject "InlineResponse20049Nutrition" $ \o ->
+    InlineResponse20049Nutrition
+      <$> (o .:  "recipesUsed")
+      <*> (o .:  "calories")
+      <*> (o .:  "fat")
+      <*> (o .:  "protein")
+      <*> (o .:  "carbs")
+
+-- | ToJSON InlineResponse20049Nutrition
+instance A.ToJSON InlineResponse20049Nutrition where
+  toJSON InlineResponse20049Nutrition {..} =
+   _omitNulls
+      [ "recipesUsed" .= inlineResponse20049NutritionRecipesUsed
+      , "calories" .= inlineResponse20049NutritionCalories
+      , "fat" .= inlineResponse20049NutritionFat
+      , "protein" .= inlineResponse20049NutritionProtein
+      , "carbs" .= inlineResponse20049NutritionCarbs
+      ]
+
+
+-- | Construct a value of type 'InlineResponse20049Nutrition' (by applying it's required fields, if any)
+mkInlineResponse20049Nutrition
+  :: Int -- ^ 'inlineResponse20049NutritionRecipesUsed' 
+  -> InlineResponse20049NutritionCalories -- ^ 'inlineResponse20049NutritionCalories' 
+  -> InlineResponse20049NutritionCalories -- ^ 'inlineResponse20049NutritionFat' 
+  -> InlineResponse20049NutritionCalories -- ^ 'inlineResponse20049NutritionProtein' 
+  -> InlineResponse20049NutritionCalories -- ^ 'inlineResponse20049NutritionCarbs' 
+  -> InlineResponse20049Nutrition
+mkInlineResponse20049Nutrition inlineResponse20049NutritionRecipesUsed inlineResponse20049NutritionCalories inlineResponse20049NutritionFat inlineResponse20049NutritionProtein inlineResponse20049NutritionCarbs =
+  InlineResponse20049Nutrition
+  { inlineResponse20049NutritionRecipesUsed
+  , inlineResponse20049NutritionCalories
+  , inlineResponse20049NutritionFat
+  , inlineResponse20049NutritionProtein
+  , inlineResponse20049NutritionCarbs
+  }
+
+-- ** InlineResponse20049NutritionCalories
+-- | InlineResponse20049NutritionCalories
+data InlineResponse20049NutritionCalories = InlineResponse20049NutritionCalories
+  { inlineResponse20049NutritionCaloriesValue :: !(Double) -- ^ /Required/ "value"
+  , inlineResponse20049NutritionCaloriesUnit :: !(Text) -- ^ /Required/ "unit"
+  , inlineResponse20049NutritionCaloriesConfidenceRange95Percent :: !(InlineResponse20049NutritionCaloriesConfidenceRange95Percent) -- ^ /Required/ "confidenceRange95Percent"
+  , inlineResponse20049NutritionCaloriesStandardDeviation :: !(Double) -- ^ /Required/ "standardDeviation"
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON InlineResponse20049NutritionCalories
+instance A.FromJSON InlineResponse20049NutritionCalories where
+  parseJSON = A.withObject "InlineResponse20049NutritionCalories" $ \o ->
+    InlineResponse20049NutritionCalories
+      <$> (o .:  "value")
+      <*> (o .:  "unit")
+      <*> (o .:  "confidenceRange95Percent")
+      <*> (o .:  "standardDeviation")
+
+-- | ToJSON InlineResponse20049NutritionCalories
+instance A.ToJSON InlineResponse20049NutritionCalories where
+  toJSON InlineResponse20049NutritionCalories {..} =
+   _omitNulls
+      [ "value" .= inlineResponse20049NutritionCaloriesValue
+      , "unit" .= inlineResponse20049NutritionCaloriesUnit
+      , "confidenceRange95Percent" .= inlineResponse20049NutritionCaloriesConfidenceRange95Percent
+      , "standardDeviation" .= inlineResponse20049NutritionCaloriesStandardDeviation
+      ]
+
+
+-- | Construct a value of type 'InlineResponse20049NutritionCalories' (by applying it's required fields, if any)
+mkInlineResponse20049NutritionCalories
+  :: Double -- ^ 'inlineResponse20049NutritionCaloriesValue' 
+  -> Text -- ^ 'inlineResponse20049NutritionCaloriesUnit' 
+  -> InlineResponse20049NutritionCaloriesConfidenceRange95Percent -- ^ 'inlineResponse20049NutritionCaloriesConfidenceRange95Percent' 
+  -> Double -- ^ 'inlineResponse20049NutritionCaloriesStandardDeviation' 
+  -> InlineResponse20049NutritionCalories
+mkInlineResponse20049NutritionCalories inlineResponse20049NutritionCaloriesValue inlineResponse20049NutritionCaloriesUnit inlineResponse20049NutritionCaloriesConfidenceRange95Percent inlineResponse20049NutritionCaloriesStandardDeviation =
+  InlineResponse20049NutritionCalories
+  { inlineResponse20049NutritionCaloriesValue
+  , inlineResponse20049NutritionCaloriesUnit
+  , inlineResponse20049NutritionCaloriesConfidenceRange95Percent
+  , inlineResponse20049NutritionCaloriesStandardDeviation
+  }
+
+-- ** InlineResponse20049NutritionCaloriesConfidenceRange95Percent
+-- | InlineResponse20049NutritionCaloriesConfidenceRange95Percent
+data InlineResponse20049NutritionCaloriesConfidenceRange95Percent = InlineResponse20049NutritionCaloriesConfidenceRange95Percent
+  { inlineResponse20049NutritionCaloriesConfidenceRange95PercentMin :: !(Double) -- ^ /Required/ "min"
+  , inlineResponse20049NutritionCaloriesConfidenceRange95PercentMax :: !(Double) -- ^ /Required/ "max"
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON InlineResponse20049NutritionCaloriesConfidenceRange95Percent
+instance A.FromJSON InlineResponse20049NutritionCaloriesConfidenceRange95Percent where
+  parseJSON = A.withObject "InlineResponse20049NutritionCaloriesConfidenceRange95Percent" $ \o ->
+    InlineResponse20049NutritionCaloriesConfidenceRange95Percent
+      <$> (o .:  "min")
+      <*> (o .:  "max")
+
+-- | ToJSON InlineResponse20049NutritionCaloriesConfidenceRange95Percent
+instance A.ToJSON InlineResponse20049NutritionCaloriesConfidenceRange95Percent where
+  toJSON InlineResponse20049NutritionCaloriesConfidenceRange95Percent {..} =
+   _omitNulls
+      [ "min" .= inlineResponse20049NutritionCaloriesConfidenceRange95PercentMin
+      , "max" .= inlineResponse20049NutritionCaloriesConfidenceRange95PercentMax
+      ]
+
+
+-- | Construct a value of type 'InlineResponse20049NutritionCaloriesConfidenceRange95Percent' (by applying it's required fields, if any)
+mkInlineResponse20049NutritionCaloriesConfidenceRange95Percent
+  :: Double -- ^ 'inlineResponse20049NutritionCaloriesConfidenceRange95PercentMin' 
+  -> Double -- ^ 'inlineResponse20049NutritionCaloriesConfidenceRange95PercentMax' 
+  -> InlineResponse20049NutritionCaloriesConfidenceRange95Percent
+mkInlineResponse20049NutritionCaloriesConfidenceRange95Percent inlineResponse20049NutritionCaloriesConfidenceRange95PercentMin inlineResponse20049NutritionCaloriesConfidenceRange95PercentMax =
+  InlineResponse20049NutritionCaloriesConfidenceRange95Percent
+  { inlineResponse20049NutritionCaloriesConfidenceRange95PercentMin
+  , inlineResponse20049NutritionCaloriesConfidenceRange95PercentMax
+  }
+
+-- ** InlineResponse20049Recipes
+-- | InlineResponse20049Recipes
+data InlineResponse20049Recipes = InlineResponse20049Recipes
+  { inlineResponse20049RecipesId :: !(Int) -- ^ /Required/ "id"
+  , inlineResponse20049RecipesTitle :: !(Text) -- ^ /Required/ "title"
+  , inlineResponse20049RecipesImageType :: !(Text) -- ^ /Required/ "imageType"
+  , inlineResponse20049RecipesUrl :: !(Text) -- ^ /Required/ "url"
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON InlineResponse20049Recipes
+instance A.FromJSON InlineResponse20049Recipes where
+  parseJSON = A.withObject "InlineResponse20049Recipes" $ \o ->
+    InlineResponse20049Recipes
+      <$> (o .:  "id")
+      <*> (o .:  "title")
+      <*> (o .:  "imageType")
+      <*> (o .:  "url")
+
+-- | ToJSON InlineResponse20049Recipes
+instance A.ToJSON InlineResponse20049Recipes where
+  toJSON InlineResponse20049Recipes {..} =
+   _omitNulls
+      [ "id" .= inlineResponse20049RecipesId
+      , "title" .= inlineResponse20049RecipesTitle
+      , "imageType" .= inlineResponse20049RecipesImageType
+      , "url" .= inlineResponse20049RecipesUrl
+      ]
+
+
+-- | Construct a value of type 'InlineResponse20049Recipes' (by applying it's required fields, if any)
+mkInlineResponse20049Recipes
+  :: Int -- ^ 'inlineResponse20049RecipesId' 
+  -> Text -- ^ 'inlineResponse20049RecipesTitle' 
+  -> Text -- ^ 'inlineResponse20049RecipesImageType' 
+  -> Text -- ^ 'inlineResponse20049RecipesUrl' 
+  -> InlineResponse20049Recipes
+mkInlineResponse20049Recipes inlineResponse20049RecipesId inlineResponse20049RecipesTitle inlineResponse20049RecipesImageType inlineResponse20049RecipesUrl =
+  InlineResponse20049Recipes
+  { inlineResponse20049RecipesId
+  , inlineResponse20049RecipesTitle
+  , inlineResponse20049RecipesImageType
+  , inlineResponse20049RecipesUrl
   }
 
 -- ** InlineResponse2005
@@ -5549,141 +5721,175 @@ mkInlineResponse2005 inlineResponse2005Id inlineResponse2005Title inlineResponse
 -- ** InlineResponse20050
 -- | InlineResponse20050
 data InlineResponse20050 = InlineResponse20050
-  { inlineResponse20050Annotations :: !([A.Value]) -- ^ /Required/ "annotations"
+  { inlineResponse20050Answer :: !(Text) -- ^ /Required/ "answer"
+  , inlineResponse20050Image :: !(Text) -- ^ /Required/ "image"
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON InlineResponse20050
 instance A.FromJSON InlineResponse20050 where
   parseJSON = A.withObject "InlineResponse20050" $ \o ->
     InlineResponse20050
-      <$> (o .:  "annotations")
+      <$> (o .:  "answer")
+      <*> (o .:  "image")
 
 -- | ToJSON InlineResponse20050
 instance A.ToJSON InlineResponse20050 where
   toJSON InlineResponse20050 {..} =
    _omitNulls
-      [ "annotations" .= inlineResponse20050Annotations
+      [ "answer" .= inlineResponse20050Answer
+      , "image" .= inlineResponse20050Image
       ]
 
 
 -- | Construct a value of type 'InlineResponse20050' (by applying it's required fields, if any)
 mkInlineResponse20050
-  :: [A.Value] -- ^ 'inlineResponse20050Annotations' 
+  :: Text -- ^ 'inlineResponse20050Answer' 
+  -> Text -- ^ 'inlineResponse20050Image' 
   -> InlineResponse20050
-mkInlineResponse20050 inlineResponse20050Annotations =
+mkInlineResponse20050 inlineResponse20050Answer inlineResponse20050Image =
   InlineResponse20050
-  { inlineResponse20050Annotations
+  { inlineResponse20050Answer
+  , inlineResponse20050Image
   }
 
 -- ** InlineResponse20051
 -- | InlineResponse20051
 data InlineResponse20051 = InlineResponse20051
-  { inlineResponse20051Articles :: !([A.Value]) -- ^ /Required/ "Articles"
-  , inlineResponse20051GroceryProducts :: !([A.Value]) -- ^ /Required/ "Grocery Products"
-  , inlineResponse20051MenuItems :: !([A.Value]) -- ^ /Required/ "Menu Items"
-  , inlineResponse20051Recipes :: !([A.Value]) -- ^ /Required/ "Recipes"
+  { inlineResponse20051Annotations :: !([A.Value]) -- ^ /Required/ "annotations"
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON InlineResponse20051
 instance A.FromJSON InlineResponse20051 where
   parseJSON = A.withObject "InlineResponse20051" $ \o ->
     InlineResponse20051
-      <$> (o .:  "Articles")
-      <*> (o .:  "Grocery Products")
-      <*> (o .:  "Menu Items")
-      <*> (o .:  "Recipes")
+      <$> (o .:  "annotations")
 
 -- | ToJSON InlineResponse20051
 instance A.ToJSON InlineResponse20051 where
   toJSON InlineResponse20051 {..} =
    _omitNulls
-      [ "Articles" .= inlineResponse20051Articles
-      , "Grocery Products" .= inlineResponse20051GroceryProducts
-      , "Menu Items" .= inlineResponse20051MenuItems
-      , "Recipes" .= inlineResponse20051Recipes
+      [ "annotations" .= inlineResponse20051Annotations
       ]
 
 
 -- | Construct a value of type 'InlineResponse20051' (by applying it's required fields, if any)
 mkInlineResponse20051
-  :: [A.Value] -- ^ 'inlineResponse20051Articles' 
-  -> [A.Value] -- ^ 'inlineResponse20051GroceryProducts' 
-  -> [A.Value] -- ^ 'inlineResponse20051MenuItems' 
-  -> [A.Value] -- ^ 'inlineResponse20051Recipes' 
+  :: [A.Value] -- ^ 'inlineResponse20051Annotations' 
   -> InlineResponse20051
-mkInlineResponse20051 inlineResponse20051Articles inlineResponse20051GroceryProducts inlineResponse20051MenuItems inlineResponse20051Recipes =
+mkInlineResponse20051 inlineResponse20051Annotations =
   InlineResponse20051
-  { inlineResponse20051Articles
-  , inlineResponse20051GroceryProducts
-  , inlineResponse20051MenuItems
-  , inlineResponse20051Recipes
+  { inlineResponse20051Annotations
   }
 
 -- ** InlineResponse20052
 -- | InlineResponse20052
 data InlineResponse20052 = InlineResponse20052
-  { inlineResponse20052Query :: !(Text) -- ^ /Required/ "query"
-  , inlineResponse20052TotalResults :: !(Int) -- ^ /Required/ "totalResults"
-  , inlineResponse20052Limit :: !(Int) -- ^ /Required/ "limit"
-  , inlineResponse20052Offset :: !(Int) -- ^ /Required/ "offset"
-  , inlineResponse20052SearchResults :: !([InlineResponse20052SearchResults]) -- ^ /Required/ "searchResults"
+  { inlineResponse20052Articles :: !([A.Value]) -- ^ /Required/ "Articles"
+  , inlineResponse20052GroceryProducts :: !([A.Value]) -- ^ /Required/ "Grocery Products"
+  , inlineResponse20052MenuItems :: !([A.Value]) -- ^ /Required/ "Menu Items"
+  , inlineResponse20052Recipes :: !([A.Value]) -- ^ /Required/ "Recipes"
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON InlineResponse20052
 instance A.FromJSON InlineResponse20052 where
   parseJSON = A.withObject "InlineResponse20052" $ \o ->
     InlineResponse20052
+      <$> (o .:  "Articles")
+      <*> (o .:  "Grocery Products")
+      <*> (o .:  "Menu Items")
+      <*> (o .:  "Recipes")
+
+-- | ToJSON InlineResponse20052
+instance A.ToJSON InlineResponse20052 where
+  toJSON InlineResponse20052 {..} =
+   _omitNulls
+      [ "Articles" .= inlineResponse20052Articles
+      , "Grocery Products" .= inlineResponse20052GroceryProducts
+      , "Menu Items" .= inlineResponse20052MenuItems
+      , "Recipes" .= inlineResponse20052Recipes
+      ]
+
+
+-- | Construct a value of type 'InlineResponse20052' (by applying it's required fields, if any)
+mkInlineResponse20052
+  :: [A.Value] -- ^ 'inlineResponse20052Articles' 
+  -> [A.Value] -- ^ 'inlineResponse20052GroceryProducts' 
+  -> [A.Value] -- ^ 'inlineResponse20052MenuItems' 
+  -> [A.Value] -- ^ 'inlineResponse20052Recipes' 
+  -> InlineResponse20052
+mkInlineResponse20052 inlineResponse20052Articles inlineResponse20052GroceryProducts inlineResponse20052MenuItems inlineResponse20052Recipes =
+  InlineResponse20052
+  { inlineResponse20052Articles
+  , inlineResponse20052GroceryProducts
+  , inlineResponse20052MenuItems
+  , inlineResponse20052Recipes
+  }
+
+-- ** InlineResponse20053
+-- | InlineResponse20053
+data InlineResponse20053 = InlineResponse20053
+  { inlineResponse20053Query :: !(Text) -- ^ /Required/ "query"
+  , inlineResponse20053TotalResults :: !(Int) -- ^ /Required/ "totalResults"
+  , inlineResponse20053Limit :: !(Int) -- ^ /Required/ "limit"
+  , inlineResponse20053Offset :: !(Int) -- ^ /Required/ "offset"
+  , inlineResponse20053SearchResults :: !([InlineResponse20053SearchResults]) -- ^ /Required/ "searchResults"
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON InlineResponse20053
+instance A.FromJSON InlineResponse20053 where
+  parseJSON = A.withObject "InlineResponse20053" $ \o ->
+    InlineResponse20053
       <$> (o .:  "query")
       <*> (o .:  "totalResults")
       <*> (o .:  "limit")
       <*> (o .:  "offset")
       <*> (o .:  "searchResults")
 
--- | ToJSON InlineResponse20052
-instance A.ToJSON InlineResponse20052 where
-  toJSON InlineResponse20052 {..} =
+-- | ToJSON InlineResponse20053
+instance A.ToJSON InlineResponse20053 where
+  toJSON InlineResponse20053 {..} =
    _omitNulls
-      [ "query" .= inlineResponse20052Query
-      , "totalResults" .= inlineResponse20052TotalResults
-      , "limit" .= inlineResponse20052Limit
-      , "offset" .= inlineResponse20052Offset
-      , "searchResults" .= inlineResponse20052SearchResults
+      [ "query" .= inlineResponse20053Query
+      , "totalResults" .= inlineResponse20053TotalResults
+      , "limit" .= inlineResponse20053Limit
+      , "offset" .= inlineResponse20053Offset
+      , "searchResults" .= inlineResponse20053SearchResults
       ]
 
 
--- | Construct a value of type 'InlineResponse20052' (by applying it's required fields, if any)
-mkInlineResponse20052
-  :: Text -- ^ 'inlineResponse20052Query' 
-  -> Int -- ^ 'inlineResponse20052TotalResults' 
-  -> Int -- ^ 'inlineResponse20052Limit' 
-  -> Int -- ^ 'inlineResponse20052Offset' 
-  -> [InlineResponse20052SearchResults] -- ^ 'inlineResponse20052SearchResults' 
-  -> InlineResponse20052
-mkInlineResponse20052 inlineResponse20052Query inlineResponse20052TotalResults inlineResponse20052Limit inlineResponse20052Offset inlineResponse20052SearchResults =
-  InlineResponse20052
-  { inlineResponse20052Query
-  , inlineResponse20052TotalResults
-  , inlineResponse20052Limit
-  , inlineResponse20052Offset
-  , inlineResponse20052SearchResults
+-- | Construct a value of type 'InlineResponse20053' (by applying it's required fields, if any)
+mkInlineResponse20053
+  :: Text -- ^ 'inlineResponse20053Query' 
+  -> Int -- ^ 'inlineResponse20053TotalResults' 
+  -> Int -- ^ 'inlineResponse20053Limit' 
+  -> Int -- ^ 'inlineResponse20053Offset' 
+  -> [InlineResponse20053SearchResults] -- ^ 'inlineResponse20053SearchResults' 
+  -> InlineResponse20053
+mkInlineResponse20053 inlineResponse20053Query inlineResponse20053TotalResults inlineResponse20053Limit inlineResponse20053Offset inlineResponse20053SearchResults =
+  InlineResponse20053
+  { inlineResponse20053Query
+  , inlineResponse20053TotalResults
+  , inlineResponse20053Limit
+  , inlineResponse20053Offset
+  , inlineResponse20053SearchResults
   }
 
--- ** InlineResponse20052Results
--- | InlineResponse20052Results
-data InlineResponse20052Results = InlineResponse20052Results
-  { inlineResponse20052ResultsId :: !(Text) -- ^ /Required/ "id"
-  , inlineResponse20052ResultsName :: !(Text) -- ^ /Required/ "name"
-  , inlineResponse20052ResultsImage :: !(Text) -- ^ /Required/ "image"
-  , inlineResponse20052ResultsLink :: !(Text) -- ^ /Required/ "link"
-  , inlineResponse20052ResultsType :: !(Text) -- ^ /Required/ "type"
-  , inlineResponse20052ResultsRelevance :: !(Double) -- ^ /Required/ "relevance"
-  , inlineResponse20052ResultsContent :: !(Text) -- ^ /Required/ "content"
+-- ** InlineResponse20053Results
+-- | InlineResponse20053Results
+data InlineResponse20053Results = InlineResponse20053Results
+  { inlineResponse20053ResultsId :: !(Text) -- ^ /Required/ "id"
+  , inlineResponse20053ResultsName :: !(Text) -- ^ /Required/ "name"
+  , inlineResponse20053ResultsImage :: !(Text) -- ^ /Required/ "image"
+  , inlineResponse20053ResultsLink :: !(Text) -- ^ /Required/ "link"
+  , inlineResponse20053ResultsType :: !(Text) -- ^ /Required/ "type"
+  , inlineResponse20053ResultsRelevance :: !(Double) -- ^ /Required/ "relevance"
+  , inlineResponse20053ResultsContent :: !(Text) -- ^ /Required/ "content"
   } deriving (P.Show, P.Eq, P.Typeable)
 
--- | FromJSON InlineResponse20052Results
-instance A.FromJSON InlineResponse20052Results where
-  parseJSON = A.withObject "InlineResponse20052Results" $ \o ->
-    InlineResponse20052Results
+-- | FromJSON InlineResponse20053Results
+instance A.FromJSON InlineResponse20053Results where
+  parseJSON = A.withObject "InlineResponse20053Results" $ \o ->
+    InlineResponse20053Results
       <$> (o .:  "id")
       <*> (o .:  "name")
       <*> (o .:  "image")
@@ -5692,129 +5898,129 @@ instance A.FromJSON InlineResponse20052Results where
       <*> (o .:  "relevance")
       <*> (o .:  "content")
 
--- | ToJSON InlineResponse20052Results
-instance A.ToJSON InlineResponse20052Results where
-  toJSON InlineResponse20052Results {..} =
+-- | ToJSON InlineResponse20053Results
+instance A.ToJSON InlineResponse20053Results where
+  toJSON InlineResponse20053Results {..} =
    _omitNulls
-      [ "id" .= inlineResponse20052ResultsId
-      , "name" .= inlineResponse20052ResultsName
-      , "image" .= inlineResponse20052ResultsImage
-      , "link" .= inlineResponse20052ResultsLink
-      , "type" .= inlineResponse20052ResultsType
-      , "relevance" .= inlineResponse20052ResultsRelevance
-      , "content" .= inlineResponse20052ResultsContent
+      [ "id" .= inlineResponse20053ResultsId
+      , "name" .= inlineResponse20053ResultsName
+      , "image" .= inlineResponse20053ResultsImage
+      , "link" .= inlineResponse20053ResultsLink
+      , "type" .= inlineResponse20053ResultsType
+      , "relevance" .= inlineResponse20053ResultsRelevance
+      , "content" .= inlineResponse20053ResultsContent
       ]
 
 
--- | Construct a value of type 'InlineResponse20052Results' (by applying it's required fields, if any)
-mkInlineResponse20052Results
-  :: Text -- ^ 'inlineResponse20052ResultsId' 
-  -> Text -- ^ 'inlineResponse20052ResultsName' 
-  -> Text -- ^ 'inlineResponse20052ResultsImage' 
-  -> Text -- ^ 'inlineResponse20052ResultsLink' 
-  -> Text -- ^ 'inlineResponse20052ResultsType' 
-  -> Double -- ^ 'inlineResponse20052ResultsRelevance' 
-  -> Text -- ^ 'inlineResponse20052ResultsContent' 
-  -> InlineResponse20052Results
-mkInlineResponse20052Results inlineResponse20052ResultsId inlineResponse20052ResultsName inlineResponse20052ResultsImage inlineResponse20052ResultsLink inlineResponse20052ResultsType inlineResponse20052ResultsRelevance inlineResponse20052ResultsContent =
-  InlineResponse20052Results
-  { inlineResponse20052ResultsId
-  , inlineResponse20052ResultsName
-  , inlineResponse20052ResultsImage
-  , inlineResponse20052ResultsLink
-  , inlineResponse20052ResultsType
-  , inlineResponse20052ResultsRelevance
-  , inlineResponse20052ResultsContent
+-- | Construct a value of type 'InlineResponse20053Results' (by applying it's required fields, if any)
+mkInlineResponse20053Results
+  :: Text -- ^ 'inlineResponse20053ResultsId' 
+  -> Text -- ^ 'inlineResponse20053ResultsName' 
+  -> Text -- ^ 'inlineResponse20053ResultsImage' 
+  -> Text -- ^ 'inlineResponse20053ResultsLink' 
+  -> Text -- ^ 'inlineResponse20053ResultsType' 
+  -> Double -- ^ 'inlineResponse20053ResultsRelevance' 
+  -> Text -- ^ 'inlineResponse20053ResultsContent' 
+  -> InlineResponse20053Results
+mkInlineResponse20053Results inlineResponse20053ResultsId inlineResponse20053ResultsName inlineResponse20053ResultsImage inlineResponse20053ResultsLink inlineResponse20053ResultsType inlineResponse20053ResultsRelevance inlineResponse20053ResultsContent =
+  InlineResponse20053Results
+  { inlineResponse20053ResultsId
+  , inlineResponse20053ResultsName
+  , inlineResponse20053ResultsImage
+  , inlineResponse20053ResultsLink
+  , inlineResponse20053ResultsType
+  , inlineResponse20053ResultsRelevance
+  , inlineResponse20053ResultsContent
   }
 
--- ** InlineResponse20052SearchResults
--- | InlineResponse20052SearchResults
-data InlineResponse20052SearchResults = InlineResponse20052SearchResults
-  { inlineResponse20052SearchResultsName :: !(Text) -- ^ /Required/ "name"
-  , inlineResponse20052SearchResultsTotalResults :: !(Int) -- ^ /Required/ "totalResults"
-  , inlineResponse20052SearchResultsResults :: !(Maybe [InlineResponse20052Results]) -- ^ "results"
+-- ** InlineResponse20053SearchResults
+-- | InlineResponse20053SearchResults
+data InlineResponse20053SearchResults = InlineResponse20053SearchResults
+  { inlineResponse20053SearchResultsName :: !(Text) -- ^ /Required/ "name"
+  , inlineResponse20053SearchResultsTotalResults :: !(Int) -- ^ /Required/ "totalResults"
+  , inlineResponse20053SearchResultsResults :: !(Maybe [InlineResponse20053Results]) -- ^ "results"
   } deriving (P.Show, P.Eq, P.Typeable)
 
--- | FromJSON InlineResponse20052SearchResults
-instance A.FromJSON InlineResponse20052SearchResults where
-  parseJSON = A.withObject "InlineResponse20052SearchResults" $ \o ->
-    InlineResponse20052SearchResults
+-- | FromJSON InlineResponse20053SearchResults
+instance A.FromJSON InlineResponse20053SearchResults where
+  parseJSON = A.withObject "InlineResponse20053SearchResults" $ \o ->
+    InlineResponse20053SearchResults
       <$> (o .:  "name")
       <*> (o .:  "totalResults")
       <*> (o .:? "results")
 
--- | ToJSON InlineResponse20052SearchResults
-instance A.ToJSON InlineResponse20052SearchResults where
-  toJSON InlineResponse20052SearchResults {..} =
+-- | ToJSON InlineResponse20053SearchResults
+instance A.ToJSON InlineResponse20053SearchResults where
+  toJSON InlineResponse20053SearchResults {..} =
    _omitNulls
-      [ "name" .= inlineResponse20052SearchResultsName
-      , "totalResults" .= inlineResponse20052SearchResultsTotalResults
-      , "results" .= inlineResponse20052SearchResultsResults
+      [ "name" .= inlineResponse20053SearchResultsName
+      , "totalResults" .= inlineResponse20053SearchResultsTotalResults
+      , "results" .= inlineResponse20053SearchResultsResults
       ]
 
 
--- | Construct a value of type 'InlineResponse20052SearchResults' (by applying it's required fields, if any)
-mkInlineResponse20052SearchResults
-  :: Text -- ^ 'inlineResponse20052SearchResultsName' 
-  -> Int -- ^ 'inlineResponse20052SearchResultsTotalResults' 
-  -> InlineResponse20052SearchResults
-mkInlineResponse20052SearchResults inlineResponse20052SearchResultsName inlineResponse20052SearchResultsTotalResults =
-  InlineResponse20052SearchResults
-  { inlineResponse20052SearchResultsName
-  , inlineResponse20052SearchResultsTotalResults
-  , inlineResponse20052SearchResultsResults = Nothing
+-- | Construct a value of type 'InlineResponse20053SearchResults' (by applying it's required fields, if any)
+mkInlineResponse20053SearchResults
+  :: Text -- ^ 'inlineResponse20053SearchResultsName' 
+  -> Int -- ^ 'inlineResponse20053SearchResultsTotalResults' 
+  -> InlineResponse20053SearchResults
+mkInlineResponse20053SearchResults inlineResponse20053SearchResultsName inlineResponse20053SearchResultsTotalResults =
+  InlineResponse20053SearchResults
+  { inlineResponse20053SearchResultsName
+  , inlineResponse20053SearchResultsTotalResults
+  , inlineResponse20053SearchResultsResults = Nothing
   }
 
--- ** InlineResponse20053
--- | InlineResponse20053
-data InlineResponse20053 = InlineResponse20053
-  { inlineResponse20053Videos :: !([InlineResponse20053Videos]) -- ^ /Required/ "videos"
-  , inlineResponse20053TotalResults :: !(Int) -- ^ /Required/ "totalResults"
+-- ** InlineResponse20054
+-- | InlineResponse20054
+data InlineResponse20054 = InlineResponse20054
+  { inlineResponse20054Videos :: !([InlineResponse20054Videos]) -- ^ /Required/ "videos"
+  , inlineResponse20054TotalResults :: !(Int) -- ^ /Required/ "totalResults"
   } deriving (P.Show, P.Eq, P.Typeable)
 
--- | FromJSON InlineResponse20053
-instance A.FromJSON InlineResponse20053 where
-  parseJSON = A.withObject "InlineResponse20053" $ \o ->
-    InlineResponse20053
+-- | FromJSON InlineResponse20054
+instance A.FromJSON InlineResponse20054 where
+  parseJSON = A.withObject "InlineResponse20054" $ \o ->
+    InlineResponse20054
       <$> (o .:  "videos")
       <*> (o .:  "totalResults")
 
--- | ToJSON InlineResponse20053
-instance A.ToJSON InlineResponse20053 where
-  toJSON InlineResponse20053 {..} =
+-- | ToJSON InlineResponse20054
+instance A.ToJSON InlineResponse20054 where
+  toJSON InlineResponse20054 {..} =
    _omitNulls
-      [ "videos" .= inlineResponse20053Videos
-      , "totalResults" .= inlineResponse20053TotalResults
+      [ "videos" .= inlineResponse20054Videos
+      , "totalResults" .= inlineResponse20054TotalResults
       ]
 
 
--- | Construct a value of type 'InlineResponse20053' (by applying it's required fields, if any)
-mkInlineResponse20053
-  :: [InlineResponse20053Videos] -- ^ 'inlineResponse20053Videos' 
-  -> Int -- ^ 'inlineResponse20053TotalResults' 
-  -> InlineResponse20053
-mkInlineResponse20053 inlineResponse20053Videos inlineResponse20053TotalResults =
-  InlineResponse20053
-  { inlineResponse20053Videos
-  , inlineResponse20053TotalResults
+-- | Construct a value of type 'InlineResponse20054' (by applying it's required fields, if any)
+mkInlineResponse20054
+  :: [InlineResponse20054Videos] -- ^ 'inlineResponse20054Videos' 
+  -> Int -- ^ 'inlineResponse20054TotalResults' 
+  -> InlineResponse20054
+mkInlineResponse20054 inlineResponse20054Videos inlineResponse20054TotalResults =
+  InlineResponse20054
+  { inlineResponse20054Videos
+  , inlineResponse20054TotalResults
   }
 
--- ** InlineResponse20053Videos
--- | InlineResponse20053Videos
-data InlineResponse20053Videos = InlineResponse20053Videos
-  { inlineResponse20053VideosTitle :: !(Text) -- ^ /Required/ "title"
-  , inlineResponse20053VideosLength :: !(Int) -- ^ /Required/ "length"
-  , inlineResponse20053VideosRating :: !(Double) -- ^ /Required/ "rating"
-  , inlineResponse20053VideosShortTitle :: !(Text) -- ^ /Required/ "shortTitle"
-  , inlineResponse20053VideosThumbnail :: !(Text) -- ^ /Required/ "thumbnail"
-  , inlineResponse20053VideosViews :: !(Int) -- ^ /Required/ "views"
-  , inlineResponse20053VideosYouTubeId :: !(Text) -- ^ /Required/ "youTubeId"
+-- ** InlineResponse20054Videos
+-- | InlineResponse20054Videos
+data InlineResponse20054Videos = InlineResponse20054Videos
+  { inlineResponse20054VideosTitle :: !(Text) -- ^ /Required/ "title"
+  , inlineResponse20054VideosLength :: !(Int) -- ^ /Required/ "length"
+  , inlineResponse20054VideosRating :: !(Double) -- ^ /Required/ "rating"
+  , inlineResponse20054VideosShortTitle :: !(Text) -- ^ /Required/ "shortTitle"
+  , inlineResponse20054VideosThumbnail :: !(Text) -- ^ /Required/ "thumbnail"
+  , inlineResponse20054VideosViews :: !(Int) -- ^ /Required/ "views"
+  , inlineResponse20054VideosYouTubeId :: !(Text) -- ^ /Required/ "youTubeId"
   } deriving (P.Show, P.Eq, P.Typeable)
 
--- | FromJSON InlineResponse20053Videos
-instance A.FromJSON InlineResponse20053Videos where
-  parseJSON = A.withObject "InlineResponse20053Videos" $ \o ->
-    InlineResponse20053Videos
+-- | FromJSON InlineResponse20054Videos
+instance A.FromJSON InlineResponse20054Videos where
+  parseJSON = A.withObject "InlineResponse20054Videos" $ \o ->
+    InlineResponse20054Videos
       <$> (o .:  "title")
       <*> (o .:  "length")
       <*> (o .:  "rating")
@@ -5823,165 +6029,165 @@ instance A.FromJSON InlineResponse20053Videos where
       <*> (o .:  "views")
       <*> (o .:  "youTubeId")
 
--- | ToJSON InlineResponse20053Videos
-instance A.ToJSON InlineResponse20053Videos where
-  toJSON InlineResponse20053Videos {..} =
+-- | ToJSON InlineResponse20054Videos
+instance A.ToJSON InlineResponse20054Videos where
+  toJSON InlineResponse20054Videos {..} =
    _omitNulls
-      [ "title" .= inlineResponse20053VideosTitle
-      , "length" .= inlineResponse20053VideosLength
-      , "rating" .= inlineResponse20053VideosRating
-      , "shortTitle" .= inlineResponse20053VideosShortTitle
-      , "thumbnail" .= inlineResponse20053VideosThumbnail
-      , "views" .= inlineResponse20053VideosViews
-      , "youTubeId" .= inlineResponse20053VideosYouTubeId
+      [ "title" .= inlineResponse20054VideosTitle
+      , "length" .= inlineResponse20054VideosLength
+      , "rating" .= inlineResponse20054VideosRating
+      , "shortTitle" .= inlineResponse20054VideosShortTitle
+      , "thumbnail" .= inlineResponse20054VideosThumbnail
+      , "views" .= inlineResponse20054VideosViews
+      , "youTubeId" .= inlineResponse20054VideosYouTubeId
       ]
 
 
--- | Construct a value of type 'InlineResponse20053Videos' (by applying it's required fields, if any)
-mkInlineResponse20053Videos
-  :: Text -- ^ 'inlineResponse20053VideosTitle' 
-  -> Int -- ^ 'inlineResponse20053VideosLength' 
-  -> Double -- ^ 'inlineResponse20053VideosRating' 
-  -> Text -- ^ 'inlineResponse20053VideosShortTitle' 
-  -> Text -- ^ 'inlineResponse20053VideosThumbnail' 
-  -> Int -- ^ 'inlineResponse20053VideosViews' 
-  -> Text -- ^ 'inlineResponse20053VideosYouTubeId' 
-  -> InlineResponse20053Videos
-mkInlineResponse20053Videos inlineResponse20053VideosTitle inlineResponse20053VideosLength inlineResponse20053VideosRating inlineResponse20053VideosShortTitle inlineResponse20053VideosThumbnail inlineResponse20053VideosViews inlineResponse20053VideosYouTubeId =
-  InlineResponse20053Videos
-  { inlineResponse20053VideosTitle
-  , inlineResponse20053VideosLength
-  , inlineResponse20053VideosRating
-  , inlineResponse20053VideosShortTitle
-  , inlineResponse20053VideosThumbnail
-  , inlineResponse20053VideosViews
-  , inlineResponse20053VideosYouTubeId
-  }
-
--- ** InlineResponse20054
--- | InlineResponse20054
-data InlineResponse20054 = InlineResponse20054
-  { inlineResponse20054Text :: !(Text) -- ^ /Required/ "text"
-  } deriving (P.Show, P.Eq, P.Typeable)
-
--- | FromJSON InlineResponse20054
-instance A.FromJSON InlineResponse20054 where
-  parseJSON = A.withObject "InlineResponse20054" $ \o ->
-    InlineResponse20054
-      <$> (o .:  "text")
-
--- | ToJSON InlineResponse20054
-instance A.ToJSON InlineResponse20054 where
-  toJSON InlineResponse20054 {..} =
-   _omitNulls
-      [ "text" .= inlineResponse20054Text
-      ]
-
-
--- | Construct a value of type 'InlineResponse20054' (by applying it's required fields, if any)
-mkInlineResponse20054
-  :: Text -- ^ 'inlineResponse20054Text' 
-  -> InlineResponse20054
-mkInlineResponse20054 inlineResponse20054Text =
-  InlineResponse20054
-  { inlineResponse20054Text
+-- | Construct a value of type 'InlineResponse20054Videos' (by applying it's required fields, if any)
+mkInlineResponse20054Videos
+  :: Text -- ^ 'inlineResponse20054VideosTitle' 
+  -> Int -- ^ 'inlineResponse20054VideosLength' 
+  -> Double -- ^ 'inlineResponse20054VideosRating' 
+  -> Text -- ^ 'inlineResponse20054VideosShortTitle' 
+  -> Text -- ^ 'inlineResponse20054VideosThumbnail' 
+  -> Int -- ^ 'inlineResponse20054VideosViews' 
+  -> Text -- ^ 'inlineResponse20054VideosYouTubeId' 
+  -> InlineResponse20054Videos
+mkInlineResponse20054Videos inlineResponse20054VideosTitle inlineResponse20054VideosLength inlineResponse20054VideosRating inlineResponse20054VideosShortTitle inlineResponse20054VideosThumbnail inlineResponse20054VideosViews inlineResponse20054VideosYouTubeId =
+  InlineResponse20054Videos
+  { inlineResponse20054VideosTitle
+  , inlineResponse20054VideosLength
+  , inlineResponse20054VideosRating
+  , inlineResponse20054VideosShortTitle
+  , inlineResponse20054VideosThumbnail
+  , inlineResponse20054VideosViews
+  , inlineResponse20054VideosYouTubeId
   }
 
 -- ** InlineResponse20055
 -- | InlineResponse20055
 data InlineResponse20055 = InlineResponse20055
-  { inlineResponse20055AnswerText :: !(Text) -- ^ /Required/ "answerText"
-  , inlineResponse20055Media :: !([A.Value]) -- ^ /Required/ "media"
+  { inlineResponse20055Text :: !(Text) -- ^ /Required/ "text"
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON InlineResponse20055
 instance A.FromJSON InlineResponse20055 where
   parseJSON = A.withObject "InlineResponse20055" $ \o ->
     InlineResponse20055
-      <$> (o .:  "answerText")
-      <*> (o .:  "media")
+      <$> (o .:  "text")
 
 -- | ToJSON InlineResponse20055
 instance A.ToJSON InlineResponse20055 where
   toJSON InlineResponse20055 {..} =
    _omitNulls
-      [ "answerText" .= inlineResponse20055AnswerText
-      , "media" .= inlineResponse20055Media
+      [ "text" .= inlineResponse20055Text
       ]
 
 
 -- | Construct a value of type 'InlineResponse20055' (by applying it's required fields, if any)
 mkInlineResponse20055
-  :: Text -- ^ 'inlineResponse20055AnswerText' 
-  -> [A.Value] -- ^ 'inlineResponse20055Media' 
+  :: Text -- ^ 'inlineResponse20055Text' 
   -> InlineResponse20055
-mkInlineResponse20055 inlineResponse20055AnswerText inlineResponse20055Media =
+mkInlineResponse20055 inlineResponse20055Text =
   InlineResponse20055
-  { inlineResponse20055AnswerText
-  , inlineResponse20055Media
+  { inlineResponse20055Text
   }
 
 -- ** InlineResponse20056
 -- | InlineResponse20056
 data InlineResponse20056 = InlineResponse20056
-  { inlineResponse20056Suggests :: !(InlineResponse20056Suggests) -- ^ /Required/ "suggests"
-  , inlineResponse20056Words :: !([A.Value]) -- ^ /Required/ "words"
+  { inlineResponse20056AnswerText :: !(Text) -- ^ /Required/ "answerText"
+  , inlineResponse20056Media :: !([A.Value]) -- ^ /Required/ "media"
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON InlineResponse20056
 instance A.FromJSON InlineResponse20056 where
   parseJSON = A.withObject "InlineResponse20056" $ \o ->
     InlineResponse20056
-      <$> (o .:  "suggests")
-      <*> (o .:  "words")
+      <$> (o .:  "answerText")
+      <*> (o .:  "media")
 
 -- | ToJSON InlineResponse20056
 instance A.ToJSON InlineResponse20056 where
   toJSON InlineResponse20056 {..} =
    _omitNulls
-      [ "suggests" .= inlineResponse20056Suggests
-      , "words" .= inlineResponse20056Words
+      [ "answerText" .= inlineResponse20056AnswerText
+      , "media" .= inlineResponse20056Media
       ]
 
 
 -- | Construct a value of type 'InlineResponse20056' (by applying it's required fields, if any)
 mkInlineResponse20056
-  :: InlineResponse20056Suggests -- ^ 'inlineResponse20056Suggests' 
-  -> [A.Value] -- ^ 'inlineResponse20056Words' 
+  :: Text -- ^ 'inlineResponse20056AnswerText' 
+  -> [A.Value] -- ^ 'inlineResponse20056Media' 
   -> InlineResponse20056
-mkInlineResponse20056 inlineResponse20056Suggests inlineResponse20056Words =
+mkInlineResponse20056 inlineResponse20056AnswerText inlineResponse20056Media =
   InlineResponse20056
-  { inlineResponse20056Suggests
-  , inlineResponse20056Words
+  { inlineResponse20056AnswerText
+  , inlineResponse20056Media
   }
 
--- ** InlineResponse20056Suggests
--- | InlineResponse20056Suggests
-data InlineResponse20056Suggests = InlineResponse20056Suggests
-  { inlineResponse20056Suggests :: !([A.Value]) -- ^ /Required/ "_"
+-- ** InlineResponse20057
+-- | InlineResponse20057
+data InlineResponse20057 = InlineResponse20057
+  { inlineResponse20057Suggests :: !(InlineResponse20057Suggests) -- ^ /Required/ "suggests"
+  , inlineResponse20057Words :: !([A.Value]) -- ^ /Required/ "words"
   } deriving (P.Show, P.Eq, P.Typeable)
 
--- | FromJSON InlineResponse20056Suggests
-instance A.FromJSON InlineResponse20056Suggests where
-  parseJSON = A.withObject "InlineResponse20056Suggests" $ \o ->
-    InlineResponse20056Suggests
-      <$> (o .:  "_")
+-- | FromJSON InlineResponse20057
+instance A.FromJSON InlineResponse20057 where
+  parseJSON = A.withObject "InlineResponse20057" $ \o ->
+    InlineResponse20057
+      <$> (o .:  "suggests")
+      <*> (o .:  "words")
 
--- | ToJSON InlineResponse20056Suggests
-instance A.ToJSON InlineResponse20056Suggests where
-  toJSON InlineResponse20056Suggests {..} =
+-- | ToJSON InlineResponse20057
+instance A.ToJSON InlineResponse20057 where
+  toJSON InlineResponse20057 {..} =
    _omitNulls
-      [ "_" .= inlineResponse20056Suggests
+      [ "suggests" .= inlineResponse20057Suggests
+      , "words" .= inlineResponse20057Words
       ]
 
 
--- | Construct a value of type 'InlineResponse20056Suggests' (by applying it's required fields, if any)
-mkInlineResponse20056Suggests
-  :: [A.Value] -- ^ 'inlineResponse20056Suggests' 
-  -> InlineResponse20056Suggests
-mkInlineResponse20056Suggests inlineResponse20056Suggests =
-  InlineResponse20056Suggests
-  { inlineResponse20056Suggests
+-- | Construct a value of type 'InlineResponse20057' (by applying it's required fields, if any)
+mkInlineResponse20057
+  :: InlineResponse20057Suggests -- ^ 'inlineResponse20057Suggests' 
+  -> [A.Value] -- ^ 'inlineResponse20057Words' 
+  -> InlineResponse20057
+mkInlineResponse20057 inlineResponse20057Suggests inlineResponse20057Words =
+  InlineResponse20057
+  { inlineResponse20057Suggests
+  , inlineResponse20057Words
+  }
+
+-- ** InlineResponse20057Suggests
+-- | InlineResponse20057Suggests
+data InlineResponse20057Suggests = InlineResponse20057Suggests
+  { inlineResponse20057Suggests :: !([A.Value]) -- ^ /Required/ "_"
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON InlineResponse20057Suggests
+instance A.FromJSON InlineResponse20057Suggests where
+  parseJSON = A.withObject "InlineResponse20057Suggests" $ \o ->
+    InlineResponse20057Suggests
+      <$> (o .:  "_")
+
+-- | ToJSON InlineResponse20057Suggests
+instance A.ToJSON InlineResponse20057Suggests where
+  toJSON InlineResponse20057Suggests {..} =
+   _omitNulls
+      [ "_" .= inlineResponse20057Suggests
+      ]
+
+
+-- | Construct a value of type 'InlineResponse20057Suggests' (by applying it's required fields, if any)
+mkInlineResponse20057Suggests
+  :: [A.Value] -- ^ 'inlineResponse20057Suggests' 
+  -> InlineResponse20057Suggests
+mkInlineResponse20057Suggests inlineResponse20057Suggests =
+  InlineResponse20057Suggests
+  { inlineResponse20057Suggests
   }
 
 -- ** InlineResponse2006

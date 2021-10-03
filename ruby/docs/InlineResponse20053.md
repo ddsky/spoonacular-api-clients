@@ -4,16 +4,22 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**videos** | [**Array&lt;InlineResponse20053Videos&gt;**](InlineResponse20053Videos.md) |  | 
+**query** | **String** |  | 
 **total_results** | **Integer** |  | 
+**limit** | **Integer** |  | 
+**offset** | **Integer** |  | 
+**search_results** | [**Array&lt;InlineResponse20053SearchResults&gt;**](InlineResponse20053SearchResults.md) |  | 
 
 ## Code Sample
 
 ```ruby
 require 'OpenapiClient'
 
-instance = OpenapiClient::InlineResponse20053.new(videos: null,
-                                 total_results: null)
+instance = OpenapiClient::InlineResponse20053.new(query: null,
+                                 total_results: null,
+                                 limit: null,
+                                 offset: null,
+                                 search_results: null)
 ```
 
 

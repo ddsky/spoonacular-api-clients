@@ -7,12 +7,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **Integer** |  | 
-**name** | **String** |  | 
-**measures** | [**InlineResponse20041Measures**](InlineResponse20041Measures.md) |  |  [optional]
-**pantryItem** | **Boolean** |  | 
-**aisle** | **String** |  | 
-**cost** | [**BigDecimal**](BigDecimal.md) |  | 
-**ingredientId** | **Integer** |  | 
+**slot** | **Integer** |  | 
+**position** | **Integer** |  | 
+**type** | **String** |  | 
+**value** | [**InlineResponse20041Value**](InlineResponse20041Value.md) |  |  [optional]
 
 
 

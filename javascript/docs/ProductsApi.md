@@ -486,6 +486,7 @@ let opts = {
   'maxProtein': 100, // Number | The maximum amount of protein in grams the product can have.
   'minFat': 1, // Number | The minimum amount of fat in grams the product must have.
   'maxFat': 100, // Number | The maximum amount of fat in grams the product can have.
+  'addProductInformation': true, // Boolean | If set to true, you get more information about the products returned.
   'offset': 56, // Number | The number of results to skip (between 0 and 900).
   '_number': 10 // Number | The maximum number of items to return (between 1 and 100). Defaults to 10.
 };
@@ -512,6 +513,7 @@ Name | Type | Description  | Notes
  **maxProtein** | **Number**| The maximum amount of protein in grams the product can have. | [optional] 
  **minFat** | **Number**| The minimum amount of fat in grams the product must have. | [optional] 
  **maxFat** | **Number**| The maximum amount of fat in grams the product can have. | [optional] 
+ **addProductInformation** | **Boolean**| If set to true, you get more information about the products returned. | [optional] 
  **offset** | **Number**| The number of results to skip (between 0 and 900). | [optional] 
  **_number** | **Number**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
 

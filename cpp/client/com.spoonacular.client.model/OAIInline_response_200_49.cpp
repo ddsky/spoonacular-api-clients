@@ -38,11 +38,14 @@ OAIInline_response_200_49::~OAIInline_response_200_49() {
 void
 OAIInline_response_200_49::init() {
     
-    m_answer_isSet = false;
-    m_answer_isValid = false;
+    m_nutrition_isSet = false;
+    m_nutrition_isValid = false;
     
-    m_image_isSet = false;
-    m_image_isValid = false;
+    m_category_isSet = false;
+    m_category_isValid = false;
+    
+    m_recipes_isSet = false;
+    m_recipes_isValid = false;
     }
 
 void
@@ -56,11 +59,14 @@ OAIInline_response_200_49::fromJson(QString jsonString) {
 void
 OAIInline_response_200_49::fromJsonObject(QJsonObject json) {
     
-    m_answer_isValid = ::OpenAPI::fromJsonValue(answer, json[QString("answer")]);
+    m_nutrition_isValid = ::OpenAPI::fromJsonValue(nutrition, json[QString("nutrition")]);
     
     
-    m_image_isValid = ::OpenAPI::fromJsonValue(image, json[QString("image")]);
+    m_category_isValid = ::OpenAPI::fromJsonValue(category, json[QString("category")]);
     
+    
+    
+    m_recipes_isValid = ::OpenAPI::fromJsonValue(recipes, json[QString("recipes")]);
     
 }
 
@@ -75,44 +81,61 @@ OAIInline_response_200_49::asJson () const {
 QJsonObject
 OAIInline_response_200_49::asJsonObject() const {
     QJsonObject obj;
-	if(m_answer_isSet){
-        obj.insert(QString("answer"), ::OpenAPI::toJsonValue(answer));
+	if(nutrition.isSet()){
+        obj.insert(QString("nutrition"), ::OpenAPI::toJsonValue(nutrition));
     }
-	if(m_image_isSet){
-        obj.insert(QString("image"), ::OpenAPI::toJsonValue(image));
+	if(category.isSet()){
+        obj.insert(QString("category"), ::OpenAPI::toJsonValue(category));
     }
+	
+    if(recipes.size() > 0){
+        obj.insert(QString("recipes"), ::OpenAPI::toJsonValue(recipes));
+    } 
     return obj;
 }
 
 
-QString
-OAIInline_response_200_49::getAnswer() const {
-    return answer;
+OAIInline_response_200_49_nutrition
+OAIInline_response_200_49::getNutrition() const {
+    return nutrition;
 }
 void
-OAIInline_response_200_49::setAnswer(const QString &answer) {
-    this->answer = answer;
-    this->m_answer_isSet = true;
+OAIInline_response_200_49::setNutrition(const OAIInline_response_200_49_nutrition &nutrition) {
+    this->nutrition = nutrition;
+    this->m_nutrition_isSet = true;
 }
 
 
-QString
-OAIInline_response_200_49::getImage() const {
-    return image;
+OAIInline_response_200_49_category
+OAIInline_response_200_49::getCategory() const {
+    return category;
 }
 void
-OAIInline_response_200_49::setImage(const QString &image) {
-    this->image = image;
-    this->m_image_isSet = true;
+OAIInline_response_200_49::setCategory(const OAIInline_response_200_49_category &category) {
+    this->category = category;
+    this->m_category_isSet = true;
+}
+
+
+QList<OAIInline_response_200_49_recipes>
+OAIInline_response_200_49::getRecipes() const {
+    return recipes;
+}
+void
+OAIInline_response_200_49::setRecipes(const QList<OAIInline_response_200_49_recipes> &recipes) {
+    this->recipes = recipes;
+    this->m_recipes_isSet = true;
 }
 
 bool
 OAIInline_response_200_49::isSet() const {
     bool isObjectUpdated = false;
     do{ 
-        if(m_answer_isSet){ isObjectUpdated = true; break;}
+        if(nutrition.isSet()){ isObjectUpdated = true; break;}
     
-        if(m_image_isSet){ isObjectUpdated = true; break;}
+        if(category.isSet()){ isObjectUpdated = true; break;}
+    
+        if(recipes.size() > 0){ isObjectUpdated = true; break;}
     }while(false);
     return isObjectUpdated;
 }
@@ -120,7 +143,7 @@ OAIInline_response_200_49::isSet() const {
 bool
 OAIInline_response_200_49::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_answer_isValid && m_image_isValid && true;
+    return m_nutrition_isValid && m_category_isValid && m_recipes_isValid && true;
 }
 
 }

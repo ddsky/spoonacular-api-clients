@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 ## detectFoodInText
 
-> \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20050 detectFoodInText($content_type)
+> \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20051 detectFoodInText($content_type)
 
 Detect Food in Text
 
@@ -65,7 +65,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20050**](../Model/InlineResponse20050.md)
+[**\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20051**](../Model/InlineResponse20051.md)
 
 ### Authorization
 
@@ -83,7 +83,7 @@ Name | Type | Description  | Notes
 
 ## getARandomFoodJoke
 
-> \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20054 getARandomFoodJoke()
+> \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20055 getARandomFoodJoke()
 
 Random Food Joke
 
@@ -124,7 +124,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20054**](../Model/InlineResponse20054.md)
+[**\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20055**](../Model/InlineResponse20055.md)
 
 ### Authorization
 
@@ -142,7 +142,7 @@ This endpoint does not need any parameter.
 
 ## getConversationSuggests
 
-> \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20056 getConversationSuggests($query, $number)
+> \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20057 getConversationSuggests($query, $number)
 
 Conversation Suggests
 
@@ -189,7 +189,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20056**](../Model/InlineResponse20056.md)
+[**\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20057**](../Model/InlineResponse20057.md)
 
 ### Authorization
 
@@ -207,7 +207,7 @@ Name | Type | Description  | Notes
 
 ## getRandomFoodTrivia
 
-> \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20054 getRandomFoodTrivia()
+> \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20055 getRandomFoodTrivia()
 
 Random Food Trivia
 
@@ -248,7 +248,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20054**](../Model/InlineResponse20054.md)
+[**\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20055**](../Model/InlineResponse20055.md)
 
 ### Authorization
 
@@ -266,7 +266,7 @@ This endpoint does not need any parameter.
 
 ## imageAnalysisByURL
 
-> \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20048 imageAnalysisByURL($image_url)
+> \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20049 imageAnalysisByURL($image_url)
 
 Image Analysis by URL
 
@@ -311,7 +311,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20048**](../Model/InlineResponse20048.md)
+[**\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20049**](../Model/InlineResponse20049.md)
 
 ### Authorization
 
@@ -329,7 +329,7 @@ Name | Type | Description  | Notes
 
 ## imageClassificationByURL
 
-> \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20047 imageClassificationByURL($image_url)
+> \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20048 imageClassificationByURL($image_url)
 
 Image Classification by URL
 
@@ -374,7 +374,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20047**](../Model/InlineResponse20047.md)
+[**\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20048**](../Model/InlineResponse20048.md)
 
 ### Authorization
 
@@ -392,7 +392,7 @@ Name | Type | Description  | Notes
 
 ## searchAllFood
 
-> \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20052 searchAllFood($query, $offset, $number)
+> \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20053 searchAllFood($query, $offset, $number)
 
 Search All Food
 
@@ -441,7 +441,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20052**](../Model/InlineResponse20052.md)
+[**\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20053**](../Model/InlineResponse20053.md)
 
 ### Authorization
 
@@ -530,7 +530,7 @@ Name | Type | Description  | Notes
 
 ## searchFoodVideos
 
-> \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20053 searchFoodVideos($query, $type, $cuisine, $diet, $include_ingredients, $exclude_ingredients, $min_length, $max_length, $offset, $number)
+> \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20054 searchFoodVideos($query, $type, $cuisine, $diet, $include_ingredients, $exclude_ingredients, $min_length, $max_length, $offset, $number)
 
 Search Food Videos
 
@@ -593,7 +593,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20053**](../Model/InlineResponse20053.md)
+[**\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20054**](../Model/InlineResponse20054.md)
 
 ### Authorization
 
@@ -611,7 +611,7 @@ Name | Type | Description  | Notes
 
 ## searchSiteContent
 
-> \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20051 searchSiteContent($query)
+> \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20052 searchSiteContent($query)
 
 Search Site Content
 
@@ -656,7 +656,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20051**](../Model/InlineResponse20051.md)
+[**\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20052**](../Model/InlineResponse20052.md)
 
 ### Authorization
 
@@ -674,7 +674,7 @@ Name | Type | Description  | Notes
 
 ## talkToChatbot
 
-> \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20055 talkToChatbot($text, $context_id)
+> \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20056 talkToChatbot($text, $context_id)
 
 Talk to Chatbot
 
@@ -721,7 +721,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20055**](../Model/InlineResponse20055.md)
+[**\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20056**](../Model/InlineResponse20056.md)
 
 ### Authorization
 

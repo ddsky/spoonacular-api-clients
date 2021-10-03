@@ -42,8 +42,12 @@ public:
     void fromJson(QString jsonString) override;
 
     
-    OAINumber getId() const;
-    void setId(const OAINumber &id);
+    qint32 getId() const;
+    void setId(const qint32 &id);
+
+    
+    OAINumber getServings() const;
+    void setServings(const OAINumber &servings);
 
     
     QString getTitle() const;
@@ -61,9 +65,13 @@ public:
 private:
     void init();
     
-    OAINumber id;
+    qint32 id;
     bool m_id_isSet;
     bool m_id_isValid;
+    
+    OAINumber servings;
+    bool m_servings_isSet;
+    bool m_servings_isValid;
     
     QString title;
     bool m_title_isSet;

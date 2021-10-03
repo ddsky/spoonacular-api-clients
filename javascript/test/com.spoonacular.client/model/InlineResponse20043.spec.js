@@ -54,14 +54,14 @@
       //expect(instance).to.be.a(SpoonacularApi.InlineResponse20043);
     });
 
-    it('should have the property pairings (base name: "pairings")', function() {
-      // uncomment below and update the code to test the property pairings
+    it('should have the property username (base name: "username")', function() {
+      // uncomment below and update the code to test the property username
       //var instane = new SpoonacularApi.InlineResponse20043();
       //expect(instance).to.be();
     });
 
-    it('should have the property text (base name: "text")', function() {
-      // uncomment below and update the code to test the property text
+    it('should have the property hash (base name: "hash")', function() {
+      // uncomment below and update the code to test the property hash
       //var instane = new SpoonacularApi.InlineResponse20043();
       //expect(instance).to.be();
     });

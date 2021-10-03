@@ -37,6 +37,122 @@ class MealPlanningApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
+    def add_meal_plan_template(self, username, hash, inline_object6, **kwargs):  # noqa: E501
+        """Add Meal Plan Template  # noqa: E501
+
+        Add a meal plan template for a user.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.add_meal_plan_template(username, hash, inline_object6, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str username: The username. (required)
+        :param str hash: The private hash for the username. (required)
+        :param InlineObject6 inline_object6: (required)
+        :return: InlineResponse20040
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.add_meal_plan_template_with_http_info(username, hash, inline_object6, **kwargs)  # noqa: E501
+        else:
+            (data) = self.add_meal_plan_template_with_http_info(username, hash, inline_object6, **kwargs)  # noqa: E501
+            return data
+
+    def add_meal_plan_template_with_http_info(self, username, hash, inline_object6, **kwargs):  # noqa: E501
+        """Add Meal Plan Template  # noqa: E501
+
+        Add a meal plan template for a user.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.add_meal_plan_template_with_http_info(username, hash, inline_object6, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str username: The username. (required)
+        :param str hash: The private hash for the username. (required)
+        :param InlineObject6 inline_object6: (required)
+        :return: InlineResponse20040
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['username', 'hash', 'inline_object6']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method add_meal_plan_template" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'username' is set
+        if ('username' not in local_var_params or
+                local_var_params['username'] is None):
+            raise ApiValueError("Missing the required parameter `username` when calling `add_meal_plan_template`")  # noqa: E501
+        # verify the required parameter 'hash' is set
+        if ('hash' not in local_var_params or
+                local_var_params['hash'] is None):
+            raise ApiValueError("Missing the required parameter `hash` when calling `add_meal_plan_template`")  # noqa: E501
+        # verify the required parameter 'inline_object6' is set
+        if ('inline_object6' not in local_var_params or
+                local_var_params['inline_object6'] is None):
+            raise ApiValueError("Missing the required parameter `inline_object6` when calling `add_meal_plan_template`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'username' in local_var_params:
+            path_params['username'] = local_var_params['username']  # noqa: E501
+
+        query_params = []
+        if 'hash' in local_var_params:
+            query_params.append(('hash', local_var_params['hash']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'inline_object6' in local_var_params:
+            body_params = local_var_params['inline_object6']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            [''])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiKeyScheme']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/mealplanner/{username}/templates', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='InlineResponse20040',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def add_to_meal_plan(self, username, hash, inline_object4, **kwargs):  # noqa: E501
         """Add to Meal Plan  # noqa: E501
 
@@ -153,51 +269,51 @@ class MealPlanningApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def add_to_shopping_list(self, username, hash, inline_object7, **kwargs):  # noqa: E501
+    def add_to_shopping_list(self, username, hash, inline_object9, **kwargs):  # noqa: E501
         """Add to Shopping List  # noqa: E501
 
         Add an item to the current shopping list of a user.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.add_to_shopping_list(username, hash, inline_object7, async_req=True)
+        >>> thread = api.add_to_shopping_list(username, hash, inline_object9, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
         :param str username: The username. (required)
         :param str hash: The private hash for the username. (required)
-        :param InlineObject7 inline_object7: (required)
-        :return: InlineResponse20041
+        :param InlineObject9 inline_object9: (required)
+        :return: InlineResponse20042
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.add_to_shopping_list_with_http_info(username, hash, inline_object7, **kwargs)  # noqa: E501
+            return self.add_to_shopping_list_with_http_info(username, hash, inline_object9, **kwargs)  # noqa: E501
         else:
-            (data) = self.add_to_shopping_list_with_http_info(username, hash, inline_object7, **kwargs)  # noqa: E501
+            (data) = self.add_to_shopping_list_with_http_info(username, hash, inline_object9, **kwargs)  # noqa: E501
             return data
 
-    def add_to_shopping_list_with_http_info(self, username, hash, inline_object7, **kwargs):  # noqa: E501
+    def add_to_shopping_list_with_http_info(self, username, hash, inline_object9, **kwargs):  # noqa: E501
         """Add to Shopping List  # noqa: E501
 
         Add an item to the current shopping list of a user.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.add_to_shopping_list_with_http_info(username, hash, inline_object7, async_req=True)
+        >>> thread = api.add_to_shopping_list_with_http_info(username, hash, inline_object9, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
         :param str username: The username. (required)
         :param str hash: The private hash for the username. (required)
-        :param InlineObject7 inline_object7: (required)
-        :return: InlineResponse20041
+        :param InlineObject9 inline_object9: (required)
+        :return: InlineResponse20042
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         local_var_params = locals()
 
-        all_params = ['username', 'hash', 'inline_object7']  # noqa: E501
+        all_params = ['username', 'hash', 'inline_object9']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -219,10 +335,10 @@ class MealPlanningApi(object):
         if ('hash' not in local_var_params or
                 local_var_params['hash'] is None):
             raise ApiValueError("Missing the required parameter `hash` when calling `add_to_shopping_list`")  # noqa: E501
-        # verify the required parameter 'inline_object7' is set
-        if ('inline_object7' not in local_var_params or
-                local_var_params['inline_object7'] is None):
-            raise ApiValueError("Missing the required parameter `inline_object7` when calling `add_to_shopping_list`")  # noqa: E501
+        # verify the required parameter 'inline_object9' is set
+        if ('inline_object9' not in local_var_params or
+                local_var_params['inline_object9'] is None):
+            raise ApiValueError("Missing the required parameter `inline_object9` when calling `add_to_shopping_list`")  # noqa: E501
 
         collection_formats = {}
 
@@ -240,8 +356,8 @@ class MealPlanningApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'inline_object7' in local_var_params:
-            body_params = local_var_params['inline_object7']
+        if 'inline_object9' in local_var_params:
+            body_params = local_var_params['inline_object9']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -261,7 +377,7 @@ class MealPlanningApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20041',  # noqa: E501
+            response_type='InlineResponse20042',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -404,7 +520,7 @@ class MealPlanningApi(object):
 
         :param async_req bool
         :param object body: (required)
-        :return: InlineResponse20042
+        :return: InlineResponse20043
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -426,7 +542,7 @@ class MealPlanningApi(object):
 
         :param async_req bool
         :param object body: (required)
-        :return: InlineResponse20042
+        :return: InlineResponse20043
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -485,7 +601,7 @@ class MealPlanningApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20042',  # noqa: E501
+            response_type='InlineResponse20043',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -617,45 +733,45 @@ class MealPlanningApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def delete_from_shopping_list(self, username, id, hash, inline_object8, **kwargs):  # noqa: E501
+    def delete_from_shopping_list(self, username, id, hash, inline_object10, **kwargs):  # noqa: E501
         """Delete from Shopping List  # noqa: E501
 
         Delete an item from the current shopping list of the user.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.delete_from_shopping_list(username, id, hash, inline_object8, async_req=True)
+        >>> thread = api.delete_from_shopping_list(username, id, hash, inline_object10, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
         :param str username: The username. (required)
         :param int id: The item's id. (required)
         :param str hash: The private hash for the username. (required)
-        :param InlineObject8 inline_object8: (required)
+        :param InlineObject10 inline_object10: (required)
         :return: object
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.delete_from_shopping_list_with_http_info(username, id, hash, inline_object8, **kwargs)  # noqa: E501
+            return self.delete_from_shopping_list_with_http_info(username, id, hash, inline_object10, **kwargs)  # noqa: E501
         else:
-            (data) = self.delete_from_shopping_list_with_http_info(username, id, hash, inline_object8, **kwargs)  # noqa: E501
+            (data) = self.delete_from_shopping_list_with_http_info(username, id, hash, inline_object10, **kwargs)  # noqa: E501
             return data
 
-    def delete_from_shopping_list_with_http_info(self, username, id, hash, inline_object8, **kwargs):  # noqa: E501
+    def delete_from_shopping_list_with_http_info(self, username, id, hash, inline_object10, **kwargs):  # noqa: E501
         """Delete from Shopping List  # noqa: E501
 
         Delete an item from the current shopping list of the user.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.delete_from_shopping_list_with_http_info(username, id, hash, inline_object8, async_req=True)
+        >>> thread = api.delete_from_shopping_list_with_http_info(username, id, hash, inline_object10, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
         :param str username: The username. (required)
         :param int id: The item's id. (required)
         :param str hash: The private hash for the username. (required)
-        :param InlineObject8 inline_object8: (required)
+        :param InlineObject10 inline_object10: (required)
         :return: object
                  If the method is called asynchronously,
                  returns the request thread.
@@ -663,7 +779,7 @@ class MealPlanningApi(object):
 
         local_var_params = locals()
 
-        all_params = ['username', 'id', 'hash', 'inline_object8']  # noqa: E501
+        all_params = ['username', 'id', 'hash', 'inline_object10']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -689,10 +805,10 @@ class MealPlanningApi(object):
         if ('hash' not in local_var_params or
                 local_var_params['hash'] is None):
             raise ApiValueError("Missing the required parameter `hash` when calling `delete_from_shopping_list`")  # noqa: E501
-        # verify the required parameter 'inline_object8' is set
-        if ('inline_object8' not in local_var_params or
-                local_var_params['inline_object8'] is None):
-            raise ApiValueError("Missing the required parameter `inline_object8` when calling `delete_from_shopping_list`")  # noqa: E501
+        # verify the required parameter 'inline_object10' is set
+        if ('inline_object10' not in local_var_params or
+                local_var_params['inline_object10'] is None):
+            raise ApiValueError("Missing the required parameter `inline_object10` when calling `delete_from_shopping_list`")  # noqa: E501
 
         collection_formats = {}
 
@@ -712,8 +828,8 @@ class MealPlanningApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'inline_object8' in local_var_params:
-            body_params = local_var_params['inline_object8']
+        if 'inline_object10' in local_var_params:
+            body_params = local_var_params['inline_object10']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -727,6 +843,130 @@ class MealPlanningApi(object):
 
         return self.api_client.call_api(
             '/mealplanner/{username}/shopping-list/items/{id}', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='object',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def delete_meal_plan_template(self, username, id, hash, inline_object7, **kwargs):  # noqa: E501
+        """Delete Meal Plan Template  # noqa: E501
+
+        Delete a meal plan template for a user.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_meal_plan_template(username, id, hash, inline_object7, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str username: The username. (required)
+        :param int id: The item's id. (required)
+        :param str hash: The private hash for the username. (required)
+        :param InlineObject7 inline_object7: (required)
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.delete_meal_plan_template_with_http_info(username, id, hash, inline_object7, **kwargs)  # noqa: E501
+        else:
+            (data) = self.delete_meal_plan_template_with_http_info(username, id, hash, inline_object7, **kwargs)  # noqa: E501
+            return data
+
+    def delete_meal_plan_template_with_http_info(self, username, id, hash, inline_object7, **kwargs):  # noqa: E501
+        """Delete Meal Plan Template  # noqa: E501
+
+        Delete a meal plan template for a user.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_meal_plan_template_with_http_info(username, id, hash, inline_object7, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str username: The username. (required)
+        :param int id: The item's id. (required)
+        :param str hash: The private hash for the username. (required)
+        :param InlineObject7 inline_object7: (required)
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['username', 'id', 'hash', 'inline_object7']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_meal_plan_template" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'username' is set
+        if ('username' not in local_var_params or
+                local_var_params['username'] is None):
+            raise ApiValueError("Missing the required parameter `username` when calling `delete_meal_plan_template`")  # noqa: E501
+        # verify the required parameter 'id' is set
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
+            raise ApiValueError("Missing the required parameter `id` when calling `delete_meal_plan_template`")  # noqa: E501
+        # verify the required parameter 'hash' is set
+        if ('hash' not in local_var_params or
+                local_var_params['hash'] is None):
+            raise ApiValueError("Missing the required parameter `hash` when calling `delete_meal_plan_template`")  # noqa: E501
+        # verify the required parameter 'inline_object7' is set
+        if ('inline_object7' not in local_var_params or
+                local_var_params['inline_object7'] is None):
+            raise ApiValueError("Missing the required parameter `inline_object7` when calling `delete_meal_plan_template`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'username' in local_var_params:
+            path_params['username'] = local_var_params['username']  # noqa: E501
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+
+        query_params = []
+        if 'hash' in local_var_params:
+            query_params.append(('hash', local_var_params['hash']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'inline_object7' in local_var_params:
+            body_params = local_var_params['inline_object7']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            [''])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiKeyScheme']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/mealplanner/{username}/templates/{id}', 'DELETE',
             path_params,
             query_params,
             header_params,
@@ -845,13 +1085,13 @@ class MealPlanningApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def generate_shopping_list(self, username, start_date, end_date, hash, inline_object6, **kwargs):  # noqa: E501
+    def generate_shopping_list(self, username, start_date, end_date, hash, inline_object8, **kwargs):  # noqa: E501
         """Generate Shopping List  # noqa: E501
 
         Generate the shopping list for a user from the meal planner in a given time frame.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.generate_shopping_list(username, start_date, end_date, hash, inline_object6, async_req=True)
+        >>> thread = api.generate_shopping_list(username, start_date, end_date, hash, inline_object8, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -859,25 +1099,25 @@ class MealPlanningApi(object):
         :param str start_date: The start date in the format yyyy-mm-dd. (required)
         :param str end_date: The end date in the format yyyy-mm-dd. (required)
         :param str hash: The private hash for the username. (required)
-        :param InlineObject6 inline_object6: (required)
-        :return: InlineResponse20041
+        :param InlineObject8 inline_object8: (required)
+        :return: InlineResponse20042
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.generate_shopping_list_with_http_info(username, start_date, end_date, hash, inline_object6, **kwargs)  # noqa: E501
+            return self.generate_shopping_list_with_http_info(username, start_date, end_date, hash, inline_object8, **kwargs)  # noqa: E501
         else:
-            (data) = self.generate_shopping_list_with_http_info(username, start_date, end_date, hash, inline_object6, **kwargs)  # noqa: E501
+            (data) = self.generate_shopping_list_with_http_info(username, start_date, end_date, hash, inline_object8, **kwargs)  # noqa: E501
             return data
 
-    def generate_shopping_list_with_http_info(self, username, start_date, end_date, hash, inline_object6, **kwargs):  # noqa: E501
+    def generate_shopping_list_with_http_info(self, username, start_date, end_date, hash, inline_object8, **kwargs):  # noqa: E501
         """Generate Shopping List  # noqa: E501
 
         Generate the shopping list for a user from the meal planner in a given time frame.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.generate_shopping_list_with_http_info(username, start_date, end_date, hash, inline_object6, async_req=True)
+        >>> thread = api.generate_shopping_list_with_http_info(username, start_date, end_date, hash, inline_object8, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -885,15 +1125,15 @@ class MealPlanningApi(object):
         :param str start_date: The start date in the format yyyy-mm-dd. (required)
         :param str end_date: The end date in the format yyyy-mm-dd. (required)
         :param str hash: The private hash for the username. (required)
-        :param InlineObject6 inline_object6: (required)
-        :return: InlineResponse20041
+        :param InlineObject8 inline_object8: (required)
+        :return: InlineResponse20042
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         local_var_params = locals()
 
-        all_params = ['username', 'start_date', 'end_date', 'hash', 'inline_object6']  # noqa: E501
+        all_params = ['username', 'start_date', 'end_date', 'hash', 'inline_object8']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -923,10 +1163,10 @@ class MealPlanningApi(object):
         if ('hash' not in local_var_params or
                 local_var_params['hash'] is None):
             raise ApiValueError("Missing the required parameter `hash` when calling `generate_shopping_list`")  # noqa: E501
-        # verify the required parameter 'inline_object6' is set
-        if ('inline_object6' not in local_var_params or
-                local_var_params['inline_object6'] is None):
-            raise ApiValueError("Missing the required parameter `inline_object6` when calling `generate_shopping_list`")  # noqa: E501
+        # verify the required parameter 'inline_object8' is set
+        if ('inline_object8' not in local_var_params or
+                local_var_params['inline_object8'] is None):
+            raise ApiValueError("Missing the required parameter `inline_object8` when calling `generate_shopping_list`")  # noqa: E501
 
         collection_formats = {}
 
@@ -948,8 +1188,8 @@ class MealPlanningApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'inline_object6' in local_var_params:
-            body_params = local_var_params['inline_object6']
+        if 'inline_object8' in local_var_params:
+            body_params = local_var_params['inline_object8']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -969,7 +1209,7 @@ class MealPlanningApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20041',  # noqa: E501
+            response_type='InlineResponse20042',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -990,7 +1230,7 @@ class MealPlanningApi(object):
         :param str username: The username. (required)
         :param int id: The item's id. (required)
         :param str hash: The private hash for the username. (required)
-        :return: InlineResponse20040
+        :return: InlineResponse20041
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1014,7 +1254,7 @@ class MealPlanningApi(object):
         :param str username: The username. (required)
         :param int id: The item's id. (required)
         :param str hash: The private hash for the username. (required)
-        :return: InlineResponse20040
+        :return: InlineResponse20041
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1081,7 +1321,7 @@ class MealPlanningApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20040',  # noqa: E501
+            response_type='InlineResponse20041',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1317,7 +1557,7 @@ class MealPlanningApi(object):
         :param async_req bool
         :param str username: The username. (required)
         :param str hash: The private hash for the username. (required)
-        :return: InlineResponse20041
+        :return: InlineResponse20042
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1340,7 +1580,7 @@ class MealPlanningApi(object):
         :param async_req bool
         :param str username: The username. (required)
         :param str hash: The private hash for the username. (required)
-        :return: InlineResponse20041
+        :return: InlineResponse20042
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1401,7 +1641,7 @@ class MealPlanningApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20041',  # noqa: E501
+            response_type='InlineResponse20042',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501

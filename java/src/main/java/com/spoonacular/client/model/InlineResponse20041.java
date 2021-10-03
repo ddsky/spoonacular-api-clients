@@ -20,110 +20,87 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.spoonacular.client.model.InlineResponse20041Aisles;
+import com.spoonacular.client.model.InlineResponse20041Days;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * InlineResponse20041
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-09-28T20:40:32.759+02:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-03T15:10:59.332+02:00[Europe/Berlin]")
 public class InlineResponse20041 {
-  public static final String SERIALIZED_NAME_AISLES = "aisles";
-  @SerializedName(SERIALIZED_NAME_AISLES)
-  private List<InlineResponse20041Aisles> aisles = new ArrayList<>();
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  private Integer id;
 
-  public static final String SERIALIZED_NAME_COST = "cost";
-  @SerializedName(SERIALIZED_NAME_COST)
-  private BigDecimal cost;
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
+  private String name;
 
-  public static final String SERIALIZED_NAME_START_DATE = "startDate";
-  @SerializedName(SERIALIZED_NAME_START_DATE)
-  private BigDecimal startDate;
+  public static final String SERIALIZED_NAME_DAYS = "days";
+  @SerializedName(SERIALIZED_NAME_DAYS)
+  private List<InlineResponse20041Days> days = new ArrayList<>();
 
-  public static final String SERIALIZED_NAME_END_DATE = "endDate";
-  @SerializedName(SERIALIZED_NAME_END_DATE)
-  private BigDecimal endDate;
-
-  public InlineResponse20041 aisles(List<InlineResponse20041Aisles> aisles) {
-    this.aisles = aisles;
-    return this;
-  }
-
-  public InlineResponse20041 addAislesItem(InlineResponse20041Aisles aislesItem) {
-    this.aisles.add(aislesItem);
+  public InlineResponse20041 id(Integer id) {
+    this.id = id;
     return this;
   }
 
    /**
-   * Get aisles
-   * @return aisles
+   * Get id
+   * @return id
   **/
   @ApiModelProperty(required = true, value = "")
-  public List<InlineResponse20041Aisles> getAisles() {
-    return aisles;
+  public Integer getId() {
+    return id;
   }
 
-  public void setAisles(List<InlineResponse20041Aisles> aisles) {
-    this.aisles = aisles;
+  public void setId(Integer id) {
+    this.id = id;
   }
 
-  public InlineResponse20041 cost(BigDecimal cost) {
-    this.cost = cost;
+  public InlineResponse20041 name(String name) {
+    this.name = name;
     return this;
   }
 
    /**
-   * Get cost
-   * @return cost
+   * Get name
+   * @return name
   **/
   @ApiModelProperty(required = true, value = "")
-  public BigDecimal getCost() {
-    return cost;
+  public String getName() {
+    return name;
   }
 
-  public void setCost(BigDecimal cost) {
-    this.cost = cost;
+  public void setName(String name) {
+    this.name = name;
   }
 
-  public InlineResponse20041 startDate(BigDecimal startDate) {
-    this.startDate = startDate;
+  public InlineResponse20041 days(List<InlineResponse20041Days> days) {
+    this.days = days;
+    return this;
+  }
+
+  public InlineResponse20041 addDaysItem(InlineResponse20041Days daysItem) {
+    this.days.add(daysItem);
     return this;
   }
 
    /**
-   * Get startDate
-   * @return startDate
+   * Get days
+   * @return days
   **/
   @ApiModelProperty(required = true, value = "")
-  public BigDecimal getStartDate() {
-    return startDate;
+  public List<InlineResponse20041Days> getDays() {
+    return days;
   }
 
-  public void setStartDate(BigDecimal startDate) {
-    this.startDate = startDate;
-  }
-
-  public InlineResponse20041 endDate(BigDecimal endDate) {
-    this.endDate = endDate;
-    return this;
-  }
-
-   /**
-   * Get endDate
-   * @return endDate
-  **/
-  @ApiModelProperty(required = true, value = "")
-  public BigDecimal getEndDate() {
-    return endDate;
-  }
-
-  public void setEndDate(BigDecimal endDate) {
-    this.endDate = endDate;
+  public void setDays(List<InlineResponse20041Days> days) {
+    this.days = days;
   }
 
 
@@ -136,15 +113,14 @@ public class InlineResponse20041 {
       return false;
     }
     InlineResponse20041 inlineResponse20041 = (InlineResponse20041) o;
-    return Objects.equals(this.aisles, inlineResponse20041.aisles) &&
-        Objects.equals(this.cost, inlineResponse20041.cost) &&
-        Objects.equals(this.startDate, inlineResponse20041.startDate) &&
-        Objects.equals(this.endDate, inlineResponse20041.endDate);
+    return Objects.equals(this.id, inlineResponse20041.id) &&
+        Objects.equals(this.name, inlineResponse20041.name) &&
+        Objects.equals(this.days, inlineResponse20041.days);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(aisles, cost, startDate, endDate);
+    return Objects.hash(id, name, days);
   }
 
 
@@ -152,10 +128,9 @@ public class InlineResponse20041 {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse20041 {\n");
-    sb.append("    aisles: ").append(toIndentedString(aisles)).append("\n");
-    sb.append("    cost: ").append(toIndentedString(cost)).append("\n");
-    sb.append("    startDate: ").append(toIndentedString(startDate)).append("\n");
-    sb.append("    endDate: ").append(toIndentedString(endDate)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    days: ").append(toIndentedString(days)).append("\n");
     sb.append("}");
     return sb.toString();
   }

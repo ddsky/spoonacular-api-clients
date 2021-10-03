@@ -32,7 +32,7 @@ class InlineResponse20040Items(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'id': 'int',
+        'day': 'int',
         'slot': 'int',
         'position': 'int',
         'type': 'str',
@@ -40,24 +40,24 @@ class InlineResponse20040Items(object):
     }
 
     attribute_map = {
-        'id': 'id',
+        'day': 'day',
         'slot': 'slot',
         'position': 'position',
         'type': 'type',
         'value': 'value'
     }
 
-    def __init__(self, id=None, slot=None, position=None, type=None, value=None):  # noqa: E501
+    def __init__(self, day=None, slot=None, position=None, type=None, value=None):  # noqa: E501
         """InlineResponse20040Items - a model defined in OpenAPI"""  # noqa: E501
 
-        self._id = None
+        self._day = None
         self._slot = None
         self._position = None
         self._type = None
         self._value = None
         self.discriminator = None
 
-        self.id = id
+        self.day = day
         self.slot = slot
         self.position = position
         self.type = type
@@ -65,27 +65,27 @@ class InlineResponse20040Items(object):
             self.value = value
 
     @property
-    def id(self):
-        """Gets the id of this InlineResponse20040Items.  # noqa: E501
+    def day(self):
+        """Gets the day of this InlineResponse20040Items.  # noqa: E501
 
 
-        :return: The id of this InlineResponse20040Items.  # noqa: E501
+        :return: The day of this InlineResponse20040Items.  # noqa: E501
         :rtype: int
         """
-        return self._id
+        return self._day
 
-    @id.setter
-    def id(self, id):
-        """Sets the id of this InlineResponse20040Items.
+    @day.setter
+    def day(self, day):
+        """Sets the day of this InlineResponse20040Items.
 
 
-        :param id: The id of this InlineResponse20040Items.  # noqa: E501
+        :param day: The day of this InlineResponse20040Items.  # noqa: E501
         :type: int
         """
-        if id is None:
-            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
+        if day is None:
+            raise ValueError("Invalid value for `day`, must not be `None`")  # noqa: E501
 
-        self._id = id
+        self._day = day
 
     @property
     def slot(self):

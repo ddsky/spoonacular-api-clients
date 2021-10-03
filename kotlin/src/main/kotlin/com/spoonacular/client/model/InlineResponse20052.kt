@@ -11,28 +11,24 @@
 */
 package com.spoonacular.client.model
 
-import com.spoonacular.client.model.InlineResponse20052SearchResults
 
 import com.squareup.moshi.Json
 /**
  * 
- * @param query 
- * @param totalResults 
- * @param limit 
- * @param offset 
- * @param searchResults 
+ * @param articles 
+ * @param groceryProducts 
+ * @param menuItems 
+ * @param recipes 
  */
 data class InlineResponse20052 (
-    @Json(name = "query")
-    val query: kotlin.String,
-    @Json(name = "totalResults")
-    val totalResults: kotlin.Int,
-    @Json(name = "limit")
-    val limit: kotlin.Int,
-    @Json(name = "offset")
-    val offset: kotlin.Int,
-    @Json(name = "searchResults")
-    val searchResults: kotlin.Array<InlineResponse20052SearchResults>
+    @Json(name = "Articles")
+    val articles: kotlin.Array<kotlin.Any>,
+    @Json(name = "Grocery Products")
+    val groceryProducts: kotlin.Array<kotlin.Any>,
+    @Json(name = "Menu Items")
+    val menuItems: kotlin.Array<kotlin.Any>,
+    @Json(name = "Recipes")
+    val recipes: kotlin.Array<kotlin.Any>
 ) {
 
 }

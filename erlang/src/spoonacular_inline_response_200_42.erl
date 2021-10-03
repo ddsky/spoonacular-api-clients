@@ -5,13 +5,19 @@
 -export_type([spoonacular_inline_response_200_42/0]).
 
 -type spoonacular_inline_response_200_42() ::
-    #{ 'username' := binary(),
-       'hash' := binary()
+    #{ 'aisles' := list(),
+       'cost' := integer(),
+       'startDate' := integer(),
+       'endDate' := integer()
      }.
 
-encode(#{ 'username' := Username,
-          'hash' := Hash
+encode(#{ 'aisles' := Aisles,
+          'cost' := Cost,
+          'startDate' := StartDate,
+          'endDate' := EndDate
         }) ->
-    #{ 'username' => Username,
-       'hash' => Hash
+    #{ 'aisles' => Aisles,
+       'cost' => Cost,
+       'startDate' => StartDate,
+       'endDate' => EndDate
      }.

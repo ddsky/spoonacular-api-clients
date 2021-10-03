@@ -22,8 +22,8 @@
 #include <QJsonObject>
 
 
-#include "com.spoonacular.client.model\OAINumber.h"
-#include <QString>
+#include "com.spoonacular.client.model\OAIInline_response_200_47_recommendedWines.h"
+#include <QList>
 
 #include "OAIObject.h"
 #include "OAIEnum.h"
@@ -42,12 +42,12 @@ public:
     void fromJson(QString jsonString) override;
 
     
-    QString getCategory() const;
-    void setCategory(const QString &category);
+    QList<OAIInline_response_200_47_recommendedWines> getRecommendedWines() const;
+    void setRecommendedWines(const QList<OAIInline_response_200_47_recommendedWines> &recommended_wines);
 
     
-    OAINumber getProbability() const;
-    void setProbability(const OAINumber &probability);
+    qint32 getTotalFound() const;
+    void setTotalFound(const qint32 &total_found);
 
     
     
@@ -57,13 +57,13 @@ public:
 private:
     void init();
     
-    QString category;
-    bool m_category_isSet;
-    bool m_category_isValid;
+    QList<OAIInline_response_200_47_recommendedWines> recommended_wines;
+    bool m_recommended_wines_isSet;
+    bool m_recommended_wines_isValid;
     
-    OAINumber probability;
-    bool m_probability_isSet;
-    bool m_probability_isValid;
+    qint32 total_found;
+    bool m_total_found_isSet;
+    bool m_total_found_isValid;
     
     };
 

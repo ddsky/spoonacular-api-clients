@@ -161,16 +161,16 @@ __PACKAGE__->class_documentation({description => '',
 }                                 );
 
 __PACKAGE__->method_documentation({
-    'pairings' => {
-        datatype => 'ARRAY[string]',
-        base_name => 'pairings',
+    'username' => {
+        datatype => 'string',
+        base_name => 'username',
         description => '',
         format => '',
         read_only => '',
             },
-    'text' => {
+    'hash' => {
         datatype => 'string',
-        base_name => 'text',
+        base_name => 'hash',
         description => '',
         format => '',
         read_only => '',
@@ -178,13 +178,13 @@ __PACKAGE__->method_documentation({
 });
 
 __PACKAGE__->openapi_types( {
-    'pairings' => 'ARRAY[string]',
-    'text' => 'string'
+    'username' => 'string',
+    'hash' => 'string'
 } );
 
 __PACKAGE__->attribute_map( {
-    'pairings' => 'pairings',
-    'text' => 'text'
+    'username' => 'username',
+    'hash' => 'hash'
 } );
 
 __PACKAGE__->mk_accessors(keys %{__PACKAGE__->attribute_map});

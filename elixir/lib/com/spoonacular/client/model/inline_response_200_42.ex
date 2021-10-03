@@ -9,19 +9,25 @@ defmodule com.spoonacular.client.Model.InlineResponse20042 do
 
   @derive [Poison.Encoder]
   defstruct [
-    :"username",
-    :"hash"
+    :"aisles",
+    :"cost",
+    :"startDate",
+    :"endDate"
   ]
 
   @type t :: %__MODULE__{
-    :"username" => String.t,
-    :"hash" => String.t
+    :"aisles" => [InlineResponse20042Aisles],
+    :"cost" => float(),
+    :"startDate" => float(),
+    :"endDate" => float()
   }
 end
 
 defimpl Poison.Decoder, for: com.spoonacular.client.Model.InlineResponse20042 do
-  def decode(value, _options) do
+  import com.spoonacular.client.Deserializer
+  def decode(value, options) do
     value
+    |> deserialize(:"aisles", :list, com.spoonacular.client.Model.InlineResponse20042Aisles, options)
   end
 end
 

@@ -57,9 +57,8 @@ class InlineResponse20048 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'nutrition' => '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20048Nutrition',
-        'category' => '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20048Category',
-        'recipes' => '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20048Recipes[]'
+        'category' => 'string',
+        'probability' => 'float'
     ];
 
     /**
@@ -68,9 +67,8 @@ class InlineResponse20048 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'nutrition' => null,
         'category' => null,
-        'recipes' => null
+        'probability' => null
     ];
 
     /**
@@ -100,9 +98,8 @@ class InlineResponse20048 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'nutrition' => 'nutrition',
         'category' => 'category',
-        'recipes' => 'recipes'
+        'probability' => 'probability'
     ];
 
     /**
@@ -111,9 +108,8 @@ class InlineResponse20048 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'nutrition' => 'setNutrition',
         'category' => 'setCategory',
-        'recipes' => 'setRecipes'
+        'probability' => 'setProbability'
     ];
 
     /**
@@ -122,9 +118,8 @@ class InlineResponse20048 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'nutrition' => 'getNutrition',
         'category' => 'getCategory',
-        'recipes' => 'getRecipes'
+        'probability' => 'getProbability'
     ];
 
     /**
@@ -187,9 +182,8 @@ class InlineResponse20048 implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['nutrition'] = isset($data['nutrition']) ? $data['nutrition'] : null;
         $this->container['category'] = isset($data['category']) ? $data['category'] : null;
-        $this->container['recipes'] = isset($data['recipes']) ? $data['recipes'] : null;
+        $this->container['probability'] = isset($data['probability']) ? $data['probability'] : null;
     }
 
     /**
@@ -201,14 +195,15 @@ class InlineResponse20048 implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['nutrition'] === null) {
-            $invalidProperties[] = "'nutrition' can't be null";
-        }
         if ($this->container['category'] === null) {
             $invalidProperties[] = "'category' can't be null";
         }
-        if ($this->container['recipes'] === null) {
-            $invalidProperties[] = "'recipes' can't be null";
+        if ((mb_strlen($this->container['category']) < 1)) {
+            $invalidProperties[] = "invalid value for 'category', the character length must be bigger than or equal to 1.";
+        }
+
+        if ($this->container['probability'] === null) {
+            $invalidProperties[] = "'probability' can't be null";
         }
         return $invalidProperties;
     }
@@ -226,33 +221,9 @@ class InlineResponse20048 implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets nutrition
-     *
-     * @return \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20048Nutrition
-     */
-    public function getNutrition()
-    {
-        return $this->container['nutrition'];
-    }
-
-    /**
-     * Sets nutrition
-     *
-     * @param \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20048Nutrition $nutrition nutrition
-     *
-     * @return $this
-     */
-    public function setNutrition($nutrition)
-    {
-        $this->container['nutrition'] = $nutrition;
-
-        return $this;
-    }
-
-    /**
      * Gets category
      *
-     * @return \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20048Category
+     * @return string
      */
     public function getCategory()
     {
@@ -262,37 +233,42 @@ class InlineResponse20048 implements ModelInterface, ArrayAccess
     /**
      * Sets category
      *
-     * @param \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20048Category $category category
+     * @param string $category category
      *
      * @return $this
      */
     public function setCategory($category)
     {
+
+        if ((mb_strlen($category) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $category when calling InlineResponse20048., must be bigger than or equal to 1.');
+        }
+
         $this->container['category'] = $category;
 
         return $this;
     }
 
     /**
-     * Gets recipes
+     * Gets probability
      *
-     * @return \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20048Recipes[]
+     * @return float
      */
-    public function getRecipes()
+    public function getProbability()
     {
-        return $this->container['recipes'];
+        return $this->container['probability'];
     }
 
     /**
-     * Sets recipes
+     * Sets probability
      *
-     * @param \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20048Recipes[] $recipes recipes
+     * @param float $probability probability
      *
      * @return $this
      */
-    public function setRecipes($recipes)
+    public function setProbability($probability)
     {
-        $this->container['recipes'] = $recipes;
+        $this->container['probability'] = $probability;
 
         return $this;
     }

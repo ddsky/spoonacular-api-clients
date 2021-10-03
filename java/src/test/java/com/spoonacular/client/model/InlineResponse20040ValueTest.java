@@ -50,6 +50,14 @@ public class InlineResponse20040ValueTest {
     }
 
     /**
+     * Test the property 'servings'
+     */
+    @Test
+    public void servingsTest() {
+        // TODO: test servings
+    }
+
+    /**
      * Test the property 'title'
      */
     @Test

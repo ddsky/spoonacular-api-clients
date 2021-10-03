@@ -18,8 +18,8 @@
 #import "OAIInlineResponse20023.h"
 #import "OAIInlineResponse2003.h"
 #import "OAIInlineResponse2004.h"
-#import "OAIInlineResponse20049.h"
 #import "OAIInlineResponse2005.h"
+#import "OAIInlineResponse20050.h"
 #import "OAIInlineResponse2006.h"
 #import "OAIInlineResponse2007.h"
 #import "OAIInlineResponse2008.h"
@@ -440,9 +440,9 @@ extern NSInteger kOAIRecipesApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return OAIInlineResponse20049*
+/// @return OAIInlineResponse20050*
 -(NSURLSessionTask*) quickAnswerWithQ: (NSString*) q
-    completionHandler: (void (^)(OAIInlineResponse20049* output, NSError* error)) handler;
+    completionHandler: (void (^)(OAIInlineResponse20050* output, NSError* error)) handler;
 
 
 /// Recipe Nutrition by ID Image

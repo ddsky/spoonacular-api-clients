@@ -7,10 +7,7 @@
 
 (def inline-response-200-51-data
   {
-   (ds/req :Articles) (s/coll-of any?)
-   (ds/req :GroceryProducts) (s/coll-of any?)
-   (ds/req :MenuItems) (s/coll-of any?)
-   (ds/req :Recipes) (s/coll-of any?)
+   (ds/req :annotations) (s/coll-of any?)
    })
 
 (def inline-response-200-51-spec

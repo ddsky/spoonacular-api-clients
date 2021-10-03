@@ -57,7 +57,8 @@ class InlineResponse20050 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'annotations' => 'object[]'
+        'answer' => 'string',
+        'image' => 'string'
     ];
 
     /**
@@ -66,7 +67,8 @@ class InlineResponse20050 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'annotations' => null
+        'answer' => null,
+        'image' => null
     ];
 
     /**
@@ -96,7 +98,8 @@ class InlineResponse20050 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'annotations' => 'annotations'
+        'answer' => 'answer',
+        'image' => 'image'
     ];
 
     /**
@@ -105,7 +108,8 @@ class InlineResponse20050 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'annotations' => 'setAnnotations'
+        'answer' => 'setAnswer',
+        'image' => 'setImage'
     ];
 
     /**
@@ -114,7 +118,8 @@ class InlineResponse20050 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'annotations' => 'getAnnotations'
+        'answer' => 'getAnswer',
+        'image' => 'getImage'
     ];
 
     /**
@@ -177,7 +182,8 @@ class InlineResponse20050 implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['annotations'] = isset($data['annotations']) ? $data['annotations'] : null;
+        $this->container['answer'] = isset($data['answer']) ? $data['answer'] : null;
+        $this->container['image'] = isset($data['image']) ? $data['image'] : null;
     }
 
     /**
@@ -189,9 +195,20 @@ class InlineResponse20050 implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['annotations'] === null) {
-            $invalidProperties[] = "'annotations' can't be null";
+        if ($this->container['answer'] === null) {
+            $invalidProperties[] = "'answer' can't be null";
         }
+        if ((mb_strlen($this->container['answer']) < 1)) {
+            $invalidProperties[] = "invalid value for 'answer', the character length must be bigger than or equal to 1.";
+        }
+
+        if ($this->container['image'] === null) {
+            $invalidProperties[] = "'image' can't be null";
+        }
+        if ((mb_strlen($this->container['image']) < 1)) {
+            $invalidProperties[] = "invalid value for 'image', the character length must be bigger than or equal to 1.";
+        }
+
         return $invalidProperties;
     }
 
@@ -208,25 +225,59 @@ class InlineResponse20050 implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets annotations
+     * Gets answer
      *
-     * @return object[]
+     * @return string
      */
-    public function getAnnotations()
+    public function getAnswer()
     {
-        return $this->container['annotations'];
+        return $this->container['answer'];
     }
 
     /**
-     * Sets annotations
+     * Sets answer
      *
-     * @param object[] $annotations annotations
+     * @param string $answer answer
      *
      * @return $this
      */
-    public function setAnnotations($annotations)
+    public function setAnswer($answer)
     {
-        $this->container['annotations'] = $annotations;
+
+        if ((mb_strlen($answer) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $answer when calling InlineResponse20050., must be bigger than or equal to 1.');
+        }
+
+        $this->container['answer'] = $answer;
+
+        return $this;
+    }
+
+    /**
+     * Gets image
+     *
+     * @return string
+     */
+    public function getImage()
+    {
+        return $this->container['image'];
+    }
+
+    /**
+     * Sets image
+     *
+     * @param string $image image
+     *
+     * @return $this
+     */
+    public function setImage($image)
+    {
+
+        if ((mb_strlen($image) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $image when calling InlineResponse20050., must be bigger than or equal to 1.');
+        }
+
+        $this->container['image'] = $image;
 
         return $this;
     }

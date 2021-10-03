@@ -781,10 +781,10 @@ defmodule com.spoonacular.client.Api.Recipes do
   - opts (KeywordList): [optional] Optional parameters
   ## Returns
 
-  {:ok, %com.spoonacular.client.Model.InlineResponse20049{}} on success
+  {:ok, %com.spoonacular.client.Model.InlineResponse20050{}} on success
   {:error, info} on failure
   """
-  @spec quick_answer(Tesla.Env.client, String.t, keyword()) :: {:ok, com.spoonacular.client.Model.InlineResponse20049.t} | {:error, Tesla.Env.t}
+  @spec quick_answer(Tesla.Env.client, String.t, keyword()) :: {:ok, com.spoonacular.client.Model.InlineResponse20050.t} | {:error, Tesla.Env.t}
   def quick_answer(connection, q, _opts \\ []) do
     %{}
     |> method(:get)
@@ -793,7 +793,7 @@ defmodule com.spoonacular.client.Api.Recipes do
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
-      { 200, %com.spoonacular.client.Model.InlineResponse20049{}},
+      { 200, %com.spoonacular.client.Model.InlineResponse20050{}},
       { 401, false},
       { 403, false},
       { 404, false}

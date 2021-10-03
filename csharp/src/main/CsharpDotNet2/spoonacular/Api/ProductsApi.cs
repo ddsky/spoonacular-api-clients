@@ -81,10 +81,11 @@ namespace com.spoonacular
         /// <param name="maxProtein">The maximum amount of protein in grams the product can have.</param>
         /// <param name="minFat">The minimum amount of fat in grams the product must have.</param>
         /// <param name="maxFat">The maximum amount of fat in grams the product can have.</param>
+        /// <param name="addProductInformation">If set to true, you get more information about the products returned.</param>
         /// <param name="offset">The number of results to skip (between 0 and 900).</param>
         /// <param name="number">The maximum number of items to return (between 1 and 100). Defaults to 10.</param>
         /// <returns>InlineResponse20027</returns>
-        InlineResponse20027 SearchGroceryProducts (string query, decimal? minCalories, decimal? maxCalories, decimal? minCarbs, decimal? maxCarbs, decimal? minProtein, decimal? maxProtein, decimal? minFat, decimal? maxFat, int? offset, int? number);
+        InlineResponse20027 SearchGroceryProducts (string query, decimal? minCalories, decimal? maxCalories, decimal? minCarbs, decimal? maxCarbs, decimal? minProtein, decimal? maxProtein, decimal? minFat, decimal? maxFat, bool? addProductInformation, int? offset, int? number);
         /// <summary>
         /// Search Grocery Products by UPC Get information about a packaged food using its UPC.
         /// </summary>
@@ -482,10 +483,11 @@ namespace com.spoonacular
         /// <param name="maxProtein">The maximum amount of protein in grams the product can have.</param> 
         /// <param name="minFat">The minimum amount of fat in grams the product must have.</param> 
         /// <param name="maxFat">The maximum amount of fat in grams the product can have.</param> 
+        /// <param name="addProductInformation">If set to true, you get more information about the products returned.</param> 
         /// <param name="offset">The number of results to skip (between 0 and 900).</param> 
         /// <param name="number">The maximum number of items to return (between 1 and 100). Defaults to 10.</param> 
         /// <returns>InlineResponse20027</returns>            
-        public InlineResponse20027 SearchGroceryProducts (string query, decimal? minCalories, decimal? maxCalories, decimal? minCarbs, decimal? maxCarbs, decimal? minProtein, decimal? maxProtein, decimal? minFat, decimal? maxFat, int? offset, int? number)
+        public InlineResponse20027 SearchGroceryProducts (string query, decimal? minCalories, decimal? maxCalories, decimal? minCarbs, decimal? maxCarbs, decimal? minProtein, decimal? maxProtein, decimal? minFat, decimal? maxFat, bool? addProductInformation, int? offset, int? number)
         {
             
     
@@ -507,6 +509,7 @@ namespace com.spoonacular
  if (maxProtein != null) queryParams.Add("maxProtein", ApiClient.ParameterToString(maxProtein)); // query parameter
  if (minFat != null) queryParams.Add("minFat", ApiClient.ParameterToString(minFat)); // query parameter
  if (maxFat != null) queryParams.Add("maxFat", ApiClient.ParameterToString(maxFat)); // query parameter
+ if (addProductInformation != null) queryParams.Add("addProductInformation", ApiClient.ParameterToString(addProductInformation)); // query parameter
  if (offset != null) queryParams.Add("offset", ApiClient.ParameterToString(offset)); // query parameter
  if (number != null) queryParams.Add("number", ApiClient.ParameterToString(number)); // query parameter
                                         

@@ -60,38 +60,26 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property name (base name: "name")', function() {
-      // uncomment below and update the code to test the property name
+    it('should have the property slot (base name: "slot")', function() {
+      // uncomment below and update the code to test the property slot
       //var instane = new SpoonacularApi.InlineResponse20041Items();
       //expect(instance).to.be();
     });
 
-    it('should have the property measures (base name: "measures")', function() {
-      // uncomment below and update the code to test the property measures
+    it('should have the property position (base name: "position")', function() {
+      // uncomment below and update the code to test the property position
       //var instane = new SpoonacularApi.InlineResponse20041Items();
       //expect(instance).to.be();
     });
 
-    it('should have the property pantryItem (base name: "pantryItem")', function() {
-      // uncomment below and update the code to test the property pantryItem
+    it('should have the property type (base name: "type")', function() {
+      // uncomment below and update the code to test the property type
       //var instane = new SpoonacularApi.InlineResponse20041Items();
       //expect(instance).to.be();
     });
 
-    it('should have the property aisle (base name: "aisle")', function() {
-      // uncomment below and update the code to test the property aisle
-      //var instane = new SpoonacularApi.InlineResponse20041Items();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property cost (base name: "cost")', function() {
-      // uncomment below and update the code to test the property cost
-      //var instane = new SpoonacularApi.InlineResponse20041Items();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property ingredientId (base name: "ingredientId")', function() {
-      // uncomment below and update the code to test the property ingredientId
+    it('should have the property value (base name: "value")', function() {
+      // uncomment below and update the code to test the property value
       //var instane = new SpoonacularApi.InlineResponse20041Items();
       //expect(instance).to.be();
     });

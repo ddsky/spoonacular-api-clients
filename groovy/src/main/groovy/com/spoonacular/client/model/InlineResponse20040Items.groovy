@@ -8,7 +8,7 @@ import io.swagger.annotations.ApiModelProperty;
 @Canonical
 class InlineResponse20040Items {
     
-    Integer id
+    Integer day
     
     Integer slot
     

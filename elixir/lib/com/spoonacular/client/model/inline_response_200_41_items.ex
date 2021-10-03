@@ -10,22 +10,18 @@ defmodule com.spoonacular.client.Model.InlineResponse20041Items do
   @derive [Poison.Encoder]
   defstruct [
     :"id",
-    :"name",
-    :"measures",
-    :"pantryItem",
-    :"aisle",
-    :"cost",
-    :"ingredientId"
+    :"slot",
+    :"position",
+    :"type",
+    :"value"
   ]
 
   @type t :: %__MODULE__{
     :"id" => integer(),
-    :"name" => String.t,
-    :"measures" => InlineResponse20041Measures | nil,
-    :"pantryItem" => boolean(),
-    :"aisle" => String.t,
-    :"cost" => float(),
-    :"ingredientId" => integer()
+    :"slot" => integer(),
+    :"position" => integer(),
+    :"type" => String.t,
+    :"value" => InlineResponse20041Value | nil
   }
 end
 
@@ -33,7 +29,7 @@ defimpl Poison.Decoder, for: com.spoonacular.client.Model.InlineResponse20041Ite
   import com.spoonacular.client.Deserializer
   def decode(value, options) do
     value
-    |> deserialize(:"measures", :struct, com.spoonacular.client.Model.InlineResponse20041Measures, options)
+    |> deserialize(:"value", :struct, com.spoonacular.client.Model.InlineResponse20041Value, options)
   end
 end
 

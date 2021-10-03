@@ -6,7 +6,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**annotations** | **List&lt;Object&gt;** |  | 
+**answer** | **String** |  | 
+**image** | **String** |  | 
 
 
 

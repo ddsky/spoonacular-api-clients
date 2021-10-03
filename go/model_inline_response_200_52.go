@@ -11,9 +11,8 @@
 package spoonacular
 
 type InlineResponse20052 struct {
-	Query string `json:"query"`
-	TotalResults int32 `json:"totalResults"`
-	Limit int32 `json:"limit"`
-	Offset int32 `json:"offset"`
-	SearchResults []InlineResponse20052SearchResults `json:"searchResults"`
+	Articles []map[string]interface{} `json:"Articles"`
+	GroceryProducts []map[string]interface{} `json:"Grocery Products"`
+	MenuItems []map[string]interface{} `json:"Menu Items"`
+	Recipes []map[string]interface{} `json:"Recipes"`
 }

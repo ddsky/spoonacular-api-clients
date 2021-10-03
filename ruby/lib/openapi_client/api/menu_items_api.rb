@@ -374,6 +374,7 @@ module OpenapiClient
     # @option opts [Float] :max_protein The maximum amount of protein in grams the menu item can have.
     # @option opts [Float] :min_fat The minimum amount of fat in grams the menu item must have.
     # @option opts [Float] :max_fat The maximum amount of fat in grams the menu item can have.
+    # @option opts [Boolean] :add_menu_item_information If set to true, you get more information about the menu items returned.
     # @option opts [Integer] :offset The number of results to skip (between 0 and 900).
     # @option opts [Integer] :number The maximum number of items to return (between 1 and 100). Defaults to 10. (default to 10)
     # @return [InlineResponse20035]
@@ -394,12 +395,17 @@ module OpenapiClient
     # @option opts [Float] :max_protein The maximum amount of protein in grams the menu item can have.
     # @option opts [Float] :min_fat The minimum amount of fat in grams the menu item must have.
     # @option opts [Float] :max_fat The maximum amount of fat in grams the menu item can have.
+    # @option opts [Boolean] :add_menu_item_information If set to true, you get more information about the menu items returned.
     # @option opts [Integer] :offset The number of results to skip (between 0 and 900).
     # @option opts [Integer] :number The maximum number of items to return (between 1 and 100). Defaults to 10.
     # @return [Array<(InlineResponse20035, Integer, Hash)>] InlineResponse20035 data, response status code and response headers
     def search_menu_items_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MenuItemsApi.search_menu_items ...'
+      end
+      allowable_values = ["false", "true"]
+      if @api_client.config.client_side_validation && opts[:'add_menu_item_information'] && !allowable_values.include?(opts[:'add_menu_item_information'])
+        fail ArgumentError, "invalid value for \"add_menu_item_information\", must be one of #{allowable_values}"
       end
       if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] > 900
         fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling MenuItemsApi.search_menu_items, must be smaller than or equal to 900.'
@@ -431,6 +437,7 @@ module OpenapiClient
       query_params[:'maxProtein'] = opts[:'max_protein'] if !opts[:'max_protein'].nil?
       query_params[:'minFat'] = opts[:'min_fat'] if !opts[:'min_fat'].nil?
       query_params[:'maxFat'] = opts[:'max_fat'] if !opts[:'max_fat'].nil?
+      query_params[:'addMenuItemInformation'] = opts[:'add_menu_item_information'] if !opts[:'add_menu_item_information'].nil?
       query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
       query_params[:'number'] = opts[:'number'] if !opts[:'number'].nil?
 

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**category** | **String** |  | 
-**probability** | **Number** |  | 
+**recommendedWines** | [**[InlineResponse20047RecommendedWines]**](InlineResponse20047RecommendedWines.md) |  | 
+**totalFound** | **Number** |  | 
 
 

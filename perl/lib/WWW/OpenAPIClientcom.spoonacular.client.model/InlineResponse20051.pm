@@ -161,30 +161,9 @@ __PACKAGE__->class_documentation({description => '',
 }                                 );
 
 __PACKAGE__->method_documentation({
-    'articles' => {
+    'annotations' => {
         datatype => 'ARRAY[object]',
-        base_name => 'Articles',
-        description => '',
-        format => '',
-        read_only => '',
-            },
-    'grocery_products' => {
-        datatype => 'ARRAY[object]',
-        base_name => 'Grocery Products',
-        description => '',
-        format => '',
-        read_only => '',
-            },
-    'menu_items' => {
-        datatype => 'ARRAY[object]',
-        base_name => 'Menu Items',
-        description => '',
-        format => '',
-        read_only => '',
-            },
-    'recipes' => {
-        datatype => 'ARRAY[object]',
-        base_name => 'Recipes',
+        base_name => 'annotations',
         description => '',
         format => '',
         read_only => '',
@@ -192,17 +171,11 @@ __PACKAGE__->method_documentation({
 });
 
 __PACKAGE__->openapi_types( {
-    'articles' => 'ARRAY[object]',
-    'grocery_products' => 'ARRAY[object]',
-    'menu_items' => 'ARRAY[object]',
-    'recipes' => 'ARRAY[object]'
+    'annotations' => 'ARRAY[object]'
 } );
 
 __PACKAGE__->attribute_map( {
-    'articles' => 'Articles',
-    'grocery_products' => 'Grocery Products',
-    'menu_items' => 'Menu Items',
-    'recipes' => 'Recipes'
+    'annotations' => 'annotations'
 } );
 
 __PACKAGE__->mk_accessors(keys %{__PACKAGE__->attribute_map});

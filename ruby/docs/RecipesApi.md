@@ -1358,7 +1358,7 @@ Name | Type | Description  | Notes
 
 ## quick_answer
 
-> InlineResponse20049 quick_answer(q)
+> InlineResponse20050 quick_answer(q)
 
 Quick Answer
 
@@ -1398,7 +1398,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20049**](InlineResponse20049.md)
+[**InlineResponse20050**](InlineResponse20050.md)
 
 ### Authorization
 

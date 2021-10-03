@@ -14,27 +14,27 @@ require 'date'
 
 module OpenapiClient
   class InlineResponse20040
-    attr_accessor :id
-
     attr_accessor :name
 
-    attr_accessor :days
+    attr_accessor :items
+
+    attr_accessor :publish_as_public
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'id' => :'id',
         :'name' => :'name',
-        :'days' => :'days'
+        :'items' => :'items',
+        :'publish_as_public' => :'publishAsPublic'
       }
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'id' => :'Integer',
         :'name' => :'String',
-        :'days' => :'Array<InlineResponse20040Days>'
+        :'items' => :'Array<InlineResponse20040Items>',
+        :'publish_as_public' => :'Boolean'
       }
     end
 
@@ -53,18 +53,18 @@ module OpenapiClient
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
-      end
-
       if attributes.key?(:'name')
         self.name = attributes[:'name']
       end
 
-      if attributes.key?(:'days')
-        if (value = attributes[:'days']).is_a?(Array)
-          self.days = value
+      if attributes.key?(:'items')
+        if (value = attributes[:'items']).is_a?(Array)
+          self.items = value
         end
+      end
+
+      if attributes.key?(:'publish_as_public')
+        self.publish_as_public = attributes[:'publish_as_public']
       end
     end
 
@@ -72,10 +72,6 @@ module OpenapiClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @id.nil?
-        invalid_properties.push('invalid value for "id", id cannot be nil.')
-      end
-
       if @name.nil?
         invalid_properties.push('invalid value for "name", name cannot be nil.')
       end
@@ -84,8 +80,12 @@ module OpenapiClient
         invalid_properties.push('invalid value for "name", the character length must be great than or equal to 1.')
       end
 
-      if @days.nil?
-        invalid_properties.push('invalid value for "days", days cannot be nil.')
+      if @items.nil?
+        invalid_properties.push('invalid value for "items", items cannot be nil.')
+      end
+
+      if @publish_as_public.nil?
+        invalid_properties.push('invalid value for "publish_as_public", publish_as_public cannot be nil.')
       end
 
       invalid_properties
@@ -94,10 +94,10 @@ module OpenapiClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @id.nil?
       return false if @name.nil?
       return false if @name.to_s.length < 1
-      return false if @days.nil?
+      return false if @items.nil?
+      return false if @publish_as_public.nil?
       true
     end
 
@@ -120,9 +120,9 @@ module OpenapiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          id == o.id &&
           name == o.name &&
-          days == o.days
+          items == o.items &&
+          publish_as_public == o.publish_as_public
     end
 
     # @see the `==` method
@@ -134,7 +134,7 @@ module OpenapiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, name, days].hash
+      [name, items, publish_as_public].hash
     end
 
     # Builds the object from hash

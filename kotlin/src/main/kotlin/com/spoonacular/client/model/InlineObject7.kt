@@ -16,12 +16,16 @@ import com.squareup.moshi.Json
 /**
  * 
  * @param username The username.
+ * @param id The shopping list item id.
  * @param hash The private hash for the username.
  */
 data class InlineObject7 (
     /* The username. */
     @Json(name = "username")
     val username: kotlin.String,
+    /* The shopping list item id. */
+    @Json(name = "id")
+    val id: java.math.BigDecimal,
     /* The private hash for the username. */
     @Json(name = "hash")
     val hash: kotlin.String

@@ -28,10 +28,10 @@ import java.io.IOException;
 
 
 import java.math.BigDecimal;
-import com.spoonacular.client.model.InlineResponse20043;
 import com.spoonacular.client.model.InlineResponse20044;
 import com.spoonacular.client.model.InlineResponse20045;
 import com.spoonacular.client.model.InlineResponse20046;
+import com.spoonacular.client.model.InlineResponse20047;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -117,13 +117,13 @@ public class WineApi {
      * Dish Pairing for Wine
      * Find a dish that goes well with a given wine.
      * @param wine The type of wine that should be paired, e.g. \&quot;merlot\&quot;, \&quot;riesling\&quot;, or \&quot;malbec\&quot;. (required)
-     * @return InlineResponse20043
+     * @return InlineResponse20044
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Dish-Pairing-for-Wine">Dish Pairing for Wine Documentation</a>
      */
-    public InlineResponse20043 getDishPairingForWine(String wine) throws ApiException {
-        ApiResponse<InlineResponse20043> localVarResp = getDishPairingForWineWithHttpInfo(wine);
+    public InlineResponse20044 getDishPairingForWine(String wine) throws ApiException {
+        ApiResponse<InlineResponse20044> localVarResp = getDishPairingForWineWithHttpInfo(wine);
         return localVarResp.getData();
     }
 
@@ -131,14 +131,14 @@ public class WineApi {
      * Dish Pairing for Wine
      * Find a dish that goes well with a given wine.
      * @param wine The type of wine that should be paired, e.g. \&quot;merlot\&quot;, \&quot;riesling\&quot;, or \&quot;malbec\&quot;. (required)
-     * @return ApiResponse&lt;InlineResponse20043&gt;
+     * @return ApiResponse&lt;InlineResponse20044&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Dish-Pairing-for-Wine">Dish Pairing for Wine Documentation</a>
      */
-    public ApiResponse<InlineResponse20043> getDishPairingForWineWithHttpInfo(String wine) throws ApiException {
+    public ApiResponse<InlineResponse20044> getDishPairingForWineWithHttpInfo(String wine) throws ApiException {
         okhttp3.Call localVarCall = getDishPairingForWineValidateBeforeCall(wine, null);
-        Type localVarReturnType = new TypeToken<InlineResponse20043>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20044>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -152,10 +152,10 @@ public class WineApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Dish-Pairing-for-Wine">Dish Pairing for Wine Documentation</a>
      */
-    public okhttp3.Call getDishPairingForWineAsync(String wine, final ApiCallback<InlineResponse20043> _callback) throws ApiException {
+    public okhttp3.Call getDishPairingForWineAsync(String wine, final ApiCallback<InlineResponse20044> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getDishPairingForWineValidateBeforeCall(wine, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse20043>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20044>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -218,13 +218,13 @@ public class WineApi {
      * Wine Description
      * Get a simple description of a certain wine, e.g. \&quot;malbec\&quot;, \&quot;riesling\&quot;, or \&quot;merlot\&quot;.
      * @param wine The name of the wine that should be paired, e.g. \&quot;merlot\&quot;, \&quot;riesling\&quot;, or \&quot;malbec\&quot;. (required)
-     * @return InlineResponse20045
+     * @return InlineResponse20046
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Wine-Description">Wine Description Documentation</a>
      */
-    public InlineResponse20045 getWineDescription(String wine) throws ApiException {
-        ApiResponse<InlineResponse20045> localVarResp = getWineDescriptionWithHttpInfo(wine);
+    public InlineResponse20046 getWineDescription(String wine) throws ApiException {
+        ApiResponse<InlineResponse20046> localVarResp = getWineDescriptionWithHttpInfo(wine);
         return localVarResp.getData();
     }
 
@@ -232,14 +232,14 @@ public class WineApi {
      * Wine Description
      * Get a simple description of a certain wine, e.g. \&quot;malbec\&quot;, \&quot;riesling\&quot;, or \&quot;merlot\&quot;.
      * @param wine The name of the wine that should be paired, e.g. \&quot;merlot\&quot;, \&quot;riesling\&quot;, or \&quot;malbec\&quot;. (required)
-     * @return ApiResponse&lt;InlineResponse20045&gt;
+     * @return ApiResponse&lt;InlineResponse20046&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Wine-Description">Wine Description Documentation</a>
      */
-    public ApiResponse<InlineResponse20045> getWineDescriptionWithHttpInfo(String wine) throws ApiException {
+    public ApiResponse<InlineResponse20046> getWineDescriptionWithHttpInfo(String wine) throws ApiException {
         okhttp3.Call localVarCall = getWineDescriptionValidateBeforeCall(wine, null);
-        Type localVarReturnType = new TypeToken<InlineResponse20045>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20046>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -253,10 +253,10 @@ public class WineApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Wine-Description">Wine Description Documentation</a>
      */
-    public okhttp3.Call getWineDescriptionAsync(String wine, final ApiCallback<InlineResponse20045> _callback) throws ApiException {
+    public okhttp3.Call getWineDescriptionAsync(String wine, final ApiCallback<InlineResponse20046> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getWineDescriptionValidateBeforeCall(wine, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse20045>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20046>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -325,13 +325,13 @@ public class WineApi {
      * Find a wine that goes well with a food. Food can be a dish name (\&quot;steak\&quot;), an ingredient name (\&quot;salmon\&quot;), or a cuisine (\&quot;italian\&quot;).
      * @param food The food to get a pairing for. This can be a dish (\&quot;steak\&quot;), an ingredient (\&quot;salmon\&quot;), or a cuisine (\&quot;italian\&quot;). (required)
      * @param maxPrice The maximum price for the specific wine recommendation in USD. (optional)
-     * @return InlineResponse20044
+     * @return InlineResponse20045
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Wine-Pairing">Wine Pairing Documentation</a>
      */
-    public InlineResponse20044 getWinePairing(String food, BigDecimal maxPrice) throws ApiException {
-        ApiResponse<InlineResponse20044> localVarResp = getWinePairingWithHttpInfo(food, maxPrice);
+    public InlineResponse20045 getWinePairing(String food, BigDecimal maxPrice) throws ApiException {
+        ApiResponse<InlineResponse20045> localVarResp = getWinePairingWithHttpInfo(food, maxPrice);
         return localVarResp.getData();
     }
 
@@ -340,14 +340,14 @@ public class WineApi {
      * Find a wine that goes well with a food. Food can be a dish name (\&quot;steak\&quot;), an ingredient name (\&quot;salmon\&quot;), or a cuisine (\&quot;italian\&quot;).
      * @param food The food to get a pairing for. This can be a dish (\&quot;steak\&quot;), an ingredient (\&quot;salmon\&quot;), or a cuisine (\&quot;italian\&quot;). (required)
      * @param maxPrice The maximum price for the specific wine recommendation in USD. (optional)
-     * @return ApiResponse&lt;InlineResponse20044&gt;
+     * @return ApiResponse&lt;InlineResponse20045&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Wine-Pairing">Wine Pairing Documentation</a>
      */
-    public ApiResponse<InlineResponse20044> getWinePairingWithHttpInfo(String food, BigDecimal maxPrice) throws ApiException {
+    public ApiResponse<InlineResponse20045> getWinePairingWithHttpInfo(String food, BigDecimal maxPrice) throws ApiException {
         okhttp3.Call localVarCall = getWinePairingValidateBeforeCall(food, maxPrice, null);
-        Type localVarReturnType = new TypeToken<InlineResponse20044>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20045>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -362,10 +362,10 @@ public class WineApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Wine-Pairing">Wine Pairing Documentation</a>
      */
-    public okhttp3.Call getWinePairingAsync(String food, BigDecimal maxPrice, final ApiCallback<InlineResponse20044> _callback) throws ApiException {
+    public okhttp3.Call getWinePairingAsync(String food, BigDecimal maxPrice, final ApiCallback<InlineResponse20045> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getWinePairingValidateBeforeCall(food, maxPrice, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse20044>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20045>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -446,13 +446,13 @@ public class WineApi {
      * @param maxPrice The maximum price for the specific wine recommendation in USD. (optional)
      * @param minRating The minimum rating of the recommended wine between 0 and 1. For example, 0.8 equals 4 out of 5 stars. (optional)
      * @param number The number of wine recommendations expected (between 1 and 100). (optional, default to 10d)
-     * @return InlineResponse20046
+     * @return InlineResponse20047
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Wine-Recommendation">Wine Recommendation Documentation</a>
      */
-    public InlineResponse20046 getWineRecommendation(String wine, BigDecimal maxPrice, BigDecimal minRating, BigDecimal number) throws ApiException {
-        ApiResponse<InlineResponse20046> localVarResp = getWineRecommendationWithHttpInfo(wine, maxPrice, minRating, number);
+    public InlineResponse20047 getWineRecommendation(String wine, BigDecimal maxPrice, BigDecimal minRating, BigDecimal number) throws ApiException {
+        ApiResponse<InlineResponse20047> localVarResp = getWineRecommendationWithHttpInfo(wine, maxPrice, minRating, number);
         return localVarResp.getData();
     }
 
@@ -463,14 +463,14 @@ public class WineApi {
      * @param maxPrice The maximum price for the specific wine recommendation in USD. (optional)
      * @param minRating The minimum rating of the recommended wine between 0 and 1. For example, 0.8 equals 4 out of 5 stars. (optional)
      * @param number The number of wine recommendations expected (between 1 and 100). (optional, default to 10d)
-     * @return ApiResponse&lt;InlineResponse20046&gt;
+     * @return ApiResponse&lt;InlineResponse20047&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Wine-Recommendation">Wine Recommendation Documentation</a>
      */
-    public ApiResponse<InlineResponse20046> getWineRecommendationWithHttpInfo(String wine, BigDecimal maxPrice, BigDecimal minRating, BigDecimal number) throws ApiException {
+    public ApiResponse<InlineResponse20047> getWineRecommendationWithHttpInfo(String wine, BigDecimal maxPrice, BigDecimal minRating, BigDecimal number) throws ApiException {
         okhttp3.Call localVarCall = getWineRecommendationValidateBeforeCall(wine, maxPrice, minRating, number, null);
-        Type localVarReturnType = new TypeToken<InlineResponse20046>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20047>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -487,10 +487,10 @@ public class WineApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Wine-Recommendation">Wine Recommendation Documentation</a>
      */
-    public okhttp3.Call getWineRecommendationAsync(String wine, BigDecimal maxPrice, BigDecimal minRating, BigDecimal number, final ApiCallback<InlineResponse20046> _callback) throws ApiException {
+    public okhttp3.Call getWineRecommendationAsync(String wine, BigDecimal maxPrice, BigDecimal minRating, BigDecimal number, final ApiCallback<InlineResponse20047> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getWineRecommendationValidateBeforeCall(wine, maxPrice, minRating, number, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse20046>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20047>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

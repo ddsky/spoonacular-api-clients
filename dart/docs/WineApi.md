@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 
 # **getDishPairingForWine**
-> InlineResponse20043 getDishPairingForWine(wine)
+> InlineResponse20044 getDishPairingForWine(wine)
 
 Dish Pairing for Wine
 
@@ -49,7 +49,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20043**](InlineResponse20043.md)
+[**InlineResponse20044**](InlineResponse20044.md)
 
 ### Authorization
 
@@ -63,7 +63,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getWineDescription**
-> InlineResponse20045 getWineDescription(wine)
+> InlineResponse20046 getWineDescription(wine)
 
 Wine Description
 
@@ -96,7 +96,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20045**](InlineResponse20045.md)
+[**InlineResponse20046**](InlineResponse20046.md)
 
 ### Authorization
 
@@ -110,7 +110,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getWinePairing**
-> InlineResponse20044 getWinePairing(food, maxPrice)
+> InlineResponse20045 getWinePairing(food, maxPrice)
 
 Wine Pairing
 
@@ -145,7 +145,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20044**](InlineResponse20044.md)
+[**InlineResponse20045**](InlineResponse20045.md)
 
 ### Authorization
 
@@ -159,7 +159,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getWineRecommendation**
-> InlineResponse20046 getWineRecommendation(wine, maxPrice, minRating, number)
+> InlineResponse20047 getWineRecommendation(wine, maxPrice, minRating, number)
 
 Wine Recommendation
 
@@ -198,7 +198,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20046**](InlineResponse20046.md)
+[**InlineResponse20047**](InlineResponse20047.md)
 
 ### Authorization
 

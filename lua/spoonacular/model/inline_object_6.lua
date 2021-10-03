@@ -19,11 +19,9 @@ local function cast_inline_object_6(t)
 	return setmetatable(t, inline_object_6_mt)
 end
 
-local function new_inline_object_6(username, start_date, end_date, hash)
+local function new_inline_object_6(username, hash)
 	return cast_inline_object_6({
 		["username"] = username;
-		["start-date"] = start_date;
-		["end-date"] = end_date;
 		["hash"] = hash;
 	})
 end

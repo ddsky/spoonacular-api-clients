@@ -57,8 +57,8 @@ class InlineResponse20043 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'pairings' => 'string[]',
-        'text' => 'string'
+        'username' => 'string',
+        'hash' => 'string'
     ];
 
     /**
@@ -67,8 +67,8 @@ class InlineResponse20043 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'pairings' => null,
-        'text' => null
+        'username' => null,
+        'hash' => null
     ];
 
     /**
@@ -98,8 +98,8 @@ class InlineResponse20043 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'pairings' => 'pairings',
-        'text' => 'text'
+        'username' => 'username',
+        'hash' => 'hash'
     ];
 
     /**
@@ -108,8 +108,8 @@ class InlineResponse20043 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'pairings' => 'setPairings',
-        'text' => 'setText'
+        'username' => 'setUsername',
+        'hash' => 'setHash'
     ];
 
     /**
@@ -118,8 +118,8 @@ class InlineResponse20043 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'pairings' => 'getPairings',
-        'text' => 'getText'
+        'username' => 'getUsername',
+        'hash' => 'getHash'
     ];
 
     /**
@@ -182,8 +182,8 @@ class InlineResponse20043 implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['pairings'] = isset($data['pairings']) ? $data['pairings'] : null;
-        $this->container['text'] = isset($data['text']) ? $data['text'] : null;
+        $this->container['username'] = isset($data['username']) ? $data['username'] : null;
+        $this->container['hash'] = isset($data['hash']) ? $data['hash'] : null;
     }
 
     /**
@@ -195,14 +195,18 @@ class InlineResponse20043 implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['pairings'] === null) {
-            $invalidProperties[] = "'pairings' can't be null";
+        if ($this->container['username'] === null) {
+            $invalidProperties[] = "'username' can't be null";
         }
-        if ($this->container['text'] === null) {
-            $invalidProperties[] = "'text' can't be null";
+        if ((mb_strlen($this->container['username']) < 1)) {
+            $invalidProperties[] = "invalid value for 'username', the character length must be bigger than or equal to 1.";
         }
-        if ((mb_strlen($this->container['text']) < 1)) {
-            $invalidProperties[] = "invalid value for 'text', the character length must be bigger than or equal to 1.";
+
+        if ($this->container['hash'] === null) {
+            $invalidProperties[] = "'hash' can't be null";
+        }
+        if ((mb_strlen($this->container['hash']) < 1)) {
+            $invalidProperties[] = "invalid value for 'hash', the character length must be bigger than or equal to 1.";
         }
 
         return $invalidProperties;
@@ -221,54 +225,59 @@ class InlineResponse20043 implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets pairings
+     * Gets username
      *
-     * @return string[]
+     * @return string
      */
-    public function getPairings()
+    public function getUsername()
     {
-        return $this->container['pairings'];
+        return $this->container['username'];
     }
 
     /**
-     * Sets pairings
+     * Sets username
      *
-     * @param string[] $pairings pairings
+     * @param string $username username
      *
      * @return $this
      */
-    public function setPairings($pairings)
+    public function setUsername($username)
     {
-        $this->container['pairings'] = $pairings;
+
+        if ((mb_strlen($username) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $username when calling InlineResponse20043., must be bigger than or equal to 1.');
+        }
+
+        $this->container['username'] = $username;
 
         return $this;
     }
 
     /**
-     * Gets text
+     * Gets hash
      *
      * @return string
      */
-    public function getText()
+    public function getHash()
     {
-        return $this->container['text'];
+        return $this->container['hash'];
     }
 
     /**
-     * Sets text
+     * Sets hash
      *
-     * @param string $text text
+     * @param string $hash hash
      *
      * @return $this
      */
-    public function setText($text)
+    public function setHash($hash)
     {
 
-        if ((mb_strlen($text) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $text when calling InlineResponse20043., must be bigger than or equal to 1.');
+        if ((mb_strlen($hash) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $hash when calling InlineResponse20043., must be bigger than or equal to 1.');
         }
 
-        $this->container['text'] = $text;
+        $this->container['hash'] = $hash;
 
         return $this;
     }

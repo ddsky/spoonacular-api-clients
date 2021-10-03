@@ -332,7 +332,7 @@ describe 'RecipesApi' do
   # Answer a nutrition related natural language question.
   # @param q The nutrition related question.
   # @param [Hash] opts the optional parameters
-  # @return [InlineResponse20049]
+  # @return [InlineResponse20050]
   describe 'quick_answer test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

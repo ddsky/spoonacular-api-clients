@@ -18,14 +18,10 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.spoonacular.client.model.InlineResponse20048Category;
-import com.spoonacular.client.model.InlineResponse20048Nutrition;
-import com.spoonacular.client.model.InlineResponse20048Recipes;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.math.BigDecimal;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -46,14 +42,6 @@ public class InlineResponse20048Test {
     }
 
     /**
-     * Test the property 'nutrition'
-     */
-    @Test
-    public void nutritionTest() {
-        // TODO: test nutrition
-    }
-
-    /**
      * Test the property 'category'
      */
     @Test
@@ -62,11 +50,11 @@ public class InlineResponse20048Test {
     }
 
     /**
-     * Test the property 'recipes'
+     * Test the property 'probability'
      */
     @Test
-    public void recipesTest() {
-        // TODO: test recipes
+    public void probabilityTest() {
+        // TODO: test probability
     }
 
 }

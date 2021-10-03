@@ -6,7 +6,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Integer** |  | 
+**day** | **Integer** |  | 
 **slot** | **Integer** |  | 
 **position** | **Integer** |  | 
 **type** | **String** |  | 

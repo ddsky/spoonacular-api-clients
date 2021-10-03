@@ -57,8 +57,8 @@ class InlineResponse20047 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'category' => 'string',
-        'probability' => 'float'
+        'recommended_wines' => '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20047RecommendedWines[]',
+        'total_found' => 'int'
     ];
 
     /**
@@ -67,8 +67,8 @@ class InlineResponse20047 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'category' => null,
-        'probability' => null
+        'recommended_wines' => null,
+        'total_found' => null
     ];
 
     /**
@@ -98,8 +98,8 @@ class InlineResponse20047 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'category' => 'category',
-        'probability' => 'probability'
+        'recommended_wines' => 'recommendedWines',
+        'total_found' => 'totalFound'
     ];
 
     /**
@@ -108,8 +108,8 @@ class InlineResponse20047 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'category' => 'setCategory',
-        'probability' => 'setProbability'
+        'recommended_wines' => 'setRecommendedWines',
+        'total_found' => 'setTotalFound'
     ];
 
     /**
@@ -118,8 +118,8 @@ class InlineResponse20047 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'category' => 'getCategory',
-        'probability' => 'getProbability'
+        'recommended_wines' => 'getRecommendedWines',
+        'total_found' => 'getTotalFound'
     ];
 
     /**
@@ -182,8 +182,8 @@ class InlineResponse20047 implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['category'] = isset($data['category']) ? $data['category'] : null;
-        $this->container['probability'] = isset($data['probability']) ? $data['probability'] : null;
+        $this->container['recommended_wines'] = isset($data['recommended_wines']) ? $data['recommended_wines'] : null;
+        $this->container['total_found'] = isset($data['total_found']) ? $data['total_found'] : null;
     }
 
     /**
@@ -195,15 +195,11 @@ class InlineResponse20047 implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['category'] === null) {
-            $invalidProperties[] = "'category' can't be null";
+        if ($this->container['recommended_wines'] === null) {
+            $invalidProperties[] = "'recommended_wines' can't be null";
         }
-        if ((mb_strlen($this->container['category']) < 1)) {
-            $invalidProperties[] = "invalid value for 'category', the character length must be bigger than or equal to 1.";
-        }
-
-        if ($this->container['probability'] === null) {
-            $invalidProperties[] = "'probability' can't be null";
+        if ($this->container['total_found'] === null) {
+            $invalidProperties[] = "'total_found' can't be null";
         }
         return $invalidProperties;
     }
@@ -221,54 +217,49 @@ class InlineResponse20047 implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets category
+     * Gets recommended_wines
      *
-     * @return string
+     * @return \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20047RecommendedWines[]
      */
-    public function getCategory()
+    public function getRecommendedWines()
     {
-        return $this->container['category'];
+        return $this->container['recommended_wines'];
     }
 
     /**
-     * Sets category
+     * Sets recommended_wines
      *
-     * @param string $category category
+     * @param \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20047RecommendedWines[] $recommended_wines recommended_wines
      *
      * @return $this
      */
-    public function setCategory($category)
+    public function setRecommendedWines($recommended_wines)
     {
-
-        if ((mb_strlen($category) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $category when calling InlineResponse20047., must be bigger than or equal to 1.');
-        }
-
-        $this->container['category'] = $category;
+        $this->container['recommended_wines'] = $recommended_wines;
 
         return $this;
     }
 
     /**
-     * Gets probability
+     * Gets total_found
      *
-     * @return float
+     * @return int
      */
-    public function getProbability()
+    public function getTotalFound()
     {
-        return $this->container['probability'];
+        return $this->container['total_found'];
     }
 
     /**
-     * Sets probability
+     * Sets total_found
      *
-     * @param float $probability probability
+     * @param int $total_found total_found
      *
      * @return $this
      */
-    public function setProbability($probability)
+    public function setTotalFound($total_found)
     {
-        $this->container['probability'] = $probability;
+        $this->container['total_found'] = $total_found;
 
         return $this;
     }

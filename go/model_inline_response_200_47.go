@@ -11,6 +11,6 @@
 package spoonacular
 
 type InlineResponse20047 struct {
-	Category string `json:"category"`
-	Probability float32 `json:"probability"`
+	RecommendedWines []InlineResponse20047RecommendedWines `json:"recommendedWines"`
+	TotalFound int32 `json:"totalFound"`
 }

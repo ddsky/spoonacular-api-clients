@@ -9,17 +9,11 @@ defmodule com.spoonacular.client.Model.InlineResponse20051 do
 
   @derive [Poison.Encoder]
   defstruct [
-    :"Articles",
-    :"Grocery Products",
-    :"Menu Items",
-    :"Recipes"
+    :"annotations"
   ]
 
   @type t :: %__MODULE__{
-    :"Articles" => [Map],
-    :"Grocery Products" => [Map],
-    :"Menu Items" => [Map],
-    :"Recipes" => [Map]
+    :"annotations" => [Map]
   }
 end
 

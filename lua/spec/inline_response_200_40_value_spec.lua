@@ -23,6 +23,13 @@ describe("inline_response_200_40_value", function()
     end)
   end)
 
+  -- unit tests for the property 'servings'
+  describe("property servings test", function()
+    it("should work", function()
+      -- TODO assertion here: http://olivinelabs.com/busted/#asserts
+    end)
+  end)
+
   -- unit tests for the property 'title'
   describe("property title test", function()
     it("should work", function()

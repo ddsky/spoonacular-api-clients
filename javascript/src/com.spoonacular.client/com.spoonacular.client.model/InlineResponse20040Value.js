@@ -22,13 +22,10 @@ class InlineResponse20040Value {
     /**
      * Constructs a new <code>InlineResponse20040Value</code>.
      * @alias module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20040Value
-     * @param id {Number} 
-     * @param title {String} 
-     * @param imageType {String} 
      */
-    constructor(id, title, imageType) { 
+    constructor() { 
         
-        InlineResponse20040Value.initialize(this, id, title, imageType);
+        InlineResponse20040Value.initialize(this);
     }
 
     /**
@@ -36,10 +33,7 @@ class InlineResponse20040Value {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, id, title, imageType) { 
-        obj['id'] = id;
-        obj['title'] = title;
-        obj['imageType'] = imageType;
+    static initialize(obj) { 
     }
 
     /**
@@ -55,6 +49,9 @@ class InlineResponse20040Value {
 
             if (data.hasOwnProperty('id')) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'Number');
+            }
+            if (data.hasOwnProperty('servings')) {
+                obj['servings'] = ApiClient.convertToType(data['servings'], 'Number');
             }
             if (data.hasOwnProperty('title')) {
                 obj['title'] = ApiClient.convertToType(data['title'], 'String');
@@ -73,6 +70,11 @@ class InlineResponse20040Value {
  * @member {Number} id
  */
 InlineResponse20040Value.prototype['id'] = undefined;
+
+/**
+ * @member {Number} servings
+ */
+InlineResponse20040Value.prototype['servings'] = undefined;
 
 /**
  * @member {String} title

@@ -15,18 +15,21 @@
 
 #include "OAIHttpRequest.h"
 
+#include "com.spoonacular.client.model\OAIInline_object_10.h"
 #include "com.spoonacular.client.model\OAIInline_object_3.h"
 #include "com.spoonacular.client.model\OAIInline_object_4.h"
 #include "com.spoonacular.client.model\OAIInline_object_5.h"
 #include "com.spoonacular.client.model\OAIInline_object_6.h"
 #include "com.spoonacular.client.model\OAIInline_object_7.h"
 #include "com.spoonacular.client.model\OAIInline_object_8.h"
+#include "com.spoonacular.client.model\OAIInline_object_9.h"
 #include "com.spoonacular.client.model\OAIInline_response_200_37.h"
 #include "com.spoonacular.client.model\OAIInline_response_200_38.h"
 #include "com.spoonacular.client.model\OAIInline_response_200_39.h"
 #include "com.spoonacular.client.model\OAIInline_response_200_40.h"
 #include "com.spoonacular.client.model\OAIInline_response_200_41.h"
 #include "com.spoonacular.client.model\OAIInline_response_200_42.h"
+#include "com.spoonacular.client.model\OAIInline_response_200_43.h"
 #include "com.spoonacular.client.model\OAINumber.h"
 #include "com.spoonacular.client.model\OAIObject.h"
 #include <QString>
@@ -47,26 +50,30 @@ public:
     QString basePath;
     QMap<QString, QString> defaultHeaders;
 
+    void addMealPlanTemplate(const QString& username, const QString& hash, const OAIInline_object_6& oai_inline_object_6);
     void addToMealPlan(const QString& username, const QString& hash, const OAIInline_object_4& oai_inline_object_4);
-    void addToShoppingList(const QString& username, const QString& hash, const OAIInline_object_7& oai_inline_object_7);
+    void addToShoppingList(const QString& username, const QString& hash, const OAIInline_object_9& oai_inline_object_9);
     void clearMealPlanDay(const QString& username, const QString& date, const QString& hash, const OAIInline_object_3& oai_inline_object_3);
     void connectUser(const OAIObject& body);
     void deleteFromMealPlan(const QString& username, const OAINumber& id, const QString& hash, const OAIInline_object_5& oai_inline_object_5);
-    void deleteFromShoppingList(const QString& username, const qint32& id, const QString& hash, const OAIInline_object_8& oai_inline_object_8);
+    void deleteFromShoppingList(const QString& username, const qint32& id, const QString& hash, const OAIInline_object_10& oai_inline_object_10);
+    void deleteMealPlanTemplate(const QString& username, const qint32& id, const QString& hash, const OAIInline_object_7& oai_inline_object_7);
     void generateMealPlan(const QString& time_frame, const OAINumber& target_calories, const QString& diet, const QString& exclude);
-    void generateShoppingList(const QString& username, const QString& start_date, const QString& end_date, const QString& hash, const OAIInline_object_6& oai_inline_object_6);
+    void generateShoppingList(const QString& username, const QString& start_date, const QString& end_date, const QString& hash, const OAIInline_object_8& oai_inline_object_8);
     void getMealPlanTemplate(const QString& username, const qint32& id, const QString& hash);
     void getMealPlanTemplates(const QString& username, const QString& hash);
     void getMealPlanWeek(const QString& username, const QString& start_date, const QString& hash);
     void getShoppingList(const QString& username, const QString& hash);
     
 private:
+    void addMealPlanTemplateCallback (OAIHttpRequestWorker * worker);
     void addToMealPlanCallback (OAIHttpRequestWorker * worker);
     void addToShoppingListCallback (OAIHttpRequestWorker * worker);
     void clearMealPlanDayCallback (OAIHttpRequestWorker * worker);
     void connectUserCallback (OAIHttpRequestWorker * worker);
     void deleteFromMealPlanCallback (OAIHttpRequestWorker * worker);
     void deleteFromShoppingListCallback (OAIHttpRequestWorker * worker);
+    void deleteMealPlanTemplateCallback (OAIHttpRequestWorker * worker);
     void generateMealPlanCallback (OAIHttpRequestWorker * worker);
     void generateShoppingListCallback (OAIHttpRequestWorker * worker);
     void getMealPlanTemplateCallback (OAIHttpRequestWorker * worker);
@@ -75,51 +82,59 @@ private:
     void getShoppingListCallback (OAIHttpRequestWorker * worker);
     
 signals:
+    void addMealPlanTemplateSignal(OAIInline_response_200_40 summary);
     void addToMealPlanSignal(OAIObject summary);
-    void addToShoppingListSignal(OAIInline_response_200_41 summary);
+    void addToShoppingListSignal(OAIInline_response_200_42 summary);
     void clearMealPlanDaySignal(OAIObject summary);
-    void connectUserSignal(OAIInline_response_200_42 summary);
+    void connectUserSignal(OAIInline_response_200_43 summary);
     void deleteFromMealPlanSignal(OAIObject summary);
     void deleteFromShoppingListSignal(OAIObject summary);
+    void deleteMealPlanTemplateSignal(OAIObject summary);
     void generateMealPlanSignal(OAIInline_response_200_37 summary);
-    void generateShoppingListSignal(OAIInline_response_200_41 summary);
-    void getMealPlanTemplateSignal(OAIInline_response_200_40 summary);
+    void generateShoppingListSignal(OAIInline_response_200_42 summary);
+    void getMealPlanTemplateSignal(OAIInline_response_200_41 summary);
     void getMealPlanTemplatesSignal(OAIInline_response_200_39 summary);
     void getMealPlanWeekSignal(OAIInline_response_200_38 summary);
-    void getShoppingListSignal(OAIInline_response_200_41 summary);
+    void getShoppingListSignal(OAIInline_response_200_42 summary);
     
+    void addMealPlanTemplateSignalFull(OAIHttpRequestWorker* worker, OAIInline_response_200_40 summary);
     void addToMealPlanSignalFull(OAIHttpRequestWorker* worker, OAIObject summary);
-    void addToShoppingListSignalFull(OAIHttpRequestWorker* worker, OAIInline_response_200_41 summary);
+    void addToShoppingListSignalFull(OAIHttpRequestWorker* worker, OAIInline_response_200_42 summary);
     void clearMealPlanDaySignalFull(OAIHttpRequestWorker* worker, OAIObject summary);
-    void connectUserSignalFull(OAIHttpRequestWorker* worker, OAIInline_response_200_42 summary);
+    void connectUserSignalFull(OAIHttpRequestWorker* worker, OAIInline_response_200_43 summary);
     void deleteFromMealPlanSignalFull(OAIHttpRequestWorker* worker, OAIObject summary);
     void deleteFromShoppingListSignalFull(OAIHttpRequestWorker* worker, OAIObject summary);
+    void deleteMealPlanTemplateSignalFull(OAIHttpRequestWorker* worker, OAIObject summary);
     void generateMealPlanSignalFull(OAIHttpRequestWorker* worker, OAIInline_response_200_37 summary);
-    void generateShoppingListSignalFull(OAIHttpRequestWorker* worker, OAIInline_response_200_41 summary);
-    void getMealPlanTemplateSignalFull(OAIHttpRequestWorker* worker, OAIInline_response_200_40 summary);
+    void generateShoppingListSignalFull(OAIHttpRequestWorker* worker, OAIInline_response_200_42 summary);
+    void getMealPlanTemplateSignalFull(OAIHttpRequestWorker* worker, OAIInline_response_200_41 summary);
     void getMealPlanTemplatesSignalFull(OAIHttpRequestWorker* worker, OAIInline_response_200_39 summary);
     void getMealPlanWeekSignalFull(OAIHttpRequestWorker* worker, OAIInline_response_200_38 summary);
-    void getShoppingListSignalFull(OAIHttpRequestWorker* worker, OAIInline_response_200_41 summary);
+    void getShoppingListSignalFull(OAIHttpRequestWorker* worker, OAIInline_response_200_42 summary);
     
+    void addMealPlanTemplateSignalE(OAIInline_response_200_40 summary, QNetworkReply::NetworkError error_type, QString& error_str);
     void addToMealPlanSignalE(OAIObject summary, QNetworkReply::NetworkError error_type, QString& error_str);
-    void addToShoppingListSignalE(OAIInline_response_200_41 summary, QNetworkReply::NetworkError error_type, QString& error_str);
+    void addToShoppingListSignalE(OAIInline_response_200_42 summary, QNetworkReply::NetworkError error_type, QString& error_str);
     void clearMealPlanDaySignalE(OAIObject summary, QNetworkReply::NetworkError error_type, QString& error_str);
-    void connectUserSignalE(OAIInline_response_200_42 summary, QNetworkReply::NetworkError error_type, QString& error_str);
+    void connectUserSignalE(OAIInline_response_200_43 summary, QNetworkReply::NetworkError error_type, QString& error_str);
     void deleteFromMealPlanSignalE(OAIObject summary, QNetworkReply::NetworkError error_type, QString& error_str);
     void deleteFromShoppingListSignalE(OAIObject summary, QNetworkReply::NetworkError error_type, QString& error_str);
+    void deleteMealPlanTemplateSignalE(OAIObject summary, QNetworkReply::NetworkError error_type, QString& error_str);
     void generateMealPlanSignalE(OAIInline_response_200_37 summary, QNetworkReply::NetworkError error_type, QString& error_str);
-    void generateShoppingListSignalE(OAIInline_response_200_41 summary, QNetworkReply::NetworkError error_type, QString& error_str);
-    void getMealPlanTemplateSignalE(OAIInline_response_200_40 summary, QNetworkReply::NetworkError error_type, QString& error_str);
+    void generateShoppingListSignalE(OAIInline_response_200_42 summary, QNetworkReply::NetworkError error_type, QString& error_str);
+    void getMealPlanTemplateSignalE(OAIInline_response_200_41 summary, QNetworkReply::NetworkError error_type, QString& error_str);
     void getMealPlanTemplatesSignalE(OAIInline_response_200_39 summary, QNetworkReply::NetworkError error_type, QString& error_str);
     void getMealPlanWeekSignalE(OAIInline_response_200_38 summary, QNetworkReply::NetworkError error_type, QString& error_str);
-    void getShoppingListSignalE(OAIInline_response_200_41 summary, QNetworkReply::NetworkError error_type, QString& error_str);
+    void getShoppingListSignalE(OAIInline_response_200_42 summary, QNetworkReply::NetworkError error_type, QString& error_str);
     
+    void addMealPlanTemplateSignalEFull(OAIHttpRequestWorker* worker, QNetworkReply::NetworkError error_type, QString& error_str);
     void addToMealPlanSignalEFull(OAIHttpRequestWorker* worker, QNetworkReply::NetworkError error_type, QString& error_str);
     void addToShoppingListSignalEFull(OAIHttpRequestWorker* worker, QNetworkReply::NetworkError error_type, QString& error_str);
     void clearMealPlanDaySignalEFull(OAIHttpRequestWorker* worker, QNetworkReply::NetworkError error_type, QString& error_str);
     void connectUserSignalEFull(OAIHttpRequestWorker* worker, QNetworkReply::NetworkError error_type, QString& error_str);
     void deleteFromMealPlanSignalEFull(OAIHttpRequestWorker* worker, QNetworkReply::NetworkError error_type, QString& error_str);
     void deleteFromShoppingListSignalEFull(OAIHttpRequestWorker* worker, QNetworkReply::NetworkError error_type, QString& error_str);
+    void deleteMealPlanTemplateSignalEFull(OAIHttpRequestWorker* worker, QNetworkReply::NetworkError error_type, QString& error_str);
     void generateMealPlanSignalEFull(OAIHttpRequestWorker* worker, QNetworkReply::NetworkError error_type, QString& error_str);
     void generateShoppingListSignalEFull(OAIHttpRequestWorker* worker, QNetworkReply::NetworkError error_type, QString& error_str);
     void getMealPlanTemplateSignalEFull(OAIHttpRequestWorker* worker, QNetworkReply::NetworkError error_type, QString& error_str);

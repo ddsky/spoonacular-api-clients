@@ -304,14 +304,15 @@ class ProductsApi(basePath: kotlin.String = "https://api.spoonacular.com") : Api
     * @param maxProtein The maximum amount of protein in grams the product can have. (optional)
     * @param minFat The minimum amount of fat in grams the product must have. (optional)
     * @param maxFat The maximum amount of fat in grams the product can have. (optional)
+    * @param addProductInformation If set to true, you get more information about the products returned. (optional)
     * @param offset The number of results to skip (between 0 and 900). (optional)
     * @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
     * @return InlineResponse20027
     */
     @Suppress("UNCHECKED_CAST")
-    fun searchGroceryProducts(query: kotlin.String?, minCalories: java.math.BigDecimal?, maxCalories: java.math.BigDecimal?, minCarbs: java.math.BigDecimal?, maxCarbs: java.math.BigDecimal?, minProtein: java.math.BigDecimal?, maxProtein: java.math.BigDecimal?, minFat: java.math.BigDecimal?, maxFat: java.math.BigDecimal?, offset: kotlin.Int?, number: kotlin.Int?) : InlineResponse20027 {
+    fun searchGroceryProducts(query: kotlin.String?, minCalories: java.math.BigDecimal?, maxCalories: java.math.BigDecimal?, minCarbs: java.math.BigDecimal?, maxCarbs: java.math.BigDecimal?, minProtein: java.math.BigDecimal?, maxProtein: java.math.BigDecimal?, minFat: java.math.BigDecimal?, maxFat: java.math.BigDecimal?, addProductInformation: kotlin.Boolean?, offset: kotlin.Int?, number: kotlin.Int?) : InlineResponse20027 {
         val localVariableBody: kotlin.Any? = null
-        val localVariableQuery: MultiValueMap = mapOf("query" to listOf("$query"), "minCalories" to listOf("$minCalories"), "maxCalories" to listOf("$maxCalories"), "minCarbs" to listOf("$minCarbs"), "maxCarbs" to listOf("$maxCarbs"), "minProtein" to listOf("$minProtein"), "maxProtein" to listOf("$maxProtein"), "minFat" to listOf("$minFat"), "maxFat" to listOf("$maxFat"), "offset" to listOf("$offset"), "number" to listOf("$number"))
+        val localVariableQuery: MultiValueMap = mapOf("query" to listOf("$query"), "minCalories" to listOf("$minCalories"), "maxCalories" to listOf("$maxCalories"), "minCarbs" to listOf("$minCarbs"), "maxCarbs" to listOf("$maxCarbs"), "minProtein" to listOf("$minProtein"), "maxProtein" to listOf("$maxProtein"), "minFat" to listOf("$minFat"), "maxFat" to listOf("$maxFat"), "addProductInformation" to listOf("$addProductInformation"), "offset" to listOf("$offset"), "number" to listOf("$number"))
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         val localVariableConfig = RequestConfig(
             RequestMethod.GET,

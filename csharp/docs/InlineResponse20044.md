@@ -3,9 +3,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**PairedWines** | **List<string>** |  | 
-**PairingText** | **string** |  | 
-**ProductMatches** | [**List<InlineResponse20044ProductMatches>**](InlineResponse20044ProductMatches.md) |  | 
+**Pairings** | **List<string>** |  | 
+**Text** | **string** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

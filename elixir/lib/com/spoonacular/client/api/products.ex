@@ -298,6 +298,7 @@ defmodule com.spoonacular.client.Api.Products do
     - :max_protein (float()): The maximum amount of protein in grams the product can have.
     - :min_fat (float()): The minimum amount of fat in grams the product must have.
     - :max_fat (float()): The maximum amount of fat in grams the product can have.
+    - :add_product_information (boolean()): If set to true, you get more information about the products returned.
     - :offset (integer()): The number of results to skip (between 0 and 900).
     - :number (integer()): The maximum number of items to return (between 1 and 100). Defaults to 10.
   ## Returns
@@ -317,6 +318,7 @@ defmodule com.spoonacular.client.Api.Products do
       :"maxProtein" => :query,
       :"minFat" => :query,
       :"maxFat" => :query,
+      :"addProductInformation" => :query,
       :"offset" => :query,
       :"number" => :query
     }

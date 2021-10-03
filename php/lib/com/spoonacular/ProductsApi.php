@@ -2428,6 +2428,7 @@ class ProductsApi
      * @param  float $max_protein The maximum amount of protein in grams the product can have. (optional)
      * @param  float $min_fat The minimum amount of fat in grams the product must have. (optional)
      * @param  float $max_fat The maximum amount of fat in grams the product can have. (optional)
+     * @param  bool $add_product_information If set to true, you get more information about the products returned. (optional)
      * @param  int $offset The number of results to skip (between 0 and 900). (optional)
      * @param  int $number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      *
@@ -2435,9 +2436,9 @@ class ProductsApi
      * @throws \InvalidArgumentException
      * @return \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20027
      */
-    public function searchGroceryProducts($query = null, $min_calories = null, $max_calories = null, $min_carbs = null, $max_carbs = null, $min_protein = null, $max_protein = null, $min_fat = null, $max_fat = null, $offset = null, $number = 10)
+    public function searchGroceryProducts($query = null, $min_calories = null, $max_calories = null, $min_carbs = null, $max_carbs = null, $min_protein = null, $max_protein = null, $min_fat = null, $max_fat = null, $add_product_information = null, $offset = null, $number = 10)
     {
-        list($response) = $this->searchGroceryProductsWithHttpInfo($query, $min_calories, $max_calories, $min_carbs, $max_carbs, $min_protein, $max_protein, $min_fat, $max_fat, $offset, $number);
+        list($response) = $this->searchGroceryProductsWithHttpInfo($query, $min_calories, $max_calories, $min_carbs, $max_carbs, $min_protein, $max_protein, $min_fat, $max_fat, $add_product_information, $offset, $number);
         return $response;
     }
 
@@ -2455,6 +2456,7 @@ class ProductsApi
      * @param  float $max_protein The maximum amount of protein in grams the product can have. (optional)
      * @param  float $min_fat The minimum amount of fat in grams the product must have. (optional)
      * @param  float $max_fat The maximum amount of fat in grams the product can have. (optional)
+     * @param  bool $add_product_information If set to true, you get more information about the products returned. (optional)
      * @param  int $offset The number of results to skip (between 0 and 900). (optional)
      * @param  int $number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      *
@@ -2462,9 +2464,9 @@ class ProductsApi
      * @throws \InvalidArgumentException
      * @return array of \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20027, HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchGroceryProductsWithHttpInfo($query = null, $min_calories = null, $max_calories = null, $min_carbs = null, $max_carbs = null, $min_protein = null, $max_protein = null, $min_fat = null, $max_fat = null, $offset = null, $number = 10)
+    public function searchGroceryProductsWithHttpInfo($query = null, $min_calories = null, $max_calories = null, $min_carbs = null, $max_carbs = null, $min_protein = null, $max_protein = null, $min_fat = null, $max_fat = null, $add_product_information = null, $offset = null, $number = 10)
     {
-        $request = $this->searchGroceryProductsRequest($query, $min_calories, $max_calories, $min_carbs, $max_carbs, $min_protein, $max_protein, $min_fat, $max_fat, $offset, $number);
+        $request = $this->searchGroceryProductsRequest($query, $min_calories, $max_calories, $min_carbs, $max_carbs, $min_protein, $max_protein, $min_fat, $max_fat, $add_product_information, $offset, $number);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2553,15 +2555,16 @@ class ProductsApi
      * @param  float $max_protein The maximum amount of protein in grams the product can have. (optional)
      * @param  float $min_fat The minimum amount of fat in grams the product must have. (optional)
      * @param  float $max_fat The maximum amount of fat in grams the product can have. (optional)
+     * @param  bool $add_product_information If set to true, you get more information about the products returned. (optional)
      * @param  int $offset The number of results to skip (between 0 and 900). (optional)
      * @param  int $number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchGroceryProductsAsync($query = null, $min_calories = null, $max_calories = null, $min_carbs = null, $max_carbs = null, $min_protein = null, $max_protein = null, $min_fat = null, $max_fat = null, $offset = null, $number = 10)
+    public function searchGroceryProductsAsync($query = null, $min_calories = null, $max_calories = null, $min_carbs = null, $max_carbs = null, $min_protein = null, $max_protein = null, $min_fat = null, $max_fat = null, $add_product_information = null, $offset = null, $number = 10)
     {
-        return $this->searchGroceryProductsAsyncWithHttpInfo($query, $min_calories, $max_calories, $min_carbs, $max_carbs, $min_protein, $max_protein, $min_fat, $max_fat, $offset, $number)
+        return $this->searchGroceryProductsAsyncWithHttpInfo($query, $min_calories, $max_calories, $min_carbs, $max_carbs, $min_protein, $max_protein, $min_fat, $max_fat, $add_product_information, $offset, $number)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2583,16 +2586,17 @@ class ProductsApi
      * @param  float $max_protein The maximum amount of protein in grams the product can have. (optional)
      * @param  float $min_fat The minimum amount of fat in grams the product must have. (optional)
      * @param  float $max_fat The maximum amount of fat in grams the product can have. (optional)
+     * @param  bool $add_product_information If set to true, you get more information about the products returned. (optional)
      * @param  int $offset The number of results to skip (between 0 and 900). (optional)
      * @param  int $number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchGroceryProductsAsyncWithHttpInfo($query = null, $min_calories = null, $max_calories = null, $min_carbs = null, $max_carbs = null, $min_protein = null, $max_protein = null, $min_fat = null, $max_fat = null, $offset = null, $number = 10)
+    public function searchGroceryProductsAsyncWithHttpInfo($query = null, $min_calories = null, $max_calories = null, $min_carbs = null, $max_carbs = null, $min_protein = null, $max_protein = null, $min_fat = null, $max_fat = null, $add_product_information = null, $offset = null, $number = 10)
     {
         $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20027';
-        $request = $this->searchGroceryProductsRequest($query, $min_calories, $max_calories, $min_carbs, $max_carbs, $min_protein, $max_protein, $min_fat, $max_fat, $offset, $number);
+        $request = $this->searchGroceryProductsRequest($query, $min_calories, $max_calories, $min_carbs, $max_carbs, $min_protein, $max_protein, $min_fat, $max_fat, $add_product_information, $offset, $number);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2640,13 +2644,14 @@ class ProductsApi
      * @param  float $max_protein The maximum amount of protein in grams the product can have. (optional)
      * @param  float $min_fat The minimum amount of fat in grams the product must have. (optional)
      * @param  float $max_fat The maximum amount of fat in grams the product can have. (optional)
+     * @param  bool $add_product_information If set to true, you get more information about the products returned. (optional)
      * @param  int $offset The number of results to skip (between 0 and 900). (optional)
      * @param  int $number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function searchGroceryProductsRequest($query = null, $min_calories = null, $max_calories = null, $min_carbs = null, $max_carbs = null, $min_protein = null, $max_protein = null, $min_fat = null, $max_fat = null, $offset = null, $number = 10)
+    protected function searchGroceryProductsRequest($query = null, $min_calories = null, $max_calories = null, $min_carbs = null, $max_carbs = null, $min_protein = null, $max_protein = null, $min_fat = null, $max_fat = null, $add_product_information = null, $offset = null, $number = 10)
     {
         if ($offset !== null && $offset > 900) {
             throw new \InvalidArgumentException('invalid value for "$offset" when calling ProductsApi.searchGroceryProducts, must be smaller than or equal to 900.');
@@ -2705,6 +2710,10 @@ class ProductsApi
         // query params
         if ($max_fat !== null) {
             $queryParams['maxFat'] = ObjectSerializer::toQueryValue($max_fat);
+        }
+        // query params
+        if ($add_product_information !== null) {
+            $queryParams['addProductInformation'] = ObjectSerializer::toQueryValue($add_product_information);
         }
         // query params
         if ($offset !== null) {

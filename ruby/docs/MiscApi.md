@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 ## detect_food_in_text
 
-> InlineResponse20050 detect_food_in_text(opts)
+> InlineResponse20051 detect_food_in_text(opts)
 
 Detect Food in Text
 
@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20050**](InlineResponse20050.md)
+[**InlineResponse20051**](InlineResponse20051.md)
 
 ### Authorization
 
@@ -76,7 +76,7 @@ Name | Type | Description  | Notes
 
 ## get_a_random_food_joke
 
-> InlineResponse20054 get_a_random_food_joke
+> InlineResponse20055 get_a_random_food_joke
 
 Random Food Joke
 
@@ -112,7 +112,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse20054**](InlineResponse20054.md)
+[**InlineResponse20055**](InlineResponse20055.md)
 
 ### Authorization
 
@@ -126,7 +126,7 @@ This endpoint does not need any parameter.
 
 ## get_conversation_suggests
 
-> InlineResponse20056 get_conversation_suggests(query, opts)
+> InlineResponse20057 get_conversation_suggests(query, opts)
 
 Conversation Suggests
 
@@ -170,7 +170,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20056**](InlineResponse20056.md)
+[**InlineResponse20057**](InlineResponse20057.md)
 
 ### Authorization
 
@@ -184,7 +184,7 @@ Name | Type | Description  | Notes
 
 ## get_random_food_trivia
 
-> InlineResponse20054 get_random_food_trivia
+> InlineResponse20055 get_random_food_trivia
 
 Random Food Trivia
 
@@ -220,7 +220,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse20054**](InlineResponse20054.md)
+[**InlineResponse20055**](InlineResponse20055.md)
 
 ### Authorization
 
@@ -234,7 +234,7 @@ This endpoint does not need any parameter.
 
 ## image_analysis_by_url
 
-> InlineResponse20048 image_analysis_by_url(image_url)
+> InlineResponse20049 image_analysis_by_url(image_url)
 
 Image Analysis by URL
 
@@ -274,7 +274,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20048**](InlineResponse20048.md)
+[**InlineResponse20049**](InlineResponse20049.md)
 
 ### Authorization
 
@@ -288,7 +288,7 @@ Name | Type | Description  | Notes
 
 ## image_classification_by_url
 
-> InlineResponse20047 image_classification_by_url(image_url)
+> InlineResponse20048 image_classification_by_url(image_url)
 
 Image Classification by URL
 
@@ -328,7 +328,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20047**](InlineResponse20047.md)
+[**InlineResponse20048**](InlineResponse20048.md)
 
 ### Authorization
 
@@ -342,7 +342,7 @@ Name | Type | Description  | Notes
 
 ## search_all_food
 
-> InlineResponse20052 search_all_food(query, opts)
+> InlineResponse20053 search_all_food(query, opts)
 
 Search All Food
 
@@ -388,7 +388,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20052**](InlineResponse20052.md)
+[**InlineResponse20053**](InlineResponse20053.md)
 
 ### Authorization
 
@@ -466,7 +466,7 @@ Name | Type | Description  | Notes
 
 ## search_food_videos
 
-> InlineResponse20053 search_food_videos(opts)
+> InlineResponse20054 search_food_videos(opts)
 
 Search Food Videos
 
@@ -526,7 +526,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20053**](InlineResponse20053.md)
+[**InlineResponse20054**](InlineResponse20054.md)
 
 ### Authorization
 
@@ -540,7 +540,7 @@ Name | Type | Description  | Notes
 
 ## search_site_content
 
-> InlineResponse20051 search_site_content(query)
+> InlineResponse20052 search_site_content(query)
 
 Search Site Content
 
@@ -580,7 +580,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20051**](InlineResponse20051.md)
+[**InlineResponse20052**](InlineResponse20052.md)
 
 ### Authorization
 
@@ -594,7 +594,7 @@ Name | Type | Description  | Notes
 
 ## talk_to_chatbot
 
-> InlineResponse20055 talk_to_chatbot(text, opts)
+> InlineResponse20056 talk_to_chatbot(text, opts)
 
 Talk to Chatbot
 
@@ -638,7 +638,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20055**](InlineResponse20055.md)
+[**InlineResponse20056**](InlineResponse20056.md)
 
 ### Authorization
 

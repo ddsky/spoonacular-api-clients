@@ -32,43 +32,74 @@ class InlineResponse20050(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'annotations': 'list[object]'
+        'answer': 'str',
+        'image': 'str'
     }
 
     attribute_map = {
-        'annotations': 'annotations'
+        'answer': 'answer',
+        'image': 'image'
     }
 
-    def __init__(self, annotations=None):  # noqa: E501
+    def __init__(self, answer=None, image=None):  # noqa: E501
         """InlineResponse20050 - a model defined in OpenAPI"""  # noqa: E501
 
-        self._annotations = None
+        self._answer = None
+        self._image = None
         self.discriminator = None
 
-        self.annotations = annotations
+        self.answer = answer
+        self.image = image
 
     @property
-    def annotations(self):
-        """Gets the annotations of this InlineResponse20050.  # noqa: E501
+    def answer(self):
+        """Gets the answer of this InlineResponse20050.  # noqa: E501
 
 
-        :return: The annotations of this InlineResponse20050.  # noqa: E501
-        :rtype: list[object]
+        :return: The answer of this InlineResponse20050.  # noqa: E501
+        :rtype: str
         """
-        return self._annotations
+        return self._answer
 
-    @annotations.setter
-    def annotations(self, annotations):
-        """Sets the annotations of this InlineResponse20050.
+    @answer.setter
+    def answer(self, answer):
+        """Sets the answer of this InlineResponse20050.
 
 
-        :param annotations: The annotations of this InlineResponse20050.  # noqa: E501
-        :type: list[object]
+        :param answer: The answer of this InlineResponse20050.  # noqa: E501
+        :type: str
         """
-        if annotations is None:
-            raise ValueError("Invalid value for `annotations`, must not be `None`")  # noqa: E501
+        if answer is None:
+            raise ValueError("Invalid value for `answer`, must not be `None`")  # noqa: E501
+        if answer is not None and len(answer) < 1:
+            raise ValueError("Invalid value for `answer`, length must be greater than or equal to `1`")  # noqa: E501
 
-        self._annotations = annotations
+        self._answer = answer
+
+    @property
+    def image(self):
+        """Gets the image of this InlineResponse20050.  # noqa: E501
+
+
+        :return: The image of this InlineResponse20050.  # noqa: E501
+        :rtype: str
+        """
+        return self._image
+
+    @image.setter
+    def image(self, image):
+        """Sets the image of this InlineResponse20050.
+
+
+        :param image: The image of this InlineResponse20050.  # noqa: E501
+        :type: str
+        """
+        if image is None:
+            raise ValueError("Invalid value for `image`, must not be `None`")  # noqa: E501
+        if image is not None and len(image) < 1:
+            raise ValueError("Invalid value for `image`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._image = image
 
     def to_dict(self):
         """Returns the model properties as a dict"""

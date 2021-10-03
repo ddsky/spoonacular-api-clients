@@ -48,6 +48,16 @@
   }
 
   describe('MealPlanningApi', function() {
+    describe('addMealPlanTemplate', function() {
+      it('should call addMealPlanTemplate successfully', function(done) {
+        //uncomment below and update the code to test addMealPlanTemplate
+        //instance.addMealPlanTemplate(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('addToMealPlan', function() {
       it('should call addToMealPlan successfully', function(done) {
         //uncomment below and update the code to test addToMealPlan
@@ -102,6 +112,16 @@
       it('should call deleteFromShoppingList successfully', function(done) {
         //uncomment below and update the code to test deleteFromShoppingList
         //instance.deleteFromShoppingList(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('deleteMealPlanTemplate', function() {
+      it('should call deleteMealPlanTemplate successfully', function(done) {
+        //uncomment below and update the code to test deleteMealPlanTemplate
+        //instance.deleteMealPlanTemplate(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

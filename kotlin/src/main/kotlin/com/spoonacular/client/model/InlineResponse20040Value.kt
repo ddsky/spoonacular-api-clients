@@ -16,16 +16,19 @@ import com.squareup.moshi.Json
 /**
  * 
  * @param id 
+ * @param servings 
  * @param title 
  * @param imageType 
  */
 data class InlineResponse20040Value (
     @Json(name = "id")
-    val id: java.math.BigDecimal,
+    val id: kotlin.Int? = null,
+    @Json(name = "servings")
+    val servings: java.math.BigDecimal? = null,
     @Json(name = "title")
-    val title: kotlin.String,
+    val title: kotlin.String? = null,
     @Json(name = "imageType")
-    val imageType: kotlin.String
+    val imageType: kotlin.String? = null
 ) {
 
 }

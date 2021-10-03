@@ -6,27 +6,21 @@
 
 -type spoonacular_inline_response_200_41_items() ::
     #{ 'id' := integer(),
-       'name' := binary(),
-       'measures' => spoonacular_inline_response_200_41_measures:spoonacular_inline_response_200_41_measures(),
-       'pantryItem' := boolean(),
-       'aisle' := binary(),
-       'cost' := integer(),
-       'ingredientId' := integer()
+       'slot' := integer(),
+       'position' := integer(),
+       'type' := binary(),
+       'value' => spoonacular_inline_response_200_41_value:spoonacular_inline_response_200_41_value()
      }.
 
 encode(#{ 'id' := Id,
-          'name' := Name,
-          'measures' := Measures,
-          'pantryItem' := PantryItem,
-          'aisle' := Aisle,
-          'cost' := Cost,
-          'ingredientId' := IngredientId
+          'slot' := Slot,
+          'position' := Position,
+          'type' := Type,
+          'value' := Value
         }) ->
     #{ 'id' => Id,
-       'name' => Name,
-       'measures' => Measures,
-       'pantryItem' => PantryItem,
-       'aisle' => Aisle,
-       'cost' => Cost,
-       'ingredientId' => IngredientId
+       'slot' => Slot,
+       'position' => Position,
+       'type' => Type,
+       'value' => Value
      }.

@@ -49,6 +49,105 @@ sub new {
 
 
 #
+# add_meal_plan_template
+#
+# Add Meal Plan Template
+# 
+# @param string $username The username. (required)
+# @param string $hash The private hash for the username. (required)
+# @param InlineObject6 $inline_object6  (required)
+{
+    my $params = {
+    'username' => {
+        data_type => 'string',
+        description => 'The username.',
+        required => '1',
+    },
+    'hash' => {
+        data_type => 'string',
+        description => 'The private hash for the username.',
+        required => '1',
+    },
+    'inline_object6' => {
+        data_type => 'InlineObject6',
+        description => '',
+        required => '1',
+    },
+    };
+    __PACKAGE__->method_documentation->{ 'add_meal_plan_template' } = { 
+        summary => 'Add Meal Plan Template',
+        params => $params,
+        returns => 'InlineResponse20040',
+        };
+}
+# @return InlineResponse20040
+#
+sub add_meal_plan_template {
+    my ($self, %args) = @_;
+
+    # verify the required parameter 'username' is set
+    unless (exists $args{'username'}) {
+      croak("Missing the required parameter 'username' when calling add_meal_plan_template");
+    }
+
+    # verify the required parameter 'hash' is set
+    unless (exists $args{'hash'}) {
+      croak("Missing the required parameter 'hash' when calling add_meal_plan_template");
+    }
+
+    # verify the required parameter 'inline_object6' is set
+    unless (exists $args{'inline_object6'}) {
+      croak("Missing the required parameter 'inline_object6' when calling add_meal_plan_template");
+    }
+
+    # parse inputs
+    my $_resource_path = '/mealplanner/{username}/templates';
+
+    my $_method = 'POST';
+    my $query_params = {};
+    my $header_params = {};
+    my $form_params = {};
+
+    # 'Accept' and 'Content-Type' header
+    my $_header_accept = $self->{api_client}->select_header_accept('application/json');
+    if ($_header_accept) {
+        $header_params->{'Accept'} = $_header_accept;
+    }
+    $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type('');
+
+    # query params
+    if ( exists $args{'hash'}) {
+        $query_params->{'hash'} = $self->{api_client}->to_query_value($args{'hash'});
+    }
+
+    # path params
+    if ( exists $args{'username'}) {
+        my $_base_variable = "{" . "username" . "}";
+        my $_base_value = $self->{api_client}->to_path_value($args{'username'});
+        $_resource_path =~ s/$_base_variable/$_base_value/g;
+    }
+
+    my $_body_data;
+    # body params
+    if ( exists $args{'inline_object6'}) {
+        $_body_data = $args{'inline_object6'};
+    }
+
+    # authentication setting, if any
+    my $auth_settings = [qw(apiKeyScheme )];
+
+    # make the API Call
+    my $response = $self->{api_client}->call_api($_resource_path, $_method,
+                                           $query_params, $form_params,
+                                           $header_params, $_body_data, $auth_settings);
+    if (!$response) {
+        return;
+    }
+    my $_response_object = $self->{api_client}->deserialize('InlineResponse20040', $response);
+    return $_response_object;
+}
+
+#
 # add_to_meal_plan
 #
 # Add to Meal Plan
@@ -154,7 +253,7 @@ sub add_to_meal_plan {
 # 
 # @param string $username The username. (required)
 # @param string $hash The private hash for the username. (required)
-# @param InlineObject7 $inline_object7  (required)
+# @param InlineObject9 $inline_object9  (required)
 {
     my $params = {
     'username' => {
@@ -167,8 +266,8 @@ sub add_to_meal_plan {
         description => 'The private hash for the username.',
         required => '1',
     },
-    'inline_object7' => {
-        data_type => 'InlineObject7',
+    'inline_object9' => {
+        data_type => 'InlineObject9',
         description => '',
         required => '1',
     },
@@ -176,10 +275,10 @@ sub add_to_meal_plan {
     __PACKAGE__->method_documentation->{ 'add_to_shopping_list' } = { 
         summary => 'Add to Shopping List',
         params => $params,
-        returns => 'InlineResponse20041',
+        returns => 'InlineResponse20042',
         };
 }
-# @return InlineResponse20041
+# @return InlineResponse20042
 #
 sub add_to_shopping_list {
     my ($self, %args) = @_;
@@ -194,9 +293,9 @@ sub add_to_shopping_list {
       croak("Missing the required parameter 'hash' when calling add_to_shopping_list");
     }
 
-    # verify the required parameter 'inline_object7' is set
-    unless (exists $args{'inline_object7'}) {
-      croak("Missing the required parameter 'inline_object7' when calling add_to_shopping_list");
+    # verify the required parameter 'inline_object9' is set
+    unless (exists $args{'inline_object9'}) {
+      croak("Missing the required parameter 'inline_object9' when calling add_to_shopping_list");
     }
 
     # parse inputs
@@ -228,8 +327,8 @@ sub add_to_shopping_list {
 
     my $_body_data;
     # body params
-    if ( exists $args{'inline_object7'}) {
-        $_body_data = $args{'inline_object7'};
+    if ( exists $args{'inline_object9'}) {
+        $_body_data = $args{'inline_object9'};
     }
 
     # authentication setting, if any
@@ -242,7 +341,7 @@ sub add_to_shopping_list {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('InlineResponse20041', $response);
+    my $_response_object = $self->{api_client}->deserialize('InlineResponse20042', $response);
     return $_response_object;
 }
 
@@ -380,10 +479,10 @@ sub clear_meal_plan_day {
     __PACKAGE__->method_documentation->{ 'connect_user' } = { 
         summary => 'Connect User',
         params => $params,
-        returns => 'InlineResponse20042',
+        returns => 'InlineResponse20043',
         };
 }
-# @return InlineResponse20042
+# @return InlineResponse20043
 #
 sub connect_user {
     my ($self, %args) = @_;
@@ -424,7 +523,7 @@ sub connect_user {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('InlineResponse20042', $response);
+    my $_response_object = $self->{api_client}->deserialize('InlineResponse20043', $response);
     return $_response_object;
 }
 
@@ -553,7 +652,7 @@ sub delete_from_meal_plan {
 # @param string $username The username. (required)
 # @param int $id The item&#39;s id. (required)
 # @param string $hash The private hash for the username. (required)
-# @param InlineObject8 $inline_object8  (required)
+# @param InlineObject10 $inline_object10  (required)
 {
     my $params = {
     'username' => {
@@ -571,8 +670,8 @@ sub delete_from_meal_plan {
         description => 'The private hash for the username.',
         required => '1',
     },
-    'inline_object8' => {
-        data_type => 'InlineObject8',
+    'inline_object10' => {
+        data_type => 'InlineObject10',
         description => '',
         required => '1',
     },
@@ -603,9 +702,9 @@ sub delete_from_shopping_list {
       croak("Missing the required parameter 'hash' when calling delete_from_shopping_list");
     }
 
-    # verify the required parameter 'inline_object8' is set
-    unless (exists $args{'inline_object8'}) {
-      croak("Missing the required parameter 'inline_object8' when calling delete_from_shopping_list");
+    # verify the required parameter 'inline_object10' is set
+    unless (exists $args{'inline_object10'}) {
+      croak("Missing the required parameter 'inline_object10' when calling delete_from_shopping_list");
     }
 
     # parse inputs
@@ -644,8 +743,125 @@ sub delete_from_shopping_list {
 
     my $_body_data;
     # body params
-    if ( exists $args{'inline_object8'}) {
-        $_body_data = $args{'inline_object8'};
+    if ( exists $args{'inline_object10'}) {
+        $_body_data = $args{'inline_object10'};
+    }
+
+    # authentication setting, if any
+    my $auth_settings = [qw(apiKeyScheme )];
+
+    # make the API Call
+    my $response = $self->{api_client}->call_api($_resource_path, $_method,
+                                           $query_params, $form_params,
+                                           $header_params, $_body_data, $auth_settings);
+    if (!$response) {
+        return;
+    }
+    my $_response_object = $self->{api_client}->deserialize('object', $response);
+    return $_response_object;
+}
+
+#
+# delete_meal_plan_template
+#
+# Delete Meal Plan Template
+# 
+# @param string $username The username. (required)
+# @param int $id The item&#39;s id. (required)
+# @param string $hash The private hash for the username. (required)
+# @param InlineObject7 $inline_object7  (required)
+{
+    my $params = {
+    'username' => {
+        data_type => 'string',
+        description => 'The username.',
+        required => '1',
+    },
+    'id' => {
+        data_type => 'int',
+        description => 'The item&#39;s id.',
+        required => '1',
+    },
+    'hash' => {
+        data_type => 'string',
+        description => 'The private hash for the username.',
+        required => '1',
+    },
+    'inline_object7' => {
+        data_type => 'InlineObject7',
+        description => '',
+        required => '1',
+    },
+    };
+    __PACKAGE__->method_documentation->{ 'delete_meal_plan_template' } = { 
+        summary => 'Delete Meal Plan Template',
+        params => $params,
+        returns => 'object',
+        };
+}
+# @return object
+#
+sub delete_meal_plan_template {
+    my ($self, %args) = @_;
+
+    # verify the required parameter 'username' is set
+    unless (exists $args{'username'}) {
+      croak("Missing the required parameter 'username' when calling delete_meal_plan_template");
+    }
+
+    # verify the required parameter 'id' is set
+    unless (exists $args{'id'}) {
+      croak("Missing the required parameter 'id' when calling delete_meal_plan_template");
+    }
+
+    # verify the required parameter 'hash' is set
+    unless (exists $args{'hash'}) {
+      croak("Missing the required parameter 'hash' when calling delete_meal_plan_template");
+    }
+
+    # verify the required parameter 'inline_object7' is set
+    unless (exists $args{'inline_object7'}) {
+      croak("Missing the required parameter 'inline_object7' when calling delete_meal_plan_template");
+    }
+
+    # parse inputs
+    my $_resource_path = '/mealplanner/{username}/templates/{id}';
+
+    my $_method = 'DELETE';
+    my $query_params = {};
+    my $header_params = {};
+    my $form_params = {};
+
+    # 'Accept' and 'Content-Type' header
+    my $_header_accept = $self->{api_client}->select_header_accept('application/json');
+    if ($_header_accept) {
+        $header_params->{'Accept'} = $_header_accept;
+    }
+    $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type('');
+
+    # query params
+    if ( exists $args{'hash'}) {
+        $query_params->{'hash'} = $self->{api_client}->to_query_value($args{'hash'});
+    }
+
+    # path params
+    if ( exists $args{'username'}) {
+        my $_base_variable = "{" . "username" . "}";
+        my $_base_value = $self->{api_client}->to_path_value($args{'username'});
+        $_resource_path =~ s/$_base_variable/$_base_value/g;
+    }
+
+    # path params
+    if ( exists $args{'id'}) {
+        my $_base_variable = "{" . "id" . "}";
+        my $_base_value = $self->{api_client}->to_path_value($args{'id'});
+        $_resource_path =~ s/$_base_variable/$_base_value/g;
+    }
+
+    my $_body_data;
+    # body params
+    if ( exists $args{'inline_object7'}) {
+        $_body_data = $args{'inline_object7'};
     }
 
     # authentication setting, if any
@@ -764,7 +980,7 @@ sub generate_meal_plan {
 # @param string $start_date The start date in the format yyyy-mm-dd. (required)
 # @param string $end_date The end date in the format yyyy-mm-dd. (required)
 # @param string $hash The private hash for the username. (required)
-# @param InlineObject6 $inline_object6  (required)
+# @param InlineObject8 $inline_object8  (required)
 {
     my $params = {
     'username' => {
@@ -787,8 +1003,8 @@ sub generate_meal_plan {
         description => 'The private hash for the username.',
         required => '1',
     },
-    'inline_object6' => {
-        data_type => 'InlineObject6',
+    'inline_object8' => {
+        data_type => 'InlineObject8',
         description => '',
         required => '1',
     },
@@ -796,10 +1012,10 @@ sub generate_meal_plan {
     __PACKAGE__->method_documentation->{ 'generate_shopping_list' } = { 
         summary => 'Generate Shopping List',
         params => $params,
-        returns => 'InlineResponse20041',
+        returns => 'InlineResponse20042',
         };
 }
-# @return InlineResponse20041
+# @return InlineResponse20042
 #
 sub generate_shopping_list {
     my ($self, %args) = @_;
@@ -824,9 +1040,9 @@ sub generate_shopping_list {
       croak("Missing the required parameter 'hash' when calling generate_shopping_list");
     }
 
-    # verify the required parameter 'inline_object6' is set
-    unless (exists $args{'inline_object6'}) {
-      croak("Missing the required parameter 'inline_object6' when calling generate_shopping_list");
+    # verify the required parameter 'inline_object8' is set
+    unless (exists $args{'inline_object8'}) {
+      croak("Missing the required parameter 'inline_object8' when calling generate_shopping_list");
     }
 
     # parse inputs
@@ -872,8 +1088,8 @@ sub generate_shopping_list {
 
     my $_body_data;
     # body params
-    if ( exists $args{'inline_object6'}) {
-        $_body_data = $args{'inline_object6'};
+    if ( exists $args{'inline_object8'}) {
+        $_body_data = $args{'inline_object8'};
     }
 
     # authentication setting, if any
@@ -886,7 +1102,7 @@ sub generate_shopping_list {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('InlineResponse20041', $response);
+    my $_response_object = $self->{api_client}->deserialize('InlineResponse20042', $response);
     return $_response_object;
 }
 
@@ -919,10 +1135,10 @@ sub generate_shopping_list {
     __PACKAGE__->method_documentation->{ 'get_meal_plan_template' } = { 
         summary => 'Get Meal Plan Template',
         params => $params,
-        returns => 'InlineResponse20040',
+        returns => 'InlineResponse20041',
         };
 }
-# @return InlineResponse20040
+# @return InlineResponse20041
 #
 sub get_meal_plan_template {
     my ($self, %args) = @_;
@@ -987,7 +1203,7 @@ sub get_meal_plan_template {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('InlineResponse20040', $response);
+    my $_response_object = $self->{api_client}->deserialize('InlineResponse20041', $response);
     return $_response_object;
 }
 
@@ -1198,10 +1414,10 @@ sub get_meal_plan_week {
     __PACKAGE__->method_documentation->{ 'get_shopping_list' } = { 
         summary => 'Get Shopping List',
         params => $params,
-        returns => 'InlineResponse20041',
+        returns => 'InlineResponse20042',
         };
 }
-# @return InlineResponse20041
+# @return InlineResponse20042
 #
 sub get_shopping_list {
     my ($self, %args) = @_;
@@ -1254,7 +1470,7 @@ sub get_shopping_list {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('InlineResponse20041', $response);
+    my $_response_object = $self->{api_client}->deserialize('InlineResponse20042', $response);
     return $_response_object;
 }
 

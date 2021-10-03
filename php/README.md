@@ -104,12 +104,14 @@ Class | Method | HTTP request | Description
 *IngredientsApi* | [**ingredientsByIDImage**](docs/Api/IngredientsApi.md#ingredientsbyidimage) | **GET** /recipes/{id}/ingredientWidget.png | Ingredients by ID Image
 *IngredientsApi* | [**mapIngredientsToGroceryProducts**](docs/Api/IngredientsApi.md#mapingredientstogroceryproducts) | **POST** /food/ingredients/map | Map Ingredients to Grocery Products
 *IngredientsApi* | [**visualizeIngredients**](docs/Api/IngredientsApi.md#visualizeingredients) | **POST** /recipes/visualizeIngredients | Ingredients Widget
+*MealPlanningApi* | [**addMealPlanTemplate**](docs/Api/MealPlanningApi.md#addmealplantemplate) | **POST** /mealplanner/{username}/templates | Add Meal Plan Template
 *MealPlanningApi* | [**addToMealPlan**](docs/Api/MealPlanningApi.md#addtomealplan) | **POST** /mealplanner/{username}/items | Add to Meal Plan
 *MealPlanningApi* | [**addToShoppingList**](docs/Api/MealPlanningApi.md#addtoshoppinglist) | **POST** /mealplanner/{username}/shopping-list/items | Add to Shopping List
 *MealPlanningApi* | [**clearMealPlanDay**](docs/Api/MealPlanningApi.md#clearmealplanday) | **DELETE** /mealplanner/{username}/day/{date} | Clear Meal Plan Day
 *MealPlanningApi* | [**connectUser**](docs/Api/MealPlanningApi.md#connectuser) | **POST** /users/connect | Connect User
 *MealPlanningApi* | [**deleteFromMealPlan**](docs/Api/MealPlanningApi.md#deletefrommealplan) | **DELETE** /mealplanner/{username}/items/{id} | Delete from Meal Plan
 *MealPlanningApi* | [**deleteFromShoppingList**](docs/Api/MealPlanningApi.md#deletefromshoppinglist) | **DELETE** /mealplanner/{username}/shopping-list/items/{id} | Delete from Shopping List
+*MealPlanningApi* | [**deleteMealPlanTemplate**](docs/Api/MealPlanningApi.md#deletemealplantemplate) | **DELETE** /mealplanner/{username}/templates/{id} | Delete Meal Plan Template
 *MealPlanningApi* | [**generateMealPlan**](docs/Api/MealPlanningApi.md#generatemealplan) | **GET** /mealplanner/generate | Generate Meal Plan
 *MealPlanningApi* | [**generateShoppingList**](docs/Api/MealPlanningApi.md#generateshoppinglist) | **POST** /mealplanner/{username}/shopping-list/{start-date}/{end-date} | Generate Shopping List
 *MealPlanningApi* | [**getMealPlanTemplate**](docs/Api/MealPlanningApi.md#getmealplantemplate) | **GET** /mealplanner/{username}/templates/{id} | Get Meal Plan Template
@@ -197,6 +199,7 @@ Class | Method | HTTP request | Description
  - [FoodIngredientsMapProducts](docs/Model/FoodIngredientsMapProducts.md)
  - [InlineObject](docs/Model/InlineObject.md)
  - [InlineObject1](docs/Model/InlineObject1.md)
+ - [InlineObject10](docs/Model/InlineObject10.md)
  - [InlineObject2](docs/Model/InlineObject2.md)
  - [InlineObject3](docs/Model/InlineObject3.md)
  - [InlineObject4](docs/Model/InlineObject4.md)
@@ -204,6 +207,7 @@ Class | Method | HTTP request | Description
  - [InlineObject6](docs/Model/InlineObject6.md)
  - [InlineObject7](docs/Model/InlineObject7.md)
  - [InlineObject8](docs/Model/InlineObject8.md)
+ - [InlineObject9](docs/Model/InlineObject9.md)
  - [InlineResponse200](docs/Model/InlineResponse200.md)
  - [InlineResponse2001](docs/Model/InlineResponse2001.md)
  - [InlineResponse20010](docs/Model/InlineResponse20010.md)
@@ -275,40 +279,43 @@ Class | Method | HTTP request | Description
  - [InlineResponse2003WinePairingProductMatches](docs/Model/InlineResponse2003WinePairingProductMatches.md)
  - [InlineResponse2004](docs/Model/InlineResponse2004.md)
  - [InlineResponse20040](docs/Model/InlineResponse20040.md)
- - [InlineResponse20040Days](docs/Model/InlineResponse20040Days.md)
  - [InlineResponse20040Items](docs/Model/InlineResponse20040Items.md)
  - [InlineResponse20040Value](docs/Model/InlineResponse20040Value.md)
  - [InlineResponse20041](docs/Model/InlineResponse20041.md)
- - [InlineResponse20041Aisles](docs/Model/InlineResponse20041Aisles.md)
+ - [InlineResponse20041Days](docs/Model/InlineResponse20041Days.md)
  - [InlineResponse20041Items](docs/Model/InlineResponse20041Items.md)
- - [InlineResponse20041Measures](docs/Model/InlineResponse20041Measures.md)
+ - [InlineResponse20041Value](docs/Model/InlineResponse20041Value.md)
  - [InlineResponse20042](docs/Model/InlineResponse20042.md)
+ - [InlineResponse20042Aisles](docs/Model/InlineResponse20042Aisles.md)
+ - [InlineResponse20042Items](docs/Model/InlineResponse20042Items.md)
+ - [InlineResponse20042Measures](docs/Model/InlineResponse20042Measures.md)
  - [InlineResponse20043](docs/Model/InlineResponse20043.md)
  - [InlineResponse20044](docs/Model/InlineResponse20044.md)
- - [InlineResponse20044ProductMatches](docs/Model/InlineResponse20044ProductMatches.md)
  - [InlineResponse20045](docs/Model/InlineResponse20045.md)
+ - [InlineResponse20045ProductMatches](docs/Model/InlineResponse20045ProductMatches.md)
  - [InlineResponse20046](docs/Model/InlineResponse20046.md)
- - [InlineResponse20046RecommendedWines](docs/Model/InlineResponse20046RecommendedWines.md)
  - [InlineResponse20047](docs/Model/InlineResponse20047.md)
+ - [InlineResponse20047RecommendedWines](docs/Model/InlineResponse20047RecommendedWines.md)
  - [InlineResponse20048](docs/Model/InlineResponse20048.md)
- - [InlineResponse20048Category](docs/Model/InlineResponse20048Category.md)
- - [InlineResponse20048Nutrition](docs/Model/InlineResponse20048Nutrition.md)
- - [InlineResponse20048NutritionCalories](docs/Model/InlineResponse20048NutritionCalories.md)
- - [InlineResponse20048NutritionCaloriesConfidenceRange95Percent](docs/Model/InlineResponse20048NutritionCaloriesConfidenceRange95Percent.md)
- - [InlineResponse20048Recipes](docs/Model/InlineResponse20048Recipes.md)
  - [InlineResponse20049](docs/Model/InlineResponse20049.md)
+ - [InlineResponse20049Category](docs/Model/InlineResponse20049Category.md)
+ - [InlineResponse20049Nutrition](docs/Model/InlineResponse20049Nutrition.md)
+ - [InlineResponse20049NutritionCalories](docs/Model/InlineResponse20049NutritionCalories.md)
+ - [InlineResponse20049NutritionCaloriesConfidenceRange95Percent](docs/Model/InlineResponse20049NutritionCaloriesConfidenceRange95Percent.md)
+ - [InlineResponse20049Recipes](docs/Model/InlineResponse20049Recipes.md)
  - [InlineResponse2005](docs/Model/InlineResponse2005.md)
  - [InlineResponse20050](docs/Model/InlineResponse20050.md)
  - [InlineResponse20051](docs/Model/InlineResponse20051.md)
  - [InlineResponse20052](docs/Model/InlineResponse20052.md)
- - [InlineResponse20052Results](docs/Model/InlineResponse20052Results.md)
- - [InlineResponse20052SearchResults](docs/Model/InlineResponse20052SearchResults.md)
  - [InlineResponse20053](docs/Model/InlineResponse20053.md)
- - [InlineResponse20053Videos](docs/Model/InlineResponse20053Videos.md)
+ - [InlineResponse20053Results](docs/Model/InlineResponse20053Results.md)
+ - [InlineResponse20053SearchResults](docs/Model/InlineResponse20053SearchResults.md)
  - [InlineResponse20054](docs/Model/InlineResponse20054.md)
+ - [InlineResponse20054Videos](docs/Model/InlineResponse20054Videos.md)
  - [InlineResponse20055](docs/Model/InlineResponse20055.md)
  - [InlineResponse20056](docs/Model/InlineResponse20056.md)
- - [InlineResponse20056Suggests](docs/Model/InlineResponse20056Suggests.md)
+ - [InlineResponse20057](docs/Model/InlineResponse20057.md)
+ - [InlineResponse20057Suggests](docs/Model/InlineResponse20057Suggests.md)
  - [InlineResponse2006](docs/Model/InlineResponse2006.md)
  - [InlineResponse2006Recipes](docs/Model/InlineResponse2006Recipes.md)
  - [InlineResponse2007](docs/Model/InlineResponse2007.md)

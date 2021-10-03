@@ -79,16 +79,16 @@ class InlineResponse20043Test extends TestCase
     }
 
     /**
-     * Test attribute "pairings"
+     * Test attribute "username"
      */
-    public function testPropertyPairings()
+    public function testPropertyUsername()
     {
     }
 
     /**
-     * Test attribute "text"
+     * Test attribute "hash"
      */
-    public function testPropertyText()
+    public function testPropertyHash()
     {
     }
 }

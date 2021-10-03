@@ -21,8 +21,8 @@ import com.spoonacular.client.model.InlineResponse20021
 import com.spoonacular.client.model.InlineResponse20023
 import com.spoonacular.client.model.InlineResponse2003
 import com.spoonacular.client.model.InlineResponse2004
-import com.spoonacular.client.model.InlineResponse20049
 import com.spoonacular.client.model.InlineResponse2005
+import com.spoonacular.client.model.InlineResponse20050
 import com.spoonacular.client.model.InlineResponse2006
 import com.spoonacular.client.model.InlineResponse2007
 import com.spoonacular.client.model.InlineResponse2008
@@ -688,7 +688,7 @@ class RecipesApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "GET", "",
-                    InlineResponse20049.class )
+                    InlineResponse20050.class )
 
     }
 

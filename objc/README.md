@@ -45,6 +45,7 @@ Import the following:
 #import <OpenAPIClient/OAIFoodIngredientsMapProducts.h>
 #import <OpenAPIClient/OAIInlineObject.h>
 #import <OpenAPIClient/OAIInlineObject1.h>
+#import <OpenAPIClient/OAIInlineObject10.h>
 #import <OpenAPIClient/OAIInlineObject2.h>
 #import <OpenAPIClient/OAIInlineObject3.h>
 #import <OpenAPIClient/OAIInlineObject4.h>
@@ -52,6 +53,7 @@ Import the following:
 #import <OpenAPIClient/OAIInlineObject6.h>
 #import <OpenAPIClient/OAIInlineObject7.h>
 #import <OpenAPIClient/OAIInlineObject8.h>
+#import <OpenAPIClient/OAIInlineObject9.h>
 #import <OpenAPIClient/OAIInlineResponse200.h>
 #import <OpenAPIClient/OAIInlineResponse2001.h>
 #import <OpenAPIClient/OAIInlineResponse20010.h>
@@ -123,40 +125,43 @@ Import the following:
 #import <OpenAPIClient/OAIInlineResponse2003WinePairingProductMatches.h>
 #import <OpenAPIClient/OAIInlineResponse2004.h>
 #import <OpenAPIClient/OAIInlineResponse20040.h>
-#import <OpenAPIClient/OAIInlineResponse20040Days.h>
 #import <OpenAPIClient/OAIInlineResponse20040Items.h>
 #import <OpenAPIClient/OAIInlineResponse20040Value.h>
 #import <OpenAPIClient/OAIInlineResponse20041.h>
-#import <OpenAPIClient/OAIInlineResponse20041Aisles.h>
+#import <OpenAPIClient/OAIInlineResponse20041Days.h>
 #import <OpenAPIClient/OAIInlineResponse20041Items.h>
-#import <OpenAPIClient/OAIInlineResponse20041Measures.h>
+#import <OpenAPIClient/OAIInlineResponse20041Value.h>
 #import <OpenAPIClient/OAIInlineResponse20042.h>
+#import <OpenAPIClient/OAIInlineResponse20042Aisles.h>
+#import <OpenAPIClient/OAIInlineResponse20042Items.h>
+#import <OpenAPIClient/OAIInlineResponse20042Measures.h>
 #import <OpenAPIClient/OAIInlineResponse20043.h>
 #import <OpenAPIClient/OAIInlineResponse20044.h>
-#import <OpenAPIClient/OAIInlineResponse20044ProductMatches.h>
 #import <OpenAPIClient/OAIInlineResponse20045.h>
+#import <OpenAPIClient/OAIInlineResponse20045ProductMatches.h>
 #import <OpenAPIClient/OAIInlineResponse20046.h>
-#import <OpenAPIClient/OAIInlineResponse20046RecommendedWines.h>
 #import <OpenAPIClient/OAIInlineResponse20047.h>
+#import <OpenAPIClient/OAIInlineResponse20047RecommendedWines.h>
 #import <OpenAPIClient/OAIInlineResponse20048.h>
-#import <OpenAPIClient/OAIInlineResponse20048Category.h>
-#import <OpenAPIClient/OAIInlineResponse20048Nutrition.h>
-#import <OpenAPIClient/OAIInlineResponse20048NutritionCalories.h>
-#import <OpenAPIClient/OAIInlineResponse20048NutritionCaloriesConfidenceRange95Percent.h>
-#import <OpenAPIClient/OAIInlineResponse20048Recipes.h>
 #import <OpenAPIClient/OAIInlineResponse20049.h>
+#import <OpenAPIClient/OAIInlineResponse20049Category.h>
+#import <OpenAPIClient/OAIInlineResponse20049Nutrition.h>
+#import <OpenAPIClient/OAIInlineResponse20049NutritionCalories.h>
+#import <OpenAPIClient/OAIInlineResponse20049NutritionCaloriesConfidenceRange95Percent.h>
+#import <OpenAPIClient/OAIInlineResponse20049Recipes.h>
 #import <OpenAPIClient/OAIInlineResponse2005.h>
 #import <OpenAPIClient/OAIInlineResponse20050.h>
 #import <OpenAPIClient/OAIInlineResponse20051.h>
 #import <OpenAPIClient/OAIInlineResponse20052.h>
-#import <OpenAPIClient/OAIInlineResponse20052Results.h>
-#import <OpenAPIClient/OAIInlineResponse20052SearchResults.h>
 #import <OpenAPIClient/OAIInlineResponse20053.h>
-#import <OpenAPIClient/OAIInlineResponse20053Videos.h>
+#import <OpenAPIClient/OAIInlineResponse20053Results.h>
+#import <OpenAPIClient/OAIInlineResponse20053SearchResults.h>
 #import <OpenAPIClient/OAIInlineResponse20054.h>
+#import <OpenAPIClient/OAIInlineResponse20054Videos.h>
 #import <OpenAPIClient/OAIInlineResponse20055.h>
 #import <OpenAPIClient/OAIInlineResponse20056.h>
-#import <OpenAPIClient/OAIInlineResponse20056Suggests.h>
+#import <OpenAPIClient/OAIInlineResponse20057.h>
+#import <OpenAPIClient/OAIInlineResponse20057Suggests.h>
 #import <OpenAPIClient/OAIInlineResponse2006.h>
 #import <OpenAPIClient/OAIInlineResponse2006Recipes.h>
 #import <OpenAPIClient/OAIInlineResponse2007.h>
@@ -237,12 +242,14 @@ Class | Method | HTTP request | Description
 *OAIIngredientsApi* | [**ingredientsByIDImage**](docs/OAIIngredientsApi.md#ingredientsbyidimage) | **GET** /recipes/{id}/ingredientWidget.png | Ingredients by ID Image
 *OAIIngredientsApi* | [**mapIngredientsToGroceryProducts**](docs/OAIIngredientsApi.md#mapingredientstogroceryproducts) | **POST** /food/ingredients/map | Map Ingredients to Grocery Products
 *OAIIngredientsApi* | [**visualizeIngredients**](docs/OAIIngredientsApi.md#visualizeingredients) | **POST** /recipes/visualizeIngredients | Ingredients Widget
+*OAIMealPlanningApi* | [**addMealPlanTemplate**](docs/OAIMealPlanningApi.md#addmealplantemplate) | **POST** /mealplanner/{username}/templates | Add Meal Plan Template
 *OAIMealPlanningApi* | [**addToMealPlan**](docs/OAIMealPlanningApi.md#addtomealplan) | **POST** /mealplanner/{username}/items | Add to Meal Plan
 *OAIMealPlanningApi* | [**addToShoppingList**](docs/OAIMealPlanningApi.md#addtoshoppinglist) | **POST** /mealplanner/{username}/shopping-list/items | Add to Shopping List
 *OAIMealPlanningApi* | [**clearMealPlanDay**](docs/OAIMealPlanningApi.md#clearmealplanday) | **DELETE** /mealplanner/{username}/day/{date} | Clear Meal Plan Day
 *OAIMealPlanningApi* | [**connectUser**](docs/OAIMealPlanningApi.md#connectuser) | **POST** /users/connect | Connect User
 *OAIMealPlanningApi* | [**deleteFromMealPlan**](docs/OAIMealPlanningApi.md#deletefrommealplan) | **DELETE** /mealplanner/{username}/items/{id} | Delete from Meal Plan
 *OAIMealPlanningApi* | [**deleteFromShoppingList**](docs/OAIMealPlanningApi.md#deletefromshoppinglist) | **DELETE** /mealplanner/{username}/shopping-list/items/{id} | Delete from Shopping List
+*OAIMealPlanningApi* | [**deleteMealPlanTemplate**](docs/OAIMealPlanningApi.md#deletemealplantemplate) | **DELETE** /mealplanner/{username}/templates/{id} | Delete Meal Plan Template
 *OAIMealPlanningApi* | [**generateMealPlan**](docs/OAIMealPlanningApi.md#generatemealplan) | **GET** /mealplanner/generate | Generate Meal Plan
 *OAIMealPlanningApi* | [**generateShoppingList**](docs/OAIMealPlanningApi.md#generateshoppinglist) | **POST** /mealplanner/{username}/shopping-list/{start-date}/{end-date} | Generate Shopping List
 *OAIMealPlanningApi* | [**getMealPlanTemplate**](docs/OAIMealPlanningApi.md#getmealplantemplate) | **GET** /mealplanner/{username}/templates/{id} | Get Meal Plan Template
@@ -330,6 +337,7 @@ Class | Method | HTTP request | Description
  - [OAIFoodIngredientsMapProducts](docs/OAIFoodIngredientsMapProducts.md)
  - [OAIInlineObject](docs/OAIInlineObject.md)
  - [OAIInlineObject1](docs/OAIInlineObject1.md)
+ - [OAIInlineObject10](docs/OAIInlineObject10.md)
  - [OAIInlineObject2](docs/OAIInlineObject2.md)
  - [OAIInlineObject3](docs/OAIInlineObject3.md)
  - [OAIInlineObject4](docs/OAIInlineObject4.md)
@@ -337,6 +345,7 @@ Class | Method | HTTP request | Description
  - [OAIInlineObject6](docs/OAIInlineObject6.md)
  - [OAIInlineObject7](docs/OAIInlineObject7.md)
  - [OAIInlineObject8](docs/OAIInlineObject8.md)
+ - [OAIInlineObject9](docs/OAIInlineObject9.md)
  - [OAIInlineResponse200](docs/OAIInlineResponse200.md)
  - [OAIInlineResponse2001](docs/OAIInlineResponse2001.md)
  - [OAIInlineResponse20010](docs/OAIInlineResponse20010.md)
@@ -408,40 +417,43 @@ Class | Method | HTTP request | Description
  - [OAIInlineResponse2003WinePairingProductMatches](docs/OAIInlineResponse2003WinePairingProductMatches.md)
  - [OAIInlineResponse2004](docs/OAIInlineResponse2004.md)
  - [OAIInlineResponse20040](docs/OAIInlineResponse20040.md)
- - [OAIInlineResponse20040Days](docs/OAIInlineResponse20040Days.md)
  - [OAIInlineResponse20040Items](docs/OAIInlineResponse20040Items.md)
  - [OAIInlineResponse20040Value](docs/OAIInlineResponse20040Value.md)
  - [OAIInlineResponse20041](docs/OAIInlineResponse20041.md)
- - [OAIInlineResponse20041Aisles](docs/OAIInlineResponse20041Aisles.md)
+ - [OAIInlineResponse20041Days](docs/OAIInlineResponse20041Days.md)
  - [OAIInlineResponse20041Items](docs/OAIInlineResponse20041Items.md)
- - [OAIInlineResponse20041Measures](docs/OAIInlineResponse20041Measures.md)
+ - [OAIInlineResponse20041Value](docs/OAIInlineResponse20041Value.md)
  - [OAIInlineResponse20042](docs/OAIInlineResponse20042.md)
+ - [OAIInlineResponse20042Aisles](docs/OAIInlineResponse20042Aisles.md)
+ - [OAIInlineResponse20042Items](docs/OAIInlineResponse20042Items.md)
+ - [OAIInlineResponse20042Measures](docs/OAIInlineResponse20042Measures.md)
  - [OAIInlineResponse20043](docs/OAIInlineResponse20043.md)
  - [OAIInlineResponse20044](docs/OAIInlineResponse20044.md)
- - [OAIInlineResponse20044ProductMatches](docs/OAIInlineResponse20044ProductMatches.md)
  - [OAIInlineResponse20045](docs/OAIInlineResponse20045.md)
+ - [OAIInlineResponse20045ProductMatches](docs/OAIInlineResponse20045ProductMatches.md)
  - [OAIInlineResponse20046](docs/OAIInlineResponse20046.md)
- - [OAIInlineResponse20046RecommendedWines](docs/OAIInlineResponse20046RecommendedWines.md)
  - [OAIInlineResponse20047](docs/OAIInlineResponse20047.md)
+ - [OAIInlineResponse20047RecommendedWines](docs/OAIInlineResponse20047RecommendedWines.md)
  - [OAIInlineResponse20048](docs/OAIInlineResponse20048.md)
- - [OAIInlineResponse20048Category](docs/OAIInlineResponse20048Category.md)
- - [OAIInlineResponse20048Nutrition](docs/OAIInlineResponse20048Nutrition.md)
- - [OAIInlineResponse20048NutritionCalories](docs/OAIInlineResponse20048NutritionCalories.md)
- - [OAIInlineResponse20048NutritionCaloriesConfidenceRange95Percent](docs/OAIInlineResponse20048NutritionCaloriesConfidenceRange95Percent.md)
- - [OAIInlineResponse20048Recipes](docs/OAIInlineResponse20048Recipes.md)
  - [OAIInlineResponse20049](docs/OAIInlineResponse20049.md)
+ - [OAIInlineResponse20049Category](docs/OAIInlineResponse20049Category.md)
+ - [OAIInlineResponse20049Nutrition](docs/OAIInlineResponse20049Nutrition.md)
+ - [OAIInlineResponse20049NutritionCalories](docs/OAIInlineResponse20049NutritionCalories.md)
+ - [OAIInlineResponse20049NutritionCaloriesConfidenceRange95Percent](docs/OAIInlineResponse20049NutritionCaloriesConfidenceRange95Percent.md)
+ - [OAIInlineResponse20049Recipes](docs/OAIInlineResponse20049Recipes.md)
  - [OAIInlineResponse2005](docs/OAIInlineResponse2005.md)
  - [OAIInlineResponse20050](docs/OAIInlineResponse20050.md)
  - [OAIInlineResponse20051](docs/OAIInlineResponse20051.md)
  - [OAIInlineResponse20052](docs/OAIInlineResponse20052.md)
- - [OAIInlineResponse20052Results](docs/OAIInlineResponse20052Results.md)
- - [OAIInlineResponse20052SearchResults](docs/OAIInlineResponse20052SearchResults.md)
  - [OAIInlineResponse20053](docs/OAIInlineResponse20053.md)
- - [OAIInlineResponse20053Videos](docs/OAIInlineResponse20053Videos.md)
+ - [OAIInlineResponse20053Results](docs/OAIInlineResponse20053Results.md)
+ - [OAIInlineResponse20053SearchResults](docs/OAIInlineResponse20053SearchResults.md)
  - [OAIInlineResponse20054](docs/OAIInlineResponse20054.md)
+ - [OAIInlineResponse20054Videos](docs/OAIInlineResponse20054Videos.md)
  - [OAIInlineResponse20055](docs/OAIInlineResponse20055.md)
  - [OAIInlineResponse20056](docs/OAIInlineResponse20056.md)
- - [OAIInlineResponse20056Suggests](docs/OAIInlineResponse20056Suggests.md)
+ - [OAIInlineResponse20057](docs/OAIInlineResponse20057.md)
+ - [OAIInlineResponse20057Suggests](docs/OAIInlineResponse20057Suggests.md)
  - [OAIInlineResponse2006](docs/OAIInlineResponse2006.md)
  - [OAIInlineResponse2006Recipes](docs/OAIInlineResponse2006Recipes.md)
  - [OAIInlineResponse2007](docs/OAIInlineResponse2007.md)

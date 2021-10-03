@@ -79,9 +79,9 @@ class InlineResponse20040ItemsTest extends TestCase
     }
 
     /**
-     * Test attribute "id"
+     * Test attribute "day"
      */
-    public function testPropertyId()
+    public function testPropertyDay()
     {
     }
 

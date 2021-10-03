@@ -572,6 +572,7 @@ class MenuItemsApi(object):
         :param float max_protein: The maximum amount of protein in grams the menu item can have.
         :param float min_fat: The minimum amount of fat in grams the menu item must have.
         :param float max_fat: The maximum amount of fat in grams the menu item can have.
+        :param bool add_menu_item_information: If set to true, you get more information about the menu items returned.
         :param int offset: The number of results to skip (between 0 and 900).
         :param int number: The maximum number of items to return (between 1 and 100). Defaults to 10.
         :return: InlineResponse20035
@@ -604,6 +605,7 @@ class MenuItemsApi(object):
         :param float max_protein: The maximum amount of protein in grams the menu item can have.
         :param float min_fat: The minimum amount of fat in grams the menu item must have.
         :param float max_fat: The maximum amount of fat in grams the menu item can have.
+        :param bool add_menu_item_information: If set to true, you get more information about the menu items returned.
         :param int offset: The number of results to skip (between 0 and 900).
         :param int number: The maximum number of items to return (between 1 and 100). Defaults to 10.
         :return: InlineResponse20035
@@ -613,7 +615,7 @@ class MenuItemsApi(object):
 
         local_var_params = locals()
 
-        all_params = ['query', 'min_calories', 'max_calories', 'min_carbs', 'max_carbs', 'min_protein', 'max_protein', 'min_fat', 'max_fat', 'offset', 'number']  # noqa: E501
+        all_params = ['query', 'min_calories', 'max_calories', 'min_carbs', 'max_carbs', 'min_protein', 'max_protein', 'min_fat', 'max_fat', 'add_menu_item_information', 'offset', 'number']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -659,6 +661,8 @@ class MenuItemsApi(object):
             query_params.append(('minFat', local_var_params['min_fat']))  # noqa: E501
         if 'max_fat' in local_var_params:
             query_params.append(('maxFat', local_var_params['max_fat']))  # noqa: E501
+        if 'add_menu_item_information' in local_var_params:
+            query_params.append(('addMenuItemInformation', local_var_params['add_menu_item_information']))  # noqa: E501
         if 'offset' in local_var_params:
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
         if 'number' in local_var_params:

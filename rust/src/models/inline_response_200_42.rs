@@ -14,17 +14,23 @@ use serde_json::Value;
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct InlineResponse20042 {
-    #[serde(rename = "username")]
-    pub username: String,
-    #[serde(rename = "hash")]
-    pub hash: String,
+    #[serde(rename = "aisles")]
+    pub aisles: Vec<::models::InlineResponse20042Aisles>,
+    #[serde(rename = "cost")]
+    pub cost: f32,
+    #[serde(rename = "startDate")]
+    pub start_date: f32,
+    #[serde(rename = "endDate")]
+    pub end_date: f32,
 }
 
 impl InlineResponse20042 {
-    pub fn new(username: String, hash: String) -> InlineResponse20042 {
+    pub fn new(aisles: Vec<::models::InlineResponse20042Aisles>, cost: f32, start_date: f32, end_date: f32) -> InlineResponse20042 {
         InlineResponse20042 {
-            username: username,
-            hash: hash,
+            aisles: aisles,
+            cost: cost,
+            start_date: start_date,
+            end_date: end_date,
         }
     }
 }

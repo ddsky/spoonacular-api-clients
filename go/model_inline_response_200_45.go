@@ -11,5 +11,7 @@
 package spoonacular
 
 type InlineResponse20045 struct {
-	WineDescription string `json:"wineDescription"`
+	PairedWines []string `json:"pairedWines"`
+	PairingText string `json:"pairingText"`
+	ProductMatches []InlineResponse20045ProductMatches `json:"productMatches"`
 }

@@ -6,10 +6,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**aisles** | [**List&lt;InlineResponse20041Aisles&gt;**](InlineResponse20041Aisles.md) |  | 
-**cost** | [**BigDecimal**](BigDecimal.md) |  | 
-**startDate** | [**BigDecimal**](BigDecimal.md) |  | 
-**endDate** | [**BigDecimal**](BigDecimal.md) |  | 
+**id** | **Integer** |  | 
+**name** | **String** |  | 
+**days** | [**List&lt;InlineResponse20041Days&gt;**](InlineResponse20041Days.md) |  | 
 
 
 

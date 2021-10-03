@@ -38,11 +38,8 @@ OAIInline_response_200_46::~OAIInline_response_200_46() {
 void
 OAIInline_response_200_46::init() {
     
-    m_recommended_wines_isSet = false;
-    m_recommended_wines_isValid = false;
-    
-    m_total_found_isSet = false;
-    m_total_found_isValid = false;
+    m_wine_description_isSet = false;
+    m_wine_description_isValid = false;
     }
 
 void
@@ -56,10 +53,7 @@ OAIInline_response_200_46::fromJson(QString jsonString) {
 void
 OAIInline_response_200_46::fromJsonObject(QJsonObject json) {
     
-    
-    m_recommended_wines_isValid = ::OpenAPI::fromJsonValue(recommended_wines, json[QString("recommendedWines")]);
-    
-    m_total_found_isValid = ::OpenAPI::fromJsonValue(total_found, json[QString("totalFound")]);
+    m_wine_description_isValid = ::OpenAPI::fromJsonValue(wine_description, json[QString("wineDescription")]);
     
     
 }
@@ -75,45 +69,28 @@ OAIInline_response_200_46::asJson () const {
 QJsonObject
 OAIInline_response_200_46::asJsonObject() const {
     QJsonObject obj;
-	
-    if(recommended_wines.size() > 0){
-        obj.insert(QString("recommendedWines"), ::OpenAPI::toJsonValue(recommended_wines));
-    } 
-	if(m_total_found_isSet){
-        obj.insert(QString("totalFound"), ::OpenAPI::toJsonValue(total_found));
+	if(m_wine_description_isSet){
+        obj.insert(QString("wineDescription"), ::OpenAPI::toJsonValue(wine_description));
     }
     return obj;
 }
 
 
-QList<OAIInline_response_200_46_recommendedWines>
-OAIInline_response_200_46::getRecommendedWines() const {
-    return recommended_wines;
+QString
+OAIInline_response_200_46::getWineDescription() const {
+    return wine_description;
 }
 void
-OAIInline_response_200_46::setRecommendedWines(const QList<OAIInline_response_200_46_recommendedWines> &recommended_wines) {
-    this->recommended_wines = recommended_wines;
-    this->m_recommended_wines_isSet = true;
-}
-
-
-qint32
-OAIInline_response_200_46::getTotalFound() const {
-    return total_found;
-}
-void
-OAIInline_response_200_46::setTotalFound(const qint32 &total_found) {
-    this->total_found = total_found;
-    this->m_total_found_isSet = true;
+OAIInline_response_200_46::setWineDescription(const QString &wine_description) {
+    this->wine_description = wine_description;
+    this->m_wine_description_isSet = true;
 }
 
 bool
 OAIInline_response_200_46::isSet() const {
     bool isObjectUpdated = false;
     do{ 
-        if(recommended_wines.size() > 0){ isObjectUpdated = true; break;}
-    
-        if(m_total_found_isSet){ isObjectUpdated = true; break;}
+        if(m_wine_description_isSet){ isObjectUpdated = true; break;}
     }while(false);
     return isObjectUpdated;
 }
@@ -121,7 +98,7 @@ OAIInline_response_200_46::isSet() const {
 bool
 OAIInline_response_200_46::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_recommended_wines_isValid && m_total_found_isValid && true;
+    return m_wine_description_isValid && true;
 }
 
 }

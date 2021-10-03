@@ -79,30 +79,9 @@ class InlineResponse20051Test extends TestCase
     }
 
     /**
-     * Test attribute "articles"
+     * Test attribute "annotations"
      */
-    public function testPropertyArticles()
-    {
-    }
-
-    /**
-     * Test attribute "grocery_products"
-     */
-    public function testPropertyGroceryProducts()
-    {
-    }
-
-    /**
-     * Test attribute "menu_items"
-     */
-    public function testPropertyMenuItems()
-    {
-    }
-
-    /**
-     * Test attribute "recipes"
-     */
-    public function testPropertyRecipes()
+    public function testPropertyAnnotations()
     {
     }
 }

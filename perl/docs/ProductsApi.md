@@ -451,7 +451,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **search_grocery_products**
-> InlineResponse20027 search_grocery_products(query => $query, min_calories => $min_calories, max_calories => $max_calories, min_carbs => $min_carbs, max_carbs => $max_carbs, min_protein => $min_protein, max_protein => $max_protein, min_fat => $min_fat, max_fat => $max_fat, offset => $offset, number => $number)
+> InlineResponse20027 search_grocery_products(query => $query, min_calories => $min_calories, max_calories => $max_calories, min_carbs => $min_carbs, max_carbs => $max_carbs, min_protein => $min_protein, max_protein => $max_protein, min_fat => $min_fat, max_fat => $max_fat, add_product_information => $add_product_information, offset => $offset, number => $number)
 
 Search Grocery Products
 
@@ -478,11 +478,12 @@ my $min_protein = 10; # double | The minimum amount of protein in grams the prod
 my $max_protein = 100; # double | The maximum amount of protein in grams the product can have.
 my $min_fat = 1; # double | The minimum amount of fat in grams the product must have.
 my $max_fat = 100; # double | The maximum amount of fat in grams the product can have.
+my $add_product_information = true; # boolean | If set to true, you get more information about the products returned.
 my $offset = 56; # int | The number of results to skip (between 0 and 900).
 my $number = 10; # int | The maximum number of items to return (between 1 and 100). Defaults to 10.
 
 eval { 
-    my $result = $api_instance->search_grocery_products(query => $query, min_calories => $min_calories, max_calories => $max_calories, min_carbs => $min_carbs, max_carbs => $max_carbs, min_protein => $min_protein, max_protein => $max_protein, min_fat => $min_fat, max_fat => $max_fat, offset => $offset, number => $number);
+    my $result = $api_instance->search_grocery_products(query => $query, min_calories => $min_calories, max_calories => $max_calories, min_carbs => $min_carbs, max_carbs => $max_carbs, min_protein => $min_protein, max_protein => $max_protein, min_fat => $min_fat, max_fat => $max_fat, add_product_information => $add_product_information, offset => $offset, number => $number);
     print Dumper($result);
 };
 if ($@) {
@@ -503,6 +504,7 @@ Name | Type | Description  | Notes
  **max_protein** | **double**| The maximum amount of protein in grams the product can have. | [optional] 
  **min_fat** | **double**| The minimum amount of fat in grams the product must have. | [optional] 
  **max_fat** | **double**| The maximum amount of fat in grams the product can have. | [optional] 
+ **add_product_information** | **boolean**| If set to true, you get more information about the products returned. | [optional] 
  **offset** | **int**| The number of results to skip (between 0 and 900). | [optional] 
  **number** | **int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
 

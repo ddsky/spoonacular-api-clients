@@ -29,114 +29,33 @@ import java.util.List;
 /**
  * InlineResponse20051
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-09-28T20:40:32.759+02:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-03T15:10:59.332+02:00[Europe/Berlin]")
 public class InlineResponse20051 {
-  public static final String SERIALIZED_NAME_ARTICLES = "Articles";
-  @SerializedName(SERIALIZED_NAME_ARTICLES)
-  private List<Object> articles = new ArrayList<>();
+  public static final String SERIALIZED_NAME_ANNOTATIONS = "annotations";
+  @SerializedName(SERIALIZED_NAME_ANNOTATIONS)
+  private List<Object> annotations = new ArrayList<>();
 
-  public static final String SERIALIZED_NAME_GROCERY_PRODUCTS = "Grocery Products";
-  @SerializedName(SERIALIZED_NAME_GROCERY_PRODUCTS)
-  private List<Object> groceryProducts = new ArrayList<>();
-
-  public static final String SERIALIZED_NAME_MENU_ITEMS = "Menu Items";
-  @SerializedName(SERIALIZED_NAME_MENU_ITEMS)
-  private List<Object> menuItems = new ArrayList<>();
-
-  public static final String SERIALIZED_NAME_RECIPES = "Recipes";
-  @SerializedName(SERIALIZED_NAME_RECIPES)
-  private List<Object> recipes = new ArrayList<>();
-
-  public InlineResponse20051 articles(List<Object> articles) {
-    this.articles = articles;
+  public InlineResponse20051 annotations(List<Object> annotations) {
+    this.annotations = annotations;
     return this;
   }
 
-  public InlineResponse20051 addArticlesItem(Object articlesItem) {
-    this.articles.add(articlesItem);
+  public InlineResponse20051 addAnnotationsItem(Object annotationsItem) {
+    this.annotations.add(annotationsItem);
     return this;
   }
 
    /**
-   * Get articles
-   * @return articles
+   * Get annotations
+   * @return annotations
   **/
   @ApiModelProperty(required = true, value = "")
-  public List<Object> getArticles() {
-    return articles;
+  public List<Object> getAnnotations() {
+    return annotations;
   }
 
-  public void setArticles(List<Object> articles) {
-    this.articles = articles;
-  }
-
-  public InlineResponse20051 groceryProducts(List<Object> groceryProducts) {
-    this.groceryProducts = groceryProducts;
-    return this;
-  }
-
-  public InlineResponse20051 addGroceryProductsItem(Object groceryProductsItem) {
-    this.groceryProducts.add(groceryProductsItem);
-    return this;
-  }
-
-   /**
-   * Get groceryProducts
-   * @return groceryProducts
-  **/
-  @ApiModelProperty(required = true, value = "")
-  public List<Object> getGroceryProducts() {
-    return groceryProducts;
-  }
-
-  public void setGroceryProducts(List<Object> groceryProducts) {
-    this.groceryProducts = groceryProducts;
-  }
-
-  public InlineResponse20051 menuItems(List<Object> menuItems) {
-    this.menuItems = menuItems;
-    return this;
-  }
-
-  public InlineResponse20051 addMenuItemsItem(Object menuItemsItem) {
-    this.menuItems.add(menuItemsItem);
-    return this;
-  }
-
-   /**
-   * Get menuItems
-   * @return menuItems
-  **/
-  @ApiModelProperty(required = true, value = "")
-  public List<Object> getMenuItems() {
-    return menuItems;
-  }
-
-  public void setMenuItems(List<Object> menuItems) {
-    this.menuItems = menuItems;
-  }
-
-  public InlineResponse20051 recipes(List<Object> recipes) {
-    this.recipes = recipes;
-    return this;
-  }
-
-  public InlineResponse20051 addRecipesItem(Object recipesItem) {
-    this.recipes.add(recipesItem);
-    return this;
-  }
-
-   /**
-   * Get recipes
-   * @return recipes
-  **/
-  @ApiModelProperty(required = true, value = "")
-  public List<Object> getRecipes() {
-    return recipes;
-  }
-
-  public void setRecipes(List<Object> recipes) {
-    this.recipes = recipes;
+  public void setAnnotations(List<Object> annotations) {
+    this.annotations = annotations;
   }
 
 
@@ -149,15 +68,12 @@ public class InlineResponse20051 {
       return false;
     }
     InlineResponse20051 inlineResponse20051 = (InlineResponse20051) o;
-    return Objects.equals(this.articles, inlineResponse20051.articles) &&
-        Objects.equals(this.groceryProducts, inlineResponse20051.groceryProducts) &&
-        Objects.equals(this.menuItems, inlineResponse20051.menuItems) &&
-        Objects.equals(this.recipes, inlineResponse20051.recipes);
+    return Objects.equals(this.annotations, inlineResponse20051.annotations);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(articles, groceryProducts, menuItems, recipes);
+    return Objects.hash(annotations);
   }
 
 
@@ -165,10 +81,7 @@ public class InlineResponse20051 {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse20051 {\n");
-    sb.append("    articles: ").append(toIndentedString(articles)).append("\n");
-    sb.append("    groceryProducts: ").append(toIndentedString(groceryProducts)).append("\n");
-    sb.append("    menuItems: ").append(toIndentedString(menuItems)).append("\n");
-    sb.append("    recipes: ").append(toIndentedString(recipes)).append("\n");
+    sb.append("    annotations: ").append(toIndentedString(annotations)).append("\n");
     sb.append("}");
     return sb.toString();
   }

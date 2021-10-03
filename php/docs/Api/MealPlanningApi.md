@@ -4,12 +4,14 @@ All URIs are relative to *https://api.spoonacular.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**addMealPlanTemplate**](MealPlanningApi.md#addMealPlanTemplate) | **POST** /mealplanner/{username}/templates | Add Meal Plan Template
 [**addToMealPlan**](MealPlanningApi.md#addToMealPlan) | **POST** /mealplanner/{username}/items | Add to Meal Plan
 [**addToShoppingList**](MealPlanningApi.md#addToShoppingList) | **POST** /mealplanner/{username}/shopping-list/items | Add to Shopping List
 [**clearMealPlanDay**](MealPlanningApi.md#clearMealPlanDay) | **DELETE** /mealplanner/{username}/day/{date} | Clear Meal Plan Day
 [**connectUser**](MealPlanningApi.md#connectUser) | **POST** /users/connect | Connect User
 [**deleteFromMealPlan**](MealPlanningApi.md#deleteFromMealPlan) | **DELETE** /mealplanner/{username}/items/{id} | Delete from Meal Plan
 [**deleteFromShoppingList**](MealPlanningApi.md#deleteFromShoppingList) | **DELETE** /mealplanner/{username}/shopping-list/items/{id} | Delete from Shopping List
+[**deleteMealPlanTemplate**](MealPlanningApi.md#deleteMealPlanTemplate) | **DELETE** /mealplanner/{username}/templates/{id} | Delete Meal Plan Template
 [**generateMealPlan**](MealPlanningApi.md#generateMealPlan) | **GET** /mealplanner/generate | Generate Meal Plan
 [**generateShoppingList**](MealPlanningApi.md#generateShoppingList) | **POST** /mealplanner/{username}/shopping-list/{start-date}/{end-date} | Generate Shopping List
 [**getMealPlanTemplate**](MealPlanningApi.md#getMealPlanTemplate) | **GET** /mealplanner/{username}/templates/{id} | Get Meal Plan Template
@@ -17,6 +19,73 @@ Method | HTTP request | Description
 [**getMealPlanWeek**](MealPlanningApi.md#getMealPlanWeek) | **GET** /mealplanner/{username}/week/{start-date} | Get Meal Plan Week
 [**getShoppingList**](MealPlanningApi.md#getShoppingList) | **GET** /mealplanner/{username}/shopping-list | Get Shopping List
 
+
+
+## addMealPlanTemplate
+
+> \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20040 addMealPlanTemplate($username, $hash, $inline_object6)
+
+Add Meal Plan Template
+
+Add a meal plan template for a user.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
+$apiInstance = new com.spoonacular.client\Api\MealPlanningApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$username = dsky; // string | The username.
+$hash = 4b5v4398573406; // string | The private hash for the username.
+$inline_object6 = new \com.spoonacular.client\com.spoonacular.client.model\InlineObject6(); // \com.spoonacular.client\com.spoonacular.client.model\InlineObject6 | 
+
+try {
+    $result = $apiInstance->addMealPlanTemplate($username, $hash, $inline_object6);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling MealPlanningApi->addMealPlanTemplate: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **string**| The username. |
+ **hash** | **string**| The private hash for the username. |
+ **inline_object6** | [**\com.spoonacular.client\com.spoonacular.client.model\InlineObject6**](../Model/InlineObject6.md)|  |
+
+### Return type
+
+[**\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20040**](../Model/InlineResponse20040.md)
+
+### Authorization
+
+[apiKeyScheme](../../README.md#apiKeyScheme)
+
+### HTTP request headers
+
+- **Content-Type**: 
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
 
 
 ## addToMealPlan
@@ -88,7 +157,7 @@ Name | Type | Description  | Notes
 
 ## addToShoppingList
 
-> \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20041 addToShoppingList($username, $hash, $inline_object7)
+> \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20042 addToShoppingList($username, $hash, $inline_object9)
 
 Add to Shopping List
 
@@ -115,10 +184,10 @@ $apiInstance = new com.spoonacular.client\Api\MealPlanningApi(
 );
 $username = dsky; // string | The username.
 $hash = 'hash_example'; // string | The private hash for the username.
-$inline_object7 = new \com.spoonacular.client\com.spoonacular.client.model\InlineObject7(); // \com.spoonacular.client\com.spoonacular.client.model\InlineObject7 | 
+$inline_object9 = new \com.spoonacular.client\com.spoonacular.client.model\InlineObject9(); // \com.spoonacular.client\com.spoonacular.client.model\InlineObject9 | 
 
 try {
-    $result = $apiInstance->addToShoppingList($username, $hash, $inline_object7);
+    $result = $apiInstance->addToShoppingList($username, $hash, $inline_object9);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MealPlanningApi->addToShoppingList: ', $e->getMessage(), PHP_EOL;
@@ -133,11 +202,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **username** | **string**| The username. |
  **hash** | **string**| The private hash for the username. |
- **inline_object7** | [**\com.spoonacular.client\com.spoonacular.client.model\InlineObject7**](../Model/InlineObject7.md)|  |
+ **inline_object9** | [**\com.spoonacular.client\com.spoonacular.client.model\InlineObject9**](../Model/InlineObject9.md)|  |
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20041**](../Model/InlineResponse20041.md)
+[**\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20042**](../Model/InlineResponse20042.md)
 
 ### Authorization
 
@@ -224,7 +293,7 @@ Name | Type | Description  | Notes
 
 ## connectUser
 
-> \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20042 connectUser($body)
+> \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20043 connectUser($body)
 
 Connect User
 
@@ -269,7 +338,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20042**](../Model/InlineResponse20042.md)
+[**\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20043**](../Model/InlineResponse20043.md)
 
 ### Authorization
 
@@ -356,7 +425,7 @@ Name | Type | Description  | Notes
 
 ## deleteFromShoppingList
 
-> object deleteFromShoppingList($username, $id, $hash, $inline_object8)
+> object deleteFromShoppingList($username, $id, $hash, $inline_object10)
 
 Delete from Shopping List
 
@@ -384,10 +453,10 @@ $apiInstance = new com.spoonacular.client\Api\MealPlanningApi(
 $username = dsky; // string | The username.
 $id = 1; // int | The item's id.
 $hash = 'hash_example'; // string | The private hash for the username.
-$inline_object8 = new \com.spoonacular.client\com.spoonacular.client.model\InlineObject8(); // \com.spoonacular.client\com.spoonacular.client.model\InlineObject8 | 
+$inline_object10 = new \com.spoonacular.client\com.spoonacular.client.model\InlineObject10(); // \com.spoonacular.client\com.spoonacular.client.model\InlineObject10 | 
 
 try {
-    $result = $apiInstance->deleteFromShoppingList($username, $id, $hash, $inline_object8);
+    $result = $apiInstance->deleteFromShoppingList($username, $id, $hash, $inline_object10);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MealPlanningApi->deleteFromShoppingList: ', $e->getMessage(), PHP_EOL;
@@ -403,7 +472,76 @@ Name | Type | Description  | Notes
  **username** | **string**| The username. |
  **id** | **int**| The item&#39;s id. |
  **hash** | **string**| The private hash for the username. |
- **inline_object8** | [**\com.spoonacular.client\com.spoonacular.client.model\InlineObject8**](../Model/InlineObject8.md)|  |
+ **inline_object10** | [**\com.spoonacular.client\com.spoonacular.client.model\InlineObject10**](../Model/InlineObject10.md)|  |
+
+### Return type
+
+**object**
+
+### Authorization
+
+[apiKeyScheme](../../README.md#apiKeyScheme)
+
+### HTTP request headers
+
+- **Content-Type**: 
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## deleteMealPlanTemplate
+
+> object deleteMealPlanTemplate($username, $id, $hash, $inline_object7)
+
+Delete Meal Plan Template
+
+Delete a meal plan template for a user.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+
+
+$apiInstance = new com.spoonacular.client\Api\MealPlanningApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$username = dsky; // string | The username.
+$id = 1; // int | The item's id.
+$hash = 4b5v4398573406; // string | The private hash for the username.
+$inline_object7 = new \com.spoonacular.client\com.spoonacular.client.model\InlineObject7(); // \com.spoonacular.client\com.spoonacular.client.model\InlineObject7 | 
+
+try {
+    $result = $apiInstance->deleteMealPlanTemplate($username, $id, $hash, $inline_object7);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling MealPlanningApi->deleteMealPlanTemplate: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **string**| The username. |
+ **id** | **int**| The item&#39;s id. |
+ **hash** | **string**| The private hash for the username. |
+ **inline_object7** | [**\com.spoonacular.client\com.spoonacular.client.model\InlineObject7**](../Model/InlineObject7.md)|  |
 
 ### Return type
 
@@ -494,7 +632,7 @@ Name | Type | Description  | Notes
 
 ## generateShoppingList
 
-> \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20041 generateShoppingList($username, $start_date, $end_date, $hash, $inline_object6)
+> \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20042 generateShoppingList($username, $start_date, $end_date, $hash, $inline_object8)
 
 Generate Shopping List
 
@@ -523,10 +661,10 @@ $username = dsky; // string | The username.
 $start_date = 2020-06-01; // string | The start date in the format yyyy-mm-dd.
 $end_date = 2020-06-07; // string | The end date in the format yyyy-mm-dd.
 $hash = 'hash_example'; // string | The private hash for the username.
-$inline_object6 = new \com.spoonacular.client\com.spoonacular.client.model\InlineObject6(); // \com.spoonacular.client\com.spoonacular.client.model\InlineObject6 | 
+$inline_object8 = new \com.spoonacular.client\com.spoonacular.client.model\InlineObject8(); // \com.spoonacular.client\com.spoonacular.client.model\InlineObject8 | 
 
 try {
-    $result = $apiInstance->generateShoppingList($username, $start_date, $end_date, $hash, $inline_object6);
+    $result = $apiInstance->generateShoppingList($username, $start_date, $end_date, $hash, $inline_object8);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MealPlanningApi->generateShoppingList: ', $e->getMessage(), PHP_EOL;
@@ -543,11 +681,11 @@ Name | Type | Description  | Notes
  **start_date** | **string**| The start date in the format yyyy-mm-dd. |
  **end_date** | **string**| The end date in the format yyyy-mm-dd. |
  **hash** | **string**| The private hash for the username. |
- **inline_object6** | [**\com.spoonacular.client\com.spoonacular.client.model\InlineObject6**](../Model/InlineObject6.md)|  |
+ **inline_object8** | [**\com.spoonacular.client\com.spoonacular.client.model\InlineObject8**](../Model/InlineObject8.md)|  |
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20041**](../Model/InlineResponse20041.md)
+[**\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20042**](../Model/InlineResponse20042.md)
 
 ### Authorization
 
@@ -565,7 +703,7 @@ Name | Type | Description  | Notes
 
 ## getMealPlanTemplate
 
-> \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20040 getMealPlanTemplate($username, $id, $hash)
+> \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20041 getMealPlanTemplate($username, $id, $hash)
 
 Get Meal Plan Template
 
@@ -614,7 +752,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20040**](../Model/InlineResponse20040.md)
+[**\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20041**](../Model/InlineResponse20041.md)
 
 ### Authorization
 
@@ -764,7 +902,7 @@ Name | Type | Description  | Notes
 
 ## getShoppingList
 
-> \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20041 getShoppingList($username, $hash)
+> \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20042 getShoppingList($username, $hash)
 
 Get Shopping List
 
@@ -811,7 +949,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20041**](../Model/InlineResponse20041.md)
+[**\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20042**](../Model/InlineResponse20042.md)
 
 ### Authorization
 

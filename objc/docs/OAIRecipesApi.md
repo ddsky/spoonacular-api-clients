@@ -1437,7 +1437,7 @@ Name | Type | Description  | Notes
 # **quickAnswer**
 ```objc
 -(NSURLSessionTask*) quickAnswerWithQ: (NSString*) q
-        completionHandler: (void (^)(OAIInlineResponse20049* output, NSError* error)) handler;
+        completionHandler: (void (^)(OAIInlineResponse20050* output, NSError* error)) handler;
 ```
 
 Quick Answer
@@ -1460,7 +1460,7 @@ OAIRecipesApi*apiInstance = [[OAIRecipesApi alloc] init];
 
 // Quick Answer
 [apiInstance quickAnswerWithQ:q
-          completionHandler: ^(OAIInlineResponse20049* output, NSError* error) {
+          completionHandler: ^(OAIInlineResponse20050* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -1478,7 +1478,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OAIInlineResponse20049***](OAIInlineResponse20049.md)
+[**OAIInlineResponse20050***](OAIInlineResponse20050.md)
 
 ### Authorization
 

@@ -57,7 +57,7 @@ class InlineResponse20040Items implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'int',
+        'day' => 'int',
         'slot' => 'int',
         'position' => 'int',
         'type' => 'string',
@@ -70,7 +70,7 @@ class InlineResponse20040Items implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => null,
+        'day' => null,
         'slot' => null,
         'position' => null,
         'type' => null,
@@ -104,7 +104,7 @@ class InlineResponse20040Items implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
+        'day' => 'day',
         'slot' => 'slot',
         'position' => 'position',
         'type' => 'type',
@@ -117,7 +117,7 @@ class InlineResponse20040Items implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
+        'day' => 'setDay',
         'slot' => 'setSlot',
         'position' => 'setPosition',
         'type' => 'setType',
@@ -130,7 +130,7 @@ class InlineResponse20040Items implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
+        'day' => 'getDay',
         'slot' => 'getSlot',
         'position' => 'getPosition',
         'type' => 'getType',
@@ -197,7 +197,7 @@ class InlineResponse20040Items implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['day'] = isset($data['day']) ? $data['day'] : null;
         $this->container['slot'] = isset($data['slot']) ? $data['slot'] : null;
         $this->container['position'] = isset($data['position']) ? $data['position'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
@@ -213,8 +213,8 @@ class InlineResponse20040Items implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
+        if ($this->container['day'] === null) {
+            $invalidProperties[] = "'day' can't be null";
         }
         if ($this->container['slot'] === null) {
             $invalidProperties[] = "'slot' can't be null";
@@ -245,25 +245,25 @@ class InlineResponse20040Items implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets id
+     * Gets day
      *
      * @return int
      */
-    public function getId()
+    public function getDay()
     {
-        return $this->container['id'];
+        return $this->container['day'];
     }
 
     /**
-     * Sets id
+     * Sets day
      *
-     * @param int $id id
+     * @param int $day day
      *
      * @return $this
      */
-    public function setId($id)
+    public function setDay($day)
     {
-        $this->container['id'] = $id;
+        $this->container['day'] = $day;
 
         return $this;
     }

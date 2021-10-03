@@ -197,9 +197,10 @@ public class ProductsApiTest {
         BigDecimal maxProtein = null;
         BigDecimal minFat = null;
         BigDecimal maxFat = null;
+        Boolean addProductInformation = null;
         Integer offset = null;
         Integer number = null;
-        InlineResponse20027 response = api.searchGroceryProducts(query, minCalories, maxCalories, minCarbs, maxCarbs, minProtein, maxProtein, minFat, maxFat, offset, number);
+        InlineResponse20027 response = api.searchGroceryProducts(query, minCalories, maxCalories, minCarbs, maxCarbs, minProtein, maxProtein, minFat, maxFat, addProductInformation, offset, number);
 
         // TODO: test validations
     }

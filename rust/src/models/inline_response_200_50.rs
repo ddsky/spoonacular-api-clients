@@ -14,14 +14,17 @@ use serde_json::Value;
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct InlineResponse20050 {
-    #[serde(rename = "annotations")]
-    pub annotations: Vec<Value>,
+    #[serde(rename = "answer")]
+    pub answer: String,
+    #[serde(rename = "image")]
+    pub image: String,
 }
 
 impl InlineResponse20050 {
-    pub fn new(annotations: Vec<Value>) -> InlineResponse20050 {
+    pub fn new(answer: String, image: String) -> InlineResponse20050 {
         InlineResponse20050 {
-            annotations: annotations,
+            answer: answer,
+            image: image,
         }
     }
 }

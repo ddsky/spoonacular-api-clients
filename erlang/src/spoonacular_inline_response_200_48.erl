@@ -5,16 +5,13 @@
 -export_type([spoonacular_inline_response_200_48/0]).
 
 -type spoonacular_inline_response_200_48() ::
-    #{ 'nutrition' := spoonacular_inline_response_200_48_nutrition:spoonacular_inline_response_200_48_nutrition(),
-       'category' := spoonacular_inline_response_200_48_category:spoonacular_inline_response_200_48_category(),
-       'recipes' := list()
+    #{ 'category' := binary(),
+       'probability' := integer()
      }.
 
-encode(#{ 'nutrition' := Nutrition,
-          'category' := Category,
-          'recipes' := Recipes
+encode(#{ 'category' := Category,
+          'probability' := Probability
         }) ->
-    #{ 'nutrition' => Nutrition,
-       'category' => Category,
-       'recipes' => Recipes
+    #{ 'category' => Category,
+       'probability' => Probability
      }.

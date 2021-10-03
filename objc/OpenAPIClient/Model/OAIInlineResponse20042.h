@@ -14,6 +14,9 @@
 */
 
 
+#import "OAIInlineResponse20042Aisles.h"
+@protocol OAIInlineResponse20042Aisles;
+@class OAIInlineResponse20042Aisles;
 
 
 
@@ -23,8 +26,12 @@
 @interface OAIInlineResponse20042 : OAIObject
 
 
-@property(nonatomic) NSString* username;
+@property(nonatomic) NSArray<OAIInlineResponse20042Aisles>* aisles;
 
-@property(nonatomic) NSString* hash;
+@property(nonatomic) NSNumber* cost;
+
+@property(nonatomic) NSNumber* startDate;
+
+@property(nonatomic) NSNumber* endDate;
 
 @end

@@ -19,9 +19,10 @@ local function cast_inline_response_200_40_value(t)
 	return setmetatable(t, inline_response_200_40_value_mt)
 end
 
-local function new_inline_response_200_40_value(id, title, image_type)
+local function new_inline_response_200_40_value(id, servings, title, image_type)
 	return cast_inline_response_200_40_value({
 		["id"] = id;
+		["servings"] = servings;
 		["title"] = title;
 		["imageType"] = image_type;
 	})

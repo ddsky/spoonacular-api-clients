@@ -20,35 +20,92 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.spoonacular.client.model.InlineResponse20045ProductMatches;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * InlineResponse20045
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-09-28T20:40:32.759+02:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-03T15:10:59.332+02:00[Europe/Berlin]")
 public class InlineResponse20045 {
-  public static final String SERIALIZED_NAME_WINE_DESCRIPTION = "wineDescription";
-  @SerializedName(SERIALIZED_NAME_WINE_DESCRIPTION)
-  private String wineDescription;
+  public static final String SERIALIZED_NAME_PAIRED_WINES = "pairedWines";
+  @SerializedName(SERIALIZED_NAME_PAIRED_WINES)
+  private List<String> pairedWines = new ArrayList<>();
 
-  public InlineResponse20045 wineDescription(String wineDescription) {
-    this.wineDescription = wineDescription;
+  public static final String SERIALIZED_NAME_PAIRING_TEXT = "pairingText";
+  @SerializedName(SERIALIZED_NAME_PAIRING_TEXT)
+  private String pairingText;
+
+  public static final String SERIALIZED_NAME_PRODUCT_MATCHES = "productMatches";
+  @SerializedName(SERIALIZED_NAME_PRODUCT_MATCHES)
+  private List<InlineResponse20045ProductMatches> productMatches = new ArrayList<>();
+
+  public InlineResponse20045 pairedWines(List<String> pairedWines) {
+    this.pairedWines = pairedWines;
+    return this;
+  }
+
+  public InlineResponse20045 addPairedWinesItem(String pairedWinesItem) {
+    this.pairedWines.add(pairedWinesItem);
     return this;
   }
 
    /**
-   * Get wineDescription
-   * @return wineDescription
+   * Get pairedWines
+   * @return pairedWines
   **/
   @ApiModelProperty(required = true, value = "")
-  public String getWineDescription() {
-    return wineDescription;
+  public List<String> getPairedWines() {
+    return pairedWines;
   }
 
-  public void setWineDescription(String wineDescription) {
-    this.wineDescription = wineDescription;
+  public void setPairedWines(List<String> pairedWines) {
+    this.pairedWines = pairedWines;
+  }
+
+  public InlineResponse20045 pairingText(String pairingText) {
+    this.pairingText = pairingText;
+    return this;
+  }
+
+   /**
+   * Get pairingText
+   * @return pairingText
+  **/
+  @ApiModelProperty(required = true, value = "")
+  public String getPairingText() {
+    return pairingText;
+  }
+
+  public void setPairingText(String pairingText) {
+    this.pairingText = pairingText;
+  }
+
+  public InlineResponse20045 productMatches(List<InlineResponse20045ProductMatches> productMatches) {
+    this.productMatches = productMatches;
+    return this;
+  }
+
+  public InlineResponse20045 addProductMatchesItem(InlineResponse20045ProductMatches productMatchesItem) {
+    this.productMatches.add(productMatchesItem);
+    return this;
+  }
+
+   /**
+   * Get productMatches
+   * @return productMatches
+  **/
+  @ApiModelProperty(required = true, value = "")
+  public List<InlineResponse20045ProductMatches> getProductMatches() {
+    return productMatches;
+  }
+
+  public void setProductMatches(List<InlineResponse20045ProductMatches> productMatches) {
+    this.productMatches = productMatches;
   }
 
 
@@ -61,12 +118,14 @@ public class InlineResponse20045 {
       return false;
     }
     InlineResponse20045 inlineResponse20045 = (InlineResponse20045) o;
-    return Objects.equals(this.wineDescription, inlineResponse20045.wineDescription);
+    return Objects.equals(this.pairedWines, inlineResponse20045.pairedWines) &&
+        Objects.equals(this.pairingText, inlineResponse20045.pairingText) &&
+        Objects.equals(this.productMatches, inlineResponse20045.productMatches);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(wineDescription);
+    return Objects.hash(pairedWines, pairingText, productMatches);
   }
 
 
@@ -74,7 +133,9 @@ public class InlineResponse20045 {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse20045 {\n");
-    sb.append("    wineDescription: ").append(toIndentedString(wineDescription)).append("\n");
+    sb.append("    pairedWines: ").append(toIndentedString(pairedWines)).append("\n");
+    sb.append("    pairingText: ").append(toIndentedString(pairingText)).append("\n");
+    sb.append("    productMatches: ").append(toIndentedString(productMatches)).append("\n");
     sb.append("}");
     return sb.toString();
   }

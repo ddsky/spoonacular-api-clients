@@ -57,8 +57,9 @@ class InlineResponse20049 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'answer' => 'string',
-        'image' => 'string'
+        'nutrition' => '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20049Nutrition',
+        'category' => '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20049Category',
+        'recipes' => '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20049Recipes[]'
     ];
 
     /**
@@ -67,8 +68,9 @@ class InlineResponse20049 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'answer' => null,
-        'image' => null
+        'nutrition' => null,
+        'category' => null,
+        'recipes' => null
     ];
 
     /**
@@ -98,8 +100,9 @@ class InlineResponse20049 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'answer' => 'answer',
-        'image' => 'image'
+        'nutrition' => 'nutrition',
+        'category' => 'category',
+        'recipes' => 'recipes'
     ];
 
     /**
@@ -108,8 +111,9 @@ class InlineResponse20049 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'answer' => 'setAnswer',
-        'image' => 'setImage'
+        'nutrition' => 'setNutrition',
+        'category' => 'setCategory',
+        'recipes' => 'setRecipes'
     ];
 
     /**
@@ -118,8 +122,9 @@ class InlineResponse20049 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'answer' => 'getAnswer',
-        'image' => 'getImage'
+        'nutrition' => 'getNutrition',
+        'category' => 'getCategory',
+        'recipes' => 'getRecipes'
     ];
 
     /**
@@ -182,8 +187,9 @@ class InlineResponse20049 implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['answer'] = isset($data['answer']) ? $data['answer'] : null;
-        $this->container['image'] = isset($data['image']) ? $data['image'] : null;
+        $this->container['nutrition'] = isset($data['nutrition']) ? $data['nutrition'] : null;
+        $this->container['category'] = isset($data['category']) ? $data['category'] : null;
+        $this->container['recipes'] = isset($data['recipes']) ? $data['recipes'] : null;
     }
 
     /**
@@ -195,20 +201,15 @@ class InlineResponse20049 implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['answer'] === null) {
-            $invalidProperties[] = "'answer' can't be null";
+        if ($this->container['nutrition'] === null) {
+            $invalidProperties[] = "'nutrition' can't be null";
         }
-        if ((mb_strlen($this->container['answer']) < 1)) {
-            $invalidProperties[] = "invalid value for 'answer', the character length must be bigger than or equal to 1.";
+        if ($this->container['category'] === null) {
+            $invalidProperties[] = "'category' can't be null";
         }
-
-        if ($this->container['image'] === null) {
-            $invalidProperties[] = "'image' can't be null";
+        if ($this->container['recipes'] === null) {
+            $invalidProperties[] = "'recipes' can't be null";
         }
-        if ((mb_strlen($this->container['image']) < 1)) {
-            $invalidProperties[] = "invalid value for 'image', the character length must be bigger than or equal to 1.";
-        }
-
         return $invalidProperties;
     }
 
@@ -225,59 +226,73 @@ class InlineResponse20049 implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets answer
+     * Gets nutrition
      *
-     * @return string
+     * @return \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20049Nutrition
      */
-    public function getAnswer()
+    public function getNutrition()
     {
-        return $this->container['answer'];
+        return $this->container['nutrition'];
     }
 
     /**
-     * Sets answer
+     * Sets nutrition
      *
-     * @param string $answer answer
+     * @param \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20049Nutrition $nutrition nutrition
      *
      * @return $this
      */
-    public function setAnswer($answer)
+    public function setNutrition($nutrition)
     {
-
-        if ((mb_strlen($answer) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $answer when calling InlineResponse20049., must be bigger than or equal to 1.');
-        }
-
-        $this->container['answer'] = $answer;
+        $this->container['nutrition'] = $nutrition;
 
         return $this;
     }
 
     /**
-     * Gets image
+     * Gets category
      *
-     * @return string
+     * @return \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20049Category
      */
-    public function getImage()
+    public function getCategory()
     {
-        return $this->container['image'];
+        return $this->container['category'];
     }
 
     /**
-     * Sets image
+     * Sets category
      *
-     * @param string $image image
+     * @param \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20049Category $category category
      *
      * @return $this
      */
-    public function setImage($image)
+    public function setCategory($category)
     {
+        $this->container['category'] = $category;
 
-        if ((mb_strlen($image) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $image when calling InlineResponse20049., must be bigger than or equal to 1.');
-        }
+        return $this;
+    }
 
-        $this->container['image'] = $image;
+    /**
+     * Gets recipes
+     *
+     * @return \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20049Recipes[]
+     */
+    public function getRecipes()
+    {
+        return $this->container['recipes'];
+    }
+
+    /**
+     * Sets recipes
+     *
+     * @param \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20049Recipes[] $recipes recipes
+     *
+     * @return $this
+     */
+    public function setRecipes($recipes)
+    {
+        $this->container['recipes'] = $recipes;
 
         return $this;
     }

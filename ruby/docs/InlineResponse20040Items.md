@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Integer** |  | 
+**day** | **Integer** |  | 
 **slot** | **Integer** |  | 
 **position** | **Integer** |  | 
 **type** | **String** |  | 
@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 ```ruby
 require 'OpenapiClient'
 
-instance = OpenapiClient::InlineResponse20040Items.new(id: null,
+instance = OpenapiClient::InlineResponse20040Items.new(day: null,
                                  slot: null,
                                  position: null,
                                  type: null,

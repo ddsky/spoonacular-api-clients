@@ -32,72 +32,74 @@ class InlineResponse20043(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'pairings': 'list[str]',
-        'text': 'str'
+        'username': 'str',
+        'hash': 'str'
     }
 
     attribute_map = {
-        'pairings': 'pairings',
-        'text': 'text'
+        'username': 'username',
+        'hash': 'hash'
     }
 
-    def __init__(self, pairings=None, text=None):  # noqa: E501
+    def __init__(self, username=None, hash=None):  # noqa: E501
         """InlineResponse20043 - a model defined in OpenAPI"""  # noqa: E501
 
-        self._pairings = None
-        self._text = None
+        self._username = None
+        self._hash = None
         self.discriminator = None
 
-        self.pairings = pairings
-        self.text = text
+        self.username = username
+        self.hash = hash
 
     @property
-    def pairings(self):
-        """Gets the pairings of this InlineResponse20043.  # noqa: E501
+    def username(self):
+        """Gets the username of this InlineResponse20043.  # noqa: E501
 
 
-        :return: The pairings of this InlineResponse20043.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._pairings
-
-    @pairings.setter
-    def pairings(self, pairings):
-        """Sets the pairings of this InlineResponse20043.
-
-
-        :param pairings: The pairings of this InlineResponse20043.  # noqa: E501
-        :type: list[str]
-        """
-        if pairings is None:
-            raise ValueError("Invalid value for `pairings`, must not be `None`")  # noqa: E501
-
-        self._pairings = pairings
-
-    @property
-    def text(self):
-        """Gets the text of this InlineResponse20043.  # noqa: E501
-
-
-        :return: The text of this InlineResponse20043.  # noqa: E501
+        :return: The username of this InlineResponse20043.  # noqa: E501
         :rtype: str
         """
-        return self._text
+        return self._username
 
-    @text.setter
-    def text(self, text):
-        """Sets the text of this InlineResponse20043.
+    @username.setter
+    def username(self, username):
+        """Sets the username of this InlineResponse20043.
 
 
-        :param text: The text of this InlineResponse20043.  # noqa: E501
+        :param username: The username of this InlineResponse20043.  # noqa: E501
         :type: str
         """
-        if text is None:
-            raise ValueError("Invalid value for `text`, must not be `None`")  # noqa: E501
-        if text is not None and len(text) < 1:
-            raise ValueError("Invalid value for `text`, length must be greater than or equal to `1`")  # noqa: E501
+        if username is None:
+            raise ValueError("Invalid value for `username`, must not be `None`")  # noqa: E501
+        if username is not None and len(username) < 1:
+            raise ValueError("Invalid value for `username`, length must be greater than or equal to `1`")  # noqa: E501
 
-        self._text = text
+        self._username = username
+
+    @property
+    def hash(self):
+        """Gets the hash of this InlineResponse20043.  # noqa: E501
+
+
+        :return: The hash of this InlineResponse20043.  # noqa: E501
+        :rtype: str
+        """
+        return self._hash
+
+    @hash.setter
+    def hash(self, hash):
+        """Sets the hash of this InlineResponse20043.
+
+
+        :param hash: The hash of this InlineResponse20043.  # noqa: E501
+        :type: str
+        """
+        if hash is None:
+            raise ValueError("Invalid value for `hash`, must not be `None`")  # noqa: E501
+        if hash is not None and len(hash) < 1:
+            raise ValueError("Invalid value for `hash`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._hash = hash
 
     def to_dict(self):
         """Returns the model properties as a dict"""

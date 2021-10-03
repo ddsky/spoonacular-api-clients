@@ -351,6 +351,7 @@ Name | Type | Description  | Notes
  **max_protein** | **f32**| The maximum amount of protein in grams the product can have. | 
  **min_fat** | **f32**| The minimum amount of fat in grams the product must have. | 
  **max_fat** | **f32**| The maximum amount of fat in grams the product can have. | 
+ **add_product_information** | **bool**| If set to true, you get more information about the products returned. | 
  **offset** | **i32**| The number of results to skip (between 0 and 900). | 
  **number** | **i32**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [default to 10]
 

@@ -19,11 +19,11 @@ local function cast_inline_response_200_40(t)
 	return setmetatable(t, inline_response_200_40_mt)
 end
 
-local function new_inline_response_200_40(id, name, days)
+local function new_inline_response_200_40(name, items, publish_as_public)
 	return cast_inline_response_200_40({
-		["id"] = id;
 		["name"] = name;
-		["days"] = days;
+		["items"] = items;
+		["publishAsPublic"] = publish_as_public;
 	})
 end
 

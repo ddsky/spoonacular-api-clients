@@ -5,15 +5,16 @@ import io.finch.circe._
 import io.circe.generic.semiauto._
 import io.circe.java8.time._
 import spoonacular._
-import java.math.BigDecimal
+import com.spoonacular.client.model.InlineResponse20047RecommendedWines
+import scala.collection.immutable.Seq
 
 /**
  * 
- * @param category 
- * @param probability 
+ * @param recommendedWines 
+ * @param totalFound 
  */
-case class InlineResponse20047(category: String,
-                probability: BigDecimal
+case class InlineResponse20047(recommendedWines: Seq[InlineResponse20047RecommendedWines],
+                totalFound: Int
                 )
 
 object InlineResponse20047 {

@@ -86,6 +86,13 @@ class InlineObject7Test extends TestCase
     }
 
     /**
+     * Test attribute "id"
+     */
+    public function testPropertyId()
+    {
+    }
+
+    /**
      * Test attribute "hash"
      */
     public function testPropertyHash()

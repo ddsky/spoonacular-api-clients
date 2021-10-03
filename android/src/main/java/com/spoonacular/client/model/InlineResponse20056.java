@@ -1,6 +1,5 @@
 package com.spoonacular.client.model;
 
-import com.spoonacular.client.model.InlineResponse20056Suggests;
 import java.util.*;
 
 import io.swagger.annotations.*;
@@ -10,29 +9,29 @@ import com.google.gson.annotations.SerializedName;
 @ApiModel(description = "")
 public class InlineResponse20056  {
   
-  @SerializedName("suggests")
-  private InlineResponse20056Suggests suggests = null;
-  @SerializedName("words")
-  private List<Object> words = null;
+  @SerializedName("answerText")
+  private String answerText = null;
+  @SerializedName("media")
+  private List<Object> media = null;
 
   /**
    **/
   @ApiModelProperty(required = true, value = "")
-  public InlineResponse20056Suggests getSuggests() {
-    return suggests;
+  public String getAnswerText() {
+    return answerText;
   }
-  public void setSuggests(InlineResponse20056Suggests suggests) {
-    this.suggests = suggests;
+  public void setAnswerText(String answerText) {
+    this.answerText = answerText;
   }
 
   /**
    **/
   @ApiModelProperty(required = true, value = "")
-  public List<Object> getWords() {
-    return words;
+  public List<Object> getMedia() {
+    return media;
   }
-  public void setWords(List<Object> words) {
-    this.words = words;
+  public void setMedia(List<Object> media) {
+    this.media = media;
   }
 
 
@@ -45,15 +44,15 @@ public class InlineResponse20056  {
       return false;
     }
     InlineResponse20056 inlineResponse20056 = (InlineResponse20056) o;
-    return (this.suggests == null ? inlineResponse20056.suggests == null : this.suggests.equals(inlineResponse20056.suggests)) &&
-        (this.words == null ? inlineResponse20056.words == null : this.words.equals(inlineResponse20056.words));
+    return (this.answerText == null ? inlineResponse20056.answerText == null : this.answerText.equals(inlineResponse20056.answerText)) &&
+        (this.media == null ? inlineResponse20056.media == null : this.media.equals(inlineResponse20056.media));
   }
 
   @Override
   public int hashCode() {
     int result = 17;
-    result = 31 * result + (this.suggests == null ? 0: this.suggests.hashCode());
-    result = 31 * result + (this.words == null ? 0: this.words.hashCode());
+    result = 31 * result + (this.answerText == null ? 0: this.answerText.hashCode());
+    result = 31 * result + (this.media == null ? 0: this.media.hashCode());
     return result;
   }
 
@@ -62,8 +61,8 @@ public class InlineResponse20056  {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse20056 {\n");
     
-    sb.append("  suggests: ").append(suggests).append("\n");
-    sb.append("  words: ").append(words).append("\n");
+    sb.append("  answerText: ").append(answerText).append("\n");
+    sb.append("  media: ").append(media).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

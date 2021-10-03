@@ -26,7 +26,7 @@
 @interface OAIInlineResponse20040Items : OAIObject
 
 
-@property(nonatomic) NSNumber* _id;
+@property(nonatomic) NSNumber* day;
 
 @property(nonatomic) NSNumber* slot;
 

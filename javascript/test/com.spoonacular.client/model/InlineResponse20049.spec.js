@@ -54,14 +54,20 @@
       //expect(instance).to.be.a(SpoonacularApi.InlineResponse20049);
     });
 
-    it('should have the property answer (base name: "answer")', function() {
-      // uncomment below and update the code to test the property answer
+    it('should have the property nutrition (base name: "nutrition")', function() {
+      // uncomment below and update the code to test the property nutrition
       //var instane = new SpoonacularApi.InlineResponse20049();
       //expect(instance).to.be();
     });
 
-    it('should have the property image (base name: "image")', function() {
-      // uncomment below and update the code to test the property image
+    it('should have the property category (base name: "category")', function() {
+      // uncomment below and update the code to test the property category
+      //var instane = new SpoonacularApi.InlineResponse20049();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property recipes (base name: "recipes")', function() {
+      // uncomment below and update the code to test the property recipes
       //var instane = new SpoonacularApi.InlineResponse20049();
       //expect(instance).to.be();
     });

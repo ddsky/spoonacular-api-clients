@@ -172,8 +172,8 @@ namespace com.spoonacular
         /// Quick Answer Answer a nutrition related natural language question.
         /// </summary>
         /// <param name="q">The nutrition related question.</param>
-        /// <returns>InlineResponse20049</returns>
-        InlineResponse20049 QuickAnswer (string q);
+        /// <returns>InlineResponse20050</returns>
+        InlineResponse20050 QuickAnswer (string q);
         /// <summary>
         /// Recipe Nutrition by ID Image Visualize a recipe&#39;s nutritional information as an image.
         /// </summary>
@@ -1415,8 +1415,8 @@ namespace com.spoonacular
         /// Quick Answer Answer a nutrition related natural language question.
         /// </summary>
         /// <param name="q">The nutrition related question.</param> 
-        /// <returns>InlineResponse20049</returns>            
-        public InlineResponse20049 QuickAnswer (string q)
+        /// <returns>InlineResponse20050</returns>            
+        public InlineResponse20050 QuickAnswer (string q)
         {
             
             // verify the required parameter 'q' is set
@@ -1445,7 +1445,7 @@ namespace com.spoonacular
             else if (((int)response.StatusCode) == 0)
                 throw new ApiException ((int)response.StatusCode, "Error calling QuickAnswer: " + response.ErrorMessage, response.ErrorMessage);
     
-            return (InlineResponse20049) ApiClient.Deserialize(response.Content, typeof(InlineResponse20049), response.Headers);
+            return (InlineResponse20050) ApiClient.Deserialize(response.Content, typeof(InlineResponse20050), response.Headers);
         }
     
         /// <summary>

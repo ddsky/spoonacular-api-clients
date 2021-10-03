@@ -124,7 +124,7 @@ class MiscApi
      *
      * @throws \com.spoonacular.client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20050
+     * @return \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20051
      */
     public function detectFoodInText($content_type = null)
     {
@@ -141,7 +141,7 @@ class MiscApi
      *
      * @throws \com.spoonacular.client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20050, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20051, HTTP status code, HTTP response headers (array of strings)
      */
     public function detectFoodInTextWithHttpInfo($content_type = null)
     {
@@ -178,20 +178,20 @@ class MiscApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20050' === '\SplFileObject') {
+                    if ('\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20051' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20050', []),
+                        ObjectSerializer::deserialize($content, '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20051', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20050';
+            $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20051';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -210,7 +210,7 @@ class MiscApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20050',
+                        '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20051',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -252,7 +252,7 @@ class MiscApi
      */
     public function detectFoodInTextAsyncWithHttpInfo($content_type = null)
     {
-        $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20050';
+        $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20051';
         $request = $this->detectFoodInTextRequest($content_type);
 
         return $this->client
@@ -390,7 +390,7 @@ class MiscApi
      *
      * @throws \com.spoonacular.client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20054
+     * @return \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20055
      */
     public function getARandomFoodJoke()
     {
@@ -406,7 +406,7 @@ class MiscApi
      *
      * @throws \com.spoonacular.client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20054, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20055, HTTP status code, HTTP response headers (array of strings)
      */
     public function getARandomFoodJokeWithHttpInfo()
     {
@@ -443,20 +443,20 @@ class MiscApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20054' === '\SplFileObject') {
+                    if ('\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20055' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20054', []),
+                        ObjectSerializer::deserialize($content, '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20055', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20054';
+            $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20055';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -475,7 +475,7 @@ class MiscApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20054',
+                        '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20055',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -515,7 +515,7 @@ class MiscApi
      */
     public function getARandomFoodJokeAsyncWithHttpInfo()
     {
-        $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20054';
+        $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20055';
         $request = $this->getARandomFoodJokeRequest();
 
         return $this->client
@@ -650,7 +650,7 @@ class MiscApi
      *
      * @throws \com.spoonacular.client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20056
+     * @return \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20057
      */
     public function getConversationSuggests($query, $number = null)
     {
@@ -668,7 +668,7 @@ class MiscApi
      *
      * @throws \com.spoonacular.client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20056, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20057, HTTP status code, HTTP response headers (array of strings)
      */
     public function getConversationSuggestsWithHttpInfo($query, $number = null)
     {
@@ -705,20 +705,20 @@ class MiscApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20056' === '\SplFileObject') {
+                    if ('\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20057' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20056', []),
+                        ObjectSerializer::deserialize($content, '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20057', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20056';
+            $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20057';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -737,7 +737,7 @@ class MiscApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20056',
+                        '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20057',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -781,7 +781,7 @@ class MiscApi
      */
     public function getConversationSuggestsAsyncWithHttpInfo($query, $number = null)
     {
-        $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20056';
+        $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20057';
         $request = $this->getConversationSuggestsRequest($query, $number);
 
         return $this->client
@@ -930,7 +930,7 @@ class MiscApi
      *
      * @throws \com.spoonacular.client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20054
+     * @return \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20055
      */
     public function getRandomFoodTrivia()
     {
@@ -946,7 +946,7 @@ class MiscApi
      *
      * @throws \com.spoonacular.client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20054, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20055, HTTP status code, HTTP response headers (array of strings)
      */
     public function getRandomFoodTriviaWithHttpInfo()
     {
@@ -983,20 +983,20 @@ class MiscApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20054' === '\SplFileObject') {
+                    if ('\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20055' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20054', []),
+                        ObjectSerializer::deserialize($content, '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20055', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20054';
+            $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20055';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -1015,7 +1015,7 @@ class MiscApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20054',
+                        '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20055',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1055,7 +1055,7 @@ class MiscApi
      */
     public function getRandomFoodTriviaAsyncWithHttpInfo()
     {
-        $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20054';
+        $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20055';
         $request = $this->getRandomFoodTriviaRequest();
 
         return $this->client
@@ -1189,7 +1189,7 @@ class MiscApi
      *
      * @throws \com.spoonacular.client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20048
+     * @return \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20049
      */
     public function imageAnalysisByURL($image_url)
     {
@@ -1206,7 +1206,7 @@ class MiscApi
      *
      * @throws \com.spoonacular.client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20048, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20049, HTTP status code, HTTP response headers (array of strings)
      */
     public function imageAnalysisByURLWithHttpInfo($image_url)
     {
@@ -1243,20 +1243,20 @@ class MiscApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20048' === '\SplFileObject') {
+                    if ('\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20049' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20048', []),
+                        ObjectSerializer::deserialize($content, '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20049', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20048';
+            $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20049';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -1275,7 +1275,7 @@ class MiscApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20048',
+                        '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20049',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1317,7 +1317,7 @@ class MiscApi
      */
     public function imageAnalysisByURLAsyncWithHttpInfo($image_url)
     {
-        $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20048';
+        $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20049';
         $request = $this->imageAnalysisByURLRequest($image_url);
 
         return $this->client
@@ -1462,7 +1462,7 @@ class MiscApi
      *
      * @throws \com.spoonacular.client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20047
+     * @return \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20048
      */
     public function imageClassificationByURL($image_url)
     {
@@ -1479,7 +1479,7 @@ class MiscApi
      *
      * @throws \com.spoonacular.client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20047, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20048, HTTP status code, HTTP response headers (array of strings)
      */
     public function imageClassificationByURLWithHttpInfo($image_url)
     {
@@ -1516,20 +1516,20 @@ class MiscApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20047' === '\SplFileObject') {
+                    if ('\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20048' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20047', []),
+                        ObjectSerializer::deserialize($content, '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20048', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20047';
+            $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20048';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -1548,7 +1548,7 @@ class MiscApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20047',
+                        '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20048',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1590,7 +1590,7 @@ class MiscApi
      */
     public function imageClassificationByURLAsyncWithHttpInfo($image_url)
     {
-        $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20047';
+        $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20048';
         $request = $this->imageClassificationByURLRequest($image_url);
 
         return $this->client
@@ -1737,7 +1737,7 @@ class MiscApi
      *
      * @throws \com.spoonacular.client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20052
+     * @return \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20053
      */
     public function searchAllFood($query, $offset = null, $number = 10)
     {
@@ -1756,7 +1756,7 @@ class MiscApi
      *
      * @throws \com.spoonacular.client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20052, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20053, HTTP status code, HTTP response headers (array of strings)
      */
     public function searchAllFoodWithHttpInfo($query, $offset = null, $number = 10)
     {
@@ -1793,20 +1793,20 @@ class MiscApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20052' === '\SplFileObject') {
+                    if ('\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20053' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20052', []),
+                        ObjectSerializer::deserialize($content, '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20053', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20052';
+            $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20053';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -1825,7 +1825,7 @@ class MiscApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20052',
+                        '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20053',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1871,7 +1871,7 @@ class MiscApi
      */
     public function searchAllFoodAsyncWithHttpInfo($query, $offset = null, $number = 10)
     {
-        $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20052';
+        $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20053';
         $request = $this->searchAllFoodRequest($query, $offset, $number);
 
         return $this->client
@@ -2378,7 +2378,7 @@ class MiscApi
      *
      * @throws \com.spoonacular.client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20053
+     * @return \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20054
      */
     public function searchFoodVideos($query = null, $type = null, $cuisine = null, $diet = null, $include_ingredients = null, $exclude_ingredients = null, $min_length = null, $max_length = null, $offset = null, $number = 10)
     {
@@ -2404,7 +2404,7 @@ class MiscApi
      *
      * @throws \com.spoonacular.client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20053, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20054, HTTP status code, HTTP response headers (array of strings)
      */
     public function searchFoodVideosWithHttpInfo($query = null, $type = null, $cuisine = null, $diet = null, $include_ingredients = null, $exclude_ingredients = null, $min_length = null, $max_length = null, $offset = null, $number = 10)
     {
@@ -2441,20 +2441,20 @@ class MiscApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20053' === '\SplFileObject') {
+                    if ('\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20054' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20053', []),
+                        ObjectSerializer::deserialize($content, '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20054', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20053';
+            $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20054';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -2473,7 +2473,7 @@ class MiscApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20053',
+                        '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20054',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2533,7 +2533,7 @@ class MiscApi
      */
     public function searchFoodVideosAsyncWithHttpInfo($query = null, $type = null, $cuisine = null, $diet = null, $include_ingredients = null, $exclude_ingredients = null, $min_length = null, $max_length = null, $offset = null, $number = 10)
     {
-        $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20053';
+        $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20054';
         $request = $this->searchFoodVideosRequest($query, $type, $cuisine, $diet, $include_ingredients, $exclude_ingredients, $min_length, $max_length, $offset, $number);
 
         return $this->client
@@ -2731,7 +2731,7 @@ class MiscApi
      *
      * @throws \com.spoonacular.client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20051
+     * @return \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20052
      */
     public function searchSiteContent($query)
     {
@@ -2748,7 +2748,7 @@ class MiscApi
      *
      * @throws \com.spoonacular.client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20051, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20052, HTTP status code, HTTP response headers (array of strings)
      */
     public function searchSiteContentWithHttpInfo($query)
     {
@@ -2785,20 +2785,20 @@ class MiscApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20051' === '\SplFileObject') {
+                    if ('\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20052' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20051', []),
+                        ObjectSerializer::deserialize($content, '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20052', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20051';
+            $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20052';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -2817,7 +2817,7 @@ class MiscApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20051',
+                        '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20052',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2859,7 +2859,7 @@ class MiscApi
      */
     public function searchSiteContentAsyncWithHttpInfo($query)
     {
-        $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20051';
+        $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20052';
         $request = $this->searchSiteContentRequest($query);
 
         return $this->client
@@ -3005,7 +3005,7 @@ class MiscApi
      *
      * @throws \com.spoonacular.client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20055
+     * @return \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20056
      */
     public function talkToChatbot($text, $context_id = null)
     {
@@ -3023,7 +3023,7 @@ class MiscApi
      *
      * @throws \com.spoonacular.client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20055, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20056, HTTP status code, HTTP response headers (array of strings)
      */
     public function talkToChatbotWithHttpInfo($text, $context_id = null)
     {
@@ -3060,20 +3060,20 @@ class MiscApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20055' === '\SplFileObject') {
+                    if ('\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20056' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20055', []),
+                        ObjectSerializer::deserialize($content, '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20056', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20055';
+            $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20056';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -3092,7 +3092,7 @@ class MiscApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20055',
+                        '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20056',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3136,7 +3136,7 @@ class MiscApi
      */
     public function talkToChatbotAsyncWithHttpInfo($text, $context_id = null)
     {
-        $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20055';
+        $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20056';
         $request = $this->talkToChatbotRequest($text, $context_id);
 
         return $this->client

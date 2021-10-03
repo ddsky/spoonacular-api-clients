@@ -52,7 +52,7 @@ public:
     void productNutritionByIDImage(const OAINumber& id);
     void productNutritionLabelImage(const OAINumber& id, const bool& show_optional_nutrients, const bool& show_zero_values, const bool& show_ingredients);
     void productNutritionLabelWidget(const OAINumber& id, const bool& default_css, const bool& show_optional_nutrients, const bool& show_zero_values, const bool& show_ingredients);
-    void searchGroceryProducts(const QString& query, const OAINumber& min_calories, const OAINumber& max_calories, const OAINumber& min_carbs, const OAINumber& max_carbs, const OAINumber& min_protein, const OAINumber& max_protein, const OAINumber& min_fat, const OAINumber& max_fat, const qint32& offset, const qint32& number);
+    void searchGroceryProducts(const QString& query, const OAINumber& min_calories, const OAINumber& max_calories, const OAINumber& min_carbs, const OAINumber& max_carbs, const OAINumber& min_protein, const OAINumber& max_protein, const OAINumber& min_fat, const OAINumber& max_fat, const bool& add_product_information, const qint32& offset, const qint32& number);
     void searchGroceryProductsByUPC(const OAINumber& upc);
     void visualizeProductNutritionByID(const qint32& id, const bool& default_css, const QString& accept);
     

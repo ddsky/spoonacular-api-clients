@@ -22,12 +22,11 @@ class InlineResponse20055 {
     /**
      * Constructs a new <code>InlineResponse20055</code>.
      * @alias module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20055
-     * @param answerText {String} 
-     * @param media {Array.<Object>} 
+     * @param text {String} 
      */
-    constructor(answerText, media) { 
+    constructor(text) { 
         
-        InlineResponse20055.initialize(this, answerText, media);
+        InlineResponse20055.initialize(this, text);
     }
 
     /**
@@ -35,9 +34,8 @@ class InlineResponse20055 {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, answerText, media) { 
-        obj['answerText'] = answerText;
-        obj['media'] = media;
+    static initialize(obj, text) { 
+        obj['text'] = text;
     }
 
     /**
@@ -51,11 +49,8 @@ class InlineResponse20055 {
         if (data) {
             obj = obj || new InlineResponse20055();
 
-            if (data.hasOwnProperty('answerText')) {
-                obj['answerText'] = ApiClient.convertToType(data['answerText'], 'String');
-            }
-            if (data.hasOwnProperty('media')) {
-                obj['media'] = ApiClient.convertToType(data['media'], [Object]);
+            if (data.hasOwnProperty('text')) {
+                obj['text'] = ApiClient.convertToType(data['text'], 'String');
             }
         }
         return obj;
@@ -65,14 +60,9 @@ class InlineResponse20055 {
 }
 
 /**
- * @member {String} answerText
+ * @member {String} text
  */
-InlineResponse20055.prototype['answerText'] = undefined;
-
-/**
- * @member {Array.<Object>} media
- */
-InlineResponse20055.prototype['media'] = undefined;
+InlineResponse20055.prototype['text'] = undefined;
 
 
 

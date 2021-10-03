@@ -28,18 +28,21 @@ import java.io.IOException;
 
 
 import java.math.BigDecimal;
+import com.spoonacular.client.model.InlineObject10;
 import com.spoonacular.client.model.InlineObject3;
 import com.spoonacular.client.model.InlineObject4;
 import com.spoonacular.client.model.InlineObject5;
 import com.spoonacular.client.model.InlineObject6;
 import com.spoonacular.client.model.InlineObject7;
 import com.spoonacular.client.model.InlineObject8;
+import com.spoonacular.client.model.InlineObject9;
 import com.spoonacular.client.model.InlineResponse20037;
 import com.spoonacular.client.model.InlineResponse20038;
 import com.spoonacular.client.model.InlineResponse20039;
 import com.spoonacular.client.model.InlineResponse20040;
 import com.spoonacular.client.model.InlineResponse20041;
 import com.spoonacular.client.model.InlineResponse20042;
+import com.spoonacular.client.model.InlineResponse20043;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -66,6 +69,126 @@ public class MealPlanningApi {
         this.localVarApiClient = apiClient;
     }
 
+    /**
+     * Build call for addMealPlanTemplate
+     * @param username The username. (required)
+     * @param hash The private hash for the username. (required)
+     * @param inlineObject6  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Add-Meal-Plan-Template">Add Meal Plan Template Documentation</a>
+     */
+    public okhttp3.Call addMealPlanTemplateCall(String username, String hash, InlineObject6 inlineObject6, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = inlineObject6;
+
+        // create path and map variables
+        String localVarPath = "/mealplanner/{username}/templates"
+            .replaceAll("\\{" + "username" + "\\}", localVarApiClient.escapeString(username.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (hash != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("hash", hash));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            ""
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiKeyScheme" };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call addMealPlanTemplateValidateBeforeCall(String username, String hash, InlineObject6 inlineObject6, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'username' is set
+        if (username == null) {
+            throw new ApiException("Missing the required parameter 'username' when calling addMealPlanTemplate(Async)");
+        }
+        
+        // verify the required parameter 'hash' is set
+        if (hash == null) {
+            throw new ApiException("Missing the required parameter 'hash' when calling addMealPlanTemplate(Async)");
+        }
+        
+        // verify the required parameter 'inlineObject6' is set
+        if (inlineObject6 == null) {
+            throw new ApiException("Missing the required parameter 'inlineObject6' when calling addMealPlanTemplate(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = addMealPlanTemplateCall(username, hash, inlineObject6, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Add Meal Plan Template
+     * Add a meal plan template for a user.
+     * @param username The username. (required)
+     * @param hash The private hash for the username. (required)
+     * @param inlineObject6  (required)
+     * @return InlineResponse20040
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Add-Meal-Plan-Template">Add Meal Plan Template Documentation</a>
+     */
+    public InlineResponse20040 addMealPlanTemplate(String username, String hash, InlineObject6 inlineObject6) throws ApiException {
+        ApiResponse<InlineResponse20040> localVarResp = addMealPlanTemplateWithHttpInfo(username, hash, inlineObject6);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Add Meal Plan Template
+     * Add a meal plan template for a user.
+     * @param username The username. (required)
+     * @param hash The private hash for the username. (required)
+     * @param inlineObject6  (required)
+     * @return ApiResponse&lt;InlineResponse20040&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Add-Meal-Plan-Template">Add Meal Plan Template Documentation</a>
+     */
+    public ApiResponse<InlineResponse20040> addMealPlanTemplateWithHttpInfo(String username, String hash, InlineObject6 inlineObject6) throws ApiException {
+        okhttp3.Call localVarCall = addMealPlanTemplateValidateBeforeCall(username, hash, inlineObject6, null);
+        Type localVarReturnType = new TypeToken<InlineResponse20040>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Add Meal Plan Template (asynchronously)
+     * Add a meal plan template for a user.
+     * @param username The username. (required)
+     * @param hash The private hash for the username. (required)
+     * @param inlineObject6  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Add-Meal-Plan-Template">Add Meal Plan Template Documentation</a>
+     */
+    public okhttp3.Call addMealPlanTemplateAsync(String username, String hash, InlineObject6 inlineObject6, final ApiCallback<InlineResponse20040> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = addMealPlanTemplateValidateBeforeCall(username, hash, inlineObject6, _callback);
+        Type localVarReturnType = new TypeToken<InlineResponse20040>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
     /**
      * Build call for addToMealPlan
      * @param username The username. (required)
@@ -190,15 +313,15 @@ public class MealPlanningApi {
      * Build call for addToShoppingList
      * @param username The username. (required)
      * @param hash The private hash for the username. (required)
-     * @param inlineObject7  (required)
+     * @param inlineObject9  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Add-to-Shopping-List">Add to Shopping List Documentation</a>
      */
-    public okhttp3.Call addToShoppingListCall(String username, String hash, InlineObject7 inlineObject7, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = inlineObject7;
+    public okhttp3.Call addToShoppingListCall(String username, String hash, InlineObject9 inlineObject9, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = inlineObject9;
 
         // create path and map variables
         String localVarPath = "/mealplanner/{username}/shopping-list/items"
@@ -231,7 +354,7 @@ public class MealPlanningApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call addToShoppingListValidateBeforeCall(String username, String hash, InlineObject7 inlineObject7, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call addToShoppingListValidateBeforeCall(String username, String hash, InlineObject9 inlineObject9, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'username' is set
         if (username == null) {
@@ -243,13 +366,13 @@ public class MealPlanningApi {
             throw new ApiException("Missing the required parameter 'hash' when calling addToShoppingList(Async)");
         }
         
-        // verify the required parameter 'inlineObject7' is set
-        if (inlineObject7 == null) {
-            throw new ApiException("Missing the required parameter 'inlineObject7' when calling addToShoppingList(Async)");
+        // verify the required parameter 'inlineObject9' is set
+        if (inlineObject9 == null) {
+            throw new ApiException("Missing the required parameter 'inlineObject9' when calling addToShoppingList(Async)");
         }
         
 
-        okhttp3.Call localVarCall = addToShoppingListCall(username, hash, inlineObject7, _callback);
+        okhttp3.Call localVarCall = addToShoppingListCall(username, hash, inlineObject9, _callback);
         return localVarCall;
 
     }
@@ -259,14 +382,14 @@ public class MealPlanningApi {
      * Add an item to the current shopping list of a user.
      * @param username The username. (required)
      * @param hash The private hash for the username. (required)
-     * @param inlineObject7  (required)
-     * @return InlineResponse20041
+     * @param inlineObject9  (required)
+     * @return InlineResponse20042
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Add-to-Shopping-List">Add to Shopping List Documentation</a>
      */
-    public InlineResponse20041 addToShoppingList(String username, String hash, InlineObject7 inlineObject7) throws ApiException {
-        ApiResponse<InlineResponse20041> localVarResp = addToShoppingListWithHttpInfo(username, hash, inlineObject7);
+    public InlineResponse20042 addToShoppingList(String username, String hash, InlineObject9 inlineObject9) throws ApiException {
+        ApiResponse<InlineResponse20042> localVarResp = addToShoppingListWithHttpInfo(username, hash, inlineObject9);
         return localVarResp.getData();
     }
 
@@ -275,15 +398,15 @@ public class MealPlanningApi {
      * Add an item to the current shopping list of a user.
      * @param username The username. (required)
      * @param hash The private hash for the username. (required)
-     * @param inlineObject7  (required)
-     * @return ApiResponse&lt;InlineResponse20041&gt;
+     * @param inlineObject9  (required)
+     * @return ApiResponse&lt;InlineResponse20042&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Add-to-Shopping-List">Add to Shopping List Documentation</a>
      */
-    public ApiResponse<InlineResponse20041> addToShoppingListWithHttpInfo(String username, String hash, InlineObject7 inlineObject7) throws ApiException {
-        okhttp3.Call localVarCall = addToShoppingListValidateBeforeCall(username, hash, inlineObject7, null);
-        Type localVarReturnType = new TypeToken<InlineResponse20041>(){}.getType();
+    public ApiResponse<InlineResponse20042> addToShoppingListWithHttpInfo(String username, String hash, InlineObject9 inlineObject9) throws ApiException {
+        okhttp3.Call localVarCall = addToShoppingListValidateBeforeCall(username, hash, inlineObject9, null);
+        Type localVarReturnType = new TypeToken<InlineResponse20042>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -292,17 +415,17 @@ public class MealPlanningApi {
      * Add an item to the current shopping list of a user.
      * @param username The username. (required)
      * @param hash The private hash for the username. (required)
-     * @param inlineObject7  (required)
+     * @param inlineObject9  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Add-to-Shopping-List">Add to Shopping List Documentation</a>
      */
-    public okhttp3.Call addToShoppingListAsync(String username, String hash, InlineObject7 inlineObject7, final ApiCallback<InlineResponse20041> _callback) throws ApiException {
+    public okhttp3.Call addToShoppingListAsync(String username, String hash, InlineObject9 inlineObject9, final ApiCallback<InlineResponse20042> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = addToShoppingListValidateBeforeCall(username, hash, inlineObject7, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse20041>(){}.getType();
+        okhttp3.Call localVarCall = addToShoppingListValidateBeforeCall(username, hash, inlineObject9, _callback);
+        Type localVarReturnType = new TypeToken<InlineResponse20042>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -491,13 +614,13 @@ public class MealPlanningApi {
      * Connect User
      * In order to call user-specific endpoints, you need to connect your app&#39;s users to spoonacular users.
      * @param body  (required)
-     * @return InlineResponse20042
+     * @return InlineResponse20043
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Connect-User">Connect User Documentation</a>
      */
-    public InlineResponse20042 connectUser(Object body) throws ApiException {
-        ApiResponse<InlineResponse20042> localVarResp = connectUserWithHttpInfo(body);
+    public InlineResponse20043 connectUser(Object body) throws ApiException {
+        ApiResponse<InlineResponse20043> localVarResp = connectUserWithHttpInfo(body);
         return localVarResp.getData();
     }
 
@@ -505,14 +628,14 @@ public class MealPlanningApi {
      * Connect User
      * In order to call user-specific endpoints, you need to connect your app&#39;s users to spoonacular users.
      * @param body  (required)
-     * @return ApiResponse&lt;InlineResponse20042&gt;
+     * @return ApiResponse&lt;InlineResponse20043&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Connect-User">Connect User Documentation</a>
      */
-    public ApiResponse<InlineResponse20042> connectUserWithHttpInfo(Object body) throws ApiException {
+    public ApiResponse<InlineResponse20043> connectUserWithHttpInfo(Object body) throws ApiException {
         okhttp3.Call localVarCall = connectUserValidateBeforeCall(body, null);
-        Type localVarReturnType = new TypeToken<InlineResponse20042>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20043>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -526,10 +649,10 @@ public class MealPlanningApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Connect-User">Connect User Documentation</a>
      */
-    public okhttp3.Call connectUserAsync(Object body, final ApiCallback<InlineResponse20042> _callback) throws ApiException {
+    public okhttp3.Call connectUserAsync(Object body, final ApiCallback<InlineResponse20043> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = connectUserValidateBeforeCall(body, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse20042>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20043>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -668,15 +791,15 @@ public class MealPlanningApi {
      * @param username The username. (required)
      * @param id The item&#39;s id. (required)
      * @param hash The private hash for the username. (required)
-     * @param inlineObject8  (required)
+     * @param inlineObject10  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Delete-from-Shopping-List">Delete from Shopping List Documentation</a>
      */
-    public okhttp3.Call deleteFromShoppingListCall(String username, Integer id, String hash, InlineObject8 inlineObject8, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = inlineObject8;
+    public okhttp3.Call deleteFromShoppingListCall(String username, Integer id, String hash, InlineObject10 inlineObject10, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = inlineObject10;
 
         // create path and map variables
         String localVarPath = "/mealplanner/{username}/shopping-list/items/{id}"
@@ -710,7 +833,7 @@ public class MealPlanningApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteFromShoppingListValidateBeforeCall(String username, Integer id, String hash, InlineObject8 inlineObject8, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteFromShoppingListValidateBeforeCall(String username, Integer id, String hash, InlineObject10 inlineObject10, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'username' is set
         if (username == null) {
@@ -727,13 +850,13 @@ public class MealPlanningApi {
             throw new ApiException("Missing the required parameter 'hash' when calling deleteFromShoppingList(Async)");
         }
         
-        // verify the required parameter 'inlineObject8' is set
-        if (inlineObject8 == null) {
-            throw new ApiException("Missing the required parameter 'inlineObject8' when calling deleteFromShoppingList(Async)");
+        // verify the required parameter 'inlineObject10' is set
+        if (inlineObject10 == null) {
+            throw new ApiException("Missing the required parameter 'inlineObject10' when calling deleteFromShoppingList(Async)");
         }
         
 
-        okhttp3.Call localVarCall = deleteFromShoppingListCall(username, id, hash, inlineObject8, _callback);
+        okhttp3.Call localVarCall = deleteFromShoppingListCall(username, id, hash, inlineObject10, _callback);
         return localVarCall;
 
     }
@@ -744,14 +867,14 @@ public class MealPlanningApi {
      * @param username The username. (required)
      * @param id The item&#39;s id. (required)
      * @param hash The private hash for the username. (required)
-     * @param inlineObject8  (required)
+     * @param inlineObject10  (required)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Delete-from-Shopping-List">Delete from Shopping List Documentation</a>
      */
-    public Object deleteFromShoppingList(String username, Integer id, String hash, InlineObject8 inlineObject8) throws ApiException {
-        ApiResponse<Object> localVarResp = deleteFromShoppingListWithHttpInfo(username, id, hash, inlineObject8);
+    public Object deleteFromShoppingList(String username, Integer id, String hash, InlineObject10 inlineObject10) throws ApiException {
+        ApiResponse<Object> localVarResp = deleteFromShoppingListWithHttpInfo(username, id, hash, inlineObject10);
         return localVarResp.getData();
     }
 
@@ -761,14 +884,14 @@ public class MealPlanningApi {
      * @param username The username. (required)
      * @param id The item&#39;s id. (required)
      * @param hash The private hash for the username. (required)
-     * @param inlineObject8  (required)
+     * @param inlineObject10  (required)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Delete-from-Shopping-List">Delete from Shopping List Documentation</a>
      */
-    public ApiResponse<Object> deleteFromShoppingListWithHttpInfo(String username, Integer id, String hash, InlineObject8 inlineObject8) throws ApiException {
-        okhttp3.Call localVarCall = deleteFromShoppingListValidateBeforeCall(username, id, hash, inlineObject8, null);
+    public ApiResponse<Object> deleteFromShoppingListWithHttpInfo(String username, Integer id, String hash, InlineObject10 inlineObject10) throws ApiException {
+        okhttp3.Call localVarCall = deleteFromShoppingListValidateBeforeCall(username, id, hash, inlineObject10, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -779,16 +902,146 @@ public class MealPlanningApi {
      * @param username The username. (required)
      * @param id The item&#39;s id. (required)
      * @param hash The private hash for the username. (required)
-     * @param inlineObject8  (required)
+     * @param inlineObject10  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Delete-from-Shopping-List">Delete from Shopping List Documentation</a>
      */
-    public okhttp3.Call deleteFromShoppingListAsync(String username, Integer id, String hash, InlineObject8 inlineObject8, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call deleteFromShoppingListAsync(String username, Integer id, String hash, InlineObject10 inlineObject10, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteFromShoppingListValidateBeforeCall(username, id, hash, inlineObject8, _callback);
+        okhttp3.Call localVarCall = deleteFromShoppingListValidateBeforeCall(username, id, hash, inlineObject10, _callback);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for deleteMealPlanTemplate
+     * @param username The username. (required)
+     * @param id The item&#39;s id. (required)
+     * @param hash The private hash for the username. (required)
+     * @param inlineObject7  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Delete-Meal-Plan-Template">Delete Meal Plan Template Documentation</a>
+     */
+    public okhttp3.Call deleteMealPlanTemplateCall(String username, Integer id, String hash, InlineObject7 inlineObject7, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = inlineObject7;
+
+        // create path and map variables
+        String localVarPath = "/mealplanner/{username}/templates/{id}"
+            .replaceAll("\\{" + "username" + "\\}", localVarApiClient.escapeString(username.toString()))
+            .replaceAll("\\{" + "id" + "\\}", localVarApiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (hash != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("hash", hash));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            ""
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiKeyScheme" };
+        return localVarApiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call deleteMealPlanTemplateValidateBeforeCall(String username, Integer id, String hash, InlineObject7 inlineObject7, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'username' is set
+        if (username == null) {
+            throw new ApiException("Missing the required parameter 'username' when calling deleteMealPlanTemplate(Async)");
+        }
+        
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling deleteMealPlanTemplate(Async)");
+        }
+        
+        // verify the required parameter 'hash' is set
+        if (hash == null) {
+            throw new ApiException("Missing the required parameter 'hash' when calling deleteMealPlanTemplate(Async)");
+        }
+        
+        // verify the required parameter 'inlineObject7' is set
+        if (inlineObject7 == null) {
+            throw new ApiException("Missing the required parameter 'inlineObject7' when calling deleteMealPlanTemplate(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = deleteMealPlanTemplateCall(username, id, hash, inlineObject7, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Delete Meal Plan Template
+     * Delete a meal plan template for a user.
+     * @param username The username. (required)
+     * @param id The item&#39;s id. (required)
+     * @param hash The private hash for the username. (required)
+     * @param inlineObject7  (required)
+     * @return Object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Delete-Meal-Plan-Template">Delete Meal Plan Template Documentation</a>
+     */
+    public Object deleteMealPlanTemplate(String username, Integer id, String hash, InlineObject7 inlineObject7) throws ApiException {
+        ApiResponse<Object> localVarResp = deleteMealPlanTemplateWithHttpInfo(username, id, hash, inlineObject7);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Delete Meal Plan Template
+     * Delete a meal plan template for a user.
+     * @param username The username. (required)
+     * @param id The item&#39;s id. (required)
+     * @param hash The private hash for the username. (required)
+     * @param inlineObject7  (required)
+     * @return ApiResponse&lt;Object&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Delete-Meal-Plan-Template">Delete Meal Plan Template Documentation</a>
+     */
+    public ApiResponse<Object> deleteMealPlanTemplateWithHttpInfo(String username, Integer id, String hash, InlineObject7 inlineObject7) throws ApiException {
+        okhttp3.Call localVarCall = deleteMealPlanTemplateValidateBeforeCall(username, id, hash, inlineObject7, null);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Delete Meal Plan Template (asynchronously)
+     * Delete a meal plan template for a user.
+     * @param username The username. (required)
+     * @param id The item&#39;s id. (required)
+     * @param hash The private hash for the username. (required)
+     * @param inlineObject7  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Delete-Meal-Plan-Template">Delete Meal Plan Template Documentation</a>
+     */
+    public okhttp3.Call deleteMealPlanTemplateAsync(String username, Integer id, String hash, InlineObject7 inlineObject7, final ApiCallback<Object> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = deleteMealPlanTemplateValidateBeforeCall(username, id, hash, inlineObject7, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -919,15 +1172,15 @@ public class MealPlanningApi {
      * @param startDate The start date in the format yyyy-mm-dd. (required)
      * @param endDate The end date in the format yyyy-mm-dd. (required)
      * @param hash The private hash for the username. (required)
-     * @param inlineObject6  (required)
+     * @param inlineObject8  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Generate-Shopping-List">Generate Shopping List Documentation</a>
      */
-    public okhttp3.Call generateShoppingListCall(String username, String startDate, String endDate, String hash, InlineObject6 inlineObject6, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = inlineObject6;
+    public okhttp3.Call generateShoppingListCall(String username, String startDate, String endDate, String hash, InlineObject8 inlineObject8, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = inlineObject8;
 
         // create path and map variables
         String localVarPath = "/mealplanner/{username}/shopping-list/{start-date}/{end-date}"
@@ -962,7 +1215,7 @@ public class MealPlanningApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call generateShoppingListValidateBeforeCall(String username, String startDate, String endDate, String hash, InlineObject6 inlineObject6, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call generateShoppingListValidateBeforeCall(String username, String startDate, String endDate, String hash, InlineObject8 inlineObject8, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'username' is set
         if (username == null) {
@@ -984,13 +1237,13 @@ public class MealPlanningApi {
             throw new ApiException("Missing the required parameter 'hash' when calling generateShoppingList(Async)");
         }
         
-        // verify the required parameter 'inlineObject6' is set
-        if (inlineObject6 == null) {
-            throw new ApiException("Missing the required parameter 'inlineObject6' when calling generateShoppingList(Async)");
+        // verify the required parameter 'inlineObject8' is set
+        if (inlineObject8 == null) {
+            throw new ApiException("Missing the required parameter 'inlineObject8' when calling generateShoppingList(Async)");
         }
         
 
-        okhttp3.Call localVarCall = generateShoppingListCall(username, startDate, endDate, hash, inlineObject6, _callback);
+        okhttp3.Call localVarCall = generateShoppingListCall(username, startDate, endDate, hash, inlineObject8, _callback);
         return localVarCall;
 
     }
@@ -1002,14 +1255,14 @@ public class MealPlanningApi {
      * @param startDate The start date in the format yyyy-mm-dd. (required)
      * @param endDate The end date in the format yyyy-mm-dd. (required)
      * @param hash The private hash for the username. (required)
-     * @param inlineObject6  (required)
-     * @return InlineResponse20041
+     * @param inlineObject8  (required)
+     * @return InlineResponse20042
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Generate-Shopping-List">Generate Shopping List Documentation</a>
      */
-    public InlineResponse20041 generateShoppingList(String username, String startDate, String endDate, String hash, InlineObject6 inlineObject6) throws ApiException {
-        ApiResponse<InlineResponse20041> localVarResp = generateShoppingListWithHttpInfo(username, startDate, endDate, hash, inlineObject6);
+    public InlineResponse20042 generateShoppingList(String username, String startDate, String endDate, String hash, InlineObject8 inlineObject8) throws ApiException {
+        ApiResponse<InlineResponse20042> localVarResp = generateShoppingListWithHttpInfo(username, startDate, endDate, hash, inlineObject8);
         return localVarResp.getData();
     }
 
@@ -1020,15 +1273,15 @@ public class MealPlanningApi {
      * @param startDate The start date in the format yyyy-mm-dd. (required)
      * @param endDate The end date in the format yyyy-mm-dd. (required)
      * @param hash The private hash for the username. (required)
-     * @param inlineObject6  (required)
-     * @return ApiResponse&lt;InlineResponse20041&gt;
+     * @param inlineObject8  (required)
+     * @return ApiResponse&lt;InlineResponse20042&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Generate-Shopping-List">Generate Shopping List Documentation</a>
      */
-    public ApiResponse<InlineResponse20041> generateShoppingListWithHttpInfo(String username, String startDate, String endDate, String hash, InlineObject6 inlineObject6) throws ApiException {
-        okhttp3.Call localVarCall = generateShoppingListValidateBeforeCall(username, startDate, endDate, hash, inlineObject6, null);
-        Type localVarReturnType = new TypeToken<InlineResponse20041>(){}.getType();
+    public ApiResponse<InlineResponse20042> generateShoppingListWithHttpInfo(String username, String startDate, String endDate, String hash, InlineObject8 inlineObject8) throws ApiException {
+        okhttp3.Call localVarCall = generateShoppingListValidateBeforeCall(username, startDate, endDate, hash, inlineObject8, null);
+        Type localVarReturnType = new TypeToken<InlineResponse20042>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1039,17 +1292,17 @@ public class MealPlanningApi {
      * @param startDate The start date in the format yyyy-mm-dd. (required)
      * @param endDate The end date in the format yyyy-mm-dd. (required)
      * @param hash The private hash for the username. (required)
-     * @param inlineObject6  (required)
+     * @param inlineObject8  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Generate-Shopping-List">Generate Shopping List Documentation</a>
      */
-    public okhttp3.Call generateShoppingListAsync(String username, String startDate, String endDate, String hash, InlineObject6 inlineObject6, final ApiCallback<InlineResponse20041> _callback) throws ApiException {
+    public okhttp3.Call generateShoppingListAsync(String username, String startDate, String endDate, String hash, InlineObject8 inlineObject8, final ApiCallback<InlineResponse20042> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = generateShoppingListValidateBeforeCall(username, startDate, endDate, hash, inlineObject6, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse20041>(){}.getType();
+        okhttp3.Call localVarCall = generateShoppingListValidateBeforeCall(username, startDate, endDate, hash, inlineObject8, _callback);
+        Type localVarReturnType = new TypeToken<InlineResponse20042>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1128,13 +1381,13 @@ public class MealPlanningApi {
      * @param username The username. (required)
      * @param id The item&#39;s id. (required)
      * @param hash The private hash for the username. (required)
-     * @return InlineResponse20040
+     * @return InlineResponse20041
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Get-Meal-Plan-Template">Get Meal Plan Template Documentation</a>
      */
-    public InlineResponse20040 getMealPlanTemplate(String username, Integer id, String hash) throws ApiException {
-        ApiResponse<InlineResponse20040> localVarResp = getMealPlanTemplateWithHttpInfo(username, id, hash);
+    public InlineResponse20041 getMealPlanTemplate(String username, Integer id, String hash) throws ApiException {
+        ApiResponse<InlineResponse20041> localVarResp = getMealPlanTemplateWithHttpInfo(username, id, hash);
         return localVarResp.getData();
     }
 
@@ -1144,14 +1397,14 @@ public class MealPlanningApi {
      * @param username The username. (required)
      * @param id The item&#39;s id. (required)
      * @param hash The private hash for the username. (required)
-     * @return ApiResponse&lt;InlineResponse20040&gt;
+     * @return ApiResponse&lt;InlineResponse20041&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Get-Meal-Plan-Template">Get Meal Plan Template Documentation</a>
      */
-    public ApiResponse<InlineResponse20040> getMealPlanTemplateWithHttpInfo(String username, Integer id, String hash) throws ApiException {
+    public ApiResponse<InlineResponse20041> getMealPlanTemplateWithHttpInfo(String username, Integer id, String hash) throws ApiException {
         okhttp3.Call localVarCall = getMealPlanTemplateValidateBeforeCall(username, id, hash, null);
-        Type localVarReturnType = new TypeToken<InlineResponse20040>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20041>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1167,10 +1420,10 @@ public class MealPlanningApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Get-Meal-Plan-Template">Get Meal Plan Template Documentation</a>
      */
-    public okhttp3.Call getMealPlanTemplateAsync(String username, Integer id, String hash, final ApiCallback<InlineResponse20040> _callback) throws ApiException {
+    public okhttp3.Call getMealPlanTemplateAsync(String username, Integer id, String hash, final ApiCallback<InlineResponse20041> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getMealPlanTemplateValidateBeforeCall(username, id, hash, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse20040>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20041>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1473,13 +1726,13 @@ public class MealPlanningApi {
      * Get the current shopping list for the given user.
      * @param username The username. (required)
      * @param hash The private hash for the username. (required)
-     * @return InlineResponse20041
+     * @return InlineResponse20042
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Get-Shopping-List">Get Shopping List Documentation</a>
      */
-    public InlineResponse20041 getShoppingList(String username, String hash) throws ApiException {
-        ApiResponse<InlineResponse20041> localVarResp = getShoppingListWithHttpInfo(username, hash);
+    public InlineResponse20042 getShoppingList(String username, String hash) throws ApiException {
+        ApiResponse<InlineResponse20042> localVarResp = getShoppingListWithHttpInfo(username, hash);
         return localVarResp.getData();
     }
 
@@ -1488,14 +1741,14 @@ public class MealPlanningApi {
      * Get the current shopping list for the given user.
      * @param username The username. (required)
      * @param hash The private hash for the username. (required)
-     * @return ApiResponse&lt;InlineResponse20041&gt;
+     * @return ApiResponse&lt;InlineResponse20042&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Get-Shopping-List">Get Shopping List Documentation</a>
      */
-    public ApiResponse<InlineResponse20041> getShoppingListWithHttpInfo(String username, String hash) throws ApiException {
+    public ApiResponse<InlineResponse20042> getShoppingListWithHttpInfo(String username, String hash) throws ApiException {
         okhttp3.Call localVarCall = getShoppingListValidateBeforeCall(username, hash, null);
-        Type localVarReturnType = new TypeToken<InlineResponse20041>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20042>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1510,10 +1763,10 @@ public class MealPlanningApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Get-Shopping-List">Get Shopping List Documentation</a>
      */
-    public okhttp3.Call getShoppingListAsync(String username, String hash, final ApiCallback<InlineResponse20041> _callback) throws ApiException {
+    public okhttp3.Call getShoppingListAsync(String username, String hash, final ApiCallback<InlineResponse20042> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getShoppingListValidateBeforeCall(username, hash, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse20041>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20042>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

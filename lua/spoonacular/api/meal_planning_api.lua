@@ -17,18 +17,21 @@ local basexx = require "basexx"
 
 -- model import
 local spoonacular_todo_object_mapping = require "spoonacular.model.todo_object_mapping"
+local spoonacular_inline_object_10 = require "spoonacular.model.inline_object_10"
 local spoonacular_inline_object_3 = require "spoonacular.model.inline_object_3"
 local spoonacular_inline_object_4 = require "spoonacular.model.inline_object_4"
 local spoonacular_inline_object_5 = require "spoonacular.model.inline_object_5"
 local spoonacular_inline_object_6 = require "spoonacular.model.inline_object_6"
 local spoonacular_inline_object_7 = require "spoonacular.model.inline_object_7"
 local spoonacular_inline_object_8 = require "spoonacular.model.inline_object_8"
+local spoonacular_inline_object_9 = require "spoonacular.model.inline_object_9"
 local spoonacular_inline_response_200_37 = require "spoonacular.model.inline_response_200_37"
 local spoonacular_inline_response_200_38 = require "spoonacular.model.inline_response_200_38"
 local spoonacular_inline_response_200_39 = require "spoonacular.model.inline_response_200_39"
 local spoonacular_inline_response_200_40 = require "spoonacular.model.inline_response_200_40"
 local spoonacular_inline_response_200_41 = require "spoonacular.model.inline_response_200_41"
 local spoonacular_inline_response_200_42 = require "spoonacular.model.inline_response_200_42"
+local spoonacular_inline_response_200_43 = require "spoonacular.model.inline_response_200_43"
 
 local meal_planning_api = {}
 local meal_planning_api_mt = {
@@ -54,6 +57,59 @@ local function new_meal_planning_api(authority, basePath, schemes)
 		api_key = {};
 		access_token = nil;
 	}, meal_planning_api_mt)
+end
+
+function meal_planning_api:add_meal_plan_template(username, hash, inline_object_6)
+	local req = http_request.new_from_uri({
+		scheme = self.default_scheme;
+		host = self.host;
+		port = self.port;
+		path = string.format("%s/mealplanner/%s/templates?hash=%s",
+			self.basePath, username, http_util.encodeURIComponent(hash));
+	})
+
+	-- set HTTP verb
+	req.headers:upsert(":method", "POST")
+	-- TODO: create a function to select proper accept
+	--local var_content_type = { "" }
+	req.headers:upsert("accept", "")
+
+	-- TODO: create a function to select proper content-type
+	--local var_accept = { "application/json" }
+	req.headers:upsert("content-type", "application/json")
+
+	req:set_body(dkjson.encode(inline_object_6))
+
+	-- TODO: api key in query 'apiKey'
+
+	-- make the HTTP call
+	local headers, stream, errno = req:go()
+	if not headers then
+		return nil, stream, errno
+	end
+	local http_status = headers:get(":status")
+	if http_status:sub(1,1) == "2" then
+		local body, err, errno2 = stream:get_body_as_string()
+		-- exception when getting the HTTP body
+		if not body then
+			return nil, err, errno2
+		end
+		stream:shutdown()
+		local result, _, err3 = dkjson.decode(body)
+		-- exception when decoding the HTTP body
+		if result == nil then
+			return nil, err3
+		end
+		return spoonacular_inline_response_200_40.cast(result), headers
+	else
+		local body, err, errno2 = stream:get_body_as_string()
+		if not body then
+			return nil, err, errno2
+		end
+		stream:shutdown()
+		-- return the error message (http body)
+		return nil, http_status, body
+	end
 end
 
 function meal_planning_api:add_to_meal_plan(username, hash, inline_object_4)
@@ -109,7 +165,7 @@ function meal_planning_api:add_to_meal_plan(username, hash, inline_object_4)
 	end
 end
 
-function meal_planning_api:add_to_shopping_list(username, hash, inline_object_7)
+function meal_planning_api:add_to_shopping_list(username, hash, inline_object_9)
 	local req = http_request.new_from_uri({
 		scheme = self.default_scheme;
 		host = self.host;
@@ -128,7 +184,7 @@ function meal_planning_api:add_to_shopping_list(username, hash, inline_object_7)
 	--local var_accept = { "application/json" }
 	req.headers:upsert("content-type", "application/json")
 
-	req:set_body(dkjson.encode(inline_object_7))
+	req:set_body(dkjson.encode(inline_object_9))
 
 	-- TODO: api key in query 'apiKey'
 
@@ -150,7 +206,7 @@ function meal_planning_api:add_to_shopping_list(username, hash, inline_object_7)
 		if result == nil then
 			return nil, err3
 		end
-		return spoonacular_inline_response_200_41.cast(result), headers
+		return spoonacular_inline_response_200_42.cast(result), headers
 	else
 		local body, err, errno2 = stream:get_body_as_string()
 		if not body then
@@ -256,7 +312,7 @@ function meal_planning_api:connect_user(body)
 		if result == nil then
 			return nil, err3
 		end
-		return spoonacular_inline_response_200_42.cast(result), headers
+		return spoonacular_inline_response_200_43.cast(result), headers
 	else
 		local body, err, errno2 = stream:get_body_as_string()
 		if not body then
@@ -321,7 +377,7 @@ function meal_planning_api:delete_from_meal_plan(username, id, hash, inline_obje
 	end
 end
 
-function meal_planning_api:delete_from_shopping_list(username, id, hash, inline_object_8)
+function meal_planning_api:delete_from_shopping_list(username, id, hash, inline_object_10)
 	local req = http_request.new_from_uri({
 		scheme = self.default_scheme;
 		host = self.host;
@@ -340,7 +396,60 @@ function meal_planning_api:delete_from_shopping_list(username, id, hash, inline_
 	--local var_accept = { "application/json" }
 	req.headers:upsert("content-type", "application/json")
 
-	req:set_body(dkjson.encode(inline_object_8))
+	req:set_body(dkjson.encode(inline_object_10))
+
+	-- TODO: api key in query 'apiKey'
+
+	-- make the HTTP call
+	local headers, stream, errno = req:go()
+	if not headers then
+		return nil, stream, errno
+	end
+	local http_status = headers:get(":status")
+	if http_status:sub(1,1) == "2" then
+		local body, err, errno2 = stream:get_body_as_string()
+		-- exception when getting the HTTP body
+		if not body then
+			return nil, err, errno2
+		end
+		stream:shutdown()
+		local result, _, err3 = dkjson.decode(body)
+		-- exception when decoding the HTTP body
+		if result == nil then
+			return nil, err3
+		end
+		return spoonacular_TODO_OBJECT_MAPPING.cast(result), headers
+	else
+		local body, err, errno2 = stream:get_body_as_string()
+		if not body then
+			return nil, err, errno2
+		end
+		stream:shutdown()
+		-- return the error message (http body)
+		return nil, http_status, body
+	end
+end
+
+function meal_planning_api:delete_meal_plan_template(username, id, hash, inline_object_7)
+	local req = http_request.new_from_uri({
+		scheme = self.default_scheme;
+		host = self.host;
+		port = self.port;
+		path = string.format("%s/mealplanner/%s/templates/%s?hash=%s",
+			self.basePath, username, id, http_util.encodeURIComponent(hash));
+	})
+
+	-- set HTTP verb
+	req.headers:upsert(":method", "DELETE")
+	-- TODO: create a function to select proper accept
+	--local var_content_type = { "" }
+	req.headers:upsert("accept", "")
+
+	-- TODO: create a function to select proper content-type
+	--local var_accept = { "application/json" }
+	req.headers:upsert("content-type", "application/json")
+
+	req:set_body(dkjson.encode(inline_object_7))
 
 	-- TODO: api key in query 'apiKey'
 
@@ -421,7 +530,7 @@ function meal_planning_api:generate_meal_plan(time_frame, target_calories, diet,
 	end
 end
 
-function meal_planning_api:generate_shopping_list(username, start_date, end_date, hash, inline_object_6)
+function meal_planning_api:generate_shopping_list(username, start_date, end_date, hash, inline_object_8)
 	local req = http_request.new_from_uri({
 		scheme = self.default_scheme;
 		host = self.host;
@@ -440,7 +549,7 @@ function meal_planning_api:generate_shopping_list(username, start_date, end_date
 	--local var_accept = { "application/json" }
 	req.headers:upsert("content-type", "application/json")
 
-	req:set_body(dkjson.encode(inline_object_6))
+	req:set_body(dkjson.encode(inline_object_8))
 
 	-- TODO: api key in query 'apiKey'
 
@@ -462,7 +571,7 @@ function meal_planning_api:generate_shopping_list(username, start_date, end_date
 		if result == nil then
 			return nil, err3
 		end
-		return spoonacular_inline_response_200_41.cast(result), headers
+		return spoonacular_inline_response_200_42.cast(result), headers
 	else
 		local body, err, errno2 = stream:get_body_as_string()
 		if not body then
@@ -509,7 +618,7 @@ function meal_planning_api:get_meal_plan_template(username, id, hash)
 		if result == nil then
 			return nil, err3
 		end
-		return spoonacular_inline_response_200_40.cast(result), headers
+		return spoonacular_inline_response_200_41.cast(result), headers
 	else
 		local body, err, errno2 = stream:get_body_as_string()
 		if not body then
@@ -650,7 +759,7 @@ function meal_planning_api:get_shopping_list(username, hash)
 		if result == nil then
 			return nil, err3
 		end
-		return spoonacular_inline_response_200_41.cast(result), headers
+		return spoonacular_inline_response_200_42.cast(result), headers
 	else
 		local body, err, errno2 = stream:get_body_as_string()
 		if not body then

@@ -1628,7 +1628,7 @@ Name | Type | Description  | Notes
 
 <a name="quickanswer"></a>
 # **QuickAnswer**
-> InlineResponse20049 QuickAnswer (string q)
+> InlineResponse20050 QuickAnswer (string q)
 
 Quick Answer
 
@@ -1660,7 +1660,7 @@ namespace Example
             try
             {
                 // Quick Answer
-                InlineResponse20049 result = apiInstance.QuickAnswer(q);
+                InlineResponse20050 result = apiInstance.QuickAnswer(q);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -1680,7 +1680,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20049**](InlineResponse20049.md)
+[**InlineResponse20050**](InlineResponse20050.md)
 
 ### Authorization
 

@@ -19,10 +19,12 @@ local function cast_inline_response_200_42(t)
 	return setmetatable(t, inline_response_200_42_mt)
 end
 
-local function new_inline_response_200_42(username, hash)
+local function new_inline_response_200_42(aisles, cost, start_date, end_date)
 	return cast_inline_response_200_42({
-		["username"] = username;
-		["hash"] = hash;
+		["aisles"] = aisles;
+		["cost"] = cost;
+		["startDate"] = start_date;
+		["endDate"] = end_date;
 	})
 end
 

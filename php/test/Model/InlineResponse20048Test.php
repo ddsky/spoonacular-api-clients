@@ -79,13 +79,6 @@ class InlineResponse20048Test extends TestCase
     }
 
     /**
-     * Test attribute "nutrition"
-     */
-    public function testPropertyNutrition()
-    {
-    }
-
-    /**
      * Test attribute "category"
      */
     public function testPropertyCategory()
@@ -93,9 +86,9 @@ class InlineResponse20048Test extends TestCase
     }
 
     /**
-     * Test attribute "recipes"
+     * Test attribute "probability"
      */
-    public function testPropertyRecipes()
+    public function testPropertyProbability()
     {
     }
 }

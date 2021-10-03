@@ -14,9 +14,9 @@
 */
 
 
-#import "OAIInlineResponse20041Aisles.h"
-@protocol OAIInlineResponse20041Aisles;
-@class OAIInlineResponse20041Aisles;
+#import "OAIInlineResponse20041Days.h"
+@protocol OAIInlineResponse20041Days;
+@class OAIInlineResponse20041Days;
 
 
 
@@ -26,12 +26,10 @@
 @interface OAIInlineResponse20041 : OAIObject
 
 
-@property(nonatomic) NSArray<OAIInlineResponse20041Aisles>* aisles;
+@property(nonatomic) NSNumber* _id;
 
-@property(nonatomic) NSNumber* cost;
+@property(nonatomic) NSString* name;
 
-@property(nonatomic) NSNumber* startDate;
-
-@property(nonatomic) NSNumber* endDate;
+@property(nonatomic) NSArray<OAIInlineResponse20041Days>* days;
 
 @end

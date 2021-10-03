@@ -5,13 +5,14 @@ import io.finch.circe._
 import io.circe.generic.semiauto._
 import io.circe.java8.time._
 import spoonacular._
-import scala.collection.immutable.Seq
 
 /**
  * 
- * @param annotations 
+ * @param answer 
+ * @param image 
  */
-case class InlineResponse20050(annotations: Seq[Object]
+case class InlineResponse20050(answer: String,
+                image: String
                 )
 
 object InlineResponse20050 {

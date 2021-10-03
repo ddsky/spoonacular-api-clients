@@ -13,18 +13,18 @@ namespace spoonacular.Model {
   [DataContract]
   public class InlineResponse20056 {
     /// <summary>
-    /// Gets or Sets Suggests
+    /// Gets or Sets AnswerText
     /// </summary>
-    [DataMember(Name="suggests", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "suggests")]
-    public InlineResponse20056Suggests Suggests { get; set; }
+    [DataMember(Name="answerText", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "answerText")]
+    public string AnswerText { get; set; }
 
     /// <summary>
-    /// Gets or Sets Words
+    /// Gets or Sets Media
     /// </summary>
-    [DataMember(Name="words", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "words")]
-    public List<Object> Words { get; set; }
+    [DataMember(Name="media", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "media")]
+    public List<Object> Media { get; set; }
 
 
     /// <summary>
@@ -34,8 +34,8 @@ namespace spoonacular.Model {
     public override string ToString()  {
       var sb = new StringBuilder();
       sb.Append("class InlineResponse20056 {\n");
-      sb.Append("  Suggests: ").Append(Suggests).Append("\n");
-      sb.Append("  Words: ").Append(Words).Append("\n");
+      sb.Append("  AnswerText: ").Append(AnswerText).Append("\n");
+      sb.Append("  Media: ").Append(Media).Append("\n");
       sb.Append("}\n");
       return sb.ToString();
     }

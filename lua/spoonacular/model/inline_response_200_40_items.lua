@@ -19,9 +19,9 @@ local function cast_inline_response_200_40_items(t)
 	return setmetatable(t, inline_response_200_40_items_mt)
 end
 
-local function new_inline_response_200_40_items(id, slot, position, type, value)
+local function new_inline_response_200_40_items(day, slot, position, type, value)
 	return cast_inline_response_200_40_items({
-		["id"] = id;
+		["day"] = day;
 		["slot"] = slot;
 		["position"] = position;
 		["type"] = type;

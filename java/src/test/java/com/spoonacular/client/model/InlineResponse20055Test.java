@@ -21,8 +21,6 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -43,19 +41,11 @@ public class InlineResponse20055Test {
     }
 
     /**
-     * Test the property 'answerText'
+     * Test the property 'text'
      */
     @Test
-    public void answerTextTest() {
-        // TODO: test answerText
-    }
-
-    /**
-     * Test the property 'media'
-     */
-    @Test
-    public void mediaTest() {
-        // TODO: test media
+    public void textTest() {
+        // TODO: test text
     }
 
 }

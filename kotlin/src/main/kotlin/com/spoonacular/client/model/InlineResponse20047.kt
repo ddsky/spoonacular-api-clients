@@ -11,18 +11,19 @@
 */
 package com.spoonacular.client.model
 
+import com.spoonacular.client.model.InlineResponse20047RecommendedWines
 
 import com.squareup.moshi.Json
 /**
  * 
- * @param category 
- * @param probability 
+ * @param recommendedWines 
+ * @param totalFound 
  */
 data class InlineResponse20047 (
-    @Json(name = "category")
-    val category: kotlin.String,
-    @Json(name = "probability")
-    val probability: java.math.BigDecimal
+    @Json(name = "recommendedWines")
+    val recommendedWines: kotlin.Array<InlineResponse20047RecommendedWines>,
+    @Json(name = "totalFound")
+    val totalFound: kotlin.Int
 ) {
 
 }

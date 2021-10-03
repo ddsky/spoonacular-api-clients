@@ -5,13 +5,13 @@
 -export_type([spoonacular_inline_response_200_56/0]).
 
 -type spoonacular_inline_response_200_56() ::
-    #{ 'suggests' := spoonacular_inline_response_200_56_suggests:spoonacular_inline_response_200_56_suggests(),
-       'words' := list()
+    #{ 'answerText' := binary(),
+       'media' := list()
      }.
 
-encode(#{ 'suggests' := Suggests,
-          'words' := Words
+encode(#{ 'answerText' := AnswerText,
+          'media' := Media
         }) ->
-    #{ 'suggests' => Suggests,
-       'words' => Words
+    #{ 'answerText' => AnswerText,
+       'media' => Media
      }.

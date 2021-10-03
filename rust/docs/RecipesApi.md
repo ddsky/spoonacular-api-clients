@@ -902,7 +902,7 @@ Name | Type | Description  | Notes
 
 ## quick_answer
 
-> ::models::InlineResponse20049 quick_answer(ctx, q)
+> ::models::InlineResponse20050 quick_answer(ctx, q)
 Quick Answer
 
 Answer a nutrition related natural language question.
@@ -917,7 +917,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**::models::InlineResponse20049**](inline_response_200_49.md)
+[**::models::InlineResponse20050**](inline_response_200_50.md)
 
 ### Authorization
 

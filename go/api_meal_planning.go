@@ -28,6 +28,111 @@ var (
 type MealPlanningApiService service
 
 /*
+MealPlanningApiService Add Meal Plan Template
+Add a meal plan template for a user.
+ * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param username The username.
+ * @param hash The private hash for the username.
+ * @param inlineObject6
+@return InlineResponse20040
+*/
+func (a *MealPlanningApiService) AddMealPlanTemplate(ctx context.Context, username string, hash string, inlineObject6 InlineObject6) (InlineResponse20040, *http.Response, error) {
+	var (
+		localVarHttpMethod   = strings.ToUpper("Post")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  InlineResponse20040
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BasePath + "/mealplanner/{username}/templates"
+	localVarPath = strings.Replace(localVarPath, "{"+"username"+"}", fmt.Sprintf("%v", username), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	localVarQueryParams.Add("hash", parameterToString(hash, ""))
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{""}
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	// body params
+	localVarPostBody = &inlineObject6
+	if ctx != nil {
+		// API Key Authentication
+		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
+			var key string
+			if auth.Prefix != "" {
+				key = auth.Prefix + " " + auth.Key
+			} else {
+				key = auth.Key
+			}
+			localVarQueryParams.Add("apiKey", key)
+		}
+	}
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHttpResponse, err := a.client.callAPI(r)
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
+	localVarHttpResponse.Body.Close()
+	if err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	if localVarHttpResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHttpResponse.Status,
+		}
+		if localVarHttpResponse.StatusCode == 200 {
+			var v InlineResponse20040
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHttpResponse, nil
+}
+
+/*
 MealPlanningApiService Add to Meal Plan
 Add an item to the user&#39;s meal plan.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -138,17 +243,17 @@ Add an item to the current shopping list of a user.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param username The username.
  * @param hash The private hash for the username.
- * @param inlineObject7
-@return InlineResponse20041
+ * @param inlineObject9
+@return InlineResponse20042
 */
-func (a *MealPlanningApiService) AddToShoppingList(ctx context.Context, username string, hash string, inlineObject7 InlineObject7) (InlineResponse20041, *http.Response, error) {
+func (a *MealPlanningApiService) AddToShoppingList(ctx context.Context, username string, hash string, inlineObject9 InlineObject9) (InlineResponse20042, *http.Response, error) {
 	var (
 		localVarHttpMethod   = strings.ToUpper("Post")
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  InlineResponse20041
+		localVarReturnValue  InlineResponse20042
 	)
 
 	// create path and map variables
@@ -178,7 +283,7 @@ func (a *MealPlanningApiService) AddToShoppingList(ctx context.Context, username
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
 	// body params
-	localVarPostBody = &inlineObject7
+	localVarPostBody = &inlineObject9
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -213,7 +318,7 @@ func (a *MealPlanningApiService) AddToShoppingList(ctx context.Context, username
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
-			var v InlineResponse20041
+			var v InlineResponse20042
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -349,16 +454,16 @@ MealPlanningApiService Connect User
 In order to call user-specific endpoints, you need to connect your app&#39;s users to spoonacular users.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body
-@return InlineResponse20042
+@return InlineResponse20043
 */
-func (a *MealPlanningApiService) ConnectUser(ctx context.Context, body map[string]interface{}) (InlineResponse20042, *http.Response, error) {
+func (a *MealPlanningApiService) ConnectUser(ctx context.Context, body map[string]interface{}) (InlineResponse20043, *http.Response, error) {
 	var (
 		localVarHttpMethod   = strings.ToUpper("Post")
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  InlineResponse20042
+		localVarReturnValue  InlineResponse20043
 	)
 
 	// create path and map variables
@@ -421,7 +526,7 @@ func (a *MealPlanningApiService) ConnectUser(ctx context.Context, body map[strin
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
-			var v InlineResponse20042
+			var v InlineResponse20043
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -559,10 +664,10 @@ Delete an item from the current shopping list of the user.
  * @param username The username.
  * @param id The item's id.
  * @param hash The private hash for the username.
- * @param inlineObject8
+ * @param inlineObject10
 @return map[string]interface{}
 */
-func (a *MealPlanningApiService) DeleteFromShoppingList(ctx context.Context, username string, id int32, hash string, inlineObject8 InlineObject8) (map[string]interface{}, *http.Response, error) {
+func (a *MealPlanningApiService) DeleteFromShoppingList(ctx context.Context, username string, id int32, hash string, inlineObject10 InlineObject10) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHttpMethod   = strings.ToUpper("Delete")
 		localVarPostBody     interface{}
@@ -600,7 +705,114 @@ func (a *MealPlanningApiService) DeleteFromShoppingList(ctx context.Context, use
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
 	// body params
-	localVarPostBody = &inlineObject8
+	localVarPostBody = &inlineObject10
+	if ctx != nil {
+		// API Key Authentication
+		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
+			var key string
+			if auth.Prefix != "" {
+				key = auth.Prefix + " " + auth.Key
+			} else {
+				key = auth.Key
+			}
+			localVarQueryParams.Add("apiKey", key)
+		}
+	}
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHttpResponse, err := a.client.callAPI(r)
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
+	localVarHttpResponse.Body.Close()
+	if err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	if localVarHttpResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHttpResponse.Status,
+		}
+		if localVarHttpResponse.StatusCode == 200 {
+			var v map[string]interface{}
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHttpResponse, nil
+}
+
+/*
+MealPlanningApiService Delete Meal Plan Template
+Delete a meal plan template for a user.
+ * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param username The username.
+ * @param id The item's id.
+ * @param hash The private hash for the username.
+ * @param inlineObject7
+@return map[string]interface{}
+*/
+func (a *MealPlanningApiService) DeleteMealPlanTemplate(ctx context.Context, username string, id int32, hash string, inlineObject7 InlineObject7) (map[string]interface{}, *http.Response, error) {
+	var (
+		localVarHttpMethod   = strings.ToUpper("Delete")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  map[string]interface{}
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BasePath + "/mealplanner/{username}/templates/{id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"username"+"}", fmt.Sprintf("%v", username), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", fmt.Sprintf("%v", id), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	localVarQueryParams.Add("hash", parameterToString(hash, ""))
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{""}
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	// body params
+	localVarPostBody = &inlineObject7
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -790,17 +1002,17 @@ Generate the shopping list for a user from the meal planner in a given time fram
  * @param startDate The start date in the format yyyy-mm-dd.
  * @param endDate The end date in the format yyyy-mm-dd.
  * @param hash The private hash for the username.
- * @param inlineObject6
-@return InlineResponse20041
+ * @param inlineObject8
+@return InlineResponse20042
 */
-func (a *MealPlanningApiService) GenerateShoppingList(ctx context.Context, username string, startDate string, endDate string, hash string, inlineObject6 InlineObject6) (InlineResponse20041, *http.Response, error) {
+func (a *MealPlanningApiService) GenerateShoppingList(ctx context.Context, username string, startDate string, endDate string, hash string, inlineObject8 InlineObject8) (InlineResponse20042, *http.Response, error) {
 	var (
 		localVarHttpMethod   = strings.ToUpper("Post")
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  InlineResponse20041
+		localVarReturnValue  InlineResponse20042
 	)
 
 	// create path and map variables
@@ -832,7 +1044,7 @@ func (a *MealPlanningApiService) GenerateShoppingList(ctx context.Context, usern
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
 	// body params
-	localVarPostBody = &inlineObject6
+	localVarPostBody = &inlineObject8
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -867,7 +1079,7 @@ func (a *MealPlanningApiService) GenerateShoppingList(ctx context.Context, usern
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
-			var v InlineResponse20041
+			var v InlineResponse20042
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -898,16 +1110,16 @@ Get information about a meal plan template.
  * @param username The username.
  * @param id The item's id.
  * @param hash The private hash for the username.
-@return InlineResponse20040
+@return InlineResponse20041
 */
-func (a *MealPlanningApiService) GetMealPlanTemplate(ctx context.Context, username string, id int32, hash string) (InlineResponse20040, *http.Response, error) {
+func (a *MealPlanningApiService) GetMealPlanTemplate(ctx context.Context, username string, id int32, hash string) (InlineResponse20041, *http.Response, error) {
 	var (
 		localVarHttpMethod   = strings.ToUpper("Get")
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  InlineResponse20040
+		localVarReturnValue  InlineResponse20041
 	)
 
 	// create path and map variables
@@ -971,7 +1183,7 @@ func (a *MealPlanningApiService) GetMealPlanTemplate(ctx context.Context, userna
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
-			var v InlineResponse20040
+			var v InlineResponse20041
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1207,16 +1419,16 @@ Get the current shopping list for the given user.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param username The username.
  * @param hash The private hash for the username.
-@return InlineResponse20041
+@return InlineResponse20042
 */
-func (a *MealPlanningApiService) GetShoppingList(ctx context.Context, username string, hash string) (InlineResponse20041, *http.Response, error) {
+func (a *MealPlanningApiService) GetShoppingList(ctx context.Context, username string, hash string) (InlineResponse20042, *http.Response, error) {
 	var (
 		localVarHttpMethod   = strings.ToUpper("Get")
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  InlineResponse20041
+		localVarReturnValue  InlineResponse20042
 	)
 
 	// create path and map variables
@@ -1279,7 +1491,7 @@ func (a *MealPlanningApiService) GetShoppingList(ctx context.Context, username s
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
-			var v InlineResponse20041
+			var v InlineResponse20042
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

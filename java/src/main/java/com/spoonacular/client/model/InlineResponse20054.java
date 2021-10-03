@@ -20,35 +20,65 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.spoonacular.client.model.InlineResponse20054Videos;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * InlineResponse20054
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-09-28T20:40:32.759+02:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-03T15:10:59.332+02:00[Europe/Berlin]")
 public class InlineResponse20054 {
-  public static final String SERIALIZED_NAME_TEXT = "text";
-  @SerializedName(SERIALIZED_NAME_TEXT)
-  private String text;
+  public static final String SERIALIZED_NAME_VIDEOS = "videos";
+  @SerializedName(SERIALIZED_NAME_VIDEOS)
+  private List<InlineResponse20054Videos> videos = new ArrayList<>();
 
-  public InlineResponse20054 text(String text) {
-    this.text = text;
+  public static final String SERIALIZED_NAME_TOTAL_RESULTS = "totalResults";
+  @SerializedName(SERIALIZED_NAME_TOTAL_RESULTS)
+  private Integer totalResults;
+
+  public InlineResponse20054 videos(List<InlineResponse20054Videos> videos) {
+    this.videos = videos;
+    return this;
+  }
+
+  public InlineResponse20054 addVideosItem(InlineResponse20054Videos videosItem) {
+    this.videos.add(videosItem);
     return this;
   }
 
    /**
-   * Get text
-   * @return text
+   * Get videos
+   * @return videos
   **/
   @ApiModelProperty(required = true, value = "")
-  public String getText() {
-    return text;
+  public List<InlineResponse20054Videos> getVideos() {
+    return videos;
   }
 
-  public void setText(String text) {
-    this.text = text;
+  public void setVideos(List<InlineResponse20054Videos> videos) {
+    this.videos = videos;
+  }
+
+  public InlineResponse20054 totalResults(Integer totalResults) {
+    this.totalResults = totalResults;
+    return this;
+  }
+
+   /**
+   * Get totalResults
+   * @return totalResults
+  **/
+  @ApiModelProperty(required = true, value = "")
+  public Integer getTotalResults() {
+    return totalResults;
+  }
+
+  public void setTotalResults(Integer totalResults) {
+    this.totalResults = totalResults;
   }
 
 
@@ -61,12 +91,13 @@ public class InlineResponse20054 {
       return false;
     }
     InlineResponse20054 inlineResponse20054 = (InlineResponse20054) o;
-    return Objects.equals(this.text, inlineResponse20054.text);
+    return Objects.equals(this.videos, inlineResponse20054.videos) &&
+        Objects.equals(this.totalResults, inlineResponse20054.totalResults);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(text);
+    return Objects.hash(videos, totalResults);
   }
 
 
@@ -74,7 +105,8 @@ public class InlineResponse20054 {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse20054 {\n");
-    sb.append("    text: ").append(toIndentedString(text)).append("\n");
+    sb.append("    videos: ").append(toIndentedString(videos)).append("\n");
+    sb.append("    totalResults: ").append(toIndentedString(totalResults)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -4,9 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**articles** | **[Object]** |  | 
-**groceryProducts** | **[Object]** |  | 
-**menuItems** | **[Object]** |  | 
-**recipes** | **[Object]** |  | 
+**annotations** | **[Object]** |  | 
 
 

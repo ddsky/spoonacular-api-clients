@@ -22,7 +22,8 @@
 #include <QJsonObject>
 
 
-#include <QString>
+#include "com.spoonacular.client.model\OAIInline_response_200_54_videos.h"
+#include <QList>
 
 #include "OAIObject.h"
 #include "OAIEnum.h"
@@ -41,8 +42,12 @@ public:
     void fromJson(QString jsonString) override;
 
     
-    QString getText() const;
-    void setText(const QString &text);
+    QList<OAIInline_response_200_54_videos> getVideos() const;
+    void setVideos(const QList<OAIInline_response_200_54_videos> &videos);
+
+    
+    qint32 getTotalResults() const;
+    void setTotalResults(const qint32 &total_results);
 
     
     
@@ -52,9 +57,13 @@ public:
 private:
     void init();
     
-    QString text;
-    bool m_text_isSet;
-    bool m_text_isValid;
+    QList<OAIInline_response_200_54_videos> videos;
+    bool m_videos_isSet;
+    bool m_videos_isValid;
+    
+    qint32 total_results;
+    bool m_total_results_isSet;
+    bool m_total_results_isValid;
     
     };
 

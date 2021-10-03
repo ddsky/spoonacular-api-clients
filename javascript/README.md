@@ -141,12 +141,14 @@ Class | Method | HTTP request | Description
 *SpoonacularApi.IngredientsApi* | [**ingredientsByIDImage**](docs/IngredientsApi.md#ingredientsByIDImage) | **GET** /recipes/{id}/ingredientWidget.png | Ingredients by ID Image
 *SpoonacularApi.IngredientsApi* | [**mapIngredientsToGroceryProducts**](docs/IngredientsApi.md#mapIngredientsToGroceryProducts) | **POST** /food/ingredients/map | Map Ingredients to Grocery Products
 *SpoonacularApi.IngredientsApi* | [**visualizeIngredients**](docs/IngredientsApi.md#visualizeIngredients) | **POST** /recipes/visualizeIngredients | Ingredients Widget
+*SpoonacularApi.MealPlanningApi* | [**addMealPlanTemplate**](docs/MealPlanningApi.md#addMealPlanTemplate) | **POST** /mealplanner/{username}/templates | Add Meal Plan Template
 *SpoonacularApi.MealPlanningApi* | [**addToMealPlan**](docs/MealPlanningApi.md#addToMealPlan) | **POST** /mealplanner/{username}/items | Add to Meal Plan
 *SpoonacularApi.MealPlanningApi* | [**addToShoppingList**](docs/MealPlanningApi.md#addToShoppingList) | **POST** /mealplanner/{username}/shopping-list/items | Add to Shopping List
 *SpoonacularApi.MealPlanningApi* | [**clearMealPlanDay**](docs/MealPlanningApi.md#clearMealPlanDay) | **DELETE** /mealplanner/{username}/day/{date} | Clear Meal Plan Day
 *SpoonacularApi.MealPlanningApi* | [**connectUser**](docs/MealPlanningApi.md#connectUser) | **POST** /users/connect | Connect User
 *SpoonacularApi.MealPlanningApi* | [**deleteFromMealPlan**](docs/MealPlanningApi.md#deleteFromMealPlan) | **DELETE** /mealplanner/{username}/items/{id} | Delete from Meal Plan
 *SpoonacularApi.MealPlanningApi* | [**deleteFromShoppingList**](docs/MealPlanningApi.md#deleteFromShoppingList) | **DELETE** /mealplanner/{username}/shopping-list/items/{id} | Delete from Shopping List
+*SpoonacularApi.MealPlanningApi* | [**deleteMealPlanTemplate**](docs/MealPlanningApi.md#deleteMealPlanTemplate) | **DELETE** /mealplanner/{username}/templates/{id} | Delete Meal Plan Template
 *SpoonacularApi.MealPlanningApi* | [**generateMealPlan**](docs/MealPlanningApi.md#generateMealPlan) | **GET** /mealplanner/generate | Generate Meal Plan
 *SpoonacularApi.MealPlanningApi* | [**generateShoppingList**](docs/MealPlanningApi.md#generateShoppingList) | **POST** /mealplanner/{username}/shopping-list/{start-date}/{end-date} | Generate Shopping List
 *SpoonacularApi.MealPlanningApi* | [**getMealPlanTemplate**](docs/MealPlanningApi.md#getMealPlanTemplate) | **GET** /mealplanner/{username}/templates/{id} | Get Meal Plan Template
@@ -234,6 +236,7 @@ Class | Method | HTTP request | Description
  - [SpoonacularApi.FoodIngredientsMapProducts](docs/FoodIngredientsMapProducts.md)
  - [SpoonacularApi.InlineObject](docs/InlineObject.md)
  - [SpoonacularApi.InlineObject1](docs/InlineObject1.md)
+ - [SpoonacularApi.InlineObject10](docs/InlineObject10.md)
  - [SpoonacularApi.InlineObject2](docs/InlineObject2.md)
  - [SpoonacularApi.InlineObject3](docs/InlineObject3.md)
  - [SpoonacularApi.InlineObject4](docs/InlineObject4.md)
@@ -241,6 +244,7 @@ Class | Method | HTTP request | Description
  - [SpoonacularApi.InlineObject6](docs/InlineObject6.md)
  - [SpoonacularApi.InlineObject7](docs/InlineObject7.md)
  - [SpoonacularApi.InlineObject8](docs/InlineObject8.md)
+ - [SpoonacularApi.InlineObject9](docs/InlineObject9.md)
  - [SpoonacularApi.InlineResponse200](docs/InlineResponse200.md)
  - [SpoonacularApi.InlineResponse2001](docs/InlineResponse2001.md)
  - [SpoonacularApi.InlineResponse20010](docs/InlineResponse20010.md)
@@ -312,40 +316,43 @@ Class | Method | HTTP request | Description
  - [SpoonacularApi.InlineResponse2003WinePairingProductMatches](docs/InlineResponse2003WinePairingProductMatches.md)
  - [SpoonacularApi.InlineResponse2004](docs/InlineResponse2004.md)
  - [SpoonacularApi.InlineResponse20040](docs/InlineResponse20040.md)
- - [SpoonacularApi.InlineResponse20040Days](docs/InlineResponse20040Days.md)
  - [SpoonacularApi.InlineResponse20040Items](docs/InlineResponse20040Items.md)
  - [SpoonacularApi.InlineResponse20040Value](docs/InlineResponse20040Value.md)
  - [SpoonacularApi.InlineResponse20041](docs/InlineResponse20041.md)
- - [SpoonacularApi.InlineResponse20041Aisles](docs/InlineResponse20041Aisles.md)
+ - [SpoonacularApi.InlineResponse20041Days](docs/InlineResponse20041Days.md)
  - [SpoonacularApi.InlineResponse20041Items](docs/InlineResponse20041Items.md)
- - [SpoonacularApi.InlineResponse20041Measures](docs/InlineResponse20041Measures.md)
+ - [SpoonacularApi.InlineResponse20041Value](docs/InlineResponse20041Value.md)
  - [SpoonacularApi.InlineResponse20042](docs/InlineResponse20042.md)
+ - [SpoonacularApi.InlineResponse20042Aisles](docs/InlineResponse20042Aisles.md)
+ - [SpoonacularApi.InlineResponse20042Items](docs/InlineResponse20042Items.md)
+ - [SpoonacularApi.InlineResponse20042Measures](docs/InlineResponse20042Measures.md)
  - [SpoonacularApi.InlineResponse20043](docs/InlineResponse20043.md)
  - [SpoonacularApi.InlineResponse20044](docs/InlineResponse20044.md)
- - [SpoonacularApi.InlineResponse20044ProductMatches](docs/InlineResponse20044ProductMatches.md)
  - [SpoonacularApi.InlineResponse20045](docs/InlineResponse20045.md)
+ - [SpoonacularApi.InlineResponse20045ProductMatches](docs/InlineResponse20045ProductMatches.md)
  - [SpoonacularApi.InlineResponse20046](docs/InlineResponse20046.md)
- - [SpoonacularApi.InlineResponse20046RecommendedWines](docs/InlineResponse20046RecommendedWines.md)
  - [SpoonacularApi.InlineResponse20047](docs/InlineResponse20047.md)
+ - [SpoonacularApi.InlineResponse20047RecommendedWines](docs/InlineResponse20047RecommendedWines.md)
  - [SpoonacularApi.InlineResponse20048](docs/InlineResponse20048.md)
- - [SpoonacularApi.InlineResponse20048Category](docs/InlineResponse20048Category.md)
- - [SpoonacularApi.InlineResponse20048Nutrition](docs/InlineResponse20048Nutrition.md)
- - [SpoonacularApi.InlineResponse20048NutritionCalories](docs/InlineResponse20048NutritionCalories.md)
- - [SpoonacularApi.InlineResponse20048NutritionCaloriesConfidenceRange95Percent](docs/InlineResponse20048NutritionCaloriesConfidenceRange95Percent.md)
- - [SpoonacularApi.InlineResponse20048Recipes](docs/InlineResponse20048Recipes.md)
  - [SpoonacularApi.InlineResponse20049](docs/InlineResponse20049.md)
+ - [SpoonacularApi.InlineResponse20049Category](docs/InlineResponse20049Category.md)
+ - [SpoonacularApi.InlineResponse20049Nutrition](docs/InlineResponse20049Nutrition.md)
+ - [SpoonacularApi.InlineResponse20049NutritionCalories](docs/InlineResponse20049NutritionCalories.md)
+ - [SpoonacularApi.InlineResponse20049NutritionCaloriesConfidenceRange95Percent](docs/InlineResponse20049NutritionCaloriesConfidenceRange95Percent.md)
+ - [SpoonacularApi.InlineResponse20049Recipes](docs/InlineResponse20049Recipes.md)
  - [SpoonacularApi.InlineResponse2005](docs/InlineResponse2005.md)
  - [SpoonacularApi.InlineResponse20050](docs/InlineResponse20050.md)
  - [SpoonacularApi.InlineResponse20051](docs/InlineResponse20051.md)
  - [SpoonacularApi.InlineResponse20052](docs/InlineResponse20052.md)
- - [SpoonacularApi.InlineResponse20052Results](docs/InlineResponse20052Results.md)
- - [SpoonacularApi.InlineResponse20052SearchResults](docs/InlineResponse20052SearchResults.md)
  - [SpoonacularApi.InlineResponse20053](docs/InlineResponse20053.md)
- - [SpoonacularApi.InlineResponse20053Videos](docs/InlineResponse20053Videos.md)
+ - [SpoonacularApi.InlineResponse20053Results](docs/InlineResponse20053Results.md)
+ - [SpoonacularApi.InlineResponse20053SearchResults](docs/InlineResponse20053SearchResults.md)
  - [SpoonacularApi.InlineResponse20054](docs/InlineResponse20054.md)
+ - [SpoonacularApi.InlineResponse20054Videos](docs/InlineResponse20054Videos.md)
  - [SpoonacularApi.InlineResponse20055](docs/InlineResponse20055.md)
  - [SpoonacularApi.InlineResponse20056](docs/InlineResponse20056.md)
- - [SpoonacularApi.InlineResponse20056Suggests](docs/InlineResponse20056Suggests.md)
+ - [SpoonacularApi.InlineResponse20057](docs/InlineResponse20057.md)
+ - [SpoonacularApi.InlineResponse20057Suggests](docs/InlineResponse20057Suggests.md)
  - [SpoonacularApi.InlineResponse2006](docs/InlineResponse2006.md)
  - [SpoonacularApi.InlineResponse2006Recipes](docs/InlineResponse2006Recipes.md)
  - [SpoonacularApi.InlineResponse2007](docs/InlineResponse2007.md)

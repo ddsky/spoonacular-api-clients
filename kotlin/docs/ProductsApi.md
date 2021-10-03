@@ -415,7 +415,7 @@ Name | Type | Description  | Notes
 
 <a name="searchGroceryProducts"></a>
 # **searchGroceryProducts**
-> InlineResponse20027 searchGroceryProducts(query, minCalories, maxCalories, minCarbs, maxCarbs, minProtein, maxProtein, minFat, maxFat, offset, number)
+> InlineResponse20027 searchGroceryProducts(query, minCalories, maxCalories, minCarbs, maxCarbs, minProtein, maxProtein, minFat, maxFat, addProductInformation, offset, number)
 
 Search Grocery Products
 
@@ -437,10 +437,11 @@ val minProtein : java.math.BigDecimal = 10 // java.math.BigDecimal | The minimum
 val maxProtein : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of protein in grams the product can have.
 val minFat : java.math.BigDecimal = 1 // java.math.BigDecimal | The minimum amount of fat in grams the product must have.
 val maxFat : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of fat in grams the product can have.
+val addProductInformation : kotlin.Boolean = true // kotlin.Boolean | If set to true, you get more information about the products returned.
 val offset : kotlin.Int = 56 // kotlin.Int | The number of results to skip (between 0 and 900).
 val number : kotlin.Int = 10 // kotlin.Int | The maximum number of items to return (between 1 and 100). Defaults to 10.
 try {
-    val result : InlineResponse20027 = apiInstance.searchGroceryProducts(query, minCalories, maxCalories, minCarbs, maxCarbs, minProtein, maxProtein, minFat, maxFat, offset, number)
+    val result : InlineResponse20027 = apiInstance.searchGroceryProducts(query, minCalories, maxCalories, minCarbs, maxCarbs, minProtein, maxProtein, minFat, maxFat, addProductInformation, offset, number)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ProductsApi#searchGroceryProducts")
@@ -464,6 +465,7 @@ Name | Type | Description  | Notes
  **maxProtein** | **java.math.BigDecimal**| The maximum amount of protein in grams the product can have. | [optional]
  **minFat** | **java.math.BigDecimal**| The minimum amount of fat in grams the product must have. | [optional]
  **maxFat** | **java.math.BigDecimal**| The maximum amount of fat in grams the product can have. | [optional]
+ **addProductInformation** | **kotlin.Boolean**| If set to true, you get more information about the products returned. | [optional] [enum: false, true]
  **offset** | **kotlin.Int**| The number of results to skip (between 0 and 900). | [optional]
  **number** | **kotlin.Int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
 

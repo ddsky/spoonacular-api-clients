@@ -4,12 +4,14 @@ All URIs are relative to *https://api.spoonacular.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**addMealPlanTemplate**](MealPlanningApi.md#addMealPlanTemplate) | **POST** /mealplanner/{username}/templates | Add Meal Plan Template
 [**addToMealPlan**](MealPlanningApi.md#addToMealPlan) | **POST** /mealplanner/{username}/items | Add to Meal Plan
 [**addToShoppingList**](MealPlanningApi.md#addToShoppingList) | **POST** /mealplanner/{username}/shopping-list/items | Add to Shopping List
 [**clearMealPlanDay**](MealPlanningApi.md#clearMealPlanDay) | **DELETE** /mealplanner/{username}/day/{date} | Clear Meal Plan Day
 [**connectUser**](MealPlanningApi.md#connectUser) | **POST** /users/connect | Connect User
 [**deleteFromMealPlan**](MealPlanningApi.md#deleteFromMealPlan) | **DELETE** /mealplanner/{username}/items/{id} | Delete from Meal Plan
 [**deleteFromShoppingList**](MealPlanningApi.md#deleteFromShoppingList) | **DELETE** /mealplanner/{username}/shopping-list/items/{id} | Delete from Shopping List
+[**deleteMealPlanTemplate**](MealPlanningApi.md#deleteMealPlanTemplate) | **DELETE** /mealplanner/{username}/templates/{id} | Delete Meal Plan Template
 [**generateMealPlan**](MealPlanningApi.md#generateMealPlan) | **GET** /mealplanner/generate | Generate Meal Plan
 [**generateShoppingList**](MealPlanningApi.md#generateShoppingList) | **POST** /mealplanner/{username}/shopping-list/{start-date}/{end-date} | Generate Shopping List
 [**getMealPlanTemplate**](MealPlanningApi.md#getMealPlanTemplate) | **GET** /mealplanner/{username}/templates/{id} | Get Meal Plan Template
@@ -17,6 +19,57 @@ Method | HTTP request | Description
 [**getMealPlanWeek**](MealPlanningApi.md#getMealPlanWeek) | **GET** /mealplanner/{username}/week/{start-date} | Get Meal Plan Week
 [**getShoppingList**](MealPlanningApi.md#getShoppingList) | **GET** /mealplanner/{username}/shopping-list | Get Shopping List
 
+
+<a name="addMealPlanTemplate"></a>
+# **addMealPlanTemplate**
+> InlineResponse20040 addMealPlanTemplate(username, hash, inlineObject6)
+
+Add Meal Plan Template
+
+Add a meal plan template for a user.
+
+### Example
+```kotlin
+// Import classes:
+//import spoonacular.infrastructure.*
+//import com.spoonacular.client.model.*
+
+val apiInstance = MealPlanningApi()
+val username : kotlin.String = dsky // kotlin.String | The username.
+val hash : kotlin.String = 4b5v4398573406 // kotlin.String | The private hash for the username.
+val inlineObject6 : InlineObject6 =  // InlineObject6 | 
+try {
+    val result : InlineResponse20040 = apiInstance.addMealPlanTemplate(username, hash, inlineObject6)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling MealPlanningApi#addMealPlanTemplate")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling MealPlanningApi#addMealPlanTemplate")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **kotlin.String**| The username. |
+ **hash** | **kotlin.String**| The private hash for the username. |
+ **inlineObject6** | [**InlineObject6**](InlineObject6.md)|  |
+
+### Return type
+
+[**InlineResponse20040**](InlineResponse20040.md)
+
+### Authorization
+
+[apiKeyScheme](../README.md#apiKeyScheme)
+
+### HTTP request headers
+
+ - **Content-Type**: 
+ - **Accept**: application/json
 
 <a name="addToMealPlan"></a>
 # **addToMealPlan**
@@ -71,7 +124,7 @@ Name | Type | Description  | Notes
 
 <a name="addToShoppingList"></a>
 # **addToShoppingList**
-> InlineResponse20041 addToShoppingList(username, hash, inlineObject7)
+> InlineResponse20042 addToShoppingList(username, hash, inlineObject9)
 
 Add to Shopping List
 
@@ -86,9 +139,9 @@ Add an item to the current shopping list of a user.
 val apiInstance = MealPlanningApi()
 val username : kotlin.String = dsky // kotlin.String | The username.
 val hash : kotlin.String = hash_example // kotlin.String | The private hash for the username.
-val inlineObject7 : InlineObject7 =  // InlineObject7 | 
+val inlineObject9 : InlineObject9 =  // InlineObject9 | 
 try {
-    val result : InlineResponse20041 = apiInstance.addToShoppingList(username, hash, inlineObject7)
+    val result : InlineResponse20042 = apiInstance.addToShoppingList(username, hash, inlineObject9)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling MealPlanningApi#addToShoppingList")
@@ -105,11 +158,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **username** | **kotlin.String**| The username. |
  **hash** | **kotlin.String**| The private hash for the username. |
- **inlineObject7** | [**InlineObject7**](InlineObject7.md)|  |
+ **inlineObject9** | [**InlineObject9**](InlineObject9.md)|  |
 
 ### Return type
 
-[**InlineResponse20041**](InlineResponse20041.md)
+[**InlineResponse20042**](InlineResponse20042.md)
 
 ### Authorization
 
@@ -175,7 +228,7 @@ Name | Type | Description  | Notes
 
 <a name="connectUser"></a>
 # **connectUser**
-> InlineResponse20042 connectUser(body)
+> InlineResponse20043 connectUser(body)
 
 Connect User
 
@@ -190,7 +243,7 @@ In order to call user-specific endpoints, you need to connect your app&#39;s use
 val apiInstance = MealPlanningApi()
 val body : kotlin.Any = Object // kotlin.Any | 
 try {
-    val result : InlineResponse20042 = apiInstance.connectUser(body)
+    val result : InlineResponse20043 = apiInstance.connectUser(body)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling MealPlanningApi#connectUser")
@@ -209,7 +262,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20042**](InlineResponse20042.md)
+[**InlineResponse20043**](InlineResponse20043.md)
 
 ### Authorization
 
@@ -275,7 +328,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteFromShoppingList"></a>
 # **deleteFromShoppingList**
-> kotlin.Any deleteFromShoppingList(username, id, hash, inlineObject8)
+> kotlin.Any deleteFromShoppingList(username, id, hash, inlineObject10)
 
 Delete from Shopping List
 
@@ -291,9 +344,9 @@ val apiInstance = MealPlanningApi()
 val username : kotlin.String = dsky // kotlin.String | The username.
 val id : kotlin.Int = 1 // kotlin.Int | The item's id.
 val hash : kotlin.String = hash_example // kotlin.String | The private hash for the username.
-val inlineObject8 : InlineObject8 =  // InlineObject8 | 
+val inlineObject10 : InlineObject10 =  // InlineObject10 | 
 try {
-    val result : kotlin.Any = apiInstance.deleteFromShoppingList(username, id, hash, inlineObject8)
+    val result : kotlin.Any = apiInstance.deleteFromShoppingList(username, id, hash, inlineObject10)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling MealPlanningApi#deleteFromShoppingList")
@@ -311,7 +364,60 @@ Name | Type | Description  | Notes
  **username** | **kotlin.String**| The username. |
  **id** | **kotlin.Int**| The item&#39;s id. |
  **hash** | **kotlin.String**| The private hash for the username. |
- **inlineObject8** | [**InlineObject8**](InlineObject8.md)|  |
+ **inlineObject10** | [**InlineObject10**](InlineObject10.md)|  |
+
+### Return type
+
+[**kotlin.Any**](kotlin.Any.md)
+
+### Authorization
+
+[apiKeyScheme](../README.md#apiKeyScheme)
+
+### HTTP request headers
+
+ - **Content-Type**: 
+ - **Accept**: application/json
+
+<a name="deleteMealPlanTemplate"></a>
+# **deleteMealPlanTemplate**
+> kotlin.Any deleteMealPlanTemplate(username, id, hash, inlineObject7)
+
+Delete Meal Plan Template
+
+Delete a meal plan template for a user.
+
+### Example
+```kotlin
+// Import classes:
+//import spoonacular.infrastructure.*
+//import com.spoonacular.client.model.*
+
+val apiInstance = MealPlanningApi()
+val username : kotlin.String = dsky // kotlin.String | The username.
+val id : kotlin.Int = 1 // kotlin.Int | The item's id.
+val hash : kotlin.String = 4b5v4398573406 // kotlin.String | The private hash for the username.
+val inlineObject7 : InlineObject7 =  // InlineObject7 | 
+try {
+    val result : kotlin.Any = apiInstance.deleteMealPlanTemplate(username, id, hash, inlineObject7)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling MealPlanningApi#deleteMealPlanTemplate")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling MealPlanningApi#deleteMealPlanTemplate")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **kotlin.String**| The username. |
+ **id** | **kotlin.Int**| The item&#39;s id. |
+ **hash** | **kotlin.String**| The private hash for the username. |
+ **inlineObject7** | [**InlineObject7**](InlineObject7.md)|  |
 
 ### Return type
 
@@ -381,7 +487,7 @@ Name | Type | Description  | Notes
 
 <a name="generateShoppingList"></a>
 # **generateShoppingList**
-> InlineResponse20041 generateShoppingList(username, startMinusDate, endMinusDate, hash, inlineObject6)
+> InlineResponse20042 generateShoppingList(username, startMinusDate, endMinusDate, hash, inlineObject8)
 
 Generate Shopping List
 
@@ -398,9 +504,9 @@ val username : kotlin.String = dsky // kotlin.String | The username.
 val startMinusDate : kotlin.String = 2020-06-01 // kotlin.String | The start date in the format yyyy-mm-dd.
 val endMinusDate : kotlin.String = 2020-06-07 // kotlin.String | The end date in the format yyyy-mm-dd.
 val hash : kotlin.String = hash_example // kotlin.String | The private hash for the username.
-val inlineObject6 : InlineObject6 =  // InlineObject6 | 
+val inlineObject8 : InlineObject8 =  // InlineObject8 | 
 try {
-    val result : InlineResponse20041 = apiInstance.generateShoppingList(username, startMinusDate, endMinusDate, hash, inlineObject6)
+    val result : InlineResponse20042 = apiInstance.generateShoppingList(username, startMinusDate, endMinusDate, hash, inlineObject8)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling MealPlanningApi#generateShoppingList")
@@ -419,11 +525,11 @@ Name | Type | Description  | Notes
  **startMinusDate** | **kotlin.String**| The start date in the format yyyy-mm-dd. |
  **endMinusDate** | **kotlin.String**| The end date in the format yyyy-mm-dd. |
  **hash** | **kotlin.String**| The private hash for the username. |
- **inlineObject6** | [**InlineObject6**](InlineObject6.md)|  |
+ **inlineObject8** | [**InlineObject8**](InlineObject8.md)|  |
 
 ### Return type
 
-[**InlineResponse20041**](InlineResponse20041.md)
+[**InlineResponse20042**](InlineResponse20042.md)
 
 ### Authorization
 
@@ -436,7 +542,7 @@ Name | Type | Description  | Notes
 
 <a name="getMealPlanTemplate"></a>
 # **getMealPlanTemplate**
-> InlineResponse20040 getMealPlanTemplate(username, id, hash)
+> InlineResponse20041 getMealPlanTemplate(username, id, hash)
 
 Get Meal Plan Template
 
@@ -453,7 +559,7 @@ val username : kotlin.String = dsky // kotlin.String | The username.
 val id : kotlin.Int = 1 // kotlin.Int | The item's id.
 val hash : kotlin.String = hash_example // kotlin.String | The private hash for the username.
 try {
-    val result : InlineResponse20040 = apiInstance.getMealPlanTemplate(username, id, hash)
+    val result : InlineResponse20041 = apiInstance.getMealPlanTemplate(username, id, hash)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling MealPlanningApi#getMealPlanTemplate")
@@ -474,7 +580,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20040**](InlineResponse20040.md)
+[**InlineResponse20041**](InlineResponse20041.md)
 
 ### Authorization
 
@@ -587,7 +693,7 @@ Name | Type | Description  | Notes
 
 <a name="getShoppingList"></a>
 # **getShoppingList**
-> InlineResponse20041 getShoppingList(username, hash)
+> InlineResponse20042 getShoppingList(username, hash)
 
 Get Shopping List
 
@@ -603,7 +709,7 @@ val apiInstance = MealPlanningApi()
 val username : kotlin.String = dsky // kotlin.String | The username.
 val hash : kotlin.String = hash_example // kotlin.String | The private hash for the username.
 try {
-    val result : InlineResponse20041 = apiInstance.getShoppingList(username, hash)
+    val result : InlineResponse20042 = apiInstance.getShoppingList(username, hash)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling MealPlanningApi#getShoppingList")
@@ -623,7 +729,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20041**](InlineResponse20041.md)
+[**InlineResponse20042**](InlineResponse20042.md)
 
 ### Authorization
 

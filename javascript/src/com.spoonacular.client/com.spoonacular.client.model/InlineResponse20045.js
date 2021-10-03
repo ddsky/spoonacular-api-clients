@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import InlineResponse20045ProductMatches from './InlineResponse20045ProductMatches';
 
 /**
  * The InlineResponse20045 model module.
@@ -22,11 +23,13 @@ class InlineResponse20045 {
     /**
      * Constructs a new <code>InlineResponse20045</code>.
      * @alias module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20045
-     * @param wineDescription {String} 
+     * @param pairedWines {Array.<String>} 
+     * @param pairingText {String} 
+     * @param productMatches {Array.<module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20045ProductMatches>} 
      */
-    constructor(wineDescription) { 
+    constructor(pairedWines, pairingText, productMatches) { 
         
-        InlineResponse20045.initialize(this, wineDescription);
+        InlineResponse20045.initialize(this, pairedWines, pairingText, productMatches);
     }
 
     /**
@@ -34,8 +37,10 @@ class InlineResponse20045 {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, wineDescription) { 
-        obj['wineDescription'] = wineDescription;
+    static initialize(obj, pairedWines, pairingText, productMatches) { 
+        obj['pairedWines'] = pairedWines;
+        obj['pairingText'] = pairingText;
+        obj['productMatches'] = productMatches;
     }
 
     /**
@@ -49,8 +54,14 @@ class InlineResponse20045 {
         if (data) {
             obj = obj || new InlineResponse20045();
 
-            if (data.hasOwnProperty('wineDescription')) {
-                obj['wineDescription'] = ApiClient.convertToType(data['wineDescription'], 'String');
+            if (data.hasOwnProperty('pairedWines')) {
+                obj['pairedWines'] = ApiClient.convertToType(data['pairedWines'], ['String']);
+            }
+            if (data.hasOwnProperty('pairingText')) {
+                obj['pairingText'] = ApiClient.convertToType(data['pairingText'], 'String');
+            }
+            if (data.hasOwnProperty('productMatches')) {
+                obj['productMatches'] = ApiClient.convertToType(data['productMatches'], [InlineResponse20045ProductMatches]);
             }
         }
         return obj;
@@ -60,9 +71,19 @@ class InlineResponse20045 {
 }
 
 /**
- * @member {String} wineDescription
+ * @member {Array.<String>} pairedWines
  */
-InlineResponse20045.prototype['wineDescription'] = undefined;
+InlineResponse20045.prototype['pairedWines'] = undefined;
+
+/**
+ * @member {String} pairingText
+ */
+InlineResponse20045.prototype['pairingText'] = undefined;
+
+/**
+ * @member {Array.<module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20045ProductMatches>} productMatches
+ */
+InlineResponse20045.prototype['productMatches'] = undefined;
 
 
 

@@ -22,7 +22,7 @@
 #include <QJsonObject>
 
 
-#include "com.spoonacular.client.model\OAIInline_response_200_40_days.h"
+#include "com.spoonacular.client.model\OAIInline_response_200_40_items.h"
 #include <QList>
 #include <QString>
 
@@ -43,16 +43,16 @@ public:
     void fromJson(QString jsonString) override;
 
     
-    qint32 getId() const;
-    void setId(const qint32 &id);
-
-    
     QString getName() const;
     void setName(const QString &name);
 
     
-    QList<OAIInline_response_200_40_days> getDays() const;
-    void setDays(const QList<OAIInline_response_200_40_days> &days);
+    QList<OAIInline_response_200_40_items> getItems() const;
+    void setItems(const QList<OAIInline_response_200_40_items> &items);
+
+    
+    bool isPublishAsPublic() const;
+    void setPublishAsPublic(const bool &publish_as_public);
 
     
     
@@ -62,17 +62,17 @@ public:
 private:
     void init();
     
-    qint32 id;
-    bool m_id_isSet;
-    bool m_id_isValid;
-    
     QString name;
     bool m_name_isSet;
     bool m_name_isValid;
     
-    QList<OAIInline_response_200_40_days> days;
-    bool m_days_isSet;
-    bool m_days_isValid;
+    QList<OAIInline_response_200_40_items> items;
+    bool m_items_isSet;
+    bool m_items_isValid;
+    
+    bool publish_as_public;
+    bool m_publish_as_public_isSet;
+    bool m_publish_as_public_isValid;
     
     };
 

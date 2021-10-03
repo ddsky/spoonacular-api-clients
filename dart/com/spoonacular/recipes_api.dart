@@ -1217,7 +1217,7 @@ class RecipesApi {
   /// Quick Answer
   ///
   /// Answer a nutrition related natural language question.
-  Future<InlineResponse20049> quickAnswer(String q) async {
+  Future<InlineResponse20050> quickAnswer(String q) async {
     Object postBody;
 
     // verify required params are set
@@ -1260,7 +1260,7 @@ class RecipesApi {
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'InlineResponse20049') as InlineResponse20049;
+      return apiClient.deserialize(_decodeBodyBytes(response), 'InlineResponse20050') as InlineResponse20050;
     } else {
       return null;
     }

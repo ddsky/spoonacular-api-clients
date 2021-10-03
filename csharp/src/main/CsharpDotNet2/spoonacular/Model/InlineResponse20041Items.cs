@@ -20,46 +20,32 @@ namespace spoonacular.Model {
     public int? Id { get; set; }
 
     /// <summary>
-    /// Gets or Sets Name
+    /// Gets or Sets Slot
     /// </summary>
-    [DataMember(Name="name", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "name")]
-    public string Name { get; set; }
+    [DataMember(Name="slot", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "slot")]
+    public int? Slot { get; set; }
 
     /// <summary>
-    /// Gets or Sets Measures
+    /// Gets or Sets Position
     /// </summary>
-    [DataMember(Name="measures", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "measures")]
-    public InlineResponse20041Measures Measures { get; set; }
+    [DataMember(Name="position", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "position")]
+    public int? Position { get; set; }
 
     /// <summary>
-    /// Gets or Sets PantryItem
+    /// Gets or Sets Type
     /// </summary>
-    [DataMember(Name="pantryItem", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "pantryItem")]
-    public bool? PantryItem { get; set; }
+    [DataMember(Name="type", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "type")]
+    public string Type { get; set; }
 
     /// <summary>
-    /// Gets or Sets Aisle
+    /// Gets or Sets Value
     /// </summary>
-    [DataMember(Name="aisle", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "aisle")]
-    public string Aisle { get; set; }
-
-    /// <summary>
-    /// Gets or Sets Cost
-    /// </summary>
-    [DataMember(Name="cost", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "cost")]
-    public decimal? Cost { get; set; }
-
-    /// <summary>
-    /// Gets or Sets IngredientId
-    /// </summary>
-    [DataMember(Name="ingredientId", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "ingredientId")]
-    public int? IngredientId { get; set; }
+    [DataMember(Name="value", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "value")]
+    public InlineResponse20041Value Value { get; set; }
 
 
     /// <summary>
@@ -70,12 +56,10 @@ namespace spoonacular.Model {
       var sb = new StringBuilder();
       sb.Append("class InlineResponse20041Items {\n");
       sb.Append("  Id: ").Append(Id).Append("\n");
-      sb.Append("  Name: ").Append(Name).Append("\n");
-      sb.Append("  Measures: ").Append(Measures).Append("\n");
-      sb.Append("  PantryItem: ").Append(PantryItem).Append("\n");
-      sb.Append("  Aisle: ").Append(Aisle).Append("\n");
-      sb.Append("  Cost: ").Append(Cost).Append("\n");
-      sb.Append("  IngredientId: ").Append(IngredientId).Append("\n");
+      sb.Append("  Slot: ").Append(Slot).Append("\n");
+      sb.Append("  Position: ").Append(Position).Append("\n");
+      sb.Append("  Type: ").Append(Type).Append("\n");
+      sb.Append("  Value: ").Append(Value).Append("\n");
       sb.Append("}\n");
       return sb.ToString();
     }

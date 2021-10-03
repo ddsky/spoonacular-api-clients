@@ -14,23 +14,27 @@ require 'date'
 
 module OpenapiClient
   class InlineResponse20049
-    attr_accessor :answer
+    attr_accessor :nutrition
 
-    attr_accessor :image
+    attr_accessor :category
+
+    attr_accessor :recipes
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'answer' => :'answer',
-        :'image' => :'image'
+        :'nutrition' => :'nutrition',
+        :'category' => :'category',
+        :'recipes' => :'recipes'
       }
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'answer' => :'String',
-        :'image' => :'String'
+        :'nutrition' => :'InlineResponse20049Nutrition',
+        :'category' => :'InlineResponse20049Category',
+        :'recipes' => :'Array<InlineResponse20049Recipes>'
       }
     end
 
@@ -49,12 +53,18 @@ module OpenapiClient
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'answer')
-        self.answer = attributes[:'answer']
+      if attributes.key?(:'nutrition')
+        self.nutrition = attributes[:'nutrition']
       end
 
-      if attributes.key?(:'image')
-        self.image = attributes[:'image']
+      if attributes.key?(:'category')
+        self.category = attributes[:'category']
+      end
+
+      if attributes.key?(:'recipes')
+        if (value = attributes[:'recipes']).is_a?(Array)
+          self.recipes = value
+        end
       end
     end
 
@@ -62,20 +72,16 @@ module OpenapiClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @answer.nil?
-        invalid_properties.push('invalid value for "answer", answer cannot be nil.')
+      if @nutrition.nil?
+        invalid_properties.push('invalid value for "nutrition", nutrition cannot be nil.')
       end
 
-      if @answer.to_s.length < 1
-        invalid_properties.push('invalid value for "answer", the character length must be great than or equal to 1.')
+      if @category.nil?
+        invalid_properties.push('invalid value for "category", category cannot be nil.')
       end
 
-      if @image.nil?
-        invalid_properties.push('invalid value for "image", image cannot be nil.')
-      end
-
-      if @image.to_s.length < 1
-        invalid_properties.push('invalid value for "image", the character length must be great than or equal to 1.')
+      if @recipes.nil?
+        invalid_properties.push('invalid value for "recipes", recipes cannot be nil.')
       end
 
       invalid_properties
@@ -84,39 +90,10 @@ module OpenapiClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @answer.nil?
-      return false if @answer.to_s.length < 1
-      return false if @image.nil?
-      return false if @image.to_s.length < 1
+      return false if @nutrition.nil?
+      return false if @category.nil?
+      return false if @recipes.nil?
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] answer Value to be assigned
-    def answer=(answer)
-      if answer.nil?
-        fail ArgumentError, 'answer cannot be nil'
-      end
-
-      if answer.to_s.length < 1
-        fail ArgumentError, 'invalid value for "answer", the character length must be great than or equal to 1.'
-      end
-
-      @answer = answer
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] image Value to be assigned
-    def image=(image)
-      if image.nil?
-        fail ArgumentError, 'image cannot be nil'
-      end
-
-      if image.to_s.length < 1
-        fail ArgumentError, 'invalid value for "image", the character length must be great than or equal to 1.'
-      end
-
-      @image = image
     end
 
     # Checks equality by comparing each attribute.
@@ -124,8 +101,9 @@ module OpenapiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          answer == o.answer &&
-          image == o.image
+          nutrition == o.nutrition &&
+          category == o.category &&
+          recipes == o.recipes
     end
 
     # @see the `==` method
@@ -137,7 +115,7 @@ module OpenapiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [answer, image].hash
+      [nutrition, category, recipes].hash
     end
 
     # Builds the object from hash

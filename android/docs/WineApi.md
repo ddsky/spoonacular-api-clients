@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 ## getDishPairingForWine
 
-> InlineResponse20043 getDishPairingForWine(wine)
+> InlineResponse20044 getDishPairingForWine(wine)
 
 Dish Pairing for Wine
 
@@ -28,7 +28,7 @@ Find a dish that goes well with a given wine.
 WineApi apiInstance = new WineApi();
 String wine = malbec; // String | The type of wine that should be paired, e.g. \"merlot\", \"riesling\", or \"malbec\".
 try {
-    InlineResponse20043 result = apiInstance.getDishPairingForWine(wine);
+    InlineResponse20044 result = apiInstance.getDishPairingForWine(wine);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling WineApi#getDishPairingForWine");
@@ -45,7 +45,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20043**](InlineResponse20043.md)
+[**InlineResponse20044**](InlineResponse20044.md)
 
 ### Authorization
 
@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 
 ## getWineDescription
 
-> InlineResponse20045 getWineDescription(wine)
+> InlineResponse20046 getWineDescription(wine)
 
 Wine Description
 
@@ -74,7 +74,7 @@ Get a simple description of a certain wine, e.g. \&quot;malbec\&quot;, \&quot;ri
 WineApi apiInstance = new WineApi();
 String wine = merlot; // String | The name of the wine that should be paired, e.g. \"merlot\", \"riesling\", or \"malbec\".
 try {
-    InlineResponse20045 result = apiInstance.getWineDescription(wine);
+    InlineResponse20046 result = apiInstance.getWineDescription(wine);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling WineApi#getWineDescription");
@@ -91,7 +91,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20045**](InlineResponse20045.md)
+[**InlineResponse20046**](InlineResponse20046.md)
 
 ### Authorization
 
@@ -105,7 +105,7 @@ Name | Type | Description  | Notes
 
 ## getWinePairing
 
-> InlineResponse20044 getWinePairing(food, maxPrice)
+> InlineResponse20045 getWinePairing(food, maxPrice)
 
 Wine Pairing
 
@@ -121,7 +121,7 @@ WineApi apiInstance = new WineApi();
 String food = steak; // String | The food to get a pairing for. This can be a dish (\"steak\"), an ingredient (\"salmon\"), or a cuisine (\"italian\").
 BigDecimal maxPrice = 50; // BigDecimal | The maximum price for the specific wine recommendation in USD.
 try {
-    InlineResponse20044 result = apiInstance.getWinePairing(food, maxPrice);
+    InlineResponse20045 result = apiInstance.getWinePairing(food, maxPrice);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling WineApi#getWinePairing");
@@ -139,7 +139,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20044**](InlineResponse20044.md)
+[**InlineResponse20045**](InlineResponse20045.md)
 
 ### Authorization
 
@@ -153,7 +153,7 @@ Name | Type | Description  | Notes
 
 ## getWineRecommendation
 
-> InlineResponse20046 getWineRecommendation(wine, maxPrice, minRating, number)
+> InlineResponse20047 getWineRecommendation(wine, maxPrice, minRating, number)
 
 Wine Recommendation
 
@@ -171,7 +171,7 @@ BigDecimal maxPrice = 50; // BigDecimal | The maximum price for the specific win
 BigDecimal minRating = 0.7; // BigDecimal | The minimum rating of the recommended wine between 0 and 1. For example, 0.8 equals 4 out of 5 stars.
 BigDecimal number = 3; // BigDecimal | The number of wine recommendations expected (between 1 and 100).
 try {
-    InlineResponse20046 result = apiInstance.getWineRecommendation(wine, maxPrice, minRating, number);
+    InlineResponse20047 result = apiInstance.getWineRecommendation(wine, maxPrice, minRating, number);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling WineApi#getWineRecommendation");
@@ -191,7 +191,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20046**](InlineResponse20046.md)
+[**InlineResponse20047**](InlineResponse20047.md)
 
 ### Authorization
 

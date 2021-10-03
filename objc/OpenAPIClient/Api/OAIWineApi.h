@@ -1,8 +1,8 @@
 #import <Foundation/Foundation.h>
-#import "OAIInlineResponse20043.h"
 #import "OAIInlineResponse20044.h"
 #import "OAIInlineResponse20045.h"
 #import "OAIInlineResponse20046.h"
+#import "OAIInlineResponse20047.h"
 #import "OAIApi.h"
 
 /**
@@ -36,9 +36,9 @@ extern NSInteger kOAIWineApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return OAIInlineResponse20043*
+/// @return OAIInlineResponse20044*
 -(NSURLSessionTask*) getDishPairingForWineWithWine: (NSString*) wine
-    completionHandler: (void (^)(OAIInlineResponse20043* output, NSError* error)) handler;
+    completionHandler: (void (^)(OAIInlineResponse20044* output, NSError* error)) handler;
 
 
 /// Wine Description
@@ -51,9 +51,9 @@ extern NSInteger kOAIWineApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return OAIInlineResponse20045*
+/// @return OAIInlineResponse20046*
 -(NSURLSessionTask*) getWineDescriptionWithWine: (NSString*) wine
-    completionHandler: (void (^)(OAIInlineResponse20045* output, NSError* error)) handler;
+    completionHandler: (void (^)(OAIInlineResponse20046* output, NSError* error)) handler;
 
 
 /// Wine Pairing
@@ -67,10 +67,10 @@ extern NSInteger kOAIWineApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return OAIInlineResponse20044*
+/// @return OAIInlineResponse20045*
 -(NSURLSessionTask*) getWinePairingWithFood: (NSString*) food
     maxPrice: (NSNumber*) maxPrice
-    completionHandler: (void (^)(OAIInlineResponse20044* output, NSError* error)) handler;
+    completionHandler: (void (^)(OAIInlineResponse20045* output, NSError* error)) handler;
 
 
 /// Wine Recommendation
@@ -86,12 +86,12 @@ extern NSInteger kOAIWineApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return OAIInlineResponse20046*
+/// @return OAIInlineResponse20047*
 -(NSURLSessionTask*) getWineRecommendationWithWine: (NSString*) wine
     maxPrice: (NSNumber*) maxPrice
     minRating: (NSNumber*) minRating
     number: (NSNumber*) number
-    completionHandler: (void (^)(OAIInlineResponse20046* output, NSError* error)) handler;
+    completionHandler: (void (^)(OAIInlineResponse20047* output, NSError* error)) handler;
 
 
 

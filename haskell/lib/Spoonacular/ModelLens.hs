@@ -94,6 +94,25 @@ inlineObject1PluCodeL f InlineObject1{..} = (\inlineObject1PluCode -> InlineObje
 
 
 
+-- * InlineObject10
+
+-- | 'inlineObject10Username' Lens
+inlineObject10UsernameL :: Lens_' InlineObject10 (Text)
+inlineObject10UsernameL f InlineObject10{..} = (\inlineObject10Username -> InlineObject10 { inlineObject10Username, ..} ) <$> f inlineObject10Username
+{-# INLINE inlineObject10UsernameL #-}
+
+-- | 'inlineObject10Id' Lens
+inlineObject10IdL :: Lens_' InlineObject10 (Double)
+inlineObject10IdL f InlineObject10{..} = (\inlineObject10Id -> InlineObject10 { inlineObject10Id, ..} ) <$> f inlineObject10Id
+{-# INLINE inlineObject10IdL #-}
+
+-- | 'inlineObject10Hash' Lens
+inlineObject10HashL :: Lens_' InlineObject10 (Text)
+inlineObject10HashL f InlineObject10{..} = (\inlineObject10Hash -> InlineObject10 { inlineObject10Hash, ..} ) <$> f inlineObject10Hash
+{-# INLINE inlineObject10HashL #-}
+
+
+
 -- * InlineObject2
 
 -- | 'inlineObject2Ingredients' Lens
@@ -167,16 +186,6 @@ inlineObject6UsernameL :: Lens_' InlineObject6 (Text)
 inlineObject6UsernameL f InlineObject6{..} = (\inlineObject6Username -> InlineObject6 { inlineObject6Username, ..} ) <$> f inlineObject6Username
 {-# INLINE inlineObject6UsernameL #-}
 
--- | 'inlineObject6StartDate' Lens
-inlineObject6StartDateL :: Lens_' InlineObject6 (Text)
-inlineObject6StartDateL f InlineObject6{..} = (\inlineObject6StartDate -> InlineObject6 { inlineObject6StartDate, ..} ) <$> f inlineObject6StartDate
-{-# INLINE inlineObject6StartDateL #-}
-
--- | 'inlineObject6EndDate' Lens
-inlineObject6EndDateL :: Lens_' InlineObject6 (Text)
-inlineObject6EndDateL f InlineObject6{..} = (\inlineObject6EndDate -> InlineObject6 { inlineObject6EndDate, ..} ) <$> f inlineObject6EndDate
-{-# INLINE inlineObject6EndDateL #-}
-
 -- | 'inlineObject6Hash' Lens
 inlineObject6HashL :: Lens_' InlineObject6 (Text)
 inlineObject6HashL f InlineObject6{..} = (\inlineObject6Hash -> InlineObject6 { inlineObject6Hash, ..} ) <$> f inlineObject6Hash
@@ -190,6 +199,11 @@ inlineObject6HashL f InlineObject6{..} = (\inlineObject6Hash -> InlineObject6 { 
 inlineObject7UsernameL :: Lens_' InlineObject7 (Text)
 inlineObject7UsernameL f InlineObject7{..} = (\inlineObject7Username -> InlineObject7 { inlineObject7Username, ..} ) <$> f inlineObject7Username
 {-# INLINE inlineObject7UsernameL #-}
+
+-- | 'inlineObject7Id' Lens
+inlineObject7IdL :: Lens_' InlineObject7 (Double)
+inlineObject7IdL f InlineObject7{..} = (\inlineObject7Id -> InlineObject7 { inlineObject7Id, ..} ) <$> f inlineObject7Id
+{-# INLINE inlineObject7IdL #-}
 
 -- | 'inlineObject7Hash' Lens
 inlineObject7HashL :: Lens_' InlineObject7 (Text)
@@ -205,15 +219,34 @@ inlineObject8UsernameL :: Lens_' InlineObject8 (Text)
 inlineObject8UsernameL f InlineObject8{..} = (\inlineObject8Username -> InlineObject8 { inlineObject8Username, ..} ) <$> f inlineObject8Username
 {-# INLINE inlineObject8UsernameL #-}
 
--- | 'inlineObject8Id' Lens
-inlineObject8IdL :: Lens_' InlineObject8 (Double)
-inlineObject8IdL f InlineObject8{..} = (\inlineObject8Id -> InlineObject8 { inlineObject8Id, ..} ) <$> f inlineObject8Id
-{-# INLINE inlineObject8IdL #-}
+-- | 'inlineObject8StartDate' Lens
+inlineObject8StartDateL :: Lens_' InlineObject8 (Text)
+inlineObject8StartDateL f InlineObject8{..} = (\inlineObject8StartDate -> InlineObject8 { inlineObject8StartDate, ..} ) <$> f inlineObject8StartDate
+{-# INLINE inlineObject8StartDateL #-}
+
+-- | 'inlineObject8EndDate' Lens
+inlineObject8EndDateL :: Lens_' InlineObject8 (Text)
+inlineObject8EndDateL f InlineObject8{..} = (\inlineObject8EndDate -> InlineObject8 { inlineObject8EndDate, ..} ) <$> f inlineObject8EndDate
+{-# INLINE inlineObject8EndDateL #-}
 
 -- | 'inlineObject8Hash' Lens
 inlineObject8HashL :: Lens_' InlineObject8 (Text)
 inlineObject8HashL f InlineObject8{..} = (\inlineObject8Hash -> InlineObject8 { inlineObject8Hash, ..} ) <$> f inlineObject8Hash
 {-# INLINE inlineObject8HashL #-}
+
+
+
+-- * InlineObject9
+
+-- | 'inlineObject9Username' Lens
+inlineObject9UsernameL :: Lens_' InlineObject9 (Text)
+inlineObject9UsernameL f InlineObject9{..} = (\inlineObject9Username -> InlineObject9 { inlineObject9Username, ..} ) <$> f inlineObject9Username
+{-# INLINE inlineObject9UsernameL #-}
+
+-- | 'inlineObject9Hash' Lens
+inlineObject9HashL :: Lens_' InlineObject9 (Text)
+inlineObject9HashL f InlineObject9{..} = (\inlineObject9Hash -> InlineObject9 { inlineObject9Hash, ..} ) <$> f inlineObject9Hash
+{-# INLINE inlineObject9HashL #-}
 
 
 
@@ -2434,63 +2467,29 @@ inlineResponse2004WinePairingL f InlineResponse2004{..} = (\inlineResponse2004Wi
 
 -- * InlineResponse20040
 
--- | 'inlineResponse20040Id' Lens
-inlineResponse20040IdL :: Lens_' InlineResponse20040 (Int)
-inlineResponse20040IdL f InlineResponse20040{..} = (\inlineResponse20040Id -> InlineResponse20040 { inlineResponse20040Id, ..} ) <$> f inlineResponse20040Id
-{-# INLINE inlineResponse20040IdL #-}
-
 -- | 'inlineResponse20040Name' Lens
 inlineResponse20040NameL :: Lens_' InlineResponse20040 (Text)
 inlineResponse20040NameL f InlineResponse20040{..} = (\inlineResponse20040Name -> InlineResponse20040 { inlineResponse20040Name, ..} ) <$> f inlineResponse20040Name
 {-# INLINE inlineResponse20040NameL #-}
 
--- | 'inlineResponse20040Days' Lens
-inlineResponse20040DaysL :: Lens_' InlineResponse20040 ([InlineResponse20040Days])
-inlineResponse20040DaysL f InlineResponse20040{..} = (\inlineResponse20040Days -> InlineResponse20040 { inlineResponse20040Days, ..} ) <$> f inlineResponse20040Days
-{-# INLINE inlineResponse20040DaysL #-}
+-- | 'inlineResponse20040Items' Lens
+inlineResponse20040ItemsL :: Lens_' InlineResponse20040 ([InlineResponse20040Items])
+inlineResponse20040ItemsL f InlineResponse20040{..} = (\inlineResponse20040Items -> InlineResponse20040 { inlineResponse20040Items, ..} ) <$> f inlineResponse20040Items
+{-# INLINE inlineResponse20040ItemsL #-}
 
-
-
--- * InlineResponse20040Days
-
--- | 'inlineResponse20040DaysNutritionSummary' Lens
-inlineResponse20040DaysNutritionSummaryL :: Lens_' InlineResponse20040Days (Maybe InlineResponse20038NutritionSummary)
-inlineResponse20040DaysNutritionSummaryL f InlineResponse20040Days{..} = (\inlineResponse20040DaysNutritionSummary -> InlineResponse20040Days { inlineResponse20040DaysNutritionSummary, ..} ) <$> f inlineResponse20040DaysNutritionSummary
-{-# INLINE inlineResponse20040DaysNutritionSummaryL #-}
-
--- | 'inlineResponse20040DaysNutritionSummaryBreakfast' Lens
-inlineResponse20040DaysNutritionSummaryBreakfastL :: Lens_' InlineResponse20040Days (Maybe InlineResponse20038NutritionSummary)
-inlineResponse20040DaysNutritionSummaryBreakfastL f InlineResponse20040Days{..} = (\inlineResponse20040DaysNutritionSummaryBreakfast -> InlineResponse20040Days { inlineResponse20040DaysNutritionSummaryBreakfast, ..} ) <$> f inlineResponse20040DaysNutritionSummaryBreakfast
-{-# INLINE inlineResponse20040DaysNutritionSummaryBreakfastL #-}
-
--- | 'inlineResponse20040DaysNutritionSummaryLunch' Lens
-inlineResponse20040DaysNutritionSummaryLunchL :: Lens_' InlineResponse20040Days (Maybe InlineResponse20038NutritionSummary)
-inlineResponse20040DaysNutritionSummaryLunchL f InlineResponse20040Days{..} = (\inlineResponse20040DaysNutritionSummaryLunch -> InlineResponse20040Days { inlineResponse20040DaysNutritionSummaryLunch, ..} ) <$> f inlineResponse20040DaysNutritionSummaryLunch
-{-# INLINE inlineResponse20040DaysNutritionSummaryLunchL #-}
-
--- | 'inlineResponse20040DaysNutritionSummaryDinner' Lens
-inlineResponse20040DaysNutritionSummaryDinnerL :: Lens_' InlineResponse20040Days (Maybe InlineResponse20038NutritionSummary)
-inlineResponse20040DaysNutritionSummaryDinnerL f InlineResponse20040Days{..} = (\inlineResponse20040DaysNutritionSummaryDinner -> InlineResponse20040Days { inlineResponse20040DaysNutritionSummaryDinner, ..} ) <$> f inlineResponse20040DaysNutritionSummaryDinner
-{-# INLINE inlineResponse20040DaysNutritionSummaryDinnerL #-}
-
--- | 'inlineResponse20040DaysDay' Lens
-inlineResponse20040DaysDayL :: Lens_' InlineResponse20040Days (Text)
-inlineResponse20040DaysDayL f InlineResponse20040Days{..} = (\inlineResponse20040DaysDay -> InlineResponse20040Days { inlineResponse20040DaysDay, ..} ) <$> f inlineResponse20040DaysDay
-{-# INLINE inlineResponse20040DaysDayL #-}
-
--- | 'inlineResponse20040DaysItems' Lens
-inlineResponse20040DaysItemsL :: Lens_' InlineResponse20040Days (Maybe [InlineResponse20040Items])
-inlineResponse20040DaysItemsL f InlineResponse20040Days{..} = (\inlineResponse20040DaysItems -> InlineResponse20040Days { inlineResponse20040DaysItems, ..} ) <$> f inlineResponse20040DaysItems
-{-# INLINE inlineResponse20040DaysItemsL #-}
+-- | 'inlineResponse20040PublishAsPublic' Lens
+inlineResponse20040PublishAsPublicL :: Lens_' InlineResponse20040 (Bool)
+inlineResponse20040PublishAsPublicL f InlineResponse20040{..} = (\inlineResponse20040PublishAsPublic -> InlineResponse20040 { inlineResponse20040PublishAsPublic, ..} ) <$> f inlineResponse20040PublishAsPublic
+{-# INLINE inlineResponse20040PublishAsPublicL #-}
 
 
 
 -- * InlineResponse20040Items
 
--- | 'inlineResponse20040ItemsId' Lens
-inlineResponse20040ItemsIdL :: Lens_' InlineResponse20040Items (Int)
-inlineResponse20040ItemsIdL f InlineResponse20040Items{..} = (\inlineResponse20040ItemsId -> InlineResponse20040Items { inlineResponse20040ItemsId, ..} ) <$> f inlineResponse20040ItemsId
-{-# INLINE inlineResponse20040ItemsIdL #-}
+-- | 'inlineResponse20040ItemsDay' Lens
+inlineResponse20040ItemsDayL :: Lens_' InlineResponse20040Items (Int)
+inlineResponse20040ItemsDayL f InlineResponse20040Items{..} = (\inlineResponse20040ItemsDay -> InlineResponse20040Items { inlineResponse20040ItemsDay, ..} ) <$> f inlineResponse20040ItemsDay
+{-# INLINE inlineResponse20040ItemsDayL #-}
 
 -- | 'inlineResponse20040ItemsSlot' Lens
 inlineResponse20040ItemsSlotL :: Lens_' InlineResponse20040Items (Int)
@@ -2517,17 +2516,22 @@ inlineResponse20040ItemsValueL f InlineResponse20040Items{..} = (\inlineResponse
 -- * InlineResponse20040Value
 
 -- | 'inlineResponse20040ValueId' Lens
-inlineResponse20040ValueIdL :: Lens_' InlineResponse20040Value (Double)
+inlineResponse20040ValueIdL :: Lens_' InlineResponse20040Value (Maybe Int)
 inlineResponse20040ValueIdL f InlineResponse20040Value{..} = (\inlineResponse20040ValueId -> InlineResponse20040Value { inlineResponse20040ValueId, ..} ) <$> f inlineResponse20040ValueId
 {-# INLINE inlineResponse20040ValueIdL #-}
 
+-- | 'inlineResponse20040ValueServings' Lens
+inlineResponse20040ValueServingsL :: Lens_' InlineResponse20040Value (Maybe Double)
+inlineResponse20040ValueServingsL f InlineResponse20040Value{..} = (\inlineResponse20040ValueServings -> InlineResponse20040Value { inlineResponse20040ValueServings, ..} ) <$> f inlineResponse20040ValueServings
+{-# INLINE inlineResponse20040ValueServingsL #-}
+
 -- | 'inlineResponse20040ValueTitle' Lens
-inlineResponse20040ValueTitleL :: Lens_' InlineResponse20040Value (Text)
+inlineResponse20040ValueTitleL :: Lens_' InlineResponse20040Value (Maybe Text)
 inlineResponse20040ValueTitleL f InlineResponse20040Value{..} = (\inlineResponse20040ValueTitle -> InlineResponse20040Value { inlineResponse20040ValueTitle, ..} ) <$> f inlineResponse20040ValueTitle
 {-# INLINE inlineResponse20040ValueTitleL #-}
 
 -- | 'inlineResponse20040ValueImageType' Lens
-inlineResponse20040ValueImageTypeL :: Lens_' InlineResponse20040Value (Text)
+inlineResponse20040ValueImageTypeL :: Lens_' InlineResponse20040Value (Maybe Text)
 inlineResponse20040ValueImageTypeL f InlineResponse20040Value{..} = (\inlineResponse20040ValueImageType -> InlineResponse20040Value { inlineResponse20040ValueImageType, ..} ) <$> f inlineResponse20040ValueImageType
 {-# INLINE inlineResponse20040ValueImageTypeL #-}
 
@@ -2535,39 +2539,54 @@ inlineResponse20040ValueImageTypeL f InlineResponse20040Value{..} = (\inlineResp
 
 -- * InlineResponse20041
 
--- | 'inlineResponse20041Aisles' Lens
-inlineResponse20041AislesL :: Lens_' InlineResponse20041 ([InlineResponse20041Aisles])
-inlineResponse20041AislesL f InlineResponse20041{..} = (\inlineResponse20041Aisles -> InlineResponse20041 { inlineResponse20041Aisles, ..} ) <$> f inlineResponse20041Aisles
-{-# INLINE inlineResponse20041AislesL #-}
+-- | 'inlineResponse20041Id' Lens
+inlineResponse20041IdL :: Lens_' InlineResponse20041 (Int)
+inlineResponse20041IdL f InlineResponse20041{..} = (\inlineResponse20041Id -> InlineResponse20041 { inlineResponse20041Id, ..} ) <$> f inlineResponse20041Id
+{-# INLINE inlineResponse20041IdL #-}
 
--- | 'inlineResponse20041Cost' Lens
-inlineResponse20041CostL :: Lens_' InlineResponse20041 (Double)
-inlineResponse20041CostL f InlineResponse20041{..} = (\inlineResponse20041Cost -> InlineResponse20041 { inlineResponse20041Cost, ..} ) <$> f inlineResponse20041Cost
-{-# INLINE inlineResponse20041CostL #-}
+-- | 'inlineResponse20041Name' Lens
+inlineResponse20041NameL :: Lens_' InlineResponse20041 (Text)
+inlineResponse20041NameL f InlineResponse20041{..} = (\inlineResponse20041Name -> InlineResponse20041 { inlineResponse20041Name, ..} ) <$> f inlineResponse20041Name
+{-# INLINE inlineResponse20041NameL #-}
 
--- | 'inlineResponse20041StartDate' Lens
-inlineResponse20041StartDateL :: Lens_' InlineResponse20041 (Double)
-inlineResponse20041StartDateL f InlineResponse20041{..} = (\inlineResponse20041StartDate -> InlineResponse20041 { inlineResponse20041StartDate, ..} ) <$> f inlineResponse20041StartDate
-{-# INLINE inlineResponse20041StartDateL #-}
-
--- | 'inlineResponse20041EndDate' Lens
-inlineResponse20041EndDateL :: Lens_' InlineResponse20041 (Double)
-inlineResponse20041EndDateL f InlineResponse20041{..} = (\inlineResponse20041EndDate -> InlineResponse20041 { inlineResponse20041EndDate, ..} ) <$> f inlineResponse20041EndDate
-{-# INLINE inlineResponse20041EndDateL #-}
+-- | 'inlineResponse20041Days' Lens
+inlineResponse20041DaysL :: Lens_' InlineResponse20041 ([InlineResponse20041Days])
+inlineResponse20041DaysL f InlineResponse20041{..} = (\inlineResponse20041Days -> InlineResponse20041 { inlineResponse20041Days, ..} ) <$> f inlineResponse20041Days
+{-# INLINE inlineResponse20041DaysL #-}
 
 
 
--- * InlineResponse20041Aisles
+-- * InlineResponse20041Days
 
--- | 'inlineResponse20041AislesAisle' Lens
-inlineResponse20041AislesAisleL :: Lens_' InlineResponse20041Aisles (Text)
-inlineResponse20041AislesAisleL f InlineResponse20041Aisles{..} = (\inlineResponse20041AislesAisle -> InlineResponse20041Aisles { inlineResponse20041AislesAisle, ..} ) <$> f inlineResponse20041AislesAisle
-{-# INLINE inlineResponse20041AislesAisleL #-}
+-- | 'inlineResponse20041DaysNutritionSummary' Lens
+inlineResponse20041DaysNutritionSummaryL :: Lens_' InlineResponse20041Days (Maybe InlineResponse20038NutritionSummary)
+inlineResponse20041DaysNutritionSummaryL f InlineResponse20041Days{..} = (\inlineResponse20041DaysNutritionSummary -> InlineResponse20041Days { inlineResponse20041DaysNutritionSummary, ..} ) <$> f inlineResponse20041DaysNutritionSummary
+{-# INLINE inlineResponse20041DaysNutritionSummaryL #-}
 
--- | 'inlineResponse20041AislesItems' Lens
-inlineResponse20041AislesItemsL :: Lens_' InlineResponse20041Aisles (Maybe [InlineResponse20041Items])
-inlineResponse20041AislesItemsL f InlineResponse20041Aisles{..} = (\inlineResponse20041AislesItems -> InlineResponse20041Aisles { inlineResponse20041AislesItems, ..} ) <$> f inlineResponse20041AislesItems
-{-# INLINE inlineResponse20041AislesItemsL #-}
+-- | 'inlineResponse20041DaysNutritionSummaryBreakfast' Lens
+inlineResponse20041DaysNutritionSummaryBreakfastL :: Lens_' InlineResponse20041Days (Maybe InlineResponse20038NutritionSummary)
+inlineResponse20041DaysNutritionSummaryBreakfastL f InlineResponse20041Days{..} = (\inlineResponse20041DaysNutritionSummaryBreakfast -> InlineResponse20041Days { inlineResponse20041DaysNutritionSummaryBreakfast, ..} ) <$> f inlineResponse20041DaysNutritionSummaryBreakfast
+{-# INLINE inlineResponse20041DaysNutritionSummaryBreakfastL #-}
+
+-- | 'inlineResponse20041DaysNutritionSummaryLunch' Lens
+inlineResponse20041DaysNutritionSummaryLunchL :: Lens_' InlineResponse20041Days (Maybe InlineResponse20038NutritionSummary)
+inlineResponse20041DaysNutritionSummaryLunchL f InlineResponse20041Days{..} = (\inlineResponse20041DaysNutritionSummaryLunch -> InlineResponse20041Days { inlineResponse20041DaysNutritionSummaryLunch, ..} ) <$> f inlineResponse20041DaysNutritionSummaryLunch
+{-# INLINE inlineResponse20041DaysNutritionSummaryLunchL #-}
+
+-- | 'inlineResponse20041DaysNutritionSummaryDinner' Lens
+inlineResponse20041DaysNutritionSummaryDinnerL :: Lens_' InlineResponse20041Days (Maybe InlineResponse20038NutritionSummary)
+inlineResponse20041DaysNutritionSummaryDinnerL f InlineResponse20041Days{..} = (\inlineResponse20041DaysNutritionSummaryDinner -> InlineResponse20041Days { inlineResponse20041DaysNutritionSummaryDinner, ..} ) <$> f inlineResponse20041DaysNutritionSummaryDinner
+{-# INLINE inlineResponse20041DaysNutritionSummaryDinnerL #-}
+
+-- | 'inlineResponse20041DaysDay' Lens
+inlineResponse20041DaysDayL :: Lens_' InlineResponse20041Days (Text)
+inlineResponse20041DaysDayL f InlineResponse20041Days{..} = (\inlineResponse20041DaysDay -> InlineResponse20041Days { inlineResponse20041DaysDay, ..} ) <$> f inlineResponse20041DaysDay
+{-# INLINE inlineResponse20041DaysDayL #-}
+
+-- | 'inlineResponse20041DaysItems' Lens
+inlineResponse20041DaysItemsL :: Lens_' InlineResponse20041Days (Maybe [InlineResponse20041Items])
+inlineResponse20041DaysItemsL f InlineResponse20041Days{..} = (\inlineResponse20041DaysItems -> InlineResponse20041Days { inlineResponse20041DaysItems, ..} ) <$> f inlineResponse20041DaysItems
+{-# INLINE inlineResponse20041DaysItemsL #-}
 
 
 
@@ -2578,374 +2597,446 @@ inlineResponse20041ItemsIdL :: Lens_' InlineResponse20041Items (Int)
 inlineResponse20041ItemsIdL f InlineResponse20041Items{..} = (\inlineResponse20041ItemsId -> InlineResponse20041Items { inlineResponse20041ItemsId, ..} ) <$> f inlineResponse20041ItemsId
 {-# INLINE inlineResponse20041ItemsIdL #-}
 
--- | 'inlineResponse20041ItemsName' Lens
-inlineResponse20041ItemsNameL :: Lens_' InlineResponse20041Items (Text)
-inlineResponse20041ItemsNameL f InlineResponse20041Items{..} = (\inlineResponse20041ItemsName -> InlineResponse20041Items { inlineResponse20041ItemsName, ..} ) <$> f inlineResponse20041ItemsName
-{-# INLINE inlineResponse20041ItemsNameL #-}
+-- | 'inlineResponse20041ItemsSlot' Lens
+inlineResponse20041ItemsSlotL :: Lens_' InlineResponse20041Items (Int)
+inlineResponse20041ItemsSlotL f InlineResponse20041Items{..} = (\inlineResponse20041ItemsSlot -> InlineResponse20041Items { inlineResponse20041ItemsSlot, ..} ) <$> f inlineResponse20041ItemsSlot
+{-# INLINE inlineResponse20041ItemsSlotL #-}
 
--- | 'inlineResponse20041ItemsMeasures' Lens
-inlineResponse20041ItemsMeasuresL :: Lens_' InlineResponse20041Items (Maybe InlineResponse20041Measures)
-inlineResponse20041ItemsMeasuresL f InlineResponse20041Items{..} = (\inlineResponse20041ItemsMeasures -> InlineResponse20041Items { inlineResponse20041ItemsMeasures, ..} ) <$> f inlineResponse20041ItemsMeasures
-{-# INLINE inlineResponse20041ItemsMeasuresL #-}
+-- | 'inlineResponse20041ItemsPosition' Lens
+inlineResponse20041ItemsPositionL :: Lens_' InlineResponse20041Items (Int)
+inlineResponse20041ItemsPositionL f InlineResponse20041Items{..} = (\inlineResponse20041ItemsPosition -> InlineResponse20041Items { inlineResponse20041ItemsPosition, ..} ) <$> f inlineResponse20041ItemsPosition
+{-# INLINE inlineResponse20041ItemsPositionL #-}
 
--- | 'inlineResponse20041ItemsPantryItem' Lens
-inlineResponse20041ItemsPantryItemL :: Lens_' InlineResponse20041Items (Bool)
-inlineResponse20041ItemsPantryItemL f InlineResponse20041Items{..} = (\inlineResponse20041ItemsPantryItem -> InlineResponse20041Items { inlineResponse20041ItemsPantryItem, ..} ) <$> f inlineResponse20041ItemsPantryItem
-{-# INLINE inlineResponse20041ItemsPantryItemL #-}
+-- | 'inlineResponse20041ItemsType' Lens
+inlineResponse20041ItemsTypeL :: Lens_' InlineResponse20041Items (Text)
+inlineResponse20041ItemsTypeL f InlineResponse20041Items{..} = (\inlineResponse20041ItemsType -> InlineResponse20041Items { inlineResponse20041ItemsType, ..} ) <$> f inlineResponse20041ItemsType
+{-# INLINE inlineResponse20041ItemsTypeL #-}
 
--- | 'inlineResponse20041ItemsAisle' Lens
-inlineResponse20041ItemsAisleL :: Lens_' InlineResponse20041Items (Text)
-inlineResponse20041ItemsAisleL f InlineResponse20041Items{..} = (\inlineResponse20041ItemsAisle -> InlineResponse20041Items { inlineResponse20041ItemsAisle, ..} ) <$> f inlineResponse20041ItemsAisle
-{-# INLINE inlineResponse20041ItemsAisleL #-}
-
--- | 'inlineResponse20041ItemsCost' Lens
-inlineResponse20041ItemsCostL :: Lens_' InlineResponse20041Items (Double)
-inlineResponse20041ItemsCostL f InlineResponse20041Items{..} = (\inlineResponse20041ItemsCost -> InlineResponse20041Items { inlineResponse20041ItemsCost, ..} ) <$> f inlineResponse20041ItemsCost
-{-# INLINE inlineResponse20041ItemsCostL #-}
-
--- | 'inlineResponse20041ItemsIngredientId' Lens
-inlineResponse20041ItemsIngredientIdL :: Lens_' InlineResponse20041Items (Int)
-inlineResponse20041ItemsIngredientIdL f InlineResponse20041Items{..} = (\inlineResponse20041ItemsIngredientId -> InlineResponse20041Items { inlineResponse20041ItemsIngredientId, ..} ) <$> f inlineResponse20041ItemsIngredientId
-{-# INLINE inlineResponse20041ItemsIngredientIdL #-}
+-- | 'inlineResponse20041ItemsValue' Lens
+inlineResponse20041ItemsValueL :: Lens_' InlineResponse20041Items (Maybe InlineResponse20041Value)
+inlineResponse20041ItemsValueL f InlineResponse20041Items{..} = (\inlineResponse20041ItemsValue -> InlineResponse20041Items { inlineResponse20041ItemsValue, ..} ) <$> f inlineResponse20041ItemsValue
+{-# INLINE inlineResponse20041ItemsValueL #-}
 
 
 
--- * InlineResponse20041Measures
+-- * InlineResponse20041Value
 
--- | 'inlineResponse20041MeasuresOriginal' Lens
-inlineResponse20041MeasuresOriginalL :: Lens_' InlineResponse20041Measures (RecipesParseIngredientsNutritionWeightPerServing)
-inlineResponse20041MeasuresOriginalL f InlineResponse20041Measures{..} = (\inlineResponse20041MeasuresOriginal -> InlineResponse20041Measures { inlineResponse20041MeasuresOriginal, ..} ) <$> f inlineResponse20041MeasuresOriginal
-{-# INLINE inlineResponse20041MeasuresOriginalL #-}
+-- | 'inlineResponse20041ValueId' Lens
+inlineResponse20041ValueIdL :: Lens_' InlineResponse20041Value (Double)
+inlineResponse20041ValueIdL f InlineResponse20041Value{..} = (\inlineResponse20041ValueId -> InlineResponse20041Value { inlineResponse20041ValueId, ..} ) <$> f inlineResponse20041ValueId
+{-# INLINE inlineResponse20041ValueIdL #-}
 
--- | 'inlineResponse20041MeasuresMetric' Lens
-inlineResponse20041MeasuresMetricL :: Lens_' InlineResponse20041Measures (RecipesParseIngredientsNutritionWeightPerServing)
-inlineResponse20041MeasuresMetricL f InlineResponse20041Measures{..} = (\inlineResponse20041MeasuresMetric -> InlineResponse20041Measures { inlineResponse20041MeasuresMetric, ..} ) <$> f inlineResponse20041MeasuresMetric
-{-# INLINE inlineResponse20041MeasuresMetricL #-}
+-- | 'inlineResponse20041ValueTitle' Lens
+inlineResponse20041ValueTitleL :: Lens_' InlineResponse20041Value (Text)
+inlineResponse20041ValueTitleL f InlineResponse20041Value{..} = (\inlineResponse20041ValueTitle -> InlineResponse20041Value { inlineResponse20041ValueTitle, ..} ) <$> f inlineResponse20041ValueTitle
+{-# INLINE inlineResponse20041ValueTitleL #-}
 
--- | 'inlineResponse20041MeasuresUs' Lens
-inlineResponse20041MeasuresUsL :: Lens_' InlineResponse20041Measures (RecipesParseIngredientsNutritionWeightPerServing)
-inlineResponse20041MeasuresUsL f InlineResponse20041Measures{..} = (\inlineResponse20041MeasuresUs -> InlineResponse20041Measures { inlineResponse20041MeasuresUs, ..} ) <$> f inlineResponse20041MeasuresUs
-{-# INLINE inlineResponse20041MeasuresUsL #-}
+-- | 'inlineResponse20041ValueImageType' Lens
+inlineResponse20041ValueImageTypeL :: Lens_' InlineResponse20041Value (Text)
+inlineResponse20041ValueImageTypeL f InlineResponse20041Value{..} = (\inlineResponse20041ValueImageType -> InlineResponse20041Value { inlineResponse20041ValueImageType, ..} ) <$> f inlineResponse20041ValueImageType
+{-# INLINE inlineResponse20041ValueImageTypeL #-}
 
 
 
 -- * InlineResponse20042
 
--- | 'inlineResponse20042Username' Lens
-inlineResponse20042UsernameL :: Lens_' InlineResponse20042 (Text)
-inlineResponse20042UsernameL f InlineResponse20042{..} = (\inlineResponse20042Username -> InlineResponse20042 { inlineResponse20042Username, ..} ) <$> f inlineResponse20042Username
-{-# INLINE inlineResponse20042UsernameL #-}
+-- | 'inlineResponse20042Aisles' Lens
+inlineResponse20042AislesL :: Lens_' InlineResponse20042 ([InlineResponse20042Aisles])
+inlineResponse20042AislesL f InlineResponse20042{..} = (\inlineResponse20042Aisles -> InlineResponse20042 { inlineResponse20042Aisles, ..} ) <$> f inlineResponse20042Aisles
+{-# INLINE inlineResponse20042AislesL #-}
 
--- | 'inlineResponse20042Hash' Lens
-inlineResponse20042HashL :: Lens_' InlineResponse20042 (Text)
-inlineResponse20042HashL f InlineResponse20042{..} = (\inlineResponse20042Hash -> InlineResponse20042 { inlineResponse20042Hash, ..} ) <$> f inlineResponse20042Hash
-{-# INLINE inlineResponse20042HashL #-}
+-- | 'inlineResponse20042Cost' Lens
+inlineResponse20042CostL :: Lens_' InlineResponse20042 (Double)
+inlineResponse20042CostL f InlineResponse20042{..} = (\inlineResponse20042Cost -> InlineResponse20042 { inlineResponse20042Cost, ..} ) <$> f inlineResponse20042Cost
+{-# INLINE inlineResponse20042CostL #-}
+
+-- | 'inlineResponse20042StartDate' Lens
+inlineResponse20042StartDateL :: Lens_' InlineResponse20042 (Double)
+inlineResponse20042StartDateL f InlineResponse20042{..} = (\inlineResponse20042StartDate -> InlineResponse20042 { inlineResponse20042StartDate, ..} ) <$> f inlineResponse20042StartDate
+{-# INLINE inlineResponse20042StartDateL #-}
+
+-- | 'inlineResponse20042EndDate' Lens
+inlineResponse20042EndDateL :: Lens_' InlineResponse20042 (Double)
+inlineResponse20042EndDateL f InlineResponse20042{..} = (\inlineResponse20042EndDate -> InlineResponse20042 { inlineResponse20042EndDate, ..} ) <$> f inlineResponse20042EndDate
+{-# INLINE inlineResponse20042EndDateL #-}
+
+
+
+-- * InlineResponse20042Aisles
+
+-- | 'inlineResponse20042AislesAisle' Lens
+inlineResponse20042AislesAisleL :: Lens_' InlineResponse20042Aisles (Text)
+inlineResponse20042AislesAisleL f InlineResponse20042Aisles{..} = (\inlineResponse20042AislesAisle -> InlineResponse20042Aisles { inlineResponse20042AislesAisle, ..} ) <$> f inlineResponse20042AislesAisle
+{-# INLINE inlineResponse20042AislesAisleL #-}
+
+-- | 'inlineResponse20042AislesItems' Lens
+inlineResponse20042AislesItemsL :: Lens_' InlineResponse20042Aisles (Maybe [InlineResponse20042Items])
+inlineResponse20042AislesItemsL f InlineResponse20042Aisles{..} = (\inlineResponse20042AislesItems -> InlineResponse20042Aisles { inlineResponse20042AislesItems, ..} ) <$> f inlineResponse20042AislesItems
+{-# INLINE inlineResponse20042AislesItemsL #-}
+
+
+
+-- * InlineResponse20042Items
+
+-- | 'inlineResponse20042ItemsId' Lens
+inlineResponse20042ItemsIdL :: Lens_' InlineResponse20042Items (Int)
+inlineResponse20042ItemsIdL f InlineResponse20042Items{..} = (\inlineResponse20042ItemsId -> InlineResponse20042Items { inlineResponse20042ItemsId, ..} ) <$> f inlineResponse20042ItemsId
+{-# INLINE inlineResponse20042ItemsIdL #-}
+
+-- | 'inlineResponse20042ItemsName' Lens
+inlineResponse20042ItemsNameL :: Lens_' InlineResponse20042Items (Text)
+inlineResponse20042ItemsNameL f InlineResponse20042Items{..} = (\inlineResponse20042ItemsName -> InlineResponse20042Items { inlineResponse20042ItemsName, ..} ) <$> f inlineResponse20042ItemsName
+{-# INLINE inlineResponse20042ItemsNameL #-}
+
+-- | 'inlineResponse20042ItemsMeasures' Lens
+inlineResponse20042ItemsMeasuresL :: Lens_' InlineResponse20042Items (Maybe InlineResponse20042Measures)
+inlineResponse20042ItemsMeasuresL f InlineResponse20042Items{..} = (\inlineResponse20042ItemsMeasures -> InlineResponse20042Items { inlineResponse20042ItemsMeasures, ..} ) <$> f inlineResponse20042ItemsMeasures
+{-# INLINE inlineResponse20042ItemsMeasuresL #-}
+
+-- | 'inlineResponse20042ItemsPantryItem' Lens
+inlineResponse20042ItemsPantryItemL :: Lens_' InlineResponse20042Items (Bool)
+inlineResponse20042ItemsPantryItemL f InlineResponse20042Items{..} = (\inlineResponse20042ItemsPantryItem -> InlineResponse20042Items { inlineResponse20042ItemsPantryItem, ..} ) <$> f inlineResponse20042ItemsPantryItem
+{-# INLINE inlineResponse20042ItemsPantryItemL #-}
+
+-- | 'inlineResponse20042ItemsAisle' Lens
+inlineResponse20042ItemsAisleL :: Lens_' InlineResponse20042Items (Text)
+inlineResponse20042ItemsAisleL f InlineResponse20042Items{..} = (\inlineResponse20042ItemsAisle -> InlineResponse20042Items { inlineResponse20042ItemsAisle, ..} ) <$> f inlineResponse20042ItemsAisle
+{-# INLINE inlineResponse20042ItemsAisleL #-}
+
+-- | 'inlineResponse20042ItemsCost' Lens
+inlineResponse20042ItemsCostL :: Lens_' InlineResponse20042Items (Double)
+inlineResponse20042ItemsCostL f InlineResponse20042Items{..} = (\inlineResponse20042ItemsCost -> InlineResponse20042Items { inlineResponse20042ItemsCost, ..} ) <$> f inlineResponse20042ItemsCost
+{-# INLINE inlineResponse20042ItemsCostL #-}
+
+-- | 'inlineResponse20042ItemsIngredientId' Lens
+inlineResponse20042ItemsIngredientIdL :: Lens_' InlineResponse20042Items (Int)
+inlineResponse20042ItemsIngredientIdL f InlineResponse20042Items{..} = (\inlineResponse20042ItemsIngredientId -> InlineResponse20042Items { inlineResponse20042ItemsIngredientId, ..} ) <$> f inlineResponse20042ItemsIngredientId
+{-# INLINE inlineResponse20042ItemsIngredientIdL #-}
+
+
+
+-- * InlineResponse20042Measures
+
+-- | 'inlineResponse20042MeasuresOriginal' Lens
+inlineResponse20042MeasuresOriginalL :: Lens_' InlineResponse20042Measures (RecipesParseIngredientsNutritionWeightPerServing)
+inlineResponse20042MeasuresOriginalL f InlineResponse20042Measures{..} = (\inlineResponse20042MeasuresOriginal -> InlineResponse20042Measures { inlineResponse20042MeasuresOriginal, ..} ) <$> f inlineResponse20042MeasuresOriginal
+{-# INLINE inlineResponse20042MeasuresOriginalL #-}
+
+-- | 'inlineResponse20042MeasuresMetric' Lens
+inlineResponse20042MeasuresMetricL :: Lens_' InlineResponse20042Measures (RecipesParseIngredientsNutritionWeightPerServing)
+inlineResponse20042MeasuresMetricL f InlineResponse20042Measures{..} = (\inlineResponse20042MeasuresMetric -> InlineResponse20042Measures { inlineResponse20042MeasuresMetric, ..} ) <$> f inlineResponse20042MeasuresMetric
+{-# INLINE inlineResponse20042MeasuresMetricL #-}
+
+-- | 'inlineResponse20042MeasuresUs' Lens
+inlineResponse20042MeasuresUsL :: Lens_' InlineResponse20042Measures (RecipesParseIngredientsNutritionWeightPerServing)
+inlineResponse20042MeasuresUsL f InlineResponse20042Measures{..} = (\inlineResponse20042MeasuresUs -> InlineResponse20042Measures { inlineResponse20042MeasuresUs, ..} ) <$> f inlineResponse20042MeasuresUs
+{-# INLINE inlineResponse20042MeasuresUsL #-}
 
 
 
 -- * InlineResponse20043
 
--- | 'inlineResponse20043Pairings' Lens
-inlineResponse20043PairingsL :: Lens_' InlineResponse20043 ([Text])
-inlineResponse20043PairingsL f InlineResponse20043{..} = (\inlineResponse20043Pairings -> InlineResponse20043 { inlineResponse20043Pairings, ..} ) <$> f inlineResponse20043Pairings
-{-# INLINE inlineResponse20043PairingsL #-}
+-- | 'inlineResponse20043Username' Lens
+inlineResponse20043UsernameL :: Lens_' InlineResponse20043 (Text)
+inlineResponse20043UsernameL f InlineResponse20043{..} = (\inlineResponse20043Username -> InlineResponse20043 { inlineResponse20043Username, ..} ) <$> f inlineResponse20043Username
+{-# INLINE inlineResponse20043UsernameL #-}
 
--- | 'inlineResponse20043Text' Lens
-inlineResponse20043TextL :: Lens_' InlineResponse20043 (Text)
-inlineResponse20043TextL f InlineResponse20043{..} = (\inlineResponse20043Text -> InlineResponse20043 { inlineResponse20043Text, ..} ) <$> f inlineResponse20043Text
-{-# INLINE inlineResponse20043TextL #-}
+-- | 'inlineResponse20043Hash' Lens
+inlineResponse20043HashL :: Lens_' InlineResponse20043 (Text)
+inlineResponse20043HashL f InlineResponse20043{..} = (\inlineResponse20043Hash -> InlineResponse20043 { inlineResponse20043Hash, ..} ) <$> f inlineResponse20043Hash
+{-# INLINE inlineResponse20043HashL #-}
 
 
 
 -- * InlineResponse20044
 
--- | 'inlineResponse20044PairedWines' Lens
-inlineResponse20044PairedWinesL :: Lens_' InlineResponse20044 ([Text])
-inlineResponse20044PairedWinesL f InlineResponse20044{..} = (\inlineResponse20044PairedWines -> InlineResponse20044 { inlineResponse20044PairedWines, ..} ) <$> f inlineResponse20044PairedWines
-{-# INLINE inlineResponse20044PairedWinesL #-}
+-- | 'inlineResponse20044Pairings' Lens
+inlineResponse20044PairingsL :: Lens_' InlineResponse20044 ([Text])
+inlineResponse20044PairingsL f InlineResponse20044{..} = (\inlineResponse20044Pairings -> InlineResponse20044 { inlineResponse20044Pairings, ..} ) <$> f inlineResponse20044Pairings
+{-# INLINE inlineResponse20044PairingsL #-}
 
--- | 'inlineResponse20044PairingText' Lens
-inlineResponse20044PairingTextL :: Lens_' InlineResponse20044 (Text)
-inlineResponse20044PairingTextL f InlineResponse20044{..} = (\inlineResponse20044PairingText -> InlineResponse20044 { inlineResponse20044PairingText, ..} ) <$> f inlineResponse20044PairingText
-{-# INLINE inlineResponse20044PairingTextL #-}
-
--- | 'inlineResponse20044ProductMatches' Lens
-inlineResponse20044ProductMatchesL :: Lens_' InlineResponse20044 ([InlineResponse20044ProductMatches])
-inlineResponse20044ProductMatchesL f InlineResponse20044{..} = (\inlineResponse20044ProductMatches -> InlineResponse20044 { inlineResponse20044ProductMatches, ..} ) <$> f inlineResponse20044ProductMatches
-{-# INLINE inlineResponse20044ProductMatchesL #-}
-
-
-
--- * InlineResponse20044ProductMatches
-
--- | 'inlineResponse20044ProductMatchesId' Lens
-inlineResponse20044ProductMatchesIdL :: Lens_' InlineResponse20044ProductMatches (Int)
-inlineResponse20044ProductMatchesIdL f InlineResponse20044ProductMatches{..} = (\inlineResponse20044ProductMatchesId -> InlineResponse20044ProductMatches { inlineResponse20044ProductMatchesId, ..} ) <$> f inlineResponse20044ProductMatchesId
-{-# INLINE inlineResponse20044ProductMatchesIdL #-}
-
--- | 'inlineResponse20044ProductMatchesTitle' Lens
-inlineResponse20044ProductMatchesTitleL :: Lens_' InlineResponse20044ProductMatches (Text)
-inlineResponse20044ProductMatchesTitleL f InlineResponse20044ProductMatches{..} = (\inlineResponse20044ProductMatchesTitle -> InlineResponse20044ProductMatches { inlineResponse20044ProductMatchesTitle, ..} ) <$> f inlineResponse20044ProductMatchesTitle
-{-# INLINE inlineResponse20044ProductMatchesTitleL #-}
-
--- | 'inlineResponse20044ProductMatchesAverageRating' Lens
-inlineResponse20044ProductMatchesAverageRatingL :: Lens_' InlineResponse20044ProductMatches (Double)
-inlineResponse20044ProductMatchesAverageRatingL f InlineResponse20044ProductMatches{..} = (\inlineResponse20044ProductMatchesAverageRating -> InlineResponse20044ProductMatches { inlineResponse20044ProductMatchesAverageRating, ..} ) <$> f inlineResponse20044ProductMatchesAverageRating
-{-# INLINE inlineResponse20044ProductMatchesAverageRatingL #-}
-
--- | 'inlineResponse20044ProductMatchesDescription' Lens
-inlineResponse20044ProductMatchesDescriptionL :: Lens_' InlineResponse20044ProductMatches (Maybe A.Value)
-inlineResponse20044ProductMatchesDescriptionL f InlineResponse20044ProductMatches{..} = (\inlineResponse20044ProductMatchesDescription -> InlineResponse20044ProductMatches { inlineResponse20044ProductMatchesDescription, ..} ) <$> f inlineResponse20044ProductMatchesDescription
-{-# INLINE inlineResponse20044ProductMatchesDescriptionL #-}
-
--- | 'inlineResponse20044ProductMatchesImageUrl' Lens
-inlineResponse20044ProductMatchesImageUrlL :: Lens_' InlineResponse20044ProductMatches (Text)
-inlineResponse20044ProductMatchesImageUrlL f InlineResponse20044ProductMatches{..} = (\inlineResponse20044ProductMatchesImageUrl -> InlineResponse20044ProductMatches { inlineResponse20044ProductMatchesImageUrl, ..} ) <$> f inlineResponse20044ProductMatchesImageUrl
-{-# INLINE inlineResponse20044ProductMatchesImageUrlL #-}
-
--- | 'inlineResponse20044ProductMatchesLink' Lens
-inlineResponse20044ProductMatchesLinkL :: Lens_' InlineResponse20044ProductMatches (Text)
-inlineResponse20044ProductMatchesLinkL f InlineResponse20044ProductMatches{..} = (\inlineResponse20044ProductMatchesLink -> InlineResponse20044ProductMatches { inlineResponse20044ProductMatchesLink, ..} ) <$> f inlineResponse20044ProductMatchesLink
-{-# INLINE inlineResponse20044ProductMatchesLinkL #-}
-
--- | 'inlineResponse20044ProductMatchesPrice' Lens
-inlineResponse20044ProductMatchesPriceL :: Lens_' InlineResponse20044ProductMatches (Text)
-inlineResponse20044ProductMatchesPriceL f InlineResponse20044ProductMatches{..} = (\inlineResponse20044ProductMatchesPrice -> InlineResponse20044ProductMatches { inlineResponse20044ProductMatchesPrice, ..} ) <$> f inlineResponse20044ProductMatchesPrice
-{-# INLINE inlineResponse20044ProductMatchesPriceL #-}
-
--- | 'inlineResponse20044ProductMatchesRatingCount' Lens
-inlineResponse20044ProductMatchesRatingCountL :: Lens_' InlineResponse20044ProductMatches (Int)
-inlineResponse20044ProductMatchesRatingCountL f InlineResponse20044ProductMatches{..} = (\inlineResponse20044ProductMatchesRatingCount -> InlineResponse20044ProductMatches { inlineResponse20044ProductMatchesRatingCount, ..} ) <$> f inlineResponse20044ProductMatchesRatingCount
-{-# INLINE inlineResponse20044ProductMatchesRatingCountL #-}
-
--- | 'inlineResponse20044ProductMatchesScore' Lens
-inlineResponse20044ProductMatchesScoreL :: Lens_' InlineResponse20044ProductMatches (Double)
-inlineResponse20044ProductMatchesScoreL f InlineResponse20044ProductMatches{..} = (\inlineResponse20044ProductMatchesScore -> InlineResponse20044ProductMatches { inlineResponse20044ProductMatchesScore, ..} ) <$> f inlineResponse20044ProductMatchesScore
-{-# INLINE inlineResponse20044ProductMatchesScoreL #-}
+-- | 'inlineResponse20044Text' Lens
+inlineResponse20044TextL :: Lens_' InlineResponse20044 (Text)
+inlineResponse20044TextL f InlineResponse20044{..} = (\inlineResponse20044Text -> InlineResponse20044 { inlineResponse20044Text, ..} ) <$> f inlineResponse20044Text
+{-# INLINE inlineResponse20044TextL #-}
 
 
 
 -- * InlineResponse20045
 
--- | 'inlineResponse20045WineDescription' Lens
-inlineResponse20045WineDescriptionL :: Lens_' InlineResponse20045 (Text)
-inlineResponse20045WineDescriptionL f InlineResponse20045{..} = (\inlineResponse20045WineDescription -> InlineResponse20045 { inlineResponse20045WineDescription, ..} ) <$> f inlineResponse20045WineDescription
-{-# INLINE inlineResponse20045WineDescriptionL #-}
+-- | 'inlineResponse20045PairedWines' Lens
+inlineResponse20045PairedWinesL :: Lens_' InlineResponse20045 ([Text])
+inlineResponse20045PairedWinesL f InlineResponse20045{..} = (\inlineResponse20045PairedWines -> InlineResponse20045 { inlineResponse20045PairedWines, ..} ) <$> f inlineResponse20045PairedWines
+{-# INLINE inlineResponse20045PairedWinesL #-}
+
+-- | 'inlineResponse20045PairingText' Lens
+inlineResponse20045PairingTextL :: Lens_' InlineResponse20045 (Text)
+inlineResponse20045PairingTextL f InlineResponse20045{..} = (\inlineResponse20045PairingText -> InlineResponse20045 { inlineResponse20045PairingText, ..} ) <$> f inlineResponse20045PairingText
+{-# INLINE inlineResponse20045PairingTextL #-}
+
+-- | 'inlineResponse20045ProductMatches' Lens
+inlineResponse20045ProductMatchesL :: Lens_' InlineResponse20045 ([InlineResponse20045ProductMatches])
+inlineResponse20045ProductMatchesL f InlineResponse20045{..} = (\inlineResponse20045ProductMatches -> InlineResponse20045 { inlineResponse20045ProductMatches, ..} ) <$> f inlineResponse20045ProductMatches
+{-# INLINE inlineResponse20045ProductMatchesL #-}
+
+
+
+-- * InlineResponse20045ProductMatches
+
+-- | 'inlineResponse20045ProductMatchesId' Lens
+inlineResponse20045ProductMatchesIdL :: Lens_' InlineResponse20045ProductMatches (Int)
+inlineResponse20045ProductMatchesIdL f InlineResponse20045ProductMatches{..} = (\inlineResponse20045ProductMatchesId -> InlineResponse20045ProductMatches { inlineResponse20045ProductMatchesId, ..} ) <$> f inlineResponse20045ProductMatchesId
+{-# INLINE inlineResponse20045ProductMatchesIdL #-}
+
+-- | 'inlineResponse20045ProductMatchesTitle' Lens
+inlineResponse20045ProductMatchesTitleL :: Lens_' InlineResponse20045ProductMatches (Text)
+inlineResponse20045ProductMatchesTitleL f InlineResponse20045ProductMatches{..} = (\inlineResponse20045ProductMatchesTitle -> InlineResponse20045ProductMatches { inlineResponse20045ProductMatchesTitle, ..} ) <$> f inlineResponse20045ProductMatchesTitle
+{-# INLINE inlineResponse20045ProductMatchesTitleL #-}
+
+-- | 'inlineResponse20045ProductMatchesAverageRating' Lens
+inlineResponse20045ProductMatchesAverageRatingL :: Lens_' InlineResponse20045ProductMatches (Double)
+inlineResponse20045ProductMatchesAverageRatingL f InlineResponse20045ProductMatches{..} = (\inlineResponse20045ProductMatchesAverageRating -> InlineResponse20045ProductMatches { inlineResponse20045ProductMatchesAverageRating, ..} ) <$> f inlineResponse20045ProductMatchesAverageRating
+{-# INLINE inlineResponse20045ProductMatchesAverageRatingL #-}
+
+-- | 'inlineResponse20045ProductMatchesDescription' Lens
+inlineResponse20045ProductMatchesDescriptionL :: Lens_' InlineResponse20045ProductMatches (Maybe A.Value)
+inlineResponse20045ProductMatchesDescriptionL f InlineResponse20045ProductMatches{..} = (\inlineResponse20045ProductMatchesDescription -> InlineResponse20045ProductMatches { inlineResponse20045ProductMatchesDescription, ..} ) <$> f inlineResponse20045ProductMatchesDescription
+{-# INLINE inlineResponse20045ProductMatchesDescriptionL #-}
+
+-- | 'inlineResponse20045ProductMatchesImageUrl' Lens
+inlineResponse20045ProductMatchesImageUrlL :: Lens_' InlineResponse20045ProductMatches (Text)
+inlineResponse20045ProductMatchesImageUrlL f InlineResponse20045ProductMatches{..} = (\inlineResponse20045ProductMatchesImageUrl -> InlineResponse20045ProductMatches { inlineResponse20045ProductMatchesImageUrl, ..} ) <$> f inlineResponse20045ProductMatchesImageUrl
+{-# INLINE inlineResponse20045ProductMatchesImageUrlL #-}
+
+-- | 'inlineResponse20045ProductMatchesLink' Lens
+inlineResponse20045ProductMatchesLinkL :: Lens_' InlineResponse20045ProductMatches (Text)
+inlineResponse20045ProductMatchesLinkL f InlineResponse20045ProductMatches{..} = (\inlineResponse20045ProductMatchesLink -> InlineResponse20045ProductMatches { inlineResponse20045ProductMatchesLink, ..} ) <$> f inlineResponse20045ProductMatchesLink
+{-# INLINE inlineResponse20045ProductMatchesLinkL #-}
+
+-- | 'inlineResponse20045ProductMatchesPrice' Lens
+inlineResponse20045ProductMatchesPriceL :: Lens_' InlineResponse20045ProductMatches (Text)
+inlineResponse20045ProductMatchesPriceL f InlineResponse20045ProductMatches{..} = (\inlineResponse20045ProductMatchesPrice -> InlineResponse20045ProductMatches { inlineResponse20045ProductMatchesPrice, ..} ) <$> f inlineResponse20045ProductMatchesPrice
+{-# INLINE inlineResponse20045ProductMatchesPriceL #-}
+
+-- | 'inlineResponse20045ProductMatchesRatingCount' Lens
+inlineResponse20045ProductMatchesRatingCountL :: Lens_' InlineResponse20045ProductMatches (Int)
+inlineResponse20045ProductMatchesRatingCountL f InlineResponse20045ProductMatches{..} = (\inlineResponse20045ProductMatchesRatingCount -> InlineResponse20045ProductMatches { inlineResponse20045ProductMatchesRatingCount, ..} ) <$> f inlineResponse20045ProductMatchesRatingCount
+{-# INLINE inlineResponse20045ProductMatchesRatingCountL #-}
+
+-- | 'inlineResponse20045ProductMatchesScore' Lens
+inlineResponse20045ProductMatchesScoreL :: Lens_' InlineResponse20045ProductMatches (Double)
+inlineResponse20045ProductMatchesScoreL f InlineResponse20045ProductMatches{..} = (\inlineResponse20045ProductMatchesScore -> InlineResponse20045ProductMatches { inlineResponse20045ProductMatchesScore, ..} ) <$> f inlineResponse20045ProductMatchesScore
+{-# INLINE inlineResponse20045ProductMatchesScoreL #-}
 
 
 
 -- * InlineResponse20046
 
--- | 'inlineResponse20046RecommendedWines' Lens
-inlineResponse20046RecommendedWinesL :: Lens_' InlineResponse20046 ([InlineResponse20046RecommendedWines])
-inlineResponse20046RecommendedWinesL f InlineResponse20046{..} = (\inlineResponse20046RecommendedWines -> InlineResponse20046 { inlineResponse20046RecommendedWines, ..} ) <$> f inlineResponse20046RecommendedWines
-{-# INLINE inlineResponse20046RecommendedWinesL #-}
-
--- | 'inlineResponse20046TotalFound' Lens
-inlineResponse20046TotalFoundL :: Lens_' InlineResponse20046 (Int)
-inlineResponse20046TotalFoundL f InlineResponse20046{..} = (\inlineResponse20046TotalFound -> InlineResponse20046 { inlineResponse20046TotalFound, ..} ) <$> f inlineResponse20046TotalFound
-{-# INLINE inlineResponse20046TotalFoundL #-}
-
-
-
--- * InlineResponse20046RecommendedWines
-
--- | 'inlineResponse20046RecommendedWinesId' Lens
-inlineResponse20046RecommendedWinesIdL :: Lens_' InlineResponse20046RecommendedWines (Int)
-inlineResponse20046RecommendedWinesIdL f InlineResponse20046RecommendedWines{..} = (\inlineResponse20046RecommendedWinesId -> InlineResponse20046RecommendedWines { inlineResponse20046RecommendedWinesId, ..} ) <$> f inlineResponse20046RecommendedWinesId
-{-# INLINE inlineResponse20046RecommendedWinesIdL #-}
-
--- | 'inlineResponse20046RecommendedWinesTitle' Lens
-inlineResponse20046RecommendedWinesTitleL :: Lens_' InlineResponse20046RecommendedWines (Text)
-inlineResponse20046RecommendedWinesTitleL f InlineResponse20046RecommendedWines{..} = (\inlineResponse20046RecommendedWinesTitle -> InlineResponse20046RecommendedWines { inlineResponse20046RecommendedWinesTitle, ..} ) <$> f inlineResponse20046RecommendedWinesTitle
-{-# INLINE inlineResponse20046RecommendedWinesTitleL #-}
-
--- | 'inlineResponse20046RecommendedWinesAverageRating' Lens
-inlineResponse20046RecommendedWinesAverageRatingL :: Lens_' InlineResponse20046RecommendedWines (Double)
-inlineResponse20046RecommendedWinesAverageRatingL f InlineResponse20046RecommendedWines{..} = (\inlineResponse20046RecommendedWinesAverageRating -> InlineResponse20046RecommendedWines { inlineResponse20046RecommendedWinesAverageRating, ..} ) <$> f inlineResponse20046RecommendedWinesAverageRating
-{-# INLINE inlineResponse20046RecommendedWinesAverageRatingL #-}
-
--- | 'inlineResponse20046RecommendedWinesDescription' Lens
-inlineResponse20046RecommendedWinesDescriptionL :: Lens_' InlineResponse20046RecommendedWines (Text)
-inlineResponse20046RecommendedWinesDescriptionL f InlineResponse20046RecommendedWines{..} = (\inlineResponse20046RecommendedWinesDescription -> InlineResponse20046RecommendedWines { inlineResponse20046RecommendedWinesDescription, ..} ) <$> f inlineResponse20046RecommendedWinesDescription
-{-# INLINE inlineResponse20046RecommendedWinesDescriptionL #-}
-
--- | 'inlineResponse20046RecommendedWinesImageUrl' Lens
-inlineResponse20046RecommendedWinesImageUrlL :: Lens_' InlineResponse20046RecommendedWines (Text)
-inlineResponse20046RecommendedWinesImageUrlL f InlineResponse20046RecommendedWines{..} = (\inlineResponse20046RecommendedWinesImageUrl -> InlineResponse20046RecommendedWines { inlineResponse20046RecommendedWinesImageUrl, ..} ) <$> f inlineResponse20046RecommendedWinesImageUrl
-{-# INLINE inlineResponse20046RecommendedWinesImageUrlL #-}
-
--- | 'inlineResponse20046RecommendedWinesLink' Lens
-inlineResponse20046RecommendedWinesLinkL :: Lens_' InlineResponse20046RecommendedWines (Text)
-inlineResponse20046RecommendedWinesLinkL f InlineResponse20046RecommendedWines{..} = (\inlineResponse20046RecommendedWinesLink -> InlineResponse20046RecommendedWines { inlineResponse20046RecommendedWinesLink, ..} ) <$> f inlineResponse20046RecommendedWinesLink
-{-# INLINE inlineResponse20046RecommendedWinesLinkL #-}
-
--- | 'inlineResponse20046RecommendedWinesPrice' Lens
-inlineResponse20046RecommendedWinesPriceL :: Lens_' InlineResponse20046RecommendedWines (Text)
-inlineResponse20046RecommendedWinesPriceL f InlineResponse20046RecommendedWines{..} = (\inlineResponse20046RecommendedWinesPrice -> InlineResponse20046RecommendedWines { inlineResponse20046RecommendedWinesPrice, ..} ) <$> f inlineResponse20046RecommendedWinesPrice
-{-# INLINE inlineResponse20046RecommendedWinesPriceL #-}
-
--- | 'inlineResponse20046RecommendedWinesRatingCount' Lens
-inlineResponse20046RecommendedWinesRatingCountL :: Lens_' InlineResponse20046RecommendedWines (Int)
-inlineResponse20046RecommendedWinesRatingCountL f InlineResponse20046RecommendedWines{..} = (\inlineResponse20046RecommendedWinesRatingCount -> InlineResponse20046RecommendedWines { inlineResponse20046RecommendedWinesRatingCount, ..} ) <$> f inlineResponse20046RecommendedWinesRatingCount
-{-# INLINE inlineResponse20046RecommendedWinesRatingCountL #-}
-
--- | 'inlineResponse20046RecommendedWinesScore' Lens
-inlineResponse20046RecommendedWinesScoreL :: Lens_' InlineResponse20046RecommendedWines (Double)
-inlineResponse20046RecommendedWinesScoreL f InlineResponse20046RecommendedWines{..} = (\inlineResponse20046RecommendedWinesScore -> InlineResponse20046RecommendedWines { inlineResponse20046RecommendedWinesScore, ..} ) <$> f inlineResponse20046RecommendedWinesScore
-{-# INLINE inlineResponse20046RecommendedWinesScoreL #-}
+-- | 'inlineResponse20046WineDescription' Lens
+inlineResponse20046WineDescriptionL :: Lens_' InlineResponse20046 (Text)
+inlineResponse20046WineDescriptionL f InlineResponse20046{..} = (\inlineResponse20046WineDescription -> InlineResponse20046 { inlineResponse20046WineDescription, ..} ) <$> f inlineResponse20046WineDescription
+{-# INLINE inlineResponse20046WineDescriptionL #-}
 
 
 
 -- * InlineResponse20047
 
--- | 'inlineResponse20047Category' Lens
-inlineResponse20047CategoryL :: Lens_' InlineResponse20047 (Text)
-inlineResponse20047CategoryL f InlineResponse20047{..} = (\inlineResponse20047Category -> InlineResponse20047 { inlineResponse20047Category, ..} ) <$> f inlineResponse20047Category
-{-# INLINE inlineResponse20047CategoryL #-}
+-- | 'inlineResponse20047RecommendedWines' Lens
+inlineResponse20047RecommendedWinesL :: Lens_' InlineResponse20047 ([InlineResponse20047RecommendedWines])
+inlineResponse20047RecommendedWinesL f InlineResponse20047{..} = (\inlineResponse20047RecommendedWines -> InlineResponse20047 { inlineResponse20047RecommendedWines, ..} ) <$> f inlineResponse20047RecommendedWines
+{-# INLINE inlineResponse20047RecommendedWinesL #-}
 
--- | 'inlineResponse20047Probability' Lens
-inlineResponse20047ProbabilityL :: Lens_' InlineResponse20047 (Double)
-inlineResponse20047ProbabilityL f InlineResponse20047{..} = (\inlineResponse20047Probability -> InlineResponse20047 { inlineResponse20047Probability, ..} ) <$> f inlineResponse20047Probability
-{-# INLINE inlineResponse20047ProbabilityL #-}
+-- | 'inlineResponse20047TotalFound' Lens
+inlineResponse20047TotalFoundL :: Lens_' InlineResponse20047 (Int)
+inlineResponse20047TotalFoundL f InlineResponse20047{..} = (\inlineResponse20047TotalFound -> InlineResponse20047 { inlineResponse20047TotalFound, ..} ) <$> f inlineResponse20047TotalFound
+{-# INLINE inlineResponse20047TotalFoundL #-}
+
+
+
+-- * InlineResponse20047RecommendedWines
+
+-- | 'inlineResponse20047RecommendedWinesId' Lens
+inlineResponse20047RecommendedWinesIdL :: Lens_' InlineResponse20047RecommendedWines (Int)
+inlineResponse20047RecommendedWinesIdL f InlineResponse20047RecommendedWines{..} = (\inlineResponse20047RecommendedWinesId -> InlineResponse20047RecommendedWines { inlineResponse20047RecommendedWinesId, ..} ) <$> f inlineResponse20047RecommendedWinesId
+{-# INLINE inlineResponse20047RecommendedWinesIdL #-}
+
+-- | 'inlineResponse20047RecommendedWinesTitle' Lens
+inlineResponse20047RecommendedWinesTitleL :: Lens_' InlineResponse20047RecommendedWines (Text)
+inlineResponse20047RecommendedWinesTitleL f InlineResponse20047RecommendedWines{..} = (\inlineResponse20047RecommendedWinesTitle -> InlineResponse20047RecommendedWines { inlineResponse20047RecommendedWinesTitle, ..} ) <$> f inlineResponse20047RecommendedWinesTitle
+{-# INLINE inlineResponse20047RecommendedWinesTitleL #-}
+
+-- | 'inlineResponse20047RecommendedWinesAverageRating' Lens
+inlineResponse20047RecommendedWinesAverageRatingL :: Lens_' InlineResponse20047RecommendedWines (Double)
+inlineResponse20047RecommendedWinesAverageRatingL f InlineResponse20047RecommendedWines{..} = (\inlineResponse20047RecommendedWinesAverageRating -> InlineResponse20047RecommendedWines { inlineResponse20047RecommendedWinesAverageRating, ..} ) <$> f inlineResponse20047RecommendedWinesAverageRating
+{-# INLINE inlineResponse20047RecommendedWinesAverageRatingL #-}
+
+-- | 'inlineResponse20047RecommendedWinesDescription' Lens
+inlineResponse20047RecommendedWinesDescriptionL :: Lens_' InlineResponse20047RecommendedWines (Text)
+inlineResponse20047RecommendedWinesDescriptionL f InlineResponse20047RecommendedWines{..} = (\inlineResponse20047RecommendedWinesDescription -> InlineResponse20047RecommendedWines { inlineResponse20047RecommendedWinesDescription, ..} ) <$> f inlineResponse20047RecommendedWinesDescription
+{-# INLINE inlineResponse20047RecommendedWinesDescriptionL #-}
+
+-- | 'inlineResponse20047RecommendedWinesImageUrl' Lens
+inlineResponse20047RecommendedWinesImageUrlL :: Lens_' InlineResponse20047RecommendedWines (Text)
+inlineResponse20047RecommendedWinesImageUrlL f InlineResponse20047RecommendedWines{..} = (\inlineResponse20047RecommendedWinesImageUrl -> InlineResponse20047RecommendedWines { inlineResponse20047RecommendedWinesImageUrl, ..} ) <$> f inlineResponse20047RecommendedWinesImageUrl
+{-# INLINE inlineResponse20047RecommendedWinesImageUrlL #-}
+
+-- | 'inlineResponse20047RecommendedWinesLink' Lens
+inlineResponse20047RecommendedWinesLinkL :: Lens_' InlineResponse20047RecommendedWines (Text)
+inlineResponse20047RecommendedWinesLinkL f InlineResponse20047RecommendedWines{..} = (\inlineResponse20047RecommendedWinesLink -> InlineResponse20047RecommendedWines { inlineResponse20047RecommendedWinesLink, ..} ) <$> f inlineResponse20047RecommendedWinesLink
+{-# INLINE inlineResponse20047RecommendedWinesLinkL #-}
+
+-- | 'inlineResponse20047RecommendedWinesPrice' Lens
+inlineResponse20047RecommendedWinesPriceL :: Lens_' InlineResponse20047RecommendedWines (Text)
+inlineResponse20047RecommendedWinesPriceL f InlineResponse20047RecommendedWines{..} = (\inlineResponse20047RecommendedWinesPrice -> InlineResponse20047RecommendedWines { inlineResponse20047RecommendedWinesPrice, ..} ) <$> f inlineResponse20047RecommendedWinesPrice
+{-# INLINE inlineResponse20047RecommendedWinesPriceL #-}
+
+-- | 'inlineResponse20047RecommendedWinesRatingCount' Lens
+inlineResponse20047RecommendedWinesRatingCountL :: Lens_' InlineResponse20047RecommendedWines (Int)
+inlineResponse20047RecommendedWinesRatingCountL f InlineResponse20047RecommendedWines{..} = (\inlineResponse20047RecommendedWinesRatingCount -> InlineResponse20047RecommendedWines { inlineResponse20047RecommendedWinesRatingCount, ..} ) <$> f inlineResponse20047RecommendedWinesRatingCount
+{-# INLINE inlineResponse20047RecommendedWinesRatingCountL #-}
+
+-- | 'inlineResponse20047RecommendedWinesScore' Lens
+inlineResponse20047RecommendedWinesScoreL :: Lens_' InlineResponse20047RecommendedWines (Double)
+inlineResponse20047RecommendedWinesScoreL f InlineResponse20047RecommendedWines{..} = (\inlineResponse20047RecommendedWinesScore -> InlineResponse20047RecommendedWines { inlineResponse20047RecommendedWinesScore, ..} ) <$> f inlineResponse20047RecommendedWinesScore
+{-# INLINE inlineResponse20047RecommendedWinesScoreL #-}
 
 
 
 -- * InlineResponse20048
 
--- | 'inlineResponse20048Nutrition' Lens
-inlineResponse20048NutritionL :: Lens_' InlineResponse20048 (InlineResponse20048Nutrition)
-inlineResponse20048NutritionL f InlineResponse20048{..} = (\inlineResponse20048Nutrition -> InlineResponse20048 { inlineResponse20048Nutrition, ..} ) <$> f inlineResponse20048Nutrition
-{-# INLINE inlineResponse20048NutritionL #-}
-
 -- | 'inlineResponse20048Category' Lens
-inlineResponse20048CategoryL :: Lens_' InlineResponse20048 (InlineResponse20048Category)
+inlineResponse20048CategoryL :: Lens_' InlineResponse20048 (Text)
 inlineResponse20048CategoryL f InlineResponse20048{..} = (\inlineResponse20048Category -> InlineResponse20048 { inlineResponse20048Category, ..} ) <$> f inlineResponse20048Category
 {-# INLINE inlineResponse20048CategoryL #-}
 
--- | 'inlineResponse20048Recipes' Lens
-inlineResponse20048RecipesL :: Lens_' InlineResponse20048 ([InlineResponse20048Recipes])
-inlineResponse20048RecipesL f InlineResponse20048{..} = (\inlineResponse20048Recipes -> InlineResponse20048 { inlineResponse20048Recipes, ..} ) <$> f inlineResponse20048Recipes
-{-# INLINE inlineResponse20048RecipesL #-}
-
-
-
--- * InlineResponse20048Category
-
--- | 'inlineResponse20048CategoryName' Lens
-inlineResponse20048CategoryNameL :: Lens_' InlineResponse20048Category (Text)
-inlineResponse20048CategoryNameL f InlineResponse20048Category{..} = (\inlineResponse20048CategoryName -> InlineResponse20048Category { inlineResponse20048CategoryName, ..} ) <$> f inlineResponse20048CategoryName
-{-# INLINE inlineResponse20048CategoryNameL #-}
-
--- | 'inlineResponse20048CategoryProbability' Lens
-inlineResponse20048CategoryProbabilityL :: Lens_' InlineResponse20048Category (Double)
-inlineResponse20048CategoryProbabilityL f InlineResponse20048Category{..} = (\inlineResponse20048CategoryProbability -> InlineResponse20048Category { inlineResponse20048CategoryProbability, ..} ) <$> f inlineResponse20048CategoryProbability
-{-# INLINE inlineResponse20048CategoryProbabilityL #-}
-
-
-
--- * InlineResponse20048Nutrition
-
--- | 'inlineResponse20048NutritionRecipesUsed' Lens
-inlineResponse20048NutritionRecipesUsedL :: Lens_' InlineResponse20048Nutrition (Int)
-inlineResponse20048NutritionRecipesUsedL f InlineResponse20048Nutrition{..} = (\inlineResponse20048NutritionRecipesUsed -> InlineResponse20048Nutrition { inlineResponse20048NutritionRecipesUsed, ..} ) <$> f inlineResponse20048NutritionRecipesUsed
-{-# INLINE inlineResponse20048NutritionRecipesUsedL #-}
-
--- | 'inlineResponse20048NutritionCalories' Lens
-inlineResponse20048NutritionCaloriesL :: Lens_' InlineResponse20048Nutrition (InlineResponse20048NutritionCalories)
-inlineResponse20048NutritionCaloriesL f InlineResponse20048Nutrition{..} = (\inlineResponse20048NutritionCalories -> InlineResponse20048Nutrition { inlineResponse20048NutritionCalories, ..} ) <$> f inlineResponse20048NutritionCalories
-{-# INLINE inlineResponse20048NutritionCaloriesL #-}
-
--- | 'inlineResponse20048NutritionFat' Lens
-inlineResponse20048NutritionFatL :: Lens_' InlineResponse20048Nutrition (InlineResponse20048NutritionCalories)
-inlineResponse20048NutritionFatL f InlineResponse20048Nutrition{..} = (\inlineResponse20048NutritionFat -> InlineResponse20048Nutrition { inlineResponse20048NutritionFat, ..} ) <$> f inlineResponse20048NutritionFat
-{-# INLINE inlineResponse20048NutritionFatL #-}
-
--- | 'inlineResponse20048NutritionProtein' Lens
-inlineResponse20048NutritionProteinL :: Lens_' InlineResponse20048Nutrition (InlineResponse20048NutritionCalories)
-inlineResponse20048NutritionProteinL f InlineResponse20048Nutrition{..} = (\inlineResponse20048NutritionProtein -> InlineResponse20048Nutrition { inlineResponse20048NutritionProtein, ..} ) <$> f inlineResponse20048NutritionProtein
-{-# INLINE inlineResponse20048NutritionProteinL #-}
-
--- | 'inlineResponse20048NutritionCarbs' Lens
-inlineResponse20048NutritionCarbsL :: Lens_' InlineResponse20048Nutrition (InlineResponse20048NutritionCalories)
-inlineResponse20048NutritionCarbsL f InlineResponse20048Nutrition{..} = (\inlineResponse20048NutritionCarbs -> InlineResponse20048Nutrition { inlineResponse20048NutritionCarbs, ..} ) <$> f inlineResponse20048NutritionCarbs
-{-# INLINE inlineResponse20048NutritionCarbsL #-}
-
-
-
--- * InlineResponse20048NutritionCalories
-
--- | 'inlineResponse20048NutritionCaloriesValue' Lens
-inlineResponse20048NutritionCaloriesValueL :: Lens_' InlineResponse20048NutritionCalories (Double)
-inlineResponse20048NutritionCaloriesValueL f InlineResponse20048NutritionCalories{..} = (\inlineResponse20048NutritionCaloriesValue -> InlineResponse20048NutritionCalories { inlineResponse20048NutritionCaloriesValue, ..} ) <$> f inlineResponse20048NutritionCaloriesValue
-{-# INLINE inlineResponse20048NutritionCaloriesValueL #-}
-
--- | 'inlineResponse20048NutritionCaloriesUnit' Lens
-inlineResponse20048NutritionCaloriesUnitL :: Lens_' InlineResponse20048NutritionCalories (Text)
-inlineResponse20048NutritionCaloriesUnitL f InlineResponse20048NutritionCalories{..} = (\inlineResponse20048NutritionCaloriesUnit -> InlineResponse20048NutritionCalories { inlineResponse20048NutritionCaloriesUnit, ..} ) <$> f inlineResponse20048NutritionCaloriesUnit
-{-# INLINE inlineResponse20048NutritionCaloriesUnitL #-}
-
--- | 'inlineResponse20048NutritionCaloriesConfidenceRange95Percent' Lens
-inlineResponse20048NutritionCaloriesConfidenceRange95PercentL :: Lens_' InlineResponse20048NutritionCalories (InlineResponse20048NutritionCaloriesConfidenceRange95Percent)
-inlineResponse20048NutritionCaloriesConfidenceRange95PercentL f InlineResponse20048NutritionCalories{..} = (\inlineResponse20048NutritionCaloriesConfidenceRange95Percent -> InlineResponse20048NutritionCalories { inlineResponse20048NutritionCaloriesConfidenceRange95Percent, ..} ) <$> f inlineResponse20048NutritionCaloriesConfidenceRange95Percent
-{-# INLINE inlineResponse20048NutritionCaloriesConfidenceRange95PercentL #-}
-
--- | 'inlineResponse20048NutritionCaloriesStandardDeviation' Lens
-inlineResponse20048NutritionCaloriesStandardDeviationL :: Lens_' InlineResponse20048NutritionCalories (Double)
-inlineResponse20048NutritionCaloriesStandardDeviationL f InlineResponse20048NutritionCalories{..} = (\inlineResponse20048NutritionCaloriesStandardDeviation -> InlineResponse20048NutritionCalories { inlineResponse20048NutritionCaloriesStandardDeviation, ..} ) <$> f inlineResponse20048NutritionCaloriesStandardDeviation
-{-# INLINE inlineResponse20048NutritionCaloriesStandardDeviationL #-}
-
-
-
--- * InlineResponse20048NutritionCaloriesConfidenceRange95Percent
-
--- | 'inlineResponse20048NutritionCaloriesConfidenceRange95PercentMin' Lens
-inlineResponse20048NutritionCaloriesConfidenceRange95PercentMinL :: Lens_' InlineResponse20048NutritionCaloriesConfidenceRange95Percent (Double)
-inlineResponse20048NutritionCaloriesConfidenceRange95PercentMinL f InlineResponse20048NutritionCaloriesConfidenceRange95Percent{..} = (\inlineResponse20048NutritionCaloriesConfidenceRange95PercentMin -> InlineResponse20048NutritionCaloriesConfidenceRange95Percent { inlineResponse20048NutritionCaloriesConfidenceRange95PercentMin, ..} ) <$> f inlineResponse20048NutritionCaloriesConfidenceRange95PercentMin
-{-# INLINE inlineResponse20048NutritionCaloriesConfidenceRange95PercentMinL #-}
-
--- | 'inlineResponse20048NutritionCaloriesConfidenceRange95PercentMax' Lens
-inlineResponse20048NutritionCaloriesConfidenceRange95PercentMaxL :: Lens_' InlineResponse20048NutritionCaloriesConfidenceRange95Percent (Double)
-inlineResponse20048NutritionCaloriesConfidenceRange95PercentMaxL f InlineResponse20048NutritionCaloriesConfidenceRange95Percent{..} = (\inlineResponse20048NutritionCaloriesConfidenceRange95PercentMax -> InlineResponse20048NutritionCaloriesConfidenceRange95Percent { inlineResponse20048NutritionCaloriesConfidenceRange95PercentMax, ..} ) <$> f inlineResponse20048NutritionCaloriesConfidenceRange95PercentMax
-{-# INLINE inlineResponse20048NutritionCaloriesConfidenceRange95PercentMaxL #-}
-
-
-
--- * InlineResponse20048Recipes
-
--- | 'inlineResponse20048RecipesId' Lens
-inlineResponse20048RecipesIdL :: Lens_' InlineResponse20048Recipes (Int)
-inlineResponse20048RecipesIdL f InlineResponse20048Recipes{..} = (\inlineResponse20048RecipesId -> InlineResponse20048Recipes { inlineResponse20048RecipesId, ..} ) <$> f inlineResponse20048RecipesId
-{-# INLINE inlineResponse20048RecipesIdL #-}
-
--- | 'inlineResponse20048RecipesTitle' Lens
-inlineResponse20048RecipesTitleL :: Lens_' InlineResponse20048Recipes (Text)
-inlineResponse20048RecipesTitleL f InlineResponse20048Recipes{..} = (\inlineResponse20048RecipesTitle -> InlineResponse20048Recipes { inlineResponse20048RecipesTitle, ..} ) <$> f inlineResponse20048RecipesTitle
-{-# INLINE inlineResponse20048RecipesTitleL #-}
-
--- | 'inlineResponse20048RecipesImageType' Lens
-inlineResponse20048RecipesImageTypeL :: Lens_' InlineResponse20048Recipes (Text)
-inlineResponse20048RecipesImageTypeL f InlineResponse20048Recipes{..} = (\inlineResponse20048RecipesImageType -> InlineResponse20048Recipes { inlineResponse20048RecipesImageType, ..} ) <$> f inlineResponse20048RecipesImageType
-{-# INLINE inlineResponse20048RecipesImageTypeL #-}
-
--- | 'inlineResponse20048RecipesUrl' Lens
-inlineResponse20048RecipesUrlL :: Lens_' InlineResponse20048Recipes (Text)
-inlineResponse20048RecipesUrlL f InlineResponse20048Recipes{..} = (\inlineResponse20048RecipesUrl -> InlineResponse20048Recipes { inlineResponse20048RecipesUrl, ..} ) <$> f inlineResponse20048RecipesUrl
-{-# INLINE inlineResponse20048RecipesUrlL #-}
+-- | 'inlineResponse20048Probability' Lens
+inlineResponse20048ProbabilityL :: Lens_' InlineResponse20048 (Double)
+inlineResponse20048ProbabilityL f InlineResponse20048{..} = (\inlineResponse20048Probability -> InlineResponse20048 { inlineResponse20048Probability, ..} ) <$> f inlineResponse20048Probability
+{-# INLINE inlineResponse20048ProbabilityL #-}
 
 
 
 -- * InlineResponse20049
 
--- | 'inlineResponse20049Answer' Lens
-inlineResponse20049AnswerL :: Lens_' InlineResponse20049 (Text)
-inlineResponse20049AnswerL f InlineResponse20049{..} = (\inlineResponse20049Answer -> InlineResponse20049 { inlineResponse20049Answer, ..} ) <$> f inlineResponse20049Answer
-{-# INLINE inlineResponse20049AnswerL #-}
+-- | 'inlineResponse20049Nutrition' Lens
+inlineResponse20049NutritionL :: Lens_' InlineResponse20049 (InlineResponse20049Nutrition)
+inlineResponse20049NutritionL f InlineResponse20049{..} = (\inlineResponse20049Nutrition -> InlineResponse20049 { inlineResponse20049Nutrition, ..} ) <$> f inlineResponse20049Nutrition
+{-# INLINE inlineResponse20049NutritionL #-}
 
--- | 'inlineResponse20049Image' Lens
-inlineResponse20049ImageL :: Lens_' InlineResponse20049 (Text)
-inlineResponse20049ImageL f InlineResponse20049{..} = (\inlineResponse20049Image -> InlineResponse20049 { inlineResponse20049Image, ..} ) <$> f inlineResponse20049Image
-{-# INLINE inlineResponse20049ImageL #-}
+-- | 'inlineResponse20049Category' Lens
+inlineResponse20049CategoryL :: Lens_' InlineResponse20049 (InlineResponse20049Category)
+inlineResponse20049CategoryL f InlineResponse20049{..} = (\inlineResponse20049Category -> InlineResponse20049 { inlineResponse20049Category, ..} ) <$> f inlineResponse20049Category
+{-# INLINE inlineResponse20049CategoryL #-}
+
+-- | 'inlineResponse20049Recipes' Lens
+inlineResponse20049RecipesL :: Lens_' InlineResponse20049 ([InlineResponse20049Recipes])
+inlineResponse20049RecipesL f InlineResponse20049{..} = (\inlineResponse20049Recipes -> InlineResponse20049 { inlineResponse20049Recipes, ..} ) <$> f inlineResponse20049Recipes
+{-# INLINE inlineResponse20049RecipesL #-}
+
+
+
+-- * InlineResponse20049Category
+
+-- | 'inlineResponse20049CategoryName' Lens
+inlineResponse20049CategoryNameL :: Lens_' InlineResponse20049Category (Text)
+inlineResponse20049CategoryNameL f InlineResponse20049Category{..} = (\inlineResponse20049CategoryName -> InlineResponse20049Category { inlineResponse20049CategoryName, ..} ) <$> f inlineResponse20049CategoryName
+{-# INLINE inlineResponse20049CategoryNameL #-}
+
+-- | 'inlineResponse20049CategoryProbability' Lens
+inlineResponse20049CategoryProbabilityL :: Lens_' InlineResponse20049Category (Double)
+inlineResponse20049CategoryProbabilityL f InlineResponse20049Category{..} = (\inlineResponse20049CategoryProbability -> InlineResponse20049Category { inlineResponse20049CategoryProbability, ..} ) <$> f inlineResponse20049CategoryProbability
+{-# INLINE inlineResponse20049CategoryProbabilityL #-}
+
+
+
+-- * InlineResponse20049Nutrition
+
+-- | 'inlineResponse20049NutritionRecipesUsed' Lens
+inlineResponse20049NutritionRecipesUsedL :: Lens_' InlineResponse20049Nutrition (Int)
+inlineResponse20049NutritionRecipesUsedL f InlineResponse20049Nutrition{..} = (\inlineResponse20049NutritionRecipesUsed -> InlineResponse20049Nutrition { inlineResponse20049NutritionRecipesUsed, ..} ) <$> f inlineResponse20049NutritionRecipesUsed
+{-# INLINE inlineResponse20049NutritionRecipesUsedL #-}
+
+-- | 'inlineResponse20049NutritionCalories' Lens
+inlineResponse20049NutritionCaloriesL :: Lens_' InlineResponse20049Nutrition (InlineResponse20049NutritionCalories)
+inlineResponse20049NutritionCaloriesL f InlineResponse20049Nutrition{..} = (\inlineResponse20049NutritionCalories -> InlineResponse20049Nutrition { inlineResponse20049NutritionCalories, ..} ) <$> f inlineResponse20049NutritionCalories
+{-# INLINE inlineResponse20049NutritionCaloriesL #-}
+
+-- | 'inlineResponse20049NutritionFat' Lens
+inlineResponse20049NutritionFatL :: Lens_' InlineResponse20049Nutrition (InlineResponse20049NutritionCalories)
+inlineResponse20049NutritionFatL f InlineResponse20049Nutrition{..} = (\inlineResponse20049NutritionFat -> InlineResponse20049Nutrition { inlineResponse20049NutritionFat, ..} ) <$> f inlineResponse20049NutritionFat
+{-# INLINE inlineResponse20049NutritionFatL #-}
+
+-- | 'inlineResponse20049NutritionProtein' Lens
+inlineResponse20049NutritionProteinL :: Lens_' InlineResponse20049Nutrition (InlineResponse20049NutritionCalories)
+inlineResponse20049NutritionProteinL f InlineResponse20049Nutrition{..} = (\inlineResponse20049NutritionProtein -> InlineResponse20049Nutrition { inlineResponse20049NutritionProtein, ..} ) <$> f inlineResponse20049NutritionProtein
+{-# INLINE inlineResponse20049NutritionProteinL #-}
+
+-- | 'inlineResponse20049NutritionCarbs' Lens
+inlineResponse20049NutritionCarbsL :: Lens_' InlineResponse20049Nutrition (InlineResponse20049NutritionCalories)
+inlineResponse20049NutritionCarbsL f InlineResponse20049Nutrition{..} = (\inlineResponse20049NutritionCarbs -> InlineResponse20049Nutrition { inlineResponse20049NutritionCarbs, ..} ) <$> f inlineResponse20049NutritionCarbs
+{-# INLINE inlineResponse20049NutritionCarbsL #-}
+
+
+
+-- * InlineResponse20049NutritionCalories
+
+-- | 'inlineResponse20049NutritionCaloriesValue' Lens
+inlineResponse20049NutritionCaloriesValueL :: Lens_' InlineResponse20049NutritionCalories (Double)
+inlineResponse20049NutritionCaloriesValueL f InlineResponse20049NutritionCalories{..} = (\inlineResponse20049NutritionCaloriesValue -> InlineResponse20049NutritionCalories { inlineResponse20049NutritionCaloriesValue, ..} ) <$> f inlineResponse20049NutritionCaloriesValue
+{-# INLINE inlineResponse20049NutritionCaloriesValueL #-}
+
+-- | 'inlineResponse20049NutritionCaloriesUnit' Lens
+inlineResponse20049NutritionCaloriesUnitL :: Lens_' InlineResponse20049NutritionCalories (Text)
+inlineResponse20049NutritionCaloriesUnitL f InlineResponse20049NutritionCalories{..} = (\inlineResponse20049NutritionCaloriesUnit -> InlineResponse20049NutritionCalories { inlineResponse20049NutritionCaloriesUnit, ..} ) <$> f inlineResponse20049NutritionCaloriesUnit
+{-# INLINE inlineResponse20049NutritionCaloriesUnitL #-}
+
+-- | 'inlineResponse20049NutritionCaloriesConfidenceRange95Percent' Lens
+inlineResponse20049NutritionCaloriesConfidenceRange95PercentL :: Lens_' InlineResponse20049NutritionCalories (InlineResponse20049NutritionCaloriesConfidenceRange95Percent)
+inlineResponse20049NutritionCaloriesConfidenceRange95PercentL f InlineResponse20049NutritionCalories{..} = (\inlineResponse20049NutritionCaloriesConfidenceRange95Percent -> InlineResponse20049NutritionCalories { inlineResponse20049NutritionCaloriesConfidenceRange95Percent, ..} ) <$> f inlineResponse20049NutritionCaloriesConfidenceRange95Percent
+{-# INLINE inlineResponse20049NutritionCaloriesConfidenceRange95PercentL #-}
+
+-- | 'inlineResponse20049NutritionCaloriesStandardDeviation' Lens
+inlineResponse20049NutritionCaloriesStandardDeviationL :: Lens_' InlineResponse20049NutritionCalories (Double)
+inlineResponse20049NutritionCaloriesStandardDeviationL f InlineResponse20049NutritionCalories{..} = (\inlineResponse20049NutritionCaloriesStandardDeviation -> InlineResponse20049NutritionCalories { inlineResponse20049NutritionCaloriesStandardDeviation, ..} ) <$> f inlineResponse20049NutritionCaloriesStandardDeviation
+{-# INLINE inlineResponse20049NutritionCaloriesStandardDeviationL #-}
+
+
+
+-- * InlineResponse20049NutritionCaloriesConfidenceRange95Percent
+
+-- | 'inlineResponse20049NutritionCaloriesConfidenceRange95PercentMin' Lens
+inlineResponse20049NutritionCaloriesConfidenceRange95PercentMinL :: Lens_' InlineResponse20049NutritionCaloriesConfidenceRange95Percent (Double)
+inlineResponse20049NutritionCaloriesConfidenceRange95PercentMinL f InlineResponse20049NutritionCaloriesConfidenceRange95Percent{..} = (\inlineResponse20049NutritionCaloriesConfidenceRange95PercentMin -> InlineResponse20049NutritionCaloriesConfidenceRange95Percent { inlineResponse20049NutritionCaloriesConfidenceRange95PercentMin, ..} ) <$> f inlineResponse20049NutritionCaloriesConfidenceRange95PercentMin
+{-# INLINE inlineResponse20049NutritionCaloriesConfidenceRange95PercentMinL #-}
+
+-- | 'inlineResponse20049NutritionCaloriesConfidenceRange95PercentMax' Lens
+inlineResponse20049NutritionCaloriesConfidenceRange95PercentMaxL :: Lens_' InlineResponse20049NutritionCaloriesConfidenceRange95Percent (Double)
+inlineResponse20049NutritionCaloriesConfidenceRange95PercentMaxL f InlineResponse20049NutritionCaloriesConfidenceRange95Percent{..} = (\inlineResponse20049NutritionCaloriesConfidenceRange95PercentMax -> InlineResponse20049NutritionCaloriesConfidenceRange95Percent { inlineResponse20049NutritionCaloriesConfidenceRange95PercentMax, ..} ) <$> f inlineResponse20049NutritionCaloriesConfidenceRange95PercentMax
+{-# INLINE inlineResponse20049NutritionCaloriesConfidenceRange95PercentMaxL #-}
+
+
+
+-- * InlineResponse20049Recipes
+
+-- | 'inlineResponse20049RecipesId' Lens
+inlineResponse20049RecipesIdL :: Lens_' InlineResponse20049Recipes (Int)
+inlineResponse20049RecipesIdL f InlineResponse20049Recipes{..} = (\inlineResponse20049RecipesId -> InlineResponse20049Recipes { inlineResponse20049RecipesId, ..} ) <$> f inlineResponse20049RecipesId
+{-# INLINE inlineResponse20049RecipesIdL #-}
+
+-- | 'inlineResponse20049RecipesTitle' Lens
+inlineResponse20049RecipesTitleL :: Lens_' InlineResponse20049Recipes (Text)
+inlineResponse20049RecipesTitleL f InlineResponse20049Recipes{..} = (\inlineResponse20049RecipesTitle -> InlineResponse20049Recipes { inlineResponse20049RecipesTitle, ..} ) <$> f inlineResponse20049RecipesTitle
+{-# INLINE inlineResponse20049RecipesTitleL #-}
+
+-- | 'inlineResponse20049RecipesImageType' Lens
+inlineResponse20049RecipesImageTypeL :: Lens_' InlineResponse20049Recipes (Text)
+inlineResponse20049RecipesImageTypeL f InlineResponse20049Recipes{..} = (\inlineResponse20049RecipesImageType -> InlineResponse20049Recipes { inlineResponse20049RecipesImageType, ..} ) <$> f inlineResponse20049RecipesImageType
+{-# INLINE inlineResponse20049RecipesImageTypeL #-}
+
+-- | 'inlineResponse20049RecipesUrl' Lens
+inlineResponse20049RecipesUrlL :: Lens_' InlineResponse20049Recipes (Text)
+inlineResponse20049RecipesUrlL f InlineResponse20049Recipes{..} = (\inlineResponse20049RecipesUrl -> InlineResponse20049Recipes { inlineResponse20049RecipesUrl, ..} ) <$> f inlineResponse20049RecipesUrl
+{-# INLINE inlineResponse20049RecipesUrlL #-}
 
 
 
@@ -2985,220 +3076,234 @@ inlineResponse2005SourceUrlL f InlineResponse2005{..} = (\inlineResponse2005Sour
 
 -- * InlineResponse20050
 
--- | 'inlineResponse20050Annotations' Lens
-inlineResponse20050AnnotationsL :: Lens_' InlineResponse20050 ([A.Value])
-inlineResponse20050AnnotationsL f InlineResponse20050{..} = (\inlineResponse20050Annotations -> InlineResponse20050 { inlineResponse20050Annotations, ..} ) <$> f inlineResponse20050Annotations
-{-# INLINE inlineResponse20050AnnotationsL #-}
+-- | 'inlineResponse20050Answer' Lens
+inlineResponse20050AnswerL :: Lens_' InlineResponse20050 (Text)
+inlineResponse20050AnswerL f InlineResponse20050{..} = (\inlineResponse20050Answer -> InlineResponse20050 { inlineResponse20050Answer, ..} ) <$> f inlineResponse20050Answer
+{-# INLINE inlineResponse20050AnswerL #-}
+
+-- | 'inlineResponse20050Image' Lens
+inlineResponse20050ImageL :: Lens_' InlineResponse20050 (Text)
+inlineResponse20050ImageL f InlineResponse20050{..} = (\inlineResponse20050Image -> InlineResponse20050 { inlineResponse20050Image, ..} ) <$> f inlineResponse20050Image
+{-# INLINE inlineResponse20050ImageL #-}
 
 
 
 -- * InlineResponse20051
 
--- | 'inlineResponse20051Articles' Lens
-inlineResponse20051ArticlesL :: Lens_' InlineResponse20051 ([A.Value])
-inlineResponse20051ArticlesL f InlineResponse20051{..} = (\inlineResponse20051Articles -> InlineResponse20051 { inlineResponse20051Articles, ..} ) <$> f inlineResponse20051Articles
-{-# INLINE inlineResponse20051ArticlesL #-}
-
--- | 'inlineResponse20051GroceryProducts' Lens
-inlineResponse20051GroceryProductsL :: Lens_' InlineResponse20051 ([A.Value])
-inlineResponse20051GroceryProductsL f InlineResponse20051{..} = (\inlineResponse20051GroceryProducts -> InlineResponse20051 { inlineResponse20051GroceryProducts, ..} ) <$> f inlineResponse20051GroceryProducts
-{-# INLINE inlineResponse20051GroceryProductsL #-}
-
--- | 'inlineResponse20051MenuItems' Lens
-inlineResponse20051MenuItemsL :: Lens_' InlineResponse20051 ([A.Value])
-inlineResponse20051MenuItemsL f InlineResponse20051{..} = (\inlineResponse20051MenuItems -> InlineResponse20051 { inlineResponse20051MenuItems, ..} ) <$> f inlineResponse20051MenuItems
-{-# INLINE inlineResponse20051MenuItemsL #-}
-
--- | 'inlineResponse20051Recipes' Lens
-inlineResponse20051RecipesL :: Lens_' InlineResponse20051 ([A.Value])
-inlineResponse20051RecipesL f InlineResponse20051{..} = (\inlineResponse20051Recipes -> InlineResponse20051 { inlineResponse20051Recipes, ..} ) <$> f inlineResponse20051Recipes
-{-# INLINE inlineResponse20051RecipesL #-}
+-- | 'inlineResponse20051Annotations' Lens
+inlineResponse20051AnnotationsL :: Lens_' InlineResponse20051 ([A.Value])
+inlineResponse20051AnnotationsL f InlineResponse20051{..} = (\inlineResponse20051Annotations -> InlineResponse20051 { inlineResponse20051Annotations, ..} ) <$> f inlineResponse20051Annotations
+{-# INLINE inlineResponse20051AnnotationsL #-}
 
 
 
 -- * InlineResponse20052
 
--- | 'inlineResponse20052Query' Lens
-inlineResponse20052QueryL :: Lens_' InlineResponse20052 (Text)
-inlineResponse20052QueryL f InlineResponse20052{..} = (\inlineResponse20052Query -> InlineResponse20052 { inlineResponse20052Query, ..} ) <$> f inlineResponse20052Query
-{-# INLINE inlineResponse20052QueryL #-}
+-- | 'inlineResponse20052Articles' Lens
+inlineResponse20052ArticlesL :: Lens_' InlineResponse20052 ([A.Value])
+inlineResponse20052ArticlesL f InlineResponse20052{..} = (\inlineResponse20052Articles -> InlineResponse20052 { inlineResponse20052Articles, ..} ) <$> f inlineResponse20052Articles
+{-# INLINE inlineResponse20052ArticlesL #-}
 
--- | 'inlineResponse20052TotalResults' Lens
-inlineResponse20052TotalResultsL :: Lens_' InlineResponse20052 (Int)
-inlineResponse20052TotalResultsL f InlineResponse20052{..} = (\inlineResponse20052TotalResults -> InlineResponse20052 { inlineResponse20052TotalResults, ..} ) <$> f inlineResponse20052TotalResults
-{-# INLINE inlineResponse20052TotalResultsL #-}
+-- | 'inlineResponse20052GroceryProducts' Lens
+inlineResponse20052GroceryProductsL :: Lens_' InlineResponse20052 ([A.Value])
+inlineResponse20052GroceryProductsL f InlineResponse20052{..} = (\inlineResponse20052GroceryProducts -> InlineResponse20052 { inlineResponse20052GroceryProducts, ..} ) <$> f inlineResponse20052GroceryProducts
+{-# INLINE inlineResponse20052GroceryProductsL #-}
 
--- | 'inlineResponse20052Limit' Lens
-inlineResponse20052LimitL :: Lens_' InlineResponse20052 (Int)
-inlineResponse20052LimitL f InlineResponse20052{..} = (\inlineResponse20052Limit -> InlineResponse20052 { inlineResponse20052Limit, ..} ) <$> f inlineResponse20052Limit
-{-# INLINE inlineResponse20052LimitL #-}
+-- | 'inlineResponse20052MenuItems' Lens
+inlineResponse20052MenuItemsL :: Lens_' InlineResponse20052 ([A.Value])
+inlineResponse20052MenuItemsL f InlineResponse20052{..} = (\inlineResponse20052MenuItems -> InlineResponse20052 { inlineResponse20052MenuItems, ..} ) <$> f inlineResponse20052MenuItems
+{-# INLINE inlineResponse20052MenuItemsL #-}
 
--- | 'inlineResponse20052Offset' Lens
-inlineResponse20052OffsetL :: Lens_' InlineResponse20052 (Int)
-inlineResponse20052OffsetL f InlineResponse20052{..} = (\inlineResponse20052Offset -> InlineResponse20052 { inlineResponse20052Offset, ..} ) <$> f inlineResponse20052Offset
-{-# INLINE inlineResponse20052OffsetL #-}
-
--- | 'inlineResponse20052SearchResults' Lens
-inlineResponse20052SearchResultsL :: Lens_' InlineResponse20052 ([InlineResponse20052SearchResults])
-inlineResponse20052SearchResultsL f InlineResponse20052{..} = (\inlineResponse20052SearchResults -> InlineResponse20052 { inlineResponse20052SearchResults, ..} ) <$> f inlineResponse20052SearchResults
-{-# INLINE inlineResponse20052SearchResultsL #-}
-
-
-
--- * InlineResponse20052Results
-
--- | 'inlineResponse20052ResultsId' Lens
-inlineResponse20052ResultsIdL :: Lens_' InlineResponse20052Results (Text)
-inlineResponse20052ResultsIdL f InlineResponse20052Results{..} = (\inlineResponse20052ResultsId -> InlineResponse20052Results { inlineResponse20052ResultsId, ..} ) <$> f inlineResponse20052ResultsId
-{-# INLINE inlineResponse20052ResultsIdL #-}
-
--- | 'inlineResponse20052ResultsName' Lens
-inlineResponse20052ResultsNameL :: Lens_' InlineResponse20052Results (Text)
-inlineResponse20052ResultsNameL f InlineResponse20052Results{..} = (\inlineResponse20052ResultsName -> InlineResponse20052Results { inlineResponse20052ResultsName, ..} ) <$> f inlineResponse20052ResultsName
-{-# INLINE inlineResponse20052ResultsNameL #-}
-
--- | 'inlineResponse20052ResultsImage' Lens
-inlineResponse20052ResultsImageL :: Lens_' InlineResponse20052Results (Text)
-inlineResponse20052ResultsImageL f InlineResponse20052Results{..} = (\inlineResponse20052ResultsImage -> InlineResponse20052Results { inlineResponse20052ResultsImage, ..} ) <$> f inlineResponse20052ResultsImage
-{-# INLINE inlineResponse20052ResultsImageL #-}
-
--- | 'inlineResponse20052ResultsLink' Lens
-inlineResponse20052ResultsLinkL :: Lens_' InlineResponse20052Results (Text)
-inlineResponse20052ResultsLinkL f InlineResponse20052Results{..} = (\inlineResponse20052ResultsLink -> InlineResponse20052Results { inlineResponse20052ResultsLink, ..} ) <$> f inlineResponse20052ResultsLink
-{-# INLINE inlineResponse20052ResultsLinkL #-}
-
--- | 'inlineResponse20052ResultsType' Lens
-inlineResponse20052ResultsTypeL :: Lens_' InlineResponse20052Results (Text)
-inlineResponse20052ResultsTypeL f InlineResponse20052Results{..} = (\inlineResponse20052ResultsType -> InlineResponse20052Results { inlineResponse20052ResultsType, ..} ) <$> f inlineResponse20052ResultsType
-{-# INLINE inlineResponse20052ResultsTypeL #-}
-
--- | 'inlineResponse20052ResultsRelevance' Lens
-inlineResponse20052ResultsRelevanceL :: Lens_' InlineResponse20052Results (Double)
-inlineResponse20052ResultsRelevanceL f InlineResponse20052Results{..} = (\inlineResponse20052ResultsRelevance -> InlineResponse20052Results { inlineResponse20052ResultsRelevance, ..} ) <$> f inlineResponse20052ResultsRelevance
-{-# INLINE inlineResponse20052ResultsRelevanceL #-}
-
--- | 'inlineResponse20052ResultsContent' Lens
-inlineResponse20052ResultsContentL :: Lens_' InlineResponse20052Results (Text)
-inlineResponse20052ResultsContentL f InlineResponse20052Results{..} = (\inlineResponse20052ResultsContent -> InlineResponse20052Results { inlineResponse20052ResultsContent, ..} ) <$> f inlineResponse20052ResultsContent
-{-# INLINE inlineResponse20052ResultsContentL #-}
-
-
-
--- * InlineResponse20052SearchResults
-
--- | 'inlineResponse20052SearchResultsName' Lens
-inlineResponse20052SearchResultsNameL :: Lens_' InlineResponse20052SearchResults (Text)
-inlineResponse20052SearchResultsNameL f InlineResponse20052SearchResults{..} = (\inlineResponse20052SearchResultsName -> InlineResponse20052SearchResults { inlineResponse20052SearchResultsName, ..} ) <$> f inlineResponse20052SearchResultsName
-{-# INLINE inlineResponse20052SearchResultsNameL #-}
-
--- | 'inlineResponse20052SearchResultsTotalResults' Lens
-inlineResponse20052SearchResultsTotalResultsL :: Lens_' InlineResponse20052SearchResults (Int)
-inlineResponse20052SearchResultsTotalResultsL f InlineResponse20052SearchResults{..} = (\inlineResponse20052SearchResultsTotalResults -> InlineResponse20052SearchResults { inlineResponse20052SearchResultsTotalResults, ..} ) <$> f inlineResponse20052SearchResultsTotalResults
-{-# INLINE inlineResponse20052SearchResultsTotalResultsL #-}
-
--- | 'inlineResponse20052SearchResultsResults' Lens
-inlineResponse20052SearchResultsResultsL :: Lens_' InlineResponse20052SearchResults (Maybe [InlineResponse20052Results])
-inlineResponse20052SearchResultsResultsL f InlineResponse20052SearchResults{..} = (\inlineResponse20052SearchResultsResults -> InlineResponse20052SearchResults { inlineResponse20052SearchResultsResults, ..} ) <$> f inlineResponse20052SearchResultsResults
-{-# INLINE inlineResponse20052SearchResultsResultsL #-}
+-- | 'inlineResponse20052Recipes' Lens
+inlineResponse20052RecipesL :: Lens_' InlineResponse20052 ([A.Value])
+inlineResponse20052RecipesL f InlineResponse20052{..} = (\inlineResponse20052Recipes -> InlineResponse20052 { inlineResponse20052Recipes, ..} ) <$> f inlineResponse20052Recipes
+{-# INLINE inlineResponse20052RecipesL #-}
 
 
 
 -- * InlineResponse20053
 
--- | 'inlineResponse20053Videos' Lens
-inlineResponse20053VideosL :: Lens_' InlineResponse20053 ([InlineResponse20053Videos])
-inlineResponse20053VideosL f InlineResponse20053{..} = (\inlineResponse20053Videos -> InlineResponse20053 { inlineResponse20053Videos, ..} ) <$> f inlineResponse20053Videos
-{-# INLINE inlineResponse20053VideosL #-}
+-- | 'inlineResponse20053Query' Lens
+inlineResponse20053QueryL :: Lens_' InlineResponse20053 (Text)
+inlineResponse20053QueryL f InlineResponse20053{..} = (\inlineResponse20053Query -> InlineResponse20053 { inlineResponse20053Query, ..} ) <$> f inlineResponse20053Query
+{-# INLINE inlineResponse20053QueryL #-}
 
 -- | 'inlineResponse20053TotalResults' Lens
 inlineResponse20053TotalResultsL :: Lens_' InlineResponse20053 (Int)
 inlineResponse20053TotalResultsL f InlineResponse20053{..} = (\inlineResponse20053TotalResults -> InlineResponse20053 { inlineResponse20053TotalResults, ..} ) <$> f inlineResponse20053TotalResults
 {-# INLINE inlineResponse20053TotalResultsL #-}
 
+-- | 'inlineResponse20053Limit' Lens
+inlineResponse20053LimitL :: Lens_' InlineResponse20053 (Int)
+inlineResponse20053LimitL f InlineResponse20053{..} = (\inlineResponse20053Limit -> InlineResponse20053 { inlineResponse20053Limit, ..} ) <$> f inlineResponse20053Limit
+{-# INLINE inlineResponse20053LimitL #-}
+
+-- | 'inlineResponse20053Offset' Lens
+inlineResponse20053OffsetL :: Lens_' InlineResponse20053 (Int)
+inlineResponse20053OffsetL f InlineResponse20053{..} = (\inlineResponse20053Offset -> InlineResponse20053 { inlineResponse20053Offset, ..} ) <$> f inlineResponse20053Offset
+{-# INLINE inlineResponse20053OffsetL #-}
+
+-- | 'inlineResponse20053SearchResults' Lens
+inlineResponse20053SearchResultsL :: Lens_' InlineResponse20053 ([InlineResponse20053SearchResults])
+inlineResponse20053SearchResultsL f InlineResponse20053{..} = (\inlineResponse20053SearchResults -> InlineResponse20053 { inlineResponse20053SearchResults, ..} ) <$> f inlineResponse20053SearchResults
+{-# INLINE inlineResponse20053SearchResultsL #-}
 
 
--- * InlineResponse20053Videos
 
--- | 'inlineResponse20053VideosTitle' Lens
-inlineResponse20053VideosTitleL :: Lens_' InlineResponse20053Videos (Text)
-inlineResponse20053VideosTitleL f InlineResponse20053Videos{..} = (\inlineResponse20053VideosTitle -> InlineResponse20053Videos { inlineResponse20053VideosTitle, ..} ) <$> f inlineResponse20053VideosTitle
-{-# INLINE inlineResponse20053VideosTitleL #-}
+-- * InlineResponse20053Results
 
--- | 'inlineResponse20053VideosLength' Lens
-inlineResponse20053VideosLengthL :: Lens_' InlineResponse20053Videos (Int)
-inlineResponse20053VideosLengthL f InlineResponse20053Videos{..} = (\inlineResponse20053VideosLength -> InlineResponse20053Videos { inlineResponse20053VideosLength, ..} ) <$> f inlineResponse20053VideosLength
-{-# INLINE inlineResponse20053VideosLengthL #-}
+-- | 'inlineResponse20053ResultsId' Lens
+inlineResponse20053ResultsIdL :: Lens_' InlineResponse20053Results (Text)
+inlineResponse20053ResultsIdL f InlineResponse20053Results{..} = (\inlineResponse20053ResultsId -> InlineResponse20053Results { inlineResponse20053ResultsId, ..} ) <$> f inlineResponse20053ResultsId
+{-# INLINE inlineResponse20053ResultsIdL #-}
 
--- | 'inlineResponse20053VideosRating' Lens
-inlineResponse20053VideosRatingL :: Lens_' InlineResponse20053Videos (Double)
-inlineResponse20053VideosRatingL f InlineResponse20053Videos{..} = (\inlineResponse20053VideosRating -> InlineResponse20053Videos { inlineResponse20053VideosRating, ..} ) <$> f inlineResponse20053VideosRating
-{-# INLINE inlineResponse20053VideosRatingL #-}
+-- | 'inlineResponse20053ResultsName' Lens
+inlineResponse20053ResultsNameL :: Lens_' InlineResponse20053Results (Text)
+inlineResponse20053ResultsNameL f InlineResponse20053Results{..} = (\inlineResponse20053ResultsName -> InlineResponse20053Results { inlineResponse20053ResultsName, ..} ) <$> f inlineResponse20053ResultsName
+{-# INLINE inlineResponse20053ResultsNameL #-}
 
--- | 'inlineResponse20053VideosShortTitle' Lens
-inlineResponse20053VideosShortTitleL :: Lens_' InlineResponse20053Videos (Text)
-inlineResponse20053VideosShortTitleL f InlineResponse20053Videos{..} = (\inlineResponse20053VideosShortTitle -> InlineResponse20053Videos { inlineResponse20053VideosShortTitle, ..} ) <$> f inlineResponse20053VideosShortTitle
-{-# INLINE inlineResponse20053VideosShortTitleL #-}
+-- | 'inlineResponse20053ResultsImage' Lens
+inlineResponse20053ResultsImageL :: Lens_' InlineResponse20053Results (Text)
+inlineResponse20053ResultsImageL f InlineResponse20053Results{..} = (\inlineResponse20053ResultsImage -> InlineResponse20053Results { inlineResponse20053ResultsImage, ..} ) <$> f inlineResponse20053ResultsImage
+{-# INLINE inlineResponse20053ResultsImageL #-}
 
--- | 'inlineResponse20053VideosThumbnail' Lens
-inlineResponse20053VideosThumbnailL :: Lens_' InlineResponse20053Videos (Text)
-inlineResponse20053VideosThumbnailL f InlineResponse20053Videos{..} = (\inlineResponse20053VideosThumbnail -> InlineResponse20053Videos { inlineResponse20053VideosThumbnail, ..} ) <$> f inlineResponse20053VideosThumbnail
-{-# INLINE inlineResponse20053VideosThumbnailL #-}
+-- | 'inlineResponse20053ResultsLink' Lens
+inlineResponse20053ResultsLinkL :: Lens_' InlineResponse20053Results (Text)
+inlineResponse20053ResultsLinkL f InlineResponse20053Results{..} = (\inlineResponse20053ResultsLink -> InlineResponse20053Results { inlineResponse20053ResultsLink, ..} ) <$> f inlineResponse20053ResultsLink
+{-# INLINE inlineResponse20053ResultsLinkL #-}
 
--- | 'inlineResponse20053VideosViews' Lens
-inlineResponse20053VideosViewsL :: Lens_' InlineResponse20053Videos (Int)
-inlineResponse20053VideosViewsL f InlineResponse20053Videos{..} = (\inlineResponse20053VideosViews -> InlineResponse20053Videos { inlineResponse20053VideosViews, ..} ) <$> f inlineResponse20053VideosViews
-{-# INLINE inlineResponse20053VideosViewsL #-}
+-- | 'inlineResponse20053ResultsType' Lens
+inlineResponse20053ResultsTypeL :: Lens_' InlineResponse20053Results (Text)
+inlineResponse20053ResultsTypeL f InlineResponse20053Results{..} = (\inlineResponse20053ResultsType -> InlineResponse20053Results { inlineResponse20053ResultsType, ..} ) <$> f inlineResponse20053ResultsType
+{-# INLINE inlineResponse20053ResultsTypeL #-}
 
--- | 'inlineResponse20053VideosYouTubeId' Lens
-inlineResponse20053VideosYouTubeIdL :: Lens_' InlineResponse20053Videos (Text)
-inlineResponse20053VideosYouTubeIdL f InlineResponse20053Videos{..} = (\inlineResponse20053VideosYouTubeId -> InlineResponse20053Videos { inlineResponse20053VideosYouTubeId, ..} ) <$> f inlineResponse20053VideosYouTubeId
-{-# INLINE inlineResponse20053VideosYouTubeIdL #-}
+-- | 'inlineResponse20053ResultsRelevance' Lens
+inlineResponse20053ResultsRelevanceL :: Lens_' InlineResponse20053Results (Double)
+inlineResponse20053ResultsRelevanceL f InlineResponse20053Results{..} = (\inlineResponse20053ResultsRelevance -> InlineResponse20053Results { inlineResponse20053ResultsRelevance, ..} ) <$> f inlineResponse20053ResultsRelevance
+{-# INLINE inlineResponse20053ResultsRelevanceL #-}
+
+-- | 'inlineResponse20053ResultsContent' Lens
+inlineResponse20053ResultsContentL :: Lens_' InlineResponse20053Results (Text)
+inlineResponse20053ResultsContentL f InlineResponse20053Results{..} = (\inlineResponse20053ResultsContent -> InlineResponse20053Results { inlineResponse20053ResultsContent, ..} ) <$> f inlineResponse20053ResultsContent
+{-# INLINE inlineResponse20053ResultsContentL #-}
+
+
+
+-- * InlineResponse20053SearchResults
+
+-- | 'inlineResponse20053SearchResultsName' Lens
+inlineResponse20053SearchResultsNameL :: Lens_' InlineResponse20053SearchResults (Text)
+inlineResponse20053SearchResultsNameL f InlineResponse20053SearchResults{..} = (\inlineResponse20053SearchResultsName -> InlineResponse20053SearchResults { inlineResponse20053SearchResultsName, ..} ) <$> f inlineResponse20053SearchResultsName
+{-# INLINE inlineResponse20053SearchResultsNameL #-}
+
+-- | 'inlineResponse20053SearchResultsTotalResults' Lens
+inlineResponse20053SearchResultsTotalResultsL :: Lens_' InlineResponse20053SearchResults (Int)
+inlineResponse20053SearchResultsTotalResultsL f InlineResponse20053SearchResults{..} = (\inlineResponse20053SearchResultsTotalResults -> InlineResponse20053SearchResults { inlineResponse20053SearchResultsTotalResults, ..} ) <$> f inlineResponse20053SearchResultsTotalResults
+{-# INLINE inlineResponse20053SearchResultsTotalResultsL #-}
+
+-- | 'inlineResponse20053SearchResultsResults' Lens
+inlineResponse20053SearchResultsResultsL :: Lens_' InlineResponse20053SearchResults (Maybe [InlineResponse20053Results])
+inlineResponse20053SearchResultsResultsL f InlineResponse20053SearchResults{..} = (\inlineResponse20053SearchResultsResults -> InlineResponse20053SearchResults { inlineResponse20053SearchResultsResults, ..} ) <$> f inlineResponse20053SearchResultsResults
+{-# INLINE inlineResponse20053SearchResultsResultsL #-}
 
 
 
 -- * InlineResponse20054
 
--- | 'inlineResponse20054Text' Lens
-inlineResponse20054TextL :: Lens_' InlineResponse20054 (Text)
-inlineResponse20054TextL f InlineResponse20054{..} = (\inlineResponse20054Text -> InlineResponse20054 { inlineResponse20054Text, ..} ) <$> f inlineResponse20054Text
-{-# INLINE inlineResponse20054TextL #-}
+-- | 'inlineResponse20054Videos' Lens
+inlineResponse20054VideosL :: Lens_' InlineResponse20054 ([InlineResponse20054Videos])
+inlineResponse20054VideosL f InlineResponse20054{..} = (\inlineResponse20054Videos -> InlineResponse20054 { inlineResponse20054Videos, ..} ) <$> f inlineResponse20054Videos
+{-# INLINE inlineResponse20054VideosL #-}
+
+-- | 'inlineResponse20054TotalResults' Lens
+inlineResponse20054TotalResultsL :: Lens_' InlineResponse20054 (Int)
+inlineResponse20054TotalResultsL f InlineResponse20054{..} = (\inlineResponse20054TotalResults -> InlineResponse20054 { inlineResponse20054TotalResults, ..} ) <$> f inlineResponse20054TotalResults
+{-# INLINE inlineResponse20054TotalResultsL #-}
+
+
+
+-- * InlineResponse20054Videos
+
+-- | 'inlineResponse20054VideosTitle' Lens
+inlineResponse20054VideosTitleL :: Lens_' InlineResponse20054Videos (Text)
+inlineResponse20054VideosTitleL f InlineResponse20054Videos{..} = (\inlineResponse20054VideosTitle -> InlineResponse20054Videos { inlineResponse20054VideosTitle, ..} ) <$> f inlineResponse20054VideosTitle
+{-# INLINE inlineResponse20054VideosTitleL #-}
+
+-- | 'inlineResponse20054VideosLength' Lens
+inlineResponse20054VideosLengthL :: Lens_' InlineResponse20054Videos (Int)
+inlineResponse20054VideosLengthL f InlineResponse20054Videos{..} = (\inlineResponse20054VideosLength -> InlineResponse20054Videos { inlineResponse20054VideosLength, ..} ) <$> f inlineResponse20054VideosLength
+{-# INLINE inlineResponse20054VideosLengthL #-}
+
+-- | 'inlineResponse20054VideosRating' Lens
+inlineResponse20054VideosRatingL :: Lens_' InlineResponse20054Videos (Double)
+inlineResponse20054VideosRatingL f InlineResponse20054Videos{..} = (\inlineResponse20054VideosRating -> InlineResponse20054Videos { inlineResponse20054VideosRating, ..} ) <$> f inlineResponse20054VideosRating
+{-# INLINE inlineResponse20054VideosRatingL #-}
+
+-- | 'inlineResponse20054VideosShortTitle' Lens
+inlineResponse20054VideosShortTitleL :: Lens_' InlineResponse20054Videos (Text)
+inlineResponse20054VideosShortTitleL f InlineResponse20054Videos{..} = (\inlineResponse20054VideosShortTitle -> InlineResponse20054Videos { inlineResponse20054VideosShortTitle, ..} ) <$> f inlineResponse20054VideosShortTitle
+{-# INLINE inlineResponse20054VideosShortTitleL #-}
+
+-- | 'inlineResponse20054VideosThumbnail' Lens
+inlineResponse20054VideosThumbnailL :: Lens_' InlineResponse20054Videos (Text)
+inlineResponse20054VideosThumbnailL f InlineResponse20054Videos{..} = (\inlineResponse20054VideosThumbnail -> InlineResponse20054Videos { inlineResponse20054VideosThumbnail, ..} ) <$> f inlineResponse20054VideosThumbnail
+{-# INLINE inlineResponse20054VideosThumbnailL #-}
+
+-- | 'inlineResponse20054VideosViews' Lens
+inlineResponse20054VideosViewsL :: Lens_' InlineResponse20054Videos (Int)
+inlineResponse20054VideosViewsL f InlineResponse20054Videos{..} = (\inlineResponse20054VideosViews -> InlineResponse20054Videos { inlineResponse20054VideosViews, ..} ) <$> f inlineResponse20054VideosViews
+{-# INLINE inlineResponse20054VideosViewsL #-}
+
+-- | 'inlineResponse20054VideosYouTubeId' Lens
+inlineResponse20054VideosYouTubeIdL :: Lens_' InlineResponse20054Videos (Text)
+inlineResponse20054VideosYouTubeIdL f InlineResponse20054Videos{..} = (\inlineResponse20054VideosYouTubeId -> InlineResponse20054Videos { inlineResponse20054VideosYouTubeId, ..} ) <$> f inlineResponse20054VideosYouTubeId
+{-# INLINE inlineResponse20054VideosYouTubeIdL #-}
 
 
 
 -- * InlineResponse20055
 
--- | 'inlineResponse20055AnswerText' Lens
-inlineResponse20055AnswerTextL :: Lens_' InlineResponse20055 (Text)
-inlineResponse20055AnswerTextL f InlineResponse20055{..} = (\inlineResponse20055AnswerText -> InlineResponse20055 { inlineResponse20055AnswerText, ..} ) <$> f inlineResponse20055AnswerText
-{-# INLINE inlineResponse20055AnswerTextL #-}
-
--- | 'inlineResponse20055Media' Lens
-inlineResponse20055MediaL :: Lens_' InlineResponse20055 ([A.Value])
-inlineResponse20055MediaL f InlineResponse20055{..} = (\inlineResponse20055Media -> InlineResponse20055 { inlineResponse20055Media, ..} ) <$> f inlineResponse20055Media
-{-# INLINE inlineResponse20055MediaL #-}
+-- | 'inlineResponse20055Text' Lens
+inlineResponse20055TextL :: Lens_' InlineResponse20055 (Text)
+inlineResponse20055TextL f InlineResponse20055{..} = (\inlineResponse20055Text -> InlineResponse20055 { inlineResponse20055Text, ..} ) <$> f inlineResponse20055Text
+{-# INLINE inlineResponse20055TextL #-}
 
 
 
 -- * InlineResponse20056
 
--- | 'inlineResponse20056Suggests' Lens
-inlineResponse20056SuggestsL :: Lens_' InlineResponse20056 (InlineResponse20056Suggests)
-inlineResponse20056SuggestsL f InlineResponse20056{..} = (\inlineResponse20056Suggests -> InlineResponse20056 { inlineResponse20056Suggests, ..} ) <$> f inlineResponse20056Suggests
-{-# INLINE inlineResponse20056SuggestsL #-}
+-- | 'inlineResponse20056AnswerText' Lens
+inlineResponse20056AnswerTextL :: Lens_' InlineResponse20056 (Text)
+inlineResponse20056AnswerTextL f InlineResponse20056{..} = (\inlineResponse20056AnswerText -> InlineResponse20056 { inlineResponse20056AnswerText, ..} ) <$> f inlineResponse20056AnswerText
+{-# INLINE inlineResponse20056AnswerTextL #-}
 
--- | 'inlineResponse20056Words' Lens
-inlineResponse20056WordsL :: Lens_' InlineResponse20056 ([A.Value])
-inlineResponse20056WordsL f InlineResponse20056{..} = (\inlineResponse20056Words -> InlineResponse20056 { inlineResponse20056Words, ..} ) <$> f inlineResponse20056Words
-{-# INLINE inlineResponse20056WordsL #-}
+-- | 'inlineResponse20056Media' Lens
+inlineResponse20056MediaL :: Lens_' InlineResponse20056 ([A.Value])
+inlineResponse20056MediaL f InlineResponse20056{..} = (\inlineResponse20056Media -> InlineResponse20056 { inlineResponse20056Media, ..} ) <$> f inlineResponse20056Media
+{-# INLINE inlineResponse20056MediaL #-}
 
 
 
--- * InlineResponse20056Suggests
+-- * InlineResponse20057
 
--- | 'inlineResponse20056Suggests' Lens
-inlineResponse20056SuggestsL :: Lens_' InlineResponse20056Suggests ([A.Value])
-inlineResponse20056SuggestsL f InlineResponse20056Suggests{..} = (\inlineResponse20056Suggests -> InlineResponse20056Suggests { inlineResponse20056Suggests, ..} ) <$> f inlineResponse20056Suggests
-{-# INLINE inlineResponse20056SuggestsL #-}
+-- | 'inlineResponse20057Suggests' Lens
+inlineResponse20057SuggestsL :: Lens_' InlineResponse20057 (InlineResponse20057Suggests)
+inlineResponse20057SuggestsL f InlineResponse20057{..} = (\inlineResponse20057Suggests -> InlineResponse20057 { inlineResponse20057Suggests, ..} ) <$> f inlineResponse20057Suggests
+{-# INLINE inlineResponse20057SuggestsL #-}
+
+-- | 'inlineResponse20057Words' Lens
+inlineResponse20057WordsL :: Lens_' InlineResponse20057 ([A.Value])
+inlineResponse20057WordsL f InlineResponse20057{..} = (\inlineResponse20057Words -> InlineResponse20057 { inlineResponse20057Words, ..} ) <$> f inlineResponse20057Words
+{-# INLINE inlineResponse20057WordsL #-}
+
+
+
+-- * InlineResponse20057Suggests
+
+-- | 'inlineResponse20057Suggests' Lens
+inlineResponse20057SuggestsL :: Lens_' InlineResponse20057Suggests ([A.Value])
+inlineResponse20057SuggestsL f InlineResponse20057Suggests{..} = (\inlineResponse20057Suggests -> InlineResponse20057Suggests { inlineResponse20057Suggests, ..} ) <$> f inlineResponse20057Suggests
+{-# INLINE inlineResponse20057SuggestsL #-}
 
 
 

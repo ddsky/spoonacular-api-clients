@@ -19,10 +19,11 @@ local function cast_inline_object_8(t)
 	return setmetatable(t, inline_object_8_mt)
 end
 
-local function new_inline_object_8(username, id, hash)
+local function new_inline_object_8(username, start_date, end_date, hash)
 	return cast_inline_object_8({
 		["username"] = username;
-		["id"] = id;
+		["start-date"] = start_date;
+		["end-date"] = end_date;
 		["hash"] = hash;
 	})
 end

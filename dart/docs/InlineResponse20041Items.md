@@ -9,12 +9,10 @@ import 'package:openapi/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [default to null]
-**name** | **String** |  | [default to null]
-**measures** | [**InlineResponse20041Measures**](InlineResponse20041Measures.md) |  | [optional] [default to null]
-**pantryItem** | **bool** |  | [default to null]
-**aisle** | **String** |  | [default to null]
-**cost** | **num** |  | [default to null]
-**ingredientId** | **int** |  | [default to null]
+**slot** | **int** |  | [default to null]
+**position** | **int** |  | [default to null]
+**type** | **String** |  | [default to null]
+**value** | [**InlineResponse20041Value**](InlineResponse20041Value.md) |  | [optional] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

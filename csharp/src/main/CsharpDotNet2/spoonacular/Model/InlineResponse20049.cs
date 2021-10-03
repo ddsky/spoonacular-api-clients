@@ -13,18 +13,25 @@ namespace spoonacular.Model {
   [DataContract]
   public class InlineResponse20049 {
     /// <summary>
-    /// Gets or Sets Answer
+    /// Gets or Sets Nutrition
     /// </summary>
-    [DataMember(Name="answer", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "answer")]
-    public string Answer { get; set; }
+    [DataMember(Name="nutrition", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "nutrition")]
+    public InlineResponse20049Nutrition Nutrition { get; set; }
 
     /// <summary>
-    /// Gets or Sets Image
+    /// Gets or Sets Category
     /// </summary>
-    [DataMember(Name="image", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "image")]
-    public string Image { get; set; }
+    [DataMember(Name="category", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "category")]
+    public InlineResponse20049Category Category { get; set; }
+
+    /// <summary>
+    /// Gets or Sets Recipes
+    /// </summary>
+    [DataMember(Name="recipes", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "recipes")]
+    public List<InlineResponse20049Recipes> Recipes { get; set; }
 
 
     /// <summary>
@@ -34,8 +41,9 @@ namespace spoonacular.Model {
     public override string ToString()  {
       var sb = new StringBuilder();
       sb.Append("class InlineResponse20049 {\n");
-      sb.Append("  Answer: ").Append(Answer).Append("\n");
-      sb.Append("  Image: ").Append(Image).Append("\n");
+      sb.Append("  Nutrition: ").Append(Nutrition).Append("\n");
+      sb.Append("  Category: ").Append(Category).Append("\n");
+      sb.Append("  Recipes: ").Append(Recipes).Append("\n");
       sb.Append("}\n");
       return sb.ToString();
     }

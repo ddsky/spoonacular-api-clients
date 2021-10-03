@@ -16,20 +16,12 @@ import com.squareup.moshi.Json
 /**
  * 
  * @param username The username.
- * @param startMinusDate The start date in the format yyyy-mm-dd.
- * @param endMinusDate The end date in the format yyyy-mm-dd.
  * @param hash The private hash for the username.
  */
 data class InlineObject6 (
     /* The username. */
     @Json(name = "username")
     val username: kotlin.String,
-    /* The start date in the format yyyy-mm-dd. */
-    @Json(name = "start-date")
-    val startMinusDate: kotlin.String,
-    /* The end date in the format yyyy-mm-dd. */
-    @Json(name = "end-date")
-    val endMinusDate: kotlin.String,
     /* The private hash for the username. */
     @Json(name = "hash")
     val hash: kotlin.String

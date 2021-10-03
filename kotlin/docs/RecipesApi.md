@@ -1168,7 +1168,7 @@ Name | Type | Description  | Notes
 
 <a name="quickAnswer"></a>
 # **quickAnswer**
-> InlineResponse20049 quickAnswer(q)
+> InlineResponse20050 quickAnswer(q)
 
 Quick Answer
 
@@ -1183,7 +1183,7 @@ Answer a nutrition related natural language question.
 val apiInstance = RecipesApi()
 val q : kotlin.String = How much vitamin c is in 2 apples? // kotlin.String | The nutrition related question.
 try {
-    val result : InlineResponse20049 = apiInstance.quickAnswer(q)
+    val result : InlineResponse20050 = apiInstance.quickAnswer(q)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling RecipesApi#quickAnswer")
@@ -1202,7 +1202,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20049**](InlineResponse20049.md)
+[**InlineResponse20050**](InlineResponse20050.md)
 
 ### Authorization
 

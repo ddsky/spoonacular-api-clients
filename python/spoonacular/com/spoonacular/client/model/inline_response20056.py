@@ -32,70 +32,72 @@ class InlineResponse20056(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'suggests': 'InlineResponse20056Suggests',
-        'words': 'list[object]'
+        'answer_text': 'str',
+        'media': 'list[object]'
     }
 
     attribute_map = {
-        'suggests': 'suggests',
-        'words': 'words'
+        'answer_text': 'answerText',
+        'media': 'media'
     }
 
-    def __init__(self, suggests=None, words=None):  # noqa: E501
+    def __init__(self, answer_text=None, media=None):  # noqa: E501
         """InlineResponse20056 - a model defined in OpenAPI"""  # noqa: E501
 
-        self._suggests = None
-        self._words = None
+        self._answer_text = None
+        self._media = None
         self.discriminator = None
 
-        self.suggests = suggests
-        self.words = words
+        self.answer_text = answer_text
+        self.media = media
 
     @property
-    def suggests(self):
-        """Gets the suggests of this InlineResponse20056.  # noqa: E501
+    def answer_text(self):
+        """Gets the answer_text of this InlineResponse20056.  # noqa: E501
 
 
-        :return: The suggests of this InlineResponse20056.  # noqa: E501
-        :rtype: InlineResponse20056Suggests
+        :return: The answer_text of this InlineResponse20056.  # noqa: E501
+        :rtype: str
         """
-        return self._suggests
+        return self._answer_text
 
-    @suggests.setter
-    def suggests(self, suggests):
-        """Sets the suggests of this InlineResponse20056.
+    @answer_text.setter
+    def answer_text(self, answer_text):
+        """Sets the answer_text of this InlineResponse20056.
 
 
-        :param suggests: The suggests of this InlineResponse20056.  # noqa: E501
-        :type: InlineResponse20056Suggests
+        :param answer_text: The answer_text of this InlineResponse20056.  # noqa: E501
+        :type: str
         """
-        if suggests is None:
-            raise ValueError("Invalid value for `suggests`, must not be `None`")  # noqa: E501
+        if answer_text is None:
+            raise ValueError("Invalid value for `answer_text`, must not be `None`")  # noqa: E501
+        if answer_text is not None and len(answer_text) < 1:
+            raise ValueError("Invalid value for `answer_text`, length must be greater than or equal to `1`")  # noqa: E501
 
-        self._suggests = suggests
+        self._answer_text = answer_text
 
     @property
-    def words(self):
-        """Gets the words of this InlineResponse20056.  # noqa: E501
+    def media(self):
+        """Gets the media of this InlineResponse20056.  # noqa: E501
 
 
-        :return: The words of this InlineResponse20056.  # noqa: E501
+        :return: The media of this InlineResponse20056.  # noqa: E501
         :rtype: list[object]
         """
-        return self._words
+        return self._media
 
-    @words.setter
-    def words(self, words):
-        """Sets the words of this InlineResponse20056.
+    @media.setter
+    def media(self, media):
+        """Sets the media of this InlineResponse20056.
 
 
-        :param words: The words of this InlineResponse20056.  # noqa: E501
+        :param media: The media of this InlineResponse20056.  # noqa: E501
         :type: list[object]
         """
-        if words is None:
-            raise ValueError("Invalid value for `words`, must not be `None`")  # noqa: E501
+        if media is None:
+            raise ValueError("Invalid value for `media`, must not be `None`")  # noqa: E501
 
-        self._words = words
+        self._media = media
 
     def to_dict(self):
         """Returns the model properties as a dict"""

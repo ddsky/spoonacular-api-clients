@@ -1,14 +1,14 @@
 #import <Foundation/Foundation.h>
 #import "OAIInlineResponse20029.h"
-#import "OAIInlineResponse20047.h"
 #import "OAIInlineResponse20048.h"
-#import "OAIInlineResponse20050.h"
+#import "OAIInlineResponse20049.h"
 #import "OAIInlineResponse20051.h"
 #import "OAIInlineResponse20052.h"
 #import "OAIInlineResponse20053.h"
 #import "OAIInlineResponse20054.h"
 #import "OAIInlineResponse20055.h"
 #import "OAIInlineResponse20056.h"
+#import "OAIInlineResponse20057.h"
 #import "OAIApi.h"
 
 /**
@@ -42,9 +42,9 @@ extern NSInteger kOAIMiscApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return OAIInlineResponse20050*
+/// @return OAIInlineResponse20051*
 -(NSURLSessionTask*) detectFoodInTextWithContentType: (NSString*) contentType
-    completionHandler: (void (^)(OAIInlineResponse20050* output, NSError* error)) handler;
+    completionHandler: (void (^)(OAIInlineResponse20051* output, NSError* error)) handler;
 
 
 /// Random Food Joke
@@ -56,9 +56,9 @@ extern NSInteger kOAIMiscApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return OAIInlineResponse20054*
+/// @return OAIInlineResponse20055*
 -(NSURLSessionTask*) getARandomFoodJokeWithCompletionHandler: 
-    (void (^)(OAIInlineResponse20054* output, NSError* error)) handler;
+    (void (^)(OAIInlineResponse20055* output, NSError* error)) handler;
 
 
 /// Conversation Suggests
@@ -72,10 +72,10 @@ extern NSInteger kOAIMiscApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return OAIInlineResponse20056*
+/// @return OAIInlineResponse20057*
 -(NSURLSessionTask*) getConversationSuggestsWithQuery: (NSString*) query
     number: (NSNumber*) number
-    completionHandler: (void (^)(OAIInlineResponse20056* output, NSError* error)) handler;
+    completionHandler: (void (^)(OAIInlineResponse20057* output, NSError* error)) handler;
 
 
 /// Random Food Trivia
@@ -87,9 +87,9 @@ extern NSInteger kOAIMiscApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return OAIInlineResponse20054*
+/// @return OAIInlineResponse20055*
 -(NSURLSessionTask*) getRandomFoodTriviaWithCompletionHandler: 
-    (void (^)(OAIInlineResponse20054* output, NSError* error)) handler;
+    (void (^)(OAIInlineResponse20055* output, NSError* error)) handler;
 
 
 /// Image Analysis by URL
@@ -102,9 +102,9 @@ extern NSInteger kOAIMiscApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return OAIInlineResponse20048*
+/// @return OAIInlineResponse20049*
 -(NSURLSessionTask*) imageAnalysisByURLWithImageUrl: (NSString*) imageUrl
-    completionHandler: (void (^)(OAIInlineResponse20048* output, NSError* error)) handler;
+    completionHandler: (void (^)(OAIInlineResponse20049* output, NSError* error)) handler;
 
 
 /// Image Classification by URL
@@ -117,9 +117,9 @@ extern NSInteger kOAIMiscApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return OAIInlineResponse20047*
+/// @return OAIInlineResponse20048*
 -(NSURLSessionTask*) imageClassificationByURLWithImageUrl: (NSString*) imageUrl
-    completionHandler: (void (^)(OAIInlineResponse20047* output, NSError* error)) handler;
+    completionHandler: (void (^)(OAIInlineResponse20048* output, NSError* error)) handler;
 
 
 /// Search All Food
@@ -134,11 +134,11 @@ extern NSInteger kOAIMiscApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return OAIInlineResponse20052*
+/// @return OAIInlineResponse20053*
 -(NSURLSessionTask*) searchAllFoodWithQuery: (NSString*) query
     offset: (NSNumber*) offset
     number: (NSNumber*) number
-    completionHandler: (void (^)(OAIInlineResponse20052* output, NSError* error)) handler;
+    completionHandler: (void (^)(OAIInlineResponse20053* output, NSError* error)) handler;
 
 
 /// Search Custom Foods
@@ -183,7 +183,7 @@ extern NSInteger kOAIMiscApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return OAIInlineResponse20053*
+/// @return OAIInlineResponse20054*
 -(NSURLSessionTask*) searchFoodVideosWithQuery: (NSString*) query
     type: (NSString*) type
     cuisine: (NSString*) cuisine
@@ -194,7 +194,7 @@ extern NSInteger kOAIMiscApiMissingParamErrorCode;
     maxLength: (NSNumber*) maxLength
     offset: (NSNumber*) offset
     number: (NSNumber*) number
-    completionHandler: (void (^)(OAIInlineResponse20053* output, NSError* error)) handler;
+    completionHandler: (void (^)(OAIInlineResponse20054* output, NSError* error)) handler;
 
 
 /// Search Site Content
@@ -207,9 +207,9 @@ extern NSInteger kOAIMiscApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return OAIInlineResponse20051*
+/// @return OAIInlineResponse20052*
 -(NSURLSessionTask*) searchSiteContentWithQuery: (NSString*) query
-    completionHandler: (void (^)(OAIInlineResponse20051* output, NSError* error)) handler;
+    completionHandler: (void (^)(OAIInlineResponse20052* output, NSError* error)) handler;
 
 
 /// Talk to Chatbot
@@ -223,10 +223,10 @@ extern NSInteger kOAIMiscApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return OAIInlineResponse20055*
+/// @return OAIInlineResponse20056*
 -(NSURLSessionTask*) talkToChatbotWithText: (NSString*) text
     contextId: (NSString*) contextId
-    completionHandler: (void (^)(OAIInlineResponse20055* output, NSError* error)) handler;
+    completionHandler: (void (^)(OAIInlineResponse20056* output, NSError* error)) handler;
 
 
 

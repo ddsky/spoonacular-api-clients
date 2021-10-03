@@ -14,17 +14,26 @@ use serde_json::Value;
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct InlineResponse20053 {
-    #[serde(rename = "videos")]
-    pub videos: Vec<::models::InlineResponse20053Videos>,
+    #[serde(rename = "query")]
+    pub query: String,
     #[serde(rename = "totalResults")]
     pub total_results: i32,
+    #[serde(rename = "limit")]
+    pub limit: i32,
+    #[serde(rename = "offset")]
+    pub offset: i32,
+    #[serde(rename = "searchResults")]
+    pub search_results: Vec<::models::InlineResponse20053SearchResults>,
 }
 
 impl InlineResponse20053 {
-    pub fn new(videos: Vec<::models::InlineResponse20053Videos>, total_results: i32) -> InlineResponse20053 {
+    pub fn new(query: String, total_results: i32, limit: i32, offset: i32, search_results: Vec<::models::InlineResponse20053SearchResults>) -> InlineResponse20053 {
         InlineResponse20053 {
-            videos: videos,
+            query: query,
             total_results: total_results,
+            limit: limit,
+            offset: offset,
+            search_results: search_results,
         }
     }
 }

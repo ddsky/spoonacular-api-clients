@@ -16,6 +16,7 @@ import ApiClient from './ApiClient';
 import FoodIngredientsMapProducts from './com.spoonacular.client.model/FoodIngredientsMapProducts';
 import InlineObject from './com.spoonacular.client.model/InlineObject';
 import InlineObject1 from './com.spoonacular.client.model/InlineObject1';
+import InlineObject10 from './com.spoonacular.client.model/InlineObject10';
 import InlineObject2 from './com.spoonacular.client.model/InlineObject2';
 import InlineObject3 from './com.spoonacular.client.model/InlineObject3';
 import InlineObject4 from './com.spoonacular.client.model/InlineObject4';
@@ -23,6 +24,7 @@ import InlineObject5 from './com.spoonacular.client.model/InlineObject5';
 import InlineObject6 from './com.spoonacular.client.model/InlineObject6';
 import InlineObject7 from './com.spoonacular.client.model/InlineObject7';
 import InlineObject8 from './com.spoonacular.client.model/InlineObject8';
+import InlineObject9 from './com.spoonacular.client.model/InlineObject9';
 import InlineResponse200 from './com.spoonacular.client.model/InlineResponse200';
 import InlineResponse2001 from './com.spoonacular.client.model/InlineResponse2001';
 import InlineResponse20010 from './com.spoonacular.client.model/InlineResponse20010';
@@ -94,40 +96,43 @@ import InlineResponse2003WinePairing from './com.spoonacular.client.model/Inline
 import InlineResponse2003WinePairingProductMatches from './com.spoonacular.client.model/InlineResponse2003WinePairingProductMatches';
 import InlineResponse2004 from './com.spoonacular.client.model/InlineResponse2004';
 import InlineResponse20040 from './com.spoonacular.client.model/InlineResponse20040';
-import InlineResponse20040Days from './com.spoonacular.client.model/InlineResponse20040Days';
 import InlineResponse20040Items from './com.spoonacular.client.model/InlineResponse20040Items';
 import InlineResponse20040Value from './com.spoonacular.client.model/InlineResponse20040Value';
 import InlineResponse20041 from './com.spoonacular.client.model/InlineResponse20041';
-import InlineResponse20041Aisles from './com.spoonacular.client.model/InlineResponse20041Aisles';
+import InlineResponse20041Days from './com.spoonacular.client.model/InlineResponse20041Days';
 import InlineResponse20041Items from './com.spoonacular.client.model/InlineResponse20041Items';
-import InlineResponse20041Measures from './com.spoonacular.client.model/InlineResponse20041Measures';
+import InlineResponse20041Value from './com.spoonacular.client.model/InlineResponse20041Value';
 import InlineResponse20042 from './com.spoonacular.client.model/InlineResponse20042';
+import InlineResponse20042Aisles from './com.spoonacular.client.model/InlineResponse20042Aisles';
+import InlineResponse20042Items from './com.spoonacular.client.model/InlineResponse20042Items';
+import InlineResponse20042Measures from './com.spoonacular.client.model/InlineResponse20042Measures';
 import InlineResponse20043 from './com.spoonacular.client.model/InlineResponse20043';
 import InlineResponse20044 from './com.spoonacular.client.model/InlineResponse20044';
-import InlineResponse20044ProductMatches from './com.spoonacular.client.model/InlineResponse20044ProductMatches';
 import InlineResponse20045 from './com.spoonacular.client.model/InlineResponse20045';
+import InlineResponse20045ProductMatches from './com.spoonacular.client.model/InlineResponse20045ProductMatches';
 import InlineResponse20046 from './com.spoonacular.client.model/InlineResponse20046';
-import InlineResponse20046RecommendedWines from './com.spoonacular.client.model/InlineResponse20046RecommendedWines';
 import InlineResponse20047 from './com.spoonacular.client.model/InlineResponse20047';
+import InlineResponse20047RecommendedWines from './com.spoonacular.client.model/InlineResponse20047RecommendedWines';
 import InlineResponse20048 from './com.spoonacular.client.model/InlineResponse20048';
-import InlineResponse20048Category from './com.spoonacular.client.model/InlineResponse20048Category';
-import InlineResponse20048Nutrition from './com.spoonacular.client.model/InlineResponse20048Nutrition';
-import InlineResponse20048NutritionCalories from './com.spoonacular.client.model/InlineResponse20048NutritionCalories';
-import InlineResponse20048NutritionCaloriesConfidenceRange95Percent from './com.spoonacular.client.model/InlineResponse20048NutritionCaloriesConfidenceRange95Percent';
-import InlineResponse20048Recipes from './com.spoonacular.client.model/InlineResponse20048Recipes';
 import InlineResponse20049 from './com.spoonacular.client.model/InlineResponse20049';
+import InlineResponse20049Category from './com.spoonacular.client.model/InlineResponse20049Category';
+import InlineResponse20049Nutrition from './com.spoonacular.client.model/InlineResponse20049Nutrition';
+import InlineResponse20049NutritionCalories from './com.spoonacular.client.model/InlineResponse20049NutritionCalories';
+import InlineResponse20049NutritionCaloriesConfidenceRange95Percent from './com.spoonacular.client.model/InlineResponse20049NutritionCaloriesConfidenceRange95Percent';
+import InlineResponse20049Recipes from './com.spoonacular.client.model/InlineResponse20049Recipes';
 import InlineResponse2005 from './com.spoonacular.client.model/InlineResponse2005';
 import InlineResponse20050 from './com.spoonacular.client.model/InlineResponse20050';
 import InlineResponse20051 from './com.spoonacular.client.model/InlineResponse20051';
 import InlineResponse20052 from './com.spoonacular.client.model/InlineResponse20052';
-import InlineResponse20052Results from './com.spoonacular.client.model/InlineResponse20052Results';
-import InlineResponse20052SearchResults from './com.spoonacular.client.model/InlineResponse20052SearchResults';
 import InlineResponse20053 from './com.spoonacular.client.model/InlineResponse20053';
-import InlineResponse20053Videos from './com.spoonacular.client.model/InlineResponse20053Videos';
+import InlineResponse20053Results from './com.spoonacular.client.model/InlineResponse20053Results';
+import InlineResponse20053SearchResults from './com.spoonacular.client.model/InlineResponse20053SearchResults';
 import InlineResponse20054 from './com.spoonacular.client.model/InlineResponse20054';
+import InlineResponse20054Videos from './com.spoonacular.client.model/InlineResponse20054Videos';
 import InlineResponse20055 from './com.spoonacular.client.model/InlineResponse20055';
 import InlineResponse20056 from './com.spoonacular.client.model/InlineResponse20056';
-import InlineResponse20056Suggests from './com.spoonacular.client.model/InlineResponse20056Suggests';
+import InlineResponse20057 from './com.spoonacular.client.model/InlineResponse20057';
+import InlineResponse20057Suggests from './com.spoonacular.client.model/InlineResponse20057Suggests';
 import InlineResponse2006 from './com.spoonacular.client.model/InlineResponse2006';
 import InlineResponse2006Recipes from './com.spoonacular.client.model/InlineResponse2006Recipes';
 import InlineResponse2007 from './com.spoonacular.client.model/InlineResponse2007';
@@ -207,6 +212,12 @@ export {
     InlineObject1,
 
     /**
+     * The InlineObject10 model constructor.
+     * @property {module:com.spoonacular.client/com.spoonacular.client.model/InlineObject10}
+     */
+    InlineObject10,
+
+    /**
      * The InlineObject2 model constructor.
      * @property {module:com.spoonacular.client/com.spoonacular.client.model/InlineObject2}
      */
@@ -247,6 +258,12 @@ export {
      * @property {module:com.spoonacular.client/com.spoonacular.client.model/InlineObject8}
      */
     InlineObject8,
+
+    /**
+     * The InlineObject9 model constructor.
+     * @property {module:com.spoonacular.client/com.spoonacular.client.model/InlineObject9}
+     */
+    InlineObject9,
 
     /**
      * The InlineResponse200 model constructor.
@@ -675,12 +692,6 @@ export {
     InlineResponse20040,
 
     /**
-     * The InlineResponse20040Days model constructor.
-     * @property {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20040Days}
-     */
-    InlineResponse20040Days,
-
-    /**
      * The InlineResponse20040Items model constructor.
      * @property {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20040Items}
      */
@@ -699,10 +710,10 @@ export {
     InlineResponse20041,
 
     /**
-     * The InlineResponse20041Aisles model constructor.
-     * @property {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20041Aisles}
+     * The InlineResponse20041Days model constructor.
+     * @property {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20041Days}
      */
-    InlineResponse20041Aisles,
+    InlineResponse20041Days,
 
     /**
      * The InlineResponse20041Items model constructor.
@@ -711,16 +722,34 @@ export {
     InlineResponse20041Items,
 
     /**
-     * The InlineResponse20041Measures model constructor.
-     * @property {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20041Measures}
+     * The InlineResponse20041Value model constructor.
+     * @property {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20041Value}
      */
-    InlineResponse20041Measures,
+    InlineResponse20041Value,
 
     /**
      * The InlineResponse20042 model constructor.
      * @property {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20042}
      */
     InlineResponse20042,
+
+    /**
+     * The InlineResponse20042Aisles model constructor.
+     * @property {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20042Aisles}
+     */
+    InlineResponse20042Aisles,
+
+    /**
+     * The InlineResponse20042Items model constructor.
+     * @property {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20042Items}
+     */
+    InlineResponse20042Items,
+
+    /**
+     * The InlineResponse20042Measures model constructor.
+     * @property {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20042Measures}
+     */
+    InlineResponse20042Measures,
 
     /**
      * The InlineResponse20043 model constructor.
@@ -735,16 +764,16 @@ export {
     InlineResponse20044,
 
     /**
-     * The InlineResponse20044ProductMatches model constructor.
-     * @property {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20044ProductMatches}
-     */
-    InlineResponse20044ProductMatches,
-
-    /**
      * The InlineResponse20045 model constructor.
      * @property {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20045}
      */
     InlineResponse20045,
+
+    /**
+     * The InlineResponse20045ProductMatches model constructor.
+     * @property {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20045ProductMatches}
+     */
+    InlineResponse20045ProductMatches,
 
     /**
      * The InlineResponse20046 model constructor.
@@ -753,16 +782,16 @@ export {
     InlineResponse20046,
 
     /**
-     * The InlineResponse20046RecommendedWines model constructor.
-     * @property {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20046RecommendedWines}
-     */
-    InlineResponse20046RecommendedWines,
-
-    /**
      * The InlineResponse20047 model constructor.
      * @property {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20047}
      */
     InlineResponse20047,
+
+    /**
+     * The InlineResponse20047RecommendedWines model constructor.
+     * @property {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20047RecommendedWines}
+     */
+    InlineResponse20047RecommendedWines,
 
     /**
      * The InlineResponse20048 model constructor.
@@ -771,40 +800,40 @@ export {
     InlineResponse20048,
 
     /**
-     * The InlineResponse20048Category model constructor.
-     * @property {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20048Category}
-     */
-    InlineResponse20048Category,
-
-    /**
-     * The InlineResponse20048Nutrition model constructor.
-     * @property {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20048Nutrition}
-     */
-    InlineResponse20048Nutrition,
-
-    /**
-     * The InlineResponse20048NutritionCalories model constructor.
-     * @property {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20048NutritionCalories}
-     */
-    InlineResponse20048NutritionCalories,
-
-    /**
-     * The InlineResponse20048NutritionCaloriesConfidenceRange95Percent model constructor.
-     * @property {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20048NutritionCaloriesConfidenceRange95Percent}
-     */
-    InlineResponse20048NutritionCaloriesConfidenceRange95Percent,
-
-    /**
-     * The InlineResponse20048Recipes model constructor.
-     * @property {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20048Recipes}
-     */
-    InlineResponse20048Recipes,
-
-    /**
      * The InlineResponse20049 model constructor.
      * @property {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20049}
      */
     InlineResponse20049,
+
+    /**
+     * The InlineResponse20049Category model constructor.
+     * @property {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20049Category}
+     */
+    InlineResponse20049Category,
+
+    /**
+     * The InlineResponse20049Nutrition model constructor.
+     * @property {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20049Nutrition}
+     */
+    InlineResponse20049Nutrition,
+
+    /**
+     * The InlineResponse20049NutritionCalories model constructor.
+     * @property {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20049NutritionCalories}
+     */
+    InlineResponse20049NutritionCalories,
+
+    /**
+     * The InlineResponse20049NutritionCaloriesConfidenceRange95Percent model constructor.
+     * @property {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20049NutritionCaloriesConfidenceRange95Percent}
+     */
+    InlineResponse20049NutritionCaloriesConfidenceRange95Percent,
+
+    /**
+     * The InlineResponse20049Recipes model constructor.
+     * @property {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20049Recipes}
+     */
+    InlineResponse20049Recipes,
 
     /**
      * The InlineResponse2005 model constructor.
@@ -831,34 +860,34 @@ export {
     InlineResponse20052,
 
     /**
-     * The InlineResponse20052Results model constructor.
-     * @property {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20052Results}
-     */
-    InlineResponse20052Results,
-
-    /**
-     * The InlineResponse20052SearchResults model constructor.
-     * @property {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20052SearchResults}
-     */
-    InlineResponse20052SearchResults,
-
-    /**
      * The InlineResponse20053 model constructor.
      * @property {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20053}
      */
     InlineResponse20053,
 
     /**
-     * The InlineResponse20053Videos model constructor.
-     * @property {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20053Videos}
+     * The InlineResponse20053Results model constructor.
+     * @property {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20053Results}
      */
-    InlineResponse20053Videos,
+    InlineResponse20053Results,
+
+    /**
+     * The InlineResponse20053SearchResults model constructor.
+     * @property {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20053SearchResults}
+     */
+    InlineResponse20053SearchResults,
 
     /**
      * The InlineResponse20054 model constructor.
      * @property {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20054}
      */
     InlineResponse20054,
+
+    /**
+     * The InlineResponse20054Videos model constructor.
+     * @property {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20054Videos}
+     */
+    InlineResponse20054Videos,
 
     /**
      * The InlineResponse20055 model constructor.
@@ -873,10 +902,16 @@ export {
     InlineResponse20056,
 
     /**
-     * The InlineResponse20056Suggests model constructor.
-     * @property {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20056Suggests}
+     * The InlineResponse20057 model constructor.
+     * @property {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20057}
      */
-    InlineResponse20056Suggests,
+    InlineResponse20057,
+
+    /**
+     * The InlineResponse20057Suggests model constructor.
+     * @property {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20057Suggests}
+     */
+    InlineResponse20057Suggests,
 
     /**
      * The InlineResponse2006 model constructor.

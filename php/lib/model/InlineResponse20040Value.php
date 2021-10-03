@@ -57,7 +57,8 @@ class InlineResponse20040Value implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'float',
+        'id' => 'int',
+        'servings' => 'float',
         'title' => 'string',
         'image_type' => 'string'
     ];
@@ -69,6 +70,7 @@ class InlineResponse20040Value implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'id' => null,
+        'servings' => null,
         'title' => null,
         'image_type' => null
     ];
@@ -101,6 +103,7 @@ class InlineResponse20040Value implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'id' => 'id',
+        'servings' => 'servings',
         'title' => 'title',
         'image_type' => 'imageType'
     ];
@@ -112,6 +115,7 @@ class InlineResponse20040Value implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'id' => 'setId',
+        'servings' => 'setServings',
         'title' => 'setTitle',
         'image_type' => 'setImageType'
     ];
@@ -123,6 +127,7 @@ class InlineResponse20040Value implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'id' => 'getId',
+        'servings' => 'getServings',
         'title' => 'getTitle',
         'image_type' => 'getImageType'
     ];
@@ -188,6 +193,7 @@ class InlineResponse20040Value implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['servings'] = isset($data['servings']) ? $data['servings'] : null;
         $this->container['title'] = isset($data['title']) ? $data['title'] : null;
         $this->container['image_type'] = isset($data['image_type']) ? $data['image_type'] : null;
     }
@@ -201,20 +207,11 @@ class InlineResponse20040Value implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
-        if ($this->container['title'] === null) {
-            $invalidProperties[] = "'title' can't be null";
-        }
-        if ((mb_strlen($this->container['title']) < 1)) {
+        if (!is_null($this->container['title']) && (mb_strlen($this->container['title']) < 1)) {
             $invalidProperties[] = "invalid value for 'title', the character length must be bigger than or equal to 1.";
         }
 
-        if ($this->container['image_type'] === null) {
-            $invalidProperties[] = "'image_type' can't be null";
-        }
-        if ((mb_strlen($this->container['image_type']) < 1)) {
+        if (!is_null($this->container['image_type']) && (mb_strlen($this->container['image_type']) < 1)) {
             $invalidProperties[] = "invalid value for 'image_type', the character length must be bigger than or equal to 1.";
         }
 
@@ -236,7 +233,7 @@ class InlineResponse20040Value implements ModelInterface, ArrayAccess
     /**
      * Gets id
      *
-     * @return float
+     * @return int|null
      */
     public function getId()
     {
@@ -246,7 +243,7 @@ class InlineResponse20040Value implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param float $id id
+     * @param int|null $id id
      *
      * @return $this
      */
@@ -258,9 +255,33 @@ class InlineResponse20040Value implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets servings
+     *
+     * @return float|null
+     */
+    public function getServings()
+    {
+        return $this->container['servings'];
+    }
+
+    /**
+     * Sets servings
+     *
+     * @param float|null $servings servings
+     *
+     * @return $this
+     */
+    public function setServings($servings)
+    {
+        $this->container['servings'] = $servings;
+
+        return $this;
+    }
+
+    /**
      * Gets title
      *
-     * @return string
+     * @return string|null
      */
     public function getTitle()
     {
@@ -270,14 +291,14 @@ class InlineResponse20040Value implements ModelInterface, ArrayAccess
     /**
      * Sets title
      *
-     * @param string $title title
+     * @param string|null $title title
      *
      * @return $this
      */
     public function setTitle($title)
     {
 
-        if ((mb_strlen($title) < 1)) {
+        if (!is_null($title) && (mb_strlen($title) < 1)) {
             throw new \InvalidArgumentException('invalid length for $title when calling InlineResponse20040Value., must be bigger than or equal to 1.');
         }
 
@@ -289,7 +310,7 @@ class InlineResponse20040Value implements ModelInterface, ArrayAccess
     /**
      * Gets image_type
      *
-     * @return string
+     * @return string|null
      */
     public function getImageType()
     {
@@ -299,14 +320,14 @@ class InlineResponse20040Value implements ModelInterface, ArrayAccess
     /**
      * Sets image_type
      *
-     * @param string $image_type image_type
+     * @param string|null $image_type image_type
      *
      * @return $this
      */
     public function setImageType($image_type)
     {
 
-        if ((mb_strlen($image_type) < 1)) {
+        if (!is_null($image_type) && (mb_strlen($image_type) < 1)) {
             throw new \InvalidArgumentException('invalid length for $image_type when calling InlineResponse20040Value., must be bigger than or equal to 1.');
         }
 

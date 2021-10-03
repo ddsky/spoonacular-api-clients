@@ -11,7 +11,8 @@
 package spoonacular
 
 type InlineResponse20040Value struct {
-	Id float32 `json:"id"`
-	Title string `json:"title"`
-	ImageType string `json:"imageType"`
+	Id int32 `json:"id,omitempty"`
+	Servings float32 `json:"servings,omitempty"`
+	Title string `json:"title,omitempty"`
+	ImageType string `json:"imageType,omitempty"`
 }

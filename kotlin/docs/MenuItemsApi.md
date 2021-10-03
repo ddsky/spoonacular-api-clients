@@ -266,7 +266,7 @@ Name | Type | Description  | Notes
 
 <a name="searchMenuItems"></a>
 # **searchMenuItems**
-> InlineResponse20035 searchMenuItems(query, minCalories, maxCalories, minCarbs, maxCarbs, minProtein, maxProtein, minFat, maxFat, offset, number)
+> InlineResponse20035 searchMenuItems(query, minCalories, maxCalories, minCarbs, maxCarbs, minProtein, maxProtein, minFat, maxFat, addMenuItemInformation, offset, number)
 
 Search Menu Items
 
@@ -288,10 +288,11 @@ val minProtein : java.math.BigDecimal = 10 // java.math.BigDecimal | The minimum
 val maxProtein : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of protein in grams the menu item can have.
 val minFat : java.math.BigDecimal = 1 // java.math.BigDecimal | The minimum amount of fat in grams the menu item must have.
 val maxFat : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of fat in grams the menu item can have.
+val addMenuItemInformation : kotlin.Boolean = true // kotlin.Boolean | If set to true, you get more information about the menu items returned.
 val offset : kotlin.Int = 56 // kotlin.Int | The number of results to skip (between 0 and 900).
 val number : kotlin.Int = 10 // kotlin.Int | The maximum number of items to return (between 1 and 100). Defaults to 10.
 try {
-    val result : InlineResponse20035 = apiInstance.searchMenuItems(query, minCalories, maxCalories, minCarbs, maxCarbs, minProtein, maxProtein, minFat, maxFat, offset, number)
+    val result : InlineResponse20035 = apiInstance.searchMenuItems(query, minCalories, maxCalories, minCarbs, maxCarbs, minProtein, maxProtein, minFat, maxFat, addMenuItemInformation, offset, number)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling MenuItemsApi#searchMenuItems")
@@ -315,6 +316,7 @@ Name | Type | Description  | Notes
  **maxProtein** | **java.math.BigDecimal**| The maximum amount of protein in grams the menu item can have. | [optional]
  **minFat** | **java.math.BigDecimal**| The minimum amount of fat in grams the menu item must have. | [optional]
  **maxFat** | **java.math.BigDecimal**| The maximum amount of fat in grams the menu item can have. | [optional]
+ **addMenuItemInformation** | **kotlin.Boolean**| If set to true, you get more information about the menu items returned. | [optional] [enum: false, true]
  **offset** | **kotlin.Int**| The number of results to skip (between 0 and 900). | [optional]
  **number** | **kotlin.Int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
 

@@ -32,74 +32,124 @@ class InlineResponse20042(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'username': 'str',
-        'hash': 'str'
+        'aisles': 'list[InlineResponse20042Aisles]',
+        'cost': 'float',
+        'start_date': 'float',
+        'end_date': 'float'
     }
 
     attribute_map = {
-        'username': 'username',
-        'hash': 'hash'
+        'aisles': 'aisles',
+        'cost': 'cost',
+        'start_date': 'startDate',
+        'end_date': 'endDate'
     }
 
-    def __init__(self, username=None, hash=None):  # noqa: E501
+    def __init__(self, aisles=None, cost=None, start_date=None, end_date=None):  # noqa: E501
         """InlineResponse20042 - a model defined in OpenAPI"""  # noqa: E501
 
-        self._username = None
-        self._hash = None
+        self._aisles = None
+        self._cost = None
+        self._start_date = None
+        self._end_date = None
         self.discriminator = None
 
-        self.username = username
-        self.hash = hash
+        self.aisles = aisles
+        self.cost = cost
+        self.start_date = start_date
+        self.end_date = end_date
 
     @property
-    def username(self):
-        """Gets the username of this InlineResponse20042.  # noqa: E501
+    def aisles(self):
+        """Gets the aisles of this InlineResponse20042.  # noqa: E501
 
 
-        :return: The username of this InlineResponse20042.  # noqa: E501
-        :rtype: str
+        :return: The aisles of this InlineResponse20042.  # noqa: E501
+        :rtype: list[InlineResponse20042Aisles]
         """
-        return self._username
+        return self._aisles
 
-    @username.setter
-    def username(self, username):
-        """Sets the username of this InlineResponse20042.
+    @aisles.setter
+    def aisles(self, aisles):
+        """Sets the aisles of this InlineResponse20042.
 
 
-        :param username: The username of this InlineResponse20042.  # noqa: E501
-        :type: str
+        :param aisles: The aisles of this InlineResponse20042.  # noqa: E501
+        :type: list[InlineResponse20042Aisles]
         """
-        if username is None:
-            raise ValueError("Invalid value for `username`, must not be `None`")  # noqa: E501
-        if username is not None and len(username) < 1:
-            raise ValueError("Invalid value for `username`, length must be greater than or equal to `1`")  # noqa: E501
+        if aisles is None:
+            raise ValueError("Invalid value for `aisles`, must not be `None`")  # noqa: E501
 
-        self._username = username
+        self._aisles = aisles
 
     @property
-    def hash(self):
-        """Gets the hash of this InlineResponse20042.  # noqa: E501
+    def cost(self):
+        """Gets the cost of this InlineResponse20042.  # noqa: E501
 
 
-        :return: The hash of this InlineResponse20042.  # noqa: E501
-        :rtype: str
+        :return: The cost of this InlineResponse20042.  # noqa: E501
+        :rtype: float
         """
-        return self._hash
+        return self._cost
 
-    @hash.setter
-    def hash(self, hash):
-        """Sets the hash of this InlineResponse20042.
+    @cost.setter
+    def cost(self, cost):
+        """Sets the cost of this InlineResponse20042.
 
 
-        :param hash: The hash of this InlineResponse20042.  # noqa: E501
-        :type: str
+        :param cost: The cost of this InlineResponse20042.  # noqa: E501
+        :type: float
         """
-        if hash is None:
-            raise ValueError("Invalid value for `hash`, must not be `None`")  # noqa: E501
-        if hash is not None and len(hash) < 1:
-            raise ValueError("Invalid value for `hash`, length must be greater than or equal to `1`")  # noqa: E501
+        if cost is None:
+            raise ValueError("Invalid value for `cost`, must not be `None`")  # noqa: E501
 
-        self._hash = hash
+        self._cost = cost
+
+    @property
+    def start_date(self):
+        """Gets the start_date of this InlineResponse20042.  # noqa: E501
+
+
+        :return: The start_date of this InlineResponse20042.  # noqa: E501
+        :rtype: float
+        """
+        return self._start_date
+
+    @start_date.setter
+    def start_date(self, start_date):
+        """Sets the start_date of this InlineResponse20042.
+
+
+        :param start_date: The start_date of this InlineResponse20042.  # noqa: E501
+        :type: float
+        """
+        if start_date is None:
+            raise ValueError("Invalid value for `start_date`, must not be `None`")  # noqa: E501
+
+        self._start_date = start_date
+
+    @property
+    def end_date(self):
+        """Gets the end_date of this InlineResponse20042.  # noqa: E501
+
+
+        :return: The end_date of this InlineResponse20042.  # noqa: E501
+        :rtype: float
+        """
+        return self._end_date
+
+    @end_date.setter
+    def end_date(self, end_date):
+        """Sets the end_date of this InlineResponse20042.
+
+
+        :param end_date: The end_date of this InlineResponse20042.  # noqa: E501
+        :type: float
+        """
+        if end_date is None:
+            raise ValueError("Invalid value for `end_date`, must not be `None`")  # noqa: E501
+
+        self._end_date = end_date
 
     def to_dict(self):
         """Returns the model properties as a dict"""

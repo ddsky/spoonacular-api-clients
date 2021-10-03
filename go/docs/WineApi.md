@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 ## GetDishPairingForWine
 
-> InlineResponse20043 GetDishPairingForWine(ctx, wine)
+> InlineResponse20044 GetDishPairingForWine(ctx, wine)
 Dish Pairing for Wine
 
 Find a dish that goes well with a given wine.
@@ -28,7 +28,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20043**](inline_response_200_43.md)
+[**InlineResponse20044**](inline_response_200_44.md)
 
 ### Authorization
 
@@ -46,7 +46,7 @@ Name | Type | Description  | Notes
 
 ## GetWineDescription
 
-> InlineResponse20045 GetWineDescription(ctx, wine)
+> InlineResponse20046 GetWineDescription(ctx, wine)
 Wine Description
 
 Get a simple description of a certain wine, e.g. \"malbec\", \"riesling\", or \"merlot\".
@@ -61,7 +61,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20045**](inline_response_200_45.md)
+[**InlineResponse20046**](inline_response_200_46.md)
 
 ### Authorization
 
@@ -79,7 +79,7 @@ Name | Type | Description  | Notes
 
 ## GetWinePairing
 
-> InlineResponse20044 GetWinePairing(ctx, food, optional)
+> InlineResponse20045 GetWinePairing(ctx, food, optional)
 Wine Pairing
 
 Find a wine that goes well with a food. Food can be a dish name (\"steak\"), an ingredient name (\"salmon\"), or a cuisine (\"italian\").
@@ -105,7 +105,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20044**](inline_response_200_44.md)
+[**InlineResponse20045**](inline_response_200_45.md)
 
 ### Authorization
 
@@ -123,7 +123,7 @@ Name | Type | Description  | Notes
 
 ## GetWineRecommendation
 
-> InlineResponse20046 GetWineRecommendation(ctx, wine, optional)
+> InlineResponse20047 GetWineRecommendation(ctx, wine, optional)
 Wine Recommendation
 
 Get a specific wine recommendation (concrete product) for a given wine type, e.g. \"merlot\".
@@ -151,7 +151,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20046**](inline_response_200_46.md)
+[**InlineResponse20047**](inline_response_200_47.md)
 
 ### Authorization
 

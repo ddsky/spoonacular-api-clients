@@ -677,6 +677,8 @@ NSInteger kOAIProductsApiMissingParamErrorCode = 234513;
 ///
 ///  @param maxFat The maximum amount of fat in grams the product can have. (optional)
 ///
+///  @param addProductInformation If set to true, you get more information about the products returned. (optional)
+///
 ///  @param offset The number of results to skip (between 0 and 900). (optional)
 ///
 ///  @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to @10)
@@ -692,6 +694,7 @@ NSInteger kOAIProductsApiMissingParamErrorCode = 234513;
     maxProtein: (NSNumber*) maxProtein
     minFat: (NSNumber*) minFat
     maxFat: (NSNumber*) maxFat
+    addProductInformation: (NSNumber*) addProductInformation
     offset: (NSNumber*) offset
     number: (NSNumber*) number
     completionHandler: (void (^)(OAIInlineResponse20027* output, NSError* error)) handler {
@@ -726,6 +729,9 @@ NSInteger kOAIProductsApiMissingParamErrorCode = 234513;
     }
     if (maxFat != nil) {
         queryParams[@"maxFat"] = maxFat;
+    }
+    if (addProductInformation != nil) {
+        queryParams[@"addProductInformation"] = [addProductInformation isEqual:@(YES)] ? @"true" : @"false";
     }
     if (offset != nil) {
         queryParams[@"offset"] = offset;

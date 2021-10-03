@@ -248,6 +248,7 @@ Name | Type | Description  | Notes
  **maxProtein** | **optional.Float32**| The maximum amount of protein in grams the menu item can have. | 
  **minFat** | **optional.Float32**| The minimum amount of fat in grams the menu item must have. | 
  **maxFat** | **optional.Float32**| The maximum amount of fat in grams the menu item can have. | 
+ **addMenuItemInformation** | **optional.Bool**| If set to true, you get more information about the menu items returned. | 
  **offset** | **optional.Int32**| The number of results to skip (between 0 and 900). | 
  **number** | **optional.Int32**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [default to 10]
 

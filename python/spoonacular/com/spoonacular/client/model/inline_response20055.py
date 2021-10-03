@@ -32,72 +32,45 @@ class InlineResponse20055(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'answer_text': 'str',
-        'media': 'list[object]'
+        'text': 'str'
     }
 
     attribute_map = {
-        'answer_text': 'answerText',
-        'media': 'media'
+        'text': 'text'
     }
 
-    def __init__(self, answer_text=None, media=None):  # noqa: E501
+    def __init__(self, text=None):  # noqa: E501
         """InlineResponse20055 - a model defined in OpenAPI"""  # noqa: E501
 
-        self._answer_text = None
-        self._media = None
+        self._text = None
         self.discriminator = None
 
-        self.answer_text = answer_text
-        self.media = media
+        self.text = text
 
     @property
-    def answer_text(self):
-        """Gets the answer_text of this InlineResponse20055.  # noqa: E501
+    def text(self):
+        """Gets the text of this InlineResponse20055.  # noqa: E501
 
 
-        :return: The answer_text of this InlineResponse20055.  # noqa: E501
+        :return: The text of this InlineResponse20055.  # noqa: E501
         :rtype: str
         """
-        return self._answer_text
+        return self._text
 
-    @answer_text.setter
-    def answer_text(self, answer_text):
-        """Sets the answer_text of this InlineResponse20055.
+    @text.setter
+    def text(self, text):
+        """Sets the text of this InlineResponse20055.
 
 
-        :param answer_text: The answer_text of this InlineResponse20055.  # noqa: E501
+        :param text: The text of this InlineResponse20055.  # noqa: E501
         :type: str
         """
-        if answer_text is None:
-            raise ValueError("Invalid value for `answer_text`, must not be `None`")  # noqa: E501
-        if answer_text is not None and len(answer_text) < 1:
-            raise ValueError("Invalid value for `answer_text`, length must be greater than or equal to `1`")  # noqa: E501
+        if text is None:
+            raise ValueError("Invalid value for `text`, must not be `None`")  # noqa: E501
+        if text is not None and len(text) < 1:
+            raise ValueError("Invalid value for `text`, length must be greater than or equal to `1`")  # noqa: E501
 
-        self._answer_text = answer_text
-
-    @property
-    def media(self):
-        """Gets the media of this InlineResponse20055.  # noqa: E501
-
-
-        :return: The media of this InlineResponse20055.  # noqa: E501
-        :rtype: list[object]
-        """
-        return self._media
-
-    @media.setter
-    def media(self, media):
-        """Sets the media of this InlineResponse20055.
-
-
-        :param media: The media of this InlineResponse20055.  # noqa: E501
-        :type: list[object]
-        """
-        if media is None:
-            raise ValueError("Invalid value for `media`, must not be `None`")  # noqa: E501
-
-        self._media = media
+        self._text = text
 
     def to_dict(self):
         """Returns the model properties as a dict"""

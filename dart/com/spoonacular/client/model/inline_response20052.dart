@@ -2,63 +2,54 @@ part of openapi.api;
 
 class InlineResponse20052 {
   
-  String query = null;
+  List<Object> articles = [];
   
-  int totalResults = null;
+  List<Object> grocery Products = [];
   
-  int limit = null;
+  List<Object> menu Items = [];
   
-  int offset = null;
-  
-  List<InlineResponse20052SearchResults> searchResults = [];
+  List<Object> recipes = [];
   InlineResponse20052();
 
   @override
   String toString() {
-    return 'InlineResponse20052[query=$query, totalResults=$totalResults, limit=$limit, offset=$offset, searchResults=$searchResults, ]';
+    return 'InlineResponse20052[articles=$articles, grocery Products=$grocery Products, menu Items=$menu Items, recipes=$recipes, ]';
   }
 
   InlineResponse20052.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    if (json['query'] == null) {
-      query = null;
+    if (json['Articles'] == null) {
+      articles = null;
     } else {
-          query = json['query'];
+      articles = Object.listFromJson(json['Articles']);
     }
-    if (json['totalResults'] == null) {
-      totalResults = null;
+    if (json['Grocery Products'] == null) {
+      grocery Products = null;
     } else {
-          totalResults = json['totalResults'];
+      grocery Products = Object.listFromJson(json['Grocery Products']);
     }
-    if (json['limit'] == null) {
-      limit = null;
+    if (json['Menu Items'] == null) {
+      menu Items = null;
     } else {
-          limit = json['limit'];
+      menu Items = Object.listFromJson(json['Menu Items']);
     }
-    if (json['offset'] == null) {
-      offset = null;
+    if (json['Recipes'] == null) {
+      recipes = null;
     } else {
-          offset = json['offset'];
-    }
-    if (json['searchResults'] == null) {
-      searchResults = null;
-    } else {
-      searchResults = InlineResponse20052SearchResults.listFromJson(json['searchResults']);
+      recipes = Object.listFromJson(json['Recipes']);
     }
   }
 
   Map<String, dynamic> toJson() {
     Map <String, dynamic> json = {};
-    if (query != null)
-      json['query'] = query;
-    if (totalResults != null)
-      json['totalResults'] = totalResults;
-    if (limit != null)
-      json['limit'] = limit;
-    if (offset != null)
-      json['offset'] = offset;
-    if (searchResults != null)
-      json['searchResults'] = searchResults;
+    if (articles != null)
+      json['Articles'] = articles;
+    if (grocery Products != null)
+      json['Grocery Products'] = grocery Products;
+    if (menu Items != null)
+      json['Menu Items'] = menu Items;
+    if (recipes != null)
+      json['Recipes'] = recipes;
     return json;
   }
 

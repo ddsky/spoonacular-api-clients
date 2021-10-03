@@ -41,12 +41,6 @@ OAIInline_object_6::init() {
     m_username_isSet = false;
     m_username_isValid = false;
     
-    m_start_date_isSet = false;
-    m_start_date_isValid = false;
-    
-    m_end_date_isSet = false;
-    m_end_date_isValid = false;
-    
     m_hash_isSet = false;
     m_hash_isValid = false;
     }
@@ -63,12 +57,6 @@ void
 OAIInline_object_6::fromJsonObject(QJsonObject json) {
     
     m_username_isValid = ::OpenAPI::fromJsonValue(username, json[QString("username")]);
-    
-    
-    m_start_date_isValid = ::OpenAPI::fromJsonValue(start_date, json[QString("start-date")]);
-    
-    
-    m_end_date_isValid = ::OpenAPI::fromJsonValue(end_date, json[QString("end-date")]);
     
     
     m_hash_isValid = ::OpenAPI::fromJsonValue(hash, json[QString("hash")]);
@@ -90,12 +78,6 @@ OAIInline_object_6::asJsonObject() const {
 	if(m_username_isSet){
         obj.insert(QString("username"), ::OpenAPI::toJsonValue(username));
     }
-	if(m_start_date_isSet){
-        obj.insert(QString("start-date"), ::OpenAPI::toJsonValue(start_date));
-    }
-	if(m_end_date_isSet){
-        obj.insert(QString("end-date"), ::OpenAPI::toJsonValue(end_date));
-    }
 	if(m_hash_isSet){
         obj.insert(QString("hash"), ::OpenAPI::toJsonValue(hash));
     }
@@ -115,28 +97,6 @@ OAIInline_object_6::setUsername(const QString &username) {
 
 
 QString
-OAIInline_object_6::getStartDate() const {
-    return start_date;
-}
-void
-OAIInline_object_6::setStartDate(const QString &start_date) {
-    this->start_date = start_date;
-    this->m_start_date_isSet = true;
-}
-
-
-QString
-OAIInline_object_6::getEndDate() const {
-    return end_date;
-}
-void
-OAIInline_object_6::setEndDate(const QString &end_date) {
-    this->end_date = end_date;
-    this->m_end_date_isSet = true;
-}
-
-
-QString
 OAIInline_object_6::getHash() const {
     return hash;
 }
@@ -152,10 +112,6 @@ OAIInline_object_6::isSet() const {
     do{ 
         if(m_username_isSet){ isObjectUpdated = true; break;}
     
-        if(m_start_date_isSet){ isObjectUpdated = true; break;}
-    
-        if(m_end_date_isSet){ isObjectUpdated = true; break;}
-    
         if(m_hash_isSet){ isObjectUpdated = true; break;}
     }while(false);
     return isObjectUpdated;
@@ -164,7 +120,7 @@ OAIInline_object_6::isSet() const {
 bool
 OAIInline_object_6::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_username_isValid && m_start_date_isValid && m_end_date_isValid && m_hash_isValid && true;
+    return m_username_isValid && m_hash_isValid && true;
 }
 
 }

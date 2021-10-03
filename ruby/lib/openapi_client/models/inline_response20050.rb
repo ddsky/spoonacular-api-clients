@@ -14,19 +14,23 @@ require 'date'
 
 module OpenapiClient
   class InlineResponse20050
-    attr_accessor :annotations
+    attr_accessor :answer
+
+    attr_accessor :image
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'annotations' => :'annotations'
+        :'answer' => :'answer',
+        :'image' => :'image'
       }
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'annotations' => :'Array<Object>'
+        :'answer' => :'String',
+        :'image' => :'String'
       }
     end
 
@@ -45,10 +49,12 @@ module OpenapiClient
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'annotations')
-        if (value = attributes[:'annotations']).is_a?(Array)
-          self.annotations = value
-        end
+      if attributes.key?(:'answer')
+        self.answer = attributes[:'answer']
+      end
+
+      if attributes.key?(:'image')
+        self.image = attributes[:'image']
       end
     end
 
@@ -56,8 +62,20 @@ module OpenapiClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @annotations.nil?
-        invalid_properties.push('invalid value for "annotations", annotations cannot be nil.')
+      if @answer.nil?
+        invalid_properties.push('invalid value for "answer", answer cannot be nil.')
+      end
+
+      if @answer.to_s.length < 1
+        invalid_properties.push('invalid value for "answer", the character length must be great than or equal to 1.')
+      end
+
+      if @image.nil?
+        invalid_properties.push('invalid value for "image", image cannot be nil.')
+      end
+
+      if @image.to_s.length < 1
+        invalid_properties.push('invalid value for "image", the character length must be great than or equal to 1.')
       end
 
       invalid_properties
@@ -66,8 +84,39 @@ module OpenapiClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @annotations.nil?
+      return false if @answer.nil?
+      return false if @answer.to_s.length < 1
+      return false if @image.nil?
+      return false if @image.to_s.length < 1
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] answer Value to be assigned
+    def answer=(answer)
+      if answer.nil?
+        fail ArgumentError, 'answer cannot be nil'
+      end
+
+      if answer.to_s.length < 1
+        fail ArgumentError, 'invalid value for "answer", the character length must be great than or equal to 1.'
+      end
+
+      @answer = answer
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] image Value to be assigned
+    def image=(image)
+      if image.nil?
+        fail ArgumentError, 'image cannot be nil'
+      end
+
+      if image.to_s.length < 1
+        fail ArgumentError, 'invalid value for "image", the character length must be great than or equal to 1.'
+      end
+
+      @image = image
     end
 
     # Checks equality by comparing each attribute.
@@ -75,7 +124,8 @@ module OpenapiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          annotations == o.annotations
+          answer == o.answer &&
+          image == o.image
     end
 
     # @see the `==` method
@@ -87,7 +137,7 @@ module OpenapiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [annotations].hash
+      [answer, image].hash
     end
 
     # Builds the object from hash

@@ -12,7 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
-import InlineResponse20053Videos from './InlineResponse20053Videos';
+import InlineResponse20053SearchResults from './InlineResponse20053SearchResults';
 
 /**
  * The InlineResponse20053 model module.
@@ -23,12 +23,15 @@ class InlineResponse20053 {
     /**
      * Constructs a new <code>InlineResponse20053</code>.
      * @alias module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20053
-     * @param videos {Array.<module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20053Videos>} 
+     * @param query {String} 
      * @param totalResults {Number} 
+     * @param limit {Number} 
+     * @param offset {Number} 
+     * @param searchResults {Array.<module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20053SearchResults>} 
      */
-    constructor(videos, totalResults) { 
+    constructor(query, totalResults, limit, offset, searchResults) { 
         
-        InlineResponse20053.initialize(this, videos, totalResults);
+        InlineResponse20053.initialize(this, query, totalResults, limit, offset, searchResults);
     }
 
     /**
@@ -36,9 +39,12 @@ class InlineResponse20053 {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, videos, totalResults) { 
-        obj['videos'] = videos;
+    static initialize(obj, query, totalResults, limit, offset, searchResults) { 
+        obj['query'] = query;
         obj['totalResults'] = totalResults;
+        obj['limit'] = limit;
+        obj['offset'] = offset;
+        obj['searchResults'] = searchResults;
     }
 
     /**
@@ -52,11 +58,20 @@ class InlineResponse20053 {
         if (data) {
             obj = obj || new InlineResponse20053();
 
-            if (data.hasOwnProperty('videos')) {
-                obj['videos'] = ApiClient.convertToType(data['videos'], [InlineResponse20053Videos]);
+            if (data.hasOwnProperty('query')) {
+                obj['query'] = ApiClient.convertToType(data['query'], 'String');
             }
             if (data.hasOwnProperty('totalResults')) {
                 obj['totalResults'] = ApiClient.convertToType(data['totalResults'], 'Number');
+            }
+            if (data.hasOwnProperty('limit')) {
+                obj['limit'] = ApiClient.convertToType(data['limit'], 'Number');
+            }
+            if (data.hasOwnProperty('offset')) {
+                obj['offset'] = ApiClient.convertToType(data['offset'], 'Number');
+            }
+            if (data.hasOwnProperty('searchResults')) {
+                obj['searchResults'] = ApiClient.convertToType(data['searchResults'], [InlineResponse20053SearchResults]);
             }
         }
         return obj;
@@ -66,14 +81,29 @@ class InlineResponse20053 {
 }
 
 /**
- * @member {Array.<module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20053Videos>} videos
+ * @member {String} query
  */
-InlineResponse20053.prototype['videos'] = undefined;
+InlineResponse20053.prototype['query'] = undefined;
 
 /**
  * @member {Number} totalResults
  */
 InlineResponse20053.prototype['totalResults'] = undefined;
+
+/**
+ * @member {Number} limit
+ */
+InlineResponse20053.prototype['limit'] = undefined;
+
+/**
+ * @member {Number} offset
+ */
+InlineResponse20053.prototype['offset'] = undefined;
+
+/**
+ * @member {Array.<module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20053SearchResults>} searchResults
+ */
+InlineResponse20053.prototype['searchResults'] = undefined;
 
 
 

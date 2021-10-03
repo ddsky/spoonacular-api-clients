@@ -5,13 +5,22 @@
 -export_type([spoonacular_inline_response_200_53/0]).
 
 -type spoonacular_inline_response_200_53() ::
-    #{ 'videos' := list(),
-       'totalResults' := integer()
+    #{ 'query' := binary(),
+       'totalResults' := integer(),
+       'limit' := integer(),
+       'offset' := integer(),
+       'searchResults' := list()
      }.
 
-encode(#{ 'videos' := Videos,
-          'totalResults' := TotalResults
+encode(#{ 'query' := Query,
+          'totalResults' := TotalResults,
+          'limit' := Limit,
+          'offset' := Offset,
+          'searchResults' := SearchResults
         }) ->
-    #{ 'videos' => Videos,
-       'totalResults' => TotalResults
+    #{ 'query' => Query,
+       'totalResults' => TotalResults,
+       'limit' => Limit,
+       'offset' => Offset,
+       'searchResults' => SearchResults
      }.

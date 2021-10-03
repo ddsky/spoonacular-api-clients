@@ -11,5 +11,6 @@
 package spoonacular
 
 type InlineResponse20054 struct {
-	Text string `json:"text"`
+	Videos []InlineResponse20054Videos `json:"videos"`
+	TotalResults int32 `json:"totalResults"`
 }

@@ -12,7 +12,6 @@
  */
 
 import ApiClient from '../ApiClient';
-import InlineResponse20046RecommendedWines from './InlineResponse20046RecommendedWines';
 
 /**
  * The InlineResponse20046 model module.
@@ -23,12 +22,11 @@ class InlineResponse20046 {
     /**
      * Constructs a new <code>InlineResponse20046</code>.
      * @alias module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20046
-     * @param recommendedWines {Array.<module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20046RecommendedWines>} 
-     * @param totalFound {Number} 
+     * @param wineDescription {String} 
      */
-    constructor(recommendedWines, totalFound) { 
+    constructor(wineDescription) { 
         
-        InlineResponse20046.initialize(this, recommendedWines, totalFound);
+        InlineResponse20046.initialize(this, wineDescription);
     }
 
     /**
@@ -36,9 +34,8 @@ class InlineResponse20046 {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, recommendedWines, totalFound) { 
-        obj['recommendedWines'] = recommendedWines;
-        obj['totalFound'] = totalFound;
+    static initialize(obj, wineDescription) { 
+        obj['wineDescription'] = wineDescription;
     }
 
     /**
@@ -52,11 +49,8 @@ class InlineResponse20046 {
         if (data) {
             obj = obj || new InlineResponse20046();
 
-            if (data.hasOwnProperty('recommendedWines')) {
-                obj['recommendedWines'] = ApiClient.convertToType(data['recommendedWines'], [InlineResponse20046RecommendedWines]);
-            }
-            if (data.hasOwnProperty('totalFound')) {
-                obj['totalFound'] = ApiClient.convertToType(data['totalFound'], 'Number');
+            if (data.hasOwnProperty('wineDescription')) {
+                obj['wineDescription'] = ApiClient.convertToType(data['wineDescription'], 'String');
             }
         }
         return obj;
@@ -66,14 +60,9 @@ class InlineResponse20046 {
 }
 
 /**
- * @member {Array.<module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20046RecommendedWines>} recommendedWines
+ * @member {String} wineDescription
  */
-InlineResponse20046.prototype['recommendedWines'] = undefined;
-
-/**
- * @member {Number} totalFound
- */
-InlineResponse20046.prototype['totalFound'] = undefined;
+InlineResponse20046.prototype['wineDescription'] = undefined;
 
 
 

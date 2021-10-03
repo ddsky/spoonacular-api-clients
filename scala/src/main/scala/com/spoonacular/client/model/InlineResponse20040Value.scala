@@ -10,12 +10,14 @@ import java.math.BigDecimal
 /**
  * 
  * @param id 
+ * @param servings 
  * @param title 
  * @param imageType 
  */
-case class InlineResponse20040Value(id: BigDecimal,
-                title: String,
-                imageType: String
+case class InlineResponse20040Value(id: Option[Int],
+                servings: Option[BigDecimal],
+                title: Option[String],
+                imageType: Option[String]
                 )
 
 object InlineResponse20040Value {

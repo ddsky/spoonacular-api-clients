@@ -4,8 +4,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**category** | **kotlin.String** |  | 
-**probability** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  | 
+**recommendedWines** | [**kotlin.Array&lt;InlineResponse20047RecommendedWines&gt;**](InlineResponse20047RecommendedWines.md) |  | 
+**totalFound** | **kotlin.Int** |  | 
 
 
 

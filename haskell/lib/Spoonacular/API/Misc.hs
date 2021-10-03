@@ -69,7 +69,7 @@ import qualified Prelude as P
 -- AuthMethod: 'AuthApiKeyApiKeyScheme'
 -- 
 detectFoodInText 
-  :: SpoonacularRequest DetectFoodInText MimeNoContent InlineResponse20050 MimeJSON
+  :: SpoonacularRequest DetectFoodInText MimeNoContent InlineResponse20051 MimeJSON
 detectFoodInText =
   _mkRequest "POST" ["/food/detect"]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
@@ -99,7 +99,7 @@ instance Produces DetectFoodInText MimeJSON
 -- AuthMethod: 'AuthApiKeyApiKeyScheme'
 -- 
 getARandomFoodJoke 
-  :: SpoonacularRequest GetARandomFoodJoke MimeNoContent InlineResponse20054 MimeJSON
+  :: SpoonacularRequest GetARandomFoodJoke MimeNoContent InlineResponse20055 MimeJSON
 getARandomFoodJoke =
   _mkRequest "GET" ["/food/jokes/random"]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
@@ -121,7 +121,7 @@ instance Produces GetARandomFoodJoke MimeJSON
 -- 
 getConversationSuggests 
   :: Query -- ^ "query" -  A (partial) query from the user. The endpoint will return if it matches topics it can talk about.
-  -> SpoonacularRequest GetConversationSuggests MimeNoContent InlineResponse20056 MimeJSON
+  -> SpoonacularRequest GetConversationSuggests MimeNoContent InlineResponse20057 MimeJSON
 getConversationSuggests (Query query) =
   _mkRequest "GET" ["/food/converse/suggest"]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
@@ -148,7 +148,7 @@ instance Produces GetConversationSuggests MimeJSON
 -- AuthMethod: 'AuthApiKeyApiKeyScheme'
 -- 
 getRandomFoodTrivia 
-  :: SpoonacularRequest GetRandomFoodTrivia MimeNoContent InlineResponse20054 MimeJSON
+  :: SpoonacularRequest GetRandomFoodTrivia MimeNoContent InlineResponse20055 MimeJSON
 getRandomFoodTrivia =
   _mkRequest "GET" ["/food/trivia/random"]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
@@ -170,7 +170,7 @@ instance Produces GetRandomFoodTrivia MimeJSON
 -- 
 imageAnalysisByURL 
   :: ImageUrl -- ^ "imageUrl" -  The URL of the image to be analyzed.
-  -> SpoonacularRequest ImageAnalysisByURL MimeNoContent InlineResponse20048 MimeJSON
+  -> SpoonacularRequest ImageAnalysisByURL MimeNoContent InlineResponse20049 MimeJSON
 imageAnalysisByURL (ImageUrl imageUrl) =
   _mkRequest "GET" ["/food/images/analyze"]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
@@ -193,7 +193,7 @@ instance Produces ImageAnalysisByURL MimeJSON
 -- 
 imageClassificationByURL 
   :: ImageUrl -- ^ "imageUrl" -  The URL of the image to be classified.
-  -> SpoonacularRequest ImageClassificationByURL MimeNoContent InlineResponse20047 MimeJSON
+  -> SpoonacularRequest ImageClassificationByURL MimeNoContent InlineResponse20048 MimeJSON
 imageClassificationByURL (ImageUrl imageUrl) =
   _mkRequest "GET" ["/food/images/classify"]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
@@ -216,7 +216,7 @@ instance Produces ImageClassificationByURL MimeJSON
 -- 
 searchAllFood 
   :: Query -- ^ "query" -  The search query.
-  -> SpoonacularRequest SearchAllFood MimeNoContent InlineResponse20052 MimeJSON
+  -> SpoonacularRequest SearchAllFood MimeNoContent InlineResponse20053 MimeJSON
 searchAllFood (Query query) =
   _mkRequest "GET" ["/food/search"]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
@@ -288,7 +288,7 @@ instance Produces SearchCustomFoods MimeJSON
 -- AuthMethod: 'AuthApiKeyApiKeyScheme'
 -- 
 searchFoodVideos 
-  :: SpoonacularRequest SearchFoodVideos MimeNoContent InlineResponse20053 MimeJSON
+  :: SpoonacularRequest SearchFoodVideos MimeNoContent InlineResponse20054 MimeJSON
 searchFoodVideos =
   _mkRequest "GET" ["/food/videos/search"]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
@@ -360,7 +360,7 @@ instance Produces SearchFoodVideos MimeJSON
 -- 
 searchSiteContent 
   :: Query -- ^ "query" -  The query to search for. You can also use partial queries such as \"spagh\" to already find spaghetti recipes, articles, grocery products, and other content.
-  -> SpoonacularRequest SearchSiteContent MimeNoContent InlineResponse20051 MimeJSON
+  -> SpoonacularRequest SearchSiteContent MimeNoContent InlineResponse20052 MimeJSON
 searchSiteContent (Query query) =
   _mkRequest "GET" ["/food/site/search"]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
@@ -383,7 +383,7 @@ instance Produces SearchSiteContent MimeJSON
 -- 
 talkToChatbot 
   :: ParamText -- ^ "text" -  The request / question / answer from the user to the chatbot.
-  -> SpoonacularRequest TalkToChatbot MimeNoContent InlineResponse20055 MimeJSON
+  -> SpoonacularRequest TalkToChatbot MimeNoContent InlineResponse20056 MimeJSON
 talkToChatbot (ParamText text) =
   _mkRequest "GET" ["/food/converse"]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)

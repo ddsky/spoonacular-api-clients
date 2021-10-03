@@ -16,15 +16,15 @@ package com.spoonacular;
 import com.spoonacular.client.ApiException;
 import java.math.BigDecimal;
 import com.spoonacular.client.model.InlineResponse20029;
-import com.spoonacular.client.model.InlineResponse20047;
 import com.spoonacular.client.model.InlineResponse20048;
-import com.spoonacular.client.model.InlineResponse20050;
+import com.spoonacular.client.model.InlineResponse20049;
 import com.spoonacular.client.model.InlineResponse20051;
 import com.spoonacular.client.model.InlineResponse20052;
 import com.spoonacular.client.model.InlineResponse20053;
 import com.spoonacular.client.model.InlineResponse20054;
 import com.spoonacular.client.model.InlineResponse20055;
 import com.spoonacular.client.model.InlineResponse20056;
+import com.spoonacular.client.model.InlineResponse20057;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -53,7 +53,7 @@ public class MiscApiTest {
     @Test
     public void detectFoodInTextTest() throws ApiException {
         String contentType = null;
-        InlineResponse20050 response = api.detectFoodInText(contentType);
+        InlineResponse20051 response = api.detectFoodInText(contentType);
 
         // TODO: test validations
     }
@@ -68,7 +68,7 @@ public class MiscApiTest {
      */
     @Test
     public void getARandomFoodJokeTest() throws ApiException {
-        InlineResponse20054 response = api.getARandomFoodJoke();
+        InlineResponse20055 response = api.getARandomFoodJoke();
 
         // TODO: test validations
     }
@@ -85,7 +85,7 @@ public class MiscApiTest {
     public void getConversationSuggestsTest() throws ApiException {
         String query = null;
         BigDecimal number = null;
-        InlineResponse20056 response = api.getConversationSuggests(query, number);
+        InlineResponse20057 response = api.getConversationSuggests(query, number);
 
         // TODO: test validations
     }
@@ -100,7 +100,7 @@ public class MiscApiTest {
      */
     @Test
     public void getRandomFoodTriviaTest() throws ApiException {
-        InlineResponse20054 response = api.getRandomFoodTrivia();
+        InlineResponse20055 response = api.getRandomFoodTrivia();
 
         // TODO: test validations
     }
@@ -116,7 +116,7 @@ public class MiscApiTest {
     @Test
     public void imageAnalysisByURLTest() throws ApiException {
         String imageUrl = null;
-        InlineResponse20048 response = api.imageAnalysisByURL(imageUrl);
+        InlineResponse20049 response = api.imageAnalysisByURL(imageUrl);
 
         // TODO: test validations
     }
@@ -132,7 +132,7 @@ public class MiscApiTest {
     @Test
     public void imageClassificationByURLTest() throws ApiException {
         String imageUrl = null;
-        InlineResponse20047 response = api.imageClassificationByURL(imageUrl);
+        InlineResponse20048 response = api.imageClassificationByURL(imageUrl);
 
         // TODO: test validations
     }
@@ -150,7 +150,7 @@ public class MiscApiTest {
         String query = null;
         Integer offset = null;
         Integer number = null;
-        InlineResponse20052 response = api.searchAllFood(query, offset, number);
+        InlineResponse20053 response = api.searchAllFood(query, offset, number);
 
         // TODO: test validations
     }
@@ -195,7 +195,7 @@ public class MiscApiTest {
         BigDecimal maxLength = null;
         Integer offset = null;
         Integer number = null;
-        InlineResponse20053 response = api.searchFoodVideos(query, type, cuisine, diet, includeIngredients, excludeIngredients, minLength, maxLength, offset, number);
+        InlineResponse20054 response = api.searchFoodVideos(query, type, cuisine, diet, includeIngredients, excludeIngredients, minLength, maxLength, offset, number);
 
         // TODO: test validations
     }
@@ -211,7 +211,7 @@ public class MiscApiTest {
     @Test
     public void searchSiteContentTest() throws ApiException {
         String query = null;
-        InlineResponse20051 response = api.searchSiteContent(query);
+        InlineResponse20052 response = api.searchSiteContent(query);
 
         // TODO: test validations
     }
@@ -228,7 +228,7 @@ public class MiscApiTest {
     public void talkToChatbotTest() throws ApiException {
         String text = null;
         String contextId = null;
-        InlineResponse20055 response = api.talkToChatbot(text, contextId);
+        InlineResponse20056 response = api.talkToChatbot(text, contextId);
 
         // TODO: test validations
     }

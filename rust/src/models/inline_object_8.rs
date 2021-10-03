@@ -17,19 +17,23 @@ pub struct InlineObject8 {
     /// The username.
     #[serde(rename = "username")]
     pub username: String,
-    /// The shopping list item id.
-    #[serde(rename = "id")]
-    pub id: f32,
+    /// The start date in the format yyyy-mm-dd.
+    #[serde(rename = "start-date")]
+    pub start_date: String,
+    /// The end date in the format yyyy-mm-dd.
+    #[serde(rename = "end-date")]
+    pub end_date: String,
     /// The private hash for the username.
     #[serde(rename = "hash")]
     pub hash: String,
 }
 
 impl InlineObject8 {
-    pub fn new(username: String, id: f32, hash: String) -> InlineObject8 {
+    pub fn new(username: String, start_date: String, end_date: String, hash: String) -> InlineObject8 {
         InlineObject8 {
             username: username,
-            id: id,
+            start_date: start_date,
+            end_date: end_date,
             hash: hash,
         }
     }

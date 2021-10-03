@@ -100,12 +100,14 @@ Class | Method | HTTP request | Description
 *OpenapiClient::IngredientsApi* | [**ingredients_by_id_image**](docs/IngredientsApi.md#ingredients_by_id_image) | **GET** /recipes/{id}/ingredientWidget.png | Ingredients by ID Image
 *OpenapiClient::IngredientsApi* | [**map_ingredients_to_grocery_products**](docs/IngredientsApi.md#map_ingredients_to_grocery_products) | **POST** /food/ingredients/map | Map Ingredients to Grocery Products
 *OpenapiClient::IngredientsApi* | [**visualize_ingredients**](docs/IngredientsApi.md#visualize_ingredients) | **POST** /recipes/visualizeIngredients | Ingredients Widget
+*OpenapiClient::MealPlanningApi* | [**add_meal_plan_template**](docs/MealPlanningApi.md#add_meal_plan_template) | **POST** /mealplanner/{username}/templates | Add Meal Plan Template
 *OpenapiClient::MealPlanningApi* | [**add_to_meal_plan**](docs/MealPlanningApi.md#add_to_meal_plan) | **POST** /mealplanner/{username}/items | Add to Meal Plan
 *OpenapiClient::MealPlanningApi* | [**add_to_shopping_list**](docs/MealPlanningApi.md#add_to_shopping_list) | **POST** /mealplanner/{username}/shopping-list/items | Add to Shopping List
 *OpenapiClient::MealPlanningApi* | [**clear_meal_plan_day**](docs/MealPlanningApi.md#clear_meal_plan_day) | **DELETE** /mealplanner/{username}/day/{date} | Clear Meal Plan Day
 *OpenapiClient::MealPlanningApi* | [**connect_user**](docs/MealPlanningApi.md#connect_user) | **POST** /users/connect | Connect User
 *OpenapiClient::MealPlanningApi* | [**delete_from_meal_plan**](docs/MealPlanningApi.md#delete_from_meal_plan) | **DELETE** /mealplanner/{username}/items/{id} | Delete from Meal Plan
 *OpenapiClient::MealPlanningApi* | [**delete_from_shopping_list**](docs/MealPlanningApi.md#delete_from_shopping_list) | **DELETE** /mealplanner/{username}/shopping-list/items/{id} | Delete from Shopping List
+*OpenapiClient::MealPlanningApi* | [**delete_meal_plan_template**](docs/MealPlanningApi.md#delete_meal_plan_template) | **DELETE** /mealplanner/{username}/templates/{id} | Delete Meal Plan Template
 *OpenapiClient::MealPlanningApi* | [**generate_meal_plan**](docs/MealPlanningApi.md#generate_meal_plan) | **GET** /mealplanner/generate | Generate Meal Plan
 *OpenapiClient::MealPlanningApi* | [**generate_shopping_list**](docs/MealPlanningApi.md#generate_shopping_list) | **POST** /mealplanner/{username}/shopping-list/{start-date}/{end-date} | Generate Shopping List
 *OpenapiClient::MealPlanningApi* | [**get_meal_plan_template**](docs/MealPlanningApi.md#get_meal_plan_template) | **GET** /mealplanner/{username}/templates/{id} | Get Meal Plan Template
@@ -193,6 +195,7 @@ Class | Method | HTTP request | Description
  - [OpenapiClient::FoodIngredientsMapProducts](docs/FoodIngredientsMapProducts.md)
  - [OpenapiClient::InlineObject](docs/InlineObject.md)
  - [OpenapiClient::InlineObject1](docs/InlineObject1.md)
+ - [OpenapiClient::InlineObject10](docs/InlineObject10.md)
  - [OpenapiClient::InlineObject2](docs/InlineObject2.md)
  - [OpenapiClient::InlineObject3](docs/InlineObject3.md)
  - [OpenapiClient::InlineObject4](docs/InlineObject4.md)
@@ -200,6 +203,7 @@ Class | Method | HTTP request | Description
  - [OpenapiClient::InlineObject6](docs/InlineObject6.md)
  - [OpenapiClient::InlineObject7](docs/InlineObject7.md)
  - [OpenapiClient::InlineObject8](docs/InlineObject8.md)
+ - [OpenapiClient::InlineObject9](docs/InlineObject9.md)
  - [OpenapiClient::InlineResponse200](docs/InlineResponse200.md)
  - [OpenapiClient::InlineResponse2001](docs/InlineResponse2001.md)
  - [OpenapiClient::InlineResponse20010](docs/InlineResponse20010.md)
@@ -271,40 +275,43 @@ Class | Method | HTTP request | Description
  - [OpenapiClient::InlineResponse2003WinePairingProductMatches](docs/InlineResponse2003WinePairingProductMatches.md)
  - [OpenapiClient::InlineResponse2004](docs/InlineResponse2004.md)
  - [OpenapiClient::InlineResponse20040](docs/InlineResponse20040.md)
- - [OpenapiClient::InlineResponse20040Days](docs/InlineResponse20040Days.md)
  - [OpenapiClient::InlineResponse20040Items](docs/InlineResponse20040Items.md)
  - [OpenapiClient::InlineResponse20040Value](docs/InlineResponse20040Value.md)
  - [OpenapiClient::InlineResponse20041](docs/InlineResponse20041.md)
- - [OpenapiClient::InlineResponse20041Aisles](docs/InlineResponse20041Aisles.md)
+ - [OpenapiClient::InlineResponse20041Days](docs/InlineResponse20041Days.md)
  - [OpenapiClient::InlineResponse20041Items](docs/InlineResponse20041Items.md)
- - [OpenapiClient::InlineResponse20041Measures](docs/InlineResponse20041Measures.md)
+ - [OpenapiClient::InlineResponse20041Value](docs/InlineResponse20041Value.md)
  - [OpenapiClient::InlineResponse20042](docs/InlineResponse20042.md)
+ - [OpenapiClient::InlineResponse20042Aisles](docs/InlineResponse20042Aisles.md)
+ - [OpenapiClient::InlineResponse20042Items](docs/InlineResponse20042Items.md)
+ - [OpenapiClient::InlineResponse20042Measures](docs/InlineResponse20042Measures.md)
  - [OpenapiClient::InlineResponse20043](docs/InlineResponse20043.md)
  - [OpenapiClient::InlineResponse20044](docs/InlineResponse20044.md)
- - [OpenapiClient::InlineResponse20044ProductMatches](docs/InlineResponse20044ProductMatches.md)
  - [OpenapiClient::InlineResponse20045](docs/InlineResponse20045.md)
+ - [OpenapiClient::InlineResponse20045ProductMatches](docs/InlineResponse20045ProductMatches.md)
  - [OpenapiClient::InlineResponse20046](docs/InlineResponse20046.md)
- - [OpenapiClient::InlineResponse20046RecommendedWines](docs/InlineResponse20046RecommendedWines.md)
  - [OpenapiClient::InlineResponse20047](docs/InlineResponse20047.md)
+ - [OpenapiClient::InlineResponse20047RecommendedWines](docs/InlineResponse20047RecommendedWines.md)
  - [OpenapiClient::InlineResponse20048](docs/InlineResponse20048.md)
- - [OpenapiClient::InlineResponse20048Category](docs/InlineResponse20048Category.md)
- - [OpenapiClient::InlineResponse20048Nutrition](docs/InlineResponse20048Nutrition.md)
- - [OpenapiClient::InlineResponse20048NutritionCalories](docs/InlineResponse20048NutritionCalories.md)
- - [OpenapiClient::InlineResponse20048NutritionCaloriesConfidenceRange95Percent](docs/InlineResponse20048NutritionCaloriesConfidenceRange95Percent.md)
- - [OpenapiClient::InlineResponse20048Recipes](docs/InlineResponse20048Recipes.md)
  - [OpenapiClient::InlineResponse20049](docs/InlineResponse20049.md)
+ - [OpenapiClient::InlineResponse20049Category](docs/InlineResponse20049Category.md)
+ - [OpenapiClient::InlineResponse20049Nutrition](docs/InlineResponse20049Nutrition.md)
+ - [OpenapiClient::InlineResponse20049NutritionCalories](docs/InlineResponse20049NutritionCalories.md)
+ - [OpenapiClient::InlineResponse20049NutritionCaloriesConfidenceRange95Percent](docs/InlineResponse20049NutritionCaloriesConfidenceRange95Percent.md)
+ - [OpenapiClient::InlineResponse20049Recipes](docs/InlineResponse20049Recipes.md)
  - [OpenapiClient::InlineResponse2005](docs/InlineResponse2005.md)
  - [OpenapiClient::InlineResponse20050](docs/InlineResponse20050.md)
  - [OpenapiClient::InlineResponse20051](docs/InlineResponse20051.md)
  - [OpenapiClient::InlineResponse20052](docs/InlineResponse20052.md)
- - [OpenapiClient::InlineResponse20052Results](docs/InlineResponse20052Results.md)
- - [OpenapiClient::InlineResponse20052SearchResults](docs/InlineResponse20052SearchResults.md)
  - [OpenapiClient::InlineResponse20053](docs/InlineResponse20053.md)
- - [OpenapiClient::InlineResponse20053Videos](docs/InlineResponse20053Videos.md)
+ - [OpenapiClient::InlineResponse20053Results](docs/InlineResponse20053Results.md)
+ - [OpenapiClient::InlineResponse20053SearchResults](docs/InlineResponse20053SearchResults.md)
  - [OpenapiClient::InlineResponse20054](docs/InlineResponse20054.md)
+ - [OpenapiClient::InlineResponse20054Videos](docs/InlineResponse20054Videos.md)
  - [OpenapiClient::InlineResponse20055](docs/InlineResponse20055.md)
  - [OpenapiClient::InlineResponse20056](docs/InlineResponse20056.md)
- - [OpenapiClient::InlineResponse20056Suggests](docs/InlineResponse20056Suggests.md)
+ - [OpenapiClient::InlineResponse20057](docs/InlineResponse20057.md)
+ - [OpenapiClient::InlineResponse20057Suggests](docs/InlineResponse20057Suggests.md)
  - [OpenapiClient::InlineResponse2006](docs/InlineResponse2006.md)
  - [OpenapiClient::InlineResponse2006Recipes](docs/InlineResponse2006Recipes.md)
  - [OpenapiClient::InlineResponse2007](docs/InlineResponse2007.md)

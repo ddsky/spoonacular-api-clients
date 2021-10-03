@@ -22,9 +22,8 @@
 #include <QJsonObject>
 
 
-#include "com.spoonacular.client.model\OAIInline_response_200_52_searchResults.h"
+#include "com.spoonacular.client.model\OAIObject.h"
 #include <QList>
-#include <QString>
 
 #include "OAIObject.h"
 #include "OAIEnum.h"
@@ -43,24 +42,20 @@ public:
     void fromJson(QString jsonString) override;
 
     
-    QString getQuery() const;
-    void setQuery(const QString &query);
+    QList<OAIObject> getArticles() const;
+    void setArticles(const QList<OAIObject> &articles);
 
     
-    qint32 getTotalResults() const;
-    void setTotalResults(const qint32 &total_results);
+    QList<OAIObject> getGroceryProducts() const;
+    void setGroceryProducts(const QList<OAIObject> &grocery_products);
 
     
-    qint32 getLimit() const;
-    void setLimit(const qint32 &limit);
+    QList<OAIObject> getMenuItems() const;
+    void setMenuItems(const QList<OAIObject> &menu_items);
 
     
-    qint32 getOffset() const;
-    void setOffset(const qint32 &offset);
-
-    
-    QList<OAIInline_response_200_52_searchResults> getSearchResults() const;
-    void setSearchResults(const QList<OAIInline_response_200_52_searchResults> &search_results);
+    QList<OAIObject> getRecipes() const;
+    void setRecipes(const QList<OAIObject> &recipes);
 
     
     
@@ -70,25 +65,21 @@ public:
 private:
     void init();
     
-    QString query;
-    bool m_query_isSet;
-    bool m_query_isValid;
+    QList<OAIObject> articles;
+    bool m_articles_isSet;
+    bool m_articles_isValid;
     
-    qint32 total_results;
-    bool m_total_results_isSet;
-    bool m_total_results_isValid;
+    QList<OAIObject> grocery_products;
+    bool m_grocery_products_isSet;
+    bool m_grocery_products_isValid;
     
-    qint32 limit;
-    bool m_limit_isSet;
-    bool m_limit_isValid;
+    QList<OAIObject> menu_items;
+    bool m_menu_items_isSet;
+    bool m_menu_items_isValid;
     
-    qint32 offset;
-    bool m_offset_isSet;
-    bool m_offset_isValid;
-    
-    QList<OAIInline_response_200_52_searchResults> search_results;
-    bool m_search_results_isSet;
-    bool m_search_results_isValid;
+    QList<OAIObject> recipes;
+    bool m_recipes_isSet;
+    bool m_recipes_isValid;
     
     };
 

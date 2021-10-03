@@ -14,23 +14,23 @@ require 'date'
 
 module OpenapiClient
   class InlineResponse20043
-    attr_accessor :pairings
+    attr_accessor :username
 
-    attr_accessor :text
+    attr_accessor :hash
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'pairings' => :'pairings',
-        :'text' => :'text'
+        :'username' => :'username',
+        :'hash' => :'hash'
       }
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'pairings' => :'Array<String>',
-        :'text' => :'String'
+        :'username' => :'String',
+        :'hash' => :'String'
       }
     end
 
@@ -49,14 +49,12 @@ module OpenapiClient
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'pairings')
-        if (value = attributes[:'pairings']).is_a?(Array)
-          self.pairings = value
-        end
+      if attributes.key?(:'username')
+        self.username = attributes[:'username']
       end
 
-      if attributes.key?(:'text')
-        self.text = attributes[:'text']
+      if attributes.key?(:'hash')
+        self.hash = attributes[:'hash']
       end
     end
 
@@ -64,16 +62,20 @@ module OpenapiClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @pairings.nil?
-        invalid_properties.push('invalid value for "pairings", pairings cannot be nil.')
+      if @username.nil?
+        invalid_properties.push('invalid value for "username", username cannot be nil.')
       end
 
-      if @text.nil?
-        invalid_properties.push('invalid value for "text", text cannot be nil.')
+      if @username.to_s.length < 1
+        invalid_properties.push('invalid value for "username", the character length must be great than or equal to 1.')
       end
 
-      if @text.to_s.length < 1
-        invalid_properties.push('invalid value for "text", the character length must be great than or equal to 1.')
+      if @hash.nil?
+        invalid_properties.push('invalid value for "hash", hash cannot be nil.')
+      end
+
+      if @hash.to_s.length < 1
+        invalid_properties.push('invalid value for "hash", the character length must be great than or equal to 1.')
       end
 
       invalid_properties
@@ -82,24 +84,39 @@ module OpenapiClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @pairings.nil?
-      return false if @text.nil?
-      return false if @text.to_s.length < 1
+      return false if @username.nil?
+      return false if @username.to_s.length < 1
+      return false if @hash.nil?
+      return false if @hash.to_s.length < 1
       true
     end
 
     # Custom attribute writer method with validation
-    # @param [Object] text Value to be assigned
-    def text=(text)
-      if text.nil?
-        fail ArgumentError, 'text cannot be nil'
+    # @param [Object] username Value to be assigned
+    def username=(username)
+      if username.nil?
+        fail ArgumentError, 'username cannot be nil'
       end
 
-      if text.to_s.length < 1
-        fail ArgumentError, 'invalid value for "text", the character length must be great than or equal to 1.'
+      if username.to_s.length < 1
+        fail ArgumentError, 'invalid value for "username", the character length must be great than or equal to 1.'
       end
 
-      @text = text
+      @username = username
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] hash Value to be assigned
+    def hash=(hash)
+      if hash.nil?
+        fail ArgumentError, 'hash cannot be nil'
+      end
+
+      if hash.to_s.length < 1
+        fail ArgumentError, 'invalid value for "hash", the character length must be great than or equal to 1.'
+      end
+
+      @hash = hash
     end
 
     # Checks equality by comparing each attribute.
@@ -107,8 +124,8 @@ module OpenapiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          pairings == o.pairings &&
-          text == o.text
+          username == o.username &&
+          hash == o.hash
     end
 
     # @see the `==` method
@@ -120,7 +137,7 @@ module OpenapiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [pairings, text].hash
+      [username, hash].hash
     end
 
     # Builds the object from hash

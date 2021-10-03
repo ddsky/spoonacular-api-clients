@@ -22,14 +22,11 @@ class InlineResponse20051 {
     /**
      * Constructs a new <code>InlineResponse20051</code>.
      * @alias module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20051
-     * @param articles {Array.<Object>} 
-     * @param groceryProducts {Array.<Object>} 
-     * @param menuItems {Array.<Object>} 
-     * @param recipes {Array.<Object>} 
+     * @param annotations {Array.<Object>} 
      */
-    constructor(articles, groceryProducts, menuItems, recipes) { 
+    constructor(annotations) { 
         
-        InlineResponse20051.initialize(this, articles, groceryProducts, menuItems, recipes);
+        InlineResponse20051.initialize(this, annotations);
     }
 
     /**
@@ -37,11 +34,8 @@ class InlineResponse20051 {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, articles, groceryProducts, menuItems, recipes) { 
-        obj['Articles'] = articles;
-        obj['Grocery Products'] = groceryProducts;
-        obj['Menu Items'] = menuItems;
-        obj['Recipes'] = recipes;
+    static initialize(obj, annotations) { 
+        obj['annotations'] = annotations;
     }
 
     /**
@@ -55,17 +49,8 @@ class InlineResponse20051 {
         if (data) {
             obj = obj || new InlineResponse20051();
 
-            if (data.hasOwnProperty('Articles')) {
-                obj['Articles'] = ApiClient.convertToType(data['Articles'], [Object]);
-            }
-            if (data.hasOwnProperty('Grocery Products')) {
-                obj['Grocery Products'] = ApiClient.convertToType(data['Grocery Products'], [Object]);
-            }
-            if (data.hasOwnProperty('Menu Items')) {
-                obj['Menu Items'] = ApiClient.convertToType(data['Menu Items'], [Object]);
-            }
-            if (data.hasOwnProperty('Recipes')) {
-                obj['Recipes'] = ApiClient.convertToType(data['Recipes'], [Object]);
+            if (data.hasOwnProperty('annotations')) {
+                obj['annotations'] = ApiClient.convertToType(data['annotations'], [Object]);
             }
         }
         return obj;
@@ -75,24 +60,9 @@ class InlineResponse20051 {
 }
 
 /**
- * @member {Array.<Object>} Articles
+ * @member {Array.<Object>} annotations
  */
-InlineResponse20051.prototype['Articles'] = undefined;
-
-/**
- * @member {Array.<Object>} Grocery Products
- */
-InlineResponse20051.prototype['Grocery Products'] = undefined;
-
-/**
- * @member {Array.<Object>} Menu Items
- */
-InlineResponse20051.prototype['Menu Items'] = undefined;
-
-/**
- * @member {Array.<Object>} Recipes
- */
-InlineResponse20051.prototype['Recipes'] = undefined;
+InlineResponse20051.prototype['annotations'] = undefined;
 
 
 

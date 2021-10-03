@@ -5,13 +5,10 @@
 -export_type([spoonacular_inline_response_200_46/0]).
 
 -type spoonacular_inline_response_200_46() ::
-    #{ 'recommendedWines' := list(),
-       'totalFound' := integer()
+    #{ 'wineDescription' := binary()
      }.
 
-encode(#{ 'recommendedWines' := RecommendedWines,
-          'totalFound' := TotalFound
+encode(#{ 'wineDescription' := WineDescription
         }) ->
-    #{ 'recommendedWines' => RecommendedWines,
-       'totalFound' => TotalFound
+    #{ 'wineDescription' => WineDescription
      }.

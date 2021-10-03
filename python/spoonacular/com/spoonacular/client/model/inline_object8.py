@@ -33,26 +33,30 @@ class InlineObject8(object):
     """
     openapi_types = {
         'username': 'str',
-        'id': 'float',
+        'start_date': 'str',
+        'end_date': 'str',
         'hash': 'str'
     }
 
     attribute_map = {
         'username': 'username',
-        'id': 'id',
+        'start_date': 'start-date',
+        'end_date': 'end-date',
         'hash': 'hash'
     }
 
-    def __init__(self, username=None, id=None, hash=None):  # noqa: E501
+    def __init__(self, username=None, start_date=None, end_date=None, hash=None):  # noqa: E501
         """InlineObject8 - a model defined in OpenAPI"""  # noqa: E501
 
         self._username = None
-        self._id = None
+        self._start_date = None
+        self._end_date = None
         self._hash = None
         self.discriminator = None
 
         self.username = username
-        self.id = id
+        self.start_date = start_date
+        self.end_date = end_date
         self.hash = hash
 
     @property
@@ -81,29 +85,54 @@ class InlineObject8(object):
         self._username = username
 
     @property
-    def id(self):
-        """Gets the id of this InlineObject8.  # noqa: E501
+    def start_date(self):
+        """Gets the start_date of this InlineObject8.  # noqa: E501
 
-        The shopping list item id.  # noqa: E501
+        The start date in the format yyyy-mm-dd.  # noqa: E501
 
-        :return: The id of this InlineObject8.  # noqa: E501
-        :rtype: float
+        :return: The start_date of this InlineObject8.  # noqa: E501
+        :rtype: str
         """
-        return self._id
+        return self._start_date
 
-    @id.setter
-    def id(self, id):
-        """Sets the id of this InlineObject8.
+    @start_date.setter
+    def start_date(self, start_date):
+        """Sets the start_date of this InlineObject8.
 
-        The shopping list item id.  # noqa: E501
+        The start date in the format yyyy-mm-dd.  # noqa: E501
 
-        :param id: The id of this InlineObject8.  # noqa: E501
-        :type: float
+        :param start_date: The start_date of this InlineObject8.  # noqa: E501
+        :type: str
         """
-        if id is None:
-            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
+        if start_date is None:
+            raise ValueError("Invalid value for `start_date`, must not be `None`")  # noqa: E501
 
-        self._id = id
+        self._start_date = start_date
+
+    @property
+    def end_date(self):
+        """Gets the end_date of this InlineObject8.  # noqa: E501
+
+        The end date in the format yyyy-mm-dd.  # noqa: E501
+
+        :return: The end_date of this InlineObject8.  # noqa: E501
+        :rtype: str
+        """
+        return self._end_date
+
+    @end_date.setter
+    def end_date(self, end_date):
+        """Sets the end_date of this InlineObject8.
+
+        The end date in the format yyyy-mm-dd.  # noqa: E501
+
+        :param end_date: The end_date of this InlineObject8.  # noqa: E501
+        :type: str
+        """
+        if end_date is None:
+            raise ValueError("Invalid value for `end_date`, must not be `None`")  # noqa: E501
+
+        self._end_date = end_date
 
     @property
     def hash(self):

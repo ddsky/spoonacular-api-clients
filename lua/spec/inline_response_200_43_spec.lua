@@ -16,15 +16,15 @@ Please update as you see appropriate
 describe("inline_response_200_43", function()
   local spoonacular_inline_response_200_43 = require "spoonacular.model.inline_response_200_43"
 
-  -- unit tests for the property 'pairings'
-  describe("property pairings test", function()
+  -- unit tests for the property 'username'
+  describe("property username test", function()
     it("should work", function()
       -- TODO assertion here: http://olivinelabs.com/busted/#asserts
     end)
   end)
 
-  -- unit tests for the property 'text'
-  describe("property text test", function()
+  -- unit tests for the property 'hash'
+  describe("property hash test", function()
     it("should work", function()
       -- TODO assertion here: http://olivinelabs.com/busted/#asserts
     end)

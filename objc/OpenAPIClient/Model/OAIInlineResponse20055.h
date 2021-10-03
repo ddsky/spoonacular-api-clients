@@ -23,8 +23,6 @@
 @interface OAIInlineResponse20055 : OAIObject
 
 
-@property(nonatomic) NSString* answerText;
-
-@property(nonatomic) NSArray<NSObject*>* media;
+@property(nonatomic) NSString* text;
 
 @end

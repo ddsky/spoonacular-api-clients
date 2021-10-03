@@ -9,15 +9,9 @@ import scala.collection.immutable.Seq
 
 /**
  * 
- * @param Articles 
- * @param Grocery Products 
- * @param Menu Items 
- * @param Recipes 
+ * @param annotations 
  */
-case class InlineResponse20051(Articles: Seq[Object],
-                Grocery Products: Seq[Object],
-                Menu Items: Seq[Object],
-                Recipes: Seq[Object]
+case class InlineResponse20051(annotations: Seq[Object]
                 )
 
 object InlineResponse20051 {

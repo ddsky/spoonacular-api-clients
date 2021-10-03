@@ -10,7 +10,7 @@ class WineApi {
   /// Dish Pairing for Wine
   ///
   /// Find a dish that goes well with a given wine.
-  Future<InlineResponse20043> getDishPairingForWine(String wine) async {
+  Future<InlineResponse20044> getDishPairingForWine(String wine) async {
     Object postBody;
 
     // verify required params are set
@@ -53,7 +53,7 @@ class WineApi {
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'InlineResponse20043') as InlineResponse20043;
+      return apiClient.deserialize(_decodeBodyBytes(response), 'InlineResponse20044') as InlineResponse20044;
     } else {
       return null;
     }
@@ -61,7 +61,7 @@ class WineApi {
   /// Wine Description
   ///
   /// Get a simple description of a certain wine, e.g. \&quot;malbec\&quot;, \&quot;riesling\&quot;, or \&quot;merlot\&quot;.
-  Future<InlineResponse20045> getWineDescription(String wine) async {
+  Future<InlineResponse20046> getWineDescription(String wine) async {
     Object postBody;
 
     // verify required params are set
@@ -104,7 +104,7 @@ class WineApi {
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'InlineResponse20045') as InlineResponse20045;
+      return apiClient.deserialize(_decodeBodyBytes(response), 'InlineResponse20046') as InlineResponse20046;
     } else {
       return null;
     }
@@ -112,7 +112,7 @@ class WineApi {
   /// Wine Pairing
   ///
   /// Find a wine that goes well with a food. Food can be a dish name (\&quot;steak\&quot;), an ingredient name (\&quot;salmon\&quot;), or a cuisine (\&quot;italian\&quot;).
-  Future<InlineResponse20044> getWinePairing(String food, { num maxPrice }) async {
+  Future<InlineResponse20045> getWinePairing(String food, { num maxPrice }) async {
     Object postBody;
 
     // verify required params are set
@@ -158,7 +158,7 @@ class WineApi {
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'InlineResponse20044') as InlineResponse20044;
+      return apiClient.deserialize(_decodeBodyBytes(response), 'InlineResponse20045') as InlineResponse20045;
     } else {
       return null;
     }
@@ -166,7 +166,7 @@ class WineApi {
   /// Wine Recommendation
   ///
   /// Get a specific wine recommendation (concrete product) for a given wine type, e.g. \&quot;merlot\&quot;.
-  Future<InlineResponse20046> getWineRecommendation(String wine, { num maxPrice, num minRating, num number }) async {
+  Future<InlineResponse20047> getWineRecommendation(String wine, { num maxPrice, num minRating, num number }) async {
     Object postBody;
 
     // verify required params are set
@@ -218,7 +218,7 @@ class WineApi {
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'InlineResponse20046') as InlineResponse20046;
+      return apiClient.deserialize(_decodeBodyBytes(response), 'InlineResponse20047') as InlineResponse20047;
     } else {
       return null;
     }

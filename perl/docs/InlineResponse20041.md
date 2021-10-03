@@ -8,10 +8,9 @@ use WWW::OpenAPIClient::Object::InlineResponse20041;
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**aisles** | [**ARRAY[InlineResponse20041Aisles]**](InlineResponse20041Aisles.md) |  | 
-**cost** | **double** |  | 
-**start_date** | **double** |  | 
-**end_date** | **double** |  | 
+**id** | **int** |  | 
+**name** | **string** |  | 
+**days** | [**ARRAY[InlineResponse20041Days]**](InlineResponse20041Days.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

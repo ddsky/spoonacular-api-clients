@@ -6,9 +6,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | [**BigDecimal**](BigDecimal.md) |  | 
-**title** | **String** |  | 
-**imageType** | **String** |  | 
+**id** | **Integer** |  |  [optional]
+**servings** | [**BigDecimal**](BigDecimal.md) |  |  [optional]
+**title** | **String** |  |  [optional]
+**imageType** | **String** |  |  [optional]
 
 
 

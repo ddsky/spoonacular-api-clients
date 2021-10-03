@@ -15429,6 +15429,19 @@
             "in": "query"
           },
           {
+            "schema": {
+              "type": "boolean",
+              "example": true,
+              "enum": [
+                false,
+                true
+              ]
+            },
+            "in": "query",
+            "name": "addProductInformation",
+            "description": "If set to true, you get more information about the products returned."
+          },
+          {
             "$ref": "#/components/parameters/offset"
           },
           {
@@ -18782,6 +18795,19 @@
             "in": "query"
           },
           {
+            "schema": {
+              "type": "boolean",
+              "example": true,
+              "enum": [
+                false,
+                true
+              ]
+            },
+            "in": "query",
+            "name": "addMenuItemInformation",
+            "description": "If set to true, you get more information about the menu items returned."
+          },
+          {
             "$ref": "#/components/parameters/offset"
           },
           {
@@ -21374,7 +21400,309 @@
         {
           "$ref": "#/components/parameters/username"
         }
-      ]
+      ],
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "x-examples": {
+                    "example-1": {
+                      "name": "My new meal plan template",
+                      "items": [
+                        {
+                          "day": 1,
+                          "slot": 1,
+                          "position": 0,
+                          "type": "RECIPE",
+                          "value": {
+                            "id": 296213,
+                            "servings": 2,
+                            "title": "Spinach Salad with Roasted Vegetables and Spiced Chickpea",
+                            "imageType": "jpg"
+                          }
+                        },
+                        {
+                          "day": 2,
+                          "slot": 1,
+                          "position": 0,
+                          "type": "PRODUCT",
+                          "value": {
+                            "id": 183433,
+                            "servings": 1,
+                            "title": "Ahold Lasagna with Meat Sauce",
+                            "imageType": "jpg"
+                          }
+                        },
+                        {
+                          "day": 3,
+                          "slot": 1,
+                          "position": 0,
+                          "type": "MENU_ITEM",
+                          "value": {
+                            "id": 378557,
+                            "servings": 1,
+                            "title": "Pizza 73 BBQ Steak Pizza, 9",
+                            "imageType": "png"
+                          }
+                        },
+                        {
+                          "day": 4,
+                          "slot": 1,
+                          "position": 0,
+                          "type": "CUSTOM_FOOD",
+                          "value": {
+                            "id": 348,
+                            "servings": 1,
+                            "title": "Aldi Spicy Cashews - 30g",
+                            "image": "https://spoonacular.com/cdn/ingredients_100x100/cashews.jpg"
+                          }
+                        },
+                        {
+                          "day": 5,
+                          "slot": 1,
+                          "position": 0,
+                          "type": "INGREDIENTS",
+                          "value": {
+                            "ingredients": [
+                              {
+                                "name": "1 banana"
+                              },
+                              {
+                                "name": "coffee",
+                                "unit": "cup",
+                                "amount": "1",
+                                "image": "https://spoonacular.com/cdn/ingredients_100x100/brewed-coffee.jpg"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "publishAsPublic": false
+                    }
+                  },
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "items": {
+                      "type": "array",
+                      "uniqueItems": true,
+                      "minItems": 1,
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "day": {
+                            "type": "integer"
+                          },
+                          "slot": {
+                            "type": "integer"
+                          },
+                          "position": {
+                            "type": "integer"
+                          },
+                          "type": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "value": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "integer"
+                              },
+                              "servings": {
+                                "type": "number"
+                              },
+                              "title": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "imageType": {
+                                "type": "string",
+                                "minLength": 1
+                              }
+                            }
+                          }
+                        },
+                        "required": [
+                          "day",
+                          "slot",
+                          "position",
+                          "type"
+                        ]
+                      }
+                    },
+                    "publishAsPublic": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "items",
+                    "publishAsPublic"
+                  ]
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "name": "My new meal plan template",
+                      "items": [
+                        {
+                          "day": 1,
+                          "slot": 1,
+                          "position": 0,
+                          "type": "RECIPE",
+                          "value": {
+                            "id": 296213,
+                            "servings": 2,
+                            "title": "Spinach Salad with Roasted Vegetables and Spiced Chickpea",
+                            "imageType": "jpg"
+                          }
+                        },
+                        {
+                          "day": 2,
+                          "slot": 1,
+                          "position": 0,
+                          "type": "PRODUCT",
+                          "value": {
+                            "id": 183433,
+                            "servings": 1,
+                            "title": "Ahold Lasagna with Meat Sauce",
+                            "imageType": "jpg"
+                          }
+                        },
+                        {
+                          "day": 3,
+                          "slot": 1,
+                          "position": 0,
+                          "type": "MENU_ITEM",
+                          "value": {
+                            "id": 378557,
+                            "servings": 1,
+                            "title": "Pizza 73 BBQ Steak Pizza, 9",
+                            "imageType": "png"
+                          }
+                        },
+                        {
+                          "day": 4,
+                          "slot": 1,
+                          "position": 0,
+                          "type": "CUSTOM_FOOD",
+                          "value": {
+                            "id": 348,
+                            "servings": 1,
+                            "title": "Aldi Spicy Cashews - 30g",
+                            "image": "https://spoonacular.com/cdn/ingredients_100x100/cashews.jpg"
+                          }
+                        },
+                        {
+                          "day": 5,
+                          "slot": 1,
+                          "position": 0,
+                          "type": "INGREDIENTS",
+                          "value": {
+                            "ingredients": [
+                              {
+                                "name": "1 banana"
+                              },
+                              {
+                                "name": "coffee",
+                                "unit": "cup",
+                                "amount": "1",
+                                "image": "https://spoonacular.com/cdn/ingredients_100x100/brewed-coffee.jpg"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "publishAsPublic": false
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "": {
+              "schema": {
+                "required": [
+                  "username",
+                  "hash"
+                ],
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string",
+                    "description": "The username.",
+                    "example": "dsky"
+                  },
+                  "hash": {
+                    "type": "string",
+                    "description": "The private hash for the username.",
+                    "example": "4b5v4398573406"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "username",
+            "description": "The username.",
+            "schema": {
+              "type": "string",
+              "example": "dsky"
+            },
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "in": "path"
+          },
+          {
+            "name": "hash",
+            "description": "The private hash for the username.",
+            "schema": {
+              "type": "string",
+              "example": "4b5v4398573406"
+            },
+            "required": true,
+            "style": "form",
+            "explode": false,
+            "in": "query"
+          }
+        ],
+        "externalDocs": {
+          "description": "Read entire docs",
+          "url": "https://spoonacular.com/food-api/docs#Add-Meal-Plan-Template"
+        },
+        "summary": "Add Meal Plan Template",
+        "description": "Add a meal plan template for a user.",
+        "operationId": "addMealPlanTemplate",
+        "deprecated": false,
+        "tags": [
+          "meal planning"
+        ]
+      }
     },
     "/mealplanner/{username}/templates/{id}": {
       "get": {
@@ -24354,6 +24682,111 @@
         "summary": "Get Meal Plan Template",
         "description": "Get information about a meal plan template.",
         "operationId": "getMealPlanTemplate",
+        "deprecated": false,
+        "tags": [
+          "meal planning"
+        ]
+      },
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "": {
+              "schema": {
+                "required": [
+                  "username",
+                  "id",
+                  "hash"
+                ],
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string",
+                    "description": "The username.",
+                    "example": "dsky"
+                  },
+                  "id": {
+                    "type": "number",
+                    "description": "The shopping list item id.",
+                    "example": 15678
+                  },
+                  "hash": {
+                    "type": "string",
+                    "description": "The private hash for the username.",
+                    "example": "4b5v4398573406"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "username",
+            "description": "The username.",
+            "schema": {
+              "type": "string",
+              "example": "dsky"
+            },
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "in": "path"
+          },
+          {
+            "name": "id",
+            "description": "The shopping list item id.",
+            "schema": {
+              "type": "number",
+              "example": 15678
+            },
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "in": "path"
+          },
+          {
+            "name": "hash",
+            "description": "The private hash for the username.",
+            "schema": {
+              "type": "string",
+              "example": "4b5v4398573406"
+            },
+            "required": true,
+            "style": "form",
+            "explode": false,
+            "in": "query"
+          }
+        ],
+        "externalDocs": {
+          "description": "Read entire docs",
+          "url": "https://spoonacular.com/food-api/docs#Delete-Meal-Plan-Template"
+        },
+        "summary": "Delete Meal Plan Template",
+        "description": "Delete a meal plan template for a user.",
+        "operationId": "deleteMealPlanTemplate",
         "deprecated": false,
         "tags": [
           "meal planning"

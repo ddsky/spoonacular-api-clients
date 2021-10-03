@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**_id** | **NSNumber*** |  | 
+**day** | **NSNumber*** |  | 
 **slot** | **NSNumber*** |  | 
 **position** | **NSNumber*** |  | 
 **type** | **NSString*** |  | 

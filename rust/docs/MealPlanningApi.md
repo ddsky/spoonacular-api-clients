@@ -4,12 +4,14 @@ All URIs are relative to *https://api.spoonacular.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**add_meal_plan_template**](MealPlanningApi.md#add_meal_plan_template) | **Post** /mealplanner/{username}/templates | Add Meal Plan Template
 [**add_to_meal_plan**](MealPlanningApi.md#add_to_meal_plan) | **Post** /mealplanner/{username}/items | Add to Meal Plan
 [**add_to_shopping_list**](MealPlanningApi.md#add_to_shopping_list) | **Post** /mealplanner/{username}/shopping-list/items | Add to Shopping List
 [**clear_meal_plan_day**](MealPlanningApi.md#clear_meal_plan_day) | **Delete** /mealplanner/{username}/day/{date} | Clear Meal Plan Day
 [**connect_user**](MealPlanningApi.md#connect_user) | **Post** /users/connect | Connect User
 [**delete_from_meal_plan**](MealPlanningApi.md#delete_from_meal_plan) | **Delete** /mealplanner/{username}/items/{id} | Delete from Meal Plan
 [**delete_from_shopping_list**](MealPlanningApi.md#delete_from_shopping_list) | **Delete** /mealplanner/{username}/shopping-list/items/{id} | Delete from Shopping List
+[**delete_meal_plan_template**](MealPlanningApi.md#delete_meal_plan_template) | **Delete** /mealplanner/{username}/templates/{id} | Delete Meal Plan Template
 [**generate_meal_plan**](MealPlanningApi.md#generate_meal_plan) | **Get** /mealplanner/generate | Generate Meal Plan
 [**generate_shopping_list**](MealPlanningApi.md#generate_shopping_list) | **Post** /mealplanner/{username}/shopping-list/{start-date}/{end-date} | Generate Shopping List
 [**get_meal_plan_template**](MealPlanningApi.md#get_meal_plan_template) | **Get** /mealplanner/{username}/templates/{id} | Get Meal Plan Template
@@ -17,6 +19,39 @@ Method | HTTP request | Description
 [**get_meal_plan_week**](MealPlanningApi.md#get_meal_plan_week) | **Get** /mealplanner/{username}/week/{start-date} | Get Meal Plan Week
 [**get_shopping_list**](MealPlanningApi.md#get_shopping_list) | **Get** /mealplanner/{username}/shopping-list | Get Shopping List
 
+
+
+## add_meal_plan_template
+
+> ::models::InlineResponse20040 add_meal_plan_template(ctx, username, hash, inline_object6)
+Add Meal Plan Template
+
+Add a meal plan template for a user.
+
+### Required Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **username** | **String**| The username. | 
+  **hash** | **String**| The private hash for the username. | 
+  **inline_object6** | [**InlineObject6**](InlineObject6.md)|  | 
+
+### Return type
+
+[**::models::InlineResponse20040**](inline_response_200_40.md)
+
+### Authorization
+
+[apiKeyScheme](../README.md#apiKeyScheme)
+
+### HTTP request headers
+
+- **Content-Type**: 
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
 ## add_to_meal_plan
@@ -54,7 +89,7 @@ Name | Type | Description  | Notes
 
 ## add_to_shopping_list
 
-> ::models::InlineResponse20041 add_to_shopping_list(ctx, username, hash, inline_object7)
+> ::models::InlineResponse20042 add_to_shopping_list(ctx, username, hash, inline_object9)
 Add to Shopping List
 
 Add an item to the current shopping list of a user.
@@ -67,11 +102,11 @@ Name | Type | Description  | Notes
  **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **username** | **String**| The username. | 
   **hash** | **String**| The private hash for the username. | 
-  **inline_object7** | [**InlineObject7**](InlineObject7.md)|  | 
+  **inline_object9** | [**InlineObject9**](InlineObject9.md)|  | 
 
 ### Return type
 
-[**::models::InlineResponse20041**](inline_response_200_41.md)
+[**::models::InlineResponse20042**](inline_response_200_42.md)
 
 ### Authorization
 
@@ -121,7 +156,7 @@ Name | Type | Description  | Notes
 
 ## connect_user
 
-> ::models::InlineResponse20042 connect_user(ctx, body)
+> ::models::InlineResponse20043 connect_user(ctx, body)
 Connect User
 
 In order to call user-specific endpoints, you need to connect your app's users to spoonacular users.
@@ -136,7 +171,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**::models::InlineResponse20042**](inline_response_200_42.md)
+[**::models::InlineResponse20043**](inline_response_200_43.md)
 
 ### Authorization
 
@@ -186,7 +221,7 @@ Name | Type | Description  | Notes
 
 ## delete_from_shopping_list
 
-> Value delete_from_shopping_list(ctx, username, id, hash, inline_object8)
+> Value delete_from_shopping_list(ctx, username, id, hash, inline_object10)
 Delete from Shopping List
 
 Delete an item from the current shopping list of the user.
@@ -200,7 +235,41 @@ Name | Type | Description  | Notes
   **username** | **String**| The username. | 
   **id** | **i32**| The item's id. | 
   **hash** | **String**| The private hash for the username. | 
-  **inline_object8** | [**InlineObject8**](InlineObject8.md)|  | 
+  **inline_object10** | [**InlineObject10**](InlineObject10.md)|  | 
+
+### Return type
+
+[**Value**](Value.md)
+
+### Authorization
+
+[apiKeyScheme](../README.md#apiKeyScheme)
+
+### HTTP request headers
+
+- **Content-Type**: 
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## delete_meal_plan_template
+
+> Value delete_meal_plan_template(ctx, username, id, hash, inline_object7)
+Delete Meal Plan Template
+
+Delete a meal plan template for a user.
+
+### Required Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **username** | **String**| The username. | 
+  **id** | **i32**| The item's id. | 
+  **hash** | **String**| The private hash for the username. | 
+  **inline_object7** | [**InlineObject7**](InlineObject7.md)|  | 
 
 ### Return type
 
@@ -262,7 +331,7 @@ Name | Type | Description  | Notes
 
 ## generate_shopping_list
 
-> ::models::InlineResponse20041 generate_shopping_list(ctx, username, start_date, end_date, hash, inline_object6)
+> ::models::InlineResponse20042 generate_shopping_list(ctx, username, start_date, end_date, hash, inline_object8)
 Generate Shopping List
 
 Generate the shopping list for a user from the meal planner in a given time frame.
@@ -277,11 +346,11 @@ Name | Type | Description  | Notes
   **start_date** | **String**| The start date in the format yyyy-mm-dd. | 
   **end_date** | **String**| The end date in the format yyyy-mm-dd. | 
   **hash** | **String**| The private hash for the username. | 
-  **inline_object6** | [**InlineObject6**](InlineObject6.md)|  | 
+  **inline_object8** | [**InlineObject8**](InlineObject8.md)|  | 
 
 ### Return type
 
-[**::models::InlineResponse20041**](inline_response_200_41.md)
+[**::models::InlineResponse20042**](inline_response_200_42.md)
 
 ### Authorization
 
@@ -297,7 +366,7 @@ Name | Type | Description  | Notes
 
 ## get_meal_plan_template
 
-> ::models::InlineResponse20040 get_meal_plan_template(ctx, username, id, hash)
+> ::models::InlineResponse20041 get_meal_plan_template(ctx, username, id, hash)
 Get Meal Plan Template
 
 Get information about a meal plan template.
@@ -314,7 +383,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**::models::InlineResponse20040**](inline_response_200_40.md)
+[**::models::InlineResponse20041**](inline_response_200_41.md)
 
 ### Authorization
 
@@ -395,7 +464,7 @@ Name | Type | Description  | Notes
 
 ## get_shopping_list
 
-> ::models::InlineResponse20041 get_shopping_list(ctx, username, hash)
+> ::models::InlineResponse20042 get_shopping_list(ctx, username, hash)
 Get Shopping List
 
 Get the current shopping list for the given user.
@@ -411,7 +480,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**::models::InlineResponse20041**](inline_response_200_41.md)
+[**::models::InlineResponse20042**](inline_response_200_42.md)
 
 ### Authorization
 

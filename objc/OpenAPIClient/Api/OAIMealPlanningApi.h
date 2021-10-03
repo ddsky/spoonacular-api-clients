@@ -1,16 +1,19 @@
 #import <Foundation/Foundation.h>
+#import "OAIInlineObject10.h"
 #import "OAIInlineObject3.h"
 #import "OAIInlineObject4.h"
 #import "OAIInlineObject5.h"
 #import "OAIInlineObject6.h"
 #import "OAIInlineObject7.h"
 #import "OAIInlineObject8.h"
+#import "OAIInlineObject9.h"
 #import "OAIInlineResponse20037.h"
 #import "OAIInlineResponse20038.h"
 #import "OAIInlineResponse20039.h"
 #import "OAIInlineResponse20040.h"
 #import "OAIInlineResponse20041.h"
 #import "OAIInlineResponse20042.h"
+#import "OAIInlineResponse20043.h"
 #import "OAIApi.h"
 
 /**
@@ -33,6 +36,25 @@ extern NSString* kOAIMealPlanningApiErrorDomain;
 extern NSInteger kOAIMealPlanningApiMissingParamErrorCode;
 
 -(instancetype) initWithApiClient:(OAIApiClient *)apiClient NS_DESIGNATED_INITIALIZER;
+
+/// Add Meal Plan Template
+/// Add a meal plan template for a user.
+///
+/// @param username The username.
+/// @param hash The private hash for the username.
+/// @param inlineObject6 
+/// 
+///  code:200 message:"Success",
+///  code:401 message:"Unauthorized",
+///  code:403 message:"Forbidden",
+///  code:404 message:"Not Found"
+///
+/// @return OAIInlineResponse20040*
+-(NSURLSessionTask*) addMealPlanTemplateWithUsername: (NSString*) username
+    hash: (NSString*) hash
+    inlineObject6: (OAIInlineObject6*) inlineObject6
+    completionHandler: (void (^)(OAIInlineResponse20040* output, NSError* error)) handler;
+
 
 /// Add to Meal Plan
 /// Add an item to the user's meal plan.
@@ -58,18 +80,18 @@ extern NSInteger kOAIMealPlanningApiMissingParamErrorCode;
 ///
 /// @param username The username.
 /// @param hash The private hash for the username.
-/// @param inlineObject7 
+/// @param inlineObject9 
 /// 
 ///  code:200 message:"Success",
 ///  code:401 message:"Unauthorized",
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return OAIInlineResponse20041*
+/// @return OAIInlineResponse20042*
 -(NSURLSessionTask*) addToShoppingListWithUsername: (NSString*) username
     hash: (NSString*) hash
-    inlineObject7: (OAIInlineObject7*) inlineObject7
-    completionHandler: (void (^)(OAIInlineResponse20041* output, NSError* error)) handler;
+    inlineObject9: (OAIInlineObject9*) inlineObject9
+    completionHandler: (void (^)(OAIInlineResponse20042* output, NSError* error)) handler;
 
 
 /// Clear Meal Plan Day
@@ -103,9 +125,9 @@ extern NSInteger kOAIMealPlanningApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return OAIInlineResponse20042*
+/// @return OAIInlineResponse20043*
 -(NSURLSessionTask*) connectUserWithBody: (NSObject*) body
-    completionHandler: (void (^)(OAIInlineResponse20042* output, NSError* error)) handler;
+    completionHandler: (void (^)(OAIInlineResponse20043* output, NSError* error)) handler;
 
 
 /// Delete from Meal Plan
@@ -135,7 +157,7 @@ extern NSInteger kOAIMealPlanningApiMissingParamErrorCode;
 /// @param username The username.
 /// @param _id The item&#39;s id.
 /// @param hash The private hash for the username.
-/// @param inlineObject8 
+/// @param inlineObject10 
 /// 
 ///  code:200 message:"Success",
 ///  code:401 message:"Unauthorized",
@@ -146,7 +168,28 @@ extern NSInteger kOAIMealPlanningApiMissingParamErrorCode;
 -(NSURLSessionTask*) deleteFromShoppingListWithUsername: (NSString*) username
     _id: (NSNumber*) _id
     hash: (NSString*) hash
-    inlineObject8: (OAIInlineObject8*) inlineObject8
+    inlineObject10: (OAIInlineObject10*) inlineObject10
+    completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
+
+
+/// Delete Meal Plan Template
+/// Delete a meal plan template for a user.
+///
+/// @param username The username.
+/// @param _id The item&#39;s id.
+/// @param hash The private hash for the username.
+/// @param inlineObject7 
+/// 
+///  code:200 message:"Success",
+///  code:401 message:"Unauthorized",
+///  code:403 message:"Forbidden",
+///  code:404 message:"Not Found"
+///
+/// @return NSObject*
+-(NSURLSessionTask*) deleteMealPlanTemplateWithUsername: (NSString*) username
+    _id: (NSNumber*) _id
+    hash: (NSString*) hash
+    inlineObject7: (OAIInlineObject7*) inlineObject7
     completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
 
 
@@ -178,20 +221,20 @@ extern NSInteger kOAIMealPlanningApiMissingParamErrorCode;
 /// @param startDate The start date in the format yyyy-mm-dd.
 /// @param endDate The end date in the format yyyy-mm-dd.
 /// @param hash The private hash for the username.
-/// @param inlineObject6 
+/// @param inlineObject8 
 /// 
 ///  code:200 message:"Success",
 ///  code:401 message:"Unauthorized",
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return OAIInlineResponse20041*
+/// @return OAIInlineResponse20042*
 -(NSURLSessionTask*) generateShoppingListWithUsername: (NSString*) username
     startDate: (NSString*) startDate
     endDate: (NSString*) endDate
     hash: (NSString*) hash
-    inlineObject6: (OAIInlineObject6*) inlineObject6
-    completionHandler: (void (^)(OAIInlineResponse20041* output, NSError* error)) handler;
+    inlineObject8: (OAIInlineObject8*) inlineObject8
+    completionHandler: (void (^)(OAIInlineResponse20042* output, NSError* error)) handler;
 
 
 /// Get Meal Plan Template
@@ -206,11 +249,11 @@ extern NSInteger kOAIMealPlanningApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return OAIInlineResponse20040*
+/// @return OAIInlineResponse20041*
 -(NSURLSessionTask*) getMealPlanTemplateWithUsername: (NSString*) username
     _id: (NSNumber*) _id
     hash: (NSString*) hash
-    completionHandler: (void (^)(OAIInlineResponse20040* output, NSError* error)) handler;
+    completionHandler: (void (^)(OAIInlineResponse20041* output, NSError* error)) handler;
 
 
 /// Get Meal Plan Templates
@@ -260,10 +303,10 @@ extern NSInteger kOAIMealPlanningApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return OAIInlineResponse20041*
+/// @return OAIInlineResponse20042*
 -(NSURLSessionTask*) getShoppingListWithUsername: (NSString*) username
     hash: (NSString*) hash
-    completionHandler: (void (^)(OAIInlineResponse20041* output, NSError* error)) handler;
+    completionHandler: (void (^)(OAIInlineResponse20042* output, NSError* error)) handler;
 
 
 

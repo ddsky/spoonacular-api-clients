@@ -7,8 +7,8 @@
 
 (def inline-response-200-43-data
   {
-   (ds/req :pairings) (s/coll-of string?)
-   (ds/req :text) string?
+   (ds/req :username) string?
+   (ds/req :hash) string?
    })
 
 (def inline-response-200-43-spec

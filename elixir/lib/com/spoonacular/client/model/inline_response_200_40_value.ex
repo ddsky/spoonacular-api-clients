@@ -10,14 +10,16 @@ defmodule com.spoonacular.client.Model.InlineResponse20040Value do
   @derive [Poison.Encoder]
   defstruct [
     :"id",
+    :"servings",
     :"title",
     :"imageType"
   ]
 
   @type t :: %__MODULE__{
-    :"id" => float(),
-    :"title" => String.t,
-    :"imageType" => String.t
+    :"id" => integer() | nil,
+    :"servings" => float() | nil,
+    :"title" => String.t | nil,
+    :"imageType" => String.t | nil
   }
 end
 

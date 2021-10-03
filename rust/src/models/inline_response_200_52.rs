@@ -14,26 +14,23 @@ use serde_json::Value;
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct InlineResponse20052 {
-    #[serde(rename = "query")]
-    pub query: String,
-    #[serde(rename = "totalResults")]
-    pub total_results: i32,
-    #[serde(rename = "limit")]
-    pub limit: i32,
-    #[serde(rename = "offset")]
-    pub offset: i32,
-    #[serde(rename = "searchResults")]
-    pub search_results: Vec<::models::InlineResponse20052SearchResults>,
+    #[serde(rename = "Articles")]
+    pub articles: Vec<Value>,
+    #[serde(rename = "Grocery Products")]
+    pub grocery_products: Vec<Value>,
+    #[serde(rename = "Menu Items")]
+    pub menu_items: Vec<Value>,
+    #[serde(rename = "Recipes")]
+    pub recipes: Vec<Value>,
 }
 
 impl InlineResponse20052 {
-    pub fn new(query: String, total_results: i32, limit: i32, offset: i32, search_results: Vec<::models::InlineResponse20052SearchResults>) -> InlineResponse20052 {
+    pub fn new(articles: Vec<Value>, grocery_products: Vec<Value>, menu_items: Vec<Value>, recipes: Vec<Value>) -> InlineResponse20052 {
         InlineResponse20052 {
-            query: query,
-            total_results: total_results,
-            limit: limit,
-            offset: offset,
-            search_results: search_results,
+            articles: articles,
+            grocery_products: grocery_products,
+            menu_items: menu_items,
+            recipes: recipes,
         }
     }
 }

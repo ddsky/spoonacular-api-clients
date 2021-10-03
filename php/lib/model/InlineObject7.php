@@ -58,6 +58,7 @@ class InlineObject7 implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'username' => 'string',
+        'id' => 'float',
         'hash' => 'string'
     ];
 
@@ -68,6 +69,7 @@ class InlineObject7 implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'username' => null,
+        'id' => null,
         'hash' => null
     ];
 
@@ -99,6 +101,7 @@ class InlineObject7 implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'username' => 'username',
+        'id' => 'id',
         'hash' => 'hash'
     ];
 
@@ -109,6 +112,7 @@ class InlineObject7 implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'username' => 'setUsername',
+        'id' => 'setId',
         'hash' => 'setHash'
     ];
 
@@ -119,6 +123,7 @@ class InlineObject7 implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'username' => 'getUsername',
+        'id' => 'getId',
         'hash' => 'getHash'
     ];
 
@@ -183,6 +188,7 @@ class InlineObject7 implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['username'] = isset($data['username']) ? $data['username'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['hash'] = isset($data['hash']) ? $data['hash'] : null;
     }
 
@@ -197,6 +203,9 @@ class InlineObject7 implements ModelInterface, ArrayAccess
 
         if ($this->container['username'] === null) {
             $invalidProperties[] = "'username' can't be null";
+        }
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
         }
         if ($this->container['hash'] === null) {
             $invalidProperties[] = "'hash' can't be null";
@@ -236,6 +245,30 @@ class InlineObject7 implements ModelInterface, ArrayAccess
     public function setUsername($username)
     {
         $this->container['username'] = $username;
+
+        return $this;
+    }
+
+    /**
+     * Gets id
+     *
+     * @return float
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param float $id The shopping list item id.
+     *
+     * @return $this
+     */
+    public function setId($id)
+    {
+        $this->container['id'] = $id;
 
         return $this;
     }

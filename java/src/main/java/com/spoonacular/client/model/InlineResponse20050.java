@@ -23,39 +23,54 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * InlineResponse20050
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-09-28T20:40:32.759+02:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-03T15:10:59.332+02:00[Europe/Berlin]")
 public class InlineResponse20050 {
-  public static final String SERIALIZED_NAME_ANNOTATIONS = "annotations";
-  @SerializedName(SERIALIZED_NAME_ANNOTATIONS)
-  private List<Object> annotations = new ArrayList<>();
+  public static final String SERIALIZED_NAME_ANSWER = "answer";
+  @SerializedName(SERIALIZED_NAME_ANSWER)
+  private String answer;
 
-  public InlineResponse20050 annotations(List<Object> annotations) {
-    this.annotations = annotations;
-    return this;
-  }
+  public static final String SERIALIZED_NAME_IMAGE = "image";
+  @SerializedName(SERIALIZED_NAME_IMAGE)
+  private String image;
 
-  public InlineResponse20050 addAnnotationsItem(Object annotationsItem) {
-    this.annotations.add(annotationsItem);
+  public InlineResponse20050 answer(String answer) {
+    this.answer = answer;
     return this;
   }
 
    /**
-   * Get annotations
-   * @return annotations
+   * Get answer
+   * @return answer
   **/
   @ApiModelProperty(required = true, value = "")
-  public List<Object> getAnnotations() {
-    return annotations;
+  public String getAnswer() {
+    return answer;
   }
 
-  public void setAnnotations(List<Object> annotations) {
-    this.annotations = annotations;
+  public void setAnswer(String answer) {
+    this.answer = answer;
+  }
+
+  public InlineResponse20050 image(String image) {
+    this.image = image;
+    return this;
+  }
+
+   /**
+   * Get image
+   * @return image
+  **/
+  @ApiModelProperty(required = true, value = "")
+  public String getImage() {
+    return image;
+  }
+
+  public void setImage(String image) {
+    this.image = image;
   }
 
 
@@ -68,12 +83,13 @@ public class InlineResponse20050 {
       return false;
     }
     InlineResponse20050 inlineResponse20050 = (InlineResponse20050) o;
-    return Objects.equals(this.annotations, inlineResponse20050.annotations);
+    return Objects.equals(this.answer, inlineResponse20050.answer) &&
+        Objects.equals(this.image, inlineResponse20050.image);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(annotations);
+    return Objects.hash(answer, image);
   }
 
 
@@ -81,7 +97,8 @@ public class InlineResponse20050 {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse20050 {\n");
-    sb.append("    annotations: ").append(toIndentedString(annotations)).append("\n");
+    sb.append("    answer: ").append(toIndentedString(answer)).append("\n");
+    sb.append("    image: ").append(toIndentedString(image)).append("\n");
     sb.append("}");
     return sb.toString();
   }

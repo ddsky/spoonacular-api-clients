@@ -12,7 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
-import InlineResponse20041Measures from './InlineResponse20041Measures';
+import InlineResponse20041Value from './InlineResponse20041Value';
 
 /**
  * The InlineResponse20041Items model module.
@@ -24,15 +24,13 @@ class InlineResponse20041Items {
      * Constructs a new <code>InlineResponse20041Items</code>.
      * @alias module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20041Items
      * @param id {Number} 
-     * @param name {String} 
-     * @param pantryItem {Boolean} 
-     * @param aisle {String} 
-     * @param cost {Number} 
-     * @param ingredientId {Number} 
+     * @param slot {Number} 
+     * @param position {Number} 
+     * @param type {String} 
      */
-    constructor(id, name, pantryItem, aisle, cost, ingredientId) { 
+    constructor(id, slot, position, type) { 
         
-        InlineResponse20041Items.initialize(this, id, name, pantryItem, aisle, cost, ingredientId);
+        InlineResponse20041Items.initialize(this, id, slot, position, type);
     }
 
     /**
@@ -40,13 +38,11 @@ class InlineResponse20041Items {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, id, name, pantryItem, aisle, cost, ingredientId) { 
+    static initialize(obj, id, slot, position, type) { 
         obj['id'] = id;
-        obj['name'] = name;
-        obj['pantryItem'] = pantryItem;
-        obj['aisle'] = aisle;
-        obj['cost'] = cost;
-        obj['ingredientId'] = ingredientId;
+        obj['slot'] = slot;
+        obj['position'] = position;
+        obj['type'] = type;
     }
 
     /**
@@ -63,23 +59,17 @@ class InlineResponse20041Items {
             if (data.hasOwnProperty('id')) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'Number');
             }
-            if (data.hasOwnProperty('name')) {
-                obj['name'] = ApiClient.convertToType(data['name'], 'String');
+            if (data.hasOwnProperty('slot')) {
+                obj['slot'] = ApiClient.convertToType(data['slot'], 'Number');
             }
-            if (data.hasOwnProperty('measures')) {
-                obj['measures'] = InlineResponse20041Measures.constructFromObject(data['measures']);
+            if (data.hasOwnProperty('position')) {
+                obj['position'] = ApiClient.convertToType(data['position'], 'Number');
             }
-            if (data.hasOwnProperty('pantryItem')) {
-                obj['pantryItem'] = ApiClient.convertToType(data['pantryItem'], 'Boolean');
+            if (data.hasOwnProperty('type')) {
+                obj['type'] = ApiClient.convertToType(data['type'], 'String');
             }
-            if (data.hasOwnProperty('aisle')) {
-                obj['aisle'] = ApiClient.convertToType(data['aisle'], 'String');
-            }
-            if (data.hasOwnProperty('cost')) {
-                obj['cost'] = ApiClient.convertToType(data['cost'], 'Number');
-            }
-            if (data.hasOwnProperty('ingredientId')) {
-                obj['ingredientId'] = ApiClient.convertToType(data['ingredientId'], 'Number');
+            if (data.hasOwnProperty('value')) {
+                obj['value'] = InlineResponse20041Value.constructFromObject(data['value']);
             }
         }
         return obj;
@@ -94,34 +84,24 @@ class InlineResponse20041Items {
 InlineResponse20041Items.prototype['id'] = undefined;
 
 /**
- * @member {String} name
+ * @member {Number} slot
  */
-InlineResponse20041Items.prototype['name'] = undefined;
+InlineResponse20041Items.prototype['slot'] = undefined;
 
 /**
- * @member {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20041Measures} measures
+ * @member {Number} position
  */
-InlineResponse20041Items.prototype['measures'] = undefined;
+InlineResponse20041Items.prototype['position'] = undefined;
 
 /**
- * @member {Boolean} pantryItem
+ * @member {String} type
  */
-InlineResponse20041Items.prototype['pantryItem'] = undefined;
+InlineResponse20041Items.prototype['type'] = undefined;
 
 /**
- * @member {String} aisle
+ * @member {module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20041Value} value
  */
-InlineResponse20041Items.prototype['aisle'] = undefined;
-
-/**
- * @member {Number} cost
- */
-InlineResponse20041Items.prototype['cost'] = undefined;
-
-/**
- * @member {Number} ingredientId
- */
-InlineResponse20041Items.prototype['ingredientId'] = undefined;
+InlineResponse20041Items.prototype['value'] = undefined;
 
 
 

@@ -36,8 +36,8 @@ local spoonacular_inline_response_200_21 = require "spoonacular.model.inline_res
 local spoonacular_inline_response_200_23 = require "spoonacular.model.inline_response_200_23"
 local spoonacular_inline_response_200_3 = require "spoonacular.model.inline_response_200_3"
 local spoonacular_inline_response_200_4 = require "spoonacular.model.inline_response_200_4"
-local spoonacular_inline_response_200_49 = require "spoonacular.model.inline_response_200_49"
 local spoonacular_inline_response_200_5 = require "spoonacular.model.inline_response_200_5"
+local spoonacular_inline_response_200_50 = require "spoonacular.model.inline_response_200_50"
 local spoonacular_inline_response_200_6 = require "spoonacular.model.inline_response_200_6"
 local spoonacular_inline_response_200_7 = require "spoonacular.model.inline_response_200_7"
 local spoonacular_inline_response_200_8 = require "spoonacular.model.inline_response_200_8"
@@ -1231,7 +1231,7 @@ function recipes_api:quick_answer(q)
 		if result == nil then
 			return nil, err3
 		end
-		return spoonacular_inline_response_200_49.cast(result), headers
+		return spoonacular_inline_response_200_50.cast(result), headers
 	else
 		local body, err, errno2 = stream:get_body_as_string()
 		if not body then

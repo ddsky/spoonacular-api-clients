@@ -32,21 +32,21 @@ Take any text and find all mentions of food contained within it. This task is al
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *DetectFoodInTextOpts - Optional Parameters:
  * @param "ContentType" (optional.String) -  The content type.
-@return InlineResponse20050
+@return InlineResponse20051
 */
 
 type DetectFoodInTextOpts struct {
 	ContentType optional.String
 }
 
-func (a *MiscApiService) DetectFoodInText(ctx context.Context, localVarOptionals *DetectFoodInTextOpts) (InlineResponse20050, *http.Response, error) {
+func (a *MiscApiService) DetectFoodInText(ctx context.Context, localVarOptionals *DetectFoodInTextOpts) (InlineResponse20051, *http.Response, error) {
 	var (
 		localVarHttpMethod   = strings.ToUpper("Post")
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  InlineResponse20050
+		localVarReturnValue  InlineResponse20051
 	)
 
 	// create path and map variables
@@ -110,7 +110,7 @@ func (a *MiscApiService) DetectFoodInText(ctx context.Context, localVarOptionals
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
-			var v InlineResponse20050
+			var v InlineResponse20051
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -138,16 +138,16 @@ func (a *MiscApiService) DetectFoodInText(ctx context.Context, localVarOptionals
 MiscApiService Random Food Joke
 Get a random joke that is related to food. Caution: this is an endpoint for adults!
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-@return InlineResponse20054
+@return InlineResponse20055
 */
-func (a *MiscApiService) GetARandomFoodJoke(ctx context.Context) (InlineResponse20054, *http.Response, error) {
+func (a *MiscApiService) GetARandomFoodJoke(ctx context.Context) (InlineResponse20055, *http.Response, error) {
 	var (
 		localVarHttpMethod   = strings.ToUpper("Get")
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  InlineResponse20054
+		localVarReturnValue  InlineResponse20055
 	)
 
 	// create path and map variables
@@ -208,7 +208,7 @@ func (a *MiscApiService) GetARandomFoodJoke(ctx context.Context) (InlineResponse
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
-			var v InlineResponse20054
+			var v InlineResponse20055
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -239,21 +239,21 @@ This endpoint returns suggestions for things the user can say or ask the chatbot
  * @param query A (partial) query from the user. The endpoint will return if it matches topics it can talk about.
  * @param optional nil or *GetConversationSuggestsOpts - Optional Parameters:
  * @param "Number" (optional.Float32) -  The number of suggestions to return (between 1 and 25).
-@return InlineResponse20056
+@return InlineResponse20057
 */
 
 type GetConversationSuggestsOpts struct {
 	Number optional.Float32
 }
 
-func (a *MiscApiService) GetConversationSuggests(ctx context.Context, query string, localVarOptionals *GetConversationSuggestsOpts) (InlineResponse20056, *http.Response, error) {
+func (a *MiscApiService) GetConversationSuggests(ctx context.Context, query string, localVarOptionals *GetConversationSuggestsOpts) (InlineResponse20057, *http.Response, error) {
 	var (
 		localVarHttpMethod   = strings.ToUpper("Get")
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  InlineResponse20056
+		localVarReturnValue  InlineResponse20057
 	)
 
 	// create path and map variables
@@ -318,7 +318,7 @@ func (a *MiscApiService) GetConversationSuggests(ctx context.Context, query stri
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
-			var v InlineResponse20056
+			var v InlineResponse20057
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -346,16 +346,16 @@ func (a *MiscApiService) GetConversationSuggests(ctx context.Context, query stri
 MiscApiService Random Food Trivia
 Returns random food trivia.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-@return InlineResponse20054
+@return InlineResponse20055
 */
-func (a *MiscApiService) GetRandomFoodTrivia(ctx context.Context) (InlineResponse20054, *http.Response, error) {
+func (a *MiscApiService) GetRandomFoodTrivia(ctx context.Context) (InlineResponse20055, *http.Response, error) {
 	var (
 		localVarHttpMethod   = strings.ToUpper("Get")
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  InlineResponse20054
+		localVarReturnValue  InlineResponse20055
 	)
 
 	// create path and map variables
@@ -416,7 +416,7 @@ func (a *MiscApiService) GetRandomFoodTrivia(ctx context.Context) (InlineRespons
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
-			var v InlineResponse20054
+			var v InlineResponse20055
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -445,9 +445,109 @@ MiscApiService Image Analysis by URL
 Analyze a food image. The API tries to classify the image, guess the nutrition, and find a matching recipes.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param imageUrl The URL of the image to be analyzed.
+@return InlineResponse20049
+*/
+func (a *MiscApiService) ImageAnalysisByURL(ctx context.Context, imageUrl string) (InlineResponse20049, *http.Response, error) {
+	var (
+		localVarHttpMethod   = strings.ToUpper("Get")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  InlineResponse20049
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BasePath + "/food/images/analyze"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	localVarQueryParams.Add("imageUrl", parameterToString(imageUrl, ""))
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if ctx != nil {
+		// API Key Authentication
+		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
+			var key string
+			if auth.Prefix != "" {
+				key = auth.Prefix + " " + auth.Key
+			} else {
+				key = auth.Key
+			}
+			localVarQueryParams.Add("apiKey", key)
+		}
+	}
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHttpResponse, err := a.client.callAPI(r)
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
+	localVarHttpResponse.Body.Close()
+	if err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	if localVarHttpResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHttpResponse.Status,
+		}
+		if localVarHttpResponse.StatusCode == 200 {
+			var v InlineResponse20049
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHttpResponse, nil
+}
+
+/*
+MiscApiService Image Classification by URL
+Classify a food image.
+ * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param imageUrl The URL of the image to be classified.
 @return InlineResponse20048
 */
-func (a *MiscApiService) ImageAnalysisByURL(ctx context.Context, imageUrl string) (InlineResponse20048, *http.Response, error) {
+func (a *MiscApiService) ImageClassificationByURL(ctx context.Context, imageUrl string) (InlineResponse20048, *http.Response, error) {
 	var (
 		localVarHttpMethod   = strings.ToUpper("Get")
 		localVarPostBody     interface{}
@@ -458,7 +558,7 @@ func (a *MiscApiService) ImageAnalysisByURL(ctx context.Context, imageUrl string
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/food/images/analyze"
+	localVarPath := a.client.cfg.BasePath + "/food/images/classify"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -541,106 +641,6 @@ func (a *MiscApiService) ImageAnalysisByURL(ctx context.Context, imageUrl string
 }
 
 /*
-MiscApiService Image Classification by URL
-Classify a food image.
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param imageUrl The URL of the image to be classified.
-@return InlineResponse20047
-*/
-func (a *MiscApiService) ImageClassificationByURL(ctx context.Context, imageUrl string) (InlineResponse20047, *http.Response, error) {
-	var (
-		localVarHttpMethod   = strings.ToUpper("Get")
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  InlineResponse20047
-	)
-
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/food/images/classify"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	localVarQueryParams.Add("imageUrl", parameterToString(imageUrl, ""))
-	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
-	if localVarHttpContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHttpContentType
-	}
-
-	// to determine the Accept header
-	localVarHttpHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
-	if localVarHttpHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
-	}
-	if ctx != nil {
-		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
-			}
-			localVarQueryParams.Add("apiKey", key)
-		}
-	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return localVarReturnValue, localVarHttpResponse, err
-	}
-
-	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	localVarHttpResponse.Body.Close()
-	if err != nil {
-		return localVarReturnValue, localVarHttpResponse, err
-	}
-
-	if localVarHttpResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHttpResponse.Status,
-		}
-		if localVarHttpResponse.StatusCode == 200 {
-			var v InlineResponse20047
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHttpResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHttpResponse, newErr
-		}
-		return localVarReturnValue, localVarHttpResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHttpResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHttpResponse, nil
-}
-
-/*
 MiscApiService Search All Food
 Search all food content with one call. That includes recipes, grocery products, menu items, simple foods (ingredients), and food videos.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -648,7 +648,7 @@ Search all food content with one call. That includes recipes, grocery products, 
  * @param optional nil or *SearchAllFoodOpts - Optional Parameters:
  * @param "Offset" (optional.Int32) -  The number of results to skip (between 0 and 900).
  * @param "Number" (optional.Int32) -  The maximum number of items to return (between 1 and 100). Defaults to 10.
-@return InlineResponse20052
+@return InlineResponse20053
 */
 
 type SearchAllFoodOpts struct {
@@ -656,14 +656,14 @@ type SearchAllFoodOpts struct {
 	Number optional.Int32
 }
 
-func (a *MiscApiService) SearchAllFood(ctx context.Context, query string, localVarOptionals *SearchAllFoodOpts) (InlineResponse20052, *http.Response, error) {
+func (a *MiscApiService) SearchAllFood(ctx context.Context, query string, localVarOptionals *SearchAllFoodOpts) (InlineResponse20053, *http.Response, error) {
 	var (
 		localVarHttpMethod   = strings.ToUpper("Get")
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  InlineResponse20052
+		localVarReturnValue  InlineResponse20053
 	)
 
 	// create path and map variables
@@ -731,7 +731,7 @@ func (a *MiscApiService) SearchAllFood(ctx context.Context, query string, localV
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
-			var v InlineResponse20052
+			var v InlineResponse20053
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -892,7 +892,7 @@ Find recipe and other food related videos.
  * @param "MaxLength" (optional.Float32) -  Maximum video length in seconds.
  * @param "Offset" (optional.Int32) -  The number of results to skip (between 0 and 900).
  * @param "Number" (optional.Int32) -  The maximum number of items to return (between 1 and 100). Defaults to 10.
-@return InlineResponse20053
+@return InlineResponse20054
 */
 
 type SearchFoodVideosOpts struct {
@@ -908,14 +908,14 @@ type SearchFoodVideosOpts struct {
 	Number optional.Int32
 }
 
-func (a *MiscApiService) SearchFoodVideos(ctx context.Context, localVarOptionals *SearchFoodVideosOpts) (InlineResponse20053, *http.Response, error) {
+func (a *MiscApiService) SearchFoodVideos(ctx context.Context, localVarOptionals *SearchFoodVideosOpts) (InlineResponse20054, *http.Response, error) {
 	var (
 		localVarHttpMethod   = strings.ToUpper("Get")
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  InlineResponse20053
+		localVarReturnValue  InlineResponse20054
 	)
 
 	// create path and map variables
@@ -1006,7 +1006,7 @@ func (a *MiscApiService) SearchFoodVideos(ctx context.Context, localVarOptionals
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
-			var v InlineResponse20053
+			var v InlineResponse20054
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1035,16 +1035,16 @@ MiscApiService Search Site Content
 Search spoonacular&#39;s site content. You&#39;ll be able to find everything that you could also find using the search suggestions on spoonacular.com. This is a suggest API so you can send partial strings as queries.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param query The query to search for. You can also use partial queries such as \"spagh\" to already find spaghetti recipes, articles, grocery products, and other content.
-@return InlineResponse20051
+@return InlineResponse20052
 */
-func (a *MiscApiService) SearchSiteContent(ctx context.Context, query string) (InlineResponse20051, *http.Response, error) {
+func (a *MiscApiService) SearchSiteContent(ctx context.Context, query string) (InlineResponse20052, *http.Response, error) {
 	var (
 		localVarHttpMethod   = strings.ToUpper("Get")
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  InlineResponse20051
+		localVarReturnValue  InlineResponse20052
 	)
 
 	// create path and map variables
@@ -1106,7 +1106,7 @@ func (a *MiscApiService) SearchSiteContent(ctx context.Context, query string) (I
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
-			var v InlineResponse20051
+			var v InlineResponse20052
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1137,21 +1137,21 @@ This endpoint can be used to have a conversation about food with the spoonacular
  * @param text The request / question / answer from the user to the chatbot.
  * @param optional nil or *TalkToChatbotOpts - Optional Parameters:
  * @param "ContextId" (optional.String) -  An arbitrary globally unique id for your conversation. The conversation can contain states so you should pass your context id if you want the bot to be able to remember the conversation.
-@return InlineResponse20055
+@return InlineResponse20056
 */
 
 type TalkToChatbotOpts struct {
 	ContextId optional.String
 }
 
-func (a *MiscApiService) TalkToChatbot(ctx context.Context, text string, localVarOptionals *TalkToChatbotOpts) (InlineResponse20055, *http.Response, error) {
+func (a *MiscApiService) TalkToChatbot(ctx context.Context, text string, localVarOptionals *TalkToChatbotOpts) (InlineResponse20056, *http.Response, error) {
 	var (
 		localVarHttpMethod   = strings.ToUpper("Get")
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  InlineResponse20055
+		localVarReturnValue  InlineResponse20056
 	)
 
 	// create path and map variables
@@ -1216,7 +1216,7 @@ func (a *MiscApiService) TalkToChatbot(ctx context.Context, text string, localVa
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
-			var v InlineResponse20055
+			var v InlineResponse20056
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

@@ -9,13 +9,19 @@ defmodule com.spoonacular.client.Model.InlineResponse20053 do
 
   @derive [Poison.Encoder]
   defstruct [
-    :"videos",
-    :"totalResults"
+    :"query",
+    :"totalResults",
+    :"limit",
+    :"offset",
+    :"searchResults"
   ]
 
   @type t :: %__MODULE__{
-    :"videos" => [InlineResponse20053Videos],
-    :"totalResults" => integer()
+    :"query" => String.t,
+    :"totalResults" => integer(),
+    :"limit" => integer(),
+    :"offset" => integer(),
+    :"searchResults" => [InlineResponse20053SearchResults]
   }
 end
 
@@ -23,7 +29,7 @@ defimpl Poison.Decoder, for: com.spoonacular.client.Model.InlineResponse20053 do
   import com.spoonacular.client.Deserializer
   def decode(value, options) do
     value
-    |> deserialize(:"videos", :list, com.spoonacular.client.Model.InlineResponse20053Videos, options)
+    |> deserialize(:"searchResults", :list, com.spoonacular.client.Model.InlineResponse20053SearchResults, options)
   end
 end
 

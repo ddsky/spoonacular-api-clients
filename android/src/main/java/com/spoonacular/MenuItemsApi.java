@@ -340,11 +340,12 @@ public class MenuItemsApi {
    * @param maxProtein The maximum amount of protein in grams the menu item can have.
    * @param minFat The minimum amount of fat in grams the menu item must have.
    * @param maxFat The maximum amount of fat in grams the menu item can have.
+   * @param addMenuItemInformation If set to true, you get more information about the menu items returned.
    * @param offset The number of results to skip (between 0 and 900).
    * @param number The maximum number of items to return (between 1 and 100). Defaults to 10.
    * @return InlineResponse20035
    */
-  public InlineResponse20035  searchMenuItems (String query, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minFat, BigDecimal maxFat, Integer offset, Integer number) throws ApiException {
+  public InlineResponse20035  searchMenuItems (String query, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minFat, BigDecimal maxFat, Boolean addMenuItemInformation, Integer offset, Integer number) throws ApiException {
     Object localVarPostBody = null;
 
     // create path and map variables
@@ -366,6 +367,7 @@ public class MenuItemsApi {
     localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "maxProtein", maxProtein));
     localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "minFat", minFat));
     localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "maxFat", maxFat));
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "addMenuItemInformation", addMenuItemInformation));
     localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "offset", offset));
     localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "number", number));
 

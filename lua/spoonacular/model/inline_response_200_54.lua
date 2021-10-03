@@ -19,9 +19,10 @@ local function cast_inline_response_200_54(t)
 	return setmetatable(t, inline_response_200_54_mt)
 end
 
-local function new_inline_response_200_54(text)
+local function new_inline_response_200_54(videos, total_results)
 	return cast_inline_response_200_54({
-		["text"] = text;
+		["videos"] = videos;
+		["totalResults"] = total_results;
 	})
 end
 

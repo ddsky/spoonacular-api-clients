@@ -23,6 +23,13 @@ describe("inline_object_7", function()
     end)
   end)
 
+  -- unit tests for the property 'id'
+  describe("property id test", function()
+    it("should work", function()
+      -- TODO assertion here: http://olivinelabs.com/busted/#asserts
+    end)
+  end)
+
   -- unit tests for the property 'hash'
   describe("property hash test", function()
     it("should work", function()

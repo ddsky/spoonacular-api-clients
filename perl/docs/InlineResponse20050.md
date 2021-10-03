@@ -8,7 +8,8 @@ use WWW::OpenAPIClient::Object::InlineResponse20050;
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**annotations** | **ARRAY[object]** |  | 
+**answer** | **string** |  | 
+**image** | **string** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

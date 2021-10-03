@@ -73,6 +73,16 @@ class MealPlanningApiTest extends TestCase
     }
 
     /**
+     * Test case for addMealPlanTemplate
+     *
+     * Add Meal Plan Template.
+     *
+     */
+    public function testAddMealPlanTemplate()
+    {
+    }
+
+    /**
      * Test case for addToMealPlan
      *
      * Add to Meal Plan.
@@ -129,6 +139,16 @@ class MealPlanningApiTest extends TestCase
      *
      */
     public function testDeleteFromShoppingList()
+    {
+    }
+
+    /**
+     * Test case for deleteMealPlanTemplate
+     *
+     * Delete Meal Plan Template.
+     *
+     */
+    public function testDeleteMealPlanTemplate()
     {
     }
 

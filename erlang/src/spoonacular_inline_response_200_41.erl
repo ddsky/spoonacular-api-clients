@@ -5,19 +5,16 @@
 -export_type([spoonacular_inline_response_200_41/0]).
 
 -type spoonacular_inline_response_200_41() ::
-    #{ 'aisles' := list(),
-       'cost' := integer(),
-       'startDate' := integer(),
-       'endDate' := integer()
+    #{ 'id' := integer(),
+       'name' := binary(),
+       'days' := list()
      }.
 
-encode(#{ 'aisles' := Aisles,
-          'cost' := Cost,
-          'startDate' := StartDate,
-          'endDate' := EndDate
+encode(#{ 'id' := Id,
+          'name' := Name,
+          'days' := Days
         }) ->
-    #{ 'aisles' => Aisles,
-       'cost' => Cost,
-       'startDate' => StartDate,
-       'endDate' => EndDate
+    #{ 'id' => Id,
+       'name' => Name,
+       'days' => Days
      }.

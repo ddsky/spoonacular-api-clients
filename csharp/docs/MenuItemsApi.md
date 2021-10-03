@@ -366,7 +366,7 @@ Name | Type | Description  | Notes
 
 <a name="searchmenuitems"></a>
 # **SearchMenuItems**
-> InlineResponse20035 SearchMenuItems (string query, decimal? minCalories, decimal? maxCalories, decimal? minCarbs, decimal? maxCarbs, decimal? minProtein, decimal? maxProtein, decimal? minFat, decimal? maxFat, int? offset, int? number)
+> InlineResponse20035 SearchMenuItems (string query, decimal? minCalories, decimal? maxCalories, decimal? minCarbs, decimal? maxCarbs, decimal? minProtein, decimal? maxProtein, decimal? minFat, decimal? maxFat, bool? addMenuItemInformation, int? offset, int? number)
 
 Search Menu Items
 
@@ -402,13 +402,14 @@ namespace Example
             var maxProtein = 100;  // decimal? | The maximum amount of protein in grams the menu item can have. (optional) 
             var minFat = 1;  // decimal? | The minimum amount of fat in grams the menu item must have. (optional) 
             var maxFat = 100;  // decimal? | The maximum amount of fat in grams the menu item can have. (optional) 
+            var addMenuItemInformation = true;  // bool? | If set to true, you get more information about the menu items returned. (optional) 
             var offset = 56;  // int? | The number of results to skip (between 0 and 900). (optional) 
             var number = 10;  // int? | The maximum number of items to return (between 1 and 100). Defaults to 10. (optional)  (default to 10)
 
             try
             {
                 // Search Menu Items
-                InlineResponse20035 result = apiInstance.SearchMenuItems(query, minCalories, maxCalories, minCarbs, maxCarbs, minProtein, maxProtein, minFat, maxFat, offset, number);
+                InlineResponse20035 result = apiInstance.SearchMenuItems(query, minCalories, maxCalories, minCarbs, maxCarbs, minProtein, maxProtein, minFat, maxFat, addMenuItemInformation, offset, number);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -433,6 +434,7 @@ Name | Type | Description  | Notes
  **maxProtein** | **decimal?**| The maximum amount of protein in grams the menu item can have. | [optional] 
  **minFat** | **decimal?**| The minimum amount of fat in grams the menu item must have. | [optional] 
  **maxFat** | **decimal?**| The maximum amount of fat in grams the menu item can have. | [optional] 
+ **addMenuItemInformation** | **bool?**| If set to true, you get more information about the menu items returned. | [optional] 
  **offset** | **int?**| The number of results to skip (between 0 and 900). | [optional] 
  **number** | **int?**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
 

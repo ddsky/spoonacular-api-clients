@@ -21,10 +21,10 @@ import com.spoonacular.client.model.*;
 import java.util.*;
 
 import java.math.BigDecimal;
-import com.spoonacular.client.model.InlineResponse20043;
 import com.spoonacular.client.model.InlineResponse20044;
 import com.spoonacular.client.model.InlineResponse20045;
 import com.spoonacular.client.model.InlineResponse20046;
+import com.spoonacular.client.model.InlineResponse20047;
 
 import org.apache.http.entity.mime.MultipartEntityBuilder;
 
@@ -56,9 +56,9 @@ public class WineApi {
    * Dish Pairing for Wine
    * Find a dish that goes well with a given wine.
    * @param wine The type of wine that should be paired, e.g. \&quot;merlot\&quot;, \&quot;riesling\&quot;, or \&quot;malbec\&quot;.
-   * @return InlineResponse20043
+   * @return InlineResponse20044
    */
-  public InlineResponse20043  getDishPairingForWine (String wine) throws ApiException {
+  public InlineResponse20044  getDishPairingForWine (String wine) throws ApiException {
     Object localVarPostBody = null;
     // verify the required parameter 'wine' is set
     if (wine == null) {
@@ -96,7 +96,7 @@ public class WineApi {
     try {
       String localVarResponse = apiInvoker.invokeAPI(basePath, localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarContentType);
       if(localVarResponse != null){
-        return (InlineResponse20043) ApiInvoker.deserialize(localVarResponse, "", InlineResponse20043.class);
+        return (InlineResponse20044) ApiInvoker.deserialize(localVarResponse, "", InlineResponse20044.class);
       }
       else {
         return null;
@@ -109,9 +109,9 @@ public class WineApi {
    * Wine Description
    * Get a simple description of a certain wine, e.g. \&quot;malbec\&quot;, \&quot;riesling\&quot;, or \&quot;merlot\&quot;.
    * @param wine The name of the wine that should be paired, e.g. \&quot;merlot\&quot;, \&quot;riesling\&quot;, or \&quot;malbec\&quot;.
-   * @return InlineResponse20045
+   * @return InlineResponse20046
    */
-  public InlineResponse20045  getWineDescription (String wine) throws ApiException {
+  public InlineResponse20046  getWineDescription (String wine) throws ApiException {
     Object localVarPostBody = null;
     // verify the required parameter 'wine' is set
     if (wine == null) {
@@ -149,7 +149,7 @@ public class WineApi {
     try {
       String localVarResponse = apiInvoker.invokeAPI(basePath, localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarContentType);
       if(localVarResponse != null){
-        return (InlineResponse20045) ApiInvoker.deserialize(localVarResponse, "", InlineResponse20045.class);
+        return (InlineResponse20046) ApiInvoker.deserialize(localVarResponse, "", InlineResponse20046.class);
       }
       else {
         return null;
@@ -163,9 +163,9 @@ public class WineApi {
    * Find a wine that goes well with a food. Food can be a dish name (\&quot;steak\&quot;), an ingredient name (\&quot;salmon\&quot;), or a cuisine (\&quot;italian\&quot;).
    * @param food The food to get a pairing for. This can be a dish (\&quot;steak\&quot;), an ingredient (\&quot;salmon\&quot;), or a cuisine (\&quot;italian\&quot;).
    * @param maxPrice The maximum price for the specific wine recommendation in USD.
-   * @return InlineResponse20044
+   * @return InlineResponse20045
    */
-  public InlineResponse20044  getWinePairing (String food, BigDecimal maxPrice) throws ApiException {
+  public InlineResponse20045  getWinePairing (String food, BigDecimal maxPrice) throws ApiException {
     Object localVarPostBody = null;
     // verify the required parameter 'food' is set
     if (food == null) {
@@ -204,7 +204,7 @@ public class WineApi {
     try {
       String localVarResponse = apiInvoker.invokeAPI(basePath, localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarContentType);
       if(localVarResponse != null){
-        return (InlineResponse20044) ApiInvoker.deserialize(localVarResponse, "", InlineResponse20044.class);
+        return (InlineResponse20045) ApiInvoker.deserialize(localVarResponse, "", InlineResponse20045.class);
       }
       else {
         return null;
@@ -220,9 +220,9 @@ public class WineApi {
    * @param maxPrice The maximum price for the specific wine recommendation in USD.
    * @param minRating The minimum rating of the recommended wine between 0 and 1. For example, 0.8 equals 4 out of 5 stars.
    * @param number The number of wine recommendations expected (between 1 and 100).
-   * @return InlineResponse20046
+   * @return InlineResponse20047
    */
-  public InlineResponse20046  getWineRecommendation (String wine, BigDecimal maxPrice, BigDecimal minRating, BigDecimal number) throws ApiException {
+  public InlineResponse20047  getWineRecommendation (String wine, BigDecimal maxPrice, BigDecimal minRating, BigDecimal number) throws ApiException {
     Object localVarPostBody = null;
     // verify the required parameter 'wine' is set
     if (wine == null) {
@@ -263,7 +263,7 @@ public class WineApi {
     try {
       String localVarResponse = apiInvoker.invokeAPI(basePath, localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarContentType);
       if(localVarResponse != null){
-        return (InlineResponse20046) ApiInvoker.deserialize(localVarResponse, "", InlineResponse20046.class);
+        return (InlineResponse20047) ApiInvoker.deserialize(localVarResponse, "", InlineResponse20047.class);
       }
       else {
         return null;

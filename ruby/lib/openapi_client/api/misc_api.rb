@@ -23,7 +23,7 @@ module OpenapiClient
     # Take any text and find all mentions of food contained within it. This task is also called Named Entity Recognition (NER). In this case, the entities are foods. Either dishes, such as pizza or cheeseburger, or ingredients, such as cucumber or almonds.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :content_type The content type.
-    # @return [InlineResponse20050]
+    # @return [InlineResponse20051]
     def detect_food_in_text(opts = {})
       data, _status_code, _headers = detect_food_in_text_with_http_info(opts)
       data
@@ -33,7 +33,7 @@ module OpenapiClient
     # Take any text and find all mentions of food contained within it. This task is also called Named Entity Recognition (NER). In this case, the entities are foods. Either dishes, such as pizza or cheeseburger, or ingredients, such as cucumber or almonds.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :content_type The content type.
-    # @return [Array<(InlineResponse20050, Integer, Hash)>] InlineResponse20050 data, response status code and response headers
+    # @return [Array<(InlineResponse20051, Integer, Hash)>] InlineResponse20051 data, response status code and response headers
     def detect_food_in_text_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MiscApi.detect_food_in_text ...'
@@ -63,7 +63,7 @@ module OpenapiClient
       post_body = opts[:body] 
 
       # return_type
-      return_type = opts[:return_type] || 'InlineResponse20050' 
+      return_type = opts[:return_type] || 'InlineResponse20051' 
 
       # auth_names
       auth_names = opts[:auth_names] || ['apiKeyScheme']
@@ -87,7 +87,7 @@ module OpenapiClient
     # Random Food Joke
     # Get a random joke that is related to food. Caution: this is an endpoint for adults!
     # @param [Hash] opts the optional parameters
-    # @return [InlineResponse20054]
+    # @return [InlineResponse20055]
     def get_a_random_food_joke(opts = {})
       data, _status_code, _headers = get_a_random_food_joke_with_http_info(opts)
       data
@@ -96,7 +96,7 @@ module OpenapiClient
     # Random Food Joke
     # Get a random joke that is related to food. Caution: this is an endpoint for adults!
     # @param [Hash] opts the optional parameters
-    # @return [Array<(InlineResponse20054, Integer, Hash)>] InlineResponse20054 data, response status code and response headers
+    # @return [Array<(InlineResponse20055, Integer, Hash)>] InlineResponse20055 data, response status code and response headers
     def get_a_random_food_joke_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MiscApi.get_a_random_food_joke ...'
@@ -119,7 +119,7 @@ module OpenapiClient
       post_body = opts[:body] 
 
       # return_type
-      return_type = opts[:return_type] || 'InlineResponse20054' 
+      return_type = opts[:return_type] || 'InlineResponse20055' 
 
       # auth_names
       auth_names = opts[:auth_names] || ['apiKeyScheme']
@@ -145,7 +145,7 @@ module OpenapiClient
     # @param query [String] A (partial) query from the user. The endpoint will return if it matches topics it can talk about.
     # @param [Hash] opts the optional parameters
     # @option opts [Float] :number The number of suggestions to return (between 1 and 25).
-    # @return [InlineResponse20056]
+    # @return [InlineResponse20057]
     def get_conversation_suggests(query, opts = {})
       data, _status_code, _headers = get_conversation_suggests_with_http_info(query, opts)
       data
@@ -156,7 +156,7 @@ module OpenapiClient
     # @param query [String] A (partial) query from the user. The endpoint will return if it matches topics it can talk about.
     # @param [Hash] opts the optional parameters
     # @option opts [Float] :number The number of suggestions to return (between 1 and 25).
-    # @return [Array<(InlineResponse20056, Integer, Hash)>] InlineResponse20056 data, response status code and response headers
+    # @return [Array<(InlineResponse20057, Integer, Hash)>] InlineResponse20057 data, response status code and response headers
     def get_conversation_suggests_with_http_info(query, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MiscApi.get_conversation_suggests ...'
@@ -185,7 +185,7 @@ module OpenapiClient
       post_body = opts[:body] 
 
       # return_type
-      return_type = opts[:return_type] || 'InlineResponse20056' 
+      return_type = opts[:return_type] || 'InlineResponse20057' 
 
       # auth_names
       auth_names = opts[:auth_names] || ['apiKeyScheme']
@@ -209,7 +209,7 @@ module OpenapiClient
     # Random Food Trivia
     # Returns random food trivia.
     # @param [Hash] opts the optional parameters
-    # @return [InlineResponse20054]
+    # @return [InlineResponse20055]
     def get_random_food_trivia(opts = {})
       data, _status_code, _headers = get_random_food_trivia_with_http_info(opts)
       data
@@ -218,7 +218,7 @@ module OpenapiClient
     # Random Food Trivia
     # Returns random food trivia.
     # @param [Hash] opts the optional parameters
-    # @return [Array<(InlineResponse20054, Integer, Hash)>] InlineResponse20054 data, response status code and response headers
+    # @return [Array<(InlineResponse20055, Integer, Hash)>] InlineResponse20055 data, response status code and response headers
     def get_random_food_trivia_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MiscApi.get_random_food_trivia ...'
@@ -241,7 +241,7 @@ module OpenapiClient
       post_body = opts[:body] 
 
       # return_type
-      return_type = opts[:return_type] || 'InlineResponse20054' 
+      return_type = opts[:return_type] || 'InlineResponse20055' 
 
       # auth_names
       auth_names = opts[:auth_names] || ['apiKeyScheme']
@@ -266,7 +266,7 @@ module OpenapiClient
     # Analyze a food image. The API tries to classify the image, guess the nutrition, and find a matching recipes.
     # @param image_url [String] The URL of the image to be analyzed.
     # @param [Hash] opts the optional parameters
-    # @return [InlineResponse20048]
+    # @return [InlineResponse20049]
     def image_analysis_by_url(image_url, opts = {})
       data, _status_code, _headers = image_analysis_by_url_with_http_info(image_url, opts)
       data
@@ -276,7 +276,7 @@ module OpenapiClient
     # Analyze a food image. The API tries to classify the image, guess the nutrition, and find a matching recipes.
     # @param image_url [String] The URL of the image to be analyzed.
     # @param [Hash] opts the optional parameters
-    # @return [Array<(InlineResponse20048, Integer, Hash)>] InlineResponse20048 data, response status code and response headers
+    # @return [Array<(InlineResponse20049, Integer, Hash)>] InlineResponse20049 data, response status code and response headers
     def image_analysis_by_url_with_http_info(image_url, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MiscApi.image_analysis_by_url ...'
@@ -287,6 +287,69 @@ module OpenapiClient
       end
       # resource path
       local_var_path = '/food/images/analyze'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'imageUrl'] = image_url
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] 
+
+      # return_type
+      return_type = opts[:return_type] || 'InlineResponse20049' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || ['apiKeyScheme']
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MiscApi#image_analysis_by_url\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Image Classification by URL
+    # Classify a food image.
+    # @param image_url [String] The URL of the image to be classified.
+    # @param [Hash] opts the optional parameters
+    # @return [InlineResponse20048]
+    def image_classification_by_url(image_url, opts = {})
+      data, _status_code, _headers = image_classification_by_url_with_http_info(image_url, opts)
+      data
+    end
+
+    # Image Classification by URL
+    # Classify a food image.
+    # @param image_url [String] The URL of the image to be classified.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(InlineResponse20048, Integer, Hash)>] InlineResponse20048 data, response status code and response headers
+    def image_classification_by_url_with_http_info(image_url, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MiscApi.image_classification_by_url ...'
+      end
+      # verify the required parameter 'image_url' is set
+      if @api_client.config.client_side_validation && image_url.nil?
+        fail ArgumentError, "Missing the required parameter 'image_url' when calling MiscApi.image_classification_by_url"
+      end
+      # resource path
+      local_var_path = '/food/images/classify'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -320,69 +383,6 @@ module OpenapiClient
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MiscApi#image_analysis_by_url\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # Image Classification by URL
-    # Classify a food image.
-    # @param image_url [String] The URL of the image to be classified.
-    # @param [Hash] opts the optional parameters
-    # @return [InlineResponse20047]
-    def image_classification_by_url(image_url, opts = {})
-      data, _status_code, _headers = image_classification_by_url_with_http_info(image_url, opts)
-      data
-    end
-
-    # Image Classification by URL
-    # Classify a food image.
-    # @param image_url [String] The URL of the image to be classified.
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(InlineResponse20047, Integer, Hash)>] InlineResponse20047 data, response status code and response headers
-    def image_classification_by_url_with_http_info(image_url, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MiscApi.image_classification_by_url ...'
-      end
-      # verify the required parameter 'image_url' is set
-      if @api_client.config.client_side_validation && image_url.nil?
-        fail ArgumentError, "Missing the required parameter 'image_url' when calling MiscApi.image_classification_by_url"
-      end
-      # resource path
-      local_var_path = '/food/images/classify'
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-      query_params[:'imageUrl'] = image_url
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:body] 
-
-      # return_type
-      return_type = opts[:return_type] || 'InlineResponse20047' 
-
-      # auth_names
-      auth_names = opts[:auth_names] || ['apiKeyScheme']
-
-      new_options = opts.merge(
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
-      if @api_client.config.debugging
         @api_client.config.logger.debug "API called: MiscApi#image_classification_by_url\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
@@ -394,7 +394,7 @@ module OpenapiClient
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :offset The number of results to skip (between 0 and 900).
     # @option opts [Integer] :number The maximum number of items to return (between 1 and 100). Defaults to 10. (default to 10)
-    # @return [InlineResponse20052]
+    # @return [InlineResponse20053]
     def search_all_food(query, opts = {})
       data, _status_code, _headers = search_all_food_with_http_info(query, opts)
       data
@@ -406,7 +406,7 @@ module OpenapiClient
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :offset The number of results to skip (between 0 and 900).
     # @option opts [Integer] :number The maximum number of items to return (between 1 and 100). Defaults to 10.
-    # @return [Array<(InlineResponse20052, Integer, Hash)>] InlineResponse20052 data, response status code and response headers
+    # @return [Array<(InlineResponse20053, Integer, Hash)>] InlineResponse20053 data, response status code and response headers
     def search_all_food_with_http_info(query, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MiscApi.search_all_food ...'
@@ -452,7 +452,7 @@ module OpenapiClient
       post_body = opts[:body] 
 
       # return_type
-      return_type = opts[:return_type] || 'InlineResponse20052' 
+      return_type = opts[:return_type] || 'InlineResponse20053' 
 
       # auth_names
       auth_names = opts[:auth_names] || ['apiKeyScheme']
@@ -581,7 +581,7 @@ module OpenapiClient
     # @option opts [Float] :max_length Maximum video length in seconds.
     # @option opts [Integer] :offset The number of results to skip (between 0 and 900).
     # @option opts [Integer] :number The maximum number of items to return (between 1 and 100). Defaults to 10. (default to 10)
-    # @return [InlineResponse20053]
+    # @return [InlineResponse20054]
     def search_food_videos(opts = {})
       data, _status_code, _headers = search_food_videos_with_http_info(opts)
       data
@@ -600,7 +600,7 @@ module OpenapiClient
     # @option opts [Float] :max_length Maximum video length in seconds.
     # @option opts [Integer] :offset The number of results to skip (between 0 and 900).
     # @option opts [Integer] :number The maximum number of items to return (between 1 and 100). Defaults to 10.
-    # @return [Array<(InlineResponse20053, Integer, Hash)>] InlineResponse20053 data, response status code and response headers
+    # @return [Array<(InlineResponse20054, Integer, Hash)>] InlineResponse20054 data, response status code and response headers
     def search_food_videos_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MiscApi.search_food_videos ...'
@@ -649,7 +649,7 @@ module OpenapiClient
       post_body = opts[:body] 
 
       # return_type
-      return_type = opts[:return_type] || 'InlineResponse20053' 
+      return_type = opts[:return_type] || 'InlineResponse20054' 
 
       # auth_names
       auth_names = opts[:auth_names] || ['apiKeyScheme']
@@ -674,7 +674,7 @@ module OpenapiClient
     # Search spoonacular's site content. You'll be able to find everything that you could also find using the search suggestions on spoonacular.com. This is a suggest API so you can send partial strings as queries.
     # @param query [String] The query to search for. You can also use partial queries such as \&quot;spagh\&quot; to already find spaghetti recipes, articles, grocery products, and other content.
     # @param [Hash] opts the optional parameters
-    # @return [InlineResponse20051]
+    # @return [InlineResponse20052]
     def search_site_content(query, opts = {})
       data, _status_code, _headers = search_site_content_with_http_info(query, opts)
       data
@@ -684,7 +684,7 @@ module OpenapiClient
     # Search spoonacular&#39;s site content. You&#39;ll be able to find everything that you could also find using the search suggestions on spoonacular.com. This is a suggest API so you can send partial strings as queries.
     # @param query [String] The query to search for. You can also use partial queries such as \&quot;spagh\&quot; to already find spaghetti recipes, articles, grocery products, and other content.
     # @param [Hash] opts the optional parameters
-    # @return [Array<(InlineResponse20051, Integer, Hash)>] InlineResponse20051 data, response status code and response headers
+    # @return [Array<(InlineResponse20052, Integer, Hash)>] InlineResponse20052 data, response status code and response headers
     def search_site_content_with_http_info(query, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MiscApi.search_site_content ...'
@@ -712,7 +712,7 @@ module OpenapiClient
       post_body = opts[:body] 
 
       # return_type
-      return_type = opts[:return_type] || 'InlineResponse20051' 
+      return_type = opts[:return_type] || 'InlineResponse20052' 
 
       # auth_names
       auth_names = opts[:auth_names] || ['apiKeyScheme']
@@ -738,7 +738,7 @@ module OpenapiClient
     # @param text [String] The request / question / answer from the user to the chatbot.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :context_id An arbitrary globally unique id for your conversation. The conversation can contain states so you should pass your context id if you want the bot to be able to remember the conversation.
-    # @return [InlineResponse20055]
+    # @return [InlineResponse20056]
     def talk_to_chatbot(text, opts = {})
       data, _status_code, _headers = talk_to_chatbot_with_http_info(text, opts)
       data
@@ -749,7 +749,7 @@ module OpenapiClient
     # @param text [String] The request / question / answer from the user to the chatbot.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :context_id An arbitrary globally unique id for your conversation. The conversation can contain states so you should pass your context id if you want the bot to be able to remember the conversation.
-    # @return [Array<(InlineResponse20055, Integer, Hash)>] InlineResponse20055 data, response status code and response headers
+    # @return [Array<(InlineResponse20056, Integer, Hash)>] InlineResponse20056 data, response status code and response headers
     def talk_to_chatbot_with_http_info(text, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MiscApi.talk_to_chatbot ...'
@@ -778,7 +778,7 @@ module OpenapiClient
       post_body = opts[:body] 
 
       # return_type
-      return_type = opts[:return_type] || 'InlineResponse20055' 
+      return_type = opts[:return_type] || 'InlineResponse20056' 
 
       # auth_names
       auth_names = opts[:auth_names] || ['apiKeyScheme']

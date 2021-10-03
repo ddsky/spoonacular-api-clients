@@ -20,57 +20,89 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.spoonacular.client.model.InlineResponse20049Category;
+import com.spoonacular.client.model.InlineResponse20049Nutrition;
+import com.spoonacular.client.model.InlineResponse20049Recipes;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * InlineResponse20049
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-09-28T20:40:32.759+02:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-03T15:10:59.332+02:00[Europe/Berlin]")
 public class InlineResponse20049 {
-  public static final String SERIALIZED_NAME_ANSWER = "answer";
-  @SerializedName(SERIALIZED_NAME_ANSWER)
-  private String answer;
+  public static final String SERIALIZED_NAME_NUTRITION = "nutrition";
+  @SerializedName(SERIALIZED_NAME_NUTRITION)
+  private InlineResponse20049Nutrition nutrition = null;
 
-  public static final String SERIALIZED_NAME_IMAGE = "image";
-  @SerializedName(SERIALIZED_NAME_IMAGE)
-  private String image;
+  public static final String SERIALIZED_NAME_CATEGORY = "category";
+  @SerializedName(SERIALIZED_NAME_CATEGORY)
+  private InlineResponse20049Category category = null;
 
-  public InlineResponse20049 answer(String answer) {
-    this.answer = answer;
+  public static final String SERIALIZED_NAME_RECIPES = "recipes";
+  @SerializedName(SERIALIZED_NAME_RECIPES)
+  private List<InlineResponse20049Recipes> recipes = new ArrayList<>();
+
+  public InlineResponse20049 nutrition(InlineResponse20049Nutrition nutrition) {
+    this.nutrition = nutrition;
     return this;
   }
 
    /**
-   * Get answer
-   * @return answer
+   * Get nutrition
+   * @return nutrition
   **/
   @ApiModelProperty(required = true, value = "")
-  public String getAnswer() {
-    return answer;
+  public InlineResponse20049Nutrition getNutrition() {
+    return nutrition;
   }
 
-  public void setAnswer(String answer) {
-    this.answer = answer;
+  public void setNutrition(InlineResponse20049Nutrition nutrition) {
+    this.nutrition = nutrition;
   }
 
-  public InlineResponse20049 image(String image) {
-    this.image = image;
+  public InlineResponse20049 category(InlineResponse20049Category category) {
+    this.category = category;
     return this;
   }
 
    /**
-   * Get image
-   * @return image
+   * Get category
+   * @return category
   **/
   @ApiModelProperty(required = true, value = "")
-  public String getImage() {
-    return image;
+  public InlineResponse20049Category getCategory() {
+    return category;
   }
 
-  public void setImage(String image) {
-    this.image = image;
+  public void setCategory(InlineResponse20049Category category) {
+    this.category = category;
+  }
+
+  public InlineResponse20049 recipes(List<InlineResponse20049Recipes> recipes) {
+    this.recipes = recipes;
+    return this;
+  }
+
+  public InlineResponse20049 addRecipesItem(InlineResponse20049Recipes recipesItem) {
+    this.recipes.add(recipesItem);
+    return this;
+  }
+
+   /**
+   * Get recipes
+   * @return recipes
+  **/
+  @ApiModelProperty(required = true, value = "")
+  public List<InlineResponse20049Recipes> getRecipes() {
+    return recipes;
+  }
+
+  public void setRecipes(List<InlineResponse20049Recipes> recipes) {
+    this.recipes = recipes;
   }
 
 
@@ -83,13 +115,14 @@ public class InlineResponse20049 {
       return false;
     }
     InlineResponse20049 inlineResponse20049 = (InlineResponse20049) o;
-    return Objects.equals(this.answer, inlineResponse20049.answer) &&
-        Objects.equals(this.image, inlineResponse20049.image);
+    return Objects.equals(this.nutrition, inlineResponse20049.nutrition) &&
+        Objects.equals(this.category, inlineResponse20049.category) &&
+        Objects.equals(this.recipes, inlineResponse20049.recipes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(answer, image);
+    return Objects.hash(nutrition, category, recipes);
   }
 
 
@@ -97,8 +130,9 @@ public class InlineResponse20049 {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse20049 {\n");
-    sb.append("    answer: ").append(toIndentedString(answer)).append("\n");
-    sb.append("    image: ").append(toIndentedString(image)).append("\n");
+    sb.append("    nutrition: ").append(toIndentedString(nutrition)).append("\n");
+    sb.append("    category: ").append(toIndentedString(category)).append("\n");
+    sb.append("    recipes: ").append(toIndentedString(recipes)).append("\n");
     sb.append("}");
     return sb.toString();
   }

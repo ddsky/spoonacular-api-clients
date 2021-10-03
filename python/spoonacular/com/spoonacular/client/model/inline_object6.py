@@ -33,30 +33,22 @@ class InlineObject6(object):
     """
     openapi_types = {
         'username': 'str',
-        'start_date': 'str',
-        'end_date': 'str',
         'hash': 'str'
     }
 
     attribute_map = {
         'username': 'username',
-        'start_date': 'start-date',
-        'end_date': 'end-date',
         'hash': 'hash'
     }
 
-    def __init__(self, username=None, start_date=None, end_date=None, hash=None):  # noqa: E501
+    def __init__(self, username=None, hash=None):  # noqa: E501
         """InlineObject6 - a model defined in OpenAPI"""  # noqa: E501
 
         self._username = None
-        self._start_date = None
-        self._end_date = None
         self._hash = None
         self.discriminator = None
 
         self.username = username
-        self.start_date = start_date
-        self.end_date = end_date
         self.hash = hash
 
     @property
@@ -83,56 +75,6 @@ class InlineObject6(object):
             raise ValueError("Invalid value for `username`, must not be `None`")  # noqa: E501
 
         self._username = username
-
-    @property
-    def start_date(self):
-        """Gets the start_date of this InlineObject6.  # noqa: E501
-
-        The start date in the format yyyy-mm-dd.  # noqa: E501
-
-        :return: The start_date of this InlineObject6.  # noqa: E501
-        :rtype: str
-        """
-        return self._start_date
-
-    @start_date.setter
-    def start_date(self, start_date):
-        """Sets the start_date of this InlineObject6.
-
-        The start date in the format yyyy-mm-dd.  # noqa: E501
-
-        :param start_date: The start_date of this InlineObject6.  # noqa: E501
-        :type: str
-        """
-        if start_date is None:
-            raise ValueError("Invalid value for `start_date`, must not be `None`")  # noqa: E501
-
-        self._start_date = start_date
-
-    @property
-    def end_date(self):
-        """Gets the end_date of this InlineObject6.  # noqa: E501
-
-        The end date in the format yyyy-mm-dd.  # noqa: E501
-
-        :return: The end_date of this InlineObject6.  # noqa: E501
-        :rtype: str
-        """
-        return self._end_date
-
-    @end_date.setter
-    def end_date(self, end_date):
-        """Sets the end_date of this InlineObject6.
-
-        The end date in the format yyyy-mm-dd.  # noqa: E501
-
-        :param end_date: The end_date of this InlineObject6.  # noqa: E501
-        :type: str
-        """
-        if end_date is None:
-            raise ValueError("Invalid value for `end_date`, must not be `None`")  # noqa: E501
-
-        self._end_date = end_date
 
     @property
     def hash(self):

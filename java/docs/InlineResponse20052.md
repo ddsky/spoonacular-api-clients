@@ -6,11 +6,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**query** | **String** |  | 
-**totalResults** | **Integer** |  | 
-**limit** | **Integer** |  | 
-**offset** | **Integer** |  | 
-**searchResults** | [**List&lt;InlineResponse20052SearchResults&gt;**](InlineResponse20052SearchResults.md) |  | 
+**articles** | **List&lt;Object&gt;** |  | 
+**groceryProducts** | **List&lt;Object&gt;** |  | 
+**menuItems** | **List&lt;Object&gt;** |  | 
+**recipes** | **List&lt;Object&gt;** |  | 
 
 
 

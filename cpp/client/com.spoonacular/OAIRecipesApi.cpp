@@ -1400,7 +1400,7 @@ OAIRecipesApi::quickAnswerCallback(OAIHttpRequestWorker * worker) {
     else {
         msg = "Error: " + worker->error_str;
     }
-    OAIInline_response_200_49 output(QString(worker->response));
+    OAIInline_response_200_50 output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {

@@ -1146,7 +1146,7 @@ Name | Type | Description  | Notes
 
 ## quickAnswer
 
-> InlineResponse20049 quickAnswer(q)
+> InlineResponse20050 quickAnswer(q)
 
 Quick Answer
 
@@ -1161,7 +1161,7 @@ Answer a nutrition related natural language question.
 RecipesApi apiInstance = new RecipesApi();
 String q = How much vitamin c is in 2 apples?; // String | The nutrition related question.
 try {
-    InlineResponse20049 result = apiInstance.quickAnswer(q);
+    InlineResponse20050 result = apiInstance.quickAnswer(q);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RecipesApi#quickAnswer");
@@ -1178,7 +1178,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20049**](InlineResponse20049.md)
+[**InlineResponse20050**](InlineResponse20050.md)
 
 ### Authorization
 

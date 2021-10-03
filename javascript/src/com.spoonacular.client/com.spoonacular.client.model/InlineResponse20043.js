@@ -22,12 +22,12 @@ class InlineResponse20043 {
     /**
      * Constructs a new <code>InlineResponse20043</code>.
      * @alias module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20043
-     * @param pairings {Array.<String>} 
-     * @param text {String} 
+     * @param username {String} 
+     * @param hash {String} 
      */
-    constructor(pairings, text) { 
+    constructor(username, hash) { 
         
-        InlineResponse20043.initialize(this, pairings, text);
+        InlineResponse20043.initialize(this, username, hash);
     }
 
     /**
@@ -35,9 +35,9 @@ class InlineResponse20043 {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, pairings, text) { 
-        obj['pairings'] = pairings;
-        obj['text'] = text;
+    static initialize(obj, username, hash) { 
+        obj['username'] = username;
+        obj['hash'] = hash;
     }
 
     /**
@@ -51,11 +51,11 @@ class InlineResponse20043 {
         if (data) {
             obj = obj || new InlineResponse20043();
 
-            if (data.hasOwnProperty('pairings')) {
-                obj['pairings'] = ApiClient.convertToType(data['pairings'], ['String']);
+            if (data.hasOwnProperty('username')) {
+                obj['username'] = ApiClient.convertToType(data['username'], 'String');
             }
-            if (data.hasOwnProperty('text')) {
-                obj['text'] = ApiClient.convertToType(data['text'], 'String');
+            if (data.hasOwnProperty('hash')) {
+                obj['hash'] = ApiClient.convertToType(data['hash'], 'String');
             }
         }
         return obj;
@@ -65,14 +65,14 @@ class InlineResponse20043 {
 }
 
 /**
- * @member {Array.<String>} pairings
+ * @member {String} username
  */
-InlineResponse20043.prototype['pairings'] = undefined;
+InlineResponse20043.prototype['username'] = undefined;
 
 /**
- * @member {String} text
+ * @member {String} hash
  */
-InlineResponse20043.prototype['text'] = undefined;
+InlineResponse20043.prototype['hash'] = undefined;
 
 
 

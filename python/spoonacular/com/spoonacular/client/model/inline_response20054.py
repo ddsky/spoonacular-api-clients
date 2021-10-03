@@ -32,45 +32,70 @@ class InlineResponse20054(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'text': 'str'
+        'videos': 'list[InlineResponse20054Videos]',
+        'total_results': 'int'
     }
 
     attribute_map = {
-        'text': 'text'
+        'videos': 'videos',
+        'total_results': 'totalResults'
     }
 
-    def __init__(self, text=None):  # noqa: E501
+    def __init__(self, videos=None, total_results=None):  # noqa: E501
         """InlineResponse20054 - a model defined in OpenAPI"""  # noqa: E501
 
-        self._text = None
+        self._videos = None
+        self._total_results = None
         self.discriminator = None
 
-        self.text = text
+        self.videos = videos
+        self.total_results = total_results
 
     @property
-    def text(self):
-        """Gets the text of this InlineResponse20054.  # noqa: E501
+    def videos(self):
+        """Gets the videos of this InlineResponse20054.  # noqa: E501
 
 
-        :return: The text of this InlineResponse20054.  # noqa: E501
-        :rtype: str
+        :return: The videos of this InlineResponse20054.  # noqa: E501
+        :rtype: list[InlineResponse20054Videos]
         """
-        return self._text
+        return self._videos
 
-    @text.setter
-    def text(self, text):
-        """Sets the text of this InlineResponse20054.
+    @videos.setter
+    def videos(self, videos):
+        """Sets the videos of this InlineResponse20054.
 
 
-        :param text: The text of this InlineResponse20054.  # noqa: E501
-        :type: str
+        :param videos: The videos of this InlineResponse20054.  # noqa: E501
+        :type: list[InlineResponse20054Videos]
         """
-        if text is None:
-            raise ValueError("Invalid value for `text`, must not be `None`")  # noqa: E501
-        if text is not None and len(text) < 1:
-            raise ValueError("Invalid value for `text`, length must be greater than or equal to `1`")  # noqa: E501
+        if videos is None:
+            raise ValueError("Invalid value for `videos`, must not be `None`")  # noqa: E501
 
-        self._text = text
+        self._videos = videos
+
+    @property
+    def total_results(self):
+        """Gets the total_results of this InlineResponse20054.  # noqa: E501
+
+
+        :return: The total_results of this InlineResponse20054.  # noqa: E501
+        :rtype: int
+        """
+        return self._total_results
+
+    @total_results.setter
+    def total_results(self, total_results):
+        """Sets the total_results of this InlineResponse20054.
+
+
+        :param total_results: The total_results of this InlineResponse20054.  # noqa: E501
+        :type: int
+        """
+        if total_results is None:
+            raise ValueError("Invalid value for `total_results`, must not be `None`")  # noqa: E501
+
+        self._total_results = total_results
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -116,6 +116,312 @@ class MealPlanningApi
     }
 
     /**
+     * Operation addMealPlanTemplate
+     *
+     * Add Meal Plan Template
+     *
+     * @param  string $username The username. (required)
+     * @param  string $hash The private hash for the username. (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject6 $inline_object6 inline_object6 (required)
+     *
+     * @throws \com.spoonacular.client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20040
+     */
+    public function addMealPlanTemplate($username, $hash, $inline_object6)
+    {
+        list($response) = $this->addMealPlanTemplateWithHttpInfo($username, $hash, $inline_object6);
+        return $response;
+    }
+
+    /**
+     * Operation addMealPlanTemplateWithHttpInfo
+     *
+     * Add Meal Plan Template
+     *
+     * @param  string $username The username. (required)
+     * @param  string $hash The private hash for the username. (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject6 $inline_object6 (required)
+     *
+     * @throws \com.spoonacular.client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20040, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function addMealPlanTemplateWithHttpInfo($username, $hash, $inline_object6)
+    {
+        $request = $this->addMealPlanTemplateRequest($username, $hash, $inline_object6);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20040' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20040', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20040';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20040',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation addMealPlanTemplateAsync
+     *
+     * Add Meal Plan Template
+     *
+     * @param  string $username The username. (required)
+     * @param  string $hash The private hash for the username. (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject6 $inline_object6 (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function addMealPlanTemplateAsync($username, $hash, $inline_object6)
+    {
+        return $this->addMealPlanTemplateAsyncWithHttpInfo($username, $hash, $inline_object6)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation addMealPlanTemplateAsyncWithHttpInfo
+     *
+     * Add Meal Plan Template
+     *
+     * @param  string $username The username. (required)
+     * @param  string $hash The private hash for the username. (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject6 $inline_object6 (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function addMealPlanTemplateAsyncWithHttpInfo($username, $hash, $inline_object6)
+    {
+        $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20040';
+        $request = $this->addMealPlanTemplateRequest($username, $hash, $inline_object6);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'addMealPlanTemplate'
+     *
+     * @param  string $username The username. (required)
+     * @param  string $hash The private hash for the username. (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject6 $inline_object6 (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function addMealPlanTemplateRequest($username, $hash, $inline_object6)
+    {
+        // verify the required parameter 'username' is set
+        if ($username === null || (is_array($username) && count($username) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $username when calling addMealPlanTemplate'
+            );
+        }
+        // verify the required parameter 'hash' is set
+        if ($hash === null || (is_array($hash) && count($hash) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $hash when calling addMealPlanTemplate'
+            );
+        }
+        // verify the required parameter 'inline_object6' is set
+        if ($inline_object6 === null || (is_array($inline_object6) && count($inline_object6) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $inline_object6 when calling addMealPlanTemplate'
+            );
+        }
+
+        $resourcePath = '/mealplanner/{username}/templates';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($hash !== null) {
+            $queryParams['hash'] = ObjectSerializer::toQueryValue($hash);
+        }
+
+        // path params
+        if ($username !== null) {
+            $resourcePath = str_replace(
+                '{' . 'username' . '}',
+                ObjectSerializer::toPathValue($username),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+        if (isset($inline_object6)) {
+            $_tempBody = $inline_object6;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation addToMealPlan
      *
      * Add to Meal Plan
@@ -428,15 +734,15 @@ class MealPlanningApi
      *
      * @param  string $username The username. (required)
      * @param  string $hash The private hash for the username. (required)
-     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject7 $inline_object7 inline_object7 (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject9 $inline_object9 inline_object9 (required)
      *
      * @throws \com.spoonacular.client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20041
+     * @return \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20042
      */
-    public function addToShoppingList($username, $hash, $inline_object7)
+    public function addToShoppingList($username, $hash, $inline_object9)
     {
-        list($response) = $this->addToShoppingListWithHttpInfo($username, $hash, $inline_object7);
+        list($response) = $this->addToShoppingListWithHttpInfo($username, $hash, $inline_object9);
         return $response;
     }
 
@@ -447,15 +753,15 @@ class MealPlanningApi
      *
      * @param  string $username The username. (required)
      * @param  string $hash The private hash for the username. (required)
-     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject7 $inline_object7 (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject9 $inline_object9 (required)
      *
      * @throws \com.spoonacular.client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20041, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20042, HTTP status code, HTTP response headers (array of strings)
      */
-    public function addToShoppingListWithHttpInfo($username, $hash, $inline_object7)
+    public function addToShoppingListWithHttpInfo($username, $hash, $inline_object9)
     {
-        $request = $this->addToShoppingListRequest($username, $hash, $inline_object7);
+        $request = $this->addToShoppingListRequest($username, $hash, $inline_object9);
 
         try {
             $options = $this->createHttpClientOption();
@@ -488,20 +794,20 @@ class MealPlanningApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20041' === '\SplFileObject') {
+                    if ('\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20042' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20041', []),
+                        ObjectSerializer::deserialize($content, '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20042', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20041';
+            $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20042';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -520,7 +826,7 @@ class MealPlanningApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20041',
+                        '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20042',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -537,14 +843,14 @@ class MealPlanningApi
      *
      * @param  string $username The username. (required)
      * @param  string $hash The private hash for the username. (required)
-     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject7 $inline_object7 (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject9 $inline_object9 (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addToShoppingListAsync($username, $hash, $inline_object7)
+    public function addToShoppingListAsync($username, $hash, $inline_object9)
     {
-        return $this->addToShoppingListAsyncWithHttpInfo($username, $hash, $inline_object7)
+        return $this->addToShoppingListAsyncWithHttpInfo($username, $hash, $inline_object9)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -559,15 +865,15 @@ class MealPlanningApi
      *
      * @param  string $username The username. (required)
      * @param  string $hash The private hash for the username. (required)
-     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject7 $inline_object7 (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject9 $inline_object9 (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addToShoppingListAsyncWithHttpInfo($username, $hash, $inline_object7)
+    public function addToShoppingListAsyncWithHttpInfo($username, $hash, $inline_object9)
     {
-        $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20041';
-        $request = $this->addToShoppingListRequest($username, $hash, $inline_object7);
+        $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20042';
+        $request = $this->addToShoppingListRequest($username, $hash, $inline_object9);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -608,12 +914,12 @@ class MealPlanningApi
      *
      * @param  string $username The username. (required)
      * @param  string $hash The private hash for the username. (required)
-     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject7 $inline_object7 (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject9 $inline_object9 (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function addToShoppingListRequest($username, $hash, $inline_object7)
+    protected function addToShoppingListRequest($username, $hash, $inline_object9)
     {
         // verify the required parameter 'username' is set
         if ($username === null || (is_array($username) && count($username) === 0)) {
@@ -627,10 +933,10 @@ class MealPlanningApi
                 'Missing the required parameter $hash when calling addToShoppingList'
             );
         }
-        // verify the required parameter 'inline_object7' is set
-        if ($inline_object7 === null || (is_array($inline_object7) && count($inline_object7) === 0)) {
+        // verify the required parameter 'inline_object9' is set
+        if ($inline_object9 === null || (is_array($inline_object9) && count($inline_object9) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $inline_object7 when calling addToShoppingList'
+                'Missing the required parameter $inline_object9 when calling addToShoppingList'
             );
         }
 
@@ -657,8 +963,8 @@ class MealPlanningApi
 
         // body params
         $_tempBody = null;
-        if (isset($inline_object7)) {
-            $_tempBody = $inline_object7;
+        if (isset($inline_object9)) {
+            $_tempBody = $inline_object9;
         }
 
         if ($multipart) {
@@ -1061,7 +1367,7 @@ class MealPlanningApi
      *
      * @throws \com.spoonacular.client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20042
+     * @return \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20043
      */
     public function connectUser($body)
     {
@@ -1078,7 +1384,7 @@ class MealPlanningApi
      *
      * @throws \com.spoonacular.client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20042, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20043, HTTP status code, HTTP response headers (array of strings)
      */
     public function connectUserWithHttpInfo($body)
     {
@@ -1115,20 +1421,20 @@ class MealPlanningApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20042' === '\SplFileObject') {
+                    if ('\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20043' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20042', []),
+                        ObjectSerializer::deserialize($content, '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20043', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20042';
+            $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20043';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -1147,7 +1453,7 @@ class MealPlanningApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20042',
+                        '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20043',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1189,7 +1495,7 @@ class MealPlanningApi
      */
     public function connectUserAsyncWithHttpInfo($body)
     {
-        $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20042';
+        $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20043';
         $request = $this->connectUserRequest($body);
 
         return $this->client
@@ -1657,15 +1963,15 @@ class MealPlanningApi
      * @param  string $username The username. (required)
      * @param  int $id The item&#39;s id. (required)
      * @param  string $hash The private hash for the username. (required)
-     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject8 $inline_object8 inline_object8 (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject10 $inline_object10 inline_object10 (required)
      *
      * @throws \com.spoonacular.client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return object
      */
-    public function deleteFromShoppingList($username, $id, $hash, $inline_object8)
+    public function deleteFromShoppingList($username, $id, $hash, $inline_object10)
     {
-        list($response) = $this->deleteFromShoppingListWithHttpInfo($username, $id, $hash, $inline_object8);
+        list($response) = $this->deleteFromShoppingListWithHttpInfo($username, $id, $hash, $inline_object10);
         return $response;
     }
 
@@ -1677,15 +1983,15 @@ class MealPlanningApi
      * @param  string $username The username. (required)
      * @param  int $id The item&#39;s id. (required)
      * @param  string $hash The private hash for the username. (required)
-     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject8 $inline_object8 (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject10 $inline_object10 (required)
      *
      * @throws \com.spoonacular.client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteFromShoppingListWithHttpInfo($username, $id, $hash, $inline_object8)
+    public function deleteFromShoppingListWithHttpInfo($username, $id, $hash, $inline_object10)
     {
-        $request = $this->deleteFromShoppingListRequest($username, $id, $hash, $inline_object8);
+        $request = $this->deleteFromShoppingListRequest($username, $id, $hash, $inline_object10);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1768,14 +2074,14 @@ class MealPlanningApi
      * @param  string $username The username. (required)
      * @param  int $id The item&#39;s id. (required)
      * @param  string $hash The private hash for the username. (required)
-     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject8 $inline_object8 (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject10 $inline_object10 (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteFromShoppingListAsync($username, $id, $hash, $inline_object8)
+    public function deleteFromShoppingListAsync($username, $id, $hash, $inline_object10)
     {
-        return $this->deleteFromShoppingListAsyncWithHttpInfo($username, $id, $hash, $inline_object8)
+        return $this->deleteFromShoppingListAsyncWithHttpInfo($username, $id, $hash, $inline_object10)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1791,15 +2097,15 @@ class MealPlanningApi
      * @param  string $username The username. (required)
      * @param  int $id The item&#39;s id. (required)
      * @param  string $hash The private hash for the username. (required)
-     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject8 $inline_object8 (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject10 $inline_object10 (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteFromShoppingListAsyncWithHttpInfo($username, $id, $hash, $inline_object8)
+    public function deleteFromShoppingListAsyncWithHttpInfo($username, $id, $hash, $inline_object10)
     {
         $returnType = 'object';
-        $request = $this->deleteFromShoppingListRequest($username, $id, $hash, $inline_object8);
+        $request = $this->deleteFromShoppingListRequest($username, $id, $hash, $inline_object10);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1841,12 +2147,12 @@ class MealPlanningApi
      * @param  string $username The username. (required)
      * @param  int $id The item&#39;s id. (required)
      * @param  string $hash The private hash for the username. (required)
-     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject8 $inline_object8 (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject10 $inline_object10 (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function deleteFromShoppingListRequest($username, $id, $hash, $inline_object8)
+    protected function deleteFromShoppingListRequest($username, $id, $hash, $inline_object10)
     {
         // verify the required parameter 'username' is set
         if ($username === null || (is_array($username) && count($username) === 0)) {
@@ -1866,10 +2172,10 @@ class MealPlanningApi
                 'Missing the required parameter $hash when calling deleteFromShoppingList'
             );
         }
-        // verify the required parameter 'inline_object8' is set
-        if ($inline_object8 === null || (is_array($inline_object8) && count($inline_object8) === 0)) {
+        // verify the required parameter 'inline_object10' is set
+        if ($inline_object10 === null || (is_array($inline_object10) && count($inline_object10) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $inline_object8 when calling deleteFromShoppingList'
+                'Missing the required parameter $inline_object10 when calling deleteFromShoppingList'
             );
         }
 
@@ -1904,8 +2210,333 @@ class MealPlanningApi
 
         // body params
         $_tempBody = null;
-        if (isset($inline_object8)) {
-            $_tempBody = $inline_object8;
+        if (isset($inline_object10)) {
+            $_tempBody = $inline_object10;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('apiKey');
+        if ($apiKey !== null) {
+            $queryParams['apiKey'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'DELETE',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation deleteMealPlanTemplate
+     *
+     * Delete Meal Plan Template
+     *
+     * @param  string $username The username. (required)
+     * @param  int $id The item&#39;s id. (required)
+     * @param  string $hash The private hash for the username. (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject7 $inline_object7 inline_object7 (required)
+     *
+     * @throws \com.spoonacular.client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return object
+     */
+    public function deleteMealPlanTemplate($username, $id, $hash, $inline_object7)
+    {
+        list($response) = $this->deleteMealPlanTemplateWithHttpInfo($username, $id, $hash, $inline_object7);
+        return $response;
+    }
+
+    /**
+     * Operation deleteMealPlanTemplateWithHttpInfo
+     *
+     * Delete Meal Plan Template
+     *
+     * @param  string $username The username. (required)
+     * @param  int $id The item&#39;s id. (required)
+     * @param  string $hash The private hash for the username. (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject7 $inline_object7 (required)
+     *
+     * @throws \com.spoonacular.client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of object, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteMealPlanTemplateWithHttpInfo($username, $id, $hash, $inline_object7)
+    {
+        $request = $this->deleteMealPlanTemplateRequest($username, $id, $hash, $inline_object7);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('object' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, 'object', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'object';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'object',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation deleteMealPlanTemplateAsync
+     *
+     * Delete Meal Plan Template
+     *
+     * @param  string $username The username. (required)
+     * @param  int $id The item&#39;s id. (required)
+     * @param  string $hash The private hash for the username. (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject7 $inline_object7 (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteMealPlanTemplateAsync($username, $id, $hash, $inline_object7)
+    {
+        return $this->deleteMealPlanTemplateAsyncWithHttpInfo($username, $id, $hash, $inline_object7)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation deleteMealPlanTemplateAsyncWithHttpInfo
+     *
+     * Delete Meal Plan Template
+     *
+     * @param  string $username The username. (required)
+     * @param  int $id The item&#39;s id. (required)
+     * @param  string $hash The private hash for the username. (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject7 $inline_object7 (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteMealPlanTemplateAsyncWithHttpInfo($username, $id, $hash, $inline_object7)
+    {
+        $returnType = 'object';
+        $request = $this->deleteMealPlanTemplateRequest($username, $id, $hash, $inline_object7);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'deleteMealPlanTemplate'
+     *
+     * @param  string $username The username. (required)
+     * @param  int $id The item&#39;s id. (required)
+     * @param  string $hash The private hash for the username. (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject7 $inline_object7 (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function deleteMealPlanTemplateRequest($username, $id, $hash, $inline_object7)
+    {
+        // verify the required parameter 'username' is set
+        if ($username === null || (is_array($username) && count($username) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $username when calling deleteMealPlanTemplate'
+            );
+        }
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling deleteMealPlanTemplate'
+            );
+        }
+        // verify the required parameter 'hash' is set
+        if ($hash === null || (is_array($hash) && count($hash) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $hash when calling deleteMealPlanTemplate'
+            );
+        }
+        // verify the required parameter 'inline_object7' is set
+        if ($inline_object7 === null || (is_array($inline_object7) && count($inline_object7) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $inline_object7 when calling deleteMealPlanTemplate'
+            );
+        }
+
+        $resourcePath = '/mealplanner/{username}/templates/{id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($hash !== null) {
+            $queryParams['hash'] = ObjectSerializer::toQueryValue($hash);
+        }
+
+        // path params
+        if ($username !== null) {
+            $resourcePath = str_replace(
+                '{' . 'username' . '}',
+                ObjectSerializer::toPathValue($username),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+        if (isset($inline_object7)) {
+            $_tempBody = $inline_object7;
         }
 
         if ($multipart) {
@@ -2277,15 +2908,15 @@ class MealPlanningApi
      * @param  string $start_date The start date in the format yyyy-mm-dd. (required)
      * @param  string $end_date The end date in the format yyyy-mm-dd. (required)
      * @param  string $hash The private hash for the username. (required)
-     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject6 $inline_object6 inline_object6 (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject8 $inline_object8 inline_object8 (required)
      *
      * @throws \com.spoonacular.client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20041
+     * @return \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20042
      */
-    public function generateShoppingList($username, $start_date, $end_date, $hash, $inline_object6)
+    public function generateShoppingList($username, $start_date, $end_date, $hash, $inline_object8)
     {
-        list($response) = $this->generateShoppingListWithHttpInfo($username, $start_date, $end_date, $hash, $inline_object6);
+        list($response) = $this->generateShoppingListWithHttpInfo($username, $start_date, $end_date, $hash, $inline_object8);
         return $response;
     }
 
@@ -2298,15 +2929,15 @@ class MealPlanningApi
      * @param  string $start_date The start date in the format yyyy-mm-dd. (required)
      * @param  string $end_date The end date in the format yyyy-mm-dd. (required)
      * @param  string $hash The private hash for the username. (required)
-     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject6 $inline_object6 (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject8 $inline_object8 (required)
      *
      * @throws \com.spoonacular.client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20041, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20042, HTTP status code, HTTP response headers (array of strings)
      */
-    public function generateShoppingListWithHttpInfo($username, $start_date, $end_date, $hash, $inline_object6)
+    public function generateShoppingListWithHttpInfo($username, $start_date, $end_date, $hash, $inline_object8)
     {
-        $request = $this->generateShoppingListRequest($username, $start_date, $end_date, $hash, $inline_object6);
+        $request = $this->generateShoppingListRequest($username, $start_date, $end_date, $hash, $inline_object8);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2339,20 +2970,20 @@ class MealPlanningApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20041' === '\SplFileObject') {
+                    if ('\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20042' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20041', []),
+                        ObjectSerializer::deserialize($content, '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20042', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20041';
+            $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20042';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -2371,7 +3002,7 @@ class MealPlanningApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20041',
+                        '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20042',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2390,14 +3021,14 @@ class MealPlanningApi
      * @param  string $start_date The start date in the format yyyy-mm-dd. (required)
      * @param  string $end_date The end date in the format yyyy-mm-dd. (required)
      * @param  string $hash The private hash for the username. (required)
-     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject6 $inline_object6 (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject8 $inline_object8 (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function generateShoppingListAsync($username, $start_date, $end_date, $hash, $inline_object6)
+    public function generateShoppingListAsync($username, $start_date, $end_date, $hash, $inline_object8)
     {
-        return $this->generateShoppingListAsyncWithHttpInfo($username, $start_date, $end_date, $hash, $inline_object6)
+        return $this->generateShoppingListAsyncWithHttpInfo($username, $start_date, $end_date, $hash, $inline_object8)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2414,15 +3045,15 @@ class MealPlanningApi
      * @param  string $start_date The start date in the format yyyy-mm-dd. (required)
      * @param  string $end_date The end date in the format yyyy-mm-dd. (required)
      * @param  string $hash The private hash for the username. (required)
-     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject6 $inline_object6 (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject8 $inline_object8 (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function generateShoppingListAsyncWithHttpInfo($username, $start_date, $end_date, $hash, $inline_object6)
+    public function generateShoppingListAsyncWithHttpInfo($username, $start_date, $end_date, $hash, $inline_object8)
     {
-        $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20041';
-        $request = $this->generateShoppingListRequest($username, $start_date, $end_date, $hash, $inline_object6);
+        $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20042';
+        $request = $this->generateShoppingListRequest($username, $start_date, $end_date, $hash, $inline_object8);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2465,12 +3096,12 @@ class MealPlanningApi
      * @param  string $start_date The start date in the format yyyy-mm-dd. (required)
      * @param  string $end_date The end date in the format yyyy-mm-dd. (required)
      * @param  string $hash The private hash for the username. (required)
-     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject6 $inline_object6 (required)
+     * @param  \com.spoonacular.client\com.spoonacular.client.model\InlineObject8 $inline_object8 (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function generateShoppingListRequest($username, $start_date, $end_date, $hash, $inline_object6)
+    protected function generateShoppingListRequest($username, $start_date, $end_date, $hash, $inline_object8)
     {
         // verify the required parameter 'username' is set
         if ($username === null || (is_array($username) && count($username) === 0)) {
@@ -2496,10 +3127,10 @@ class MealPlanningApi
                 'Missing the required parameter $hash when calling generateShoppingList'
             );
         }
-        // verify the required parameter 'inline_object6' is set
-        if ($inline_object6 === null || (is_array($inline_object6) && count($inline_object6) === 0)) {
+        // verify the required parameter 'inline_object8' is set
+        if ($inline_object8 === null || (is_array($inline_object8) && count($inline_object8) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $inline_object6 when calling generateShoppingList'
+                'Missing the required parameter $inline_object8 when calling generateShoppingList'
             );
         }
 
@@ -2542,8 +3173,8 @@ class MealPlanningApi
 
         // body params
         $_tempBody = null;
-        if (isset($inline_object6)) {
-            $_tempBody = $inline_object6;
+        if (isset($inline_object8)) {
+            $_tempBody = $inline_object8;
         }
 
         if ($multipart) {
@@ -2623,7 +3254,7 @@ class MealPlanningApi
      *
      * @throws \com.spoonacular.client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20040
+     * @return \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20041
      */
     public function getMealPlanTemplate($username, $id, $hash)
     {
@@ -2642,7 +3273,7 @@ class MealPlanningApi
      *
      * @throws \com.spoonacular.client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20040, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20041, HTTP status code, HTTP response headers (array of strings)
      */
     public function getMealPlanTemplateWithHttpInfo($username, $id, $hash)
     {
@@ -2679,20 +3310,20 @@ class MealPlanningApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20040' === '\SplFileObject') {
+                    if ('\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20041' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20040', []),
+                        ObjectSerializer::deserialize($content, '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20041', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20040';
+            $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20041';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -2711,7 +3342,7 @@ class MealPlanningApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20040',
+                        '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20041',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2757,7 +3388,7 @@ class MealPlanningApi
      */
     public function getMealPlanTemplateAsyncWithHttpInfo($username, $id, $hash)
     {
-        $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20040';
+        $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20041';
         $request = $this->getMealPlanTemplateRequest($username, $id, $hash);
 
         return $this->client
@@ -3536,7 +4167,7 @@ class MealPlanningApi
      *
      * @throws \com.spoonacular.client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20041
+     * @return \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20042
      */
     public function getShoppingList($username, $hash)
     {
@@ -3554,7 +4185,7 @@ class MealPlanningApi
      *
      * @throws \com.spoonacular.client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20041, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20042, HTTP status code, HTTP response headers (array of strings)
      */
     public function getShoppingListWithHttpInfo($username, $hash)
     {
@@ -3591,20 +4222,20 @@ class MealPlanningApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20041' === '\SplFileObject') {
+                    if ('\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20042' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20041', []),
+                        ObjectSerializer::deserialize($content, '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20042', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20041';
+            $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20042';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -3623,7 +4254,7 @@ class MealPlanningApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20041',
+                        '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20042',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3667,7 +4298,7 @@ class MealPlanningApi
      */
     public function getShoppingListAsyncWithHttpInfo($username, $hash)
     {
-        $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20041';
+        $returnType = '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20042';
         $request = $this->getShoppingListRequest($username, $hash);
 
         return $this->client

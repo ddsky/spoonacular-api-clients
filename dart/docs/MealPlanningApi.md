@@ -9,12 +9,14 @@ All URIs are relative to *https://api.spoonacular.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**addMealPlanTemplate**](MealPlanningApi.md#addMealPlanTemplate) | **POST** /mealplanner/{username}/templates | Add Meal Plan Template
 [**addToMealPlan**](MealPlanningApi.md#addToMealPlan) | **POST** /mealplanner/{username}/items | Add to Meal Plan
 [**addToShoppingList**](MealPlanningApi.md#addToShoppingList) | **POST** /mealplanner/{username}/shopping-list/items | Add to Shopping List
 [**clearMealPlanDay**](MealPlanningApi.md#clearMealPlanDay) | **DELETE** /mealplanner/{username}/day/{date} | Clear Meal Plan Day
 [**connectUser**](MealPlanningApi.md#connectUser) | **POST** /users/connect | Connect User
 [**deleteFromMealPlan**](MealPlanningApi.md#deleteFromMealPlan) | **DELETE** /mealplanner/{username}/items/{id} | Delete from Meal Plan
 [**deleteFromShoppingList**](MealPlanningApi.md#deleteFromShoppingList) | **DELETE** /mealplanner/{username}/shopping-list/items/{id} | Delete from Shopping List
+[**deleteMealPlanTemplate**](MealPlanningApi.md#deleteMealPlanTemplate) | **DELETE** /mealplanner/{username}/templates/{id} | Delete Meal Plan Template
 [**generateMealPlan**](MealPlanningApi.md#generateMealPlan) | **GET** /mealplanner/generate | Generate Meal Plan
 [**generateShoppingList**](MealPlanningApi.md#generateShoppingList) | **POST** /mealplanner/{username}/shopping-list/{start-date}/{end-date} | Generate Shopping List
 [**getMealPlanTemplate**](MealPlanningApi.md#getMealPlanTemplate) | **GET** /mealplanner/{username}/templates/{id} | Get Meal Plan Template
@@ -22,6 +24,57 @@ Method | HTTP request | Description
 [**getMealPlanWeek**](MealPlanningApi.md#getMealPlanWeek) | **GET** /mealplanner/{username}/week/{start-date} | Get Meal Plan Week
 [**getShoppingList**](MealPlanningApi.md#getShoppingList) | **GET** /mealplanner/{username}/shopping-list | Get Shopping List
 
+
+# **addMealPlanTemplate**
+> InlineResponse20040 addMealPlanTemplate(username, hash, inlineObject6)
+
+Add Meal Plan Template
+
+Add a meal plan template for a user.
+
+### Example 
+```dart
+import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
+
+var api_instance = new MealPlanningApi();
+var username = dsky; // String | The username.
+var hash = 4b5v4398573406; // String | The private hash for the username.
+var inlineObject6 = new InlineObject6(); // InlineObject6 | 
+
+try { 
+    var result = api_instance.addMealPlanTemplate(username, hash, inlineObject6);
+    print(result);
+} catch (e) {
+    print("Exception when calling MealPlanningApi->addMealPlanTemplate: $e\n");
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **String**| The username. | [default to null]
+ **hash** | **String**| The private hash for the username. | [default to null]
+ **inlineObject6** | [**InlineObject6**](InlineObject6.md)|  | 
+
+### Return type
+
+[**InlineResponse20040**](InlineResponse20040.md)
+
+### Authorization
+
+[apiKeyScheme](../README.md#apiKeyScheme)
+
+### HTTP request headers
+
+ - **Content-Type**: 
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **addToMealPlan**
 > Object addToMealPlan(username, hash, inlineObject4)
@@ -75,7 +128,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **addToShoppingList**
-> InlineResponse20041 addToShoppingList(username, hash, inlineObject7)
+> InlineResponse20042 addToShoppingList(username, hash, inlineObject9)
 
 Add to Shopping List
 
@@ -92,10 +145,10 @@ import 'package:openapi/api.dart';
 var api_instance = new MealPlanningApi();
 var username = dsky; // String | The username.
 var hash = hash_example; // String | The private hash for the username.
-var inlineObject7 = new InlineObject7(); // InlineObject7 | 
+var inlineObject9 = new InlineObject9(); // InlineObject9 | 
 
 try { 
-    var result = api_instance.addToShoppingList(username, hash, inlineObject7);
+    var result = api_instance.addToShoppingList(username, hash, inlineObject9);
     print(result);
 } catch (e) {
     print("Exception when calling MealPlanningApi->addToShoppingList: $e\n");
@@ -108,11 +161,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **username** | **String**| The username. | [default to null]
  **hash** | **String**| The private hash for the username. | [default to null]
- **inlineObject7** | [**InlineObject7**](InlineObject7.md)|  | 
+ **inlineObject9** | [**InlineObject9**](InlineObject9.md)|  | 
 
 ### Return type
 
-[**InlineResponse20041**](InlineResponse20041.md)
+[**InlineResponse20042**](InlineResponse20042.md)
 
 ### Authorization
 
@@ -179,7 +232,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **connectUser**
-> InlineResponse20042 connectUser(body)
+> InlineResponse20043 connectUser(body)
 
 Connect User
 
@@ -212,7 +265,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20042**](InlineResponse20042.md)
+[**InlineResponse20043**](InlineResponse20043.md)
 
 ### Authorization
 
@@ -279,7 +332,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **deleteFromShoppingList**
-> Object deleteFromShoppingList(username, id, hash, inlineObject8)
+> Object deleteFromShoppingList(username, id, hash, inlineObject10)
 
 Delete from Shopping List
 
@@ -297,10 +350,10 @@ var api_instance = new MealPlanningApi();
 var username = dsky; // String | The username.
 var id = 1; // int | The item's id.
 var hash = hash_example; // String | The private hash for the username.
-var inlineObject8 = new InlineObject8(); // InlineObject8 | 
+var inlineObject10 = new InlineObject10(); // InlineObject10 | 
 
 try { 
-    var result = api_instance.deleteFromShoppingList(username, id, hash, inlineObject8);
+    var result = api_instance.deleteFromShoppingList(username, id, hash, inlineObject10);
     print(result);
 } catch (e) {
     print("Exception when calling MealPlanningApi->deleteFromShoppingList: $e\n");
@@ -314,7 +367,60 @@ Name | Type | Description  | Notes
  **username** | **String**| The username. | [default to null]
  **id** | **int**| The item&#39;s id. | [default to null]
  **hash** | **String**| The private hash for the username. | [default to null]
- **inlineObject8** | [**InlineObject8**](InlineObject8.md)|  | 
+ **inlineObject10** | [**InlineObject10**](InlineObject10.md)|  | 
+
+### Return type
+
+[**Object**](Object.md)
+
+### Authorization
+
+[apiKeyScheme](../README.md#apiKeyScheme)
+
+### HTTP request headers
+
+ - **Content-Type**: 
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **deleteMealPlanTemplate**
+> Object deleteMealPlanTemplate(username, id, hash, inlineObject7)
+
+Delete Meal Plan Template
+
+Delete a meal plan template for a user.
+
+### Example 
+```dart
+import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
+
+var api_instance = new MealPlanningApi();
+var username = dsky; // String | The username.
+var id = 1; // int | The item's id.
+var hash = 4b5v4398573406; // String | The private hash for the username.
+var inlineObject7 = new InlineObject7(); // InlineObject7 | 
+
+try { 
+    var result = api_instance.deleteMealPlanTemplate(username, id, hash, inlineObject7);
+    print(result);
+} catch (e) {
+    print("Exception when calling MealPlanningApi->deleteMealPlanTemplate: $e\n");
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **String**| The username. | [default to null]
+ **id** | **int**| The item&#39;s id. | [default to null]
+ **hash** | **String**| The private hash for the username. | [default to null]
+ **inlineObject7** | [**InlineObject7**](InlineObject7.md)|  | 
 
 ### Return type
 
@@ -385,7 +491,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **generateShoppingList**
-> InlineResponse20041 generateShoppingList(username, startDate, endDate, hash, inlineObject6)
+> InlineResponse20042 generateShoppingList(username, startDate, endDate, hash, inlineObject8)
 
 Generate Shopping List
 
@@ -404,10 +510,10 @@ var username = dsky; // String | The username.
 var startDate = 2020-06-01; // String | The start date in the format yyyy-mm-dd.
 var endDate = 2020-06-07; // String | The end date in the format yyyy-mm-dd.
 var hash = hash_example; // String | The private hash for the username.
-var inlineObject6 = new InlineObject6(); // InlineObject6 | 
+var inlineObject8 = new InlineObject8(); // InlineObject8 | 
 
 try { 
-    var result = api_instance.generateShoppingList(username, startDate, endDate, hash, inlineObject6);
+    var result = api_instance.generateShoppingList(username, startDate, endDate, hash, inlineObject8);
     print(result);
 } catch (e) {
     print("Exception when calling MealPlanningApi->generateShoppingList: $e\n");
@@ -422,11 +528,11 @@ Name | Type | Description  | Notes
  **startDate** | **String**| The start date in the format yyyy-mm-dd. | [default to null]
  **endDate** | **String**| The end date in the format yyyy-mm-dd. | [default to null]
  **hash** | **String**| The private hash for the username. | [default to null]
- **inlineObject6** | [**InlineObject6**](InlineObject6.md)|  | 
+ **inlineObject8** | [**InlineObject8**](InlineObject8.md)|  | 
 
 ### Return type
 
-[**InlineResponse20041**](InlineResponse20041.md)
+[**InlineResponse20042**](InlineResponse20042.md)
 
 ### Authorization
 
@@ -440,7 +546,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getMealPlanTemplate**
-> InlineResponse20040 getMealPlanTemplate(username, id, hash)
+> InlineResponse20041 getMealPlanTemplate(username, id, hash)
 
 Get Meal Plan Template
 
@@ -477,7 +583,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20040**](InlineResponse20040.md)
+[**InlineResponse20041**](InlineResponse20041.md)
 
 ### Authorization
 
@@ -591,7 +697,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getShoppingList**
-> InlineResponse20041 getShoppingList(username, hash)
+> InlineResponse20042 getShoppingList(username, hash)
 
 Get Shopping List
 
@@ -626,7 +732,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20041**](InlineResponse20041.md)
+[**InlineResponse20042**](InlineResponse20042.md)
 
 ### Authorization
 

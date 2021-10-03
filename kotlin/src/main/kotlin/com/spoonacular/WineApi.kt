@@ -11,10 +11,10 @@
 */
 package com.spoonacular
 
-import com.spoonacular.client.model.InlineResponse20043
 import com.spoonacular.client.model.InlineResponse20044
 import com.spoonacular.client.model.InlineResponse20045
 import com.spoonacular.client.model.InlineResponse20046
+import com.spoonacular.client.model.InlineResponse20047
 
 import spoonacular.infrastructure.ApiClient
 import spoonacular.infrastructure.ClientException
@@ -34,79 +34,16 @@ class WineApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiClie
     * Dish Pairing for Wine
     * Find a dish that goes well with a given wine.
     * @param wine The type of wine that should be paired, e.g. \&quot;merlot\&quot;, \&quot;riesling\&quot;, or \&quot;malbec\&quot;. 
-    * @return InlineResponse20043
+    * @return InlineResponse20044
     */
     @Suppress("UNCHECKED_CAST")
-    fun getDishPairingForWine(wine: kotlin.String) : InlineResponse20043 {
+    fun getDishPairingForWine(wine: kotlin.String) : InlineResponse20044 {
         val localVariableBody: kotlin.Any? = null
         val localVariableQuery: MultiValueMap = mapOf("wine" to listOf("$wine"))
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         val localVariableConfig = RequestConfig(
             RequestMethod.GET,
             "/food/wine/dishes",
-            query = localVariableQuery,
-            headers = localVariableHeaders
-        )
-        val response = request<InlineResponse20043>(
-            localVariableConfig,
-            localVariableBody
-        )
-
-        return when (response.responseType) {
-            ResponseType.Success -> (response as Success<*>).data as InlineResponse20043
-            ResponseType.Informational -> TODO()
-            ResponseType.Redirection -> TODO()
-            ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
-            ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
-        }
-    }
-
-    /**
-    * Wine Description
-    * Get a simple description of a certain wine, e.g. \&quot;malbec\&quot;, \&quot;riesling\&quot;, or \&quot;merlot\&quot;.
-    * @param wine The name of the wine that should be paired, e.g. \&quot;merlot\&quot;, \&quot;riesling\&quot;, or \&quot;malbec\&quot;. 
-    * @return InlineResponse20045
-    */
-    @Suppress("UNCHECKED_CAST")
-    fun getWineDescription(wine: kotlin.String) : InlineResponse20045 {
-        val localVariableBody: kotlin.Any? = null
-        val localVariableQuery: MultiValueMap = mapOf("wine" to listOf("$wine"))
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        val localVariableConfig = RequestConfig(
-            RequestMethod.GET,
-            "/food/wine/description",
-            query = localVariableQuery,
-            headers = localVariableHeaders
-        )
-        val response = request<InlineResponse20045>(
-            localVariableConfig,
-            localVariableBody
-        )
-
-        return when (response.responseType) {
-            ResponseType.Success -> (response as Success<*>).data as InlineResponse20045
-            ResponseType.Informational -> TODO()
-            ResponseType.Redirection -> TODO()
-            ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
-            ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
-        }
-    }
-
-    /**
-    * Wine Pairing
-    * Find a wine that goes well with a food. Food can be a dish name (\&quot;steak\&quot;), an ingredient name (\&quot;salmon\&quot;), or a cuisine (\&quot;italian\&quot;).
-    * @param food The food to get a pairing for. This can be a dish (\&quot;steak\&quot;), an ingredient (\&quot;salmon\&quot;), or a cuisine (\&quot;italian\&quot;). 
-    * @param maxPrice The maximum price for the specific wine recommendation in USD. (optional)
-    * @return InlineResponse20044
-    */
-    @Suppress("UNCHECKED_CAST")
-    fun getWinePairing(food: kotlin.String, maxPrice: java.math.BigDecimal?) : InlineResponse20044 {
-        val localVariableBody: kotlin.Any? = null
-        val localVariableQuery: MultiValueMap = mapOf("food" to listOf("$food"), "maxPrice" to listOf("$maxPrice"))
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        val localVariableConfig = RequestConfig(
-            RequestMethod.GET,
-            "/food/wine/pairing",
             query = localVariableQuery,
             headers = localVariableHeaders
         )
@@ -125,22 +62,19 @@ class WineApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiClie
     }
 
     /**
-    * Wine Recommendation
-    * Get a specific wine recommendation (concrete product) for a given wine type, e.g. \&quot;merlot\&quot;.
-    * @param wine The type of wine to get a specific product recommendation for. 
-    * @param maxPrice The maximum price for the specific wine recommendation in USD. (optional)
-    * @param minRating The minimum rating of the recommended wine between 0 and 1. For example, 0.8 equals 4 out of 5 stars. (optional)
-    * @param number The number of wine recommendations expected (between 1 and 100). (optional, default to 10)
+    * Wine Description
+    * Get a simple description of a certain wine, e.g. \&quot;malbec\&quot;, \&quot;riesling\&quot;, or \&quot;merlot\&quot;.
+    * @param wine The name of the wine that should be paired, e.g. \&quot;merlot\&quot;, \&quot;riesling\&quot;, or \&quot;malbec\&quot;. 
     * @return InlineResponse20046
     */
     @Suppress("UNCHECKED_CAST")
-    fun getWineRecommendation(wine: kotlin.String, maxPrice: java.math.BigDecimal?, minRating: java.math.BigDecimal?, number: java.math.BigDecimal?) : InlineResponse20046 {
+    fun getWineDescription(wine: kotlin.String) : InlineResponse20046 {
         val localVariableBody: kotlin.Any? = null
-        val localVariableQuery: MultiValueMap = mapOf("wine" to listOf("$wine"), "maxPrice" to listOf("$maxPrice"), "minRating" to listOf("$minRating"), "number" to listOf("$number"))
+        val localVariableQuery: MultiValueMap = mapOf("wine" to listOf("$wine"))
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         val localVariableConfig = RequestConfig(
             RequestMethod.GET,
-            "/food/wine/recommendation",
+            "/food/wine/description",
             query = localVariableQuery,
             headers = localVariableHeaders
         )
@@ -151,6 +85,72 @@ class WineApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiClie
 
         return when (response.responseType) {
             ResponseType.Success -> (response as Success<*>).data as InlineResponse20046
+            ResponseType.Informational -> TODO()
+            ResponseType.Redirection -> TODO()
+            ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
+            ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
+        }
+    }
+
+    /**
+    * Wine Pairing
+    * Find a wine that goes well with a food. Food can be a dish name (\&quot;steak\&quot;), an ingredient name (\&quot;salmon\&quot;), or a cuisine (\&quot;italian\&quot;).
+    * @param food The food to get a pairing for. This can be a dish (\&quot;steak\&quot;), an ingredient (\&quot;salmon\&quot;), or a cuisine (\&quot;italian\&quot;). 
+    * @param maxPrice The maximum price for the specific wine recommendation in USD. (optional)
+    * @return InlineResponse20045
+    */
+    @Suppress("UNCHECKED_CAST")
+    fun getWinePairing(food: kotlin.String, maxPrice: java.math.BigDecimal?) : InlineResponse20045 {
+        val localVariableBody: kotlin.Any? = null
+        val localVariableQuery: MultiValueMap = mapOf("food" to listOf("$food"), "maxPrice" to listOf("$maxPrice"))
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        val localVariableConfig = RequestConfig(
+            RequestMethod.GET,
+            "/food/wine/pairing",
+            query = localVariableQuery,
+            headers = localVariableHeaders
+        )
+        val response = request<InlineResponse20045>(
+            localVariableConfig,
+            localVariableBody
+        )
+
+        return when (response.responseType) {
+            ResponseType.Success -> (response as Success<*>).data as InlineResponse20045
+            ResponseType.Informational -> TODO()
+            ResponseType.Redirection -> TODO()
+            ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
+            ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
+        }
+    }
+
+    /**
+    * Wine Recommendation
+    * Get a specific wine recommendation (concrete product) for a given wine type, e.g. \&quot;merlot\&quot;.
+    * @param wine The type of wine to get a specific product recommendation for. 
+    * @param maxPrice The maximum price for the specific wine recommendation in USD. (optional)
+    * @param minRating The minimum rating of the recommended wine between 0 and 1. For example, 0.8 equals 4 out of 5 stars. (optional)
+    * @param number The number of wine recommendations expected (between 1 and 100). (optional, default to 10)
+    * @return InlineResponse20047
+    */
+    @Suppress("UNCHECKED_CAST")
+    fun getWineRecommendation(wine: kotlin.String, maxPrice: java.math.BigDecimal?, minRating: java.math.BigDecimal?, number: java.math.BigDecimal?) : InlineResponse20047 {
+        val localVariableBody: kotlin.Any? = null
+        val localVariableQuery: MultiValueMap = mapOf("wine" to listOf("$wine"), "maxPrice" to listOf("$maxPrice"), "minRating" to listOf("$minRating"), "number" to listOf("$number"))
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        val localVariableConfig = RequestConfig(
+            RequestMethod.GET,
+            "/food/wine/recommendation",
+            query = localVariableQuery,
+            headers = localVariableHeaders
+        )
+        val response = request<InlineResponse20047>(
+            localVariableConfig,
+            localVariableBody
+        )
+
+        return when (response.responseType) {
+            ResponseType.Success -> (response as Success<*>).data as InlineResponse20047
             ResponseType.Informational -> TODO()
             ResponseType.Redirection -> TODO()
             ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")

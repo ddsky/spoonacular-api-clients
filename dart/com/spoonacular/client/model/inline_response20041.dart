@@ -2,54 +2,45 @@ part of openapi.api;
 
 class InlineResponse20041 {
   
-  List<InlineResponse20041Aisles> aisles = [];
+  int id = null;
   
-  num cost = null;
+  String name = null;
   
-  num startDate = null;
-  
-  num endDate = null;
+  List<InlineResponse20041Days> days = [];
   InlineResponse20041();
 
   @override
   String toString() {
-    return 'InlineResponse20041[aisles=$aisles, cost=$cost, startDate=$startDate, endDate=$endDate, ]';
+    return 'InlineResponse20041[id=$id, name=$name, days=$days, ]';
   }
 
   InlineResponse20041.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    if (json['aisles'] == null) {
-      aisles = null;
+    if (json['id'] == null) {
+      id = null;
     } else {
-      aisles = InlineResponse20041Aisles.listFromJson(json['aisles']);
+          id = json['id'];
     }
-    if (json['cost'] == null) {
-      cost = null;
+    if (json['name'] == null) {
+      name = null;
     } else {
-          cost = json['cost'];
+          name = json['name'];
     }
-    if (json['startDate'] == null) {
-      startDate = null;
+    if (json['days'] == null) {
+      days = null;
     } else {
-          startDate = json['startDate'];
-    }
-    if (json['endDate'] == null) {
-      endDate = null;
-    } else {
-          endDate = json['endDate'];
+      days = InlineResponse20041Days.listFromJson(json['days']);
     }
   }
 
   Map<String, dynamic> toJson() {
     Map <String, dynamic> json = {};
-    if (aisles != null)
-      json['aisles'] = aisles;
-    if (cost != null)
-      json['cost'] = cost;
-    if (startDate != null)
-      json['startDate'] = startDate;
-    if (endDate != null)
-      json['endDate'] = endDate;
+    if (id != null)
+      json['id'] = id;
+    if (name != null)
+      json['name'] = name;
+    if (days != null)
+      json['days'] = days;
     return json;
   }
 

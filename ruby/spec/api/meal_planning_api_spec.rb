@@ -32,6 +32,20 @@ describe 'MealPlanningApi' do
     end
   end
 
+  # unit tests for add_meal_plan_template
+  # Add Meal Plan Template
+  # Add a meal plan template for a user.
+  # @param username The username.
+  # @param hash The private hash for the username.
+  # @param inline_object6 
+  # @param [Hash] opts the optional parameters
+  # @return [InlineResponse20040]
+  describe 'add_meal_plan_template test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for add_to_meal_plan
   # Add to Meal Plan
   # Add an item to the user&#39;s meal plan.
@@ -51,9 +65,9 @@ describe 'MealPlanningApi' do
   # Add an item to the current shopping list of a user.
   # @param username The username.
   # @param hash The private hash for the username.
-  # @param inline_object7 
+  # @param inline_object9 
   # @param [Hash] opts the optional parameters
-  # @return [InlineResponse20041]
+  # @return [InlineResponse20042]
   describe 'add_to_shopping_list test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -80,7 +94,7 @@ describe 'MealPlanningApi' do
   # In order to call user-specific endpoints, you need to connect your app&#39;s users to spoonacular users.
   # @param body 
   # @param [Hash] opts the optional parameters
-  # @return [InlineResponse20042]
+  # @return [InlineResponse20043]
   describe 'connect_user test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -108,10 +122,25 @@ describe 'MealPlanningApi' do
   # @param username The username.
   # @param id The item&#39;s id.
   # @param hash The private hash for the username.
-  # @param inline_object8 
+  # @param inline_object10 
   # @param [Hash] opts the optional parameters
   # @return [Object]
   describe 'delete_from_shopping_list test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for delete_meal_plan_template
+  # Delete Meal Plan Template
+  # Delete a meal plan template for a user.
+  # @param username The username.
+  # @param id The item&#39;s id.
+  # @param hash The private hash for the username.
+  # @param inline_object7 
+  # @param [Hash] opts the optional parameters
+  # @return [Object]
+  describe 'delete_meal_plan_template test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -139,9 +168,9 @@ describe 'MealPlanningApi' do
   # @param start_date The start date in the format yyyy-mm-dd.
   # @param end_date The end date in the format yyyy-mm-dd.
   # @param hash The private hash for the username.
-  # @param inline_object6 
+  # @param inline_object8 
   # @param [Hash] opts the optional parameters
-  # @return [InlineResponse20041]
+  # @return [InlineResponse20042]
   describe 'generate_shopping_list test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -155,7 +184,7 @@ describe 'MealPlanningApi' do
   # @param id The item&#39;s id.
   # @param hash The private hash for the username.
   # @param [Hash] opts the optional parameters
-  # @return [InlineResponse20040]
+  # @return [InlineResponse20041]
   describe 'get_meal_plan_template test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -195,7 +224,7 @@ describe 'MealPlanningApi' do
   # @param username The username.
   # @param hash The private hash for the username.
   # @param [Hash] opts the optional parameters
-  # @return [InlineResponse20041]
+  # @return [InlineResponse20042]
   describe 'get_shopping_list test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

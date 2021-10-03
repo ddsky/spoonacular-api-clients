@@ -60,8 +60,14 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property id (base name: "id")', function() {
-      // uncomment below and update the code to test the property id
+    it('should have the property startDate (base name: "start-date")', function() {
+      // uncomment below and update the code to test the property startDate
+      //var instane = new SpoonacularApi.InlineObject8();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property endDate (base name: "end-date")', function() {
+      // uncomment below and update the code to test the property endDate
       //var instane = new SpoonacularApi.InlineObject8();
       //expect(instance).to.be();
     });

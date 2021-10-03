@@ -11,24 +11,18 @@
 */
 package com.spoonacular.client.model
 
-import com.spoonacular.client.model.InlineResponse20048Category
-import com.spoonacular.client.model.InlineResponse20048Nutrition
-import com.spoonacular.client.model.InlineResponse20048Recipes
 
 import com.squareup.moshi.Json
 /**
  * 
- * @param nutrition 
  * @param category 
- * @param recipes 
+ * @param probability 
  */
 data class InlineResponse20048 (
-    @Json(name = "nutrition")
-    val nutrition: InlineResponse20048Nutrition,
     @Json(name = "category")
-    val category: InlineResponse20048Category,
-    @Json(name = "recipes")
-    val recipes: kotlin.Array<InlineResponse20048Recipes>
+    val category: kotlin.String,
+    @Json(name = "probability")
+    val probability: java.math.BigDecimal
 ) {
 
 }

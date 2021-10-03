@@ -4,16 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**answer_text** | **String** |  | 
-**media** | **Array&lt;Object&gt;** |  | 
+**text** | **String** |  | 
 
 ## Code Sample
 
 ```ruby
 require 'OpenapiClient'
 
-instance = OpenapiClient::InlineResponse20055.new(answer_text: null,
-                                 media: null)
+instance = OpenapiClient::InlineResponse20055.new(text: null)
 ```
 
 

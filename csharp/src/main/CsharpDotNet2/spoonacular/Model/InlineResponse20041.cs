@@ -13,32 +13,25 @@ namespace spoonacular.Model {
   [DataContract]
   public class InlineResponse20041 {
     /// <summary>
-    /// Gets or Sets Aisles
+    /// Gets or Sets Id
     /// </summary>
-    [DataMember(Name="aisles", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "aisles")]
-    public List<InlineResponse20041Aisles> Aisles { get; set; }
+    [DataMember(Name="id", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "id")]
+    public int? Id { get; set; }
 
     /// <summary>
-    /// Gets or Sets Cost
+    /// Gets or Sets Name
     /// </summary>
-    [DataMember(Name="cost", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "cost")]
-    public decimal? Cost { get; set; }
+    [DataMember(Name="name", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "name")]
+    public string Name { get; set; }
 
     /// <summary>
-    /// Gets or Sets StartDate
+    /// Gets or Sets Days
     /// </summary>
-    [DataMember(Name="startDate", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "startDate")]
-    public decimal? StartDate { get; set; }
-
-    /// <summary>
-    /// Gets or Sets EndDate
-    /// </summary>
-    [DataMember(Name="endDate", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "endDate")]
-    public decimal? EndDate { get; set; }
+    [DataMember(Name="days", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "days")]
+    public List<InlineResponse20041Days> Days { get; set; }
 
 
     /// <summary>
@@ -48,10 +41,9 @@ namespace spoonacular.Model {
     public override string ToString()  {
       var sb = new StringBuilder();
       sb.Append("class InlineResponse20041 {\n");
-      sb.Append("  Aisles: ").Append(Aisles).Append("\n");
-      sb.Append("  Cost: ").Append(Cost).Append("\n");
-      sb.Append("  StartDate: ").Append(StartDate).Append("\n");
-      sb.Append("  EndDate: ").Append(EndDate).Append("\n");
+      sb.Append("  Id: ").Append(Id).Append("\n");
+      sb.Append("  Name: ").Append(Name).Append("\n");
+      sb.Append("  Days: ").Append(Days).Append("\n");
       sb.Append("}\n");
       return sb.ToString();
     }

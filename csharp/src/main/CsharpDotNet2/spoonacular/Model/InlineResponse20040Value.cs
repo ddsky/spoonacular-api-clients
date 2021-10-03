@@ -17,7 +17,14 @@ namespace spoonacular.Model {
     /// </summary>
     [DataMember(Name="id", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "id")]
-    public decimal? Id { get; set; }
+    public int? Id { get; set; }
+
+    /// <summary>
+    /// Gets or Sets Servings
+    /// </summary>
+    [DataMember(Name="servings", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "servings")]
+    public decimal? Servings { get; set; }
 
     /// <summary>
     /// Gets or Sets Title
@@ -42,6 +49,7 @@ namespace spoonacular.Model {
       var sb = new StringBuilder();
       sb.Append("class InlineResponse20040Value {\n");
       sb.Append("  Id: ").Append(Id).Append("\n");
+      sb.Append("  Servings: ").Append(Servings).Append("\n");
       sb.Append("  Title: ").Append(Title).Append("\n");
       sb.Append("  ImageType: ").Append(ImageType).Append("\n");
       sb.Append("}\n");

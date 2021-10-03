@@ -22,8 +22,7 @@
 #include <QJsonObject>
 
 
-#include "com.spoonacular.client.model\OAIObject.h"
-#include <QList>
+#include <QString>
 
 #include "OAIObject.h"
 #include "OAIEnum.h"
@@ -42,8 +41,12 @@ public:
     void fromJson(QString jsonString) override;
 
     
-    QList<OAIObject> getAnnotations() const;
-    void setAnnotations(const QList<OAIObject> &annotations);
+    QString getAnswer() const;
+    void setAnswer(const QString &answer);
+
+    
+    QString getImage() const;
+    void setImage(const QString &image);
 
     
     
@@ -53,9 +56,13 @@ public:
 private:
     void init();
     
-    QList<OAIObject> annotations;
-    bool m_annotations_isSet;
-    bool m_annotations_isValid;
+    QString answer;
+    bool m_answer_isSet;
+    bool m_answer_isValid;
+    
+    QString image;
+    bool m_image_isSet;
+    bool m_image_isValid;
     
     };
 

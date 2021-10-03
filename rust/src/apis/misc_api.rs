@@ -31,22 +31,22 @@ impl<C: hyper::client::Connect> MiscApiClient<C> {
 }
 
 pub trait MiscApi {
-    fn detect_food_in_text(&self, content_type: &str) -> Box<Future<Item = ::models::InlineResponse20050, Error = Error<serde_json::Value>>>;
-    fn get_a_random_food_joke(&self, ) -> Box<Future<Item = ::models::InlineResponse20054, Error = Error<serde_json::Value>>>;
-    fn get_conversation_suggests(&self, query: &str, number: f32) -> Box<Future<Item = ::models::InlineResponse20056, Error = Error<serde_json::Value>>>;
-    fn get_random_food_trivia(&self, ) -> Box<Future<Item = ::models::InlineResponse20054, Error = Error<serde_json::Value>>>;
-    fn image_analysis_by_url(&self, image_url: &str) -> Box<Future<Item = ::models::InlineResponse20048, Error = Error<serde_json::Value>>>;
-    fn image_classification_by_url(&self, image_url: &str) -> Box<Future<Item = ::models::InlineResponse20047, Error = Error<serde_json::Value>>>;
-    fn search_all_food(&self, query: &str, offset: i32, number: i32) -> Box<Future<Item = ::models::InlineResponse20052, Error = Error<serde_json::Value>>>;
+    fn detect_food_in_text(&self, content_type: &str) -> Box<Future<Item = ::models::InlineResponse20051, Error = Error<serde_json::Value>>>;
+    fn get_a_random_food_joke(&self, ) -> Box<Future<Item = ::models::InlineResponse20055, Error = Error<serde_json::Value>>>;
+    fn get_conversation_suggests(&self, query: &str, number: f32) -> Box<Future<Item = ::models::InlineResponse20057, Error = Error<serde_json::Value>>>;
+    fn get_random_food_trivia(&self, ) -> Box<Future<Item = ::models::InlineResponse20055, Error = Error<serde_json::Value>>>;
+    fn image_analysis_by_url(&self, image_url: &str) -> Box<Future<Item = ::models::InlineResponse20049, Error = Error<serde_json::Value>>>;
+    fn image_classification_by_url(&self, image_url: &str) -> Box<Future<Item = ::models::InlineResponse20048, Error = Error<serde_json::Value>>>;
+    fn search_all_food(&self, query: &str, offset: i32, number: i32) -> Box<Future<Item = ::models::InlineResponse20053, Error = Error<serde_json::Value>>>;
     fn search_custom_foods(&self, username: &str, hash: &str, query: &str, offset: i32, number: i32) -> Box<Future<Item = ::models::InlineResponse20029, Error = Error<serde_json::Value>>>;
-    fn search_food_videos(&self, query: &str, _type: &str, cuisine: &str, diet: &str, include_ingredients: &str, exclude_ingredients: &str, min_length: f32, max_length: f32, offset: i32, number: i32) -> Box<Future<Item = ::models::InlineResponse20053, Error = Error<serde_json::Value>>>;
-    fn search_site_content(&self, query: &str) -> Box<Future<Item = ::models::InlineResponse20051, Error = Error<serde_json::Value>>>;
-    fn talk_to_chatbot(&self, text: &str, context_id: &str) -> Box<Future<Item = ::models::InlineResponse20055, Error = Error<serde_json::Value>>>;
+    fn search_food_videos(&self, query: &str, _type: &str, cuisine: &str, diet: &str, include_ingredients: &str, exclude_ingredients: &str, min_length: f32, max_length: f32, offset: i32, number: i32) -> Box<Future<Item = ::models::InlineResponse20054, Error = Error<serde_json::Value>>>;
+    fn search_site_content(&self, query: &str) -> Box<Future<Item = ::models::InlineResponse20052, Error = Error<serde_json::Value>>>;
+    fn talk_to_chatbot(&self, text: &str, context_id: &str) -> Box<Future<Item = ::models::InlineResponse20056, Error = Error<serde_json::Value>>>;
 }
 
 
 impl<C: hyper::client::Connect>MiscApi for MiscApiClient<C> {
-    fn detect_food_in_text(&self, content_type: &str) -> Box<Future<Item = ::models::InlineResponse20050, Error = Error<serde_json::Value>>> {
+    fn detect_food_in_text(&self, content_type: &str) -> Box<Future<Item = ::models::InlineResponse20051, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Post, "/food/detect".to_string())
             .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
                 in_header: false,
@@ -57,7 +57,7 @@ impl<C: hyper::client::Connect>MiscApi for MiscApiClient<C> {
             .execute(self.configuration.borrow())
     }
 
-    fn get_a_random_food_joke(&self, ) -> Box<Future<Item = ::models::InlineResponse20054, Error = Error<serde_json::Value>>> {
+    fn get_a_random_food_joke(&self, ) -> Box<Future<Item = ::models::InlineResponse20055, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/food/jokes/random".to_string())
             .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
                 in_header: false,
@@ -67,7 +67,7 @@ impl<C: hyper::client::Connect>MiscApi for MiscApiClient<C> {
             .execute(self.configuration.borrow())
     }
 
-    fn get_conversation_suggests(&self, query: &str, number: f32) -> Box<Future<Item = ::models::InlineResponse20056, Error = Error<serde_json::Value>>> {
+    fn get_conversation_suggests(&self, query: &str, number: f32) -> Box<Future<Item = ::models::InlineResponse20057, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/food/converse/suggest".to_string())
             .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
                 in_header: false,
@@ -79,7 +79,7 @@ impl<C: hyper::client::Connect>MiscApi for MiscApiClient<C> {
             .execute(self.configuration.borrow())
     }
 
-    fn get_random_food_trivia(&self, ) -> Box<Future<Item = ::models::InlineResponse20054, Error = Error<serde_json::Value>>> {
+    fn get_random_food_trivia(&self, ) -> Box<Future<Item = ::models::InlineResponse20055, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/food/trivia/random".to_string())
             .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
                 in_header: false,
@@ -89,7 +89,7 @@ impl<C: hyper::client::Connect>MiscApi for MiscApiClient<C> {
             .execute(self.configuration.borrow())
     }
 
-    fn image_analysis_by_url(&self, image_url: &str) -> Box<Future<Item = ::models::InlineResponse20048, Error = Error<serde_json::Value>>> {
+    fn image_analysis_by_url(&self, image_url: &str) -> Box<Future<Item = ::models::InlineResponse20049, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/food/images/analyze".to_string())
             .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
                 in_header: false,
@@ -100,7 +100,7 @@ impl<C: hyper::client::Connect>MiscApi for MiscApiClient<C> {
             .execute(self.configuration.borrow())
     }
 
-    fn image_classification_by_url(&self, image_url: &str) -> Box<Future<Item = ::models::InlineResponse20047, Error = Error<serde_json::Value>>> {
+    fn image_classification_by_url(&self, image_url: &str) -> Box<Future<Item = ::models::InlineResponse20048, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/food/images/classify".to_string())
             .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
                 in_header: false,
@@ -111,7 +111,7 @@ impl<C: hyper::client::Connect>MiscApi for MiscApiClient<C> {
             .execute(self.configuration.borrow())
     }
 
-    fn search_all_food(&self, query: &str, offset: i32, number: i32) -> Box<Future<Item = ::models::InlineResponse20052, Error = Error<serde_json::Value>>> {
+    fn search_all_food(&self, query: &str, offset: i32, number: i32) -> Box<Future<Item = ::models::InlineResponse20053, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/food/search".to_string())
             .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
                 in_header: false,
@@ -139,7 +139,7 @@ impl<C: hyper::client::Connect>MiscApi for MiscApiClient<C> {
             .execute(self.configuration.borrow())
     }
 
-    fn search_food_videos(&self, query: &str, _type: &str, cuisine: &str, diet: &str, include_ingredients: &str, exclude_ingredients: &str, min_length: f32, max_length: f32, offset: i32, number: i32) -> Box<Future<Item = ::models::InlineResponse20053, Error = Error<serde_json::Value>>> {
+    fn search_food_videos(&self, query: &str, _type: &str, cuisine: &str, diet: &str, include_ingredients: &str, exclude_ingredients: &str, min_length: f32, max_length: f32, offset: i32, number: i32) -> Box<Future<Item = ::models::InlineResponse20054, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/food/videos/search".to_string())
             .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
                 in_header: false,
@@ -159,7 +159,7 @@ impl<C: hyper::client::Connect>MiscApi for MiscApiClient<C> {
             .execute(self.configuration.borrow())
     }
 
-    fn search_site_content(&self, query: &str) -> Box<Future<Item = ::models::InlineResponse20051, Error = Error<serde_json::Value>>> {
+    fn search_site_content(&self, query: &str) -> Box<Future<Item = ::models::InlineResponse20052, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/food/site/search".to_string())
             .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
                 in_header: false,
@@ -170,7 +170,7 @@ impl<C: hyper::client::Connect>MiscApi for MiscApiClient<C> {
             .execute(self.configuration.borrow())
     }
 
-    fn talk_to_chatbot(&self, text: &str, context_id: &str) -> Box<Future<Item = ::models::InlineResponse20055, Error = Error<serde_json::Value>>> {
+    fn talk_to_chatbot(&self, text: &str, context_id: &str) -> Box<Future<Item = ::models::InlineResponse20056, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/food/converse".to_string())
             .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
                 in_header: false,

@@ -10,7 +10,7 @@ class MiscApi {
   /// Detect Food in Text
   ///
   /// Take any text and find all mentions of food contained within it. This task is also called Named Entity Recognition (NER). In this case, the entities are foods. Either dishes, such as pizza or cheeseburger, or ingredients, such as cucumber or almonds.
-  Future<InlineResponse20050> detectFoodInText({ String contentType }) async {
+  Future<InlineResponse20051> detectFoodInText({ String contentType }) async {
     Object postBody;
 
     // verify required params are set
@@ -50,7 +50,7 @@ class MiscApi {
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'InlineResponse20050') as InlineResponse20050;
+      return apiClient.deserialize(_decodeBodyBytes(response), 'InlineResponse20051') as InlineResponse20051;
     } else {
       return null;
     }
@@ -58,7 +58,7 @@ class MiscApi {
   /// Random Food Joke
   ///
   /// Get a random joke that is related to food. Caution: this is an endpoint for adults!
-  Future<InlineResponse20054> getARandomFoodJoke() async {
+  Future<InlineResponse20055> getARandomFoodJoke() async {
     Object postBody;
 
     // verify required params are set
@@ -97,7 +97,7 @@ class MiscApi {
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'InlineResponse20054') as InlineResponse20054;
+      return apiClient.deserialize(_decodeBodyBytes(response), 'InlineResponse20055') as InlineResponse20055;
     } else {
       return null;
     }
@@ -105,7 +105,7 @@ class MiscApi {
   /// Conversation Suggests
   ///
   /// This endpoint returns suggestions for things the user can say or ask the chatbot.
-  Future<InlineResponse20056> getConversationSuggests(String query, { num number }) async {
+  Future<InlineResponse20057> getConversationSuggests(String query, { num number }) async {
     Object postBody;
 
     // verify required params are set
@@ -151,7 +151,7 @@ class MiscApi {
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'InlineResponse20056') as InlineResponse20056;
+      return apiClient.deserialize(_decodeBodyBytes(response), 'InlineResponse20057') as InlineResponse20057;
     } else {
       return null;
     }
@@ -159,7 +159,7 @@ class MiscApi {
   /// Random Food Trivia
   ///
   /// Returns random food trivia.
-  Future<InlineResponse20054> getRandomFoodTrivia() async {
+  Future<InlineResponse20055> getRandomFoodTrivia() async {
     Object postBody;
 
     // verify required params are set
@@ -198,7 +198,7 @@ class MiscApi {
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'InlineResponse20054') as InlineResponse20054;
+      return apiClient.deserialize(_decodeBodyBytes(response), 'InlineResponse20055') as InlineResponse20055;
     } else {
       return null;
     }
@@ -206,7 +206,7 @@ class MiscApi {
   /// Image Analysis by URL
   ///
   /// Analyze a food image. The API tries to classify the image, guess the nutrition, and find a matching recipes.
-  Future<InlineResponse20048> imageAnalysisByURL(String imageUrl) async {
+  Future<InlineResponse20049> imageAnalysisByURL(String imageUrl) async {
     Object postBody;
 
     // verify required params are set
@@ -249,7 +249,7 @@ class MiscApi {
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'InlineResponse20048') as InlineResponse20048;
+      return apiClient.deserialize(_decodeBodyBytes(response), 'InlineResponse20049') as InlineResponse20049;
     } else {
       return null;
     }
@@ -257,7 +257,7 @@ class MiscApi {
   /// Image Classification by URL
   ///
   /// Classify a food image.
-  Future<InlineResponse20047> imageClassificationByURL(String imageUrl) async {
+  Future<InlineResponse20048> imageClassificationByURL(String imageUrl) async {
     Object postBody;
 
     // verify required params are set
@@ -300,7 +300,7 @@ class MiscApi {
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'InlineResponse20047') as InlineResponse20047;
+      return apiClient.deserialize(_decodeBodyBytes(response), 'InlineResponse20048') as InlineResponse20048;
     } else {
       return null;
     }
@@ -308,7 +308,7 @@ class MiscApi {
   /// Search All Food
   ///
   /// Search all food content with one call. That includes recipes, grocery products, menu items, simple foods (ingredients), and food videos.
-  Future<InlineResponse20052> searchAllFood(String query, { int offset, int number }) async {
+  Future<InlineResponse20053> searchAllFood(String query, { int offset, int number }) async {
     Object postBody;
 
     // verify required params are set
@@ -357,7 +357,7 @@ class MiscApi {
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'InlineResponse20052') as InlineResponse20052;
+      return apiClient.deserialize(_decodeBodyBytes(response), 'InlineResponse20053') as InlineResponse20053;
     } else {
       return null;
     }
@@ -429,7 +429,7 @@ class MiscApi {
   /// Search Food Videos
   ///
   /// Find recipe and other food related videos.
-  Future<InlineResponse20053> searchFoodVideos({ String query, String type, String cuisine, String diet, String includeIngredients, String excludeIngredients, num minLength, num maxLength, int offset, int number }) async {
+  Future<InlineResponse20054> searchFoodVideos({ String query, String type, String cuisine, String diet, String includeIngredients, String excludeIngredients, num minLength, num maxLength, int offset, int number }) async {
     Object postBody;
 
     // verify required params are set
@@ -498,7 +498,7 @@ class MiscApi {
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'InlineResponse20053') as InlineResponse20053;
+      return apiClient.deserialize(_decodeBodyBytes(response), 'InlineResponse20054') as InlineResponse20054;
     } else {
       return null;
     }
@@ -506,7 +506,7 @@ class MiscApi {
   /// Search Site Content
   ///
   /// Search spoonacular&#39;s site content. You&#39;ll be able to find everything that you could also find using the search suggestions on spoonacular.com. This is a suggest API so you can send partial strings as queries.
-  Future<InlineResponse20051> searchSiteContent(String query) async {
+  Future<InlineResponse20052> searchSiteContent(String query) async {
     Object postBody;
 
     // verify required params are set
@@ -549,7 +549,7 @@ class MiscApi {
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'InlineResponse20051') as InlineResponse20051;
+      return apiClient.deserialize(_decodeBodyBytes(response), 'InlineResponse20052') as InlineResponse20052;
     } else {
       return null;
     }
@@ -557,7 +557,7 @@ class MiscApi {
   /// Talk to Chatbot
   ///
   /// This endpoint can be used to have a conversation about food with the spoonacular chatbot. Use the \&quot;Get Conversation Suggests\&quot; endpoint to show your user what he or she can say.
-  Future<InlineResponse20055> talkToChatbot(String text, { String contextId }) async {
+  Future<InlineResponse20056> talkToChatbot(String text, { String contextId }) async {
     Object postBody;
 
     // verify required params are set
@@ -603,7 +603,7 @@ class MiscApi {
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'InlineResponse20055') as InlineResponse20055;
+      return apiClient.deserialize(_decodeBodyBytes(response), 'InlineResponse20056') as InlineResponse20056;
     } else {
       return null;
     }

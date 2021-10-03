@@ -14,23 +14,31 @@ require 'date'
 
 module OpenapiClient
   class InlineResponse20042
-    attr_accessor :username
+    attr_accessor :aisles
 
-    attr_accessor :hash
+    attr_accessor :cost
+
+    attr_accessor :start_date
+
+    attr_accessor :end_date
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'username' => :'username',
-        :'hash' => :'hash'
+        :'aisles' => :'aisles',
+        :'cost' => :'cost',
+        :'start_date' => :'startDate',
+        :'end_date' => :'endDate'
       }
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'username' => :'String',
-        :'hash' => :'String'
+        :'aisles' => :'Array<InlineResponse20042Aisles>',
+        :'cost' => :'Float',
+        :'start_date' => :'Float',
+        :'end_date' => :'Float'
       }
     end
 
@@ -49,12 +57,22 @@ module OpenapiClient
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'username')
-        self.username = attributes[:'username']
+      if attributes.key?(:'aisles')
+        if (value = attributes[:'aisles']).is_a?(Array)
+          self.aisles = value
+        end
       end
 
-      if attributes.key?(:'hash')
-        self.hash = attributes[:'hash']
+      if attributes.key?(:'cost')
+        self.cost = attributes[:'cost']
+      end
+
+      if attributes.key?(:'start_date')
+        self.start_date = attributes[:'start_date']
+      end
+
+      if attributes.key?(:'end_date')
+        self.end_date = attributes[:'end_date']
       end
     end
 
@@ -62,20 +80,20 @@ module OpenapiClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @username.nil?
-        invalid_properties.push('invalid value for "username", username cannot be nil.')
+      if @aisles.nil?
+        invalid_properties.push('invalid value for "aisles", aisles cannot be nil.')
       end
 
-      if @username.to_s.length < 1
-        invalid_properties.push('invalid value for "username", the character length must be great than or equal to 1.')
+      if @cost.nil?
+        invalid_properties.push('invalid value for "cost", cost cannot be nil.')
       end
 
-      if @hash.nil?
-        invalid_properties.push('invalid value for "hash", hash cannot be nil.')
+      if @start_date.nil?
+        invalid_properties.push('invalid value for "start_date", start_date cannot be nil.')
       end
 
-      if @hash.to_s.length < 1
-        invalid_properties.push('invalid value for "hash", the character length must be great than or equal to 1.')
+      if @end_date.nil?
+        invalid_properties.push('invalid value for "end_date", end_date cannot be nil.')
       end
 
       invalid_properties
@@ -84,39 +102,11 @@ module OpenapiClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @username.nil?
-      return false if @username.to_s.length < 1
-      return false if @hash.nil?
-      return false if @hash.to_s.length < 1
+      return false if @aisles.nil?
+      return false if @cost.nil?
+      return false if @start_date.nil?
+      return false if @end_date.nil?
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] username Value to be assigned
-    def username=(username)
-      if username.nil?
-        fail ArgumentError, 'username cannot be nil'
-      end
-
-      if username.to_s.length < 1
-        fail ArgumentError, 'invalid value for "username", the character length must be great than or equal to 1.'
-      end
-
-      @username = username
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] hash Value to be assigned
-    def hash=(hash)
-      if hash.nil?
-        fail ArgumentError, 'hash cannot be nil'
-      end
-
-      if hash.to_s.length < 1
-        fail ArgumentError, 'invalid value for "hash", the character length must be great than or equal to 1.'
-      end
-
-      @hash = hash
     end
 
     # Checks equality by comparing each attribute.
@@ -124,8 +114,10 @@ module OpenapiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          username == o.username &&
-          hash == o.hash
+          aisles == o.aisles &&
+          cost == o.cost &&
+          start_date == o.start_date &&
+          end_date == o.end_date
     end
 
     # @see the `==` method
@@ -137,7 +129,7 @@ module OpenapiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [username, hash].hash
+      [aisles, cost, start_date, end_date].hash
     end
 
     # Builds the object from hash

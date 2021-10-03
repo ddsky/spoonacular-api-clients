@@ -22,6 +22,8 @@
 #include <QJsonObject>
 
 
+#include "com.spoonacular.client.model\OAIInline_response_200_45_productMatches.h"
+#include <QList>
 #include <QString>
 
 #include "OAIObject.h"
@@ -41,8 +43,16 @@ public:
     void fromJson(QString jsonString) override;
 
     
-    QString getWineDescription() const;
-    void setWineDescription(const QString &wine_description);
+    QList<QString> getPairedWines() const;
+    void setPairedWines(const QList<QString> &paired_wines);
+
+    
+    QString getPairingText() const;
+    void setPairingText(const QString &pairing_text);
+
+    
+    QList<OAIInline_response_200_45_productMatches> getProductMatches() const;
+    void setProductMatches(const QList<OAIInline_response_200_45_productMatches> &product_matches);
 
     
     
@@ -52,9 +62,17 @@ public:
 private:
     void init();
     
-    QString wine_description;
-    bool m_wine_description_isSet;
-    bool m_wine_description_isValid;
+    QList<QString> paired_wines;
+    bool m_paired_wines_isSet;
+    bool m_paired_wines_isValid;
+    
+    QString pairing_text;
+    bool m_pairing_text_isSet;
+    bool m_pairing_text_isValid;
+    
+    QList<OAIInline_response_200_45_productMatches> product_matches;
+    bool m_product_matches_isSet;
+    bool m_product_matches_isValid;
     
     };
 

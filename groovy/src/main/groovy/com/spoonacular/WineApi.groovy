@@ -2,10 +2,10 @@ package com.spoonacular;
 
 import com.spoonacular.client.ApiUtils
 import java.math.BigDecimal
-import com.spoonacular.client.model.InlineResponse20043
 import com.spoonacular.client.model.InlineResponse20044
 import com.spoonacular.client.model.InlineResponse20045
 import com.spoonacular.client.model.InlineResponse20046
+import com.spoonacular.client.model.InlineResponse20047
 
 class WineApi {
     String basePath = "https://api.spoonacular.com"
@@ -35,7 +35,7 @@ class WineApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "GET", "",
-                    InlineResponse20043.class )
+                    InlineResponse20044.class )
 
     }
 
@@ -62,7 +62,7 @@ class WineApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "GET", "",
-                    InlineResponse20045.class )
+                    InlineResponse20046.class )
 
     }
 
@@ -92,7 +92,7 @@ class WineApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "GET", "",
-                    InlineResponse20044.class )
+                    InlineResponse20045.class )
 
     }
 
@@ -128,7 +128,7 @@ class WineApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "GET", "",
-                    InlineResponse20046.class )
+                    InlineResponse20047.class )
 
     }
 

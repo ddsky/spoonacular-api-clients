@@ -1,7 +1,6 @@
 package com.spoonacular.client.model;
 
-import com.spoonacular.client.model.InlineResponse20041Aisles;
-import java.math.BigDecimal;
+import com.spoonacular.client.model.InlineResponse20041Days;
 import java.util.*;
 
 import io.swagger.annotations.*;
@@ -11,53 +10,41 @@ import com.google.gson.annotations.SerializedName;
 @ApiModel(description = "")
 public class InlineResponse20041  {
   
-  @SerializedName("aisles")
-  private List<InlineResponse20041Aisles> aisles = null;
-  @SerializedName("cost")
-  private BigDecimal cost = null;
-  @SerializedName("startDate")
-  private BigDecimal startDate = null;
-  @SerializedName("endDate")
-  private BigDecimal endDate = null;
+  @SerializedName("id")
+  private Integer id = null;
+  @SerializedName("name")
+  private String name = null;
+  @SerializedName("days")
+  private List<InlineResponse20041Days> days = null;
 
   /**
    **/
   @ApiModelProperty(required = true, value = "")
-  public List<InlineResponse20041Aisles> getAisles() {
-    return aisles;
+  public Integer getId() {
+    return id;
   }
-  public void setAisles(List<InlineResponse20041Aisles> aisles) {
-    this.aisles = aisles;
-  }
-
-  /**
-   **/
-  @ApiModelProperty(required = true, value = "")
-  public BigDecimal getCost() {
-    return cost;
-  }
-  public void setCost(BigDecimal cost) {
-    this.cost = cost;
+  public void setId(Integer id) {
+    this.id = id;
   }
 
   /**
    **/
   @ApiModelProperty(required = true, value = "")
-  public BigDecimal getStartDate() {
-    return startDate;
+  public String getName() {
+    return name;
   }
-  public void setStartDate(BigDecimal startDate) {
-    this.startDate = startDate;
+  public void setName(String name) {
+    this.name = name;
   }
 
   /**
    **/
   @ApiModelProperty(required = true, value = "")
-  public BigDecimal getEndDate() {
-    return endDate;
+  public List<InlineResponse20041Days> getDays() {
+    return days;
   }
-  public void setEndDate(BigDecimal endDate) {
-    this.endDate = endDate;
+  public void setDays(List<InlineResponse20041Days> days) {
+    this.days = days;
   }
 
 
@@ -70,19 +57,17 @@ public class InlineResponse20041  {
       return false;
     }
     InlineResponse20041 inlineResponse20041 = (InlineResponse20041) o;
-    return (this.aisles == null ? inlineResponse20041.aisles == null : this.aisles.equals(inlineResponse20041.aisles)) &&
-        (this.cost == null ? inlineResponse20041.cost == null : this.cost.equals(inlineResponse20041.cost)) &&
-        (this.startDate == null ? inlineResponse20041.startDate == null : this.startDate.equals(inlineResponse20041.startDate)) &&
-        (this.endDate == null ? inlineResponse20041.endDate == null : this.endDate.equals(inlineResponse20041.endDate));
+    return (this.id == null ? inlineResponse20041.id == null : this.id.equals(inlineResponse20041.id)) &&
+        (this.name == null ? inlineResponse20041.name == null : this.name.equals(inlineResponse20041.name)) &&
+        (this.days == null ? inlineResponse20041.days == null : this.days.equals(inlineResponse20041.days));
   }
 
   @Override
   public int hashCode() {
     int result = 17;
-    result = 31 * result + (this.aisles == null ? 0: this.aisles.hashCode());
-    result = 31 * result + (this.cost == null ? 0: this.cost.hashCode());
-    result = 31 * result + (this.startDate == null ? 0: this.startDate.hashCode());
-    result = 31 * result + (this.endDate == null ? 0: this.endDate.hashCode());
+    result = 31 * result + (this.id == null ? 0: this.id.hashCode());
+    result = 31 * result + (this.name == null ? 0: this.name.hashCode());
+    result = 31 * result + (this.days == null ? 0: this.days.hashCode());
     return result;
   }
 
@@ -91,10 +76,9 @@ public class InlineResponse20041  {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse20041 {\n");
     
-    sb.append("  aisles: ").append(aisles).append("\n");
-    sb.append("  cost: ").append(cost).append("\n");
-    sb.append("  startDate: ").append(startDate).append("\n");
-    sb.append("  endDate: ").append(endDate).append("\n");
+    sb.append("  id: ").append(id).append("\n");
+    sb.append("  name: ").append(name).append("\n");
+    sb.append("  days: ").append(days).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

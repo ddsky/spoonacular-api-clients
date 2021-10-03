@@ -4,11 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**query** | **String** |  | 
-**total_results** | **i32** |  | 
-**limit** | **i32** |  | 
-**offset** | **i32** |  | 
-**search_results** | [**Vec<::models::InlineResponse20052SearchResults>**](inline_response_200_52_searchResults.md) |  | 
+**articles** | [**Vec<Value>**](Value.md) |  | 
+**grocery_products** | [**Vec<Value>**](Value.md) |  | 
+**menu_items** | [**Vec<Value>**](Value.md) |  | 
+**recipes** | [**Vec<Value>**](Value.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

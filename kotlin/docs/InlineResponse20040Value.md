@@ -4,9 +4,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  | 
-**title** | **kotlin.String** |  | 
-**imageType** | **kotlin.String** |  | 
+**id** | **kotlin.Int** |  |  [optional]
+**servings** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional]
+**title** | **kotlin.String** |  |  [optional]
+**imageType** | **kotlin.String** |  |  [optional]
 
 
 

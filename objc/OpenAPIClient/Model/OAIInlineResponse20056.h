@@ -14,9 +14,6 @@
 */
 
 
-#import "OAIInlineResponse20056Suggests.h"
-@protocol OAIInlineResponse20056Suggests;
-@class OAIInlineResponse20056Suggests;
 
 
 
@@ -26,8 +23,8 @@
 @interface OAIInlineResponse20056 : OAIObject
 
 
-@property(nonatomic) OAIInlineResponse20056Suggests* suggests;
+@property(nonatomic) NSString* answerText;
 
-@property(nonatomic) NSArray<NSObject*>* words;
+@property(nonatomic) NSArray<NSObject*>* media;
 
 @end

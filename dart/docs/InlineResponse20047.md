@@ -8,8 +8,8 @@ import 'package:openapi/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**category** | **String** |  | [default to null]
-**probability** | **num** |  | [default to null]
+**recommendedWines** | [**List&lt;InlineResponse20047RecommendedWines&gt;**](InlineResponse20047RecommendedWines.md) |  | [default to []]
+**totalFound** | **int** |  | [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

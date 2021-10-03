@@ -11,34 +11,28 @@
 */
 package com.spoonacular.client.model
 
-import com.spoonacular.client.model.InlineResponse20041Measures
+import com.spoonacular.client.model.InlineResponse20041Value
 
 import com.squareup.moshi.Json
 /**
  * 
  * @param id 
- * @param name 
- * @param measures 
- * @param pantryItem 
- * @param aisle 
- * @param cost 
- * @param ingredientId 
+ * @param slot 
+ * @param position 
+ * @param type 
+ * @param value 
  */
 data class InlineResponse20041Items (
     @Json(name = "id")
     val id: kotlin.Int,
-    @Json(name = "name")
-    val name: kotlin.String,
-    @Json(name = "pantryItem")
-    val pantryItem: kotlin.Boolean,
-    @Json(name = "aisle")
-    val aisle: kotlin.String,
-    @Json(name = "cost")
-    val cost: java.math.BigDecimal,
-    @Json(name = "ingredientId")
-    val ingredientId: kotlin.Int,
-    @Json(name = "measures")
-    val measures: InlineResponse20041Measures? = null
+    @Json(name = "slot")
+    val slot: kotlin.Int,
+    @Json(name = "position")
+    val position: kotlin.Int,
+    @Json(name = "type")
+    val type: kotlin.String,
+    @Json(name = "value")
+    val value: InlineResponse20041Value? = null
 ) {
 
 }

@@ -30,6 +30,16 @@ my $api = WWW::OpenAPIClient::MealPlanningApi->new();
 isa_ok($api, 'WWW::OpenAPIClient::MealPlanningApi');
 
 #
+# add_meal_plan_template test
+#
+{
+    my $username = undef; # replace NULL with a proper value
+    my $hash = undef; # replace NULL with a proper value
+    my $inline_object6 = undef; # replace NULL with a proper value
+    my $result = $api->add_meal_plan_template(username => $username, hash => $hash, inline_object6 => $inline_object6);
+}
+
+#
 # add_to_meal_plan test
 #
 {
@@ -45,8 +55,8 @@ isa_ok($api, 'WWW::OpenAPIClient::MealPlanningApi');
 {
     my $username = undef; # replace NULL with a proper value
     my $hash = undef; # replace NULL with a proper value
-    my $inline_object7 = undef; # replace NULL with a proper value
-    my $result = $api->add_to_shopping_list(username => $username, hash => $hash, inline_object7 => $inline_object7);
+    my $inline_object9 = undef; # replace NULL with a proper value
+    my $result = $api->add_to_shopping_list(username => $username, hash => $hash, inline_object9 => $inline_object9);
 }
 
 #
@@ -86,8 +96,19 @@ isa_ok($api, 'WWW::OpenAPIClient::MealPlanningApi');
     my $username = undef; # replace NULL with a proper value
     my $id = undef; # replace NULL with a proper value
     my $hash = undef; # replace NULL with a proper value
-    my $inline_object8 = undef; # replace NULL with a proper value
-    my $result = $api->delete_from_shopping_list(username => $username, id => $id, hash => $hash, inline_object8 => $inline_object8);
+    my $inline_object10 = undef; # replace NULL with a proper value
+    my $result = $api->delete_from_shopping_list(username => $username, id => $id, hash => $hash, inline_object10 => $inline_object10);
+}
+
+#
+# delete_meal_plan_template test
+#
+{
+    my $username = undef; # replace NULL with a proper value
+    my $id = undef; # replace NULL with a proper value
+    my $hash = undef; # replace NULL with a proper value
+    my $inline_object7 = undef; # replace NULL with a proper value
+    my $result = $api->delete_meal_plan_template(username => $username, id => $id, hash => $hash, inline_object7 => $inline_object7);
 }
 
 #
@@ -109,8 +130,8 @@ isa_ok($api, 'WWW::OpenAPIClient::MealPlanningApi');
     my $start_date = undef; # replace NULL with a proper value
     my $end_date = undef; # replace NULL with a proper value
     my $hash = undef; # replace NULL with a proper value
-    my $inline_object6 = undef; # replace NULL with a proper value
-    my $result = $api->generate_shopping_list(username => $username, start_date => $start_date, end_date => $end_date, hash => $hash, inline_object6 => $inline_object6);
+    my $inline_object8 = undef; # replace NULL with a proper value
+    my $result = $api->generate_shopping_list(username => $username, start_date => $start_date, end_date => $end_date, hash => $hash, inline_object8 => $inline_object8);
 }
 
 #

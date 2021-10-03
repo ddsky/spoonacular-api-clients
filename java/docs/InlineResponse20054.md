@@ -6,7 +6,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**text** | **String** |  | 
+**videos** | [**List&lt;InlineResponse20054Videos&gt;**](InlineResponse20054Videos.md) |  | 
+**totalResults** | **Integer** |  | 
 
 
 

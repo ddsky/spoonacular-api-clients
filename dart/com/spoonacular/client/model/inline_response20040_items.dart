@@ -2,7 +2,7 @@ part of openapi.api;
 
 class InlineResponse20040Items {
   
-  int id = null;
+  int day = null;
   
   int slot = null;
   
@@ -15,15 +15,15 @@ class InlineResponse20040Items {
 
   @override
   String toString() {
-    return 'InlineResponse20040Items[id=$id, slot=$slot, position=$position, type=$type, value=$value, ]';
+    return 'InlineResponse20040Items[day=$day, slot=$slot, position=$position, type=$type, value=$value, ]';
   }
 
   InlineResponse20040Items.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    if (json['id'] == null) {
-      id = null;
+    if (json['day'] == null) {
+      day = null;
     } else {
-          id = json['id'];
+          day = json['day'];
     }
     if (json['slot'] == null) {
       slot = null;
@@ -49,8 +49,8 @@ class InlineResponse20040Items {
 
   Map<String, dynamic> toJson() {
     Map <String, dynamic> json = {};
-    if (id != null)
-      json['id'] = id;
+    if (day != null)
+      json['day'] = day;
     if (slot != null)
       json['slot'] = slot;
     if (position != null)

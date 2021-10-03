@@ -4,8 +4,11 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**videos** | [**kotlin.Array&lt;InlineResponse20053Videos&gt;**](InlineResponse20053Videos.md) |  | 
+**query** | **kotlin.String** |  | 
 **totalResults** | **kotlin.Int** |  | 
+**limit** | **kotlin.Int** |  | 
+**offset** | **kotlin.Int** |  | 
+**searchResults** | [**kotlin.Array&lt;InlineResponse20053SearchResults&gt;**](InlineResponse20053SearchResults.md) |  | 
 
 
 

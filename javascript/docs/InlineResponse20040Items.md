@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Number** |  | 
+**day** | **Number** |  | 
 **slot** | **Number** |  | 
 **position** | **Number** |  | 
 **type** | **String** |  | 

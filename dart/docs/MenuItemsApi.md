@@ -270,7 +270,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **searchMenuItems**
-> InlineResponse20035 searchMenuItems(query, minCalories, maxCalories, minCarbs, maxCarbs, minProtein, maxProtein, minFat, maxFat, offset, number)
+> InlineResponse20035 searchMenuItems(query, minCalories, maxCalories, minCarbs, maxCarbs, minProtein, maxProtein, minFat, maxFat, addMenuItemInformation, offset, number)
 
 Search Menu Items
 
@@ -294,11 +294,12 @@ var minProtein = 10; // num | The minimum amount of protein in grams the menu it
 var maxProtein = 100; // num | The maximum amount of protein in grams the menu item can have.
 var minFat = 1; // num | The minimum amount of fat in grams the menu item must have.
 var maxFat = 100; // num | The maximum amount of fat in grams the menu item can have.
+var addMenuItemInformation = true; // bool | If set to true, you get more information about the menu items returned.
 var offset = 56; // int | The number of results to skip (between 0 and 900).
 var number = 10; // int | The maximum number of items to return (between 1 and 100). Defaults to 10.
 
 try { 
-    var result = api_instance.searchMenuItems(query, minCalories, maxCalories, minCarbs, maxCarbs, minProtein, maxProtein, minFat, maxFat, offset, number);
+    var result = api_instance.searchMenuItems(query, minCalories, maxCalories, minCarbs, maxCarbs, minProtein, maxProtein, minFat, maxFat, addMenuItemInformation, offset, number);
     print(result);
 } catch (e) {
     print("Exception when calling MenuItemsApi->searchMenuItems: $e\n");
@@ -318,6 +319,7 @@ Name | Type | Description  | Notes
  **maxProtein** | **num**| The maximum amount of protein in grams the menu item can have. | [optional] [default to null]
  **minFat** | **num**| The minimum amount of fat in grams the menu item must have. | [optional] [default to null]
  **maxFat** | **num**| The maximum amount of fat in grams the menu item can have. | [optional] [default to null]
+ **addMenuItemInformation** | **bool**| If set to true, you get more information about the menu items returned. | [optional] [default to null]
  **offset** | **int**| The number of results to skip (between 0 and 900). | [optional] [default to null]
  **number** | **int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
 

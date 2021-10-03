@@ -20,65 +20,35 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.spoonacular.client.model.InlineResponse20046RecommendedWines;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * InlineResponse20046
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-09-28T20:40:32.759+02:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-03T15:10:59.332+02:00[Europe/Berlin]")
 public class InlineResponse20046 {
-  public static final String SERIALIZED_NAME_RECOMMENDED_WINES = "recommendedWines";
-  @SerializedName(SERIALIZED_NAME_RECOMMENDED_WINES)
-  private List<InlineResponse20046RecommendedWines> recommendedWines = new ArrayList<>();
+  public static final String SERIALIZED_NAME_WINE_DESCRIPTION = "wineDescription";
+  @SerializedName(SERIALIZED_NAME_WINE_DESCRIPTION)
+  private String wineDescription;
 
-  public static final String SERIALIZED_NAME_TOTAL_FOUND = "totalFound";
-  @SerializedName(SERIALIZED_NAME_TOTAL_FOUND)
-  private Integer totalFound;
-
-  public InlineResponse20046 recommendedWines(List<InlineResponse20046RecommendedWines> recommendedWines) {
-    this.recommendedWines = recommendedWines;
-    return this;
-  }
-
-  public InlineResponse20046 addRecommendedWinesItem(InlineResponse20046RecommendedWines recommendedWinesItem) {
-    this.recommendedWines.add(recommendedWinesItem);
+  public InlineResponse20046 wineDescription(String wineDescription) {
+    this.wineDescription = wineDescription;
     return this;
   }
 
    /**
-   * Get recommendedWines
-   * @return recommendedWines
+   * Get wineDescription
+   * @return wineDescription
   **/
   @ApiModelProperty(required = true, value = "")
-  public List<InlineResponse20046RecommendedWines> getRecommendedWines() {
-    return recommendedWines;
+  public String getWineDescription() {
+    return wineDescription;
   }
 
-  public void setRecommendedWines(List<InlineResponse20046RecommendedWines> recommendedWines) {
-    this.recommendedWines = recommendedWines;
-  }
-
-  public InlineResponse20046 totalFound(Integer totalFound) {
-    this.totalFound = totalFound;
-    return this;
-  }
-
-   /**
-   * Get totalFound
-   * @return totalFound
-  **/
-  @ApiModelProperty(required = true, value = "")
-  public Integer getTotalFound() {
-    return totalFound;
-  }
-
-  public void setTotalFound(Integer totalFound) {
-    this.totalFound = totalFound;
+  public void setWineDescription(String wineDescription) {
+    this.wineDescription = wineDescription;
   }
 
 
@@ -91,13 +61,12 @@ public class InlineResponse20046 {
       return false;
     }
     InlineResponse20046 inlineResponse20046 = (InlineResponse20046) o;
-    return Objects.equals(this.recommendedWines, inlineResponse20046.recommendedWines) &&
-        Objects.equals(this.totalFound, inlineResponse20046.totalFound);
+    return Objects.equals(this.wineDescription, inlineResponse20046.wineDescription);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(recommendedWines, totalFound);
+    return Objects.hash(wineDescription);
   }
 
 
@@ -105,8 +74,7 @@ public class InlineResponse20046 {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse20046 {\n");
-    sb.append("    recommendedWines: ").append(toIndentedString(recommendedWines)).append("\n");
-    sb.append("    totalFound: ").append(toIndentedString(totalFound)).append("\n");
+    sb.append("    wineDescription: ").append(toIndentedString(wineDescription)).append("\n");
     sb.append("}");
     return sb.toString();
   }

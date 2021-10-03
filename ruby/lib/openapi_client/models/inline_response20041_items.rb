@@ -16,28 +16,22 @@ module OpenapiClient
   class InlineResponse20041Items
     attr_accessor :id
 
-    attr_accessor :name
+    attr_accessor :slot
 
-    attr_accessor :measures
+    attr_accessor :position
 
-    attr_accessor :pantry_item
+    attr_accessor :type
 
-    attr_accessor :aisle
-
-    attr_accessor :cost
-
-    attr_accessor :ingredient_id
+    attr_accessor :value
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'id' => :'id',
-        :'name' => :'name',
-        :'measures' => :'measures',
-        :'pantry_item' => :'pantryItem',
-        :'aisle' => :'aisle',
-        :'cost' => :'cost',
-        :'ingredient_id' => :'ingredientId'
+        :'slot' => :'slot',
+        :'position' => :'position',
+        :'type' => :'type',
+        :'value' => :'value'
       }
     end
 
@@ -45,12 +39,10 @@ module OpenapiClient
     def self.openapi_types
       {
         :'id' => :'Integer',
-        :'name' => :'String',
-        :'measures' => :'InlineResponse20041Measures',
-        :'pantry_item' => :'Boolean',
-        :'aisle' => :'String',
-        :'cost' => :'Float',
-        :'ingredient_id' => :'Integer'
+        :'slot' => :'Integer',
+        :'position' => :'Integer',
+        :'type' => :'String',
+        :'value' => :'InlineResponse20041Value'
       }
     end
 
@@ -73,28 +65,20 @@ module OpenapiClient
         self.id = attributes[:'id']
       end
 
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
+      if attributes.key?(:'slot')
+        self.slot = attributes[:'slot']
       end
 
-      if attributes.key?(:'measures')
-        self.measures = attributes[:'measures']
+      if attributes.key?(:'position')
+        self.position = attributes[:'position']
       end
 
-      if attributes.key?(:'pantry_item')
-        self.pantry_item = attributes[:'pantry_item']
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
       end
 
-      if attributes.key?(:'aisle')
-        self.aisle = attributes[:'aisle']
-      end
-
-      if attributes.key?(:'cost')
-        self.cost = attributes[:'cost']
-      end
-
-      if attributes.key?(:'ingredient_id')
-        self.ingredient_id = attributes[:'ingredient_id']
+      if attributes.key?(:'value')
+        self.value = attributes[:'value']
       end
     end
 
@@ -106,32 +90,20 @@ module OpenapiClient
         invalid_properties.push('invalid value for "id", id cannot be nil.')
       end
 
-      if @name.nil?
-        invalid_properties.push('invalid value for "name", name cannot be nil.')
+      if @slot.nil?
+        invalid_properties.push('invalid value for "slot", slot cannot be nil.')
       end
 
-      if @name.to_s.length < 1
-        invalid_properties.push('invalid value for "name", the character length must be great than or equal to 1.')
+      if @position.nil?
+        invalid_properties.push('invalid value for "position", position cannot be nil.')
       end
 
-      if @pantry_item.nil?
-        invalid_properties.push('invalid value for "pantry_item", pantry_item cannot be nil.')
+      if @type.nil?
+        invalid_properties.push('invalid value for "type", type cannot be nil.')
       end
 
-      if @aisle.nil?
-        invalid_properties.push('invalid value for "aisle", aisle cannot be nil.')
-      end
-
-      if @aisle.to_s.length < 1
-        invalid_properties.push('invalid value for "aisle", the character length must be great than or equal to 1.')
-      end
-
-      if @cost.nil?
-        invalid_properties.push('invalid value for "cost", cost cannot be nil.')
-      end
-
-      if @ingredient_id.nil?
-        invalid_properties.push('invalid value for "ingredient_id", ingredient_id cannot be nil.')
+      if @type.to_s.length < 1
+        invalid_properties.push('invalid value for "type", the character length must be great than or equal to 1.')
       end
 
       invalid_properties
@@ -141,42 +113,25 @@ module OpenapiClient
     # @return true if the model is valid
     def valid?
       return false if @id.nil?
-      return false if @name.nil?
-      return false if @name.to_s.length < 1
-      return false if @pantry_item.nil?
-      return false if @aisle.nil?
-      return false if @aisle.to_s.length < 1
-      return false if @cost.nil?
-      return false if @ingredient_id.nil?
+      return false if @slot.nil?
+      return false if @position.nil?
+      return false if @type.nil?
+      return false if @type.to_s.length < 1
       true
     end
 
     # Custom attribute writer method with validation
-    # @param [Object] name Value to be assigned
-    def name=(name)
-      if name.nil?
-        fail ArgumentError, 'name cannot be nil'
+    # @param [Object] type Value to be assigned
+    def type=(type)
+      if type.nil?
+        fail ArgumentError, 'type cannot be nil'
       end
 
-      if name.to_s.length < 1
-        fail ArgumentError, 'invalid value for "name", the character length must be great than or equal to 1.'
+      if type.to_s.length < 1
+        fail ArgumentError, 'invalid value for "type", the character length must be great than or equal to 1.'
       end
 
-      @name = name
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] aisle Value to be assigned
-    def aisle=(aisle)
-      if aisle.nil?
-        fail ArgumentError, 'aisle cannot be nil'
-      end
-
-      if aisle.to_s.length < 1
-        fail ArgumentError, 'invalid value for "aisle", the character length must be great than or equal to 1.'
-      end
-
-      @aisle = aisle
+      @type = type
     end
 
     # Checks equality by comparing each attribute.
@@ -185,12 +140,10 @@ module OpenapiClient
       return true if self.equal?(o)
       self.class == o.class &&
           id == o.id &&
-          name == o.name &&
-          measures == o.measures &&
-          pantry_item == o.pantry_item &&
-          aisle == o.aisle &&
-          cost == o.cost &&
-          ingredient_id == o.ingredient_id
+          slot == o.slot &&
+          position == o.position &&
+          type == o.type &&
+          value == o.value
     end
 
     # @see the `==` method
@@ -202,7 +155,7 @@ module OpenapiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, name, measures, pantry_item, aisle, cost, ingredient_id].hash
+      [id, slot, position, type, value].hash
     end
 
     # Builds the object from hash

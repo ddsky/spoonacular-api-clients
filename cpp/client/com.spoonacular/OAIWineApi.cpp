@@ -72,7 +72,7 @@ OAIWineApi::getDishPairingForWineCallback(OAIHttpRequestWorker * worker) {
     else {
         msg = "Error: " + worker->error_str;
     }
-    OAIInline_response_200_43 output(QString(worker->response));
+    OAIInline_response_200_44 output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -125,7 +125,7 @@ OAIWineApi::getWineDescriptionCallback(OAIHttpRequestWorker * worker) {
     else {
         msg = "Error: " + worker->error_str;
     }
-    OAIInline_response_200_45 output(QString(worker->response));
+    OAIInline_response_200_46 output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -186,7 +186,7 @@ OAIWineApi::getWinePairingCallback(OAIHttpRequestWorker * worker) {
     else {
         msg = "Error: " + worker->error_str;
     }
-    OAIInline_response_200_44 output(QString(worker->response));
+    OAIInline_response_200_45 output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -263,7 +263,7 @@ OAIWineApi::getWineRecommendationCallback(OAIHttpRequestWorker * worker) {
     else {
         msg = "Error: " + worker->error_str;
     }
-    OAIInline_response_200_46 output(QString(worker->response));
+    OAIInline_response_200_47 output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {

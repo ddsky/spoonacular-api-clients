@@ -460,6 +460,8 @@ NSInteger kOAIMenuItemsApiMissingParamErrorCode = 234513;
 ///
 ///  @param maxFat The maximum amount of fat in grams the menu item can have. (optional)
 ///
+///  @param addMenuItemInformation If set to true, you get more information about the menu items returned. (optional)
+///
 ///  @param offset The number of results to skip (between 0 and 900). (optional)
 ///
 ///  @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to @10)
@@ -475,6 +477,7 @@ NSInteger kOAIMenuItemsApiMissingParamErrorCode = 234513;
     maxProtein: (NSNumber*) maxProtein
     minFat: (NSNumber*) minFat
     maxFat: (NSNumber*) maxFat
+    addMenuItemInformation: (NSNumber*) addMenuItemInformation
     offset: (NSNumber*) offset
     number: (NSNumber*) number
     completionHandler: (void (^)(OAIInlineResponse20035* output, NSError* error)) handler {
@@ -509,6 +512,9 @@ NSInteger kOAIMenuItemsApiMissingParamErrorCode = 234513;
     }
     if (maxFat != nil) {
         queryParams[@"maxFat"] = maxFat;
+    }
+    if (addMenuItemInformation != nil) {
+        queryParams[@"addMenuItemInformation"] = [addMenuItemInformation isEqual:@(YES)] ? @"true" : @"false";
     }
     if (offset != nil) {
         queryParams[@"offset"] = offset;

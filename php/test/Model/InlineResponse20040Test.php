@@ -79,13 +79,6 @@ class InlineResponse20040Test extends TestCase
     }
 
     /**
-     * Test attribute "id"
-     */
-    public function testPropertyId()
-    {
-    }
-
-    /**
      * Test attribute "name"
      */
     public function testPropertyName()
@@ -93,9 +86,16 @@ class InlineResponse20040Test extends TestCase
     }
 
     /**
-     * Test attribute "days"
+     * Test attribute "items"
      */
-    public function testPropertyDays()
+    public function testPropertyItems()
+    {
+    }
+
+    /**
+     * Test attribute "publish_as_public"
+     */
+    public function testPropertyPublishAsPublic()
     {
     }
 }

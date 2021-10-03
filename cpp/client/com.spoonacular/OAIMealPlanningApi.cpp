@@ -32,6 +32,66 @@ OAIMealPlanningApi::OAIMealPlanningApi(QString host, QString basePath) {
 }
 
 void
+OAIMealPlanningApi::addMealPlanTemplate(const QString& username, const QString& hash, const OAIInline_object_6& oai_inline_object_6) {
+    QString fullPath;
+    fullPath.append(this->host).append(this->basePath).append("/mealplanner/{username}/templates");
+    QString usernamePathParam("{"); 
+    usernamePathParam.append("username").append("}");
+    fullPath.replace(usernamePathParam, QUrl::toPercentEncoding(::OpenAPI::toStringValue(username)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("hash"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(hash)));
+    
+    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker();
+    OAIHttpRequestInput input(fullPath, "POST");
+
+    
+    QString output = oai_inline_object_6.asJson();
+    input.request_body.append(output);
+    
+
+    foreach(QString key, this->defaultHeaders.keys()) {
+        input.headers.insert(key, this->defaultHeaders.value(key));
+    }
+
+    connect(worker,
+            &OAIHttpRequestWorker::on_execution_finished,
+            this,
+            &OAIMealPlanningApi::addMealPlanTemplateCallback);
+
+    worker->execute(&input);
+}
+
+void
+OAIMealPlanningApi::addMealPlanTemplateCallback(OAIHttpRequestWorker * worker) {
+    QString msg;
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        msg = QString("Success! %1 bytes").arg(worker->response.length());
+    }
+    else {
+        msg = "Error: " + worker->error_str;
+    }
+    OAIInline_response_200_40 output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit addMealPlanTemplateSignal(output);
+        emit addMealPlanTemplateSignalFull(worker, output);
+    } else {
+        emit addMealPlanTemplateSignalE(output, error_type, error_str);
+        emit addMealPlanTemplateSignalEFull(worker, error_type, error_str);
+    }
+}
+
+void
 OAIMealPlanningApi::addToMealPlan(const QString& username, const QString& hash, const OAIInline_object_4& oai_inline_object_4) {
     QString fullPath;
     fullPath.append(this->host).append(this->basePath).append("/mealplanner/{username}/items");
@@ -92,7 +152,7 @@ OAIMealPlanningApi::addToMealPlanCallback(OAIHttpRequestWorker * worker) {
 }
 
 void
-OAIMealPlanningApi::addToShoppingList(const QString& username, const QString& hash, const OAIInline_object_7& oai_inline_object_7) {
+OAIMealPlanningApi::addToShoppingList(const QString& username, const QString& hash, const OAIInline_object_9& oai_inline_object_9) {
     QString fullPath;
     fullPath.append(this->host).append(this->basePath).append("/mealplanner/{username}/shopping-list/items");
     QString usernamePathParam("{"); 
@@ -111,7 +171,7 @@ OAIMealPlanningApi::addToShoppingList(const QString& username, const QString& ha
     OAIHttpRequestInput input(fullPath, "POST");
 
     
-    QString output = oai_inline_object_7.asJson();
+    QString output = oai_inline_object_9.asJson();
     input.request_body.append(output);
     
 
@@ -139,7 +199,7 @@ OAIMealPlanningApi::addToShoppingListCallback(OAIHttpRequestWorker * worker) {
     else {
         msg = "Error: " + worker->error_str;
     }
-    OAIInline_response_200_41 output(QString(worker->response));
+    OAIInline_response_200_42 output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -251,7 +311,7 @@ OAIMealPlanningApi::connectUserCallback(OAIHttpRequestWorker * worker) {
     else {
         msg = "Error: " + worker->error_str;
     }
-    OAIInline_response_200_42 output(QString(worker->response));
+    OAIInline_response_200_43 output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -327,7 +387,7 @@ OAIMealPlanningApi::deleteFromMealPlanCallback(OAIHttpRequestWorker * worker) {
 }
 
 void
-OAIMealPlanningApi::deleteFromShoppingList(const QString& username, const qint32& id, const QString& hash, const OAIInline_object_8& oai_inline_object_8) {
+OAIMealPlanningApi::deleteFromShoppingList(const QString& username, const qint32& id, const QString& hash, const OAIInline_object_10& oai_inline_object_10) {
     QString fullPath;
     fullPath.append(this->host).append(this->basePath).append("/mealplanner/{username}/shopping-list/items/{id}");
     QString usernamePathParam("{"); 
@@ -349,7 +409,7 @@ OAIMealPlanningApi::deleteFromShoppingList(const QString& username, const qint32
     OAIHttpRequestInput input(fullPath, "DELETE");
 
     
-    QString output = oai_inline_object_8.asJson();
+    QString output = oai_inline_object_10.asJson();
     input.request_body.append(output);
     
 
@@ -386,6 +446,69 @@ OAIMealPlanningApi::deleteFromShoppingListCallback(OAIHttpRequestWorker * worker
     } else {
         emit deleteFromShoppingListSignalE(output, error_type, error_str);
         emit deleteFromShoppingListSignalEFull(worker, error_type, error_str);
+    }
+}
+
+void
+OAIMealPlanningApi::deleteMealPlanTemplate(const QString& username, const qint32& id, const QString& hash, const OAIInline_object_7& oai_inline_object_7) {
+    QString fullPath;
+    fullPath.append(this->host).append(this->basePath).append("/mealplanner/{username}/templates/{id}");
+    QString usernamePathParam("{"); 
+    usernamePathParam.append("username").append("}");
+    fullPath.replace(usernamePathParam, QUrl::toPercentEncoding(::OpenAPI::toStringValue(username)));
+    QString idPathParam("{"); 
+    idPathParam.append("id").append("}");
+    fullPath.replace(idPathParam, QUrl::toPercentEncoding(::OpenAPI::toStringValue(id)));
+    
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("hash"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(hash)));
+    
+    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker();
+    OAIHttpRequestInput input(fullPath, "DELETE");
+
+    
+    QString output = oai_inline_object_7.asJson();
+    input.request_body.append(output);
+    
+
+    foreach(QString key, this->defaultHeaders.keys()) {
+        input.headers.insert(key, this->defaultHeaders.value(key));
+    }
+
+    connect(worker,
+            &OAIHttpRequestWorker::on_execution_finished,
+            this,
+            &OAIMealPlanningApi::deleteMealPlanTemplateCallback);
+
+    worker->execute(&input);
+}
+
+void
+OAIMealPlanningApi::deleteMealPlanTemplateCallback(OAIHttpRequestWorker * worker) {
+    QString msg;
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        msg = QString("Success! %1 bytes").arg(worker->response.length());
+    }
+    else {
+        msg = "Error: " + worker->error_str;
+    }
+    OAIObject output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit deleteMealPlanTemplateSignal(output);
+        emit deleteMealPlanTemplateSignalFull(worker, output);
+    } else {
+        emit deleteMealPlanTemplateSignalE(output, error_type, error_str);
+        emit deleteMealPlanTemplateSignalEFull(worker, error_type, error_str);
     }
 }
 
@@ -467,7 +590,7 @@ OAIMealPlanningApi::generateMealPlanCallback(OAIHttpRequestWorker * worker) {
 }
 
 void
-OAIMealPlanningApi::generateShoppingList(const QString& username, const QString& start_date, const QString& end_date, const QString& hash, const OAIInline_object_6& oai_inline_object_6) {
+OAIMealPlanningApi::generateShoppingList(const QString& username, const QString& start_date, const QString& end_date, const QString& hash, const OAIInline_object_8& oai_inline_object_8) {
     QString fullPath;
     fullPath.append(this->host).append(this->basePath).append("/mealplanner/{username}/shopping-list/{start-date}/{end-date}");
     QString usernamePathParam("{"); 
@@ -492,7 +615,7 @@ OAIMealPlanningApi::generateShoppingList(const QString& username, const QString&
     OAIHttpRequestInput input(fullPath, "POST");
 
     
-    QString output = oai_inline_object_6.asJson();
+    QString output = oai_inline_object_8.asJson();
     input.request_body.append(output);
     
 
@@ -520,7 +643,7 @@ OAIMealPlanningApi::generateShoppingListCallback(OAIHttpRequestWorker * worker) 
     else {
         msg = "Error: " + worker->error_str;
     }
-    OAIInline_response_200_41 output(QString(worker->response));
+    OAIInline_response_200_42 output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -579,7 +702,7 @@ OAIMealPlanningApi::getMealPlanTemplateCallback(OAIHttpRequestWorker * worker) {
     else {
         msg = "Error: " + worker->error_str;
     }
-    OAIInline_response_200_40 output(QString(worker->response));
+    OAIInline_response_200_41 output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -750,7 +873,7 @@ OAIMealPlanningApi::getShoppingListCallback(OAIHttpRequestWorker * worker) {
     else {
         msg = "Error: " + worker->error_str;
     }
-    OAIInline_response_200_41 output(QString(worker->response));
+    OAIInline_response_200_42 output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {

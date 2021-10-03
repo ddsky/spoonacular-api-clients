@@ -57,11 +57,10 @@ class InlineResponse20052 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'query' => 'string',
-        'total_results' => 'int',
-        'limit' => 'int',
-        'offset' => 'int',
-        'search_results' => '\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20052SearchResults[]'
+        'articles' => 'object[]',
+        'grocery_products' => 'object[]',
+        'menu_items' => 'object[]',
+        'recipes' => 'object[]'
     ];
 
     /**
@@ -70,11 +69,10 @@ class InlineResponse20052 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'query' => null,
-        'total_results' => null,
-        'limit' => null,
-        'offset' => null,
-        'search_results' => null
+        'articles' => null,
+        'grocery_products' => null,
+        'menu_items' => null,
+        'recipes' => null
     ];
 
     /**
@@ -104,11 +102,10 @@ class InlineResponse20052 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'query' => 'query',
-        'total_results' => 'totalResults',
-        'limit' => 'limit',
-        'offset' => 'offset',
-        'search_results' => 'searchResults'
+        'articles' => 'Articles',
+        'grocery_products' => 'Grocery Products',
+        'menu_items' => 'Menu Items',
+        'recipes' => 'Recipes'
     ];
 
     /**
@@ -117,11 +114,10 @@ class InlineResponse20052 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'query' => 'setQuery',
-        'total_results' => 'setTotalResults',
-        'limit' => 'setLimit',
-        'offset' => 'setOffset',
-        'search_results' => 'setSearchResults'
+        'articles' => 'setArticles',
+        'grocery_products' => 'setGroceryProducts',
+        'menu_items' => 'setMenuItems',
+        'recipes' => 'setRecipes'
     ];
 
     /**
@@ -130,11 +126,10 @@ class InlineResponse20052 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'query' => 'getQuery',
-        'total_results' => 'getTotalResults',
-        'limit' => 'getLimit',
-        'offset' => 'getOffset',
-        'search_results' => 'getSearchResults'
+        'articles' => 'getArticles',
+        'grocery_products' => 'getGroceryProducts',
+        'menu_items' => 'getMenuItems',
+        'recipes' => 'getRecipes'
     ];
 
     /**
@@ -197,11 +192,10 @@ class InlineResponse20052 implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['query'] = isset($data['query']) ? $data['query'] : null;
-        $this->container['total_results'] = isset($data['total_results']) ? $data['total_results'] : null;
-        $this->container['limit'] = isset($data['limit']) ? $data['limit'] : null;
-        $this->container['offset'] = isset($data['offset']) ? $data['offset'] : null;
-        $this->container['search_results'] = isset($data['search_results']) ? $data['search_results'] : null;
+        $this->container['articles'] = isset($data['articles']) ? $data['articles'] : null;
+        $this->container['grocery_products'] = isset($data['grocery_products']) ? $data['grocery_products'] : null;
+        $this->container['menu_items'] = isset($data['menu_items']) ? $data['menu_items'] : null;
+        $this->container['recipes'] = isset($data['recipes']) ? $data['recipes'] : null;
     }
 
     /**
@@ -213,24 +207,17 @@ class InlineResponse20052 implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['query'] === null) {
-            $invalidProperties[] = "'query' can't be null";
+        if ($this->container['articles'] === null) {
+            $invalidProperties[] = "'articles' can't be null";
         }
-        if ((mb_strlen($this->container['query']) < 1)) {
-            $invalidProperties[] = "invalid value for 'query', the character length must be bigger than or equal to 1.";
+        if ($this->container['grocery_products'] === null) {
+            $invalidProperties[] = "'grocery_products' can't be null";
         }
-
-        if ($this->container['total_results'] === null) {
-            $invalidProperties[] = "'total_results' can't be null";
+        if ($this->container['menu_items'] === null) {
+            $invalidProperties[] = "'menu_items' can't be null";
         }
-        if ($this->container['limit'] === null) {
-            $invalidProperties[] = "'limit' can't be null";
-        }
-        if ($this->container['offset'] === null) {
-            $invalidProperties[] = "'offset' can't be null";
-        }
-        if ($this->container['search_results'] === null) {
-            $invalidProperties[] = "'search_results' can't be null";
+        if ($this->container['recipes'] === null) {
+            $invalidProperties[] = "'recipes' can't be null";
         }
         return $invalidProperties;
     }
@@ -248,126 +235,97 @@ class InlineResponse20052 implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets query
+     * Gets articles
      *
-     * @return string
+     * @return object[]
      */
-    public function getQuery()
+    public function getArticles()
     {
-        return $this->container['query'];
+        return $this->container['articles'];
     }
 
     /**
-     * Sets query
+     * Sets articles
      *
-     * @param string $query query
+     * @param object[] $articles articles
      *
      * @return $this
      */
-    public function setQuery($query)
+    public function setArticles($articles)
     {
-
-        if ((mb_strlen($query) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $query when calling InlineResponse20052., must be bigger than or equal to 1.');
-        }
-
-        $this->container['query'] = $query;
+        $this->container['articles'] = $articles;
 
         return $this;
     }
 
     /**
-     * Gets total_results
+     * Gets grocery_products
      *
-     * @return int
+     * @return object[]
      */
-    public function getTotalResults()
+    public function getGroceryProducts()
     {
-        return $this->container['total_results'];
+        return $this->container['grocery_products'];
     }
 
     /**
-     * Sets total_results
+     * Sets grocery_products
      *
-     * @param int $total_results total_results
+     * @param object[] $grocery_products grocery_products
      *
      * @return $this
      */
-    public function setTotalResults($total_results)
+    public function setGroceryProducts($grocery_products)
     {
-        $this->container['total_results'] = $total_results;
+        $this->container['grocery_products'] = $grocery_products;
 
         return $this;
     }
 
     /**
-     * Gets limit
+     * Gets menu_items
      *
-     * @return int
+     * @return object[]
      */
-    public function getLimit()
+    public function getMenuItems()
     {
-        return $this->container['limit'];
+        return $this->container['menu_items'];
     }
 
     /**
-     * Sets limit
+     * Sets menu_items
      *
-     * @param int $limit limit
+     * @param object[] $menu_items menu_items
      *
      * @return $this
      */
-    public function setLimit($limit)
+    public function setMenuItems($menu_items)
     {
-        $this->container['limit'] = $limit;
+        $this->container['menu_items'] = $menu_items;
 
         return $this;
     }
 
     /**
-     * Gets offset
+     * Gets recipes
      *
-     * @return int
+     * @return object[]
      */
-    public function getOffset()
+    public function getRecipes()
     {
-        return $this->container['offset'];
+        return $this->container['recipes'];
     }
 
     /**
-     * Sets offset
+     * Sets recipes
      *
-     * @param int $offset offset
+     * @param object[] $recipes recipes
      *
      * @return $this
      */
-    public function setOffset($offset)
+    public function setRecipes($recipes)
     {
-        $this->container['offset'] = $offset;
-
-        return $this;
-    }
-
-    /**
-     * Gets search_results
-     *
-     * @return \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20052SearchResults[]
-     */
-    public function getSearchResults()
-    {
-        return $this->container['search_results'];
-    }
-
-    /**
-     * Sets search_results
-     *
-     * @param \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20052SearchResults[] $search_results search_results
-     *
-     * @return $this
-     */
-    public function setSearchResults($search_results)
-    {
-        $this->container['search_results'] = $search_results;
+        $this->container['recipes'] = $recipes;
 
         return $this;
     }

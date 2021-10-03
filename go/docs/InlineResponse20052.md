@@ -4,11 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Query** | **string** |  | 
-**TotalResults** | **int32** |  | 
-**Limit** | **int32** |  | 
-**Offset** | **int32** |  | 
-**SearchResults** | [**[]InlineResponse20052SearchResults**](inline_response_200_52_searchResults.md) |  | 
+**Articles** | [**[]map[string]interface{}**](map[string]interface{}.md) |  | 
+**GroceryProducts** | [**[]map[string]interface{}**](map[string]interface{}.md) |  | 
+**MenuItems** | [**[]map[string]interface{}**](map[string]interface{}.md) |  | 
+**Recipes** | [**[]map[string]interface{}**](map[string]interface{}.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

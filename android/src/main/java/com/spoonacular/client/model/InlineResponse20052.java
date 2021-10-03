@@ -1,6 +1,5 @@
 package com.spoonacular.client.model;
 
-import com.spoonacular.client.model.InlineResponse20052SearchResults;
 import java.util.*;
 
 import io.swagger.annotations.*;
@@ -10,65 +9,53 @@ import com.google.gson.annotations.SerializedName;
 @ApiModel(description = "")
 public class InlineResponse20052  {
   
-  @SerializedName("query")
-  private String query = null;
-  @SerializedName("totalResults")
-  private Integer totalResults = null;
-  @SerializedName("limit")
-  private Integer limit = null;
-  @SerializedName("offset")
-  private Integer offset = null;
-  @SerializedName("searchResults")
-  private List<InlineResponse20052SearchResults> searchResults = null;
+  @SerializedName("Articles")
+  private List<Object> articles = null;
+  @SerializedName("Grocery Products")
+  private List<Object> groceryProducts = null;
+  @SerializedName("Menu Items")
+  private List<Object> menuItems = null;
+  @SerializedName("Recipes")
+  private List<Object> recipes = null;
 
   /**
    **/
   @ApiModelProperty(required = true, value = "")
-  public String getQuery() {
-    return query;
+  public List<Object> getArticles() {
+    return articles;
   }
-  public void setQuery(String query) {
-    this.query = query;
-  }
-
-  /**
-   **/
-  @ApiModelProperty(required = true, value = "")
-  public Integer getTotalResults() {
-    return totalResults;
-  }
-  public void setTotalResults(Integer totalResults) {
-    this.totalResults = totalResults;
+  public void setArticles(List<Object> articles) {
+    this.articles = articles;
   }
 
   /**
    **/
   @ApiModelProperty(required = true, value = "")
-  public Integer getLimit() {
-    return limit;
+  public List<Object> getGroceryProducts() {
+    return groceryProducts;
   }
-  public void setLimit(Integer limit) {
-    this.limit = limit;
-  }
-
-  /**
-   **/
-  @ApiModelProperty(required = true, value = "")
-  public Integer getOffset() {
-    return offset;
-  }
-  public void setOffset(Integer offset) {
-    this.offset = offset;
+  public void setGroceryProducts(List<Object> groceryProducts) {
+    this.groceryProducts = groceryProducts;
   }
 
   /**
    **/
   @ApiModelProperty(required = true, value = "")
-  public List<InlineResponse20052SearchResults> getSearchResults() {
-    return searchResults;
+  public List<Object> getMenuItems() {
+    return menuItems;
   }
-  public void setSearchResults(List<InlineResponse20052SearchResults> searchResults) {
-    this.searchResults = searchResults;
+  public void setMenuItems(List<Object> menuItems) {
+    this.menuItems = menuItems;
+  }
+
+  /**
+   **/
+  @ApiModelProperty(required = true, value = "")
+  public List<Object> getRecipes() {
+    return recipes;
+  }
+  public void setRecipes(List<Object> recipes) {
+    this.recipes = recipes;
   }
 
 
@@ -81,21 +68,19 @@ public class InlineResponse20052  {
       return false;
     }
     InlineResponse20052 inlineResponse20052 = (InlineResponse20052) o;
-    return (this.query == null ? inlineResponse20052.query == null : this.query.equals(inlineResponse20052.query)) &&
-        (this.totalResults == null ? inlineResponse20052.totalResults == null : this.totalResults.equals(inlineResponse20052.totalResults)) &&
-        (this.limit == null ? inlineResponse20052.limit == null : this.limit.equals(inlineResponse20052.limit)) &&
-        (this.offset == null ? inlineResponse20052.offset == null : this.offset.equals(inlineResponse20052.offset)) &&
-        (this.searchResults == null ? inlineResponse20052.searchResults == null : this.searchResults.equals(inlineResponse20052.searchResults));
+    return (this.articles == null ? inlineResponse20052.articles == null : this.articles.equals(inlineResponse20052.articles)) &&
+        (this.groceryProducts == null ? inlineResponse20052.groceryProducts == null : this.groceryProducts.equals(inlineResponse20052.groceryProducts)) &&
+        (this.menuItems == null ? inlineResponse20052.menuItems == null : this.menuItems.equals(inlineResponse20052.menuItems)) &&
+        (this.recipes == null ? inlineResponse20052.recipes == null : this.recipes.equals(inlineResponse20052.recipes));
   }
 
   @Override
   public int hashCode() {
     int result = 17;
-    result = 31 * result + (this.query == null ? 0: this.query.hashCode());
-    result = 31 * result + (this.totalResults == null ? 0: this.totalResults.hashCode());
-    result = 31 * result + (this.limit == null ? 0: this.limit.hashCode());
-    result = 31 * result + (this.offset == null ? 0: this.offset.hashCode());
-    result = 31 * result + (this.searchResults == null ? 0: this.searchResults.hashCode());
+    result = 31 * result + (this.articles == null ? 0: this.articles.hashCode());
+    result = 31 * result + (this.groceryProducts == null ? 0: this.groceryProducts.hashCode());
+    result = 31 * result + (this.menuItems == null ? 0: this.menuItems.hashCode());
+    result = 31 * result + (this.recipes == null ? 0: this.recipes.hashCode());
     return result;
   }
 
@@ -104,11 +89,10 @@ public class InlineResponse20052  {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse20052 {\n");
     
-    sb.append("  query: ").append(query).append("\n");
-    sb.append("  totalResults: ").append(totalResults).append("\n");
-    sb.append("  limit: ").append(limit).append("\n");
-    sb.append("  offset: ").append(offset).append("\n");
-    sb.append("  searchResults: ").append(searchResults).append("\n");
+    sb.append("  articles: ").append(articles).append("\n");
+    sb.append("  groceryProducts: ").append(groceryProducts).append("\n");
+    sb.append("  menuItems: ").append(menuItems).append("\n");
+    sb.append("  recipes: ").append(recipes).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

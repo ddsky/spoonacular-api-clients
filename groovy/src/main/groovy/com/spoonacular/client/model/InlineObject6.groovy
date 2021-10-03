@@ -8,10 +8,6 @@ import io.swagger.annotations.ApiModelProperty;
 class InlineObject6 {
     /* The username. */
     String username
-    /* The start date in the format yyyy-mm-dd. */
-    String startDate
-    /* The end date in the format yyyy-mm-dd. */
-    String endDate
     /* The private hash for the username. */
     String hash
 }

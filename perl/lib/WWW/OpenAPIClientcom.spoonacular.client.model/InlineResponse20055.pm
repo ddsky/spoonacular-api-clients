@@ -161,16 +161,9 @@ __PACKAGE__->class_documentation({description => '',
 }                                 );
 
 __PACKAGE__->method_documentation({
-    'answer_text' => {
+    'text' => {
         datatype => 'string',
-        base_name => 'answerText',
-        description => '',
-        format => '',
-        read_only => '',
-            },
-    'media' => {
-        datatype => 'ARRAY[object]',
-        base_name => 'media',
+        base_name => 'text',
         description => '',
         format => '',
         read_only => '',
@@ -178,13 +171,11 @@ __PACKAGE__->method_documentation({
 });
 
 __PACKAGE__->openapi_types( {
-    'answer_text' => 'string',
-    'media' => 'ARRAY[object]'
+    'text' => 'string'
 } );
 
 __PACKAGE__->attribute_map( {
-    'answer_text' => 'answerText',
-    'media' => 'media'
+    'text' => 'text'
 } );
 
 __PACKAGE__->mk_accessors(keys %{__PACKAGE__->attribute_map});

@@ -2,45 +2,36 @@ part of openapi.api;
 
 class InlineResponse20044 {
   
-  List<String> pairedWines = [];
+  List<String> pairings = [];
   
-  String pairingText = null;
-  
-  List<InlineResponse20044ProductMatches> productMatches = [];
+  String text = null;
   InlineResponse20044();
 
   @override
   String toString() {
-    return 'InlineResponse20044[pairedWines=$pairedWines, pairingText=$pairingText, productMatches=$productMatches, ]';
+    return 'InlineResponse20044[pairings=$pairings, text=$text, ]';
   }
 
   InlineResponse20044.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    if (json['pairedWines'] == null) {
-      pairedWines = null;
+    if (json['pairings'] == null) {
+      pairings = null;
     } else {
-      pairedWines = (json['pairedWines'] as List).cast<String>();
+      pairings = (json['pairings'] as List).cast<String>();
     }
-    if (json['pairingText'] == null) {
-      pairingText = null;
+    if (json['text'] == null) {
+      text = null;
     } else {
-          pairingText = json['pairingText'];
-    }
-    if (json['productMatches'] == null) {
-      productMatches = null;
-    } else {
-      productMatches = InlineResponse20044ProductMatches.listFromJson(json['productMatches']);
+          text = json['text'];
     }
   }
 
   Map<String, dynamic> toJson() {
     Map <String, dynamic> json = {};
-    if (pairedWines != null)
-      json['pairedWines'] = pairedWines;
-    if (pairingText != null)
-      json['pairingText'] = pairingText;
-    if (productMatches != null)
-      json['productMatches'] = productMatches;
+    if (pairings != null)
+      json['pairings'] = pairings;
+    if (text != null)
+      json['text'] = text;
     return json;
   }
 

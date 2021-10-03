@@ -22,15 +22,15 @@ import java.util.*;
 
 import java.math.BigDecimal;
 import com.spoonacular.client.model.InlineResponse20029;
-import com.spoonacular.client.model.InlineResponse20047;
 import com.spoonacular.client.model.InlineResponse20048;
-import com.spoonacular.client.model.InlineResponse20050;
+import com.spoonacular.client.model.InlineResponse20049;
 import com.spoonacular.client.model.InlineResponse20051;
 import com.spoonacular.client.model.InlineResponse20052;
 import com.spoonacular.client.model.InlineResponse20053;
 import com.spoonacular.client.model.InlineResponse20054;
 import com.spoonacular.client.model.InlineResponse20055;
 import com.spoonacular.client.model.InlineResponse20056;
+import com.spoonacular.client.model.InlineResponse20057;
 
 import org.apache.http.entity.mime.MultipartEntityBuilder;
 
@@ -62,9 +62,9 @@ public class MiscApi {
    * Detect Food in Text
    * Take any text and find all mentions of food contained within it. This task is also called Named Entity Recognition (NER). In this case, the entities are foods. Either dishes, such as pizza or cheeseburger, or ingredients, such as cucumber or almonds.
    * @param contentType The content type.
-   * @return InlineResponse20050
+   * @return InlineResponse20051
    */
-  public InlineResponse20050  detectFoodInText (String contentType) throws ApiException {
+  public InlineResponse20051  detectFoodInText (String contentType) throws ApiException {
     Object localVarPostBody = null;
 
     // create path and map variables
@@ -98,7 +98,7 @@ public class MiscApi {
     try {
       String localVarResponse = apiInvoker.invokeAPI(basePath, localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarContentType);
       if(localVarResponse != null){
-        return (InlineResponse20050) ApiInvoker.deserialize(localVarResponse, "", InlineResponse20050.class);
+        return (InlineResponse20051) ApiInvoker.deserialize(localVarResponse, "", InlineResponse20051.class);
       }
       else {
         return null;
@@ -110,9 +110,9 @@ public class MiscApi {
   /**
    * Random Food Joke
    * Get a random joke that is related to food. Caution: this is an endpoint for adults!
-   * @return InlineResponse20054
+   * @return InlineResponse20055
    */
-  public InlineResponse20054  getARandomFoodJoke () throws ApiException {
+  public InlineResponse20055  getARandomFoodJoke () throws ApiException {
     Object localVarPostBody = null;
 
     // create path and map variables
@@ -145,7 +145,7 @@ public class MiscApi {
     try {
       String localVarResponse = apiInvoker.invokeAPI(basePath, localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarContentType);
       if(localVarResponse != null){
-        return (InlineResponse20054) ApiInvoker.deserialize(localVarResponse, "", InlineResponse20054.class);
+        return (InlineResponse20055) ApiInvoker.deserialize(localVarResponse, "", InlineResponse20055.class);
       }
       else {
         return null;
@@ -159,9 +159,9 @@ public class MiscApi {
    * This endpoint returns suggestions for things the user can say or ask the chatbot.
    * @param query A (partial) query from the user. The endpoint will return if it matches topics it can talk about.
    * @param number The number of suggestions to return (between 1 and 25).
-   * @return InlineResponse20056
+   * @return InlineResponse20057
    */
-  public InlineResponse20056  getConversationSuggests (String query, BigDecimal number) throws ApiException {
+  public InlineResponse20057  getConversationSuggests (String query, BigDecimal number) throws ApiException {
     Object localVarPostBody = null;
     // verify the required parameter 'query' is set
     if (query == null) {
@@ -200,7 +200,7 @@ public class MiscApi {
     try {
       String localVarResponse = apiInvoker.invokeAPI(basePath, localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarContentType);
       if(localVarResponse != null){
-        return (InlineResponse20056) ApiInvoker.deserialize(localVarResponse, "", InlineResponse20056.class);
+        return (InlineResponse20057) ApiInvoker.deserialize(localVarResponse, "", InlineResponse20057.class);
       }
       else {
         return null;
@@ -212,9 +212,9 @@ public class MiscApi {
   /**
    * Random Food Trivia
    * Returns random food trivia.
-   * @return InlineResponse20054
+   * @return InlineResponse20055
    */
-  public InlineResponse20054  getRandomFoodTrivia () throws ApiException {
+  public InlineResponse20055  getRandomFoodTrivia () throws ApiException {
     Object localVarPostBody = null;
 
     // create path and map variables
@@ -247,7 +247,7 @@ public class MiscApi {
     try {
       String localVarResponse = apiInvoker.invokeAPI(basePath, localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarContentType);
       if(localVarResponse != null){
-        return (InlineResponse20054) ApiInvoker.deserialize(localVarResponse, "", InlineResponse20054.class);
+        return (InlineResponse20055) ApiInvoker.deserialize(localVarResponse, "", InlineResponse20055.class);
       }
       else {
         return null;
@@ -260,9 +260,9 @@ public class MiscApi {
    * Image Analysis by URL
    * Analyze a food image. The API tries to classify the image, guess the nutrition, and find a matching recipes.
    * @param imageUrl The URL of the image to be analyzed.
-   * @return InlineResponse20048
+   * @return InlineResponse20049
    */
-  public InlineResponse20048  imageAnalysisByURL (String imageUrl) throws ApiException {
+  public InlineResponse20049  imageAnalysisByURL (String imageUrl) throws ApiException {
     Object localVarPostBody = null;
     // verify the required parameter 'imageUrl' is set
     if (imageUrl == null) {
@@ -271,6 +271,59 @@ public class MiscApi {
 
     // create path and map variables
     String localVarPath = "/food/images/analyze".replaceAll("\\{format\\}","json");
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> localVarFormParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "imageUrl", imageUrl));
+
+
+    String[] localVarContentTypes = {
+      
+    };
+    String localVarContentType = localVarContentTypes.length > 0 ? localVarContentTypes[0] : "application/json";
+
+    if (localVarContentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      
+
+      localVarPostBody = localVarBuilder.build();
+    } else {
+      // normal form params
+          }
+
+    try {
+      String localVarResponse = apiInvoker.invokeAPI(basePath, localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarContentType);
+      if(localVarResponse != null){
+        return (InlineResponse20049) ApiInvoker.deserialize(localVarResponse, "", InlineResponse20049.class);
+      }
+      else {
+        return null;
+      }
+    } catch (ApiException ex) {
+      throw ex;
+    }
+  }
+  /**
+   * Image Classification by URL
+   * Classify a food image.
+   * @param imageUrl The URL of the image to be classified.
+   * @return InlineResponse20048
+   */
+  public InlineResponse20048  imageClassificationByURL (String imageUrl) throws ApiException {
+    Object localVarPostBody = null;
+    // verify the required parameter 'imageUrl' is set
+    if (imageUrl == null) {
+       throw new ApiException(400, "Missing the required parameter 'imageUrl' when calling imageClassificationByURL");
+    }
+
+    // create path and map variables
+    String localVarPath = "/food/images/classify".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -310,67 +363,14 @@ public class MiscApi {
     }
   }
   /**
-   * Image Classification by URL
-   * Classify a food image.
-   * @param imageUrl The URL of the image to be classified.
-   * @return InlineResponse20047
-   */
-  public InlineResponse20047  imageClassificationByURL (String imageUrl) throws ApiException {
-    Object localVarPostBody = null;
-    // verify the required parameter 'imageUrl' is set
-    if (imageUrl == null) {
-       throw new ApiException(400, "Missing the required parameter 'imageUrl' when calling imageClassificationByURL");
-    }
-
-    // create path and map variables
-    String localVarPath = "/food/images/classify".replaceAll("\\{format\\}","json");
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    // header params
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    // form params
-    Map<String, String> localVarFormParams = new HashMap<String, String>();
-
-    localVarQueryParams.addAll(ApiInvoker.parameterToPairs("", "imageUrl", imageUrl));
-
-
-    String[] localVarContentTypes = {
-      
-    };
-    String localVarContentType = localVarContentTypes.length > 0 ? localVarContentTypes[0] : "application/json";
-
-    if (localVarContentType.startsWith("multipart/form-data")) {
-      // file uploading
-      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
-      
-
-      localVarPostBody = localVarBuilder.build();
-    } else {
-      // normal form params
-          }
-
-    try {
-      String localVarResponse = apiInvoker.invokeAPI(basePath, localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarContentType);
-      if(localVarResponse != null){
-        return (InlineResponse20047) ApiInvoker.deserialize(localVarResponse, "", InlineResponse20047.class);
-      }
-      else {
-        return null;
-      }
-    } catch (ApiException ex) {
-      throw ex;
-    }
-  }
-  /**
    * Search All Food
    * Search all food content with one call. That includes recipes, grocery products, menu items, simple foods (ingredients), and food videos.
    * @param query The search query.
    * @param offset The number of results to skip (between 0 and 900).
    * @param number The maximum number of items to return (between 1 and 100). Defaults to 10.
-   * @return InlineResponse20052
+   * @return InlineResponse20053
    */
-  public InlineResponse20052  searchAllFood (String query, Integer offset, Integer number) throws ApiException {
+  public InlineResponse20053  searchAllFood (String query, Integer offset, Integer number) throws ApiException {
     Object localVarPostBody = null;
     // verify the required parameter 'query' is set
     if (query == null) {
@@ -410,7 +410,7 @@ public class MiscApi {
     try {
       String localVarResponse = apiInvoker.invokeAPI(basePath, localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarContentType);
       if(localVarResponse != null){
-        return (InlineResponse20052) ApiInvoker.deserialize(localVarResponse, "", InlineResponse20052.class);
+        return (InlineResponse20053) ApiInvoker.deserialize(localVarResponse, "", InlineResponse20053.class);
       }
       else {
         return null;
@@ -497,9 +497,9 @@ public class MiscApi {
    * @param maxLength Maximum video length in seconds.
    * @param offset The number of results to skip (between 0 and 900).
    * @param number The maximum number of items to return (between 1 and 100). Defaults to 10.
-   * @return InlineResponse20053
+   * @return InlineResponse20054
    */
-  public InlineResponse20053  searchFoodVideos (String query, String type, String cuisine, String diet, String includeIngredients, String excludeIngredients, BigDecimal minLength, BigDecimal maxLength, Integer offset, Integer number) throws ApiException {
+  public InlineResponse20054  searchFoodVideos (String query, String type, String cuisine, String diet, String includeIngredients, String excludeIngredients, BigDecimal minLength, BigDecimal maxLength, Integer offset, Integer number) throws ApiException {
     Object localVarPostBody = null;
 
     // create path and map variables
@@ -542,7 +542,7 @@ public class MiscApi {
     try {
       String localVarResponse = apiInvoker.invokeAPI(basePath, localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarContentType);
       if(localVarResponse != null){
-        return (InlineResponse20053) ApiInvoker.deserialize(localVarResponse, "", InlineResponse20053.class);
+        return (InlineResponse20054) ApiInvoker.deserialize(localVarResponse, "", InlineResponse20054.class);
       }
       else {
         return null;
@@ -555,9 +555,9 @@ public class MiscApi {
    * Search Site Content
    * Search spoonacular&#39;s site content. You&#39;ll be able to find everything that you could also find using the search suggestions on spoonacular.com. This is a suggest API so you can send partial strings as queries.
    * @param query The query to search for. You can also use partial queries such as \&quot;spagh\&quot; to already find spaghetti recipes, articles, grocery products, and other content.
-   * @return InlineResponse20051
+   * @return InlineResponse20052
    */
-  public InlineResponse20051  searchSiteContent (String query) throws ApiException {
+  public InlineResponse20052  searchSiteContent (String query) throws ApiException {
     Object localVarPostBody = null;
     // verify the required parameter 'query' is set
     if (query == null) {
@@ -595,7 +595,7 @@ public class MiscApi {
     try {
       String localVarResponse = apiInvoker.invokeAPI(basePath, localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarContentType);
       if(localVarResponse != null){
-        return (InlineResponse20051) ApiInvoker.deserialize(localVarResponse, "", InlineResponse20051.class);
+        return (InlineResponse20052) ApiInvoker.deserialize(localVarResponse, "", InlineResponse20052.class);
       }
       else {
         return null;
@@ -609,9 +609,9 @@ public class MiscApi {
    * This endpoint can be used to have a conversation about food with the spoonacular chatbot. Use the \&quot;Get Conversation Suggests\&quot; endpoint to show your user what he or she can say.
    * @param text The request / question / answer from the user to the chatbot.
    * @param contextId An arbitrary globally unique id for your conversation. The conversation can contain states so you should pass your context id if you want the bot to be able to remember the conversation.
-   * @return InlineResponse20055
+   * @return InlineResponse20056
    */
-  public InlineResponse20055  talkToChatbot (String text, String contextId) throws ApiException {
+  public InlineResponse20056  talkToChatbot (String text, String contextId) throws ApiException {
     Object localVarPostBody = null;
     // verify the required parameter 'text' is set
     if (text == null) {
@@ -650,7 +650,7 @@ public class MiscApi {
     try {
       String localVarResponse = apiInvoker.invokeAPI(basePath, localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarContentType);
       if(localVarResponse != null){
-        return (InlineResponse20055) ApiInvoker.deserialize(localVarResponse, "", InlineResponse20055.class);
+        return (InlineResponse20056) ApiInvoker.deserialize(localVarResponse, "", InlineResponse20056.class);
       }
       else {
         return null;

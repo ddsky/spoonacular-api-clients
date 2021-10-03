@@ -11,7 +11,7 @@
 package spoonacular
 
 type InlineResponse20040Items struct {
-	Id int32 `json:"id"`
+	Day int32 `json:"day"`
 	Slot int32 `json:"slot"`
 	Position int32 `json:"position"`
 	Type string `json:"type"`

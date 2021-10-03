@@ -57,10 +57,7 @@ class InlineResponse20051 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'articles' => 'object[]',
-        'grocery_products' => 'object[]',
-        'menu_items' => 'object[]',
-        'recipes' => 'object[]'
+        'annotations' => 'object[]'
     ];
 
     /**
@@ -69,10 +66,7 @@ class InlineResponse20051 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'articles' => null,
-        'grocery_products' => null,
-        'menu_items' => null,
-        'recipes' => null
+        'annotations' => null
     ];
 
     /**
@@ -102,10 +96,7 @@ class InlineResponse20051 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'articles' => 'Articles',
-        'grocery_products' => 'Grocery Products',
-        'menu_items' => 'Menu Items',
-        'recipes' => 'Recipes'
+        'annotations' => 'annotations'
     ];
 
     /**
@@ -114,10 +105,7 @@ class InlineResponse20051 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'articles' => 'setArticles',
-        'grocery_products' => 'setGroceryProducts',
-        'menu_items' => 'setMenuItems',
-        'recipes' => 'setRecipes'
+        'annotations' => 'setAnnotations'
     ];
 
     /**
@@ -126,10 +114,7 @@ class InlineResponse20051 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'articles' => 'getArticles',
-        'grocery_products' => 'getGroceryProducts',
-        'menu_items' => 'getMenuItems',
-        'recipes' => 'getRecipes'
+        'annotations' => 'getAnnotations'
     ];
 
     /**
@@ -192,10 +177,7 @@ class InlineResponse20051 implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['articles'] = isset($data['articles']) ? $data['articles'] : null;
-        $this->container['grocery_products'] = isset($data['grocery_products']) ? $data['grocery_products'] : null;
-        $this->container['menu_items'] = isset($data['menu_items']) ? $data['menu_items'] : null;
-        $this->container['recipes'] = isset($data['recipes']) ? $data['recipes'] : null;
+        $this->container['annotations'] = isset($data['annotations']) ? $data['annotations'] : null;
     }
 
     /**
@@ -207,17 +189,8 @@ class InlineResponse20051 implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['articles'] === null) {
-            $invalidProperties[] = "'articles' can't be null";
-        }
-        if ($this->container['grocery_products'] === null) {
-            $invalidProperties[] = "'grocery_products' can't be null";
-        }
-        if ($this->container['menu_items'] === null) {
-            $invalidProperties[] = "'menu_items' can't be null";
-        }
-        if ($this->container['recipes'] === null) {
-            $invalidProperties[] = "'recipes' can't be null";
+        if ($this->container['annotations'] === null) {
+            $invalidProperties[] = "'annotations' can't be null";
         }
         return $invalidProperties;
     }
@@ -235,97 +208,25 @@ class InlineResponse20051 implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets articles
+     * Gets annotations
      *
      * @return object[]
      */
-    public function getArticles()
+    public function getAnnotations()
     {
-        return $this->container['articles'];
+        return $this->container['annotations'];
     }
 
     /**
-     * Sets articles
+     * Sets annotations
      *
-     * @param object[] $articles articles
+     * @param object[] $annotations annotations
      *
      * @return $this
      */
-    public function setArticles($articles)
+    public function setAnnotations($annotations)
     {
-        $this->container['articles'] = $articles;
-
-        return $this;
-    }
-
-    /**
-     * Gets grocery_products
-     *
-     * @return object[]
-     */
-    public function getGroceryProducts()
-    {
-        return $this->container['grocery_products'];
-    }
-
-    /**
-     * Sets grocery_products
-     *
-     * @param object[] $grocery_products grocery_products
-     *
-     * @return $this
-     */
-    public function setGroceryProducts($grocery_products)
-    {
-        $this->container['grocery_products'] = $grocery_products;
-
-        return $this;
-    }
-
-    /**
-     * Gets menu_items
-     *
-     * @return object[]
-     */
-    public function getMenuItems()
-    {
-        return $this->container['menu_items'];
-    }
-
-    /**
-     * Sets menu_items
-     *
-     * @param object[] $menu_items menu_items
-     *
-     * @return $this
-     */
-    public function setMenuItems($menu_items)
-    {
-        $this->container['menu_items'] = $menu_items;
-
-        return $this;
-    }
-
-    /**
-     * Gets recipes
-     *
-     * @return object[]
-     */
-    public function getRecipes()
-    {
-        return $this->container['recipes'];
-    }
-
-    /**
-     * Sets recipes
-     *
-     * @param object[] $recipes recipes
-     *
-     * @return $this
-     */
-    public function setRecipes($recipes)
-    {
-        $this->container['recipes'] = $recipes;
+        $this->container['annotations'] = $annotations;
 
         return $this;
     }

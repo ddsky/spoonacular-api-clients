@@ -20,7 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.spoonacular.client.model.InlineResponse20053Videos;
+import com.spoonacular.client.model.InlineResponse20053SearchResults;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -30,37 +30,44 @@ import java.util.List;
 /**
  * InlineResponse20053
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-09-28T20:40:32.759+02:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-03T15:10:59.332+02:00[Europe/Berlin]")
 public class InlineResponse20053 {
-  public static final String SERIALIZED_NAME_VIDEOS = "videos";
-  @SerializedName(SERIALIZED_NAME_VIDEOS)
-  private List<InlineResponse20053Videos> videos = new ArrayList<>();
+  public static final String SERIALIZED_NAME_QUERY = "query";
+  @SerializedName(SERIALIZED_NAME_QUERY)
+  private String query;
 
   public static final String SERIALIZED_NAME_TOTAL_RESULTS = "totalResults";
   @SerializedName(SERIALIZED_NAME_TOTAL_RESULTS)
   private Integer totalResults;
 
-  public InlineResponse20053 videos(List<InlineResponse20053Videos> videos) {
-    this.videos = videos;
-    return this;
-  }
+  public static final String SERIALIZED_NAME_LIMIT = "limit";
+  @SerializedName(SERIALIZED_NAME_LIMIT)
+  private Integer limit;
 
-  public InlineResponse20053 addVideosItem(InlineResponse20053Videos videosItem) {
-    this.videos.add(videosItem);
+  public static final String SERIALIZED_NAME_OFFSET = "offset";
+  @SerializedName(SERIALIZED_NAME_OFFSET)
+  private Integer offset;
+
+  public static final String SERIALIZED_NAME_SEARCH_RESULTS = "searchResults";
+  @SerializedName(SERIALIZED_NAME_SEARCH_RESULTS)
+  private List<InlineResponse20053SearchResults> searchResults = new ArrayList<>();
+
+  public InlineResponse20053 query(String query) {
+    this.query = query;
     return this;
   }
 
    /**
-   * Get videos
-   * @return videos
+   * Get query
+   * @return query
   **/
   @ApiModelProperty(required = true, value = "")
-  public List<InlineResponse20053Videos> getVideos() {
-    return videos;
+  public String getQuery() {
+    return query;
   }
 
-  public void setVideos(List<InlineResponse20053Videos> videos) {
-    this.videos = videos;
+  public void setQuery(String query) {
+    this.query = query;
   }
 
   public InlineResponse20053 totalResults(Integer totalResults) {
@@ -81,6 +88,65 @@ public class InlineResponse20053 {
     this.totalResults = totalResults;
   }
 
+  public InlineResponse20053 limit(Integer limit) {
+    this.limit = limit;
+    return this;
+  }
+
+   /**
+   * Get limit
+   * @return limit
+  **/
+  @ApiModelProperty(required = true, value = "")
+  public Integer getLimit() {
+    return limit;
+  }
+
+  public void setLimit(Integer limit) {
+    this.limit = limit;
+  }
+
+  public InlineResponse20053 offset(Integer offset) {
+    this.offset = offset;
+    return this;
+  }
+
+   /**
+   * Get offset
+   * @return offset
+  **/
+  @ApiModelProperty(required = true, value = "")
+  public Integer getOffset() {
+    return offset;
+  }
+
+  public void setOffset(Integer offset) {
+    this.offset = offset;
+  }
+
+  public InlineResponse20053 searchResults(List<InlineResponse20053SearchResults> searchResults) {
+    this.searchResults = searchResults;
+    return this;
+  }
+
+  public InlineResponse20053 addSearchResultsItem(InlineResponse20053SearchResults searchResultsItem) {
+    this.searchResults.add(searchResultsItem);
+    return this;
+  }
+
+   /**
+   * Get searchResults
+   * @return searchResults
+  **/
+  @ApiModelProperty(required = true, value = "")
+  public List<InlineResponse20053SearchResults> getSearchResults() {
+    return searchResults;
+  }
+
+  public void setSearchResults(List<InlineResponse20053SearchResults> searchResults) {
+    this.searchResults = searchResults;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -91,13 +157,16 @@ public class InlineResponse20053 {
       return false;
     }
     InlineResponse20053 inlineResponse20053 = (InlineResponse20053) o;
-    return Objects.equals(this.videos, inlineResponse20053.videos) &&
-        Objects.equals(this.totalResults, inlineResponse20053.totalResults);
+    return Objects.equals(this.query, inlineResponse20053.query) &&
+        Objects.equals(this.totalResults, inlineResponse20053.totalResults) &&
+        Objects.equals(this.limit, inlineResponse20053.limit) &&
+        Objects.equals(this.offset, inlineResponse20053.offset) &&
+        Objects.equals(this.searchResults, inlineResponse20053.searchResults);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(videos, totalResults);
+    return Objects.hash(query, totalResults, limit, offset, searchResults);
   }
 
 
@@ -105,8 +174,11 @@ public class InlineResponse20053 {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse20053 {\n");
-    sb.append("    videos: ").append(toIndentedString(videos)).append("\n");
+    sb.append("    query: ").append(toIndentedString(query)).append("\n");
     sb.append("    totalResults: ").append(toIndentedString(totalResults)).append("\n");
+    sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
+    sb.append("    offset: ").append(toIndentedString(offset)).append("\n");
+    sb.append("    searchResults: ").append(toIndentedString(searchResults)).append("\n");
     sb.append("}");
     return sb.toString();
   }

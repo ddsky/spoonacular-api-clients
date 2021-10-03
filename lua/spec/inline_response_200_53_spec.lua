@@ -16,8 +16,8 @@ Please update as you see appropriate
 describe("inline_response_200_53", function()
   local spoonacular_inline_response_200_53 = require "spoonacular.model.inline_response_200_53"
 
-  -- unit tests for the property 'videos'
-  describe("property videos test", function()
+  -- unit tests for the property 'query'
+  describe("property query test", function()
     it("should work", function()
       -- TODO assertion here: http://olivinelabs.com/busted/#asserts
     end)
@@ -25,6 +25,27 @@ describe("inline_response_200_53", function()
 
   -- unit tests for the property 'total_results'
   describe("property total_results test", function()
+    it("should work", function()
+      -- TODO assertion here: http://olivinelabs.com/busted/#asserts
+    end)
+  end)
+
+  -- unit tests for the property 'limit'
+  describe("property limit test", function()
+    it("should work", function()
+      -- TODO assertion here: http://olivinelabs.com/busted/#asserts
+    end)
+  end)
+
+  -- unit tests for the property 'offset'
+  describe("property offset test", function()
+    it("should work", function()
+      -- TODO assertion here: http://olivinelabs.com/busted/#asserts
+    end)
+  end)
+
+  -- unit tests for the property 'search_results'
+  describe("property search_results test", function()
     it("should work", function()
       -- TODO assertion here: http://olivinelabs.com/busted/#asserts
     end)

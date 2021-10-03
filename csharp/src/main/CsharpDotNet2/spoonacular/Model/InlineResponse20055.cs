@@ -13,18 +13,11 @@ namespace spoonacular.Model {
   [DataContract]
   public class InlineResponse20055 {
     /// <summary>
-    /// Gets or Sets AnswerText
+    /// Gets or Sets Text
     /// </summary>
-    [DataMember(Name="answerText", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "answerText")]
-    public string AnswerText { get; set; }
-
-    /// <summary>
-    /// Gets or Sets Media
-    /// </summary>
-    [DataMember(Name="media", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "media")]
-    public List<Object> Media { get; set; }
+    [DataMember(Name="text", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "text")]
+    public string Text { get; set; }
 
 
     /// <summary>
@@ -34,8 +27,7 @@ namespace spoonacular.Model {
     public override string ToString()  {
       var sb = new StringBuilder();
       sb.Append("class InlineResponse20055 {\n");
-      sb.Append("  AnswerText: ").Append(AnswerText).Append("\n");
-      sb.Append("  Media: ").Append(Media).Append("\n");
+      sb.Append("  Text: ").Append(Text).Append("\n");
       sb.Append("}\n");
       return sb.ToString();
     }

@@ -31,22 +31,37 @@ impl<C: hyper::client::Connect> MealPlanningApiClient<C> {
 }
 
 pub trait MealPlanningApi {
+    fn add_meal_plan_template(&self, username: &str, hash: &str, inline_object6: ::models::InlineObject6) -> Box<Future<Item = ::models::InlineResponse20040, Error = Error<serde_json::Value>>>;
     fn add_to_meal_plan(&self, username: &str, hash: &str, inline_object4: ::models::InlineObject4) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>>;
-    fn add_to_shopping_list(&self, username: &str, hash: &str, inline_object7: ::models::InlineObject7) -> Box<Future<Item = ::models::InlineResponse20041, Error = Error<serde_json::Value>>>;
+    fn add_to_shopping_list(&self, username: &str, hash: &str, inline_object9: ::models::InlineObject9) -> Box<Future<Item = ::models::InlineResponse20042, Error = Error<serde_json::Value>>>;
     fn clear_meal_plan_day(&self, username: &str, date: &str, hash: &str, inline_object3: ::models::InlineObject3) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>>;
-    fn connect_user(&self, body: Value) -> Box<Future<Item = ::models::InlineResponse20042, Error = Error<serde_json::Value>>>;
+    fn connect_user(&self, body: Value) -> Box<Future<Item = ::models::InlineResponse20043, Error = Error<serde_json::Value>>>;
     fn delete_from_meal_plan(&self, username: &str, id: f32, hash: &str, inline_object5: ::models::InlineObject5) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>>;
-    fn delete_from_shopping_list(&self, username: &str, id: i32, hash: &str, inline_object8: ::models::InlineObject8) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>>;
+    fn delete_from_shopping_list(&self, username: &str, id: i32, hash: &str, inline_object10: ::models::InlineObject10) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>>;
+    fn delete_meal_plan_template(&self, username: &str, id: i32, hash: &str, inline_object7: ::models::InlineObject7) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>>;
     fn generate_meal_plan(&self, time_frame: &str, target_calories: f32, diet: &str, exclude: &str) -> Box<Future<Item = ::models::InlineResponse20037, Error = Error<serde_json::Value>>>;
-    fn generate_shopping_list(&self, username: &str, start_date: &str, end_date: &str, hash: &str, inline_object6: ::models::InlineObject6) -> Box<Future<Item = ::models::InlineResponse20041, Error = Error<serde_json::Value>>>;
-    fn get_meal_plan_template(&self, username: &str, id: i32, hash: &str) -> Box<Future<Item = ::models::InlineResponse20040, Error = Error<serde_json::Value>>>;
+    fn generate_shopping_list(&self, username: &str, start_date: &str, end_date: &str, hash: &str, inline_object8: ::models::InlineObject8) -> Box<Future<Item = ::models::InlineResponse20042, Error = Error<serde_json::Value>>>;
+    fn get_meal_plan_template(&self, username: &str, id: i32, hash: &str) -> Box<Future<Item = ::models::InlineResponse20041, Error = Error<serde_json::Value>>>;
     fn get_meal_plan_templates(&self, username: &str, hash: &str) -> Box<Future<Item = ::models::InlineResponse20039, Error = Error<serde_json::Value>>>;
     fn get_meal_plan_week(&self, username: &str, start_date: &str, hash: &str) -> Box<Future<Item = ::models::InlineResponse20038, Error = Error<serde_json::Value>>>;
-    fn get_shopping_list(&self, username: &str, hash: &str) -> Box<Future<Item = ::models::InlineResponse20041, Error = Error<serde_json::Value>>>;
+    fn get_shopping_list(&self, username: &str, hash: &str) -> Box<Future<Item = ::models::InlineResponse20042, Error = Error<serde_json::Value>>>;
 }
 
 
 impl<C: hyper::client::Connect>MealPlanningApi for MealPlanningApiClient<C> {
+    fn add_meal_plan_template(&self, username: &str, hash: &str, inline_object6: ::models::InlineObject6) -> Box<Future<Item = ::models::InlineResponse20040, Error = Error<serde_json::Value>>> {
+        __internal_request::Request::new(hyper::Method::Post, "/mealplanner/{username}/templates".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
+            .with_query_param("hash".to_string(), hash.to_string())
+            .with_path_param("username".to_string(), username.to_string())
+            .with_body_param(inline_object6)
+            .execute(self.configuration.borrow())
+    }
+
     fn add_to_meal_plan(&self, username: &str, hash: &str, inline_object4: ::models::InlineObject4) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Post, "/mealplanner/{username}/items".to_string())
             .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
@@ -60,7 +75,7 @@ impl<C: hyper::client::Connect>MealPlanningApi for MealPlanningApiClient<C> {
             .execute(self.configuration.borrow())
     }
 
-    fn add_to_shopping_list(&self, username: &str, hash: &str, inline_object7: ::models::InlineObject7) -> Box<Future<Item = ::models::InlineResponse20041, Error = Error<serde_json::Value>>> {
+    fn add_to_shopping_list(&self, username: &str, hash: &str, inline_object9: ::models::InlineObject9) -> Box<Future<Item = ::models::InlineResponse20042, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Post, "/mealplanner/{username}/shopping-list/items".to_string())
             .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
                 in_header: false,
@@ -69,7 +84,7 @@ impl<C: hyper::client::Connect>MealPlanningApi for MealPlanningApiClient<C> {
             }))
             .with_query_param("hash".to_string(), hash.to_string())
             .with_path_param("username".to_string(), username.to_string())
-            .with_body_param(inline_object7)
+            .with_body_param(inline_object9)
             .execute(self.configuration.borrow())
     }
 
@@ -87,7 +102,7 @@ impl<C: hyper::client::Connect>MealPlanningApi for MealPlanningApiClient<C> {
             .execute(self.configuration.borrow())
     }
 
-    fn connect_user(&self, body: Value) -> Box<Future<Item = ::models::InlineResponse20042, Error = Error<serde_json::Value>>> {
+    fn connect_user(&self, body: Value) -> Box<Future<Item = ::models::InlineResponse20043, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Post, "/users/connect".to_string())
             .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
                 in_header: false,
@@ -112,7 +127,7 @@ impl<C: hyper::client::Connect>MealPlanningApi for MealPlanningApiClient<C> {
             .execute(self.configuration.borrow())
     }
 
-    fn delete_from_shopping_list(&self, username: &str, id: i32, hash: &str, inline_object8: ::models::InlineObject8) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
+    fn delete_from_shopping_list(&self, username: &str, id: i32, hash: &str, inline_object10: ::models::InlineObject10) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Delete, "/mealplanner/{username}/shopping-list/items/{id}".to_string())
             .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
                 in_header: false,
@@ -122,7 +137,21 @@ impl<C: hyper::client::Connect>MealPlanningApi for MealPlanningApiClient<C> {
             .with_query_param("hash".to_string(), hash.to_string())
             .with_path_param("username".to_string(), username.to_string())
             .with_path_param("id".to_string(), id.to_string())
-            .with_body_param(inline_object8)
+            .with_body_param(inline_object10)
+            .execute(self.configuration.borrow())
+    }
+
+    fn delete_meal_plan_template(&self, username: &str, id: i32, hash: &str, inline_object7: ::models::InlineObject7) -> Box<Future<Item = Value, Error = Error<serde_json::Value>>> {
+        __internal_request::Request::new(hyper::Method::Delete, "/mealplanner/{username}/templates/{id}".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "apiKey".to_owned(),
+            }))
+            .with_query_param("hash".to_string(), hash.to_string())
+            .with_path_param("username".to_string(), username.to_string())
+            .with_path_param("id".to_string(), id.to_string())
+            .with_body_param(inline_object7)
             .execute(self.configuration.borrow())
     }
 
@@ -140,7 +169,7 @@ impl<C: hyper::client::Connect>MealPlanningApi for MealPlanningApiClient<C> {
             .execute(self.configuration.borrow())
     }
 
-    fn generate_shopping_list(&self, username: &str, start_date: &str, end_date: &str, hash: &str, inline_object6: ::models::InlineObject6) -> Box<Future<Item = ::models::InlineResponse20041, Error = Error<serde_json::Value>>> {
+    fn generate_shopping_list(&self, username: &str, start_date: &str, end_date: &str, hash: &str, inline_object8: ::models::InlineObject8) -> Box<Future<Item = ::models::InlineResponse20042, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Post, "/mealplanner/{username}/shopping-list/{start-date}/{end-date}".to_string())
             .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
                 in_header: false,
@@ -151,11 +180,11 @@ impl<C: hyper::client::Connect>MealPlanningApi for MealPlanningApiClient<C> {
             .with_path_param("username".to_string(), username.to_string())
             .with_path_param("start-date".to_string(), start_date.to_string())
             .with_path_param("end-date".to_string(), end_date.to_string())
-            .with_body_param(inline_object6)
+            .with_body_param(inline_object8)
             .execute(self.configuration.borrow())
     }
 
-    fn get_meal_plan_template(&self, username: &str, id: i32, hash: &str) -> Box<Future<Item = ::models::InlineResponse20040, Error = Error<serde_json::Value>>> {
+    fn get_meal_plan_template(&self, username: &str, id: i32, hash: &str) -> Box<Future<Item = ::models::InlineResponse20041, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/mealplanner/{username}/templates/{id}".to_string())
             .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
                 in_header: false,
@@ -193,7 +222,7 @@ impl<C: hyper::client::Connect>MealPlanningApi for MealPlanningApiClient<C> {
             .execute(self.configuration.borrow())
     }
 
-    fn get_shopping_list(&self, username: &str, hash: &str) -> Box<Future<Item = ::models::InlineResponse20041, Error = Error<serde_json::Value>>> {
+    fn get_shopping_list(&self, username: &str, hash: &str) -> Box<Future<Item = ::models::InlineResponse20042, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/mealplanner/{username}/shopping-list".to_string())
             .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
                 in_header: false,

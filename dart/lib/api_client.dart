@@ -44,6 +44,8 @@ class ApiClient {
           return InlineObject.fromJson(value);
         case 'InlineObject1':
           return InlineObject1.fromJson(value);
+        case 'InlineObject10':
+          return InlineObject10.fromJson(value);
         case 'InlineObject2':
           return InlineObject2.fromJson(value);
         case 'InlineObject3':
@@ -58,6 +60,8 @@ class ApiClient {
           return InlineObject7.fromJson(value);
         case 'InlineObject8':
           return InlineObject8.fromJson(value);
+        case 'InlineObject9':
+          return InlineObject9.fromJson(value);
         case 'InlineResponse200':
           return InlineResponse200.fromJson(value);
         case 'InlineResponse2001':
@@ -200,50 +204,54 @@ class ApiClient {
           return InlineResponse2004.fromJson(value);
         case 'InlineResponse20040':
           return InlineResponse20040.fromJson(value);
-        case 'InlineResponse20040Days':
-          return InlineResponse20040Days.fromJson(value);
         case 'InlineResponse20040Items':
           return InlineResponse20040Items.fromJson(value);
         case 'InlineResponse20040Value':
           return InlineResponse20040Value.fromJson(value);
         case 'InlineResponse20041':
           return InlineResponse20041.fromJson(value);
-        case 'InlineResponse20041Aisles':
-          return InlineResponse20041Aisles.fromJson(value);
+        case 'InlineResponse20041Days':
+          return InlineResponse20041Days.fromJson(value);
         case 'InlineResponse20041Items':
           return InlineResponse20041Items.fromJson(value);
-        case 'InlineResponse20041Measures':
-          return InlineResponse20041Measures.fromJson(value);
+        case 'InlineResponse20041Value':
+          return InlineResponse20041Value.fromJson(value);
         case 'InlineResponse20042':
           return InlineResponse20042.fromJson(value);
+        case 'InlineResponse20042Aisles':
+          return InlineResponse20042Aisles.fromJson(value);
+        case 'InlineResponse20042Items':
+          return InlineResponse20042Items.fromJson(value);
+        case 'InlineResponse20042Measures':
+          return InlineResponse20042Measures.fromJson(value);
         case 'InlineResponse20043':
           return InlineResponse20043.fromJson(value);
         case 'InlineResponse20044':
           return InlineResponse20044.fromJson(value);
-        case 'InlineResponse20044ProductMatches':
-          return InlineResponse20044ProductMatches.fromJson(value);
         case 'InlineResponse20045':
           return InlineResponse20045.fromJson(value);
+        case 'InlineResponse20045ProductMatches':
+          return InlineResponse20045ProductMatches.fromJson(value);
         case 'InlineResponse20046':
           return InlineResponse20046.fromJson(value);
-        case 'InlineResponse20046RecommendedWines':
-          return InlineResponse20046RecommendedWines.fromJson(value);
         case 'InlineResponse20047':
           return InlineResponse20047.fromJson(value);
+        case 'InlineResponse20047RecommendedWines':
+          return InlineResponse20047RecommendedWines.fromJson(value);
         case 'InlineResponse20048':
           return InlineResponse20048.fromJson(value);
-        case 'InlineResponse20048Category':
-          return InlineResponse20048Category.fromJson(value);
-        case 'InlineResponse20048Nutrition':
-          return InlineResponse20048Nutrition.fromJson(value);
-        case 'InlineResponse20048NutritionCalories':
-          return InlineResponse20048NutritionCalories.fromJson(value);
-        case 'InlineResponse20048NutritionCaloriesConfidenceRange95Percent':
-          return InlineResponse20048NutritionCaloriesConfidenceRange95Percent.fromJson(value);
-        case 'InlineResponse20048Recipes':
-          return InlineResponse20048Recipes.fromJson(value);
         case 'InlineResponse20049':
           return InlineResponse20049.fromJson(value);
+        case 'InlineResponse20049Category':
+          return InlineResponse20049Category.fromJson(value);
+        case 'InlineResponse20049Nutrition':
+          return InlineResponse20049Nutrition.fromJson(value);
+        case 'InlineResponse20049NutritionCalories':
+          return InlineResponse20049NutritionCalories.fromJson(value);
+        case 'InlineResponse20049NutritionCaloriesConfidenceRange95Percent':
+          return InlineResponse20049NutritionCaloriesConfidenceRange95Percent.fromJson(value);
+        case 'InlineResponse20049Recipes':
+          return InlineResponse20049Recipes.fromJson(value);
         case 'InlineResponse2005':
           return InlineResponse2005.fromJson(value);
         case 'InlineResponse20050':
@@ -252,22 +260,24 @@ class ApiClient {
           return InlineResponse20051.fromJson(value);
         case 'InlineResponse20052':
           return InlineResponse20052.fromJson(value);
-        case 'InlineResponse20052Results':
-          return InlineResponse20052Results.fromJson(value);
-        case 'InlineResponse20052SearchResults':
-          return InlineResponse20052SearchResults.fromJson(value);
         case 'InlineResponse20053':
           return InlineResponse20053.fromJson(value);
-        case 'InlineResponse20053Videos':
-          return InlineResponse20053Videos.fromJson(value);
+        case 'InlineResponse20053Results':
+          return InlineResponse20053Results.fromJson(value);
+        case 'InlineResponse20053SearchResults':
+          return InlineResponse20053SearchResults.fromJson(value);
         case 'InlineResponse20054':
           return InlineResponse20054.fromJson(value);
+        case 'InlineResponse20054Videos':
+          return InlineResponse20054Videos.fromJson(value);
         case 'InlineResponse20055':
           return InlineResponse20055.fromJson(value);
         case 'InlineResponse20056':
           return InlineResponse20056.fromJson(value);
-        case 'InlineResponse20056Suggests':
-          return InlineResponse20056Suggests.fromJson(value);
+        case 'InlineResponse20057':
+          return InlineResponse20057.fromJson(value);
+        case 'InlineResponse20057Suggests':
+          return InlineResponse20057Suggests.fromJson(value);
         case 'InlineResponse2006':
           return InlineResponse2006.fromJson(value);
         case 'InlineResponse2006Recipes':

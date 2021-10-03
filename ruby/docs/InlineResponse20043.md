@@ -4,16 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**pairings** | **Array&lt;String&gt;** |  | 
-**text** | **String** |  | 
+**username** | **String** |  | 
+**hash** | **String** |  | 
 
 ## Code Sample
 
 ```ruby
 require 'OpenapiClient'
 
-instance = OpenapiClient::InlineResponse20043.new(pairings: null,
-                                 text: null)
+instance = OpenapiClient::InlineResponse20043.new(username: null,
+                                 hash: null)
 ```
 
 

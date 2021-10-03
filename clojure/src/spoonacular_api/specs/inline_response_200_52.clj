@@ -1,18 +1,16 @@
 (ns spoonacular-api.specs.inline-response-200-52
   (:require [clojure.spec.alpha :as s]
             [spec-tools.data-spec :as ds]
-            [spoonacular-api.specs.inline-response-200-52-search-results :refer :all]
             )
   (:import (java.io File)))
 
 
 (def inline-response-200-52-data
   {
-   (ds/req :query) string?
-   (ds/req :totalResults) int?
-   (ds/req :limit) int?
-   (ds/req :offset) int?
-   (ds/req :searchResults) (s/coll-of inline-response-200-52-search-results-spec)
+   (ds/req :Articles) (s/coll-of any?)
+   (ds/req :GroceryProducts) (s/coll-of any?)
+   (ds/req :MenuItems) (s/coll-of any?)
+   (ds/req :Recipes) (s/coll-of any?)
    })
 
 (def inline-response-200-52-spec

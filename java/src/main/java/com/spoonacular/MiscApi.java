@@ -29,15 +29,15 @@ import java.io.IOException;
 
 import java.math.BigDecimal;
 import com.spoonacular.client.model.InlineResponse20029;
-import com.spoonacular.client.model.InlineResponse20047;
 import com.spoonacular.client.model.InlineResponse20048;
-import com.spoonacular.client.model.InlineResponse20050;
+import com.spoonacular.client.model.InlineResponse20049;
 import com.spoonacular.client.model.InlineResponse20051;
 import com.spoonacular.client.model.InlineResponse20052;
 import com.spoonacular.client.model.InlineResponse20053;
 import com.spoonacular.client.model.InlineResponse20054;
 import com.spoonacular.client.model.InlineResponse20055;
 import com.spoonacular.client.model.InlineResponse20056;
+import com.spoonacular.client.model.InlineResponse20057;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -118,13 +118,13 @@ public class MiscApi {
      * Detect Food in Text
      * Take any text and find all mentions of food contained within it. This task is also called Named Entity Recognition (NER). In this case, the entities are foods. Either dishes, such as pizza or cheeseburger, or ingredients, such as cucumber or almonds.
      * @param contentType The content type. (optional)
-     * @return InlineResponse20050
+     * @return InlineResponse20051
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Detect-Food-in-Text">Detect Food in Text Documentation</a>
      */
-    public InlineResponse20050 detectFoodInText(String contentType) throws ApiException {
-        ApiResponse<InlineResponse20050> localVarResp = detectFoodInTextWithHttpInfo(contentType);
+    public InlineResponse20051 detectFoodInText(String contentType) throws ApiException {
+        ApiResponse<InlineResponse20051> localVarResp = detectFoodInTextWithHttpInfo(contentType);
         return localVarResp.getData();
     }
 
@@ -132,14 +132,14 @@ public class MiscApi {
      * Detect Food in Text
      * Take any text and find all mentions of food contained within it. This task is also called Named Entity Recognition (NER). In this case, the entities are foods. Either dishes, such as pizza or cheeseburger, or ingredients, such as cucumber or almonds.
      * @param contentType The content type. (optional)
-     * @return ApiResponse&lt;InlineResponse20050&gt;
+     * @return ApiResponse&lt;InlineResponse20051&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Detect-Food-in-Text">Detect Food in Text Documentation</a>
      */
-    public ApiResponse<InlineResponse20050> detectFoodInTextWithHttpInfo(String contentType) throws ApiException {
+    public ApiResponse<InlineResponse20051> detectFoodInTextWithHttpInfo(String contentType) throws ApiException {
         okhttp3.Call localVarCall = detectFoodInTextValidateBeforeCall(contentType, null);
-        Type localVarReturnType = new TypeToken<InlineResponse20050>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20051>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -153,10 +153,10 @@ public class MiscApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Detect-Food-in-Text">Detect Food in Text Documentation</a>
      */
-    public okhttp3.Call detectFoodInTextAsync(String contentType, final ApiCallback<InlineResponse20050> _callback) throws ApiException {
+    public okhttp3.Call detectFoodInTextAsync(String contentType, final ApiCallback<InlineResponse20051> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = detectFoodInTextValidateBeforeCall(contentType, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse20050>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20051>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -208,27 +208,27 @@ public class MiscApi {
     /**
      * Random Food Joke
      * Get a random joke that is related to food. Caution: this is an endpoint for adults!
-     * @return InlineResponse20054
+     * @return InlineResponse20055
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Random-Food-Joke">Random Food Joke Documentation</a>
      */
-    public InlineResponse20054 getARandomFoodJoke() throws ApiException {
-        ApiResponse<InlineResponse20054> localVarResp = getARandomFoodJokeWithHttpInfo();
+    public InlineResponse20055 getARandomFoodJoke() throws ApiException {
+        ApiResponse<InlineResponse20055> localVarResp = getARandomFoodJokeWithHttpInfo();
         return localVarResp.getData();
     }
 
     /**
      * Random Food Joke
      * Get a random joke that is related to food. Caution: this is an endpoint for adults!
-     * @return ApiResponse&lt;InlineResponse20054&gt;
+     * @return ApiResponse&lt;InlineResponse20055&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Random-Food-Joke">Random Food Joke Documentation</a>
      */
-    public ApiResponse<InlineResponse20054> getARandomFoodJokeWithHttpInfo() throws ApiException {
+    public ApiResponse<InlineResponse20055> getARandomFoodJokeWithHttpInfo() throws ApiException {
         okhttp3.Call localVarCall = getARandomFoodJokeValidateBeforeCall(null);
-        Type localVarReturnType = new TypeToken<InlineResponse20054>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20055>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -241,10 +241,10 @@ public class MiscApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Random-Food-Joke">Random Food Joke Documentation</a>
      */
-    public okhttp3.Call getARandomFoodJokeAsync(final ApiCallback<InlineResponse20054> _callback) throws ApiException {
+    public okhttp3.Call getARandomFoodJokeAsync(final ApiCallback<InlineResponse20055> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getARandomFoodJokeValidateBeforeCall(_callback);
-        Type localVarReturnType = new TypeToken<InlineResponse20054>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20055>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -313,13 +313,13 @@ public class MiscApi {
      * This endpoint returns suggestions for things the user can say or ask the chatbot.
      * @param query A (partial) query from the user. The endpoint will return if it matches topics it can talk about. (required)
      * @param number The number of suggestions to return (between 1 and 25). (optional)
-     * @return InlineResponse20056
+     * @return InlineResponse20057
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Conversation-Suggests">Conversation Suggests Documentation</a>
      */
-    public InlineResponse20056 getConversationSuggests(String query, BigDecimal number) throws ApiException {
-        ApiResponse<InlineResponse20056> localVarResp = getConversationSuggestsWithHttpInfo(query, number);
+    public InlineResponse20057 getConversationSuggests(String query, BigDecimal number) throws ApiException {
+        ApiResponse<InlineResponse20057> localVarResp = getConversationSuggestsWithHttpInfo(query, number);
         return localVarResp.getData();
     }
 
@@ -328,14 +328,14 @@ public class MiscApi {
      * This endpoint returns suggestions for things the user can say or ask the chatbot.
      * @param query A (partial) query from the user. The endpoint will return if it matches topics it can talk about. (required)
      * @param number The number of suggestions to return (between 1 and 25). (optional)
-     * @return ApiResponse&lt;InlineResponse20056&gt;
+     * @return ApiResponse&lt;InlineResponse20057&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Conversation-Suggests">Conversation Suggests Documentation</a>
      */
-    public ApiResponse<InlineResponse20056> getConversationSuggestsWithHttpInfo(String query, BigDecimal number) throws ApiException {
+    public ApiResponse<InlineResponse20057> getConversationSuggestsWithHttpInfo(String query, BigDecimal number) throws ApiException {
         okhttp3.Call localVarCall = getConversationSuggestsValidateBeforeCall(query, number, null);
-        Type localVarReturnType = new TypeToken<InlineResponse20056>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20057>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -350,10 +350,10 @@ public class MiscApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Conversation-Suggests">Conversation Suggests Documentation</a>
      */
-    public okhttp3.Call getConversationSuggestsAsync(String query, BigDecimal number, final ApiCallback<InlineResponse20056> _callback) throws ApiException {
+    public okhttp3.Call getConversationSuggestsAsync(String query, BigDecimal number, final ApiCallback<InlineResponse20057> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getConversationSuggestsValidateBeforeCall(query, number, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse20056>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20057>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -405,27 +405,27 @@ public class MiscApi {
     /**
      * Random Food Trivia
      * Returns random food trivia.
-     * @return InlineResponse20054
+     * @return InlineResponse20055
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Random-Food-Trivia">Random Food Trivia Documentation</a>
      */
-    public InlineResponse20054 getRandomFoodTrivia() throws ApiException {
-        ApiResponse<InlineResponse20054> localVarResp = getRandomFoodTriviaWithHttpInfo();
+    public InlineResponse20055 getRandomFoodTrivia() throws ApiException {
+        ApiResponse<InlineResponse20055> localVarResp = getRandomFoodTriviaWithHttpInfo();
         return localVarResp.getData();
     }
 
     /**
      * Random Food Trivia
      * Returns random food trivia.
-     * @return ApiResponse&lt;InlineResponse20054&gt;
+     * @return ApiResponse&lt;InlineResponse20055&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Random-Food-Trivia">Random Food Trivia Documentation</a>
      */
-    public ApiResponse<InlineResponse20054> getRandomFoodTriviaWithHttpInfo() throws ApiException {
+    public ApiResponse<InlineResponse20055> getRandomFoodTriviaWithHttpInfo() throws ApiException {
         okhttp3.Call localVarCall = getRandomFoodTriviaValidateBeforeCall(null);
-        Type localVarReturnType = new TypeToken<InlineResponse20054>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20055>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -438,10 +438,10 @@ public class MiscApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Random-Food-Trivia">Random Food Trivia Documentation</a>
      */
-    public okhttp3.Call getRandomFoodTriviaAsync(final ApiCallback<InlineResponse20054> _callback) throws ApiException {
+    public okhttp3.Call getRandomFoodTriviaAsync(final ApiCallback<InlineResponse20055> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getRandomFoodTriviaValidateBeforeCall(_callback);
-        Type localVarReturnType = new TypeToken<InlineResponse20054>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20055>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -504,13 +504,13 @@ public class MiscApi {
      * Image Analysis by URL
      * Analyze a food image. The API tries to classify the image, guess the nutrition, and find a matching recipes.
      * @param imageUrl The URL of the image to be analyzed. (required)
-     * @return InlineResponse20048
+     * @return InlineResponse20049
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Image-Analysis-by-URL">Image Analysis by URL Documentation</a>
      */
-    public InlineResponse20048 imageAnalysisByURL(String imageUrl) throws ApiException {
-        ApiResponse<InlineResponse20048> localVarResp = imageAnalysisByURLWithHttpInfo(imageUrl);
+    public InlineResponse20049 imageAnalysisByURL(String imageUrl) throws ApiException {
+        ApiResponse<InlineResponse20049> localVarResp = imageAnalysisByURLWithHttpInfo(imageUrl);
         return localVarResp.getData();
     }
 
@@ -518,14 +518,14 @@ public class MiscApi {
      * Image Analysis by URL
      * Analyze a food image. The API tries to classify the image, guess the nutrition, and find a matching recipes.
      * @param imageUrl The URL of the image to be analyzed. (required)
-     * @return ApiResponse&lt;InlineResponse20048&gt;
+     * @return ApiResponse&lt;InlineResponse20049&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Image-Analysis-by-URL">Image Analysis by URL Documentation</a>
      */
-    public ApiResponse<InlineResponse20048> imageAnalysisByURLWithHttpInfo(String imageUrl) throws ApiException {
+    public ApiResponse<InlineResponse20049> imageAnalysisByURLWithHttpInfo(String imageUrl) throws ApiException {
         okhttp3.Call localVarCall = imageAnalysisByURLValidateBeforeCall(imageUrl, null);
-        Type localVarReturnType = new TypeToken<InlineResponse20048>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20049>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -539,10 +539,10 @@ public class MiscApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Image-Analysis-by-URL">Image Analysis by URL Documentation</a>
      */
-    public okhttp3.Call imageAnalysisByURLAsync(String imageUrl, final ApiCallback<InlineResponse20048> _callback) throws ApiException {
+    public okhttp3.Call imageAnalysisByURLAsync(String imageUrl, final ApiCallback<InlineResponse20049> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = imageAnalysisByURLValidateBeforeCall(imageUrl, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse20048>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20049>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -605,13 +605,13 @@ public class MiscApi {
      * Image Classification by URL
      * Classify a food image.
      * @param imageUrl The URL of the image to be classified. (required)
-     * @return InlineResponse20047
+     * @return InlineResponse20048
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Image-Classification-by-URL">Image Classification by URL Documentation</a>
      */
-    public InlineResponse20047 imageClassificationByURL(String imageUrl) throws ApiException {
-        ApiResponse<InlineResponse20047> localVarResp = imageClassificationByURLWithHttpInfo(imageUrl);
+    public InlineResponse20048 imageClassificationByURL(String imageUrl) throws ApiException {
+        ApiResponse<InlineResponse20048> localVarResp = imageClassificationByURLWithHttpInfo(imageUrl);
         return localVarResp.getData();
     }
 
@@ -619,14 +619,14 @@ public class MiscApi {
      * Image Classification by URL
      * Classify a food image.
      * @param imageUrl The URL of the image to be classified. (required)
-     * @return ApiResponse&lt;InlineResponse20047&gt;
+     * @return ApiResponse&lt;InlineResponse20048&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Image-Classification-by-URL">Image Classification by URL Documentation</a>
      */
-    public ApiResponse<InlineResponse20047> imageClassificationByURLWithHttpInfo(String imageUrl) throws ApiException {
+    public ApiResponse<InlineResponse20048> imageClassificationByURLWithHttpInfo(String imageUrl) throws ApiException {
         okhttp3.Call localVarCall = imageClassificationByURLValidateBeforeCall(imageUrl, null);
-        Type localVarReturnType = new TypeToken<InlineResponse20047>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20048>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -640,10 +640,10 @@ public class MiscApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Image-Classification-by-URL">Image Classification by URL Documentation</a>
      */
-    public okhttp3.Call imageClassificationByURLAsync(String imageUrl, final ApiCallback<InlineResponse20047> _callback) throws ApiException {
+    public okhttp3.Call imageClassificationByURLAsync(String imageUrl, final ApiCallback<InlineResponse20048> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = imageClassificationByURLValidateBeforeCall(imageUrl, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse20047>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20048>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -718,13 +718,13 @@ public class MiscApi {
      * @param query The search query. (required)
      * @param offset The number of results to skip (between 0 and 900). (optional)
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
-     * @return InlineResponse20052
+     * @return InlineResponse20053
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Search-All-Food">Search All Food Documentation</a>
      */
-    public InlineResponse20052 searchAllFood(String query, Integer offset, Integer number) throws ApiException {
-        ApiResponse<InlineResponse20052> localVarResp = searchAllFoodWithHttpInfo(query, offset, number);
+    public InlineResponse20053 searchAllFood(String query, Integer offset, Integer number) throws ApiException {
+        ApiResponse<InlineResponse20053> localVarResp = searchAllFoodWithHttpInfo(query, offset, number);
         return localVarResp.getData();
     }
 
@@ -734,14 +734,14 @@ public class MiscApi {
      * @param query The search query. (required)
      * @param offset The number of results to skip (between 0 and 900). (optional)
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
-     * @return ApiResponse&lt;InlineResponse20052&gt;
+     * @return ApiResponse&lt;InlineResponse20053&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Search-All-Food">Search All Food Documentation</a>
      */
-    public ApiResponse<InlineResponse20052> searchAllFoodWithHttpInfo(String query, Integer offset, Integer number) throws ApiException {
+    public ApiResponse<InlineResponse20053> searchAllFoodWithHttpInfo(String query, Integer offset, Integer number) throws ApiException {
         okhttp3.Call localVarCall = searchAllFoodValidateBeforeCall(query, offset, number, null);
-        Type localVarReturnType = new TypeToken<InlineResponse20052>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20053>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -757,10 +757,10 @@ public class MiscApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Search-All-Food">Search All Food Documentation</a>
      */
-    public okhttp3.Call searchAllFoodAsync(String query, Integer offset, Integer number, final ApiCallback<InlineResponse20052> _callback) throws ApiException {
+    public okhttp3.Call searchAllFoodAsync(String query, Integer offset, Integer number, final ApiCallback<InlineResponse20053> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = searchAllFoodValidateBeforeCall(query, offset, number, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse20052>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20053>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1010,13 +1010,13 @@ public class MiscApi {
      * @param maxLength Maximum video length in seconds. (optional)
      * @param offset The number of results to skip (between 0 and 900). (optional)
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
-     * @return InlineResponse20053
+     * @return InlineResponse20054
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Search-Food-Videos">Search Food Videos Documentation</a>
      */
-    public InlineResponse20053 searchFoodVideos(String query, String type, String cuisine, String diet, String includeIngredients, String excludeIngredients, BigDecimal minLength, BigDecimal maxLength, Integer offset, Integer number) throws ApiException {
-        ApiResponse<InlineResponse20053> localVarResp = searchFoodVideosWithHttpInfo(query, type, cuisine, diet, includeIngredients, excludeIngredients, minLength, maxLength, offset, number);
+    public InlineResponse20054 searchFoodVideos(String query, String type, String cuisine, String diet, String includeIngredients, String excludeIngredients, BigDecimal minLength, BigDecimal maxLength, Integer offset, Integer number) throws ApiException {
+        ApiResponse<InlineResponse20054> localVarResp = searchFoodVideosWithHttpInfo(query, type, cuisine, diet, includeIngredients, excludeIngredients, minLength, maxLength, offset, number);
         return localVarResp.getData();
     }
 
@@ -1033,14 +1033,14 @@ public class MiscApi {
      * @param maxLength Maximum video length in seconds. (optional)
      * @param offset The number of results to skip (between 0 and 900). (optional)
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
-     * @return ApiResponse&lt;InlineResponse20053&gt;
+     * @return ApiResponse&lt;InlineResponse20054&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Search-Food-Videos">Search Food Videos Documentation</a>
      */
-    public ApiResponse<InlineResponse20053> searchFoodVideosWithHttpInfo(String query, String type, String cuisine, String diet, String includeIngredients, String excludeIngredients, BigDecimal minLength, BigDecimal maxLength, Integer offset, Integer number) throws ApiException {
+    public ApiResponse<InlineResponse20054> searchFoodVideosWithHttpInfo(String query, String type, String cuisine, String diet, String includeIngredients, String excludeIngredients, BigDecimal minLength, BigDecimal maxLength, Integer offset, Integer number) throws ApiException {
         okhttp3.Call localVarCall = searchFoodVideosValidateBeforeCall(query, type, cuisine, diet, includeIngredients, excludeIngredients, minLength, maxLength, offset, number, null);
-        Type localVarReturnType = new TypeToken<InlineResponse20053>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20054>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1063,10 +1063,10 @@ public class MiscApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Search-Food-Videos">Search Food Videos Documentation</a>
      */
-    public okhttp3.Call searchFoodVideosAsync(String query, String type, String cuisine, String diet, String includeIngredients, String excludeIngredients, BigDecimal minLength, BigDecimal maxLength, Integer offset, Integer number, final ApiCallback<InlineResponse20053> _callback) throws ApiException {
+    public okhttp3.Call searchFoodVideosAsync(String query, String type, String cuisine, String diet, String includeIngredients, String excludeIngredients, BigDecimal minLength, BigDecimal maxLength, Integer offset, Integer number, final ApiCallback<InlineResponse20054> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = searchFoodVideosValidateBeforeCall(query, type, cuisine, diet, includeIngredients, excludeIngredients, minLength, maxLength, offset, number, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse20053>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20054>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1129,13 +1129,13 @@ public class MiscApi {
      * Search Site Content
      * Search spoonacular&#39;s site content. You&#39;ll be able to find everything that you could also find using the search suggestions on spoonacular.com. This is a suggest API so you can send partial strings as queries.
      * @param query The query to search for. You can also use partial queries such as \&quot;spagh\&quot; to already find spaghetti recipes, articles, grocery products, and other content. (required)
-     * @return InlineResponse20051
+     * @return InlineResponse20052
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Search-Site-Content">Search Site Content Documentation</a>
      */
-    public InlineResponse20051 searchSiteContent(String query) throws ApiException {
-        ApiResponse<InlineResponse20051> localVarResp = searchSiteContentWithHttpInfo(query);
+    public InlineResponse20052 searchSiteContent(String query) throws ApiException {
+        ApiResponse<InlineResponse20052> localVarResp = searchSiteContentWithHttpInfo(query);
         return localVarResp.getData();
     }
 
@@ -1143,14 +1143,14 @@ public class MiscApi {
      * Search Site Content
      * Search spoonacular&#39;s site content. You&#39;ll be able to find everything that you could also find using the search suggestions on spoonacular.com. This is a suggest API so you can send partial strings as queries.
      * @param query The query to search for. You can also use partial queries such as \&quot;spagh\&quot; to already find spaghetti recipes, articles, grocery products, and other content. (required)
-     * @return ApiResponse&lt;InlineResponse20051&gt;
+     * @return ApiResponse&lt;InlineResponse20052&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Search-Site-Content">Search Site Content Documentation</a>
      */
-    public ApiResponse<InlineResponse20051> searchSiteContentWithHttpInfo(String query) throws ApiException {
+    public ApiResponse<InlineResponse20052> searchSiteContentWithHttpInfo(String query) throws ApiException {
         okhttp3.Call localVarCall = searchSiteContentValidateBeforeCall(query, null);
-        Type localVarReturnType = new TypeToken<InlineResponse20051>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20052>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1164,10 +1164,10 @@ public class MiscApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Search-Site-Content">Search Site Content Documentation</a>
      */
-    public okhttp3.Call searchSiteContentAsync(String query, final ApiCallback<InlineResponse20051> _callback) throws ApiException {
+    public okhttp3.Call searchSiteContentAsync(String query, final ApiCallback<InlineResponse20052> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = searchSiteContentValidateBeforeCall(query, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse20051>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20052>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1236,13 +1236,13 @@ public class MiscApi {
      * This endpoint can be used to have a conversation about food with the spoonacular chatbot. Use the \&quot;Get Conversation Suggests\&quot; endpoint to show your user what he or she can say.
      * @param text The request / question / answer from the user to the chatbot. (required)
      * @param contextId An arbitrary globally unique id for your conversation. The conversation can contain states so you should pass your context id if you want the bot to be able to remember the conversation. (optional)
-     * @return InlineResponse20055
+     * @return InlineResponse20056
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Talk-to-Chatbot">Talk to Chatbot Documentation</a>
      */
-    public InlineResponse20055 talkToChatbot(String text, String contextId) throws ApiException {
-        ApiResponse<InlineResponse20055> localVarResp = talkToChatbotWithHttpInfo(text, contextId);
+    public InlineResponse20056 talkToChatbot(String text, String contextId) throws ApiException {
+        ApiResponse<InlineResponse20056> localVarResp = talkToChatbotWithHttpInfo(text, contextId);
         return localVarResp.getData();
     }
 
@@ -1251,14 +1251,14 @@ public class MiscApi {
      * This endpoint can be used to have a conversation about food with the spoonacular chatbot. Use the \&quot;Get Conversation Suggests\&quot; endpoint to show your user what he or she can say.
      * @param text The request / question / answer from the user to the chatbot. (required)
      * @param contextId An arbitrary globally unique id for your conversation. The conversation can contain states so you should pass your context id if you want the bot to be able to remember the conversation. (optional)
-     * @return ApiResponse&lt;InlineResponse20055&gt;
+     * @return ApiResponse&lt;InlineResponse20056&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Talk-to-Chatbot">Talk to Chatbot Documentation</a>
      */
-    public ApiResponse<InlineResponse20055> talkToChatbotWithHttpInfo(String text, String contextId) throws ApiException {
+    public ApiResponse<InlineResponse20056> talkToChatbotWithHttpInfo(String text, String contextId) throws ApiException {
         okhttp3.Call localVarCall = talkToChatbotValidateBeforeCall(text, contextId, null);
-        Type localVarReturnType = new TypeToken<InlineResponse20055>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20056>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1273,10 +1273,10 @@ public class MiscApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Talk-to-Chatbot">Talk to Chatbot Documentation</a>
      */
-    public okhttp3.Call talkToChatbotAsync(String text, String contextId, final ApiCallback<InlineResponse20055> _callback) throws ApiException {
+    public okhttp3.Call talkToChatbotAsync(String text, String contextId, final ApiCallback<InlineResponse20056> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = talkToChatbotValidateBeforeCall(text, contextId, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse20055>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20056>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

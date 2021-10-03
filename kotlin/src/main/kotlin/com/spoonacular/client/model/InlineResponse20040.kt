@@ -11,22 +11,22 @@
 */
 package com.spoonacular.client.model
 
-import com.spoonacular.client.model.InlineResponse20040Days
+import com.spoonacular.client.model.InlineResponse20040Items
 
 import com.squareup.moshi.Json
 /**
  * 
- * @param id 
  * @param name 
- * @param days 
+ * @param items 
+ * @param publishAsPublic 
  */
 data class InlineResponse20040 (
-    @Json(name = "id")
-    val id: kotlin.Int,
     @Json(name = "name")
     val name: kotlin.String,
-    @Json(name = "days")
-    val days: kotlin.Array<InlineResponse20040Days>
+    @Json(name = "items")
+    val items: kotlin.Array<InlineResponse20040Items>,
+    @Json(name = "publishAsPublic")
+    val publishAsPublic: kotlin.Boolean
 ) {
 
 }

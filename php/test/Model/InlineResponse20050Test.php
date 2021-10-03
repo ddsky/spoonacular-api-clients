@@ -79,9 +79,16 @@ class InlineResponse20050Test extends TestCase
     }
 
     /**
-     * Test attribute "annotations"
+     * Test attribute "answer"
      */
-    public function testPropertyAnnotations()
+    public function testPropertyAnswer()
+    {
+    }
+
+    /**
+     * Test attribute "image"
+     */
+    public function testPropertyImage()
     {
     }
 }

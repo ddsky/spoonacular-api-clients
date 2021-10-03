@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**answerText** | **String** |  | 
-**media** | **[Object]** |  | 
+**text** | **String** |  | 
 
 

@@ -2507,16 +2507,16 @@ RecipesApiService Quick Answer
 Answer a nutrition related natural language question.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param q The nutrition related question.
-@return InlineResponse20049
+@return InlineResponse20050
 */
-func (a *RecipesApiService) QuickAnswer(ctx context.Context, q string) (InlineResponse20049, *http.Response, error) {
+func (a *RecipesApiService) QuickAnswer(ctx context.Context, q string) (InlineResponse20050, *http.Response, error) {
 	var (
 		localVarHttpMethod   = strings.ToUpper("Get")
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  InlineResponse20049
+		localVarReturnValue  InlineResponse20050
 	)
 
 	// create path and map variables
@@ -2578,7 +2578,7 @@ func (a *RecipesApiService) QuickAnswer(ctx context.Context, q string) (InlineRe
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
-			var v InlineResponse20049
+			var v InlineResponse20050
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

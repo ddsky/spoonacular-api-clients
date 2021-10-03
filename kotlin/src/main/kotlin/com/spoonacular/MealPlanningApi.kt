@@ -11,18 +11,21 @@
 */
 package com.spoonacular
 
+import com.spoonacular.client.model.InlineObject10
 import com.spoonacular.client.model.InlineObject3
 import com.spoonacular.client.model.InlineObject4
 import com.spoonacular.client.model.InlineObject5
 import com.spoonacular.client.model.InlineObject6
 import com.spoonacular.client.model.InlineObject7
 import com.spoonacular.client.model.InlineObject8
+import com.spoonacular.client.model.InlineObject9
 import com.spoonacular.client.model.InlineResponse20037
 import com.spoonacular.client.model.InlineResponse20038
 import com.spoonacular.client.model.InlineResponse20039
 import com.spoonacular.client.model.InlineResponse20040
 import com.spoonacular.client.model.InlineResponse20041
 import com.spoonacular.client.model.InlineResponse20042
+import com.spoonacular.client.model.InlineResponse20043
 
 import spoonacular.infrastructure.ApiClient
 import spoonacular.infrastructure.ClientException
@@ -37,6 +40,39 @@ import spoonacular.infrastructure.Success
 import spoonacular.infrastructure.toMultiValue
 
 class MealPlanningApi(basePath: kotlin.String = "https://api.spoonacular.com") : ApiClient(basePath) {
+
+    /**
+    * Add Meal Plan Template
+    * Add a meal plan template for a user.
+    * @param username The username. 
+    * @param hash The private hash for the username. 
+    * @param inlineObject6  
+    * @return InlineResponse20040
+    */
+    @Suppress("UNCHECKED_CAST")
+    fun addMealPlanTemplate(username: kotlin.String, hash: kotlin.String, inlineObject6: InlineObject6) : InlineResponse20040 {
+        val localVariableBody: kotlin.Any? = inlineObject6
+        val localVariableQuery: MultiValueMap = mapOf("hash" to listOf("$hash"))
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        val localVariableConfig = RequestConfig(
+            RequestMethod.POST,
+            "/mealplanner/{username}/templates".replace("{"+"username"+"}", "$username"),
+            query = localVariableQuery,
+            headers = localVariableHeaders
+        )
+        val response = request<InlineResponse20040>(
+            localVariableConfig,
+            localVariableBody
+        )
+
+        return when (response.responseType) {
+            ResponseType.Success -> (response as Success<*>).data as InlineResponse20040
+            ResponseType.Informational -> TODO()
+            ResponseType.Redirection -> TODO()
+            ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
+            ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
+        }
+    }
 
     /**
     * Add to Meal Plan
@@ -76,12 +112,12 @@ class MealPlanningApi(basePath: kotlin.String = "https://api.spoonacular.com") :
     * Add an item to the current shopping list of a user.
     * @param username The username. 
     * @param hash The private hash for the username. 
-    * @param inlineObject7  
-    * @return InlineResponse20041
+    * @param inlineObject9  
+    * @return InlineResponse20042
     */
     @Suppress("UNCHECKED_CAST")
-    fun addToShoppingList(username: kotlin.String, hash: kotlin.String, inlineObject7: InlineObject7) : InlineResponse20041 {
-        val localVariableBody: kotlin.Any? = inlineObject7
+    fun addToShoppingList(username: kotlin.String, hash: kotlin.String, inlineObject9: InlineObject9) : InlineResponse20042 {
+        val localVariableBody: kotlin.Any? = inlineObject9
         val localVariableQuery: MultiValueMap = mapOf("hash" to listOf("$hash"))
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         val localVariableConfig = RequestConfig(
@@ -90,13 +126,13 @@ class MealPlanningApi(basePath: kotlin.String = "https://api.spoonacular.com") :
             query = localVariableQuery,
             headers = localVariableHeaders
         )
-        val response = request<InlineResponse20041>(
+        val response = request<InlineResponse20042>(
             localVariableConfig,
             localVariableBody
         )
 
         return when (response.responseType) {
-            ResponseType.Success -> (response as Success<*>).data as InlineResponse20041
+            ResponseType.Success -> (response as Success<*>).data as InlineResponse20042
             ResponseType.Informational -> TODO()
             ResponseType.Redirection -> TODO()
             ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
@@ -142,10 +178,10 @@ class MealPlanningApi(basePath: kotlin.String = "https://api.spoonacular.com") :
     * Connect User
     * In order to call user-specific endpoints, you need to connect your app&#39;s users to spoonacular users.
     * @param body  
-    * @return InlineResponse20042
+    * @return InlineResponse20043
     */
     @Suppress("UNCHECKED_CAST")
-    fun connectUser(body: kotlin.Any) : InlineResponse20042 {
+    fun connectUser(body: kotlin.Any) : InlineResponse20043 {
         val localVariableBody: kotlin.Any? = body
         val localVariableQuery: MultiValueMap = mapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
@@ -155,13 +191,13 @@ class MealPlanningApi(basePath: kotlin.String = "https://api.spoonacular.com") :
             query = localVariableQuery,
             headers = localVariableHeaders
         )
-        val response = request<InlineResponse20042>(
+        val response = request<InlineResponse20043>(
             localVariableConfig,
             localVariableBody
         )
 
         return when (response.responseType) {
-            ResponseType.Success -> (response as Success<*>).data as InlineResponse20042
+            ResponseType.Success -> (response as Success<*>).data as InlineResponse20043
             ResponseType.Informational -> TODO()
             ResponseType.Redirection -> TODO()
             ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
@@ -209,17 +245,51 @@ class MealPlanningApi(basePath: kotlin.String = "https://api.spoonacular.com") :
     * @param username The username. 
     * @param id The item&#39;s id. 
     * @param hash The private hash for the username. 
-    * @param inlineObject8  
+    * @param inlineObject10  
     * @return kotlin.Any
     */
     @Suppress("UNCHECKED_CAST")
-    fun deleteFromShoppingList(username: kotlin.String, id: kotlin.Int, hash: kotlin.String, inlineObject8: InlineObject8) : kotlin.Any {
-        val localVariableBody: kotlin.Any? = inlineObject8
+    fun deleteFromShoppingList(username: kotlin.String, id: kotlin.Int, hash: kotlin.String, inlineObject10: InlineObject10) : kotlin.Any {
+        val localVariableBody: kotlin.Any? = inlineObject10
         val localVariableQuery: MultiValueMap = mapOf("hash" to listOf("$hash"))
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         val localVariableConfig = RequestConfig(
             RequestMethod.DELETE,
             "/mealplanner/{username}/shopping-list/items/{id}".replace("{"+"username"+"}", "$username").replace("{"+"id"+"}", "$id"),
+            query = localVariableQuery,
+            headers = localVariableHeaders
+        )
+        val response = request<kotlin.Any>(
+            localVariableConfig,
+            localVariableBody
+        )
+
+        return when (response.responseType) {
+            ResponseType.Success -> (response as Success<*>).data as kotlin.Any
+            ResponseType.Informational -> TODO()
+            ResponseType.Redirection -> TODO()
+            ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
+            ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
+        }
+    }
+
+    /**
+    * Delete Meal Plan Template
+    * Delete a meal plan template for a user.
+    * @param username The username. 
+    * @param id The item&#39;s id. 
+    * @param hash The private hash for the username. 
+    * @param inlineObject7  
+    * @return kotlin.Any
+    */
+    @Suppress("UNCHECKED_CAST")
+    fun deleteMealPlanTemplate(username: kotlin.String, id: kotlin.Int, hash: kotlin.String, inlineObject7: InlineObject7) : kotlin.Any {
+        val localVariableBody: kotlin.Any? = inlineObject7
+        val localVariableQuery: MultiValueMap = mapOf("hash" to listOf("$hash"))
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        val localVariableConfig = RequestConfig(
+            RequestMethod.DELETE,
+            "/mealplanner/{username}/templates/{id}".replace("{"+"username"+"}", "$username").replace("{"+"id"+"}", "$id"),
             query = localVariableQuery,
             headers = localVariableHeaders
         )
@@ -278,12 +348,12 @@ class MealPlanningApi(basePath: kotlin.String = "https://api.spoonacular.com") :
     * @param startMinusDate The start date in the format yyyy-mm-dd. 
     * @param endMinusDate The end date in the format yyyy-mm-dd. 
     * @param hash The private hash for the username. 
-    * @param inlineObject6  
-    * @return InlineResponse20041
+    * @param inlineObject8  
+    * @return InlineResponse20042
     */
     @Suppress("UNCHECKED_CAST")
-    fun generateShoppingList(username: kotlin.String, startMinusDate: kotlin.String, endMinusDate: kotlin.String, hash: kotlin.String, inlineObject6: InlineObject6) : InlineResponse20041 {
-        val localVariableBody: kotlin.Any? = inlineObject6
+    fun generateShoppingList(username: kotlin.String, startMinusDate: kotlin.String, endMinusDate: kotlin.String, hash: kotlin.String, inlineObject8: InlineObject8) : InlineResponse20042 {
+        val localVariableBody: kotlin.Any? = inlineObject8
         val localVariableQuery: MultiValueMap = mapOf("hash" to listOf("$hash"))
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         val localVariableConfig = RequestConfig(
@@ -292,13 +362,13 @@ class MealPlanningApi(basePath: kotlin.String = "https://api.spoonacular.com") :
             query = localVariableQuery,
             headers = localVariableHeaders
         )
-        val response = request<InlineResponse20041>(
+        val response = request<InlineResponse20042>(
             localVariableConfig,
             localVariableBody
         )
 
         return when (response.responseType) {
-            ResponseType.Success -> (response as Success<*>).data as InlineResponse20041
+            ResponseType.Success -> (response as Success<*>).data as InlineResponse20042
             ResponseType.Informational -> TODO()
             ResponseType.Redirection -> TODO()
             ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
@@ -312,10 +382,10 @@ class MealPlanningApi(basePath: kotlin.String = "https://api.spoonacular.com") :
     * @param username The username. 
     * @param id The item&#39;s id. 
     * @param hash The private hash for the username. 
-    * @return InlineResponse20040
+    * @return InlineResponse20041
     */
     @Suppress("UNCHECKED_CAST")
-    fun getMealPlanTemplate(username: kotlin.String, id: kotlin.Int, hash: kotlin.String) : InlineResponse20040 {
+    fun getMealPlanTemplate(username: kotlin.String, id: kotlin.Int, hash: kotlin.String) : InlineResponse20041 {
         val localVariableBody: kotlin.Any? = null
         val localVariableQuery: MultiValueMap = mapOf("hash" to listOf("$hash"))
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
@@ -325,13 +395,13 @@ class MealPlanningApi(basePath: kotlin.String = "https://api.spoonacular.com") :
             query = localVariableQuery,
             headers = localVariableHeaders
         )
-        val response = request<InlineResponse20040>(
+        val response = request<InlineResponse20041>(
             localVariableConfig,
             localVariableBody
         )
 
         return when (response.responseType) {
-            ResponseType.Success -> (response as Success<*>).data as InlineResponse20040
+            ResponseType.Success -> (response as Success<*>).data as InlineResponse20041
             ResponseType.Informational -> TODO()
             ResponseType.Redirection -> TODO()
             ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
@@ -409,10 +479,10 @@ class MealPlanningApi(basePath: kotlin.String = "https://api.spoonacular.com") :
     * Get the current shopping list for the given user.
     * @param username The username. 
     * @param hash The private hash for the username. 
-    * @return InlineResponse20041
+    * @return InlineResponse20042
     */
     @Suppress("UNCHECKED_CAST")
-    fun getShoppingList(username: kotlin.String, hash: kotlin.String) : InlineResponse20041 {
+    fun getShoppingList(username: kotlin.String, hash: kotlin.String) : InlineResponse20042 {
         val localVariableBody: kotlin.Any? = null
         val localVariableQuery: MultiValueMap = mapOf("hash" to listOf("$hash"))
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
@@ -422,13 +492,13 @@ class MealPlanningApi(basePath: kotlin.String = "https://api.spoonacular.com") :
             query = localVariableQuery,
             headers = localVariableHeaders
         )
-        val response = request<InlineResponse20041>(
+        val response = request<InlineResponse20042>(
             localVariableConfig,
             localVariableBody
         )
 
         return when (response.responseType) {
-            ResponseType.Success -> (response as Success<*>).data as InlineResponse20041
+            ResponseType.Success -> (response as Success<*>).data as InlineResponse20042
             ResponseType.Informational -> TODO()
             ResponseType.Redirection -> TODO()
             ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")

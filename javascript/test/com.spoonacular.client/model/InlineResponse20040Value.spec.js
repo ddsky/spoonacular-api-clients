@@ -60,6 +60,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property servings (base name: "servings")', function() {
+      // uncomment below and update the code to test the property servings
+      //var instane = new SpoonacularApi.InlineResponse20040Value();
+      //expect(instance).to.be();
+    });
+
     it('should have the property title (base name: "title")', function() {
       // uncomment below and update the code to test the property title
       //var instane = new SpoonacularApi.InlineResponse20040Value();

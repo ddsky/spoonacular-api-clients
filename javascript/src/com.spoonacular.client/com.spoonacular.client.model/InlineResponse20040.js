@@ -12,7 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
-import InlineResponse20040Days from './InlineResponse20040Days';
+import InlineResponse20040Items from './InlineResponse20040Items';
 
 /**
  * The InlineResponse20040 model module.
@@ -23,13 +23,13 @@ class InlineResponse20040 {
     /**
      * Constructs a new <code>InlineResponse20040</code>.
      * @alias module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20040
-     * @param id {Number} 
      * @param name {String} 
-     * @param days {Array.<module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20040Days>} 
+     * @param items {Array.<module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20040Items>} 
+     * @param publishAsPublic {Boolean} 
      */
-    constructor(id, name, days) { 
+    constructor(name, items, publishAsPublic) { 
         
-        InlineResponse20040.initialize(this, id, name, days);
+        InlineResponse20040.initialize(this, name, items, publishAsPublic);
     }
 
     /**
@@ -37,10 +37,10 @@ class InlineResponse20040 {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, id, name, days) { 
-        obj['id'] = id;
+    static initialize(obj, name, items, publishAsPublic) { 
         obj['name'] = name;
-        obj['days'] = days;
+        obj['items'] = items;
+        obj['publishAsPublic'] = publishAsPublic;
     }
 
     /**
@@ -54,14 +54,14 @@ class InlineResponse20040 {
         if (data) {
             obj = obj || new InlineResponse20040();
 
-            if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'Number');
-            }
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('days')) {
-                obj['days'] = ApiClient.convertToType(data['days'], [InlineResponse20040Days]);
+            if (data.hasOwnProperty('items')) {
+                obj['items'] = ApiClient.convertToType(data['items'], [InlineResponse20040Items]);
+            }
+            if (data.hasOwnProperty('publishAsPublic')) {
+                obj['publishAsPublic'] = ApiClient.convertToType(data['publishAsPublic'], 'Boolean');
             }
         }
         return obj;
@@ -71,19 +71,19 @@ class InlineResponse20040 {
 }
 
 /**
- * @member {Number} id
- */
-InlineResponse20040.prototype['id'] = undefined;
-
-/**
  * @member {String} name
  */
 InlineResponse20040.prototype['name'] = undefined;
 
 /**
- * @member {Array.<module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20040Days>} days
+ * @member {Array.<module:com.spoonacular.client/com.spoonacular.client.model/InlineResponse20040Items>} items
  */
-InlineResponse20040.prototype['days'] = undefined;
+InlineResponse20040.prototype['items'] = undefined;
+
+/**
+ * @member {Boolean} publishAsPublic
+ */
+InlineResponse20040.prototype['publishAsPublic'] = undefined;
 
 
 

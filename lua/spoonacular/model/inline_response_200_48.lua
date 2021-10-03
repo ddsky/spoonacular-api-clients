@@ -19,11 +19,10 @@ local function cast_inline_response_200_48(t)
 	return setmetatable(t, inline_response_200_48_mt)
 end
 
-local function new_inline_response_200_48(nutrition, category, recipes)
+local function new_inline_response_200_48(category, probability)
 	return cast_inline_response_200_48({
-		["nutrition"] = nutrition;
 		["category"] = category;
-		["recipes"] = recipes;
+		["probability"] = probability;
 	})
 end
 

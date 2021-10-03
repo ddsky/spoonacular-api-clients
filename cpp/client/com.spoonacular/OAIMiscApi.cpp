@@ -67,7 +67,7 @@ OAIMiscApi::detectFoodInTextCallback(OAIHttpRequestWorker * worker) {
     else {
         msg = "Error: " + worker->error_str;
     }
-    OAIInline_response_200_50 output(QString(worker->response));
+    OAIInline_response_200_51 output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -112,7 +112,7 @@ OAIMiscApi::getARandomFoodJokeCallback(OAIHttpRequestWorker * worker) {
     else {
         msg = "Error: " + worker->error_str;
     }
-    OAIInline_response_200_54 output(QString(worker->response));
+    OAIInline_response_200_55 output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -173,7 +173,7 @@ OAIMiscApi::getConversationSuggestsCallback(OAIHttpRequestWorker * worker) {
     else {
         msg = "Error: " + worker->error_str;
     }
-    OAIInline_response_200_56 output(QString(worker->response));
+    OAIInline_response_200_57 output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -218,7 +218,7 @@ OAIMiscApi::getRandomFoodTriviaCallback(OAIHttpRequestWorker * worker) {
     else {
         msg = "Error: " + worker->error_str;
     }
-    OAIInline_response_200_54 output(QString(worker->response));
+    OAIInline_response_200_55 output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -271,7 +271,7 @@ OAIMiscApi::imageAnalysisByURLCallback(OAIHttpRequestWorker * worker) {
     else {
         msg = "Error: " + worker->error_str;
     }
-    OAIInline_response_200_48 output(QString(worker->response));
+    OAIInline_response_200_49 output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -324,7 +324,7 @@ OAIMiscApi::imageClassificationByURLCallback(OAIHttpRequestWorker * worker) {
     else {
         msg = "Error: " + worker->error_str;
     }
-    OAIInline_response_200_47 output(QString(worker->response));
+    OAIInline_response_200_48 output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -393,7 +393,7 @@ OAIMiscApi::searchAllFoodCallback(OAIHttpRequestWorker * worker) {
     else {
         msg = "Error: " + worker->error_str;
     }
-    OAIInline_response_200_52 output(QString(worker->response));
+    OAIInline_response_200_53 output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -603,7 +603,7 @@ OAIMiscApi::searchFoodVideosCallback(OAIHttpRequestWorker * worker) {
     else {
         msg = "Error: " + worker->error_str;
     }
-    OAIInline_response_200_53 output(QString(worker->response));
+    OAIInline_response_200_54 output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -656,7 +656,7 @@ OAIMiscApi::searchSiteContentCallback(OAIHttpRequestWorker * worker) {
     else {
         msg = "Error: " + worker->error_str;
     }
-    OAIInline_response_200_51 output(QString(worker->response));
+    OAIInline_response_200_52 output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -717,7 +717,7 @@ OAIMiscApi::talkToChatbotCallback(OAIHttpRequestWorker * worker) {
     else {
         msg = "Error: " + worker->error_str;
     }
-    OAIInline_response_200_55 output(QString(worker->response));
+    OAIInline_response_200_56 output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {

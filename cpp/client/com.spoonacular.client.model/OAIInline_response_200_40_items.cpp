@@ -38,8 +38,8 @@ OAIInline_response_200_40_items::~OAIInline_response_200_40_items() {
 void
 OAIInline_response_200_40_items::init() {
     
-    m_id_isSet = false;
-    m_id_isValid = false;
+    m_day_isSet = false;
+    m_day_isValid = false;
     
     m_slot_isSet = false;
     m_slot_isValid = false;
@@ -65,7 +65,7 @@ OAIInline_response_200_40_items::fromJson(QString jsonString) {
 void
 OAIInline_response_200_40_items::fromJsonObject(QJsonObject json) {
     
-    m_id_isValid = ::OpenAPI::fromJsonValue(id, json[QString("id")]);
+    m_day_isValid = ::OpenAPI::fromJsonValue(day, json[QString("day")]);
     
     
     m_slot_isValid = ::OpenAPI::fromJsonValue(slot, json[QString("slot")]);
@@ -93,8 +93,8 @@ OAIInline_response_200_40_items::asJson () const {
 QJsonObject
 OAIInline_response_200_40_items::asJsonObject() const {
     QJsonObject obj;
-	if(m_id_isSet){
-        obj.insert(QString("id"), ::OpenAPI::toJsonValue(id));
+	if(m_day_isSet){
+        obj.insert(QString("day"), ::OpenAPI::toJsonValue(day));
     }
 	if(m_slot_isSet){
         obj.insert(QString("slot"), ::OpenAPI::toJsonValue(slot));
@@ -113,13 +113,13 @@ OAIInline_response_200_40_items::asJsonObject() const {
 
 
 qint32
-OAIInline_response_200_40_items::getId() const {
-    return id;
+OAIInline_response_200_40_items::getDay() const {
+    return day;
 }
 void
-OAIInline_response_200_40_items::setId(const qint32 &id) {
-    this->id = id;
-    this->m_id_isSet = true;
+OAIInline_response_200_40_items::setDay(const qint32 &day) {
+    this->day = day;
+    this->m_day_isSet = true;
 }
 
 
@@ -170,7 +170,7 @@ bool
 OAIInline_response_200_40_items::isSet() const {
     bool isObjectUpdated = false;
     do{ 
-        if(m_id_isSet){ isObjectUpdated = true; break;}
+        if(m_day_isSet){ isObjectUpdated = true; break;}
     
         if(m_slot_isSet){ isObjectUpdated = true; break;}
     
@@ -186,7 +186,7 @@ OAIInline_response_200_40_items::isSet() const {
 bool
 OAIInline_response_200_40_items::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_id_isValid && m_slot_isValid && m_position_isValid && m_type_isValid && true;
+    return m_day_isValid && m_slot_isValid && m_position_isValid && m_type_isValid && true;
 }
 
 }

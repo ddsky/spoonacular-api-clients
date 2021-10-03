@@ -19,10 +19,10 @@ local function cast_inline_response_200_56(t)
 	return setmetatable(t, inline_response_200_56_mt)
 end
 
-local function new_inline_response_200_56(suggests, words)
+local function new_inline_response_200_56(answer_text, media)
 	return cast_inline_response_200_56({
-		["suggests"] = suggests;
-		["words"] = words;
+		["answerText"] = answer_text;
+		["media"] = media;
 	})
 end
 
