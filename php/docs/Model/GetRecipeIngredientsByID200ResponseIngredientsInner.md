@@ -1,0 +1,11 @@
+# # GetRecipeIngredientsByID200ResponseIngredientsInner
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**amount** | [**\com.spoonacular.client\com.spoonacular.client.model\GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmount**](GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmount.md) |  | [optional]
+**image** | **string** |  |
+**name** | **string** |  |
+
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

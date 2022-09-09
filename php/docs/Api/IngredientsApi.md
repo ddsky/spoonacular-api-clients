@@ -1,24 +1,25 @@
 # com.spoonacular.client\IngredientsApi
 
-All URIs are relative to *https://api.spoonacular.com*
+All URIs are relative to https://api.spoonacular.com.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**autocompleteIngredientSearch**](IngredientsApi.md#autocompleteIngredientSearch) | **GET** /food/ingredients/autocomplete | Autocomplete Ingredient Search
-[**computeIngredientAmount**](IngredientsApi.md#computeIngredientAmount) | **GET** /food/ingredients/{id}/amount | Compute Ingredient Amount
-[**getIngredientInformation**](IngredientsApi.md#getIngredientInformation) | **GET** /food/ingredients/{id}/information | Get Ingredient Information
-[**getIngredientSubstitutes**](IngredientsApi.md#getIngredientSubstitutes) | **GET** /food/ingredients/substitutes | Get Ingredient Substitutes
-[**getIngredientSubstitutesByID**](IngredientsApi.md#getIngredientSubstitutesByID) | **GET** /food/ingredients/{id}/substitutes | Get Ingredient Substitutes by ID
-[**ingredientSearch**](IngredientsApi.md#ingredientSearch) | **GET** /food/ingredients/search | Ingredient Search
-[**ingredientsByIDImage**](IngredientsApi.md#ingredientsByIDImage) | **GET** /recipes/{id}/ingredientWidget.png | Ingredients by ID Image
-[**mapIngredientsToGroceryProducts**](IngredientsApi.md#mapIngredientsToGroceryProducts) | **POST** /food/ingredients/map | Map Ingredients to Grocery Products
-[**visualizeIngredients**](IngredientsApi.md#visualizeIngredients) | **POST** /recipes/visualizeIngredients | Ingredients Widget
+[**autocompleteIngredientSearch()**](IngredientsApi.md#autocompleteIngredientSearch) | **GET** /food/ingredients/autocomplete | Autocomplete Ingredient Search
+[**computeIngredientAmount()**](IngredientsApi.md#computeIngredientAmount) | **GET** /food/ingredients/{id}/amount | Compute Ingredient Amount
+[**getIngredientInformation()**](IngredientsApi.md#getIngredientInformation) | **GET** /food/ingredients/{id}/information | Get Ingredient Information
+[**getIngredientSubstitutes()**](IngredientsApi.md#getIngredientSubstitutes) | **GET** /food/ingredients/substitutes | Get Ingredient Substitutes
+[**getIngredientSubstitutesByID()**](IngredientsApi.md#getIngredientSubstitutesByID) | **GET** /food/ingredients/{id}/substitutes | Get Ingredient Substitutes by ID
+[**ingredientSearch()**](IngredientsApi.md#ingredientSearch) | **GET** /food/ingredients/search | Ingredient Search
+[**ingredientsByIDImage()**](IngredientsApi.md#ingredientsByIDImage) | **GET** /recipes/{id}/ingredientWidget.png | Ingredients by ID Image
+[**mapIngredientsToGroceryProducts()**](IngredientsApi.md#mapIngredientsToGroceryProducts) | **POST** /food/ingredients/map | Map Ingredients to Grocery Products
+[**visualizeIngredients()**](IngredientsApi.md#visualizeIngredients) | **POST** /recipes/visualizeIngredients | Ingredients Widget
 
 
+## `autocompleteIngredientSearch()`
 
-## autocompleteIngredientSearch
-
-> \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20024[] autocompleteIngredientSearch($query, $number, $meta_information, $intolerances)
+```php
+autocompleteIngredientSearch($query, $number, $meta_information, $intolerances): \com.spoonacular.client\com.spoonacular.client.model\AutocompleteIngredientSearch200ResponseInner[]
+```
 
 Autocomplete Ingredient Search
 
@@ -32,9 +33,9 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
 $apiInstance = new com.spoonacular.client\Api\IngredientsApi(
@@ -54,11 +55,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling IngredientsApi->autocompleteIngredientSearch: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -69,7 +68,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20024[]**](../Model/InlineResponse20024.md)
+[**\com.spoonacular.client\com.spoonacular.client.model\AutocompleteIngredientSearch200ResponseInner[]**](../Model/AutocompleteIngredientSearch200ResponseInner.md)
 
 ### Authorization
 
@@ -78,16 +77,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `computeIngredientAmount()`
 
-## computeIngredientAmount
-
-> \com.spoonacular.client\com.spoonacular.client.model\RecipesParseIngredientsNutritionWeightPerServing computeIngredientAmount($id, $nutrient, $target, $unit)
+```php
+computeIngredientAmount($id, $nutrient, $target, $unit): \com.spoonacular.client\com.spoonacular.client.model\ComputeIngredientAmount200Response
+```
 
 Compute Ingredient Amount
 
@@ -101,9 +101,9 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
 $apiInstance = new com.spoonacular.client\Api\IngredientsApi(
@@ -123,11 +123,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling IngredientsApi->computeIngredientAmount: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -138,7 +136,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\RecipesParseIngredientsNutritionWeightPerServing**](../Model/RecipesParseIngredientsNutritionWeightPerServing.md)
+[**\com.spoonacular.client\com.spoonacular.client.model\ComputeIngredientAmount200Response**](../Model/ComputeIngredientAmount200Response.md)
 
 ### Authorization
 
@@ -147,16 +145,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getIngredientInformation()`
 
-## getIngredientInformation
-
-> \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20022 getIngredientInformation($id, $amount, $unit)
+```php
+getIngredientInformation($id, $amount, $unit): \com.spoonacular.client\com.spoonacular.client.model\GetIngredientInformation200Response
+```
 
 Get Ingredient Information
 
@@ -170,9 +169,9 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
 $apiInstance = new com.spoonacular.client\Api\IngredientsApi(
@@ -191,11 +190,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling IngredientsApi->getIngredientInformation: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -205,7 +202,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20022**](../Model/InlineResponse20022.md)
+[**\com.spoonacular.client\com.spoonacular.client.model\GetIngredientInformation200Response**](../Model/GetIngredientInformation200Response.md)
 
 ### Authorization
 
@@ -214,16 +211,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getIngredientSubstitutes()`
 
-## getIngredientSubstitutes
-
-> \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20026 getIngredientSubstitutes($ingredient_name)
+```php
+getIngredientSubstitutes($ingredient_name): \com.spoonacular.client\com.spoonacular.client.model\GetIngredientSubstitutes200Response
+```
 
 Get Ingredient Substitutes
 
@@ -237,9 +235,9 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
 $apiInstance = new com.spoonacular.client\Api\IngredientsApi(
@@ -256,11 +254,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling IngredientsApi->getIngredientSubstitutes: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -268,7 +264,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20026**](../Model/InlineResponse20026.md)
+[**\com.spoonacular.client\com.spoonacular.client.model\GetIngredientSubstitutes200Response**](../Model/GetIngredientSubstitutes200Response.md)
 
 ### Authorization
 
@@ -277,16 +273,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getIngredientSubstitutesByID()`
 
-## getIngredientSubstitutesByID
-
-> \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20026 getIngredientSubstitutesByID($id)
+```php
+getIngredientSubstitutesByID($id): \com.spoonacular.client\com.spoonacular.client.model\GetIngredientSubstitutes200Response
+```
 
 Get Ingredient Substitutes by ID
 
@@ -300,9 +297,9 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
 $apiInstance = new com.spoonacular.client\Api\IngredientsApi(
@@ -319,11 +316,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling IngredientsApi->getIngredientSubstitutesByID: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -331,7 +326,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20026**](../Model/InlineResponse20026.md)
+[**\com.spoonacular.client\com.spoonacular.client.model\GetIngredientSubstitutes200Response**](../Model/GetIngredientSubstitutes200Response.md)
 
 ### Authorization
 
@@ -340,16 +335,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `ingredientSearch()`
 
-## ingredientSearch
-
-> \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20025 ingredientSearch($query, $add_children, $min_protein_percent, $max_protein_percent, $min_fat_percent, $max_fat_percent, $min_carbs_percent, $max_carbs_percent, $meta_information, $intolerances, $sort, $sort_direction, $offset, $number)
+```php
+ingredientSearch($query, $add_children, $min_protein_percent, $max_protein_percent, $min_fat_percent, $max_fat_percent, $min_carbs_percent, $max_carbs_percent, $meta_information, $intolerances, $sort, $sort_direction, $offset, $number): \com.spoonacular.client\com.spoonacular.client.model\IngredientSearch200Response
+```
 
 Ingredient Search
 
@@ -363,9 +359,9 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
 $apiInstance = new com.spoonacular.client\Api\IngredientsApi(
@@ -395,11 +391,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling IngredientsApi->ingredientSearch: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -420,7 +414,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20025**](../Model/InlineResponse20025.md)
+[**\com.spoonacular.client\com.spoonacular.client.model\IngredientSearch200Response**](../Model/IngredientSearch200Response.md)
 
 ### Authorization
 
@@ -429,16 +423,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `ingredientsByIDImage()`
 
-## ingredientsByIDImage
-
-> object ingredientsByIDImage($id, $measure)
+```php
+ingredientsByIDImage($id, $measure): object
+```
 
 Ingredients by ID Image
 
@@ -452,9 +447,9 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
 $apiInstance = new com.spoonacular.client\Api\IngredientsApi(
@@ -472,11 +467,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling IngredientsApi->ingredientsByIDImage: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -494,16 +487,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: image/png
+- **Accept**: `image/png`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `mapIngredientsToGroceryProducts()`
 
-## mapIngredientsToGroceryProducts
-
-> \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20034[] mapIngredientsToGroceryProducts($inline_object2)
+```php
+mapIngredientsToGroceryProducts($map_ingredients_to_grocery_products_request): \com.spoonacular.client\com.spoonacular.client.model\MapIngredientsToGroceryProducts200ResponseInner[]
+```
 
 Map Ingredients to Grocery Products
 
@@ -517,9 +511,9 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
 $apiInstance = new com.spoonacular.client\Api\IngredientsApi(
@@ -528,27 +522,25 @@ $apiInstance = new com.spoonacular.client\Api\IngredientsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$inline_object2 = new \com.spoonacular.client\com.spoonacular.client.model\InlineObject2(); // \com.spoonacular.client\com.spoonacular.client.model\InlineObject2 | 
+$map_ingredients_to_grocery_products_request = {"ingredients":["eggs","bacon"],"servings":2}; // \com.spoonacular.client\com.spoonacular.client.model\MapIngredientsToGroceryProductsRequest
 
 try {
-    $result = $apiInstance->mapIngredientsToGroceryProducts($inline_object2);
+    $result = $apiInstance->mapIngredientsToGroceryProducts($map_ingredients_to_grocery_products_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling IngredientsApi->mapIngredientsToGroceryProducts: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inline_object2** | [**\com.spoonacular.client\com.spoonacular.client.model\InlineObject2**](../Model/InlineObject2.md)|  |
+ **map_ingredients_to_grocery_products_request** | [**\com.spoonacular.client\com.spoonacular.client.model\MapIngredientsToGroceryProductsRequest**](../Model/MapIngredientsToGroceryProductsRequest.md)|  |
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20034[]**](../Model/InlineResponse20034.md)
+[**\com.spoonacular.client\com.spoonacular.client.model\MapIngredientsToGroceryProducts200ResponseInner[]**](../Model/MapIngredientsToGroceryProducts200ResponseInner.md)
 
 ### Authorization
 
@@ -556,17 +548,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `visualizeIngredients()`
 
-## visualizeIngredients
-
-> string visualizeIngredients($content_type, $language, $accept)
+```php
+visualizeIngredients($content_type, $language, $accept): string
+```
 
 Ingredients Widget
 
@@ -580,9 +573,9 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
 $apiInstance = new com.spoonacular.client\Api\IngredientsApi(
@@ -601,11 +594,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling IngredientsApi->visualizeIngredients: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -623,10 +614,9 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/x-www-form-urlencoded
-- **Accept**: text/html
+- **Content-Type**: `application/x-www-form-urlencoded`
+- **Accept**: `text/html`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
-

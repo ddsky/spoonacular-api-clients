@@ -21,21 +21,21 @@ Method | HTTP request | Description
     number: (NSNumber*) number
     metaInformation: (NSNumber*) metaInformation
     intolerances: (NSString*) intolerances
-        completionHandler: (void (^)(NSArray<OAIInlineResponse20024>* output, NSError* error)) handler;
+        completionHandler: (void (^)(OAISet<OAIAutocompleteIngredientSearch200ResponseInner>* output, NSError* error)) handler;
 ```
 
 Autocomplete Ingredient Search
 
 Autocomplete the entry of an ingredient.
 
-### Example 
+### Example
 ```objc
 OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 
 // Configure API key authorization: (authentication scheme: apiKeyScheme)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"apiKey"];
+[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"x-api-key"];
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"apiKey"];
+//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"x-api-key"];
 
 
 NSString* query = burger; // The (natural language) search query. (optional)
@@ -50,7 +50,7 @@ OAIIngredientsApi*apiInstance = [[OAIIngredientsApi alloc] init];
               number:number
               metaInformation:metaInformation
               intolerances:intolerances
-          completionHandler: ^(NSArray<OAIInlineResponse20024>* output, NSError* error) {
+          completionHandler: ^(OAISet<OAIAutocompleteIngredientSearch200ResponseInner>* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -71,7 +71,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**NSArray<OAIInlineResponse20024>***](OAIInlineResponse20024.md)
+[**OAISet<OAIAutocompleteIngredientSearch200ResponseInner>***](OAIAutocompleteIngredientSearch200ResponseInner.md)
 
 ### Authorization
 
@@ -90,21 +90,21 @@ Name | Type | Description  | Notes
     nutrient: (NSString*) nutrient
     target: (NSNumber*) target
     unit: (NSString*) unit
-        completionHandler: (void (^)(OAIRecipesParseIngredientsNutritionWeightPerServing* output, NSError* error)) handler;
+        completionHandler: (void (^)(OAIComputeIngredientAmount200Response* output, NSError* error)) handler;
 ```
 
 Compute Ingredient Amount
 
 Compute the amount you need of a certain ingredient for a certain nutritional goal. For example, how much pineapple do you have to eat to get 10 grams of protein?
 
-### Example 
+### Example
 ```objc
 OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 
 // Configure API key authorization: (authentication scheme: apiKeyScheme)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"apiKey"];
+[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"x-api-key"];
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"apiKey"];
+//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"x-api-key"];
 
 
 NSNumber* _id = 9266; // The id of the ingredient you want the amount for.
@@ -119,7 +119,7 @@ OAIIngredientsApi*apiInstance = [[OAIIngredientsApi alloc] init];
               nutrient:nutrient
               target:target
               unit:unit
-          completionHandler: ^(OAIRecipesParseIngredientsNutritionWeightPerServing* output, NSError* error) {
+          completionHandler: ^(OAIComputeIngredientAmount200Response* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -140,7 +140,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OAIRecipesParseIngredientsNutritionWeightPerServing***](OAIRecipesParseIngredientsNutritionWeightPerServing.md)
+[**OAIComputeIngredientAmount200Response***](OAIComputeIngredientAmount200Response.md)
 
 ### Authorization
 
@@ -158,21 +158,21 @@ Name | Type | Description  | Notes
 -(NSURLSessionTask*) getIngredientInformationWithId: (NSNumber*) _id
     amount: (NSNumber*) amount
     unit: (NSString*) unit
-        completionHandler: (void (^)(OAIInlineResponse20022* output, NSError* error)) handler;
+        completionHandler: (void (^)(OAIGetIngredientInformation200Response* output, NSError* error)) handler;
 ```
 
 Get Ingredient Information
 
 Use an ingredient id to get all available information about an ingredient, such as its image and supermarket aisle.
 
-### Example 
+### Example
 ```objc
 OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 
 // Configure API key authorization: (authentication scheme: apiKeyScheme)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"apiKey"];
+[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"x-api-key"];
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"apiKey"];
+//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"x-api-key"];
 
 
 NSNumber* _id = 1; // The item's id.
@@ -185,7 +185,7 @@ OAIIngredientsApi*apiInstance = [[OAIIngredientsApi alloc] init];
 [apiInstance getIngredientInformationWithId:_id
               amount:amount
               unit:unit
-          completionHandler: ^(OAIInlineResponse20022* output, NSError* error) {
+          completionHandler: ^(OAIGetIngredientInformation200Response* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -205,7 +205,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OAIInlineResponse20022***](OAIInlineResponse20022.md)
+[**OAIGetIngredientInformation200Response***](OAIGetIngredientInformation200Response.md)
 
 ### Authorization
 
@@ -221,21 +221,21 @@ Name | Type | Description  | Notes
 # **getIngredientSubstitutes**
 ```objc
 -(NSURLSessionTask*) getIngredientSubstitutesWithIngredientName: (NSString*) ingredientName
-        completionHandler: (void (^)(OAIInlineResponse20026* output, NSError* error)) handler;
+        completionHandler: (void (^)(OAIGetIngredientSubstitutes200Response* output, NSError* error)) handler;
 ```
 
 Get Ingredient Substitutes
 
 Search for substitutes for a given ingredient.
 
-### Example 
+### Example
 ```objc
 OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 
 // Configure API key authorization: (authentication scheme: apiKeyScheme)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"apiKey"];
+[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"x-api-key"];
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"apiKey"];
+//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"x-api-key"];
 
 
 NSString* ingredientName = butter; // The name of the ingredient you want to replace.
@@ -244,7 +244,7 @@ OAIIngredientsApi*apiInstance = [[OAIIngredientsApi alloc] init];
 
 // Get Ingredient Substitutes
 [apiInstance getIngredientSubstitutesWithIngredientName:ingredientName
-          completionHandler: ^(OAIInlineResponse20026* output, NSError* error) {
+          completionHandler: ^(OAIGetIngredientSubstitutes200Response* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -262,7 +262,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OAIInlineResponse20026***](OAIInlineResponse20026.md)
+[**OAIGetIngredientSubstitutes200Response***](OAIGetIngredientSubstitutes200Response.md)
 
 ### Authorization
 
@@ -278,21 +278,21 @@ Name | Type | Description  | Notes
 # **getIngredientSubstitutesByID**
 ```objc
 -(NSURLSessionTask*) getIngredientSubstitutesByIDWithId: (NSNumber*) _id
-        completionHandler: (void (^)(OAIInlineResponse20026* output, NSError* error)) handler;
+        completionHandler: (void (^)(OAIGetIngredientSubstitutes200Response* output, NSError* error)) handler;
 ```
 
 Get Ingredient Substitutes by ID
 
 Search for substitutes for a given ingredient.
 
-### Example 
+### Example
 ```objc
 OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 
 // Configure API key authorization: (authentication scheme: apiKeyScheme)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"apiKey"];
+[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"x-api-key"];
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"apiKey"];
+//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"x-api-key"];
 
 
 NSNumber* _id = 1; // The item's id.
@@ -301,7 +301,7 @@ OAIIngredientsApi*apiInstance = [[OAIIngredientsApi alloc] init];
 
 // Get Ingredient Substitutes by ID
 [apiInstance getIngredientSubstitutesByIDWithId:_id
-          completionHandler: ^(OAIInlineResponse20026* output, NSError* error) {
+          completionHandler: ^(OAIGetIngredientSubstitutes200Response* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -319,7 +319,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OAIInlineResponse20026***](OAIInlineResponse20026.md)
+[**OAIGetIngredientSubstitutes200Response***](OAIGetIngredientSubstitutes200Response.md)
 
 ### Authorization
 
@@ -348,21 +348,21 @@ Name | Type | Description  | Notes
     sortDirection: (NSString*) sortDirection
     offset: (NSNumber*) offset
     number: (NSNumber*) number
-        completionHandler: (void (^)(OAIInlineResponse20025* output, NSError* error)) handler;
+        completionHandler: (void (^)(OAIIngredientSearch200Response* output, NSError* error)) handler;
 ```
 
 Ingredient Search
 
 Search for simple whole foods (e.g. fruits, vegetables, nuts, grains, meat, fish, dairy etc.).
 
-### Example 
+### Example
 ```objc
 OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 
 // Configure API key authorization: (authentication scheme: apiKeyScheme)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"apiKey"];
+[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"x-api-key"];
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"apiKey"];
+//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"x-api-key"];
 
 
 NSString* query = burger; // The (natural language) search query. (optional)
@@ -397,7 +397,7 @@ OAIIngredientsApi*apiInstance = [[OAIIngredientsApi alloc] init];
               sortDirection:sortDirection
               offset:offset
               number:number
-          completionHandler: ^(OAIInlineResponse20025* output, NSError* error) {
+          completionHandler: ^(OAIIngredientSearch200Response* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -428,7 +428,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OAIInlineResponse20025***](OAIInlineResponse20025.md)
+[**OAIIngredientSearch200Response***](OAIIngredientSearch200Response.md)
 
 ### Authorization
 
@@ -452,14 +452,14 @@ Ingredients by ID Image
 
 Visualize a recipe's ingredient list.
 
-### Example 
+### Example
 ```objc
 OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 
 // Configure API key authorization: (authentication scheme: apiKeyScheme)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"apiKey"];
+[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"x-api-key"];
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"apiKey"];
+//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"x-api-key"];
 
 
 NSNumber* _id = 1082038; // The recipe id.
@@ -504,31 +504,31 @@ Name | Type | Description  | Notes
 
 # **mapIngredientsToGroceryProducts**
 ```objc
--(NSURLSessionTask*) mapIngredientsToGroceryProductsWithInlineObject2: (OAIInlineObject2*) inlineObject2
-        completionHandler: (void (^)(NSArray<OAIInlineResponse20034>* output, NSError* error)) handler;
+-(NSURLSessionTask*) mapIngredientsToGroceryProductsWithMapIngredientsToGroceryProductsRequest: (OAIMapIngredientsToGroceryProductsRequest*) mapIngredientsToGroceryProductsRequest
+        completionHandler: (void (^)(OAISet<OAIMapIngredientsToGroceryProducts200ResponseInner>* output, NSError* error)) handler;
 ```
 
 Map Ingredients to Grocery Products
 
 Map a set of ingredients to products you can buy in the grocery store.
 
-### Example 
+### Example
 ```objc
 OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 
 // Configure API key authorization: (authentication scheme: apiKeyScheme)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"apiKey"];
+[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"x-api-key"];
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"apiKey"];
+//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"x-api-key"];
 
 
-OAIInlineObject2* inlineObject2 = [[OAIInlineObject2 alloc] init]; // 
+OAIMapIngredientsToGroceryProductsRequest* mapIngredientsToGroceryProductsRequest = {"ingredients":["eggs","bacon"],"servings":2}; // 
 
 OAIIngredientsApi*apiInstance = [[OAIIngredientsApi alloc] init];
 
 // Map Ingredients to Grocery Products
-[apiInstance mapIngredientsToGroceryProductsWithInlineObject2:inlineObject2
-          completionHandler: ^(NSArray<OAIInlineResponse20034>* output, NSError* error) {
+[apiInstance mapIngredientsToGroceryProductsWithMapIngredientsToGroceryProductsRequest:mapIngredientsToGroceryProductsRequest
+          completionHandler: ^(OAISet<OAIMapIngredientsToGroceryProducts200ResponseInner>* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -542,11 +542,11 @@ OAIIngredientsApi*apiInstance = [[OAIIngredientsApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject2** | [**OAIInlineObject2***](OAIInlineObject2.md)|  | 
+ **mapIngredientsToGroceryProductsRequest** | [**OAIMapIngredientsToGroceryProductsRequest***](OAIMapIngredientsToGroceryProductsRequest.md)|  | 
 
 ### Return type
 
-[**NSArray<OAIInlineResponse20034>***](OAIInlineResponse20034.md)
+[**OAISet<OAIMapIngredientsToGroceryProducts200ResponseInner>***](OAIMapIngredientsToGroceryProducts200ResponseInner.md)
 
 ### Authorization
 
@@ -571,14 +571,14 @@ Ingredients Widget
 
 Visualize ingredients of a recipe. You can play around with that endpoint!
 
-### Example 
+### Example
 ```objc
 OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 
 // Configure API key authorization: (authentication scheme: apiKeyScheme)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"apiKey"];
+[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"x-api-key"];
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"apiKey"];
+//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"x-api-key"];
 
 
 NSString* contentType = application/json; // The content type. (optional)

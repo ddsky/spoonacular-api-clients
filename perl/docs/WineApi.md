@@ -16,27 +16,27 @@ Method | HTTP request | Description
 
 
 # **get_dish_pairing_for_wine**
-> InlineResponse20044 get_dish_pairing_for_wine(wine => $wine)
+> GetDishPairingForWine200Response get_dish_pairing_for_wine(wine => $wine)
 
 Dish Pairing for Wine
 
 Find a dish that goes well with a given wine.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::WineApi;
 my $api_instance = WWW::OpenAPIClient::WineApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $wine = malbec; # string | The type of wine that should be paired, e.g. \"merlot\", \"riesling\", or \"malbec\".
 
-eval { 
+eval {
     my $result = $api_instance->get_dish_pairing_for_wine(wine => $wine);
     print Dumper($result);
 };
@@ -53,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20044**](InlineResponse20044.md)
+[**GetDishPairingForWine200Response**](GetDishPairingForWine200Response.md)
 
 ### Authorization
 
@@ -67,27 +67,27 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_wine_description**
-> InlineResponse20046 get_wine_description(wine => $wine)
+> GetWineDescription200Response get_wine_description(wine => $wine)
 
 Wine Description
 
 Get a simple description of a certain wine, e.g. \"malbec\", \"riesling\", or \"merlot\".
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::WineApi;
 my $api_instance = WWW::OpenAPIClient::WineApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $wine = merlot; # string | The name of the wine that should be paired, e.g. \"merlot\", \"riesling\", or \"malbec\".
 
-eval { 
+eval {
     my $result = $api_instance->get_wine_description(wine => $wine);
     print Dumper($result);
 };
@@ -104,7 +104,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20046**](InlineResponse20046.md)
+[**GetWineDescription200Response**](GetWineDescription200Response.md)
 
 ### Authorization
 
@@ -118,28 +118,28 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_wine_pairing**
-> InlineResponse20045 get_wine_pairing(food => $food, max_price => $max_price)
+> GetWinePairing200Response get_wine_pairing(food => $food, max_price => $max_price)
 
 Wine Pairing
 
 Find a wine that goes well with a food. Food can be a dish name (\"steak\"), an ingredient name (\"salmon\"), or a cuisine (\"italian\").
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::WineApi;
 my $api_instance = WWW::OpenAPIClient::WineApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $food = steak; # string | The food to get a pairing for. This can be a dish (\"steak\"), an ingredient (\"salmon\"), or a cuisine (\"italian\").
 my $max_price = 50; # double | The maximum price for the specific wine recommendation in USD.
 
-eval { 
+eval {
     my $result = $api_instance->get_wine_pairing(food => $food, max_price => $max_price);
     print Dumper($result);
 };
@@ -157,7 +157,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20045**](InlineResponse20045.md)
+[**GetWinePairing200Response**](GetWinePairing200Response.md)
 
 ### Authorization
 
@@ -171,22 +171,22 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_wine_recommendation**
-> InlineResponse20047 get_wine_recommendation(wine => $wine, max_price => $max_price, min_rating => $min_rating, number => $number)
+> GetWineRecommendation200Response get_wine_recommendation(wine => $wine, max_price => $max_price, min_rating => $min_rating, number => $number)
 
 Wine Recommendation
 
 Get a specific wine recommendation (concrete product) for a given wine type, e.g. \"merlot\".
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::WineApi;
 my $api_instance = WWW::OpenAPIClient::WineApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $wine = merlot; # string | The type of wine to get a specific product recommendation for.
@@ -194,7 +194,7 @@ my $max_price = 50; # double | The maximum price for the specific wine recommend
 my $min_rating = 0.7; # double | The minimum rating of the recommended wine between 0 and 1. For example, 0.8 equals 4 out of 5 stars.
 my $number = 3; # double | The number of wine recommendations expected (between 1 and 100).
 
-eval { 
+eval {
     my $result = $api_instance->get_wine_recommendation(wine => $wine, max_price => $max_price, min_rating => $min_rating, number => $number);
     print Dumper($result);
 };
@@ -214,7 +214,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20047**](InlineResponse20047.md)
+[**GetWineRecommendation200Response**](GetWineRecommendation200Response.md)
 
 ### Authorization
 

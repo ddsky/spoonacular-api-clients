@@ -1,0 +1,14 @@
+.gitignore
+.openapi-generator-ignore
+README.md
+elm.json
+src/Api.elm
+src/Api/Time.elm
+src/com/spoonacular/Ingredients.elm
+src/com/spoonacular/MealPlanning.elm
+src/com/spoonacular/MenuItems.elm
+src/com/spoonacular/Misc.elm
+src/com/spoonacular/Products.elm
+src/com/spoonacular/Recipes.elm
+src/com/spoonacular/Wine.elm
+src/com/spoonacular/client/model/Data.elm

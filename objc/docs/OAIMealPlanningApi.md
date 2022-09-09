@@ -24,35 +24,35 @@ Method | HTTP request | Description
 ```objc
 -(NSURLSessionTask*) addMealPlanTemplateWithUsername: (NSString*) username
     hash: (NSString*) hash
-    inlineObject6: (OAIInlineObject6*) inlineObject6
-        completionHandler: (void (^)(OAIInlineResponse20040* output, NSError* error)) handler;
+    addToMealPlanRequest: (OAIAddToMealPlanRequest*) addToMealPlanRequest
+        completionHandler: (void (^)(OAIAddMealPlanTemplate200Response* output, NSError* error)) handler;
 ```
 
 Add Meal Plan Template
 
 Add a meal plan template for a user.
 
-### Example 
+### Example
 ```objc
 OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 
 // Configure API key authorization: (authentication scheme: apiKeyScheme)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"apiKey"];
+[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"x-api-key"];
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"apiKey"];
+//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"x-api-key"];
 
 
 NSString* username = dsky; // The username.
 NSString* hash = 4b5v4398573406; // The private hash for the username.
-OAIInlineObject6* inlineObject6 = [[OAIInlineObject6 alloc] init]; // 
+OAIAddToMealPlanRequest* addToMealPlanRequest = [[OAIAddToMealPlanRequest alloc] init]; // 
 
 OAIMealPlanningApi*apiInstance = [[OAIMealPlanningApi alloc] init];
 
 // Add Meal Plan Template
 [apiInstance addMealPlanTemplateWithUsername:username
               hash:hash
-              inlineObject6:inlineObject6
-          completionHandler: ^(OAIInlineResponse20040* output, NSError* error) {
+              addToMealPlanRequest:addToMealPlanRequest
+          completionHandler: ^(OAIAddMealPlanTemplate200Response* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -68,11 +68,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **username** | **NSString***| The username. | 
  **hash** | **NSString***| The private hash for the username. | 
- **inlineObject6** | [**OAIInlineObject6***](OAIInlineObject6.md)|  | 
+ **addToMealPlanRequest** | [**OAIAddToMealPlanRequest***](OAIAddToMealPlanRequest.md)|  | 
 
 ### Return type
 
-[**OAIInlineResponse20040***](OAIInlineResponse20040.md)
+[**OAIAddMealPlanTemplate200Response***](OAIAddMealPlanTemplate200Response.md)
 
 ### Authorization
 
@@ -89,7 +89,7 @@ Name | Type | Description  | Notes
 ```objc
 -(NSURLSessionTask*) addToMealPlanWithUsername: (NSString*) username
     hash: (NSString*) hash
-    inlineObject4: (OAIInlineObject4*) inlineObject4
+    addToMealPlanRequest: (OAIAddToMealPlanRequest*) addToMealPlanRequest
         completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
 ```
 
@@ -97,26 +97,26 @@ Add to Meal Plan
 
 Add an item to the user's meal plan.
 
-### Example 
+### Example
 ```objc
 OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 
 // Configure API key authorization: (authentication scheme: apiKeyScheme)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"apiKey"];
+[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"x-api-key"];
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"apiKey"];
+//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"x-api-key"];
 
 
 NSString* username = dsky; // The username.
 NSString* hash = @"hash_example"; // The private hash for the username.
-OAIInlineObject4* inlineObject4 = [[OAIInlineObject4 alloc] init]; // 
+OAIAddToMealPlanRequest* addToMealPlanRequest = [[OAIAddToMealPlanRequest alloc] init]; // 
 
 OAIMealPlanningApi*apiInstance = [[OAIMealPlanningApi alloc] init];
 
 // Add to Meal Plan
 [apiInstance addToMealPlanWithUsername:username
               hash:hash
-              inlineObject4:inlineObject4
+              addToMealPlanRequest:addToMealPlanRequest
           completionHandler: ^(NSObject* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
@@ -133,7 +133,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **username** | **NSString***| The username. | 
  **hash** | **NSString***| The private hash for the username. | 
- **inlineObject4** | [**OAIInlineObject4***](OAIInlineObject4.md)|  | 
+ **addToMealPlanRequest** | [**OAIAddToMealPlanRequest***](OAIAddToMealPlanRequest.md)|  | 
 
 ### Return type
 
@@ -154,35 +154,35 @@ Name | Type | Description  | Notes
 ```objc
 -(NSURLSessionTask*) addToShoppingListWithUsername: (NSString*) username
     hash: (NSString*) hash
-    inlineObject9: (OAIInlineObject9*) inlineObject9
-        completionHandler: (void (^)(OAIInlineResponse20042* output, NSError* error)) handler;
+    addToMealPlanRequest: (OAIAddToMealPlanRequest*) addToMealPlanRequest
+        completionHandler: (void (^)(OAIGenerateShoppingList200Response* output, NSError* error)) handler;
 ```
 
 Add to Shopping List
 
 Add an item to the current shopping list of a user.
 
-### Example 
+### Example
 ```objc
 OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 
 // Configure API key authorization: (authentication scheme: apiKeyScheme)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"apiKey"];
+[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"x-api-key"];
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"apiKey"];
+//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"x-api-key"];
 
 
 NSString* username = dsky; // The username.
 NSString* hash = @"hash_example"; // The private hash for the username.
-OAIInlineObject9* inlineObject9 = [[OAIInlineObject9 alloc] init]; // 
+OAIAddToMealPlanRequest* addToMealPlanRequest = [[OAIAddToMealPlanRequest alloc] init]; // 
 
 OAIMealPlanningApi*apiInstance = [[OAIMealPlanningApi alloc] init];
 
 // Add to Shopping List
 [apiInstance addToShoppingListWithUsername:username
               hash:hash
-              inlineObject9:inlineObject9
-          completionHandler: ^(OAIInlineResponse20042* output, NSError* error) {
+              addToMealPlanRequest:addToMealPlanRequest
+          completionHandler: ^(OAIGenerateShoppingList200Response* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -198,11 +198,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **username** | **NSString***| The username. | 
  **hash** | **NSString***| The private hash for the username. | 
- **inlineObject9** | [**OAIInlineObject9***](OAIInlineObject9.md)|  | 
+ **addToMealPlanRequest** | [**OAIAddToMealPlanRequest***](OAIAddToMealPlanRequest.md)|  | 
 
 ### Return type
 
-[**OAIInlineResponse20042***](OAIInlineResponse20042.md)
+[**OAIGenerateShoppingList200Response***](OAIGenerateShoppingList200Response.md)
 
 ### Authorization
 
@@ -220,7 +220,7 @@ Name | Type | Description  | Notes
 -(NSURLSessionTask*) clearMealPlanDayWithUsername: (NSString*) username
     date: (NSString*) date
     hash: (NSString*) hash
-    inlineObject3: (OAIInlineObject3*) inlineObject3
+    clearMealPlanDayRequest: (OAIClearMealPlanDayRequest*) clearMealPlanDayRequest
         completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
 ```
 
@@ -228,20 +228,20 @@ Clear Meal Plan Day
 
 Delete all planned items from the user's meal plan for a specific day.
 
-### Example 
+### Example
 ```objc
 OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 
 // Configure API key authorization: (authentication scheme: apiKeyScheme)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"apiKey"];
+[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"x-api-key"];
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"apiKey"];
+//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"x-api-key"];
 
 
 NSString* username = dsky; // The username.
 NSString* date = 2020-06-01; // The date in the format yyyy-mm-dd.
 NSString* hash = @"hash_example"; // The private hash for the username.
-OAIInlineObject3* inlineObject3 = [[OAIInlineObject3 alloc] init]; // 
+OAIClearMealPlanDayRequest* clearMealPlanDayRequest = [[OAIClearMealPlanDayRequest alloc] init]; // 
 
 OAIMealPlanningApi*apiInstance = [[OAIMealPlanningApi alloc] init];
 
@@ -249,7 +249,7 @@ OAIMealPlanningApi*apiInstance = [[OAIMealPlanningApi alloc] init];
 [apiInstance clearMealPlanDayWithUsername:username
               date:date
               hash:hash
-              inlineObject3:inlineObject3
+              clearMealPlanDayRequest:clearMealPlanDayRequest
           completionHandler: ^(NSObject* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
@@ -267,7 +267,7 @@ Name | Type | Description  | Notes
  **username** | **NSString***| The username. | 
  **date** | **NSString***| The date in the format yyyy-mm-dd. | 
  **hash** | **NSString***| The private hash for the username. | 
- **inlineObject3** | [**OAIInlineObject3***](OAIInlineObject3.md)|  | 
+ **clearMealPlanDayRequest** | [**OAIClearMealPlanDayRequest***](OAIClearMealPlanDayRequest.md)|  | 
 
 ### Return type
 
@@ -287,21 +287,21 @@ Name | Type | Description  | Notes
 # **connectUser**
 ```objc
 -(NSURLSessionTask*) connectUserWithBody: (NSObject*) body
-        completionHandler: (void (^)(OAIInlineResponse20043* output, NSError* error)) handler;
+        completionHandler: (void (^)(OAIConnectUser200Response* output, NSError* error)) handler;
 ```
 
 Connect User
 
 In order to call user-specific endpoints, you need to connect your app's users to spoonacular users.
 
-### Example 
+### Example
 ```objc
 OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 
 // Configure API key authorization: (authentication scheme: apiKeyScheme)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"apiKey"];
+[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"x-api-key"];
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"apiKey"];
+//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"x-api-key"];
 
 
 NSObject* body = NULL; // 
@@ -310,7 +310,7 @@ OAIMealPlanningApi*apiInstance = [[OAIMealPlanningApi alloc] init];
 
 // Connect User
 [apiInstance connectUserWithBody:body
-          completionHandler: ^(OAIInlineResponse20043* output, NSError* error) {
+          completionHandler: ^(OAIConnectUser200Response* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -328,7 +328,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OAIInlineResponse20043***](OAIInlineResponse20043.md)
+[**OAIConnectUser200Response***](OAIConnectUser200Response.md)
 
 ### Authorization
 
@@ -346,7 +346,7 @@ Name | Type | Description  | Notes
 -(NSURLSessionTask*) deleteFromMealPlanWithUsername: (NSString*) username
     _id: (NSNumber*) _id
     hash: (NSString*) hash
-    inlineObject5: (OAIInlineObject5*) inlineObject5
+    deleteFromMealPlanRequest: (OAIDeleteFromMealPlanRequest*) deleteFromMealPlanRequest
         completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
 ```
 
@@ -354,20 +354,20 @@ Delete from Meal Plan
 
 Delete an item from the user's meal plan.
 
-### Example 
+### Example
 ```objc
 OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 
 // Configure API key authorization: (authentication scheme: apiKeyScheme)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"apiKey"];
+[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"x-api-key"];
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"apiKey"];
+//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"x-api-key"];
 
 
 NSString* username = dsky; // The username.
 NSNumber* _id = 15678; // The shopping list item id.
 NSString* hash = @"hash_example"; // The private hash for the username.
-OAIInlineObject5* inlineObject5 = [[OAIInlineObject5 alloc] init]; // 
+OAIDeleteFromMealPlanRequest* deleteFromMealPlanRequest = [[OAIDeleteFromMealPlanRequest alloc] init]; // 
 
 OAIMealPlanningApi*apiInstance = [[OAIMealPlanningApi alloc] init];
 
@@ -375,7 +375,7 @@ OAIMealPlanningApi*apiInstance = [[OAIMealPlanningApi alloc] init];
 [apiInstance deleteFromMealPlanWithUsername:username
               _id:_id
               hash:hash
-              inlineObject5:inlineObject5
+              deleteFromMealPlanRequest:deleteFromMealPlanRequest
           completionHandler: ^(NSObject* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
@@ -393,7 +393,7 @@ Name | Type | Description  | Notes
  **username** | **NSString***| The username. | 
  **_id** | **NSNumber***| The shopping list item id. | 
  **hash** | **NSString***| The private hash for the username. | 
- **inlineObject5** | [**OAIInlineObject5***](OAIInlineObject5.md)|  | 
+ **deleteFromMealPlanRequest** | [**OAIDeleteFromMealPlanRequest***](OAIDeleteFromMealPlanRequest.md)|  | 
 
 ### Return type
 
@@ -415,7 +415,7 @@ Name | Type | Description  | Notes
 -(NSURLSessionTask*) deleteFromShoppingListWithUsername: (NSString*) username
     _id: (NSNumber*) _id
     hash: (NSString*) hash
-    inlineObject10: (OAIInlineObject10*) inlineObject10
+    deleteFromMealPlanRequest: (OAIDeleteFromMealPlanRequest*) deleteFromMealPlanRequest
         completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
 ```
 
@@ -423,20 +423,20 @@ Delete from Shopping List
 
 Delete an item from the current shopping list of the user.
 
-### Example 
+### Example
 ```objc
 OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 
 // Configure API key authorization: (authentication scheme: apiKeyScheme)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"apiKey"];
+[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"x-api-key"];
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"apiKey"];
+//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"x-api-key"];
 
 
 NSString* username = dsky; // The username.
 NSNumber* _id = 1; // The item's id.
 NSString* hash = @"hash_example"; // The private hash for the username.
-OAIInlineObject10* inlineObject10 = [[OAIInlineObject10 alloc] init]; // 
+OAIDeleteFromMealPlanRequest* deleteFromMealPlanRequest = [[OAIDeleteFromMealPlanRequest alloc] init]; // 
 
 OAIMealPlanningApi*apiInstance = [[OAIMealPlanningApi alloc] init];
 
@@ -444,7 +444,7 @@ OAIMealPlanningApi*apiInstance = [[OAIMealPlanningApi alloc] init];
 [apiInstance deleteFromShoppingListWithUsername:username
               _id:_id
               hash:hash
-              inlineObject10:inlineObject10
+              deleteFromMealPlanRequest:deleteFromMealPlanRequest
           completionHandler: ^(NSObject* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
@@ -462,7 +462,7 @@ Name | Type | Description  | Notes
  **username** | **NSString***| The username. | 
  **_id** | **NSNumber***| The item&#39;s id. | 
  **hash** | **NSString***| The private hash for the username. | 
- **inlineObject10** | [**OAIInlineObject10***](OAIInlineObject10.md)|  | 
+ **deleteFromMealPlanRequest** | [**OAIDeleteFromMealPlanRequest***](OAIDeleteFromMealPlanRequest.md)|  | 
 
 ### Return type
 
@@ -484,7 +484,7 @@ Name | Type | Description  | Notes
 -(NSURLSessionTask*) deleteMealPlanTemplateWithUsername: (NSString*) username
     _id: (NSNumber*) _id
     hash: (NSString*) hash
-    inlineObject7: (OAIInlineObject7*) inlineObject7
+    deleteFromMealPlanRequest: (OAIDeleteFromMealPlanRequest*) deleteFromMealPlanRequest
         completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
 ```
 
@@ -492,20 +492,20 @@ Delete Meal Plan Template
 
 Delete a meal plan template for a user.
 
-### Example 
+### Example
 ```objc
 OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 
 // Configure API key authorization: (authentication scheme: apiKeyScheme)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"apiKey"];
+[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"x-api-key"];
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"apiKey"];
+//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"x-api-key"];
 
 
 NSString* username = dsky; // The username.
 NSNumber* _id = 1; // The item's id.
 NSString* hash = 4b5v4398573406; // The private hash for the username.
-OAIInlineObject7* inlineObject7 = [[OAIInlineObject7 alloc] init]; // 
+OAIDeleteFromMealPlanRequest* deleteFromMealPlanRequest = [[OAIDeleteFromMealPlanRequest alloc] init]; // 
 
 OAIMealPlanningApi*apiInstance = [[OAIMealPlanningApi alloc] init];
 
@@ -513,7 +513,7 @@ OAIMealPlanningApi*apiInstance = [[OAIMealPlanningApi alloc] init];
 [apiInstance deleteMealPlanTemplateWithUsername:username
               _id:_id
               hash:hash
-              inlineObject7:inlineObject7
+              deleteFromMealPlanRequest:deleteFromMealPlanRequest
           completionHandler: ^(NSObject* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
@@ -531,7 +531,7 @@ Name | Type | Description  | Notes
  **username** | **NSString***| The username. | 
  **_id** | **NSNumber***| The item&#39;s id. | 
  **hash** | **NSString***| The private hash for the username. | 
- **inlineObject7** | [**OAIInlineObject7***](OAIInlineObject7.md)|  | 
+ **deleteFromMealPlanRequest** | [**OAIDeleteFromMealPlanRequest***](OAIDeleteFromMealPlanRequest.md)|  | 
 
 ### Return type
 
@@ -554,21 +554,21 @@ Name | Type | Description  | Notes
     targetCalories: (NSNumber*) targetCalories
     diet: (NSString*) diet
     exclude: (NSString*) exclude
-        completionHandler: (void (^)(OAIInlineResponse20037* output, NSError* error)) handler;
+        completionHandler: (void (^)(OAIGenerateMealPlan200Response* output, NSError* error)) handler;
 ```
 
 Generate Meal Plan
 
 Generate a meal plan with three meals per day (breakfast, lunch, and dinner).
 
-### Example 
+### Example
 ```objc
 OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 
 // Configure API key authorization: (authentication scheme: apiKeyScheme)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"apiKey"];
+[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"x-api-key"];
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"apiKey"];
+//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"x-api-key"];
 
 
 NSString* timeFrame = day; // Either for one \"day\" or an entire \"week\". (optional)
@@ -583,7 +583,7 @@ OAIMealPlanningApi*apiInstance = [[OAIMealPlanningApi alloc] init];
               targetCalories:targetCalories
               diet:diet
               exclude:exclude
-          completionHandler: ^(OAIInlineResponse20037* output, NSError* error) {
+          completionHandler: ^(OAIGenerateMealPlan200Response* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -604,7 +604,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OAIInlineResponse20037***](OAIInlineResponse20037.md)
+[**OAIGenerateMealPlan200Response***](OAIGenerateMealPlan200Response.md)
 
 ### Authorization
 
@@ -623,29 +623,29 @@ Name | Type | Description  | Notes
     startDate: (NSString*) startDate
     endDate: (NSString*) endDate
     hash: (NSString*) hash
-    inlineObject8: (OAIInlineObject8*) inlineObject8
-        completionHandler: (void (^)(OAIInlineResponse20042* output, NSError* error)) handler;
+    generateShoppingListRequest: (OAIGenerateShoppingListRequest*) generateShoppingListRequest
+        completionHandler: (void (^)(OAIGenerateShoppingList200Response* output, NSError* error)) handler;
 ```
 
 Generate Shopping List
 
 Generate the shopping list for a user from the meal planner in a given time frame.
 
-### Example 
+### Example
 ```objc
 OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 
 // Configure API key authorization: (authentication scheme: apiKeyScheme)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"apiKey"];
+[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"x-api-key"];
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"apiKey"];
+//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"x-api-key"];
 
 
 NSString* username = dsky; // The username.
 NSString* startDate = 2020-06-01; // The start date in the format yyyy-mm-dd.
 NSString* endDate = 2020-06-07; // The end date in the format yyyy-mm-dd.
 NSString* hash = @"hash_example"; // The private hash for the username.
-OAIInlineObject8* inlineObject8 = [[OAIInlineObject8 alloc] init]; // 
+OAIGenerateShoppingListRequest* generateShoppingListRequest = [[OAIGenerateShoppingListRequest alloc] init]; // 
 
 OAIMealPlanningApi*apiInstance = [[OAIMealPlanningApi alloc] init];
 
@@ -654,8 +654,8 @@ OAIMealPlanningApi*apiInstance = [[OAIMealPlanningApi alloc] init];
               startDate:startDate
               endDate:endDate
               hash:hash
-              inlineObject8:inlineObject8
-          completionHandler: ^(OAIInlineResponse20042* output, NSError* error) {
+              generateShoppingListRequest:generateShoppingListRequest
+          completionHandler: ^(OAIGenerateShoppingList200Response* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -673,11 +673,11 @@ Name | Type | Description  | Notes
  **startDate** | **NSString***| The start date in the format yyyy-mm-dd. | 
  **endDate** | **NSString***| The end date in the format yyyy-mm-dd. | 
  **hash** | **NSString***| The private hash for the username. | 
- **inlineObject8** | [**OAIInlineObject8***](OAIInlineObject8.md)|  | 
+ **generateShoppingListRequest** | [**OAIGenerateShoppingListRequest***](OAIGenerateShoppingListRequest.md)|  | 
 
 ### Return type
 
-[**OAIInlineResponse20042***](OAIInlineResponse20042.md)
+[**OAIGenerateShoppingList200Response***](OAIGenerateShoppingList200Response.md)
 
 ### Authorization
 
@@ -695,21 +695,21 @@ Name | Type | Description  | Notes
 -(NSURLSessionTask*) getMealPlanTemplateWithUsername: (NSString*) username
     _id: (NSNumber*) _id
     hash: (NSString*) hash
-        completionHandler: (void (^)(OAIInlineResponse20041* output, NSError* error)) handler;
+        completionHandler: (void (^)(OAIGetMealPlanTemplate200Response* output, NSError* error)) handler;
 ```
 
 Get Meal Plan Template
 
 Get information about a meal plan template.
 
-### Example 
+### Example
 ```objc
 OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 
 // Configure API key authorization: (authentication scheme: apiKeyScheme)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"apiKey"];
+[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"x-api-key"];
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"apiKey"];
+//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"x-api-key"];
 
 
 NSString* username = dsky; // The username.
@@ -722,7 +722,7 @@ OAIMealPlanningApi*apiInstance = [[OAIMealPlanningApi alloc] init];
 [apiInstance getMealPlanTemplateWithUsername:username
               _id:_id
               hash:hash
-          completionHandler: ^(OAIInlineResponse20041* output, NSError* error) {
+          completionHandler: ^(OAIGetMealPlanTemplate200Response* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -742,7 +742,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OAIInlineResponse20041***](OAIInlineResponse20041.md)
+[**OAIGetMealPlanTemplate200Response***](OAIGetMealPlanTemplate200Response.md)
 
 ### Authorization
 
@@ -759,21 +759,21 @@ Name | Type | Description  | Notes
 ```objc
 -(NSURLSessionTask*) getMealPlanTemplatesWithUsername: (NSString*) username
     hash: (NSString*) hash
-        completionHandler: (void (^)(OAIInlineResponse20039* output, NSError* error)) handler;
+        completionHandler: (void (^)(OAIGetMealPlanTemplates200Response* output, NSError* error)) handler;
 ```
 
 Get Meal Plan Templates
 
 Get meal plan templates from user or public ones.
 
-### Example 
+### Example
 ```objc
 OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 
 // Configure API key authorization: (authentication scheme: apiKeyScheme)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"apiKey"];
+[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"x-api-key"];
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"apiKey"];
+//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"x-api-key"];
 
 
 NSString* username = dsky; // The username.
@@ -784,7 +784,7 @@ OAIMealPlanningApi*apiInstance = [[OAIMealPlanningApi alloc] init];
 // Get Meal Plan Templates
 [apiInstance getMealPlanTemplatesWithUsername:username
               hash:hash
-          completionHandler: ^(OAIInlineResponse20039* output, NSError* error) {
+          completionHandler: ^(OAIGetMealPlanTemplates200Response* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -803,7 +803,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OAIInlineResponse20039***](OAIInlineResponse20039.md)
+[**OAIGetMealPlanTemplates200Response***](OAIGetMealPlanTemplates200Response.md)
 
 ### Authorization
 
@@ -821,21 +821,21 @@ Name | Type | Description  | Notes
 -(NSURLSessionTask*) getMealPlanWeekWithUsername: (NSString*) username
     startDate: (NSString*) startDate
     hash: (NSString*) hash
-        completionHandler: (void (^)(OAIInlineResponse20038* output, NSError* error)) handler;
+        completionHandler: (void (^)(OAIGetMealPlanWeek200Response* output, NSError* error)) handler;
 ```
 
 Get Meal Plan Week
 
 Retrieve a meal planned week for the given user. The username must be a spoonacular user and the hash must the the user's hash that can be found in his/her account.
 
-### Example 
+### Example
 ```objc
 OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 
 // Configure API key authorization: (authentication scheme: apiKeyScheme)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"apiKey"];
+[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"x-api-key"];
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"apiKey"];
+//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"x-api-key"];
 
 
 NSString* username = dsky; // The username.
@@ -848,7 +848,7 @@ OAIMealPlanningApi*apiInstance = [[OAIMealPlanningApi alloc] init];
 [apiInstance getMealPlanWeekWithUsername:username
               startDate:startDate
               hash:hash
-          completionHandler: ^(OAIInlineResponse20038* output, NSError* error) {
+          completionHandler: ^(OAIGetMealPlanWeek200Response* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -868,7 +868,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OAIInlineResponse20038***](OAIInlineResponse20038.md)
+[**OAIGetMealPlanWeek200Response***](OAIGetMealPlanWeek200Response.md)
 
 ### Authorization
 
@@ -885,21 +885,21 @@ Name | Type | Description  | Notes
 ```objc
 -(NSURLSessionTask*) getShoppingListWithUsername: (NSString*) username
     hash: (NSString*) hash
-        completionHandler: (void (^)(OAIInlineResponse20042* output, NSError* error)) handler;
+        completionHandler: (void (^)(OAIGetShoppingList200Response* output, NSError* error)) handler;
 ```
 
 Get Shopping List
 
 Get the current shopping list for the given user.
 
-### Example 
+### Example
 ```objc
 OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 
 // Configure API key authorization: (authentication scheme: apiKeyScheme)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"apiKey"];
+[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"x-api-key"];
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"apiKey"];
+//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"x-api-key"];
 
 
 NSString* username = dsky; // The username.
@@ -910,7 +910,7 @@ OAIMealPlanningApi*apiInstance = [[OAIMealPlanningApi alloc] init];
 // Get Shopping List
 [apiInstance getShoppingListWithUsername:username
               hash:hash
-          completionHandler: ^(OAIInlineResponse20042* output, NSError* error) {
+          completionHandler: ^(OAIGetShoppingList200Response* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -929,7 +929,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OAIInlineResponse20042***](OAIInlineResponse20042.md)
+[**OAIGetShoppingList200Response***](OAIGetShoppingList200Response.md)
 
 ### Authorization
 

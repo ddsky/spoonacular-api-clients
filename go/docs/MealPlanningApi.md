@@ -23,24 +23,63 @@ Method | HTTP request | Description
 
 ## AddMealPlanTemplate
 
-> InlineResponse20040 AddMealPlanTemplate(ctx, username, hash, inlineObject6)
+> AddMealPlanTemplate200Response AddMealPlanTemplate(ctx, username).Hash(hash).AddToMealPlanRequest(addToMealPlanRequest).Execute()
+
 Add Meal Plan Template
 
-Add a meal plan template for a user.
 
-### Required Parameters
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    username := "dsky" // string | The username.
+    hash := "4b5v4398573406" // string | The private hash for the username.
+    addToMealPlanRequest := *openapiclient.NewAddToMealPlanRequest("dsky", "4b5v4398573406") // AddToMealPlanRequest | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.MealPlanningApi.AddMealPlanTemplate(context.Background(), username).Hash(hash).AddToMealPlanRequest(addToMealPlanRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `MealPlanningApi.AddMealPlanTemplate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `AddMealPlanTemplate`: AddMealPlanTemplate200Response
+    fmt.Fprintf(os.Stdout, "Response from `MealPlanningApi.AddMealPlanTemplate`: %v\n", resp)
+}
+```
+
+### Path Parameters
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**username** | **string**| The username. | 
-**hash** | **string**| The private hash for the username. | 
-**inlineObject6** | [**InlineObject6**](InlineObject6.md)|  | 
+**username** | **string** | The username. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiAddMealPlanTemplateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **hash** | **string** | The private hash for the username. | 
+ **addToMealPlanRequest** | [**AddToMealPlanRequest**](AddToMealPlanRequest.md) |  | 
 
 ### Return type
 
-[**InlineResponse20040**](inline_response_200_40.md)
+[**AddMealPlanTemplate200Response**](AddMealPlanTemplate200Response.md)
 
 ### Authorization
 
@@ -58,24 +97,63 @@ Name | Type | Description  | Notes
 
 ## AddToMealPlan
 
-> map[string]interface{} AddToMealPlan(ctx, username, hash, inlineObject4)
+> map[string]interface{} AddToMealPlan(ctx, username).Hash(hash).AddToMealPlanRequest(addToMealPlanRequest).Execute()
+
 Add to Meal Plan
 
-Add an item to the user's meal plan.
 
-### Required Parameters
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    username := "dsky" // string | The username.
+    hash := "hash_example" // string | The private hash for the username.
+    addToMealPlanRequest := *openapiclient.NewAddToMealPlanRequest("dsky", "4b5v4398573406") // AddToMealPlanRequest | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.MealPlanningApi.AddToMealPlan(context.Background(), username).Hash(hash).AddToMealPlanRequest(addToMealPlanRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `MealPlanningApi.AddToMealPlan``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `AddToMealPlan`: map[string]interface{}
+    fmt.Fprintf(os.Stdout, "Response from `MealPlanningApi.AddToMealPlan`: %v\n", resp)
+}
+```
+
+### Path Parameters
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**username** | **string**| The username. | 
-**hash** | **string**| The private hash for the username. | 
-**inlineObject4** | [**InlineObject4**](InlineObject4.md)|  | 
+**username** | **string** | The username. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiAddToMealPlanRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **hash** | **string** | The private hash for the username. | 
+ **addToMealPlanRequest** | [**AddToMealPlanRequest**](AddToMealPlanRequest.md) |  | 
 
 ### Return type
 
-[**map[string]interface{}**](map[string]interface{}.md)
+**map[string]interface{}**
 
 ### Authorization
 
@@ -93,24 +171,63 @@ Name | Type | Description  | Notes
 
 ## AddToShoppingList
 
-> InlineResponse20042 AddToShoppingList(ctx, username, hash, inlineObject9)
+> GenerateShoppingList200Response AddToShoppingList(ctx, username).Hash(hash).AddToMealPlanRequest(addToMealPlanRequest).Execute()
+
 Add to Shopping List
 
-Add an item to the current shopping list of a user.
 
-### Required Parameters
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    username := "dsky" // string | The username.
+    hash := "hash_example" // string | The private hash for the username.
+    addToMealPlanRequest := *openapiclient.NewAddToMealPlanRequest("dsky", "4b5v4398573406") // AddToMealPlanRequest | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.MealPlanningApi.AddToShoppingList(context.Background(), username).Hash(hash).AddToMealPlanRequest(addToMealPlanRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `MealPlanningApi.AddToShoppingList``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `AddToShoppingList`: GenerateShoppingList200Response
+    fmt.Fprintf(os.Stdout, "Response from `MealPlanningApi.AddToShoppingList`: %v\n", resp)
+}
+```
+
+### Path Parameters
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**username** | **string**| The username. | 
-**hash** | **string**| The private hash for the username. | 
-**inlineObject9** | [**InlineObject9**](InlineObject9.md)|  | 
+**username** | **string** | The username. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiAddToShoppingListRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **hash** | **string** | The private hash for the username. | 
+ **addToMealPlanRequest** | [**AddToMealPlanRequest**](AddToMealPlanRequest.md) |  | 
 
 ### Return type
 
-[**InlineResponse20042**](inline_response_200_42.md)
+[**GenerateShoppingList200Response**](GenerateShoppingList200Response.md)
 
 ### Authorization
 
@@ -128,25 +245,66 @@ Name | Type | Description  | Notes
 
 ## ClearMealPlanDay
 
-> map[string]interface{} ClearMealPlanDay(ctx, username, date, hash, inlineObject3)
+> map[string]interface{} ClearMealPlanDay(ctx, username, date).Hash(hash).ClearMealPlanDayRequest(clearMealPlanDayRequest).Execute()
+
 Clear Meal Plan Day
 
-Delete all planned items from the user's meal plan for a specific day.
 
-### Required Parameters
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    username := "dsky" // string | The username.
+    date := "2020-06-01" // string | The date in the format yyyy-mm-dd.
+    hash := "hash_example" // string | The private hash for the username.
+    clearMealPlanDayRequest := *openapiclient.NewClearMealPlanDayRequest("dsky", "2020-06-01", "4b5v4398573406") // ClearMealPlanDayRequest | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.MealPlanningApi.ClearMealPlanDay(context.Background(), username, date).Hash(hash).ClearMealPlanDayRequest(clearMealPlanDayRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `MealPlanningApi.ClearMealPlanDay``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ClearMealPlanDay`: map[string]interface{}
+    fmt.Fprintf(os.Stdout, "Response from `MealPlanningApi.ClearMealPlanDay`: %v\n", resp)
+}
+```
+
+### Path Parameters
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**username** | **string**| The username. | 
-**date** | **string**| The date in the format yyyy-mm-dd. | 
-**hash** | **string**| The private hash for the username. | 
-**inlineObject3** | [**InlineObject3**](InlineObject3.md)|  | 
+**username** | **string** | The username. | 
+**date** | **string** | The date in the format yyyy-mm-dd. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiClearMealPlanDayRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **hash** | **string** | The private hash for the username. | 
+ **clearMealPlanDayRequest** | [**ClearMealPlanDayRequest**](ClearMealPlanDayRequest.md) |  | 
 
 ### Return type
 
-[**map[string]interface{}**](map[string]interface{}.md)
+**map[string]interface{}**
 
 ### Authorization
 
@@ -164,22 +322,55 @@ Name | Type | Description  | Notes
 
 ## ConnectUser
 
-> InlineResponse20043 ConnectUser(ctx, body)
+> ConnectUser200Response ConnectUser(ctx).Body(body).Execute()
+
 Connect User
 
-In order to call user-specific endpoints, you need to connect your app's users to spoonacular users.
 
-### Required Parameters
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    body := map[string]interface{}{ ... } // map[string]interface{} | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.MealPlanningApi.ConnectUser(context.Background()).Body(body).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `MealPlanningApi.ConnectUser``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ConnectUser`: ConnectUser200Response
+    fmt.Fprintf(os.Stdout, "Response from `MealPlanningApi.ConnectUser`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiConnectUserRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**body** | **map[string]interface{}**|  | 
+ **body** | **map[string]interface{}** |  | 
 
 ### Return type
 
-[**InlineResponse20043**](inline_response_200_43.md)
+[**ConnectUser200Response**](ConnectUser200Response.md)
 
 ### Authorization
 
@@ -197,25 +388,66 @@ Name | Type | Description  | Notes
 
 ## DeleteFromMealPlan
 
-> map[string]interface{} DeleteFromMealPlan(ctx, username, id, hash, inlineObject5)
+> map[string]interface{} DeleteFromMealPlan(ctx, username, id).Hash(hash).DeleteFromMealPlanRequest(deleteFromMealPlanRequest).Execute()
+
 Delete from Meal Plan
 
-Delete an item from the user's meal plan.
 
-### Required Parameters
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    username := "dsky" // string | The username.
+    id := float32(15678) // float32 | The shopping list item id.
+    hash := "hash_example" // string | The private hash for the username.
+    deleteFromMealPlanRequest := *openapiclient.NewDeleteFromMealPlanRequest("dsky", float32(15678), "4b5v4398573406") // DeleteFromMealPlanRequest | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.MealPlanningApi.DeleteFromMealPlan(context.Background(), username, id).Hash(hash).DeleteFromMealPlanRequest(deleteFromMealPlanRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `MealPlanningApi.DeleteFromMealPlan``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `DeleteFromMealPlan`: map[string]interface{}
+    fmt.Fprintf(os.Stdout, "Response from `MealPlanningApi.DeleteFromMealPlan`: %v\n", resp)
+}
+```
+
+### Path Parameters
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**username** | **string**| The username. | 
-**id** | **float32**| The shopping list item id. | 
-**hash** | **string**| The private hash for the username. | 
-**inlineObject5** | [**InlineObject5**](InlineObject5.md)|  | 
+**username** | **string** | The username. | 
+**id** | **float32** | The shopping list item id. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeleteFromMealPlanRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **hash** | **string** | The private hash for the username. | 
+ **deleteFromMealPlanRequest** | [**DeleteFromMealPlanRequest**](DeleteFromMealPlanRequest.md) |  | 
 
 ### Return type
 
-[**map[string]interface{}**](map[string]interface{}.md)
+**map[string]interface{}**
 
 ### Authorization
 
@@ -233,25 +465,66 @@ Name | Type | Description  | Notes
 
 ## DeleteFromShoppingList
 
-> map[string]interface{} DeleteFromShoppingList(ctx, username, id, hash, inlineObject10)
+> map[string]interface{} DeleteFromShoppingList(ctx, username, id).Hash(hash).DeleteFromMealPlanRequest(deleteFromMealPlanRequest).Execute()
+
 Delete from Shopping List
 
-Delete an item from the current shopping list of the user.
 
-### Required Parameters
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    username := "dsky" // string | The username.
+    id := int32(1) // int32 | The item's id.
+    hash := "hash_example" // string | The private hash for the username.
+    deleteFromMealPlanRequest := *openapiclient.NewDeleteFromMealPlanRequest("dsky", float32(15678), "4b5v4398573406") // DeleteFromMealPlanRequest | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.MealPlanningApi.DeleteFromShoppingList(context.Background(), username, id).Hash(hash).DeleteFromMealPlanRequest(deleteFromMealPlanRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `MealPlanningApi.DeleteFromShoppingList``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `DeleteFromShoppingList`: map[string]interface{}
+    fmt.Fprintf(os.Stdout, "Response from `MealPlanningApi.DeleteFromShoppingList`: %v\n", resp)
+}
+```
+
+### Path Parameters
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**username** | **string**| The username. | 
-**id** | **int32**| The item&#39;s id. | 
-**hash** | **string**| The private hash for the username. | 
-**inlineObject10** | [**InlineObject10**](InlineObject10.md)|  | 
+**username** | **string** | The username. | 
+**id** | **int32** | The item&#39;s id. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeleteFromShoppingListRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **hash** | **string** | The private hash for the username. | 
+ **deleteFromMealPlanRequest** | [**DeleteFromMealPlanRequest**](DeleteFromMealPlanRequest.md) |  | 
 
 ### Return type
 
-[**map[string]interface{}**](map[string]interface{}.md)
+**map[string]interface{}**
 
 ### Authorization
 
@@ -269,25 +542,66 @@ Name | Type | Description  | Notes
 
 ## DeleteMealPlanTemplate
 
-> map[string]interface{} DeleteMealPlanTemplate(ctx, username, id, hash, inlineObject7)
+> map[string]interface{} DeleteMealPlanTemplate(ctx, username, id).Hash(hash).DeleteFromMealPlanRequest(deleteFromMealPlanRequest).Execute()
+
 Delete Meal Plan Template
 
-Delete a meal plan template for a user.
 
-### Required Parameters
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    username := "dsky" // string | The username.
+    id := int32(1) // int32 | The item's id.
+    hash := "4b5v4398573406" // string | The private hash for the username.
+    deleteFromMealPlanRequest := *openapiclient.NewDeleteFromMealPlanRequest("dsky", float32(15678), "4b5v4398573406") // DeleteFromMealPlanRequest | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.MealPlanningApi.DeleteMealPlanTemplate(context.Background(), username, id).Hash(hash).DeleteFromMealPlanRequest(deleteFromMealPlanRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `MealPlanningApi.DeleteMealPlanTemplate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `DeleteMealPlanTemplate`: map[string]interface{}
+    fmt.Fprintf(os.Stdout, "Response from `MealPlanningApi.DeleteMealPlanTemplate`: %v\n", resp)
+}
+```
+
+### Path Parameters
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**username** | **string**| The username. | 
-**id** | **int32**| The item&#39;s id. | 
-**hash** | **string**| The private hash for the username. | 
-**inlineObject7** | [**InlineObject7**](InlineObject7.md)|  | 
+**username** | **string** | The username. | 
+**id** | **int32** | The item&#39;s id. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeleteMealPlanTemplateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **hash** | **string** | The private hash for the username. | 
+ **deleteFromMealPlanRequest** | [**DeleteFromMealPlanRequest**](DeleteFromMealPlanRequest.md) |  | 
 
 ### Return type
 
-[**map[string]interface{}**](map[string]interface{}.md)
+**map[string]interface{}**
 
 ### Authorization
 
@@ -305,34 +619,61 @@ Name | Type | Description  | Notes
 
 ## GenerateMealPlan
 
-> InlineResponse20037 GenerateMealPlan(ctx, optional)
+> GenerateMealPlan200Response GenerateMealPlan(ctx).TimeFrame(timeFrame).TargetCalories(targetCalories).Diet(diet).Exclude(exclude).Execute()
+
 Generate Meal Plan
 
-Generate a meal plan with three meals per day (breakfast, lunch, and dinner).
 
-### Required Parameters
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    timeFrame := "day" // string | Either for one \"day\" or an entire \"week\". (optional)
+    targetCalories := float32(2000) // float32 | What is the caloric target for one day? The meal plan generator will try to get as close as possible to that goal. (optional)
+    diet := "vegetarian" // string | Enter a diet that the meal plan has to adhere to. See a full list of supported diets. (optional)
+    exclude := "shellfish, olives" // string | A comma-separated list of allergens or ingredients that must be excluded. (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.MealPlanningApi.GenerateMealPlan(context.Background()).TimeFrame(timeFrame).TargetCalories(targetCalories).Diet(diet).Exclude(exclude).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `MealPlanningApi.GenerateMealPlan``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GenerateMealPlan`: GenerateMealPlan200Response
+    fmt.Fprintf(os.Stdout, "Response from `MealPlanningApi.GenerateMealPlan`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGenerateMealPlanRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
- **optional** | ***GenerateMealPlanOpts** | optional parameters | nil if no parameters
-
-### Optional Parameters
-
-Optional parameters are passed through a pointer to a GenerateMealPlanOpts struct
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **timeFrame** | **optional.String**| Either for one \&quot;day\&quot; or an entire \&quot;week\&quot;. | 
- **targetCalories** | **optional.Float32**| What is the caloric target for one day? The meal plan generator will try to get as close as possible to that goal. | 
- **diet** | **optional.String**| Enter a diet that the meal plan has to adhere to. See a full list of supported diets. | 
- **exclude** | **optional.String**| A comma-separated list of allergens or ingredients that must be excluded. | 
+ **timeFrame** | **string** | Either for one \&quot;day\&quot; or an entire \&quot;week\&quot;. | 
+ **targetCalories** | **float32** | What is the caloric target for one day? The meal plan generator will try to get as close as possible to that goal. | 
+ **diet** | **string** | Enter a diet that the meal plan has to adhere to. See a full list of supported diets. | 
+ **exclude** | **string** | A comma-separated list of allergens or ingredients that must be excluded. | 
 
 ### Return type
 
-[**InlineResponse20037**](inline_response_200_37.md)
+[**GenerateMealPlan200Response**](GenerateMealPlan200Response.md)
 
 ### Authorization
 
@@ -350,26 +691,69 @@ Name | Type | Description  | Notes
 
 ## GenerateShoppingList
 
-> InlineResponse20042 GenerateShoppingList(ctx, username, startDate, endDate, hash, inlineObject8)
+> GenerateShoppingList200Response GenerateShoppingList(ctx, username, startDate, endDate).Hash(hash).GenerateShoppingListRequest(generateShoppingListRequest).Execute()
+
 Generate Shopping List
 
-Generate the shopping list for a user from the meal planner in a given time frame.
 
-### Required Parameters
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    username := "dsky" // string | The username.
+    startDate := "2020-06-01" // string | The start date in the format yyyy-mm-dd.
+    endDate := "2020-06-07" // string | The end date in the format yyyy-mm-dd.
+    hash := "hash_example" // string | The private hash for the username.
+    generateShoppingListRequest := *openapiclient.NewGenerateShoppingListRequest("dsky", "2020-06-01", "2020-06-07", "4b5v4398573406") // GenerateShoppingListRequest | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.MealPlanningApi.GenerateShoppingList(context.Background(), username, startDate, endDate).Hash(hash).GenerateShoppingListRequest(generateShoppingListRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `MealPlanningApi.GenerateShoppingList``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GenerateShoppingList`: GenerateShoppingList200Response
+    fmt.Fprintf(os.Stdout, "Response from `MealPlanningApi.GenerateShoppingList`: %v\n", resp)
+}
+```
+
+### Path Parameters
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**username** | **string**| The username. | 
-**startDate** | **string**| The start date in the format yyyy-mm-dd. | 
-**endDate** | **string**| The end date in the format yyyy-mm-dd. | 
-**hash** | **string**| The private hash for the username. | 
-**inlineObject8** | [**InlineObject8**](InlineObject8.md)|  | 
+**username** | **string** | The username. | 
+**startDate** | **string** | The start date in the format yyyy-mm-dd. | 
+**endDate** | **string** | The end date in the format yyyy-mm-dd. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGenerateShoppingListRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+ **hash** | **string** | The private hash for the username. | 
+ **generateShoppingListRequest** | [**GenerateShoppingListRequest**](GenerateShoppingListRequest.md) |  | 
 
 ### Return type
 
-[**InlineResponse20042**](inline_response_200_42.md)
+[**GenerateShoppingList200Response**](GenerateShoppingList200Response.md)
 
 ### Authorization
 
@@ -387,24 +771,64 @@ Name | Type | Description  | Notes
 
 ## GetMealPlanTemplate
 
-> InlineResponse20041 GetMealPlanTemplate(ctx, username, id, hash)
+> GetMealPlanTemplate200Response GetMealPlanTemplate(ctx, username, id).Hash(hash).Execute()
+
 Get Meal Plan Template
 
-Get information about a meal plan template.
 
-### Required Parameters
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    username := "dsky" // string | The username.
+    id := int32(1) // int32 | The item's id.
+    hash := "hash_example" // string | The private hash for the username.
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.MealPlanningApi.GetMealPlanTemplate(context.Background(), username, id).Hash(hash).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `MealPlanningApi.GetMealPlanTemplate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetMealPlanTemplate`: GetMealPlanTemplate200Response
+    fmt.Fprintf(os.Stdout, "Response from `MealPlanningApi.GetMealPlanTemplate`: %v\n", resp)
+}
+```
+
+### Path Parameters
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**username** | **string**| The username. | 
-**id** | **int32**| The item&#39;s id. | 
-**hash** | **string**| The private hash for the username. | 
+**username** | **string** | The username. | 
+**id** | **int32** | The item&#39;s id. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetMealPlanTemplateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **hash** | **string** | The private hash for the username. | 
 
 ### Return type
 
-[**InlineResponse20041**](inline_response_200_41.md)
+[**GetMealPlanTemplate200Response**](GetMealPlanTemplate200Response.md)
 
 ### Authorization
 
@@ -422,23 +846,61 @@ Name | Type | Description  | Notes
 
 ## GetMealPlanTemplates
 
-> InlineResponse20039 GetMealPlanTemplates(ctx, username, hash)
+> GetMealPlanTemplates200Response GetMealPlanTemplates(ctx, username).Hash(hash).Execute()
+
 Get Meal Plan Templates
 
-Get meal plan templates from user or public ones.
 
-### Required Parameters
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    username := "dsky" // string | The username.
+    hash := "hash_example" // string | The private hash for the username.
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.MealPlanningApi.GetMealPlanTemplates(context.Background(), username).Hash(hash).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `MealPlanningApi.GetMealPlanTemplates``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetMealPlanTemplates`: GetMealPlanTemplates200Response
+    fmt.Fprintf(os.Stdout, "Response from `MealPlanningApi.GetMealPlanTemplates`: %v\n", resp)
+}
+```
+
+### Path Parameters
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**username** | **string**| The username. | 
-**hash** | **string**| The private hash for the username. | 
+**username** | **string** | The username. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetMealPlanTemplatesRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **hash** | **string** | The private hash for the username. | 
 
 ### Return type
 
-[**InlineResponse20039**](inline_response_200_39.md)
+[**GetMealPlanTemplates200Response**](GetMealPlanTemplates200Response.md)
 
 ### Authorization
 
@@ -456,24 +918,64 @@ Name | Type | Description  | Notes
 
 ## GetMealPlanWeek
 
-> InlineResponse20038 GetMealPlanWeek(ctx, username, startDate, hash)
+> GetMealPlanWeek200Response GetMealPlanWeek(ctx, username, startDate).Hash(hash).Execute()
+
 Get Meal Plan Week
 
-Retrieve a meal planned week for the given user. The username must be a spoonacular user and the hash must the the user's hash that can be found in his/her account.
 
-### Required Parameters
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    username := "dsky" // string | The username.
+    startDate := "2020-06-01" // string | The start date of the meal planned week in the format yyyy-mm-dd.
+    hash := "hash_example" // string | The private hash for the username.
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.MealPlanningApi.GetMealPlanWeek(context.Background(), username, startDate).Hash(hash).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `MealPlanningApi.GetMealPlanWeek``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetMealPlanWeek`: GetMealPlanWeek200Response
+    fmt.Fprintf(os.Stdout, "Response from `MealPlanningApi.GetMealPlanWeek`: %v\n", resp)
+}
+```
+
+### Path Parameters
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**username** | **string**| The username. | 
-**startDate** | **string**| The start date of the meal planned week in the format yyyy-mm-dd. | 
-**hash** | **string**| The private hash for the username. | 
+**username** | **string** | The username. | 
+**startDate** | **string** | The start date of the meal planned week in the format yyyy-mm-dd. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetMealPlanWeekRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **hash** | **string** | The private hash for the username. | 
 
 ### Return type
 
-[**InlineResponse20038**](inline_response_200_38.md)
+[**GetMealPlanWeek200Response**](GetMealPlanWeek200Response.md)
 
 ### Authorization
 
@@ -491,23 +993,61 @@ Name | Type | Description  | Notes
 
 ## GetShoppingList
 
-> InlineResponse20042 GetShoppingList(ctx, username, hash)
+> GetShoppingList200Response GetShoppingList(ctx, username).Hash(hash).Execute()
+
 Get Shopping List
 
-Get the current shopping list for the given user.
 
-### Required Parameters
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    username := "dsky" // string | The username.
+    hash := "hash_example" // string | The private hash for the username.
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.MealPlanningApi.GetShoppingList(context.Background(), username).Hash(hash).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `MealPlanningApi.GetShoppingList``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetShoppingList`: GetShoppingList200Response
+    fmt.Fprintf(os.Stdout, "Response from `MealPlanningApi.GetShoppingList`: %v\n", resp)
+}
+```
+
+### Path Parameters
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**username** | **string**| The username. | 
-**hash** | **string**| The private hash for the username. | 
+**username** | **string** | The username. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetShoppingListRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **hash** | **string** | The private hash for the username. | 
 
 ### Return type
 
-[**InlineResponse20042**](inline_response_200_42.md)
+[**GetShoppingList200Response**](GetShoppingList200Response.md)
 
 ### Authorization
 

@@ -22,7 +22,7 @@ Method | HTTP request | Description
 
 <a name="addmealplantemplate"></a>
 # **AddMealPlanTemplate**
-> InlineResponse20040 AddMealPlanTemplate (string username, string hash, InlineObject6 inlineObject6)
+> AddMealPlanTemplate200Response AddMealPlanTemplate (string username, string hash, AddToMealPlanRequest addToMealPlanRequest)
 
 Add Meal Plan Template
 
@@ -42,21 +42,20 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new MealPlanningApi();
             var username = dsky;  // string | The username.
             var hash = 4b5v4398573406;  // string | The private hash for the username.
-            var inlineObject6 = new InlineObject6(); // InlineObject6 | 
+            var addToMealPlanRequest = new AddToMealPlanRequest(); // AddToMealPlanRequest | 
 
             try
             {
                 // Add Meal Plan Template
-                InlineResponse20040 result = apiInstance.AddMealPlanTemplate(username, hash, inlineObject6);
+                AddMealPlanTemplate200Response result = apiInstance.AddMealPlanTemplate(username, hash, addToMealPlanRequest);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -74,11 +73,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **username** | **string**| The username. | 
  **hash** | **string**| The private hash for the username. | 
- **inlineObject6** | [**InlineObject6**](InlineObject6.md)|  | 
+ **addToMealPlanRequest** | [**AddToMealPlanRequest**](AddToMealPlanRequest.md)|  | 
 
 ### Return type
 
-[**InlineResponse20040**](InlineResponse20040.md)
+[**AddMealPlanTemplate200Response**](AddMealPlanTemplate200Response.md)
 
 ### Authorization
 
@@ -93,7 +92,7 @@ Name | Type | Description  | Notes
 
 <a name="addtomealplan"></a>
 # **AddToMealPlan**
-> Object AddToMealPlan (string username, string hash, InlineObject4 inlineObject4)
+> Object AddToMealPlan (string username, string hash, AddToMealPlanRequest addToMealPlanRequest)
 
 Add to Meal Plan
 
@@ -113,21 +112,20 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new MealPlanningApi();
             var username = dsky;  // string | The username.
-            var hash = hash_example;  // string | The private hash for the username.
-            var inlineObject4 = new InlineObject4(); // InlineObject4 | 
+            var hash = "hash_example";  // string | The private hash for the username.
+            var addToMealPlanRequest = new AddToMealPlanRequest(); // AddToMealPlanRequest | 
 
             try
             {
                 // Add to Meal Plan
-                Object result = apiInstance.AddToMealPlan(username, hash, inlineObject4);
+                Object result = apiInstance.AddToMealPlan(username, hash, addToMealPlanRequest);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -145,7 +143,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **username** | **string**| The username. | 
  **hash** | **string**| The private hash for the username. | 
- **inlineObject4** | [**InlineObject4**](InlineObject4.md)|  | 
+ **addToMealPlanRequest** | [**AddToMealPlanRequest**](AddToMealPlanRequest.md)|  | 
 
 ### Return type
 
@@ -164,7 +162,7 @@ Name | Type | Description  | Notes
 
 <a name="addtoshoppinglist"></a>
 # **AddToShoppingList**
-> InlineResponse20042 AddToShoppingList (string username, string hash, InlineObject9 inlineObject9)
+> GenerateShoppingList200Response AddToShoppingList (string username, string hash, AddToMealPlanRequest addToMealPlanRequest)
 
 Add to Shopping List
 
@@ -184,21 +182,20 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new MealPlanningApi();
             var username = dsky;  // string | The username.
-            var hash = hash_example;  // string | The private hash for the username.
-            var inlineObject9 = new InlineObject9(); // InlineObject9 | 
+            var hash = "hash_example";  // string | The private hash for the username.
+            var addToMealPlanRequest = new AddToMealPlanRequest(); // AddToMealPlanRequest | 
 
             try
             {
                 // Add to Shopping List
-                InlineResponse20042 result = apiInstance.AddToShoppingList(username, hash, inlineObject9);
+                GenerateShoppingList200Response result = apiInstance.AddToShoppingList(username, hash, addToMealPlanRequest);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -216,11 +213,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **username** | **string**| The username. | 
  **hash** | **string**| The private hash for the username. | 
- **inlineObject9** | [**InlineObject9**](InlineObject9.md)|  | 
+ **addToMealPlanRequest** | [**AddToMealPlanRequest**](AddToMealPlanRequest.md)|  | 
 
 ### Return type
 
-[**InlineResponse20042**](InlineResponse20042.md)
+[**GenerateShoppingList200Response**](GenerateShoppingList200Response.md)
 
 ### Authorization
 
@@ -235,7 +232,7 @@ Name | Type | Description  | Notes
 
 <a name="clearmealplanday"></a>
 # **ClearMealPlanDay**
-> Object ClearMealPlanDay (string username, string date, string hash, InlineObject3 inlineObject3)
+> Object ClearMealPlanDay (string username, string date, string hash, ClearMealPlanDayRequest clearMealPlanDayRequest)
 
 Clear Meal Plan Day
 
@@ -255,22 +252,21 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new MealPlanningApi();
             var username = dsky;  // string | The username.
             var date = 2020-06-01;  // string | The date in the format yyyy-mm-dd.
-            var hash = hash_example;  // string | The private hash for the username.
-            var inlineObject3 = new InlineObject3(); // InlineObject3 | 
+            var hash = "hash_example";  // string | The private hash for the username.
+            var clearMealPlanDayRequest = new ClearMealPlanDayRequest(); // ClearMealPlanDayRequest | 
 
             try
             {
                 // Clear Meal Plan Day
-                Object result = apiInstance.ClearMealPlanDay(username, date, hash, inlineObject3);
+                Object result = apiInstance.ClearMealPlanDay(username, date, hash, clearMealPlanDayRequest);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -289,7 +285,7 @@ Name | Type | Description  | Notes
  **username** | **string**| The username. | 
  **date** | **string**| The date in the format yyyy-mm-dd. | 
  **hash** | **string**| The private hash for the username. | 
- **inlineObject3** | [**InlineObject3**](InlineObject3.md)|  | 
+ **clearMealPlanDayRequest** | [**ClearMealPlanDayRequest**](ClearMealPlanDayRequest.md)|  | 
 
 ### Return type
 
@@ -308,7 +304,7 @@ Name | Type | Description  | Notes
 
 <a name="connectuser"></a>
 # **ConnectUser**
-> InlineResponse20043 ConnectUser (Object body)
+> ConnectUser200Response ConnectUser (Object body)
 
 Connect User
 
@@ -328,19 +324,18 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new MealPlanningApi();
-            var body = ;  // Object | 
+            var body = null;  // Object | 
 
             try
             {
                 // Connect User
-                InlineResponse20043 result = apiInstance.ConnectUser(body);
+                ConnectUser200Response result = apiInstance.ConnectUser(body);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -360,7 +355,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20043**](InlineResponse20043.md)
+[**ConnectUser200Response**](ConnectUser200Response.md)
 
 ### Authorization
 
@@ -375,7 +370,7 @@ Name | Type | Description  | Notes
 
 <a name="deletefrommealplan"></a>
 # **DeleteFromMealPlan**
-> Object DeleteFromMealPlan (string username, decimal? id, string hash, InlineObject5 inlineObject5)
+> Object DeleteFromMealPlan (string username, decimal? id, string hash, DeleteFromMealPlanRequest deleteFromMealPlanRequest)
 
 Delete from Meal Plan
 
@@ -395,22 +390,21 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new MealPlanningApi();
             var username = dsky;  // string | The username.
             var id = 15678;  // decimal? | The shopping list item id.
-            var hash = hash_example;  // string | The private hash for the username.
-            var inlineObject5 = new InlineObject5(); // InlineObject5 | 
+            var hash = "hash_example";  // string | The private hash for the username.
+            var deleteFromMealPlanRequest = new DeleteFromMealPlanRequest(); // DeleteFromMealPlanRequest | 
 
             try
             {
                 // Delete from Meal Plan
-                Object result = apiInstance.DeleteFromMealPlan(username, id, hash, inlineObject5);
+                Object result = apiInstance.DeleteFromMealPlan(username, id, hash, deleteFromMealPlanRequest);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -429,7 +423,7 @@ Name | Type | Description  | Notes
  **username** | **string**| The username. | 
  **id** | **decimal?**| The shopping list item id. | 
  **hash** | **string**| The private hash for the username. | 
- **inlineObject5** | [**InlineObject5**](InlineObject5.md)|  | 
+ **deleteFromMealPlanRequest** | [**DeleteFromMealPlanRequest**](DeleteFromMealPlanRequest.md)|  | 
 
 ### Return type
 
@@ -448,7 +442,7 @@ Name | Type | Description  | Notes
 
 <a name="deletefromshoppinglist"></a>
 # **DeleteFromShoppingList**
-> Object DeleteFromShoppingList (string username, int? id, string hash, InlineObject10 inlineObject10)
+> Object DeleteFromShoppingList (string username, int? id, string hash, DeleteFromMealPlanRequest deleteFromMealPlanRequest)
 
 Delete from Shopping List
 
@@ -468,22 +462,21 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new MealPlanningApi();
             var username = dsky;  // string | The username.
             var id = 1;  // int? | The item's id.
-            var hash = hash_example;  // string | The private hash for the username.
-            var inlineObject10 = new InlineObject10(); // InlineObject10 | 
+            var hash = "hash_example";  // string | The private hash for the username.
+            var deleteFromMealPlanRequest = new DeleteFromMealPlanRequest(); // DeleteFromMealPlanRequest | 
 
             try
             {
                 // Delete from Shopping List
-                Object result = apiInstance.DeleteFromShoppingList(username, id, hash, inlineObject10);
+                Object result = apiInstance.DeleteFromShoppingList(username, id, hash, deleteFromMealPlanRequest);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -502,7 +495,7 @@ Name | Type | Description  | Notes
  **username** | **string**| The username. | 
  **id** | **int?**| The item&#39;s id. | 
  **hash** | **string**| The private hash for the username. | 
- **inlineObject10** | [**InlineObject10**](InlineObject10.md)|  | 
+ **deleteFromMealPlanRequest** | [**DeleteFromMealPlanRequest**](DeleteFromMealPlanRequest.md)|  | 
 
 ### Return type
 
@@ -521,7 +514,7 @@ Name | Type | Description  | Notes
 
 <a name="deletemealplantemplate"></a>
 # **DeleteMealPlanTemplate**
-> Object DeleteMealPlanTemplate (string username, int? id, string hash, InlineObject7 inlineObject7)
+> Object DeleteMealPlanTemplate (string username, int? id, string hash, DeleteFromMealPlanRequest deleteFromMealPlanRequest)
 
 Delete Meal Plan Template
 
@@ -541,22 +534,21 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new MealPlanningApi();
             var username = dsky;  // string | The username.
             var id = 1;  // int? | The item's id.
             var hash = 4b5v4398573406;  // string | The private hash for the username.
-            var inlineObject7 = new InlineObject7(); // InlineObject7 | 
+            var deleteFromMealPlanRequest = new DeleteFromMealPlanRequest(); // DeleteFromMealPlanRequest | 
 
             try
             {
                 // Delete Meal Plan Template
-                Object result = apiInstance.DeleteMealPlanTemplate(username, id, hash, inlineObject7);
+                Object result = apiInstance.DeleteMealPlanTemplate(username, id, hash, deleteFromMealPlanRequest);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -575,7 +567,7 @@ Name | Type | Description  | Notes
  **username** | **string**| The username. | 
  **id** | **int?**| The item&#39;s id. | 
  **hash** | **string**| The private hash for the username. | 
- **inlineObject7** | [**InlineObject7**](InlineObject7.md)|  | 
+ **deleteFromMealPlanRequest** | [**DeleteFromMealPlanRequest**](DeleteFromMealPlanRequest.md)|  | 
 
 ### Return type
 
@@ -594,7 +586,7 @@ Name | Type | Description  | Notes
 
 <a name="generatemealplan"></a>
 # **GenerateMealPlan**
-> InlineResponse20037 GenerateMealPlan (string timeFrame, decimal? targetCalories, string diet, string exclude)
+> GenerateMealPlan200Response GenerateMealPlan (string timeFrame, decimal? targetCalories, string diet, string exclude)
 
 Generate Meal Plan
 
@@ -614,11 +606,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new MealPlanningApi();
             var timeFrame = day;  // string | Either for one \"day\" or an entire \"week\". (optional) 
@@ -629,7 +620,7 @@ namespace Example
             try
             {
                 // Generate Meal Plan
-                InlineResponse20037 result = apiInstance.GenerateMealPlan(timeFrame, targetCalories, diet, exclude);
+                GenerateMealPlan200Response result = apiInstance.GenerateMealPlan(timeFrame, targetCalories, diet, exclude);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -652,7 +643,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20037**](InlineResponse20037.md)
+[**GenerateMealPlan200Response**](GenerateMealPlan200Response.md)
 
 ### Authorization
 
@@ -667,7 +658,7 @@ Name | Type | Description  | Notes
 
 <a name="generateshoppinglist"></a>
 # **GenerateShoppingList**
-> InlineResponse20042 GenerateShoppingList (string username, string startDate, string endDate, string hash, InlineObject8 inlineObject8)
+> GenerateShoppingList200Response GenerateShoppingList (string username, string startDate, string endDate, string hash, GenerateShoppingListRequest generateShoppingListRequest)
 
 Generate Shopping List
 
@@ -687,23 +678,22 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new MealPlanningApi();
             var username = dsky;  // string | The username.
             var startDate = 2020-06-01;  // string | The start date in the format yyyy-mm-dd.
             var endDate = 2020-06-07;  // string | The end date in the format yyyy-mm-dd.
-            var hash = hash_example;  // string | The private hash for the username.
-            var inlineObject8 = new InlineObject8(); // InlineObject8 | 
+            var hash = "hash_example";  // string | The private hash for the username.
+            var generateShoppingListRequest = new GenerateShoppingListRequest(); // GenerateShoppingListRequest | 
 
             try
             {
                 // Generate Shopping List
-                InlineResponse20042 result = apiInstance.GenerateShoppingList(username, startDate, endDate, hash, inlineObject8);
+                GenerateShoppingList200Response result = apiInstance.GenerateShoppingList(username, startDate, endDate, hash, generateShoppingListRequest);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -723,11 +713,11 @@ Name | Type | Description  | Notes
  **startDate** | **string**| The start date in the format yyyy-mm-dd. | 
  **endDate** | **string**| The end date in the format yyyy-mm-dd. | 
  **hash** | **string**| The private hash for the username. | 
- **inlineObject8** | [**InlineObject8**](InlineObject8.md)|  | 
+ **generateShoppingListRequest** | [**GenerateShoppingListRequest**](GenerateShoppingListRequest.md)|  | 
 
 ### Return type
 
-[**InlineResponse20042**](InlineResponse20042.md)
+[**GenerateShoppingList200Response**](GenerateShoppingList200Response.md)
 
 ### Authorization
 
@@ -742,7 +732,7 @@ Name | Type | Description  | Notes
 
 <a name="getmealplantemplate"></a>
 # **GetMealPlanTemplate**
-> InlineResponse20041 GetMealPlanTemplate (string username, int? id, string hash)
+> GetMealPlanTemplate200Response GetMealPlanTemplate (string username, int? id, string hash)
 
 Get Meal Plan Template
 
@@ -762,21 +752,20 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new MealPlanningApi();
             var username = dsky;  // string | The username.
             var id = 1;  // int? | The item's id.
-            var hash = hash_example;  // string | The private hash for the username.
+            var hash = "hash_example";  // string | The private hash for the username.
 
             try
             {
                 // Get Meal Plan Template
-                InlineResponse20041 result = apiInstance.GetMealPlanTemplate(username, id, hash);
+                GetMealPlanTemplate200Response result = apiInstance.GetMealPlanTemplate(username, id, hash);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -798,7 +787,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20041**](InlineResponse20041.md)
+[**GetMealPlanTemplate200Response**](GetMealPlanTemplate200Response.md)
 
 ### Authorization
 
@@ -813,7 +802,7 @@ Name | Type | Description  | Notes
 
 <a name="getmealplantemplates"></a>
 # **GetMealPlanTemplates**
-> InlineResponse20039 GetMealPlanTemplates (string username, string hash)
+> GetMealPlanTemplates200Response GetMealPlanTemplates (string username, string hash)
 
 Get Meal Plan Templates
 
@@ -833,20 +822,19 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new MealPlanningApi();
             var username = dsky;  // string | The username.
-            var hash = hash_example;  // string | The private hash for the username.
+            var hash = "hash_example";  // string | The private hash for the username.
 
             try
             {
                 // Get Meal Plan Templates
-                InlineResponse20039 result = apiInstance.GetMealPlanTemplates(username, hash);
+                GetMealPlanTemplates200Response result = apiInstance.GetMealPlanTemplates(username, hash);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -867,7 +855,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20039**](InlineResponse20039.md)
+[**GetMealPlanTemplates200Response**](GetMealPlanTemplates200Response.md)
 
 ### Authorization
 
@@ -882,7 +870,7 @@ Name | Type | Description  | Notes
 
 <a name="getmealplanweek"></a>
 # **GetMealPlanWeek**
-> InlineResponse20038 GetMealPlanWeek (string username, string startDate, string hash)
+> GetMealPlanWeek200Response GetMealPlanWeek (string username, string startDate, string hash)
 
 Get Meal Plan Week
 
@@ -902,21 +890,20 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new MealPlanningApi();
             var username = dsky;  // string | The username.
             var startDate = 2020-06-01;  // string | The start date of the meal planned week in the format yyyy-mm-dd.
-            var hash = hash_example;  // string | The private hash for the username.
+            var hash = "hash_example";  // string | The private hash for the username.
 
             try
             {
                 // Get Meal Plan Week
-                InlineResponse20038 result = apiInstance.GetMealPlanWeek(username, startDate, hash);
+                GetMealPlanWeek200Response result = apiInstance.GetMealPlanWeek(username, startDate, hash);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -938,7 +925,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20038**](InlineResponse20038.md)
+[**GetMealPlanWeek200Response**](GetMealPlanWeek200Response.md)
 
 ### Authorization
 
@@ -953,7 +940,7 @@ Name | Type | Description  | Notes
 
 <a name="getshoppinglist"></a>
 # **GetShoppingList**
-> InlineResponse20042 GetShoppingList (string username, string hash)
+> GetShoppingList200Response GetShoppingList (string username, string hash)
 
 Get Shopping List
 
@@ -973,20 +960,19 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new MealPlanningApi();
             var username = dsky;  // string | The username.
-            var hash = hash_example;  // string | The private hash for the username.
+            var hash = "hash_example";  // string | The private hash for the username.
 
             try
             {
                 // Get Shopping List
-                InlineResponse20042 result = apiInstance.GetShoppingList(username, hash);
+                GetShoppingList200Response result = apiInstance.GetShoppingList(username, hash);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -1007,7 +993,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20042**](InlineResponse20042.md)
+[**GetShoppingList200Response**](GetShoppingList200Response.md)
 
 ### Authorization
 

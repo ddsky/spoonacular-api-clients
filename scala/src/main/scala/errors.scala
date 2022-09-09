@@ -1,4 +1,4 @@
-package spoonacular
+package org.openapitools
 
 /**
  * The parent error from which most API errors extend. Thrown whenever something in the api goes wrong.
@@ -24,4 +24,3 @@ case class MissingIdentifier(message: String) extends CommonError(message)
  * @param message An error message
  */
 case class RecordNotFound(message: String) extends CommonError(message)
-

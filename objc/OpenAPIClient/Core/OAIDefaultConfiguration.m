@@ -107,9 +107,9 @@
                @"apiKeyScheme":
                    @{
                        @"type": @"api_key",
-                       @"in": @"query",
-                       @"key": @"apiKey",
-                       @"value": [self getApiKeyWithPrefix:@"apiKey"]
+                       @"in": @"header",
+                       @"key": @"x-api-key",
+                       @"value": [self getApiKeyWithPrefix:@"x-api-key"]
                    },
                };
 }

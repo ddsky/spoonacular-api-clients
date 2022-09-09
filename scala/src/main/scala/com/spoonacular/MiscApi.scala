@@ -1,19 +1,20 @@
 package com.spoonacular
 
 import java.io._
-import spoonacular._
+import org.openapitools._
 import com.spoonacular.client.model._
-import java.math.BigDecimal
-import com.spoonacular.client.model.InlineResponse20029
-import com.spoonacular.client.model.InlineResponse20048
-import com.spoonacular.client.model.InlineResponse20049
-import com.spoonacular.client.model.InlineResponse20051
-import com.spoonacular.client.model.InlineResponse20052
-import com.spoonacular.client.model.InlineResponse20053
-import com.spoonacular.client.model.InlineResponse20054
-import com.spoonacular.client.model.InlineResponse20055
-import com.spoonacular.client.model.InlineResponse20056
-import com.spoonacular.client.model.InlineResponse20057
+import com.spoonacular.client.model.BigDecimal
+import com.spoonacular.client.model.DetectFoodInText200Response
+import com.spoonacular.client.model.GetARandomFoodJoke200Response
+import com.spoonacular.client.model.GetConversationSuggests200Response
+import com.spoonacular.client.model.GetRandomFoodTrivia200Response
+import com.spoonacular.client.model.ImageAnalysisByURL200Response
+import com.spoonacular.client.model.ImageClassificationByURL200Response
+import com.spoonacular.client.model.SearchAllFood200Response
+import com.spoonacular.client.model.SearchCustomFoods200Response
+import com.spoonacular.client.model.SearchFoodVideos200Response
+import com.spoonacular.client.model.SearchSiteContent200Response
+import com.spoonacular.client.model.TalkToChatbot200Response
 import io.finch.circe._
 import io.circe.generic.semiauto._
 import com.twitter.concurrent.AsyncStream
@@ -25,6 +26,7 @@ import com.twitter.util.Future
 import com.twitter.io.Buf
 import io.finch._, items._
 import java.io.File
+import java.nio.file.Files
 import java.time._
 
 object MiscApi {
@@ -68,10 +70,10 @@ object MiscApi {
 
         /**
         * 
-        * @return An endpoint representing a InlineResponse20051
+        * @return An endpoint representing a DetectFoodInText200Response
         */
-        private def detectFoodInText(da: DataAccessor): Endpoint[InlineResponse20051] =
-        post("food" :: "detect" :: headerOption("Content-Type") :: param("apiKey")) { (contentType: Option[String], authParamapiKeyScheme: String) =>
+        private def detectFoodInText(da: DataAccessor): Endpoint[DetectFoodInText200Response] =
+        post("food" :: "detect" :: headerOption("Content-Type") :: header("x-api-key")) { (contentType: Option[String], authParamapiKeyScheme: String) =>
           da.Misc_detectFoodInText(contentType, authParamapiKeyScheme) match {
             case Left(error) => checkError(error)
             case Right(data) => Ok(data)
@@ -82,10 +84,10 @@ object MiscApi {
 
         /**
         * 
-        * @return An endpoint representing a InlineResponse20055
+        * @return An endpoint representing a GetARandomFoodJoke200Response
         */
-        private def getARandomFoodJoke(da: DataAccessor): Endpoint[InlineResponse20055] =
-        get("food" :: "jokes" :: "random" :: param("apiKey")) { (authParamapiKeyScheme: String) =>
+        private def getARandomFoodJoke(da: DataAccessor): Endpoint[GetARandomFoodJoke200Response] =
+        get("food" :: "jokes" :: "random" :: header("x-api-key")) { (authParamapiKeyScheme: String) =>
           da.Misc_getARandomFoodJoke(authParamapiKeyScheme) match {
             case Left(error) => checkError(error)
             case Right(data) => Ok(data)
@@ -96,10 +98,10 @@ object MiscApi {
 
         /**
         * 
-        * @return An endpoint representing a InlineResponse20057
+        * @return An endpoint representing a GetConversationSuggests200Response
         */
-        private def getConversationSuggests(da: DataAccessor): Endpoint[InlineResponse20057] =
-        get("food" :: "converse" :: "suggest" :: param("query") :: paramOption("number").map(_.map(_.toBigDecimal)) :: param("apiKey")) { (query: String, number: Option[BigDecimal], authParamapiKeyScheme: String) =>
+        private def getConversationSuggests(da: DataAccessor): Endpoint[GetConversationSuggests200Response] =
+        get("food" :: "converse" :: "suggest" :: param("query") :: paramOption("number").map(_.map(_.toBigDecimal)) :: header("x-api-key")) { (query: String, number: Option[BigDecimal], authParamapiKeyScheme: String) =>
           da.Misc_getConversationSuggests(query, number, authParamapiKeyScheme) match {
             case Left(error) => checkError(error)
             case Right(data) => Ok(data)
@@ -110,10 +112,10 @@ object MiscApi {
 
         /**
         * 
-        * @return An endpoint representing a InlineResponse20055
+        * @return An endpoint representing a GetRandomFoodTrivia200Response
         */
-        private def getRandomFoodTrivia(da: DataAccessor): Endpoint[InlineResponse20055] =
-        get("food" :: "trivia" :: "random" :: param("apiKey")) { (authParamapiKeyScheme: String) =>
+        private def getRandomFoodTrivia(da: DataAccessor): Endpoint[GetRandomFoodTrivia200Response] =
+        get("food" :: "trivia" :: "random" :: header("x-api-key")) { (authParamapiKeyScheme: String) =>
           da.Misc_getRandomFoodTrivia(authParamapiKeyScheme) match {
             case Left(error) => checkError(error)
             case Right(data) => Ok(data)
@@ -124,10 +126,10 @@ object MiscApi {
 
         /**
         * 
-        * @return An endpoint representing a InlineResponse20049
+        * @return An endpoint representing a ImageAnalysisByURL200Response
         */
-        private def imageAnalysisByURL(da: DataAccessor): Endpoint[InlineResponse20049] =
-        get("food" :: "images" :: "analyze" :: param("imageUrl") :: param("apiKey")) { (imageUrl: String, authParamapiKeyScheme: String) =>
+        private def imageAnalysisByURL(da: DataAccessor): Endpoint[ImageAnalysisByURL200Response] =
+        get("food" :: "images" :: "analyze" :: param("imageUrl") :: header("x-api-key")) { (imageUrl: String, authParamapiKeyScheme: String) =>
           da.Misc_imageAnalysisByURL(imageUrl, authParamapiKeyScheme) match {
             case Left(error) => checkError(error)
             case Right(data) => Ok(data)
@@ -138,10 +140,10 @@ object MiscApi {
 
         /**
         * 
-        * @return An endpoint representing a InlineResponse20048
+        * @return An endpoint representing a ImageClassificationByURL200Response
         */
-        private def imageClassificationByURL(da: DataAccessor): Endpoint[InlineResponse20048] =
-        get("food" :: "images" :: "classify" :: param("imageUrl") :: param("apiKey")) { (imageUrl: String, authParamapiKeyScheme: String) =>
+        private def imageClassificationByURL(da: DataAccessor): Endpoint[ImageClassificationByURL200Response] =
+        get("food" :: "images" :: "classify" :: param("imageUrl") :: header("x-api-key")) { (imageUrl: String, authParamapiKeyScheme: String) =>
           da.Misc_imageClassificationByURL(imageUrl, authParamapiKeyScheme) match {
             case Left(error) => checkError(error)
             case Right(data) => Ok(data)
@@ -152,10 +154,10 @@ object MiscApi {
 
         /**
         * 
-        * @return An endpoint representing a InlineResponse20053
+        * @return An endpoint representing a SearchAllFood200Response
         */
-        private def searchAllFood(da: DataAccessor): Endpoint[InlineResponse20053] =
-        get("food" :: "search" :: param("query") :: paramOption("offset").map(_.map(_.toInt)) :: paramOption("number").map(_.map(_.toInt)) :: param("apiKey")) { (query: String, offset: Option[Int], number: Option[Int], authParamapiKeyScheme: String) =>
+        private def searchAllFood(da: DataAccessor): Endpoint[SearchAllFood200Response] =
+        get("food" :: "search" :: param("query") :: paramOption("offset").map(_.map(_.toInt)) :: paramOption("number").map(_.map(_.toInt)) :: header("x-api-key")) { (query: String, offset: Option[Int], number: Option[Int], authParamapiKeyScheme: String) =>
           da.Misc_searchAllFood(query, offset, number, authParamapiKeyScheme) match {
             case Left(error) => checkError(error)
             case Right(data) => Ok(data)
@@ -166,10 +168,10 @@ object MiscApi {
 
         /**
         * 
-        * @return An endpoint representing a InlineResponse20029
+        * @return An endpoint representing a SearchCustomFoods200Response
         */
-        private def searchCustomFoods(da: DataAccessor): Endpoint[InlineResponse20029] =
-        get("food" :: "customFoods" :: "search" :: param("username") :: param("hash") :: paramOption("query") :: paramOption("offset").map(_.map(_.toInt)) :: paramOption("number").map(_.map(_.toInt)) :: param("apiKey")) { (username: String, hash: String, query: Option[String], offset: Option[Int], number: Option[Int], authParamapiKeyScheme: String) =>
+        private def searchCustomFoods(da: DataAccessor): Endpoint[SearchCustomFoods200Response] =
+        get("food" :: "customFoods" :: "search" :: param("username") :: param("hash") :: paramOption("query") :: paramOption("offset").map(_.map(_.toInt)) :: paramOption("number").map(_.map(_.toInt)) :: header("x-api-key")) { (username: String, hash: String, query: Option[String], offset: Option[Int], number: Option[Int], authParamapiKeyScheme: String) =>
           da.Misc_searchCustomFoods(username, hash, query, offset, number, authParamapiKeyScheme) match {
             case Left(error) => checkError(error)
             case Right(data) => Ok(data)
@@ -180,10 +182,10 @@ object MiscApi {
 
         /**
         * 
-        * @return An endpoint representing a InlineResponse20054
+        * @return An endpoint representing a SearchFoodVideos200Response
         */
-        private def searchFoodVideos(da: DataAccessor): Endpoint[InlineResponse20054] =
-        get("food" :: "videos" :: "search" :: paramOption("query") :: paramOption("type") :: paramOption("cuisine") :: paramOption("diet") :: paramOption("includeIngredients") :: paramOption("excludeIngredients") :: paramOption("minLength").map(_.map(_.toBigDecimal)) :: paramOption("maxLength").map(_.map(_.toBigDecimal)) :: paramOption("offset").map(_.map(_.toInt)) :: paramOption("number").map(_.map(_.toInt)) :: param("apiKey")) { (query: Option[String], _type: Option[String], cuisine: Option[String], diet: Option[String], includeIngredients: Option[String], excludeIngredients: Option[String], minLength: Option[BigDecimal], maxLength: Option[BigDecimal], offset: Option[Int], number: Option[Int], authParamapiKeyScheme: String) =>
+        private def searchFoodVideos(da: DataAccessor): Endpoint[SearchFoodVideos200Response] =
+        get("food" :: "videos" :: "search" :: paramOption("query") :: paramOption("type") :: paramOption("cuisine") :: paramOption("diet") :: paramOption("includeIngredients") :: paramOption("excludeIngredients") :: paramOption("minLength").map(_.map(_.toBigDecimal)) :: paramOption("maxLength").map(_.map(_.toBigDecimal)) :: paramOption("offset").map(_.map(_.toInt)) :: paramOption("number").map(_.map(_.toInt)) :: header("x-api-key")) { (query: Option[String], _type: Option[String], cuisine: Option[String], diet: Option[String], includeIngredients: Option[String], excludeIngredients: Option[String], minLength: Option[BigDecimal], maxLength: Option[BigDecimal], offset: Option[Int], number: Option[Int], authParamapiKeyScheme: String) =>
           da.Misc_searchFoodVideos(query, _type, cuisine, diet, includeIngredients, excludeIngredients, minLength, maxLength, offset, number, authParamapiKeyScheme) match {
             case Left(error) => checkError(error)
             case Right(data) => Ok(data)
@@ -194,10 +196,10 @@ object MiscApi {
 
         /**
         * 
-        * @return An endpoint representing a InlineResponse20052
+        * @return An endpoint representing a SearchSiteContent200Response
         */
-        private def searchSiteContent(da: DataAccessor): Endpoint[InlineResponse20052] =
-        get("food" :: "site" :: "search" :: param("query") :: param("apiKey")) { (query: String, authParamapiKeyScheme: String) =>
+        private def searchSiteContent(da: DataAccessor): Endpoint[SearchSiteContent200Response] =
+        get("food" :: "site" :: "search" :: param("query") :: header("x-api-key")) { (query: String, authParamapiKeyScheme: String) =>
           da.Misc_searchSiteContent(query, authParamapiKeyScheme) match {
             case Left(error) => checkError(error)
             case Right(data) => Ok(data)
@@ -208,10 +210,10 @@ object MiscApi {
 
         /**
         * 
-        * @return An endpoint representing a InlineResponse20056
+        * @return An endpoint representing a TalkToChatbot200Response
         */
-        private def talkToChatbot(da: DataAccessor): Endpoint[InlineResponse20056] =
-        get("food" :: "converse" :: param("text") :: paramOption("contextId") :: param("apiKey")) { (text: String, contextId: Option[String], authParamapiKeyScheme: String) =>
+        private def talkToChatbot(da: DataAccessor): Endpoint[TalkToChatbot200Response] =
+        get("food" :: "converse" :: param("text") :: paramOption("contextId") :: header("x-api-key")) { (text: String, contextId: Option[String], authParamapiKeyScheme: String) =>
           da.Misc_talkToChatbot(text, contextId, authParamapiKeyScheme) match {
             case Left(error) => checkError(error)
             case Right(data) => Ok(data)
@@ -232,7 +234,7 @@ object MiscApi {
     }
 
     private def bytesToFile(input: Array[Byte]): java.io.File = {
-      val file = File.createTempFile("tmpMiscApi", null)
+      val file = Files.createTempFile("tmpMiscApi", null).toFile
       val output = new FileOutputStream(file)
       output.write(input)
       file

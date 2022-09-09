@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 <a name="autocompletemenuitemsearch"></a>
 # **AutocompleteMenuItemSearch**
-> InlineResponse20032 AutocompleteMenuItemSearch (string query, decimal? number)
+> AutocompleteMenuItemSearch200Response AutocompleteMenuItemSearch (string query, decimal? number)
 
 Autocomplete Menu Item Search
 
@@ -35,11 +35,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new MenuItemsApi();
             var query = chicke;  // string | The (partial) search query.
@@ -48,7 +47,7 @@ namespace Example
             try
             {
                 // Autocomplete Menu Item Search
-                InlineResponse20032 result = apiInstance.AutocompleteMenuItemSearch(query, number);
+                AutocompleteMenuItemSearch200Response result = apiInstance.AutocompleteMenuItemSearch(query, number);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -69,7 +68,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20032**](InlineResponse20032.md)
+[**AutocompleteMenuItemSearch200Response**](AutocompleteMenuItemSearch200Response.md)
 
 ### Authorization
 
@@ -84,7 +83,7 @@ Name | Type | Description  | Notes
 
 <a name="getmenuiteminformation"></a>
 # **GetMenuItemInformation**
-> InlineResponse20036 GetMenuItemInformation (int? id)
+> GetMenuItemInformation200Response GetMenuItemInformation (int? id)
 
 Get Menu Item Information
 
@@ -104,11 +103,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new MenuItemsApi();
             var id = 1;  // int? | The item's id.
@@ -116,7 +114,7 @@ namespace Example
             try
             {
                 // Get Menu Item Information
-                InlineResponse20036 result = apiInstance.GetMenuItemInformation(id);
+                GetMenuItemInformation200Response result = apiInstance.GetMenuItemInformation(id);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -136,7 +134,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20036**](InlineResponse20036.md)
+[**GetMenuItemInformation200Response**](GetMenuItemInformation200Response.md)
 
 ### Authorization
 
@@ -171,11 +169,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new MenuItemsApi();
             var id = 424571;  // decimal? | The menu item id.
@@ -238,11 +235,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new MenuItemsApi();
             var id = 342313;  // decimal? | The menu item id.
@@ -311,11 +307,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new MenuItemsApi();
             var id = 342313;  // decimal? | The menu item id.
@@ -366,7 +361,7 @@ Name | Type | Description  | Notes
 
 <a name="searchmenuitems"></a>
 # **SearchMenuItems**
-> InlineResponse20035 SearchMenuItems (string query, decimal? minCalories, decimal? maxCalories, decimal? minCarbs, decimal? maxCarbs, decimal? minProtein, decimal? maxProtein, decimal? minFat, decimal? maxFat, bool? addMenuItemInformation, int? offset, int? number)
+> SearchMenuItems200Response SearchMenuItems (string query, decimal? minCalories, decimal? maxCalories, decimal? minCarbs, decimal? maxCarbs, decimal? minProtein, decimal? maxProtein, decimal? minFat, decimal? maxFat, bool? addMenuItemInformation, int? offset, int? number)
 
 Search Menu Items
 
@@ -386,11 +381,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new MenuItemsApi();
             var query = burger;  // string | The (natural language) search query. (optional) 
@@ -409,7 +403,7 @@ namespace Example
             try
             {
                 // Search Menu Items
-                InlineResponse20035 result = apiInstance.SearchMenuItems(query, minCalories, maxCalories, minCarbs, maxCarbs, minProtein, maxProtein, minFat, maxFat, addMenuItemInformation, offset, number);
+                SearchMenuItems200Response result = apiInstance.SearchMenuItems(query, minCalories, maxCalories, minCarbs, maxCarbs, minProtein, maxProtein, minFat, maxFat, addMenuItemInformation, offset, number);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -440,7 +434,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20035**](InlineResponse20035.md)
+[**SearchMenuItems200Response**](SearchMenuItems200Response.md)
 
 ### Authorization
 
@@ -475,11 +469,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new MenuItemsApi();
             var id = 1;  // int? | The item's id.

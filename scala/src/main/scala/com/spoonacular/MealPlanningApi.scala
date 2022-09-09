@@ -1,24 +1,24 @@
 package com.spoonacular
 
 import java.io._
-import spoonacular._
+import org.openapitools._
 import com.spoonacular.client.model._
-import java.math.BigDecimal
-import com.spoonacular.client.model.InlineObject10
-import com.spoonacular.client.model.InlineObject3
-import com.spoonacular.client.model.InlineObject4
-import com.spoonacular.client.model.InlineObject5
-import com.spoonacular.client.model.InlineObject6
-import com.spoonacular.client.model.InlineObject7
-import com.spoonacular.client.model.InlineObject8
-import com.spoonacular.client.model.InlineObject9
-import com.spoonacular.client.model.InlineResponse20037
-import com.spoonacular.client.model.InlineResponse20038
-import com.spoonacular.client.model.InlineResponse20039
-import com.spoonacular.client.model.InlineResponse20040
-import com.spoonacular.client.model.InlineResponse20041
-import com.spoonacular.client.model.InlineResponse20042
-import com.spoonacular.client.model.InlineResponse20043
+import com.spoonacular.client.model.AddMealPlanTemplate200Response
+import com.spoonacular.client.model.AddToMealPlanRequest
+import com.spoonacular.client.model.AddToMealPlanRequest1
+import com.spoonacular.client.model.AddToShoppingListRequest
+import com.spoonacular.client.model.BigDecimal
+import com.spoonacular.client.model.ClearMealPlanDayRequest
+import com.spoonacular.client.model.ConnectUser200Response
+import com.spoonacular.client.model.ConnectUserRequest
+import com.spoonacular.client.model.DeleteFromMealPlanRequest
+import com.spoonacular.client.model.GenerateMealPlan200Response
+import com.spoonacular.client.model.GenerateShoppingList200Response
+import com.spoonacular.client.model.GenerateShoppingListRequest
+import com.spoonacular.client.model.GetMealPlanTemplate200Response
+import com.spoonacular.client.model.GetMealPlanTemplates200Response
+import com.spoonacular.client.model.GetMealPlanWeek200Response
+import com.spoonacular.client.model.GetShoppingList200Response
 import io.finch.circe._
 import io.circe.generic.semiauto._
 import com.twitter.concurrent.AsyncStream
@@ -30,6 +30,7 @@ import com.twitter.util.Future
 import com.twitter.io.Buf
 import io.finch._, items._
 import java.io.File
+import java.nio.file.Files
 import java.time._
 
 object MealPlanningApi {
@@ -76,11 +77,11 @@ object MealPlanningApi {
 
         /**
         * 
-        * @return An endpoint representing a InlineResponse20040
+        * @return An endpoint representing a AddMealPlanTemplate200Response
         */
-        private def addMealPlanTemplate(da: DataAccessor): Endpoint[InlineResponse20040] =
-        post("mealplanner" :: string :: "templates" :: param("hash") :: jsonBody[InlineObject6] :: param("apiKey")) { (username: String, hash: String, inlineObject6: InlineObject6, authParamapiKeyScheme: String) =>
-          da.MealPlanning_addMealPlanTemplate(username, hash, inlineObject6, authParamapiKeyScheme) match {
+        private def addMealPlanTemplate(da: DataAccessor): Endpoint[AddMealPlanTemplate200Response] =
+        post("mealplanner" :: string :: "templates" :: param("hash") :: jsonBody[AddToMealPlanRequest] :: header("x-api-key")) { (username: String, hash: String, addToMealPlanRequest: AddToMealPlanRequest, authParamapiKeyScheme: String) =>
+          da.MealPlanning_addMealPlanTemplate(username, hash, addToMealPlanRequest, authParamapiKeyScheme) match {
             case Left(error) => checkError(error)
             case Right(data) => Ok(data)
           }
@@ -93,8 +94,8 @@ object MealPlanningApi {
         * @return An endpoint representing a Object
         */
         private def addToMealPlan(da: DataAccessor): Endpoint[Object] =
-        post("mealplanner" :: string :: "items" :: param("hash") :: jsonBody[InlineObject4] :: param("apiKey")) { (username: String, hash: String, inlineObject4: InlineObject4, authParamapiKeyScheme: String) =>
-          da.MealPlanning_addToMealPlan(username, hash, inlineObject4, authParamapiKeyScheme) match {
+        post("mealplanner" :: string :: "items" :: param("hash") :: jsonBody[AddToMealPlanRequest] :: header("x-api-key")) { (username: String, hash: String, addToMealPlanRequest: AddToMealPlanRequest, authParamapiKeyScheme: String) =>
+          da.MealPlanning_addToMealPlan(username, hash, addToMealPlanRequest, authParamapiKeyScheme) match {
             case Left(error) => checkError(error)
             case Right(data) => Ok(data)
           }
@@ -104,11 +105,11 @@ object MealPlanningApi {
 
         /**
         * 
-        * @return An endpoint representing a InlineResponse20042
+        * @return An endpoint representing a GenerateShoppingList200Response
         */
-        private def addToShoppingList(da: DataAccessor): Endpoint[InlineResponse20042] =
-        post("mealplanner" :: string :: "shopping-list" :: "items" :: param("hash") :: jsonBody[InlineObject9] :: param("apiKey")) { (username: String, hash: String, inlineObject9: InlineObject9, authParamapiKeyScheme: String) =>
-          da.MealPlanning_addToShoppingList(username, hash, inlineObject9, authParamapiKeyScheme) match {
+        private def addToShoppingList(da: DataAccessor): Endpoint[GenerateShoppingList200Response] =
+        post("mealplanner" :: string :: "shopping-list" :: "items" :: param("hash") :: jsonBody[AddToMealPlanRequest] :: header("x-api-key")) { (username: String, hash: String, addToMealPlanRequest: AddToMealPlanRequest, authParamapiKeyScheme: String) =>
+          da.MealPlanning_addToShoppingList(username, hash, addToMealPlanRequest, authParamapiKeyScheme) match {
             case Left(error) => checkError(error)
             case Right(data) => Ok(data)
           }
@@ -121,8 +122,8 @@ object MealPlanningApi {
         * @return An endpoint representing a Object
         */
         private def clearMealPlanDay(da: DataAccessor): Endpoint[Object] =
-        delete("mealplanner" :: string :: "day" :: string :: param("hash") :: jsonBody[InlineObject3] :: param("apiKey")) { (username: String, date: String, hash: String, inlineObject3: InlineObject3, authParamapiKeyScheme: String) =>
-          da.MealPlanning_clearMealPlanDay(username, date, hash, inlineObject3, authParamapiKeyScheme) match {
+        delete("mealplanner" :: string :: "day" :: string :: param("hash") :: jsonBody[ClearMealPlanDayRequest] :: header("x-api-key")) { (username: String, date: String, hash: String, clearMealPlanDayRequest: ClearMealPlanDayRequest, authParamapiKeyScheme: String) =>
+          da.MealPlanning_clearMealPlanDay(username, date, hash, clearMealPlanDayRequest, authParamapiKeyScheme) match {
             case Left(error) => checkError(error)
             case Right(data) => Ok(data)
           }
@@ -132,10 +133,10 @@ object MealPlanningApi {
 
         /**
         * 
-        * @return An endpoint representing a InlineResponse20043
+        * @return An endpoint representing a ConnectUser200Response
         */
-        private def connectUser(da: DataAccessor): Endpoint[InlineResponse20043] =
-        post("users" :: "connect" :: jsonBody[Object] :: param("apiKey")) { (body: Object, authParamapiKeyScheme: String) =>
+        private def connectUser(da: DataAccessor): Endpoint[ConnectUser200Response] =
+        post("users" :: "connect" :: jsonBody[Object] :: header("x-api-key")) { (body: Object, authParamapiKeyScheme: String) =>
           da.MealPlanning_connectUser(body, authParamapiKeyScheme) match {
             case Left(error) => checkError(error)
             case Right(data) => Ok(data)
@@ -149,8 +150,8 @@ object MealPlanningApi {
         * @return An endpoint representing a Object
         */
         private def deleteFromMealPlan(da: DataAccessor): Endpoint[Object] =
-        delete("mealplanner" :: string :: "items" :: bigdecimal :: param("hash") :: jsonBody[InlineObject5] :: param("apiKey")) { (username: String, id: BigDecimal, hash: String, inlineObject5: InlineObject5, authParamapiKeyScheme: String) =>
-          da.MealPlanning_deleteFromMealPlan(username, id, hash, inlineObject5, authParamapiKeyScheme) match {
+        delete("mealplanner" :: string :: "items" :: bigdecimal :: param("hash") :: jsonBody[DeleteFromMealPlanRequest] :: header("x-api-key")) { (username: String, id: BigDecimal, hash: String, deleteFromMealPlanRequest: DeleteFromMealPlanRequest, authParamapiKeyScheme: String) =>
+          da.MealPlanning_deleteFromMealPlan(username, id, hash, deleteFromMealPlanRequest, authParamapiKeyScheme) match {
             case Left(error) => checkError(error)
             case Right(data) => Ok(data)
           }
@@ -163,8 +164,8 @@ object MealPlanningApi {
         * @return An endpoint representing a Object
         */
         private def deleteFromShoppingList(da: DataAccessor): Endpoint[Object] =
-        delete("mealplanner" :: string :: "shopping-list" :: "items" :: int :: param("hash") :: jsonBody[InlineObject10] :: param("apiKey")) { (username: String, id: Int, hash: String, inlineObject10: InlineObject10, authParamapiKeyScheme: String) =>
-          da.MealPlanning_deleteFromShoppingList(username, id, hash, inlineObject10, authParamapiKeyScheme) match {
+        delete("mealplanner" :: string :: "shopping-list" :: "items" :: int :: param("hash") :: jsonBody[DeleteFromMealPlanRequest] :: header("x-api-key")) { (username: String, id: Int, hash: String, deleteFromMealPlanRequest: DeleteFromMealPlanRequest, authParamapiKeyScheme: String) =>
+          da.MealPlanning_deleteFromShoppingList(username, id, hash, deleteFromMealPlanRequest, authParamapiKeyScheme) match {
             case Left(error) => checkError(error)
             case Right(data) => Ok(data)
           }
@@ -177,8 +178,8 @@ object MealPlanningApi {
         * @return An endpoint representing a Object
         */
         private def deleteMealPlanTemplate(da: DataAccessor): Endpoint[Object] =
-        delete("mealplanner" :: string :: "templates" :: int :: param("hash") :: jsonBody[InlineObject7] :: param("apiKey")) { (username: String, id: Int, hash: String, inlineObject7: InlineObject7, authParamapiKeyScheme: String) =>
-          da.MealPlanning_deleteMealPlanTemplate(username, id, hash, inlineObject7, authParamapiKeyScheme) match {
+        delete("mealplanner" :: string :: "templates" :: int :: param("hash") :: jsonBody[DeleteFromMealPlanRequest] :: header("x-api-key")) { (username: String, id: Int, hash: String, deleteFromMealPlanRequest: DeleteFromMealPlanRequest, authParamapiKeyScheme: String) =>
+          da.MealPlanning_deleteMealPlanTemplate(username, id, hash, deleteFromMealPlanRequest, authParamapiKeyScheme) match {
             case Left(error) => checkError(error)
             case Right(data) => Ok(data)
           }
@@ -188,10 +189,10 @@ object MealPlanningApi {
 
         /**
         * 
-        * @return An endpoint representing a InlineResponse20037
+        * @return An endpoint representing a GenerateMealPlan200Response
         */
-        private def generateMealPlan(da: DataAccessor): Endpoint[InlineResponse20037] =
-        get("mealplanner" :: "generate" :: paramOption("timeFrame") :: paramOption("targetCalories").map(_.map(_.toBigDecimal)) :: paramOption("diet") :: paramOption("exclude") :: param("apiKey")) { (timeFrame: Option[String], targetCalories: Option[BigDecimal], diet: Option[String], exclude: Option[String], authParamapiKeyScheme: String) =>
+        private def generateMealPlan(da: DataAccessor): Endpoint[GenerateMealPlan200Response] =
+        get("mealplanner" :: "generate" :: paramOption("timeFrame") :: paramOption("targetCalories").map(_.map(_.toBigDecimal)) :: paramOption("diet") :: paramOption("exclude") :: header("x-api-key")) { (timeFrame: Option[String], targetCalories: Option[BigDecimal], diet: Option[String], exclude: Option[String], authParamapiKeyScheme: String) =>
           da.MealPlanning_generateMealPlan(timeFrame, targetCalories, diet, exclude, authParamapiKeyScheme) match {
             case Left(error) => checkError(error)
             case Right(data) => Ok(data)
@@ -202,11 +203,11 @@ object MealPlanningApi {
 
         /**
         * 
-        * @return An endpoint representing a InlineResponse20042
+        * @return An endpoint representing a GenerateShoppingList200Response
         */
-        private def generateShoppingList(da: DataAccessor): Endpoint[InlineResponse20042] =
-        post("mealplanner" :: string :: "shopping-list" :: string :: string :: param("hash") :: jsonBody[InlineObject8] :: param("apiKey")) { (username: String, startDate: String, endDate: String, hash: String, inlineObject8: InlineObject8, authParamapiKeyScheme: String) =>
-          da.MealPlanning_generateShoppingList(username, startDate, endDate, hash, inlineObject8, authParamapiKeyScheme) match {
+        private def generateShoppingList(da: DataAccessor): Endpoint[GenerateShoppingList200Response] =
+        post("mealplanner" :: string :: "shopping-list" :: string :: string :: param("hash") :: jsonBody[GenerateShoppingListRequest] :: header("x-api-key")) { (username: String, startDate: String, endDate: String, hash: String, generateShoppingListRequest: GenerateShoppingListRequest, authParamapiKeyScheme: String) =>
+          da.MealPlanning_generateShoppingList(username, startDate, endDate, hash, generateShoppingListRequest, authParamapiKeyScheme) match {
             case Left(error) => checkError(error)
             case Right(data) => Ok(data)
           }
@@ -216,10 +217,10 @@ object MealPlanningApi {
 
         /**
         * 
-        * @return An endpoint representing a InlineResponse20041
+        * @return An endpoint representing a GetMealPlanTemplate200Response
         */
-        private def getMealPlanTemplate(da: DataAccessor): Endpoint[InlineResponse20041] =
-        get("mealplanner" :: string :: "templates" :: int :: param("hash") :: param("apiKey")) { (username: String, id: Int, hash: String, authParamapiKeyScheme: String) =>
+        private def getMealPlanTemplate(da: DataAccessor): Endpoint[GetMealPlanTemplate200Response] =
+        get("mealplanner" :: string :: "templates" :: int :: param("hash") :: header("x-api-key")) { (username: String, id: Int, hash: String, authParamapiKeyScheme: String) =>
           da.MealPlanning_getMealPlanTemplate(username, id, hash, authParamapiKeyScheme) match {
             case Left(error) => checkError(error)
             case Right(data) => Ok(data)
@@ -230,10 +231,10 @@ object MealPlanningApi {
 
         /**
         * 
-        * @return An endpoint representing a InlineResponse20039
+        * @return An endpoint representing a GetMealPlanTemplates200Response
         */
-        private def getMealPlanTemplates(da: DataAccessor): Endpoint[InlineResponse20039] =
-        get("mealplanner" :: string :: "templates" :: param("hash") :: param("apiKey")) { (username: String, hash: String, authParamapiKeyScheme: String) =>
+        private def getMealPlanTemplates(da: DataAccessor): Endpoint[GetMealPlanTemplates200Response] =
+        get("mealplanner" :: string :: "templates" :: param("hash") :: header("x-api-key")) { (username: String, hash: String, authParamapiKeyScheme: String) =>
           da.MealPlanning_getMealPlanTemplates(username, hash, authParamapiKeyScheme) match {
             case Left(error) => checkError(error)
             case Right(data) => Ok(data)
@@ -244,10 +245,10 @@ object MealPlanningApi {
 
         /**
         * 
-        * @return An endpoint representing a InlineResponse20038
+        * @return An endpoint representing a GetMealPlanWeek200Response
         */
-        private def getMealPlanWeek(da: DataAccessor): Endpoint[InlineResponse20038] =
-        get("mealplanner" :: string :: "week" :: string :: param("hash") :: param("apiKey")) { (username: String, startDate: String, hash: String, authParamapiKeyScheme: String) =>
+        private def getMealPlanWeek(da: DataAccessor): Endpoint[GetMealPlanWeek200Response] =
+        get("mealplanner" :: string :: "week" :: string :: param("hash") :: header("x-api-key")) { (username: String, startDate: String, hash: String, authParamapiKeyScheme: String) =>
           da.MealPlanning_getMealPlanWeek(username, startDate, hash, authParamapiKeyScheme) match {
             case Left(error) => checkError(error)
             case Right(data) => Ok(data)
@@ -258,10 +259,10 @@ object MealPlanningApi {
 
         /**
         * 
-        * @return An endpoint representing a InlineResponse20042
+        * @return An endpoint representing a GetShoppingList200Response
         */
-        private def getShoppingList(da: DataAccessor): Endpoint[InlineResponse20042] =
-        get("mealplanner" :: string :: "shopping-list" :: param("hash") :: param("apiKey")) { (username: String, hash: String, authParamapiKeyScheme: String) =>
+        private def getShoppingList(da: DataAccessor): Endpoint[GetShoppingList200Response] =
+        get("mealplanner" :: string :: "shopping-list" :: param("hash") :: header("x-api-key")) { (username: String, hash: String, authParamapiKeyScheme: String) =>
           da.MealPlanning_getShoppingList(username, hash, authParamapiKeyScheme) match {
             case Left(error) => checkError(error)
             case Right(data) => Ok(data)
@@ -282,7 +283,7 @@ object MealPlanningApi {
     }
 
     private def bytesToFile(input: Array[Byte]): java.io.File = {
-      val file = File.createTempFile("tmpMealPlanningApi", null)
+      val file = Files.createTempFile("tmpMealPlanningApi", null).toFile
       val output = new FileOutputStream(file)
       output.write(input)
       file

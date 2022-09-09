@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 <a name="autocompleteingredientsearch"></a>
 # **AutocompleteIngredientSearch**
-> List<InlineResponse20024> AutocompleteIngredientSearch (string query, int? number, bool? metaInformation, string intolerances)
+> List<AutocompleteIngredientSearch200ResponseInner> AutocompleteIngredientSearch (string query, int? number, bool? metaInformation, string intolerances)
 
 Autocomplete Ingredient Search
 
@@ -37,11 +37,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new IngredientsApi();
             var query = burger;  // string | The (natural language) search query. (optional) 
@@ -52,7 +51,7 @@ namespace Example
             try
             {
                 // Autocomplete Ingredient Search
-                List&lt;InlineResponse20024&gt; result = apiInstance.AutocompleteIngredientSearch(query, number, metaInformation, intolerances);
+                List&lt;AutocompleteIngredientSearch200ResponseInner&gt; result = apiInstance.AutocompleteIngredientSearch(query, number, metaInformation, intolerances);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -75,7 +74,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<InlineResponse20024>**](InlineResponse20024.md)
+[**List<AutocompleteIngredientSearch200ResponseInner>**](AutocompleteIngredientSearch200ResponseInner.md)
 
 ### Authorization
 
@@ -90,7 +89,7 @@ Name | Type | Description  | Notes
 
 <a name="computeingredientamount"></a>
 # **ComputeIngredientAmount**
-> RecipesParseIngredientsNutritionWeightPerServing ComputeIngredientAmount (decimal? id, string nutrient, decimal? target, string unit)
+> ComputeIngredientAmount200Response ComputeIngredientAmount (decimal? id, string nutrient, decimal? target, string unit)
 
 Compute Ingredient Amount
 
@@ -110,11 +109,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new IngredientsApi();
             var id = 9266;  // decimal? | The id of the ingredient you want the amount for.
@@ -125,7 +123,7 @@ namespace Example
             try
             {
                 // Compute Ingredient Amount
-                RecipesParseIngredientsNutritionWeightPerServing result = apiInstance.ComputeIngredientAmount(id, nutrient, target, unit);
+                ComputeIngredientAmount200Response result = apiInstance.ComputeIngredientAmount(id, nutrient, target, unit);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -148,7 +146,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RecipesParseIngredientsNutritionWeightPerServing**](RecipesParseIngredientsNutritionWeightPerServing.md)
+[**ComputeIngredientAmount200Response**](ComputeIngredientAmount200Response.md)
 
 ### Authorization
 
@@ -163,7 +161,7 @@ Name | Type | Description  | Notes
 
 <a name="getingredientinformation"></a>
 # **GetIngredientInformation**
-> InlineResponse20022 GetIngredientInformation (int? id, decimal? amount, string unit)
+> GetIngredientInformation200Response GetIngredientInformation (int? id, decimal? amount, string unit)
 
 Get Ingredient Information
 
@@ -183,11 +181,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new IngredientsApi();
             var id = 1;  // int? | The item's id.
@@ -197,7 +194,7 @@ namespace Example
             try
             {
                 // Get Ingredient Information
-                InlineResponse20022 result = apiInstance.GetIngredientInformation(id, amount, unit);
+                GetIngredientInformation200Response result = apiInstance.GetIngredientInformation(id, amount, unit);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -219,7 +216,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20022**](InlineResponse20022.md)
+[**GetIngredientInformation200Response**](GetIngredientInformation200Response.md)
 
 ### Authorization
 
@@ -234,7 +231,7 @@ Name | Type | Description  | Notes
 
 <a name="getingredientsubstitutes"></a>
 # **GetIngredientSubstitutes**
-> InlineResponse20026 GetIngredientSubstitutes (string ingredientName)
+> GetIngredientSubstitutes200Response GetIngredientSubstitutes (string ingredientName)
 
 Get Ingredient Substitutes
 
@@ -254,11 +251,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new IngredientsApi();
             var ingredientName = butter;  // string | The name of the ingredient you want to replace.
@@ -266,7 +262,7 @@ namespace Example
             try
             {
                 // Get Ingredient Substitutes
-                InlineResponse20026 result = apiInstance.GetIngredientSubstitutes(ingredientName);
+                GetIngredientSubstitutes200Response result = apiInstance.GetIngredientSubstitutes(ingredientName);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -286,7 +282,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20026**](InlineResponse20026.md)
+[**GetIngredientSubstitutes200Response**](GetIngredientSubstitutes200Response.md)
 
 ### Authorization
 
@@ -301,7 +297,7 @@ Name | Type | Description  | Notes
 
 <a name="getingredientsubstitutesbyid"></a>
 # **GetIngredientSubstitutesByID**
-> InlineResponse20026 GetIngredientSubstitutesByID (int? id)
+> GetIngredientSubstitutes200Response GetIngredientSubstitutesByID (int? id)
 
 Get Ingredient Substitutes by ID
 
@@ -321,11 +317,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new IngredientsApi();
             var id = 1;  // int? | The item's id.
@@ -333,7 +328,7 @@ namespace Example
             try
             {
                 // Get Ingredient Substitutes by ID
-                InlineResponse20026 result = apiInstance.GetIngredientSubstitutesByID(id);
+                GetIngredientSubstitutes200Response result = apiInstance.GetIngredientSubstitutesByID(id);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -353,7 +348,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20026**](InlineResponse20026.md)
+[**GetIngredientSubstitutes200Response**](GetIngredientSubstitutes200Response.md)
 
 ### Authorization
 
@@ -368,7 +363,7 @@ Name | Type | Description  | Notes
 
 <a name="ingredientsearch"></a>
 # **IngredientSearch**
-> InlineResponse20025 IngredientSearch (string query, bool? addChildren, decimal? minProteinPercent, decimal? maxProteinPercent, decimal? minFatPercent, decimal? maxFatPercent, decimal? minCarbsPercent, decimal? maxCarbsPercent, bool? metaInformation, string intolerances, string sort, string sortDirection, int? offset, int? number)
+> IngredientSearch200Response IngredientSearch (string query, bool? addChildren, decimal? minProteinPercent, decimal? maxProteinPercent, decimal? minFatPercent, decimal? maxFatPercent, decimal? minCarbsPercent, decimal? maxCarbsPercent, bool? metaInformation, string intolerances, string sort, string sortDirection, int? offset, int? number)
 
 Ingredient Search
 
@@ -388,11 +383,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new IngredientsApi();
             var query = burger;  // string | The (natural language) search query. (optional) 
@@ -413,7 +407,7 @@ namespace Example
             try
             {
                 // Ingredient Search
-                InlineResponse20025 result = apiInstance.IngredientSearch(query, addChildren, minProteinPercent, maxProteinPercent, minFatPercent, maxFatPercent, minCarbsPercent, maxCarbsPercent, metaInformation, intolerances, sort, sortDirection, offset, number);
+                IngredientSearch200Response result = apiInstance.IngredientSearch(query, addChildren, minProteinPercent, maxProteinPercent, minFatPercent, maxFatPercent, minCarbsPercent, maxCarbsPercent, metaInformation, intolerances, sort, sortDirection, offset, number);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -446,7 +440,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20025**](InlineResponse20025.md)
+[**IngredientSearch200Response**](IngredientSearch200Response.md)
 
 ### Authorization
 
@@ -481,11 +475,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new IngredientsApi();
             var id = 1082038;  // decimal? | The recipe id.
@@ -530,7 +523,7 @@ Name | Type | Description  | Notes
 
 <a name="mapingredientstogroceryproducts"></a>
 # **MapIngredientsToGroceryProducts**
-> List<InlineResponse20034> MapIngredientsToGroceryProducts (InlineObject2 inlineObject2)
+> List<MapIngredientsToGroceryProducts200ResponseInner> MapIngredientsToGroceryProducts (MapIngredientsToGroceryProductsRequest mapIngredientsToGroceryProductsRequest)
 
 Map Ingredients to Grocery Products
 
@@ -550,19 +543,18 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new IngredientsApi();
-            var inlineObject2 = new InlineObject2(); // InlineObject2 | 
+            var mapIngredientsToGroceryProductsRequest = new MapIngredientsToGroceryProductsRequest(); // MapIngredientsToGroceryProductsRequest | 
 
             try
             {
                 // Map Ingredients to Grocery Products
-                List&lt;InlineResponse20034&gt; result = apiInstance.MapIngredientsToGroceryProducts(inlineObject2);
+                List&lt;MapIngredientsToGroceryProducts200ResponseInner&gt; result = apiInstance.MapIngredientsToGroceryProducts(mapIngredientsToGroceryProductsRequest);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -578,11 +570,11 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject2** | [**InlineObject2**](InlineObject2.md)|  | 
+ **mapIngredientsToGroceryProductsRequest** | [**MapIngredientsToGroceryProductsRequest**](MapIngredientsToGroceryProductsRequest.md)|  | 
 
 ### Return type
 
-[**List<InlineResponse20034>**](InlineResponse20034.md)
+[**List<MapIngredientsToGroceryProducts200ResponseInner>**](MapIngredientsToGroceryProducts200ResponseInner.md)
 
 ### Authorization
 
@@ -617,11 +609,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new IngredientsApi();
             var contentType = application/json;  // string | The content type. (optional) 

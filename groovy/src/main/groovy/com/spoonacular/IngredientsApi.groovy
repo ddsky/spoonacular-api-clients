@@ -1,14 +1,15 @@
 package com.spoonacular;
 
 import com.spoonacular.client.ApiUtils
+import com.spoonacular.client.model.AutocompleteIngredientSearch200ResponseInner
 import java.math.BigDecimal
-import com.spoonacular.client.model.InlineObject2
-import com.spoonacular.client.model.InlineResponse20022
-import com.spoonacular.client.model.InlineResponse20024
-import com.spoonacular.client.model.InlineResponse20025
-import com.spoonacular.client.model.InlineResponse20026
-import com.spoonacular.client.model.InlineResponse20034
-import com.spoonacular.client.model.RecipesParseIngredientsNutritionWeightPerServing
+import com.spoonacular.client.model.ComputeIngredientAmount200Response
+import com.spoonacular.client.model.GetIngredientInformation200Response
+import com.spoonacular.client.model.GetIngredientSubstitutes200Response
+import com.spoonacular.client.model.IngredientSearch200Response
+import com.spoonacular.client.model.MapIngredientsToGroceryProducts200ResponseInner
+import com.spoonacular.client.model.MapIngredientsToGroceryProductsRequest
+import java.util.Set
 
 class IngredientsApi {
     String basePath = "https://api.spoonacular.com"
@@ -42,8 +43,8 @@ class IngredientsApi {
 
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
-                    "GET", "array",
-                    InlineResponse20024.class )
+                    "GET", "set",
+                    AutocompleteIngredientSearch200ResponseInner.class )
 
     }
 
@@ -84,7 +85,7 @@ class IngredientsApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "GET", "",
-                    RecipesParseIngredientsNutritionWeightPerServing.class )
+                    ComputeIngredientAmount200Response.class )
 
     }
 
@@ -114,7 +115,7 @@ class IngredientsApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "GET", "",
-                    InlineResponse20022.class )
+                    GetIngredientInformation200Response.class )
 
     }
 
@@ -141,7 +142,7 @@ class IngredientsApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "GET", "",
-                    InlineResponse20026.class )
+                    GetIngredientSubstitutes200Response.class )
 
     }
 
@@ -165,7 +166,7 @@ class IngredientsApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "GET", "",
-                    InlineResponse20026.class )
+                    GetIngredientSubstitutes200Response.class )
 
     }
 
@@ -227,7 +228,7 @@ class IngredientsApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "GET", "",
-                    InlineResponse20025.class )
+                    IngredientSearch200Response.class )
 
     }
 
@@ -258,7 +259,7 @@ class IngredientsApi {
 
     }
 
-    def mapIngredientsToGroceryProducts ( InlineObject2 inlineObject2, Closure onSuccess, Closure onFailure)  {
+    def mapIngredientsToGroceryProducts ( MapIngredientsToGroceryProductsRequest mapIngredientsToGroceryProductsRequest, Closure onSuccess, Closure onFailure)  {
         String resourcePath = "/food/ingredients/map"
 
         // params
@@ -268,19 +269,19 @@ class IngredientsApi {
         def contentType
 
         // verify required params are set
-        if (inlineObject2 == null) {
-            throw new RuntimeException("missing required params inlineObject2")
+        if (mapIngredientsToGroceryProductsRequest == null) {
+            throw new RuntimeException("missing required params mapIngredientsToGroceryProductsRequest")
         }
 
 
 
         contentType = 'application/json';
-        bodyParams = inlineObject2
+        bodyParams = mapIngredientsToGroceryProductsRequest
 
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
-                    "POST", "array",
-                    InlineResponse20034.class )
+                    "POST", "set",
+                    MapIngredientsToGroceryProducts200ResponseInner.class )
 
     }
 

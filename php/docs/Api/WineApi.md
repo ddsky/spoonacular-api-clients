@@ -1,19 +1,20 @@
 # com.spoonacular.client\WineApi
 
-All URIs are relative to *https://api.spoonacular.com*
+All URIs are relative to https://api.spoonacular.com.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getDishPairingForWine**](WineApi.md#getDishPairingForWine) | **GET** /food/wine/dishes | Dish Pairing for Wine
-[**getWineDescription**](WineApi.md#getWineDescription) | **GET** /food/wine/description | Wine Description
-[**getWinePairing**](WineApi.md#getWinePairing) | **GET** /food/wine/pairing | Wine Pairing
-[**getWineRecommendation**](WineApi.md#getWineRecommendation) | **GET** /food/wine/recommendation | Wine Recommendation
+[**getDishPairingForWine()**](WineApi.md#getDishPairingForWine) | **GET** /food/wine/dishes | Dish Pairing for Wine
+[**getWineDescription()**](WineApi.md#getWineDescription) | **GET** /food/wine/description | Wine Description
+[**getWinePairing()**](WineApi.md#getWinePairing) | **GET** /food/wine/pairing | Wine Pairing
+[**getWineRecommendation()**](WineApi.md#getWineRecommendation) | **GET** /food/wine/recommendation | Wine Recommendation
 
 
+## `getDishPairingForWine()`
 
-## getDishPairingForWine
-
-> \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20044 getDishPairingForWine($wine)
+```php
+getDishPairingForWine($wine): \com.spoonacular.client\com.spoonacular.client.model\GetDishPairingForWine200Response
+```
 
 Dish Pairing for Wine
 
@@ -27,9 +28,9 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
 $apiInstance = new com.spoonacular.client\Api\WineApi(
@@ -46,11 +47,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling WineApi->getDishPairingForWine: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -58,7 +57,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20044**](../Model/InlineResponse20044.md)
+[**\com.spoonacular.client\com.spoonacular.client.model\GetDishPairingForWine200Response**](../Model/GetDishPairingForWine200Response.md)
 
 ### Authorization
 
@@ -67,16 +66,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getWineDescription()`
 
-## getWineDescription
-
-> \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20046 getWineDescription($wine)
+```php
+getWineDescription($wine): \com.spoonacular.client\com.spoonacular.client.model\GetWineDescription200Response
+```
 
 Wine Description
 
@@ -90,9 +90,9 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
 $apiInstance = new com.spoonacular.client\Api\WineApi(
@@ -109,11 +109,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling WineApi->getWineDescription: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -121,7 +119,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20046**](../Model/InlineResponse20046.md)
+[**\com.spoonacular.client\com.spoonacular.client.model\GetWineDescription200Response**](../Model/GetWineDescription200Response.md)
 
 ### Authorization
 
@@ -130,16 +128,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getWinePairing()`
 
-## getWinePairing
-
-> \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20045 getWinePairing($food, $max_price)
+```php
+getWinePairing($food, $max_price): \com.spoonacular.client\com.spoonacular.client.model\GetWinePairing200Response
+```
 
 Wine Pairing
 
@@ -153,9 +152,9 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
 $apiInstance = new com.spoonacular.client\Api\WineApi(
@@ -173,11 +172,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling WineApi->getWinePairing: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -186,7 +183,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20045**](../Model/InlineResponse20045.md)
+[**\com.spoonacular.client\com.spoonacular.client.model\GetWinePairing200Response**](../Model/GetWinePairing200Response.md)
 
 ### Authorization
 
@@ -195,16 +192,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getWineRecommendation()`
 
-## getWineRecommendation
-
-> \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20047 getWineRecommendation($wine, $max_price, $min_rating, $number)
+```php
+getWineRecommendation($wine, $max_price, $min_rating, $number): \com.spoonacular.client\com.spoonacular.client.model\GetWineRecommendation200Response
+```
 
 Wine Recommendation
 
@@ -218,9 +216,9 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
 $apiInstance = new com.spoonacular.client\Api\WineApi(
@@ -240,11 +238,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling WineApi->getWineRecommendation: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -255,7 +251,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20047**](../Model/InlineResponse20047.md)
+[**\com.spoonacular.client\com.spoonacular.client.model\GetWineRecommendation200Response**](../Model/GetWineRecommendation200Response.md)
 
 ### Authorization
 
@@ -264,9 +260,8 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
-

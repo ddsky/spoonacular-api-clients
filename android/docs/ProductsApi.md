@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 ## autocompleteProductSearch
 
-> InlineResponse20032 autocompleteProductSearch(query, number)
+> AutocompleteProductSearch200Response autocompleteProductSearch(query, number)
 
 Autocomplete Product Search
 
@@ -36,7 +36,7 @@ ProductsApi apiInstance = new ProductsApi();
 String query = chicke; // String | The (partial) search query.
 Integer number = 10; // Integer | The number of results to return (between 1 and 25).
 try {
-    InlineResponse20032 result = apiInstance.autocompleteProductSearch(query, number);
+    AutocompleteProductSearch200Response result = apiInstance.autocompleteProductSearch(query, number);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ProductsApi#autocompleteProductSearch");
@@ -54,7 +54,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20032**](InlineResponse20032.md)
+[**AutocompleteProductSearch200Response**](AutocompleteProductSearch200Response.md)
 
 ### Authorization
 
@@ -68,7 +68,7 @@ Name | Type | Description  | Notes
 
 ## classifyGroceryProduct
 
-> InlineResponse20033 classifyGroceryProduct(inlineObject1, locale)
+> ClassifyGroceryProduct200Response classifyGroceryProduct(classifyGroceryProductRequest, locale)
 
 Classify Grocery Product
 
@@ -81,10 +81,10 @@ This endpoint allows you to match a packaged food to a basic category, e.g. a sp
 //import com.spoonacular.ProductsApi;
 
 ProductsApi apiInstance = new ProductsApi();
-InlineObject1 inlineObject1 = new InlineObject1(); // InlineObject1 | 
+ClassifyGroceryProductRequest classifyGroceryProductRequest = {"title":"Kroger Vitamin A & D Reduced Fat 2% Milk","upc":"","plu_code":""}; // ClassifyGroceryProductRequest | 
 String locale = en_US; // String | The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).
 try {
-    InlineResponse20033 result = apiInstance.classifyGroceryProduct(inlineObject1, locale);
+    ClassifyGroceryProduct200Response result = apiInstance.classifyGroceryProduct(classifyGroceryProductRequest, locale);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ProductsApi#classifyGroceryProduct");
@@ -97,12 +97,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject1** | [**InlineObject1**](InlineObject1.md)|  |
+ **classifyGroceryProductRequest** | [**ClassifyGroceryProductRequest**](ClassifyGroceryProductRequest.md)|  |
  **locale** | **String**| The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). | [optional] [default to null] [enum: en_US, en_GB]
 
 ### Return type
 
-[**InlineResponse20033**](InlineResponse20033.md)
+[**ClassifyGroceryProduct200Response**](ClassifyGroceryProduct200Response.md)
 
 ### Authorization
 
@@ -116,7 +116,7 @@ Name | Type | Description  | Notes
 
 ## classifyGroceryProductBulk
 
-> List&lt;InlineResponse20033&gt; classifyGroceryProductBulk(inlineObject, locale)
+> Set&lt;ClassifyGroceryProductBulk200ResponseInner&gt; classifyGroceryProductBulk(classifyGroceryProductBulkRequestInner, locale)
 
 Classify Grocery Product Bulk
 
@@ -129,10 +129,10 @@ Provide a set of product jsons, get back classified products.
 //import com.spoonacular.ProductsApi;
 
 ProductsApi apiInstance = new ProductsApi();
-List<InlineObject> inlineObject = [{"title":"Kroger Vitamin A & D Reduced Fat 2% Milk","upc":"","plu_code":""}]; // List<InlineObject> | 
+Set<ClassifyGroceryProductBulkRequestInner> classifyGroceryProductBulkRequestInner = [{"title":"Kroger Vitamin A & D Reduced Fat 2% Milk","upc":"","plu_code":""}]; // Set<ClassifyGroceryProductBulkRequestInner> | 
 String locale = en_US; // String | The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).
 try {
-    List<InlineResponse20033> result = apiInstance.classifyGroceryProductBulk(inlineObject, locale);
+    Set<ClassifyGroceryProductBulk200ResponseInner> result = apiInstance.classifyGroceryProductBulk(classifyGroceryProductBulkRequestInner, locale);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ProductsApi#classifyGroceryProductBulk");
@@ -145,12 +145,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject** | [**List&lt;InlineObject&gt;**](List.md)|  |
+ **classifyGroceryProductBulkRequestInner** | [**Set&lt;ClassifyGroceryProductBulkRequestInner&gt;**](ClassifyGroceryProductBulkRequestInner.md)|  |
  **locale** | **String**| The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). | [optional] [default to null]
 
 ### Return type
 
-[**List&lt;InlineResponse20033&gt;**](InlineResponse20033.md)
+[**Set&lt;ClassifyGroceryProductBulk200ResponseInner&gt;**](ClassifyGroceryProductBulk200ResponseInner.md)
 
 ### Authorization
 
@@ -164,7 +164,7 @@ Name | Type | Description  | Notes
 
 ## getComparableProducts
 
-> InlineResponse20031 getComparableProducts(upc)
+> GetComparableProducts200Response getComparableProducts(upc)
 
 Get Comparable Products
 
@@ -179,7 +179,7 @@ Find comparable products to the given one.
 ProductsApi apiInstance = new ProductsApi();
 BigDecimal upc = 33698816271; // BigDecimal | The UPC of the product for which you want to find comparable products.
 try {
-    InlineResponse20031 result = apiInstance.getComparableProducts(upc);
+    GetComparableProducts200Response result = apiInstance.getComparableProducts(upc);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ProductsApi#getComparableProducts");
@@ -196,7 +196,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20031**](InlineResponse20031.md)
+[**GetComparableProducts200Response**](GetComparableProducts200Response.md)
 
 ### Authorization
 
@@ -210,7 +210,7 @@ Name | Type | Description  | Notes
 
 ## getProductInformation
 
-> InlineResponse20030 getProductInformation(id)
+> GetProductInformation200Response getProductInformation(id)
 
 Get Product Information
 
@@ -225,7 +225,7 @@ Use a product id to get full information about a product, such as ingredients, n
 ProductsApi apiInstance = new ProductsApi();
 Integer id = 1; // Integer | The item's id.
 try {
-    InlineResponse20030 result = apiInstance.getProductInformation(id);
+    GetProductInformation200Response result = apiInstance.getProductInformation(id);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ProductsApi#getProductInformation");
@@ -242,7 +242,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20030**](InlineResponse20030.md)
+[**GetProductInformation200Response**](GetProductInformation200Response.md)
 
 ### Authorization
 
@@ -408,7 +408,7 @@ Name | Type | Description  | Notes
 
 ## searchGroceryProducts
 
-> InlineResponse20027 searchGroceryProducts(query, minCalories, maxCalories, minCarbs, maxCarbs, minProtein, maxProtein, minFat, maxFat, addProductInformation, offset, number)
+> SearchGroceryProducts200Response searchGroceryProducts(query, minCalories, maxCalories, minCarbs, maxCarbs, minProtein, maxProtein, minFat, maxFat, addProductInformation, offset, number)
 
 Search Grocery Products
 
@@ -434,7 +434,7 @@ Boolean addProductInformation = true; // Boolean | If set to true, you get more 
 Integer offset = null; // Integer | The number of results to skip (between 0 and 900).
 Integer number = 10; // Integer | The maximum number of items to return (between 1 and 100). Defaults to 10.
 try {
-    InlineResponse20027 result = apiInstance.searchGroceryProducts(query, minCalories, maxCalories, minCarbs, maxCarbs, minProtein, maxProtein, minFat, maxFat, addProductInformation, offset, number);
+    SearchGroceryProducts200Response result = apiInstance.searchGroceryProducts(query, minCalories, maxCalories, minCarbs, maxCarbs, minProtein, maxProtein, minFat, maxFat, addProductInformation, offset, number);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ProductsApi#searchGroceryProducts");
@@ -462,7 +462,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20027**](InlineResponse20027.md)
+[**SearchGroceryProducts200Response**](SearchGroceryProducts200Response.md)
 
 ### Authorization
 
@@ -476,7 +476,7 @@ Name | Type | Description  | Notes
 
 ## searchGroceryProductsByUPC
 
-> InlineResponse20028 searchGroceryProductsByUPC(upc)
+> SearchGroceryProductsByUPC200Response searchGroceryProductsByUPC(upc)
 
 Search Grocery Products by UPC
 
@@ -491,7 +491,7 @@ Get information about a packaged food using its UPC.
 ProductsApi apiInstance = new ProductsApi();
 BigDecimal upc = 41631000564; // BigDecimal | The product's UPC.
 try {
-    InlineResponse20028 result = apiInstance.searchGroceryProductsByUPC(upc);
+    SearchGroceryProductsByUPC200Response result = apiInstance.searchGroceryProductsByUPC(upc);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ProductsApi#searchGroceryProductsByUPC");
@@ -508,7 +508,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20028**](InlineResponse20028.md)
+[**SearchGroceryProductsByUPC200Response**](SearchGroceryProductsByUPC200Response.md)
 
 ### Authorization
 

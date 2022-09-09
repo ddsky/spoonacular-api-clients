@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 ## autocompleteIngredientSearch
 
-> [InlineResponse20024] autocompleteIngredientSearch(opts)
+> [AutocompleteIngredientSearch200ResponseInner] autocompleteIngredientSearch(opts)
 
 Autocomplete Ingredient Search
 
@@ -38,7 +38,7 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 let apiInstance = new SpoonacularApi.IngredientsApi();
 let opts = {
   'query': burger, // String | The (natural language) search query.
-  '_number': 10, // Number | The maximum number of items to return (between 1 and 100). Defaults to 10.
+  'number': 10, // Number | The maximum number of items to return (between 1 and 100). Defaults to 10.
   'metaInformation': false, // Boolean | Whether to return more meta information about the ingredients.
   'intolerances': egg // String | A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
 };
@@ -57,13 +57,13 @@ apiInstance.autocompleteIngredientSearch(opts, (error, data, response) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **query** | **String**| The (natural language) search query. | [optional] 
- **_number** | **Number**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
+ **number** | **Number**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
  **metaInformation** | **Boolean**| Whether to return more meta information about the ingredients. | [optional] 
  **intolerances** | **String**| A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. | [optional] 
 
 ### Return type
 
-[**[InlineResponse20024]**](InlineResponse20024.md)
+[**[AutocompleteIngredientSearch200ResponseInner]**](AutocompleteIngredientSearch200ResponseInner.md)
 
 ### Authorization
 
@@ -77,7 +77,7 @@ Name | Type | Description  | Notes
 
 ## computeIngredientAmount
 
-> RecipesParseIngredientsNutritionWeightPerServing computeIngredientAmount(id, nutrient, target, opts)
+> ComputeIngredientAmount200Response computeIngredientAmount(id, nutrient, target, opts)
 
 Compute Ingredient Amount
 
@@ -122,7 +122,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RecipesParseIngredientsNutritionWeightPerServing**](RecipesParseIngredientsNutritionWeightPerServing.md)
+[**ComputeIngredientAmount200Response**](ComputeIngredientAmount200Response.md)
 
 ### Authorization
 
@@ -136,7 +136,7 @@ Name | Type | Description  | Notes
 
 ## getIngredientInformation
 
-> InlineResponse20022 getIngredientInformation(id, opts)
+> GetIngredientInformation200Response getIngredientInformation(id, opts)
 
 Get Ingredient Information
 
@@ -179,7 +179,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20022**](InlineResponse20022.md)
+[**GetIngredientInformation200Response**](GetIngredientInformation200Response.md)
 
 ### Authorization
 
@@ -193,7 +193,7 @@ Name | Type | Description  | Notes
 
 ## getIngredientSubstitutes
 
-> InlineResponse20026 getIngredientSubstitutes(ingredientName)
+> GetIngredientSubstitutes200Response getIngredientSubstitutes(ingredientName)
 
 Get Ingredient Substitutes
 
@@ -230,7 +230,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20026**](InlineResponse20026.md)
+[**GetIngredientSubstitutes200Response**](GetIngredientSubstitutes200Response.md)
 
 ### Authorization
 
@@ -244,7 +244,7 @@ Name | Type | Description  | Notes
 
 ## getIngredientSubstitutesByID
 
-> InlineResponse20026 getIngredientSubstitutesByID(id)
+> GetIngredientSubstitutes200Response getIngredientSubstitutesByID(id)
 
 Get Ingredient Substitutes by ID
 
@@ -281,7 +281,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20026**](InlineResponse20026.md)
+[**GetIngredientSubstitutes200Response**](GetIngredientSubstitutes200Response.md)
 
 ### Authorization
 
@@ -295,7 +295,7 @@ Name | Type | Description  | Notes
 
 ## ingredientSearch
 
-> InlineResponse20025 ingredientSearch(opts)
+> IngredientSearch200Response ingredientSearch(opts)
 
 Ingredient Search
 
@@ -327,7 +327,7 @@ let opts = {
   'sort': calories, // String | The strategy to sort recipes by. See a full list of supported sorting options.
   'sortDirection': asc, // String | The direction in which to sort. Must be either 'asc' (ascending) or 'desc' (descending).
   'offset': 56, // Number | The number of results to skip (between 0 and 900).
-  '_number': 10 // Number | The maximum number of items to return (between 1 and 100). Defaults to 10.
+  'number': 10 // Number | The maximum number of items to return (between 1 and 100). Defaults to 10.
 };
 apiInstance.ingredientSearch(opts, (error, data, response) => {
   if (error) {
@@ -356,11 +356,11 @@ Name | Type | Description  | Notes
  **sort** | **String**| The strategy to sort recipes by. See a full list of supported sorting options. | [optional] 
  **sortDirection** | **String**| The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending). | [optional] 
  **offset** | **Number**| The number of results to skip (between 0 and 900). | [optional] 
- **_number** | **Number**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
+ **number** | **Number**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
 
 ### Return type
 
-[**InlineResponse20025**](InlineResponse20025.md)
+[**IngredientSearch200Response**](IngredientSearch200Response.md)
 
 ### Authorization
 
@@ -429,7 +429,7 @@ Name | Type | Description  | Notes
 
 ## mapIngredientsToGroceryProducts
 
-> [InlineResponse20034] mapIngredientsToGroceryProducts(inlineObject2)
+> [MapIngredientsToGroceryProducts200ResponseInner] mapIngredientsToGroceryProducts(mapIngredientsToGroceryProductsRequest)
 
 Map Ingredients to Grocery Products
 
@@ -447,8 +447,8 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.IngredientsApi();
-let inlineObject2 = new SpoonacularApi.InlineObject2(); // InlineObject2 | 
-apiInstance.mapIngredientsToGroceryProducts(inlineObject2, (error, data, response) => {
+let mapIngredientsToGroceryProductsRequest = {"ingredients":["eggs","bacon"],"servings":2}; // MapIngredientsToGroceryProductsRequest | 
+apiInstance.mapIngredientsToGroceryProducts(mapIngredientsToGroceryProductsRequest, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -462,11 +462,11 @@ apiInstance.mapIngredientsToGroceryProducts(inlineObject2, (error, data, respons
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject2** | [**InlineObject2**](InlineObject2.md)|  | 
+ **mapIngredientsToGroceryProductsRequest** | [**MapIngredientsToGroceryProductsRequest**](MapIngredientsToGroceryProductsRequest.md)|  | 
 
 ### Return type
 
-[**[InlineResponse20034]**](InlineResponse20034.md)
+[**[MapIngredientsToGroceryProducts200ResponseInner]**](MapIngredientsToGroceryProducts200ResponseInner.md)
 
 ### Authorization
 

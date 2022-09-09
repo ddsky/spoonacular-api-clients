@@ -3,139 +3,158 @@
             [clojure.spec.alpha :as s]
             [spec-tools.core :as st]
             [orchestra.core :refer [defn-spec]]
-            [spoonacular-api.specs.inline-response-200-41-days :refer :all]
-            [spoonacular-api.specs.inline-response-200-31-comparable-products :refer :all]
-            [spoonacular-api.specs.inline-response-200-42-measures :refer :all]
-            [spoonacular-api.specs.inline-response-200-38-days :refer :all]
-            [spoonacular-api.specs.inline-response-200-49-nutrition :refer :all]
-            [spoonacular-api.specs.inline-response-200-38-items :refer :all]
-            [spoonacular-api.specs.inline-response-200-results :refer :all]
-            [spoonacular-api.specs.inline-response-200-3-extended-ingredients :refer :all]
-            [spoonacular-api.specs.-recipes-parse-ingredients-nutrition-properties :refer :all]
-            [spoonacular-api.specs.inline-object-10 :refer :all]
-            [spoonacular-api.specs.inline-response-200-3-measures-metric :refer :all]
-            [spoonacular-api.specs.inline-response-200-42-items :refer :all]
-            [spoonacular-api.specs.inline-response-200-13-ingredients-1 :refer :all]
-            [spoonacular-api.specs.inline-response-200-31-comparable-products-protein :refer :all]
-            [spoonacular-api.specs.inline-response-200-28-servings :refer :all]
-            [spoonacular-api.specs.inline-response-200-30-ingredients :refer :all]
-            [spoonacular-api.specs.inline-response-200-38-value :refer :all]
-            [spoonacular-api.specs.inline-response-200-40-value :refer :all]
-            [spoonacular-api.specs.inline-response-200-10-amount :refer :all]
-            [spoonacular-api.specs.-recipes-parse-ingredients-nutrition-caloric-breakdown :refer :all]
-            [spoonacular-api.specs.inline-response-200-9 :refer :all]
-            [spoonacular-api.specs.inline-response-200-3-wine-pairing :refer :all]
-            [spoonacular-api.specs.inline-response-200-8 :refer :all]
-            [spoonacular-api.specs.inline-response-200-7 :refer :all]
-            [spoonacular-api.specs.inline-response-200-6 :refer :all]
-            [spoonacular-api.specs.inline-response-200-5 :refer :all]
-            [spoonacular-api.specs.inline-response-200-4 :refer :all]
-            [spoonacular-api.specs.inline-response-200-3 :refer :all]
-            [spoonacular-api.specs.inline-response-200 :refer :all]
-            [spoonacular-api.specs.inline-response-200-32-results :refer :all]
-            [spoonacular-api.specs.inline-response-200-19 :refer :all]
-            [spoonacular-api.specs.inline-response-200-18 :refer :all]
-            [spoonacular-api.specs.inline-response-200-17 :refer :all]
-            [spoonacular-api.specs.inline-response-200-16 :refer :all]
-            [spoonacular-api.specs.inline-response-200-29-custom-foods :refer :all]
-            [spoonacular-api.specs.inline-response-200-15 :refer :all]
-            [spoonacular-api.specs.inline-response-200-14 :refer :all]
-            [spoonacular-api.specs.inline-response-200-13 :refer :all]
-            [spoonacular-api.specs.inline-response-200-12 :refer :all]
-            [spoonacular-api.specs.inline-response-200-10-amount-metric :refer :all]
-            [spoonacular-api.specs.inline-response-200-11 :refer :all]
-            [spoonacular-api.specs.inline-response-200-10 :refer :all]
-            [spoonacular-api.specs.inline-response-200-53-search-results :refer :all]
-            [spoonacular-api.specs.inline-response-200-40-items :refer :all]
-            [spoonacular-api.specs.inline-response-200-18-dishes :refer :all]
-            [spoonacular-api.specs.inline-response-200-6-recipes :refer :all]
-            [spoonacular-api.specs.inline-response-200-13-parsed-instructions :refer :all]
-            [spoonacular-api.specs.-recipes-parse-ingredients-nutrition-nutrients :refer :all]
-            [spoonacular-api.specs.inline-response-200-13-steps :refer :all]
-            [spoonacular-api.specs.inline-response-200-3-measures :refer :all]
-            [spoonacular-api.specs.inline-response-200-53-results :refer :all]
-            [spoonacular-api.specs.inline-response-200-49-recipes :refer :all]
-            [spoonacular-api.specs.inline-response-200-45-product-matches :refer :all]
-            [spoonacular-api.specs.inline-response-200-38-nutrition-summary-nutrients :refer :all]
-            [spoonacular-api.specs.inline-response-200-41-value :refer :all]
-            [spoonacular-api.specs.inline-response-200-18-ingredients :refer :all]
-            [spoonacular-api.specs.inline-response-200-41-items :refer :all]
-            [spoonacular-api.specs.inline-response-200-22-nutrition :refer :all]
-            [spoonacular-api.specs.-recipes-parse-ingredients-estimated-cost :refer :all]
-            [spoonacular-api.specs.inline-response-200-21-calories :refer :all]
-            [spoonacular-api.specs.-recipes-parse-ingredients-nutrition-weight-per-serving :refer :all]
-            [spoonacular-api.specs.inline-response-200-39 :refer :all]
-            [spoonacular-api.specs.inline-response-200-49-nutrition-calories :refer :all]
-            [spoonacular-api.specs.inline-object :refer :all]
-            [spoonacular-api.specs.inline-response-200-38 :refer :all]
-            [spoonacular-api.specs.inline-response-200-37 :refer :all]
-            [spoonacular-api.specs.inline-response-200-3-wine-pairing-product-matches :refer :all]
-            [spoonacular-api.specs.inline-response-200-36 :refer :all]
-            [spoonacular-api.specs.inline-response-200-35 :refer :all]
-            [spoonacular-api.specs.inline-response-200-34 :refer :all]
-            [spoonacular-api.specs.inline-response-200-33 :refer :all]
-            [spoonacular-api.specs.inline-response-200-32 :refer :all]
-            [spoonacular-api.specs.inline-response-200-31 :refer :all]
-            [spoonacular-api.specs.inline-response-200-30 :refer :all]
-            [spoonacular-api.specs.inline-response-200-57-suggests :refer :all]
-            [spoonacular-api.specs.inline-response-200-37-nutrients :refer :all]
-            [spoonacular-api.specs.inline-response-200-11-ingredients :refer :all]
-            [spoonacular-api.specs.inline-response-200-38-nutrition-summary :refer :all]
-            [spoonacular-api.specs.inline-response-200-10-ingredients :refer :all]
-            [spoonacular-api.specs.inline-response-200-25-results :refer :all]
-            [spoonacular-api.specs.inline-response-200-13-ingredients :refer :all]
-            [spoonacular-api.specs.inline-response-200-49-nutrition-calories-confidence-range95-percent :refer :all]
-            [spoonacular-api.specs.inline-response-200-23-ingredients :refer :all]
-            [spoonacular-api.specs.inline-response-200-29 :refer :all]
-            [spoonacular-api.specs.inline-response-200-28 :refer :all]
-            [spoonacular-api.specs.inline-response-200-27 :refer :all]
-            [spoonacular-api.specs.inline-response-200-2 :refer :all]
-            [spoonacular-api.specs.inline-response-200-21-calories-confidence-range95-percent :refer :all]
-            [spoonacular-api.specs.inline-response-200-26 :refer :all]
-            [spoonacular-api.specs.inline-response-200-1 :refer :all]
-            [spoonacular-api.specs.inline-response-200-25 :refer :all]
-            [spoonacular-api.specs.inline-response-200-24 :refer :all]
-            [spoonacular-api.specs.inline-response-200-23 :refer :all]
-            [spoonacular-api.specs.inline-response-200-22 :refer :all]
-            [spoonacular-api.specs.inline-response-200-21 :refer :all]
-            [spoonacular-api.specs.inline-response-200-20 :refer :all]
-            [spoonacular-api.specs.-food-ingredients-map-products :refer :all]
-            [spoonacular-api.specs.inline-object-3 :refer :all]
-            [spoonacular-api.specs.inline-response-200-51 :refer :all]
-            [spoonacular-api.specs.-recipes-find-by-ingredients-missed-ingredients :refer :all]
-            [spoonacular-api.specs.inline-object-2 :refer :all]
-            [spoonacular-api.specs.inline-response-200-50 :refer :all]
-            [spoonacular-api.specs.inline-object-5 :refer :all]
-            [spoonacular-api.specs.inline-object-4 :refer :all]
-            [spoonacular-api.specs.inline-object-7 :refer :all]
-            [spoonacular-api.specs.inline-response-200-28-ingredients :refer :all]
-            [spoonacular-api.specs.inline-object-6 :refer :all]
-            [spoonacular-api.specs.inline-object-9 :refer :all]
-            [spoonacular-api.specs.inline-response-200-49-category :refer :all]
-            [spoonacular-api.specs.-recipes-parse-ingredients-nutrition :refer :all]
-            [spoonacular-api.specs.inline-object-8 :refer :all]
-            [spoonacular-api.specs.inline-object-1 :refer :all]
-            [spoonacular-api.specs.inline-response-200-54-videos :refer :all]
-            [spoonacular-api.specs.inline-response-200-28-nutrition :refer :all]
-            [spoonacular-api.specs.inline-response-200-57 :refer :all]
-            [spoonacular-api.specs.inline-response-200-56 :refer :all]
-            [spoonacular-api.specs.inline-response-200-55 :refer :all]
-            [spoonacular-api.specs.inline-response-200-54 :refer :all]
-            [spoonacular-api.specs.inline-response-200-53 :refer :all]
-            [spoonacular-api.specs.inline-response-200-52 :refer :all]
-            [spoonacular-api.specs.inline-response-200-40 :refer :all]
-            [spoonacular-api.specs.inline-response-200-35-menu-items :refer :all]
-            [spoonacular-api.specs.inline-response-200-42-aisles :refer :all]
-            [spoonacular-api.specs.inline-response-200-49 :refer :all]
-            [spoonacular-api.specs.inline-response-200-48 :refer :all]
-            [spoonacular-api.specs.inline-response-200-47 :refer :all]
-            [spoonacular-api.specs.inline-response-200-46 :refer :all]
-            [spoonacular-api.specs.inline-response-200-45 :refer :all]
-            [spoonacular-api.specs.inline-response-200-44 :refer :all]
-            [spoonacular-api.specs.inline-response-200-43 :refer :all]
-            [spoonacular-api.specs.inline-response-200-42 :refer :all]
-            [spoonacular-api.specs.inline-response-200-41 :refer :all]
-            [spoonacular-api.specs.inline-response-200-47-recommended-wines :refer :all]
+            [spoonacular-api.specs.get-product-information-200-response-ingredients-inner :refer :all]
+            [spoonacular-api.specs.get-recipe-information-200-response :refer :all]
+            [spoonacular-api.specs.get-recipe-ingredients-by-id-200-response-ingredients-inner :refer :all]
+            [spoonacular-api.specs.add-to-shopping-list-request :refer :all]
+            [spoonacular-api.specs.get-recipe-nutrition-widget-by-id-200-response-good-inner :refer :all]
+            [spoonacular-api.specs.get-recipe-nutrition-widget-by-id-200-response :refer :all]
+            [spoonacular-api.specs.get-recipe-price-breakdown-by-id-200-response-ingredients-inner :refer :all]
+            [spoonacular-api.specs.analyze-recipe-instructions-200-response-parsed-instructions-inner-steps-inner-ingredients-inner :refer :all]
+            [spoonacular-api.specs.talk-to-chatbot-200-response :refer :all]
+            [spoonacular-api.specs.connect-user-200-response :refer :all]
+            [spoonacular-api.specs.search-recipes-200-response-results-inner :refer :all]
+            [spoonacular-api.specs.get-wine-description-200-response :refer :all]
+            [spoonacular-api.specs.get-meal-plan-week-200-response-days-inner-items-inner-value :refer :all]
+            [spoonacular-api.specs.parse-ingredients-200-response-inner-estimated-cost :refer :all]
+            [spoonacular-api.specs.get-meal-plan-week-200-response :refer :all]
+            [spoonacular-api.specs.get-a-random-food-joke-200-response :refer :all]
+            [spoonacular-api.specs.guess-nutrition-by-dish-name-200-response :refer :all]
+            [spoonacular-api.specs.convert-amounts-200-response :refer :all]
+            [spoonacular-api.specs.generate-meal-plan-200-response :refer :all]
+            [spoonacular-api.specs.analyze-a-recipe-search-query-200-response-ingredients-inner :refer :all]
+            [spoonacular-api.specs.get-recipe-information-200-response-wine-pairing :refer :all]
+            [spoonacular-api.specs.get-similar-recipes-200-response-inner :refer :all]
+            [spoonacular-api.specs.get-comparable-products-200-response-comparable-products-protein-inner :refer :all]
+            [spoonacular-api.specs.search-site-content-200-response :refer :all]
+            [spoonacular-api.specs.search-grocery-products-by-upc-200-response-nutrition :refer :all]
+            [spoonacular-api.specs.delete-from-meal-plan-request :refer :all]
+            [spoonacular-api.specs.get-analyzed-recipe-instructions-200-response-parsed-instructions-inner-steps-inner :refer :all]
+            [spoonacular-api.specs.get-analyzed-recipe-instructions-200-response-ingredients-inner :refer :all]
+            [spoonacular-api.specs.search-recipes-200-response :refer :all]
+            [spoonacular-api.specs.get-meal-plan-week-200-response-days-inner :refer :all]
+            [spoonacular-api.specs.generate-shopping-list-200-response :refer :all]
+            [spoonacular-api.specs.search-grocery-products-by-upc-200-response :refer :all]
+            [spoonacular-api.specs.image-analysis-by-url-200-response-recipes-inner :refer :all]
+            [spoonacular-api.specs.search-recipes-by-ingredients-200-response-inner :refer :all]
+            [spoonacular-api.specs.get-shopping-list-200-response :refer :all]
+            [spoonacular-api.specs.search-food-videos-200-response :refer :all]
+            [spoonacular-api.specs.get-ingredient-substitutes-200-response :refer :all]
+            [spoonacular-api.specs.get-meal-plan-template-200-response-days-inner :refer :all]
+            [spoonacular-api.specs.map-ingredients-to-grocery-products-request :refer :all]
+            [spoonacular-api.specs.search-all-food-200-response-search-results-inner :refer :all]
+            [spoonacular-api.specs.search-all-food-200-response-search-results-inner-results-inner :refer :all]
+            [spoonacular-api.specs.search-menu-items-200-response-menu-items-inner :refer :all]
+            [spoonacular-api.specs.compute-ingredient-amount-200-response :refer :all]
+            [spoonacular-api.specs.get-conversation-suggests-200-response-suggests-inner :refer :all]
+            [spoonacular-api.specs.search-custom-foods-200-response-custom-foods-inner :refer :all]
+            [spoonacular-api.specs.add-meal-plan-template-200-response-items-inner :refer :all]
+            [spoonacular-api.specs.guess-nutrition-by-dish-name-200-response-calories :refer :all]
+            [spoonacular-api.specs.map-ingredients-to-grocery-products-200-response-inner-products-inner :refer :all]
+            [spoonacular-api.specs.analyze-recipe-instructions-200-response :refer :all]
+            [spoonacular-api.specs.search-site-content-200-response-grocery-products-inner-data-points-inner :refer :all]
+            [spoonacular-api.specs.get-recipe-nutrition-widget-by-id-200-response-bad-inner :refer :all]
+            [spoonacular-api.specs.search-grocery-products-200-response :refer :all]
+            [spoonacular-api.specs.get-recipe-information-200-response-extended-ingredients-inner :refer :all]
+            [spoonacular-api.specs.analyze-recipe-instructions-200-response-parsed-instructions-inner :refer :all]
+            [spoonacular-api.specs.get-conversation-suggests-200-response :refer :all]
+            [spoonacular-api.specs.search-grocery-products-by-upc-200-response-ingredients-inner :refer :all]
+            [spoonacular-api.specs.get-recipe-price-breakdown-by-id-200-response :refer :all]
+            [spoonacular-api.specs.search-recipes-by-nutrients-200-response-inner :refer :all]
+            [spoonacular-api.specs.add-to-meal-plan-request :refer :all]
+            [spoonacular-api.specs.get-shopping-list-200-response-aisles-inner :refer :all]
+            [spoonacular-api.specs.generate-shopping-list-request :refer :all]
+            [spoonacular-api.specs.compute-glycemic-load-200-response-ingredients-inner :refer :all]
+            [spoonacular-api.specs.parse-ingredients-200-response-inner :refer :all]
+            [spoonacular-api.specs.add-meal-plan-template-200-response :refer :all]
+            [spoonacular-api.specs.get-recipe-information-200-response-extended-ingredients-inner-measures :refer :all]
+            [spoonacular-api.specs.autocomplete-menu-item-search-200-response :refer :all]
+            [spoonacular-api.specs.get-product-information-200-response :refer :all]
+            [spoonacular-api.specs.get-recipe-information-200-response-wine-pairing-product-matches-inner :refer :all]
+            [spoonacular-api.specs.get-conversation-suggests-200-response-suggests :refer :all]
+            [spoonacular-api.specs.classify-cuisine-200-response :refer :all]
+            [spoonacular-api.specs.search-recipes-by-ingredients-200-response-inner-missed-ingredients-inner :refer :all]
+            [spoonacular-api.specs.get-analyzed-recipe-instructions-200-response-parsed-instructions-inner-steps-inner-ingredients-inner :refer :all]
+            [spoonacular-api.specs.quick-answer-200-response :refer :all]
+            [spoonacular-api.specs.analyze-a-recipe-search-query-200-response :refer :all]
+            [spoonacular-api.specs.get-wine-pairing-200-response :refer :all]
+            [spoonacular-api.specs.search-custom-foods-200-response :refer :all]
+            [spoonacular-api.specs.clear-meal-plan-day-request :refer :all]
+            [spoonacular-api.specs.get-shopping-list-200-response-aisles-inner-items-inner-measures :refer :all]
+            [spoonacular-api.specs.parse-ingredients-200-response-inner-nutrition-nutrients-inner :refer :all]
+            [spoonacular-api.specs.generate-meal-plan-200-response-nutrients :refer :all]
+            [spoonacular-api.specs.get-recipe-information-bulk-200-response-inner :refer :all]
+            [spoonacular-api.specs.get-wine-pairing-200-response-product-matches-inner :refer :all]
+            [spoonacular-api.specs.parse-ingredients-200-response-inner-nutrition-properties-inner :refer :all]
+            [spoonacular-api.specs.search-menu-items-200-response :refer :all]
+            [spoonacular-api.specs.detect-food-in-text-200-response-annotations-inner :refer :all]
+            [spoonacular-api.specs.parse-ingredients-200-response-inner-nutrition-weight-per-serving :refer :all]
+            [spoonacular-api.specs.get-random-recipes-200-response :refer :all]
+            [spoonacular-api.specs.classify-grocery-product-bulk-request-inner :refer :all]
+            [spoonacular-api.specs.get-wine-recommendation-200-response :refer :all]
+            [spoonacular-api.specs.get-recipe-equipment-by-id-200-response :refer :all]
+            [spoonacular-api.specs.get-recipe-information-200-response-extended-ingredients-inner-measures-metric :refer :all]
+            [spoonacular-api.specs.get-ingredient-information-200-response :refer :all]
+            [spoonacular-api.specs.get-recipe-taste-by-id-200-response :refer :all]
+            [spoonacular-api.specs.compute-glycemic-load-200-response :refer :all]
+            [spoonacular-api.specs.add-to-meal-plan-request-1-value :refer :all]
+            [spoonacular-api.specs.image-classification-by-url-200-response :refer :all]
+            [spoonacular-api.specs.create-recipe-card-200-response :refer :all]
+            [spoonacular-api.specs.guess-nutrition-by-dish-name-200-response-calories-confidence-range95-percent :refer :all]
+            [spoonacular-api.specs.get-ingredient-information-200-response-nutrition :refer :all]
+            [spoonacular-api.specs.analyze-recipe-instructions-200-response-ingredients-inner :refer :all]
+            [spoonacular-api.specs.add-meal-plan-template-200-response-items-inner-value :refer :all]
+            [spoonacular-api.specs.detect-food-in-text-200-response :refer :all]
+            [spoonacular-api.specs.summarize-recipe-200-response :refer :all]
+            [spoonacular-api.specs.search-site-content-200-response-articles-inner :refer :all]
+            [spoonacular-api.specs.autocomplete-recipe-search-200-response-inner :refer :all]
+            [spoonacular-api.specs.get-random-food-trivia-200-response :refer :all]
+            [spoonacular-api.specs.get-recipe-equipment-by-id-200-response-equipment-inner :refer :all]
+            [spoonacular-api.specs.classify-grocery-product-bulk-200-response-inner :refer :all]
+            [spoonacular-api.specs.analyze-a-recipe-search-query-200-response-dishes-inner :refer :all]
+            [spoonacular-api.specs.map-ingredients-to-grocery-products-200-response-inner :refer :all]
+            [spoonacular-api.specs.get-meal-plan-template-200-response-days-inner-items-inner-value :refer :all]
+            [spoonacular-api.specs.get-wine-recommendation-200-response-recommended-wines-inner :refer :all]
+            [spoonacular-api.specs.ingredient-search-200-response-results-inner :refer :all]
+            [spoonacular-api.specs.parse-ingredients-200-response-inner-nutrition-caloric-breakdown :refer :all]
+            [spoonacular-api.specs.add-to-meal-plan-request-1-value-ingredients-inner :refer :all]
+            [spoonacular-api.specs.get-recipe-price-breakdown-by-id-200-response-ingredients-inner-amount-metric :refer :all]
+            [spoonacular-api.specs.connect-user-request :refer :all]
+            [spoonacular-api.specs.image-analysis-by-url-200-response-nutrition-calories-confidence-range95-percent :refer :all]
+            [spoonacular-api.specs.get-shopping-list-200-response-aisles-inner-items-inner :refer :all]
+            [spoonacular-api.specs.get-comparable-products-200-response-comparable-products :refer :all]
+            [spoonacular-api.specs.autocomplete-product-search-200-response :refer :all]
+            [spoonacular-api.specs.get-meal-plan-week-200-response-days-inner-nutrition-summary-nutrients-inner :refer :all]
+            [spoonacular-api.specs.get-random-recipes-200-response-recipes-inner :refer :all]
+            [spoonacular-api.specs.analyze-recipe-instructions-200-response-parsed-instructions-inner-steps-inner :refer :all]
+            [spoonacular-api.specs.autocomplete-product-search-200-response-results-inner :refer :all]
+            [spoonacular-api.specs.add-to-meal-plan-request-1 :refer :all]
+            [spoonacular-api.specs.get-meal-plan-week-200-response-days-inner-items-inner :refer :all]
+            [spoonacular-api.specs.search-grocery-products-by-upc-200-response-servings :refer :all]
+            [spoonacular-api.specs.image-analysis-by-url-200-response-nutrition :refer :all]
+            [spoonacular-api.specs.get-meal-plan-templates-200-response :refer :all]
+            [spoonacular-api.specs.get-meal-plan-template-200-response :refer :all]
+            [spoonacular-api.specs.compute-glycemic-load-request :refer :all]
+            [spoonacular-api.specs.get-analyzed-recipe-instructions-200-response-parsed-instructions-inner :refer :all]
+            [spoonacular-api.specs.get-analyzed-recipe-instructions-200-response :refer :all]
+            [spoonacular-api.specs.search-site-content-200-response-grocery-products-inner :refer :all]
+            [spoonacular-api.specs.image-analysis-by-url-200-response-nutrition-calories :refer :all]
+            [spoonacular-api.specs.ingredient-search-200-response :refer :all]
+            [spoonacular-api.specs.search-all-food-200-response :refer :all]
+            [spoonacular-api.specs.autocomplete-ingredient-search-200-response-inner :refer :all]
+            [spoonacular-api.specs.image-analysis-by-url-200-response-category :refer :all]
+            [spoonacular-api.specs.classify-grocery-product-200-response :refer :all]
+            [spoonacular-api.specs.get-recipe-price-breakdown-by-id-200-response-ingredients-inner-amount :refer :all]
+            [spoonacular-api.specs.get-comparable-products-200-response :refer :all]
+            [spoonacular-api.specs.get-meal-plan-week-200-response-days-inner-nutrition-summary :refer :all]
+            [spoonacular-api.specs.get-meal-plan-template-200-response-days-inner-items-inner :refer :all]
+            [spoonacular-api.specs.image-analysis-by-url-200-response :refer :all]
+            [spoonacular-api.specs.search-food-videos-200-response-videos-inner :refer :all]
+            [spoonacular-api.specs.get-recipe-ingredients-by-id-200-response :refer :all]
+            [spoonacular-api.specs.get-dish-pairing-for-wine-200-response :refer :all]
+            [spoonacular-api.specs.get-menu-item-information-200-response :refer :all]
+            [spoonacular-api.specs.parse-ingredients-200-response-inner-nutrition :refer :all]
+            [spoonacular-api.specs.classify-grocery-product-request :refer :all]
             )
   (:import (java.io File)))
 
@@ -154,13 +173,13 @@
              :accepts       ["application/json"]
              :auth-names    ["apiKeyScheme"]}))
 
-(defn-spec analyze-a-recipe-search-query inline-response-200-18-spec
+(defn-spec analyze-a-recipe-search-query analyze-a-recipe-search-query-200-response-spec
   "Analyze a Recipe Search Query
   Parse a recipe search query to find out its intention."
   [q string?]
   (let [res (:data (analyze-a-recipe-search-query-with-http-info q))]
     (if (:decode-models *api-context*)
-       (st/decode inline-response-200-18-spec res st/string-transformer)
+       (st/decode analyze-a-recipe-search-query-200-response-spec res st/string-transformer)
        res)))
 
 
@@ -178,14 +197,14 @@
               :accepts       ["application/json"]
               :auth-names    ["apiKeyScheme"]})))
 
-(defn-spec analyze-recipe-instructions inline-response-200-16-spec
+(defn-spec analyze-recipe-instructions analyze-recipe-instructions-200-response-spec
   "Analyze Recipe Instructions
   This endpoint allows you to break down instructions into atomic steps. Furthermore, each step will contain the ingredients and equipment required. Additionally, all ingredients and equipment from the recipe's instructions will be extracted independently of the step they're used in."
   ([] (analyze-recipe-instructions nil))
   ([optional-params any?]
    (let [res (:data (analyze-recipe-instructions-with-http-info optional-params))]
      (if (:decode-models *api-context*)
-        (st/decode inline-response-200-16-spec res st/string-transformer)
+        (st/decode analyze-recipe-instructions-200-response-spec res st/string-transformer)
         res))))
 
 
@@ -203,14 +222,14 @@
               :accepts       ["application/json"]
               :auth-names    ["apiKeyScheme"]})))
 
-(defn-spec autocomplete-recipe-search (s/coll-of inline-response-200-7-spec)
+(defn-spec autocomplete-recipe-search (s/coll-of autocomplete-recipe-search-200-response-inner-spec)
   "Autocomplete Recipe Search
   Autocomplete a partial input to suggest possible recipe names."
   ([] (autocomplete-recipe-search nil))
   ([optional-params any?]
    (let [res (:data (autocomplete-recipe-search-with-http-info optional-params))]
      (if (:decode-models *api-context*)
-        (st/decode (s/coll-of inline-response-200-7-spec) res st/string-transformer)
+        (st/decode (s/coll-of autocomplete-recipe-search-200-response-inner-spec) res st/string-transformer)
         res))))
 
 
@@ -228,41 +247,41 @@
               :accepts       ["application/json"]
               :auth-names    ["apiKeyScheme"]})))
 
-(defn-spec classify-cuisine inline-response-200-17-spec
+(defn-spec classify-cuisine classify-cuisine-200-response-spec
   "Classify Cuisine
   Classify the recipe's cuisine."
   ([] (classify-cuisine nil))
   ([optional-params any?]
    (let [res (:data (classify-cuisine-with-http-info optional-params))]
      (if (:decode-models *api-context*)
-        (st/decode inline-response-200-17-spec res st/string-transformer)
+        (st/decode classify-cuisine-200-response-spec res st/string-transformer)
         res))))
 
 
 (defn-spec compute-glycemic-load-with-http-info any?
   "Compute Glycemic Load
   Retrieve the glycemic index for a list of ingredients and compute the individual and total glycemic load."
-  ([inline-object inline-object, ] (compute-glycemic-load-with-http-info inline-object nil))
-  ([inline-object inline-object, {:keys [language]} (s/map-of keyword? any?)]
-   (check-required-params inline-object)
+  ([compute-glycemic-load-request compute-glycemic-load-request, ] (compute-glycemic-load-with-http-info compute-glycemic-load-request nil))
+  ([compute-glycemic-load-request compute-glycemic-load-request, {:keys [language]} (s/map-of keyword? any?)]
+   (check-required-params compute-glycemic-load-request)
    (call-api "/food/ingredients/glycemicLoad" :post
              {:path-params   {}
               :header-params {}
               :query-params  {"language" language }
               :form-params   {}
-              :body-param    inline-object
+              :body-param    compute-glycemic-load-request
               :content-types ["application/json"]
               :accepts       ["application/json"]
               :auth-names    ["apiKeyScheme"]})))
 
-(defn-spec compute-glycemic-load inline-response-200-23-spec
+(defn-spec compute-glycemic-load compute-glycemic-load-200-response-spec
   "Compute Glycemic Load
   Retrieve the glycemic index for a list of ingredients and compute the individual and total glycemic load."
-  ([inline-object inline-object, ] (compute-glycemic-load inline-object nil))
-  ([inline-object inline-object, optional-params any?]
-   (let [res (:data (compute-glycemic-load-with-http-info inline-object optional-params))]
+  ([compute-glycemic-load-request compute-glycemic-load-request, ] (compute-glycemic-load compute-glycemic-load-request nil))
+  ([compute-glycemic-load-request compute-glycemic-load-request, optional-params any?]
+   (let [res (:data (compute-glycemic-load-with-http-info compute-glycemic-load-request optional-params))]
      (if (:decode-models *api-context*)
-        (st/decode inline-response-200-23-spec res st/string-transformer)
+        (st/decode compute-glycemic-load-200-response-spec res st/string-transformer)
         res))))
 
 
@@ -280,13 +299,13 @@
              :accepts       ["application/json"]
              :auth-names    ["apiKeyScheme"]}))
 
-(defn-spec convert-amounts inline-response-200-19-spec
+(defn-spec convert-amounts convert-amounts-200-response-spec
   "Convert Amounts
   Convert amounts like \"2 cups of flour to grams\"."
   [ingredientName string?, sourceAmount float?, sourceUnit string?, targetUnit string?]
   (let [res (:data (convert-amounts-with-http-info ingredientName sourceAmount sourceUnit targetUnit))]
     (if (:decode-models *api-context*)
-       (st/decode inline-response-200-19-spec res st/string-transformer)
+       (st/decode convert-amounts-200-response-spec res st/string-transformer)
        res)))
 
 
@@ -304,14 +323,14 @@
               :accepts       ["application/json"]
               :auth-names    ["apiKeyScheme"]})))
 
-(defn-spec create-recipe-card inline-response-200-15-spec
+(defn-spec create-recipe-card create-recipe-card-200-response-spec
   "Create Recipe Card
   Generate a recipe card for a recipe."
   ([] (create-recipe-card nil))
   ([optional-params any?]
    (let [res (:data (create-recipe-card-with-http-info optional-params))]
      (if (:decode-models *api-context*)
-        (st/decode inline-response-200-15-spec res st/string-transformer)
+        (st/decode create-recipe-card-200-response-spec res st/string-transformer)
         res))))
 
 
@@ -354,14 +373,14 @@
               :accepts       ["application/json"]
               :auth-names    ["apiKeyScheme"]})))
 
-(defn-spec extract-recipe-from-website inline-response-200-3-spec
+(defn-spec extract-recipe-from-website get-recipe-information-200-response-spec
   "Extract Recipe from Website
   This endpoint lets you extract recipe data such as title, ingredients, and instructions from any properly formatted Website."
   ([url string?, ] (extract-recipe-from-website url nil))
   ([url string?, optional-params any?]
    (let [res (:data (extract-recipe-from-website-with-http-info url optional-params))]
      (if (:decode-models *api-context*)
-        (st/decode inline-response-200-3-spec res st/string-transformer)
+        (st/decode get-recipe-information-200-response-spec res st/string-transformer)
         res))))
 
 
@@ -380,14 +399,14 @@
               :accepts       ["application/json"]
               :auth-names    ["apiKeyScheme"]})))
 
-(defn-spec get-analyzed-recipe-instructions inline-response-200-13-spec
+(defn-spec get-analyzed-recipe-instructions get-analyzed-recipe-instructions-200-response-spec
   "Get Analyzed Recipe Instructions
   Get an analyzed breakdown of a recipe's instructions. Each step is enriched with the ingredients and equipment required."
   ([id int?, ] (get-analyzed-recipe-instructions id nil))
   ([id int?, optional-params any?]
    (let [res (:data (get-analyzed-recipe-instructions-with-http-info id optional-params))]
      (if (:decode-models *api-context*)
-        (st/decode inline-response-200-13-spec res st/string-transformer)
+        (st/decode get-analyzed-recipe-instructions-200-response-spec res st/string-transformer)
         res))))
 
 
@@ -405,14 +424,14 @@
               :accepts       ["application/json"]
               :auth-names    ["apiKeyScheme"]})))
 
-(defn-spec get-random-recipes inline-response-200-6-spec
+(defn-spec get-random-recipes get-random-recipes-200-response-spec
   "Get Random Recipes
   Find random (popular) recipes. If you need to filter recipes by diet, nutrition etc. you might want to consider using the complex recipe search endpoint and set the sort request parameter to random."
   ([] (get-random-recipes nil))
   ([optional-params any?]
    (let [res (:data (get-random-recipes-with-http-info optional-params))]
      (if (:decode-models *api-context*)
-        (st/decode inline-response-200-6-spec res st/string-transformer)
+        (st/decode get-random-recipes-200-response-spec res st/string-transformer)
         res))))
 
 
@@ -430,13 +449,13 @@
              :accepts       ["application/json"]
              :auth-names    ["apiKeyScheme"]}))
 
-(defn-spec get-recipe-equipment-by-id inline-response-200-9-spec
+(defn-spec get-recipe-equipment-by-id get-recipe-equipment-by-id-200-response-spec
   "Equipment by ID
   Get a recipe's equipment list."
   [id int?]
   (let [res (:data (get-recipe-equipment-by-id-with-http-info id))]
     (if (:decode-models *api-context*)
-       (st/decode inline-response-200-9-spec res st/string-transformer)
+       (st/decode get-recipe-equipment-by-id-200-response-spec res st/string-transformer)
        res)))
 
 
@@ -455,14 +474,14 @@
               :accepts       ["application/json"]
               :auth-names    ["apiKeyScheme"]})))
 
-(defn-spec get-recipe-information inline-response-200-3-spec
+(defn-spec get-recipe-information get-recipe-information-200-response-spec
   "Get Recipe Information
   Use a recipe id to get full information about a recipe, such as ingredients, nutrition, diet and allergen information, etc."
   ([id int?, ] (get-recipe-information id nil))
   ([id int?, optional-params any?]
    (let [res (:data (get-recipe-information-with-http-info id optional-params))]
      (if (:decode-models *api-context*)
-        (st/decode inline-response-200-3-spec res st/string-transformer)
+        (st/decode get-recipe-information-200-response-spec res st/string-transformer)
         res))))
 
 
@@ -481,14 +500,14 @@
               :accepts       ["application/json"]
               :auth-names    ["apiKeyScheme"]})))
 
-(defn-spec get-recipe-information-bulk (s/coll-of inline-response-200-4-spec)
+(defn-spec get-recipe-information-bulk (s/coll-of get-recipe-information-bulk-200-response-inner-spec)
   "Get Recipe Information Bulk
   Get information about multiple recipes at once. This is equivalent to calling the Get Recipe Information endpoint multiple times, but faster."
   ([ids string?, ] (get-recipe-information-bulk ids nil))
   ([ids string?, optional-params any?]
    (let [res (:data (get-recipe-information-bulk-with-http-info ids optional-params))]
      (if (:decode-models *api-context*)
-        (st/decode (s/coll-of inline-response-200-4-spec) res st/string-transformer)
+        (st/decode (s/coll-of get-recipe-information-bulk-200-response-inner-spec) res st/string-transformer)
         res))))
 
 
@@ -506,13 +525,13 @@
              :accepts       ["application/json"]
              :auth-names    ["apiKeyScheme"]}))
 
-(defn-spec get-recipe-ingredients-by-id inline-response-200-11-spec
+(defn-spec get-recipe-ingredients-by-id get-recipe-ingredients-by-id-200-response-spec
   "Ingredients by ID
   Get a recipe's ingredient list."
   [id int?]
   (let [res (:data (get-recipe-ingredients-by-id-with-http-info id))]
     (if (:decode-models *api-context*)
-       (st/decode inline-response-200-11-spec res st/string-transformer)
+       (st/decode get-recipe-ingredients-by-id-200-response-spec res st/string-transformer)
        res)))
 
 
@@ -530,13 +549,13 @@
              :accepts       ["application/json"]
              :auth-names    ["apiKeyScheme"]}))
 
-(defn-spec get-recipe-nutrition-widget-by-id inline-response-200-12-spec
+(defn-spec get-recipe-nutrition-widget-by-id get-recipe-nutrition-widget-by-id-200-response-spec
   "Nutrition by ID
   Get a recipe's nutrition data."
   [id int?]
   (let [res (:data (get-recipe-nutrition-widget-by-id-with-http-info id))]
     (if (:decode-models *api-context*)
-       (st/decode inline-response-200-12-spec res st/string-transformer)
+       (st/decode get-recipe-nutrition-widget-by-id-200-response-spec res st/string-transformer)
        res)))
 
 
@@ -554,13 +573,13 @@
              :accepts       ["application/json"]
              :auth-names    ["apiKeyScheme"]}))
 
-(defn-spec get-recipe-price-breakdown-by-id inline-response-200-10-spec
+(defn-spec get-recipe-price-breakdown-by-id get-recipe-price-breakdown-by-id-200-response-spec
   "Price Breakdown by ID
   Get a recipe's price breakdown data."
   [id int?]
   (let [res (:data (get-recipe-price-breakdown-by-id-with-http-info id))]
     (if (:decode-models *api-context*)
-       (st/decode inline-response-200-10-spec res st/string-transformer)
+       (st/decode get-recipe-price-breakdown-by-id-200-response-spec res st/string-transformer)
        res)))
 
 
@@ -579,14 +598,14 @@
               :accepts       ["application/json"]
               :auth-names    ["apiKeyScheme"]})))
 
-(defn-spec get-recipe-taste-by-id inline-response-200-8-spec
+(defn-spec get-recipe-taste-by-id get-recipe-taste-by-id-200-response-spec
   "Taste by ID
   Get a recipe's taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty."
   ([id int?, ] (get-recipe-taste-by-id id nil))
   ([id int?, optional-params any?]
    (let [res (:data (get-recipe-taste-by-id-with-http-info id optional-params))]
      (if (:decode-models *api-context*)
-        (st/decode inline-response-200-8-spec res st/string-transformer)
+        (st/decode get-recipe-taste-by-id-200-response-spec res st/string-transformer)
         res))))
 
 
@@ -605,14 +624,14 @@
               :accepts       ["application/json"]
               :auth-names    ["apiKeyScheme"]})))
 
-(defn-spec get-similar-recipes (s/coll-of inline-response-200-5-spec)
+(defn-spec get-similar-recipes (s/coll-of get-similar-recipes-200-response-inner-spec)
   "Get Similar Recipes
   Find recipes which are similar to the given one."
   ([id int?, ] (get-similar-recipes id nil))
   ([id int?, optional-params any?]
    (let [res (:data (get-similar-recipes-with-http-info id optional-params))]
      (if (:decode-models *api-context*)
-        (st/decode (s/coll-of inline-response-200-5-spec) res st/string-transformer)
+        (st/decode (s/coll-of get-similar-recipes-200-response-inner-spec) res st/string-transformer)
         res))))
 
 
@@ -630,13 +649,13 @@
              :accepts       ["application/json"]
              :auth-names    ["apiKeyScheme"]}))
 
-(defn-spec guess-nutrition-by-dish-name inline-response-200-21-spec
+(defn-spec guess-nutrition-by-dish-name guess-nutrition-by-dish-name-200-response-spec
   "Guess Nutrition by Dish Name
   Estimate the macronutrients of a dish based on its title."
   [title string?]
   (let [res (:data (guess-nutrition-by-dish-name-with-http-info title))]
     (if (:decode-models *api-context*)
-       (st/decode inline-response-200-21-spec res st/string-transformer)
+       (st/decode guess-nutrition-by-dish-name-200-response-spec res st/string-transformer)
        res)))
 
 
@@ -680,14 +699,14 @@
               :accepts       ["application/json"]
               :auth-names    ["apiKeyScheme"]})))
 
-(defn-spec parse-ingredients (s/coll-of inline-response-200-20-spec)
+(defn-spec parse-ingredients (s/coll-of parse-ingredients-200-response-inner-spec)
   "Parse Ingredients
   Extract an ingredient from plain text."
   ([] (parse-ingredients nil))
   ([optional-params any?]
    (let [res (:data (parse-ingredients-with-http-info optional-params))]
      (if (:decode-models *api-context*)
-        (st/decode (s/coll-of inline-response-200-20-spec) res st/string-transformer)
+        (st/decode (s/coll-of parse-ingredients-200-response-inner-spec) res st/string-transformer)
         res))))
 
 
@@ -729,13 +748,13 @@
              :accepts       ["application/json"]
              :auth-names    ["apiKeyScheme"]}))
 
-(defn-spec quick-answer inline-response-200-50-spec
+(defn-spec quick-answer quick-answer-200-response-spec
   "Quick Answer
   Answer a nutrition related natural language question."
   [q string?]
   (let [res (:data (quick-answer-with-http-info q))]
     (if (:decode-models *api-context*)
-       (st/decode inline-response-200-50-spec res st/string-transformer)
+       (st/decode quick-answer-200-response-spec res st/string-transformer)
        res)))
 
 
@@ -855,14 +874,14 @@
               :accepts       ["application/json"]
               :auth-names    ["apiKeyScheme"]})))
 
-(defn-spec search-recipes inline-response-200-spec
+(defn-spec search-recipes search-recipes-200-response-spec
   "Search Recipes
   Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint."
   ([] (search-recipes nil))
   ([optional-params any?]
    (let [res (:data (search-recipes-with-http-info optional-params))]
      (if (:decode-models *api-context*)
-        (st/decode inline-response-200-spec res st/string-transformer)
+        (st/decode search-recipes-200-response-spec res st/string-transformer)
         res))))
 
 
@@ -880,14 +899,14 @@
               :accepts       ["application/json"]
               :auth-names    ["apiKeyScheme"]})))
 
-(defn-spec search-recipes-by-ingredients (s/coll-of inline-response-200-1-spec)
+(defn-spec search-recipes-by-ingredients (s/coll-of search-recipes-by-ingredients-200-response-inner-spec)
   "Search Recipes by Ingredients
   Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don't currently have (post shopping)."
   ([] (search-recipes-by-ingredients nil))
   ([optional-params any?]
    (let [res (:data (search-recipes-by-ingredients-with-http-info optional-params))]
      (if (:decode-models *api-context*)
-        (st/decode (s/coll-of inline-response-200-1-spec) res st/string-transformer)
+        (st/decode (s/coll-of search-recipes-by-ingredients-200-response-inner-spec) res st/string-transformer)
         res))))
 
 
@@ -905,14 +924,14 @@
               :accepts       ["application/json"]
               :auth-names    ["apiKeyScheme"]})))
 
-(defn-spec search-recipes-by-nutrients (s/coll-of inline-response-200-2-spec)
+(defn-spec search-recipes-by-nutrients (s/coll-of search-recipes-by-nutrients-200-response-inner-spec)
   "Search Recipes by Nutrients
   Find a set of recipes that adhere to the given nutritional limits. You may set limits for macronutrients (calories, protein, fat, and carbohydrate) and/or many micronutrients."
   ([] (search-recipes-by-nutrients nil))
   ([optional-params any?]
    (let [res (:data (search-recipes-by-nutrients-with-http-info optional-params))]
      (if (:decode-models *api-context*)
-        (st/decode (s/coll-of inline-response-200-2-spec) res st/string-transformer)
+        (st/decode (s/coll-of search-recipes-by-nutrients-200-response-inner-spec) res st/string-transformer)
         res))))
 
 
@@ -930,13 +949,13 @@
              :accepts       ["application/json"]
              :auth-names    ["apiKeyScheme"]}))
 
-(defn-spec summarize-recipe inline-response-200-14-spec
+(defn-spec summarize-recipe summarize-recipe-200-response-spec
   "Summarize Recipe
   Automatically generate a short description that summarizes key information about the recipe."
   [id int?]
   (let [res (:data (summarize-recipe-with-http-info id))]
     (if (:decode-models *api-context*)
-       (st/decode inline-response-200-14-spec res st/string-transformer)
+       (st/decode summarize-recipe-200-response-spec res st/string-transformer)
        res)))
 
 

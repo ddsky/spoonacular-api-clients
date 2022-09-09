@@ -8,7 +8,7 @@
            (java.text SimpleDateFormat)))
 
 (def auth-definitions
-  {"apiKeyScheme" {:type :api-key :in :query :param-name "apiKey"}})
+  {"apiKeyScheme" {:type :api-key :in :header :param-name "x-api-key"}})
 
 (def default-api-context
   "Default API context."
@@ -103,7 +103,7 @@
     :else (str param)))
 
 (defn auth->opts
-  "Process the given auth to an option map that might conatin request options and parameters."
+  "Process the given auth to an option map that might contain request options and parameters."
   [{:keys [type in param-name]} value]
   (case type
     :basic {:req-opts {:basic-auth value}}
@@ -124,7 +124,7 @@
     opts))
 
 (defn auths->opts
-  "Process the given auth names to an option map that might conatin request options and parameters."
+  "Process the given auth names to an option map that might contain request options and parameters."
   [auth-names]
   (reduce process-auth {} auth-names))
 
@@ -140,7 +140,7 @@
     (str (:base-url *api-context*) path)))
 
 (defn normalize-array-param
-  "Normalize array paramater according to :collection-format specified in the parameter's meta data.
+  "Normalize array parameter according to :collection-format specified in the parameter's meta data.
   When the parameter contains File, a seq is returned so as to keep File parameters.
   For :multi collection format, a seq is returned which will be handled properly by clj-http.
   For other cases, a string is returned."

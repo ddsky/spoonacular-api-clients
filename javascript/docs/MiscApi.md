@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 ## detectFoodInText
 
-> InlineResponse20051 detectFoodInText(opts)
+> DetectFoodInText200Response detectFoodInText(opts)
 
 Detect Food in Text
 
@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20051**](InlineResponse20051.md)
+[**DetectFoodInText200Response**](DetectFoodInText200Response.md)
 
 ### Authorization
 
@@ -73,7 +73,7 @@ Name | Type | Description  | Notes
 
 ## getARandomFoodJoke
 
-> InlineResponse20055 getARandomFoodJoke()
+> GetARandomFoodJoke200Response getARandomFoodJoke()
 
 Random Food Joke
 
@@ -106,7 +106,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse20055**](InlineResponse20055.md)
+[**GetARandomFoodJoke200Response**](GetARandomFoodJoke200Response.md)
 
 ### Authorization
 
@@ -120,7 +120,7 @@ This endpoint does not need any parameter.
 
 ## getConversationSuggests
 
-> InlineResponse20057 getConversationSuggests(query, opts)
+> GetConversationSuggests200Response getConversationSuggests(query, opts)
 
 Conversation Suggests
 
@@ -140,7 +140,7 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 let apiInstance = new SpoonacularApi.MiscApi();
 let query = tell; // String | A (partial) query from the user. The endpoint will return if it matches topics it can talk about.
 let opts = {
-  '_number': 5 // Number | The number of suggestions to return (between 1 and 25).
+  'number': 5 // Number | The number of suggestions to return (between 1 and 25).
 };
 apiInstance.getConversationSuggests(query, opts, (error, data, response) => {
   if (error) {
@@ -157,11 +157,11 @@ apiInstance.getConversationSuggests(query, opts, (error, data, response) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **query** | **String**| A (partial) query from the user. The endpoint will return if it matches topics it can talk about. | 
- **_number** | **Number**| The number of suggestions to return (between 1 and 25). | [optional] 
+ **number** | **Number**| The number of suggestions to return (between 1 and 25). | [optional] 
 
 ### Return type
 
-[**InlineResponse20057**](InlineResponse20057.md)
+[**GetConversationSuggests200Response**](GetConversationSuggests200Response.md)
 
 ### Authorization
 
@@ -175,7 +175,7 @@ Name | Type | Description  | Notes
 
 ## getRandomFoodTrivia
 
-> InlineResponse20055 getRandomFoodTrivia()
+> GetRandomFoodTrivia200Response getRandomFoodTrivia()
 
 Random Food Trivia
 
@@ -208,7 +208,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse20055**](InlineResponse20055.md)
+[**GetRandomFoodTrivia200Response**](GetRandomFoodTrivia200Response.md)
 
 ### Authorization
 
@@ -222,7 +222,7 @@ This endpoint does not need any parameter.
 
 ## imageAnalysisByURL
 
-> InlineResponse20049 imageAnalysisByURL(imageUrl)
+> ImageAnalysisByURL200Response imageAnalysisByURL(imageUrl)
 
 Image Analysis by URL
 
@@ -259,7 +259,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20049**](InlineResponse20049.md)
+[**ImageAnalysisByURL200Response**](ImageAnalysisByURL200Response.md)
 
 ### Authorization
 
@@ -273,7 +273,7 @@ Name | Type | Description  | Notes
 
 ## imageClassificationByURL
 
-> InlineResponse20048 imageClassificationByURL(imageUrl)
+> ImageClassificationByURL200Response imageClassificationByURL(imageUrl)
 
 Image Classification by URL
 
@@ -310,7 +310,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20048**](InlineResponse20048.md)
+[**ImageClassificationByURL200Response**](ImageClassificationByURL200Response.md)
 
 ### Authorization
 
@@ -324,7 +324,7 @@ Name | Type | Description  | Notes
 
 ## searchAllFood
 
-> InlineResponse20053 searchAllFood(query, opts)
+> SearchAllFood200Response searchAllFood(query, opts)
 
 Search All Food
 
@@ -345,7 +345,7 @@ let apiInstance = new SpoonacularApi.MiscApi();
 let query = apple; // String | The search query.
 let opts = {
   'offset': 56, // Number | The number of results to skip (between 0 and 900).
-  '_number': 10 // Number | The maximum number of items to return (between 1 and 100). Defaults to 10.
+  'number': 10 // Number | The maximum number of items to return (between 1 and 100). Defaults to 10.
 };
 apiInstance.searchAllFood(query, opts, (error, data, response) => {
   if (error) {
@@ -363,11 +363,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **query** | **String**| The search query. | 
  **offset** | **Number**| The number of results to skip (between 0 and 900). | [optional] 
- **_number** | **Number**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
+ **number** | **Number**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
 
 ### Return type
 
-[**InlineResponse20053**](InlineResponse20053.md)
+[**SearchAllFood200Response**](SearchAllFood200Response.md)
 
 ### Authorization
 
@@ -381,7 +381,7 @@ Name | Type | Description  | Notes
 
 ## searchCustomFoods
 
-> InlineResponse20029 searchCustomFoods(username, hash, opts)
+> SearchCustomFoods200Response searchCustomFoods(username, hash, opts)
 
 Search Custom Foods
 
@@ -404,7 +404,7 @@ let hash = 4b5v4398573406; // String | The private hash for the username.
 let opts = {
   'query': burger, // String | The (natural language) search query.
   'offset': 56, // Number | The number of results to skip (between 0 and 900).
-  '_number': 10 // Number | The maximum number of items to return (between 1 and 100). Defaults to 10.
+  'number': 10 // Number | The maximum number of items to return (between 1 and 100). Defaults to 10.
 };
 apiInstance.searchCustomFoods(username, hash, opts, (error, data, response) => {
   if (error) {
@@ -424,11 +424,11 @@ Name | Type | Description  | Notes
  **hash** | **String**| The private hash for the username. | 
  **query** | **String**| The (natural language) search query. | [optional] 
  **offset** | **Number**| The number of results to skip (between 0 and 900). | [optional] 
- **_number** | **Number**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
+ **number** | **Number**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
 
 ### Return type
 
-[**InlineResponse20029**](InlineResponse20029.md)
+[**SearchCustomFoods200Response**](SearchCustomFoods200Response.md)
 
 ### Authorization
 
@@ -442,7 +442,7 @@ Name | Type | Description  | Notes
 
 ## searchFoodVideos
 
-> InlineResponse20054 searchFoodVideos(opts)
+> SearchFoodVideos200Response searchFoodVideos(opts)
 
 Search Food Videos
 
@@ -470,7 +470,7 @@ let opts = {
   'minLength': 0, // Number | Minimum video length in seconds.
   'maxLength': 999, // Number | Maximum video length in seconds.
   'offset': 56, // Number | The number of results to skip (between 0 and 900).
-  '_number': 10 // Number | The maximum number of items to return (between 1 and 100). Defaults to 10.
+  'number': 10 // Number | The maximum number of items to return (between 1 and 100). Defaults to 10.
 };
 apiInstance.searchFoodVideos(opts, (error, data, response) => {
   if (error) {
@@ -495,11 +495,11 @@ Name | Type | Description  | Notes
  **minLength** | **Number**| Minimum video length in seconds. | [optional] 
  **maxLength** | **Number**| Maximum video length in seconds. | [optional] 
  **offset** | **Number**| The number of results to skip (between 0 and 900). | [optional] 
- **_number** | **Number**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
+ **number** | **Number**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
 
 ### Return type
 
-[**InlineResponse20054**](InlineResponse20054.md)
+[**SearchFoodVideos200Response**](SearchFoodVideos200Response.md)
 
 ### Authorization
 
@@ -513,7 +513,7 @@ Name | Type | Description  | Notes
 
 ## searchSiteContent
 
-> InlineResponse20052 searchSiteContent(query)
+> SearchSiteContent200Response searchSiteContent(query)
 
 Search Site Content
 
@@ -550,7 +550,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20052**](InlineResponse20052.md)
+[**SearchSiteContent200Response**](SearchSiteContent200Response.md)
 
 ### Authorization
 
@@ -564,7 +564,7 @@ Name | Type | Description  | Notes
 
 ## talkToChatbot
 
-> InlineResponse20056 talkToChatbot(text, opts)
+> TalkToChatbot200Response talkToChatbot(text, opts)
 
 Talk to Chatbot
 
@@ -605,7 +605,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20056**](InlineResponse20056.md)
+[**TalkToChatbot200Response**](TalkToChatbot200Response.md)
 
 ### Authorization
 

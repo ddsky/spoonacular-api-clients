@@ -10,7 +10,7 @@ defmodule com.spoonacular.client.Connection do
   use Tesla
 
   # Add any middleware here (authentication)
-  plug Tesla.Middleware.BaseUrl, "https://api.spoonacular.com"
+  plug Tesla.Middleware.BaseUrl, Application.get_env(:spoonacular_api, :base_url, "https://api.spoonacular.com")
   plug Tesla.Middleware.Headers, [{"user-agent", "Elixir"}]
   plug Tesla.Middleware.EncodeJson, engine: Poison
 

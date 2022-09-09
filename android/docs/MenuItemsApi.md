@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 ## autocompleteMenuItemSearch
 
-> InlineResponse20032 autocompleteMenuItemSearch(query, number)
+> AutocompleteMenuItemSearch200Response autocompleteMenuItemSearch(query, number)
 
 Autocomplete Menu Item Search
 
@@ -32,7 +32,7 @@ MenuItemsApi apiInstance = new MenuItemsApi();
 String query = chicke; // String | The (partial) search query.
 BigDecimal number = 10; // BigDecimal | The number of results to return (between 1 and 25).
 try {
-    InlineResponse20032 result = apiInstance.autocompleteMenuItemSearch(query, number);
+    AutocompleteMenuItemSearch200Response result = apiInstance.autocompleteMenuItemSearch(query, number);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MenuItemsApi#autocompleteMenuItemSearch");
@@ -50,7 +50,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20032**](InlineResponse20032.md)
+[**AutocompleteMenuItemSearch200Response**](AutocompleteMenuItemSearch200Response.md)
 
 ### Authorization
 
@@ -64,7 +64,7 @@ Name | Type | Description  | Notes
 
 ## getMenuItemInformation
 
-> InlineResponse20036 getMenuItemInformation(id)
+> GetMenuItemInformation200Response getMenuItemInformation(id)
 
 Get Menu Item Information
 
@@ -79,7 +79,7 @@ Use a menu item id to get all available information about a menu item, such as n
 MenuItemsApi apiInstance = new MenuItemsApi();
 Integer id = 1; // Integer | The item's id.
 try {
-    InlineResponse20036 result = apiInstance.getMenuItemInformation(id);
+    GetMenuItemInformation200Response result = apiInstance.getMenuItemInformation(id);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MenuItemsApi#getMenuItemInformation");
@@ -96,7 +96,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20036**](InlineResponse20036.md)
+[**GetMenuItemInformation200Response**](GetMenuItemInformation200Response.md)
 
 ### Authorization
 
@@ -262,7 +262,7 @@ Name | Type | Description  | Notes
 
 ## searchMenuItems
 
-> InlineResponse20035 searchMenuItems(query, minCalories, maxCalories, minCarbs, maxCarbs, minProtein, maxProtein, minFat, maxFat, addMenuItemInformation, offset, number)
+> SearchMenuItems200Response searchMenuItems(query, minCalories, maxCalories, minCarbs, maxCarbs, minProtein, maxProtein, minFat, maxFat, addMenuItemInformation, offset, number)
 
 Search Menu Items
 
@@ -288,7 +288,7 @@ Boolean addMenuItemInformation = true; // Boolean | If set to true, you get more
 Integer offset = null; // Integer | The number of results to skip (between 0 and 900).
 Integer number = 10; // Integer | The maximum number of items to return (between 1 and 100). Defaults to 10.
 try {
-    InlineResponse20035 result = apiInstance.searchMenuItems(query, minCalories, maxCalories, minCarbs, maxCarbs, minProtein, maxProtein, minFat, maxFat, addMenuItemInformation, offset, number);
+    SearchMenuItems200Response result = apiInstance.searchMenuItems(query, minCalories, maxCalories, minCarbs, maxCarbs, minProtein, maxProtein, minFat, maxFat, addMenuItemInformation, offset, number);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MenuItemsApi#searchMenuItems");
@@ -316,7 +316,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20035**](InlineResponse20035.md)
+[**SearchMenuItems200Response**](SearchMenuItems200Response.md)
 
 ### Authorization
 

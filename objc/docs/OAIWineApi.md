@@ -13,21 +13,21 @@ Method | HTTP request | Description
 # **getDishPairingForWine**
 ```objc
 -(NSURLSessionTask*) getDishPairingForWineWithWine: (NSString*) wine
-        completionHandler: (void (^)(OAIInlineResponse20044* output, NSError* error)) handler;
+        completionHandler: (void (^)(OAIGetDishPairingForWine200Response* output, NSError* error)) handler;
 ```
 
 Dish Pairing for Wine
 
 Find a dish that goes well with a given wine.
 
-### Example 
+### Example
 ```objc
 OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 
 // Configure API key authorization: (authentication scheme: apiKeyScheme)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"apiKey"];
+[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"x-api-key"];
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"apiKey"];
+//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"x-api-key"];
 
 
 NSString* wine = malbec; // The type of wine that should be paired, e.g. \"merlot\", \"riesling\", or \"malbec\".
@@ -36,7 +36,7 @@ OAIWineApi*apiInstance = [[OAIWineApi alloc] init];
 
 // Dish Pairing for Wine
 [apiInstance getDishPairingForWineWithWine:wine
-          completionHandler: ^(OAIInlineResponse20044* output, NSError* error) {
+          completionHandler: ^(OAIGetDishPairingForWine200Response* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -54,7 +54,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OAIInlineResponse20044***](OAIInlineResponse20044.md)
+[**OAIGetDishPairingForWine200Response***](OAIGetDishPairingForWine200Response.md)
 
 ### Authorization
 
@@ -70,21 +70,21 @@ Name | Type | Description  | Notes
 # **getWineDescription**
 ```objc
 -(NSURLSessionTask*) getWineDescriptionWithWine: (NSString*) wine
-        completionHandler: (void (^)(OAIInlineResponse20046* output, NSError* error)) handler;
+        completionHandler: (void (^)(OAIGetWineDescription200Response* output, NSError* error)) handler;
 ```
 
 Wine Description
 
 Get a simple description of a certain wine, e.g. \"malbec\", \"riesling\", or \"merlot\".
 
-### Example 
+### Example
 ```objc
 OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 
 // Configure API key authorization: (authentication scheme: apiKeyScheme)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"apiKey"];
+[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"x-api-key"];
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"apiKey"];
+//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"x-api-key"];
 
 
 NSString* wine = merlot; // The name of the wine that should be paired, e.g. \"merlot\", \"riesling\", or \"malbec\".
@@ -93,7 +93,7 @@ OAIWineApi*apiInstance = [[OAIWineApi alloc] init];
 
 // Wine Description
 [apiInstance getWineDescriptionWithWine:wine
-          completionHandler: ^(OAIInlineResponse20046* output, NSError* error) {
+          completionHandler: ^(OAIGetWineDescription200Response* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -111,7 +111,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OAIInlineResponse20046***](OAIInlineResponse20046.md)
+[**OAIGetWineDescription200Response***](OAIGetWineDescription200Response.md)
 
 ### Authorization
 
@@ -128,21 +128,21 @@ Name | Type | Description  | Notes
 ```objc
 -(NSURLSessionTask*) getWinePairingWithFood: (NSString*) food
     maxPrice: (NSNumber*) maxPrice
-        completionHandler: (void (^)(OAIInlineResponse20045* output, NSError* error)) handler;
+        completionHandler: (void (^)(OAIGetWinePairing200Response* output, NSError* error)) handler;
 ```
 
 Wine Pairing
 
 Find a wine that goes well with a food. Food can be a dish name (\"steak\"), an ingredient name (\"salmon\"), or a cuisine (\"italian\").
 
-### Example 
+### Example
 ```objc
 OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 
 // Configure API key authorization: (authentication scheme: apiKeyScheme)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"apiKey"];
+[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"x-api-key"];
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"apiKey"];
+//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"x-api-key"];
 
 
 NSString* food = steak; // The food to get a pairing for. This can be a dish (\"steak\"), an ingredient (\"salmon\"), or a cuisine (\"italian\").
@@ -153,7 +153,7 @@ OAIWineApi*apiInstance = [[OAIWineApi alloc] init];
 // Wine Pairing
 [apiInstance getWinePairingWithFood:food
               maxPrice:maxPrice
-          completionHandler: ^(OAIInlineResponse20045* output, NSError* error) {
+          completionHandler: ^(OAIGetWinePairing200Response* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -172,7 +172,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OAIInlineResponse20045***](OAIInlineResponse20045.md)
+[**OAIGetWinePairing200Response***](OAIGetWinePairing200Response.md)
 
 ### Authorization
 
@@ -191,21 +191,21 @@ Name | Type | Description  | Notes
     maxPrice: (NSNumber*) maxPrice
     minRating: (NSNumber*) minRating
     number: (NSNumber*) number
-        completionHandler: (void (^)(OAIInlineResponse20047* output, NSError* error)) handler;
+        completionHandler: (void (^)(OAIGetWineRecommendation200Response* output, NSError* error)) handler;
 ```
 
 Wine Recommendation
 
 Get a specific wine recommendation (concrete product) for a given wine type, e.g. \"merlot\".
 
-### Example 
+### Example
 ```objc
 OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 
 // Configure API key authorization: (authentication scheme: apiKeyScheme)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"apiKey"];
+[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"x-api-key"];
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"apiKey"];
+//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"x-api-key"];
 
 
 NSString* wine = merlot; // The type of wine to get a specific product recommendation for.
@@ -220,7 +220,7 @@ OAIWineApi*apiInstance = [[OAIWineApi alloc] init];
               maxPrice:maxPrice
               minRating:minRating
               number:number
-          completionHandler: ^(OAIInlineResponse20047* output, NSError* error) {
+          completionHandler: ^(OAIGetWineRecommendation200Response* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -241,7 +241,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OAIInlineResponse20047***](OAIInlineResponse20047.md)
+[**OAIGetWineRecommendation200Response***](OAIGetWineRecommendation200Response.md)
 
 ### Authorization
 

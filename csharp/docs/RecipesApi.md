@@ -49,7 +49,7 @@ Method | HTTP request | Description
 
 <a name="analyzearecipesearchquery"></a>
 # **AnalyzeARecipeSearchQuery**
-> InlineResponse20018 AnalyzeARecipeSearchQuery (string q)
+> AnalyzeARecipeSearchQuery200Response AnalyzeARecipeSearchQuery (string q)
 
 Analyze a Recipe Search Query
 
@@ -69,11 +69,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new RecipesApi();
             var q = salmon with fusilli and no nuts;  // string | The recipe search query.
@@ -81,7 +80,7 @@ namespace Example
             try
             {
                 // Analyze a Recipe Search Query
-                InlineResponse20018 result = apiInstance.AnalyzeARecipeSearchQuery(q);
+                AnalyzeARecipeSearchQuery200Response result = apiInstance.AnalyzeARecipeSearchQuery(q);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -101,7 +100,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20018**](InlineResponse20018.md)
+[**AnalyzeARecipeSearchQuery200Response**](AnalyzeARecipeSearchQuery200Response.md)
 
 ### Authorization
 
@@ -116,7 +115,7 @@ Name | Type | Description  | Notes
 
 <a name="analyzerecipeinstructions"></a>
 # **AnalyzeRecipeInstructions**
-> InlineResponse20016 AnalyzeRecipeInstructions (string contentType)
+> AnalyzeRecipeInstructions200Response AnalyzeRecipeInstructions (string contentType)
 
 Analyze Recipe Instructions
 
@@ -136,11 +135,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new RecipesApi();
             var contentType = application/json;  // string | The content type. (optional) 
@@ -148,7 +146,7 @@ namespace Example
             try
             {
                 // Analyze Recipe Instructions
-                InlineResponse20016 result = apiInstance.AnalyzeRecipeInstructions(contentType);
+                AnalyzeRecipeInstructions200Response result = apiInstance.AnalyzeRecipeInstructions(contentType);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -168,7 +166,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20016**](InlineResponse20016.md)
+[**AnalyzeRecipeInstructions200Response**](AnalyzeRecipeInstructions200Response.md)
 
 ### Authorization
 
@@ -183,7 +181,7 @@ Name | Type | Description  | Notes
 
 <a name="autocompleterecipesearch"></a>
 # **AutocompleteRecipeSearch**
-> List<InlineResponse2007> AutocompleteRecipeSearch (string query, int? number)
+> List<AutocompleteRecipeSearch200ResponseInner> AutocompleteRecipeSearch (string query, int? number)
 
 Autocomplete Recipe Search
 
@@ -203,11 +201,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new RecipesApi();
             var query = burger;  // string | The (natural language) search query. (optional) 
@@ -216,7 +213,7 @@ namespace Example
             try
             {
                 // Autocomplete Recipe Search
-                List&lt;InlineResponse2007&gt; result = apiInstance.AutocompleteRecipeSearch(query, number);
+                List&lt;AutocompleteRecipeSearch200ResponseInner&gt; result = apiInstance.AutocompleteRecipeSearch(query, number);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -237,7 +234,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<InlineResponse2007>**](InlineResponse2007.md)
+[**List<AutocompleteRecipeSearch200ResponseInner>**](AutocompleteRecipeSearch200ResponseInner.md)
 
 ### Authorization
 
@@ -252,7 +249,7 @@ Name | Type | Description  | Notes
 
 <a name="classifycuisine"></a>
 # **ClassifyCuisine**
-> InlineResponse20017 ClassifyCuisine (string contentType)
+> ClassifyCuisine200Response ClassifyCuisine (string contentType)
 
 Classify Cuisine
 
@@ -272,11 +269,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new RecipesApi();
             var contentType = application/json;  // string | The content type. (optional) 
@@ -284,7 +280,7 @@ namespace Example
             try
             {
                 // Classify Cuisine
-                InlineResponse20017 result = apiInstance.ClassifyCuisine(contentType);
+                ClassifyCuisine200Response result = apiInstance.ClassifyCuisine(contentType);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -304,7 +300,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20017**](InlineResponse20017.md)
+[**ClassifyCuisine200Response**](ClassifyCuisine200Response.md)
 
 ### Authorization
 
@@ -319,7 +315,7 @@ Name | Type | Description  | Notes
 
 <a name="computeglycemicload"></a>
 # **ComputeGlycemicLoad**
-> InlineResponse20023 ComputeGlycemicLoad (InlineObject inlineObject, string language)
+> ComputeGlycemicLoad200Response ComputeGlycemicLoad (ComputeGlycemicLoadRequest computeGlycemicLoadRequest, string language)
 
 Compute Glycemic Load
 
@@ -339,20 +335,19 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new RecipesApi();
-            var inlineObject = new InlineObject(); // InlineObject | 
+            var computeGlycemicLoadRequest = new ComputeGlycemicLoadRequest(); // ComputeGlycemicLoadRequest | 
             var language = en;  // string | The language of the input. Either 'en' or 'de'. (optional) 
 
             try
             {
                 // Compute Glycemic Load
-                InlineResponse20023 result = apiInstance.ComputeGlycemicLoad(inlineObject, language);
+                ComputeGlycemicLoad200Response result = apiInstance.ComputeGlycemicLoad(computeGlycemicLoadRequest, language);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -368,12 +363,12 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject** | [**InlineObject**](InlineObject.md)|  | 
+ **computeGlycemicLoadRequest** | [**ComputeGlycemicLoadRequest**](ComputeGlycemicLoadRequest.md)|  | 
  **language** | **string**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] 
 
 ### Return type
 
-[**InlineResponse20023**](InlineResponse20023.md)
+[**ComputeGlycemicLoad200Response**](ComputeGlycemicLoad200Response.md)
 
 ### Authorization
 
@@ -388,7 +383,7 @@ Name | Type | Description  | Notes
 
 <a name="convertamounts"></a>
 # **ConvertAmounts**
-> InlineResponse20019 ConvertAmounts (string ingredientName, decimal? sourceAmount, string sourceUnit, string targetUnit)
+> ConvertAmounts200Response ConvertAmounts (string ingredientName, decimal? sourceAmount, string sourceUnit, string targetUnit)
 
 Convert Amounts
 
@@ -408,11 +403,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new RecipesApi();
             var ingredientName = flour;  // string | The ingredient which you want to convert.
@@ -423,7 +417,7 @@ namespace Example
             try
             {
                 // Convert Amounts
-                InlineResponse20019 result = apiInstance.ConvertAmounts(ingredientName, sourceAmount, sourceUnit, targetUnit);
+                ConvertAmounts200Response result = apiInstance.ConvertAmounts(ingredientName, sourceAmount, sourceUnit, targetUnit);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -446,7 +440,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20019**](InlineResponse20019.md)
+[**ConvertAmounts200Response**](ConvertAmounts200Response.md)
 
 ### Authorization
 
@@ -461,7 +455,7 @@ Name | Type | Description  | Notes
 
 <a name="createrecipecard"></a>
 # **CreateRecipeCard**
-> InlineResponse20015 CreateRecipeCard (string contentType)
+> CreateRecipeCard200Response CreateRecipeCard (string contentType)
 
 Create Recipe Card
 
@@ -481,11 +475,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new RecipesApi();
             var contentType = application/json;  // string | The content type. (optional) 
@@ -493,7 +486,7 @@ namespace Example
             try
             {
                 // Create Recipe Card
-                InlineResponse20015 result = apiInstance.CreateRecipeCard(contentType);
+                CreateRecipeCard200Response result = apiInstance.CreateRecipeCard(contentType);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -513,7 +506,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20015**](InlineResponse20015.md)
+[**CreateRecipeCard200Response**](CreateRecipeCard200Response.md)
 
 ### Authorization
 
@@ -548,11 +541,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new RecipesApi();
             var id = 44860;  // decimal? | The recipe id.
@@ -595,7 +587,7 @@ Name | Type | Description  | Notes
 
 <a name="extractrecipefromwebsite"></a>
 # **ExtractRecipeFromWebsite**
-> InlineResponse2003 ExtractRecipeFromWebsite (string url, bool? forceExtraction, bool? analyze, bool? includeNutrition, bool? includeTaste)
+> GetRecipeInformation200Response ExtractRecipeFromWebsite (string url, bool? forceExtraction, bool? analyze, bool? includeNutrition, bool? includeTaste)
 
 Extract Recipe from Website
 
@@ -615,23 +607,22 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new RecipesApi();
             var url = https://foodista.com/recipe/ZHK4KPB6/chocolate-crinkle-cookies;  // string | The URL of the recipe page.
             var forceExtraction = true;  // bool? | If true, the extraction will be triggered whether we already know the recipe or not. Use this only if information is missing as this operation is slower. (optional) 
             var analyze = false;  // bool? | If true, the recipe will be analyzed and classified resolving in more data such as cuisines, dish types, and more. (optional) 
-            var includeNutrition = true;  // bool? | Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional)  (default to false)
+            var includeNutrition = false;  // bool? | Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional)  (default to false)
             var includeTaste = false;  // bool? | Whether taste data should be added to correctly parsed ingredients. (optional)  (default to false)
 
             try
             {
                 // Extract Recipe from Website
-                InlineResponse2003 result = apiInstance.ExtractRecipeFromWebsite(url, forceExtraction, analyze, includeNutrition, includeTaste);
+                GetRecipeInformation200Response result = apiInstance.ExtractRecipeFromWebsite(url, forceExtraction, analyze, includeNutrition, includeTaste);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -655,7 +646,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2003**](InlineResponse2003.md)
+[**GetRecipeInformation200Response**](GetRecipeInformation200Response.md)
 
 ### Authorization
 
@@ -670,7 +661,7 @@ Name | Type | Description  | Notes
 
 <a name="getanalyzedrecipeinstructions"></a>
 # **GetAnalyzedRecipeInstructions**
-> InlineResponse20013 GetAnalyzedRecipeInstructions (int? id, bool? stepBreakdown)
+> GetAnalyzedRecipeInstructions200Response GetAnalyzedRecipeInstructions (int? id, bool? stepBreakdown)
 
 Get Analyzed Recipe Instructions
 
@@ -690,11 +681,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new RecipesApi();
             var id = 1;  // int? | The item's id.
@@ -703,7 +693,7 @@ namespace Example
             try
             {
                 // Get Analyzed Recipe Instructions
-                InlineResponse20013 result = apiInstance.GetAnalyzedRecipeInstructions(id, stepBreakdown);
+                GetAnalyzedRecipeInstructions200Response result = apiInstance.GetAnalyzedRecipeInstructions(id, stepBreakdown);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -724,7 +714,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20013**](InlineResponse20013.md)
+[**GetAnalyzedRecipeInstructions200Response**](GetAnalyzedRecipeInstructions200Response.md)
 
 ### Authorization
 
@@ -739,7 +729,7 @@ Name | Type | Description  | Notes
 
 <a name="getrandomrecipes"></a>
 # **GetRandomRecipes**
-> InlineResponse2006 GetRandomRecipes (bool? limitLicense, string tags, int? number)
+> GetRandomRecipes200Response GetRandomRecipes (bool? limitLicense, string tags, int? number)
 
 Get Random Recipes
 
@@ -759,21 +749,20 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new RecipesApi();
             var limitLicense = true;  // bool? | Whether the recipes should have an open license that allows display with proper attribution. (optional)  (default to true)
-            var tags = tags_example;  // string | The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have. (optional) 
+            var tags = "tags_example";  // string | The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have. (optional) 
             var number = 10;  // int? | The maximum number of items to return (between 1 and 100). Defaults to 10. (optional)  (default to 10)
 
             try
             {
                 // Get Random Recipes
-                InlineResponse2006 result = apiInstance.GetRandomRecipes(limitLicense, tags, number);
+                GetRandomRecipes200Response result = apiInstance.GetRandomRecipes(limitLicense, tags, number);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -795,7 +784,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2006**](InlineResponse2006.md)
+[**GetRandomRecipes200Response**](GetRandomRecipes200Response.md)
 
 ### Authorization
 
@@ -810,7 +799,7 @@ Name | Type | Description  | Notes
 
 <a name="getrecipeequipmentbyid"></a>
 # **GetRecipeEquipmentByID**
-> InlineResponse2009 GetRecipeEquipmentByID (int? id)
+> GetRecipeEquipmentByID200Response GetRecipeEquipmentByID (int? id)
 
 Equipment by ID
 
@@ -830,11 +819,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new RecipesApi();
             var id = 1;  // int? | The item's id.
@@ -842,7 +830,7 @@ namespace Example
             try
             {
                 // Equipment by ID
-                InlineResponse2009 result = apiInstance.GetRecipeEquipmentByID(id);
+                GetRecipeEquipmentByID200Response result = apiInstance.GetRecipeEquipmentByID(id);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -862,7 +850,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2009**](InlineResponse2009.md)
+[**GetRecipeEquipmentByID200Response**](GetRecipeEquipmentByID200Response.md)
 
 ### Authorization
 
@@ -877,7 +865,7 @@ Name | Type | Description  | Notes
 
 <a name="getrecipeinformation"></a>
 # **GetRecipeInformation**
-> InlineResponse2003 GetRecipeInformation (int? id, bool? includeNutrition)
+> GetRecipeInformation200Response GetRecipeInformation (int? id, bool? includeNutrition)
 
 Get Recipe Information
 
@@ -897,20 +885,19 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new RecipesApi();
             var id = 1;  // int? | The item's id.
-            var includeNutrition = true;  // bool? | Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional)  (default to false)
+            var includeNutrition = false;  // bool? | Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional)  (default to false)
 
             try
             {
                 // Get Recipe Information
-                InlineResponse2003 result = apiInstance.GetRecipeInformation(id, includeNutrition);
+                GetRecipeInformation200Response result = apiInstance.GetRecipeInformation(id, includeNutrition);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -931,7 +918,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2003**](InlineResponse2003.md)
+[**GetRecipeInformation200Response**](GetRecipeInformation200Response.md)
 
 ### Authorization
 
@@ -946,7 +933,7 @@ Name | Type | Description  | Notes
 
 <a name="getrecipeinformationbulk"></a>
 # **GetRecipeInformationBulk**
-> List<InlineResponse2004> GetRecipeInformationBulk (string ids, bool? includeNutrition)
+> List<GetRecipeInformationBulk200ResponseInner> GetRecipeInformationBulk (string ids, bool? includeNutrition)
 
 Get Recipe Information Bulk
 
@@ -966,20 +953,19 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new RecipesApi();
             var ids = 715538,716429;  // string | A comma-separated list of recipe ids.
-            var includeNutrition = true;  // bool? | Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional)  (default to false)
+            var includeNutrition = false;  // bool? | Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional)  (default to false)
 
             try
             {
                 // Get Recipe Information Bulk
-                List&lt;InlineResponse2004&gt; result = apiInstance.GetRecipeInformationBulk(ids, includeNutrition);
+                List&lt;GetRecipeInformationBulk200ResponseInner&gt; result = apiInstance.GetRecipeInformationBulk(ids, includeNutrition);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -1000,7 +986,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<InlineResponse2004>**](InlineResponse2004.md)
+[**List<GetRecipeInformationBulk200ResponseInner>**](GetRecipeInformationBulk200ResponseInner.md)
 
 ### Authorization
 
@@ -1015,7 +1001,7 @@ Name | Type | Description  | Notes
 
 <a name="getrecipeingredientsbyid"></a>
 # **GetRecipeIngredientsByID**
-> InlineResponse20011 GetRecipeIngredientsByID (int? id)
+> GetRecipeIngredientsByID200Response GetRecipeIngredientsByID (int? id)
 
 Ingredients by ID
 
@@ -1035,11 +1021,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new RecipesApi();
             var id = 1;  // int? | The item's id.
@@ -1047,7 +1032,7 @@ namespace Example
             try
             {
                 // Ingredients by ID
-                InlineResponse20011 result = apiInstance.GetRecipeIngredientsByID(id);
+                GetRecipeIngredientsByID200Response result = apiInstance.GetRecipeIngredientsByID(id);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -1067,7 +1052,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20011**](InlineResponse20011.md)
+[**GetRecipeIngredientsByID200Response**](GetRecipeIngredientsByID200Response.md)
 
 ### Authorization
 
@@ -1082,7 +1067,7 @@ Name | Type | Description  | Notes
 
 <a name="getrecipenutritionwidgetbyid"></a>
 # **GetRecipeNutritionWidgetByID**
-> InlineResponse20012 GetRecipeNutritionWidgetByID (int? id)
+> GetRecipeNutritionWidgetByID200Response GetRecipeNutritionWidgetByID (int? id)
 
 Nutrition by ID
 
@@ -1102,11 +1087,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new RecipesApi();
             var id = 1;  // int? | The item's id.
@@ -1114,7 +1098,7 @@ namespace Example
             try
             {
                 // Nutrition by ID
-                InlineResponse20012 result = apiInstance.GetRecipeNutritionWidgetByID(id);
+                GetRecipeNutritionWidgetByID200Response result = apiInstance.GetRecipeNutritionWidgetByID(id);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -1134,7 +1118,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20012**](InlineResponse20012.md)
+[**GetRecipeNutritionWidgetByID200Response**](GetRecipeNutritionWidgetByID200Response.md)
 
 ### Authorization
 
@@ -1149,7 +1133,7 @@ Name | Type | Description  | Notes
 
 <a name="getrecipepricebreakdownbyid"></a>
 # **GetRecipePriceBreakdownByID**
-> InlineResponse20010 GetRecipePriceBreakdownByID (int? id)
+> GetRecipePriceBreakdownByID200Response GetRecipePriceBreakdownByID (int? id)
 
 Price Breakdown by ID
 
@@ -1169,11 +1153,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new RecipesApi();
             var id = 1;  // int? | The item's id.
@@ -1181,7 +1164,7 @@ namespace Example
             try
             {
                 // Price Breakdown by ID
-                InlineResponse20010 result = apiInstance.GetRecipePriceBreakdownByID(id);
+                GetRecipePriceBreakdownByID200Response result = apiInstance.GetRecipePriceBreakdownByID(id);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -1201,7 +1184,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20010**](InlineResponse20010.md)
+[**GetRecipePriceBreakdownByID200Response**](GetRecipePriceBreakdownByID200Response.md)
 
 ### Authorization
 
@@ -1216,7 +1199,7 @@ Name | Type | Description  | Notes
 
 <a name="getrecipetastebyid"></a>
 # **GetRecipeTasteByID**
-> InlineResponse2008 GetRecipeTasteByID (int? id, bool? normalize)
+> GetRecipeTasteByID200Response GetRecipeTasteByID (int? id, bool? normalize)
 
 Taste by ID
 
@@ -1236,11 +1219,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new RecipesApi();
             var id = 1;  // int? | The item's id.
@@ -1249,7 +1231,7 @@ namespace Example
             try
             {
                 // Taste by ID
-                InlineResponse2008 result = apiInstance.GetRecipeTasteByID(id, normalize);
+                GetRecipeTasteByID200Response result = apiInstance.GetRecipeTasteByID(id, normalize);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -1270,7 +1252,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2008**](InlineResponse2008.md)
+[**GetRecipeTasteByID200Response**](GetRecipeTasteByID200Response.md)
 
 ### Authorization
 
@@ -1285,7 +1267,7 @@ Name | Type | Description  | Notes
 
 <a name="getsimilarrecipes"></a>
 # **GetSimilarRecipes**
-> List<InlineResponse2005> GetSimilarRecipes (int? id, int? number, bool? limitLicense)
+> List<GetSimilarRecipes200ResponseInner> GetSimilarRecipes (int? id, int? number, bool? limitLicense)
 
 Get Similar Recipes
 
@@ -1305,11 +1287,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new RecipesApi();
             var id = 1;  // int? | The item's id.
@@ -1319,7 +1300,7 @@ namespace Example
             try
             {
                 // Get Similar Recipes
-                List&lt;InlineResponse2005&gt; result = apiInstance.GetSimilarRecipes(id, number, limitLicense);
+                List&lt;GetSimilarRecipes200ResponseInner&gt; result = apiInstance.GetSimilarRecipes(id, number, limitLicense);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -1341,7 +1322,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<InlineResponse2005>**](InlineResponse2005.md)
+[**List<GetSimilarRecipes200ResponseInner>**](GetSimilarRecipes200ResponseInner.md)
 
 ### Authorization
 
@@ -1356,7 +1337,7 @@ Name | Type | Description  | Notes
 
 <a name="guessnutritionbydishname"></a>
 # **GuessNutritionByDishName**
-> InlineResponse20021 GuessNutritionByDishName (string title)
+> GuessNutritionByDishName200Response GuessNutritionByDishName (string title)
 
 Guess Nutrition by Dish Name
 
@@ -1376,11 +1357,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new RecipesApi();
             var title = Spaghetti Aglio et Olio;  // string | The title of the dish.
@@ -1388,7 +1368,7 @@ namespace Example
             try
             {
                 // Guess Nutrition by Dish Name
-                InlineResponse20021 result = apiInstance.GuessNutritionByDishName(title);
+                GuessNutritionByDishName200Response result = apiInstance.GuessNutritionByDishName(title);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -1408,7 +1388,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20021**](InlineResponse20021.md)
+[**GuessNutritionByDishName200Response**](GuessNutritionByDishName200Response.md)
 
 ### Authorization
 
@@ -1443,11 +1423,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new RecipesApi();
             var id = 1082038;  // decimal? | The recipe id.
@@ -1492,7 +1471,7 @@ Name | Type | Description  | Notes
 
 <a name="parseingredients"></a>
 # **ParseIngredients**
-> List<InlineResponse20020> ParseIngredients (string contentType, string language)
+> List<ParseIngredients200ResponseInner> ParseIngredients (string contentType, string language)
 
 Parse Ingredients
 
@@ -1512,11 +1491,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new RecipesApi();
             var contentType = application/json;  // string | The content type. (optional) 
@@ -1525,7 +1503,7 @@ namespace Example
             try
             {
                 // Parse Ingredients
-                List&lt;InlineResponse20020&gt; result = apiInstance.ParseIngredients(contentType, language);
+                List&lt;ParseIngredients200ResponseInner&gt; result = apiInstance.ParseIngredients(contentType, language);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -1546,7 +1524,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<InlineResponse20020>**](InlineResponse20020.md)
+[**List<ParseIngredients200ResponseInner>**](ParseIngredients200ResponseInner.md)
 
 ### Authorization
 
@@ -1581,11 +1559,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new RecipesApi();
             var id = 1082038;  // decimal? | The recipe id.
@@ -1628,7 +1605,7 @@ Name | Type | Description  | Notes
 
 <a name="quickanswer"></a>
 # **QuickAnswer**
-> InlineResponse20050 QuickAnswer (string q)
+> QuickAnswer200Response QuickAnswer (string q)
 
 Quick Answer
 
@@ -1648,11 +1625,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new RecipesApi();
             var q = How much vitamin c is in 2 apples?;  // string | The nutrition related question.
@@ -1660,7 +1636,7 @@ namespace Example
             try
             {
                 // Quick Answer
-                InlineResponse20050 result = apiInstance.QuickAnswer(q);
+                QuickAnswer200Response result = apiInstance.QuickAnswer(q);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -1680,7 +1656,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20050**](InlineResponse20050.md)
+[**QuickAnswer200Response**](QuickAnswer200Response.md)
 
 ### Authorization
 
@@ -1715,11 +1691,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new RecipesApi();
             var id = 1082038;  // decimal? | The recipe id.
@@ -1782,11 +1757,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new RecipesApi();
             var id = 641166;  // decimal? | The recipe id.
@@ -1855,11 +1829,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new RecipesApi();
             var id = 641166;  // decimal? | The recipe id.
@@ -1930,11 +1903,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new RecipesApi();
             var id = 69095;  // decimal? | The recipe id.
@@ -1981,7 +1953,7 @@ Name | Type | Description  | Notes
 
 <a name="searchrecipes"></a>
 # **SearchRecipes**
-> InlineResponse200 SearchRecipes (string query, string cuisine, string excludeCuisine, string diet, string intolerances, string equipment, string includeIngredients, string excludeIngredients, string type, bool? instructionsRequired, bool? fillIngredients, bool? addRecipeInformation, bool? addRecipeNutrition, string author, string tags, decimal? recipeBoxId, string titleMatch, decimal? maxReadyTime, bool? ignorePantry, string sort, string sortDirection, decimal? minCarbs, decimal? maxCarbs, decimal? minProtein, decimal? maxProtein, decimal? minCalories, decimal? maxCalories, decimal? minFat, decimal? maxFat, decimal? minAlcohol, decimal? maxAlcohol, decimal? minCaffeine, decimal? maxCaffeine, decimal? minCopper, decimal? maxCopper, decimal? minCalcium, decimal? maxCalcium, decimal? minCholine, decimal? maxCholine, decimal? minCholesterol, decimal? maxCholesterol, decimal? minFluoride, decimal? maxFluoride, decimal? minSaturatedFat, decimal? maxSaturatedFat, decimal? minVitaminA, decimal? maxVitaminA, decimal? minVitaminC, decimal? maxVitaminC, decimal? minVitaminD, decimal? maxVitaminD, decimal? minVitaminE, decimal? maxVitaminE, decimal? minVitaminK, decimal? maxVitaminK, decimal? minVitaminB1, decimal? maxVitaminB1, decimal? minVitaminB2, decimal? maxVitaminB2, decimal? minVitaminB5, decimal? maxVitaminB5, decimal? minVitaminB3, decimal? maxVitaminB3, decimal? minVitaminB6, decimal? maxVitaminB6, decimal? minVitaminB12, decimal? maxVitaminB12, decimal? minFiber, decimal? maxFiber, decimal? minFolate, decimal? maxFolate, decimal? minFolicAcid, decimal? maxFolicAcid, decimal? minIodine, decimal? maxIodine, decimal? minIron, decimal? maxIron, decimal? minMagnesium, decimal? maxMagnesium, decimal? minManganese, decimal? maxManganese, decimal? minPhosphorus, decimal? maxPhosphorus, decimal? minPotassium, decimal? maxPotassium, decimal? minSelenium, decimal? maxSelenium, decimal? minSodium, decimal? maxSodium, decimal? minSugar, decimal? maxSugar, decimal? minZinc, decimal? maxZinc, int? offset, int? number, bool? limitLicense)
+> SearchRecipes200Response SearchRecipes (string query, string cuisine, string excludeCuisine, string diet, string intolerances, string equipment, string includeIngredients, string excludeIngredients, string type, bool? instructionsRequired, bool? fillIngredients, bool? addRecipeInformation, bool? addRecipeNutrition, string author, string tags, decimal? recipeBoxId, string titleMatch, decimal? maxReadyTime, bool? ignorePantry, string sort, string sortDirection, decimal? minCarbs, decimal? maxCarbs, decimal? minProtein, decimal? maxProtein, decimal? minCalories, decimal? maxCalories, decimal? minFat, decimal? maxFat, decimal? minAlcohol, decimal? maxAlcohol, decimal? minCaffeine, decimal? maxCaffeine, decimal? minCopper, decimal? maxCopper, decimal? minCalcium, decimal? maxCalcium, decimal? minCholine, decimal? maxCholine, decimal? minCholesterol, decimal? maxCholesterol, decimal? minFluoride, decimal? maxFluoride, decimal? minSaturatedFat, decimal? maxSaturatedFat, decimal? minVitaminA, decimal? maxVitaminA, decimal? minVitaminC, decimal? maxVitaminC, decimal? minVitaminD, decimal? maxVitaminD, decimal? minVitaminE, decimal? maxVitaminE, decimal? minVitaminK, decimal? maxVitaminK, decimal? minVitaminB1, decimal? maxVitaminB1, decimal? minVitaminB2, decimal? maxVitaminB2, decimal? minVitaminB5, decimal? maxVitaminB5, decimal? minVitaminB3, decimal? maxVitaminB3, decimal? minVitaminB6, decimal? maxVitaminB6, decimal? minVitaminB12, decimal? maxVitaminB12, decimal? minFiber, decimal? maxFiber, decimal? minFolate, decimal? maxFolate, decimal? minFolicAcid, decimal? maxFolicAcid, decimal? minIodine, decimal? maxIodine, decimal? minIron, decimal? maxIron, decimal? minMagnesium, decimal? maxMagnesium, decimal? minManganese, decimal? maxManganese, decimal? minPhosphorus, decimal? maxPhosphorus, decimal? minPotassium, decimal? maxPotassium, decimal? minSelenium, decimal? maxSelenium, decimal? minSodium, decimal? maxSodium, decimal? minSugar, decimal? maxSugar, decimal? minZinc, decimal? maxZinc, int? offset, int? number, bool? limitLicense)
 
 Search Recipes
 
@@ -2001,11 +1973,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new RecipesApi();
             var query = burger;  // string | The (natural language) search query. (optional) 
@@ -2022,7 +1993,7 @@ namespace Example
             var addRecipeInformation = false;  // bool? | If set to true, you get more information about the recipes returned. (optional) 
             var addRecipeNutrition = false;  // bool? | If set to true, you get nutritional information about each recipes returned. (optional) 
             var author = coffeebean;  // string | The username of the recipe author. (optional) 
-            var tags = tags_example;  // string | The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have. (optional) 
+            var tags = "tags_example";  // string | The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have. (optional) 
             var recipeBoxId = 2468;  // decimal? | The id of the recipe box to which the search should be limited to. (optional) 
             var titleMatch = Crock Pot;  // string | Enter text that must be found in the title of the recipes. (optional) 
             var maxReadyTime = 20;  // decimal? | The maximum time in minutes it should take to prepare and cook the recipe. (optional) 
@@ -2108,7 +2079,7 @@ namespace Example
             try
             {
                 // Search Recipes
-                InlineResponse200 result = apiInstance.SearchRecipes(query, cuisine, excludeCuisine, diet, intolerances, equipment, includeIngredients, excludeIngredients, type, instructionsRequired, fillIngredients, addRecipeInformation, addRecipeNutrition, author, tags, recipeBoxId, titleMatch, maxReadyTime, ignorePantry, sort, sortDirection, minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, limitLicense);
+                SearchRecipes200Response result = apiInstance.SearchRecipes(query, cuisine, excludeCuisine, diet, intolerances, equipment, includeIngredients, excludeIngredients, type, instructionsRequired, fillIngredients, addRecipeInformation, addRecipeNutrition, author, tags, recipeBoxId, titleMatch, maxReadyTime, ignorePantry, sort, sortDirection, minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, limitLicense);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -2223,7 +2194,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**SearchRecipes200Response**](SearchRecipes200Response.md)
 
 ### Authorization
 
@@ -2238,7 +2209,7 @@ Name | Type | Description  | Notes
 
 <a name="searchrecipesbyingredients"></a>
 # **SearchRecipesByIngredients**
-> List<InlineResponse2001> SearchRecipesByIngredients (string ingredients, int? number, bool? limitLicense, decimal? ranking, bool? ignorePantry)
+> List<SearchRecipesByIngredients200ResponseInner> SearchRecipesByIngredients (string ingredients, int? number, bool? limitLicense, decimal? ranking, bool? ignorePantry)
 
 Search Recipes by Ingredients
 
@@ -2258,11 +2229,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new RecipesApi();
             var ingredients = carrots,tomatoes;  // string | A comma-separated list of ingredients that the recipes should contain. (optional) 
@@ -2274,7 +2244,7 @@ namespace Example
             try
             {
                 // Search Recipes by Ingredients
-                List&lt;InlineResponse2001&gt; result = apiInstance.SearchRecipesByIngredients(ingredients, number, limitLicense, ranking, ignorePantry);
+                List&lt;SearchRecipesByIngredients200ResponseInner&gt; result = apiInstance.SearchRecipesByIngredients(ingredients, number, limitLicense, ranking, ignorePantry);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -2298,7 +2268,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<InlineResponse2001>**](InlineResponse2001.md)
+[**List<SearchRecipesByIngredients200ResponseInner>**](SearchRecipesByIngredients200ResponseInner.md)
 
 ### Authorization
 
@@ -2313,7 +2283,7 @@ Name | Type | Description  | Notes
 
 <a name="searchrecipesbynutrients"></a>
 # **SearchRecipesByNutrients**
-> List<InlineResponse2002> SearchRecipesByNutrients (decimal? minCarbs, decimal? maxCarbs, decimal? minProtein, decimal? maxProtein, decimal? minCalories, decimal? maxCalories, decimal? minFat, decimal? maxFat, decimal? minAlcohol, decimal? maxAlcohol, decimal? minCaffeine, decimal? maxCaffeine, decimal? minCopper, decimal? maxCopper, decimal? minCalcium, decimal? maxCalcium, decimal? minCholine, decimal? maxCholine, decimal? minCholesterol, decimal? maxCholesterol, decimal? minFluoride, decimal? maxFluoride, decimal? minSaturatedFat, decimal? maxSaturatedFat, decimal? minVitaminA, decimal? maxVitaminA, decimal? minVitaminC, decimal? maxVitaminC, decimal? minVitaminD, decimal? maxVitaminD, decimal? minVitaminE, decimal? maxVitaminE, decimal? minVitaminK, decimal? maxVitaminK, decimal? minVitaminB1, decimal? maxVitaminB1, decimal? minVitaminB2, decimal? maxVitaminB2, decimal? minVitaminB5, decimal? maxVitaminB5, decimal? minVitaminB3, decimal? maxVitaminB3, decimal? minVitaminB6, decimal? maxVitaminB6, decimal? minVitaminB12, decimal? maxVitaminB12, decimal? minFiber, decimal? maxFiber, decimal? minFolate, decimal? maxFolate, decimal? minFolicAcid, decimal? maxFolicAcid, decimal? minIodine, decimal? maxIodine, decimal? minIron, decimal? maxIron, decimal? minMagnesium, decimal? maxMagnesium, decimal? minManganese, decimal? maxManganese, decimal? minPhosphorus, decimal? maxPhosphorus, decimal? minPotassium, decimal? maxPotassium, decimal? minSelenium, decimal? maxSelenium, decimal? minSodium, decimal? maxSodium, decimal? minSugar, decimal? maxSugar, decimal? minZinc, decimal? maxZinc, int? offset, int? number, bool? random, bool? limitLicense)
+> List<SearchRecipesByNutrients200ResponseInner> SearchRecipesByNutrients (decimal? minCarbs, decimal? maxCarbs, decimal? minProtein, decimal? maxProtein, decimal? minCalories, decimal? maxCalories, decimal? minFat, decimal? maxFat, decimal? minAlcohol, decimal? maxAlcohol, decimal? minCaffeine, decimal? maxCaffeine, decimal? minCopper, decimal? maxCopper, decimal? minCalcium, decimal? maxCalcium, decimal? minCholine, decimal? maxCholine, decimal? minCholesterol, decimal? maxCholesterol, decimal? minFluoride, decimal? maxFluoride, decimal? minSaturatedFat, decimal? maxSaturatedFat, decimal? minVitaminA, decimal? maxVitaminA, decimal? minVitaminC, decimal? maxVitaminC, decimal? minVitaminD, decimal? maxVitaminD, decimal? minVitaminE, decimal? maxVitaminE, decimal? minVitaminK, decimal? maxVitaminK, decimal? minVitaminB1, decimal? maxVitaminB1, decimal? minVitaminB2, decimal? maxVitaminB2, decimal? minVitaminB5, decimal? maxVitaminB5, decimal? minVitaminB3, decimal? maxVitaminB3, decimal? minVitaminB6, decimal? maxVitaminB6, decimal? minVitaminB12, decimal? maxVitaminB12, decimal? minFiber, decimal? maxFiber, decimal? minFolate, decimal? maxFolate, decimal? minFolicAcid, decimal? maxFolicAcid, decimal? minIodine, decimal? maxIodine, decimal? minIron, decimal? maxIron, decimal? minMagnesium, decimal? maxMagnesium, decimal? minManganese, decimal? maxManganese, decimal? minPhosphorus, decimal? maxPhosphorus, decimal? minPotassium, decimal? maxPotassium, decimal? minSelenium, decimal? maxSelenium, decimal? minSodium, decimal? maxSodium, decimal? minSugar, decimal? maxSugar, decimal? minZinc, decimal? maxZinc, int? offset, int? number, bool? random, bool? limitLicense)
 
 Search Recipes by Nutrients
 
@@ -2333,11 +2303,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new RecipesApi();
             var minCarbs = 10;  // decimal? | The minimum amount of carbohydrates in grams the recipe must have. (optional) 
@@ -2420,7 +2389,7 @@ namespace Example
             try
             {
                 // Search Recipes by Nutrients
-                List&lt;InlineResponse2002&gt; result = apiInstance.SearchRecipesByNutrients(minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, random, limitLicense);
+                List&lt;SearchRecipesByNutrients200ResponseInner&gt; result = apiInstance.SearchRecipesByNutrients(minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, random, limitLicense);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -2515,7 +2484,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<InlineResponse2002>**](InlineResponse2002.md)
+[**List<SearchRecipesByNutrients200ResponseInner>**](SearchRecipesByNutrients200ResponseInner.md)
 
 ### Authorization
 
@@ -2530,7 +2499,7 @@ Name | Type | Description  | Notes
 
 <a name="summarizerecipe"></a>
 # **SummarizeRecipe**
-> InlineResponse20014 SummarizeRecipe (int? id)
+> SummarizeRecipe200Response SummarizeRecipe (int? id)
 
 Summarize Recipe
 
@@ -2550,11 +2519,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new RecipesApi();
             var id = 1;  // int? | The item's id.
@@ -2562,7 +2530,7 @@ namespace Example
             try
             {
                 // Summarize Recipe
-                InlineResponse20014 result = apiInstance.SummarizeRecipe(id);
+                SummarizeRecipe200Response result = apiInstance.SummarizeRecipe(id);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -2582,7 +2550,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20014**](InlineResponse20014.md)
+[**SummarizeRecipe200Response**](SummarizeRecipe200Response.md)
 
 ### Authorization
 
@@ -2617,11 +2585,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new RecipesApi();
             var contentType = application/json;  // string | The content type. (optional) 
@@ -2686,11 +2653,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new RecipesApi();
             var contentType = application/json;  // string | The content type. (optional) 
@@ -2757,11 +2723,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new RecipesApi();
             var id = 1;  // int? | The item's id.
@@ -2826,11 +2791,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new RecipesApi();
             var id = 1;  // int? | The item's id.
@@ -2897,11 +2861,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new RecipesApi();
             var contentType = application/json;  // string | The content type. (optional) 
@@ -2968,11 +2931,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new RecipesApi();
             var id = 1;  // int? | The item's id.
@@ -3039,11 +3001,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new RecipesApi();
             var id = 1;  // int? | The item's id.
@@ -3108,11 +3069,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new RecipesApi();
             var language = en;  // string | The language of the input. Either 'en' or 'de'. (optional) 
@@ -3183,11 +3143,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new RecipesApi();
             var id = 1;  // int? | The item's id.

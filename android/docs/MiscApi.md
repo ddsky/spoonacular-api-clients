@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 ## detectFoodInText
 
-> InlineResponse20051 detectFoodInText(contentType)
+> DetectFoodInText200Response detectFoodInText(contentType)
 
 Detect Food in Text
 
@@ -35,7 +35,7 @@ Take any text and find all mentions of food contained within it. This task is al
 MiscApi apiInstance = new MiscApi();
 String contentType = application/json; // String | The content type.
 try {
-    InlineResponse20051 result = apiInstance.detectFoodInText(contentType);
+    DetectFoodInText200Response result = apiInstance.detectFoodInText(contentType);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MiscApi#detectFoodInText");
@@ -52,7 +52,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20051**](InlineResponse20051.md)
+[**DetectFoodInText200Response**](DetectFoodInText200Response.md)
 
 ### Authorization
 
@@ -66,7 +66,7 @@ Name | Type | Description  | Notes
 
 ## getARandomFoodJoke
 
-> InlineResponse20055 getARandomFoodJoke()
+> GetARandomFoodJoke200Response getARandomFoodJoke()
 
 Random Food Joke
 
@@ -80,7 +80,7 @@ Get a random joke that is related to food. Caution: this is an endpoint for adul
 
 MiscApi apiInstance = new MiscApi();
 try {
-    InlineResponse20055 result = apiInstance.getARandomFoodJoke();
+    GetARandomFoodJoke200Response result = apiInstance.getARandomFoodJoke();
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MiscApi#getARandomFoodJoke");
@@ -94,7 +94,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse20055**](InlineResponse20055.md)
+[**GetARandomFoodJoke200Response**](GetARandomFoodJoke200Response.md)
 
 ### Authorization
 
@@ -108,7 +108,7 @@ This endpoint does not need any parameter.
 
 ## getConversationSuggests
 
-> InlineResponse20057 getConversationSuggests(query, number)
+> GetConversationSuggests200Response getConversationSuggests(query, number)
 
 Conversation Suggests
 
@@ -124,7 +124,7 @@ MiscApi apiInstance = new MiscApi();
 String query = tell; // String | A (partial) query from the user. The endpoint will return if it matches topics it can talk about.
 BigDecimal number = 5; // BigDecimal | The number of suggestions to return (between 1 and 25).
 try {
-    InlineResponse20057 result = apiInstance.getConversationSuggests(query, number);
+    GetConversationSuggests200Response result = apiInstance.getConversationSuggests(query, number);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MiscApi#getConversationSuggests");
@@ -142,7 +142,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20057**](InlineResponse20057.md)
+[**GetConversationSuggests200Response**](GetConversationSuggests200Response.md)
 
 ### Authorization
 
@@ -156,7 +156,7 @@ Name | Type | Description  | Notes
 
 ## getRandomFoodTrivia
 
-> InlineResponse20055 getRandomFoodTrivia()
+> GetRandomFoodTrivia200Response getRandomFoodTrivia()
 
 Random Food Trivia
 
@@ -170,7 +170,7 @@ Returns random food trivia.
 
 MiscApi apiInstance = new MiscApi();
 try {
-    InlineResponse20055 result = apiInstance.getRandomFoodTrivia();
+    GetRandomFoodTrivia200Response result = apiInstance.getRandomFoodTrivia();
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MiscApi#getRandomFoodTrivia");
@@ -184,7 +184,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse20055**](InlineResponse20055.md)
+[**GetRandomFoodTrivia200Response**](GetRandomFoodTrivia200Response.md)
 
 ### Authorization
 
@@ -198,7 +198,7 @@ This endpoint does not need any parameter.
 
 ## imageAnalysisByURL
 
-> InlineResponse20049 imageAnalysisByURL(imageUrl)
+> ImageAnalysisByURL200Response imageAnalysisByURL(imageUrl)
 
 Image Analysis by URL
 
@@ -213,7 +213,7 @@ Analyze a food image. The API tries to classify the image, guess the nutrition, 
 MiscApi apiInstance = new MiscApi();
 String imageUrl = https://spoonacular.com/recipeImages/635350-240x150.jpg; // String | The URL of the image to be analyzed.
 try {
-    InlineResponse20049 result = apiInstance.imageAnalysisByURL(imageUrl);
+    ImageAnalysisByURL200Response result = apiInstance.imageAnalysisByURL(imageUrl);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MiscApi#imageAnalysisByURL");
@@ -230,7 +230,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20049**](InlineResponse20049.md)
+[**ImageAnalysisByURL200Response**](ImageAnalysisByURL200Response.md)
 
 ### Authorization
 
@@ -244,7 +244,7 @@ Name | Type | Description  | Notes
 
 ## imageClassificationByURL
 
-> InlineResponse20048 imageClassificationByURL(imageUrl)
+> ImageClassificationByURL200Response imageClassificationByURL(imageUrl)
 
 Image Classification by URL
 
@@ -259,7 +259,7 @@ Classify a food image.
 MiscApi apiInstance = new MiscApi();
 String imageUrl = https://spoonacular.com/recipeImages/635350-240x150.jpg; // String | The URL of the image to be classified.
 try {
-    InlineResponse20048 result = apiInstance.imageClassificationByURL(imageUrl);
+    ImageClassificationByURL200Response result = apiInstance.imageClassificationByURL(imageUrl);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MiscApi#imageClassificationByURL");
@@ -276,7 +276,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20048**](InlineResponse20048.md)
+[**ImageClassificationByURL200Response**](ImageClassificationByURL200Response.md)
 
 ### Authorization
 
@@ -290,7 +290,7 @@ Name | Type | Description  | Notes
 
 ## searchAllFood
 
-> InlineResponse20053 searchAllFood(query, offset, number)
+> SearchAllFood200Response searchAllFood(query, offset, number)
 
 Search All Food
 
@@ -307,7 +307,7 @@ String query = apple; // String | The search query.
 Integer offset = null; // Integer | The number of results to skip (between 0 and 900).
 Integer number = 10; // Integer | The maximum number of items to return (between 1 and 100). Defaults to 10.
 try {
-    InlineResponse20053 result = apiInstance.searchAllFood(query, offset, number);
+    SearchAllFood200Response result = apiInstance.searchAllFood(query, offset, number);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MiscApi#searchAllFood");
@@ -326,7 +326,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20053**](InlineResponse20053.md)
+[**SearchAllFood200Response**](SearchAllFood200Response.md)
 
 ### Authorization
 
@@ -340,7 +340,7 @@ Name | Type | Description  | Notes
 
 ## searchCustomFoods
 
-> InlineResponse20029 searchCustomFoods(username, hash, query, offset, number)
+> SearchCustomFoods200Response searchCustomFoods(username, hash, query, offset, number)
 
 Search Custom Foods
 
@@ -359,7 +359,7 @@ String query = burger; // String | The (natural language) search query.
 Integer offset = null; // Integer | The number of results to skip (between 0 and 900).
 Integer number = 10; // Integer | The maximum number of items to return (between 1 and 100). Defaults to 10.
 try {
-    InlineResponse20029 result = apiInstance.searchCustomFoods(username, hash, query, offset, number);
+    SearchCustomFoods200Response result = apiInstance.searchCustomFoods(username, hash, query, offset, number);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MiscApi#searchCustomFoods");
@@ -380,7 +380,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20029**](InlineResponse20029.md)
+[**SearchCustomFoods200Response**](SearchCustomFoods200Response.md)
 
 ### Authorization
 
@@ -394,7 +394,7 @@ Name | Type | Description  | Notes
 
 ## searchFoodVideos
 
-> InlineResponse20054 searchFoodVideos(query, type, cuisine, diet, includeIngredients, excludeIngredients, minLength, maxLength, offset, number)
+> SearchFoodVideos200Response searchFoodVideos(query, type, cuisine, diet, includeIngredients, excludeIngredients, minLength, maxLength, offset, number)
 
 Search Food Videos
 
@@ -418,7 +418,7 @@ BigDecimal maxLength = 999; // BigDecimal | Maximum video length in seconds.
 Integer offset = null; // Integer | The number of results to skip (between 0 and 900).
 Integer number = 10; // Integer | The maximum number of items to return (between 1 and 100). Defaults to 10.
 try {
-    InlineResponse20054 result = apiInstance.searchFoodVideos(query, type, cuisine, diet, includeIngredients, excludeIngredients, minLength, maxLength, offset, number);
+    SearchFoodVideos200Response result = apiInstance.searchFoodVideos(query, type, cuisine, diet, includeIngredients, excludeIngredients, minLength, maxLength, offset, number);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MiscApi#searchFoodVideos");
@@ -444,7 +444,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20054**](InlineResponse20054.md)
+[**SearchFoodVideos200Response**](SearchFoodVideos200Response.md)
 
 ### Authorization
 
@@ -458,7 +458,7 @@ Name | Type | Description  | Notes
 
 ## searchSiteContent
 
-> InlineResponse20052 searchSiteContent(query)
+> SearchSiteContent200Response searchSiteContent(query)
 
 Search Site Content
 
@@ -473,7 +473,7 @@ Search spoonacular&#39;s site content. You&#39;ll be able to find everything tha
 MiscApi apiInstance = new MiscApi();
 String query = past; // String | The query to search for. You can also use partial queries such as \"spagh\" to already find spaghetti recipes, articles, grocery products, and other content.
 try {
-    InlineResponse20052 result = apiInstance.searchSiteContent(query);
+    SearchSiteContent200Response result = apiInstance.searchSiteContent(query);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MiscApi#searchSiteContent");
@@ -490,7 +490,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20052**](InlineResponse20052.md)
+[**SearchSiteContent200Response**](SearchSiteContent200Response.md)
 
 ### Authorization
 
@@ -504,7 +504,7 @@ Name | Type | Description  | Notes
 
 ## talkToChatbot
 
-> InlineResponse20056 talkToChatbot(text, contextId)
+> TalkToChatbot200Response talkToChatbot(text, contextId)
 
 Talk to Chatbot
 
@@ -520,7 +520,7 @@ MiscApi apiInstance = new MiscApi();
 String text = donut recipes; // String | The request / question / answer from the user to the chatbot.
 String contextId = 342938; // String | An arbitrary globally unique id for your conversation. The conversation can contain states so you should pass your context id if you want the bot to be able to remember the conversation.
 try {
-    InlineResponse20056 result = apiInstance.talkToChatbot(text, contextId);
+    TalkToChatbot200Response result = apiInstance.talkToChatbot(text, contextId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MiscApi#talkToChatbot");
@@ -538,7 +538,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20056**](InlineResponse20056.md)
+[**TalkToChatbot200Response**](TalkToChatbot200Response.md)
 
 ### Authorization
 

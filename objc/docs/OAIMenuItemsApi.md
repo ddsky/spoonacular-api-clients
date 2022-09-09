@@ -17,21 +17,21 @@ Method | HTTP request | Description
 ```objc
 -(NSURLSessionTask*) autocompleteMenuItemSearchWithQuery: (NSString*) query
     number: (NSNumber*) number
-        completionHandler: (void (^)(OAIInlineResponse20032* output, NSError* error)) handler;
+        completionHandler: (void (^)(OAIAutocompleteMenuItemSearch200Response* output, NSError* error)) handler;
 ```
 
 Autocomplete Menu Item Search
 
 Generate suggestions for menu items based on a (partial) query. The matches will be found by looking in the title only.
 
-### Example 
+### Example
 ```objc
 OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 
 // Configure API key authorization: (authentication scheme: apiKeyScheme)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"apiKey"];
+[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"x-api-key"];
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"apiKey"];
+//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"x-api-key"];
 
 
 NSString* query = chicke; // The (partial) search query.
@@ -42,7 +42,7 @@ OAIMenuItemsApi*apiInstance = [[OAIMenuItemsApi alloc] init];
 // Autocomplete Menu Item Search
 [apiInstance autocompleteMenuItemSearchWithQuery:query
               number:number
-          completionHandler: ^(OAIInlineResponse20032* output, NSError* error) {
+          completionHandler: ^(OAIAutocompleteMenuItemSearch200Response* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -61,7 +61,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OAIInlineResponse20032***](OAIInlineResponse20032.md)
+[**OAIAutocompleteMenuItemSearch200Response***](OAIAutocompleteMenuItemSearch200Response.md)
 
 ### Authorization
 
@@ -77,21 +77,21 @@ Name | Type | Description  | Notes
 # **getMenuItemInformation**
 ```objc
 -(NSURLSessionTask*) getMenuItemInformationWithId: (NSNumber*) _id
-        completionHandler: (void (^)(OAIInlineResponse20036* output, NSError* error)) handler;
+        completionHandler: (void (^)(OAIGetMenuItemInformation200Response* output, NSError* error)) handler;
 ```
 
 Get Menu Item Information
 
 Use a menu item id to get all available information about a menu item, such as nutrition.
 
-### Example 
+### Example
 ```objc
 OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 
 // Configure API key authorization: (authentication scheme: apiKeyScheme)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"apiKey"];
+[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"x-api-key"];
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"apiKey"];
+//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"x-api-key"];
 
 
 NSNumber* _id = 1; // The item's id.
@@ -100,7 +100,7 @@ OAIMenuItemsApi*apiInstance = [[OAIMenuItemsApi alloc] init];
 
 // Get Menu Item Information
 [apiInstance getMenuItemInformationWithId:_id
-          completionHandler: ^(OAIInlineResponse20036* output, NSError* error) {
+          completionHandler: ^(OAIGetMenuItemInformation200Response* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -118,7 +118,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OAIInlineResponse20036***](OAIInlineResponse20036.md)
+[**OAIGetMenuItemInformation200Response***](OAIGetMenuItemInformation200Response.md)
 
 ### Authorization
 
@@ -141,14 +141,14 @@ Menu Item Nutrition by ID Image
 
 Visualize a menu item's nutritional information as HTML including CSS.
 
-### Example 
+### Example
 ```objc
 OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 
 // Configure API key authorization: (authentication scheme: apiKeyScheme)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"apiKey"];
+[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"x-api-key"];
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"apiKey"];
+//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"x-api-key"];
 
 
 NSNumber* _id = 424571; // The menu item id.
@@ -201,14 +201,14 @@ Menu Item Nutrition Label Image
 
 Visualize a menu item's nutritional label information as an image.
 
-### Example 
+### Example
 ```objc
 OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 
 // Configure API key authorization: (authentication scheme: apiKeyScheme)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"apiKey"];
+[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"x-api-key"];
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"apiKey"];
+//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"x-api-key"];
 
 
 NSNumber* _id = 342313; // The menu item id.
@@ -271,14 +271,14 @@ Menu Item Nutrition Label Widget
 
 Visualize a menu item's nutritional label information as HTML including CSS.
 
-### Example 
+### Example
 ```objc
 OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 
 // Configure API key authorization: (authentication scheme: apiKeyScheme)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"apiKey"];
+[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"x-api-key"];
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"apiKey"];
+//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"x-api-key"];
 
 
 NSNumber* _id = 342313; // The menu item id.
@@ -344,21 +344,21 @@ Name | Type | Description  | Notes
     addMenuItemInformation: (NSNumber*) addMenuItemInformation
     offset: (NSNumber*) offset
     number: (NSNumber*) number
-        completionHandler: (void (^)(OAIInlineResponse20035* output, NSError* error)) handler;
+        completionHandler: (void (^)(OAISearchMenuItems200Response* output, NSError* error)) handler;
 ```
 
 Search Menu Items
 
 Search over 115,000 menu items from over 800 fast food and chain restaurants. For example, McDonald's Big Mac or Starbucks Mocha.
 
-### Example 
+### Example
 ```objc
 OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 
 // Configure API key authorization: (authentication scheme: apiKeyScheme)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"apiKey"];
+[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"x-api-key"];
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"apiKey"];
+//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"x-api-key"];
 
 
 NSString* query = burger; // The (natural language) search query. (optional)
@@ -389,7 +389,7 @@ OAIMenuItemsApi*apiInstance = [[OAIMenuItemsApi alloc] init];
               addMenuItemInformation:addMenuItemInformation
               offset:offset
               number:number
-          completionHandler: ^(OAIInlineResponse20035* output, NSError* error) {
+          completionHandler: ^(OAISearchMenuItems200Response* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -418,7 +418,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OAIInlineResponse20035***](OAIInlineResponse20035.md)
+[**OAISearchMenuItems200Response***](OAISearchMenuItems200Response.md)
 
 ### Authorization
 
@@ -443,14 +443,14 @@ Menu Item Nutrition by ID Widget
 
 Visualize a menu item's nutritional information as HTML including CSS.
 
-### Example 
+### Example
 ```objc
 OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 
 // Configure API key authorization: (authentication scheme: apiKeyScheme)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"apiKey"];
+[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"x-api-key"];
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"apiKey"];
+//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"x-api-key"];
 
 
 NSNumber* _id = 1; // The item's id.

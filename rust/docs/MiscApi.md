@@ -4,46 +4,37 @@ All URIs are relative to *https://api.spoonacular.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**detect_food_in_text**](MiscApi.md#detect_food_in_text) | **Post** /food/detect | Detect Food in Text
-[**get_a_random_food_joke**](MiscApi.md#get_a_random_food_joke) | **Get** /food/jokes/random | Random Food Joke
-[**get_conversation_suggests**](MiscApi.md#get_conversation_suggests) | **Get** /food/converse/suggest | Conversation Suggests
-[**get_random_food_trivia**](MiscApi.md#get_random_food_trivia) | **Get** /food/trivia/random | Random Food Trivia
-[**image_analysis_by_url**](MiscApi.md#image_analysis_by_url) | **Get** /food/images/analyze | Image Analysis by URL
-[**image_classification_by_url**](MiscApi.md#image_classification_by_url) | **Get** /food/images/classify | Image Classification by URL
-[**search_all_food**](MiscApi.md#search_all_food) | **Get** /food/search | Search All Food
-[**search_custom_foods**](MiscApi.md#search_custom_foods) | **Get** /food/customFoods/search | Search Custom Foods
-[**search_food_videos**](MiscApi.md#search_food_videos) | **Get** /food/videos/search | Search Food Videos
-[**search_site_content**](MiscApi.md#search_site_content) | **Get** /food/site/search | Search Site Content
-[**talk_to_chatbot**](MiscApi.md#talk_to_chatbot) | **Get** /food/converse | Talk to Chatbot
+[**detect_food_in_text**](MiscApi.md#detect_food_in_text) | **POST** /food/detect | Detect Food in Text
+[**get_a_random_food_joke**](MiscApi.md#get_a_random_food_joke) | **GET** /food/jokes/random | Random Food Joke
+[**get_conversation_suggests**](MiscApi.md#get_conversation_suggests) | **GET** /food/converse/suggest | Conversation Suggests
+[**get_random_food_trivia**](MiscApi.md#get_random_food_trivia) | **GET** /food/trivia/random | Random Food Trivia
+[**image_analysis_by_url**](MiscApi.md#image_analysis_by_url) | **GET** /food/images/analyze | Image Analysis by URL
+[**image_classification_by_url**](MiscApi.md#image_classification_by_url) | **GET** /food/images/classify | Image Classification by URL
+[**search_all_food**](MiscApi.md#search_all_food) | **GET** /food/search | Search All Food
+[**search_custom_foods**](MiscApi.md#search_custom_foods) | **GET** /food/customFoods/search | Search Custom Foods
+[**search_food_videos**](MiscApi.md#search_food_videos) | **GET** /food/videos/search | Search Food Videos
+[**search_site_content**](MiscApi.md#search_site_content) | **GET** /food/site/search | Search Site Content
+[**talk_to_chatbot**](MiscApi.md#talk_to_chatbot) | **GET** /food/converse | Talk to Chatbot
 
 
 
 ## detect_food_in_text
 
-> ::models::InlineResponse20051 detect_food_in_text(ctx, optional)
+> crate::models::DetectFoodInText200Response detect_food_in_text(content_type)
 Detect Food in Text
 
 Take any text and find all mentions of food contained within it. This task is also called Named Entity Recognition (NER). In this case, the entities are foods. Either dishes, such as pizza or cheeseburger, or ingredients, such as cucumber or almonds.
 
-### Required Parameters
+### Parameters
 
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
- **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
-
-### Optional Parameters
-
-Optional parameters are passed through a map[string]interface{}.
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **content_type** | **String**| The content type. | 
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**content_type** | Option<**String**> | The content type. |  |
 
 ### Return type
 
-[**::models::InlineResponse20051**](inline_response_200_51.md)
+[**crate::models::DetectFoodInText200Response**](detectFoodInText_200_response.md)
 
 ### Authorization
 
@@ -59,18 +50,18 @@ Name | Type | Description  | Notes
 
 ## get_a_random_food_joke
 
-> ::models::InlineResponse20055 get_a_random_food_joke(ctx, )
+> crate::models::GetARandomFoodJoke200Response get_a_random_food_joke()
 Random Food Joke
 
 Get a random joke that is related to food. Caution: this is an endpoint for adults!
 
-### Required Parameters
+### Parameters
 
 This endpoint does not need any parameter.
 
 ### Return type
 
-[**::models::InlineResponse20055**](inline_response_200_55.md)
+[**crate::models::GetARandomFoodJoke200Response**](getARandomFoodJoke_200_response.md)
 
 ### Authorization
 
@@ -86,32 +77,22 @@ This endpoint does not need any parameter.
 
 ## get_conversation_suggests
 
-> ::models::InlineResponse20057 get_conversation_suggests(ctx, query, optional)
+> crate::models::GetConversationSuggests200Response get_conversation_suggests(query, number)
 Conversation Suggests
 
 This endpoint returns suggestions for things the user can say or ask the chatbot.
 
-### Required Parameters
+### Parameters
 
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
-  **query** | **String**| A (partial) query from the user. The endpoint will return if it matches topics it can talk about. | 
- **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
-
-### Optional Parameters
-
-Optional parameters are passed through a map[string]interface{}.
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **query** | **String**| A (partial) query from the user. The endpoint will return if it matches topics it can talk about. | 
- **number** | **f32**| The number of suggestions to return (between 1 and 25). | 
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**query** | **String** | A (partial) query from the user. The endpoint will return if it matches topics it can talk about. | [required] |
+**number** | Option<**f32**> | The number of suggestions to return (between 1 and 25). |  |
 
 ### Return type
 
-[**::models::InlineResponse20057**](inline_response_200_57.md)
+[**crate::models::GetConversationSuggests200Response**](getConversationSuggests_200_response.md)
 
 ### Authorization
 
@@ -127,18 +108,18 @@ Name | Type | Description  | Notes
 
 ## get_random_food_trivia
 
-> ::models::InlineResponse20055 get_random_food_trivia(ctx, )
+> crate::models::GetRandomFoodTrivia200Response get_random_food_trivia()
 Random Food Trivia
 
 Returns random food trivia.
 
-### Required Parameters
+### Parameters
 
 This endpoint does not need any parameter.
 
 ### Return type
 
-[**::models::InlineResponse20055**](inline_response_200_55.md)
+[**crate::models::GetRandomFoodTrivia200Response**](getRandomFoodTrivia_200_response.md)
 
 ### Authorization
 
@@ -154,22 +135,21 @@ This endpoint does not need any parameter.
 
 ## image_analysis_by_url
 
-> ::models::InlineResponse20049 image_analysis_by_url(ctx, image_url)
+> crate::models::ImageAnalysisByUrl200Response image_analysis_by_url(image_url)
 Image Analysis by URL
 
 Analyze a food image. The API tries to classify the image, guess the nutrition, and find a matching recipes.
 
-### Required Parameters
+### Parameters
 
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
-  **image_url** | **String**| The URL of the image to be analyzed. | 
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**image_url** | **String** | The URL of the image to be analyzed. | [required] |
 
 ### Return type
 
-[**::models::InlineResponse20049**](inline_response_200_49.md)
+[**crate::models::ImageAnalysisByUrl200Response**](imageAnalysisByURL_200_response.md)
 
 ### Authorization
 
@@ -185,22 +165,21 @@ Name | Type | Description  | Notes
 
 ## image_classification_by_url
 
-> ::models::InlineResponse20048 image_classification_by_url(ctx, image_url)
+> crate::models::ImageClassificationByUrl200Response image_classification_by_url(image_url)
 Image Classification by URL
 
 Classify a food image.
 
-### Required Parameters
+### Parameters
 
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
-  **image_url** | **String**| The URL of the image to be classified. | 
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**image_url** | **String** | The URL of the image to be classified. | [required] |
 
 ### Return type
 
-[**::models::InlineResponse20048**](inline_response_200_48.md)
+[**crate::models::ImageClassificationByUrl200Response**](imageClassificationByURL_200_response.md)
 
 ### Authorization
 
@@ -216,33 +195,23 @@ Name | Type | Description  | Notes
 
 ## search_all_food
 
-> ::models::InlineResponse20053 search_all_food(ctx, query, optional)
+> crate::models::SearchAllFood200Response search_all_food(query, offset, number)
 Search All Food
 
 Search all food content with one call. That includes recipes, grocery products, menu items, simple foods (ingredients), and food videos.
 
-### Required Parameters
+### Parameters
 
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
-  **query** | **String**| The search query. | 
- **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
-
-### Optional Parameters
-
-Optional parameters are passed through a map[string]interface{}.
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **query** | **String**| The search query. | 
- **offset** | **i32**| The number of results to skip (between 0 and 900). | 
- **number** | **i32**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [default to 10]
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**query** | **String** | The search query. | [required] |
+**offset** | Option<**i32**> | The number of results to skip (between 0 and 900). |  |
+**number** | Option<**i32**> | The maximum number of items to return (between 1 and 100). Defaults to 10. |  |[default to 10]
 
 ### Return type
 
-[**::models::InlineResponse20053**](inline_response_200_53.md)
+[**crate::models::SearchAllFood200Response**](searchAllFood_200_response.md)
 
 ### Authorization
 
@@ -258,36 +227,25 @@ Name | Type | Description  | Notes
 
 ## search_custom_foods
 
-> ::models::InlineResponse20029 search_custom_foods(ctx, username, hash, optional)
+> crate::models::SearchCustomFoods200Response search_custom_foods(username, hash, query, offset, number)
 Search Custom Foods
 
 Search custom foods in a user's account.
 
-### Required Parameters
+### Parameters
 
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
-  **username** | **String**| The username. | 
-  **hash** | **String**| The private hash for the username. | 
- **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
-
-### Optional Parameters
-
-Optional parameters are passed through a map[string]interface{}.
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **username** | **String**| The username. | 
- **hash** | **String**| The private hash for the username. | 
- **query** | **String**| The (natural language) search query. | 
- **offset** | **i32**| The number of results to skip (between 0 and 900). | 
- **number** | **i32**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [default to 10]
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**username** | **String** | The username. | [required] |
+**hash** | **String** | The private hash for the username. | [required] |
+**query** | Option<**String**> | The (natural language) search query. |  |
+**offset** | Option<**i32**> | The number of results to skip (between 0 and 900). |  |
+**number** | Option<**i32**> | The maximum number of items to return (between 1 and 100). Defaults to 10. |  |[default to 10]
 
 ### Return type
 
-[**::models::InlineResponse20029**](inline_response_200_29.md)
+[**crate::models::SearchCustomFoods200Response**](searchCustomFoods_200_response.md)
 
 ### Authorization
 
@@ -303,39 +261,30 @@ Name | Type | Description  | Notes
 
 ## search_food_videos
 
-> ::models::InlineResponse20054 search_food_videos(ctx, optional)
+> crate::models::SearchFoodVideos200Response search_food_videos(query, _type, cuisine, diet, include_ingredients, exclude_ingredients, min_length, max_length, offset, number)
 Search Food Videos
 
 Find recipe and other food related videos.
 
-### Required Parameters
+### Parameters
 
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
- **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
-
-### Optional Parameters
-
-Optional parameters are passed through a map[string]interface{}.
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **query** | **String**| The (natural language) search query. | 
- **_type** | **String**| The type of the recipes. See a full list of supported meal types. | 
- **cuisine** | **String**| The cuisine(s) of the recipes. One or more, comma separated. See a full list of supported cuisines. | 
- **diet** | **String**| The diet for which the recipes must be suitable. See a full list of supported diets. | 
- **include_ingredients** | **String**| A comma-separated list of ingredients that the recipes should contain. | 
- **exclude_ingredients** | **String**| A comma-separated list of ingredients or ingredient types that the recipes must not contain. | 
- **min_length** | **f32**| Minimum video length in seconds. | 
- **max_length** | **f32**| Maximum video length in seconds. | 
- **offset** | **i32**| The number of results to skip (between 0 and 900). | 
- **number** | **i32**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [default to 10]
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**query** | Option<**String**> | The (natural language) search query. |  |
+**_type** | Option<**String**> | The type of the recipes. See a full list of supported meal types. |  |
+**cuisine** | Option<**String**> | The cuisine(s) of the recipes. One or more, comma separated. See a full list of supported cuisines. |  |
+**diet** | Option<**String**> | The diet for which the recipes must be suitable. See a full list of supported diets. |  |
+**include_ingredients** | Option<**String**> | A comma-separated list of ingredients that the recipes should contain. |  |
+**exclude_ingredients** | Option<**String**> | A comma-separated list of ingredients or ingredient types that the recipes must not contain. |  |
+**min_length** | Option<**f32**> | Minimum video length in seconds. |  |
+**max_length** | Option<**f32**> | Maximum video length in seconds. |  |
+**offset** | Option<**i32**> | The number of results to skip (between 0 and 900). |  |
+**number** | Option<**i32**> | The maximum number of items to return (between 1 and 100). Defaults to 10. |  |[default to 10]
 
 ### Return type
 
-[**::models::InlineResponse20054**](inline_response_200_54.md)
+[**crate::models::SearchFoodVideos200Response**](searchFoodVideos_200_response.md)
 
 ### Authorization
 
@@ -351,22 +300,21 @@ Name | Type | Description  | Notes
 
 ## search_site_content
 
-> ::models::InlineResponse20052 search_site_content(ctx, query)
+> crate::models::SearchSiteContent200Response search_site_content(query)
 Search Site Content
 
 Search spoonacular's site content. You'll be able to find everything that you could also find using the search suggestions on spoonacular.com. This is a suggest API so you can send partial strings as queries.
 
-### Required Parameters
+### Parameters
 
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
-  **query** | **String**| The query to search for. You can also use partial queries such as \"spagh\" to already find spaghetti recipes, articles, grocery products, and other content. | 
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**query** | **String** | The query to search for. You can also use partial queries such as \"spagh\" to already find spaghetti recipes, articles, grocery products, and other content. | [required] |
 
 ### Return type
 
-[**::models::InlineResponse20052**](inline_response_200_52.md)
+[**crate::models::SearchSiteContent200Response**](searchSiteContent_200_response.md)
 
 ### Authorization
 
@@ -382,32 +330,22 @@ Name | Type | Description  | Notes
 
 ## talk_to_chatbot
 
-> ::models::InlineResponse20056 talk_to_chatbot(ctx, text, optional)
+> crate::models::TalkToChatbot200Response talk_to_chatbot(text, context_id)
 Talk to Chatbot
 
 This endpoint can be used to have a conversation about food with the spoonacular chatbot. Use the \"Get Conversation Suggests\" endpoint to show your user what he or she can say.
 
-### Required Parameters
+### Parameters
 
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
-  **text** | **String**| The request / question / answer from the user to the chatbot. | 
- **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
-
-### Optional Parameters
-
-Optional parameters are passed through a map[string]interface{}.
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **text** | **String**| The request / question / answer from the user to the chatbot. | 
- **context_id** | **String**| An arbitrary globally unique id for your conversation. The conversation can contain states so you should pass your context id if you want the bot to be able to remember the conversation. | 
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**text** | **String** | The request / question / answer from the user to the chatbot. | [required] |
+**context_id** | Option<**String**> | An arbitrary globally unique id for your conversation. The conversation can contain states so you should pass your context id if you want the bot to be able to remember the conversation. |  |
 
 ### Return type
 
-[**::models::InlineResponse20056**](inline_response_200_56.md)
+[**crate::models::TalkToChatbot200Response**](talkToChatbot_200_response.md)
 
 ### Authorization
 

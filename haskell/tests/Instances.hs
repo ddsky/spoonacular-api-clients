@@ -1,3 +1,4 @@
+{-# LANGUAGE CPP #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports -fno-warn-unused-matches #-}
 
 module Instances where
@@ -12,6 +13,7 @@ import qualified Data.Set as Set
 import qualified Data.Text as T
 import qualified Data.Time as TI
 import qualified Data.Vector as V
+import Data.String (fromString)
 
 import Control.Monad
 import Data.Char (isSpace)
@@ -51,9 +53,16 @@ instance Arbitrary Date where
     arbitrary = Date <$> arbitrary
     shrink (Date xs) = Date <$> shrink xs
 
+#if MIN_VERSION_aeson(2,0,0)
+#else
 -- | A naive Arbitrary instance for A.Value:
 instance Arbitrary A.Value where
-  arbitrary = frequency [(3, simpleTypes), (1, arrayTypes), (1, objectTypes)]
+  arbitrary = arbitraryValue
+#endif
+
+arbitraryValue :: Gen A.Value
+arbitraryValue =
+  frequency [(3, simpleTypes), (1, arrayTypes), (1, objectTypes)]
     where
       simpleTypes :: Gen A.Value
       simpleTypes =
@@ -63,7 +72,7 @@ instance Arbitrary A.Value where
           , (2, liftM (A.Number . fromIntegral) (arbitrary :: Gen Int))
           , (2, liftM (A.String . T.pack) (arbitrary :: Gen String))
           ]
-      mapF (k, v) = (T.pack k, v)
+      mapF (k, v) = (fromString k, v)
       simpleAndArrays = frequency [(1, sized sizedArray), (4, simpleTypes)]
       arrayTypes = sized sizedArray
       objectTypes = sized sizedObject
@@ -71,7 +80,7 @@ instance Arbitrary A.Value where
       sizedObject n =
         liftM (A.object . map mapF) $
         replicateM n $ (,) <$> (arbitrary :: Gen String) <*> simpleAndArrays
-    
+
 -- | Checks if a given list has no duplicates in _O(n log n)_.
 hasNoDups
   :: (Ord a)
@@ -86,7 +95,7 @@ hasNoDups = go Set.empty
 
 instance ApproxEq TI.Day where
   (=~) = (==)
-    
+
 arbitraryReduced :: Arbitrary a => Int -> Gen a
 arbitraryReduced n = resize (n `div` 2) arbitrary
 
@@ -103,1582 +112,1768 @@ arbitraryReducedMaybeValue n = do
     else return generated
 
 -- * Models
- 
-instance Arbitrary FoodIngredientsMapProducts where
-  arbitrary = sized genFoodIngredientsMapProducts
-
-genFoodIngredientsMapProducts :: Int -> Gen FoodIngredientsMapProducts
-genFoodIngredientsMapProducts n =
-  FoodIngredientsMapProducts
-    <$> arbitrary -- foodIngredientsMapProductsId :: Int
-    <*> arbitrary -- foodIngredientsMapProductsTitle :: Text
-    <*> arbitrary -- foodIngredientsMapProductsUpc :: Text
-  
-instance Arbitrary InlineObject where
-  arbitrary = sized genInlineObject
-
-genInlineObject :: Int -> Gen InlineObject
-genInlineObject n =
-  InlineObject
-    <$> arbitrary -- inlineObjectTitle :: Text
-    <*> arbitrary -- inlineObjectUpc :: Text
-    <*> arbitrary -- inlineObjectPluCode :: Text
-  
-instance Arbitrary InlineObject1 where
-  arbitrary = sized genInlineObject1
-
-genInlineObject1 :: Int -> Gen InlineObject1
-genInlineObject1 n =
-  InlineObject1
-    <$> arbitrary -- inlineObject1Title :: Text
-    <*> arbitrary -- inlineObject1Upc :: Text
-    <*> arbitrary -- inlineObject1PluCode :: Text
-  
-instance Arbitrary InlineObject10 where
-  arbitrary = sized genInlineObject10
-
-genInlineObject10 :: Int -> Gen InlineObject10
-genInlineObject10 n =
-  InlineObject10
-    <$> arbitrary -- inlineObject10Username :: Text
-    <*> arbitrary -- inlineObject10Id :: Double
-    <*> arbitrary -- inlineObject10Hash :: Text
-  
-instance Arbitrary InlineObject2 where
-  arbitrary = sized genInlineObject2
-
-genInlineObject2 :: Int -> Gen InlineObject2
-genInlineObject2 n =
-  InlineObject2
-    <$> arbitrary -- inlineObject2Ingredients :: [Text]
-    <*> arbitrary -- inlineObject2Servings :: Double
-  
-instance Arbitrary InlineObject3 where
-  arbitrary = sized genInlineObject3
-
-genInlineObject3 :: Int -> Gen InlineObject3
-genInlineObject3 n =
-  InlineObject3
-    <$> arbitrary -- inlineObject3Username :: Text
-    <*> arbitrary -- inlineObject3Date :: Text
-    <*> arbitrary -- inlineObject3Hash :: Text
-  
-instance Arbitrary InlineObject4 where
-  arbitrary = sized genInlineObject4
-
-genInlineObject4 :: Int -> Gen InlineObject4
-genInlineObject4 n =
-  InlineObject4
-    <$> arbitrary -- inlineObject4Username :: Text
-    <*> arbitrary -- inlineObject4Hash :: Text
-  
-instance Arbitrary InlineObject5 where
-  arbitrary = sized genInlineObject5
-
-genInlineObject5 :: Int -> Gen InlineObject5
-genInlineObject5 n =
-  InlineObject5
-    <$> arbitrary -- inlineObject5Username :: Text
-    <*> arbitrary -- inlineObject5Id :: Double
-    <*> arbitrary -- inlineObject5Hash :: Text
-  
-instance Arbitrary InlineObject6 where
-  arbitrary = sized genInlineObject6
-
-genInlineObject6 :: Int -> Gen InlineObject6
-genInlineObject6 n =
-  InlineObject6
-    <$> arbitrary -- inlineObject6Username :: Text
-    <*> arbitrary -- inlineObject6Hash :: Text
-  
-instance Arbitrary InlineObject7 where
-  arbitrary = sized genInlineObject7
-
-genInlineObject7 :: Int -> Gen InlineObject7
-genInlineObject7 n =
-  InlineObject7
-    <$> arbitrary -- inlineObject7Username :: Text
-    <*> arbitrary -- inlineObject7Id :: Double
-    <*> arbitrary -- inlineObject7Hash :: Text
-  
-instance Arbitrary InlineObject8 where
-  arbitrary = sized genInlineObject8
-
-genInlineObject8 :: Int -> Gen InlineObject8
-genInlineObject8 n =
-  InlineObject8
-    <$> arbitrary -- inlineObject8Username :: Text
-    <*> arbitrary -- inlineObject8StartDate :: Text
-    <*> arbitrary -- inlineObject8EndDate :: Text
-    <*> arbitrary -- inlineObject8Hash :: Text
-  
-instance Arbitrary InlineObject9 where
-  arbitrary = sized genInlineObject9
-
-genInlineObject9 :: Int -> Gen InlineObject9
-genInlineObject9 n =
-  InlineObject9
-    <$> arbitrary -- inlineObject9Username :: Text
-    <*> arbitrary -- inlineObject9Hash :: Text
-  
-instance Arbitrary InlineResponse200 where
-  arbitrary = sized genInlineResponse200
-
-genInlineResponse200 :: Int -> Gen InlineResponse200
-genInlineResponse200 n =
-  InlineResponse200
-    <$> arbitrary -- inlineResponse200Offset :: Int
-    <*> arbitrary -- inlineResponse200Number :: Int
-    <*> arbitraryReduced n -- inlineResponse200Results :: [InlineResponse200Results]
-    <*> arbitrary -- inlineResponse200TotalResults :: Int
-  
-instance Arbitrary InlineResponse2001 where
-  arbitrary = sized genInlineResponse2001
-
-genInlineResponse2001 :: Int -> Gen InlineResponse2001
-genInlineResponse2001 n =
-  InlineResponse2001
-    <$> arbitrary -- inlineResponse2001Id :: Int
-    <*> arbitrary -- inlineResponse2001Image :: Text
-    <*> arbitrary -- inlineResponse2001ImageType :: Text
-    <*> arbitrary -- inlineResponse2001Likes :: Int
-    <*> arbitrary -- inlineResponse2001MissedIngredientCount :: Int
-    <*> arbitraryReduced n -- inlineResponse2001MissedIngredients :: [RecipesFindByIngredientsMissedIngredients]
-    <*> arbitrary -- inlineResponse2001Title :: Text
-    <*> arbitraryReduced n -- inlineResponse2001UnusedIngredients :: [A.Value]
-    <*> arbitrary -- inlineResponse2001UsedIngredientCount :: Double
-    <*> arbitraryReduced n -- inlineResponse2001UsedIngredients :: [RecipesFindByIngredientsMissedIngredients]
-    <*> arbitraryReducedMaybe n -- inlineResponse2001 :: Maybe Text
-  
-instance Arbitrary InlineResponse20010 where
-  arbitrary = sized genInlineResponse20010
-
-genInlineResponse20010 :: Int -> Gen InlineResponse20010
-genInlineResponse20010 n =
-  InlineResponse20010
-    <$> arbitraryReduced n -- inlineResponse20010Ingredients :: [InlineResponse20010Ingredients]
-    <*> arbitrary -- inlineResponse20010TotalCost :: Double
-    <*> arbitrary -- inlineResponse20010TotalCostPerServing :: Double
-  
-instance Arbitrary InlineResponse20010Amount where
-  arbitrary = sized genInlineResponse20010Amount
-
-genInlineResponse20010Amount :: Int -> Gen InlineResponse20010Amount
-genInlineResponse20010Amount n =
-  InlineResponse20010Amount
-    <$> arbitraryReduced n -- inlineResponse20010AmountMetric :: InlineResponse20010AmountMetric
-    <*> arbitraryReduced n -- inlineResponse20010AmountUs :: InlineResponse20010AmountMetric
-  
-instance Arbitrary InlineResponse20010AmountMetric where
-  arbitrary = sized genInlineResponse20010AmountMetric
-
-genInlineResponse20010AmountMetric :: Int -> Gen InlineResponse20010AmountMetric
-genInlineResponse20010AmountMetric n =
-  InlineResponse20010AmountMetric
-    <$> arbitrary -- inlineResponse20010AmountMetricUnit :: Text
-    <*> arbitrary -- inlineResponse20010AmountMetricValue :: Double
-  
-instance Arbitrary InlineResponse20010Ingredients where
-  arbitrary = sized genInlineResponse20010Ingredients
-
-genInlineResponse20010Ingredients :: Int -> Gen InlineResponse20010Ingredients
-genInlineResponse20010Ingredients n =
-  InlineResponse20010Ingredients
-    <$> arbitraryReducedMaybe n -- inlineResponse20010IngredientsAmount :: Maybe InlineResponse20010Amount
-    <*> arbitrary -- inlineResponse20010IngredientsImage :: Text
-    <*> arbitrary -- inlineResponse20010IngredientsName :: Text
-    <*> arbitrary -- inlineResponse20010IngredientsPrice :: Double
-  
-instance Arbitrary InlineResponse20011 where
-  arbitrary = sized genInlineResponse20011
-
-genInlineResponse20011 :: Int -> Gen InlineResponse20011
-genInlineResponse20011 n =
-  InlineResponse20011
-    <$> arbitraryReduced n -- inlineResponse20011Ingredients :: [InlineResponse20011Ingredients]
-  
-instance Arbitrary InlineResponse20011Ingredients where
-  arbitrary = sized genInlineResponse20011Ingredients
-
-genInlineResponse20011Ingredients :: Int -> Gen InlineResponse20011Ingredients
-genInlineResponse20011Ingredients n =
-  InlineResponse20011Ingredients
-    <$> arbitraryReducedMaybe n -- inlineResponse20011IngredientsAmount :: Maybe InlineResponse20010Amount
-    <*> arbitrary -- inlineResponse20011IngredientsImage :: Text
-    <*> arbitrary -- inlineResponse20011IngredientsName :: Text
-  
-instance Arbitrary InlineResponse20012 where
-  arbitrary = sized genInlineResponse20012
-
-genInlineResponse20012 :: Int -> Gen InlineResponse20012
-genInlineResponse20012 n =
-  InlineResponse20012
-    <$> arbitrary -- inlineResponse20012Calories :: Text
-    <*> arbitrary -- inlineResponse20012Carbs :: Text
-    <*> arbitrary -- inlineResponse20012Fat :: Text
-    <*> arbitrary -- inlineResponse20012Protein :: Text
-    <*> arbitraryReduced n -- inlineResponse20012Bad :: [A.Value]
-    <*> arbitraryReduced n -- inlineResponse20012Good :: [A.Value]
-  
-instance Arbitrary InlineResponse20013 where
-  arbitrary = sized genInlineResponse20013
-
-genInlineResponse20013 :: Int -> Gen InlineResponse20013
-genInlineResponse20013 n =
-  InlineResponse20013
-    <$> arbitraryReduced n -- inlineResponse20013ParsedInstructions :: [InlineResponse20013ParsedInstructions]
-    <*> arbitraryReduced n -- inlineResponse20013Ingredients :: [InlineResponse20013Ingredients1]
-    <*> arbitraryReduced n -- inlineResponse20013Equipment :: [InlineResponse20013Ingredients1]
-  
-instance Arbitrary InlineResponse20013Ingredients where
-  arbitrary = sized genInlineResponse20013Ingredients
-
-genInlineResponse20013Ingredients :: Int -> Gen InlineResponse20013Ingredients
-genInlineResponse20013Ingredients n =
-  InlineResponse20013Ingredients
-    <$> arbitrary -- inlineResponse20013IngredientsId :: Int
-    <*> arbitrary -- inlineResponse20013IngredientsName :: Text
-    <*> arbitrary -- inlineResponse20013IngredientsLocalizedName :: Text
-    <*> arbitrary -- inlineResponse20013IngredientsImage :: Text
-  
-instance Arbitrary InlineResponse20013Ingredients1 where
-  arbitrary = sized genInlineResponse20013Ingredients1
-
-genInlineResponse20013Ingredients1 :: Int -> Gen InlineResponse20013Ingredients1
-genInlineResponse20013Ingredients1 n =
-  InlineResponse20013Ingredients1
-    <$> arbitrary -- inlineResponse20013Ingredients1Id :: Int
-    <*> arbitrary -- inlineResponse20013Ingredients1Name :: Text
-  
-instance Arbitrary InlineResponse20013ParsedInstructions where
-  arbitrary = sized genInlineResponse20013ParsedInstructions
-
-genInlineResponse20013ParsedInstructions :: Int -> Gen InlineResponse20013ParsedInstructions
-genInlineResponse20013ParsedInstructions n =
-  InlineResponse20013ParsedInstructions
-    <$> arbitrary -- inlineResponse20013ParsedInstructionsName :: Text
-    <*> arbitraryReducedMaybe n -- inlineResponse20013ParsedInstructionsSteps :: Maybe [InlineResponse20013Steps]
-  
-instance Arbitrary InlineResponse20013Steps where
-  arbitrary = sized genInlineResponse20013Steps
-
-genInlineResponse20013Steps :: Int -> Gen InlineResponse20013Steps
-genInlineResponse20013Steps n =
-  InlineResponse20013Steps
-    <$> arbitrary -- inlineResponse20013StepsNumber :: Double
-    <*> arbitrary -- inlineResponse20013StepsStep :: Text
-    <*> arbitraryReducedMaybe n -- inlineResponse20013StepsIngredients :: Maybe [InlineResponse20013Ingredients]
-    <*> arbitraryReducedMaybe n -- inlineResponse20013StepsEquipment :: Maybe [InlineResponse20013Ingredients]
-  
-instance Arbitrary InlineResponse20014 where
-  arbitrary = sized genInlineResponse20014
-
-genInlineResponse20014 :: Int -> Gen InlineResponse20014
-genInlineResponse20014 n =
-  InlineResponse20014
-    <$> arbitrary -- inlineResponse20014Id :: Int
-    <*> arbitrary -- inlineResponse20014Summary :: Text
-    <*> arbitrary -- inlineResponse20014Title :: Text
-  
-instance Arbitrary InlineResponse20015 where
-  arbitrary = sized genInlineResponse20015
-
-genInlineResponse20015 :: Int -> Gen InlineResponse20015
-genInlineResponse20015 n =
-  InlineResponse20015
-    <$> arbitrary -- inlineResponse20015Url :: Text
-  
-instance Arbitrary InlineResponse20016 where
-  arbitrary = sized genInlineResponse20016
-
-genInlineResponse20016 :: Int -> Gen InlineResponse20016
-genInlineResponse20016 n =
-  InlineResponse20016
-    <$> arbitraryReduced n -- inlineResponse20016ParsedInstructions :: [A.Value]
-    <*> arbitraryReduced n -- inlineResponse20016Ingredients :: [A.Value]
-    <*> arbitraryReduced n -- inlineResponse20016Equipment :: [A.Value]
-  
-instance Arbitrary InlineResponse20017 where
-  arbitrary = sized genInlineResponse20017
-
-genInlineResponse20017 :: Int -> Gen InlineResponse20017
-genInlineResponse20017 n =
-  InlineResponse20017
-    <$> arbitrary -- inlineResponse20017Cuisine :: Text
-    <*> arbitrary -- inlineResponse20017Cuisines :: [Text]
-    <*> arbitrary -- inlineResponse20017Confidence :: Double
-  
-instance Arbitrary InlineResponse20018 where
-  arbitrary = sized genInlineResponse20018
-
-genInlineResponse20018 :: Int -> Gen InlineResponse20018
-genInlineResponse20018 n =
-  InlineResponse20018
-    <$> arbitraryReduced n -- inlineResponse20018Dishes :: [InlineResponse20018Dishes]
-    <*> arbitraryReduced n -- inlineResponse20018Ingredients :: [InlineResponse20018Ingredients]
-    <*> arbitrary -- inlineResponse20018Cuisines :: [Text]
-    <*> arbitrary -- inlineResponse20018Modifiers :: [Text]
-  
-instance Arbitrary InlineResponse20018Dishes where
-  arbitrary = sized genInlineResponse20018Dishes
-
-genInlineResponse20018Dishes :: Int -> Gen InlineResponse20018Dishes
-genInlineResponse20018Dishes n =
-  InlineResponse20018Dishes
-    <$> arbitrary -- inlineResponse20018DishesImage :: Text
-    <*> arbitrary -- inlineResponse20018DishesName :: Text
-  
-instance Arbitrary InlineResponse20018Ingredients where
-  arbitrary = sized genInlineResponse20018Ingredients
-
-genInlineResponse20018Ingredients :: Int -> Gen InlineResponse20018Ingredients
-genInlineResponse20018Ingredients n =
-  InlineResponse20018Ingredients
-    <$> arbitrary -- inlineResponse20018IngredientsImage :: Text
-    <*> arbitrary -- inlineResponse20018IngredientsInclude :: Bool
-    <*> arbitrary -- inlineResponse20018IngredientsName :: Text
-  
-instance Arbitrary InlineResponse20019 where
-  arbitrary = sized genInlineResponse20019
-
-genInlineResponse20019 :: Int -> Gen InlineResponse20019
-genInlineResponse20019 n =
-  InlineResponse20019
-    <$> arbitrary -- inlineResponse20019SourceAmount :: Double
-    <*> arbitrary -- inlineResponse20019SourceUnit :: Text
-    <*> arbitrary -- inlineResponse20019TargetAmount :: Double
-    <*> arbitrary -- inlineResponse20019TargetUnit :: Text
-    <*> arbitrary -- inlineResponse20019Answer :: Text
-  
-instance Arbitrary InlineResponse2002 where
-  arbitrary = sized genInlineResponse2002
-
-genInlineResponse2002 :: Int -> Gen InlineResponse2002
-genInlineResponse2002 n =
-  InlineResponse2002
-    <$> arbitrary -- inlineResponse2002Calories :: Double
-    <*> arbitrary -- inlineResponse2002Carbs :: Text
-    <*> arbitrary -- inlineResponse2002Fat :: Text
-    <*> arbitrary -- inlineResponse2002Id :: Int
-    <*> arbitrary -- inlineResponse2002Image :: Text
-    <*> arbitrary -- inlineResponse2002ImageType :: Text
-    <*> arbitrary -- inlineResponse2002Protein :: Text
-    <*> arbitrary -- inlineResponse2002Title :: Text
-  
-instance Arbitrary InlineResponse20020 where
-  arbitrary = sized genInlineResponse20020
-
-genInlineResponse20020 :: Int -> Gen InlineResponse20020
-genInlineResponse20020 n =
-  InlineResponse20020
-    <$> arbitrary -- inlineResponse20020Id :: Int
-    <*> arbitrary -- inlineResponse20020Original :: Text
-    <*> arbitrary -- inlineResponse20020OriginalName :: Text
-    <*> arbitrary -- inlineResponse20020Name :: Text
-    <*> arbitrary -- inlineResponse20020NameClean :: Text
-    <*> arbitrary -- inlineResponse20020Amount :: Double
-    <*> arbitrary -- inlineResponse20020Unit :: Text
-    <*> arbitrary -- inlineResponse20020UnitShort :: Text
-    <*> arbitrary -- inlineResponse20020UnitLong :: Text
-    <*> arbitrary -- inlineResponse20020PossibleUnits :: [Text]
-    <*> arbitraryReduced n -- inlineResponse20020EstimatedCost :: RecipesParseIngredientsEstimatedCost
-    <*> arbitrary -- inlineResponse20020Consistency :: Text
-    <*> arbitrary -- inlineResponse20020Aisle :: Text
-    <*> arbitrary -- inlineResponse20020Image :: Text
-    <*> arbitrary -- inlineResponse20020Meta :: [Text]
-    <*> arbitraryReduced n -- inlineResponse20020Nutrition :: RecipesParseIngredientsNutrition
-  
-instance Arbitrary InlineResponse20021 where
-  arbitrary = sized genInlineResponse20021
-
-genInlineResponse20021 :: Int -> Gen InlineResponse20021
-genInlineResponse20021 n =
-  InlineResponse20021
-    <$> arbitraryReduced n -- inlineResponse20021Calories :: InlineResponse20021Calories
-    <*> arbitraryReduced n -- inlineResponse20021Carbs :: InlineResponse20021Calories
-    <*> arbitraryReduced n -- inlineResponse20021Fat :: InlineResponse20021Calories
-    <*> arbitraryReduced n -- inlineResponse20021Protein :: InlineResponse20021Calories
-    <*> arbitrary -- inlineResponse20021RecipesUsed :: Int
-  
-instance Arbitrary InlineResponse20021Calories where
-  arbitrary = sized genInlineResponse20021Calories
-
-genInlineResponse20021Calories :: Int -> Gen InlineResponse20021Calories
-genInlineResponse20021Calories n =
-  InlineResponse20021Calories
-    <$> arbitraryReduced n -- inlineResponse20021CaloriesConfidenceRange95Percent :: InlineResponse20021CaloriesConfidenceRange95Percent
-    <*> arbitrary -- inlineResponse20021CaloriesStandardDeviation :: Double
-    <*> arbitrary -- inlineResponse20021CaloriesUnit :: Text
-    <*> arbitrary -- inlineResponse20021CaloriesValue :: Double
-  
-instance Arbitrary InlineResponse20021CaloriesConfidenceRange95Percent where
-  arbitrary = sized genInlineResponse20021CaloriesConfidenceRange95Percent
-
-genInlineResponse20021CaloriesConfidenceRange95Percent :: Int -> Gen InlineResponse20021CaloriesConfidenceRange95Percent
-genInlineResponse20021CaloriesConfidenceRange95Percent n =
-  InlineResponse20021CaloriesConfidenceRange95Percent
-    <$> arbitrary -- inlineResponse20021CaloriesConfidenceRange95PercentMax :: Double
-    <*> arbitrary -- inlineResponse20021CaloriesConfidenceRange95PercentMin :: Double
-  
-instance Arbitrary InlineResponse20022 where
-  arbitrary = sized genInlineResponse20022
-
-genInlineResponse20022 :: Int -> Gen InlineResponse20022
-genInlineResponse20022 n =
-  InlineResponse20022
-    <$> arbitrary -- inlineResponse20022Id :: Int
-    <*> arbitrary -- inlineResponse20022Original :: Text
-    <*> arbitrary -- inlineResponse20022OriginalName :: Text
-    <*> arbitrary -- inlineResponse20022Name :: Text
-    <*> arbitrary -- inlineResponse20022NameClean :: Text
-    <*> arbitrary -- inlineResponse20022Amount :: Double
-    <*> arbitrary -- inlineResponse20022Unit :: Text
-    <*> arbitrary -- inlineResponse20022UnitShort :: Text
-    <*> arbitrary -- inlineResponse20022UnitLong :: Text
-    <*> arbitrary -- inlineResponse20022PossibleUnits :: [Text]
-    <*> arbitraryReduced n -- inlineResponse20022EstimatedCost :: RecipesParseIngredientsEstimatedCost
-    <*> arbitrary -- inlineResponse20022Consistency :: Text
-    <*> arbitrary -- inlineResponse20022ShoppingListUnits :: [Text]
-    <*> arbitrary -- inlineResponse20022Aisle :: Text
-    <*> arbitrary -- inlineResponse20022Image :: Text
-    <*> arbitraryReduced n -- inlineResponse20022Meta :: [A.Value]
-    <*> arbitraryReduced n -- inlineResponse20022Nutrition :: InlineResponse20022Nutrition
-    <*> arbitrary -- inlineResponse20022CategoryPath :: [Text]
-  
-instance Arbitrary InlineResponse20022Nutrition where
-  arbitrary = sized genInlineResponse20022Nutrition
-
-genInlineResponse20022Nutrition :: Int -> Gen InlineResponse20022Nutrition
-genInlineResponse20022Nutrition n =
-  InlineResponse20022Nutrition
-    <$> arbitraryReduced n -- inlineResponse20022NutritionNutrients :: [RecipesParseIngredientsNutritionNutrients]
-    <*> arbitraryReduced n -- inlineResponse20022NutritionProperties :: [RecipesParseIngredientsNutritionProperties]
-    <*> arbitraryReduced n -- inlineResponse20022NutritionCaloricBreakdown :: RecipesParseIngredientsNutritionCaloricBreakdown
-    <*> arbitraryReduced n -- inlineResponse20022NutritionWeightPerServing :: RecipesParseIngredientsNutritionWeightPerServing
-  
-instance Arbitrary InlineResponse20023 where
-  arbitrary = sized genInlineResponse20023
-
-genInlineResponse20023 :: Int -> Gen InlineResponse20023
-genInlineResponse20023 n =
-  InlineResponse20023
-    <$> arbitrary -- inlineResponse20023TotalGlycemicLoad :: Double
-    <*> arbitraryReduced n -- inlineResponse20023Ingredients :: [InlineResponse20023Ingredients]
-  
-instance Arbitrary InlineResponse20023Ingredients where
-  arbitrary = sized genInlineResponse20023Ingredients
-
-genInlineResponse20023Ingredients :: Int -> Gen InlineResponse20023Ingredients
-genInlineResponse20023Ingredients n =
-  InlineResponse20023Ingredients
-    <$> arbitrary -- inlineResponse20023IngredientsId :: Int
-    <*> arbitrary -- inlineResponse20023IngredientsOriginal :: Text
-    <*> arbitrary -- inlineResponse20023IngredientsGlycemicIndex :: Double
-    <*> arbitrary -- inlineResponse20023IngredientsGlycemicLoad :: Double
-  
-instance Arbitrary InlineResponse20024 where
-  arbitrary = sized genInlineResponse20024
-
-genInlineResponse20024 :: Int -> Gen InlineResponse20024
-genInlineResponse20024 n =
-  InlineResponse20024
-    <$> arbitrary -- inlineResponse20024Name :: Text
-    <*> arbitrary -- inlineResponse20024Image :: Text
-    <*> arbitrary -- inlineResponse20024Id :: Int
-    <*> arbitrary -- inlineResponse20024Aisle :: Text
-    <*> arbitrary -- inlineResponse20024PossibleUnits :: [Text]
-  
-instance Arbitrary InlineResponse20025 where
-  arbitrary = sized genInlineResponse20025
-
-genInlineResponse20025 :: Int -> Gen InlineResponse20025
-genInlineResponse20025 n =
-  InlineResponse20025
-    <$> arbitraryReduced n -- inlineResponse20025Results :: [InlineResponse20025Results]
-    <*> arbitrary -- inlineResponse20025Offset :: Int
-    <*> arbitrary -- inlineResponse20025Number :: Int
-    <*> arbitrary -- inlineResponse20025TotalResults :: Int
-  
-instance Arbitrary InlineResponse20025Results where
-  arbitrary = sized genInlineResponse20025Results
-
-genInlineResponse20025Results :: Int -> Gen InlineResponse20025Results
-genInlineResponse20025Results n =
-  InlineResponse20025Results
-    <$> arbitrary -- inlineResponse20025ResultsId :: Int
-    <*> arbitrary -- inlineResponse20025ResultsName :: Text
-    <*> arbitrary -- inlineResponse20025ResultsImage :: Text
-  
-instance Arbitrary InlineResponse20026 where
-  arbitrary = sized genInlineResponse20026
-
-genInlineResponse20026 :: Int -> Gen InlineResponse20026
-genInlineResponse20026 n =
-  InlineResponse20026
-    <$> arbitrary -- inlineResponse20026Ingredient :: Text
-    <*> arbitrary -- inlineResponse20026Substitutes :: [Text]
-    <*> arbitrary -- inlineResponse20026Message :: Text
-  
-instance Arbitrary InlineResponse20027 where
-  arbitrary = sized genInlineResponse20027
-
-genInlineResponse20027 :: Int -> Gen InlineResponse20027
-genInlineResponse20027 n =
-  InlineResponse20027
-    <$> arbitraryReduced n -- inlineResponse20027Products :: [InlineResponse2007]
-    <*> arbitrary -- inlineResponse20027TotalProducts :: Int
-    <*> arbitrary -- inlineResponse20027Type :: Text
-    <*> arbitrary -- inlineResponse20027Offset :: Int
-    <*> arbitrary -- inlineResponse20027Number :: Int
-  
-instance Arbitrary InlineResponse20028 where
-  arbitrary = sized genInlineResponse20028
-
-genInlineResponse20028 :: Int -> Gen InlineResponse20028
-genInlineResponse20028 n =
-  InlineResponse20028
-    <$> arbitrary -- inlineResponse20028Id :: Int
-    <*> arbitrary -- inlineResponse20028Title :: Text
-    <*> arbitrary -- inlineResponse20028Badges :: [Text]
-    <*> arbitrary -- inlineResponse20028ImportantBadges :: [Text]
-    <*> arbitrary -- inlineResponse20028Breadcrumbs :: [Text]
-    <*> arbitrary -- inlineResponse20028GeneratedText :: Text
-    <*> arbitrary -- inlineResponse20028ImageType :: Text
-    <*> arbitraryReducedMaybe n -- inlineResponse20028IngredientCount :: Maybe Int
-    <*> arbitrary -- inlineResponse20028IngredientList :: Text
-    <*> arbitraryReduced n -- inlineResponse20028Ingredients :: [InlineResponse20028Ingredients]
-    <*> arbitrary -- inlineResponse20028Likes :: Double
-    <*> arbitraryReduced n -- inlineResponse20028Nutrition :: InlineResponse20028Nutrition
-    <*> arbitrary -- inlineResponse20028Price :: Double
-    <*> arbitraryReduced n -- inlineResponse20028Servings :: InlineResponse20028Servings
-    <*> arbitrary -- inlineResponse20028SpoonacularScore :: Double
-  
-instance Arbitrary InlineResponse20028Ingredients where
-  arbitrary = sized genInlineResponse20028Ingredients
-
-genInlineResponse20028Ingredients :: Int -> Gen InlineResponse20028Ingredients
-genInlineResponse20028Ingredients n =
-  InlineResponse20028Ingredients
-    <$> arbitraryReducedMaybeValue n -- inlineResponse20028IngredientsDescription :: Maybe A.Value
-    <*> arbitrary -- inlineResponse20028IngredientsName :: Text
-    <*> arbitraryReducedMaybeValue n -- inlineResponse20028IngredientsSafetyLevel :: Maybe A.Value
-  
-instance Arbitrary InlineResponse20028Nutrition where
-  arbitrary = sized genInlineResponse20028Nutrition
-
-genInlineResponse20028Nutrition :: Int -> Gen InlineResponse20028Nutrition
-genInlineResponse20028Nutrition n =
-  InlineResponse20028Nutrition
-    <$> arbitraryReduced n -- inlineResponse20028NutritionNutrients :: [RecipesParseIngredientsNutritionNutrients]
-    <*> arbitraryReduced n -- inlineResponse20028NutritionCaloricBreakdown :: RecipesParseIngredientsNutritionCaloricBreakdown
-  
-instance Arbitrary InlineResponse20028Servings where
-  arbitrary = sized genInlineResponse20028Servings
-
-genInlineResponse20028Servings :: Int -> Gen InlineResponse20028Servings
-genInlineResponse20028Servings n =
-  InlineResponse20028Servings
-    <$> arbitrary -- inlineResponse20028ServingsNumber :: Double
-    <*> arbitrary -- inlineResponse20028ServingsSize :: Double
-    <*> arbitrary -- inlineResponse20028ServingsUnit :: Text
-  
-instance Arbitrary InlineResponse20029 where
-  arbitrary = sized genInlineResponse20029
-
-genInlineResponse20029 :: Int -> Gen InlineResponse20029
-genInlineResponse20029 n =
-  InlineResponse20029
-    <$> arbitraryReduced n -- inlineResponse20029CustomFoods :: [InlineResponse20029CustomFoods]
-    <*> arbitrary -- inlineResponse20029Type :: Text
-    <*> arbitrary -- inlineResponse20029Offset :: Int
-    <*> arbitrary -- inlineResponse20029Number :: Int
-  
-instance Arbitrary InlineResponse20029CustomFoods where
-  arbitrary = sized genInlineResponse20029CustomFoods
-
-genInlineResponse20029CustomFoods :: Int -> Gen InlineResponse20029CustomFoods
-genInlineResponse20029CustomFoods n =
-  InlineResponse20029CustomFoods
-    <$> arbitrary -- inlineResponse20029CustomFoodsId :: Int
-    <*> arbitrary -- inlineResponse20029CustomFoodsTitle :: Text
-    <*> arbitrary -- inlineResponse20029CustomFoodsServings :: Double
-    <*> arbitrary -- inlineResponse20029CustomFoodsImageUrl :: Text
-    <*> arbitrary -- inlineResponse20029CustomFoodsPrice :: Double
-  
-instance Arbitrary InlineResponse2003 where
-  arbitrary = sized genInlineResponse2003
-
-genInlineResponse2003 :: Int -> Gen InlineResponse2003
-genInlineResponse2003 n =
-  InlineResponse2003
-    <$> arbitrary -- inlineResponse2003Id :: Int
-    <*> arbitrary -- inlineResponse2003Title :: Text
-    <*> arbitrary -- inlineResponse2003Image :: Text
-    <*> arbitrary -- inlineResponse2003ImageType :: Text
-    <*> arbitrary -- inlineResponse2003Servings :: Double
-    <*> arbitrary -- inlineResponse2003ReadyInMinutes :: Int
-    <*> arbitrary -- inlineResponse2003License :: Text
-    <*> arbitrary -- inlineResponse2003SourceName :: Text
-    <*> arbitrary -- inlineResponse2003SourceUrl :: Text
-    <*> arbitrary -- inlineResponse2003SpoonacularSourceUrl :: Text
-    <*> arbitrary -- inlineResponse2003AggregateLikes :: Int
-    <*> arbitrary -- inlineResponse2003HealthScore :: Double
-    <*> arbitrary -- inlineResponse2003SpoonacularScore :: Double
-    <*> arbitrary -- inlineResponse2003PricePerServing :: Double
-    <*> arbitraryReduced n -- inlineResponse2003AnalyzedInstructions :: [A.Value]
-    <*> arbitrary -- inlineResponse2003Cheap :: Bool
-    <*> arbitrary -- inlineResponse2003CreditsText :: Text
-    <*> arbitrary -- inlineResponse2003Cuisines :: [Text]
-    <*> arbitrary -- inlineResponse2003DairyFree :: Bool
-    <*> arbitrary -- inlineResponse2003Diets :: [Text]
-    <*> arbitrary -- inlineResponse2003Gaps :: Text
-    <*> arbitrary -- inlineResponse2003GlutenFree :: Bool
-    <*> arbitrary -- inlineResponse2003Instructions :: Text
-    <*> arbitrary -- inlineResponse2003Ketogenic :: Bool
-    <*> arbitrary -- inlineResponse2003LowFodmap :: Bool
-    <*> arbitrary -- inlineResponse2003Occasions :: [Text]
-    <*> arbitrary -- inlineResponse2003Sustainable :: Bool
-    <*> arbitrary -- inlineResponse2003Vegan :: Bool
-    <*> arbitrary -- inlineResponse2003Vegetarian :: Bool
-    <*> arbitrary -- inlineResponse2003VeryHealthy :: Bool
-    <*> arbitrary -- inlineResponse2003VeryPopular :: Bool
-    <*> arbitrary -- inlineResponse2003Whole30 :: Bool
-    <*> arbitrary -- inlineResponse2003WeightWatcherSmartPoints :: Double
-    <*> arbitrary -- inlineResponse2003DishTypes :: [Text]
-    <*> arbitraryReduced n -- inlineResponse2003ExtendedIngredients :: [InlineResponse2003ExtendedIngredients]
-    <*> arbitrary -- inlineResponse2003Summary :: Text
-    <*> arbitraryReduced n -- inlineResponse2003WinePairing :: InlineResponse2003WinePairing
-  
-instance Arbitrary InlineResponse20030 where
-  arbitrary = sized genInlineResponse20030
-
-genInlineResponse20030 :: Int -> Gen InlineResponse20030
-genInlineResponse20030 n =
-  InlineResponse20030
-    <$> arbitrary -- inlineResponse20030Id :: Int
-    <*> arbitrary -- inlineResponse20030Title :: Text
-    <*> arbitrary -- inlineResponse20030Breadcrumbs :: [Text]
-    <*> arbitrary -- inlineResponse20030ImageType :: Text
-    <*> arbitrary -- inlineResponse20030Badges :: [Text]
-    <*> arbitrary -- inlineResponse20030ImportantBadges :: [Text]
-    <*> arbitrary -- inlineResponse20030IngredientCount :: Int
-    <*> arbitraryReducedMaybeValue n -- inlineResponse20030GeneratedText :: Maybe A.Value
-    <*> arbitrary -- inlineResponse20030IngredientList :: Text
-    <*> arbitraryReduced n -- inlineResponse20030Ingredients :: [InlineResponse20030Ingredients]
-    <*> arbitrary -- inlineResponse20030Likes :: Double
-    <*> arbitrary -- inlineResponse20030Aisle :: Text
-    <*> arbitraryReduced n -- inlineResponse20030Nutrition :: InlineResponse20028Nutrition
-    <*> arbitrary -- inlineResponse20030Price :: Double
-    <*> arbitraryReduced n -- inlineResponse20030Servings :: InlineResponse20028Servings
-    <*> arbitrary -- inlineResponse20030SpoonacularScore :: Double
-  
-instance Arbitrary InlineResponse20030Ingredients where
-  arbitrary = sized genInlineResponse20030Ingredients
-
-genInlineResponse20030Ingredients :: Int -> Gen InlineResponse20030Ingredients
-genInlineResponse20030Ingredients n =
-  InlineResponse20030Ingredients
-    <$> arbitraryReducedMaybeValue n -- inlineResponse20030IngredientsDescription :: Maybe A.Value
-    <*> arbitrary -- inlineResponse20030IngredientsName :: Text
-    <*> arbitraryReducedMaybeValue n -- inlineResponse20030IngredientsSafetyLevel :: Maybe A.Value
-  
-instance Arbitrary InlineResponse20031 where
-  arbitrary = sized genInlineResponse20031
-
-genInlineResponse20031 :: Int -> Gen InlineResponse20031
-genInlineResponse20031 n =
-  InlineResponse20031
-    <$> arbitraryReduced n -- inlineResponse20031ComparableProducts :: InlineResponse20031ComparableProducts
-  
-instance Arbitrary InlineResponse20031ComparableProducts where
-  arbitrary = sized genInlineResponse20031ComparableProducts
-
-genInlineResponse20031ComparableProducts :: Int -> Gen InlineResponse20031ComparableProducts
-genInlineResponse20031ComparableProducts n =
-  InlineResponse20031ComparableProducts
-    <$> arbitraryReduced n -- inlineResponse20031ComparableProductsCalories :: [A.Value]
-    <*> arbitraryReduced n -- inlineResponse20031ComparableProductsLikes :: [A.Value]
-    <*> arbitraryReduced n -- inlineResponse20031ComparableProductsPrice :: [A.Value]
-    <*> arbitraryReduced n -- inlineResponse20031ComparableProductsProtein :: [InlineResponse20031ComparableProductsProtein]
-    <*> arbitraryReduced n -- inlineResponse20031ComparableProductsSpoonacularScore :: [InlineResponse20031ComparableProductsProtein]
-    <*> arbitraryReduced n -- inlineResponse20031ComparableProductsSugar :: [A.Value]
-  
-instance Arbitrary InlineResponse20031ComparableProductsProtein where
-  arbitrary = sized genInlineResponse20031ComparableProductsProtein
-
-genInlineResponse20031ComparableProductsProtein :: Int -> Gen InlineResponse20031ComparableProductsProtein
-genInlineResponse20031ComparableProductsProtein n =
-  InlineResponse20031ComparableProductsProtein
-    <$> arbitrary -- inlineResponse20031ComparableProductsProteinDifference :: Double
-    <*> arbitrary -- inlineResponse20031ComparableProductsProteinId :: Int
-    <*> arbitrary -- inlineResponse20031ComparableProductsProteinImage :: Text
-    <*> arbitrary -- inlineResponse20031ComparableProductsProteinTitle :: Text
-  
-instance Arbitrary InlineResponse20032 where
-  arbitrary = sized genInlineResponse20032
-
-genInlineResponse20032 :: Int -> Gen InlineResponse20032
-genInlineResponse20032 n =
-  InlineResponse20032
-    <$> arbitraryReduced n -- inlineResponse20032Results :: [InlineResponse20032Results]
-  
-instance Arbitrary InlineResponse20032Results where
-  arbitrary = sized genInlineResponse20032Results
-
-genInlineResponse20032Results :: Int -> Gen InlineResponse20032Results
-genInlineResponse20032Results n =
-  InlineResponse20032Results
-    <$> arbitrary -- inlineResponse20032ResultsId :: Int
-    <*> arbitrary -- inlineResponse20032ResultsTitle :: Text
-  
-instance Arbitrary InlineResponse20033 where
-  arbitrary = sized genInlineResponse20033
-
-genInlineResponse20033 :: Int -> Gen InlineResponse20033
-genInlineResponse20033 n =
-  InlineResponse20033
-    <$> arbitrary -- inlineResponse20033CleanTitle :: Text
-    <*> arbitrary -- inlineResponse20033Image :: Text
-    <*> arbitrary -- inlineResponse20033Category :: Text
-    <*> arbitrary -- inlineResponse20033Breadcrumbs :: [Text]
-    <*> arbitrary -- inlineResponse20033UsdaCode :: Int
-  
-instance Arbitrary InlineResponse20034 where
-  arbitrary = sized genInlineResponse20034
-
-genInlineResponse20034 :: Int -> Gen InlineResponse20034
-genInlineResponse20034 n =
-  InlineResponse20034
-    <$> arbitrary -- inlineResponse20034Original :: Text
-    <*> arbitrary -- inlineResponse20034OriginalName :: Text
-    <*> arbitrary -- inlineResponse20034IngredientImage :: Text
-    <*> arbitrary -- inlineResponse20034Meta :: [Text]
-    <*> arbitraryReduced n -- inlineResponse20034Products :: [FoodIngredientsMapProducts]
-  
-instance Arbitrary InlineResponse20035 where
-  arbitrary = sized genInlineResponse20035
-
-genInlineResponse20035 :: Int -> Gen InlineResponse20035
-genInlineResponse20035 n =
-  InlineResponse20035
-    <$> arbitraryReduced n -- inlineResponse20035MenuItems :: [InlineResponse20035MenuItems]
-    <*> arbitrary -- inlineResponse20035TotalMenuItems :: Int
-    <*> arbitrary -- inlineResponse20035Type :: Text
-    <*> arbitrary -- inlineResponse20035Offset :: Int
-    <*> arbitrary -- inlineResponse20035Number :: Int
-  
-instance Arbitrary InlineResponse20035MenuItems where
-  arbitrary = sized genInlineResponse20035MenuItems
-
-genInlineResponse20035MenuItems :: Int -> Gen InlineResponse20035MenuItems
-genInlineResponse20035MenuItems n =
-  InlineResponse20035MenuItems
-    <$> arbitrary -- inlineResponse20035MenuItemsId :: Int
-    <*> arbitrary -- inlineResponse20035MenuItemsTitle :: Text
-    <*> arbitrary -- inlineResponse20035MenuItemsRestaurantChain :: Text
-    <*> arbitrary -- inlineResponse20035MenuItemsImage :: Text
-    <*> arbitrary -- inlineResponse20035MenuItemsImageType :: Text
-    <*> arbitraryReducedMaybe n -- inlineResponse20035MenuItemsServings :: Maybe InlineResponse20028Servings
-  
-instance Arbitrary InlineResponse20036 where
-  arbitrary = sized genInlineResponse20036
-
-genInlineResponse20036 :: Int -> Gen InlineResponse20036
-genInlineResponse20036 n =
-  InlineResponse20036
-    <$> arbitrary -- inlineResponse20036Id :: Int
-    <*> arbitrary -- inlineResponse20036Title :: Text
-    <*> arbitrary -- inlineResponse20036RestaurantChain :: Text
-    <*> arbitraryReduced n -- inlineResponse20036Nutrition :: InlineResponse20028Nutrition
-    <*> arbitrary -- inlineResponse20036Badges :: [Text]
-    <*> arbitrary -- inlineResponse20036Breadcrumbs :: [Text]
-    <*> arbitraryReducedMaybe n -- inlineResponse20036GeneratedText :: Maybe Text
-    <*> arbitrary -- inlineResponse20036ImageType :: Text
-    <*> arbitrary -- inlineResponse20036Likes :: Double
-    <*> arbitraryReduced n -- inlineResponse20036Servings :: InlineResponse20028Servings
-    <*> arbitraryReducedMaybe n -- inlineResponse20036Price :: Maybe Double
-    <*> arbitraryReducedMaybe n -- inlineResponse20036SpoonacularScore :: Maybe Double
-  
-instance Arbitrary InlineResponse20037 where
-  arbitrary = sized genInlineResponse20037
-
-genInlineResponse20037 :: Int -> Gen InlineResponse20037
-genInlineResponse20037 n =
-  InlineResponse20037
-    <$> arbitraryReduced n -- inlineResponse20037Meals :: [InlineResponse2005]
-    <*> arbitraryReduced n -- inlineResponse20037Nutrients :: InlineResponse20037Nutrients
-  
-instance Arbitrary InlineResponse20037Nutrients where
-  arbitrary = sized genInlineResponse20037Nutrients
-
-genInlineResponse20037Nutrients :: Int -> Gen InlineResponse20037Nutrients
-genInlineResponse20037Nutrients n =
-  InlineResponse20037Nutrients
-    <$> arbitrary -- inlineResponse20037NutrientsCalories :: Double
-    <*> arbitrary -- inlineResponse20037NutrientsCarbohydrates :: Double
-    <*> arbitrary -- inlineResponse20037NutrientsFat :: Double
-    <*> arbitrary -- inlineResponse20037NutrientsProtein :: Double
-  
-instance Arbitrary InlineResponse20038 where
-  arbitrary = sized genInlineResponse20038
-
-genInlineResponse20038 :: Int -> Gen InlineResponse20038
-genInlineResponse20038 n =
-  InlineResponse20038
-    <$> arbitraryReduced n -- inlineResponse20038Days :: [InlineResponse20038Days]
-  
-instance Arbitrary InlineResponse20038Days where
-  arbitrary = sized genInlineResponse20038Days
-
-genInlineResponse20038Days :: Int -> Gen InlineResponse20038Days
-genInlineResponse20038Days n =
-  InlineResponse20038Days
-    <$> arbitraryReducedMaybe n -- inlineResponse20038DaysNutritionSummary :: Maybe InlineResponse20038NutritionSummary
-    <*> arbitraryReducedMaybe n -- inlineResponse20038DaysNutritionSummaryBreakfast :: Maybe InlineResponse20038NutritionSummary
-    <*> arbitraryReducedMaybe n -- inlineResponse20038DaysNutritionSummaryLunch :: Maybe InlineResponse20038NutritionSummary
-    <*> arbitraryReducedMaybe n -- inlineResponse20038DaysNutritionSummaryDinner :: Maybe InlineResponse20038NutritionSummary
-    <*> arbitrary -- inlineResponse20038DaysDate :: Double
-    <*> arbitrary -- inlineResponse20038DaysDay :: Text
-    <*> arbitraryReducedMaybe n -- inlineResponse20038DaysItems :: Maybe [InlineResponse20038Items]
-  
-instance Arbitrary InlineResponse20038Items where
-  arbitrary = sized genInlineResponse20038Items
-
-genInlineResponse20038Items :: Int -> Gen InlineResponse20038Items
-genInlineResponse20038Items n =
-  InlineResponse20038Items
-    <$> arbitrary -- inlineResponse20038ItemsId :: Int
-    <*> arbitrary -- inlineResponse20038ItemsSlot :: Int
-    <*> arbitrary -- inlineResponse20038ItemsPosition :: Int
-    <*> arbitrary -- inlineResponse20038ItemsType :: Text
-    <*> arbitraryReducedMaybe n -- inlineResponse20038ItemsValue :: Maybe InlineResponse20038Value
-  
-instance Arbitrary InlineResponse20038NutritionSummary where
-  arbitrary = sized genInlineResponse20038NutritionSummary
-
-genInlineResponse20038NutritionSummary :: Int -> Gen InlineResponse20038NutritionSummary
-genInlineResponse20038NutritionSummary n =
-  InlineResponse20038NutritionSummary
-    <$> arbitraryReduced n -- inlineResponse20038NutritionSummaryNutrients :: [InlineResponse20038NutritionSummaryNutrients]
-  
-instance Arbitrary InlineResponse20038NutritionSummaryNutrients where
-  arbitrary = sized genInlineResponse20038NutritionSummaryNutrients
-
-genInlineResponse20038NutritionSummaryNutrients :: Int -> Gen InlineResponse20038NutritionSummaryNutrients
-genInlineResponse20038NutritionSummaryNutrients n =
-  InlineResponse20038NutritionSummaryNutrients
-    <$> arbitrary -- inlineResponse20038NutritionSummaryNutrientsName :: Text
-    <*> arbitrary -- inlineResponse20038NutritionSummaryNutrientsAmount :: Double
-    <*> arbitrary -- inlineResponse20038NutritionSummaryNutrientsUnit :: Text
-    <*> arbitrary -- inlineResponse20038NutritionSummaryNutrientsPercentDailyNeeds :: Double
-  
-instance Arbitrary InlineResponse20038Value where
-  arbitrary = sized genInlineResponse20038Value
-
-genInlineResponse20038Value :: Int -> Gen InlineResponse20038Value
-genInlineResponse20038Value n =
-  InlineResponse20038Value
-    <$> arbitrary -- inlineResponse20038ValueServings :: Double
-    <*> arbitrary -- inlineResponse20038ValueId :: Double
-    <*> arbitrary -- inlineResponse20038ValueTitle :: Text
-    <*> arbitrary -- inlineResponse20038ValueImageType :: Text
-  
-instance Arbitrary InlineResponse20039 where
-  arbitrary = sized genInlineResponse20039
-
-genInlineResponse20039 :: Int -> Gen InlineResponse20039
-genInlineResponse20039 n =
-  InlineResponse20039
-    <$> arbitraryReduced n -- inlineResponse20039Templates :: [InlineResponse20013Ingredients1]
-  
-instance Arbitrary InlineResponse2003ExtendedIngredients where
-  arbitrary = sized genInlineResponse2003ExtendedIngredients
-
-genInlineResponse2003ExtendedIngredients :: Int -> Gen InlineResponse2003ExtendedIngredients
-genInlineResponse2003ExtendedIngredients n =
-  InlineResponse2003ExtendedIngredients
-    <$> arbitrary -- inlineResponse2003ExtendedIngredientsAisle :: Text
-    <*> arbitrary -- inlineResponse2003ExtendedIngredientsAmount :: Double
-    <*> arbitrary -- inlineResponse2003ExtendedIngredientsConsitency :: Text
-    <*> arbitrary -- inlineResponse2003ExtendedIngredientsId :: Int
-    <*> arbitrary -- inlineResponse2003ExtendedIngredientsImage :: Text
-    <*> arbitraryReducedMaybe n -- inlineResponse2003ExtendedIngredientsMeasures :: Maybe InlineResponse2003Measures
-    <*> arbitraryReducedMaybe n -- inlineResponse2003ExtendedIngredientsMeta :: Maybe [Text]
-    <*> arbitrary -- inlineResponse2003ExtendedIngredientsName :: Text
-    <*> arbitrary -- inlineResponse2003ExtendedIngredientsOriginal :: Text
-    <*> arbitrary -- inlineResponse2003ExtendedIngredientsOriginalName :: Text
-    <*> arbitrary -- inlineResponse2003ExtendedIngredientsUnit :: Text
-  
-instance Arbitrary InlineResponse2003Measures where
-  arbitrary = sized genInlineResponse2003Measures
-
-genInlineResponse2003Measures :: Int -> Gen InlineResponse2003Measures
-genInlineResponse2003Measures n =
-  InlineResponse2003Measures
-    <$> arbitraryReduced n -- inlineResponse2003MeasuresMetric :: InlineResponse2003MeasuresMetric
-    <*> arbitraryReduced n -- inlineResponse2003MeasuresUs :: InlineResponse2003MeasuresMetric
-  
-instance Arbitrary InlineResponse2003MeasuresMetric where
-  arbitrary = sized genInlineResponse2003MeasuresMetric
-
-genInlineResponse2003MeasuresMetric :: Int -> Gen InlineResponse2003MeasuresMetric
-genInlineResponse2003MeasuresMetric n =
-  InlineResponse2003MeasuresMetric
-    <$> arbitrary -- inlineResponse2003MeasuresMetricAmount :: Double
-    <*> arbitrary -- inlineResponse2003MeasuresMetricUnitLong :: Text
-    <*> arbitrary -- inlineResponse2003MeasuresMetricUnitShort :: Text
-  
-instance Arbitrary InlineResponse2003WinePairing where
-  arbitrary = sized genInlineResponse2003WinePairing
-
-genInlineResponse2003WinePairing :: Int -> Gen InlineResponse2003WinePairing
-genInlineResponse2003WinePairing n =
-  InlineResponse2003WinePairing
-    <$> arbitrary -- inlineResponse2003WinePairingPairedWines :: [Text]
-    <*> arbitrary -- inlineResponse2003WinePairingPairingText :: Text
-    <*> arbitraryReduced n -- inlineResponse2003WinePairingProductMatches :: [InlineResponse2003WinePairingProductMatches]
-  
-instance Arbitrary InlineResponse2003WinePairingProductMatches where
-  arbitrary = sized genInlineResponse2003WinePairingProductMatches
-
-genInlineResponse2003WinePairingProductMatches :: Int -> Gen InlineResponse2003WinePairingProductMatches
-genInlineResponse2003WinePairingProductMatches n =
-  InlineResponse2003WinePairingProductMatches
-    <$> arbitrary -- inlineResponse2003WinePairingProductMatchesId :: Int
-    <*> arbitrary -- inlineResponse2003WinePairingProductMatchesTitle :: Text
-    <*> arbitrary -- inlineResponse2003WinePairingProductMatchesDescription :: Text
-    <*> arbitrary -- inlineResponse2003WinePairingProductMatchesPrice :: Text
-    <*> arbitrary -- inlineResponse2003WinePairingProductMatchesImageUrl :: Text
-    <*> arbitrary -- inlineResponse2003WinePairingProductMatchesAverageRating :: Double
-    <*> arbitrary -- inlineResponse2003WinePairingProductMatchesRatingCount :: Int
-    <*> arbitrary -- inlineResponse2003WinePairingProductMatchesScore :: Double
-    <*> arbitrary -- inlineResponse2003WinePairingProductMatchesLink :: Text
-  
-instance Arbitrary InlineResponse2004 where
-  arbitrary = sized genInlineResponse2004
-
-genInlineResponse2004 :: Int -> Gen InlineResponse2004
-genInlineResponse2004 n =
-  InlineResponse2004
-    <$> arbitrary -- inlineResponse2004Id :: Int
-    <*> arbitrary -- inlineResponse2004Title :: Text
-    <*> arbitrary -- inlineResponse2004Image :: Text
-    <*> arbitrary -- inlineResponse2004ImageType :: Text
-    <*> arbitrary -- inlineResponse2004Servings :: Double
-    <*> arbitrary -- inlineResponse2004ReadyInMinutes :: Int
-    <*> arbitrary -- inlineResponse2004License :: Text
-    <*> arbitrary -- inlineResponse2004SourceName :: Text
-    <*> arbitrary -- inlineResponse2004SourceUrl :: Text
-    <*> arbitrary -- inlineResponse2004SpoonacularSourceUrl :: Text
-    <*> arbitrary -- inlineResponse2004AggregateLikes :: Int
-    <*> arbitrary -- inlineResponse2004HealthScore :: Double
-    <*> arbitrary -- inlineResponse2004SpoonacularScore :: Double
-    <*> arbitrary -- inlineResponse2004PricePerServing :: Double
-    <*> arbitrary -- inlineResponse2004AnalyzedInstructions :: [Text]
-    <*> arbitrary -- inlineResponse2004Cheap :: Bool
-    <*> arbitrary -- inlineResponse2004CreditsText :: Text
-    <*> arbitrary -- inlineResponse2004Cuisines :: [Text]
-    <*> arbitrary -- inlineResponse2004DairyFree :: Bool
-    <*> arbitrary -- inlineResponse2004Diets :: [Text]
-    <*> arbitrary -- inlineResponse2004Gaps :: Text
-    <*> arbitrary -- inlineResponse2004GlutenFree :: Bool
-    <*> arbitrary -- inlineResponse2004Instructions :: Text
-    <*> arbitrary -- inlineResponse2004Ketogenic :: Bool
-    <*> arbitrary -- inlineResponse2004LowFodmap :: Bool
-    <*> arbitrary -- inlineResponse2004Occasions :: [Text]
-    <*> arbitrary -- inlineResponse2004Sustainable :: Bool
-    <*> arbitrary -- inlineResponse2004Vegan :: Bool
-    <*> arbitrary -- inlineResponse2004Vegetarian :: Bool
-    <*> arbitrary -- inlineResponse2004VeryHealthy :: Bool
-    <*> arbitrary -- inlineResponse2004VeryPopular :: Bool
-    <*> arbitrary -- inlineResponse2004Whole30 :: Bool
-    <*> arbitrary -- inlineResponse2004WeightWatcherSmartPoints :: Double
-    <*> arbitrary -- inlineResponse2004DishTypes :: [Text]
-    <*> arbitraryReduced n -- inlineResponse2004ExtendedIngredients :: [InlineResponse2003ExtendedIngredients]
-    <*> arbitrary -- inlineResponse2004Summary :: Text
-    <*> arbitraryReduced n -- inlineResponse2004WinePairing :: InlineResponse2003WinePairing
-  
-instance Arbitrary InlineResponse20040 where
-  arbitrary = sized genInlineResponse20040
-
-genInlineResponse20040 :: Int -> Gen InlineResponse20040
-genInlineResponse20040 n =
-  InlineResponse20040
-    <$> arbitrary -- inlineResponse20040Name :: Text
-    <*> arbitraryReduced n -- inlineResponse20040Items :: [InlineResponse20040Items]
-    <*> arbitrary -- inlineResponse20040PublishAsPublic :: Bool
-  
-instance Arbitrary InlineResponse20040Items where
-  arbitrary = sized genInlineResponse20040Items
-
-genInlineResponse20040Items :: Int -> Gen InlineResponse20040Items
-genInlineResponse20040Items n =
-  InlineResponse20040Items
-    <$> arbitrary -- inlineResponse20040ItemsDay :: Int
-    <*> arbitrary -- inlineResponse20040ItemsSlot :: Int
-    <*> arbitrary -- inlineResponse20040ItemsPosition :: Int
-    <*> arbitrary -- inlineResponse20040ItemsType :: Text
-    <*> arbitraryReducedMaybe n -- inlineResponse20040ItemsValue :: Maybe InlineResponse20040Value
-  
-instance Arbitrary InlineResponse20040Value where
-  arbitrary = sized genInlineResponse20040Value
-
-genInlineResponse20040Value :: Int -> Gen InlineResponse20040Value
-genInlineResponse20040Value n =
-  InlineResponse20040Value
-    <$> arbitraryReducedMaybe n -- inlineResponse20040ValueId :: Maybe Int
-    <*> arbitraryReducedMaybe n -- inlineResponse20040ValueServings :: Maybe Double
-    <*> arbitraryReducedMaybe n -- inlineResponse20040ValueTitle :: Maybe Text
-    <*> arbitraryReducedMaybe n -- inlineResponse20040ValueImageType :: Maybe Text
-  
-instance Arbitrary InlineResponse20041 where
-  arbitrary = sized genInlineResponse20041
-
-genInlineResponse20041 :: Int -> Gen InlineResponse20041
-genInlineResponse20041 n =
-  InlineResponse20041
-    <$> arbitrary -- inlineResponse20041Id :: Int
-    <*> arbitrary -- inlineResponse20041Name :: Text
-    <*> arbitraryReduced n -- inlineResponse20041Days :: [InlineResponse20041Days]
-  
-instance Arbitrary InlineResponse20041Days where
-  arbitrary = sized genInlineResponse20041Days
-
-genInlineResponse20041Days :: Int -> Gen InlineResponse20041Days
-genInlineResponse20041Days n =
-  InlineResponse20041Days
-    <$> arbitraryReducedMaybe n -- inlineResponse20041DaysNutritionSummary :: Maybe InlineResponse20038NutritionSummary
-    <*> arbitraryReducedMaybe n -- inlineResponse20041DaysNutritionSummaryBreakfast :: Maybe InlineResponse20038NutritionSummary
-    <*> arbitraryReducedMaybe n -- inlineResponse20041DaysNutritionSummaryLunch :: Maybe InlineResponse20038NutritionSummary
-    <*> arbitraryReducedMaybe n -- inlineResponse20041DaysNutritionSummaryDinner :: Maybe InlineResponse20038NutritionSummary
-    <*> arbitrary -- inlineResponse20041DaysDay :: Text
-    <*> arbitraryReducedMaybe n -- inlineResponse20041DaysItems :: Maybe [InlineResponse20041Items]
-  
-instance Arbitrary InlineResponse20041Items where
-  arbitrary = sized genInlineResponse20041Items
-
-genInlineResponse20041Items :: Int -> Gen InlineResponse20041Items
-genInlineResponse20041Items n =
-  InlineResponse20041Items
-    <$> arbitrary -- inlineResponse20041ItemsId :: Int
-    <*> arbitrary -- inlineResponse20041ItemsSlot :: Int
-    <*> arbitrary -- inlineResponse20041ItemsPosition :: Int
-    <*> arbitrary -- inlineResponse20041ItemsType :: Text
-    <*> arbitraryReducedMaybe n -- inlineResponse20041ItemsValue :: Maybe InlineResponse20041Value
-  
-instance Arbitrary InlineResponse20041Value where
-  arbitrary = sized genInlineResponse20041Value
-
-genInlineResponse20041Value :: Int -> Gen InlineResponse20041Value
-genInlineResponse20041Value n =
-  InlineResponse20041Value
-    <$> arbitrary -- inlineResponse20041ValueId :: Double
-    <*> arbitrary -- inlineResponse20041ValueTitle :: Text
-    <*> arbitrary -- inlineResponse20041ValueImageType :: Text
-  
-instance Arbitrary InlineResponse20042 where
-  arbitrary = sized genInlineResponse20042
-
-genInlineResponse20042 :: Int -> Gen InlineResponse20042
-genInlineResponse20042 n =
-  InlineResponse20042
-    <$> arbitraryReduced n -- inlineResponse20042Aisles :: [InlineResponse20042Aisles]
-    <*> arbitrary -- inlineResponse20042Cost :: Double
-    <*> arbitrary -- inlineResponse20042StartDate :: Double
-    <*> arbitrary -- inlineResponse20042EndDate :: Double
-  
-instance Arbitrary InlineResponse20042Aisles where
-  arbitrary = sized genInlineResponse20042Aisles
-
-genInlineResponse20042Aisles :: Int -> Gen InlineResponse20042Aisles
-genInlineResponse20042Aisles n =
-  InlineResponse20042Aisles
-    <$> arbitrary -- inlineResponse20042AislesAisle :: Text
-    <*> arbitraryReducedMaybe n -- inlineResponse20042AislesItems :: Maybe [InlineResponse20042Items]
-  
-instance Arbitrary InlineResponse20042Items where
-  arbitrary = sized genInlineResponse20042Items
-
-genInlineResponse20042Items :: Int -> Gen InlineResponse20042Items
-genInlineResponse20042Items n =
-  InlineResponse20042Items
-    <$> arbitrary -- inlineResponse20042ItemsId :: Int
-    <*> arbitrary -- inlineResponse20042ItemsName :: Text
-    <*> arbitraryReducedMaybe n -- inlineResponse20042ItemsMeasures :: Maybe InlineResponse20042Measures
-    <*> arbitrary -- inlineResponse20042ItemsPantryItem :: Bool
-    <*> arbitrary -- inlineResponse20042ItemsAisle :: Text
-    <*> arbitrary -- inlineResponse20042ItemsCost :: Double
-    <*> arbitrary -- inlineResponse20042ItemsIngredientId :: Int
-  
-instance Arbitrary InlineResponse20042Measures where
-  arbitrary = sized genInlineResponse20042Measures
-
-genInlineResponse20042Measures :: Int -> Gen InlineResponse20042Measures
-genInlineResponse20042Measures n =
-  InlineResponse20042Measures
-    <$> arbitraryReduced n -- inlineResponse20042MeasuresOriginal :: RecipesParseIngredientsNutritionWeightPerServing
-    <*> arbitraryReduced n -- inlineResponse20042MeasuresMetric :: RecipesParseIngredientsNutritionWeightPerServing
-    <*> arbitraryReduced n -- inlineResponse20042MeasuresUs :: RecipesParseIngredientsNutritionWeightPerServing
-  
-instance Arbitrary InlineResponse20043 where
-  arbitrary = sized genInlineResponse20043
-
-genInlineResponse20043 :: Int -> Gen InlineResponse20043
-genInlineResponse20043 n =
-  InlineResponse20043
-    <$> arbitrary -- inlineResponse20043Username :: Text
-    <*> arbitrary -- inlineResponse20043Hash :: Text
-  
-instance Arbitrary InlineResponse20044 where
-  arbitrary = sized genInlineResponse20044
-
-genInlineResponse20044 :: Int -> Gen InlineResponse20044
-genInlineResponse20044 n =
-  InlineResponse20044
-    <$> arbitrary -- inlineResponse20044Pairings :: [Text]
-    <*> arbitrary -- inlineResponse20044Text :: Text
-  
-instance Arbitrary InlineResponse20045 where
-  arbitrary = sized genInlineResponse20045
-
-genInlineResponse20045 :: Int -> Gen InlineResponse20045
-genInlineResponse20045 n =
-  InlineResponse20045
-    <$> arbitrary -- inlineResponse20045PairedWines :: [Text]
-    <*> arbitrary -- inlineResponse20045PairingText :: Text
-    <*> arbitraryReduced n -- inlineResponse20045ProductMatches :: [InlineResponse20045ProductMatches]
-  
-instance Arbitrary InlineResponse20045ProductMatches where
-  arbitrary = sized genInlineResponse20045ProductMatches
-
-genInlineResponse20045ProductMatches :: Int -> Gen InlineResponse20045ProductMatches
-genInlineResponse20045ProductMatches n =
-  InlineResponse20045ProductMatches
-    <$> arbitrary -- inlineResponse20045ProductMatchesId :: Int
-    <*> arbitrary -- inlineResponse20045ProductMatchesTitle :: Text
-    <*> arbitrary -- inlineResponse20045ProductMatchesAverageRating :: Double
-    <*> arbitraryReducedMaybeValue n -- inlineResponse20045ProductMatchesDescription :: Maybe A.Value
-    <*> arbitrary -- inlineResponse20045ProductMatchesImageUrl :: Text
-    <*> arbitrary -- inlineResponse20045ProductMatchesLink :: Text
-    <*> arbitrary -- inlineResponse20045ProductMatchesPrice :: Text
-    <*> arbitrary -- inlineResponse20045ProductMatchesRatingCount :: Int
-    <*> arbitrary -- inlineResponse20045ProductMatchesScore :: Double
-  
-instance Arbitrary InlineResponse20046 where
-  arbitrary = sized genInlineResponse20046
-
-genInlineResponse20046 :: Int -> Gen InlineResponse20046
-genInlineResponse20046 n =
-  InlineResponse20046
-    <$> arbitrary -- inlineResponse20046WineDescription :: Text
-  
-instance Arbitrary InlineResponse20047 where
-  arbitrary = sized genInlineResponse20047
-
-genInlineResponse20047 :: Int -> Gen InlineResponse20047
-genInlineResponse20047 n =
-  InlineResponse20047
-    <$> arbitraryReduced n -- inlineResponse20047RecommendedWines :: [InlineResponse20047RecommendedWines]
-    <*> arbitrary -- inlineResponse20047TotalFound :: Int
-  
-instance Arbitrary InlineResponse20047RecommendedWines where
-  arbitrary = sized genInlineResponse20047RecommendedWines
-
-genInlineResponse20047RecommendedWines :: Int -> Gen InlineResponse20047RecommendedWines
-genInlineResponse20047RecommendedWines n =
-  InlineResponse20047RecommendedWines
-    <$> arbitrary -- inlineResponse20047RecommendedWinesId :: Int
-    <*> arbitrary -- inlineResponse20047RecommendedWinesTitle :: Text
-    <*> arbitrary -- inlineResponse20047RecommendedWinesAverageRating :: Double
-    <*> arbitrary -- inlineResponse20047RecommendedWinesDescription :: Text
-    <*> arbitrary -- inlineResponse20047RecommendedWinesImageUrl :: Text
-    <*> arbitrary -- inlineResponse20047RecommendedWinesLink :: Text
-    <*> arbitrary -- inlineResponse20047RecommendedWinesPrice :: Text
-    <*> arbitrary -- inlineResponse20047RecommendedWinesRatingCount :: Int
-    <*> arbitrary -- inlineResponse20047RecommendedWinesScore :: Double
-  
-instance Arbitrary InlineResponse20048 where
-  arbitrary = sized genInlineResponse20048
-
-genInlineResponse20048 :: Int -> Gen InlineResponse20048
-genInlineResponse20048 n =
-  InlineResponse20048
-    <$> arbitrary -- inlineResponse20048Category :: Text
-    <*> arbitrary -- inlineResponse20048Probability :: Double
-  
-instance Arbitrary InlineResponse20049 where
-  arbitrary = sized genInlineResponse20049
-
-genInlineResponse20049 :: Int -> Gen InlineResponse20049
-genInlineResponse20049 n =
-  InlineResponse20049
-    <$> arbitraryReduced n -- inlineResponse20049Nutrition :: InlineResponse20049Nutrition
-    <*> arbitraryReduced n -- inlineResponse20049Category :: InlineResponse20049Category
-    <*> arbitraryReduced n -- inlineResponse20049Recipes :: [InlineResponse20049Recipes]
-  
-instance Arbitrary InlineResponse20049Category where
-  arbitrary = sized genInlineResponse20049Category
-
-genInlineResponse20049Category :: Int -> Gen InlineResponse20049Category
-genInlineResponse20049Category n =
-  InlineResponse20049Category
-    <$> arbitrary -- inlineResponse20049CategoryName :: Text
-    <*> arbitrary -- inlineResponse20049CategoryProbability :: Double
-  
-instance Arbitrary InlineResponse20049Nutrition where
-  arbitrary = sized genInlineResponse20049Nutrition
-
-genInlineResponse20049Nutrition :: Int -> Gen InlineResponse20049Nutrition
-genInlineResponse20049Nutrition n =
-  InlineResponse20049Nutrition
-    <$> arbitrary -- inlineResponse20049NutritionRecipesUsed :: Int
-    <*> arbitraryReduced n -- inlineResponse20049NutritionCalories :: InlineResponse20049NutritionCalories
-    <*> arbitraryReduced n -- inlineResponse20049NutritionFat :: InlineResponse20049NutritionCalories
-    <*> arbitraryReduced n -- inlineResponse20049NutritionProtein :: InlineResponse20049NutritionCalories
-    <*> arbitraryReduced n -- inlineResponse20049NutritionCarbs :: InlineResponse20049NutritionCalories
-  
-instance Arbitrary InlineResponse20049NutritionCalories where
-  arbitrary = sized genInlineResponse20049NutritionCalories
-
-genInlineResponse20049NutritionCalories :: Int -> Gen InlineResponse20049NutritionCalories
-genInlineResponse20049NutritionCalories n =
-  InlineResponse20049NutritionCalories
-    <$> arbitrary -- inlineResponse20049NutritionCaloriesValue :: Double
-    <*> arbitrary -- inlineResponse20049NutritionCaloriesUnit :: Text
-    <*> arbitraryReduced n -- inlineResponse20049NutritionCaloriesConfidenceRange95Percent :: InlineResponse20049NutritionCaloriesConfidenceRange95Percent
-    <*> arbitrary -- inlineResponse20049NutritionCaloriesStandardDeviation :: Double
-  
-instance Arbitrary InlineResponse20049NutritionCaloriesConfidenceRange95Percent where
-  arbitrary = sized genInlineResponse20049NutritionCaloriesConfidenceRange95Percent
-
-genInlineResponse20049NutritionCaloriesConfidenceRange95Percent :: Int -> Gen InlineResponse20049NutritionCaloriesConfidenceRange95Percent
-genInlineResponse20049NutritionCaloriesConfidenceRange95Percent n =
-  InlineResponse20049NutritionCaloriesConfidenceRange95Percent
-    <$> arbitrary -- inlineResponse20049NutritionCaloriesConfidenceRange95PercentMin :: Double
-    <*> arbitrary -- inlineResponse20049NutritionCaloriesConfidenceRange95PercentMax :: Double
-  
-instance Arbitrary InlineResponse20049Recipes where
-  arbitrary = sized genInlineResponse20049Recipes
-
-genInlineResponse20049Recipes :: Int -> Gen InlineResponse20049Recipes
-genInlineResponse20049Recipes n =
-  InlineResponse20049Recipes
-    <$> arbitrary -- inlineResponse20049RecipesId :: Int
-    <*> arbitrary -- inlineResponse20049RecipesTitle :: Text
-    <*> arbitrary -- inlineResponse20049RecipesImageType :: Text
-    <*> arbitrary -- inlineResponse20049RecipesUrl :: Text
-  
-instance Arbitrary InlineResponse2005 where
-  arbitrary = sized genInlineResponse2005
-
-genInlineResponse2005 :: Int -> Gen InlineResponse2005
-genInlineResponse2005 n =
-  InlineResponse2005
-    <$> arbitrary -- inlineResponse2005Id :: Int
-    <*> arbitrary -- inlineResponse2005Title :: Text
-    <*> arbitrary -- inlineResponse2005ImageType :: Text
-    <*> arbitrary -- inlineResponse2005ReadyInMinutes :: Int
-    <*> arbitrary -- inlineResponse2005Servings :: Double
-    <*> arbitrary -- inlineResponse2005SourceUrl :: Text
-  
-instance Arbitrary InlineResponse20050 where
-  arbitrary = sized genInlineResponse20050
-
-genInlineResponse20050 :: Int -> Gen InlineResponse20050
-genInlineResponse20050 n =
-  InlineResponse20050
-    <$> arbitrary -- inlineResponse20050Answer :: Text
-    <*> arbitrary -- inlineResponse20050Image :: Text
-  
-instance Arbitrary InlineResponse20051 where
-  arbitrary = sized genInlineResponse20051
-
-genInlineResponse20051 :: Int -> Gen InlineResponse20051
-genInlineResponse20051 n =
-  InlineResponse20051
-    <$> arbitraryReduced n -- inlineResponse20051Annotations :: [A.Value]
-  
-instance Arbitrary InlineResponse20052 where
-  arbitrary = sized genInlineResponse20052
-
-genInlineResponse20052 :: Int -> Gen InlineResponse20052
-genInlineResponse20052 n =
-  InlineResponse20052
-    <$> arbitraryReduced n -- inlineResponse20052Articles :: [A.Value]
-    <*> arbitraryReduced n -- inlineResponse20052GroceryProducts :: [A.Value]
-    <*> arbitraryReduced n -- inlineResponse20052MenuItems :: [A.Value]
-    <*> arbitraryReduced n -- inlineResponse20052Recipes :: [A.Value]
-  
-instance Arbitrary InlineResponse20053 where
-  arbitrary = sized genInlineResponse20053
-
-genInlineResponse20053 :: Int -> Gen InlineResponse20053
-genInlineResponse20053 n =
-  InlineResponse20053
-    <$> arbitrary -- inlineResponse20053Query :: Text
-    <*> arbitrary -- inlineResponse20053TotalResults :: Int
-    <*> arbitrary -- inlineResponse20053Limit :: Int
-    <*> arbitrary -- inlineResponse20053Offset :: Int
-    <*> arbitraryReduced n -- inlineResponse20053SearchResults :: [InlineResponse20053SearchResults]
-  
-instance Arbitrary InlineResponse20053Results where
-  arbitrary = sized genInlineResponse20053Results
-
-genInlineResponse20053Results :: Int -> Gen InlineResponse20053Results
-genInlineResponse20053Results n =
-  InlineResponse20053Results
-    <$> arbitrary -- inlineResponse20053ResultsId :: Text
-    <*> arbitrary -- inlineResponse20053ResultsName :: Text
-    <*> arbitrary -- inlineResponse20053ResultsImage :: Text
-    <*> arbitrary -- inlineResponse20053ResultsLink :: Text
-    <*> arbitrary -- inlineResponse20053ResultsType :: Text
-    <*> arbitrary -- inlineResponse20053ResultsRelevance :: Double
-    <*> arbitrary -- inlineResponse20053ResultsContent :: Text
-  
-instance Arbitrary InlineResponse20053SearchResults where
-  arbitrary = sized genInlineResponse20053SearchResults
-
-genInlineResponse20053SearchResults :: Int -> Gen InlineResponse20053SearchResults
-genInlineResponse20053SearchResults n =
-  InlineResponse20053SearchResults
-    <$> arbitrary -- inlineResponse20053SearchResultsName :: Text
-    <*> arbitrary -- inlineResponse20053SearchResultsTotalResults :: Int
-    <*> arbitraryReducedMaybe n -- inlineResponse20053SearchResultsResults :: Maybe [InlineResponse20053Results]
-  
-instance Arbitrary InlineResponse20054 where
-  arbitrary = sized genInlineResponse20054
-
-genInlineResponse20054 :: Int -> Gen InlineResponse20054
-genInlineResponse20054 n =
-  InlineResponse20054
-    <$> arbitraryReduced n -- inlineResponse20054Videos :: [InlineResponse20054Videos]
-    <*> arbitrary -- inlineResponse20054TotalResults :: Int
-  
-instance Arbitrary InlineResponse20054Videos where
-  arbitrary = sized genInlineResponse20054Videos
-
-genInlineResponse20054Videos :: Int -> Gen InlineResponse20054Videos
-genInlineResponse20054Videos n =
-  InlineResponse20054Videos
-    <$> arbitrary -- inlineResponse20054VideosTitle :: Text
-    <*> arbitrary -- inlineResponse20054VideosLength :: Int
-    <*> arbitrary -- inlineResponse20054VideosRating :: Double
-    <*> arbitrary -- inlineResponse20054VideosShortTitle :: Text
-    <*> arbitrary -- inlineResponse20054VideosThumbnail :: Text
-    <*> arbitrary -- inlineResponse20054VideosViews :: Int
-    <*> arbitrary -- inlineResponse20054VideosYouTubeId :: Text
-  
-instance Arbitrary InlineResponse20055 where
-  arbitrary = sized genInlineResponse20055
-
-genInlineResponse20055 :: Int -> Gen InlineResponse20055
-genInlineResponse20055 n =
-  InlineResponse20055
-    <$> arbitrary -- inlineResponse20055Text :: Text
-  
-instance Arbitrary InlineResponse20056 where
-  arbitrary = sized genInlineResponse20056
-
-genInlineResponse20056 :: Int -> Gen InlineResponse20056
-genInlineResponse20056 n =
-  InlineResponse20056
-    <$> arbitrary -- inlineResponse20056AnswerText :: Text
-    <*> arbitraryReduced n -- inlineResponse20056Media :: [A.Value]
-  
-instance Arbitrary InlineResponse20057 where
-  arbitrary = sized genInlineResponse20057
-
-genInlineResponse20057 :: Int -> Gen InlineResponse20057
-genInlineResponse20057 n =
-  InlineResponse20057
-    <$> arbitraryReduced n -- inlineResponse20057Suggests :: InlineResponse20057Suggests
-    <*> arbitraryReduced n -- inlineResponse20057Words :: [A.Value]
-  
-instance Arbitrary InlineResponse20057Suggests where
-  arbitrary = sized genInlineResponse20057Suggests
-
-genInlineResponse20057Suggests :: Int -> Gen InlineResponse20057Suggests
-genInlineResponse20057Suggests n =
-  InlineResponse20057Suggests
-    <$> arbitraryReduced n -- inlineResponse20057Suggests :: [A.Value]
-  
-instance Arbitrary InlineResponse2006 where
-  arbitrary = sized genInlineResponse2006
-
-genInlineResponse2006 :: Int -> Gen InlineResponse2006
-genInlineResponse2006 n =
-  InlineResponse2006
-    <$> arbitraryReduced n -- inlineResponse2006Recipes :: [InlineResponse2006Recipes]
-  
-instance Arbitrary InlineResponse2006Recipes where
-  arbitrary = sized genInlineResponse2006Recipes
-
-genInlineResponse2006Recipes :: Int -> Gen InlineResponse2006Recipes
-genInlineResponse2006Recipes n =
-  InlineResponse2006Recipes
-    <$> arbitrary -- inlineResponse2006RecipesId :: Int
-    <*> arbitrary -- inlineResponse2006RecipesTitle :: Text
-    <*> arbitrary -- inlineResponse2006RecipesImage :: Text
-    <*> arbitrary -- inlineResponse2006RecipesImageType :: Text
-    <*> arbitrary -- inlineResponse2006RecipesServings :: Double
-    <*> arbitrary -- inlineResponse2006RecipesReadyInMinutes :: Int
-    <*> arbitrary -- inlineResponse2006RecipesLicense :: Text
-    <*> arbitrary -- inlineResponse2006RecipesSourceName :: Text
-    <*> arbitrary -- inlineResponse2006RecipesSourceUrl :: Text
-    <*> arbitrary -- inlineResponse2006RecipesSpoonacularSourceUrl :: Text
-    <*> arbitrary -- inlineResponse2006RecipesAggregateLikes :: Double
-    <*> arbitrary -- inlineResponse2006RecipesHealthScore :: Double
-    <*> arbitrary -- inlineResponse2006RecipesSpoonacularScore :: Double
-    <*> arbitrary -- inlineResponse2006RecipesPricePerServing :: Double
-    <*> arbitraryReducedMaybe n -- inlineResponse2006RecipesAnalyzedInstructions :: Maybe [A.Value]
-    <*> arbitrary -- inlineResponse2006RecipesCheap :: Bool
-    <*> arbitrary -- inlineResponse2006RecipesCreditsText :: Text
-    <*> arbitraryReducedMaybe n -- inlineResponse2006RecipesCuisines :: Maybe [Text]
-    <*> arbitrary -- inlineResponse2006RecipesDairyFree :: Bool
-    <*> arbitraryReducedMaybe n -- inlineResponse2006RecipesDiets :: Maybe [Text]
-    <*> arbitrary -- inlineResponse2006RecipesGaps :: Text
-    <*> arbitrary -- inlineResponse2006RecipesGlutenFree :: Bool
-    <*> arbitrary -- inlineResponse2006RecipesInstructions :: Text
-    <*> arbitrary -- inlineResponse2006RecipesKetogenic :: Bool
-    <*> arbitrary -- inlineResponse2006RecipesLowFodmap :: Bool
-    <*> arbitraryReducedMaybe n -- inlineResponse2006RecipesOccasions :: Maybe [Text]
-    <*> arbitrary -- inlineResponse2006RecipesSustainable :: Bool
-    <*> arbitrary -- inlineResponse2006RecipesVegan :: Bool
-    <*> arbitrary -- inlineResponse2006RecipesVegetarian :: Bool
-    <*> arbitrary -- inlineResponse2006RecipesVeryHealthy :: Bool
-    <*> arbitrary -- inlineResponse2006RecipesVeryPopular :: Bool
-    <*> arbitrary -- inlineResponse2006RecipesWhole30 :: Bool
-    <*> arbitrary -- inlineResponse2006RecipesWeightWatcherSmartPoints :: Double
-    <*> arbitraryReducedMaybe n -- inlineResponse2006RecipesDishTypes :: Maybe [Text]
-    <*> arbitraryReducedMaybe n -- inlineResponse2006RecipesExtendedIngredients :: Maybe [InlineResponse2003ExtendedIngredients]
-    <*> arbitrary -- inlineResponse2006RecipesSummary :: Text
-    <*> arbitraryReducedMaybe n -- inlineResponse2006RecipesWinePairing :: Maybe InlineResponse2003WinePairing
-  
-instance Arbitrary InlineResponse2007 where
-  arbitrary = sized genInlineResponse2007
-
-genInlineResponse2007 :: Int -> Gen InlineResponse2007
-genInlineResponse2007 n =
-  InlineResponse2007
-    <$> arbitrary -- inlineResponse2007Id :: Int
-    <*> arbitrary -- inlineResponse2007Title :: Text
-    <*> arbitrary -- inlineResponse2007ImageType :: Text
-  
-instance Arbitrary InlineResponse2008 where
-  arbitrary = sized genInlineResponse2008
-
-genInlineResponse2008 :: Int -> Gen InlineResponse2008
-genInlineResponse2008 n =
-  InlineResponse2008
-    <$> arbitrary -- inlineResponse2008Sweetness :: Double
-    <*> arbitrary -- inlineResponse2008Saltiness :: Double
-    <*> arbitrary -- inlineResponse2008Sourness :: Double
-    <*> arbitrary -- inlineResponse2008Bitterness :: Double
-    <*> arbitrary -- inlineResponse2008Savoriness :: Double
-    <*> arbitrary -- inlineResponse2008Fattiness :: Double
-    <*> arbitrary -- inlineResponse2008Spiciness :: Double
-  
-instance Arbitrary InlineResponse2009 where
-  arbitrary = sized genInlineResponse2009
-
-genInlineResponse2009 :: Int -> Gen InlineResponse2009
-genInlineResponse2009 n =
-  InlineResponse2009
-    <$> arbitraryReduced n -- inlineResponse2009Equipment :: [A.Value]
-  
-instance Arbitrary InlineResponse200Results where
-  arbitrary = sized genInlineResponse200Results
-
-genInlineResponse200Results :: Int -> Gen InlineResponse200Results
-genInlineResponse200Results n =
-  InlineResponse200Results
-    <$> arbitrary -- inlineResponse200ResultsId :: Int
-    <*> arbitrary -- inlineResponse200ResultsTitle :: Text
-    <*> arbitrary -- inlineResponse200ResultsCalories :: Double
-    <*> arbitrary -- inlineResponse200ResultsCarbs :: Text
-    <*> arbitrary -- inlineResponse200ResultsFat :: Text
-    <*> arbitrary -- inlineResponse200ResultsImage :: Text
-    <*> arbitrary -- inlineResponse200ResultsImageType :: Text
-    <*> arbitrary -- inlineResponse200ResultsProtein :: Text
-  
-instance Arbitrary RecipesFindByIngredientsMissedIngredients where
-  arbitrary = sized genRecipesFindByIngredientsMissedIngredients
-
-genRecipesFindByIngredientsMissedIngredients :: Int -> Gen RecipesFindByIngredientsMissedIngredients
-genRecipesFindByIngredientsMissedIngredients n =
-  RecipesFindByIngredientsMissedIngredients
-    <$> arbitrary -- recipesFindByIngredientsMissedIngredientsAisle :: Text
-    <*> arbitrary -- recipesFindByIngredientsMissedIngredientsAmount :: Double
-    <*> arbitrary -- recipesFindByIngredientsMissedIngredientsId :: Int
-    <*> arbitrary -- recipesFindByIngredientsMissedIngredientsImage :: Text
-    <*> arbitraryReducedMaybe n -- recipesFindByIngredientsMissedIngredientsMeta :: Maybe [Text]
-    <*> arbitrary -- recipesFindByIngredientsMissedIngredientsName :: Text
-    <*> arbitrary -- recipesFindByIngredientsMissedIngredientsOriginal :: Text
-    <*> arbitrary -- recipesFindByIngredientsMissedIngredientsOriginalName :: Text
-    <*> arbitrary -- recipesFindByIngredientsMissedIngredientsUnit :: Text
-    <*> arbitrary -- recipesFindByIngredientsMissedIngredientsUnitLong :: Text
-    <*> arbitrary -- recipesFindByIngredientsMissedIngredientsUnitShort :: Text
-  
-instance Arbitrary RecipesParseIngredientsEstimatedCost where
-  arbitrary = sized genRecipesParseIngredientsEstimatedCost
-
-genRecipesParseIngredientsEstimatedCost :: Int -> Gen RecipesParseIngredientsEstimatedCost
-genRecipesParseIngredientsEstimatedCost n =
-  RecipesParseIngredientsEstimatedCost
-    <$> arbitrary -- recipesParseIngredientsEstimatedCostValue :: Double
-    <*> arbitrary -- recipesParseIngredientsEstimatedCostUnit :: Text
-  
-instance Arbitrary RecipesParseIngredientsNutrition where
-  arbitrary = sized genRecipesParseIngredientsNutrition
-
-genRecipesParseIngredientsNutrition :: Int -> Gen RecipesParseIngredientsNutrition
-genRecipesParseIngredientsNutrition n =
-  RecipesParseIngredientsNutrition
-    <$> arbitraryReduced n -- recipesParseIngredientsNutritionNutrients :: [RecipesParseIngredientsNutritionNutrients]
-    <*> arbitraryReduced n -- recipesParseIngredientsNutritionProperties :: [RecipesParseIngredientsNutritionProperties]
-    <*> arbitraryReduced n -- recipesParseIngredientsNutritionFlavonoids :: [RecipesParseIngredientsNutritionProperties]
-    <*> arbitraryReduced n -- recipesParseIngredientsNutritionCaloricBreakdown :: RecipesParseIngredientsNutritionCaloricBreakdown
-    <*> arbitraryReduced n -- recipesParseIngredientsNutritionWeightPerServing :: RecipesParseIngredientsNutritionWeightPerServing
-  
-instance Arbitrary RecipesParseIngredientsNutritionCaloricBreakdown where
-  arbitrary = sized genRecipesParseIngredientsNutritionCaloricBreakdown
-
-genRecipesParseIngredientsNutritionCaloricBreakdown :: Int -> Gen RecipesParseIngredientsNutritionCaloricBreakdown
-genRecipesParseIngredientsNutritionCaloricBreakdown n =
-  RecipesParseIngredientsNutritionCaloricBreakdown
-    <$> arbitrary -- recipesParseIngredientsNutritionCaloricBreakdownPercentProtein :: Double
-    <*> arbitrary -- recipesParseIngredientsNutritionCaloricBreakdownPercentFat :: Double
-    <*> arbitrary -- recipesParseIngredientsNutritionCaloricBreakdownPercentCarbs :: Double
-  
-instance Arbitrary RecipesParseIngredientsNutritionNutrients where
-  arbitrary = sized genRecipesParseIngredientsNutritionNutrients
-
-genRecipesParseIngredientsNutritionNutrients :: Int -> Gen RecipesParseIngredientsNutritionNutrients
-genRecipesParseIngredientsNutritionNutrients n =
-  RecipesParseIngredientsNutritionNutrients
-    <$> arbitrary -- recipesParseIngredientsNutritionNutrientsName :: Text
-    <*> arbitrary -- recipesParseIngredientsNutritionNutrientsAmount :: Double
-    <*> arbitrary -- recipesParseIngredientsNutritionNutrientsUnit :: Text
-    <*> arbitrary -- recipesParseIngredientsNutritionNutrientsPercentOfDailyNeeds :: Double
-  
-instance Arbitrary RecipesParseIngredientsNutritionProperties where
-  arbitrary = sized genRecipesParseIngredientsNutritionProperties
-
-genRecipesParseIngredientsNutritionProperties :: Int -> Gen RecipesParseIngredientsNutritionProperties
-genRecipesParseIngredientsNutritionProperties n =
-  RecipesParseIngredientsNutritionProperties
-    <$> arbitrary -- recipesParseIngredientsNutritionPropertiesName :: Text
-    <*> arbitrary -- recipesParseIngredientsNutritionPropertiesAmount :: Double
-    <*> arbitrary -- recipesParseIngredientsNutritionPropertiesUnit :: Text
-  
-instance Arbitrary RecipesParseIngredientsNutritionWeightPerServing where
-  arbitrary = sized genRecipesParseIngredientsNutritionWeightPerServing
-
-genRecipesParseIngredientsNutritionWeightPerServing :: Int -> Gen RecipesParseIngredientsNutritionWeightPerServing
-genRecipesParseIngredientsNutritionWeightPerServing n =
-  RecipesParseIngredientsNutritionWeightPerServing
-    <$> arbitrary -- recipesParseIngredientsNutritionWeightPerServingAmount :: Double
-    <*> arbitrary -- recipesParseIngredientsNutritionWeightPerServingUnit :: Text
+
+instance Arbitrary AddMealPlanTemplate200Response where
+  arbitrary = sized genAddMealPlanTemplate200Response
+
+genAddMealPlanTemplate200Response :: Int -> Gen AddMealPlanTemplate200Response
+genAddMealPlanTemplate200Response n =
+  AddMealPlanTemplate200Response
+    <$> arbitrary -- addMealPlanTemplate200ResponseName :: Text
+    <*> arbitraryReduced n -- addMealPlanTemplate200ResponseItems :: [AddMealPlanTemplate200ResponseItemsInner]
+    <*> arbitrary -- addMealPlanTemplate200ResponsePublishAsPublic :: Bool
+  
+instance Arbitrary AddMealPlanTemplate200ResponseItemsInner where
+  arbitrary = sized genAddMealPlanTemplate200ResponseItemsInner
+
+genAddMealPlanTemplate200ResponseItemsInner :: Int -> Gen AddMealPlanTemplate200ResponseItemsInner
+genAddMealPlanTemplate200ResponseItemsInner n =
+  AddMealPlanTemplate200ResponseItemsInner
+    <$> arbitrary -- addMealPlanTemplate200ResponseItemsInnerDay :: Int
+    <*> arbitrary -- addMealPlanTemplate200ResponseItemsInnerSlot :: Int
+    <*> arbitrary -- addMealPlanTemplate200ResponseItemsInnerPosition :: Int
+    <*> arbitrary -- addMealPlanTemplate200ResponseItemsInnerType :: Text
+    <*> arbitraryReducedMaybe n -- addMealPlanTemplate200ResponseItemsInnerValue :: Maybe AddMealPlanTemplate200ResponseItemsInnerValue
+  
+instance Arbitrary AddMealPlanTemplate200ResponseItemsInnerValue where
+  arbitrary = sized genAddMealPlanTemplate200ResponseItemsInnerValue
+
+genAddMealPlanTemplate200ResponseItemsInnerValue :: Int -> Gen AddMealPlanTemplate200ResponseItemsInnerValue
+genAddMealPlanTemplate200ResponseItemsInnerValue n =
+  AddMealPlanTemplate200ResponseItemsInnerValue
+    <$> arbitraryReducedMaybe n -- addMealPlanTemplate200ResponseItemsInnerValueId :: Maybe Int
+    <*> arbitraryReducedMaybe n -- addMealPlanTemplate200ResponseItemsInnerValueServings :: Maybe Double
+    <*> arbitraryReducedMaybe n -- addMealPlanTemplate200ResponseItemsInnerValueTitle :: Maybe Text
+    <*> arbitraryReducedMaybe n -- addMealPlanTemplate200ResponseItemsInnerValueImageType :: Maybe Text
+  
+instance Arbitrary AddToMealPlanRequest where
+  arbitrary = sized genAddToMealPlanRequest
+
+genAddToMealPlanRequest :: Int -> Gen AddToMealPlanRequest
+genAddToMealPlanRequest n =
+  AddToMealPlanRequest
+    <$> arbitrary -- addToMealPlanRequestUsername :: Text
+    <*> arbitrary -- addToMealPlanRequestHash :: Text
+  
+instance Arbitrary AddToMealPlanRequest1 where
+  arbitrary = sized genAddToMealPlanRequest1
+
+genAddToMealPlanRequest1 :: Int -> Gen AddToMealPlanRequest1
+genAddToMealPlanRequest1 n =
+  AddToMealPlanRequest1
+    <$> arbitrary -- addToMealPlanRequest1Date :: Double
+    <*> arbitrary -- addToMealPlanRequest1Slot :: Int
+    <*> arbitrary -- addToMealPlanRequest1Position :: Int
+    <*> arbitrary -- addToMealPlanRequest1Type :: Text
+    <*> arbitraryReduced n -- addToMealPlanRequest1Value :: AddToMealPlanRequest1Value
+  
+instance Arbitrary AddToMealPlanRequest1Value where
+  arbitrary = sized genAddToMealPlanRequest1Value
+
+genAddToMealPlanRequest1Value :: Int -> Gen AddToMealPlanRequest1Value
+genAddToMealPlanRequest1Value n =
+  AddToMealPlanRequest1Value
+    <$> arbitraryReduced n -- addToMealPlanRequest1ValueIngredients :: [AddToMealPlanRequest1ValueIngredientsInner]
+  
+instance Arbitrary AddToMealPlanRequest1ValueIngredientsInner where
+  arbitrary = sized genAddToMealPlanRequest1ValueIngredientsInner
+
+genAddToMealPlanRequest1ValueIngredientsInner :: Int -> Gen AddToMealPlanRequest1ValueIngredientsInner
+genAddToMealPlanRequest1ValueIngredientsInner n =
+  AddToMealPlanRequest1ValueIngredientsInner
+    <$> arbitrary -- addToMealPlanRequest1ValueIngredientsInnerName :: Text
+  
+instance Arbitrary AddToShoppingListRequest where
+  arbitrary = sized genAddToShoppingListRequest
+
+genAddToShoppingListRequest :: Int -> Gen AddToShoppingListRequest
+genAddToShoppingListRequest n =
+  AddToShoppingListRequest
+    <$> arbitrary -- addToShoppingListRequestItem :: Text
+    <*> arbitrary -- addToShoppingListRequestAisle :: Text
+    <*> arbitrary -- addToShoppingListRequestParse :: Bool
+  
+instance Arbitrary AnalyzeARecipeSearchQuery200Response where
+  arbitrary = sized genAnalyzeARecipeSearchQuery200Response
+
+genAnalyzeARecipeSearchQuery200Response :: Int -> Gen AnalyzeARecipeSearchQuery200Response
+genAnalyzeARecipeSearchQuery200Response n =
+  AnalyzeARecipeSearchQuery200Response
+    <$> arbitraryReduced n -- analyzeARecipeSearchQuery200ResponseDishes :: [AnalyzeARecipeSearchQuery200ResponseDishesInner]
+    <*> arbitraryReduced n -- analyzeARecipeSearchQuery200ResponseIngredients :: [AnalyzeARecipeSearchQuery200ResponseIngredientsInner]
+    <*> arbitrary -- analyzeARecipeSearchQuery200ResponseCuisines :: [Text]
+    <*> arbitrary -- analyzeARecipeSearchQuery200ResponseModifiers :: [Text]
+  
+instance Arbitrary AnalyzeARecipeSearchQuery200ResponseDishesInner where
+  arbitrary = sized genAnalyzeARecipeSearchQuery200ResponseDishesInner
+
+genAnalyzeARecipeSearchQuery200ResponseDishesInner :: Int -> Gen AnalyzeARecipeSearchQuery200ResponseDishesInner
+genAnalyzeARecipeSearchQuery200ResponseDishesInner n =
+  AnalyzeARecipeSearchQuery200ResponseDishesInner
+    <$> arbitrary -- analyzeARecipeSearchQuery200ResponseDishesInnerImage :: Text
+    <*> arbitrary -- analyzeARecipeSearchQuery200ResponseDishesInnerName :: Text
+  
+instance Arbitrary AnalyzeARecipeSearchQuery200ResponseIngredientsInner where
+  arbitrary = sized genAnalyzeARecipeSearchQuery200ResponseIngredientsInner
+
+genAnalyzeARecipeSearchQuery200ResponseIngredientsInner :: Int -> Gen AnalyzeARecipeSearchQuery200ResponseIngredientsInner
+genAnalyzeARecipeSearchQuery200ResponseIngredientsInner n =
+  AnalyzeARecipeSearchQuery200ResponseIngredientsInner
+    <$> arbitrary -- analyzeARecipeSearchQuery200ResponseIngredientsInnerImage :: Text
+    <*> arbitrary -- analyzeARecipeSearchQuery200ResponseIngredientsInnerInclude :: Bool
+    <*> arbitrary -- analyzeARecipeSearchQuery200ResponseIngredientsInnerName :: Text
+  
+instance Arbitrary AnalyzeRecipeInstructions200Response where
+  arbitrary = sized genAnalyzeRecipeInstructions200Response
+
+genAnalyzeRecipeInstructions200Response :: Int -> Gen AnalyzeRecipeInstructions200Response
+genAnalyzeRecipeInstructions200Response n =
+  AnalyzeRecipeInstructions200Response
+    <$> arbitraryReduced n -- analyzeRecipeInstructions200ResponseParsedInstructions :: [AnalyzeRecipeInstructions200ResponseParsedInstructionsInner]
+    <*> arbitraryReduced n -- analyzeRecipeInstructions200ResponseIngredients :: [AnalyzeRecipeInstructions200ResponseIngredientsInner]
+    <*> arbitraryReduced n -- analyzeRecipeInstructions200ResponseEquipment :: [AnalyzeRecipeInstructions200ResponseIngredientsInner]
+  
+instance Arbitrary AnalyzeRecipeInstructions200ResponseIngredientsInner where
+  arbitrary = sized genAnalyzeRecipeInstructions200ResponseIngredientsInner
+
+genAnalyzeRecipeInstructions200ResponseIngredientsInner :: Int -> Gen AnalyzeRecipeInstructions200ResponseIngredientsInner
+genAnalyzeRecipeInstructions200ResponseIngredientsInner n =
+  AnalyzeRecipeInstructions200ResponseIngredientsInner
+    <$> arbitrary -- analyzeRecipeInstructions200ResponseIngredientsInnerId :: Double
+    <*> arbitrary -- analyzeRecipeInstructions200ResponseIngredientsInnerName :: Text
+  
+instance Arbitrary AnalyzeRecipeInstructions200ResponseParsedInstructionsInner where
+  arbitrary = sized genAnalyzeRecipeInstructions200ResponseParsedInstructionsInner
+
+genAnalyzeRecipeInstructions200ResponseParsedInstructionsInner :: Int -> Gen AnalyzeRecipeInstructions200ResponseParsedInstructionsInner
+genAnalyzeRecipeInstructions200ResponseParsedInstructionsInner n =
+  AnalyzeRecipeInstructions200ResponseParsedInstructionsInner
+    <$> arbitrary -- analyzeRecipeInstructions200ResponseParsedInstructionsInnerName :: Text
+    <*> arbitraryReducedMaybe n -- analyzeRecipeInstructions200ResponseParsedInstructionsInnerSteps :: Maybe [AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner]
+  
+instance Arbitrary AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner where
+  arbitrary = sized genAnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner
+
+genAnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner :: Int -> Gen AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner
+genAnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner n =
+  AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner
+    <$> arbitrary -- analyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerNumber :: Double
+    <*> arbitrary -- analyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerStep :: Text
+    <*> arbitraryReducedMaybe n -- analyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredients :: Maybe [AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner]
+    <*> arbitraryReducedMaybe n -- analyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerEquipment :: Maybe [AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner]
+  
+instance Arbitrary AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner where
+  arbitrary = sized genAnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner
+
+genAnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner :: Int -> Gen AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner
+genAnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner n =
+  AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner
+    <$> arbitrary -- analyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInnerId :: Double
+    <*> arbitrary -- analyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInnerName :: Text
+    <*> arbitrary -- analyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInnerLocalizedName :: Text
+    <*> arbitrary -- analyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInnerImage :: Text
+  
+instance Arbitrary AutocompleteIngredientSearch200ResponseInner where
+  arbitrary = sized genAutocompleteIngredientSearch200ResponseInner
+
+genAutocompleteIngredientSearch200ResponseInner :: Int -> Gen AutocompleteIngredientSearch200ResponseInner
+genAutocompleteIngredientSearch200ResponseInner n =
+  AutocompleteIngredientSearch200ResponseInner
+    <$> arbitrary -- autocompleteIngredientSearch200ResponseInnerName :: Text
+    <*> arbitrary -- autocompleteIngredientSearch200ResponseInnerImage :: Text
+    <*> arbitraryReducedMaybe n -- autocompleteIngredientSearch200ResponseInnerId :: Maybe Int
+    <*> arbitraryReducedMaybe n -- autocompleteIngredientSearch200ResponseInnerAisle :: Maybe Text
+    <*> arbitraryReducedMaybe n -- autocompleteIngredientSearch200ResponseInnerPossibleUnits :: Maybe [Text]
+  
+instance Arbitrary AutocompleteMenuItemSearch200Response where
+  arbitrary = sized genAutocompleteMenuItemSearch200Response
+
+genAutocompleteMenuItemSearch200Response :: Int -> Gen AutocompleteMenuItemSearch200Response
+genAutocompleteMenuItemSearch200Response n =
+  AutocompleteMenuItemSearch200Response
+    <$> arbitraryReduced n -- autocompleteMenuItemSearch200ResponseResults :: [AutocompleteProductSearch200ResponseResultsInner]
+  
+instance Arbitrary AutocompleteProductSearch200Response where
+  arbitrary = sized genAutocompleteProductSearch200Response
+
+genAutocompleteProductSearch200Response :: Int -> Gen AutocompleteProductSearch200Response
+genAutocompleteProductSearch200Response n =
+  AutocompleteProductSearch200Response
+    <$> arbitraryReduced n -- autocompleteProductSearch200ResponseResults :: [AutocompleteProductSearch200ResponseResultsInner]
+  
+instance Arbitrary AutocompleteProductSearch200ResponseResultsInner where
+  arbitrary = sized genAutocompleteProductSearch200ResponseResultsInner
+
+genAutocompleteProductSearch200ResponseResultsInner :: Int -> Gen AutocompleteProductSearch200ResponseResultsInner
+genAutocompleteProductSearch200ResponseResultsInner n =
+  AutocompleteProductSearch200ResponseResultsInner
+    <$> arbitrary -- autocompleteProductSearch200ResponseResultsInnerId :: Int
+    <*> arbitrary -- autocompleteProductSearch200ResponseResultsInnerTitle :: Text
+  
+instance Arbitrary AutocompleteRecipeSearch200ResponseInner where
+  arbitrary = sized genAutocompleteRecipeSearch200ResponseInner
+
+genAutocompleteRecipeSearch200ResponseInner :: Int -> Gen AutocompleteRecipeSearch200ResponseInner
+genAutocompleteRecipeSearch200ResponseInner n =
+  AutocompleteRecipeSearch200ResponseInner
+    <$> arbitrary -- autocompleteRecipeSearch200ResponseInnerId :: Int
+    <*> arbitrary -- autocompleteRecipeSearch200ResponseInnerTitle :: Text
+    <*> arbitrary -- autocompleteRecipeSearch200ResponseInnerImageType :: Text
+  
+instance Arbitrary ClassifyCuisine200Response where
+  arbitrary = sized genClassifyCuisine200Response
+
+genClassifyCuisine200Response :: Int -> Gen ClassifyCuisine200Response
+genClassifyCuisine200Response n =
+  ClassifyCuisine200Response
+    <$> arbitrary -- classifyCuisine200ResponseCuisine :: Text
+    <*> arbitrary -- classifyCuisine200ResponseCuisines :: [Text]
+    <*> arbitrary -- classifyCuisine200ResponseConfidence :: Double
+  
+instance Arbitrary ClassifyGroceryProduct200Response where
+  arbitrary = sized genClassifyGroceryProduct200Response
+
+genClassifyGroceryProduct200Response :: Int -> Gen ClassifyGroceryProduct200Response
+genClassifyGroceryProduct200Response n =
+  ClassifyGroceryProduct200Response
+    <$> arbitrary -- classifyGroceryProduct200ResponseCleanTitle :: Text
+    <*> arbitrary -- classifyGroceryProduct200ResponseImage :: Text
+    <*> arbitrary -- classifyGroceryProduct200ResponseCategory :: Text
+    <*> arbitrary -- classifyGroceryProduct200ResponseBreadcrumbs :: [Text]
+    <*> arbitrary -- classifyGroceryProduct200ResponseUsdaCode :: Int
+  
+instance Arbitrary ClassifyGroceryProductBulk200ResponseInner where
+  arbitrary = sized genClassifyGroceryProductBulk200ResponseInner
+
+genClassifyGroceryProductBulk200ResponseInner :: Int -> Gen ClassifyGroceryProductBulk200ResponseInner
+genClassifyGroceryProductBulk200ResponseInner n =
+  ClassifyGroceryProductBulk200ResponseInner
+    <$> arbitrary -- classifyGroceryProductBulk200ResponseInnerCleanTitle :: Text
+    <*> arbitrary -- classifyGroceryProductBulk200ResponseInnerImage :: Text
+    <*> arbitrary -- classifyGroceryProductBulk200ResponseInnerCategory :: Text
+    <*> arbitrary -- classifyGroceryProductBulk200ResponseInnerBreadcrumbs :: [Text]
+    <*> arbitrary -- classifyGroceryProductBulk200ResponseInnerUsdaCode :: Int
+  
+instance Arbitrary ClassifyGroceryProductBulkRequestInner where
+  arbitrary = sized genClassifyGroceryProductBulkRequestInner
+
+genClassifyGroceryProductBulkRequestInner :: Int -> Gen ClassifyGroceryProductBulkRequestInner
+genClassifyGroceryProductBulkRequestInner n =
+  ClassifyGroceryProductBulkRequestInner
+    <$> arbitrary -- classifyGroceryProductBulkRequestInnerTitle :: Text
+    <*> arbitrary -- classifyGroceryProductBulkRequestInnerUpc :: Text
+    <*> arbitrary -- classifyGroceryProductBulkRequestInnerPluCode :: Text
+  
+instance Arbitrary ClassifyGroceryProductRequest where
+  arbitrary = sized genClassifyGroceryProductRequest
+
+genClassifyGroceryProductRequest :: Int -> Gen ClassifyGroceryProductRequest
+genClassifyGroceryProductRequest n =
+  ClassifyGroceryProductRequest
+    <$> arbitrary -- classifyGroceryProductRequestTitle :: Text
+    <*> arbitrary -- classifyGroceryProductRequestUpc :: Text
+    <*> arbitrary -- classifyGroceryProductRequestPluCode :: Text
+  
+instance Arbitrary ClearMealPlanDayRequest where
+  arbitrary = sized genClearMealPlanDayRequest
+
+genClearMealPlanDayRequest :: Int -> Gen ClearMealPlanDayRequest
+genClearMealPlanDayRequest n =
+  ClearMealPlanDayRequest
+    <$> arbitrary -- clearMealPlanDayRequestUsername :: Text
+    <*> arbitrary -- clearMealPlanDayRequestDate :: Text
+    <*> arbitrary -- clearMealPlanDayRequestHash :: Text
+  
+instance Arbitrary ComputeGlycemicLoad200Response where
+  arbitrary = sized genComputeGlycemicLoad200Response
+
+genComputeGlycemicLoad200Response :: Int -> Gen ComputeGlycemicLoad200Response
+genComputeGlycemicLoad200Response n =
+  ComputeGlycemicLoad200Response
+    <$> arbitrary -- computeGlycemicLoad200ResponseTotalGlycemicLoad :: Double
+    <*> arbitraryReduced n -- computeGlycemicLoad200ResponseIngredients :: [ComputeGlycemicLoad200ResponseIngredientsInner]
+  
+instance Arbitrary ComputeGlycemicLoad200ResponseIngredientsInner where
+  arbitrary = sized genComputeGlycemicLoad200ResponseIngredientsInner
+
+genComputeGlycemicLoad200ResponseIngredientsInner :: Int -> Gen ComputeGlycemicLoad200ResponseIngredientsInner
+genComputeGlycemicLoad200ResponseIngredientsInner n =
+  ComputeGlycemicLoad200ResponseIngredientsInner
+    <$> arbitrary -- computeGlycemicLoad200ResponseIngredientsInnerId :: Int
+    <*> arbitrary -- computeGlycemicLoad200ResponseIngredientsInnerOriginal :: Text
+    <*> arbitrary -- computeGlycemicLoad200ResponseIngredientsInnerGlycemicIndex :: Double
+    <*> arbitrary -- computeGlycemicLoad200ResponseIngredientsInnerGlycemicLoad :: Double
+  
+instance Arbitrary ComputeGlycemicLoadRequest where
+  arbitrary = sized genComputeGlycemicLoadRequest
+
+genComputeGlycemicLoadRequest :: Int -> Gen ComputeGlycemicLoadRequest
+genComputeGlycemicLoadRequest n =
+  ComputeGlycemicLoadRequest
+    <$> arbitrary -- computeGlycemicLoadRequestIngredients :: [Text]
+  
+instance Arbitrary ComputeIngredientAmount200Response where
+  arbitrary = sized genComputeIngredientAmount200Response
+
+genComputeIngredientAmount200Response :: Int -> Gen ComputeIngredientAmount200Response
+genComputeIngredientAmount200Response n =
+  ComputeIngredientAmount200Response
+    <$> arbitrary -- computeIngredientAmount200ResponseAmount :: Double
+    <*> arbitrary -- computeIngredientAmount200ResponseUnit :: Text
+  
+instance Arbitrary ConnectUser200Response where
+  arbitrary = sized genConnectUser200Response
+
+genConnectUser200Response :: Int -> Gen ConnectUser200Response
+genConnectUser200Response n =
+  ConnectUser200Response
+    <$> arbitrary -- connectUser200ResponseUsername :: Text
+    <*> arbitrary -- connectUser200ResponseHash :: Text
+  
+instance Arbitrary ConnectUserRequest where
+  arbitrary = sized genConnectUserRequest
+
+genConnectUserRequest :: Int -> Gen ConnectUserRequest
+genConnectUserRequest n =
+  ConnectUserRequest
+    <$> arbitrary -- connectUserRequestUsername :: Text
+    <*> arbitrary -- connectUserRequestFirstName :: Text
+    <*> arbitrary -- connectUserRequestLastName :: Text
+    <*> arbitrary -- connectUserRequestEmail :: Text
+  
+instance Arbitrary ConvertAmounts200Response where
+  arbitrary = sized genConvertAmounts200Response
+
+genConvertAmounts200Response :: Int -> Gen ConvertAmounts200Response
+genConvertAmounts200Response n =
+  ConvertAmounts200Response
+    <$> arbitrary -- convertAmounts200ResponseSourceAmount :: Double
+    <*> arbitrary -- convertAmounts200ResponseSourceUnit :: Text
+    <*> arbitrary -- convertAmounts200ResponseTargetAmount :: Double
+    <*> arbitrary -- convertAmounts200ResponseTargetUnit :: Text
+    <*> arbitrary -- convertAmounts200ResponseAnswer :: Text
+  
+instance Arbitrary CreateRecipeCard200Response where
+  arbitrary = sized genCreateRecipeCard200Response
+
+genCreateRecipeCard200Response :: Int -> Gen CreateRecipeCard200Response
+genCreateRecipeCard200Response n =
+  CreateRecipeCard200Response
+    <$> arbitrary -- createRecipeCard200ResponseUrl :: Text
+  
+instance Arbitrary DeleteFromMealPlanRequest where
+  arbitrary = sized genDeleteFromMealPlanRequest
+
+genDeleteFromMealPlanRequest :: Int -> Gen DeleteFromMealPlanRequest
+genDeleteFromMealPlanRequest n =
+  DeleteFromMealPlanRequest
+    <$> arbitrary -- deleteFromMealPlanRequestUsername :: Text
+    <*> arbitrary -- deleteFromMealPlanRequestId :: Double
+    <*> arbitrary -- deleteFromMealPlanRequestHash :: Text
+  
+instance Arbitrary DetectFoodInText200Response where
+  arbitrary = sized genDetectFoodInText200Response
+
+genDetectFoodInText200Response :: Int -> Gen DetectFoodInText200Response
+genDetectFoodInText200Response n =
+  DetectFoodInText200Response
+    <$> arbitraryReduced n -- detectFoodInText200ResponseAnnotations :: [DetectFoodInText200ResponseAnnotationsInner]
+  
+instance Arbitrary DetectFoodInText200ResponseAnnotationsInner where
+  arbitrary = sized genDetectFoodInText200ResponseAnnotationsInner
+
+genDetectFoodInText200ResponseAnnotationsInner :: Int -> Gen DetectFoodInText200ResponseAnnotationsInner
+genDetectFoodInText200ResponseAnnotationsInner n =
+  DetectFoodInText200ResponseAnnotationsInner
+    <$> arbitrary -- detectFoodInText200ResponseAnnotationsInnerAnnotation :: Text
+    <*> arbitrary -- detectFoodInText200ResponseAnnotationsInnerImage :: Text
+    <*> arbitrary -- detectFoodInText200ResponseAnnotationsInnerTag :: Text
+  
+instance Arbitrary GenerateMealPlan200Response where
+  arbitrary = sized genGenerateMealPlan200Response
+
+genGenerateMealPlan200Response :: Int -> Gen GenerateMealPlan200Response
+genGenerateMealPlan200Response n =
+  GenerateMealPlan200Response
+    <$> arbitraryReduced n -- generateMealPlan200ResponseMeals :: [GetSimilarRecipes200ResponseInner]
+    <*> arbitraryReduced n -- generateMealPlan200ResponseNutrients :: GenerateMealPlan200ResponseNutrients
+  
+instance Arbitrary GenerateMealPlan200ResponseNutrients where
+  arbitrary = sized genGenerateMealPlan200ResponseNutrients
+
+genGenerateMealPlan200ResponseNutrients :: Int -> Gen GenerateMealPlan200ResponseNutrients
+genGenerateMealPlan200ResponseNutrients n =
+  GenerateMealPlan200ResponseNutrients
+    <$> arbitrary -- generateMealPlan200ResponseNutrientsCalories :: Double
+    <*> arbitrary -- generateMealPlan200ResponseNutrientsCarbohydrates :: Double
+    <*> arbitrary -- generateMealPlan200ResponseNutrientsFat :: Double
+    <*> arbitrary -- generateMealPlan200ResponseNutrientsProtein :: Double
+  
+instance Arbitrary GenerateShoppingList200Response where
+  arbitrary = sized genGenerateShoppingList200Response
+
+genGenerateShoppingList200Response :: Int -> Gen GenerateShoppingList200Response
+genGenerateShoppingList200Response n =
+  GenerateShoppingList200Response
+    <$> arbitraryReduced n -- generateShoppingList200ResponseAisles :: [GetShoppingList200ResponseAislesInner]
+    <*> arbitrary -- generateShoppingList200ResponseCost :: Double
+    <*> arbitrary -- generateShoppingList200ResponseStartDate :: Double
+    <*> arbitrary -- generateShoppingList200ResponseEndDate :: Double
+  
+instance Arbitrary GenerateShoppingListRequest where
+  arbitrary = sized genGenerateShoppingListRequest
+
+genGenerateShoppingListRequest :: Int -> Gen GenerateShoppingListRequest
+genGenerateShoppingListRequest n =
+  GenerateShoppingListRequest
+    <$> arbitrary -- generateShoppingListRequestUsername :: Text
+    <*> arbitrary -- generateShoppingListRequestStartDate :: Text
+    <*> arbitrary -- generateShoppingListRequestEndDate :: Text
+    <*> arbitrary -- generateShoppingListRequestHash :: Text
+  
+instance Arbitrary GetARandomFoodJoke200Response where
+  arbitrary = sized genGetARandomFoodJoke200Response
+
+genGetARandomFoodJoke200Response :: Int -> Gen GetARandomFoodJoke200Response
+genGetARandomFoodJoke200Response n =
+  GetARandomFoodJoke200Response
+    <$> arbitrary -- getARandomFoodJoke200ResponseText :: Text
+  
+instance Arbitrary GetAnalyzedRecipeInstructions200Response where
+  arbitrary = sized genGetAnalyzedRecipeInstructions200Response
+
+genGetAnalyzedRecipeInstructions200Response :: Int -> Gen GetAnalyzedRecipeInstructions200Response
+genGetAnalyzedRecipeInstructions200Response n =
+  GetAnalyzedRecipeInstructions200Response
+    <$> arbitraryReduced n -- getAnalyzedRecipeInstructions200ResponseParsedInstructions :: [GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInner]
+    <*> arbitraryReduced n -- getAnalyzedRecipeInstructions200ResponseIngredients :: [GetAnalyzedRecipeInstructions200ResponseIngredientsInner]
+    <*> arbitraryReduced n -- getAnalyzedRecipeInstructions200ResponseEquipment :: [GetAnalyzedRecipeInstructions200ResponseIngredientsInner]
+  
+instance Arbitrary GetAnalyzedRecipeInstructions200ResponseIngredientsInner where
+  arbitrary = sized genGetAnalyzedRecipeInstructions200ResponseIngredientsInner
+
+genGetAnalyzedRecipeInstructions200ResponseIngredientsInner :: Int -> Gen GetAnalyzedRecipeInstructions200ResponseIngredientsInner
+genGetAnalyzedRecipeInstructions200ResponseIngredientsInner n =
+  GetAnalyzedRecipeInstructions200ResponseIngredientsInner
+    <$> arbitrary -- getAnalyzedRecipeInstructions200ResponseIngredientsInnerId :: Int
+    <*> arbitrary -- getAnalyzedRecipeInstructions200ResponseIngredientsInnerName :: Text
+  
+instance Arbitrary GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInner where
+  arbitrary = sized genGetAnalyzedRecipeInstructions200ResponseParsedInstructionsInner
+
+genGetAnalyzedRecipeInstructions200ResponseParsedInstructionsInner :: Int -> Gen GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInner
+genGetAnalyzedRecipeInstructions200ResponseParsedInstructionsInner n =
+  GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInner
+    <$> arbitrary -- getAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerName :: Text
+    <*> arbitraryReducedMaybe n -- getAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerSteps :: Maybe [GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInner]
+  
+instance Arbitrary GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInner where
+  arbitrary = sized genGetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInner
+
+genGetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInner :: Int -> Gen GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInner
+genGetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInner n =
+  GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInner
+    <$> arbitrary -- getAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerNumber :: Double
+    <*> arbitrary -- getAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerStep :: Text
+    <*> arbitraryReducedMaybe n -- getAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredients :: Maybe [GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner]
+    <*> arbitraryReducedMaybe n -- getAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerEquipment :: Maybe [GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner]
+  
+instance Arbitrary GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner where
+  arbitrary = sized genGetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner
+
+genGetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner :: Int -> Gen GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner
+genGetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner n =
+  GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner
+    <$> arbitrary -- getAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInnerId :: Int
+    <*> arbitrary -- getAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInnerName :: Text
+    <*> arbitrary -- getAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInnerLocalizedName :: Text
+    <*> arbitrary -- getAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInnerImage :: Text
+  
+instance Arbitrary GetComparableProducts200Response where
+  arbitrary = sized genGetComparableProducts200Response
+
+genGetComparableProducts200Response :: Int -> Gen GetComparableProducts200Response
+genGetComparableProducts200Response n =
+  GetComparableProducts200Response
+    <$> arbitraryReduced n -- getComparableProducts200ResponseComparableProducts :: GetComparableProducts200ResponseComparableProducts
+  
+instance Arbitrary GetComparableProducts200ResponseComparableProducts where
+  arbitrary = sized genGetComparableProducts200ResponseComparableProducts
+
+genGetComparableProducts200ResponseComparableProducts :: Int -> Gen GetComparableProducts200ResponseComparableProducts
+genGetComparableProducts200ResponseComparableProducts n =
+  GetComparableProducts200ResponseComparableProducts
+    <$> arbitraryReduced n -- getComparableProducts200ResponseComparableProductsCalories :: [A.Value]
+    <*> arbitraryReduced n -- getComparableProducts200ResponseComparableProductsLikes :: [A.Value]
+    <*> arbitraryReduced n -- getComparableProducts200ResponseComparableProductsPrice :: [A.Value]
+    <*> arbitraryReduced n -- getComparableProducts200ResponseComparableProductsProtein :: [GetComparableProducts200ResponseComparableProductsProteinInner]
+    <*> arbitraryReduced n -- getComparableProducts200ResponseComparableProductsSpoonacularScore :: [GetComparableProducts200ResponseComparableProductsProteinInner]
+    <*> arbitraryReduced n -- getComparableProducts200ResponseComparableProductsSugar :: [A.Value]
+  
+instance Arbitrary GetComparableProducts200ResponseComparableProductsProteinInner where
+  arbitrary = sized genGetComparableProducts200ResponseComparableProductsProteinInner
+
+genGetComparableProducts200ResponseComparableProductsProteinInner :: Int -> Gen GetComparableProducts200ResponseComparableProductsProteinInner
+genGetComparableProducts200ResponseComparableProductsProteinInner n =
+  GetComparableProducts200ResponseComparableProductsProteinInner
+    <$> arbitrary -- getComparableProducts200ResponseComparableProductsProteinInnerDifference :: Double
+    <*> arbitrary -- getComparableProducts200ResponseComparableProductsProteinInnerId :: Int
+    <*> arbitrary -- getComparableProducts200ResponseComparableProductsProteinInnerImage :: Text
+    <*> arbitrary -- getComparableProducts200ResponseComparableProductsProteinInnerTitle :: Text
+  
+instance Arbitrary GetConversationSuggests200Response where
+  arbitrary = sized genGetConversationSuggests200Response
+
+genGetConversationSuggests200Response :: Int -> Gen GetConversationSuggests200Response
+genGetConversationSuggests200Response n =
+  GetConversationSuggests200Response
+    <$> arbitraryReduced n -- getConversationSuggests200ResponseSuggests :: GetConversationSuggests200ResponseSuggests
+    <*> arbitraryReduced n -- getConversationSuggests200ResponseWords :: [AnyType]
+  
+instance Arbitrary GetConversationSuggests200ResponseSuggests where
+  arbitrary = sized genGetConversationSuggests200ResponseSuggests
+
+genGetConversationSuggests200ResponseSuggests :: Int -> Gen GetConversationSuggests200ResponseSuggests
+genGetConversationSuggests200ResponseSuggests n =
+  GetConversationSuggests200ResponseSuggests
+    <$> arbitraryReduced n -- getConversationSuggests200ResponseSuggests :: [GetConversationSuggests200ResponseSuggestsInner]
+  
+instance Arbitrary GetConversationSuggests200ResponseSuggestsInner where
+  arbitrary = sized genGetConversationSuggests200ResponseSuggestsInner
+
+genGetConversationSuggests200ResponseSuggestsInner :: Int -> Gen GetConversationSuggests200ResponseSuggestsInner
+genGetConversationSuggests200ResponseSuggestsInner n =
+  GetConversationSuggests200ResponseSuggestsInner
+    <$> arbitrary -- getConversationSuggests200ResponseSuggestsInnerName :: Text
+  
+instance Arbitrary GetDishPairingForWine200Response where
+  arbitrary = sized genGetDishPairingForWine200Response
+
+genGetDishPairingForWine200Response :: Int -> Gen GetDishPairingForWine200Response
+genGetDishPairingForWine200Response n =
+  GetDishPairingForWine200Response
+    <$> arbitrary -- getDishPairingForWine200ResponsePairings :: [Text]
+    <*> arbitrary -- getDishPairingForWine200ResponseText :: Text
+  
+instance Arbitrary GetIngredientInformation200Response where
+  arbitrary = sized genGetIngredientInformation200Response
+
+genGetIngredientInformation200Response :: Int -> Gen GetIngredientInformation200Response
+genGetIngredientInformation200Response n =
+  GetIngredientInformation200Response
+    <$> arbitrary -- getIngredientInformation200ResponseId :: Int
+    <*> arbitrary -- getIngredientInformation200ResponseOriginal :: Text
+    <*> arbitrary -- getIngredientInformation200ResponseOriginalName :: Text
+    <*> arbitrary -- getIngredientInformation200ResponseName :: Text
+    <*> arbitrary -- getIngredientInformation200ResponseNameClean :: Text
+    <*> arbitrary -- getIngredientInformation200ResponseAmount :: Double
+    <*> arbitrary -- getIngredientInformation200ResponseUnit :: Text
+    <*> arbitrary -- getIngredientInformation200ResponseUnitShort :: Text
+    <*> arbitrary -- getIngredientInformation200ResponseUnitLong :: Text
+    <*> arbitrary -- getIngredientInformation200ResponsePossibleUnits :: [Text]
+    <*> arbitraryReduced n -- getIngredientInformation200ResponseEstimatedCost :: ParseIngredients200ResponseInnerEstimatedCost
+    <*> arbitrary -- getIngredientInformation200ResponseConsistency :: Text
+    <*> arbitrary -- getIngredientInformation200ResponseShoppingListUnits :: [Text]
+    <*> arbitrary -- getIngredientInformation200ResponseAisle :: Text
+    <*> arbitrary -- getIngredientInformation200ResponseImage :: Text
+    <*> arbitraryReduced n -- getIngredientInformation200ResponseMeta :: [A.Value]
+    <*> arbitraryReduced n -- getIngredientInformation200ResponseNutrition :: GetIngredientInformation200ResponseNutrition
+    <*> arbitrary -- getIngredientInformation200ResponseCategoryPath :: [Text]
+  
+instance Arbitrary GetIngredientInformation200ResponseNutrition where
+  arbitrary = sized genGetIngredientInformation200ResponseNutrition
+
+genGetIngredientInformation200ResponseNutrition :: Int -> Gen GetIngredientInformation200ResponseNutrition
+genGetIngredientInformation200ResponseNutrition n =
+  GetIngredientInformation200ResponseNutrition
+    <$> arbitraryReduced n -- getIngredientInformation200ResponseNutritionNutrients :: [ParseIngredients200ResponseInnerNutritionNutrientsInner]
+    <*> arbitraryReduced n -- getIngredientInformation200ResponseNutritionProperties :: [ParseIngredients200ResponseInnerNutritionPropertiesInner]
+    <*> arbitraryReduced n -- getIngredientInformation200ResponseNutritionCaloricBreakdown :: ParseIngredients200ResponseInnerNutritionCaloricBreakdown
+    <*> arbitraryReduced n -- getIngredientInformation200ResponseNutritionWeightPerServing :: ParseIngredients200ResponseInnerNutritionWeightPerServing
+  
+instance Arbitrary GetIngredientSubstitutes200Response where
+  arbitrary = sized genGetIngredientSubstitutes200Response
+
+genGetIngredientSubstitutes200Response :: Int -> Gen GetIngredientSubstitutes200Response
+genGetIngredientSubstitutes200Response n =
+  GetIngredientSubstitutes200Response
+    <$> arbitrary -- getIngredientSubstitutes200ResponseIngredient :: Text
+    <*> arbitrary -- getIngredientSubstitutes200ResponseSubstitutes :: [Text]
+    <*> arbitrary -- getIngredientSubstitutes200ResponseMessage :: Text
+  
+instance Arbitrary GetMealPlanTemplate200Response where
+  arbitrary = sized genGetMealPlanTemplate200Response
+
+genGetMealPlanTemplate200Response :: Int -> Gen GetMealPlanTemplate200Response
+genGetMealPlanTemplate200Response n =
+  GetMealPlanTemplate200Response
+    <$> arbitrary -- getMealPlanTemplate200ResponseId :: Int
+    <*> arbitrary -- getMealPlanTemplate200ResponseName :: Text
+    <*> arbitraryReduced n -- getMealPlanTemplate200ResponseDays :: [GetMealPlanTemplate200ResponseDaysInner]
+  
+instance Arbitrary GetMealPlanTemplate200ResponseDaysInner where
+  arbitrary = sized genGetMealPlanTemplate200ResponseDaysInner
+
+genGetMealPlanTemplate200ResponseDaysInner :: Int -> Gen GetMealPlanTemplate200ResponseDaysInner
+genGetMealPlanTemplate200ResponseDaysInner n =
+  GetMealPlanTemplate200ResponseDaysInner
+    <$> arbitraryReducedMaybe n -- getMealPlanTemplate200ResponseDaysInnerNutritionSummary :: Maybe GetMealPlanWeek200ResponseDaysInnerNutritionSummary
+    <*> arbitraryReducedMaybe n -- getMealPlanTemplate200ResponseDaysInnerNutritionSummaryBreakfast :: Maybe GetMealPlanWeek200ResponseDaysInnerNutritionSummary
+    <*> arbitraryReducedMaybe n -- getMealPlanTemplate200ResponseDaysInnerNutritionSummaryLunch :: Maybe GetMealPlanWeek200ResponseDaysInnerNutritionSummary
+    <*> arbitraryReducedMaybe n -- getMealPlanTemplate200ResponseDaysInnerNutritionSummaryDinner :: Maybe GetMealPlanWeek200ResponseDaysInnerNutritionSummary
+    <*> arbitrary -- getMealPlanTemplate200ResponseDaysInnerDay :: Text
+    <*> arbitraryReducedMaybe n -- getMealPlanTemplate200ResponseDaysInnerItems :: Maybe [GetMealPlanTemplate200ResponseDaysInnerItemsInner]
+  
+instance Arbitrary GetMealPlanTemplate200ResponseDaysInnerItemsInner where
+  arbitrary = sized genGetMealPlanTemplate200ResponseDaysInnerItemsInner
+
+genGetMealPlanTemplate200ResponseDaysInnerItemsInner :: Int -> Gen GetMealPlanTemplate200ResponseDaysInnerItemsInner
+genGetMealPlanTemplate200ResponseDaysInnerItemsInner n =
+  GetMealPlanTemplate200ResponseDaysInnerItemsInner
+    <$> arbitrary -- getMealPlanTemplate200ResponseDaysInnerItemsInnerId :: Int
+    <*> arbitrary -- getMealPlanTemplate200ResponseDaysInnerItemsInnerSlot :: Int
+    <*> arbitrary -- getMealPlanTemplate200ResponseDaysInnerItemsInnerPosition :: Int
+    <*> arbitrary -- getMealPlanTemplate200ResponseDaysInnerItemsInnerType :: Text
+    <*> arbitraryReducedMaybe n -- getMealPlanTemplate200ResponseDaysInnerItemsInnerValue :: Maybe GetMealPlanTemplate200ResponseDaysInnerItemsInnerValue
+  
+instance Arbitrary GetMealPlanTemplate200ResponseDaysInnerItemsInnerValue where
+  arbitrary = sized genGetMealPlanTemplate200ResponseDaysInnerItemsInnerValue
+
+genGetMealPlanTemplate200ResponseDaysInnerItemsInnerValue :: Int -> Gen GetMealPlanTemplate200ResponseDaysInnerItemsInnerValue
+genGetMealPlanTemplate200ResponseDaysInnerItemsInnerValue n =
+  GetMealPlanTemplate200ResponseDaysInnerItemsInnerValue
+    <$> arbitrary -- getMealPlanTemplate200ResponseDaysInnerItemsInnerValueId :: Double
+    <*> arbitrary -- getMealPlanTemplate200ResponseDaysInnerItemsInnerValueTitle :: Text
+    <*> arbitrary -- getMealPlanTemplate200ResponseDaysInnerItemsInnerValueImageType :: Text
+  
+instance Arbitrary GetMealPlanTemplates200Response where
+  arbitrary = sized genGetMealPlanTemplates200Response
+
+genGetMealPlanTemplates200Response :: Int -> Gen GetMealPlanTemplates200Response
+genGetMealPlanTemplates200Response n =
+  GetMealPlanTemplates200Response
+    <$> arbitraryReduced n -- getMealPlanTemplates200ResponseTemplates :: [GetAnalyzedRecipeInstructions200ResponseIngredientsInner]
+  
+instance Arbitrary GetMealPlanWeek200Response where
+  arbitrary = sized genGetMealPlanWeek200Response
+
+genGetMealPlanWeek200Response :: Int -> Gen GetMealPlanWeek200Response
+genGetMealPlanWeek200Response n =
+  GetMealPlanWeek200Response
+    <$> arbitraryReduced n -- getMealPlanWeek200ResponseDays :: [GetMealPlanWeek200ResponseDaysInner]
+  
+instance Arbitrary GetMealPlanWeek200ResponseDaysInner where
+  arbitrary = sized genGetMealPlanWeek200ResponseDaysInner
+
+genGetMealPlanWeek200ResponseDaysInner :: Int -> Gen GetMealPlanWeek200ResponseDaysInner
+genGetMealPlanWeek200ResponseDaysInner n =
+  GetMealPlanWeek200ResponseDaysInner
+    <$> arbitraryReducedMaybe n -- getMealPlanWeek200ResponseDaysInnerNutritionSummary :: Maybe GetMealPlanWeek200ResponseDaysInnerNutritionSummary
+    <*> arbitraryReducedMaybe n -- getMealPlanWeek200ResponseDaysInnerNutritionSummaryBreakfast :: Maybe GetMealPlanWeek200ResponseDaysInnerNutritionSummary
+    <*> arbitraryReducedMaybe n -- getMealPlanWeek200ResponseDaysInnerNutritionSummaryLunch :: Maybe GetMealPlanWeek200ResponseDaysInnerNutritionSummary
+    <*> arbitraryReducedMaybe n -- getMealPlanWeek200ResponseDaysInnerNutritionSummaryDinner :: Maybe GetMealPlanWeek200ResponseDaysInnerNutritionSummary
+    <*> arbitrary -- getMealPlanWeek200ResponseDaysInnerDate :: Double
+    <*> arbitrary -- getMealPlanWeek200ResponseDaysInnerDay :: Text
+    <*> arbitraryReducedMaybe n -- getMealPlanWeek200ResponseDaysInnerItems :: Maybe [GetMealPlanWeek200ResponseDaysInnerItemsInner]
+  
+instance Arbitrary GetMealPlanWeek200ResponseDaysInnerItemsInner where
+  arbitrary = sized genGetMealPlanWeek200ResponseDaysInnerItemsInner
+
+genGetMealPlanWeek200ResponseDaysInnerItemsInner :: Int -> Gen GetMealPlanWeek200ResponseDaysInnerItemsInner
+genGetMealPlanWeek200ResponseDaysInnerItemsInner n =
+  GetMealPlanWeek200ResponseDaysInnerItemsInner
+    <$> arbitrary -- getMealPlanWeek200ResponseDaysInnerItemsInnerId :: Int
+    <*> arbitrary -- getMealPlanWeek200ResponseDaysInnerItemsInnerSlot :: Int
+    <*> arbitrary -- getMealPlanWeek200ResponseDaysInnerItemsInnerPosition :: Int
+    <*> arbitrary -- getMealPlanWeek200ResponseDaysInnerItemsInnerType :: Text
+    <*> arbitraryReducedMaybe n -- getMealPlanWeek200ResponseDaysInnerItemsInnerValue :: Maybe GetMealPlanWeek200ResponseDaysInnerItemsInnerValue
+  
+instance Arbitrary GetMealPlanWeek200ResponseDaysInnerItemsInnerValue where
+  arbitrary = sized genGetMealPlanWeek200ResponseDaysInnerItemsInnerValue
+
+genGetMealPlanWeek200ResponseDaysInnerItemsInnerValue :: Int -> Gen GetMealPlanWeek200ResponseDaysInnerItemsInnerValue
+genGetMealPlanWeek200ResponseDaysInnerItemsInnerValue n =
+  GetMealPlanWeek200ResponseDaysInnerItemsInnerValue
+    <$> arbitrary -- getMealPlanWeek200ResponseDaysInnerItemsInnerValueServings :: Double
+    <*> arbitrary -- getMealPlanWeek200ResponseDaysInnerItemsInnerValueId :: Double
+    <*> arbitrary -- getMealPlanWeek200ResponseDaysInnerItemsInnerValueTitle :: Text
+    <*> arbitrary -- getMealPlanWeek200ResponseDaysInnerItemsInnerValueImageType :: Text
+  
+instance Arbitrary GetMealPlanWeek200ResponseDaysInnerNutritionSummary where
+  arbitrary = sized genGetMealPlanWeek200ResponseDaysInnerNutritionSummary
+
+genGetMealPlanWeek200ResponseDaysInnerNutritionSummary :: Int -> Gen GetMealPlanWeek200ResponseDaysInnerNutritionSummary
+genGetMealPlanWeek200ResponseDaysInnerNutritionSummary n =
+  GetMealPlanWeek200ResponseDaysInnerNutritionSummary
+    <$> arbitraryReduced n -- getMealPlanWeek200ResponseDaysInnerNutritionSummaryNutrients :: [GetMealPlanWeek200ResponseDaysInnerNutritionSummaryNutrientsInner]
+  
+instance Arbitrary GetMealPlanWeek200ResponseDaysInnerNutritionSummaryNutrientsInner where
+  arbitrary = sized genGetMealPlanWeek200ResponseDaysInnerNutritionSummaryNutrientsInner
+
+genGetMealPlanWeek200ResponseDaysInnerNutritionSummaryNutrientsInner :: Int -> Gen GetMealPlanWeek200ResponseDaysInnerNutritionSummaryNutrientsInner
+genGetMealPlanWeek200ResponseDaysInnerNutritionSummaryNutrientsInner n =
+  GetMealPlanWeek200ResponseDaysInnerNutritionSummaryNutrientsInner
+    <$> arbitrary -- getMealPlanWeek200ResponseDaysInnerNutritionSummaryNutrientsInnerName :: Text
+    <*> arbitrary -- getMealPlanWeek200ResponseDaysInnerNutritionSummaryNutrientsInnerAmount :: Double
+    <*> arbitrary -- getMealPlanWeek200ResponseDaysInnerNutritionSummaryNutrientsInnerUnit :: Text
+    <*> arbitrary -- getMealPlanWeek200ResponseDaysInnerNutritionSummaryNutrientsInnerPercentDailyNeeds :: Double
+  
+instance Arbitrary GetMenuItemInformation200Response where
+  arbitrary = sized genGetMenuItemInformation200Response
+
+genGetMenuItemInformation200Response :: Int -> Gen GetMenuItemInformation200Response
+genGetMenuItemInformation200Response n =
+  GetMenuItemInformation200Response
+    <$> arbitrary -- getMenuItemInformation200ResponseId :: Int
+    <*> arbitrary -- getMenuItemInformation200ResponseTitle :: Text
+    <*> arbitrary -- getMenuItemInformation200ResponseRestaurantChain :: Text
+    <*> arbitraryReduced n -- getMenuItemInformation200ResponseNutrition :: SearchGroceryProductsByUPC200ResponseNutrition
+    <*> arbitrary -- getMenuItemInformation200ResponseBadges :: [Text]
+    <*> arbitrary -- getMenuItemInformation200ResponseBreadcrumbs :: [Text]
+    <*> arbitraryReducedMaybe n -- getMenuItemInformation200ResponseGeneratedText :: Maybe Text
+    <*> arbitrary -- getMenuItemInformation200ResponseImageType :: Text
+    <*> arbitrary -- getMenuItemInformation200ResponseLikes :: Double
+    <*> arbitraryReduced n -- getMenuItemInformation200ResponseServings :: SearchGroceryProductsByUPC200ResponseServings
+    <*> arbitraryReducedMaybe n -- getMenuItemInformation200ResponsePrice :: Maybe Double
+    <*> arbitraryReducedMaybe n -- getMenuItemInformation200ResponseSpoonacularScore :: Maybe Double
+  
+instance Arbitrary GetProductInformation200Response where
+  arbitrary = sized genGetProductInformation200Response
+
+genGetProductInformation200Response :: Int -> Gen GetProductInformation200Response
+genGetProductInformation200Response n =
+  GetProductInformation200Response
+    <$> arbitrary -- getProductInformation200ResponseId :: Int
+    <*> arbitrary -- getProductInformation200ResponseTitle :: Text
+    <*> arbitrary -- getProductInformation200ResponseBreadcrumbs :: [Text]
+    <*> arbitrary -- getProductInformation200ResponseImageType :: Text
+    <*> arbitrary -- getProductInformation200ResponseBadges :: [Text]
+    <*> arbitrary -- getProductInformation200ResponseImportantBadges :: [Text]
+    <*> arbitrary -- getProductInformation200ResponseIngredientCount :: Int
+    <*> arbitraryReducedMaybe n -- getProductInformation200ResponseGeneratedText :: Maybe AnyType
+    <*> arbitrary -- getProductInformation200ResponseIngredientList :: Text
+    <*> arbitraryReduced n -- getProductInformation200ResponseIngredients :: [GetProductInformation200ResponseIngredientsInner]
+    <*> arbitrary -- getProductInformation200ResponseLikes :: Double
+    <*> arbitrary -- getProductInformation200ResponseAisle :: Text
+    <*> arbitraryReduced n -- getProductInformation200ResponseNutrition :: SearchGroceryProductsByUPC200ResponseNutrition
+    <*> arbitrary -- getProductInformation200ResponsePrice :: Double
+    <*> arbitraryReduced n -- getProductInformation200ResponseServings :: SearchGroceryProductsByUPC200ResponseServings
+    <*> arbitrary -- getProductInformation200ResponseSpoonacularScore :: Double
+  
+instance Arbitrary GetProductInformation200ResponseIngredientsInner where
+  arbitrary = sized genGetProductInformation200ResponseIngredientsInner
+
+genGetProductInformation200ResponseIngredientsInner :: Int -> Gen GetProductInformation200ResponseIngredientsInner
+genGetProductInformation200ResponseIngredientsInner n =
+  GetProductInformation200ResponseIngredientsInner
+    <$> arbitraryReducedMaybe n -- getProductInformation200ResponseIngredientsInnerDescription :: Maybe AnyType
+    <*> arbitrary -- getProductInformation200ResponseIngredientsInnerName :: Text
+    <*> arbitraryReducedMaybe n -- getProductInformation200ResponseIngredientsInnerSafetyLevel :: Maybe AnyType
+  
+instance Arbitrary GetRandomFoodTrivia200Response where
+  arbitrary = sized genGetRandomFoodTrivia200Response
+
+genGetRandomFoodTrivia200Response :: Int -> Gen GetRandomFoodTrivia200Response
+genGetRandomFoodTrivia200Response n =
+  GetRandomFoodTrivia200Response
+    <$> arbitrary -- getRandomFoodTrivia200ResponseText :: Text
+  
+instance Arbitrary GetRandomRecipes200Response where
+  arbitrary = sized genGetRandomRecipes200Response
+
+genGetRandomRecipes200Response :: Int -> Gen GetRandomRecipes200Response
+genGetRandomRecipes200Response n =
+  GetRandomRecipes200Response
+    <$> arbitraryReduced n -- getRandomRecipes200ResponseRecipes :: [GetRandomRecipes200ResponseRecipesInner]
+  
+instance Arbitrary GetRandomRecipes200ResponseRecipesInner where
+  arbitrary = sized genGetRandomRecipes200ResponseRecipesInner
+
+genGetRandomRecipes200ResponseRecipesInner :: Int -> Gen GetRandomRecipes200ResponseRecipesInner
+genGetRandomRecipes200ResponseRecipesInner n =
+  GetRandomRecipes200ResponseRecipesInner
+    <$> arbitrary -- getRandomRecipes200ResponseRecipesInnerId :: Int
+    <*> arbitrary -- getRandomRecipes200ResponseRecipesInnerTitle :: Text
+    <*> arbitrary -- getRandomRecipes200ResponseRecipesInnerImage :: Text
+    <*> arbitrary -- getRandomRecipes200ResponseRecipesInnerImageType :: Text
+    <*> arbitrary -- getRandomRecipes200ResponseRecipesInnerServings :: Double
+    <*> arbitrary -- getRandomRecipes200ResponseRecipesInnerReadyInMinutes :: Int
+    <*> arbitrary -- getRandomRecipes200ResponseRecipesInnerLicense :: Text
+    <*> arbitrary -- getRandomRecipes200ResponseRecipesInnerSourceName :: Text
+    <*> arbitrary -- getRandomRecipes200ResponseRecipesInnerSourceUrl :: Text
+    <*> arbitrary -- getRandomRecipes200ResponseRecipesInnerSpoonacularSourceUrl :: Text
+    <*> arbitrary -- getRandomRecipes200ResponseRecipesInnerAggregateLikes :: Double
+    <*> arbitrary -- getRandomRecipes200ResponseRecipesInnerHealthScore :: Double
+    <*> arbitrary -- getRandomRecipes200ResponseRecipesInnerSpoonacularScore :: Double
+    <*> arbitrary -- getRandomRecipes200ResponseRecipesInnerPricePerServing :: Double
+    <*> arbitraryReducedMaybe n -- getRandomRecipes200ResponseRecipesInnerAnalyzedInstructions :: Maybe [A.Value]
+    <*> arbitrary -- getRandomRecipes200ResponseRecipesInnerCheap :: Bool
+    <*> arbitrary -- getRandomRecipes200ResponseRecipesInnerCreditsText :: Text
+    <*> arbitraryReducedMaybe n -- getRandomRecipes200ResponseRecipesInnerCuisines :: Maybe [Text]
+    <*> arbitrary -- getRandomRecipes200ResponseRecipesInnerDairyFree :: Bool
+    <*> arbitraryReducedMaybe n -- getRandomRecipes200ResponseRecipesInnerDiets :: Maybe [Text]
+    <*> arbitrary -- getRandomRecipes200ResponseRecipesInnerGaps :: Text
+    <*> arbitrary -- getRandomRecipes200ResponseRecipesInnerGlutenFree :: Bool
+    <*> arbitrary -- getRandomRecipes200ResponseRecipesInnerInstructions :: Text
+    <*> arbitrary -- getRandomRecipes200ResponseRecipesInnerKetogenic :: Bool
+    <*> arbitrary -- getRandomRecipes200ResponseRecipesInnerLowFodmap :: Bool
+    <*> arbitraryReducedMaybe n -- getRandomRecipes200ResponseRecipesInnerOccasions :: Maybe [Text]
+    <*> arbitrary -- getRandomRecipes200ResponseRecipesInnerSustainable :: Bool
+    <*> arbitrary -- getRandomRecipes200ResponseRecipesInnerVegan :: Bool
+    <*> arbitrary -- getRandomRecipes200ResponseRecipesInnerVegetarian :: Bool
+    <*> arbitrary -- getRandomRecipes200ResponseRecipesInnerVeryHealthy :: Bool
+    <*> arbitrary -- getRandomRecipes200ResponseRecipesInnerVeryPopular :: Bool
+    <*> arbitrary -- getRandomRecipes200ResponseRecipesInnerWhole30 :: Bool
+    <*> arbitrary -- getRandomRecipes200ResponseRecipesInnerWeightWatcherSmartPoints :: Double
+    <*> arbitraryReducedMaybe n -- getRandomRecipes200ResponseRecipesInnerDishTypes :: Maybe [Text]
+    <*> arbitraryReducedMaybe n -- getRandomRecipes200ResponseRecipesInnerExtendedIngredients :: Maybe [GetRecipeInformation200ResponseExtendedIngredientsInner]
+    <*> arbitrary -- getRandomRecipes200ResponseRecipesInnerSummary :: Text
+    <*> arbitraryReducedMaybe n -- getRandomRecipes200ResponseRecipesInnerWinePairing :: Maybe GetRecipeInformation200ResponseWinePairing
+  
+instance Arbitrary GetRecipeEquipmentByID200Response where
+  arbitrary = sized genGetRecipeEquipmentByID200Response
+
+genGetRecipeEquipmentByID200Response :: Int -> Gen GetRecipeEquipmentByID200Response
+genGetRecipeEquipmentByID200Response n =
+  GetRecipeEquipmentByID200Response
+    <$> arbitraryReduced n -- getRecipeEquipmentByID200ResponseEquipment :: [GetRecipeEquipmentByID200ResponseEquipmentInner]
+  
+instance Arbitrary GetRecipeEquipmentByID200ResponseEquipmentInner where
+  arbitrary = sized genGetRecipeEquipmentByID200ResponseEquipmentInner
+
+genGetRecipeEquipmentByID200ResponseEquipmentInner :: Int -> Gen GetRecipeEquipmentByID200ResponseEquipmentInner
+genGetRecipeEquipmentByID200ResponseEquipmentInner n =
+  GetRecipeEquipmentByID200ResponseEquipmentInner
+    <$> arbitrary -- getRecipeEquipmentByID200ResponseEquipmentInnerImage :: Text
+    <*> arbitrary -- getRecipeEquipmentByID200ResponseEquipmentInnerName :: Text
+  
+instance Arbitrary GetRecipeInformation200Response where
+  arbitrary = sized genGetRecipeInformation200Response
+
+genGetRecipeInformation200Response :: Int -> Gen GetRecipeInformation200Response
+genGetRecipeInformation200Response n =
+  GetRecipeInformation200Response
+    <$> arbitrary -- getRecipeInformation200ResponseId :: Int
+    <*> arbitrary -- getRecipeInformation200ResponseTitle :: Text
+    <*> arbitrary -- getRecipeInformation200ResponseImage :: Text
+    <*> arbitrary -- getRecipeInformation200ResponseImageType :: Text
+    <*> arbitrary -- getRecipeInformation200ResponseServings :: Double
+    <*> arbitrary -- getRecipeInformation200ResponseReadyInMinutes :: Int
+    <*> arbitrary -- getRecipeInformation200ResponseLicense :: Text
+    <*> arbitrary -- getRecipeInformation200ResponseSourceName :: Text
+    <*> arbitrary -- getRecipeInformation200ResponseSourceUrl :: Text
+    <*> arbitrary -- getRecipeInformation200ResponseSpoonacularSourceUrl :: Text
+    <*> arbitrary -- getRecipeInformation200ResponseAggregateLikes :: Int
+    <*> arbitrary -- getRecipeInformation200ResponseHealthScore :: Double
+    <*> arbitrary -- getRecipeInformation200ResponseSpoonacularScore :: Double
+    <*> arbitrary -- getRecipeInformation200ResponsePricePerServing :: Double
+    <*> arbitraryReduced n -- getRecipeInformation200ResponseAnalyzedInstructions :: [A.Value]
+    <*> arbitrary -- getRecipeInformation200ResponseCheap :: Bool
+    <*> arbitrary -- getRecipeInformation200ResponseCreditsText :: Text
+    <*> arbitrary -- getRecipeInformation200ResponseCuisines :: [Text]
+    <*> arbitrary -- getRecipeInformation200ResponseDairyFree :: Bool
+    <*> arbitrary -- getRecipeInformation200ResponseDiets :: [Text]
+    <*> arbitrary -- getRecipeInformation200ResponseGaps :: Text
+    <*> arbitrary -- getRecipeInformation200ResponseGlutenFree :: Bool
+    <*> arbitrary -- getRecipeInformation200ResponseInstructions :: Text
+    <*> arbitrary -- getRecipeInformation200ResponseKetogenic :: Bool
+    <*> arbitrary -- getRecipeInformation200ResponseLowFodmap :: Bool
+    <*> arbitrary -- getRecipeInformation200ResponseOccasions :: [Text]
+    <*> arbitrary -- getRecipeInformation200ResponseSustainable :: Bool
+    <*> arbitrary -- getRecipeInformation200ResponseVegan :: Bool
+    <*> arbitrary -- getRecipeInformation200ResponseVegetarian :: Bool
+    <*> arbitrary -- getRecipeInformation200ResponseVeryHealthy :: Bool
+    <*> arbitrary -- getRecipeInformation200ResponseVeryPopular :: Bool
+    <*> arbitrary -- getRecipeInformation200ResponseWhole30 :: Bool
+    <*> arbitrary -- getRecipeInformation200ResponseWeightWatcherSmartPoints :: Double
+    <*> arbitrary -- getRecipeInformation200ResponseDishTypes :: [Text]
+    <*> arbitraryReduced n -- getRecipeInformation200ResponseExtendedIngredients :: [GetRecipeInformation200ResponseExtendedIngredientsInner]
+    <*> arbitrary -- getRecipeInformation200ResponseSummary :: Text
+    <*> arbitraryReduced n -- getRecipeInformation200ResponseWinePairing :: GetRecipeInformation200ResponseWinePairing
+  
+instance Arbitrary GetRecipeInformation200ResponseExtendedIngredientsInner where
+  arbitrary = sized genGetRecipeInformation200ResponseExtendedIngredientsInner
+
+genGetRecipeInformation200ResponseExtendedIngredientsInner :: Int -> Gen GetRecipeInformation200ResponseExtendedIngredientsInner
+genGetRecipeInformation200ResponseExtendedIngredientsInner n =
+  GetRecipeInformation200ResponseExtendedIngredientsInner
+    <$> arbitrary -- getRecipeInformation200ResponseExtendedIngredientsInnerAisle :: Text
+    <*> arbitrary -- getRecipeInformation200ResponseExtendedIngredientsInnerAmount :: Double
+    <*> arbitrary -- getRecipeInformation200ResponseExtendedIngredientsInnerConsitency :: Text
+    <*> arbitrary -- getRecipeInformation200ResponseExtendedIngredientsInnerId :: Int
+    <*> arbitrary -- getRecipeInformation200ResponseExtendedIngredientsInnerImage :: Text
+    <*> arbitraryReducedMaybe n -- getRecipeInformation200ResponseExtendedIngredientsInnerMeasures :: Maybe GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures
+    <*> arbitraryReducedMaybe n -- getRecipeInformation200ResponseExtendedIngredientsInnerMeta :: Maybe [Text]
+    <*> arbitrary -- getRecipeInformation200ResponseExtendedIngredientsInnerName :: Text
+    <*> arbitrary -- getRecipeInformation200ResponseExtendedIngredientsInnerOriginal :: Text
+    <*> arbitrary -- getRecipeInformation200ResponseExtendedIngredientsInnerOriginalName :: Text
+    <*> arbitrary -- getRecipeInformation200ResponseExtendedIngredientsInnerUnit :: Text
+  
+instance Arbitrary GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures where
+  arbitrary = sized genGetRecipeInformation200ResponseExtendedIngredientsInnerMeasures
+
+genGetRecipeInformation200ResponseExtendedIngredientsInnerMeasures :: Int -> Gen GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures
+genGetRecipeInformation200ResponseExtendedIngredientsInnerMeasures n =
+  GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures
+    <$> arbitraryReduced n -- getRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric :: GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric
+    <*> arbitraryReduced n -- getRecipeInformation200ResponseExtendedIngredientsInnerMeasuresUs :: GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric
+  
+instance Arbitrary GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric where
+  arbitrary = sized genGetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric
+
+genGetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric :: Int -> Gen GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric
+genGetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric n =
+  GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric
+    <$> arbitrary -- getRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetricAmount :: Double
+    <*> arbitrary -- getRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetricUnitLong :: Text
+    <*> arbitrary -- getRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetricUnitShort :: Text
+  
+instance Arbitrary GetRecipeInformation200ResponseWinePairing where
+  arbitrary = sized genGetRecipeInformation200ResponseWinePairing
+
+genGetRecipeInformation200ResponseWinePairing :: Int -> Gen GetRecipeInformation200ResponseWinePairing
+genGetRecipeInformation200ResponseWinePairing n =
+  GetRecipeInformation200ResponseWinePairing
+    <$> arbitrary -- getRecipeInformation200ResponseWinePairingPairedWines :: [Text]
+    <*> arbitrary -- getRecipeInformation200ResponseWinePairingPairingText :: Text
+    <*> arbitraryReduced n -- getRecipeInformation200ResponseWinePairingProductMatches :: [GetRecipeInformation200ResponseWinePairingProductMatchesInner]
+  
+instance Arbitrary GetRecipeInformation200ResponseWinePairingProductMatchesInner where
+  arbitrary = sized genGetRecipeInformation200ResponseWinePairingProductMatchesInner
+
+genGetRecipeInformation200ResponseWinePairingProductMatchesInner :: Int -> Gen GetRecipeInformation200ResponseWinePairingProductMatchesInner
+genGetRecipeInformation200ResponseWinePairingProductMatchesInner n =
+  GetRecipeInformation200ResponseWinePairingProductMatchesInner
+    <$> arbitrary -- getRecipeInformation200ResponseWinePairingProductMatchesInnerId :: Int
+    <*> arbitrary -- getRecipeInformation200ResponseWinePairingProductMatchesInnerTitle :: Text
+    <*> arbitrary -- getRecipeInformation200ResponseWinePairingProductMatchesInnerDescription :: Text
+    <*> arbitrary -- getRecipeInformation200ResponseWinePairingProductMatchesInnerPrice :: Text
+    <*> arbitrary -- getRecipeInformation200ResponseWinePairingProductMatchesInnerImageUrl :: Text
+    <*> arbitrary -- getRecipeInformation200ResponseWinePairingProductMatchesInnerAverageRating :: Double
+    <*> arbitrary -- getRecipeInformation200ResponseWinePairingProductMatchesInnerRatingCount :: Int
+    <*> arbitrary -- getRecipeInformation200ResponseWinePairingProductMatchesInnerScore :: Double
+    <*> arbitrary -- getRecipeInformation200ResponseWinePairingProductMatchesInnerLink :: Text
+  
+instance Arbitrary GetRecipeInformationBulk200ResponseInner where
+  arbitrary = sized genGetRecipeInformationBulk200ResponseInner
+
+genGetRecipeInformationBulk200ResponseInner :: Int -> Gen GetRecipeInformationBulk200ResponseInner
+genGetRecipeInformationBulk200ResponseInner n =
+  GetRecipeInformationBulk200ResponseInner
+    <$> arbitrary -- getRecipeInformationBulk200ResponseInnerId :: Int
+    <*> arbitrary -- getRecipeInformationBulk200ResponseInnerTitle :: Text
+    <*> arbitrary -- getRecipeInformationBulk200ResponseInnerImage :: Text
+    <*> arbitrary -- getRecipeInformationBulk200ResponseInnerImageType :: Text
+    <*> arbitrary -- getRecipeInformationBulk200ResponseInnerServings :: Double
+    <*> arbitrary -- getRecipeInformationBulk200ResponseInnerReadyInMinutes :: Int
+    <*> arbitrary -- getRecipeInformationBulk200ResponseInnerLicense :: Text
+    <*> arbitrary -- getRecipeInformationBulk200ResponseInnerSourceName :: Text
+    <*> arbitrary -- getRecipeInformationBulk200ResponseInnerSourceUrl :: Text
+    <*> arbitrary -- getRecipeInformationBulk200ResponseInnerSpoonacularSourceUrl :: Text
+    <*> arbitrary -- getRecipeInformationBulk200ResponseInnerAggregateLikes :: Int
+    <*> arbitrary -- getRecipeInformationBulk200ResponseInnerHealthScore :: Double
+    <*> arbitrary -- getRecipeInformationBulk200ResponseInnerSpoonacularScore :: Double
+    <*> arbitrary -- getRecipeInformationBulk200ResponseInnerPricePerServing :: Double
+    <*> arbitrary -- getRecipeInformationBulk200ResponseInnerAnalyzedInstructions :: [Text]
+    <*> arbitrary -- getRecipeInformationBulk200ResponseInnerCheap :: Bool
+    <*> arbitrary -- getRecipeInformationBulk200ResponseInnerCreditsText :: Text
+    <*> arbitrary -- getRecipeInformationBulk200ResponseInnerCuisines :: [Text]
+    <*> arbitrary -- getRecipeInformationBulk200ResponseInnerDairyFree :: Bool
+    <*> arbitrary -- getRecipeInformationBulk200ResponseInnerDiets :: [Text]
+    <*> arbitrary -- getRecipeInformationBulk200ResponseInnerGaps :: Text
+    <*> arbitrary -- getRecipeInformationBulk200ResponseInnerGlutenFree :: Bool
+    <*> arbitrary -- getRecipeInformationBulk200ResponseInnerInstructions :: Text
+    <*> arbitrary -- getRecipeInformationBulk200ResponseInnerKetogenic :: Bool
+    <*> arbitrary -- getRecipeInformationBulk200ResponseInnerLowFodmap :: Bool
+    <*> arbitrary -- getRecipeInformationBulk200ResponseInnerOccasions :: [Text]
+    <*> arbitrary -- getRecipeInformationBulk200ResponseInnerSustainable :: Bool
+    <*> arbitrary -- getRecipeInformationBulk200ResponseInnerVegan :: Bool
+    <*> arbitrary -- getRecipeInformationBulk200ResponseInnerVegetarian :: Bool
+    <*> arbitrary -- getRecipeInformationBulk200ResponseInnerVeryHealthy :: Bool
+    <*> arbitrary -- getRecipeInformationBulk200ResponseInnerVeryPopular :: Bool
+    <*> arbitrary -- getRecipeInformationBulk200ResponseInnerWhole30 :: Bool
+    <*> arbitrary -- getRecipeInformationBulk200ResponseInnerWeightWatcherSmartPoints :: Double
+    <*> arbitrary -- getRecipeInformationBulk200ResponseInnerDishTypes :: [Text]
+    <*> arbitraryReduced n -- getRecipeInformationBulk200ResponseInnerExtendedIngredients :: [GetRecipeInformation200ResponseExtendedIngredientsInner]
+    <*> arbitrary -- getRecipeInformationBulk200ResponseInnerSummary :: Text
+    <*> arbitraryReduced n -- getRecipeInformationBulk200ResponseInnerWinePairing :: GetRecipeInformation200ResponseWinePairing
+  
+instance Arbitrary GetRecipeIngredientsByID200Response where
+  arbitrary = sized genGetRecipeIngredientsByID200Response
+
+genGetRecipeIngredientsByID200Response :: Int -> Gen GetRecipeIngredientsByID200Response
+genGetRecipeIngredientsByID200Response n =
+  GetRecipeIngredientsByID200Response
+    <$> arbitraryReduced n -- getRecipeIngredientsByID200ResponseIngredients :: [GetRecipeIngredientsByID200ResponseIngredientsInner]
+  
+instance Arbitrary GetRecipeIngredientsByID200ResponseIngredientsInner where
+  arbitrary = sized genGetRecipeIngredientsByID200ResponseIngredientsInner
+
+genGetRecipeIngredientsByID200ResponseIngredientsInner :: Int -> Gen GetRecipeIngredientsByID200ResponseIngredientsInner
+genGetRecipeIngredientsByID200ResponseIngredientsInner n =
+  GetRecipeIngredientsByID200ResponseIngredientsInner
+    <$> arbitraryReducedMaybe n -- getRecipeIngredientsByID200ResponseIngredientsInnerAmount :: Maybe GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmount
+    <*> arbitrary -- getRecipeIngredientsByID200ResponseIngredientsInnerImage :: Text
+    <*> arbitrary -- getRecipeIngredientsByID200ResponseIngredientsInnerName :: Text
+  
+instance Arbitrary GetRecipeNutritionWidgetByID200Response where
+  arbitrary = sized genGetRecipeNutritionWidgetByID200Response
+
+genGetRecipeNutritionWidgetByID200Response :: Int -> Gen GetRecipeNutritionWidgetByID200Response
+genGetRecipeNutritionWidgetByID200Response n =
+  GetRecipeNutritionWidgetByID200Response
+    <$> arbitrary -- getRecipeNutritionWidgetByID200ResponseCalories :: Text
+    <*> arbitrary -- getRecipeNutritionWidgetByID200ResponseCarbs :: Text
+    <*> arbitrary -- getRecipeNutritionWidgetByID200ResponseFat :: Text
+    <*> arbitrary -- getRecipeNutritionWidgetByID200ResponseProtein :: Text
+    <*> arbitraryReduced n -- getRecipeNutritionWidgetByID200ResponseBad :: [GetRecipeNutritionWidgetByID200ResponseBadInner]
+    <*> arbitraryReduced n -- getRecipeNutritionWidgetByID200ResponseGood :: [GetRecipeNutritionWidgetByID200ResponseGoodInner]
+  
+instance Arbitrary GetRecipeNutritionWidgetByID200ResponseBadInner where
+  arbitrary = sized genGetRecipeNutritionWidgetByID200ResponseBadInner
+
+genGetRecipeNutritionWidgetByID200ResponseBadInner :: Int -> Gen GetRecipeNutritionWidgetByID200ResponseBadInner
+genGetRecipeNutritionWidgetByID200ResponseBadInner n =
+  GetRecipeNutritionWidgetByID200ResponseBadInner
+    <$> arbitrary -- getRecipeNutritionWidgetByID200ResponseBadInnerName :: Text
+    <*> arbitrary -- getRecipeNutritionWidgetByID200ResponseBadInnerAmount :: Text
+    <*> arbitrary -- getRecipeNutritionWidgetByID200ResponseBadInnerIndented :: Bool
+    <*> arbitrary -- getRecipeNutritionWidgetByID200ResponseBadInnerPercentOfDailyNeeds :: Double
+  
+instance Arbitrary GetRecipeNutritionWidgetByID200ResponseGoodInner where
+  arbitrary = sized genGetRecipeNutritionWidgetByID200ResponseGoodInner
+
+genGetRecipeNutritionWidgetByID200ResponseGoodInner :: Int -> Gen GetRecipeNutritionWidgetByID200ResponseGoodInner
+genGetRecipeNutritionWidgetByID200ResponseGoodInner n =
+  GetRecipeNutritionWidgetByID200ResponseGoodInner
+    <$> arbitrary -- getRecipeNutritionWidgetByID200ResponseGoodInnerAmount :: Text
+    <*> arbitrary -- getRecipeNutritionWidgetByID200ResponseGoodInnerIndented :: Bool
+    <*> arbitrary -- getRecipeNutritionWidgetByID200ResponseGoodInnerPercentOfDailyNeeds :: Double
+    <*> arbitrary -- getRecipeNutritionWidgetByID200ResponseGoodInnerName :: Text
+  
+instance Arbitrary GetRecipePriceBreakdownByID200Response where
+  arbitrary = sized genGetRecipePriceBreakdownByID200Response
+
+genGetRecipePriceBreakdownByID200Response :: Int -> Gen GetRecipePriceBreakdownByID200Response
+genGetRecipePriceBreakdownByID200Response n =
+  GetRecipePriceBreakdownByID200Response
+    <$> arbitraryReduced n -- getRecipePriceBreakdownByID200ResponseIngredients :: [GetRecipePriceBreakdownByID200ResponseIngredientsInner]
+    <*> arbitrary -- getRecipePriceBreakdownByID200ResponseTotalCost :: Double
+    <*> arbitrary -- getRecipePriceBreakdownByID200ResponseTotalCostPerServing :: Double
+  
+instance Arbitrary GetRecipePriceBreakdownByID200ResponseIngredientsInner where
+  arbitrary = sized genGetRecipePriceBreakdownByID200ResponseIngredientsInner
+
+genGetRecipePriceBreakdownByID200ResponseIngredientsInner :: Int -> Gen GetRecipePriceBreakdownByID200ResponseIngredientsInner
+genGetRecipePriceBreakdownByID200ResponseIngredientsInner n =
+  GetRecipePriceBreakdownByID200ResponseIngredientsInner
+    <$> arbitraryReducedMaybe n -- getRecipePriceBreakdownByID200ResponseIngredientsInnerAmount :: Maybe GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmount
+    <*> arbitrary -- getRecipePriceBreakdownByID200ResponseIngredientsInnerImage :: Text
+    <*> arbitrary -- getRecipePriceBreakdownByID200ResponseIngredientsInnerName :: Text
+    <*> arbitrary -- getRecipePriceBreakdownByID200ResponseIngredientsInnerPrice :: Double
+  
+instance Arbitrary GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmount where
+  arbitrary = sized genGetRecipePriceBreakdownByID200ResponseIngredientsInnerAmount
+
+genGetRecipePriceBreakdownByID200ResponseIngredientsInnerAmount :: Int -> Gen GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmount
+genGetRecipePriceBreakdownByID200ResponseIngredientsInnerAmount n =
+  GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmount
+    <$> arbitraryReduced n -- getRecipePriceBreakdownByID200ResponseIngredientsInnerAmountMetric :: GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmountMetric
+    <*> arbitraryReduced n -- getRecipePriceBreakdownByID200ResponseIngredientsInnerAmountUs :: GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmountMetric
+  
+instance Arbitrary GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmountMetric where
+  arbitrary = sized genGetRecipePriceBreakdownByID200ResponseIngredientsInnerAmountMetric
+
+genGetRecipePriceBreakdownByID200ResponseIngredientsInnerAmountMetric :: Int -> Gen GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmountMetric
+genGetRecipePriceBreakdownByID200ResponseIngredientsInnerAmountMetric n =
+  GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmountMetric
+    <$> arbitrary -- getRecipePriceBreakdownByID200ResponseIngredientsInnerAmountMetricUnit :: Text
+    <*> arbitrary -- getRecipePriceBreakdownByID200ResponseIngredientsInnerAmountMetricValue :: Double
+  
+instance Arbitrary GetRecipeTasteByID200Response where
+  arbitrary = sized genGetRecipeTasteByID200Response
+
+genGetRecipeTasteByID200Response :: Int -> Gen GetRecipeTasteByID200Response
+genGetRecipeTasteByID200Response n =
+  GetRecipeTasteByID200Response
+    <$> arbitrary -- getRecipeTasteByID200ResponseSweetness :: Double
+    <*> arbitrary -- getRecipeTasteByID200ResponseSaltiness :: Double
+    <*> arbitrary -- getRecipeTasteByID200ResponseSourness :: Double
+    <*> arbitrary -- getRecipeTasteByID200ResponseBitterness :: Double
+    <*> arbitrary -- getRecipeTasteByID200ResponseSavoriness :: Double
+    <*> arbitrary -- getRecipeTasteByID200ResponseFattiness :: Double
+    <*> arbitrary -- getRecipeTasteByID200ResponseSpiciness :: Double
+  
+instance Arbitrary GetShoppingList200Response where
+  arbitrary = sized genGetShoppingList200Response
+
+genGetShoppingList200Response :: Int -> Gen GetShoppingList200Response
+genGetShoppingList200Response n =
+  GetShoppingList200Response
+    <$> arbitraryReduced n -- getShoppingList200ResponseAisles :: [GetShoppingList200ResponseAislesInner]
+    <*> arbitrary -- getShoppingList200ResponseCost :: Double
+    <*> arbitrary -- getShoppingList200ResponseStartDate :: Double
+    <*> arbitrary -- getShoppingList200ResponseEndDate :: Double
+  
+instance Arbitrary GetShoppingList200ResponseAislesInner where
+  arbitrary = sized genGetShoppingList200ResponseAislesInner
+
+genGetShoppingList200ResponseAislesInner :: Int -> Gen GetShoppingList200ResponseAislesInner
+genGetShoppingList200ResponseAislesInner n =
+  GetShoppingList200ResponseAislesInner
+    <$> arbitrary -- getShoppingList200ResponseAislesInnerAisle :: Text
+    <*> arbitraryReducedMaybe n -- getShoppingList200ResponseAislesInnerItems :: Maybe [GetShoppingList200ResponseAislesInnerItemsInner]
+  
+instance Arbitrary GetShoppingList200ResponseAislesInnerItemsInner where
+  arbitrary = sized genGetShoppingList200ResponseAislesInnerItemsInner
+
+genGetShoppingList200ResponseAislesInnerItemsInner :: Int -> Gen GetShoppingList200ResponseAislesInnerItemsInner
+genGetShoppingList200ResponseAislesInnerItemsInner n =
+  GetShoppingList200ResponseAislesInnerItemsInner
+    <$> arbitrary -- getShoppingList200ResponseAislesInnerItemsInnerId :: Int
+    <*> arbitrary -- getShoppingList200ResponseAislesInnerItemsInnerName :: Text
+    <*> arbitraryReducedMaybe n -- getShoppingList200ResponseAislesInnerItemsInnerMeasures :: Maybe GetShoppingList200ResponseAislesInnerItemsInnerMeasures
+    <*> arbitrary -- getShoppingList200ResponseAislesInnerItemsInnerPantryItem :: Bool
+    <*> arbitrary -- getShoppingList200ResponseAislesInnerItemsInnerAisle :: Text
+    <*> arbitrary -- getShoppingList200ResponseAislesInnerItemsInnerCost :: Double
+    <*> arbitrary -- getShoppingList200ResponseAislesInnerItemsInnerIngredientId :: Int
+  
+instance Arbitrary GetShoppingList200ResponseAislesInnerItemsInnerMeasures where
+  arbitrary = sized genGetShoppingList200ResponseAislesInnerItemsInnerMeasures
+
+genGetShoppingList200ResponseAislesInnerItemsInnerMeasures :: Int -> Gen GetShoppingList200ResponseAislesInnerItemsInnerMeasures
+genGetShoppingList200ResponseAislesInnerItemsInnerMeasures n =
+  GetShoppingList200ResponseAislesInnerItemsInnerMeasures
+    <$> arbitraryReduced n -- getShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal :: ParseIngredients200ResponseInnerNutritionWeightPerServing
+    <*> arbitraryReduced n -- getShoppingList200ResponseAislesInnerItemsInnerMeasuresMetric :: ParseIngredients200ResponseInnerNutritionWeightPerServing
+    <*> arbitraryReduced n -- getShoppingList200ResponseAislesInnerItemsInnerMeasuresUs :: ParseIngredients200ResponseInnerNutritionWeightPerServing
+  
+instance Arbitrary GetSimilarRecipes200ResponseInner where
+  arbitrary = sized genGetSimilarRecipes200ResponseInner
+
+genGetSimilarRecipes200ResponseInner :: Int -> Gen GetSimilarRecipes200ResponseInner
+genGetSimilarRecipes200ResponseInner n =
+  GetSimilarRecipes200ResponseInner
+    <$> arbitrary -- getSimilarRecipes200ResponseInnerId :: Int
+    <*> arbitrary -- getSimilarRecipes200ResponseInnerTitle :: Text
+    <*> arbitrary -- getSimilarRecipes200ResponseInnerImageType :: Text
+    <*> arbitrary -- getSimilarRecipes200ResponseInnerReadyInMinutes :: Int
+    <*> arbitrary -- getSimilarRecipes200ResponseInnerServings :: Double
+    <*> arbitrary -- getSimilarRecipes200ResponseInnerSourceUrl :: Text
+  
+instance Arbitrary GetWineDescription200Response where
+  arbitrary = sized genGetWineDescription200Response
+
+genGetWineDescription200Response :: Int -> Gen GetWineDescription200Response
+genGetWineDescription200Response n =
+  GetWineDescription200Response
+    <$> arbitrary -- getWineDescription200ResponseWineDescription :: Text
+  
+instance Arbitrary GetWinePairing200Response where
+  arbitrary = sized genGetWinePairing200Response
+
+genGetWinePairing200Response :: Int -> Gen GetWinePairing200Response
+genGetWinePairing200Response n =
+  GetWinePairing200Response
+    <$> arbitrary -- getWinePairing200ResponsePairedWines :: [Text]
+    <*> arbitrary -- getWinePairing200ResponsePairingText :: Text
+    <*> arbitraryReduced n -- getWinePairing200ResponseProductMatches :: [GetWinePairing200ResponseProductMatchesInner]
+  
+instance Arbitrary GetWinePairing200ResponseProductMatchesInner where
+  arbitrary = sized genGetWinePairing200ResponseProductMatchesInner
+
+genGetWinePairing200ResponseProductMatchesInner :: Int -> Gen GetWinePairing200ResponseProductMatchesInner
+genGetWinePairing200ResponseProductMatchesInner n =
+  GetWinePairing200ResponseProductMatchesInner
+    <$> arbitrary -- getWinePairing200ResponseProductMatchesInnerId :: Int
+    <*> arbitrary -- getWinePairing200ResponseProductMatchesInnerTitle :: Text
+    <*> arbitrary -- getWinePairing200ResponseProductMatchesInnerAverageRating :: Double
+    <*> arbitraryReducedMaybe n -- getWinePairing200ResponseProductMatchesInnerDescription :: Maybe AnyType
+    <*> arbitrary -- getWinePairing200ResponseProductMatchesInnerImageUrl :: Text
+    <*> arbitrary -- getWinePairing200ResponseProductMatchesInnerLink :: Text
+    <*> arbitrary -- getWinePairing200ResponseProductMatchesInnerPrice :: Text
+    <*> arbitrary -- getWinePairing200ResponseProductMatchesInnerRatingCount :: Int
+    <*> arbitrary -- getWinePairing200ResponseProductMatchesInnerScore :: Double
+  
+instance Arbitrary GetWineRecommendation200Response where
+  arbitrary = sized genGetWineRecommendation200Response
+
+genGetWineRecommendation200Response :: Int -> Gen GetWineRecommendation200Response
+genGetWineRecommendation200Response n =
+  GetWineRecommendation200Response
+    <$> arbitraryReduced n -- getWineRecommendation200ResponseRecommendedWines :: [GetWineRecommendation200ResponseRecommendedWinesInner]
+    <*> arbitrary -- getWineRecommendation200ResponseTotalFound :: Int
+  
+instance Arbitrary GetWineRecommendation200ResponseRecommendedWinesInner where
+  arbitrary = sized genGetWineRecommendation200ResponseRecommendedWinesInner
+
+genGetWineRecommendation200ResponseRecommendedWinesInner :: Int -> Gen GetWineRecommendation200ResponseRecommendedWinesInner
+genGetWineRecommendation200ResponseRecommendedWinesInner n =
+  GetWineRecommendation200ResponseRecommendedWinesInner
+    <$> arbitrary -- getWineRecommendation200ResponseRecommendedWinesInnerId :: Int
+    <*> arbitrary -- getWineRecommendation200ResponseRecommendedWinesInnerTitle :: Text
+    <*> arbitrary -- getWineRecommendation200ResponseRecommendedWinesInnerAverageRating :: Double
+    <*> arbitrary -- getWineRecommendation200ResponseRecommendedWinesInnerDescription :: Text
+    <*> arbitrary -- getWineRecommendation200ResponseRecommendedWinesInnerImageUrl :: Text
+    <*> arbitrary -- getWineRecommendation200ResponseRecommendedWinesInnerLink :: Text
+    <*> arbitrary -- getWineRecommendation200ResponseRecommendedWinesInnerPrice :: Text
+    <*> arbitrary -- getWineRecommendation200ResponseRecommendedWinesInnerRatingCount :: Int
+    <*> arbitrary -- getWineRecommendation200ResponseRecommendedWinesInnerScore :: Double
+  
+instance Arbitrary GuessNutritionByDishName200Response where
+  arbitrary = sized genGuessNutritionByDishName200Response
+
+genGuessNutritionByDishName200Response :: Int -> Gen GuessNutritionByDishName200Response
+genGuessNutritionByDishName200Response n =
+  GuessNutritionByDishName200Response
+    <$> arbitraryReduced n -- guessNutritionByDishName200ResponseCalories :: GuessNutritionByDishName200ResponseCalories
+    <*> arbitraryReduced n -- guessNutritionByDishName200ResponseCarbs :: GuessNutritionByDishName200ResponseCalories
+    <*> arbitraryReduced n -- guessNutritionByDishName200ResponseFat :: GuessNutritionByDishName200ResponseCalories
+    <*> arbitraryReduced n -- guessNutritionByDishName200ResponseProtein :: GuessNutritionByDishName200ResponseCalories
+    <*> arbitrary -- guessNutritionByDishName200ResponseRecipesUsed :: Int
+  
+instance Arbitrary GuessNutritionByDishName200ResponseCalories where
+  arbitrary = sized genGuessNutritionByDishName200ResponseCalories
+
+genGuessNutritionByDishName200ResponseCalories :: Int -> Gen GuessNutritionByDishName200ResponseCalories
+genGuessNutritionByDishName200ResponseCalories n =
+  GuessNutritionByDishName200ResponseCalories
+    <$> arbitraryReduced n -- guessNutritionByDishName200ResponseCaloriesConfidenceRange95Percent :: GuessNutritionByDishName200ResponseCaloriesConfidenceRange95Percent
+    <*> arbitrary -- guessNutritionByDishName200ResponseCaloriesStandardDeviation :: Double
+    <*> arbitrary -- guessNutritionByDishName200ResponseCaloriesUnit :: Text
+    <*> arbitrary -- guessNutritionByDishName200ResponseCaloriesValue :: Double
+  
+instance Arbitrary GuessNutritionByDishName200ResponseCaloriesConfidenceRange95Percent where
+  arbitrary = sized genGuessNutritionByDishName200ResponseCaloriesConfidenceRange95Percent
+
+genGuessNutritionByDishName200ResponseCaloriesConfidenceRange95Percent :: Int -> Gen GuessNutritionByDishName200ResponseCaloriesConfidenceRange95Percent
+genGuessNutritionByDishName200ResponseCaloriesConfidenceRange95Percent n =
+  GuessNutritionByDishName200ResponseCaloriesConfidenceRange95Percent
+    <$> arbitrary -- guessNutritionByDishName200ResponseCaloriesConfidenceRange95PercentMax :: Double
+    <*> arbitrary -- guessNutritionByDishName200ResponseCaloriesConfidenceRange95PercentMin :: Double
+  
+instance Arbitrary ImageAnalysisByURL200Response where
+  arbitrary = sized genImageAnalysisByURL200Response
+
+genImageAnalysisByURL200Response :: Int -> Gen ImageAnalysisByURL200Response
+genImageAnalysisByURL200Response n =
+  ImageAnalysisByURL200Response
+    <$> arbitraryReduced n -- imageAnalysisByURL200ResponseNutrition :: ImageAnalysisByURL200ResponseNutrition
+    <*> arbitraryReduced n -- imageAnalysisByURL200ResponseCategory :: ImageAnalysisByURL200ResponseCategory
+    <*> arbitraryReduced n -- imageAnalysisByURL200ResponseRecipes :: [ImageAnalysisByURL200ResponseRecipesInner]
+  
+instance Arbitrary ImageAnalysisByURL200ResponseCategory where
+  arbitrary = sized genImageAnalysisByURL200ResponseCategory
+
+genImageAnalysisByURL200ResponseCategory :: Int -> Gen ImageAnalysisByURL200ResponseCategory
+genImageAnalysisByURL200ResponseCategory n =
+  ImageAnalysisByURL200ResponseCategory
+    <$> arbitrary -- imageAnalysisByURL200ResponseCategoryName :: Text
+    <*> arbitrary -- imageAnalysisByURL200ResponseCategoryProbability :: Double
+  
+instance Arbitrary ImageAnalysisByURL200ResponseNutrition where
+  arbitrary = sized genImageAnalysisByURL200ResponseNutrition
+
+genImageAnalysisByURL200ResponseNutrition :: Int -> Gen ImageAnalysisByURL200ResponseNutrition
+genImageAnalysisByURL200ResponseNutrition n =
+  ImageAnalysisByURL200ResponseNutrition
+    <$> arbitrary -- imageAnalysisByURL200ResponseNutritionRecipesUsed :: Int
+    <*> arbitraryReduced n -- imageAnalysisByURL200ResponseNutritionCalories :: ImageAnalysisByURL200ResponseNutritionCalories
+    <*> arbitraryReduced n -- imageAnalysisByURL200ResponseNutritionFat :: ImageAnalysisByURL200ResponseNutritionCalories
+    <*> arbitraryReduced n -- imageAnalysisByURL200ResponseNutritionProtein :: ImageAnalysisByURL200ResponseNutritionCalories
+    <*> arbitraryReduced n -- imageAnalysisByURL200ResponseNutritionCarbs :: ImageAnalysisByURL200ResponseNutritionCalories
+  
+instance Arbitrary ImageAnalysisByURL200ResponseNutritionCalories where
+  arbitrary = sized genImageAnalysisByURL200ResponseNutritionCalories
+
+genImageAnalysisByURL200ResponseNutritionCalories :: Int -> Gen ImageAnalysisByURL200ResponseNutritionCalories
+genImageAnalysisByURL200ResponseNutritionCalories n =
+  ImageAnalysisByURL200ResponseNutritionCalories
+    <$> arbitrary -- imageAnalysisByURL200ResponseNutritionCaloriesValue :: Double
+    <*> arbitrary -- imageAnalysisByURL200ResponseNutritionCaloriesUnit :: Text
+    <*> arbitraryReduced n -- imageAnalysisByURL200ResponseNutritionCaloriesConfidenceRange95Percent :: ImageAnalysisByURL200ResponseNutritionCaloriesConfidenceRange95Percent
+    <*> arbitrary -- imageAnalysisByURL200ResponseNutritionCaloriesStandardDeviation :: Double
+  
+instance Arbitrary ImageAnalysisByURL200ResponseNutritionCaloriesConfidenceRange95Percent where
+  arbitrary = sized genImageAnalysisByURL200ResponseNutritionCaloriesConfidenceRange95Percent
+
+genImageAnalysisByURL200ResponseNutritionCaloriesConfidenceRange95Percent :: Int -> Gen ImageAnalysisByURL200ResponseNutritionCaloriesConfidenceRange95Percent
+genImageAnalysisByURL200ResponseNutritionCaloriesConfidenceRange95Percent n =
+  ImageAnalysisByURL200ResponseNutritionCaloriesConfidenceRange95Percent
+    <$> arbitrary -- imageAnalysisByURL200ResponseNutritionCaloriesConfidenceRange95PercentMin :: Double
+    <*> arbitrary -- imageAnalysisByURL200ResponseNutritionCaloriesConfidenceRange95PercentMax :: Double
+  
+instance Arbitrary ImageAnalysisByURL200ResponseRecipesInner where
+  arbitrary = sized genImageAnalysisByURL200ResponseRecipesInner
+
+genImageAnalysisByURL200ResponseRecipesInner :: Int -> Gen ImageAnalysisByURL200ResponseRecipesInner
+genImageAnalysisByURL200ResponseRecipesInner n =
+  ImageAnalysisByURL200ResponseRecipesInner
+    <$> arbitrary -- imageAnalysisByURL200ResponseRecipesInnerId :: Int
+    <*> arbitrary -- imageAnalysisByURL200ResponseRecipesInnerTitle :: Text
+    <*> arbitrary -- imageAnalysisByURL200ResponseRecipesInnerImageType :: Text
+    <*> arbitrary -- imageAnalysisByURL200ResponseRecipesInnerUrl :: Text
+  
+instance Arbitrary ImageClassificationByURL200Response where
+  arbitrary = sized genImageClassificationByURL200Response
+
+genImageClassificationByURL200Response :: Int -> Gen ImageClassificationByURL200Response
+genImageClassificationByURL200Response n =
+  ImageClassificationByURL200Response
+    <$> arbitrary -- imageClassificationByURL200ResponseCategory :: Text
+    <*> arbitrary -- imageClassificationByURL200ResponseProbability :: Double
+  
+instance Arbitrary IngredientSearch200Response where
+  arbitrary = sized genIngredientSearch200Response
+
+genIngredientSearch200Response :: Int -> Gen IngredientSearch200Response
+genIngredientSearch200Response n =
+  IngredientSearch200Response
+    <$> arbitraryReduced n -- ingredientSearch200ResponseResults :: [IngredientSearch200ResponseResultsInner]
+    <*> arbitrary -- ingredientSearch200ResponseOffset :: Int
+    <*> arbitrary -- ingredientSearch200ResponseNumber :: Int
+    <*> arbitrary -- ingredientSearch200ResponseTotalResults :: Int
+  
+instance Arbitrary IngredientSearch200ResponseResultsInner where
+  arbitrary = sized genIngredientSearch200ResponseResultsInner
+
+genIngredientSearch200ResponseResultsInner :: Int -> Gen IngredientSearch200ResponseResultsInner
+genIngredientSearch200ResponseResultsInner n =
+  IngredientSearch200ResponseResultsInner
+    <$> arbitrary -- ingredientSearch200ResponseResultsInnerId :: Int
+    <*> arbitrary -- ingredientSearch200ResponseResultsInnerName :: Text
+    <*> arbitrary -- ingredientSearch200ResponseResultsInnerImage :: Text
+  
+instance Arbitrary MapIngredientsToGroceryProducts200ResponseInner where
+  arbitrary = sized genMapIngredientsToGroceryProducts200ResponseInner
+
+genMapIngredientsToGroceryProducts200ResponseInner :: Int -> Gen MapIngredientsToGroceryProducts200ResponseInner
+genMapIngredientsToGroceryProducts200ResponseInner n =
+  MapIngredientsToGroceryProducts200ResponseInner
+    <$> arbitrary -- mapIngredientsToGroceryProducts200ResponseInnerOriginal :: Text
+    <*> arbitrary -- mapIngredientsToGroceryProducts200ResponseInnerOriginalName :: Text
+    <*> arbitrary -- mapIngredientsToGroceryProducts200ResponseInnerIngredientImage :: Text
+    <*> arbitrary -- mapIngredientsToGroceryProducts200ResponseInnerMeta :: [Text]
+    <*> arbitraryReduced n -- mapIngredientsToGroceryProducts200ResponseInnerProducts :: [MapIngredientsToGroceryProducts200ResponseInnerProductsInner]
+  
+instance Arbitrary MapIngredientsToGroceryProducts200ResponseInnerProductsInner where
+  arbitrary = sized genMapIngredientsToGroceryProducts200ResponseInnerProductsInner
+
+genMapIngredientsToGroceryProducts200ResponseInnerProductsInner :: Int -> Gen MapIngredientsToGroceryProducts200ResponseInnerProductsInner
+genMapIngredientsToGroceryProducts200ResponseInnerProductsInner n =
+  MapIngredientsToGroceryProducts200ResponseInnerProductsInner
+    <$> arbitrary -- mapIngredientsToGroceryProducts200ResponseInnerProductsInnerId :: Int
+    <*> arbitrary -- mapIngredientsToGroceryProducts200ResponseInnerProductsInnerTitle :: Text
+    <*> arbitrary -- mapIngredientsToGroceryProducts200ResponseInnerProductsInnerUpc :: Text
+  
+instance Arbitrary MapIngredientsToGroceryProductsRequest where
+  arbitrary = sized genMapIngredientsToGroceryProductsRequest
+
+genMapIngredientsToGroceryProductsRequest :: Int -> Gen MapIngredientsToGroceryProductsRequest
+genMapIngredientsToGroceryProductsRequest n =
+  MapIngredientsToGroceryProductsRequest
+    <$> arbitrary -- mapIngredientsToGroceryProductsRequestIngredients :: [Text]
+    <*> arbitrary -- mapIngredientsToGroceryProductsRequestServings :: Double
+  
+instance Arbitrary ParseIngredients200ResponseInner where
+  arbitrary = sized genParseIngredients200ResponseInner
+
+genParseIngredients200ResponseInner :: Int -> Gen ParseIngredients200ResponseInner
+genParseIngredients200ResponseInner n =
+  ParseIngredients200ResponseInner
+    <$> arbitrary -- parseIngredients200ResponseInnerId :: Int
+    <*> arbitrary -- parseIngredients200ResponseInnerOriginal :: Text
+    <*> arbitrary -- parseIngredients200ResponseInnerOriginalName :: Text
+    <*> arbitrary -- parseIngredients200ResponseInnerName :: Text
+    <*> arbitrary -- parseIngredients200ResponseInnerNameClean :: Text
+    <*> arbitrary -- parseIngredients200ResponseInnerAmount :: Double
+    <*> arbitrary -- parseIngredients200ResponseInnerUnit :: Text
+    <*> arbitrary -- parseIngredients200ResponseInnerUnitShort :: Text
+    <*> arbitrary -- parseIngredients200ResponseInnerUnitLong :: Text
+    <*> arbitrary -- parseIngredients200ResponseInnerPossibleUnits :: [Text]
+    <*> arbitraryReduced n -- parseIngredients200ResponseInnerEstimatedCost :: ParseIngredients200ResponseInnerEstimatedCost
+    <*> arbitrary -- parseIngredients200ResponseInnerConsistency :: Text
+    <*> arbitrary -- parseIngredients200ResponseInnerAisle :: Text
+    <*> arbitrary -- parseIngredients200ResponseInnerImage :: Text
+    <*> arbitrary -- parseIngredients200ResponseInnerMeta :: [Text]
+    <*> arbitraryReduced n -- parseIngredients200ResponseInnerNutrition :: ParseIngredients200ResponseInnerNutrition
+  
+instance Arbitrary ParseIngredients200ResponseInnerEstimatedCost where
+  arbitrary = sized genParseIngredients200ResponseInnerEstimatedCost
+
+genParseIngredients200ResponseInnerEstimatedCost :: Int -> Gen ParseIngredients200ResponseInnerEstimatedCost
+genParseIngredients200ResponseInnerEstimatedCost n =
+  ParseIngredients200ResponseInnerEstimatedCost
+    <$> arbitrary -- parseIngredients200ResponseInnerEstimatedCostValue :: Double
+    <*> arbitrary -- parseIngredients200ResponseInnerEstimatedCostUnit :: Text
+  
+instance Arbitrary ParseIngredients200ResponseInnerNutrition where
+  arbitrary = sized genParseIngredients200ResponseInnerNutrition
+
+genParseIngredients200ResponseInnerNutrition :: Int -> Gen ParseIngredients200ResponseInnerNutrition
+genParseIngredients200ResponseInnerNutrition n =
+  ParseIngredients200ResponseInnerNutrition
+    <$> arbitraryReduced n -- parseIngredients200ResponseInnerNutritionNutrients :: [ParseIngredients200ResponseInnerNutritionNutrientsInner]
+    <*> arbitraryReduced n -- parseIngredients200ResponseInnerNutritionProperties :: [ParseIngredients200ResponseInnerNutritionPropertiesInner]
+    <*> arbitraryReduced n -- parseIngredients200ResponseInnerNutritionFlavonoids :: [ParseIngredients200ResponseInnerNutritionPropertiesInner]
+    <*> arbitraryReduced n -- parseIngredients200ResponseInnerNutritionCaloricBreakdown :: ParseIngredients200ResponseInnerNutritionCaloricBreakdown
+    <*> arbitraryReduced n -- parseIngredients200ResponseInnerNutritionWeightPerServing :: ParseIngredients200ResponseInnerNutritionWeightPerServing
+  
+instance Arbitrary ParseIngredients200ResponseInnerNutritionCaloricBreakdown where
+  arbitrary = sized genParseIngredients200ResponseInnerNutritionCaloricBreakdown
+
+genParseIngredients200ResponseInnerNutritionCaloricBreakdown :: Int -> Gen ParseIngredients200ResponseInnerNutritionCaloricBreakdown
+genParseIngredients200ResponseInnerNutritionCaloricBreakdown n =
+  ParseIngredients200ResponseInnerNutritionCaloricBreakdown
+    <$> arbitrary -- parseIngredients200ResponseInnerNutritionCaloricBreakdownPercentProtein :: Double
+    <*> arbitrary -- parseIngredients200ResponseInnerNutritionCaloricBreakdownPercentFat :: Double
+    <*> arbitrary -- parseIngredients200ResponseInnerNutritionCaloricBreakdownPercentCarbs :: Double
+  
+instance Arbitrary ParseIngredients200ResponseInnerNutritionNutrientsInner where
+  arbitrary = sized genParseIngredients200ResponseInnerNutritionNutrientsInner
+
+genParseIngredients200ResponseInnerNutritionNutrientsInner :: Int -> Gen ParseIngredients200ResponseInnerNutritionNutrientsInner
+genParseIngredients200ResponseInnerNutritionNutrientsInner n =
+  ParseIngredients200ResponseInnerNutritionNutrientsInner
+    <$> arbitrary -- parseIngredients200ResponseInnerNutritionNutrientsInnerName :: Text
+    <*> arbitrary -- parseIngredients200ResponseInnerNutritionNutrientsInnerAmount :: Double
+    <*> arbitrary -- parseIngredients200ResponseInnerNutritionNutrientsInnerUnit :: Text
+    <*> arbitrary -- parseIngredients200ResponseInnerNutritionNutrientsInnerPercentOfDailyNeeds :: Double
+  
+instance Arbitrary ParseIngredients200ResponseInnerNutritionPropertiesInner where
+  arbitrary = sized genParseIngredients200ResponseInnerNutritionPropertiesInner
+
+genParseIngredients200ResponseInnerNutritionPropertiesInner :: Int -> Gen ParseIngredients200ResponseInnerNutritionPropertiesInner
+genParseIngredients200ResponseInnerNutritionPropertiesInner n =
+  ParseIngredients200ResponseInnerNutritionPropertiesInner
+    <$> arbitrary -- parseIngredients200ResponseInnerNutritionPropertiesInnerName :: Text
+    <*> arbitrary -- parseIngredients200ResponseInnerNutritionPropertiesInnerAmount :: Double
+    <*> arbitrary -- parseIngredients200ResponseInnerNutritionPropertiesInnerUnit :: Text
+  
+instance Arbitrary ParseIngredients200ResponseInnerNutritionWeightPerServing where
+  arbitrary = sized genParseIngredients200ResponseInnerNutritionWeightPerServing
+
+genParseIngredients200ResponseInnerNutritionWeightPerServing :: Int -> Gen ParseIngredients200ResponseInnerNutritionWeightPerServing
+genParseIngredients200ResponseInnerNutritionWeightPerServing n =
+  ParseIngredients200ResponseInnerNutritionWeightPerServing
+    <$> arbitrary -- parseIngredients200ResponseInnerNutritionWeightPerServingAmount :: Double
+    <*> arbitrary -- parseIngredients200ResponseInnerNutritionWeightPerServingUnit :: Text
+  
+instance Arbitrary QuickAnswer200Response where
+  arbitrary = sized genQuickAnswer200Response
+
+genQuickAnswer200Response :: Int -> Gen QuickAnswer200Response
+genQuickAnswer200Response n =
+  QuickAnswer200Response
+    <$> arbitrary -- quickAnswer200ResponseAnswer :: Text
+    <*> arbitrary -- quickAnswer200ResponseImage :: Text
+  
+instance Arbitrary SearchAllFood200Response where
+  arbitrary = sized genSearchAllFood200Response
+
+genSearchAllFood200Response :: Int -> Gen SearchAllFood200Response
+genSearchAllFood200Response n =
+  SearchAllFood200Response
+    <$> arbitrary -- searchAllFood200ResponseQuery :: Text
+    <*> arbitrary -- searchAllFood200ResponseTotalResults :: Int
+    <*> arbitrary -- searchAllFood200ResponseLimit :: Int
+    <*> arbitrary -- searchAllFood200ResponseOffset :: Int
+    <*> arbitraryReduced n -- searchAllFood200ResponseSearchResults :: [SearchAllFood200ResponseSearchResultsInner]
+  
+instance Arbitrary SearchAllFood200ResponseSearchResultsInner where
+  arbitrary = sized genSearchAllFood200ResponseSearchResultsInner
+
+genSearchAllFood200ResponseSearchResultsInner :: Int -> Gen SearchAllFood200ResponseSearchResultsInner
+genSearchAllFood200ResponseSearchResultsInner n =
+  SearchAllFood200ResponseSearchResultsInner
+    <$> arbitrary -- searchAllFood200ResponseSearchResultsInnerName :: Text
+    <*> arbitrary -- searchAllFood200ResponseSearchResultsInnerTotalResults :: Int
+    <*> arbitraryReducedMaybe n -- searchAllFood200ResponseSearchResultsInnerResults :: Maybe [SearchAllFood200ResponseSearchResultsInnerResultsInner]
+  
+instance Arbitrary SearchAllFood200ResponseSearchResultsInnerResultsInner where
+  arbitrary = sized genSearchAllFood200ResponseSearchResultsInnerResultsInner
+
+genSearchAllFood200ResponseSearchResultsInnerResultsInner :: Int -> Gen SearchAllFood200ResponseSearchResultsInnerResultsInner
+genSearchAllFood200ResponseSearchResultsInnerResultsInner n =
+  SearchAllFood200ResponseSearchResultsInnerResultsInner
+    <$> arbitrary -- searchAllFood200ResponseSearchResultsInnerResultsInnerId :: Text
+    <*> arbitrary -- searchAllFood200ResponseSearchResultsInnerResultsInnerName :: Text
+    <*> arbitrary -- searchAllFood200ResponseSearchResultsInnerResultsInnerImage :: Text
+    <*> arbitrary -- searchAllFood200ResponseSearchResultsInnerResultsInnerLink :: Text
+    <*> arbitrary -- searchAllFood200ResponseSearchResultsInnerResultsInnerType :: Text
+    <*> arbitrary -- searchAllFood200ResponseSearchResultsInnerResultsInnerRelevance :: Double
+    <*> arbitrary -- searchAllFood200ResponseSearchResultsInnerResultsInnerContent :: Text
+  
+instance Arbitrary SearchCustomFoods200Response where
+  arbitrary = sized genSearchCustomFoods200Response
+
+genSearchCustomFoods200Response :: Int -> Gen SearchCustomFoods200Response
+genSearchCustomFoods200Response n =
+  SearchCustomFoods200Response
+    <$> arbitraryReduced n -- searchCustomFoods200ResponseCustomFoods :: [SearchCustomFoods200ResponseCustomFoodsInner]
+    <*> arbitrary -- searchCustomFoods200ResponseType :: Text
+    <*> arbitrary -- searchCustomFoods200ResponseOffset :: Int
+    <*> arbitrary -- searchCustomFoods200ResponseNumber :: Int
+  
+instance Arbitrary SearchCustomFoods200ResponseCustomFoodsInner where
+  arbitrary = sized genSearchCustomFoods200ResponseCustomFoodsInner
+
+genSearchCustomFoods200ResponseCustomFoodsInner :: Int -> Gen SearchCustomFoods200ResponseCustomFoodsInner
+genSearchCustomFoods200ResponseCustomFoodsInner n =
+  SearchCustomFoods200ResponseCustomFoodsInner
+    <$> arbitrary -- searchCustomFoods200ResponseCustomFoodsInnerId :: Int
+    <*> arbitrary -- searchCustomFoods200ResponseCustomFoodsInnerTitle :: Text
+    <*> arbitrary -- searchCustomFoods200ResponseCustomFoodsInnerServings :: Double
+    <*> arbitrary -- searchCustomFoods200ResponseCustomFoodsInnerImageUrl :: Text
+    <*> arbitrary -- searchCustomFoods200ResponseCustomFoodsInnerPrice :: Double
+  
+instance Arbitrary SearchFoodVideos200Response where
+  arbitrary = sized genSearchFoodVideos200Response
+
+genSearchFoodVideos200Response :: Int -> Gen SearchFoodVideos200Response
+genSearchFoodVideos200Response n =
+  SearchFoodVideos200Response
+    <$> arbitraryReduced n -- searchFoodVideos200ResponseVideos :: [SearchFoodVideos200ResponseVideosInner]
+    <*> arbitrary -- searchFoodVideos200ResponseTotalResults :: Int
+  
+instance Arbitrary SearchFoodVideos200ResponseVideosInner where
+  arbitrary = sized genSearchFoodVideos200ResponseVideosInner
+
+genSearchFoodVideos200ResponseVideosInner :: Int -> Gen SearchFoodVideos200ResponseVideosInner
+genSearchFoodVideos200ResponseVideosInner n =
+  SearchFoodVideos200ResponseVideosInner
+    <$> arbitrary -- searchFoodVideos200ResponseVideosInnerTitle :: Text
+    <*> arbitrary -- searchFoodVideos200ResponseVideosInnerLength :: Int
+    <*> arbitrary -- searchFoodVideos200ResponseVideosInnerRating :: Double
+    <*> arbitrary -- searchFoodVideos200ResponseVideosInnerShortTitle :: Text
+    <*> arbitrary -- searchFoodVideos200ResponseVideosInnerThumbnail :: Text
+    <*> arbitrary -- searchFoodVideos200ResponseVideosInnerViews :: Int
+    <*> arbitrary -- searchFoodVideos200ResponseVideosInnerYouTubeId :: Text
+  
+instance Arbitrary SearchGroceryProducts200Response where
+  arbitrary = sized genSearchGroceryProducts200Response
+
+genSearchGroceryProducts200Response :: Int -> Gen SearchGroceryProducts200Response
+genSearchGroceryProducts200Response n =
+  SearchGroceryProducts200Response
+    <$> arbitraryReduced n -- searchGroceryProducts200ResponseProducts :: [AutocompleteRecipeSearch200ResponseInner]
+    <*> arbitrary -- searchGroceryProducts200ResponseTotalProducts :: Int
+    <*> arbitrary -- searchGroceryProducts200ResponseType :: Text
+    <*> arbitrary -- searchGroceryProducts200ResponseOffset :: Int
+    <*> arbitrary -- searchGroceryProducts200ResponseNumber :: Int
+  
+instance Arbitrary SearchGroceryProductsByUPC200Response where
+  arbitrary = sized genSearchGroceryProductsByUPC200Response
+
+genSearchGroceryProductsByUPC200Response :: Int -> Gen SearchGroceryProductsByUPC200Response
+genSearchGroceryProductsByUPC200Response n =
+  SearchGroceryProductsByUPC200Response
+    <$> arbitrary -- searchGroceryProductsByUPC200ResponseId :: Int
+    <*> arbitrary -- searchGroceryProductsByUPC200ResponseTitle :: Text
+    <*> arbitrary -- searchGroceryProductsByUPC200ResponseBadges :: [Text]
+    <*> arbitrary -- searchGroceryProductsByUPC200ResponseImportantBadges :: [Text]
+    <*> arbitrary -- searchGroceryProductsByUPC200ResponseBreadcrumbs :: [Text]
+    <*> arbitrary -- searchGroceryProductsByUPC200ResponseGeneratedText :: Text
+    <*> arbitrary -- searchGroceryProductsByUPC200ResponseImageType :: Text
+    <*> arbitraryReducedMaybe n -- searchGroceryProductsByUPC200ResponseIngredientCount :: Maybe Int
+    <*> arbitrary -- searchGroceryProductsByUPC200ResponseIngredientList :: Text
+    <*> arbitraryReduced n -- searchGroceryProductsByUPC200ResponseIngredients :: [SearchGroceryProductsByUPC200ResponseIngredientsInner]
+    <*> arbitrary -- searchGroceryProductsByUPC200ResponseLikes :: Double
+    <*> arbitraryReduced n -- searchGroceryProductsByUPC200ResponseNutrition :: SearchGroceryProductsByUPC200ResponseNutrition
+    <*> arbitrary -- searchGroceryProductsByUPC200ResponsePrice :: Double
+    <*> arbitraryReduced n -- searchGroceryProductsByUPC200ResponseServings :: SearchGroceryProductsByUPC200ResponseServings
+    <*> arbitrary -- searchGroceryProductsByUPC200ResponseSpoonacularScore :: Double
+  
+instance Arbitrary SearchGroceryProductsByUPC200ResponseIngredientsInner where
+  arbitrary = sized genSearchGroceryProductsByUPC200ResponseIngredientsInner
+
+genSearchGroceryProductsByUPC200ResponseIngredientsInner :: Int -> Gen SearchGroceryProductsByUPC200ResponseIngredientsInner
+genSearchGroceryProductsByUPC200ResponseIngredientsInner n =
+  SearchGroceryProductsByUPC200ResponseIngredientsInner
+    <$> arbitraryReducedMaybe n -- searchGroceryProductsByUPC200ResponseIngredientsInnerDescription :: Maybe AnyType
+    <*> arbitrary -- searchGroceryProductsByUPC200ResponseIngredientsInnerName :: Text
+    <*> arbitraryReducedMaybe n -- searchGroceryProductsByUPC200ResponseIngredientsInnerSafetyLevel :: Maybe AnyType
+  
+instance Arbitrary SearchGroceryProductsByUPC200ResponseNutrition where
+  arbitrary = sized genSearchGroceryProductsByUPC200ResponseNutrition
+
+genSearchGroceryProductsByUPC200ResponseNutrition :: Int -> Gen SearchGroceryProductsByUPC200ResponseNutrition
+genSearchGroceryProductsByUPC200ResponseNutrition n =
+  SearchGroceryProductsByUPC200ResponseNutrition
+    <$> arbitraryReduced n -- searchGroceryProductsByUPC200ResponseNutritionNutrients :: [ParseIngredients200ResponseInnerNutritionNutrientsInner]
+    <*> arbitraryReduced n -- searchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown :: ParseIngredients200ResponseInnerNutritionCaloricBreakdown
+  
+instance Arbitrary SearchGroceryProductsByUPC200ResponseServings where
+  arbitrary = sized genSearchGroceryProductsByUPC200ResponseServings
+
+genSearchGroceryProductsByUPC200ResponseServings :: Int -> Gen SearchGroceryProductsByUPC200ResponseServings
+genSearchGroceryProductsByUPC200ResponseServings n =
+  SearchGroceryProductsByUPC200ResponseServings
+    <$> arbitrary -- searchGroceryProductsByUPC200ResponseServingsNumber :: Double
+    <*> arbitrary -- searchGroceryProductsByUPC200ResponseServingsSize :: Double
+    <*> arbitrary -- searchGroceryProductsByUPC200ResponseServingsUnit :: Text
+  
+instance Arbitrary SearchMenuItems200Response where
+  arbitrary = sized genSearchMenuItems200Response
+
+genSearchMenuItems200Response :: Int -> Gen SearchMenuItems200Response
+genSearchMenuItems200Response n =
+  SearchMenuItems200Response
+    <$> arbitraryReduced n -- searchMenuItems200ResponseMenuItems :: [SearchMenuItems200ResponseMenuItemsInner]
+    <*> arbitrary -- searchMenuItems200ResponseTotalMenuItems :: Int
+    <*> arbitrary -- searchMenuItems200ResponseType :: Text
+    <*> arbitrary -- searchMenuItems200ResponseOffset :: Int
+    <*> arbitrary -- searchMenuItems200ResponseNumber :: Int
+  
+instance Arbitrary SearchMenuItems200ResponseMenuItemsInner where
+  arbitrary = sized genSearchMenuItems200ResponseMenuItemsInner
+
+genSearchMenuItems200ResponseMenuItemsInner :: Int -> Gen SearchMenuItems200ResponseMenuItemsInner
+genSearchMenuItems200ResponseMenuItemsInner n =
+  SearchMenuItems200ResponseMenuItemsInner
+    <$> arbitrary -- searchMenuItems200ResponseMenuItemsInnerId :: Int
+    <*> arbitrary -- searchMenuItems200ResponseMenuItemsInnerTitle :: Text
+    <*> arbitrary -- searchMenuItems200ResponseMenuItemsInnerRestaurantChain :: Text
+    <*> arbitrary -- searchMenuItems200ResponseMenuItemsInnerImage :: Text
+    <*> arbitrary -- searchMenuItems200ResponseMenuItemsInnerImageType :: Text
+    <*> arbitraryReducedMaybe n -- searchMenuItems200ResponseMenuItemsInnerServings :: Maybe SearchGroceryProductsByUPC200ResponseServings
+  
+instance Arbitrary SearchRecipes200Response where
+  arbitrary = sized genSearchRecipes200Response
+
+genSearchRecipes200Response :: Int -> Gen SearchRecipes200Response
+genSearchRecipes200Response n =
+  SearchRecipes200Response
+    <$> arbitrary -- searchRecipes200ResponseOffset :: Int
+    <*> arbitrary -- searchRecipes200ResponseNumber :: Int
+    <*> arbitraryReduced n -- searchRecipes200ResponseResults :: [SearchRecipes200ResponseResultsInner]
+    <*> arbitrary -- searchRecipes200ResponseTotalResults :: Int
+  
+instance Arbitrary SearchRecipes200ResponseResultsInner where
+  arbitrary = sized genSearchRecipes200ResponseResultsInner
+
+genSearchRecipes200ResponseResultsInner :: Int -> Gen SearchRecipes200ResponseResultsInner
+genSearchRecipes200ResponseResultsInner n =
+  SearchRecipes200ResponseResultsInner
+    <$> arbitrary -- searchRecipes200ResponseResultsInnerId :: Int
+    <*> arbitrary -- searchRecipes200ResponseResultsInnerTitle :: Text
+    <*> arbitrary -- searchRecipes200ResponseResultsInnerCalories :: Double
+    <*> arbitrary -- searchRecipes200ResponseResultsInnerCarbs :: Text
+    <*> arbitrary -- searchRecipes200ResponseResultsInnerFat :: Text
+    <*> arbitrary -- searchRecipes200ResponseResultsInnerImage :: Text
+    <*> arbitrary -- searchRecipes200ResponseResultsInnerImageType :: Text
+    <*> arbitrary -- searchRecipes200ResponseResultsInnerProtein :: Text
+  
+instance Arbitrary SearchRecipesByIngredients200ResponseInner where
+  arbitrary = sized genSearchRecipesByIngredients200ResponseInner
+
+genSearchRecipesByIngredients200ResponseInner :: Int -> Gen SearchRecipesByIngredients200ResponseInner
+genSearchRecipesByIngredients200ResponseInner n =
+  SearchRecipesByIngredients200ResponseInner
+    <$> arbitrary -- searchRecipesByIngredients200ResponseInnerId :: Int
+    <*> arbitrary -- searchRecipesByIngredients200ResponseInnerImage :: Text
+    <*> arbitrary -- searchRecipesByIngredients200ResponseInnerImageType :: Text
+    <*> arbitrary -- searchRecipesByIngredients200ResponseInnerLikes :: Int
+    <*> arbitrary -- searchRecipesByIngredients200ResponseInnerMissedIngredientCount :: Int
+    <*> arbitraryReduced n -- searchRecipesByIngredients200ResponseInnerMissedIngredients :: [SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner]
+    <*> arbitrary -- searchRecipesByIngredients200ResponseInnerTitle :: Text
+    <*> arbitraryReduced n -- searchRecipesByIngredients200ResponseInnerUnusedIngredients :: [A.Value]
+    <*> arbitrary -- searchRecipesByIngredients200ResponseInnerUsedIngredientCount :: Double
+    <*> arbitraryReduced n -- searchRecipesByIngredients200ResponseInnerUsedIngredients :: [SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner]
+  
+instance Arbitrary SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner where
+  arbitrary = sized genSearchRecipesByIngredients200ResponseInnerMissedIngredientsInner
+
+genSearchRecipesByIngredients200ResponseInnerMissedIngredientsInner :: Int -> Gen SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner
+genSearchRecipesByIngredients200ResponseInnerMissedIngredientsInner n =
+  SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner
+    <$> arbitrary -- searchRecipesByIngredients200ResponseInnerMissedIngredientsInnerAisle :: Text
+    <*> arbitrary -- searchRecipesByIngredients200ResponseInnerMissedIngredientsInnerAmount :: Double
+    <*> arbitrary -- searchRecipesByIngredients200ResponseInnerMissedIngredientsInnerId :: Int
+    <*> arbitrary -- searchRecipesByIngredients200ResponseInnerMissedIngredientsInnerImage :: Text
+    <*> arbitraryReducedMaybe n -- searchRecipesByIngredients200ResponseInnerMissedIngredientsInnerMeta :: Maybe [Text]
+    <*> arbitrary -- searchRecipesByIngredients200ResponseInnerMissedIngredientsInnerName :: Text
+    <*> arbitrary -- searchRecipesByIngredients200ResponseInnerMissedIngredientsInnerOriginal :: Text
+    <*> arbitrary -- searchRecipesByIngredients200ResponseInnerMissedIngredientsInnerOriginalName :: Text
+    <*> arbitrary -- searchRecipesByIngredients200ResponseInnerMissedIngredientsInnerUnit :: Text
+    <*> arbitrary -- searchRecipesByIngredients200ResponseInnerMissedIngredientsInnerUnitLong :: Text
+    <*> arbitrary -- searchRecipesByIngredients200ResponseInnerMissedIngredientsInnerUnitShort :: Text
+  
+instance Arbitrary SearchRecipesByNutrients200ResponseInner where
+  arbitrary = sized genSearchRecipesByNutrients200ResponseInner
+
+genSearchRecipesByNutrients200ResponseInner :: Int -> Gen SearchRecipesByNutrients200ResponseInner
+genSearchRecipesByNutrients200ResponseInner n =
+  SearchRecipesByNutrients200ResponseInner
+    <$> arbitrary -- searchRecipesByNutrients200ResponseInnerCalories :: Double
+    <*> arbitrary -- searchRecipesByNutrients200ResponseInnerCarbs :: Text
+    <*> arbitrary -- searchRecipesByNutrients200ResponseInnerFat :: Text
+    <*> arbitrary -- searchRecipesByNutrients200ResponseInnerId :: Int
+    <*> arbitrary -- searchRecipesByNutrients200ResponseInnerImage :: Text
+    <*> arbitrary -- searchRecipesByNutrients200ResponseInnerImageType :: Text
+    <*> arbitrary -- searchRecipesByNutrients200ResponseInnerProtein :: Text
+    <*> arbitrary -- searchRecipesByNutrients200ResponseInnerTitle :: Text
+  
+instance Arbitrary SearchSiteContent200Response where
+  arbitrary = sized genSearchSiteContent200Response
+
+genSearchSiteContent200Response :: Int -> Gen SearchSiteContent200Response
+genSearchSiteContent200Response n =
+  SearchSiteContent200Response
+    <$> arbitraryReduced n -- searchSiteContent200ResponseArticles :: [SearchSiteContent200ResponseArticlesInner]
+    <*> arbitraryReduced n -- searchSiteContent200ResponseGroceryProducts :: [SearchSiteContent200ResponseGroceryProductsInner]
+    <*> arbitraryReduced n -- searchSiteContent200ResponseMenuItems :: [SearchSiteContent200ResponseGroceryProductsInner]
+    <*> arbitraryReduced n -- searchSiteContent200ResponseRecipes :: [SearchSiteContent200ResponseGroceryProductsInner]
+  
+instance Arbitrary SearchSiteContent200ResponseArticlesInner where
+  arbitrary = sized genSearchSiteContent200ResponseArticlesInner
+
+genSearchSiteContent200ResponseArticlesInner :: Int -> Gen SearchSiteContent200ResponseArticlesInner
+genSearchSiteContent200ResponseArticlesInner n =
+  SearchSiteContent200ResponseArticlesInner
+    <$> arbitraryReducedMaybe n -- searchSiteContent200ResponseArticlesInnerDataPoints :: Maybe [AnyType]
+    <*> arbitrary -- searchSiteContent200ResponseArticlesInnerImage :: Text
+    <*> arbitrary -- searchSiteContent200ResponseArticlesInnerLink :: Text
+    <*> arbitrary -- searchSiteContent200ResponseArticlesInnerName :: Text
+  
+instance Arbitrary SearchSiteContent200ResponseGroceryProductsInner where
+  arbitrary = sized genSearchSiteContent200ResponseGroceryProductsInner
+
+genSearchSiteContent200ResponseGroceryProductsInner :: Int -> Gen SearchSiteContent200ResponseGroceryProductsInner
+genSearchSiteContent200ResponseGroceryProductsInner n =
+  SearchSiteContent200ResponseGroceryProductsInner
+    <$> arbitraryReducedMaybe n -- searchSiteContent200ResponseGroceryProductsInnerDataPoints :: Maybe [SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner]
+    <*> arbitrary -- searchSiteContent200ResponseGroceryProductsInnerImage :: Text
+    <*> arbitrary -- searchSiteContent200ResponseGroceryProductsInnerLink :: Text
+    <*> arbitrary -- searchSiteContent200ResponseGroceryProductsInnerName :: Text
+  
+instance Arbitrary SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner where
+  arbitrary = sized genSearchSiteContent200ResponseGroceryProductsInnerDataPointsInner
+
+genSearchSiteContent200ResponseGroceryProductsInnerDataPointsInner :: Int -> Gen SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner
+genSearchSiteContent200ResponseGroceryProductsInnerDataPointsInner n =
+  SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner
+    <$> arbitrary -- searchSiteContent200ResponseGroceryProductsInnerDataPointsInnerKey :: Text
+    <*> arbitrary -- searchSiteContent200ResponseGroceryProductsInnerDataPointsInnerValue :: Text
+  
+instance Arbitrary SummarizeRecipe200Response where
+  arbitrary = sized genSummarizeRecipe200Response
+
+genSummarizeRecipe200Response :: Int -> Gen SummarizeRecipe200Response
+genSummarizeRecipe200Response n =
+  SummarizeRecipe200Response
+    <$> arbitrary -- summarizeRecipe200ResponseId :: Int
+    <*> arbitrary -- summarizeRecipe200ResponseSummary :: Text
+    <*> arbitrary -- summarizeRecipe200ResponseTitle :: Text
+  
+instance Arbitrary TalkToChatbot200Response where
+  arbitrary = sized genTalkToChatbot200Response
+
+genTalkToChatbot200Response :: Int -> Gen TalkToChatbot200Response
+genTalkToChatbot200Response n =
+  TalkToChatbot200Response
+    <$> arbitrary -- talkToChatbot200ResponseAnswerText :: Text
+    <*> arbitraryReduced n -- talkToChatbot200ResponseMedia :: [AnyType]
   
 
 

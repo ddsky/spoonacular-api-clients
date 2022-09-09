@@ -1,29 +1,30 @@
 # com.spoonacular.client\MealPlanningApi
 
-All URIs are relative to *https://api.spoonacular.com*
+All URIs are relative to https://api.spoonacular.com.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addMealPlanTemplate**](MealPlanningApi.md#addMealPlanTemplate) | **POST** /mealplanner/{username}/templates | Add Meal Plan Template
-[**addToMealPlan**](MealPlanningApi.md#addToMealPlan) | **POST** /mealplanner/{username}/items | Add to Meal Plan
-[**addToShoppingList**](MealPlanningApi.md#addToShoppingList) | **POST** /mealplanner/{username}/shopping-list/items | Add to Shopping List
-[**clearMealPlanDay**](MealPlanningApi.md#clearMealPlanDay) | **DELETE** /mealplanner/{username}/day/{date} | Clear Meal Plan Day
-[**connectUser**](MealPlanningApi.md#connectUser) | **POST** /users/connect | Connect User
-[**deleteFromMealPlan**](MealPlanningApi.md#deleteFromMealPlan) | **DELETE** /mealplanner/{username}/items/{id} | Delete from Meal Plan
-[**deleteFromShoppingList**](MealPlanningApi.md#deleteFromShoppingList) | **DELETE** /mealplanner/{username}/shopping-list/items/{id} | Delete from Shopping List
-[**deleteMealPlanTemplate**](MealPlanningApi.md#deleteMealPlanTemplate) | **DELETE** /mealplanner/{username}/templates/{id} | Delete Meal Plan Template
-[**generateMealPlan**](MealPlanningApi.md#generateMealPlan) | **GET** /mealplanner/generate | Generate Meal Plan
-[**generateShoppingList**](MealPlanningApi.md#generateShoppingList) | **POST** /mealplanner/{username}/shopping-list/{start-date}/{end-date} | Generate Shopping List
-[**getMealPlanTemplate**](MealPlanningApi.md#getMealPlanTemplate) | **GET** /mealplanner/{username}/templates/{id} | Get Meal Plan Template
-[**getMealPlanTemplates**](MealPlanningApi.md#getMealPlanTemplates) | **GET** /mealplanner/{username}/templates | Get Meal Plan Templates
-[**getMealPlanWeek**](MealPlanningApi.md#getMealPlanWeek) | **GET** /mealplanner/{username}/week/{start-date} | Get Meal Plan Week
-[**getShoppingList**](MealPlanningApi.md#getShoppingList) | **GET** /mealplanner/{username}/shopping-list | Get Shopping List
+[**addMealPlanTemplate()**](MealPlanningApi.md#addMealPlanTemplate) | **POST** /mealplanner/{username}/templates | Add Meal Plan Template
+[**addToMealPlan()**](MealPlanningApi.md#addToMealPlan) | **POST** /mealplanner/{username}/items | Add to Meal Plan
+[**addToShoppingList()**](MealPlanningApi.md#addToShoppingList) | **POST** /mealplanner/{username}/shopping-list/items | Add to Shopping List
+[**clearMealPlanDay()**](MealPlanningApi.md#clearMealPlanDay) | **DELETE** /mealplanner/{username}/day/{date} | Clear Meal Plan Day
+[**connectUser()**](MealPlanningApi.md#connectUser) | **POST** /users/connect | Connect User
+[**deleteFromMealPlan()**](MealPlanningApi.md#deleteFromMealPlan) | **DELETE** /mealplanner/{username}/items/{id} | Delete from Meal Plan
+[**deleteFromShoppingList()**](MealPlanningApi.md#deleteFromShoppingList) | **DELETE** /mealplanner/{username}/shopping-list/items/{id} | Delete from Shopping List
+[**deleteMealPlanTemplate()**](MealPlanningApi.md#deleteMealPlanTemplate) | **DELETE** /mealplanner/{username}/templates/{id} | Delete Meal Plan Template
+[**generateMealPlan()**](MealPlanningApi.md#generateMealPlan) | **GET** /mealplanner/generate | Generate Meal Plan
+[**generateShoppingList()**](MealPlanningApi.md#generateShoppingList) | **POST** /mealplanner/{username}/shopping-list/{start-date}/{end-date} | Generate Shopping List
+[**getMealPlanTemplate()**](MealPlanningApi.md#getMealPlanTemplate) | **GET** /mealplanner/{username}/templates/{id} | Get Meal Plan Template
+[**getMealPlanTemplates()**](MealPlanningApi.md#getMealPlanTemplates) | **GET** /mealplanner/{username}/templates | Get Meal Plan Templates
+[**getMealPlanWeek()**](MealPlanningApi.md#getMealPlanWeek) | **GET** /mealplanner/{username}/week/{start-date} | Get Meal Plan Week
+[**getShoppingList()**](MealPlanningApi.md#getShoppingList) | **GET** /mealplanner/{username}/shopping-list | Get Shopping List
 
 
+## `addMealPlanTemplate()`
 
-## addMealPlanTemplate
-
-> \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20040 addMealPlanTemplate($username, $hash, $inline_object6)
+```php
+addMealPlanTemplate($username, $hash, $add_to_meal_plan_request): \com.spoonacular.client\com.spoonacular.client.model\AddMealPlanTemplate200Response
+```
 
 Add Meal Plan Template
 
@@ -37,9 +38,9 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
 $apiInstance = new com.spoonacular.client\Api\MealPlanningApi(
@@ -50,29 +51,27 @@ $apiInstance = new com.spoonacular.client\Api\MealPlanningApi(
 );
 $username = dsky; // string | The username.
 $hash = 4b5v4398573406; // string | The private hash for the username.
-$inline_object6 = new \com.spoonacular.client\com.spoonacular.client.model\InlineObject6(); // \com.spoonacular.client\com.spoonacular.client.model\InlineObject6 | 
+$add_to_meal_plan_request = new \com.spoonacular.client\com.spoonacular.client.model\AddToMealPlanRequest(); // \com.spoonacular.client\com.spoonacular.client.model\AddToMealPlanRequest
 
 try {
-    $result = $apiInstance->addMealPlanTemplate($username, $hash, $inline_object6);
+    $result = $apiInstance->addMealPlanTemplate($username, $hash, $add_to_meal_plan_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MealPlanningApi->addMealPlanTemplate: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **username** | **string**| The username. |
  **hash** | **string**| The private hash for the username. |
- **inline_object6** | [**\com.spoonacular.client\com.spoonacular.client.model\InlineObject6**](../Model/InlineObject6.md)|  |
+ **add_to_meal_plan_request** | [**\com.spoonacular.client\com.spoonacular.client.model\AddToMealPlanRequest**](../Model/AddToMealPlanRequest.md)|  |
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20040**](../Model/InlineResponse20040.md)
+[**\com.spoonacular.client\com.spoonacular.client.model\AddMealPlanTemplate200Response**](../Model/AddMealPlanTemplate200Response.md)
 
 ### Authorization
 
@@ -80,17 +79,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: 
-- **Accept**: application/json
+- **Content-Type**: ``
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `addToMealPlan()`
 
-## addToMealPlan
-
-> object addToMealPlan($username, $hash, $inline_object4)
+```php
+addToMealPlan($username, $hash, $add_to_meal_plan_request): object
+```
 
 Add to Meal Plan
 
@@ -104,9 +104,9 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
 $apiInstance = new com.spoonacular.client\Api\MealPlanningApi(
@@ -117,25 +117,23 @@ $apiInstance = new com.spoonacular.client\Api\MealPlanningApi(
 );
 $username = dsky; // string | The username.
 $hash = 'hash_example'; // string | The private hash for the username.
-$inline_object4 = new \com.spoonacular.client\com.spoonacular.client.model\InlineObject4(); // \com.spoonacular.client\com.spoonacular.client.model\InlineObject4 | 
+$add_to_meal_plan_request = new \com.spoonacular.client\com.spoonacular.client.model\AddToMealPlanRequest(); // \com.spoonacular.client\com.spoonacular.client.model\AddToMealPlanRequest
 
 try {
-    $result = $apiInstance->addToMealPlan($username, $hash, $inline_object4);
+    $result = $apiInstance->addToMealPlan($username, $hash, $add_to_meal_plan_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MealPlanningApi->addToMealPlan: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **username** | **string**| The username. |
  **hash** | **string**| The private hash for the username. |
- **inline_object4** | [**\com.spoonacular.client\com.spoonacular.client.model\InlineObject4**](../Model/InlineObject4.md)|  |
+ **add_to_meal_plan_request** | [**\com.spoonacular.client\com.spoonacular.client.model\AddToMealPlanRequest**](../Model/AddToMealPlanRequest.md)|  |
 
 ### Return type
 
@@ -147,17 +145,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: , application/json
-- **Accept**: application/json
+- **Content-Type**: ``, `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `addToShoppingList()`
 
-## addToShoppingList
-
-> \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20042 addToShoppingList($username, $hash, $inline_object9)
+```php
+addToShoppingList($username, $hash, $add_to_meal_plan_request): \com.spoonacular.client\com.spoonacular.client.model\GenerateShoppingList200Response
+```
 
 Add to Shopping List
 
@@ -171,9 +170,9 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
 $apiInstance = new com.spoonacular.client\Api\MealPlanningApi(
@@ -184,29 +183,27 @@ $apiInstance = new com.spoonacular.client\Api\MealPlanningApi(
 );
 $username = dsky; // string | The username.
 $hash = 'hash_example'; // string | The private hash for the username.
-$inline_object9 = new \com.spoonacular.client\com.spoonacular.client.model\InlineObject9(); // \com.spoonacular.client\com.spoonacular.client.model\InlineObject9 | 
+$add_to_meal_plan_request = new \com.spoonacular.client\com.spoonacular.client.model\AddToMealPlanRequest(); // \com.spoonacular.client\com.spoonacular.client.model\AddToMealPlanRequest
 
 try {
-    $result = $apiInstance->addToShoppingList($username, $hash, $inline_object9);
+    $result = $apiInstance->addToShoppingList($username, $hash, $add_to_meal_plan_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MealPlanningApi->addToShoppingList: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **username** | **string**| The username. |
  **hash** | **string**| The private hash for the username. |
- **inline_object9** | [**\com.spoonacular.client\com.spoonacular.client.model\InlineObject9**](../Model/InlineObject9.md)|  |
+ **add_to_meal_plan_request** | [**\com.spoonacular.client\com.spoonacular.client.model\AddToMealPlanRequest**](../Model/AddToMealPlanRequest.md)|  |
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20042**](../Model/InlineResponse20042.md)
+[**\com.spoonacular.client\com.spoonacular.client.model\GenerateShoppingList200Response**](../Model/GenerateShoppingList200Response.md)
 
 ### Authorization
 
@@ -214,17 +211,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: , application/json
-- **Accept**: application/json
+- **Content-Type**: ``, `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `clearMealPlanDay()`
 
-## clearMealPlanDay
-
-> object clearMealPlanDay($username, $date, $hash, $inline_object3)
+```php
+clearMealPlanDay($username, $date, $hash, $clear_meal_plan_day_request): object
+```
 
 Clear Meal Plan Day
 
@@ -238,9 +236,9 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
 $apiInstance = new com.spoonacular.client\Api\MealPlanningApi(
@@ -252,26 +250,24 @@ $apiInstance = new com.spoonacular.client\Api\MealPlanningApi(
 $username = dsky; // string | The username.
 $date = 2020-06-01; // string | The date in the format yyyy-mm-dd.
 $hash = 'hash_example'; // string | The private hash for the username.
-$inline_object3 = new \com.spoonacular.client\com.spoonacular.client.model\InlineObject3(); // \com.spoonacular.client\com.spoonacular.client.model\InlineObject3 | 
+$clear_meal_plan_day_request = new \com.spoonacular.client\com.spoonacular.client.model\ClearMealPlanDayRequest(); // \com.spoonacular.client\com.spoonacular.client.model\ClearMealPlanDayRequest
 
 try {
-    $result = $apiInstance->clearMealPlanDay($username, $date, $hash, $inline_object3);
+    $result = $apiInstance->clearMealPlanDay($username, $date, $hash, $clear_meal_plan_day_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MealPlanningApi->clearMealPlanDay: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **username** | **string**| The username. |
  **date** | **string**| The date in the format yyyy-mm-dd. |
  **hash** | **string**| The private hash for the username. |
- **inline_object3** | [**\com.spoonacular.client\com.spoonacular.client.model\InlineObject3**](../Model/InlineObject3.md)|  |
+ **clear_meal_plan_day_request** | [**\com.spoonacular.client\com.spoonacular.client.model\ClearMealPlanDayRequest**](../Model/ClearMealPlanDayRequest.md)|  |
 
 ### Return type
 
@@ -283,17 +279,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: 
-- **Accept**: application/json
+- **Content-Type**: ``
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `connectUser()`
 
-## connectUser
-
-> \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20043 connectUser($body)
+```php
+connectUser($body): \com.spoonacular.client\com.spoonacular.client.model\ConnectUser200Response
+```
 
 Connect User
 
@@ -307,9 +304,9 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
 $apiInstance = new com.spoonacular.client\Api\MealPlanningApi(
@@ -318,7 +315,7 @@ $apiInstance = new com.spoonacular.client\Api\MealPlanningApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \stdClass; // object | 
+$body = array('key' => new \stdClass); // object
 
 try {
     $result = $apiInstance->connectUser($body);
@@ -326,11 +323,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling MealPlanningApi->connectUser: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -338,7 +333,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20043**](../Model/InlineResponse20043.md)
+[**\com.spoonacular.client\com.spoonacular.client.model\ConnectUser200Response**](../Model/ConnectUser200Response.md)
 
 ### Authorization
 
@@ -346,17 +341,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: , application/json
-- **Accept**: application/json
+- **Content-Type**: ``, `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `deleteFromMealPlan()`
 
-## deleteFromMealPlan
-
-> object deleteFromMealPlan($username, $id, $hash, $inline_object5)
+```php
+deleteFromMealPlan($username, $id, $hash, $delete_from_meal_plan_request): object
+```
 
 Delete from Meal Plan
 
@@ -370,9 +366,9 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
 $apiInstance = new com.spoonacular.client\Api\MealPlanningApi(
@@ -384,26 +380,24 @@ $apiInstance = new com.spoonacular.client\Api\MealPlanningApi(
 $username = dsky; // string | The username.
 $id = 15678; // float | The shopping list item id.
 $hash = 'hash_example'; // string | The private hash for the username.
-$inline_object5 = new \com.spoonacular.client\com.spoonacular.client.model\InlineObject5(); // \com.spoonacular.client\com.spoonacular.client.model\InlineObject5 | 
+$delete_from_meal_plan_request = new \com.spoonacular.client\com.spoonacular.client.model\DeleteFromMealPlanRequest(); // \com.spoonacular.client\com.spoonacular.client.model\DeleteFromMealPlanRequest
 
 try {
-    $result = $apiInstance->deleteFromMealPlan($username, $id, $hash, $inline_object5);
+    $result = $apiInstance->deleteFromMealPlan($username, $id, $hash, $delete_from_meal_plan_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MealPlanningApi->deleteFromMealPlan: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **username** | **string**| The username. |
  **id** | **float**| The shopping list item id. |
  **hash** | **string**| The private hash for the username. |
- **inline_object5** | [**\com.spoonacular.client\com.spoonacular.client.model\InlineObject5**](../Model/InlineObject5.md)|  |
+ **delete_from_meal_plan_request** | [**\com.spoonacular.client\com.spoonacular.client.model\DeleteFromMealPlanRequest**](../Model/DeleteFromMealPlanRequest.md)|  |
 
 ### Return type
 
@@ -415,17 +409,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: 
-- **Accept**: application/json
+- **Content-Type**: ``
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `deleteFromShoppingList()`
 
-## deleteFromShoppingList
-
-> object deleteFromShoppingList($username, $id, $hash, $inline_object10)
+```php
+deleteFromShoppingList($username, $id, $hash, $delete_from_meal_plan_request): object
+```
 
 Delete from Shopping List
 
@@ -439,9 +434,9 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
 $apiInstance = new com.spoonacular.client\Api\MealPlanningApi(
@@ -453,26 +448,24 @@ $apiInstance = new com.spoonacular.client\Api\MealPlanningApi(
 $username = dsky; // string | The username.
 $id = 1; // int | The item's id.
 $hash = 'hash_example'; // string | The private hash for the username.
-$inline_object10 = new \com.spoonacular.client\com.spoonacular.client.model\InlineObject10(); // \com.spoonacular.client\com.spoonacular.client.model\InlineObject10 | 
+$delete_from_meal_plan_request = new \com.spoonacular.client\com.spoonacular.client.model\DeleteFromMealPlanRequest(); // \com.spoonacular.client\com.spoonacular.client.model\DeleteFromMealPlanRequest
 
 try {
-    $result = $apiInstance->deleteFromShoppingList($username, $id, $hash, $inline_object10);
+    $result = $apiInstance->deleteFromShoppingList($username, $id, $hash, $delete_from_meal_plan_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MealPlanningApi->deleteFromShoppingList: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **username** | **string**| The username. |
  **id** | **int**| The item&#39;s id. |
  **hash** | **string**| The private hash for the username. |
- **inline_object10** | [**\com.spoonacular.client\com.spoonacular.client.model\InlineObject10**](../Model/InlineObject10.md)|  |
+ **delete_from_meal_plan_request** | [**\com.spoonacular.client\com.spoonacular.client.model\DeleteFromMealPlanRequest**](../Model/DeleteFromMealPlanRequest.md)|  |
 
 ### Return type
 
@@ -484,17 +477,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: 
-- **Accept**: application/json
+- **Content-Type**: ``
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `deleteMealPlanTemplate()`
 
-## deleteMealPlanTemplate
-
-> object deleteMealPlanTemplate($username, $id, $hash, $inline_object7)
+```php
+deleteMealPlanTemplate($username, $id, $hash, $delete_from_meal_plan_request): object
+```
 
 Delete Meal Plan Template
 
@@ -508,9 +502,9 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
 $apiInstance = new com.spoonacular.client\Api\MealPlanningApi(
@@ -522,26 +516,24 @@ $apiInstance = new com.spoonacular.client\Api\MealPlanningApi(
 $username = dsky; // string | The username.
 $id = 1; // int | The item's id.
 $hash = 4b5v4398573406; // string | The private hash for the username.
-$inline_object7 = new \com.spoonacular.client\com.spoonacular.client.model\InlineObject7(); // \com.spoonacular.client\com.spoonacular.client.model\InlineObject7 | 
+$delete_from_meal_plan_request = new \com.spoonacular.client\com.spoonacular.client.model\DeleteFromMealPlanRequest(); // \com.spoonacular.client\com.spoonacular.client.model\DeleteFromMealPlanRequest
 
 try {
-    $result = $apiInstance->deleteMealPlanTemplate($username, $id, $hash, $inline_object7);
+    $result = $apiInstance->deleteMealPlanTemplate($username, $id, $hash, $delete_from_meal_plan_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MealPlanningApi->deleteMealPlanTemplate: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **username** | **string**| The username. |
  **id** | **int**| The item&#39;s id. |
  **hash** | **string**| The private hash for the username. |
- **inline_object7** | [**\com.spoonacular.client\com.spoonacular.client.model\InlineObject7**](../Model/InlineObject7.md)|  |
+ **delete_from_meal_plan_request** | [**\com.spoonacular.client\com.spoonacular.client.model\DeleteFromMealPlanRequest**](../Model/DeleteFromMealPlanRequest.md)|  |
 
 ### Return type
 
@@ -553,17 +545,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: 
-- **Accept**: application/json
+- **Content-Type**: ``
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `generateMealPlan()`
 
-## generateMealPlan
-
-> \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20037 generateMealPlan($time_frame, $target_calories, $diet, $exclude)
+```php
+generateMealPlan($time_frame, $target_calories, $diet, $exclude): \com.spoonacular.client\com.spoonacular.client.model\GenerateMealPlan200Response
+```
 
 Generate Meal Plan
 
@@ -577,9 +570,9 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
 $apiInstance = new com.spoonacular.client\Api\MealPlanningApi(
@@ -599,11 +592,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling MealPlanningApi->generateMealPlan: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -614,7 +605,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20037**](../Model/InlineResponse20037.md)
+[**\com.spoonacular.client\com.spoonacular.client.model\GenerateMealPlan200Response**](../Model/GenerateMealPlan200Response.md)
 
 ### Authorization
 
@@ -623,16 +614,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `generateShoppingList()`
 
-## generateShoppingList
-
-> \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20042 generateShoppingList($username, $start_date, $end_date, $hash, $inline_object8)
+```php
+generateShoppingList($username, $start_date, $end_date, $hash, $generate_shopping_list_request): \com.spoonacular.client\com.spoonacular.client.model\GenerateShoppingList200Response
+```
 
 Generate Shopping List
 
@@ -646,9 +638,9 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
 $apiInstance = new com.spoonacular.client\Api\MealPlanningApi(
@@ -661,19 +653,17 @@ $username = dsky; // string | The username.
 $start_date = 2020-06-01; // string | The start date in the format yyyy-mm-dd.
 $end_date = 2020-06-07; // string | The end date in the format yyyy-mm-dd.
 $hash = 'hash_example'; // string | The private hash for the username.
-$inline_object8 = new \com.spoonacular.client\com.spoonacular.client.model\InlineObject8(); // \com.spoonacular.client\com.spoonacular.client.model\InlineObject8 | 
+$generate_shopping_list_request = new \com.spoonacular.client\com.spoonacular.client.model\GenerateShoppingListRequest(); // \com.spoonacular.client\com.spoonacular.client.model\GenerateShoppingListRequest
 
 try {
-    $result = $apiInstance->generateShoppingList($username, $start_date, $end_date, $hash, $inline_object8);
+    $result = $apiInstance->generateShoppingList($username, $start_date, $end_date, $hash, $generate_shopping_list_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MealPlanningApi->generateShoppingList: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -681,11 +671,11 @@ Name | Type | Description  | Notes
  **start_date** | **string**| The start date in the format yyyy-mm-dd. |
  **end_date** | **string**| The end date in the format yyyy-mm-dd. |
  **hash** | **string**| The private hash for the username. |
- **inline_object8** | [**\com.spoonacular.client\com.spoonacular.client.model\InlineObject8**](../Model/InlineObject8.md)|  |
+ **generate_shopping_list_request** | [**\com.spoonacular.client\com.spoonacular.client.model\GenerateShoppingListRequest**](../Model/GenerateShoppingListRequest.md)|  |
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20042**](../Model/InlineResponse20042.md)
+[**\com.spoonacular.client\com.spoonacular.client.model\GenerateShoppingList200Response**](../Model/GenerateShoppingList200Response.md)
 
 ### Authorization
 
@@ -693,17 +683,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: 
-- **Accept**: application/json
+- **Content-Type**: ``
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getMealPlanTemplate()`
 
-## getMealPlanTemplate
-
-> \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20041 getMealPlanTemplate($username, $id, $hash)
+```php
+getMealPlanTemplate($username, $id, $hash): \com.spoonacular.client\com.spoonacular.client.model\GetMealPlanTemplate200Response
+```
 
 Get Meal Plan Template
 
@@ -717,9 +708,9 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
 $apiInstance = new com.spoonacular.client\Api\MealPlanningApi(
@@ -738,11 +729,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling MealPlanningApi->getMealPlanTemplate: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -752,7 +741,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20041**](../Model/InlineResponse20041.md)
+[**\com.spoonacular.client\com.spoonacular.client.model\GetMealPlanTemplate200Response**](../Model/GetMealPlanTemplate200Response.md)
 
 ### Authorization
 
@@ -761,16 +750,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getMealPlanTemplates()`
 
-## getMealPlanTemplates
-
-> \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20039 getMealPlanTemplates($username, $hash)
+```php
+getMealPlanTemplates($username, $hash): \com.spoonacular.client\com.spoonacular.client.model\GetMealPlanTemplates200Response
+```
 
 Get Meal Plan Templates
 
@@ -784,9 +774,9 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
 $apiInstance = new com.spoonacular.client\Api\MealPlanningApi(
@@ -804,11 +794,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling MealPlanningApi->getMealPlanTemplates: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -817,7 +805,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20039**](../Model/InlineResponse20039.md)
+[**\com.spoonacular.client\com.spoonacular.client.model\GetMealPlanTemplates200Response**](../Model/GetMealPlanTemplates200Response.md)
 
 ### Authorization
 
@@ -826,16 +814,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getMealPlanWeek()`
 
-## getMealPlanWeek
-
-> \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20038 getMealPlanWeek($username, $start_date, $hash)
+```php
+getMealPlanWeek($username, $start_date, $hash): \com.spoonacular.client\com.spoonacular.client.model\GetMealPlanWeek200Response
+```
 
 Get Meal Plan Week
 
@@ -849,9 +838,9 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
 $apiInstance = new com.spoonacular.client\Api\MealPlanningApi(
@@ -870,11 +859,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling MealPlanningApi->getMealPlanWeek: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -884,7 +871,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20038**](../Model/InlineResponse20038.md)
+[**\com.spoonacular.client\com.spoonacular.client.model\GetMealPlanWeek200Response**](../Model/GetMealPlanWeek200Response.md)
 
 ### Authorization
 
@@ -893,16 +880,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getShoppingList()`
 
-## getShoppingList
-
-> \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20042 getShoppingList($username, $hash)
+```php
+getShoppingList($username, $hash): \com.spoonacular.client\com.spoonacular.client.model\GetShoppingList200Response
+```
 
 Get Shopping List
 
@@ -916,9 +904,9 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
 $apiInstance = new com.spoonacular.client\Api\MealPlanningApi(
@@ -936,11 +924,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling MealPlanningApi->getShoppingList: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -949,7 +935,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20042**](../Model/InlineResponse20042.md)
+[**\com.spoonacular.client\com.spoonacular.client.model\GetShoppingList200Response**](../Model/GetShoppingList200Response.md)
 
 ### Authorization
 
@@ -958,9 +944,8 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
-

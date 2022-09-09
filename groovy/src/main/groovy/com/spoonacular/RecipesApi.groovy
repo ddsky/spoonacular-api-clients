@@ -1,32 +1,33 @@
 package com.spoonacular;
 
 import com.spoonacular.client.ApiUtils
+import com.spoonacular.client.model.AnalyzeARecipeSearchQuery200Response
+import com.spoonacular.client.model.AnalyzeRecipeInstructions200Response
+import com.spoonacular.client.model.AutocompleteRecipeSearch200ResponseInner
 import java.math.BigDecimal
-import com.spoonacular.client.model.InlineObject
-import com.spoonacular.client.model.InlineResponse200
-import com.spoonacular.client.model.InlineResponse2001
-import com.spoonacular.client.model.InlineResponse20010
-import com.spoonacular.client.model.InlineResponse20011
-import com.spoonacular.client.model.InlineResponse20012
-import com.spoonacular.client.model.InlineResponse20013
-import com.spoonacular.client.model.InlineResponse20014
-import com.spoonacular.client.model.InlineResponse20015
-import com.spoonacular.client.model.InlineResponse20016
-import com.spoonacular.client.model.InlineResponse20017
-import com.spoonacular.client.model.InlineResponse20018
-import com.spoonacular.client.model.InlineResponse20019
-import com.spoonacular.client.model.InlineResponse2002
-import com.spoonacular.client.model.InlineResponse20020
-import com.spoonacular.client.model.InlineResponse20021
-import com.spoonacular.client.model.InlineResponse20023
-import com.spoonacular.client.model.InlineResponse2003
-import com.spoonacular.client.model.InlineResponse2004
-import com.spoonacular.client.model.InlineResponse2005
-import com.spoonacular.client.model.InlineResponse20050
-import com.spoonacular.client.model.InlineResponse2006
-import com.spoonacular.client.model.InlineResponse2007
-import com.spoonacular.client.model.InlineResponse2008
-import com.spoonacular.client.model.InlineResponse2009
+import com.spoonacular.client.model.ClassifyCuisine200Response
+import com.spoonacular.client.model.ComputeGlycemicLoad200Response
+import com.spoonacular.client.model.ComputeGlycemicLoadRequest
+import com.spoonacular.client.model.ConvertAmounts200Response
+import com.spoonacular.client.model.CreateRecipeCard200Response
+import com.spoonacular.client.model.GetAnalyzedRecipeInstructions200Response
+import com.spoonacular.client.model.GetRandomRecipes200Response
+import com.spoonacular.client.model.GetRecipeEquipmentByID200Response
+import com.spoonacular.client.model.GetRecipeInformation200Response
+import com.spoonacular.client.model.GetRecipeInformationBulk200ResponseInner
+import com.spoonacular.client.model.GetRecipeIngredientsByID200Response
+import com.spoonacular.client.model.GetRecipeNutritionWidgetByID200Response
+import com.spoonacular.client.model.GetRecipePriceBreakdownByID200Response
+import com.spoonacular.client.model.GetRecipeTasteByID200Response
+import com.spoonacular.client.model.GetSimilarRecipes200ResponseInner
+import com.spoonacular.client.model.GuessNutritionByDishName200Response
+import com.spoonacular.client.model.ParseIngredients200ResponseInner
+import com.spoonacular.client.model.QuickAnswer200Response
+import com.spoonacular.client.model.SearchRecipes200Response
+import com.spoonacular.client.model.SearchRecipesByIngredients200ResponseInner
+import com.spoonacular.client.model.SearchRecipesByNutrients200ResponseInner
+import java.util.Set
+import com.spoonacular.client.model.SummarizeRecipe200Response
 
 class RecipesApi {
     String basePath = "https://api.spoonacular.com"
@@ -56,7 +57,7 @@ class RecipesApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "GET", "",
-                    InlineResponse20018.class )
+                    AnalyzeARecipeSearchQuery200Response.class )
 
     }
 
@@ -79,7 +80,7 @@ class RecipesApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "POST", "",
-                    InlineResponse20016.class )
+                    AnalyzeRecipeInstructions200Response.class )
 
     }
 
@@ -104,8 +105,8 @@ class RecipesApi {
 
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
-                    "GET", "array",
-                    InlineResponse2007.class )
+                    "GET", "set",
+                    AutocompleteRecipeSearch200ResponseInner.class )
 
     }
 
@@ -128,11 +129,11 @@ class RecipesApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "POST", "",
-                    InlineResponse20017.class )
+                    ClassifyCuisine200Response.class )
 
     }
 
-    def computeGlycemicLoad ( InlineObject inlineObject, String language, Closure onSuccess, Closure onFailure)  {
+    def computeGlycemicLoad ( ComputeGlycemicLoadRequest computeGlycemicLoadRequest, String language, Closure onSuccess, Closure onFailure)  {
         String resourcePath = "/food/ingredients/glycemicLoad"
 
         // params
@@ -142,8 +143,8 @@ class RecipesApi {
         def contentType
 
         // verify required params are set
-        if (inlineObject == null) {
-            throw new RuntimeException("missing required params inlineObject")
+        if (computeGlycemicLoadRequest == null) {
+            throw new RuntimeException("missing required params computeGlycemicLoadRequest")
         }
 
         if (language != null) {
@@ -152,12 +153,12 @@ class RecipesApi {
 
 
         contentType = 'application/json';
-        bodyParams = inlineObject
+        bodyParams = computeGlycemicLoadRequest
 
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "POST", "",
-                    InlineResponse20023.class )
+                    ComputeGlycemicLoad200Response.class )
 
     }
 
@@ -205,7 +206,7 @@ class RecipesApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "GET", "",
-                    InlineResponse20019.class )
+                    ConvertAmounts200Response.class )
 
     }
 
@@ -228,7 +229,7 @@ class RecipesApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "POST", "",
-                    InlineResponse20015.class )
+                    CreateRecipeCard200Response.class )
 
     }
 
@@ -291,7 +292,7 @@ class RecipesApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "GET", "",
-                    InlineResponse2003.class )
+                    GetRecipeInformation200Response.class )
 
     }
 
@@ -318,7 +319,7 @@ class RecipesApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "GET", "",
-                    InlineResponse20013.class )
+                    GetAnalyzedRecipeInstructions200Response.class )
 
     }
 
@@ -347,7 +348,7 @@ class RecipesApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "GET", "",
-                    InlineResponse2006.class )
+                    GetRandomRecipes200Response.class )
 
     }
 
@@ -371,7 +372,7 @@ class RecipesApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "GET", "",
-                    InlineResponse2009.class )
+                    GetRecipeEquipmentByID200Response.class )
 
     }
 
@@ -398,7 +399,7 @@ class RecipesApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "GET", "",
-                    InlineResponse2003.class )
+                    GetRecipeInformation200Response.class )
 
     }
 
@@ -427,8 +428,8 @@ class RecipesApi {
 
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
-                    "GET", "array",
-                    InlineResponse2004.class )
+                    "GET", "set",
+                    GetRecipeInformationBulk200ResponseInner.class )
 
     }
 
@@ -452,7 +453,7 @@ class RecipesApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "GET", "",
-                    InlineResponse20011.class )
+                    GetRecipeIngredientsByID200Response.class )
 
     }
 
@@ -476,7 +477,7 @@ class RecipesApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "GET", "",
-                    InlineResponse20012.class )
+                    GetRecipeNutritionWidgetByID200Response.class )
 
     }
 
@@ -500,7 +501,7 @@ class RecipesApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "GET", "",
-                    InlineResponse20010.class )
+                    GetRecipePriceBreakdownByID200Response.class )
 
     }
 
@@ -527,7 +528,7 @@ class RecipesApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "GET", "",
-                    InlineResponse2008.class )
+                    GetRecipeTasteByID200Response.class )
 
     }
 
@@ -556,8 +557,8 @@ class RecipesApi {
 
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
-                    "GET", "array",
-                    InlineResponse2005.class )
+                    "GET", "set",
+                    GetSimilarRecipes200ResponseInner.class )
 
     }
 
@@ -584,7 +585,7 @@ class RecipesApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "GET", "",
-                    InlineResponse20021.class )
+                    GuessNutritionByDishName200Response.class )
 
     }
 
@@ -636,8 +637,8 @@ class RecipesApi {
 
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
-                    "POST", "array",
-                    InlineResponse20020.class )
+                    "POST", "set",
+                    ParseIngredients200ResponseInner.class )
 
     }
 
@@ -688,7 +689,7 @@ class RecipesApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "GET", "",
-                    InlineResponse20050.class )
+                    QuickAnswer200Response.class )
 
     }
 
@@ -1119,7 +1120,7 @@ class RecipesApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "GET", "",
-                    InlineResponse200.class )
+                    SearchRecipes200Response.class )
 
     }
 
@@ -1153,8 +1154,8 @@ class RecipesApi {
 
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
-                    "GET", "array",
-                    InlineResponse2001.class )
+                    "GET", "set",
+                    SearchRecipesByIngredients200ResponseInner.class )
 
     }
 
@@ -1401,8 +1402,8 @@ class RecipesApi {
 
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
-                    "GET", "array",
-                    InlineResponse2002.class )
+                    "GET", "set",
+                    SearchRecipesByNutrients200ResponseInner.class )
 
     }
 
@@ -1426,7 +1427,7 @@ class RecipesApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "GET", "",
-                    InlineResponse20014.class )
+                    SummarizeRecipe200Response.class )
 
     }
 

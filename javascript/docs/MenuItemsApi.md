@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 ## autocompleteMenuItemSearch
 
-> InlineResponse20032 autocompleteMenuItemSearch(query, opts)
+> AutocompleteMenuItemSearch200Response autocompleteMenuItemSearch(query, opts)
 
 Autocomplete Menu Item Search
 
@@ -36,7 +36,7 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 let apiInstance = new SpoonacularApi.MenuItemsApi();
 let query = chicke; // String | The (partial) search query.
 let opts = {
-  '_number': 10 // Number | The number of results to return (between 1 and 25).
+  'number': 10 // Number | The number of results to return (between 1 and 25).
 };
 apiInstance.autocompleteMenuItemSearch(query, opts, (error, data, response) => {
   if (error) {
@@ -53,11 +53,11 @@ apiInstance.autocompleteMenuItemSearch(query, opts, (error, data, response) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **query** | **String**| The (partial) search query. | 
- **_number** | **Number**| The number of results to return (between 1 and 25). | [optional] 
+ **number** | **Number**| The number of results to return (between 1 and 25). | [optional] 
 
 ### Return type
 
-[**InlineResponse20032**](InlineResponse20032.md)
+[**AutocompleteMenuItemSearch200Response**](AutocompleteMenuItemSearch200Response.md)
 
 ### Authorization
 
@@ -71,7 +71,7 @@ Name | Type | Description  | Notes
 
 ## getMenuItemInformation
 
-> InlineResponse20036 getMenuItemInformation(id)
+> GetMenuItemInformation200Response getMenuItemInformation(id)
 
 Get Menu Item Information
 
@@ -108,7 +108,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20036**](InlineResponse20036.md)
+[**GetMenuItemInformation200Response**](GetMenuItemInformation200Response.md)
 
 ### Authorization
 
@@ -293,7 +293,7 @@ Name | Type | Description  | Notes
 
 ## searchMenuItems
 
-> InlineResponse20035 searchMenuItems(opts)
+> SearchMenuItems200Response searchMenuItems(opts)
 
 Search Menu Items
 
@@ -323,7 +323,7 @@ let opts = {
   'maxFat': 100, // Number | The maximum amount of fat in grams the menu item can have.
   'addMenuItemInformation': true, // Boolean | If set to true, you get more information about the menu items returned.
   'offset': 56, // Number | The number of results to skip (between 0 and 900).
-  '_number': 10 // Number | The maximum number of items to return (between 1 and 100). Defaults to 10.
+  'number': 10 // Number | The maximum number of items to return (between 1 and 100). Defaults to 10.
 };
 apiInstance.searchMenuItems(opts, (error, data, response) => {
   if (error) {
@@ -350,11 +350,11 @@ Name | Type | Description  | Notes
  **maxFat** | **Number**| The maximum amount of fat in grams the menu item can have. | [optional] 
  **addMenuItemInformation** | **Boolean**| If set to true, you get more information about the menu items returned. | [optional] 
  **offset** | **Number**| The number of results to skip (between 0 and 900). | [optional] 
- **_number** | **Number**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
+ **number** | **Number**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
 
 ### Return type
 
-[**InlineResponse20035**](InlineResponse20035.md)
+[**SearchMenuItems200Response**](SearchMenuItems200Response.md)
 
 ### Authorization
 

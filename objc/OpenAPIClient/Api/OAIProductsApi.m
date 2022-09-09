@@ -1,14 +1,16 @@
 #import "OAIProductsApi.h"
 #import "OAIQueryParamCollection.h"
 #import "OAIApiClient.h"
-#import "OAIInlineObject.h"
-#import "OAIInlineObject1.h"
-#import "OAIInlineResponse20027.h"
-#import "OAIInlineResponse20028.h"
-#import "OAIInlineResponse20030.h"
-#import "OAIInlineResponse20031.h"
-#import "OAIInlineResponse20032.h"
-#import "OAIInlineResponse20033.h"
+#import "OAIAutocompleteProductSearch200Response.h"
+#import "OAIClassifyGroceryProduct200Response.h"
+#import "OAIClassifyGroceryProductBulk200ResponseInner.h"
+#import "OAIClassifyGroceryProductBulkRequestInner.h"
+#import "OAIClassifyGroceryProductRequest.h"
+#import "OAIGetComparableProducts200Response.h"
+#import "OAIGetProductInformation200Response.h"
+#import "OAISearchGroceryProducts200Response.h"
+#import "OAISearchGroceryProductsByUPC200Response.h"
+#import "OAISet.h"
 
 
 @interface OAIProductsApi ()
@@ -63,11 +65,11 @@ NSInteger kOAIProductsApiMissingParamErrorCode = 234513;
 ///
 ///  @param number The number of results to return (between 1 and 25). (optional)
 ///
-///  @returns OAIInlineResponse20032*
+///  @returns OAIAutocompleteProductSearch200Response*
 ///
 -(NSURLSessionTask*) autocompleteProductSearchWithQuery: (NSString*) query
     number: (NSNumber*) number
-    completionHandler: (void (^)(OAIInlineResponse20032* output, NSError* error)) handler {
+    completionHandler: (void (^)(OAIAutocompleteProductSearch200Response* output, NSError* error)) handler {
     // verify the required parameter 'query' is set
     if (query == nil) {
         NSParameterAssert(query);
@@ -122,10 +124,10 @@ NSInteger kOAIProductsApiMissingParamErrorCode = 234513;
                               authSettings: authSettings
                         requestContentType: requestContentType
                        responseContentType: responseContentType
-                              responseType: @"OAIInlineResponse20032*"
+                              responseType: @"OAIAutocompleteProductSearch200Response*"
                            completionBlock: ^(id data, NSError *error) {
                                 if(handler) {
-                                    handler((OAIInlineResponse20032*)data, error);
+                                    handler((OAIAutocompleteProductSearch200Response*)data, error);
                                 }
                             }];
 }
@@ -133,20 +135,20 @@ NSInteger kOAIProductsApiMissingParamErrorCode = 234513;
 ///
 /// Classify Grocery Product
 /// This endpoint allows you to match a packaged food to a basic category, e.g. a specific brand of milk to the category milk.
-///  @param inlineObject1  
+///  @param classifyGroceryProductRequest  
 ///
 ///  @param locale The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). (optional)
 ///
-///  @returns OAIInlineResponse20033*
+///  @returns OAIClassifyGroceryProduct200Response*
 ///
--(NSURLSessionTask*) classifyGroceryProductWithInlineObject1: (OAIInlineObject1*) inlineObject1
+-(NSURLSessionTask*) classifyGroceryProductWithClassifyGroceryProductRequest: (OAIClassifyGroceryProductRequest*) classifyGroceryProductRequest
     locale: (NSString*) locale
-    completionHandler: (void (^)(OAIInlineResponse20033* output, NSError* error)) handler {
-    // verify the required parameter 'inlineObject1' is set
-    if (inlineObject1 == nil) {
-        NSParameterAssert(inlineObject1);
+    completionHandler: (void (^)(OAIClassifyGroceryProduct200Response* output, NSError* error)) handler {
+    // verify the required parameter 'classifyGroceryProductRequest' is set
+    if (classifyGroceryProductRequest == nil) {
+        NSParameterAssert(classifyGroceryProductRequest);
         if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"inlineObject1"] };
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"classifyGroceryProductRequest"] };
             NSError* error = [NSError errorWithDomain:kOAIProductsApiErrorDomain code:kOAIProductsApiMissingParamErrorCode userInfo:userInfo];
             handler(nil, error);
         }
@@ -181,7 +183,7 @@ NSInteger kOAIProductsApiMissingParamErrorCode = 234513;
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
-    bodyParam = inlineObject1;
+    bodyParam = classifyGroceryProductRequest;
 
     return [self.apiClient requestWithPath: resourcePath
                                     method: @"POST"
@@ -194,10 +196,10 @@ NSInteger kOAIProductsApiMissingParamErrorCode = 234513;
                               authSettings: authSettings
                         requestContentType: requestContentType
                        responseContentType: responseContentType
-                              responseType: @"OAIInlineResponse20033*"
+                              responseType: @"OAIClassifyGroceryProduct200Response*"
                            completionBlock: ^(id data, NSError *error) {
                                 if(handler) {
-                                    handler((OAIInlineResponse20033*)data, error);
+                                    handler((OAIClassifyGroceryProduct200Response*)data, error);
                                 }
                             }];
 }
@@ -205,20 +207,20 @@ NSInteger kOAIProductsApiMissingParamErrorCode = 234513;
 ///
 /// Classify Grocery Product Bulk
 /// Provide a set of product jsons, get back classified products.
-///  @param inlineObject  
+///  @param classifyGroceryProductBulkRequestInner  
 ///
 ///  @param locale The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). (optional)
 ///
-///  @returns NSArray<OAIInlineResponse20033>*
+///  @returns OAISet<OAIClassifyGroceryProductBulk200ResponseInner>*
 ///
--(NSURLSessionTask*) classifyGroceryProductBulkWithInlineObject: (NSArray<OAIInlineObject>*) inlineObject
+-(NSURLSessionTask*) classifyGroceryProductBulkWithClassifyGroceryProductBulkRequestInner: (OAISet<OAIClassifyGroceryProductBulkRequestInner>*) classifyGroceryProductBulkRequestInner
     locale: (NSString*) locale
-    completionHandler: (void (^)(NSArray<OAIInlineResponse20033>* output, NSError* error)) handler {
-    // verify the required parameter 'inlineObject' is set
-    if (inlineObject == nil) {
-        NSParameterAssert(inlineObject);
+    completionHandler: (void (^)(OAISet<OAIClassifyGroceryProductBulk200ResponseInner>* output, NSError* error)) handler {
+    // verify the required parameter 'classifyGroceryProductBulkRequestInner' is set
+    if (classifyGroceryProductBulkRequestInner == nil) {
+        NSParameterAssert(classifyGroceryProductBulkRequestInner);
         if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"inlineObject"] };
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"classifyGroceryProductBulkRequestInner"] };
             NSError* error = [NSError errorWithDomain:kOAIProductsApiErrorDomain code:kOAIProductsApiMissingParamErrorCode userInfo:userInfo];
             handler(nil, error);
         }
@@ -253,7 +255,7 @@ NSInteger kOAIProductsApiMissingParamErrorCode = 234513;
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
-    bodyParam = inlineObject;
+    bodyParam = classifyGroceryProductBulkRequestInner;
 
     return [self.apiClient requestWithPath: resourcePath
                                     method: @"POST"
@@ -266,10 +268,10 @@ NSInteger kOAIProductsApiMissingParamErrorCode = 234513;
                               authSettings: authSettings
                         requestContentType: requestContentType
                        responseContentType: responseContentType
-                              responseType: @"NSArray<OAIInlineResponse20033>*"
+                              responseType: @"OAISet<OAIClassifyGroceryProductBulk200ResponseInner>*"
                            completionBlock: ^(id data, NSError *error) {
                                 if(handler) {
-                                    handler((NSArray<OAIInlineResponse20033>*)data, error);
+                                    handler((OAISet<OAIClassifyGroceryProductBulk200ResponseInner>*)data, error);
                                 }
                             }];
 }
@@ -279,10 +281,10 @@ NSInteger kOAIProductsApiMissingParamErrorCode = 234513;
 /// Find comparable products to the given one.
 ///  @param upc The UPC of the product for which you want to find comparable products. 
 ///
-///  @returns OAIInlineResponse20031*
+///  @returns OAIGetComparableProducts200Response*
 ///
 -(NSURLSessionTask*) getComparableProductsWithUpc: (NSNumber*) upc
-    completionHandler: (void (^)(OAIInlineResponse20031* output, NSError* error)) handler {
+    completionHandler: (void (^)(OAIGetComparableProducts200Response* output, NSError* error)) handler {
     // verify the required parameter 'upc' is set
     if (upc == nil) {
         NSParameterAssert(upc);
@@ -334,10 +336,10 @@ NSInteger kOAIProductsApiMissingParamErrorCode = 234513;
                               authSettings: authSettings
                         requestContentType: requestContentType
                        responseContentType: responseContentType
-                              responseType: @"OAIInlineResponse20031*"
+                              responseType: @"OAIGetComparableProducts200Response*"
                            completionBlock: ^(id data, NSError *error) {
                                 if(handler) {
-                                    handler((OAIInlineResponse20031*)data, error);
+                                    handler((OAIGetComparableProducts200Response*)data, error);
                                 }
                             }];
 }
@@ -347,10 +349,10 @@ NSInteger kOAIProductsApiMissingParamErrorCode = 234513;
 /// Use a product id to get full information about a product, such as ingredients, nutrition, etc. The nutritional information is per serving.
 ///  @param _id The item's id. 
 ///
-///  @returns OAIInlineResponse20030*
+///  @returns OAIGetProductInformation200Response*
 ///
 -(NSURLSessionTask*) getProductInformationWithId: (NSNumber*) _id
-    completionHandler: (void (^)(OAIInlineResponse20030* output, NSError* error)) handler {
+    completionHandler: (void (^)(OAIGetProductInformation200Response* output, NSError* error)) handler {
     // verify the required parameter '_id' is set
     if (_id == nil) {
         NSParameterAssert(_id);
@@ -402,10 +404,10 @@ NSInteger kOAIProductsApiMissingParamErrorCode = 234513;
                               authSettings: authSettings
                         requestContentType: requestContentType
                        responseContentType: responseContentType
-                              responseType: @"OAIInlineResponse20030*"
+                              responseType: @"OAIGetProductInformation200Response*"
                            completionBlock: ^(id data, NSError *error) {
                                 if(handler) {
-                                    handler((OAIInlineResponse20030*)data, error);
+                                    handler((OAIGetProductInformation200Response*)data, error);
                                 }
                             }];
 }
@@ -683,7 +685,7 @@ NSInteger kOAIProductsApiMissingParamErrorCode = 234513;
 ///
 ///  @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to @10)
 ///
-///  @returns OAIInlineResponse20027*
+///  @returns OAISearchGroceryProducts200Response*
 ///
 -(NSURLSessionTask*) searchGroceryProductsWithQuery: (NSString*) query
     minCalories: (NSNumber*) minCalories
@@ -697,7 +699,7 @@ NSInteger kOAIProductsApiMissingParamErrorCode = 234513;
     addProductInformation: (NSNumber*) addProductInformation
     offset: (NSNumber*) offset
     number: (NSNumber*) number
-    completionHandler: (void (^)(OAIInlineResponse20027* output, NSError* error)) handler {
+    completionHandler: (void (^)(OAISearchGroceryProducts200Response* output, NSError* error)) handler {
     NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/food/products/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
@@ -771,10 +773,10 @@ NSInteger kOAIProductsApiMissingParamErrorCode = 234513;
                               authSettings: authSettings
                         requestContentType: requestContentType
                        responseContentType: responseContentType
-                              responseType: @"OAIInlineResponse20027*"
+                              responseType: @"OAISearchGroceryProducts200Response*"
                            completionBlock: ^(id data, NSError *error) {
                                 if(handler) {
-                                    handler((OAIInlineResponse20027*)data, error);
+                                    handler((OAISearchGroceryProducts200Response*)data, error);
                                 }
                             }];
 }
@@ -784,10 +786,10 @@ NSInteger kOAIProductsApiMissingParamErrorCode = 234513;
 /// Get information about a packaged food using its UPC.
 ///  @param upc The product's UPC. 
 ///
-///  @returns OAIInlineResponse20028*
+///  @returns OAISearchGroceryProductsByUPC200Response*
 ///
 -(NSURLSessionTask*) searchGroceryProductsByUPCWithUpc: (NSNumber*) upc
-    completionHandler: (void (^)(OAIInlineResponse20028* output, NSError* error)) handler {
+    completionHandler: (void (^)(OAISearchGroceryProductsByUPC200Response* output, NSError* error)) handler {
     // verify the required parameter 'upc' is set
     if (upc == nil) {
         NSParameterAssert(upc);
@@ -839,10 +841,10 @@ NSInteger kOAIProductsApiMissingParamErrorCode = 234513;
                               authSettings: authSettings
                         requestContentType: requestContentType
                        responseContentType: responseContentType
-                              responseType: @"OAIInlineResponse20028*"
+                              responseType: @"OAISearchGroceryProductsByUPC200Response*"
                            completionBlock: ^(id data, NSError *error) {
                                 if(handler) {
-                                    handler((OAIInlineResponse20028*)data, error);
+                                    handler((OAISearchGroceryProductsByUPC200Response*)data, error);
                                 }
                             }];
 }

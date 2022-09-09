@@ -21,22 +21,22 @@ Method | HTTP request | Description
 
 
 # **autocomplete_ingredient_search**
-> ARRAY[InlineResponse20024] autocomplete_ingredient_search(query => $query, number => $number, meta_information => $meta_information, intolerances => $intolerances)
+> ARRAY[AutocompleteIngredientSearch200ResponseInner] autocomplete_ingredient_search(query => $query, number => $number, meta_information => $meta_information, intolerances => $intolerances)
 
 Autocomplete Ingredient Search
 
 Autocomplete the entry of an ingredient.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::IngredientsApi;
 my $api_instance = WWW::OpenAPIClient::IngredientsApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $query = burger; # string | The (natural language) search query.
@@ -44,7 +44,7 @@ my $number = 10; # int | The maximum number of items to return (between 1 and 10
 my $meta_information = false; # boolean | Whether to return more meta information about the ingredients.
 my $intolerances = egg; # string | A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
 
-eval { 
+eval {
     my $result = $api_instance->autocomplete_ingredient_search(query => $query, number => $number, meta_information => $meta_information, intolerances => $intolerances);
     print Dumper($result);
 };
@@ -64,7 +64,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ARRAY[InlineResponse20024]**](InlineResponse20024.md)
+[**ARRAY[AutocompleteIngredientSearch200ResponseInner]**](AutocompleteIngredientSearch200ResponseInner.md)
 
 ### Authorization
 
@@ -78,22 +78,22 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **compute_ingredient_amount**
-> RecipesParseIngredientsNutritionWeightPerServing compute_ingredient_amount(id => $id, nutrient => $nutrient, target => $target, unit => $unit)
+> ComputeIngredientAmount200Response compute_ingredient_amount(id => $id, nutrient => $nutrient, target => $target, unit => $unit)
 
 Compute Ingredient Amount
 
 Compute the amount you need of a certain ingredient for a certain nutritional goal. For example, how much pineapple do you have to eat to get 10 grams of protein?
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::IngredientsApi;
 my $api_instance = WWW::OpenAPIClient::IngredientsApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $id = 9266; # double | The id of the ingredient you want the amount for.
@@ -101,7 +101,7 @@ my $nutrient = protein; # string | The target nutrient. See a list of supported 
 my $target = 2; # double | The target number of the given nutrient.
 my $unit = oz; # string | The target unit.
 
-eval { 
+eval {
     my $result = $api_instance->compute_ingredient_amount(id => $id, nutrient => $nutrient, target => $target, unit => $unit);
     print Dumper($result);
 };
@@ -121,7 +121,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RecipesParseIngredientsNutritionWeightPerServing**](RecipesParseIngredientsNutritionWeightPerServing.md)
+[**ComputeIngredientAmount200Response**](ComputeIngredientAmount200Response.md)
 
 ### Authorization
 
@@ -135,29 +135,29 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_ingredient_information**
-> InlineResponse20022 get_ingredient_information(id => $id, amount => $amount, unit => $unit)
+> GetIngredientInformation200Response get_ingredient_information(id => $id, amount => $amount, unit => $unit)
 
 Get Ingredient Information
 
 Use an ingredient id to get all available information about an ingredient, such as its image and supermarket aisle.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::IngredientsApi;
 my $api_instance = WWW::OpenAPIClient::IngredientsApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $id = 1; # int | The item's id.
 my $amount = 150; # double | The amount of this ingredient.
 my $unit = grams; # string | The unit for the given amount.
 
-eval { 
+eval {
     my $result = $api_instance->get_ingredient_information(id => $id, amount => $amount, unit => $unit);
     print Dumper($result);
 };
@@ -176,7 +176,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20022**](InlineResponse20022.md)
+[**GetIngredientInformation200Response**](GetIngredientInformation200Response.md)
 
 ### Authorization
 
@@ -190,27 +190,27 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_ingredient_substitutes**
-> InlineResponse20026 get_ingredient_substitutes(ingredient_name => $ingredient_name)
+> GetIngredientSubstitutes200Response get_ingredient_substitutes(ingredient_name => $ingredient_name)
 
 Get Ingredient Substitutes
 
 Search for substitutes for a given ingredient.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::IngredientsApi;
 my $api_instance = WWW::OpenAPIClient::IngredientsApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $ingredient_name = butter; # string | The name of the ingredient you want to replace.
 
-eval { 
+eval {
     my $result = $api_instance->get_ingredient_substitutes(ingredient_name => $ingredient_name);
     print Dumper($result);
 };
@@ -227,7 +227,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20026**](InlineResponse20026.md)
+[**GetIngredientSubstitutes200Response**](GetIngredientSubstitutes200Response.md)
 
 ### Authorization
 
@@ -241,27 +241,27 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_ingredient_substitutes_by_id**
-> InlineResponse20026 get_ingredient_substitutes_by_id(id => $id)
+> GetIngredientSubstitutes200Response get_ingredient_substitutes_by_id(id => $id)
 
 Get Ingredient Substitutes by ID
 
 Search for substitutes for a given ingredient.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::IngredientsApi;
 my $api_instance = WWW::OpenAPIClient::IngredientsApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $id = 1; # int | The item's id.
 
-eval { 
+eval {
     my $result = $api_instance->get_ingredient_substitutes_by_id(id => $id);
     print Dumper($result);
 };
@@ -278,7 +278,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20026**](InlineResponse20026.md)
+[**GetIngredientSubstitutes200Response**](GetIngredientSubstitutes200Response.md)
 
 ### Authorization
 
@@ -292,22 +292,22 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ingredient_search**
-> InlineResponse20025 ingredient_search(query => $query, add_children => $add_children, min_protein_percent => $min_protein_percent, max_protein_percent => $max_protein_percent, min_fat_percent => $min_fat_percent, max_fat_percent => $max_fat_percent, min_carbs_percent => $min_carbs_percent, max_carbs_percent => $max_carbs_percent, meta_information => $meta_information, intolerances => $intolerances, sort => $sort, sort_direction => $sort_direction, offset => $offset, number => $number)
+> IngredientSearch200Response ingredient_search(query => $query, add_children => $add_children, min_protein_percent => $min_protein_percent, max_protein_percent => $max_protein_percent, min_fat_percent => $min_fat_percent, max_fat_percent => $max_fat_percent, min_carbs_percent => $min_carbs_percent, max_carbs_percent => $max_carbs_percent, meta_information => $meta_information, intolerances => $intolerances, sort => $sort, sort_direction => $sort_direction, offset => $offset, number => $number)
 
 Ingredient Search
 
 Search for simple whole foods (e.g. fruits, vegetables, nuts, grains, meat, fish, dairy etc.).
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::IngredientsApi;
 my $api_instance = WWW::OpenAPIClient::IngredientsApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $query = burger; # string | The (natural language) search query.
@@ -325,7 +325,7 @@ my $sort_direction = asc; # string | The direction in which to sort. Must be eit
 my $offset = 56; # int | The number of results to skip (between 0 and 900).
 my $number = 10; # int | The maximum number of items to return (between 1 and 100). Defaults to 10.
 
-eval { 
+eval {
     my $result = $api_instance->ingredient_search(query => $query, add_children => $add_children, min_protein_percent => $min_protein_percent, max_protein_percent => $max_protein_percent, min_fat_percent => $min_fat_percent, max_fat_percent => $max_fat_percent, min_carbs_percent => $min_carbs_percent, max_carbs_percent => $max_carbs_percent, meta_information => $meta_information, intolerances => $intolerances, sort => $sort, sort_direction => $sort_direction, offset => $offset, number => $number);
     print Dumper($result);
 };
@@ -355,7 +355,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20025**](InlineResponse20025.md)
+[**IngredientSearch200Response**](IngredientSearch200Response.md)
 
 ### Authorization
 
@@ -375,22 +375,22 @@ Ingredients by ID Image
 
 Visualize a recipe's ingredient list.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::IngredientsApi;
 my $api_instance = WWW::OpenAPIClient::IngredientsApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $id = 1082038; # double | The recipe id.
 my $measure = metric; # string | Whether the the measures should be 'us' or 'metric'.
 
-eval { 
+eval {
     my $result = $api_instance->ingredients_by_id_image(id => $id, measure => $measure);
     print Dumper($result);
 };
@@ -422,28 +422,28 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **map_ingredients_to_grocery_products**
-> ARRAY[InlineResponse20034] map_ingredients_to_grocery_products(inline_object2 => $inline_object2)
+> ARRAY[MapIngredientsToGroceryProducts200ResponseInner] map_ingredients_to_grocery_products(map_ingredients_to_grocery_products_request => $map_ingredients_to_grocery_products_request)
 
 Map Ingredients to Grocery Products
 
 Map a set of ingredients to products you can buy in the grocery store.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::IngredientsApi;
 my $api_instance = WWW::OpenAPIClient::IngredientsApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
-my $inline_object2 = WWW::OpenAPIClient::Object::InlineObject2->new(); # InlineObject2 | 
+my $map_ingredients_to_grocery_products_request = WWW::OpenAPIClient::Object::MapIngredientsToGroceryProductsRequest->new(); # MapIngredientsToGroceryProductsRequest | 
 
-eval { 
-    my $result = $api_instance->map_ingredients_to_grocery_products(inline_object2 => $inline_object2);
+eval {
+    my $result = $api_instance->map_ingredients_to_grocery_products(map_ingredients_to_grocery_products_request => $map_ingredients_to_grocery_products_request);
     print Dumper($result);
 };
 if ($@) {
@@ -455,11 +455,11 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inline_object2** | [**InlineObject2**](InlineObject2.md)|  | 
+ **map_ingredients_to_grocery_products_request** | [**MapIngredientsToGroceryProductsRequest**](MapIngredientsToGroceryProductsRequest.md)|  | 
 
 ### Return type
 
-[**ARRAY[InlineResponse20034]**](InlineResponse20034.md)
+[**ARRAY[MapIngredientsToGroceryProducts200ResponseInner]**](MapIngredientsToGroceryProducts200ResponseInner.md)
 
 ### Authorization
 
@@ -479,23 +479,23 @@ Ingredients Widget
 
 Visualize ingredients of a recipe. You can play around with that endpoint!
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::IngredientsApi;
 my $api_instance = WWW::OpenAPIClient::IngredientsApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $content_type = application/json; # string | The content type.
 my $language = en; # string | The language of the input. Either 'en' or 'de'.
 my $accept = application/json; # string | Accept header.
 
-eval { 
+eval {
     my $result = $api_instance->visualize_ingredients(content_type => $content_type, language => $language, accept => $accept);
     print Dumper($result);
 };

@@ -1,16 +1,17 @@
 package com.spoonacular;
 
 import com.spoonacular.client.ApiUtils
+import com.spoonacular.client.model.AutocompleteProductSearch200Response
 import java.math.BigDecimal
-import com.spoonacular.client.model.InlineObject
-import com.spoonacular.client.model.InlineObject1
-import com.spoonacular.client.model.InlineResponse20027
-import com.spoonacular.client.model.InlineResponse20028
-import com.spoonacular.client.model.InlineResponse20030
-import com.spoonacular.client.model.InlineResponse20031
-import com.spoonacular.client.model.InlineResponse20032
-import com.spoonacular.client.model.InlineResponse20033
-import java.util.List
+import com.spoonacular.client.model.ClassifyGroceryProduct200Response
+import com.spoonacular.client.model.ClassifyGroceryProductBulk200ResponseInner
+import com.spoonacular.client.model.ClassifyGroceryProductBulkRequestInner
+import com.spoonacular.client.model.ClassifyGroceryProductRequest
+import com.spoonacular.client.model.GetComparableProducts200Response
+import com.spoonacular.client.model.GetProductInformation200Response
+import com.spoonacular.client.model.SearchGroceryProducts200Response
+import com.spoonacular.client.model.SearchGroceryProductsByUPC200Response
+import java.util.Set
 
 class ProductsApi {
     String basePath = "https://api.spoonacular.com"
@@ -43,11 +44,11 @@ class ProductsApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "GET", "",
-                    InlineResponse20032.class )
+                    AutocompleteProductSearch200Response.class )
 
     }
 
-    def classifyGroceryProduct ( InlineObject1 inlineObject1, String locale, Closure onSuccess, Closure onFailure)  {
+    def classifyGroceryProduct ( ClassifyGroceryProductRequest classifyGroceryProductRequest, String locale, Closure onSuccess, Closure onFailure)  {
         String resourcePath = "/food/products/classify"
 
         // params
@@ -57,8 +58,8 @@ class ProductsApi {
         def contentType
 
         // verify required params are set
-        if (inlineObject1 == null) {
-            throw new RuntimeException("missing required params inlineObject1")
+        if (classifyGroceryProductRequest == null) {
+            throw new RuntimeException("missing required params classifyGroceryProductRequest")
         }
 
         if (locale != null) {
@@ -67,16 +68,16 @@ class ProductsApi {
 
 
         contentType = 'application/json';
-        bodyParams = inlineObject1
+        bodyParams = classifyGroceryProductRequest
 
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "POST", "",
-                    InlineResponse20033.class )
+                    ClassifyGroceryProduct200Response.class )
 
     }
 
-    def classifyGroceryProductBulk ( List<InlineObject> inlineObject, String locale, Closure onSuccess, Closure onFailure)  {
+    def classifyGroceryProductBulk ( Set<ClassifyGroceryProductBulkRequestInner> classifyGroceryProductBulkRequestInner, String locale, Closure onSuccess, Closure onFailure)  {
         String resourcePath = "/food/products/classifyBatch"
 
         // params
@@ -86,8 +87,8 @@ class ProductsApi {
         def contentType
 
         // verify required params are set
-        if (inlineObject == null) {
-            throw new RuntimeException("missing required params inlineObject")
+        if (classifyGroceryProductBulkRequestInner == null) {
+            throw new RuntimeException("missing required params classifyGroceryProductBulkRequestInner")
         }
 
         if (locale != null) {
@@ -96,12 +97,12 @@ class ProductsApi {
 
 
         contentType = 'application/json';
-        bodyParams = inlineObject
+        bodyParams = classifyGroceryProductBulkRequestInner
 
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
-                    "POST", "array",
-                    InlineResponse20033.class )
+                    "POST", "set",
+                    ClassifyGroceryProductBulk200ResponseInner.class )
 
     }
 
@@ -125,7 +126,7 @@ class ProductsApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "GET", "",
-                    InlineResponse20031.class )
+                    GetComparableProducts200Response.class )
 
     }
 
@@ -149,7 +150,7 @@ class ProductsApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "GET", "",
-                    InlineResponse20030.class )
+                    GetProductInformation200Response.class )
 
     }
 
@@ -298,7 +299,7 @@ class ProductsApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "GET", "",
-                    InlineResponse20027.class )
+                    SearchGroceryProducts200Response.class )
 
     }
 
@@ -322,7 +323,7 @@ class ProductsApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "GET", "",
-                    InlineResponse20028.class )
+                    SearchGroceryProductsByUPC200Response.class )
 
     }
 

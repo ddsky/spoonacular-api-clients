@@ -2,16 +2,17 @@ package com.spoonacular;
 
 import com.spoonacular.client.ApiUtils
 import java.math.BigDecimal
-import com.spoonacular.client.model.InlineResponse20029
-import com.spoonacular.client.model.InlineResponse20048
-import com.spoonacular.client.model.InlineResponse20049
-import com.spoonacular.client.model.InlineResponse20051
-import com.spoonacular.client.model.InlineResponse20052
-import com.spoonacular.client.model.InlineResponse20053
-import com.spoonacular.client.model.InlineResponse20054
-import com.spoonacular.client.model.InlineResponse20055
-import com.spoonacular.client.model.InlineResponse20056
-import com.spoonacular.client.model.InlineResponse20057
+import com.spoonacular.client.model.DetectFoodInText200Response
+import com.spoonacular.client.model.GetARandomFoodJoke200Response
+import com.spoonacular.client.model.GetConversationSuggests200Response
+import com.spoonacular.client.model.GetRandomFoodTrivia200Response
+import com.spoonacular.client.model.ImageAnalysisByURL200Response
+import com.spoonacular.client.model.ImageClassificationByURL200Response
+import com.spoonacular.client.model.SearchAllFood200Response
+import com.spoonacular.client.model.SearchCustomFoods200Response
+import com.spoonacular.client.model.SearchFoodVideos200Response
+import com.spoonacular.client.model.SearchSiteContent200Response
+import com.spoonacular.client.model.TalkToChatbot200Response
 
 class MiscApi {
     String basePath = "https://api.spoonacular.com"
@@ -37,7 +38,7 @@ class MiscApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "POST", "",
-                    InlineResponse20051.class )
+                    DetectFoodInText200Response.class )
 
     }
 
@@ -57,7 +58,7 @@ class MiscApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "GET", "",
-                    InlineResponse20055.class )
+                    GetARandomFoodJoke200Response.class )
 
     }
 
@@ -87,7 +88,7 @@ class MiscApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "GET", "",
-                    InlineResponse20057.class )
+                    GetConversationSuggests200Response.class )
 
     }
 
@@ -107,7 +108,7 @@ class MiscApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "GET", "",
-                    InlineResponse20055.class )
+                    GetRandomFoodTrivia200Response.class )
 
     }
 
@@ -134,7 +135,7 @@ class MiscApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "GET", "",
-                    InlineResponse20049.class )
+                    ImageAnalysisByURL200Response.class )
 
     }
 
@@ -161,7 +162,7 @@ class MiscApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "GET", "",
-                    InlineResponse20048.class )
+                    ImageClassificationByURL200Response.class )
 
     }
 
@@ -194,7 +195,7 @@ class MiscApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "GET", "",
-                    InlineResponse20053.class )
+                    SearchAllFood200Response.class )
 
     }
 
@@ -237,7 +238,7 @@ class MiscApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "GET", "",
-                    InlineResponse20029.class )
+                    SearchCustomFoods200Response.class )
 
     }
 
@@ -287,7 +288,7 @@ class MiscApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "GET", "",
-                    InlineResponse20054.class )
+                    SearchFoodVideos200Response.class )
 
     }
 
@@ -314,7 +315,7 @@ class MiscApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "GET", "",
-                    InlineResponse20052.class )
+                    SearchSiteContent200Response.class )
 
     }
 
@@ -344,7 +345,7 @@ class MiscApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "GET", "",
-                    InlineResponse20056.class )
+                    TalkToChatbot200Response.class )
 
     }
 

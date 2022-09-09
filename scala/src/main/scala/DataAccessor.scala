@@ -1,4 +1,4 @@
-package spoonacular
+package org.openapitools
 
 // TODO: properly handle custom imports
 import java.io._
@@ -16,39 +16,39 @@ trait DataAccessor {
 
         /**
         * 
-        * @return A Seq[InlineResponse20024]
+        * @return A Set[AutocompleteIngredientSearch200ResponseInner]
         */
-        def Ingredients_autocompleteIngredientSearch(query: Option[String], number: Option[Int], metaInformation: Option[Boolean], intolerances: Option[String], authParamapiKeyScheme: String): Either[CommonError,Seq[InlineResponse20024]] = Left(TODO)
+        def Ingredients_autocompleteIngredientSearch(query: Option[String], number: Option[Int], metaInformation: Option[Boolean], intolerances: Option[String], authParamapiKeyScheme: String): Either[CommonError,Set[AutocompleteIngredientSearch200ResponseInner]] = Left(TODO)
 
         /**
         * 
-        * @return A RecipesParseIngredientsNutritionWeightPerServing
+        * @return A ComputeIngredientAmount200Response
         */
-        def Ingredients_computeIngredientAmount(id: BigDecimal, nutrient: String, target: BigDecimal, unit: Option[String], authParamapiKeyScheme: String): Either[CommonError,RecipesParseIngredientsNutritionWeightPerServing] = Left(TODO)
+        def Ingredients_computeIngredientAmount(id: BigDecimal, nutrient: String, target: BigDecimal, unit: Option[String], authParamapiKeyScheme: String): Either[CommonError,ComputeIngredientAmount200Response] = Left(TODO)
 
         /**
         * 
-        * @return A InlineResponse20022
+        * @return A GetIngredientInformation200Response
         */
-        def Ingredients_getIngredientInformation(id: Int, amount: Option[BigDecimal], unit: Option[String], authParamapiKeyScheme: String): Either[CommonError,InlineResponse20022] = Left(TODO)
+        def Ingredients_getIngredientInformation(id: Int, amount: Option[BigDecimal], unit: Option[String], authParamapiKeyScheme: String): Either[CommonError,GetIngredientInformation200Response] = Left(TODO)
 
         /**
         * 
-        * @return A InlineResponse20026
+        * @return A GetIngredientSubstitutes200Response
         */
-        def Ingredients_getIngredientSubstitutes(ingredientName: String, authParamapiKeyScheme: String): Either[CommonError,InlineResponse20026] = Left(TODO)
+        def Ingredients_getIngredientSubstitutes(ingredientName: String, authParamapiKeyScheme: String): Either[CommonError,GetIngredientSubstitutes200Response] = Left(TODO)
 
         /**
         * 
-        * @return A InlineResponse20026
+        * @return A GetIngredientSubstitutes200Response
         */
-        def Ingredients_getIngredientSubstitutesByID(id: Int, authParamapiKeyScheme: String): Either[CommonError,InlineResponse20026] = Left(TODO)
+        def Ingredients_getIngredientSubstitutesByID(id: Int, authParamapiKeyScheme: String): Either[CommonError,GetIngredientSubstitutes200Response] = Left(TODO)
 
         /**
         * 
-        * @return A InlineResponse20025
+        * @return A IngredientSearch200Response
         */
-        def Ingredients_ingredientSearch(query: Option[String], addChildren: Option[Boolean], minProteinPercent: Option[BigDecimal], maxProteinPercent: Option[BigDecimal], minFatPercent: Option[BigDecimal], maxFatPercent: Option[BigDecimal], minCarbsPercent: Option[BigDecimal], maxCarbsPercent: Option[BigDecimal], metaInformation: Option[Boolean], intolerances: Option[String], sort: Option[String], sortDirection: Option[String], offset: Option[Int], number: Option[Int], authParamapiKeyScheme: String): Either[CommonError,InlineResponse20025] = Left(TODO)
+        def Ingredients_ingredientSearch(query: Option[String], addChildren: Option[Boolean], minProteinPercent: Option[BigDecimal], maxProteinPercent: Option[BigDecimal], minFatPercent: Option[BigDecimal], maxFatPercent: Option[BigDecimal], minCarbsPercent: Option[BigDecimal], maxCarbsPercent: Option[BigDecimal], metaInformation: Option[Boolean], intolerances: Option[String], sort: Option[String], sortDirection: Option[String], offset: Option[Int], number: Option[Int], authParamapiKeyScheme: String): Either[CommonError,IngredientSearch200Response] = Left(TODO)
 
         /**
         * 
@@ -58,9 +58,9 @@ trait DataAccessor {
 
         /**
         * 
-        * @return A Seq[InlineResponse20034]
+        * @return A Set[MapIngredientsToGroceryProducts200ResponseInner]
         */
-        def Ingredients_mapIngredientsToGroceryProducts(inlineObject2: InlineObject2, authParamapiKeyScheme: String): Either[CommonError,Seq[InlineResponse20034]] = Left(TODO)
+        def Ingredients_mapIngredientsToGroceryProducts(mapIngredientsToGroceryProductsRequest: MapIngredientsToGroceryProductsRequest, authParamapiKeyScheme: String): Either[CommonError,Set[MapIngredientsToGroceryProducts200ResponseInner]] = Left(TODO)
 
         /**
         * 
@@ -70,99 +70,99 @@ trait DataAccessor {
 
         /**
         * 
-        * @return A InlineResponse20040
+        * @return A AddMealPlanTemplate200Response
         */
-        def MealPlanning_addMealPlanTemplate(username: String, hash: String, inlineObject6: InlineObject6, authParamapiKeyScheme: String): Either[CommonError,InlineResponse20040] = Left(TODO)
+        def MealPlanning_addMealPlanTemplate(username: String, hash: String, addToMealPlanRequest: AddToMealPlanRequest, authParamapiKeyScheme: String): Either[CommonError,AddMealPlanTemplate200Response] = Left(TODO)
 
         /**
         * 
         * @return A Object
         */
-        def MealPlanning_addToMealPlan(username: String, hash: String, inlineObject4: InlineObject4, authParamapiKeyScheme: String): Either[CommonError,Object] = Left(TODO)
+        def MealPlanning_addToMealPlan(username: String, hash: String, addToMealPlanRequest: AddToMealPlanRequest, authParamapiKeyScheme: String): Either[CommonError,Object] = Left(TODO)
 
         /**
         * 
-        * @return A InlineResponse20042
+        * @return A GenerateShoppingList200Response
         */
-        def MealPlanning_addToShoppingList(username: String, hash: String, inlineObject9: InlineObject9, authParamapiKeyScheme: String): Either[CommonError,InlineResponse20042] = Left(TODO)
-
-        /**
-        * 
-        * @return A Object
-        */
-        def MealPlanning_clearMealPlanDay(username: String, date: String, hash: String, inlineObject3: InlineObject3, authParamapiKeyScheme: String): Either[CommonError,Object] = Left(TODO)
-
-        /**
-        * 
-        * @return A InlineResponse20043
-        */
-        def MealPlanning_connectUser(body: Object, authParamapiKeyScheme: String): Either[CommonError,InlineResponse20043] = Left(TODO)
+        def MealPlanning_addToShoppingList(username: String, hash: String, addToMealPlanRequest: AddToMealPlanRequest, authParamapiKeyScheme: String): Either[CommonError,GenerateShoppingList200Response] = Left(TODO)
 
         /**
         * 
         * @return A Object
         */
-        def MealPlanning_deleteFromMealPlan(username: String, id: BigDecimal, hash: String, inlineObject5: InlineObject5, authParamapiKeyScheme: String): Either[CommonError,Object] = Left(TODO)
+        def MealPlanning_clearMealPlanDay(username: String, date: String, hash: String, clearMealPlanDayRequest: ClearMealPlanDayRequest, authParamapiKeyScheme: String): Either[CommonError,Object] = Left(TODO)
+
+        /**
+        * 
+        * @return A ConnectUser200Response
+        */
+        def MealPlanning_connectUser(body: Object, authParamapiKeyScheme: String): Either[CommonError,ConnectUser200Response] = Left(TODO)
 
         /**
         * 
         * @return A Object
         */
-        def MealPlanning_deleteFromShoppingList(username: String, id: Int, hash: String, inlineObject10: InlineObject10, authParamapiKeyScheme: String): Either[CommonError,Object] = Left(TODO)
+        def MealPlanning_deleteFromMealPlan(username: String, id: BigDecimal, hash: String, deleteFromMealPlanRequest: DeleteFromMealPlanRequest, authParamapiKeyScheme: String): Either[CommonError,Object] = Left(TODO)
 
         /**
         * 
         * @return A Object
         */
-        def MealPlanning_deleteMealPlanTemplate(username: String, id: Int, hash: String, inlineObject7: InlineObject7, authParamapiKeyScheme: String): Either[CommonError,Object] = Left(TODO)
+        def MealPlanning_deleteFromShoppingList(username: String, id: Int, hash: String, deleteFromMealPlanRequest: DeleteFromMealPlanRequest, authParamapiKeyScheme: String): Either[CommonError,Object] = Left(TODO)
 
         /**
         * 
-        * @return A InlineResponse20037
+        * @return A Object
         */
-        def MealPlanning_generateMealPlan(timeFrame: Option[String], targetCalories: Option[BigDecimal], diet: Option[String], exclude: Option[String], authParamapiKeyScheme: String): Either[CommonError,InlineResponse20037] = Left(TODO)
+        def MealPlanning_deleteMealPlanTemplate(username: String, id: Int, hash: String, deleteFromMealPlanRequest: DeleteFromMealPlanRequest, authParamapiKeyScheme: String): Either[CommonError,Object] = Left(TODO)
 
         /**
         * 
-        * @return A InlineResponse20042
+        * @return A GenerateMealPlan200Response
         */
-        def MealPlanning_generateShoppingList(username: String, startDate: String, endDate: String, hash: String, inlineObject8: InlineObject8, authParamapiKeyScheme: String): Either[CommonError,InlineResponse20042] = Left(TODO)
+        def MealPlanning_generateMealPlan(timeFrame: Option[String], targetCalories: Option[BigDecimal], diet: Option[String], exclude: Option[String], authParamapiKeyScheme: String): Either[CommonError,GenerateMealPlan200Response] = Left(TODO)
 
         /**
         * 
-        * @return A InlineResponse20041
+        * @return A GenerateShoppingList200Response
         */
-        def MealPlanning_getMealPlanTemplate(username: String, id: Int, hash: String, authParamapiKeyScheme: String): Either[CommonError,InlineResponse20041] = Left(TODO)
+        def MealPlanning_generateShoppingList(username: String, startDate: String, endDate: String, hash: String, generateShoppingListRequest: GenerateShoppingListRequest, authParamapiKeyScheme: String): Either[CommonError,GenerateShoppingList200Response] = Left(TODO)
 
         /**
         * 
-        * @return A InlineResponse20039
+        * @return A GetMealPlanTemplate200Response
         */
-        def MealPlanning_getMealPlanTemplates(username: String, hash: String, authParamapiKeyScheme: String): Either[CommonError,InlineResponse20039] = Left(TODO)
+        def MealPlanning_getMealPlanTemplate(username: String, id: Int, hash: String, authParamapiKeyScheme: String): Either[CommonError,GetMealPlanTemplate200Response] = Left(TODO)
 
         /**
         * 
-        * @return A InlineResponse20038
+        * @return A GetMealPlanTemplates200Response
         */
-        def MealPlanning_getMealPlanWeek(username: String, startDate: String, hash: String, authParamapiKeyScheme: String): Either[CommonError,InlineResponse20038] = Left(TODO)
+        def MealPlanning_getMealPlanTemplates(username: String, hash: String, authParamapiKeyScheme: String): Either[CommonError,GetMealPlanTemplates200Response] = Left(TODO)
 
         /**
         * 
-        * @return A InlineResponse20042
+        * @return A GetMealPlanWeek200Response
         */
-        def MealPlanning_getShoppingList(username: String, hash: String, authParamapiKeyScheme: String): Either[CommonError,InlineResponse20042] = Left(TODO)
+        def MealPlanning_getMealPlanWeek(username: String, startDate: String, hash: String, authParamapiKeyScheme: String): Either[CommonError,GetMealPlanWeek200Response] = Left(TODO)
 
         /**
         * 
-        * @return A InlineResponse20032
+        * @return A GetShoppingList200Response
         */
-        def MenuItems_autocompleteMenuItemSearch(query: String, number: Option[BigDecimal], authParamapiKeyScheme: String): Either[CommonError,InlineResponse20032] = Left(TODO)
+        def MealPlanning_getShoppingList(username: String, hash: String, authParamapiKeyScheme: String): Either[CommonError,GetShoppingList200Response] = Left(TODO)
 
         /**
         * 
-        * @return A InlineResponse20036
+        * @return A AutocompleteMenuItemSearch200Response
         */
-        def MenuItems_getMenuItemInformation(id: Int, authParamapiKeyScheme: String): Either[CommonError,InlineResponse20036] = Left(TODO)
+        def MenuItems_autocompleteMenuItemSearch(query: String, number: Option[BigDecimal], authParamapiKeyScheme: String): Either[CommonError,AutocompleteMenuItemSearch200Response] = Left(TODO)
+
+        /**
+        * 
+        * @return A GetMenuItemInformation200Response
+        */
+        def MenuItems_getMenuItemInformation(id: Int, authParamapiKeyScheme: String): Either[CommonError,GetMenuItemInformation200Response] = Left(TODO)
 
         /**
         * 
@@ -184,9 +184,9 @@ trait DataAccessor {
 
         /**
         * 
-        * @return A InlineResponse20035
+        * @return A SearchMenuItems200Response
         */
-        def MenuItems_searchMenuItems(query: Option[String], minCalories: Option[BigDecimal], maxCalories: Option[BigDecimal], minCarbs: Option[BigDecimal], maxCarbs: Option[BigDecimal], minProtein: Option[BigDecimal], maxProtein: Option[BigDecimal], minFat: Option[BigDecimal], maxFat: Option[BigDecimal], addMenuItemInformation: Option[Boolean], offset: Option[Int], number: Option[Int], authParamapiKeyScheme: String): Either[CommonError,InlineResponse20035] = Left(TODO)
+        def MenuItems_searchMenuItems(query: Option[String], minCalories: Option[BigDecimal], maxCalories: Option[BigDecimal], minCarbs: Option[BigDecimal], maxCarbs: Option[BigDecimal], minProtein: Option[BigDecimal], maxProtein: Option[BigDecimal], minFat: Option[BigDecimal], maxFat: Option[BigDecimal], addMenuItemInformation: Option[Boolean], offset: Option[Int], number: Option[Int], authParamapiKeyScheme: String): Either[CommonError,SearchMenuItems200Response] = Left(TODO)
 
         /**
         * 
@@ -196,99 +196,99 @@ trait DataAccessor {
 
         /**
         * 
-        * @return A InlineResponse20051
+        * @return A DetectFoodInText200Response
         */
-        def Misc_detectFoodInText(contentType: Option[String], authParamapiKeyScheme: String): Either[CommonError,InlineResponse20051] = Left(TODO)
+        def Misc_detectFoodInText(contentType: Option[String], authParamapiKeyScheme: String): Either[CommonError,DetectFoodInText200Response] = Left(TODO)
 
         /**
         * 
-        * @return A InlineResponse20055
+        * @return A GetARandomFoodJoke200Response
         */
-        def Misc_getARandomFoodJoke(authParamapiKeyScheme: String): Either[CommonError,InlineResponse20055] = Left(TODO)
+        def Misc_getARandomFoodJoke(authParamapiKeyScheme: String): Either[CommonError,GetARandomFoodJoke200Response] = Left(TODO)
 
         /**
         * 
-        * @return A InlineResponse20057
+        * @return A GetConversationSuggests200Response
         */
-        def Misc_getConversationSuggests(query: String, number: Option[BigDecimal], authParamapiKeyScheme: String): Either[CommonError,InlineResponse20057] = Left(TODO)
+        def Misc_getConversationSuggests(query: String, number: Option[BigDecimal], authParamapiKeyScheme: String): Either[CommonError,GetConversationSuggests200Response] = Left(TODO)
 
         /**
         * 
-        * @return A InlineResponse20055
+        * @return A GetRandomFoodTrivia200Response
         */
-        def Misc_getRandomFoodTrivia(authParamapiKeyScheme: String): Either[CommonError,InlineResponse20055] = Left(TODO)
+        def Misc_getRandomFoodTrivia(authParamapiKeyScheme: String): Either[CommonError,GetRandomFoodTrivia200Response] = Left(TODO)
 
         /**
         * 
-        * @return A InlineResponse20049
+        * @return A ImageAnalysisByURL200Response
         */
-        def Misc_imageAnalysisByURL(imageUrl: String, authParamapiKeyScheme: String): Either[CommonError,InlineResponse20049] = Left(TODO)
+        def Misc_imageAnalysisByURL(imageUrl: String, authParamapiKeyScheme: String): Either[CommonError,ImageAnalysisByURL200Response] = Left(TODO)
 
         /**
         * 
-        * @return A InlineResponse20048
+        * @return A ImageClassificationByURL200Response
         */
-        def Misc_imageClassificationByURL(imageUrl: String, authParamapiKeyScheme: String): Either[CommonError,InlineResponse20048] = Left(TODO)
+        def Misc_imageClassificationByURL(imageUrl: String, authParamapiKeyScheme: String): Either[CommonError,ImageClassificationByURL200Response] = Left(TODO)
 
         /**
         * 
-        * @return A InlineResponse20053
+        * @return A SearchAllFood200Response
         */
-        def Misc_searchAllFood(query: String, offset: Option[Int], number: Option[Int], authParamapiKeyScheme: String): Either[CommonError,InlineResponse20053] = Left(TODO)
+        def Misc_searchAllFood(query: String, offset: Option[Int], number: Option[Int], authParamapiKeyScheme: String): Either[CommonError,SearchAllFood200Response] = Left(TODO)
 
         /**
         * 
-        * @return A InlineResponse20029
+        * @return A SearchCustomFoods200Response
         */
-        def Misc_searchCustomFoods(username: String, hash: String, query: Option[String], offset: Option[Int], number: Option[Int], authParamapiKeyScheme: String): Either[CommonError,InlineResponse20029] = Left(TODO)
+        def Misc_searchCustomFoods(username: String, hash: String, query: Option[String], offset: Option[Int], number: Option[Int], authParamapiKeyScheme: String): Either[CommonError,SearchCustomFoods200Response] = Left(TODO)
 
         /**
         * 
-        * @return A InlineResponse20054
+        * @return A SearchFoodVideos200Response
         */
-        def Misc_searchFoodVideos(query: Option[String], _type: Option[String], cuisine: Option[String], diet: Option[String], includeIngredients: Option[String], excludeIngredients: Option[String], minLength: Option[BigDecimal], maxLength: Option[BigDecimal], offset: Option[Int], number: Option[Int], authParamapiKeyScheme: String): Either[CommonError,InlineResponse20054] = Left(TODO)
+        def Misc_searchFoodVideos(query: Option[String], _type: Option[String], cuisine: Option[String], diet: Option[String], includeIngredients: Option[String], excludeIngredients: Option[String], minLength: Option[BigDecimal], maxLength: Option[BigDecimal], offset: Option[Int], number: Option[Int], authParamapiKeyScheme: String): Either[CommonError,SearchFoodVideos200Response] = Left(TODO)
 
         /**
         * 
-        * @return A InlineResponse20052
+        * @return A SearchSiteContent200Response
         */
-        def Misc_searchSiteContent(query: String, authParamapiKeyScheme: String): Either[CommonError,InlineResponse20052] = Left(TODO)
+        def Misc_searchSiteContent(query: String, authParamapiKeyScheme: String): Either[CommonError,SearchSiteContent200Response] = Left(TODO)
 
         /**
         * 
-        * @return A InlineResponse20056
+        * @return A TalkToChatbot200Response
         */
-        def Misc_talkToChatbot(text: String, contextId: Option[String], authParamapiKeyScheme: String): Either[CommonError,InlineResponse20056] = Left(TODO)
+        def Misc_talkToChatbot(text: String, contextId: Option[String], authParamapiKeyScheme: String): Either[CommonError,TalkToChatbot200Response] = Left(TODO)
 
         /**
         * 
-        * @return A InlineResponse20032
+        * @return A AutocompleteProductSearch200Response
         */
-        def Products_autocompleteProductSearch(query: String, number: Option[Int], authParamapiKeyScheme: String): Either[CommonError,InlineResponse20032] = Left(TODO)
+        def Products_autocompleteProductSearch(query: String, number: Option[Int], authParamapiKeyScheme: String): Either[CommonError,AutocompleteProductSearch200Response] = Left(TODO)
 
         /**
         * 
-        * @return A InlineResponse20033
+        * @return A ClassifyGroceryProduct200Response
         */
-        def Products_classifyGroceryProduct(inlineObject1: InlineObject1, locale: Option[String], authParamapiKeyScheme: String): Either[CommonError,InlineResponse20033] = Left(TODO)
+        def Products_classifyGroceryProduct(classifyGroceryProductRequest: ClassifyGroceryProductRequest, locale: Option[String], authParamapiKeyScheme: String): Either[CommonError,ClassifyGroceryProduct200Response] = Left(TODO)
 
         /**
         * 
-        * @return A Seq[InlineResponse20033]
+        * @return A Set[ClassifyGroceryProductBulk200ResponseInner]
         */
-        def Products_classifyGroceryProductBulk(inlineObject: Seq[InlineObject], locale: Option[String], authParamapiKeyScheme: String): Either[CommonError,Seq[InlineResponse20033]] = Left(TODO)
+        def Products_classifyGroceryProductBulk(classifyGroceryProductBulkRequestInner: Set[ClassifyGroceryProductBulkRequestInner], locale: Option[String], authParamapiKeyScheme: String): Either[CommonError,Set[ClassifyGroceryProductBulk200ResponseInner]] = Left(TODO)
 
         /**
         * 
-        * @return A InlineResponse20031
+        * @return A GetComparableProducts200Response
         */
-        def Products_getComparableProducts(upc: BigDecimal, authParamapiKeyScheme: String): Either[CommonError,InlineResponse20031] = Left(TODO)
+        def Products_getComparableProducts(upc: BigDecimal, authParamapiKeyScheme: String): Either[CommonError,GetComparableProducts200Response] = Left(TODO)
 
         /**
         * 
-        * @return A InlineResponse20030
+        * @return A GetProductInformation200Response
         */
-        def Products_getProductInformation(id: Int, authParamapiKeyScheme: String): Either[CommonError,InlineResponse20030] = Left(TODO)
+        def Products_getProductInformation(id: Int, authParamapiKeyScheme: String): Either[CommonError,GetProductInformation200Response] = Left(TODO)
 
         /**
         * 
@@ -310,15 +310,15 @@ trait DataAccessor {
 
         /**
         * 
-        * @return A InlineResponse20027
+        * @return A SearchGroceryProducts200Response
         */
-        def Products_searchGroceryProducts(query: Option[String], minCalories: Option[BigDecimal], maxCalories: Option[BigDecimal], minCarbs: Option[BigDecimal], maxCarbs: Option[BigDecimal], minProtein: Option[BigDecimal], maxProtein: Option[BigDecimal], minFat: Option[BigDecimal], maxFat: Option[BigDecimal], addProductInformation: Option[Boolean], offset: Option[Int], number: Option[Int], authParamapiKeyScheme: String): Either[CommonError,InlineResponse20027] = Left(TODO)
+        def Products_searchGroceryProducts(query: Option[String], minCalories: Option[BigDecimal], maxCalories: Option[BigDecimal], minCarbs: Option[BigDecimal], maxCarbs: Option[BigDecimal], minProtein: Option[BigDecimal], maxProtein: Option[BigDecimal], minFat: Option[BigDecimal], maxFat: Option[BigDecimal], addProductInformation: Option[Boolean], offset: Option[Int], number: Option[Int], authParamapiKeyScheme: String): Either[CommonError,SearchGroceryProducts200Response] = Left(TODO)
 
         /**
         * 
-        * @return A InlineResponse20028
+        * @return A SearchGroceryProductsByUPC200Response
         */
-        def Products_searchGroceryProductsByUPC(upc: BigDecimal, authParamapiKeyScheme: String): Either[CommonError,InlineResponse20028] = Left(TODO)
+        def Products_searchGroceryProductsByUPC(upc: BigDecimal, authParamapiKeyScheme: String): Either[CommonError,SearchGroceryProductsByUPC200Response] = Left(TODO)
 
         /**
         * 
@@ -328,45 +328,45 @@ trait DataAccessor {
 
         /**
         * 
-        * @return A InlineResponse20018
+        * @return A AnalyzeARecipeSearchQuery200Response
         */
-        def Recipes_analyzeARecipeSearchQuery(q: String, authParamapiKeyScheme: String): Either[CommonError,InlineResponse20018] = Left(TODO)
+        def Recipes_analyzeARecipeSearchQuery(q: String, authParamapiKeyScheme: String): Either[CommonError,AnalyzeARecipeSearchQuery200Response] = Left(TODO)
 
         /**
         * 
-        * @return A InlineResponse20016
+        * @return A AnalyzeRecipeInstructions200Response
         */
-        def Recipes_analyzeRecipeInstructions(contentType: Option[String], authParamapiKeyScheme: String): Either[CommonError,InlineResponse20016] = Left(TODO)
+        def Recipes_analyzeRecipeInstructions(contentType: Option[String], authParamapiKeyScheme: String): Either[CommonError,AnalyzeRecipeInstructions200Response] = Left(TODO)
 
         /**
         * 
-        * @return A Seq[InlineResponse2007]
+        * @return A Set[AutocompleteRecipeSearch200ResponseInner]
         */
-        def Recipes_autocompleteRecipeSearch(query: Option[String], number: Option[Int], authParamapiKeyScheme: String): Either[CommonError,Seq[InlineResponse2007]] = Left(TODO)
+        def Recipes_autocompleteRecipeSearch(query: Option[String], number: Option[Int], authParamapiKeyScheme: String): Either[CommonError,Set[AutocompleteRecipeSearch200ResponseInner]] = Left(TODO)
 
         /**
         * 
-        * @return A InlineResponse20017
+        * @return A ClassifyCuisine200Response
         */
-        def Recipes_classifyCuisine(contentType: Option[String], authParamapiKeyScheme: String): Either[CommonError,InlineResponse20017] = Left(TODO)
+        def Recipes_classifyCuisine(contentType: Option[String], authParamapiKeyScheme: String): Either[CommonError,ClassifyCuisine200Response] = Left(TODO)
 
         /**
         * 
-        * @return A InlineResponse20023
+        * @return A ComputeGlycemicLoad200Response
         */
-        def Recipes_computeGlycemicLoad(inlineObject: InlineObject, language: Option[String], authParamapiKeyScheme: String): Either[CommonError,InlineResponse20023] = Left(TODO)
+        def Recipes_computeGlycemicLoad(computeGlycemicLoadRequest: ComputeGlycemicLoadRequest, language: Option[String], authParamapiKeyScheme: String): Either[CommonError,ComputeGlycemicLoad200Response] = Left(TODO)
 
         /**
         * 
-        * @return A InlineResponse20019
+        * @return A ConvertAmounts200Response
         */
-        def Recipes_convertAmounts(ingredientName: String, sourceAmount: BigDecimal, sourceUnit: String, targetUnit: String, authParamapiKeyScheme: String): Either[CommonError,InlineResponse20019] = Left(TODO)
+        def Recipes_convertAmounts(ingredientName: String, sourceAmount: BigDecimal, sourceUnit: String, targetUnit: String, authParamapiKeyScheme: String): Either[CommonError,ConvertAmounts200Response] = Left(TODO)
 
         /**
         * 
-        * @return A InlineResponse20015
+        * @return A CreateRecipeCard200Response
         */
-        def Recipes_createRecipeCard(contentType: Option[String], authParamapiKeyScheme: String): Either[CommonError,InlineResponse20015] = Left(TODO)
+        def Recipes_createRecipeCard(contentType: Option[String], authParamapiKeyScheme: String): Either[CommonError,CreateRecipeCard200Response] = Left(TODO)
 
         /**
         * 
@@ -376,75 +376,75 @@ trait DataAccessor {
 
         /**
         * 
-        * @return A InlineResponse2003
+        * @return A GetRecipeInformation200Response
         */
-        def Recipes_extractRecipeFromWebsite(url: String, forceExtraction: Option[Boolean], analyze: Option[Boolean], includeNutrition: Option[Boolean], includeTaste: Option[Boolean], authParamapiKeyScheme: String): Either[CommonError,InlineResponse2003] = Left(TODO)
+        def Recipes_extractRecipeFromWebsite(url: String, forceExtraction: Option[Boolean], analyze: Option[Boolean], includeNutrition: Option[Boolean], includeTaste: Option[Boolean], authParamapiKeyScheme: String): Either[CommonError,GetRecipeInformation200Response] = Left(TODO)
 
         /**
         * 
-        * @return A InlineResponse20013
+        * @return A GetAnalyzedRecipeInstructions200Response
         */
-        def Recipes_getAnalyzedRecipeInstructions(id: Int, stepBreakdown: Option[Boolean], authParamapiKeyScheme: String): Either[CommonError,InlineResponse20013] = Left(TODO)
+        def Recipes_getAnalyzedRecipeInstructions(id: Int, stepBreakdown: Option[Boolean], authParamapiKeyScheme: String): Either[CommonError,GetAnalyzedRecipeInstructions200Response] = Left(TODO)
 
         /**
         * 
-        * @return A InlineResponse2006
+        * @return A GetRandomRecipes200Response
         */
-        def Recipes_getRandomRecipes(limitLicense: Option[Boolean], tags: Option[String], number: Option[Int], authParamapiKeyScheme: String): Either[CommonError,InlineResponse2006] = Left(TODO)
+        def Recipes_getRandomRecipes(limitLicense: Option[Boolean], tags: Option[String], number: Option[Int], authParamapiKeyScheme: String): Either[CommonError,GetRandomRecipes200Response] = Left(TODO)
 
         /**
         * 
-        * @return A InlineResponse2009
+        * @return A GetRecipeEquipmentByID200Response
         */
-        def Recipes_getRecipeEquipmentByID(id: Int, authParamapiKeyScheme: String): Either[CommonError,InlineResponse2009] = Left(TODO)
+        def Recipes_getRecipeEquipmentByID(id: Int, authParamapiKeyScheme: String): Either[CommonError,GetRecipeEquipmentByID200Response] = Left(TODO)
 
         /**
         * 
-        * @return A InlineResponse2003
+        * @return A GetRecipeInformation200Response
         */
-        def Recipes_getRecipeInformation(id: Int, includeNutrition: Option[Boolean], authParamapiKeyScheme: String): Either[CommonError,InlineResponse2003] = Left(TODO)
+        def Recipes_getRecipeInformation(id: Int, includeNutrition: Option[Boolean], authParamapiKeyScheme: String): Either[CommonError,GetRecipeInformation200Response] = Left(TODO)
 
         /**
         * 
-        * @return A Seq[InlineResponse2004]
+        * @return A Set[GetRecipeInformationBulk200ResponseInner]
         */
-        def Recipes_getRecipeInformationBulk(ids: String, includeNutrition: Option[Boolean], authParamapiKeyScheme: String): Either[CommonError,Seq[InlineResponse2004]] = Left(TODO)
+        def Recipes_getRecipeInformationBulk(ids: String, includeNutrition: Option[Boolean], authParamapiKeyScheme: String): Either[CommonError,Set[GetRecipeInformationBulk200ResponseInner]] = Left(TODO)
 
         /**
         * 
-        * @return A InlineResponse20011
+        * @return A GetRecipeIngredientsByID200Response
         */
-        def Recipes_getRecipeIngredientsByID(id: Int, authParamapiKeyScheme: String): Either[CommonError,InlineResponse20011] = Left(TODO)
+        def Recipes_getRecipeIngredientsByID(id: Int, authParamapiKeyScheme: String): Either[CommonError,GetRecipeIngredientsByID200Response] = Left(TODO)
 
         /**
         * 
-        * @return A InlineResponse20012
+        * @return A GetRecipeNutritionWidgetByID200Response
         */
-        def Recipes_getRecipeNutritionWidgetByID(id: Int, authParamapiKeyScheme: String): Either[CommonError,InlineResponse20012] = Left(TODO)
+        def Recipes_getRecipeNutritionWidgetByID(id: Int, authParamapiKeyScheme: String): Either[CommonError,GetRecipeNutritionWidgetByID200Response] = Left(TODO)
 
         /**
         * 
-        * @return A InlineResponse20010
+        * @return A GetRecipePriceBreakdownByID200Response
         */
-        def Recipes_getRecipePriceBreakdownByID(id: Int, authParamapiKeyScheme: String): Either[CommonError,InlineResponse20010] = Left(TODO)
+        def Recipes_getRecipePriceBreakdownByID(id: Int, authParamapiKeyScheme: String): Either[CommonError,GetRecipePriceBreakdownByID200Response] = Left(TODO)
 
         /**
         * 
-        * @return A InlineResponse2008
+        * @return A GetRecipeTasteByID200Response
         */
-        def Recipes_getRecipeTasteByID(id: Int, normalize: Option[Boolean], authParamapiKeyScheme: String): Either[CommonError,InlineResponse2008] = Left(TODO)
+        def Recipes_getRecipeTasteByID(id: Int, normalize: Option[Boolean], authParamapiKeyScheme: String): Either[CommonError,GetRecipeTasteByID200Response] = Left(TODO)
 
         /**
         * 
-        * @return A Seq[InlineResponse2005]
+        * @return A Set[GetSimilarRecipes200ResponseInner]
         */
-        def Recipes_getSimilarRecipes(id: Int, number: Option[Int], limitLicense: Option[Boolean], authParamapiKeyScheme: String): Either[CommonError,Seq[InlineResponse2005]] = Left(TODO)
+        def Recipes_getSimilarRecipes(id: Int, number: Option[Int], limitLicense: Option[Boolean], authParamapiKeyScheme: String): Either[CommonError,Set[GetSimilarRecipes200ResponseInner]] = Left(TODO)
 
         /**
         * 
-        * @return A InlineResponse20021
+        * @return A GuessNutritionByDishName200Response
         */
-        def Recipes_guessNutritionByDishName(title: String, authParamapiKeyScheme: String): Either[CommonError,InlineResponse20021] = Left(TODO)
+        def Recipes_guessNutritionByDishName(title: String, authParamapiKeyScheme: String): Either[CommonError,GuessNutritionByDishName200Response] = Left(TODO)
 
         /**
         * 
@@ -454,9 +454,9 @@ trait DataAccessor {
 
         /**
         * 
-        * @return A Seq[InlineResponse20020]
+        * @return A Set[ParseIngredients200ResponseInner]
         */
-        def Recipes_parseIngredients(contentType: Option[String], language: Option[String], authParamapiKeyScheme: String): Either[CommonError,Seq[InlineResponse20020]] = Left(TODO)
+        def Recipes_parseIngredients(contentType: Option[String], language: Option[String], authParamapiKeyScheme: String): Either[CommonError,Set[ParseIngredients200ResponseInner]] = Left(TODO)
 
         /**
         * 
@@ -466,9 +466,9 @@ trait DataAccessor {
 
         /**
         * 
-        * @return A InlineResponse20050
+        * @return A QuickAnswer200Response
         */
-        def Recipes_quickAnswer(q: String, authParamapiKeyScheme: String): Either[CommonError,InlineResponse20050] = Left(TODO)
+        def Recipes_quickAnswer(q: String, authParamapiKeyScheme: String): Either[CommonError,QuickAnswer200Response] = Left(TODO)
 
         /**
         * 
@@ -496,27 +496,27 @@ trait DataAccessor {
 
         /**
         * 
-        * @return A InlineResponse200
+        * @return A SearchRecipes200Response
         */
-        def Recipes_searchRecipes(query: Option[String], cuisine: Option[String], excludeCuisine: Option[String], diet: Option[String], intolerances: Option[String], equipment: Option[String], includeIngredients: Option[String], excludeIngredients: Option[String], _type: Option[String], instructionsRequired: Option[Boolean], fillIngredients: Option[Boolean], addRecipeInformation: Option[Boolean], addRecipeNutrition: Option[Boolean], author: Option[String], tags: Option[String], recipeBoxId: Option[BigDecimal], titleMatch: Option[String], maxReadyTime: Option[BigDecimal], ignorePantry: Option[Boolean], sort: Option[String], sortDirection: Option[String], minCarbs: Option[BigDecimal], maxCarbs: Option[BigDecimal], minProtein: Option[BigDecimal], maxProtein: Option[BigDecimal], minCalories: Option[BigDecimal], maxCalories: Option[BigDecimal], minFat: Option[BigDecimal], maxFat: Option[BigDecimal], minAlcohol: Option[BigDecimal], maxAlcohol: Option[BigDecimal], minCaffeine: Option[BigDecimal], maxCaffeine: Option[BigDecimal], minCopper: Option[BigDecimal], maxCopper: Option[BigDecimal], minCalcium: Option[BigDecimal], maxCalcium: Option[BigDecimal], minCholine: Option[BigDecimal], maxCholine: Option[BigDecimal], minCholesterol: Option[BigDecimal], maxCholesterol: Option[BigDecimal], minFluoride: Option[BigDecimal], maxFluoride: Option[BigDecimal], minSaturatedFat: Option[BigDecimal], maxSaturatedFat: Option[BigDecimal], minVitaminA: Option[BigDecimal], maxVitaminA: Option[BigDecimal], minVitaminC: Option[BigDecimal], maxVitaminC: Option[BigDecimal], minVitaminD: Option[BigDecimal], maxVitaminD: Option[BigDecimal], minVitaminE: Option[BigDecimal], maxVitaminE: Option[BigDecimal], minVitaminK: Option[BigDecimal], maxVitaminK: Option[BigDecimal], minVitaminB1: Option[BigDecimal], maxVitaminB1: Option[BigDecimal], minVitaminB2: Option[BigDecimal], maxVitaminB2: Option[BigDecimal], minVitaminB5: Option[BigDecimal], maxVitaminB5: Option[BigDecimal], minVitaminB3: Option[BigDecimal], maxVitaminB3: Option[BigDecimal], minVitaminB6: Option[BigDecimal], maxVitaminB6: Option[BigDecimal], minVitaminB12: Option[BigDecimal], maxVitaminB12: Option[BigDecimal], minFiber: Option[BigDecimal], maxFiber: Option[BigDecimal], minFolate: Option[BigDecimal], maxFolate: Option[BigDecimal], minFolicAcid: Option[BigDecimal], maxFolicAcid: Option[BigDecimal], minIodine: Option[BigDecimal], maxIodine: Option[BigDecimal], minIron: Option[BigDecimal], maxIron: Option[BigDecimal], minMagnesium: Option[BigDecimal], maxMagnesium: Option[BigDecimal], minManganese: Option[BigDecimal], maxManganese: Option[BigDecimal], minPhosphorus: Option[BigDecimal], maxPhosphorus: Option[BigDecimal], minPotassium: Option[BigDecimal], maxPotassium: Option[BigDecimal], minSelenium: Option[BigDecimal], maxSelenium: Option[BigDecimal], minSodium: Option[BigDecimal], maxSodium: Option[BigDecimal], minSugar: Option[BigDecimal], maxSugar: Option[BigDecimal], minZinc: Option[BigDecimal], maxZinc: Option[BigDecimal], offset: Option[Int], number: Option[Int], limitLicense: Option[Boolean], authParamapiKeyScheme: String): Either[CommonError,InlineResponse200] = Left(TODO)
+        def Recipes_searchRecipes(query: Option[String], cuisine: Option[String], excludeCuisine: Option[String], diet: Option[String], intolerances: Option[String], equipment: Option[String], includeIngredients: Option[String], excludeIngredients: Option[String], _type: Option[String], instructionsRequired: Option[Boolean], fillIngredients: Option[Boolean], addRecipeInformation: Option[Boolean], addRecipeNutrition: Option[Boolean], author: Option[String], tags: Option[String], recipeBoxId: Option[BigDecimal], titleMatch: Option[String], maxReadyTime: Option[BigDecimal], ignorePantry: Option[Boolean], sort: Option[String], sortDirection: Option[String], minCarbs: Option[BigDecimal], maxCarbs: Option[BigDecimal], minProtein: Option[BigDecimal], maxProtein: Option[BigDecimal], minCalories: Option[BigDecimal], maxCalories: Option[BigDecimal], minFat: Option[BigDecimal], maxFat: Option[BigDecimal], minAlcohol: Option[BigDecimal], maxAlcohol: Option[BigDecimal], minCaffeine: Option[BigDecimal], maxCaffeine: Option[BigDecimal], minCopper: Option[BigDecimal], maxCopper: Option[BigDecimal], minCalcium: Option[BigDecimal], maxCalcium: Option[BigDecimal], minCholine: Option[BigDecimal], maxCholine: Option[BigDecimal], minCholesterol: Option[BigDecimal], maxCholesterol: Option[BigDecimal], minFluoride: Option[BigDecimal], maxFluoride: Option[BigDecimal], minSaturatedFat: Option[BigDecimal], maxSaturatedFat: Option[BigDecimal], minVitaminA: Option[BigDecimal], maxVitaminA: Option[BigDecimal], minVitaminC: Option[BigDecimal], maxVitaminC: Option[BigDecimal], minVitaminD: Option[BigDecimal], maxVitaminD: Option[BigDecimal], minVitaminE: Option[BigDecimal], maxVitaminE: Option[BigDecimal], minVitaminK: Option[BigDecimal], maxVitaminK: Option[BigDecimal], minVitaminB1: Option[BigDecimal], maxVitaminB1: Option[BigDecimal], minVitaminB2: Option[BigDecimal], maxVitaminB2: Option[BigDecimal], minVitaminB5: Option[BigDecimal], maxVitaminB5: Option[BigDecimal], minVitaminB3: Option[BigDecimal], maxVitaminB3: Option[BigDecimal], minVitaminB6: Option[BigDecimal], maxVitaminB6: Option[BigDecimal], minVitaminB12: Option[BigDecimal], maxVitaminB12: Option[BigDecimal], minFiber: Option[BigDecimal], maxFiber: Option[BigDecimal], minFolate: Option[BigDecimal], maxFolate: Option[BigDecimal], minFolicAcid: Option[BigDecimal], maxFolicAcid: Option[BigDecimal], minIodine: Option[BigDecimal], maxIodine: Option[BigDecimal], minIron: Option[BigDecimal], maxIron: Option[BigDecimal], minMagnesium: Option[BigDecimal], maxMagnesium: Option[BigDecimal], minManganese: Option[BigDecimal], maxManganese: Option[BigDecimal], minPhosphorus: Option[BigDecimal], maxPhosphorus: Option[BigDecimal], minPotassium: Option[BigDecimal], maxPotassium: Option[BigDecimal], minSelenium: Option[BigDecimal], maxSelenium: Option[BigDecimal], minSodium: Option[BigDecimal], maxSodium: Option[BigDecimal], minSugar: Option[BigDecimal], maxSugar: Option[BigDecimal], minZinc: Option[BigDecimal], maxZinc: Option[BigDecimal], offset: Option[Int], number: Option[Int], limitLicense: Option[Boolean], authParamapiKeyScheme: String): Either[CommonError,SearchRecipes200Response] = Left(TODO)
 
         /**
         * 
-        * @return A Seq[InlineResponse2001]
+        * @return A Set[SearchRecipesByIngredients200ResponseInner]
         */
-        def Recipes_searchRecipesByIngredients(ingredients: Option[String], number: Option[Int], limitLicense: Option[Boolean], ranking: Option[BigDecimal], ignorePantry: Option[Boolean], authParamapiKeyScheme: String): Either[CommonError,Seq[InlineResponse2001]] = Left(TODO)
+        def Recipes_searchRecipesByIngredients(ingredients: Option[String], number: Option[Int], limitLicense: Option[Boolean], ranking: Option[BigDecimal], ignorePantry: Option[Boolean], authParamapiKeyScheme: String): Either[CommonError,Set[SearchRecipesByIngredients200ResponseInner]] = Left(TODO)
 
         /**
         * 
-        * @return A Seq[InlineResponse2002]
+        * @return A Set[SearchRecipesByNutrients200ResponseInner]
         */
-        def Recipes_searchRecipesByNutrients(minCarbs: Option[BigDecimal], maxCarbs: Option[BigDecimal], minProtein: Option[BigDecimal], maxProtein: Option[BigDecimal], minCalories: Option[BigDecimal], maxCalories: Option[BigDecimal], minFat: Option[BigDecimal], maxFat: Option[BigDecimal], minAlcohol: Option[BigDecimal], maxAlcohol: Option[BigDecimal], minCaffeine: Option[BigDecimal], maxCaffeine: Option[BigDecimal], minCopper: Option[BigDecimal], maxCopper: Option[BigDecimal], minCalcium: Option[BigDecimal], maxCalcium: Option[BigDecimal], minCholine: Option[BigDecimal], maxCholine: Option[BigDecimal], minCholesterol: Option[BigDecimal], maxCholesterol: Option[BigDecimal], minFluoride: Option[BigDecimal], maxFluoride: Option[BigDecimal], minSaturatedFat: Option[BigDecimal], maxSaturatedFat: Option[BigDecimal], minVitaminA: Option[BigDecimal], maxVitaminA: Option[BigDecimal], minVitaminC: Option[BigDecimal], maxVitaminC: Option[BigDecimal], minVitaminD: Option[BigDecimal], maxVitaminD: Option[BigDecimal], minVitaminE: Option[BigDecimal], maxVitaminE: Option[BigDecimal], minVitaminK: Option[BigDecimal], maxVitaminK: Option[BigDecimal], minVitaminB1: Option[BigDecimal], maxVitaminB1: Option[BigDecimal], minVitaminB2: Option[BigDecimal], maxVitaminB2: Option[BigDecimal], minVitaminB5: Option[BigDecimal], maxVitaminB5: Option[BigDecimal], minVitaminB3: Option[BigDecimal], maxVitaminB3: Option[BigDecimal], minVitaminB6: Option[BigDecimal], maxVitaminB6: Option[BigDecimal], minVitaminB12: Option[BigDecimal], maxVitaminB12: Option[BigDecimal], minFiber: Option[BigDecimal], maxFiber: Option[BigDecimal], minFolate: Option[BigDecimal], maxFolate: Option[BigDecimal], minFolicAcid: Option[BigDecimal], maxFolicAcid: Option[BigDecimal], minIodine: Option[BigDecimal], maxIodine: Option[BigDecimal], minIron: Option[BigDecimal], maxIron: Option[BigDecimal], minMagnesium: Option[BigDecimal], maxMagnesium: Option[BigDecimal], minManganese: Option[BigDecimal], maxManganese: Option[BigDecimal], minPhosphorus: Option[BigDecimal], maxPhosphorus: Option[BigDecimal], minPotassium: Option[BigDecimal], maxPotassium: Option[BigDecimal], minSelenium: Option[BigDecimal], maxSelenium: Option[BigDecimal], minSodium: Option[BigDecimal], maxSodium: Option[BigDecimal], minSugar: Option[BigDecimal], maxSugar: Option[BigDecimal], minZinc: Option[BigDecimal], maxZinc: Option[BigDecimal], offset: Option[Int], number: Option[Int], random: Option[Boolean], limitLicense: Option[Boolean], authParamapiKeyScheme: String): Either[CommonError,Seq[InlineResponse2002]] = Left(TODO)
+        def Recipes_searchRecipesByNutrients(minCarbs: Option[BigDecimal], maxCarbs: Option[BigDecimal], minProtein: Option[BigDecimal], maxProtein: Option[BigDecimal], minCalories: Option[BigDecimal], maxCalories: Option[BigDecimal], minFat: Option[BigDecimal], maxFat: Option[BigDecimal], minAlcohol: Option[BigDecimal], maxAlcohol: Option[BigDecimal], minCaffeine: Option[BigDecimal], maxCaffeine: Option[BigDecimal], minCopper: Option[BigDecimal], maxCopper: Option[BigDecimal], minCalcium: Option[BigDecimal], maxCalcium: Option[BigDecimal], minCholine: Option[BigDecimal], maxCholine: Option[BigDecimal], minCholesterol: Option[BigDecimal], maxCholesterol: Option[BigDecimal], minFluoride: Option[BigDecimal], maxFluoride: Option[BigDecimal], minSaturatedFat: Option[BigDecimal], maxSaturatedFat: Option[BigDecimal], minVitaminA: Option[BigDecimal], maxVitaminA: Option[BigDecimal], minVitaminC: Option[BigDecimal], maxVitaminC: Option[BigDecimal], minVitaminD: Option[BigDecimal], maxVitaminD: Option[BigDecimal], minVitaminE: Option[BigDecimal], maxVitaminE: Option[BigDecimal], minVitaminK: Option[BigDecimal], maxVitaminK: Option[BigDecimal], minVitaminB1: Option[BigDecimal], maxVitaminB1: Option[BigDecimal], minVitaminB2: Option[BigDecimal], maxVitaminB2: Option[BigDecimal], minVitaminB5: Option[BigDecimal], maxVitaminB5: Option[BigDecimal], minVitaminB3: Option[BigDecimal], maxVitaminB3: Option[BigDecimal], minVitaminB6: Option[BigDecimal], maxVitaminB6: Option[BigDecimal], minVitaminB12: Option[BigDecimal], maxVitaminB12: Option[BigDecimal], minFiber: Option[BigDecimal], maxFiber: Option[BigDecimal], minFolate: Option[BigDecimal], maxFolate: Option[BigDecimal], minFolicAcid: Option[BigDecimal], maxFolicAcid: Option[BigDecimal], minIodine: Option[BigDecimal], maxIodine: Option[BigDecimal], minIron: Option[BigDecimal], maxIron: Option[BigDecimal], minMagnesium: Option[BigDecimal], maxMagnesium: Option[BigDecimal], minManganese: Option[BigDecimal], maxManganese: Option[BigDecimal], minPhosphorus: Option[BigDecimal], maxPhosphorus: Option[BigDecimal], minPotassium: Option[BigDecimal], maxPotassium: Option[BigDecimal], minSelenium: Option[BigDecimal], maxSelenium: Option[BigDecimal], minSodium: Option[BigDecimal], maxSodium: Option[BigDecimal], minSugar: Option[BigDecimal], maxSugar: Option[BigDecimal], minZinc: Option[BigDecimal], maxZinc: Option[BigDecimal], offset: Option[Int], number: Option[Int], random: Option[Boolean], limitLicense: Option[Boolean], authParamapiKeyScheme: String): Either[CommonError,Set[SearchRecipesByNutrients200ResponseInner]] = Left(TODO)
 
         /**
         * 
-        * @return A InlineResponse20014
+        * @return A SummarizeRecipe200Response
         */
-        def Recipes_summarizeRecipe(id: Int, authParamapiKeyScheme: String): Either[CommonError,InlineResponse20014] = Left(TODO)
+        def Recipes_summarizeRecipe(id: Int, authParamapiKeyScheme: String): Either[CommonError,SummarizeRecipe200Response] = Left(TODO)
 
         /**
         * 
@@ -574,26 +574,26 @@ trait DataAccessor {
 
         /**
         * 
-        * @return A InlineResponse20044
+        * @return A GetDishPairingForWine200Response
         */
-        def Wine_getDishPairingForWine(wine: String, authParamapiKeyScheme: String): Either[CommonError,InlineResponse20044] = Left(TODO)
+        def Wine_getDishPairingForWine(wine: String, authParamapiKeyScheme: String): Either[CommonError,GetDishPairingForWine200Response] = Left(TODO)
 
         /**
         * 
-        * @return A InlineResponse20046
+        * @return A GetWineDescription200Response
         */
-        def Wine_getWineDescription(wine: String, authParamapiKeyScheme: String): Either[CommonError,InlineResponse20046] = Left(TODO)
+        def Wine_getWineDescription(wine: String, authParamapiKeyScheme: String): Either[CommonError,GetWineDescription200Response] = Left(TODO)
 
         /**
         * 
-        * @return A InlineResponse20045
+        * @return A GetWinePairing200Response
         */
-        def Wine_getWinePairing(food: String, maxPrice: Option[BigDecimal], authParamapiKeyScheme: String): Either[CommonError,InlineResponse20045] = Left(TODO)
+        def Wine_getWinePairing(food: String, maxPrice: Option[BigDecimal], authParamapiKeyScheme: String): Either[CommonError,GetWinePairing200Response] = Left(TODO)
 
         /**
         * 
-        * @return A InlineResponse20047
+        * @return A GetWineRecommendation200Response
         */
-        def Wine_getWineRecommendation(wine: String, maxPrice: Option[BigDecimal], minRating: Option[BigDecimal], number: Option[BigDecimal], authParamapiKeyScheme: String): Either[CommonError,InlineResponse20047] = Left(TODO)
+        def Wine_getWineRecommendation(wine: String, maxPrice: Option[BigDecimal], minRating: Option[BigDecimal], number: Option[BigDecimal], authParamapiKeyScheme: String): Either[CommonError,GetWineRecommendation200Response] = Left(TODO)
 
 }

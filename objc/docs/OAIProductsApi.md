@@ -21,21 +21,21 @@ Method | HTTP request | Description
 ```objc
 -(NSURLSessionTask*) autocompleteProductSearchWithQuery: (NSString*) query
     number: (NSNumber*) number
-        completionHandler: (void (^)(OAIInlineResponse20032* output, NSError* error)) handler;
+        completionHandler: (void (^)(OAIAutocompleteProductSearch200Response* output, NSError* error)) handler;
 ```
 
 Autocomplete Product Search
 
 Generate suggestions for grocery products based on a (partial) query. The matches will be found by looking in the title only.
 
-### Example 
+### Example
 ```objc
 OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 
 // Configure API key authorization: (authentication scheme: apiKeyScheme)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"apiKey"];
+[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"x-api-key"];
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"apiKey"];
+//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"x-api-key"];
 
 
 NSString* query = chicke; // The (partial) search query.
@@ -46,7 +46,7 @@ OAIProductsApi*apiInstance = [[OAIProductsApi alloc] init];
 // Autocomplete Product Search
 [apiInstance autocompleteProductSearchWithQuery:query
               number:number
-          completionHandler: ^(OAIInlineResponse20032* output, NSError* error) {
+          completionHandler: ^(OAIAutocompleteProductSearch200Response* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -65,7 +65,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OAIInlineResponse20032***](OAIInlineResponse20032.md)
+[**OAIAutocompleteProductSearch200Response***](OAIAutocompleteProductSearch200Response.md)
 
 ### Authorization
 
@@ -80,34 +80,34 @@ Name | Type | Description  | Notes
 
 # **classifyGroceryProduct**
 ```objc
--(NSURLSessionTask*) classifyGroceryProductWithInlineObject1: (OAIInlineObject1*) inlineObject1
+-(NSURLSessionTask*) classifyGroceryProductWithClassifyGroceryProductRequest: (OAIClassifyGroceryProductRequest*) classifyGroceryProductRequest
     locale: (NSString*) locale
-        completionHandler: (void (^)(OAIInlineResponse20033* output, NSError* error)) handler;
+        completionHandler: (void (^)(OAIClassifyGroceryProduct200Response* output, NSError* error)) handler;
 ```
 
 Classify Grocery Product
 
 This endpoint allows you to match a packaged food to a basic category, e.g. a specific brand of milk to the category milk.
 
-### Example 
+### Example
 ```objc
 OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 
 // Configure API key authorization: (authentication scheme: apiKeyScheme)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"apiKey"];
+[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"x-api-key"];
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"apiKey"];
+//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"x-api-key"];
 
 
-OAIInlineObject1* inlineObject1 = [[OAIInlineObject1 alloc] init]; // 
+OAIClassifyGroceryProductRequest* classifyGroceryProductRequest = {"title":"Kroger Vitamin A & D Reduced Fat 2% Milk","upc":"","plu_code":""}; // 
 NSString* locale = en_US; // The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). (optional)
 
 OAIProductsApi*apiInstance = [[OAIProductsApi alloc] init];
 
 // Classify Grocery Product
-[apiInstance classifyGroceryProductWithInlineObject1:inlineObject1
+[apiInstance classifyGroceryProductWithClassifyGroceryProductRequest:classifyGroceryProductRequest
               locale:locale
-          completionHandler: ^(OAIInlineResponse20033* output, NSError* error) {
+          completionHandler: ^(OAIClassifyGroceryProduct200Response* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -121,12 +121,12 @@ OAIProductsApi*apiInstance = [[OAIProductsApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject1** | [**OAIInlineObject1***](OAIInlineObject1.md)|  | 
+ **classifyGroceryProductRequest** | [**OAIClassifyGroceryProductRequest***](OAIClassifyGroceryProductRequest.md)|  | 
  **locale** | **NSString***| The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). | [optional] 
 
 ### Return type
 
-[**OAIInlineResponse20033***](OAIInlineResponse20033.md)
+[**OAIClassifyGroceryProduct200Response***](OAIClassifyGroceryProduct200Response.md)
 
 ### Authorization
 
@@ -141,34 +141,34 @@ Name | Type | Description  | Notes
 
 # **classifyGroceryProductBulk**
 ```objc
--(NSURLSessionTask*) classifyGroceryProductBulkWithInlineObject: (NSArray<OAIInlineObject>*) inlineObject
+-(NSURLSessionTask*) classifyGroceryProductBulkWithClassifyGroceryProductBulkRequestInner: (OAISet<OAIClassifyGroceryProductBulkRequestInner>*) classifyGroceryProductBulkRequestInner
     locale: (NSString*) locale
-        completionHandler: (void (^)(NSArray<OAIInlineResponse20033>* output, NSError* error)) handler;
+        completionHandler: (void (^)(OAISet<OAIClassifyGroceryProductBulk200ResponseInner>* output, NSError* error)) handler;
 ```
 
 Classify Grocery Product Bulk
 
 Provide a set of product jsons, get back classified products.
 
-### Example 
+### Example
 ```objc
 OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 
 // Configure API key authorization: (authentication scheme: apiKeyScheme)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"apiKey"];
+[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"x-api-key"];
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"apiKey"];
+//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"x-api-key"];
 
 
-NSArray<OAIInlineObject>* inlineObject = [{"title":"Kroger Vitamin A & D Reduced Fat 2% Milk","upc":"","plu_code":""}]; // 
+OAISet<OAIClassifyGroceryProductBulkRequestInner>* classifyGroceryProductBulkRequestInner = [{"title":"Kroger Vitamin A & D Reduced Fat 2% Milk","upc":"","plu_code":""}]; // 
 NSString* locale = en_US; // The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). (optional)
 
 OAIProductsApi*apiInstance = [[OAIProductsApi alloc] init];
 
 // Classify Grocery Product Bulk
-[apiInstance classifyGroceryProductBulkWithInlineObject:inlineObject
+[apiInstance classifyGroceryProductBulkWithClassifyGroceryProductBulkRequestInner:classifyGroceryProductBulkRequestInner
               locale:locale
-          completionHandler: ^(NSArray<OAIInlineResponse20033>* output, NSError* error) {
+          completionHandler: ^(OAISet<OAIClassifyGroceryProductBulk200ResponseInner>* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -182,12 +182,12 @@ OAIProductsApi*apiInstance = [[OAIProductsApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject** | [**NSArray&lt;OAIInlineObject&gt;***](NSArray.md)|  | 
+ **classifyGroceryProductBulkRequestInner** | [**OAISet&lt;OAIClassifyGroceryProductBulkRequestInner&gt;***](OAIClassifyGroceryProductBulkRequestInner.md)|  | 
  **locale** | **NSString***| The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). | [optional] 
 
 ### Return type
 
-[**NSArray<OAIInlineResponse20033>***](OAIInlineResponse20033.md)
+[**OAISet<OAIClassifyGroceryProductBulk200ResponseInner>***](OAIClassifyGroceryProductBulk200ResponseInner.md)
 
 ### Authorization
 
@@ -203,21 +203,21 @@ Name | Type | Description  | Notes
 # **getComparableProducts**
 ```objc
 -(NSURLSessionTask*) getComparableProductsWithUpc: (NSNumber*) upc
-        completionHandler: (void (^)(OAIInlineResponse20031* output, NSError* error)) handler;
+        completionHandler: (void (^)(OAIGetComparableProducts200Response* output, NSError* error)) handler;
 ```
 
 Get Comparable Products
 
 Find comparable products to the given one.
 
-### Example 
+### Example
 ```objc
 OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 
 // Configure API key authorization: (authentication scheme: apiKeyScheme)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"apiKey"];
+[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"x-api-key"];
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"apiKey"];
+//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"x-api-key"];
 
 
 NSNumber* upc = 33698816271; // The UPC of the product for which you want to find comparable products.
@@ -226,7 +226,7 @@ OAIProductsApi*apiInstance = [[OAIProductsApi alloc] init];
 
 // Get Comparable Products
 [apiInstance getComparableProductsWithUpc:upc
-          completionHandler: ^(OAIInlineResponse20031* output, NSError* error) {
+          completionHandler: ^(OAIGetComparableProducts200Response* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -244,7 +244,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OAIInlineResponse20031***](OAIInlineResponse20031.md)
+[**OAIGetComparableProducts200Response***](OAIGetComparableProducts200Response.md)
 
 ### Authorization
 
@@ -260,21 +260,21 @@ Name | Type | Description  | Notes
 # **getProductInformation**
 ```objc
 -(NSURLSessionTask*) getProductInformationWithId: (NSNumber*) _id
-        completionHandler: (void (^)(OAIInlineResponse20030* output, NSError* error)) handler;
+        completionHandler: (void (^)(OAIGetProductInformation200Response* output, NSError* error)) handler;
 ```
 
 Get Product Information
 
 Use a product id to get full information about a product, such as ingredients, nutrition, etc. The nutritional information is per serving.
 
-### Example 
+### Example
 ```objc
 OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 
 // Configure API key authorization: (authentication scheme: apiKeyScheme)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"apiKey"];
+[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"x-api-key"];
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"apiKey"];
+//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"x-api-key"];
 
 
 NSNumber* _id = 1; // The item's id.
@@ -283,7 +283,7 @@ OAIProductsApi*apiInstance = [[OAIProductsApi alloc] init];
 
 // Get Product Information
 [apiInstance getProductInformationWithId:_id
-          completionHandler: ^(OAIInlineResponse20030* output, NSError* error) {
+          completionHandler: ^(OAIGetProductInformation200Response* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -301,7 +301,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OAIInlineResponse20030***](OAIInlineResponse20030.md)
+[**OAIGetProductInformation200Response***](OAIGetProductInformation200Response.md)
 
 ### Authorization
 
@@ -324,14 +324,14 @@ Product Nutrition by ID Image
 
 Visualize a product's nutritional information as an image.
 
-### Example 
+### Example
 ```objc
 OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 
 // Configure API key authorization: (authentication scheme: apiKeyScheme)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"apiKey"];
+[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"x-api-key"];
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"apiKey"];
+//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"x-api-key"];
 
 
 NSNumber* _id = 7657; // The id of the product.
@@ -384,14 +384,14 @@ Product Nutrition Label Image
 
 Get a product's nutrition label as an image.
 
-### Example 
+### Example
 ```objc
 OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 
 // Configure API key authorization: (authentication scheme: apiKeyScheme)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"apiKey"];
+[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"x-api-key"];
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"apiKey"];
+//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"x-api-key"];
 
 
 NSNumber* _id = 22347; // The product id.
@@ -454,14 +454,14 @@ Product Nutrition Label Widget
 
 Get a product's nutrition label as an HTML widget.
 
-### Example 
+### Example
 ```objc
 OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 
 // Configure API key authorization: (authentication scheme: apiKeyScheme)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"apiKey"];
+[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"x-api-key"];
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"apiKey"];
+//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"x-api-key"];
 
 
 NSNumber* _id = 22347; // The product id.
@@ -527,21 +527,21 @@ Name | Type | Description  | Notes
     addProductInformation: (NSNumber*) addProductInformation
     offset: (NSNumber*) offset
     number: (NSNumber*) number
-        completionHandler: (void (^)(OAIInlineResponse20027* output, NSError* error)) handler;
+        completionHandler: (void (^)(OAISearchGroceryProducts200Response* output, NSError* error)) handler;
 ```
 
 Search Grocery Products
 
 Search packaged food products, such as frozen pizza or Greek yogurt.
 
-### Example 
+### Example
 ```objc
 OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 
 // Configure API key authorization: (authentication scheme: apiKeyScheme)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"apiKey"];
+[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"x-api-key"];
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"apiKey"];
+//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"x-api-key"];
 
 
 NSString* query = burger; // The (natural language) search query. (optional)
@@ -572,7 +572,7 @@ OAIProductsApi*apiInstance = [[OAIProductsApi alloc] init];
               addProductInformation:addProductInformation
               offset:offset
               number:number
-          completionHandler: ^(OAIInlineResponse20027* output, NSError* error) {
+          completionHandler: ^(OAISearchGroceryProducts200Response* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -601,7 +601,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OAIInlineResponse20027***](OAIInlineResponse20027.md)
+[**OAISearchGroceryProducts200Response***](OAISearchGroceryProducts200Response.md)
 
 ### Authorization
 
@@ -617,21 +617,21 @@ Name | Type | Description  | Notes
 # **searchGroceryProductsByUPC**
 ```objc
 -(NSURLSessionTask*) searchGroceryProductsByUPCWithUpc: (NSNumber*) upc
-        completionHandler: (void (^)(OAIInlineResponse20028* output, NSError* error)) handler;
+        completionHandler: (void (^)(OAISearchGroceryProductsByUPC200Response* output, NSError* error)) handler;
 ```
 
 Search Grocery Products by UPC
 
 Get information about a packaged food using its UPC.
 
-### Example 
+### Example
 ```objc
 OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 
 // Configure API key authorization: (authentication scheme: apiKeyScheme)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"apiKey"];
+[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"x-api-key"];
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"apiKey"];
+//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"x-api-key"];
 
 
 NSNumber* upc = 41631000564; // The product's UPC.
@@ -640,7 +640,7 @@ OAIProductsApi*apiInstance = [[OAIProductsApi alloc] init];
 
 // Search Grocery Products by UPC
 [apiInstance searchGroceryProductsByUPCWithUpc:upc
-          completionHandler: ^(OAIInlineResponse20028* output, NSError* error) {
+          completionHandler: ^(OAISearchGroceryProductsByUPC200Response* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -658,7 +658,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OAIInlineResponse20028***](OAIInlineResponse20028.md)
+[**OAISearchGroceryProductsByUPC200Response***](OAISearchGroceryProductsByUPC200Response.md)
 
 ### Authorization
 
@@ -683,14 +683,14 @@ Product Nutrition by ID Widget
 
 Visualize a product's nutritional information as HTML including CSS.
 
-### Example 
+### Example
 ```objc
 OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 
 // Configure API key authorization: (authentication scheme: apiKeyScheme)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"apiKey"];
+[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"x-api-key"];
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"apiKey"];
+//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"x-api-key"];
 
 
 NSNumber* _id = 1; // The item's id.

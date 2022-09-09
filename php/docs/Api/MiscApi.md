@@ -1,26 +1,27 @@
 # com.spoonacular.client\MiscApi
 
-All URIs are relative to *https://api.spoonacular.com*
+All URIs are relative to https://api.spoonacular.com.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**detectFoodInText**](MiscApi.md#detectFoodInText) | **POST** /food/detect | Detect Food in Text
-[**getARandomFoodJoke**](MiscApi.md#getARandomFoodJoke) | **GET** /food/jokes/random | Random Food Joke
-[**getConversationSuggests**](MiscApi.md#getConversationSuggests) | **GET** /food/converse/suggest | Conversation Suggests
-[**getRandomFoodTrivia**](MiscApi.md#getRandomFoodTrivia) | **GET** /food/trivia/random | Random Food Trivia
-[**imageAnalysisByURL**](MiscApi.md#imageAnalysisByURL) | **GET** /food/images/analyze | Image Analysis by URL
-[**imageClassificationByURL**](MiscApi.md#imageClassificationByURL) | **GET** /food/images/classify | Image Classification by URL
-[**searchAllFood**](MiscApi.md#searchAllFood) | **GET** /food/search | Search All Food
-[**searchCustomFoods**](MiscApi.md#searchCustomFoods) | **GET** /food/customFoods/search | Search Custom Foods
-[**searchFoodVideos**](MiscApi.md#searchFoodVideos) | **GET** /food/videos/search | Search Food Videos
-[**searchSiteContent**](MiscApi.md#searchSiteContent) | **GET** /food/site/search | Search Site Content
-[**talkToChatbot**](MiscApi.md#talkToChatbot) | **GET** /food/converse | Talk to Chatbot
+[**detectFoodInText()**](MiscApi.md#detectFoodInText) | **POST** /food/detect | Detect Food in Text
+[**getARandomFoodJoke()**](MiscApi.md#getARandomFoodJoke) | **GET** /food/jokes/random | Random Food Joke
+[**getConversationSuggests()**](MiscApi.md#getConversationSuggests) | **GET** /food/converse/suggest | Conversation Suggests
+[**getRandomFoodTrivia()**](MiscApi.md#getRandomFoodTrivia) | **GET** /food/trivia/random | Random Food Trivia
+[**imageAnalysisByURL()**](MiscApi.md#imageAnalysisByURL) | **GET** /food/images/analyze | Image Analysis by URL
+[**imageClassificationByURL()**](MiscApi.md#imageClassificationByURL) | **GET** /food/images/classify | Image Classification by URL
+[**searchAllFood()**](MiscApi.md#searchAllFood) | **GET** /food/search | Search All Food
+[**searchCustomFoods()**](MiscApi.md#searchCustomFoods) | **GET** /food/customFoods/search | Search Custom Foods
+[**searchFoodVideos()**](MiscApi.md#searchFoodVideos) | **GET** /food/videos/search | Search Food Videos
+[**searchSiteContent()**](MiscApi.md#searchSiteContent) | **GET** /food/site/search | Search Site Content
+[**talkToChatbot()**](MiscApi.md#talkToChatbot) | **GET** /food/converse | Talk to Chatbot
 
 
+## `detectFoodInText()`
 
-## detectFoodInText
-
-> \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20051 detectFoodInText($content_type)
+```php
+detectFoodInText($content_type): \com.spoonacular.client\com.spoonacular.client.model\DetectFoodInText200Response
+```
 
 Detect Food in Text
 
@@ -34,9 +35,9 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
 $apiInstance = new com.spoonacular.client\Api\MiscApi(
@@ -53,11 +54,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling MiscApi->detectFoodInText: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -65,7 +64,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20051**](../Model/InlineResponse20051.md)
+[**\com.spoonacular.client\com.spoonacular.client.model\DetectFoodInText200Response**](../Model/DetectFoodInText200Response.md)
 
 ### Authorization
 
@@ -73,17 +72,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/x-www-form-urlencoded
-- **Accept**: application/json
+- **Content-Type**: `application/x-www-form-urlencoded`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getARandomFoodJoke()`
 
-## getARandomFoodJoke
-
-> \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20055 getARandomFoodJoke()
+```php
+getARandomFoodJoke(): \com.spoonacular.client\com.spoonacular.client.model\GetARandomFoodJoke200Response
+```
 
 Random Food Joke
 
@@ -97,9 +97,9 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
 $apiInstance = new com.spoonacular.client\Api\MiscApi(
@@ -115,7 +115,6 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling MiscApi->getARandomFoodJoke: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
@@ -124,7 +123,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20055**](../Model/InlineResponse20055.md)
+[**\com.spoonacular.client\com.spoonacular.client.model\GetARandomFoodJoke200Response**](../Model/GetARandomFoodJoke200Response.md)
 
 ### Authorization
 
@@ -133,16 +132,17 @@ This endpoint does not need any parameter.
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getConversationSuggests()`
 
-## getConversationSuggests
-
-> \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20057 getConversationSuggests($query, $number)
+```php
+getConversationSuggests($query, $number): \com.spoonacular.client\com.spoonacular.client.model\GetConversationSuggests200Response
+```
 
 Conversation Suggests
 
@@ -156,9 +156,9 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
 $apiInstance = new com.spoonacular.client\Api\MiscApi(
@@ -176,11 +176,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling MiscApi->getConversationSuggests: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -189,7 +187,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20057**](../Model/InlineResponse20057.md)
+[**\com.spoonacular.client\com.spoonacular.client.model\GetConversationSuggests200Response**](../Model/GetConversationSuggests200Response.md)
 
 ### Authorization
 
@@ -198,16 +196,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getRandomFoodTrivia()`
 
-## getRandomFoodTrivia
-
-> \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20055 getRandomFoodTrivia()
+```php
+getRandomFoodTrivia(): \com.spoonacular.client\com.spoonacular.client.model\GetRandomFoodTrivia200Response
+```
 
 Random Food Trivia
 
@@ -221,9 +220,9 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
 $apiInstance = new com.spoonacular.client\Api\MiscApi(
@@ -239,7 +238,6 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling MiscApi->getRandomFoodTrivia: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
@@ -248,7 +246,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20055**](../Model/InlineResponse20055.md)
+[**\com.spoonacular.client\com.spoonacular.client.model\GetRandomFoodTrivia200Response**](../Model/GetRandomFoodTrivia200Response.md)
 
 ### Authorization
 
@@ -257,16 +255,17 @@ This endpoint does not need any parameter.
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `imageAnalysisByURL()`
 
-## imageAnalysisByURL
-
-> \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20049 imageAnalysisByURL($image_url)
+```php
+imageAnalysisByURL($image_url): \com.spoonacular.client\com.spoonacular.client.model\ImageAnalysisByURL200Response
+```
 
 Image Analysis by URL
 
@@ -280,9 +279,9 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
 $apiInstance = new com.spoonacular.client\Api\MiscApi(
@@ -299,11 +298,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling MiscApi->imageAnalysisByURL: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -311,7 +308,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20049**](../Model/InlineResponse20049.md)
+[**\com.spoonacular.client\com.spoonacular.client.model\ImageAnalysisByURL200Response**](../Model/ImageAnalysisByURL200Response.md)
 
 ### Authorization
 
@@ -320,16 +317,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `imageClassificationByURL()`
 
-## imageClassificationByURL
-
-> \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20048 imageClassificationByURL($image_url)
+```php
+imageClassificationByURL($image_url): \com.spoonacular.client\com.spoonacular.client.model\ImageClassificationByURL200Response
+```
 
 Image Classification by URL
 
@@ -343,9 +341,9 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
 $apiInstance = new com.spoonacular.client\Api\MiscApi(
@@ -362,11 +360,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling MiscApi->imageClassificationByURL: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -374,7 +370,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20048**](../Model/InlineResponse20048.md)
+[**\com.spoonacular.client\com.spoonacular.client.model\ImageClassificationByURL200Response**](../Model/ImageClassificationByURL200Response.md)
 
 ### Authorization
 
@@ -383,16 +379,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `searchAllFood()`
 
-## searchAllFood
-
-> \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20053 searchAllFood($query, $offset, $number)
+```php
+searchAllFood($query, $offset, $number): \com.spoonacular.client\com.spoonacular.client.model\SearchAllFood200Response
+```
 
 Search All Food
 
@@ -406,9 +403,9 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
 $apiInstance = new com.spoonacular.client\Api\MiscApi(
@@ -427,11 +424,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling MiscApi->searchAllFood: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -441,7 +436,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20053**](../Model/InlineResponse20053.md)
+[**\com.spoonacular.client\com.spoonacular.client.model\SearchAllFood200Response**](../Model/SearchAllFood200Response.md)
 
 ### Authorization
 
@@ -450,16 +445,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `searchCustomFoods()`
 
-## searchCustomFoods
-
-> \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20029 searchCustomFoods($username, $hash, $query, $offset, $number)
+```php
+searchCustomFoods($username, $hash, $query, $offset, $number): \com.spoonacular.client\com.spoonacular.client.model\SearchCustomFoods200Response
+```
 
 Search Custom Foods
 
@@ -473,9 +469,9 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
 $apiInstance = new com.spoonacular.client\Api\MiscApi(
@@ -496,11 +492,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling MiscApi->searchCustomFoods: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -512,7 +506,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20029**](../Model/InlineResponse20029.md)
+[**\com.spoonacular.client\com.spoonacular.client.model\SearchCustomFoods200Response**](../Model/SearchCustomFoods200Response.md)
 
 ### Authorization
 
@@ -521,16 +515,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `searchFoodVideos()`
 
-## searchFoodVideos
-
-> \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20054 searchFoodVideos($query, $type, $cuisine, $diet, $include_ingredients, $exclude_ingredients, $min_length, $max_length, $offset, $number)
+```php
+searchFoodVideos($query, $type, $cuisine, $diet, $include_ingredients, $exclude_ingredients, $min_length, $max_length, $offset, $number): \com.spoonacular.client\com.spoonacular.client.model\SearchFoodVideos200Response
+```
 
 Search Food Videos
 
@@ -544,9 +539,9 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
 $apiInstance = new com.spoonacular.client\Api\MiscApi(
@@ -572,11 +567,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling MiscApi->searchFoodVideos: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -593,7 +586,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20054**](../Model/InlineResponse20054.md)
+[**\com.spoonacular.client\com.spoonacular.client.model\SearchFoodVideos200Response**](../Model/SearchFoodVideos200Response.md)
 
 ### Authorization
 
@@ -602,16 +595,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `searchSiteContent()`
 
-## searchSiteContent
-
-> \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20052 searchSiteContent($query)
+```php
+searchSiteContent($query): \com.spoonacular.client\com.spoonacular.client.model\SearchSiteContent200Response
+```
 
 Search Site Content
 
@@ -625,9 +619,9 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
 $apiInstance = new com.spoonacular.client\Api\MiscApi(
@@ -644,11 +638,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling MiscApi->searchSiteContent: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -656,7 +648,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20052**](../Model/InlineResponse20052.md)
+[**\com.spoonacular.client\com.spoonacular.client.model\SearchSiteContent200Response**](../Model/SearchSiteContent200Response.md)
 
 ### Authorization
 
@@ -665,16 +657,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `talkToChatbot()`
 
-## talkToChatbot
-
-> \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20056 talkToChatbot($text, $context_id)
+```php
+talkToChatbot($text, $context_id): \com.spoonacular.client\com.spoonacular.client.model\TalkToChatbot200Response
+```
 
 Talk to Chatbot
 
@@ -688,9 +681,9 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
 $apiInstance = new com.spoonacular.client\Api\MiscApi(
@@ -708,11 +701,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling MiscApi->talkToChatbot: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -721,7 +712,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20056**](../Model/InlineResponse20056.md)
+[**\com.spoonacular.client\com.spoonacular.client.model\TalkToChatbot200Response**](../Model/TalkToChatbot200Response.md)
 
 ### Authorization
 
@@ -730,9 +721,8 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
-

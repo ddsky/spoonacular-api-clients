@@ -22,19 +22,19 @@ defmodule com.spoonacular.client.Api.Wine do
   - opts (KeywordList): [optional] Optional parameters
   ## Returns
 
-  {:ok, %com.spoonacular.client.Model.InlineResponse20044{}} on success
-  {:error, info} on failure
+  {:ok, com.spoonacular.client.Model.GetDishPairingForWine200Response.t} on success
+  {:error, Tesla.Env.t} on failure
   """
-  @spec get_dish_pairing_for_wine(Tesla.Env.client, String.t, keyword()) :: {:ok, com.spoonacular.client.Model.InlineResponse20044.t} | {:error, Tesla.Env.t}
+  @spec get_dish_pairing_for_wine(Tesla.Env.client, String.t, keyword()) :: {:ok, nil} | {:ok, com.spoonacular.client.Model.GetDishPairingForWine200Response.t} | {:error, Tesla.Env.t}
   def get_dish_pairing_for_wine(connection, wine, _opts \\ []) do
     %{}
     |> method(:get)
     |> url("/food/wine/dishes")
-    |> add_param(:query, :"wine", wine)
+    |> add_param(:query, :wine, wine)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
-      { 200, %com.spoonacular.client.Model.InlineResponse20044{}},
+      { 200, %com.spoonacular.client.Model.GetDishPairingForWine200Response{}},
       { 401, false},
       { 403, false},
       { 404, false}
@@ -52,19 +52,19 @@ defmodule com.spoonacular.client.Api.Wine do
   - opts (KeywordList): [optional] Optional parameters
   ## Returns
 
-  {:ok, %com.spoonacular.client.Model.InlineResponse20046{}} on success
-  {:error, info} on failure
+  {:ok, com.spoonacular.client.Model.GetWineDescription200Response.t} on success
+  {:error, Tesla.Env.t} on failure
   """
-  @spec get_wine_description(Tesla.Env.client, String.t, keyword()) :: {:ok, com.spoonacular.client.Model.InlineResponse20046.t} | {:error, Tesla.Env.t}
+  @spec get_wine_description(Tesla.Env.client, String.t, keyword()) :: {:ok, nil} | {:ok, com.spoonacular.client.Model.GetWineDescription200Response.t} | {:error, Tesla.Env.t}
   def get_wine_description(connection, wine, _opts \\ []) do
     %{}
     |> method(:get)
     |> url("/food/wine/description")
-    |> add_param(:query, :"wine", wine)
+    |> add_param(:query, :wine, wine)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
-      { 200, %com.spoonacular.client.Model.InlineResponse20046{}},
+      { 200, %com.spoonacular.client.Model.GetWineDescription200Response{}},
       { 401, false},
       { 403, false},
       { 404, false}
@@ -83,23 +83,23 @@ defmodule com.spoonacular.client.Api.Wine do
     - :max_price (float()): The maximum price for the specific wine recommendation in USD.
   ## Returns
 
-  {:ok, %com.spoonacular.client.Model.InlineResponse20045{}} on success
-  {:error, info} on failure
+  {:ok, com.spoonacular.client.Model.GetWinePairing200Response.t} on success
+  {:error, Tesla.Env.t} on failure
   """
-  @spec get_wine_pairing(Tesla.Env.client, String.t, keyword()) :: {:ok, com.spoonacular.client.Model.InlineResponse20045.t} | {:error, Tesla.Env.t}
+  @spec get_wine_pairing(Tesla.Env.client, String.t, keyword()) :: {:ok, nil} | {:ok, com.spoonacular.client.Model.GetWinePairing200Response.t} | {:error, Tesla.Env.t}
   def get_wine_pairing(connection, food, opts \\ []) do
     optional_params = %{
-      :"maxPrice" => :query
+      :maxPrice => :query
     }
     %{}
     |> method(:get)
     |> url("/food/wine/pairing")
-    |> add_param(:query, :"food", food)
+    |> add_param(:query, :food, food)
     |> add_optional_params(optional_params, opts)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
-      { 200, %com.spoonacular.client.Model.InlineResponse20045{}},
+      { 200, %com.spoonacular.client.Model.GetWinePairing200Response{}},
       { 401, false},
       { 403, false},
       { 404, false}
@@ -120,25 +120,25 @@ defmodule com.spoonacular.client.Api.Wine do
     - :number (float()): The number of wine recommendations expected (between 1 and 100).
   ## Returns
 
-  {:ok, %com.spoonacular.client.Model.InlineResponse20047{}} on success
-  {:error, info} on failure
+  {:ok, com.spoonacular.client.Model.GetWineRecommendation200Response.t} on success
+  {:error, Tesla.Env.t} on failure
   """
-  @spec get_wine_recommendation(Tesla.Env.client, String.t, keyword()) :: {:ok, com.spoonacular.client.Model.InlineResponse20047.t} | {:error, Tesla.Env.t}
+  @spec get_wine_recommendation(Tesla.Env.client, String.t, keyword()) :: {:ok, nil} | {:ok, com.spoonacular.client.Model.GetWineRecommendation200Response.t} | {:error, Tesla.Env.t}
   def get_wine_recommendation(connection, wine, opts \\ []) do
     optional_params = %{
-      :"maxPrice" => :query,
-      :"minRating" => :query,
-      :"number" => :query
+      :maxPrice => :query,
+      :minRating => :query,
+      :number => :query
     }
     %{}
     |> method(:get)
     |> url("/food/wine/recommendation")
-    |> add_param(:query, :"wine", wine)
+    |> add_param(:query, :wine, wine)
     |> add_optional_params(optional_params, opts)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
-      { 200, %com.spoonacular.client.Model.InlineResponse20047{}},
+      { 200, %com.spoonacular.client.Model.GetWineRecommendation200Response{}},
       { 401, false},
       { 403, false},
       { 404, false}

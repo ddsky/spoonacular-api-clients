@@ -1,29 +1,29 @@
 package com.spoonacular;
 
 import com.spoonacular.client.ApiUtils
+import com.spoonacular.client.model.AddMealPlanTemplate200Response
+import com.spoonacular.client.model.AddToMealPlanRequest
+import com.spoonacular.client.model.AddToMealPlanRequest1
+import com.spoonacular.client.model.AddToShoppingListRequest
 import java.math.BigDecimal
-import com.spoonacular.client.model.InlineObject10
-import com.spoonacular.client.model.InlineObject3
-import com.spoonacular.client.model.InlineObject4
-import com.spoonacular.client.model.InlineObject5
-import com.spoonacular.client.model.InlineObject6
-import com.spoonacular.client.model.InlineObject7
-import com.spoonacular.client.model.InlineObject8
-import com.spoonacular.client.model.InlineObject9
-import com.spoonacular.client.model.InlineResponse20037
-import com.spoonacular.client.model.InlineResponse20038
-import com.spoonacular.client.model.InlineResponse20039
-import com.spoonacular.client.model.InlineResponse20040
-import com.spoonacular.client.model.InlineResponse20041
-import com.spoonacular.client.model.InlineResponse20042
-import com.spoonacular.client.model.InlineResponse20043
+import com.spoonacular.client.model.ClearMealPlanDayRequest
+import com.spoonacular.client.model.ConnectUser200Response
+import com.spoonacular.client.model.ConnectUserRequest
+import com.spoonacular.client.model.DeleteFromMealPlanRequest
+import com.spoonacular.client.model.GenerateMealPlan200Response
+import com.spoonacular.client.model.GenerateShoppingList200Response
+import com.spoonacular.client.model.GenerateShoppingListRequest
+import com.spoonacular.client.model.GetMealPlanTemplate200Response
+import com.spoonacular.client.model.GetMealPlanTemplates200Response
+import com.spoonacular.client.model.GetMealPlanWeek200Response
+import com.spoonacular.client.model.GetShoppingList200Response
 
 class MealPlanningApi {
     String basePath = "https://api.spoonacular.com"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def addMealPlanTemplate ( String username, String hash, InlineObject6 inlineObject6, Closure onSuccess, Closure onFailure)  {
+    def addMealPlanTemplate ( String username, String hash, AddToMealPlanRequest addToMealPlanRequest, Closure onSuccess, Closure onFailure)  {
         String resourcePath = "/mealplanner/${username}/templates"
 
         // params
@@ -41,8 +41,8 @@ class MealPlanningApi {
             throw new RuntimeException("missing required params hash")
         }
         // verify required params are set
-        if (inlineObject6 == null) {
-            throw new RuntimeException("missing required params inlineObject6")
+        if (addToMealPlanRequest == null) {
+            throw new RuntimeException("missing required params addToMealPlanRequest")
         }
 
         if (hash != null) {
@@ -51,16 +51,16 @@ class MealPlanningApi {
 
 
         contentType = '';
-        bodyParams = inlineObject6
+        bodyParams = addToMealPlanRequest
 
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "POST", "",
-                    InlineResponse20040.class )
+                    AddMealPlanTemplate200Response.class )
 
     }
 
-    def addToMealPlan ( String username, String hash, InlineObject4 inlineObject4, Closure onSuccess, Closure onFailure)  {
+    def addToMealPlan ( String username, String hash, AddToMealPlanRequest addToMealPlanRequest, Closure onSuccess, Closure onFailure)  {
         String resourcePath = "/mealplanner/${username}/items"
 
         // params
@@ -78,8 +78,8 @@ class MealPlanningApi {
             throw new RuntimeException("missing required params hash")
         }
         // verify required params are set
-        if (inlineObject4 == null) {
-            throw new RuntimeException("missing required params inlineObject4")
+        if (addToMealPlanRequest == null) {
+            throw new RuntimeException("missing required params addToMealPlanRequest")
         }
 
         if (hash != null) {
@@ -88,7 +88,7 @@ class MealPlanningApi {
 
 
         contentType = '';
-        bodyParams = inlineObject4
+        bodyParams = addToMealPlanRequest
 
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
@@ -97,7 +97,7 @@ class MealPlanningApi {
 
     }
 
-    def addToShoppingList ( String username, String hash, InlineObject9 inlineObject9, Closure onSuccess, Closure onFailure)  {
+    def addToShoppingList ( String username, String hash, AddToMealPlanRequest addToMealPlanRequest, Closure onSuccess, Closure onFailure)  {
         String resourcePath = "/mealplanner/${username}/shopping-list/items"
 
         // params
@@ -115,8 +115,8 @@ class MealPlanningApi {
             throw new RuntimeException("missing required params hash")
         }
         // verify required params are set
-        if (inlineObject9 == null) {
-            throw new RuntimeException("missing required params inlineObject9")
+        if (addToMealPlanRequest == null) {
+            throw new RuntimeException("missing required params addToMealPlanRequest")
         }
 
         if (hash != null) {
@@ -125,16 +125,16 @@ class MealPlanningApi {
 
 
         contentType = '';
-        bodyParams = inlineObject9
+        bodyParams = addToMealPlanRequest
 
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "POST", "",
-                    InlineResponse20042.class )
+                    GenerateShoppingList200Response.class )
 
     }
 
-    def clearMealPlanDay ( String username, String date, String hash, InlineObject3 inlineObject3, Closure onSuccess, Closure onFailure)  {
+    def clearMealPlanDay ( String username, String date, String hash, ClearMealPlanDayRequest clearMealPlanDayRequest, Closure onSuccess, Closure onFailure)  {
         String resourcePath = "/mealplanner/${username}/day/${date}"
 
         // params
@@ -156,8 +156,8 @@ class MealPlanningApi {
             throw new RuntimeException("missing required params hash")
         }
         // verify required params are set
-        if (inlineObject3 == null) {
-            throw new RuntimeException("missing required params inlineObject3")
+        if (clearMealPlanDayRequest == null) {
+            throw new RuntimeException("missing required params clearMealPlanDayRequest")
         }
 
         if (hash != null) {
@@ -166,7 +166,7 @@ class MealPlanningApi {
 
 
         contentType = '';
-        bodyParams = inlineObject3
+        bodyParams = clearMealPlanDayRequest
 
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
@@ -197,11 +197,11 @@ class MealPlanningApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "POST", "",
-                    InlineResponse20043.class )
+                    ConnectUser200Response.class )
 
     }
 
-    def deleteFromMealPlan ( String username, BigDecimal id, String hash, InlineObject5 inlineObject5, Closure onSuccess, Closure onFailure)  {
+    def deleteFromMealPlan ( String username, BigDecimal id, String hash, DeleteFromMealPlanRequest deleteFromMealPlanRequest, Closure onSuccess, Closure onFailure)  {
         String resourcePath = "/mealplanner/${username}/items/${id}"
 
         // params
@@ -223,8 +223,8 @@ class MealPlanningApi {
             throw new RuntimeException("missing required params hash")
         }
         // verify required params are set
-        if (inlineObject5 == null) {
-            throw new RuntimeException("missing required params inlineObject5")
+        if (deleteFromMealPlanRequest == null) {
+            throw new RuntimeException("missing required params deleteFromMealPlanRequest")
         }
 
         if (hash != null) {
@@ -233,7 +233,7 @@ class MealPlanningApi {
 
 
         contentType = '';
-        bodyParams = inlineObject5
+        bodyParams = deleteFromMealPlanRequest
 
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
@@ -242,7 +242,7 @@ class MealPlanningApi {
 
     }
 
-    def deleteFromShoppingList ( String username, Integer id, String hash, InlineObject10 inlineObject10, Closure onSuccess, Closure onFailure)  {
+    def deleteFromShoppingList ( String username, Integer id, String hash, DeleteFromMealPlanRequest deleteFromMealPlanRequest, Closure onSuccess, Closure onFailure)  {
         String resourcePath = "/mealplanner/${username}/shopping-list/items/${id}"
 
         // params
@@ -264,8 +264,8 @@ class MealPlanningApi {
             throw new RuntimeException("missing required params hash")
         }
         // verify required params are set
-        if (inlineObject10 == null) {
-            throw new RuntimeException("missing required params inlineObject10")
+        if (deleteFromMealPlanRequest == null) {
+            throw new RuntimeException("missing required params deleteFromMealPlanRequest")
         }
 
         if (hash != null) {
@@ -274,7 +274,7 @@ class MealPlanningApi {
 
 
         contentType = '';
-        bodyParams = inlineObject10
+        bodyParams = deleteFromMealPlanRequest
 
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
@@ -283,7 +283,7 @@ class MealPlanningApi {
 
     }
 
-    def deleteMealPlanTemplate ( String username, Integer id, String hash, InlineObject7 inlineObject7, Closure onSuccess, Closure onFailure)  {
+    def deleteMealPlanTemplate ( String username, Integer id, String hash, DeleteFromMealPlanRequest deleteFromMealPlanRequest, Closure onSuccess, Closure onFailure)  {
         String resourcePath = "/mealplanner/${username}/templates/${id}"
 
         // params
@@ -305,8 +305,8 @@ class MealPlanningApi {
             throw new RuntimeException("missing required params hash")
         }
         // verify required params are set
-        if (inlineObject7 == null) {
-            throw new RuntimeException("missing required params inlineObject7")
+        if (deleteFromMealPlanRequest == null) {
+            throw new RuntimeException("missing required params deleteFromMealPlanRequest")
         }
 
         if (hash != null) {
@@ -315,7 +315,7 @@ class MealPlanningApi {
 
 
         contentType = '';
-        bodyParams = inlineObject7
+        bodyParams = deleteFromMealPlanRequest
 
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
@@ -352,11 +352,11 @@ class MealPlanningApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "GET", "",
-                    InlineResponse20037.class )
+                    GenerateMealPlan200Response.class )
 
     }
 
-    def generateShoppingList ( String username, String startDate, String endDate, String hash, InlineObject8 inlineObject8, Closure onSuccess, Closure onFailure)  {
+    def generateShoppingList ( String username, String startDate, String endDate, String hash, GenerateShoppingListRequest generateShoppingListRequest, Closure onSuccess, Closure onFailure)  {
         String resourcePath = "/mealplanner/${username}/shopping-list/${start-date}/${end-date}"
 
         // params
@@ -382,8 +382,8 @@ class MealPlanningApi {
             throw new RuntimeException("missing required params hash")
         }
         // verify required params are set
-        if (inlineObject8 == null) {
-            throw new RuntimeException("missing required params inlineObject8")
+        if (generateShoppingListRequest == null) {
+            throw new RuntimeException("missing required params generateShoppingListRequest")
         }
 
         if (hash != null) {
@@ -392,12 +392,12 @@ class MealPlanningApi {
 
 
         contentType = '';
-        bodyParams = inlineObject8
+        bodyParams = generateShoppingListRequest
 
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "POST", "",
-                    InlineResponse20042.class )
+                    GenerateShoppingList200Response.class )
 
     }
 
@@ -432,7 +432,7 @@ class MealPlanningApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "GET", "",
-                    InlineResponse20041.class )
+                    GetMealPlanTemplate200Response.class )
 
     }
 
@@ -463,7 +463,7 @@ class MealPlanningApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "GET", "",
-                    InlineResponse20039.class )
+                    GetMealPlanTemplates200Response.class )
 
     }
 
@@ -498,7 +498,7 @@ class MealPlanningApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "GET", "",
-                    InlineResponse20038.class )
+                    GetMealPlanWeek200Response.class )
 
     }
 
@@ -529,7 +529,7 @@ class MealPlanningApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "GET", "",
-                    InlineResponse20042.class )
+                    GetShoppingList200Response.class )
 
     }
 

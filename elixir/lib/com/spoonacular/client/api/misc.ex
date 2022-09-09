@@ -22,10 +22,10 @@ defmodule com.spoonacular.client.Api.Misc do
     - :content_type (String.t): The content type.
   ## Returns
 
-  {:ok, %com.spoonacular.client.Model.InlineResponse20051{}} on success
-  {:error, info} on failure
+  {:ok, com.spoonacular.client.Model.DetectFoodInText200Response.t} on success
+  {:error, Tesla.Env.t} on failure
   """
-  @spec detect_food_in_text(Tesla.Env.client, keyword()) :: {:ok, com.spoonacular.client.Model.InlineResponse20051.t} | {:error, Tesla.Env.t}
+  @spec detect_food_in_text(Tesla.Env.client, keyword()) :: {:ok, nil} | {:ok, com.spoonacular.client.Model.DetectFoodInText200Response.t} | {:error, Tesla.Env.t}
   def detect_food_in_text(connection, opts \\ []) do
     optional_params = %{
       :"Content-Type" => :headers
@@ -34,10 +34,11 @@ defmodule com.spoonacular.client.Api.Misc do
     |> method(:post)
     |> url("/food/detect")
     |> add_optional_params(optional_params, opts)
+    |> ensure_body()
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
-      { 200, %com.spoonacular.client.Model.InlineResponse20051{}},
+      { 200, %com.spoonacular.client.Model.DetectFoodInText200Response{}},
       { 401, false},
       { 403, false},
       { 404, false}
@@ -54,10 +55,10 @@ defmodule com.spoonacular.client.Api.Misc do
   - opts (KeywordList): [optional] Optional parameters
   ## Returns
 
-  {:ok, %com.spoonacular.client.Model.InlineResponse20055{}} on success
-  {:error, info} on failure
+  {:ok, com.spoonacular.client.Model.GetARandomFoodJoke200Response.t} on success
+  {:error, Tesla.Env.t} on failure
   """
-  @spec get_a_random_food_joke(Tesla.Env.client, keyword()) :: {:ok, com.spoonacular.client.Model.InlineResponse20055.t} | {:error, Tesla.Env.t}
+  @spec get_a_random_food_joke(Tesla.Env.client, keyword()) :: {:ok, nil} | {:ok, com.spoonacular.client.Model.GetARandomFoodJoke200Response.t} | {:error, Tesla.Env.t}
   def get_a_random_food_joke(connection, _opts \\ []) do
     %{}
     |> method(:get)
@@ -65,7 +66,7 @@ defmodule com.spoonacular.client.Api.Misc do
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
-      { 200, %com.spoonacular.client.Model.InlineResponse20055{}},
+      { 200, %com.spoonacular.client.Model.GetARandomFoodJoke200Response{}},
       { 401, false},
       { 403, false},
       { 404, false}
@@ -84,23 +85,23 @@ defmodule com.spoonacular.client.Api.Misc do
     - :number (float()): The number of suggestions to return (between 1 and 25).
   ## Returns
 
-  {:ok, %com.spoonacular.client.Model.InlineResponse20057{}} on success
-  {:error, info} on failure
+  {:ok, com.spoonacular.client.Model.GetConversationSuggests200Response.t} on success
+  {:error, Tesla.Env.t} on failure
   """
-  @spec get_conversation_suggests(Tesla.Env.client, String.t, keyword()) :: {:ok, com.spoonacular.client.Model.InlineResponse20057.t} | {:error, Tesla.Env.t}
+  @spec get_conversation_suggests(Tesla.Env.client, String.t, keyword()) :: {:ok, com.spoonacular.client.Model.GetConversationSuggests200Response.t} | {:ok, nil} | {:error, Tesla.Env.t}
   def get_conversation_suggests(connection, query, opts \\ []) do
     optional_params = %{
-      :"number" => :query
+      :number => :query
     }
     %{}
     |> method(:get)
     |> url("/food/converse/suggest")
-    |> add_param(:query, :"query", query)
+    |> add_param(:query, :query, query)
     |> add_optional_params(optional_params, opts)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
-      { 200, %com.spoonacular.client.Model.InlineResponse20057{}},
+      { 200, %com.spoonacular.client.Model.GetConversationSuggests200Response{}},
       { 401, false},
       { 403, false},
       { 404, false}
@@ -117,10 +118,10 @@ defmodule com.spoonacular.client.Api.Misc do
   - opts (KeywordList): [optional] Optional parameters
   ## Returns
 
-  {:ok, %com.spoonacular.client.Model.InlineResponse20055{}} on success
-  {:error, info} on failure
+  {:ok, com.spoonacular.client.Model.GetRandomFoodTrivia200Response.t} on success
+  {:error, Tesla.Env.t} on failure
   """
-  @spec get_random_food_trivia(Tesla.Env.client, keyword()) :: {:ok, com.spoonacular.client.Model.InlineResponse20055.t} | {:error, Tesla.Env.t}
+  @spec get_random_food_trivia(Tesla.Env.client, keyword()) :: {:ok, nil} | {:ok, com.spoonacular.client.Model.GetRandomFoodTrivia200Response.t} | {:error, Tesla.Env.t}
   def get_random_food_trivia(connection, _opts \\ []) do
     %{}
     |> method(:get)
@@ -128,7 +129,7 @@ defmodule com.spoonacular.client.Api.Misc do
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
-      { 200, %com.spoonacular.client.Model.InlineResponse20055{}},
+      { 200, %com.spoonacular.client.Model.GetRandomFoodTrivia200Response{}},
       { 401, false},
       { 403, false},
       { 404, false}
@@ -146,19 +147,19 @@ defmodule com.spoonacular.client.Api.Misc do
   - opts (KeywordList): [optional] Optional parameters
   ## Returns
 
-  {:ok, %com.spoonacular.client.Model.InlineResponse20049{}} on success
-  {:error, info} on failure
+  {:ok, com.spoonacular.client.Model.ImageAnalysisByUrl200Response.t} on success
+  {:error, Tesla.Env.t} on failure
   """
-  @spec image_analysis_by_url(Tesla.Env.client, String.t, keyword()) :: {:ok, com.spoonacular.client.Model.InlineResponse20049.t} | {:error, Tesla.Env.t}
+  @spec image_analysis_by_url(Tesla.Env.client, String.t, keyword()) :: {:ok, nil} | {:ok, com.spoonacular.client.Model.ImageAnalysisByUrl200Response.t} | {:error, Tesla.Env.t}
   def image_analysis_by_url(connection, image_url, _opts \\ []) do
     %{}
     |> method(:get)
     |> url("/food/images/analyze")
-    |> add_param(:query, :"imageUrl", image_url)
+    |> add_param(:query, :imageUrl, image_url)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
-      { 200, %com.spoonacular.client.Model.InlineResponse20049{}},
+      { 200, %com.spoonacular.client.Model.ImageAnalysisByUrl200Response{}},
       { 401, false},
       { 403, false},
       { 404, false}
@@ -176,19 +177,19 @@ defmodule com.spoonacular.client.Api.Misc do
   - opts (KeywordList): [optional] Optional parameters
   ## Returns
 
-  {:ok, %com.spoonacular.client.Model.InlineResponse20048{}} on success
-  {:error, info} on failure
+  {:ok, com.spoonacular.client.Model.ImageClassificationByUrl200Response.t} on success
+  {:error, Tesla.Env.t} on failure
   """
-  @spec image_classification_by_url(Tesla.Env.client, String.t, keyword()) :: {:ok, com.spoonacular.client.Model.InlineResponse20048.t} | {:error, Tesla.Env.t}
+  @spec image_classification_by_url(Tesla.Env.client, String.t, keyword()) :: {:ok, nil} | {:ok, com.spoonacular.client.Model.ImageClassificationByUrl200Response.t} | {:error, Tesla.Env.t}
   def image_classification_by_url(connection, image_url, _opts \\ []) do
     %{}
     |> method(:get)
     |> url("/food/images/classify")
-    |> add_param(:query, :"imageUrl", image_url)
+    |> add_param(:query, :imageUrl, image_url)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
-      { 200, %com.spoonacular.client.Model.InlineResponse20048{}},
+      { 200, %com.spoonacular.client.Model.ImageClassificationByUrl200Response{}},
       { 401, false},
       { 403, false},
       { 404, false}
@@ -208,24 +209,24 @@ defmodule com.spoonacular.client.Api.Misc do
     - :number (integer()): The maximum number of items to return (between 1 and 100). Defaults to 10.
   ## Returns
 
-  {:ok, %com.spoonacular.client.Model.InlineResponse20053{}} on success
-  {:error, info} on failure
+  {:ok, com.spoonacular.client.Model.SearchAllFood200Response.t} on success
+  {:error, Tesla.Env.t} on failure
   """
-  @spec search_all_food(Tesla.Env.client, String.t, keyword()) :: {:ok, com.spoonacular.client.Model.InlineResponse20053.t} | {:error, Tesla.Env.t}
+  @spec search_all_food(Tesla.Env.client, String.t, keyword()) :: {:ok, nil} | {:ok, com.spoonacular.client.Model.SearchAllFood200Response.t} | {:error, Tesla.Env.t}
   def search_all_food(connection, query, opts \\ []) do
     optional_params = %{
-      :"offset" => :query,
-      :"number" => :query
+      :offset => :query,
+      :number => :query
     }
     %{}
     |> method(:get)
     |> url("/food/search")
-    |> add_param(:query, :"query", query)
+    |> add_param(:query, :query, query)
     |> add_optional_params(optional_params, opts)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
-      { 200, %com.spoonacular.client.Model.InlineResponse20053{}},
+      { 200, %com.spoonacular.client.Model.SearchAllFood200Response{}},
       { 401, false},
       { 403, false},
       { 404, false}
@@ -247,26 +248,26 @@ defmodule com.spoonacular.client.Api.Misc do
     - :number (integer()): The maximum number of items to return (between 1 and 100). Defaults to 10.
   ## Returns
 
-  {:ok, %com.spoonacular.client.Model.InlineResponse20029{}} on success
-  {:error, info} on failure
+  {:ok, com.spoonacular.client.Model.SearchCustomFoods200Response.t} on success
+  {:error, Tesla.Env.t} on failure
   """
-  @spec search_custom_foods(Tesla.Env.client, String.t, String.t, keyword()) :: {:ok, com.spoonacular.client.Model.InlineResponse20029.t} | {:error, Tesla.Env.t}
+  @spec search_custom_foods(Tesla.Env.client, String.t, String.t, keyword()) :: {:ok, nil} | {:ok, com.spoonacular.client.Model.SearchCustomFoods200Response.t} | {:error, Tesla.Env.t}
   def search_custom_foods(connection, username, hash, opts \\ []) do
     optional_params = %{
-      :"query" => :query,
-      :"offset" => :query,
-      :"number" => :query
+      :query => :query,
+      :offset => :query,
+      :number => :query
     }
     %{}
     |> method(:get)
     |> url("/food/customFoods/search")
-    |> add_param(:query, :"username", username)
-    |> add_param(:query, :"hash", hash)
+    |> add_param(:query, :username, username)
+    |> add_param(:query, :hash, hash)
     |> add_optional_params(optional_params, opts)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
-      { 200, %com.spoonacular.client.Model.InlineResponse20029{}},
+      { 200, %com.spoonacular.client.Model.SearchCustomFoods200Response{}},
       { 401, false},
       { 403, false},
       { 404, false}
@@ -293,22 +294,22 @@ defmodule com.spoonacular.client.Api.Misc do
     - :number (integer()): The maximum number of items to return (between 1 and 100). Defaults to 10.
   ## Returns
 
-  {:ok, %com.spoonacular.client.Model.InlineResponse20054{}} on success
-  {:error, info} on failure
+  {:ok, com.spoonacular.client.Model.SearchFoodVideos200Response.t} on success
+  {:error, Tesla.Env.t} on failure
   """
-  @spec search_food_videos(Tesla.Env.client, keyword()) :: {:ok, com.spoonacular.client.Model.InlineResponse20054.t} | {:error, Tesla.Env.t}
+  @spec search_food_videos(Tesla.Env.client, keyword()) :: {:ok, nil} | {:ok, com.spoonacular.client.Model.SearchFoodVideos200Response.t} | {:error, Tesla.Env.t}
   def search_food_videos(connection, opts \\ []) do
     optional_params = %{
-      :"query" => :query,
-      :"type" => :query,
-      :"cuisine" => :query,
-      :"diet" => :query,
-      :"includeIngredients" => :query,
-      :"excludeIngredients" => :query,
-      :"minLength" => :query,
-      :"maxLength" => :query,
-      :"offset" => :query,
-      :"number" => :query
+      :query => :query,
+      :type => :query,
+      :cuisine => :query,
+      :diet => :query,
+      :includeIngredients => :query,
+      :excludeIngredients => :query,
+      :minLength => :query,
+      :maxLength => :query,
+      :offset => :query,
+      :number => :query
     }
     %{}
     |> method(:get)
@@ -317,7 +318,7 @@ defmodule com.spoonacular.client.Api.Misc do
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
-      { 200, %com.spoonacular.client.Model.InlineResponse20054{}},
+      { 200, %com.spoonacular.client.Model.SearchFoodVideos200Response{}},
       { 401, false},
       { 403, false},
       { 404, false}
@@ -335,19 +336,19 @@ defmodule com.spoonacular.client.Api.Misc do
   - opts (KeywordList): [optional] Optional parameters
   ## Returns
 
-  {:ok, %com.spoonacular.client.Model.InlineResponse20052{}} on success
-  {:error, info} on failure
+  {:ok, com.spoonacular.client.Model.SearchSiteContent200Response.t} on success
+  {:error, Tesla.Env.t} on failure
   """
-  @spec search_site_content(Tesla.Env.client, String.t, keyword()) :: {:ok, com.spoonacular.client.Model.InlineResponse20052.t} | {:error, Tesla.Env.t}
+  @spec search_site_content(Tesla.Env.client, String.t, keyword()) :: {:ok, nil} | {:ok, com.spoonacular.client.Model.SearchSiteContent200Response.t} | {:error, Tesla.Env.t}
   def search_site_content(connection, query, _opts \\ []) do
     %{}
     |> method(:get)
     |> url("/food/site/search")
-    |> add_param(:query, :"query", query)
+    |> add_param(:query, :query, query)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
-      { 200, %com.spoonacular.client.Model.InlineResponse20052{}},
+      { 200, %com.spoonacular.client.Model.SearchSiteContent200Response{}},
       { 401, false},
       { 403, false},
       { 404, false}
@@ -366,23 +367,23 @@ defmodule com.spoonacular.client.Api.Misc do
     - :context_id (String.t): An arbitrary globally unique id for your conversation. The conversation can contain states so you should pass your context id if you want the bot to be able to remember the conversation.
   ## Returns
 
-  {:ok, %com.spoonacular.client.Model.InlineResponse20056{}} on success
-  {:error, info} on failure
+  {:ok, com.spoonacular.client.Model.TalkToChatbot200Response.t} on success
+  {:error, Tesla.Env.t} on failure
   """
-  @spec talk_to_chatbot(Tesla.Env.client, String.t, keyword()) :: {:ok, com.spoonacular.client.Model.InlineResponse20056.t} | {:error, Tesla.Env.t}
+  @spec talk_to_chatbot(Tesla.Env.client, String.t, keyword()) :: {:ok, com.spoonacular.client.Model.TalkToChatbot200Response.t} | {:ok, nil} | {:error, Tesla.Env.t}
   def talk_to_chatbot(connection, text, opts \\ []) do
     optional_params = %{
-      :"contextId" => :query
+      :contextId => :query
     }
     %{}
     |> method(:get)
     |> url("/food/converse")
-    |> add_param(:query, :"text", text)
+    |> add_param(:query, :text, text)
     |> add_optional_params(optional_params, opts)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
-      { 200, %com.spoonacular.client.Model.InlineResponse20056{}},
+      { 200, %com.spoonacular.client.Model.TalkToChatbot200Response{}},
       { 401, false},
       { 403, false},
       { 404, false}

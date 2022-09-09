@@ -1,13 +1,13 @@
 #import "OAIIngredientsApi.h"
 #import "OAIQueryParamCollection.h"
 #import "OAIApiClient.h"
-#import "OAIInlineObject2.h"
-#import "OAIInlineResponse20022.h"
-#import "OAIInlineResponse20024.h"
-#import "OAIInlineResponse20025.h"
-#import "OAIInlineResponse20026.h"
-#import "OAIInlineResponse20034.h"
-#import "OAIRecipesParseIngredientsNutritionWeightPerServing.h"
+#import "OAIAutocompleteIngredientSearch200ResponseInner.h"
+#import "OAIComputeIngredientAmount200Response.h"
+#import "OAIGetIngredientInformation200Response.h"
+#import "OAIGetIngredientSubstitutes200Response.h"
+#import "OAIIngredientSearch200Response.h"
+#import "OAIMapIngredientsToGroceryProducts200ResponseInner.h"
+#import "OAIMapIngredientsToGroceryProductsRequest.h"
 
 
 @interface OAIIngredientsApi ()
@@ -66,13 +66,13 @@ NSInteger kOAIIngredientsApiMissingParamErrorCode = 234513;
 ///
 ///  @param intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
 ///
-///  @returns NSArray<OAIInlineResponse20024>*
+///  @returns OAISet<OAIAutocompleteIngredientSearch200ResponseInner>*
 ///
 -(NSURLSessionTask*) autocompleteIngredientSearchWithQuery: (NSString*) query
     number: (NSNumber*) number
     metaInformation: (NSNumber*) metaInformation
     intolerances: (NSString*) intolerances
-    completionHandler: (void (^)(NSArray<OAIInlineResponse20024>* output, NSError* error)) handler {
+    completionHandler: (void (^)(OAISet<OAIAutocompleteIngredientSearch200ResponseInner>* output, NSError* error)) handler {
     NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/food/ingredients/autocomplete"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
@@ -122,10 +122,10 @@ NSInteger kOAIIngredientsApiMissingParamErrorCode = 234513;
                               authSettings: authSettings
                         requestContentType: requestContentType
                        responseContentType: responseContentType
-                              responseType: @"NSArray<OAIInlineResponse20024>*"
+                              responseType: @"OAISet<OAIAutocompleteIngredientSearch200ResponseInner>*"
                            completionBlock: ^(id data, NSError *error) {
                                 if(handler) {
-                                    handler((NSArray<OAIInlineResponse20024>*)data, error);
+                                    handler((OAISet<OAIAutocompleteIngredientSearch200ResponseInner>*)data, error);
                                 }
                             }];
 }
@@ -141,13 +141,13 @@ NSInteger kOAIIngredientsApiMissingParamErrorCode = 234513;
 ///
 ///  @param unit The target unit. (optional)
 ///
-///  @returns OAIRecipesParseIngredientsNutritionWeightPerServing*
+///  @returns OAIComputeIngredientAmount200Response*
 ///
 -(NSURLSessionTask*) computeIngredientAmountWithId: (NSNumber*) _id
     nutrient: (NSString*) nutrient
     target: (NSNumber*) target
     unit: (NSString*) unit
-    completionHandler: (void (^)(OAIRecipesParseIngredientsNutritionWeightPerServing* output, NSError* error)) handler {
+    completionHandler: (void (^)(OAIComputeIngredientAmount200Response* output, NSError* error)) handler {
     // verify the required parameter '_id' is set
     if (_id == nil) {
         NSParameterAssert(_id);
@@ -230,10 +230,10 @@ NSInteger kOAIIngredientsApiMissingParamErrorCode = 234513;
                               authSettings: authSettings
                         requestContentType: requestContentType
                        responseContentType: responseContentType
-                              responseType: @"OAIRecipesParseIngredientsNutritionWeightPerServing*"
+                              responseType: @"OAIComputeIngredientAmount200Response*"
                            completionBlock: ^(id data, NSError *error) {
                                 if(handler) {
-                                    handler((OAIRecipesParseIngredientsNutritionWeightPerServing*)data, error);
+                                    handler((OAIComputeIngredientAmount200Response*)data, error);
                                 }
                             }];
 }
@@ -247,12 +247,12 @@ NSInteger kOAIIngredientsApiMissingParamErrorCode = 234513;
 ///
 ///  @param unit The unit for the given amount. (optional)
 ///
-///  @returns OAIInlineResponse20022*
+///  @returns OAIGetIngredientInformation200Response*
 ///
 -(NSURLSessionTask*) getIngredientInformationWithId: (NSNumber*) _id
     amount: (NSNumber*) amount
     unit: (NSString*) unit
-    completionHandler: (void (^)(OAIInlineResponse20022* output, NSError* error)) handler {
+    completionHandler: (void (^)(OAIGetIngredientInformation200Response* output, NSError* error)) handler {
     // verify the required parameter '_id' is set
     if (_id == nil) {
         NSParameterAssert(_id);
@@ -310,10 +310,10 @@ NSInteger kOAIIngredientsApiMissingParamErrorCode = 234513;
                               authSettings: authSettings
                         requestContentType: requestContentType
                        responseContentType: responseContentType
-                              responseType: @"OAIInlineResponse20022*"
+                              responseType: @"OAIGetIngredientInformation200Response*"
                            completionBlock: ^(id data, NSError *error) {
                                 if(handler) {
-                                    handler((OAIInlineResponse20022*)data, error);
+                                    handler((OAIGetIngredientInformation200Response*)data, error);
                                 }
                             }];
 }
@@ -323,10 +323,10 @@ NSInteger kOAIIngredientsApiMissingParamErrorCode = 234513;
 /// Search for substitutes for a given ingredient.
 ///  @param ingredientName The name of the ingredient you want to replace. 
 ///
-///  @returns OAIInlineResponse20026*
+///  @returns OAIGetIngredientSubstitutes200Response*
 ///
 -(NSURLSessionTask*) getIngredientSubstitutesWithIngredientName: (NSString*) ingredientName
-    completionHandler: (void (^)(OAIInlineResponse20026* output, NSError* error)) handler {
+    completionHandler: (void (^)(OAIGetIngredientSubstitutes200Response* output, NSError* error)) handler {
     // verify the required parameter 'ingredientName' is set
     if (ingredientName == nil) {
         NSParameterAssert(ingredientName);
@@ -378,10 +378,10 @@ NSInteger kOAIIngredientsApiMissingParamErrorCode = 234513;
                               authSettings: authSettings
                         requestContentType: requestContentType
                        responseContentType: responseContentType
-                              responseType: @"OAIInlineResponse20026*"
+                              responseType: @"OAIGetIngredientSubstitutes200Response*"
                            completionBlock: ^(id data, NSError *error) {
                                 if(handler) {
-                                    handler((OAIInlineResponse20026*)data, error);
+                                    handler((OAIGetIngredientSubstitutes200Response*)data, error);
                                 }
                             }];
 }
@@ -391,10 +391,10 @@ NSInteger kOAIIngredientsApiMissingParamErrorCode = 234513;
 /// Search for substitutes for a given ingredient.
 ///  @param _id The item's id. 
 ///
-///  @returns OAIInlineResponse20026*
+///  @returns OAIGetIngredientSubstitutes200Response*
 ///
 -(NSURLSessionTask*) getIngredientSubstitutesByIDWithId: (NSNumber*) _id
-    completionHandler: (void (^)(OAIInlineResponse20026* output, NSError* error)) handler {
+    completionHandler: (void (^)(OAIGetIngredientSubstitutes200Response* output, NSError* error)) handler {
     // verify the required parameter '_id' is set
     if (_id == nil) {
         NSParameterAssert(_id);
@@ -446,10 +446,10 @@ NSInteger kOAIIngredientsApiMissingParamErrorCode = 234513;
                               authSettings: authSettings
                         requestContentType: requestContentType
                        responseContentType: responseContentType
-                              responseType: @"OAIInlineResponse20026*"
+                              responseType: @"OAIGetIngredientSubstitutes200Response*"
                            completionBlock: ^(id data, NSError *error) {
                                 if(handler) {
-                                    handler((OAIInlineResponse20026*)data, error);
+                                    handler((OAIGetIngredientSubstitutes200Response*)data, error);
                                 }
                             }];
 }
@@ -485,7 +485,7 @@ NSInteger kOAIIngredientsApiMissingParamErrorCode = 234513;
 ///
 ///  @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to @10)
 ///
-///  @returns OAIInlineResponse20025*
+///  @returns OAIIngredientSearch200Response*
 ///
 -(NSURLSessionTask*) ingredientSearchWithQuery: (NSString*) query
     addChildren: (NSNumber*) addChildren
@@ -501,7 +501,7 @@ NSInteger kOAIIngredientsApiMissingParamErrorCode = 234513;
     sortDirection: (NSString*) sortDirection
     offset: (NSNumber*) offset
     number: (NSNumber*) number
-    completionHandler: (void (^)(OAIInlineResponse20025* output, NSError* error)) handler {
+    completionHandler: (void (^)(OAIIngredientSearch200Response* output, NSError* error)) handler {
     NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/food/ingredients/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
@@ -581,10 +581,10 @@ NSInteger kOAIIngredientsApiMissingParamErrorCode = 234513;
                               authSettings: authSettings
                         requestContentType: requestContentType
                        responseContentType: responseContentType
-                              responseType: @"OAIInlineResponse20025*"
+                              responseType: @"OAIIngredientSearch200Response*"
                            completionBlock: ^(id data, NSError *error) {
                                 if(handler) {
-                                    handler((OAIInlineResponse20025*)data, error);
+                                    handler((OAIIngredientSearch200Response*)data, error);
                                 }
                             }];
 }
@@ -666,17 +666,17 @@ NSInteger kOAIIngredientsApiMissingParamErrorCode = 234513;
 ///
 /// Map Ingredients to Grocery Products
 /// Map a set of ingredients to products you can buy in the grocery store.
-///  @param inlineObject2  
+///  @param mapIngredientsToGroceryProductsRequest  
 ///
-///  @returns NSArray<OAIInlineResponse20034>*
+///  @returns OAISet<OAIMapIngredientsToGroceryProducts200ResponseInner>*
 ///
--(NSURLSessionTask*) mapIngredientsToGroceryProductsWithInlineObject2: (OAIInlineObject2*) inlineObject2
-    completionHandler: (void (^)(NSArray<OAIInlineResponse20034>* output, NSError* error)) handler {
-    // verify the required parameter 'inlineObject2' is set
-    if (inlineObject2 == nil) {
-        NSParameterAssert(inlineObject2);
+-(NSURLSessionTask*) mapIngredientsToGroceryProductsWithMapIngredientsToGroceryProductsRequest: (OAIMapIngredientsToGroceryProductsRequest*) mapIngredientsToGroceryProductsRequest
+    completionHandler: (void (^)(OAISet<OAIMapIngredientsToGroceryProducts200ResponseInner>* output, NSError* error)) handler {
+    // verify the required parameter 'mapIngredientsToGroceryProductsRequest' is set
+    if (mapIngredientsToGroceryProductsRequest == nil) {
+        NSParameterAssert(mapIngredientsToGroceryProductsRequest);
         if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"inlineObject2"] };
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"mapIngredientsToGroceryProductsRequest"] };
             NSError* error = [NSError errorWithDomain:kOAIIngredientsApiErrorDomain code:kOAIIngredientsApiMissingParamErrorCode userInfo:userInfo];
             handler(nil, error);
         }
@@ -708,7 +708,7 @@ NSInteger kOAIIngredientsApiMissingParamErrorCode = 234513;
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
-    bodyParam = inlineObject2;
+    bodyParam = mapIngredientsToGroceryProductsRequest;
 
     return [self.apiClient requestWithPath: resourcePath
                                     method: @"POST"
@@ -721,10 +721,10 @@ NSInteger kOAIIngredientsApiMissingParamErrorCode = 234513;
                               authSettings: authSettings
                         requestContentType: requestContentType
                        responseContentType: responseContentType
-                              responseType: @"NSArray<OAIInlineResponse20034>*"
+                              responseType: @"OAISet<OAIMapIngredientsToGroceryProducts200ResponseInner>*"
                            completionBlock: ^(id data, NSError *error) {
                                 if(handler) {
-                                    handler((NSArray<OAIInlineResponse20034>*)data, error);
+                                    handler((OAISet<OAIMapIngredientsToGroceryProducts200ResponseInner>*)data, error);
                                 }
                             }];
 }

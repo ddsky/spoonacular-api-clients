@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 ## autocompleteProductSearch
 
-> InlineResponse20032 autocompleteProductSearch(query, opts)
+> AutocompleteProductSearch200Response autocompleteProductSearch(query, opts)
 
 Autocomplete Product Search
 
@@ -40,7 +40,7 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 let apiInstance = new SpoonacularApi.ProductsApi();
 let query = chicke; // String | The (partial) search query.
 let opts = {
-  '_number': 10 // Number | The number of results to return (between 1 and 25).
+  'number': 10 // Number | The number of results to return (between 1 and 25).
 };
 apiInstance.autocompleteProductSearch(query, opts, (error, data, response) => {
   if (error) {
@@ -57,11 +57,11 @@ apiInstance.autocompleteProductSearch(query, opts, (error, data, response) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **query** | **String**| The (partial) search query. | 
- **_number** | **Number**| The number of results to return (between 1 and 25). | [optional] 
+ **number** | **Number**| The number of results to return (between 1 and 25). | [optional] 
 
 ### Return type
 
-[**InlineResponse20032**](InlineResponse20032.md)
+[**AutocompleteProductSearch200Response**](AutocompleteProductSearch200Response.md)
 
 ### Authorization
 
@@ -75,7 +75,7 @@ Name | Type | Description  | Notes
 
 ## classifyGroceryProduct
 
-> InlineResponse20033 classifyGroceryProduct(inlineObject1, opts)
+> ClassifyGroceryProduct200Response classifyGroceryProduct(classifyGroceryProductRequest, opts)
 
 Classify Grocery Product
 
@@ -93,11 +93,11 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.ProductsApi();
-let inlineObject1 = new SpoonacularApi.InlineObject1(); // InlineObject1 | 
+let classifyGroceryProductRequest = {"title":"Kroger Vitamin A & D Reduced Fat 2% Milk","upc":"","plu_code":""}; // ClassifyGroceryProductRequest | 
 let opts = {
   'locale': en_US // String | The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).
 };
-apiInstance.classifyGroceryProduct(inlineObject1, opts, (error, data, response) => {
+apiInstance.classifyGroceryProduct(classifyGroceryProductRequest, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -111,12 +111,12 @@ apiInstance.classifyGroceryProduct(inlineObject1, opts, (error, data, response) 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject1** | [**InlineObject1**](InlineObject1.md)|  | 
+ **classifyGroceryProductRequest** | [**ClassifyGroceryProductRequest**](ClassifyGroceryProductRequest.md)|  | 
  **locale** | **String**| The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). | [optional] 
 
 ### Return type
 
-[**InlineResponse20033**](InlineResponse20033.md)
+[**ClassifyGroceryProduct200Response**](ClassifyGroceryProduct200Response.md)
 
 ### Authorization
 
@@ -130,7 +130,7 @@ Name | Type | Description  | Notes
 
 ## classifyGroceryProductBulk
 
-> [InlineResponse20033] classifyGroceryProductBulk(inlineObject, opts)
+> [ClassifyGroceryProductBulk200ResponseInner] classifyGroceryProductBulk(classifyGroceryProductBulkRequestInner, opts)
 
 Classify Grocery Product Bulk
 
@@ -148,11 +148,11 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.ProductsApi();
-let inlineObject = [{"title":"Kroger Vitamin A & D Reduced Fat 2% Milk","upc":"","plu_code":""}]; // [InlineObject] | 
+let classifyGroceryProductBulkRequestInner = [{"title":"Kroger Vitamin A & D Reduced Fat 2% Milk","upc":"","plu_code":""}]; // [ClassifyGroceryProductBulkRequestInner] | 
 let opts = {
   'locale': en_US // String | The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).
 };
-apiInstance.classifyGroceryProductBulk(inlineObject, opts, (error, data, response) => {
+apiInstance.classifyGroceryProductBulk(classifyGroceryProductBulkRequestInner, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -166,12 +166,12 @@ apiInstance.classifyGroceryProductBulk(inlineObject, opts, (error, data, respons
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject** | [**[InlineObject]**](Array.md)|  | 
+ **classifyGroceryProductBulkRequestInner** | [**[ClassifyGroceryProductBulkRequestInner]**](ClassifyGroceryProductBulkRequestInner.md)|  | 
  **locale** | **String**| The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). | [optional] 
 
 ### Return type
 
-[**[InlineResponse20033]**](InlineResponse20033.md)
+[**[ClassifyGroceryProductBulk200ResponseInner]**](ClassifyGroceryProductBulk200ResponseInner.md)
 
 ### Authorization
 
@@ -185,7 +185,7 @@ Name | Type | Description  | Notes
 
 ## getComparableProducts
 
-> InlineResponse20031 getComparableProducts(upc)
+> GetComparableProducts200Response getComparableProducts(upc)
 
 Get Comparable Products
 
@@ -222,7 +222,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20031**](InlineResponse20031.md)
+[**GetComparableProducts200Response**](GetComparableProducts200Response.md)
 
 ### Authorization
 
@@ -236,7 +236,7 @@ Name | Type | Description  | Notes
 
 ## getProductInformation
 
-> InlineResponse20030 getProductInformation(id)
+> GetProductInformation200Response getProductInformation(id)
 
 Get Product Information
 
@@ -273,7 +273,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20030**](InlineResponse20030.md)
+[**GetProductInformation200Response**](GetProductInformation200Response.md)
 
 ### Authorization
 
@@ -458,7 +458,7 @@ Name | Type | Description  | Notes
 
 ## searchGroceryProducts
 
-> InlineResponse20027 searchGroceryProducts(opts)
+> SearchGroceryProducts200Response searchGroceryProducts(opts)
 
 Search Grocery Products
 
@@ -488,7 +488,7 @@ let opts = {
   'maxFat': 100, // Number | The maximum amount of fat in grams the product can have.
   'addProductInformation': true, // Boolean | If set to true, you get more information about the products returned.
   'offset': 56, // Number | The number of results to skip (between 0 and 900).
-  '_number': 10 // Number | The maximum number of items to return (between 1 and 100). Defaults to 10.
+  'number': 10 // Number | The maximum number of items to return (between 1 and 100). Defaults to 10.
 };
 apiInstance.searchGroceryProducts(opts, (error, data, response) => {
   if (error) {
@@ -515,11 +515,11 @@ Name | Type | Description  | Notes
  **maxFat** | **Number**| The maximum amount of fat in grams the product can have. | [optional] 
  **addProductInformation** | **Boolean**| If set to true, you get more information about the products returned. | [optional] 
  **offset** | **Number**| The number of results to skip (between 0 and 900). | [optional] 
- **_number** | **Number**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
+ **number** | **Number**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
 
 ### Return type
 
-[**InlineResponse20027**](InlineResponse20027.md)
+[**SearchGroceryProducts200Response**](SearchGroceryProducts200Response.md)
 
 ### Authorization
 
@@ -533,7 +533,7 @@ Name | Type | Description  | Notes
 
 ## searchGroceryProductsByUPC
 
-> InlineResponse20028 searchGroceryProductsByUPC(upc)
+> SearchGroceryProductsByUPC200Response searchGroceryProductsByUPC(upc)
 
 Search Grocery Products by UPC
 
@@ -570,7 +570,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20028**](InlineResponse20028.md)
+[**SearchGroceryProductsByUPC200Response**](SearchGroceryProductsByUPC200Response.md)
 
 ### Authorization
 

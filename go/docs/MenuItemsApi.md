@@ -16,33 +16,57 @@ Method | HTTP request | Description
 
 ## AutocompleteMenuItemSearch
 
-> InlineResponse20032 AutocompleteMenuItemSearch(ctx, query, optional)
+> AutocompleteMenuItemSearch200Response AutocompleteMenuItemSearch(ctx).Query(query).Number(number).Execute()
+
 Autocomplete Menu Item Search
 
-Generate suggestions for menu items based on a (partial) query. The matches will be found by looking in the title only.
 
-### Required Parameters
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    query := "chicke" // string | The (partial) search query.
+    number := float32(10) // float32 | The number of results to return (between 1 and 25). (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.MenuItemsApi.AutocompleteMenuItemSearch(context.Background()).Query(query).Number(number).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `MenuItemsApi.AutocompleteMenuItemSearch``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `AutocompleteMenuItemSearch`: AutocompleteMenuItemSearch200Response
+    fmt.Fprintf(os.Stdout, "Response from `MenuItemsApi.AutocompleteMenuItemSearch`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiAutocompleteMenuItemSearchRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**query** | **string**| The (partial) search query. | 
- **optional** | ***AutocompleteMenuItemSearchOpts** | optional parameters | nil if no parameters
-
-### Optional Parameters
-
-Optional parameters are passed through a pointer to a AutocompleteMenuItemSearchOpts struct
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **number** | **optional.Float32**| The number of results to return (between 1 and 25). | 
+ **query** | **string** | The (partial) search query. | 
+ **number** | **float32** | The number of results to return (between 1 and 25). | 
 
 ### Return type
 
-[**InlineResponse20032**](inline_response_200_32.md)
+[**AutocompleteMenuItemSearch200Response**](AutocompleteMenuItemSearch200Response.md)
 
 ### Authorization
 
@@ -60,22 +84,59 @@ Name | Type | Description  | Notes
 
 ## GetMenuItemInformation
 
-> InlineResponse20036 GetMenuItemInformation(ctx, id)
+> GetMenuItemInformation200Response GetMenuItemInformation(ctx, id).Execute()
+
 Get Menu Item Information
 
-Use a menu item id to get all available information about a menu item, such as nutrition.
 
-### Required Parameters
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    id := int32(1) // int32 | The item's id.
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.MenuItemsApi.GetMenuItemInformation(context.Background(), id).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `MenuItemsApi.GetMenuItemInformation``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetMenuItemInformation`: GetMenuItemInformation200Response
+    fmt.Fprintf(os.Stdout, "Response from `MenuItemsApi.GetMenuItemInformation`: %v\n", resp)
+}
+```
+
+### Path Parameters
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **int32**| The item&#39;s id. | 
+**id** | **int32** | The item&#39;s id. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetMenuItemInformationRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
 
 ### Return type
 
-[**InlineResponse20036**](inline_response_200_36.md)
+[**GetMenuItemInformation200Response**](GetMenuItemInformation200Response.md)
 
 ### Authorization
 
@@ -93,22 +154,59 @@ Name | Type | Description  | Notes
 
 ## MenuItemNutritionByIDImage
 
-> map[string]interface{} MenuItemNutritionByIDImage(ctx, id)
+> map[string]interface{} MenuItemNutritionByIDImage(ctx, id).Execute()
+
 Menu Item Nutrition by ID Image
 
-Visualize a menu item's nutritional information as HTML including CSS.
 
-### Required Parameters
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    id := float32(424571) // float32 | The menu item id.
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.MenuItemsApi.MenuItemNutritionByIDImage(context.Background(), id).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `MenuItemsApi.MenuItemNutritionByIDImage``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `MenuItemNutritionByIDImage`: map[string]interface{}
+    fmt.Fprintf(os.Stdout, "Response from `MenuItemsApi.MenuItemNutritionByIDImage`: %v\n", resp)
+}
+```
+
+### Path Parameters
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **float32**| The menu item id. | 
+**id** | **float32** | The menu item id. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiMenuItemNutritionByIDImageRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
 
 ### Return type
 
-[**map[string]interface{}**](map[string]interface{}.md)
+**map[string]interface{}**
 
 ### Authorization
 
@@ -126,35 +224,65 @@ Name | Type | Description  | Notes
 
 ## MenuItemNutritionLabelImage
 
-> map[string]interface{} MenuItemNutritionLabelImage(ctx, id, optional)
+> map[string]interface{} MenuItemNutritionLabelImage(ctx, id).ShowOptionalNutrients(showOptionalNutrients).ShowZeroValues(showZeroValues).ShowIngredients(showIngredients).Execute()
+
 Menu Item Nutrition Label Image
 
-Visualize a menu item's nutritional label information as an image.
 
-### Required Parameters
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    id := float32(342313) // float32 | The menu item id.
+    showOptionalNutrients := false // bool | Whether to show optional nutrients. (optional)
+    showZeroValues := false // bool | Whether to show zero values. (optional)
+    showIngredients := false // bool | Whether to show a list of ingredients. (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.MenuItemsApi.MenuItemNutritionLabelImage(context.Background(), id).ShowOptionalNutrients(showOptionalNutrients).ShowZeroValues(showZeroValues).ShowIngredients(showIngredients).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `MenuItemsApi.MenuItemNutritionLabelImage``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `MenuItemNutritionLabelImage`: map[string]interface{}
+    fmt.Fprintf(os.Stdout, "Response from `MenuItemsApi.MenuItemNutritionLabelImage`: %v\n", resp)
+}
+```
+
+### Path Parameters
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **float32**| The menu item id. | 
- **optional** | ***MenuItemNutritionLabelImageOpts** | optional parameters | nil if no parameters
+**id** | **float32** | The menu item id. | 
 
-### Optional Parameters
+### Other Parameters
 
-Optional parameters are passed through a pointer to a MenuItemNutritionLabelImageOpts struct
+Other parameters are passed through a pointer to a apiMenuItemNutritionLabelImageRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **showOptionalNutrients** | **optional.Bool**| Whether to show optional nutrients. | 
- **showZeroValues** | **optional.Bool**| Whether to show zero values. | 
- **showIngredients** | **optional.Bool**| Whether to show a list of ingredients. | 
+ **showOptionalNutrients** | **bool** | Whether to show optional nutrients. | 
+ **showZeroValues** | **bool** | Whether to show zero values. | 
+ **showIngredients** | **bool** | Whether to show a list of ingredients. | 
 
 ### Return type
 
-[**map[string]interface{}**](map[string]interface{}.md)
+**map[string]interface{}**
 
 ### Authorization
 
@@ -172,32 +300,63 @@ Name | Type | Description  | Notes
 
 ## MenuItemNutritionLabelWidget
 
-> string MenuItemNutritionLabelWidget(ctx, id, optional)
+> string MenuItemNutritionLabelWidget(ctx, id).DefaultCss(defaultCss).ShowOptionalNutrients(showOptionalNutrients).ShowZeroValues(showZeroValues).ShowIngredients(showIngredients).Execute()
+
 Menu Item Nutrition Label Widget
 
-Visualize a menu item's nutritional label information as HTML including CSS.
 
-### Required Parameters
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    id := float32(342313) // float32 | The menu item id.
+    defaultCss := false // bool | Whether the default CSS should be added to the response. (optional) (default to true)
+    showOptionalNutrients := false // bool | Whether to show optional nutrients. (optional)
+    showZeroValues := false // bool | Whether to show zero values. (optional)
+    showIngredients := false // bool | Whether to show a list of ingredients. (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.MenuItemsApi.MenuItemNutritionLabelWidget(context.Background(), id).DefaultCss(defaultCss).ShowOptionalNutrients(showOptionalNutrients).ShowZeroValues(showZeroValues).ShowIngredients(showIngredients).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `MenuItemsApi.MenuItemNutritionLabelWidget``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `MenuItemNutritionLabelWidget`: string
+    fmt.Fprintf(os.Stdout, "Response from `MenuItemsApi.MenuItemNutritionLabelWidget`: %v\n", resp)
+}
+```
+
+### Path Parameters
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **float32**| The menu item id. | 
- **optional** | ***MenuItemNutritionLabelWidgetOpts** | optional parameters | nil if no parameters
+**id** | **float32** | The menu item id. | 
 
-### Optional Parameters
+### Other Parameters
 
-Optional parameters are passed through a pointer to a MenuItemNutritionLabelWidgetOpts struct
+Other parameters are passed through a pointer to a apiMenuItemNutritionLabelWidgetRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **defaultCss** | **optional.Bool**| Whether the default CSS should be added to the response. | [default to true]
- **showOptionalNutrients** | **optional.Bool**| Whether to show optional nutrients. | 
- **showZeroValues** | **optional.Bool**| Whether to show zero values. | 
- **showIngredients** | **optional.Bool**| Whether to show a list of ingredients. | 
+ **defaultCss** | **bool** | Whether the default CSS should be added to the response. | [default to true]
+ **showOptionalNutrients** | **bool** | Whether to show optional nutrients. | 
+ **showZeroValues** | **bool** | Whether to show zero values. | 
+ **showIngredients** | **bool** | Whether to show a list of ingredients. | 
 
 ### Return type
 
@@ -219,42 +378,77 @@ Name | Type | Description  | Notes
 
 ## SearchMenuItems
 
-> InlineResponse20035 SearchMenuItems(ctx, optional)
+> SearchMenuItems200Response SearchMenuItems(ctx).Query(query).MinCalories(minCalories).MaxCalories(maxCalories).MinCarbs(minCarbs).MaxCarbs(maxCarbs).MinProtein(minProtein).MaxProtein(maxProtein).MinFat(minFat).MaxFat(maxFat).AddMenuItemInformation(addMenuItemInformation).Offset(offset).Number(number).Execute()
+
 Search Menu Items
 
-Search over 115,000 menu items from over 800 fast food and chain restaurants. For example, McDonald's Big Mac or Starbucks Mocha.
 
-### Required Parameters
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    query := "burger" // string | The (natural language) search query. (optional)
+    minCalories := float32(50) // float32 | The minimum amount of calories the menu item must have. (optional)
+    maxCalories := float32(800) // float32 | The maximum amount of calories the menu item can have. (optional)
+    minCarbs := float32(10) // float32 | The minimum amount of carbohydrates in grams the menu item must have. (optional)
+    maxCarbs := float32(100) // float32 | The maximum amount of carbohydrates in grams the menu item can have. (optional)
+    minProtein := float32(10) // float32 | The minimum amount of protein in grams the menu item must have. (optional)
+    maxProtein := float32(100) // float32 | The maximum amount of protein in grams the menu item can have. (optional)
+    minFat := float32(1) // float32 | The minimum amount of fat in grams the menu item must have. (optional)
+    maxFat := float32(100) // float32 | The maximum amount of fat in grams the menu item can have. (optional)
+    addMenuItemInformation := true // bool | If set to true, you get more information about the menu items returned. (optional)
+    offset := int32(56) // int32 | The number of results to skip (between 0 and 900). (optional)
+    number := int32(10) // int32 | The maximum number of items to return (between 1 and 100). Defaults to 10. (optional) (default to 10)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.MenuItemsApi.SearchMenuItems(context.Background()).Query(query).MinCalories(minCalories).MaxCalories(maxCalories).MinCarbs(minCarbs).MaxCarbs(maxCarbs).MinProtein(minProtein).MaxProtein(maxProtein).MinFat(minFat).MaxFat(maxFat).AddMenuItemInformation(addMenuItemInformation).Offset(offset).Number(number).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `MenuItemsApi.SearchMenuItems``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `SearchMenuItems`: SearchMenuItems200Response
+    fmt.Fprintf(os.Stdout, "Response from `MenuItemsApi.SearchMenuItems`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiSearchMenuItemsRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
- **optional** | ***SearchMenuItemsOpts** | optional parameters | nil if no parameters
-
-### Optional Parameters
-
-Optional parameters are passed through a pointer to a SearchMenuItemsOpts struct
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **query** | **optional.String**| The (natural language) search query. | 
- **minCalories** | **optional.Float32**| The minimum amount of calories the menu item must have. | 
- **maxCalories** | **optional.Float32**| The maximum amount of calories the menu item can have. | 
- **minCarbs** | **optional.Float32**| The minimum amount of carbohydrates in grams the menu item must have. | 
- **maxCarbs** | **optional.Float32**| The maximum amount of carbohydrates in grams the menu item can have. | 
- **minProtein** | **optional.Float32**| The minimum amount of protein in grams the menu item must have. | 
- **maxProtein** | **optional.Float32**| The maximum amount of protein in grams the menu item can have. | 
- **minFat** | **optional.Float32**| The minimum amount of fat in grams the menu item must have. | 
- **maxFat** | **optional.Float32**| The maximum amount of fat in grams the menu item can have. | 
- **addMenuItemInformation** | **optional.Bool**| If set to true, you get more information about the menu items returned. | 
- **offset** | **optional.Int32**| The number of results to skip (between 0 and 900). | 
- **number** | **optional.Int32**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [default to 10]
+ **query** | **string** | The (natural language) search query. | 
+ **minCalories** | **float32** | The minimum amount of calories the menu item must have. | 
+ **maxCalories** | **float32** | The maximum amount of calories the menu item can have. | 
+ **minCarbs** | **float32** | The minimum amount of carbohydrates in grams the menu item must have. | 
+ **maxCarbs** | **float32** | The maximum amount of carbohydrates in grams the menu item can have. | 
+ **minProtein** | **float32** | The minimum amount of protein in grams the menu item must have. | 
+ **maxProtein** | **float32** | The maximum amount of protein in grams the menu item can have. | 
+ **minFat** | **float32** | The minimum amount of fat in grams the menu item must have. | 
+ **maxFat** | **float32** | The maximum amount of fat in grams the menu item can have. | 
+ **addMenuItemInformation** | **bool** | If set to true, you get more information about the menu items returned. | 
+ **offset** | **int32** | The number of results to skip (between 0 and 900). | 
+ **number** | **int32** | The maximum number of items to return (between 1 and 100). Defaults to 10. | [default to 10]
 
 ### Return type
 
-[**InlineResponse20035**](inline_response_200_35.md)
+[**SearchMenuItems200Response**](SearchMenuItems200Response.md)
 
 ### Authorization
 
@@ -272,30 +466,59 @@ Name | Type | Description  | Notes
 
 ## VisualizeMenuItemNutritionByID
 
-> string VisualizeMenuItemNutritionByID(ctx, id, optional)
+> string VisualizeMenuItemNutritionByID(ctx, id).DefaultCss(defaultCss).Accept(accept).Execute()
+
 Menu Item Nutrition by ID Widget
 
-Visualize a menu item's nutritional information as HTML including CSS.
 
-### Required Parameters
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    id := int32(1) // int32 | The item's id.
+    defaultCss := false // bool | Whether the default CSS should be added to the response. (optional) (default to true)
+    accept := "application/json" // string | Accept header. (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.MenuItemsApi.VisualizeMenuItemNutritionByID(context.Background(), id).DefaultCss(defaultCss).Accept(accept).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `MenuItemsApi.VisualizeMenuItemNutritionByID``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `VisualizeMenuItemNutritionByID`: string
+    fmt.Fprintf(os.Stdout, "Response from `MenuItemsApi.VisualizeMenuItemNutritionByID`: %v\n", resp)
+}
+```
+
+### Path Parameters
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **int32**| The item&#39;s id. | 
- **optional** | ***VisualizeMenuItemNutritionByIDOpts** | optional parameters | nil if no parameters
+**id** | **int32** | The item&#39;s id. | 
 
-### Optional Parameters
+### Other Parameters
 
-Optional parameters are passed through a pointer to a VisualizeMenuItemNutritionByIDOpts struct
+Other parameters are passed through a pointer to a apiVisualizeMenuItemNutritionByIDRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **defaultCss** | **optional.Bool**| Whether the default CSS should be added to the response. | [default to true]
- **accept** | **optional.String**| Accept header. | 
+ **defaultCss** | **bool** | Whether the default CSS should be added to the response. | [default to true]
+ **accept** | **string** | Accept header. | 
 
 ### Return type
 
